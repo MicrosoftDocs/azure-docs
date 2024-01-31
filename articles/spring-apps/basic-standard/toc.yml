@@ -121,9 +121,9 @@ items:
       href: ../enterprise/how-to-staging-environment.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
     - name: Launch Java app from source code
       href: how-to-launch-from-source.md
-    - name: Use IntelliJ to deploy apps
+    - name: Deploy apps using IntelliJ
       href: ../enterprise/how-to-intellij-deploy-apps.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-    - name: Use VS Code to deploy apps
+    - name: Deploy apps using VS Code
       href: https://code.visualstudio.com/docs/java/java-spring-apps
     - name: Deploy Spring apps with Maven
       href: ../enterprise/how-to-maven-deploy-apps.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json

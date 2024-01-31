@@ -33244,6 +33244,452 @@
             "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-04-call-api.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-call-api",
             "redirect_document_id": false
-        }
+        },
+        
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-azure-portal-enable-preview-access.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-enableaadds.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-update-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-join-rhel-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
+            "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-windows-vm-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-troubleshoot-ldaps.md",
+            "redirect_url": "/azure/active-directory-domain-services/alert-ldaps",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-troubleshoot-nsg.md",
+            "redirect_url": "/azure/active-directory-domain-services/alert-nsg",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-troubleshoot-service-principals.md",
+            "redirect_url": "/azure/active-directory-domain-services/alert-service-principal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-check-health.md",
+            "redirect_url": "/azure/active-directory-domain-services/check-health",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-compare-with-azure-ad-join.md",
+            "redirect_url": "/azure/active-directory-domain-services/compare-identity-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/comparison.md",
+            "redirect_url": "/azure/active-directory-domain-services/compare-identity-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-comparison.md",
+            "redirect_url": "/azure/active-directory-domain-services/compare-identity-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-comparison.md",
+            "redirect_url": "/azure/active-directory-domain-services/comparison",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md",
+            "redirect_url": "/azure/active-directory-domain-services/configure-ldaps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-contact-us.md",
+            "redirect_url": "/azure/active-directory-domain-services/contact-us",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-contact-us.md",
+            "redirect_url": "/azure/active-directory-domain-services/contact-us",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-create-gmsa.md",
+            "redirect_url": "/azure/active-directory-domain-services/create-gmsa",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started.md",
+            "redirect_url": "/azure/active-directory-domain-services/create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md",
+            "redirect_url": "/azure/active-directory-domain-services/create-ou",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-admin-guide-create-ou.md",
+            "redirect_url": "/azure/active-directory-domain-services/create-ou",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-csp.md",
+            "redirect_url": "/azure/active-directory-domain-services/csp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-disable-aadds.md",
+            "redirect_url": "/azure/active-directory-domain-services/delete-aadds",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-deploy-azure-app-proxy.md",
+            "redirect_url": "/azure/active-directory-domain-services/deploy-azure-app-proxy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-enable-kcd.md",
+            "redirect_url": "/azure/active-directory-domain-services/deploy-kcd",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-enable-sharepoint-profile-sync.md",
+            "redirect_url": "/azure/active-directory-domain-services/deploy-sp-profile-sync",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-faqs.md",
+            "redirect_url": "/azure/active-directory-domain-services/faqs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-faqs.md",
+            "redirect_url": "/azure/active-directory-domain-services/faqs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-centos-linux-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-join-coreos-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-coreos-linux-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-rhel-linux-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-admin-guide-join-rhel-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-rhel-linux-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-ubuntu-linux-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-windows-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-admin-guide-join-windows-vm.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-windows-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-join-windows-vm-template.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-windows-vm-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
+            "redirect_url": "/azure/active-directory-domain-services/join-windows-vm-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md",
+            "redirect_url": "/azure/active-directory-domain-services/manage-domain",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md",
+            "redirect_url": "/azure/active-directory-domain-services/manage-group-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-mismatched-tenant-error.md",
+            "redirect_url": "/azure/active-directory-domain-services/mismatched-tenant-error",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-networking.md",
+            "redirect_url": "/azure/active-directory-domain-services/network-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-networking.md",
+            "redirect_url": "/azure/active-directory-domain-services/network-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-notifications.md",
+            "redirect_url": "/azure/active-directory-domain-services/notifications",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-overview.md",
+            "redirect_url": "/azure/active-directory-domain-services/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/compatible-software.md",
+            "redirect_url": "/azure/active-directory-domain-services/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-overview.md",
+            "redirect_url": "/azure/active-directory-domain-services/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-features.md",
+            "redirect_url": "/azure/active-directory-domain-services/overview#azure-ad-ds-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-features.md",
+            "redirect_url": "/azure/active-directory-domain-services/overview#azure-ad-ds-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-password-policy.md",
+            "redirect_url": "/azure/active-directory-domain-services/password-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-enable-using-powershell.md",
+            "redirect_url": "/azure/active-directory-domain-services/powershell-create-instance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-scenarios.md",
+            "redirect_url": "/azure/active-directory-domain-services/scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-scenarios.md",
+            "redirect_url": "/azure/active-directory-domain-services/scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-scoped-synchronization.md",
+            "redirect_url": "/azure/active-directory-domain-services/scoped-synchronization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-secure-your-domain.md",
+            "redirect_url": "/azure/active-directory-domain-services/secure-your-domain",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-suspension.md",
+            "redirect_url": "/azure/active-directory-domain-services/suspension",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-synchronization.md",
+            "redirect_url": "/azure/active-directory-domain-services/synchronization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-synchronization.md",
+            "redirect_url": "/azure/active-directory-domain-services/synchronization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-troubleshooting.md",
+            "redirect_url": "/azure/active-directory-domain-services/troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-troubleshooting.md",
+            "redirect_url": "/azure/active-directory-domain-services/troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-troubleshoot-alerts.md",
+            "redirect_url": "/azure/active-directory-domain-services/troubleshoot-alerts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-ldaps-troubleshoot.md",
+            "redirect_url": "/azure/active-directory-domain-services/tshoot-ldaps",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-ldaps-bind-lockdown.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-ldaps-configure-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/configure-ldaps.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-admin-guide-configure-secure-ldap.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-getting-started-password-sync-synced-tenant.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-admingroup.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-network.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/create-instance.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-getting-started.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-getting-started-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-getting-started-enableaadds.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-getting-started-password-sync.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-getting-started-vnet.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-admin-guide-administer-dns.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/manage-domain.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-management-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-admin-guide-administer-domain.md",
+            "redirect_url": "/azure/active-directory-domain-services/tutorial-create-management-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-regions.md",
+            "redirect_url": "https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-ds/active-directory-ds-regions.md",
+            "redirect_url": "https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-domain-services/contact-us.md",
+            "redirect_url": "/azure/active-directory/fundamentals/support-help-options",
+            "redirect_document_id": false
+        },
     ]
 }
