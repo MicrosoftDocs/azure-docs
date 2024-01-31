@@ -19,9 +19,6 @@ ms.author: anfdocs
 
 Understanding how application volume groups function is crucial for managing data and optimizing storage solutions. Learn about key concepts, functions, and best practices for application volume groups on Azure NetApp Files. 
 
-## About application volume groups
-
-Overview
 An application volume group (AVG) is a framework designed to streamline the deployment of application volumes. It acts as a cohesive entity, bringing together related volumes to enhance efficiency, optimizing volume placement relative to compute resources, and improving administration.
 
 AVG provides technical improvements to simplify and standardize the process to help you deploy your application. AVG also ensures that volumes are created with optimal placement in the regional or zonal infrastructure and provides key capabilities including: 
