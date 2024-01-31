@@ -24,13 +24,13 @@ First, make sure to install the Azure Communication Services module ```Az.EventG
 ```PowerShell
 PS C:\> Install-Module Az.EventGrid
 ```
-1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
+* Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
 
    ```PowerShell
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the Web PubSub resource that you want to move.
+* If your identity is associated with more than one subscription, then set your active subscription to subscription of the Web PubSub resource that you want to move.
 
    ```PowerShell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>

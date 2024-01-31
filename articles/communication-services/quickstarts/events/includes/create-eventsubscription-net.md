@@ -9,6 +9,7 @@ ms.author: pgrandhi
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- Register the [Event Grid Resource Provider](./register-event-grid-resource-provider.md).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Get the latest version of the [.NET Microsoft Azure EventGrid Management SDK](/azure/event-grid/sdk-overview).
 - Setup a way to authenticate to Azure with [Azure Identity](/dotnet/api/overview/azure/identity-readme) library as described below.
@@ -62,7 +63,7 @@ To get the secret credentials, you will need to read it from the Keyvault you cr
 SecretClient secretClient = new SecretClient(new Uri("https://myvault.vault.azure.net/"), new DefaultAzureCredential());
 string clientSecret = await secretClient.GetSecretAsync(secretName).Value;
 
-// Get access token using those secret credentials
+// Get access token using secret credentials
 string[] scopes = { "https://management.azure.com/.default" };
 var application = ConfidentialClientApplicationBuilder
                     .Create('your-servicePrincipal-appId')
@@ -87,14 +88,7 @@ Read more about the Microsoft Entra Application configuration Authority [here](/
 CertificateClient certificateClient = new SecretClient(new Uri("https://myvault.vault.azure.net/"), new DefaultAzureCredential());
 X509Certificat2 cert = await certificateClient.DownloadCertificateAsync(certificateName);
 
-// Or Authenticate the secret client with DefaultAzureCredential and get the certificate.
-SecretClient secretClient = new SecretClient(new Uri("https://myvault.vault.azure.net/"), new DefaultAzureCredential());
-var secretResponse clientSecret = await secretClient.GetSecretAsync(certificateName).Value;
-X509Certificate2 cert = X509Certificate2(Convert.FromBase64String(secretResponse.Value.Value), string.Empty, X509KeyStorageFlags.MachineKeySet);
-
-
-// Get access token using those secret credentials
-
+// Get access token using certificate credentials
 string[] scopes = { "https://management.azure.com/.default" };
 string authority = "https://login.microsoftonline.com/<tenant>/";
 var application = ConfidentialClientApplicationBuilder
