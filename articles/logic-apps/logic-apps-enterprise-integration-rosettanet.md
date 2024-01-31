@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 01/31/2024
 #Customer intent: As a logic apps developer, I want to send and receive RosettaNet messages using workflows in Azure Logic Apps so that I can use a standardized process to share business information with partners.
 ---
 
@@ -86,7 +86,12 @@ The **RosettaNet** connector has no triggers. The following table describes the 
   > To work together, both your integration account and logic app resource must exist in the same Azure subscription and Azure region. 
   > To use integration account artifacts in your workflow, make sure to [link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
-* At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that are defined in your integration account and configured with the **DUNS** qualifier under **Business Identities** in the Azure portal.
+* At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) defined in your integration account and use the **DUNS** qualifier under **Business Identities** in the Azure portal.
+
+  > [!NOTE]
+  >
+  > Make sure that you select **DUNS** as the qualifier, which you can find near the 
+  > bottom of the **Qualifier** list, and not **1 - D-U-N-S (Dun & Bradstreet)**.
 
 * Optional [certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md) for encrypting, decrypting, or signing the messages that you upload to the integration account. Certificates are required only if you use signing or encryption.
 
