@@ -27,7 +27,7 @@
     href: view-payment-hsms.md
   - name: 3. Access the payShield manager for your payment HSM
     items:
-    - name: Using your browser
+    - name: Using VPN
       href: access-payshield-manager.md
     - name: Using SSH
       href: access-payshield-manager-ssh.md

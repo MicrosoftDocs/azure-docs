@@ -11,19 +11,23 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/31/2024
 ---
 
-# Tutorial: Use your browser to access the payShield manager for your payment HSM
+# Tutorial: Use a VPN to access the payShield manager for your payment HSM
 
 After you have [Created an Azure Payment HSM](create-payment-hsm.md), you can connect to its payShield manager through your browser.
-
-## Sample deployment scenarios
 
 To connect to payShield manager, you will need to have an on-prem standard PC with a supported web-browser, together with the USB connected payShield Manager Reader and payShield Manager smart cards. Users connect to the payShield 10K via HTTP(s) using a configured management NIC IP addres.
 
 You will need minimum 5 smart cards (3 cards for a CTA set, 2 cards function as Left Key Card and Right Key Card) and one reader.  Please see Thales's payShield 10K Installation and User Guide for the detail instructions.
 
-:::image type="content" source="./media/access-payshield-sample-deployment-1.png" lightbox="./media/access-payshield-sample-deployment-1.png" alt-text="A sample deployment, allowing you to access the payShield manager for your payment HSM.":::
+## Sample deployment scenarios
 
-Placeholder text
+Here are are are two sample scenarios for connecting to payShield manager for your payment HSM.
+
+Sample deployment 1:
+
+::image type="content" source="./media/access-payshield-sample-deployment-1.png" lightbox="./media/access-payshield-sample-deployment-1.png" alt-text="A sample deployment, allowing you to access the payShield manager for your payment HSM.":::
+
+Sample deployment 2:
 
 :::image type="content" source="./media/access-payshield-sample-deployment-2.png" lightbox="./media/access-payshield-sample-deployment-2.png" alt-text="Another sample deployment, allowing you to access the payShield manager for your payment HSM.":::
 
@@ -33,9 +37,18 @@ To access payShield manager  from your on-prem PC, directly connect to HSMMgmtNi
 
 ## Next steps
 
-Advance to the next article to learn how to remove a commissioned payment HSM through the payShield manager.
-> [!div class="nextstepaction"]
-> [Remove a commissioned payment HSM](remove-payment-hsm.md)
+Once an HSM has been allocated and you can access payShield Manager, you will need to proceed to the steps for HSM commissioning, HSM configuration, and loading LMKs:
+
+1. Install the smart card reader driver.
+1. Install the Thales browser extension and local application component.
+1. Commission your payShield.
+1. Do the initial configuration steps.
+1. Generate and install LMKs.
+1. Test the API.
+
+Please follow Thales’s payShield 10K Installation and User Guide for the detail instructions, and contact Thales support if any issues.
+
+Microsoft maintains a base firmware across the fleet, you can check the base firmware version from the HSM allocated, or check the [support guide](support-guide.md). You must upgrade the firmware based on your requirements.
 
 More resources:
 - Read an [Overview of Payment HSM](overview.md)
