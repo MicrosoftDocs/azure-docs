@@ -67,6 +67,7 @@ The following table shows the language versions supported for Java functions. Se
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux) | Preview | September 2028 |
 | [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
@@ -80,7 +81,7 @@ The following table shows the language versions supported for Node.js functions.
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | [Node.js 20](https://endoflife.date/nodejs) | Preview | April 30, 2026 |
-| [Node.js 18](https://endoflife.date/nodejs) | GA | April, 2025|
+| [Node.js 18](https://endoflife.date/nodejs) | GA | April 2025|
 | [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
 | [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
 
@@ -102,10 +103,10 @@ The following table shows the language versions supported for Python functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| Python 3.11 | GA | October, 2027 |
-| Python 3.10 | GA | October, 2026 |
-| Python 3.9 | GA | October, 2025 |
-| Python 3.8 | GA | October, 2024 |
+| Python 3.11 | GA | October 2027 |
+| Python 3.10 | GA | October 2026 |
+| Python 3.9 | GA | October 2025 |
+| Python 3.8 | GA | October 2024 |
 | Python 3.7 | GA | June 27, 2023<sup>\*</sup> |
 
 <sup>\*</sup>Support on Functions extended until September 30, 2023.
