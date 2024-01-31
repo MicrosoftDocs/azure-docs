@@ -246,11 +246,11 @@ As with top-level simple fields, simple subfields of complex fields can only be 
 
 Azure search has the limitation wherein the complex object in all the collections total in a document cannot exceeed 3000
 
-User wil encounter the below error during indexing when there are complex collection exceedding 3000 limit
+User wil encounter the below error during indexing when there are complex collection exceeding 3000 limit
 
 “A collection in your document exceeds the maximum elements across all complex collections limit. The document with key '1052' has '4303' objects in collections (JSON arrays). At most '3000' objects are allowed to be in collections across the entire document. Remove objects from collections and try indexing the document again."
 
-In some cases we might need to add more than 3000 .In those cases we can pipe and store it as a string .There is no limitation of number of strings stored in an array in azure search
+In some usecases we might need to add more than 3000 items in a collection .In those cases we can pipe and store it as a string .There is no limitation of number of strings stored in an array in azure search
 
 For example if we need to search for all combination of countries and products and categories if we had stored it as complex object as below the combination cannot exceed 3000
 
@@ -282,7 +282,7 @@ If we instead concatenate and store the values as delimited we can overcome the 
 ]
 
 ```
-The reason we stored it as above is because if we want to filter only on france or only on category c100 this combination with wildcard for rest of the properties will work.
+The reason we stored it as above is because if we want to filter only on france or only on category c100 this combination with wildcard for rest of the properties will take care of that.
 
 We will take the user input to filter an france and construct it as string
 
@@ -300,7 +300,7 @@ foreach (var filterItem in filterCombinations)
 Similarly if user searched for France and 1234 product code we will take the user input and construct a delimited string as below and match against our search array
 >`|FRA|1234|*|`
 
-If user tries to search for countries not present in our list it will not match the delimited array stroed in search index and no results will be returned
+If user tries to search for countries not present in our list it will not match the delimited array stored in search index and no results will be returned
 Example user searches for Canada and product code 1234.The user search would be converted as 
 
 >`|CAN|1234|*|`
