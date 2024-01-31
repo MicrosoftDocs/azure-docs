@@ -224,4 +224,4 @@ After a machine learning model is trained on your manually labeled data, the mod
 
 <!-- * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md). -->
 * [Manage labeling projects](how-to-manage-labeling-projects.md)
-* [How to tag text](how-to-label-data.md#label-text)
+* [How to tag images](how-to-label-data.md)
