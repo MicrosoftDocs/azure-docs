@@ -12,8 +12,6 @@ ms.custom: devx-track-azurepowershell
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
-## Personal host pools overview
-
 A personal host pool is a type of host pool that has personal desktops. Personal desktops have one-to-one mapping, which means a single user can only be assigned to a single personal desktop. Every time the user signs in, their user session is directed to their assigned personal desktop session host. This host pool type is ideal for customers with resource-intensive workloads because user experience and session performance will improve if there's only one session on the session host. Another benefit of this host pool type is that user activities, files, and settings persist on the virtual machine operating system (VM OS) disk after the user signs out.
 
 Users must be assigned to a personal desktop to start their session. You can configure the assignment type of your personal desktop host pool to adjust your Azure Virtual Desktop environment to better suit your needs. In this topic, we'll show you how to configure automatic or direct assignment for your users.
@@ -248,22 +246,9 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
 
 ## Give session hosts in a personal host pool a friendly name
 
-You can give personal desktops you create *friendly names* to help users distinguish them in their feeds. You need a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) to configure the friendly name.
+You can give personal desktops you create *friendly names* to help users distinguish them in their feeds. 
 
-Run the following command in PowerShell to use the REST API to give your session host a friendly name:
-
-```powershell
-$body = '{ "properties": {
-"friendlyName": "friendlyName"
-} }'
-$parameters = @{
-    Method = 'Patch'
-    Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview"
-    Payload = $body
-}
-
-Invoke-AzRestMethod @parameters
-```
+[!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
 
 The Azure portal doesn't currently have a way to give session host friendly names.
 
