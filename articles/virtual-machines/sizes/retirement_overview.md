@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: overview
-ms.date: 01/17/2024
+ms.date: 01/30/2024
 ms.author: mattmcinnes
 ms.reviewer: iamwilliew
 ---
@@ -49,3 +49,8 @@ Previous generation sizes **are not currently retired** and can still be used. T
     $vm.HardwareProfile.VmSize = "<newAv2VMsize>"
     Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
     ```
+
+## Next steps
+- For a list of retired sizes, see [Retired Azure VM sizes](./retired_sizes_list.md).
+- For a list of previous-gen sizes, see [Previous generation Azure VM sizes](./previous_gen_sizes_list.md).
+- For more information on VM sizes, see [Sizes for virtual machines in Azure](../sizes.md).

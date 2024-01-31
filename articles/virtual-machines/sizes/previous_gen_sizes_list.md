@@ -85,5 +85,5 @@ Currently there are no previous-gen ADH sizes.
 For a list of retired ADH sizes (sizes that are no longer available for use), see [retired ADH sizes](./retired_sizes_list.md#adh-retired-sizes).
 
 ## Next steps
-
-[Learn more about the Av2-series](../av2-series.md)
+- For a list of retired sizes, see [Retired Azure VM sizes](./retired_sizes_list.md).
+- For more information on VM sizes, see [Sizes for virtual machines in Azure](sizes.md).

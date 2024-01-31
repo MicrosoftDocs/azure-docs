@@ -89,5 +89,5 @@ For a list of previous-gen HPC sizes which will soon be retired, see [previous-g
 For a list of previous-gen ADH sizes which will soon be retired, see [previous-gen ADH sizes](./previous_gen_sizes_list.md#adh-previous-gen-sizes).
 
 ## Next steps
-
-[Learn more about the Av2-series](../../virtual-machines/av2-series.md)
+- For a list of previous-gen sizes, see [Previous generation Azure VM sizes](./previous_gen_sizes_list.md).
+- For more information on VM sizes, see [Sizes for virtual machines in Azure](../sizes.md).

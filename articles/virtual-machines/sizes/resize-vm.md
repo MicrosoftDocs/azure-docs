@@ -5,15 +5,17 @@ author: ju-shim
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 01/30/2024
 ms.author: jushiman
+ms.reviewer: mattmcinnes
 ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell
 ---
+
 # Change the size of a virtual machine 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-This article shows you how to change an existing virtual machine's [VM size](sizes.md).
+This article shows you how to change an existing virtual machine's [VM size](../sizes.md).
 
 After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. Deallocation may be necessary if the new size isn't available on the same hardware cluster that is currently hosting the VM.
 
@@ -238,7 +240,7 @@ When resizing a VM, it's important to choose the right SKU based on the signals 
 
 
 For more information on choosing the right SKU, you can use the following resources:
-- [Sizes for VMs in Azure](sizes.md): This article lists all the VM sizes available in Azure.
+- [Sizes for VMs in Azure](../sizes.md): This article lists all the VM sizes available in Azure.
 - [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/): This tool helps you find the right VM SKU based on your workload type, OS and software, and deployment region.
 
 
@@ -252,13 +254,12 @@ The only combinations allowed for resizing are:
 - VM (with local temp disk) -> VM (with local temp disk); and
 - VM (with no local temp disk) -> VM (with no local temp disk).
 
-For a work-around, see [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk? ](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---). The work-around can be used to resize a VM with no local temp disk to VM with a local temp disk. You create a snapshot of the VM with no local temp disk > create a disk from the snapshot > create VM from the disk with appropriate [VM size](sizes.md) that supports VMs with a local temp disk.
+For a work-around, see [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk? ](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---). The work-around can be used to resize a VM with no local temp disk to VM with a local temp disk. You create a snapshot of the VM with no local temp disk > create a disk from the snapshot > create VM from the disk with appropriate [VM size](../sizes.md) that supports VMs with a local temp disk.
 
 
 ## Next steps
-
 - For more scalability, run multiple VM instances and scale out.
-- For more SKU selection information, see [Sizes for virtual machines in Azure](sizes.md).
+- For more SKU selection information, see [Sizes for virtual machines in Azure](../sizes.md).
 - To determine VM sizes by workload type, OS and software, or deployment region, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
 - For more information on Virtual Machine Scale Sets (VMSS) sizes, see [Automatically scale machines in a VMSS](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
 - For more cost management planning information, see the [Plan and manage your Azure costs](/training/modules/plan-manage-azure-costs/1-introduction) module.
