@@ -91,6 +91,17 @@ ARM templates let you deploy groups of related resources. In a single template, 
           "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
       },
+      "securityType": {
+          "type": "string",
+          "defaultValue": "TrustedLaunch",
+          "allowedValues": [
+            "Standard",
+            "TrustedLaunch"
+          ],
+          "metadata": {
+            "description": "Security Type of the Virtual Machine."
+          }
+      },
       "_artifactsLocation": {
         "type": "string",
         "defaultValue": "[deployment().properties.templatelink.uri]",
@@ -125,12 +136,19 @@ ARM templates let you deploy groups of related resources. In a single template, 
       "ipConfigName": "[concat(parameters('vmssName'), 'ipconfig')]",
       "frontEndIPConfigID": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', variables('loadBalancerName'),'loadBalancerFrontEnd')]",
       "osType": {
-        "publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "16.04-LTS",
-        "version": "latest"
+          "publisher": "Canonical",
+          "offer": "0001-com-ubuntu-server-focal",
+          "sku": "20_04-lts-gen2",
+          "version": "latest"
       },
       "imageReference": "[variables('osType')]",
+      "securityProfileJson": {
+          "uefiSettings": {
+            "secureBootEnabled": true,
+            "vTpmEnabled": true
+          },
+          "securityType": "[parameters('securityType')]"
+      },
       "linuxConfiguration": {
         "disablePasswordAuthentication": true,
         "ssh": {
@@ -301,8 +319,9 @@ ARM templates let you deploy groups of related resources. In a single template, 
               "computerNamePrefix": "[parameters('vmssName')]",
               "adminUsername": "[parameters('adminUsername')]",
               "adminPassword": "[parameters('adminPasswordOrKey')]",
-              "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
+              "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
             },
+            "securityProfile": "[if(equals(parameters('securityType'), 'TrustedLaunch'), variables('securityProfileJson'), null())]",
             "networkProfile": {
               "networkApiVersion": "[variables('networkApiVersion')]",
               "networkInterfaceConfigurations": [
