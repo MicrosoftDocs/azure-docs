@@ -231,12 +231,12 @@ The following table provides a brief description of each built-in role. Click th
 > | [Integration Service Environment Contributor](#integration-service-environment-contributor) | Lets you manage integration service environments, but not access to them. | a41e2c5b-bd99-4a07-88f4-9bf657a760b8 |
 > | [Integration Service Environment Developer](#integration-service-environment-developer) | Allows developers to create and update workflows, integration accounts and API connections in integration service environments. | c7aa55d3-1abb-444a-a5ca-5e51e485d6ec |
 > | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Lets you manage Intelligent Systems accounts, but not access to them. | 03a6d094-3444-4b3d-88af-7477090a9e5e |
-> | [Logic App Contributor](#logic-app-contributor) | Lets you manage Consumption logic apps, but not change access to them. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
-> | [Logic App Operator](#logic-app-operator) | Lets you read, enable, and disable Consumption logic apps, but not edit or update them. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
-> | [Logic Apps Standard Contributor (Preview)](#logic-apps-standard-contributor) | You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership. | ad710c24-b039-4e85-a019-deb4a06e8570 |
-> | [Logic Apps Standard Developer (Preview)](#logic-apps-standard-developer) | You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope. | 523776ba-4eb24-600a-3c8f-2dc93da4bdb |
-> | [Logic Apps Standard Operator (Preview)](#logic-apps-standard-operator) | You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings. | b70c96e9-66fe-4c09-b6e7-c98e69c98555 |
-> | [Logic Apps Standard Reader (Preview)](#logic-apps-standard-reader) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. | 4accf36b-2c05-432f-91c8-5c532dff4c73 |
+> | [Logic App Contributor](#logic-app-contributor) | Lets you manage logic apps, but not change access to them. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
+> | [Logic App Operator](#logic-app-operator) | Lets you read, enable, and disable logic apps, but not edit or update them. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [Logic Apps Standard Contributor (Preview)](#logic-apps-standard-contributor-preview) | You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership. | ad710c24-b039-4e85-a019-deb4a06e8570 |
+> | [Logic Apps Standard Developer (Preview)](#logic-apps-standard-developer-preview) | You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope. | 523776ba-4eb2-4600-a3c8-f2dc93da4bdb |
+> | [Logic Apps Standard Operator (Preview)](#logic-apps-standard-operator-preview) | You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings. | b70c96e9-66fe-4c09-b6e7-c98e69c98555 |
+> | [Logic Apps Standard Reader (Preview)](#logic-apps-standard-reader-preview) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. | 4accf36b-2c05-432f-91c8-5c532dff4c73 |
 > | **Identity** |  |  |
 > | [Domain Services Contributor](#domain-services-contributor) | Can manage Azure AD Domain Services and related network configurations | eeaeda52-9324-47f6-8069-5d5bade478b2 |
 > | [Domain Services Reader](#domain-services-reader) | Can view Azure AD Domain Services and related network configurations | 361898ef-9ed1-48c2-849c-a832951106bb |
@@ -4347,7 +4347,7 @@ Grants access to read map related data from an Azure maps account.
 
 Allow read, write and delete access to Azure Spring Cloud Config Server
 
-[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
+[Learn more](/azure/spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4392,7 +4392,7 @@ Allow read, write and delete access to Azure Spring Cloud Config Server
 
 Allow read access to Azure Spring Cloud Config Server
 
-[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
+[Learn more](/azure/spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4472,7 +4472,7 @@ Allow read access to Azure Spring Cloud Data
 
 Allow read, write and delete access to Azure Spring Cloud Service Registry
 
-[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
+[Learn more](/azure/spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4517,7 +4517,7 @@ Allow read, write and delete access to Azure Spring Cloud Service Registry
 
 Allow read access to Azure Spring Cloud Service Registry
 
-[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
+[Learn more](/azure/spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -11877,28 +11877,30 @@ Lets you manage logic apps, but not change access to them.
 
 ### Logic App Operator
 
-Lets you read, enable, and disable Consumption logic apps, but not edit or update them. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+Lets you read, enable, and disable logic apps, but not edit or update them.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/*/read | Read Insights alert rules. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/*/read | Read Insights alert rules |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/*/read |  |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/*/read | Get diagnostic settings for Consumption logic apps. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/*/read | Get the available metrics for Consumption logic apps. |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/*/read | Read Consumption logic app resources. |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/disable/action | Disable the workflow. |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/enable/action | Enable the workflow. |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/validate/action | Validate the workflow. |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Get or list deployment operations. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/*/read | Gets diagnostic settings for Logic Apps |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/*/read | Gets the available metrics for Logic Apps. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/*/read | Reads Logic Apps resources. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/disable/action | Disables the workflow. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/enable/action | Enables the workflow. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/validate/action | Validates the workflow. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Get or list resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read connection gateways. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | Read connections. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | Read custom APIs. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties for an App Service Plan. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | Read Connections. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | Read Custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -11946,25 +11948,25 @@ Lets you read, enable, and disable Consumption logic apps, but not edit or updat
 }
 ```
 
-<a name="logic-apps-standard-contributor"></a>
-
 ### Logic Apps Standard Contributor (Preview)
 
-You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/certificates/* | Create and manage a certificate. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Create and manage a connection gateway. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manage a connection. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Create and manage a custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Create and manages a Connection Gateway. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manages a Connection. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Creates and manages a Custom API. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/listSitesAssignedToHostName/read | Get names of sites assigned to hostname. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/* | Create and manage an App Service Plan. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/* | Create and manage a web app. |
@@ -11977,21 +11979,15 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
 
 ```json
 {
-  "Description": "You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.",
-  "Metadata": {
-    "CreatedBy": null,
-    "CreatedOn": "2023-08-02T22:35:40.6977003Z",
-    "UpdatedBy": null,
-    "UpdatedOn": "2023-08-23T18:55:27.6632763Z"
-  },
-  "IsBuiltIn": true,
-  "AdminSecurityClaim": "Microsoft.Web",
-  "Id": "ad710c24b0394e85a019deb4a06e8570",
-  "Name": "Logic Apps Standard Contributor (Preview)",
-  "IsServiceRole": false,
-  "Permissions": [
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/ad710c24-b039-4e85-a019-deb4a06e8570",
+  "name": "ad710c24-b039-4e85-a019-deb4a06e8570",
+  "permissions": [
     {
-      "Actions": [
+      "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -12006,62 +12002,60 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
         "Microsoft.Web/serverFarms/*",
         "Microsoft.Web/sites/*"
       ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "Condition": null,
-      "ConditionVersion": null
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
     }
   ],
-  "Scopes": [
-    "/"
-  ]
+  "roleName": "Logic Apps Standard Contributor (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-<a name="logic-apps-standard-developer"></a>
-
 ### Logic Apps Standard Developer (Preview)
 
-You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Get a list of connection gateways. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manage a connection. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Create and manage a custom API. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties for an App Service Plan. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/appettings/read | Get the web app settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/list/Action | List the web app's security sensitive settings, such as publishing credentials, app settings, and connection strings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Read | Get the web app configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Write | Update the web app's configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/delete |	Delete the web app's configuration. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/read |	Get a single app setting for the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/write | Create or update a single app setting for the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/deployWorkflowArtifacts/action | Create the artifacts in a Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/listworkflowsconnections/actions | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/publish/Action | Publish the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/Read | Get the web app properties. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/appsettings/read | Get the web app slot's settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/appsettings/write | Create or update a single app setting for the web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/list/Action | List the web app slot's security sensitive settings, such as publishing credentials, app settings, and connection strings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/Read | Get the web app slot's configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/web/appsettings/delete | Delete the web app slot's app setting. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/deployWorkflowArtifacts/action | Create the artifacts in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/listworkflowsconnections/action | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/publish/Action | Publish a web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get the workflow's app configuration information based on its ID in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflows/* | Manage the workflows in the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/* | Get the workflow's app configuration information based on its ID for the Standard logic app. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manages a Connection. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Creates and manages a Custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/appsettings/read | Get Web App settings. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/list/Action | List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Read | Get Web App configuration settings |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/Write | Update Web App's configuration settings |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/delete | Delete Web Apps App Setting |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/read | Get Web App Single App setting. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/write | Create or Update Web App Single App setting |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/deployWorkflowArtifacts/action | Create the artifacts in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/listworkflowsconnections/action | List logic app's connections by its ID in a Logic App. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/publish/Action | Publish a Web App |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/Read | Get the properties of a Web App |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/config/appsettings/read | Get Web App Slot's single App setting. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/config/appsettings/write | Create or Update Web App Slot's Single App setting |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/list/Action | List Web App Slot's security sensitive settings, such as publishing credentials, app settings and connection strings |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/Read | Get Web App Slot's configuration settings |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/config/web/appsettings/delete | Delete Web App Slot's App Setting |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/deployWorkflowArtifacts/action | Create the artifacts in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/listworkflowsconnections/action | List logic app's connections by its ID in a deployment slot in a Logic App. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/publish/Action | Publish a Web App Slot |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflows/* |  |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -12071,21 +12065,15 @@ You can create and edit workflows, connections, and settings for a Standard logi
 
 ```json
 {
-  "Description": "You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.",
-  "Metadata": {
-    "CreatedBy": null,
-    "CreatedOn": "2023-08-02T22:37:24.4551086Z",
-    "UpdatedBy": null,
-    "UpdatedOn": "2023-08-23T18:56:32.6015183Z"
-  },
-  "IsBuiltIn": true,
-  "AdminSecurityClaim": "Microsoft.Web",
-  "Id": "523776ba4eb24600a3c8f2dc93da4bdb",
-  "Name": "Logic Apps Standard Developer (Preview)",
-  "IsServiceRole": false,
-  "Permissions": [
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/523776ba-4eb2-4600-a3c8-f2dc93da4bdb",
+  "name": "523776ba-4eb2-4600-a3c8-f2dc93da4bdb",
+  "permissions": [
     {
-      "Actions": [
+      "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -12121,57 +12109,55 @@ You can create and edit workflows, connections, and settings for a Standard logi
         "microsoft.web/sites/workflows/*",
         "microsoft.web/sites/workflowsconfiguration/*"
       ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "Condition": null,
-      "ConditionVersion": null
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
     }
   ],
-  "Scopes": [
-    "/"
-  ]
+  "roleName": "Logic Apps Standard Developer (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-<a name="logic-apps-standard-operator"></a>
-
 ### Logic Apps Standard Operator (Preview)
 
-You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Get a list of connection gateways. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties for an App Service Plan. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/applySlotConfig/Action | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Read | Get the web app configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/Read | Get the web app properties. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/restart/Action | Restart the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/Read | Get the web app slot's configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/restart/Action | Restart the web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/slotsswap/Action | Swap the web app deployment slots. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/start/Action | Start the web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/stop/Action | Stop the web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get the workflow's app configuration information based on its ID in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/slotsdiffs/Action | Get the differences in the configuration between the web app and slots. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slotsswap/Action | Swap the web app deployment slots. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/start/Action | Start the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/stop/Action | Stop the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflows/read | List the workflows in the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/read | Get the workflow's app configuration based on its ID for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/write | Create or update a web app. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | Read Connections. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | Read Custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/applySlotConfig/Action | Apply web app slot configuration from target slot to the current web app |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Read | Get Web App configuration settings |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/Read | Get the properties of a Web App |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/restart/Action | Restart a Web App |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/Read | Get Web App Slot's configuration settings |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/restart/Action | Restart a Web App Slot |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/slotsswap/Action | Swap Web App deployment slots |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/start/Action | Start a Web App Slot |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/stop/Action | Stop a Web App Slot |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slotsdiffs/Action | Get differences in configuration between web app and slots |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slotsswap/Action | Swap Web App deployment slots |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/start/Action | Start a Web App |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/stop/Action | Stop a Web App |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflows/read | List the workflows in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/read | Get logic app's configuration information by its ID in a Logic App. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/write | Create a new Web App or update an existing one |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -12181,21 +12167,15 @@ You can enable, resubmit, and disable workflows as well as create connections. Y
 
 ```json
 {
-  "Description": "You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings.",
-  "Metadata": {
-    "CreatedBy": null,
-    "CreatedOn": "2023-08-02T22:38:47.4360166Z",
-    "UpdatedBy": null,
-    "UpdatedOn": "2023-08-23T19:03:50.1098085Z"
-  },
-  "IsBuiltIn": true,
-  "AdminSecurityClaim": "Microsoft.Web",
-  "Id": "b70c96e966fe4c09b6e7c98e69c98555",
-  "Name": "Logic Apps Standard Operator (Preview)",
-  "IsServiceRole": false,
-  "Permissions": [
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b70c96e9-66fe-4c09-b6e7-c98e69c98555",
+  "name": "b70c96e9-66fe-4c09-b6e7-c98e69c98555",
+  "permissions": [
     {
-      "Actions": [
+      "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -12226,44 +12206,42 @@ You can enable, resubmit, and disable workflows as well as create connections. Y
         "microsoft.web/sites/workflowsconfiguration/read",
         "Microsoft.Web/sites/write"
       ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "Condition": null,
-      "ConditionVersion": null
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
     }
   ],
-  "Scopes": [
-    "/"
-  ]
+  "roleName": "Logic Apps Standard Operator (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-<a name="logic-apps-standard-reader"></a>
-
 ### Logic Apps Standard Reader (Preview)
 
-You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Get a list of connection gateways. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties for an App Service Plan. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/triggers/read | List the web app's hostruntime workflow triggers. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/runs/read | List the web app's hostruntime workflow runs. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflows/read | List the workflows in the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/read | Get the workflow's app configuration based on its ID for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get the workflow's app configuration information based on its ID in a deployment slot for the Standard logic app. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | Read Connections. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | Read Custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/triggers/read | List Web Apps Hostruntime Workflow Triggers. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/runs/read | List Web Apps Hostruntime Workflow Runs. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflows/read | List the workflows in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/read | Get logic app's configuration information by its ID in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -12273,21 +12251,15 @@ You have read-only access to all resources in a Standard logic app and workflows
 
 ```json
 {
-  "Description": "You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.",
-  "Metadata": {
-    "CreatedBy": null,
-    "CreatedOn": "2023-08-02T22:33:56.2374571Z",
-    "UpdatedBy": null,
-    "UpdatedOn": "2023-08-23T19:05:11.7148533Z"
-  },
-  "IsBuiltIn": true,
-  "AdminSecurityClaim": "Microsoft.Web",
-  "Id": "4accf36b2c05432f91c85c532dff4c73",
-  "Name": "Logic Apps Standard Reader (Preview)",
-  "IsServiceRole": false,
-  "Permissions": [
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4accf36b-2c05-432f-91c8-5c532dff4c73",
+  "name": "4accf36b-2c05-432f-91c8-5c532dff4c73",
+  "permissions": [
     {
-      "Actions": [
+      "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -12305,16 +12277,14 @@ You have read-only access to all resources in a Standard logic app and workflows
         "microsoft.web/sites/slots/workflows/read",
         "microsoft.web/sites/slots/workflowsconfiguration/read"
       ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "Condition": null,
-      "ConditionVersion": null
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
     }
   ],
-  "Scopes": [
-    "/"
-  ]
+  "roleName": "Logic Apps Standard Reader (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
