@@ -2,10 +2,8 @@
 title: HANA failover procedure to a disaster site for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to fail over to a disaster recovery site for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter:
 author: ju-shim
 manager: juergent
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

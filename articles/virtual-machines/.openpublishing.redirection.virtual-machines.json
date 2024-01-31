@@ -5197,7 +5197,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/sizes-previous-gen.md",
-            "redirect_url": "/azure/virtual-machines/sizes/previous_gen_sizes_list",
+            "redirect_url": "/azure/virtual-machines/sizes/previous-gen-sizes-list",
             "redirect_document_id": false
         }
     ]

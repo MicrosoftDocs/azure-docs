@@ -3,7 +3,7 @@ title: Configuration and Optimization of InfiniBand enabled H-series and N-serie
 description: Learn about configuring and optimizing the InfiniBand enabled H-series and N-series VMs for HPC.
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 10/03/2023
 ms.reviewer: cynthn, mattmcinnes

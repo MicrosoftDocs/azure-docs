@@ -2,7 +2,6 @@
 title: Versions in Azure API Management | Microsoft Docs
 description: Learn about the concept of versions in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
  
 ms.service: api-management

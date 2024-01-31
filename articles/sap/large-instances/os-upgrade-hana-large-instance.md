@@ -2,10 +2,8 @@
 title: Operating system upgrade for the SAP HANA on Azure (Large Instances)| Microsoft Docs
 description: Learn to do an operating system upgrade for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter:
 author: ju-shim
 manager: juergent
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

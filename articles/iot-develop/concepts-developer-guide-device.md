@@ -1,13 +1,12 @@
 ---
 title: Device developer guide - IoT Plug and Play | Microsoft Docs
 description: "Description of IoT Plug and Play for device developers. Includes examples in the following languages: C, C#, Java, JavaScript, Python, and Embedded C."
-author: rido-min
-ms.author: rmpablos
-ms.date: 11/17/2022
+author: timlt
+ms.author: timlt
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.service: iot-develop
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-seven
 
 #- id: programming-languages-set-twenty-seven

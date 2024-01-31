@@ -76,6 +76,12 @@ items:
         href: ../common/classic-account-migration-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Migrate a classic storage account to Resource Manager
         href: ../common/classic-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Data Lake Storage Gen2
+      items:
+      - name: Plan to upgrade an account
+        href: upgrade-to-data-lake-storage-gen2.md
+      - name: Upgrade an account
+        href: upgrade-to-data-lake-storage-gen2-how-to.md
   - name: Data transfer and migration
     items:
     - name: Storage migration overview
@@ -520,12 +526,10 @@ items:
       items:
       - name: Storage Analytics
         href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Metrics (classic)
-      - name: Logs (classic)
+      - name: Logs
         href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        items:
-        - name: Enable and manage logs (classic)
-          href: ../common/manage-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Enable and manage logs
+        href: ../common/manage-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Application development
     items:
     - name: Blob Storage object model

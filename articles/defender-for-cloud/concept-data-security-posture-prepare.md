@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 01/07/2024
+ms.date: 01/14/2024
 ms.custom: references_regions
 ---
 
@@ -40,7 +40,7 @@ The table summarizes support for data-aware posture management.
 |Do I need to install an agent? | No, discovery requires no agent installation. |
 |What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t incur extra costs except for the respective plan costs. |
 |What permissions do I need to view/edit data sensitivity settings? | You need one of these Microsoft Entra roles: Global Administrator,  Compliance Administrator, Compliance Data Administrator, Security Administrator, Security Operator.|
-| What permissions do I need to perform onboarding? | You need one of these Microsoft Entra roles: Security Admin, Contributor, Owner on the subscription level (where the GCP project/s reside in). For consuming the security findings: Security Reader, Security Admin, Reader, Contributor, Owner on the subscription level (where the GCP project/s reside). |
+| What permissions do I need to perform onboarding? | You need one of these [Azure role-based access control (Azure RBAC) roles](/azure/role-based-access-control/role-assignments-portal): Security Admin, Contributor, Owner on the subscription level (where the GCP project/s reside). For consuming the security findings: Security Reader, Security Admin, Reader, Contributor, Owner on the subscription level (where the GCP project/s reside). |
 
 ## Configuring data sensitivity settings
 
@@ -91,8 +91,9 @@ To protect AWS resources in Defender for Cloud, set up an AWS connector using a 
   - Delete/update DB/cluster snapshot with prefix *defenderfordatabases*
   - List all KMS keys
   - Use all KMS keys only for RDS on source account
-  - Full control on all KMS keys with tag prefix *DefenderForDatabases*
+  - Create & full control on all KMS keys with tag prefix *DefenderForDatabases*
   - Create alias for KMS keys
+- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key may incur a minimal additional cost, according to AWS KMS pricing.
 
 ### Discovering GCP storage buckets
 

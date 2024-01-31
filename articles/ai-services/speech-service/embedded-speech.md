@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 1/18/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-set-thirteen
 ---
@@ -131,7 +131,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.34.0</version>
+            <version>1.34.1</version>
             </dependency>
         </dependencies>
     </project>
@@ -152,7 +152,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.34.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.34.1@aar'
 }
 ```
 ::: zone-end
@@ -168,7 +168,7 @@ All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, P
 
 ## Embedded speech configuration
 
-For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you downloaded to your local device. 
+For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you download to your local device. 
 
 Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text to speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
 
@@ -272,7 +272,7 @@ You can find ready to use embedded speech samples at [GitHub](https://aka.ms/emb
 
 Hybrid speech with the `HybridSpeechConfig` object uses the cloud speech service by default and embedded speech as a fallback in case cloud connectivity is limited or slow.
 
-With hybrid speech configuration for [speech to text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is later resumed.
+With hybrid speech configuration for [speech to text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition might continue using the cloud service again if the connection is later resumed.
 
 With hybrid speech configuration for [text to speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the final result is selected based on response speed. The best result is evaluated again on each new synthesis request.
 
@@ -282,7 +282,7 @@ For cloud speech, you use the `SpeechConfig` object, as shown in the [speech to 
 
 ## Embedded voices capabilities
 
-For embedded voices, it is essential to note that certain SSML tags may not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, refer to the following table.
+For embedded voices, it's essential to note that certain SSML tags might not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, refer to the following table.
 
 | Level 1            | Level 2        | Sub values                                           | Support in embedded NTTS |
 |-----------------|-----------|-------------------------------------------------------|--------------------------|

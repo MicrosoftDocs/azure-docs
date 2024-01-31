@@ -110,7 +110,7 @@ Customers often ask how Azure AI Search compares with other search-related solut
 
 Key strengths include:
 
-+ Store, index, and search vector embeddings for sentences, images, audio, graphs, and more. 
++ Store, index, and search vector embeddings for sentences, images, graphs, and more. 
 + Find information that’s semantically similar to search queries, even if the search terms aren’t exact matches. 
 + Use hybrid search for the best of keyword and vector search.
 + Relevance tuning through semantic ranking and scoring profiles.
