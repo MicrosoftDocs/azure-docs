@@ -544,13 +544,13 @@ Before you begin the clean-up process, check your *data* folder for the two file
 
 ## Clean up resources
 
-::: zone=pivot="blob-storage-quickstart-scratch"
+::: zone pivot="blob-storage-quickstart-scratch"
 
 After you verify the files and finish testing, press the **Enter** key to delete the test files along with the container you created in the storage account. You can also use [Azure CLI](storage-quickstart-blobs-cli.md#clean-up-resources) to delete resources.
 
 ::: zone-end
 
-::: zone=pivot="blob-storage-quickstart-template"
+::: zone pivot="blob-storage-quickstart-template"
 
 When you're done with the quickstart, you can clean up the resources you created by running the following command:
 
