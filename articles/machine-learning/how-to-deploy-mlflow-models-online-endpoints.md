@@ -37,11 +37,11 @@ This example shows how you can deploy an MLflow model to an online endpoint to p
 
 The model was trained using a `scikit-learn` regressor, and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo, and then change directories to `cli/endpoints/online` if you're using the Azure CLI or `sdk/python/endpoints/online/mlflow` if you're using the Azure Machine Learning SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo, and then change directories to `cli` if you're using the Azure CLI or `sdk/python/endpoints/online/mlflow` if you're using the Azure Machine Learning SDK for Python.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/online
+cd azureml-examples/cli
 ```
 
 ### Follow along in Jupyter Notebook
@@ -159,7 +159,7 @@ You can deploy only registered models to online endpoints. In this case, you alr
 
 ```azurecli
 MODEL_NAME='sklearn-diabetes'
-az ml model create --name $MODEL_NAME --type "mlflow_model" --path "sklearn-diabetes/model"
+az ml model create --name $MODEL_NAME --type "mlflow_model" --path "endpoints/online/ncd/sklearn-diabetes/model"
 ```
 
 # [Python (Azure Machine Learning SDK)](#tab/sdk)
@@ -257,11 +257,17 @@ version = registered_model.version
 
 ## Deploy an MLflow model to an online endpoint
 
-1. First, configure the endpoint where the model will be deployed. The following example configures the name and authentication mode of the endpoint:
-    
+1. Configure the endpoint where the model will be deployed. The following example configures the name and authentication mode of the endpoint:
+
     # [Azure CLI](#tab/cli)
-    
-    __endpoint.yaml__
+
+    Set an endpoint name by running the following command (replace `YOUR_ENDPOINT_NAME` with a unique name):
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="set_endpoint_name":::
+
+    Configure the endpoint:
+
+    __create-endpoint.yaml__
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/create-endpoint.yaml":::
 
@@ -658,6 +664,8 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     Create a deployment configuration file:
     
+    __deployment.yml__
+    
     ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: sklearn-diabetes-custom
@@ -733,10 +741,8 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     To submit a request to the endpoint, you can do as follows:
     
     # [Azure CLI](#tab/cli)
-    
-    ```azurecli
-    az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/mlflow/sample-request-sklearn-custom.json
-    ```
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="test_sklearn_deployment":::
     
     # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
