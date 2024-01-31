@@ -170,7 +170,7 @@ To set up an action and view scan results in GitHub:
 
 <a name="configure-iac-scanning-and-view-the-results-in-azure-devops"></a>
 
-## Set up and run an Azure DevOps extension to scan your connected IaC
+## Set up and run an Azure DevOps extension to scan your connected IaC source code
 
 To set up an extension and view scan results in Azure DevOps:
 
@@ -205,7 +205,7 @@ To set up an extension and view scan results in Azure DevOps:
 
 1. See see more details, select a specific pipeline run.
 
-## View details and remediation information for IaC rules in Microsoft Security DevOps
+## View details and remediation information for applied IaC rules
 
 The IaC scanning tools that are included with Microsoft Security DevOps are [Template Analyzer](https://github.com/Azure/template-analyzer) ([PSRule](https://aka.ms/ps-rule-azure) is included in Template Analyzer) and [Terrascan](https://github.com/tenable/terrascan).
 
