@@ -38,6 +38,7 @@ The **container optimizer** analyzer shows containers with excessive cpu and mem
 
 > [!IMPORTANT]
 > This view doesn't include containers in the **kube-system** namespace and doesn't support Windows Server nodes.
+>
 
 The number on each tile represents how far the container limits/requests are from the optimal/suggested value. The closer the number is to 0 the better it is. Each tile has a color to indicate the following:
 
