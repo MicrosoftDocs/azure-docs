@@ -35,7 +35,7 @@ The following diagram shows the indexing and query workflows for vector search.
 
 :::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-3.svg" alt-text="Architecture of vector search workflow." border="false" lightbox="media/vector-search-overview/vector-search-architecture-diagram-3-high-res.png":::
 
-On the indexing side, Azure AI Search takes vector embeddings and uses a [nearest neighbors algorithm](vector-search-ranking.md) to place similar vectors close together in an index. Internally, it creates vector indices for each vector field.
+On the indexing side, Azure AI Search takes vector embeddings and uses a [nearest neighbors algorithm](vector-search-ranking.md) to place similar vectors close together in an index. Internally, it creates vector indexes for each vector field.
 
 How you get embeddings from your source content into Azure AI Search depends on your approach and whether you can use preview features. You can vectorize or generate embeddings as a preliminary step using models from OpenAI, Azure OpenAI, and any number of providers, over a wide range of source content including text, images, and other content types supported by the models. You can then push prevectorized content to [vector fields](vector-search-how-to-create-index.md) in a vector store. That's the generally available approach. If you can use preview features, Azure AI Search offers [integrated data chunking and vectorization](vector-search-integrated-vectorization.md) in an indexer pipeline. You still provide the resources (endpoints and connection information to Azure OpenAI), but Azure AI Search makes all of the calls and handles the transitions.
 
@@ -122,9 +122,9 @@ In vector search, the search engine scans vectors within the embedding space to 
 
 Azure AI Search currently supports the following algorithms:
 
-+ Hierarchical Navigable Small World (HNSW): HNSW is a leading ANN algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently. It organizes high-dimensional data points into a hierarchical graph structure that enables fast and scalable similarity search while allowing a tunable a trade-off between search accuracy and computational cost. Because the algorithm requires all data points to reside in memory for fast random access, this algorithm consumes [vector storage](vector-search-index-size.md) quota.
++ Hierarchical Navigable Small World (HNSW): HNSW is a leading ANN algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently. It organizes high-dimensional data points into a hierarchical graph structure that enables fast and scalable similarity search while allowing a tunable a trade-off between search accuracy and computational cost. Because the algorithm requires all data points to reside in memory for fast random access, this algorithm consumes [vector index size](vector-search-index-size.md) quota.
 
-+ Exhaustive K-nearest neighbors (KNN): Calculates the distances between the query vector and all data points. It's computationally intensive, so it works best for smaller datasets. Because the algorithm doesn't require fast random access of data points, this algorithm doesn't consume vector storage quota. However, this algorithm provides the global set of nearest neighbors.
++ Exhaustive K-nearest neighbors (KNN): Calculates the distances between the query vector and all data points. It's computationally intensive, so it works best for smaller datasets. Because the algorithm doesn't require fast random access of data points, this algorithm doesn't consume vector index size quota. However, this algorithm provides the global set of nearest neighbors.
 
 Within an index definition, you can specify one or more algorithms, and then for each vector field specify which algorithm to use:
 
