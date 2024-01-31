@@ -76,8 +76,6 @@ This graphic and the following text show how the parts of this connector solutio
 
 To simplify the onboarding process, Microsoft Sentinel has provided a [PowerShell script to automate the setup](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/AWS-S3) of the AWS side of the connector - the required AWS resources, credentials, and permissions.
 
-For FairFax, use this this PowerShell script. 
-
 The script takes the following actions:
 
 - Creates an *IAM assumed role* with the minimal necessary permissions, to grant Microsoft Sentinel access to your logs in a given S3 bucket and SQS queue.
@@ -87,6 +85,8 @@ The script takes the following actions:
 - If necessary, creates that S3 bucket and that SQS queue for this purpose.
 
 - Configures any necessary IAM permissions policies and applies them to the IAM role created above.
+
+For Azure Government clouds, a specialized script first creates an OIDC identity provider, to which it assigns the IAM assumed role. It then performs all the other steps above.
 
 ### Prerequisites for automatic setup
 
@@ -105,9 +105,13 @@ To run the script to set up the connector, use the following steps:
    If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel.
 
 1. In the details pane for the connector, select **Open connector page**.
+
 1. In the **Configuration** section, under **1. Set up your AWS environment**, expand **Setup with PowerShell script (recommended)**.
 
 1. Follow the on-screen instructions to download and extract the [AWS S3 Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScripts.zip?raw=true) (link downloads a zip file containing the main setup script and helper scripts) from the connector page.
+
+   > [!NOTE]
+   > For ingesting AWS logs into an **Azure Government cloud**, download and extract [this specialized AWS S3 Gov Setup Script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/ConfigAwsS3DataConnectorScriptsGov.zip?raw=true) instead.
 
 1. Before running the script, run the `aws configure` command from your PowerShell command line, and enter the relevant information as prompted. See [AWS Command Line Interface | Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) (from AWS documentation) for details.
 
@@ -139,19 +143,19 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
 ### Prepare your AWS resources
 
-- Create an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
+1. Create an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
 
    - See the [instructions to create an S3 storage bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the AWS documentation.
 
-- Create a standard **Simple Queue Service (SQS) message queue** to which the S3 bucket will publish notifications.
+1. Create a standard **Simple Queue Service (SQS) message queue** to which the S3 bucket will publish notifications.
 
    - See the [instructions to create a standard Simple Queue Service (SQS) queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/creating-sqs-standard-queues.html) in the AWS documentation.
 
-- Configure your S3 bucket to send notification messages to your SQS queue. 
+1. Configure your S3 bucket to send notification messages to your SQS queue. 
 
    - See the [instructions to publish notifications to your SQS queue](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) in the AWS documentation.
 
-### Create an AWS assumed role and grant access to the AWS Sentinel account
+### Install AWS data connector and prepare environment
 
 1. In Microsoft Sentinel, select **Data connectors** from the navigation menu.
 
@@ -162,37 +166,42 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 1. In the details pane for the connector, select **Open connector page**.
 
 1. Under **Configuration**, expand **Setup with PowerShell script (recommended)**, then copy the **External ID (Workspace ID)** to your clipboard.
-1. In a different browser window or tab, open the AWS console. Follow the [instructions in the AWS documentation for creating a role for an AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html).
-   - For the account type, instead of **This account**, choose **Another AWS account**.
-   - In the **Account ID** field, enter the number **197857026523** (you can copy and paste it from here). This number is **Microsoft Sentinel's service account ID for AWS**. It tells AWS that the account using this role is a Microsoft Sentinel user.
-   - In the options, select **Require external ID** (*do not* select *Require MFA*). In the **External ID** field, paste your Microsoft Sentinel **Workspace ID** that you copied in the previous step. This identifies *your specific Microsoft Sentinel account* to AWS.
-      *For FairFax setup using Entra ID:*
-   - *Create an Identity Provider* 
-      - *Go to AWS IAM.* 
 
-      - *Click on Identity Providers. Click on Add Provider. Select OpenID Connect.*  
+### Create an AWS assumed role and grant access to the AWS Sentinel account
 
-      - *Add Provider URL as [sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/](https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/identity_providers/details/OPENID/arn%3Aaws%3Aiam%3A%3A072643944673%3Aoidc-provider%2Fsts.windows.net%2F33e01921-4d64-4f8c-a055-5bdaffd5e33d%2F)*
+The following instructions apply for public **Azure Commercial clouds** only. For granting access to AWS from Azure Government clouds, see [For Azure Government: Use identity federation](#for-azure-government-use-identity-federation).
 
-      - *In the Audience add [api://1462b192-27f7-4cb9-8523-0f4ecb54b47e](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
-            )*
-            
+1. In a different browser window or tab, open the AWS console.
 
-      - *Click Get Thumbprint. It should be -“626d44e704d1ceabe3bf0d53397464ac8080142c”* 
+1. Follow these instructions in the AWS documentation:<br>[Creating a role to delegate permissions to an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html).
+   | Parameter | Selection/Value | Comments |
+   | - | - | - |
+   | **Account type** | *Another AWS account* | Instead of default *This account*.|
+   | **Account ID** | `197857026523` | Microsoft Sentinel's service account ID for AWS, identifying you as a Microsoft Sentinel user. |
+   | **Options** | *Require external ID* | *Do not* select *Require MFA* |
+   | **External ID** | Your Microsoft Sentinel *Workspace ID*,<br>pasted from your clipboard. | This identifies *your specific Microsoft Sentinel account* to AWS.
 
+#### For Azure Government: Use identity federation
+
+1. In a different browser window or tab, open the AWS console.
+
+1. Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
+
+   | Parameter | Selection/Value | Comments |
+   | - | - | - |
+   | **Client ID** | Ignore this, you already have it. See **Audience** line below. |  |
+   | **Provider type** | *OpenID Connect* | Instead of default *SAML*.|
+   | **Provider URL** | `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/` |  |
+   | **Thumbprint** | `626d44e704d1ceabe3bf0d53397464ac8080142c` | If created in the IAM console, selecting **Get thumbprint** should give you this result. |
+   | **Audience** | `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e` |  |
+   |
       - *Click Add Provider* 
 
    - *Create an assume role* 
-            - *Go to AWS IAM Click on Roles. Click on Create role* 
-
-                  - *Select “Web Identity” as trusted entity* 
-
-                        - *From the Identity Provider drop down, select the identity provider created in previous stage.* 
-
-                              - *Select audience [api://1462b192-27f7-4cb9-8523-0f4ecb54b47e](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
-                                                            )*[
-                                                            ](api://1462b192-27f7-4cb9-8523-0f4ecb54b47e
-                                                            )
+      - *Go to AWS IAM Click on Roles. Click on Create role* 
+      - *Select “Web Identity” as trusted entity* 
+      - *From the Identity Provider drop down, select the identity provider created in previous stage.* 
+      - *Select audience `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e`
 
    - Assign the necessary permissions policies. These policies include:
       - `AmazonSQSReadOnlyAccess`
@@ -205,7 +214,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
          - Name the role with a meaningful name that includes a reference to Microsoft Sentinel. Example: "*MicrosoftSentinelRole*".
          - For FairFax, edit Trust policy and add another condition: "sts:RoleSessionName":"MicrosoftDefenderForClouds_<CustomerTenantID_OR_WorkSpaceID(Sentinel)>"
 
-         ### Add the AWS role and queue information to the S3 data connector
+### Add the AWS role and queue information to the S3 data connector
 
 1. In the browser tab open to the AWS console, enter the **Identity and Access Management (IAM)** service and navigate to the list of **Roles**. Select the role you created above.
 
