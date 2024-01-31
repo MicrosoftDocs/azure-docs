@@ -8,7 +8,7 @@ ms.topic: overview
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-#customer-intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
+# Customer intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
 # Upgrading a basic public IP address to Standard SKU - Guidance
