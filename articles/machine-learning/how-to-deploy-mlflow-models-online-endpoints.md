@@ -1,14 +1,14 @@
 ---
-title: Deploy MLflow models to online endpoint
+title: Deploy MLflow models to real-time endpoints
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your MLflow model as a web service that's automatically managed by Azure.
+description: Learn to deploy your MLflow model as a web service that's managed by Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
-ms.date: 01/22/2024
+ms.date: 01/31/2024
 ms.topic: how-to
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
 ---
@@ -22,7 +22,7 @@ In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model
 
 For no-code-deployment, Azure Machine Learning:
 
-* Dynamically installs Python packages provided in the `conda.yaml` file. Hence, dependencies are installed during container runtime.
+* Dynamically installs Python packages provided in the `conda.yaml` file. Hence, dependencies get installed during container runtime.
 * Provides an MLflow base image/curated environment that contains the following items:
     * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
@@ -31,13 +31,13 @@ For no-code-deployment, Azure Machine Learning:
 [!INCLUDE [mlflow-model-package-for-workspace-without-egress](includes/mlflow-model-package-for-workspace-without-egress.md)]
 
 
-## About this example
+## About the example
 
-This example shows how you can deploy an MLflow model to an online endpoint to perform predictions. This example uses an MLflow model based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables: age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from 442 diabetes patients. It also contains the response of interest, a quantitative measure of disease progression one year after baseline.
+The example shows how you can deploy an MLflow model to an online endpoint to perform predictions. The example uses an MLflow model that's based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables: age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from 442 diabetes patients. It also contains the response of interest, a quantitative measure of disease progression one year after baseline.
 
 The model was trained using a `scikit-learn` regressor, and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo, and then change directories to `cli` if you're using the Azure CLI or `sdk/python/endpoints/online/mlflow` if you're using the Azure Machine Learning SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo, and then change directories to `cli`, if you're using the Azure CLI. If you're using the Azure Machine Learning SDK for Python, change directories to `sdk/python/endpoints/online/mlflow`.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -199,13 +199,13 @@ To create a model in Azure Machine Learning studio:
 
 ---
 
-__What if your model was logged inside of a run?__ 
+#### What if your model was logged inside of a run?
 
 If your model was logged inside of a run, you can register it directly.
 
-To register the model, you need to know the location where the model is stored. If you're using MLflow's `autolog` feature, the path to the model depends on the model type and framework. You should check the jobs output to identify the name of the model's folder. This folder contains a file named `MLModel`.
+To register the model, you need to know the location where it is stored. If you're using MLflow's `autolog` feature, the path to the model depends on the model type and framework. You should check the jobs output to identify the name of the model's folder. This folder contains a file named `MLModel`.
 
-If you're logging your models manually, using the `log_model` method, then the path to the model is the argument you pass to the method. For example, if you log the model, using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is called `classifier`.
+If you're using the `log_model` method to manually log your models, then pass the path to the model as the argument to the method. For example, if you log the model, using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is called `classifier`.
 
 # [Azure CLI](#tab/cli)
 
@@ -403,7 +403,7 @@ version = registered_model.version
     ---
     
     > [!NOTE]
-    > Autogeneration of `scoring_script` and `environment` are only supported for `pyfunc` model flavor. To use a different flavor, see [Customizing MLflow model deployments](#customizing-mlflow-model-deployments).
+    > Autogeneration of the `scoring_script` and `environment` are only supported for `pyfunc` model flavor. To use a different model flavor, see [Customizing MLflow model deployments](#customize-mlflow-model-deployments).
 
 1. Create the deployment:
     
@@ -440,10 +440,10 @@ version = registered_model.version
 
         :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
 
-    1. Choose the MLflow model that you registered previously and select the **Select** button.
+    1. Choose the MLflow model that you registered previously, then select the **Select** button.
     
         > [!NOTE]
-        > The configuration page includes a note that says the the scoring script and environment are auto generated for your selected MLflow model.
+        > The configuration page includes a note to inform you that the the scoring script and environment are auto generated for your selected MLflow model.
 
     1. Select **New** to deploy to a new endpoint.
     1. Provide a name for the endpoint and deployment or keep the default names.
@@ -456,7 +456,7 @@ version = registered_model.version
 
     # [Azure CLI](#tab/cli)
     
-    *This step in not required in the Azure CLI since you used the `--all-traffic` flag during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained a in the [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic) section.*
+    *This step in not required in the Azure CLI, since you used the `--all-traffic` flag during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic`. For more information on how to update traffic, see [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
@@ -485,8 +485,8 @@ version = registered_model.version
 1. Update the endpoint configuration:
 
     # [Azure CLI](#tab/cli)
-    
-    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic` as explained at [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
+
+    *This step in not required in the Azure CLI, since you used the `--all-traffic` flag during creation. If you need to change traffic, you can use the command `az ml online-endpoint update --traffic`. For more information on how to update traffic, see [Progressively update traffic](how-to-deploy-mlflow-models-online-progressive.md#progressively-update-the-traffic).*
     
     # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
@@ -507,18 +507,18 @@ version = registered_model.version
 
     *This step in not required in the studio.*
 
-### Invoke the endpoint
+## Invoke the endpoint
 
-Once your deployment completes, your deployment is ready to serve request. One of the easier ways to test the deployment is by using the built-in invocation capability in the deployment client you are using.
+Once your deployment is ready, you can use it to serve request. One way to test the deployment is by using the built-in invocation capability in the deployment client you are using. The following JSON is a sample request for the deployment.
 
 **sample-request-sklearn.json**
 
 :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/ncd/sample-request-sklearn.json":::
 
 > [!NOTE]
-> Notice how the key `input_data` has been used in this example instead of `inputs` as used in MLflow serving. This is because Azure Machine Learning requires a different input format to be able to automatically generate the swagger contracts for the endpoints. See [Differences between models deployed in Azure Machine Learning and MLflow built-in server](how-to-deploy-mlflow-models.md#models-deployed-in-azure-machine-learning-vs-models-deployed-in-the-mlflow-built-in-server) for details about expected input format.
+>`input_data` is used in this example, instead of `inputs` that is used in MLflow serving. This is because Azure Machine Learning requires a different input format to be able to automatically generate the swagger contracts for the endpoints. For more information about expected input formats, see [Differences between models deployed in Azure Machine Learning and MLflow built-in server](how-to-deploy-mlflow-models.md#models-deployed-in-azure-machine-learning-vs-models-deployed-in-the-mlflow-built-in-server).
 
-To submit a request to the endpoint, you can do as follows:
+Submit a request to the endpoint as follows:
 
 # [Azure CLI](#tab/cli)
 
@@ -548,10 +548,10 @@ deployment_client.predict(endpoint=endpoint_name, df=samples)
 
 MLflow models can use the __Test__ tab to create invocations to the created endpoints. To do that:
 
-1. Go to the __Endpoints__ tab and select the new endpoint created.
+1. Go to the __Endpoints__ tab and select the endpoint you created.
 1. Go to the __Test__ tab.
 1. Paste the content of the file `sample-request-sklearn.json`.
-1. Click on __Test__.
+1. Select __Test__.
 1. The predictions will show up in the box on the right.
 
 ---
@@ -569,7 +569,7 @@ The response will be similar to the following text:
 > For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
 
-## Customizing MLflow model deployments
+## Customize MLflow model deployments
 
 MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt to customize how inference is executed.
 
