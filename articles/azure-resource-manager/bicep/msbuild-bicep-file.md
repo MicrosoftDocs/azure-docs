@@ -108,13 +108,13 @@ The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) v
   </PropertyGroup>
   ```
 
-### Project file samples
+### Project file examples
 
-The following samples show how to configure C# console application project files for converting Bicep files and Bicep parameter files to JSON. Replace `__LATEST_VERSION__` with the latest version of the [Bicep NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/) in the following samples. See [MSBuild tasks and Bicep packages](#msbuild-tasks-and-bicep-packages) for finding the latest version.
+The following examples show how to configure C# console application project files for converting Bicep files and Bicep parameter files to JSON. Replace `__LATEST_VERSION__` with the latest version of the [Bicep NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/) in the following examples. See [MSBuild tasks and Bicep packages](#msbuild-tasks-and-bicep-packages) for finding the latest version.
 
-#### SDK-based sample
+#### SDK-based example
 
-The .NET Core 3.1 and .NET 6 samples are similar. But .NET 6 uses a different format for the _Program.cs_ file. For more information, see [.NET 6 C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
+The .NET Core 3.1 and .NET 6 examples are similar. But .NET 6 uses a different format for the _Program.cs_ file. For more information, see [.NET 6 C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
 
 <a id="net-6"></a>
 - **.NET 6**
@@ -199,7 +199,7 @@ The latest `Microsoft.Build.NoTargets` version can be found at [https://www.nuge
 <a id="classic-framework"></a>
 #### Classic framework example
 
-Use the classic example only if the previous samples don't work for you. In this example, the `ProjectGuid`, `RootNamespace` and `AssemblyName` properties contain placeholder values. When you create a project file, a unique GUID is created, and the name values match your project's name.
+Use the classic example only if the previous examples don't work for you. In this example, the `ProjectGuid`, `RootNamespace` and `AssemblyName` properties contain placeholder values. When you create a project file, a unique GUID is created, and the name values match your project's name.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -293,7 +293,7 @@ Build a project in .NET with the dotnet CLI.
 
     The command creates a project file using the same name as your directory, _msBuildDemo.csproj_. For more information about how to create a console application from Visual Studio Code, see the [tutorial](/dotnet/core/tutorials/with-visual-studio-code).
 
-1. Open _msBuildDemo.csproj_ with an editor, and replace the content with the [.NET 6](#net-6) or [NoTargets SDK](#notargets-sdk) sample, and also replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
+1. Open _msBuildDemo.csproj_ with an editor, and replace the content with the [.NET 6](#net-6) or [NoTargets SDK](#notargets-sdk) example, and also replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
 1. Save the file.
 
 # [.NET Core 3.1](#tab/netcore31)
@@ -316,7 +316,7 @@ Build a project in .NET Core 3.1 using the dotnet CLI.
 
     The project file is named the same as your directory, _msBuildDemo.csproj_. For more information about how to create a console application from Visual Studio Code, see the [tutorial](/dotnet/core/tutorials/with-visual-studio-code).
 
-1. Replace the contents of _msBuildDemo.csproj_ with the [.NET Core 3.1](#net-core-31) or [NoTargets SDK](#notargets-sdk) sample.
+1. Replace the contents of _msBuildDemo.csproj_ with the [.NET Core 3.1](#net-core-31) or [NoTargets SDK](#notargets-sdk) example.
 1. Replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
 1. Save the file.
 
@@ -337,7 +337,7 @@ To create the project file and dependencies, use Visual Studio.
 If you know how to unload a project and reload a project, you can edit _msBuildDemo.csproj_ in Visual Studio. Otherwise, edit the project file in Visual Studio Code.
 
 1. Open Visual Studio Code and go to the _msBuildDemo_ directory.
-1. Replace _msBuildDemo.csproj_ with the [Classic framework](#classic-framework) code sample.
+1. Replace _msBuildDemo.csproj_ with the [Classic framework](#classic-framework) code example.
 1. Replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
 1. Save the file.
 
@@ -417,7 +417,7 @@ Run MSBuild to convert the Bicep file and the Bicep parameter file to JSON.
     dotnet restore .\msBuildDemo.csproj
     ```
 
-1. Go to the output directory and open the _main.json_ file that should look like the sample.
+1. Go to the output directory and open the _main.json_ file that should look like the following example.
 
     MSBuild creates an output directory based on the SDK or framework version:
 
