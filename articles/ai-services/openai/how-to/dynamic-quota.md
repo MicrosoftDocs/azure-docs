@@ -56,7 +56,7 @@ To use dynamic quota, you must:
 
 To activate dynamic quota for your deployment, you can go to the advanced properties in the resource configuration, and switch it on:
 
-:::image type="content" source="../media/how-to/dynamic-quota/dynamic-quota.png" alt-text="Screenshot of advanced configuration UI for deployments" lightbox="../media/how-to/dynamic-quota/dynamic-quota.png":::
+:::image type="content" source="../media/how-to/dynamic-quota/dynamic-quota.png" alt-text="Screenshot of advanced configuration UI for deployments." lightbox="../media/how-to/dynamic-quota/dynamic-quota.png":::
 
 Alternatively, you can enable it programmatically with Azure CLI's [`az rest`](/cli/azure/reference-index?view=azure-cli-latest#az-rest&preserve-view=true):
 
@@ -71,7 +71,7 @@ az rest --method patch --url "https://management.azure.com/subscriptions/{subscr
 To monitor how it's working, you can track the throughput of your application in Azure Monitor. During the Preview of dynamic quota, there's no specific metric or log to indicate if quota has been dynamically increased or decreased.
 dynamic quota is less likely to be engaged for your deployment if it runs in heavily utilized regions, and during peak hours of use for those regions.
 
-## Next Steps
+## Next steps
 
 * Learn more about how [quota works](./quota.md).
 * Learn more about [monitoring Azure OpenAI](./monitoring.md).
