@@ -46,7 +46,7 @@ order by run_id desc
 
 ## User-Defined Restore Points
 
-This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](#delete-user-defined-restore-points) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.synapse/new-azsynapsesqlpoolrestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) or the Azure portal.
+This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](#delete-user-defined-restore-points) before creating another restore point. You can trigger snapshots to create user-defined restore points by using the Azure portal or programmatically by using the [PowerShell or REST APIs](#create-user-defined-restore-points)
 
 > [!NOTE]
 > If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8).
@@ -59,10 +59,21 @@ This feature enables you to manually trigger snapshots to create restore points 
 > 
 > If you need an active copy of the restored data warehouse, you can resume, which should take only a few minutes.
 
+### Create User Defined Restore Points
+
+To create a new user-defined restore point programmatically, verify the below methods. It is crucial to use the correct method based on the SQL Pool you are using—either a formerly SQL DW or a SQL Pool within a Synapse workspace.
+
+**Azure PowerShell**
+- For dedicated SQL pool (formerly SQL DW), use [New-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/new-azsqldatabaserestorepoint)
+- For dedicated SQL pool (within Synapse workspace), use [New-AzSynapseSqlPoolRestorePoint](/powershell/module/az.synapse/new-azsynapsesqlpoolrestorepoint)
+
+**REST APIs**
+- For dedicated SQL pool (formerly SQL DW), use [Restore Points - Create](/rest/api/sql/restore-points/create)
+- For dedicated SQL pool (within Synapse workspace), use [Sql Pool Restore Points - Create](/rest/api/synapse/resourcemanager/sql-pool-restore-points/create)
+
 ### Delete User Defined Restore Points
 
 To delete a specific user-defined restore point programmatically, verify the below methods. It is crucial to use the correct method based on the SQL Pool you are using—either a formerly SQL DW or a SQL Pool within a Synapse workspace.
-
 
 **Azure PowerShell**
 - For dedicated SQL pool (formerly SQL DW), use [Remove-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/remove-azsqldatabaserestorepoint)
