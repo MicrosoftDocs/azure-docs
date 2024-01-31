@@ -214,5 +214,5 @@ If you would like to optimize server cost, you can consider following tips:
 
 ## Next steps
 
-- Learn how to [create a Azure Database for MySQL flexible server instance in the portal](quickstart-create-server-portal.md).
+- Learn how to [create an Azure Database for MySQL flexible server instance in the portal](quickstart-create-server-portal.md).
 - Learn about [service limitations](concepts-limitations.md).
