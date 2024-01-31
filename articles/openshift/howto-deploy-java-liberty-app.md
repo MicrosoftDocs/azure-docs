@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 01/31/2024
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java
 ---
 
@@ -12,30 +12,28 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift (ARO) using the Azure portal.
 
-This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to ARO. The offer automatically provisions a number of resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operator, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
+This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to ARO. The offer automatically provisions several resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operator, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
 [!INCLUDE [aro-support](includes/aro-support.md)]
 
-## Prerequisites
-
 [!INCLUDE [aro-quota](includes/aro-quota.md)]
 
-Complete the following prerequisites to successfully use this guide.
+## Prerequisites
 
-1. Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
-1. Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
-1. Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-1. Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.31.0 or later.
-1. Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+- A local machine with a Unix-like operating system installed (for example, Ubuntu, Azure Linux, or macOS, Windows Subsystem for Linux).
+- A Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+- [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or higher.
+- [Docker](https://docs.docker.com/get-docker/) for your OS.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.31.0 or higher.
+- The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 ## Get a Red Hat pull secret
 
 The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional) section of [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx). To get the pull secret for use, follow the steps in this section.
 
-Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You may need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
+Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You might need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
 
 :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png":::
 
@@ -55,7 +53,7 @@ Save the secret to a file so you can use it later.
 
 ## Create a Microsoft Entra service principal from the Azure portal
 
-The Azure Marketplace offer you're going to use in this article requires a Microsoft Entra service principal to deploy your Azure Red Hat OpenShift cluster. The offer assigns the service principal with proper privileges during deployment time, with no role assignment needed. If you have a service principal ready to use, skip this section and move on to the next section, where you'll deploy the offer.
+The Azure Marketplace offer you're going to use in this article requires a Microsoft Entra service principal to deploy your Azure Red Hat OpenShift cluster. The offer assigns the service principal with proper privileges during deployment time, with no role assignment needed. If you have a service principal ready to use, skip this section and move on to the next section, where you deploy the offer.
 
 Use the following steps to deploy a service principal and get its Application (client) ID and secret from the Azure portal. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azureportal).
 
@@ -70,7 +68,7 @@ Use the following steps to deploy a service principal and get its Application (c
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/azure-portal-create-service-principal.png" alt-text="Screenshot of Azure portal showing the Register an application page." lightbox="media/howto-deploy-java-liberty-app/azure-portal-create-service-principal.png":::
 
-1. Save the Application (client) ID from the overview page, as shown in the following screenshot. Hover the pointer over the value (redacted in the screenshot) and select the copy icon that appears. The tooltip will say **Copy to clipboard**. Be careful to copy the correct value, since the other values in that section also have copy icons. Save the Application ID to a file so you can use it later.
+1. Save the Application (client) ID from the overview page, as shown in the following screenshot. Hover the pointer over the value (redacted in the screenshot) and select the copy icon that appears. The tooltip says **Copy to clipboard**. Be careful to copy the correct value, since the other values in that section also have copy icons. Save the Application ID to a file so you can use it later.
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/azure-portal-obtain-service-principal-client-id.png" alt-text="Screenshot of Azure portal showing service principal client ID." lightbox="media/howto-deploy-java-liberty-app/azure-portal-obtain-service-principal-client-id.png":::
 
@@ -79,9 +77,9 @@ Use the following steps to deploy a service principal and get its Application (c
    1. Select **Certificates & secrets**.
    1. Select **Client secrets**, then **New client secret**.
    1. Provide a description of the secret and a duration. When you're done, select **Add**.
-   1. After the client secret is added, the value of the client secret is displayed. Copy this value because you won't be able to retrieve it later.
+   1. After the client secret is added, the value of the client secret is displayed. Copy this value because you can't retrieve it later.
 
-You've now created your Microsoft Entra application, service principal, and client secret.
+You now have a Microsoft Entra application, service principal, and client secret.
 
 ## Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift
 
@@ -135,19 +133,19 @@ The following steps show you how to fill out the **Operator and application** pa
 
 1. Track the progress of the deployment on the **Deployment is in progress** page.
 
-Depending on network conditions and other activity in your selected region, the deployment may take up to 40 minutes to complete.
+Depending on network conditions and other activity in your selected region, the deployment might take up to 40 minutes to complete.
 
 ## Verify the functionality of the deployment
 
-The steps in this section show you how to verify that the deployment has successfully completed.
+The steps in this section show you how to verify that the deployment completed successfully.
 
-If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5.
+If you navigated away from the **Deployment is in progress** page, the following steps show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5.
 
-1. In the upper left corner of any portal page, select the hamburger menu and then select **Resource groups**.
+1. In the corner of any portal page, select the hamburger menu and then select **Resource groups**.
 
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
 
-1. In the navigation pane, in the **Settings** section, select **Deployments**. You'll see an ordered list of the deployments to this resource group, with the most recent one first.
+1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
 
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown in the following screenshot.
 
@@ -155,7 +153,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information.
 
-1. Open your terminal and paste the value from the **cmdToGetKubeadminCredentials** field. You'll see the admin account and credential for logging in to the OpenShift cluster console portal. The following content is an example of an admin account.
+1. Open your terminal and paste the value from the **cmdToGetKubeadminCredentials** field. You see the admin account and credential for logging in to the OpenShift cluster console portal. The following content is an example of an admin account.
 
    ```bash
    az aro list-credentials --resource-group abc1228rg --name clusterf9e8b9
@@ -167,17 +165,17 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. Paste the value from the **clusterConsoleUrl** field into an Internet-connected web browser, and then press <kbd>Enter</kbd>. Fill in the admin user name and password and sign in.
 
-1. Verify the appropriate Kubernetes operator for Liberty has been installed. In the left navigation pane, select **Operators**, then **Installed Operators**, as shown in the following screenshot.
+1. Verify that the appropriate Kubernetes operator for Liberty is installed. In the navigation pane, select **Operators**, then **Installed Operators**, as shown in the following screenshot:
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png" alt-text="Screenshot of Red Hat OpenShift cluster console portal showing Installed Operators page." lightbox="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png":::
-   
-   Take note if you have installed the WebSphere Liberty operator or the Open Liberty operator. The operator variant will match what you selected at deployment time. If you selected **IBM Supported**, you will have the WebSphere Liberty operator. Otherwise you will have the Open Liberty operator. This is important to know in later steps.
+
+   Take note if you installed the WebSphere Liberty operator or the Open Liberty operator. The operator variant matches what you selected at deployment time. If you selected **IBM Supported**, you have the WebSphere Liberty operator. Otherwise you have the Open Liberty operator. This information is important to know in later steps.
 
 1. Download and install the OpenShift CLI `oc` by following steps in tutorial [Install the OpenShift CLI](tutorial-connect-cluster.md#install-the-openshift-cli), then return to this documentation.
 
-1. Switch to **Outputs** pane, copy the value from the **cmdToLoginWithKubeadmin** field and past it in your terminal. Run the command to login to the OpenShift cluster's API server. You should see the similar outputs in the console.
-   
-   ```text
+1. Switch to **Outputs** pane, copy the value from the **cmdToLoginWithKubeadmin** field, and then paste it in your terminal. Run the command to sign in to the OpenShift cluster's API server. You should see output similar to the following example in the console:
+
+   ```output
    Login successful.
 
    You have access to 71 projects, the list has been suppressed. You can list all projects with 'oc projects'
@@ -187,18 +185,18 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 ## Create an Azure SQL Database
 
-The following steps guide you through creating an Azure SQL Database single database for use with your app.
+The following steps guide you through creating an Azure SQL Database single database for use with your app:
 
-1. Create a single database in Azure SQL Database by following the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences in the box below. Return to this article after creating and configuring the database server.
+1. Create a single database in Azure SQL Database by following the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences described in the following note. Return to this article after creating and configuring the database server.
 
    > [!NOTE]
-   > At the **Basics** step, write down **Resource group**, **Database name**, **_\<server-name>_.database.windows.net**, **Server admin login**, and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
+   > At the **Basics** step, write down the values for **Resource group**, **Database name**, **_\<server-name>_.database.windows.net**, **Server admin login**, and **Password**. The database **Resource group** is referred to as `<db-resource-group>` later in this article.
    >
    > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
    > :::image type="content" source="media/howto-deploy-java-liberty-app/create-sql-database-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab of the Create SQL Database page with the Connectivity method and Firewall rules settings highlighted." lightbox="media/howto-deploy-java-liberty-app/create-sql-database-networking.png":::
 
-Now that the database and ARO cluster have been created, you can proceed to preparing ARO to host your WebSphere Liberty application.
+Now that you created the database and ARO cluster, you can prepare the ARO to host your WebSphere Liberty application.
 
 ## Configure and deploy the sample application
 
@@ -206,9 +204,7 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
-
-There are a few samples in the repository. We'll use *3-integration/connect-db/mssql/*. Here's the file structure of the application.
+Clone the sample code for this guide by using the following commands. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
 
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
@@ -216,7 +212,9 @@ cd open-liberty-on-aro/3-integration/connect-db/mssql
 git checkout 20240116
 ```
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
+
+There are a few samples in the repository. We use *3-integration/connect-db/mssql/*. Here's the file structure of the application:
 
 ```
 mssql
@@ -246,12 +244,12 @@ In directory *liberty/config*, the *server.xml* file is used to configure the DB
 
 ### Build the project
 
-Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aro*. You can do something similar for your application outside Maven if you prefer.
+Now that you gathered the necessary properties, you can build the application by using the following commands. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aro*. You can do something similar for your application outside Maven if you prefer.
 
 ```bash
 cd <path-to-your-repo>/3-integration/connect-db/mssql
 
-# The following variables will be used for deployment file generation into target.
+# The following variables are used for deployment file generation into target.
 export DB_SERVER_NAME=<server-name>.database.windows.net
 export DB_NAME=<database-name>
 export DB_USER=<server-admin-login>@<server-name>
@@ -262,20 +260,20 @@ mvn clean install
 
 ### (Optional) Test your project locally
 
-You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
+You can now run and test the project locally before deploying to Azure by using the following steps. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
 
-1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
+1. Start the application by using `liberty:run`, as shown in the following example. `liberty:run` also uses the environment variables defined in the previous section.
 
    ```bash
    cd <path-to-your-repo>/3-integration/connect-db/mssql
    mvn liberty:run
    ```
 
-1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` or `https://localhost:9443/` in your browser and verify the application is accessible and all functions are working.
+1. Verify that the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` or `https://localhost:9443/` in your browser and verify the application is accessible and all functions are working.
 
 1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
-Next, you can containerize your project using Docker and run it as a container locally before deploying to Azure.
+Next, use the following steps to containerize your project using Docker and run it as a container locally before deploying to Azure:
 
 1. Run the `docker build` command to build the image.
 
@@ -301,9 +299,9 @@ Next, you can containerize your project using Docker and run it as a container l
 
 ### Build image and push to the image stream
 
-When you're satisfied with the state of the application, you build the image remotely on the cluster by executing the following commands.
+When you're satisfied with the state of the application, you build the image remotely on the cluster by using the following steps.
 
-1. Identity the source directory and the Dockerfile.
+1. Use the following commands to identity the source directory and the Dockerfile:
 
    ```bash
    cd <path-to-your-repo>/3-integration/connect-db/mssql/target
@@ -315,19 +313,19 @@ When you're satisfied with the state of the application, you build the image rem
    # mv Dockerfile-ol Dockerfile
    ```
 
-1. Create an image stream.
+1. Use the following command to create an image stream:
 
    ```bash
    oc create imagestream javaee-cafe
    ```
 
-1. Create a build configuration that specifies the image stream tag of the build output.
+1. Use the following command to create a build configuration that specifies the image stream tag of the build output:
 
    ```bash
    oc new-build --name javaee-cafe-config --binary --strategy docker --to javaee-cafe:v1
    ```
 
-1. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
+1. Use the following command to start the build to upload local contents, containerize, and output to the image stream tag specified before:
 
    ```bash
    oc start-build javaee-cafe-config --from-dir . --follow
@@ -337,16 +335,16 @@ When you're satisfied with the state of the application, you build the image rem
 
 Use the following steps to deploy and test the application:
 
-1. Apply the DB secret.
+1. Use the following command to apply the DB secret:
 
    ```bash
    cd <path-to-your-repo>/3-integration/connect-db/mssql/target
    oc apply -f db-secret.yaml
    ```
 
-   You'll see the output `secret/db-secret-mssql created`.
+   You should see the output `secret/db-secret-mssql created`.
 
-1. Apply the deployment file.
+1. Use the following command to apply the deployment file:
 
    ```bash
    oc apply -f webspherelibertyapplication.yaml
@@ -356,7 +354,7 @@ Use the following steps to deploy and test the application:
 
    ```bash
    oc get pods -l app.kubernetes.io/name=javaee-cafe --watch
-   ``` 
+   ```
 
    You should see output similar to the following example to indicate that all the pods are running:
 
@@ -367,18 +365,18 @@ Use the following steps to deploy and test the application:
    javaee-cafe-67cdc95bc-h47qm   1/1     Running   0          29s
    ```
 
-1. Verify the results.
+1. Use the following steps to verify the results:
 
-   1. Get *host* of the Route resource deployed with the application
+   1. Use the following command to get the *host* of the Route resource deployed with the application:
 
       ```bash
       echo "route host: https://$(oc get route javaee-cafe --template='{{ .spec.host }}')"
-      ```    
+      ```
 
-   1. Copy the value of **route host** from the output, open it in your browser to test the application. If the web page doesn't render correctly, that's because the app is still starting in the background. Wait for a few minutes and then try again.
-   
+   1. Copy the value of `route host` from the output, then open it in your browser to test the application. If the web page doesn't render correctly, that's because the app is still starting in the background. Wait for a few minutes and then try again.
+
    1. Add and delete a few coffees to verify the functionality of the app and the database connection.
-   
+
       :::image type="content" source="media/howto-deploy-java-liberty-app/cafe-app-running.png" alt-text="Screenshot of the running app." lightbox="media/howto-deploy-java-liberty-app/cafe-app-running.png":::
 
 ## Clean up resources
