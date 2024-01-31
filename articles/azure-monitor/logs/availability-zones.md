@@ -34,7 +34,7 @@ A subset of the availability zones that support data resilience currently also s
 Azure Monitor creates Log Analytics workspaces in a shared cluster, unless you [set up a dedicated cluster](../logs/logs-dedicated-clusters.md) for your workspaces.
 
 ### Shared clusters (default)
-All shared cluster are in the following regions use availability zones. If your workspace is created in one of these regions, logs being stored are replicated across the region-specific zones (starting January 24).
+All shared clusters in the following regions use availability zones. If your workspace is in one of these regions, Azure Monitor replicates your logs across the region-specific zones, as of January 2024.
 
 * Canada Central
 * France Central
