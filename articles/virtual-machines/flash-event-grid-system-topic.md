@@ -15,11 +15,11 @@ Azure Event Grid is one solution offered by Flash. Flash is the internal name fo
 
 This article covers the use of Azure Event Grid system topics to monitor Azure Virtual Machine availability. For a general overview of Flash solutions, see the [Flash overview](flash-overview.md).
 
-For articles specific to the other solutions offered by Flash, choose from the following:
+For documentation specific to the other solutions offered by Flash, choose from the following articles:
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
 * [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
 
 ## Azure Event Grid system topic - HealthResources
 
@@ -73,4 +73,4 @@ To learn more about the solutions offered, proceed to corresponding solution art
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
 * [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)

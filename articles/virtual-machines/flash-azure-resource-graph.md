@@ -15,7 +15,7 @@ Azure Resource Graph is one solution offered by Flash. Flash is the internal nam
 
 This article covers the use of Azure Resource Graph to monitor Azure Virtual Machine availability. For a general overview of Flash solutions, see the [Flash overview](flash-overview.md).
 
-For articles specific to the other solutions offered by Flash, choose from the following:
+For documentation specific to the other solutions offered by Flash, choose from the following articles:
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)

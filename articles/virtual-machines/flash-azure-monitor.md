@@ -15,10 +15,10 @@ Azure Monitor is one solution offered by Flash. Flash is the internal name for a
 
 This article covers the use of the Azure Monitor VM availability metric to monitor Azure Virtual Machine availability. For a general overview of Flash solutions, see the [Flash overview](flash-overview.md).
 
-For articles specific to the other solutions offered by Flash, choose from the following:
+For documentation specific to the other solutions offered by Flash, choose from the following articles:
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
 * [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 
 ## Azure monitor - VM availability metric
@@ -63,5 +63,5 @@ We plan to include impact details (user vs platform initiated, planned vs unplan
 To learn more about the solutions offered, proceed to corresponding solution article:
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
 * [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)

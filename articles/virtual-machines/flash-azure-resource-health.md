@@ -15,9 +15,9 @@ Azure Resource Health is one solution offered by Flash. Flash is the internal na
 
 This article covers the use of Azure Resource Health to monitor Azure Virtual Machine availability. For a general overview of Flash solutions, see the [Flash overview](flash-overview.md).
 
-For articles specific to the other solutions offered by Flash, choose from the following:
+For documentation specific to the other solutions offered by Flash, choose from the following articles:
 * [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 
@@ -77,6 +77,6 @@ Identifying and communicating the root cause of any issues to our customers and 
 
 To learn more about the solutions offered, proceed to corresponding solution article:
 * [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)

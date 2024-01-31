@@ -34,7 +34,7 @@ The Flash initiative is dedicated to developing solutions over the years that ca
 ## Next steps
 
 To learn more about the solutions offered, proceed to corresponding solution article:
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)

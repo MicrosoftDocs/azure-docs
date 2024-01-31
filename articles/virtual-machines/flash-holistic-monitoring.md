@@ -15,8 +15,8 @@ Flash is the internal name for a project dedicated to building a robust, reliabl
 
 This article covers how to facilitate the holistic monitoring of Azure Virtual Machine availability. For a general overview of Flash solutions, see the [Flash overview](flash-overview.md).
 
-For articles specific to the other solutions offered by Flash, choose from the following:
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+For documentation specific to the other solutions offered by Flash, choose from the following articles:
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
@@ -34,7 +34,7 @@ To get started on your observability journey, you can explore the suite of Azure
 ## Next steps
 
 To learn more about the solutions offered, proceed to corresponding solution article:
-* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Azure Resource Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
