@@ -31,7 +31,8 @@ For a list of data stores that are supported as sources/sinks by the copy activi
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
-This connector currently supports MariaDB of version 10.0 to 10.5.
+This connector currently supports MariaDB of version 10.x, 11.x.
+This connector currently supports MariaDB of version 10.0 to 10.5 for the legacy driver version.
 
 ## Prerequisites
 
@@ -284,13 +285,15 @@ When copying data from MariaDB, the following mappings are used from MariaDB dat
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Migrate the MariaDB linked service
+## Upgrade the MariaDB driver version
 
 Migrating your MariaDB linked service is highly recommended if you use the legacy version. Take the following steps:
 
 1. Create a new MariaDB linked service and configure it by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 
 1. The data type mapping for the latest MariaDB linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
+
+1. More MariaDB versions are supported for the latest driver version. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
 
 ## Related content
 
