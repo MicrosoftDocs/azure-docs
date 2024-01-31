@@ -4,6 +4,7 @@ description: Establish high availability of IBM Db2 LUW on Azure virtual machine
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 keywords: 'SAP'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
