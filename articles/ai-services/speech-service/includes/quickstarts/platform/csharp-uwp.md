@@ -18,7 +18,7 @@ This guide shows how to create a Universal Windows Platform (UWP) project and in
 This guide requires:
 
 - [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing this file for the first time might require a restart.
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
+- [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 
 ## Create a Visual Studio project and install the Speech SDK
 
@@ -33,7 +33,7 @@ To create a Visual Studio project for UWP development, you need to:
 
 Make sure you're set up correctly in Visual Studio for UWP development:
 
-1. Open Visual Studio 2019 to display the start window.
+1. Open Visual Studio to display the start window.
 
 1. Select **Continue without code** to go to the Visual Studio IDE.
 
@@ -41,7 +41,7 @@ Make sure you're set up correctly in Visual Studio for UWP development:
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog box.
 
-1. On the **Workloads** tab, find the **Universal Windows Platform development** workload. If that workload is already selected, close the **Modifying** dialog box and go to step 7.
+1. On the **Workloads** tab, find the **Universal Windows Platform development** workload. If that workload is already selected, close the **Modifying** dialog box and close Visual Studio Installer
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png" alt-text="Screenshot that shows the Workloads tab of the Modifying dialog box, with the workload for Universal Windows Platform development highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png":::
 
