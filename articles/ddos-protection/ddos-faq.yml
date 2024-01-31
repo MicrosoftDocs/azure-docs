@@ -122,6 +122,6 @@ sections:
       
        - question: | 
            Which Azure DDoS Protection tier should I choose?
-         answer: | 
+        answer: |
            If you need to protect less than 15 public IP resources, the IP Protection tier is the more cost-effective option. If you have more than 15 public IP resources to protect, then the Network Protection tier is more cost-effective. Network Protection also offers additional features, including DDoS Protection Rapid Response (DRR), cost protection guarantees, and Web Application Firewall (WAF) discounts.
             
