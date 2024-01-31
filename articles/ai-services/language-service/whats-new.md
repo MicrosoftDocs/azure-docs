@@ -18,8 +18,6 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 
 ## Febuary 2024
 
-* Expanded support for [script detection](./language-detection/how-to/call-api.md#script-detection) according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924) is now Generally Available (GA).
-
 * Expanded [language detection](./language-detection/overview.md) support for additional scripts according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924) is now available starting in API version `2023-11-15-preview`.
 
 ## November 2023
