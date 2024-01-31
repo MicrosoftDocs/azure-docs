@@ -191,12 +191,10 @@ The following instructions apply for public **Azure Commercial clouds** only. Fo
    | - | - | - |
    | **Client ID** | Ignore this, you already have it. See **Audience** line below. |  |
    | **Provider type** | *OpenID Connect* | Instead of default *SAML*.|
-   | **Provider URL** | `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d/` |  |
+   | **Provider URL** | `https://sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` |  |
    | **Thumbprint** | `626d44e704d1ceabe3bf0d53397464ac8080142c` | If created in the IAM console, selecting **Get thumbprint** should give you this result. |
-   | **Audience** | `api://1462b192-27f7-4cb9-8523-0f4ecb54b47e` |  |
-   |
-      - *Click Add Provider* 
-
+   | **Audience** | `api://d4230588-5f84-4281-a9c7-2c15194b28f7` |  |
+   
    - *Create an assume role* 
       - *Go to AWS IAM Click on Roles. Click on Create role* 
       - *Select “Web Identity” as trusted entity* 
