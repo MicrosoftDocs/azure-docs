@@ -250,7 +250,7 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 + Use the [**@azure/search-documents 12.0.0-beta.4**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.4) package for vector scenarios.  
 
-+ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -604,4 +604,4 @@ Multiple sets are created if the query targets multiple vector fields, or if the
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/cazure-search-vector-samplesr/tree/main/demo-javascript).
+As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo).

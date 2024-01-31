@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/22/2024
 ms.author: radeltch
 ---
