@@ -87,7 +87,7 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    ```
 
    > [!NOTE]
-   > If you're using Github Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+   > If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
    >
    > * Open the codespace in VS Code desktop, and then run `az login` again in the browser terminal.
    > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
