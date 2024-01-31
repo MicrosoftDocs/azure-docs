@@ -11,8 +11,19 @@ ms.author: pgrandhi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Get the latest version of the [.NET Microsoft Azure EventGrid Management SDK](/azure/event-grid/sdk-overview).
-- Setup a way to authenticate to Azure with Azure Identity
+- Setup a way to authenticate to Azure with [Azure Identity](dotnet/api/overview/azure/identity-readme) library as described below.
 - An [Azure Communication Services resource](../../create-communication-resource.md).
+
+## Retreiving Communication Services ResourceId
+You will need to know the resourceId of your Azure Commmunication Services resource. This can be acquired from the portal:
+
+1. Login into your Azure account
+2. Select Resources in the left sidebar
+3. Select your Azure Communication Services resource
+4. Click on Overview and click on **JSON View**
+    :::image type="content" source="../media/subscribe-through-portal/resource-json-view.png" alt-text="Screenshot highlighting the JSON View button in the Overview tab in the Azure portal.":::
+5. Select the Copy button to copy the resourceId 
+    :::image type="content" source="../media/subscribe-through-portal/communication-services-resourceid.png" alt-text="Screenshot highlighting the ResourceID button in the JSON View in the Azure portal.":::
 
 ## Installing the SDK
 
@@ -28,17 +39,6 @@ using Microsoft.Azure.Management.EventGrid;
 using Microsoft.Azure.Management.EventGrid.Models;
 ```
 
-## Communication Services ResourceId
-You will need to know the resourceId of your Azure Commmunication Services resource. This can be acquired from the portal:
-
-1. Login into your Azure account
-2. Select Resources in the left sidebar
-3. Select your Azure Communication Services resource
-4. Click on Overview and click on **JSON View**
-    :::image type="content" source="../media/subscribe-through-portal/resource-json-view.png" alt-text="Screenshot highlighting the JSON View button in the Overview tab in the Azure portal.":::
-5. Select the Copy button to copy the resourceId 
-    :::image type="content" source="../media/subscribe-through-portal/communication-services-resourceid.png" alt-text="Screenshot highlighting the ResourceID button in the JSON View in the Azure portal.":::
-
 ## Authenticating with Azure Identity library
 
 ### Prerequisites:
@@ -48,8 +48,6 @@ You will need to know the resourceId of your Azure Commmunication Services resou
 4. Read more about authorizing access to Event Grid resources [here](/azure/event-grid/security-authorization). 
 
 The Azure Identity library provides Microsoft Entra ID (Formerly Azure Active Directory) token authentication support across the Azure SDK. It provides a set of TokenCredential implementations which can be used to construct Azure SDK clients which support Microsoft Entra token authentication. You can read more about it [here](/dotnet/api/overview/azure/identity-readme).
-
-The default option to create an authenticated client is to use DefaultAzureCredential. 
 
 1. Include the Azure Identity client library for .NET with [NuGet](https://www.nuget.org/):
 
@@ -64,7 +62,7 @@ using Microsoft.Azure.Identity;
 using Azure.Security.KeyVault.Secrets
 ```
 
-3. You can either pass the secret credentials or certificate credentials to get access token.
+3. You can either pass the secret credentials or certificate credentials to get access token based on how your Service Principal is configured.
 
 ```csharp
 // Authenticate the Keyvault client with DefaultAzureCredential and get secret/certificate
