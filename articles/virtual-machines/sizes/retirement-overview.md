@@ -16,15 +16,15 @@ ms.reviewer: iamwilliew
 
 ![A diagram showing a greyed out Azure VM icon with an arrow pointing to a new sparkling Azure VM icon.](./media/size-retirement-new-vm.png "Moving from old to new VM sizes")
 
-When hardware begins the retirement process, it is recommended to migrate workloads to newer generation hardware that provides better performance and reliability. This will help you to avoid any potential issues that may arise from using outdated hardware. By keeping your hardware up-to-date, you can ensure that your workloads are running smoothly and efficiently.
+When hardware begins the retirement process, it's recommended to migrate workloads to newer generation hardware that provides better performance and reliability. This helps you to avoid any potential issues that may arise from using outdated hardware. By keeping your hardware up-to-date, you can ensure that your workloads are running smoothly and efficiently.
 
 ## Previous-gen sizes
 
-Previous generation sizes **are not currently retired** and can still be used. These sizes are still fully supported, but they will not receive additional capacity. It is recommended to migrate to the latest generation replacements as soon as possible. For a list of sizes which are considered "previous-gen", see the [list of previous-gen sizes](./previous-gen-sizes-list.md). 
+Previous generation sizes **are not currently retired** and can still be used. These sizes are still fully supported, but they won't receive more capacity. It's recommended to migrate to the latest generation replacements as soon as possible. For a list of sizes that are considered "previous-gen", see the [list of previous-gen sizes](./previous-gen-sizes-list.md). 
 
 ## Retired sizes
 
-Retiring hardware is necessary over time to ensure that the latest and greatest technology is available on Azure. This ensures that the hardware is reliable, secure, and efficient. It also allows for the latest features and capabilities which may not be present on previous generations of hardware.
+Retiring hardware is necessary over time to ensure that the latest and greatest technology is available on Azure. This ensures that the hardware is reliable, secure, and efficient. It also allows for the latest features and capabilities that may not be present on previous generations of hardware.
 
 Retired sizes are **no longer available** and can't be used. For a list of retired sizes, see the [list of retired sizes](./retired-sizes-list.md).
 
