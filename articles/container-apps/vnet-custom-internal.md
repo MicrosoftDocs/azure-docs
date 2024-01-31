@@ -95,6 +95,7 @@ az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
   --name infrastructure-subnet \
+  --delegations Microsoft.Sql/managedInstances Microsoft.App/environments
   --address-prefixes 10.0.0.0/23
 ```
 
@@ -106,6 +107,13 @@ $SubnetArgs = @{
     AddressPrefix = '10.0.0.0/23'
 }
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
+
+$del = @{
+    Name = 'delegation'
+    ServiceName = 'Microsoft.App/environments'
+    Subnet = $subnet
+}
+$subnet = Add-AzDelegation @del
 ```
 
 ```azurepowershell-interactive
