@@ -72,7 +72,7 @@ This graphic and the following text show how the parts of this connector solutio
 
 - **In Microsoft Sentinel:**
 
-    - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. [See the instructions below]().
+    - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. [See the instructions below](#add-the-aws-role-and-queue-information-to-the-s3-data-connector).
 
 ## Automatic setup
 
