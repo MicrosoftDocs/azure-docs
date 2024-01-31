@@ -56,6 +56,8 @@ items:
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Remote Desktop App 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+  - name: Use multiple monitors
+    href: tutorial-configure-multiple-monitors.md
   - name: Troubleshoot dev box connectivity issues
     href: how-to-troubleshoot-repair-dev-box.md
 - name: Security
