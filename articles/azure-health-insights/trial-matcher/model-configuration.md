@@ -11,6 +11,8 @@ ms.date: 02/02/2023
 ms.author: behoorne
 ---
 
+
+
 # Trial Matcher model configuration
 
 The Trial Matcher includes a built-in Knowledge graph, which uses trials taken from [clinicaltrials.gov](https://clinicaltrials.gov/), and is being updated periodically. 
@@ -18,6 +20,8 @@ The Trial Matcher includes a built-in Knowledge graph, which uses trials taken f
 When you're matching patients to trials, you can define a list of filters to query a subset of clinical trials. Each filter can be defined based on ```trial conditions```, ```types```, ```recruitment statuses```, ```sponsors```, ```phases```, ```purposes```, ```facility names```, ```locations```, or ```trial IDs```.
 - Specifying multiple values for the same filter category results in a trial set that is a union of the two sets.
 
+> [!NOTE]
+> The examples below are based on API version: 2023-03-01-preview. 
 
 In the following configuration, the model queries trials that are in recruitment status ```recruiting``` or ```not yet recruiting```.
 
@@ -145,10 +149,8 @@ To provide a custom trial, the input to the Trial Matcher service should include
                "Id":"CustomTrial1",
                "EligibilityCriteriaText":"INCLUSION CRITERIA:\n\n  1. Patients diagnosed with Diabetes\n\n2. patients diagnosed with cancer\n\nEXCLUSION CRITERIA:\n\n1. patients with RET gene alteration\n\n 2. patients taking Aspirin\n\n3. patients treated with Chemotherapy\n\n",
                "Demographics":{
-                  "AcceptedGenders":[
-                     "Female"
-                  ],
-                  "AcceptedAgeRange":{
+                  "AcceptedSex":"female",
+                  "acceptedAgeRange":{
                      "MinimumAge":{
                         "Unit":"Years",
                         "Value":0
