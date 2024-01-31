@@ -4,7 +4,7 @@ description: Describes SAP HANA operations on Azure native VMs in one Azure regi
 author: msjuergent
 manager: patfilot
 tags: azure-resource-manager
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

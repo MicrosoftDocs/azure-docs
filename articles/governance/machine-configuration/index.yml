@@ -8,7 +8,6 @@ metadata:
   description: Landing page for the new Azure Automanage Machine Configuration service (formerly called Azure Policy Guest Configuration)
   ms.service: machine-configuration
   ms.topic: landing-page
-  ms.collection: collection
   author: michaeltlombardi
   ms.author: mlombardi
   ms.date: 08/01/2022

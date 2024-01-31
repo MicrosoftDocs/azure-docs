@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, contperf-fy22q2
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Azure Private Link for Azure Data Factory

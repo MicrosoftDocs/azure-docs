@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Use Terraform to create a Windows VM'
 description: In this quickstart, you learn how to use Terraform to create a Windows virtual machine
-author: ericd-mst-github
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/17/2023
-ms.author: erd
+ms.author: jushiman
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -78,6 +78,8 @@ In this article, you learn how to:
 ## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+Cost information isn't presented during the virtual machine creation process for Terraform like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 ## Verify the results
 

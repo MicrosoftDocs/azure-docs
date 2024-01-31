@@ -39,6 +39,8 @@ ms.custom: references_regions
 > - [Saudi Arabia](../concepts/numbers/phone-number-management-for-saudi-arabia.md)
 > - [Singapore](../concepts/numbers/phone-number-management-for-singapore.md)
 > - [Slovakia](../concepts/numbers/phone-number-management-for-slovakia.md)
+> - [Slovenia](../concepts/numbers/phone-number-management-for-slovenia.md)
+> - [South Africa](../concepts/numbers/phone-number-management-for-south-africa.md)
 > - [South Korea](../concepts/numbers/phone-number-management-for-south-korea.md)
 > - [Spain](../concepts/numbers/phone-number-management-for-spain.md)
 > - [Sweden](../concepts/numbers/phone-number-management-for-sweden.md)

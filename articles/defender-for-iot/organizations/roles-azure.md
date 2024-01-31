@@ -52,4 +52,4 @@ For more information, see:
 - [Manage OT monitoring users on the Azure portal](manage-users-portal.md)
 - [On-premises user roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
-- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
+- [Create and manage users on an on-premises management console](legacy-central-management/install-software-on-premises-management-console.md)

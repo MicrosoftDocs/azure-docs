@@ -21,7 +21,7 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 
 With the lifecycle management policy, you can:
 
-- Transition blobs from cool, or cold to hot immediately when they're accessed, to optimize for performance.
+- Transition blobs from cool to hot immediately when they're accessed, to optimize for performance.
 - Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost. 
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
 - Define rules to be run once per day at the storage account level.
@@ -130,7 +130,7 @@ The following sample rule filters the account to run the actions on objects that
 
 ### Rule filters
 
-Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters.
+Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude. 
 
 Filters include:
 

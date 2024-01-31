@@ -9,7 +9,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 01/19/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -29,12 +29,20 @@ This article contains both a quick reference and detailed description of Azure A
 
 ## Model usage
 
+:::moniker range="doc-intel-3.1.0"
+|Document types supported|Read|Layout|Prebuilt models|Custom models|
+|--|--|--|--|--|
+| PDF | ✔️ | ✔️ | ✔️ | ✔️ |
+| Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |
+| Office file types DOCX, PPTX, XLS | ✔️ | ✖️ | ✖️ | ✖️ |
+:::moniker-end
+
 :::moniker range="doc-intel-4.0.0"
 |Document types supported|Read|Layout|Prebuilt models|Custom models|
 |--|--|--|--|--|
 | PDF | ✔️ | ✔️ | ✔️ | ✔️ |
 | Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Office file types DOCX, PPT, XLS | ✔️ | ✔️ | ✖️ | ✖️ |
+| Office file types DOCX, PPTX, XLS | ✔️ | ✔️ | ✖️ | ✖️ |
 :::moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"

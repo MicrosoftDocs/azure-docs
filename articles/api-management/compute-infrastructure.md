@@ -4,7 +4,7 @@ description: Learn about the compute platform used to host your API Management s
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 12/19/2023
 ms.author: danlep
 ms.custom:
 ---
@@ -23,12 +23,11 @@ The following table summarizes the compute platforms currently used in the **Con
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
-| `stv2` or `stv2.1`<sup>1</sup>| Single-tenant v2 | Azure-allocated compute infrastructure that supports added resiliency and security features. See [What are the benefits of the `stv2` platform?](#what-are-the-benefits-of-the-stv2-platform) in this article. | Developer, Basic, Standard, Premium<sup>2</sup> |
+| `stv2`| Single-tenant v2 | Azure-allocated compute infrastructure that supports added resiliency and security features. See [What are the benefits of the `stv2` platform?](#what-are-the-benefits-of-the-stv2-platform) in this article. | Developer, Basic, Standard, Premium<sup>1</sup> |
 | `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium |
 | `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
-<sup>1</sup> `stv2.1` infrastructure provides higher performing CPU, increased RAM, and greater API Management capacity. Instances hosted on `stv2` platform may migrate automatically to `stv2.1` based on regional infrastructure availability. Customers cannot initiate migration from `stv2` to `stv2.1`.<br/>
-<sup>2</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
+<sup>1</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
 > [!NOTE]
 > Currently, the `stv2` platform isn't available in the following Azure regions: China East, China East 2, China North, China North 2.

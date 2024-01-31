@@ -2,7 +2,7 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 12/04/2023
+ms.date: 01/22/2024
 ms.author: davidsmatlak
 ms.custom: generated
 ---
@@ -111,6 +111,12 @@ standard, see
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Privileged Access |PA-7 |Follow just enough administration (least privilege) principle |[Audit usage of custom RBAC roles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
+|Logging and Threat Detection |LT-1 |Enable threat detection capabilities |[SQL server-targeted autoprovisioning should be enabled for SQL servers on machines plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6283572-73bb-4deb-bf2c-7a2b8f7462cb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_DFSQL_AMA_Migration_Audit.json) |
+|Logging and Threat Detection |LT-2 |Enable threat detection for identity and access management |[SQL server-targeted autoprovisioning should be enabled for SQL servers on machines plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6283572-73bb-4deb-bf2c-7a2b8f7462cb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_DFSQL_AMA_Migration_Audit.json) |
+|Incident Response |IR-3 |Detection and analysis - create incidents based on high-quality alerts |[SQL server-targeted autoprovisioning should be enabled for SQL servers on machines plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6283572-73bb-4deb-bf2c-7a2b8f7462cb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_DFSQL_AMA_Migration_Audit.json) |
+|Incident Response |IR-3 |Detection and analysis - create incidents based on high-quality alerts |[SQL server-targeted autoprovisioning should be enabled for SQL servers on machines plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6283572-73bb-4deb-bf2c-7a2b8f7462cb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_DFSQL_AMA_Migration_Audit.json) |
+|Incident Response |AIR-5 |Detection and analysis - prioritize incidents |[SQL server-targeted autoprovisioning should be enabled for SQL servers on machines plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6283572-73bb-4deb-bf2c-7a2b8f7462cb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_DFSQL_AMA_Migration_Audit.json) |
+|Incident Response |AIR-5 |Detection and analysis - prioritize incidents |[SQL server-targeted autoprovisioning should be enabled for SQL servers on machines plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6283572-73bb-4deb-bf2c-7a2b8f7462cb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_DFSQL_AMA_Migration_Audit.json) |
 
 ## New Zealand ISM Restricted
 

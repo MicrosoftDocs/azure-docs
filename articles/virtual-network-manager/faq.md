@@ -91,7 +91,7 @@ You can view Azure Virtual Network Manager settings under **Network Manager** fo
 
 Should a regional outage occur, all configurations applied to current resources managed persist, and you can't modify existing configurations, or create new configuration.
 
-### Can a virtual network managed by Azure Virtual Network Manager be peered to a nonmanaged virtual network?
+### Can a virtual network managed by Azure Virtual Network Manager be peered to a non-managed virtual network?
 
 Yes, Azure Virtual Network Manager is fully compatible with pre-existing hub and spoke topology deployments using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
 
@@ -102,6 +102,11 @@ Yes, migrating existing VNets to AVNM’s hub and spoke topology is easy and req
 ### How do connected groups differ from virtual network peering regarding establishing connectivity between virtual networks?
 
 In Azure, virtual network peering and connected groups are two methods of establishing connectivity between virtual networks (VNets). While virtual network peering works by creating a 1:1 mapping between each peered virtual network, connected groups use a new construct that establishes connectivity without such a mapping. In a connected group, all virtual networks are connected without individual peering relationships.  For example, if VNetA, VNetB, and VNetC are part of the same connected group, connectivity is enabled between each virtual network without the need for individual peering relationships.
+
+
+### Can I create exceptions to security admin rules?
+
+Normally, security admin rules will be defined to block traffic across virtual networks. However, there are times when certain virtual networks and their resources need to allow traffic for management or other processes. For these scenarios,you can [create exceptions](./concept-enforcement.md#network-traffic-enforcement-and-exceptions-with-security-admin-rules) where needed. Learn how to [blocking high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these types of scenarios.
 
 ### How can I deploy multiple security admin configurations to a region?
 
@@ -143,7 +148,8 @@ Azure SQL Managed Instance has some network requirements. These are enforced thr
 
 #### Are you applying security rules to a virtual network or subnet that contains services blocking security configuration rules?
 
-Certain services such as Azure SQL Managed Instance, Azure Databricks and Azure Application Gateway require specific network requirements to function propertly. By default, security admin rule application is skipped on [VNets and subnets containing any of these services](./concept-security-admins.md#nonapplication-of-security-admin-rules). Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules by setting the security configurations' `AllowRulesOnly`field on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` .NET class.
+
+Certain services such as Azure SQL Managed Instance, Azure Databricks and Azure Application Gateway require specific network requirements to function properly. By default, security admin rule application is skipped on [VNets and subnets containing any of these services](./concept-security-admins.md#nonapplication-of-security-admin-rules). Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules by setting the security configurations' `AllowRulesOnly`field on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` .NET class.
 
 ## Limits
 

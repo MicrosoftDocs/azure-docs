@@ -262,14 +262,18 @@ The following example Azure Resource Manager template creates an event-driven jo
     "properties": {
         "configuration": {
             "eventTriggerConfig": {
-                "maxExecutions": 10,
-                "minExecutions": 0,
                 "scale": {
+                    "maxExecutions": 10,
+                    "minExecutions": 0,
+                    "pollingInterval": 15,
                     "rules": [
                         {
-                            "auth": {
-                                "connection": "connection-string-secret"
-                            },
+                            "auth": [
+                                {
+                                    "triggerParameter": "connection",
+                                    "secretRef": "connection-string-secret"
+                                }
+                            ],
                             "metadata": {
                                 "accountName": "mystorage",
                                 "queueLength": 1,
@@ -278,7 +282,7 @@ The following example Azure Resource Manager template creates an event-driven jo
                             "name": "queue",
                             "type": "azure-queue"
                         }
-                    ],
+                    ]
                 }
             },
             "replicaRetryLimit": 0,
@@ -347,7 +351,7 @@ To authenticate the request, replace `<TOKEN>` in the `Authorization` header wit
 
 # [Azure portal](#tab/azure-portal)
 
-Starting a job execution using the Azure portal isn't supported.
+To start a job execution in the Azure portal, select **Run now** in the job's overview page.
 
 ---
 
@@ -421,7 +425,7 @@ Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Auth
 
 # [Azure portal](#tab/azure-portal)
 
-Starting a job execution using the Azure portal isn't supported.
+Starting a job execution with an overridden configuration isn't supported in the Azure portal.
 
 ---
 

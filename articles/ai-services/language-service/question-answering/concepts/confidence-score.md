@@ -8,7 +8,7 @@ author: jboback
 ms.author: jboback
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
@@ -23,7 +23,7 @@ The following table indicates typical confidence associated for a given score.
 |Score Value|Score Meaning|Example Query|
 |--|--|--|
 |0.90 - 1.00|A near exact match of user query and a KB question|
-|> 70|High confidence - typically a good answer that completely answers the user's query|
+|> 0.70|High confidence - typically a good answer that completely answers the user's query|
 |0.50 - 0.70|Medium confidence - typically a fairly good answer that should answer the main intent of the user query|
 |0.30 - 0.50|Low confidence - typically a related answer, that partially answers the user's intent|
 |< 0.30|Very low confidence - typically does not answer the user's query, but has some matching words or phrases |

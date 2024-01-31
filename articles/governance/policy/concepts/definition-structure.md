@@ -3,8 +3,6 @@ title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
 ms.date: 08/15/2023
 ms.topic: conceptual
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 
 # Azure Policy definition structure
@@ -148,7 +146,8 @@ The following Resource Provider modes are fully supported:
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
 - `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
-- `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allow list.
+- `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allow list. This RP mode is enforcement only and does not report compliance in public preview.
+- `Microsoft.MachineLearningServices.v2.Data` for managing [Azure Machine Learning](../../../machine-learning/overview-what-is-azure-machine-learning.md) model deployments. This RP mode reports compliance for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned will not report compliance.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -513,16 +512,32 @@ certain criteria can be formed using a **field** expression. The following field
     apostrophes.
   - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
   - Example: `tags['''My.Apostrophe.Tag''']` where **'My.Apostrophe.Tag'** is the name of the tag.
+
+  > [!NOTE]
+  > `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
+  > declaring a tags field. However, the preferred expressions are those listed above.
 - property aliases - for a list, see [Aliases](#aliases).
+  > [!NOTE]
+  > In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
+  > individually with logical **and** between elements. For more information, see
+  > [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
-> [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
-> declaring a tags field. However, the preferred expressions are those listed above.
 
-> [!NOTE]
-> In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
-> individually with logical **and** between elements. For more information, see
-> [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+Conditions that use `field` expressions can replace the legacy policy definition syntax `"source": "action"`, which used to work for write operations. For example, this is no longer supported:
+```json
+{
+    "source": "action",
+    "like": "Microsoft.Network/publicIPAddresses/*"
+}
+```
+
+But the desired behavior can be achieved using `field` logic:
+```json
+{
+    "field": "type",
+    "equals": "Microsoft.Network/publicIPAddresses"
+}
+```
 
 #### Use tags with parameters
 
@@ -1029,6 +1044,8 @@ within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - dateTimeAdd()
+- dateTimeFromEpoch
+- dateTimeToEpoch
 - deployment()
 - environment()
 - extensionResourceId()
@@ -1046,7 +1063,6 @@ within a policy rule, except the following functions and user-defined functions:
 - subscriptionResourceId()
 - tenantResourceId()
 - tenant()
-- utcNow(format)
 - variables()
 
 > [!NOTE]

@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/28/2023
+ms.date: 01/11/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -22,6 +22,7 @@ Both share-level and file/directory-level permissions are enforced when a user a
 > To configure Windows ACLs, you'll need a client machine running Windows that has unimpeded network connectivity to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, this means you'll need unimpeded network connectivity to the on-premises AD. If you're using Microsoft Entra Domain Services, then the client machine must have unimpeded network connectivity to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -78,6 +79,9 @@ There are two approaches you can take to configuring and editing Windows ACLs:
 - **Log in with username and storage account key every time**: Anytime you want to configure ACLs, mount the file share by using your storage account key on a machine that has unimpeded network connectivity to the domain controller.
 
 - **One-time username/storage account key setup:**
+> [!NOTE]
+> This setup works for newly created file shares because any new file/directory will inherit the configured root permission. For file shares migrated along with existing ACLs, this approach might not work because the migrated files don't inherit the configured root ACL.
+
   1. Log in with a username and storage account key on a machine that has unimpeded network connectivity to the domain controller, and give some users (or groups) permission to edit permissions on the root of the file share.
   2. Assign those users the **Storage File Data SMB Share Elevated Contributor** Azure RBAC role.
   3. In the future, anytime you want to update ACLs, you can use one of those authorized users to log in from a machine that has unimpeded network connectivity to the domain controller and edit ACLs.
@@ -103,6 +107,8 @@ You can configure the Windows ACLs using either [icacls](#configure-windows-acls
 > If your environment has multiple AD DS forests, don't use Windows Explorer to configure ACLs. Use icacls instead.
 
 If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
+
+Remember to sync your identities in order for the set permissions to take effect. You can set ACLs for not-synced identities, but these ACLs won't be enforced because the not-synced identities won't be present in the Kerberos ticket used for authentication/authorization.
 
 ### Configure Windows ACLs with icacls
 

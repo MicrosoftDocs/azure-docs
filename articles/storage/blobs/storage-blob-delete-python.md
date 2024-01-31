@@ -37,11 +37,11 @@ To delete a blob, call the following method:
 
 The following example deletes a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-delete-blobs.py" id="Snippet_delete_blob":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_blobs.py" id="Snippet_delete_blob":::
 
 If the blob has any associated snapshots, you must delete all of its snapshots to delete the blob. The following example deletes a blob and its snapshots:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-delete-blobs.py" id="Snippet_delete_blob_snapshots":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_blobs.py" id="Snippet_delete_blob_snapshots":::
 
 To delete *only* the snapshots and not the blob itself, you can pass the parameter `delete_snapshots="only"`.
 
@@ -64,7 +64,7 @@ To restore deleted blobs when versioning is disabled, call the following method:
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-delete-blobs.py" id="Snippet_restore_blob":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_blobs.py" id="Snippet_restore_blob":::
 
 #### Restore soft-deleted objects when versioning is enabled
 
@@ -74,7 +74,7 @@ If a storage account is configured to enable blob versioning, deleting a blob ca
 
 The following code example gets the latest version of a deleted blob, and restores the latest version by copying it to the base blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-delete-blobs.py" id="Snippet_restore_blob_version":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_blobs.py" id="Snippet_restore_blob_version":::
 
 ## Delete a blob asynchronously
 
@@ -93,11 +93,11 @@ Follow these steps to delete a blob using asynchronous APIs:
 
 1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that deletes the blob. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-delete-blobs-async.py" id="Snippet_create_client_async":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_blobs_async.py" id="Snippet_create_client_async":::
 
 1. Add code to delete the blob. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `delete_blob` method.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-delete-blobs-async.py" id="Snippet_delete_blob":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_delete_blobs_async.py" id="Snippet_delete_blob":::
 
 With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
@@ -114,7 +114,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-delete-blobs.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-delete-blobs-async.py) code samples from this article (GitHub)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_delete_blobs.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_delete_blobs_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

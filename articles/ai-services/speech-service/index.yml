@@ -7,11 +7,10 @@ brand: azure
 metadata:
   title: Speech service documentation - Tutorials, API Reference - Azure AI services | Microsoft Docs
   titleSuffix: Azure AI services
-  #services: cognitive-services
   description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
   author: eric-urban
   manager: nitinme
-  ms.service: speech-service
+  ms.service: azure-ai-speech
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: eur
@@ -43,7 +42,7 @@ conceptualContent:
           text: Get started with speech to text
           url: get-started-speech-to-text.md
         - itemType: overview
-          text: Improve accuracy with Custom Speech
+          text: Improve accuracy with custom speech
           url: custom-speech-overview.md
         - itemType: how-to-guide
           text: Use batch transcription

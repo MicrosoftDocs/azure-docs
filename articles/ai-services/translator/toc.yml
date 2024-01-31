@@ -230,6 +230,8 @@ items:
     - name: Enable private virtual networks
       displayName: vnet, service endpoints, private network, global, backbone
       href: custom-translator/how-to/enable-vnet-service-endpoint.md
+    - name: Use the neural dictionary feature
+      href: neural-dictionary.md
   - name: Concepts
     items:
     - name: Customization

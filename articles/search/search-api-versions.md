@@ -14,7 +14,7 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 01/10/2024
 ---
 
 # API versions in Azure AI Search
@@ -36,9 +36,9 @@ Some API versions are discontinued and will be rejected by a search service:
 + **2014-07-31-Preview**
 + **2014-10-20-Preview**
 
-All SDKs are based on REST API versions. If a REST version is discontinued, any SDK that's based on it is also discontinued. All Azure AI Search .NET SDKs older than [**3.0.0-rc**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) are now discontinued. 
+All SDKs are based on REST API versions. If a REST version is discontinued, SDK packages based on that version are also discontinued. All Azure AI Search .NET SDKs older than [**3.0.0-rc**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) are now obsolete. 
 
-Support for the above-listed versions was discontinued on October 15, 2020. If you have code that uses a discontinued version, you can [migrate existing code](search-api-migration.md) to a newer [REST API version](/rest/api/searchservice/) or to a newer Azure SDK.
+Support for the above-listed versions ended on October 15, 2020. If you have code that uses a discontinued version, you can [migrate existing code](search-api-migration.md) to a newer [REST API version](/rest/api/searchservice/) or to a newer Azure SDK.
 
 ## REST APIs
 
@@ -62,22 +62,22 @@ The following  table provides links to more recent SDK versions.
 
 | SDK version | Status | Description  |
 |-------------|--------|------------------------------|
-| [Java azure-search-documents 11](/java/api/overview/azure/search-documents-readme) | Active | New client library from Azure Java SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
-| [Java Management Client 1.35.0](/java/api/overview/azure/search/management) | Active | Targets the Management REST api-version=2015-08-19. |
+| [Java azure-search-documents 11](/java/api/overview/azure/search-documents-readme) | Active | Use the `azure-search-documents` client library for data plane operations. |
+| [Java Management Client 1.35.0](/java/api/overview/azure/search/management) | Active | Use the `azure-mgmt-search` client library for control plane operations. |
 
 ## Azure SDK for JavaScript
 
 | SDK version | Status | Description  |
 |-------------|--------|------------------------------|
-| [JavaScript @azure/search-documents 11.0](/javascript/api/overview/azure/search-documents-readme) | Active | New client library from Azure JavaScript & TypesScript SDK, released July 2020. Targets the Search REST api-version=2016-09-01. |
-| [JavaScript @azure/arm-search](https://www.npmjs.com/package/@azure/arm-search) | Active | Targets the Management REST api-version=2015-08-19. |
+| [JavaScript @azure/search-documents 11.0](/javascript/api/overview/azure/search-documents-readme) | Active | Use the `@azure/search-documents` client library for data plane operations. |
+| [JavaScript @azure/arm-search](https://www.npmjs.com/package/@azure/arm-search) | Active | Use the `@azure/arm-search` client library for control plane operations. |
 
 ## Azure SDK for Python
 
 | SDK version | Status | Description  |
 |-------------|--------|------------------------------|
-| [Python azure-search-documents 11.0](/python/api/azure-search-documents) | Active | New client library from Azure Python SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
-| [Python azure-mgmt-search 8.0](https://pypi.org/project/azure-mgmt-search/) | Active | Targets the Management REST api-version=2015-08-19. |
+| [Python azure-search-documents 11.0](/python/api/azure-search-documents) | Active | Use the `azure-search-documents` client library for data plane operations. |
+| [Python azure-mgmt-search 8.0](https://pypi.org/project/azure-mgmt-search/) | Active | Use the `azure-mgmt-search` client library for control plane operations. |
 
 ## All Azure SDKs
 

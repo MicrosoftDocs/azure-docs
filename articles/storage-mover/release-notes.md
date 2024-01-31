@@ -19,11 +19,12 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                    | Version number | Release date       | Status                                                            |
 |------------------------------|----------------|--------------------|-------------------------------------------------------------------|
-| Major refresh release        | 2.0.358        | November 6, 2023   | Current                                                           |
-| Refresh release              | 2.0.287        | August 5, 2023     | Supported                                                         |
-| Refresh release              | 1.1.256        | June 14, 2023      | Functioning. No longer supported by Microsoft Azure Support teams.|
-| General availability release | 1.0.229        | April 17, 2023     | Functioning. No longer supported by Microsoft Azure Support teams.|
-| Public preview release       | 0.1.116        | September 15, 2022 | Functioning. No longer supported by Microsoft Azure Support teams.|
+| Important security release   | 3.0.412        | November 30, 2023  | Current                                                           |
+| Major refresh release        | 2.0.358        | November 6, 2023   | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Refresh release              | 2.0.287        | August 5, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Refresh release              | 1.1.256        | June 14, 2023      | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| General availability release | 1.0.229        | April 17, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Public preview release       | 0.1.116        | September 15, 2022 | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 
 ### Azure Storage Mover update policy
 
@@ -98,7 +99,7 @@ Major refresh release notes for:
 ### Limitations
 
 > [!IMPORTANT]
-> Based on the previously described [Azure Storage Mover update policy](#azure-storage-mover-update-policy), agents are automatically updated to the latest version. However, some improvements require a download and [provisioning](agent-deploy.md) of a new agent VM, using the latest agent image from [Microsoft Download Center](https://aka.ms/StorageMover/agent). This is recommended for all customers with agent deployments prior to this release date.
+> Based on the previously described [Azure Storage Mover update policy](#azure-storage-mover-update-policy), agents are automatically updated to the latest version. However, some improvements require a download and [provisioning](agent-deploy.md) of a new agent VM, using the latest agent image from [Microsoft Download Center](https://aka.ms/StorageMover/agent).
 
 ## 2023 August 5
 

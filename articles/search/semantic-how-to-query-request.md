@@ -1,5 +1,5 @@
 ---
-title: Configure semantic ranking
+title: Configure semantic ranker
 titleSuffix: Azure AI Search
 description: Set a semantic query type to attach the deep learning models of semantic ranking.
 
@@ -10,14 +10,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/26/2023
+ms.date: 12/12/2023
 ---
 
 # Configure semantic ranking and return captions in search results
 
 In this article, learn how to invoke a semantic ranking over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
-To use semantic ranking:
+To use semantic ranker:
 
 + Add a semantic configuration to an index
 + Add parameters to a query request
@@ -26,7 +26,7 @@ To use semantic ranking:
 
 + A search service on Basic, Standard tier (S1, S2, S3), or Storage Optimized tier (L1, L2), subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-+ Semantic ranking [enabled on your search service](semantic-how-to-enable-disable.md).
++ Semantic ranker [enabled on your search service](semantic-how-to-enable-disable.md).
 
 + An existing search index with rich text content. Semantic ranking applies to text (non-vector) fields and works best on content that is informational or descriptive.
 
@@ -294,7 +294,7 @@ If your semantic ranking code is using preview APIs, this section explains how t
 
 **Behavior changes:**
 
-+ As of July 14, 2023, semantic ranking is language agnostic. It can rerank results composed of multilingual content, with no bias towards a specific language. In preview versions, semantic ranking would deprioritize results differing from the language specified by the field analyzer.
++ As of July 14, 2023, semantic ranker is language agnostic. It can rerank results composed of multilingual content, with no bias towards a specific language. In preview versions, semantic ranking would deprioritize results differing from the language specified by the field analyzer.
 
 + In 2021-04-30-Preview and all later versions, `semanticConfiguration` (in an index definition) defines which search fields are used in semantic ranking. In the 2020-06-30-Preview REST API, `searchFields` (in a query request) was used for field specification and prioritization. This approach only worked in 2020-06-30-Preview and is obsolete in all other versions.
 

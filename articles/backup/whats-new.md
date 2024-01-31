@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 12/25/2023
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -18,6 +18,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- December 2023
+  - [Vaulted backup and Cross Region Restore for support for AKS (preview)](#vaulted-backup-and-cross-region-restore-for-support-for-aks-preview)
 - November 2023
   - [Encryption using Customer Managed Keys for Backup vaults (preview)](#encryption-using-customer-managed-keys-for-backup-vaults-preview)
   - [Back up Azure Database for PostgreSQL-Flexible server (preview)](#back-up-azure-database-for-postgresql-flexible-server-preview)
@@ -78,6 +80,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+
+## Vaulted backup and Cross Region Restore for support for AKS (preview)
+ 
+Azure Backup supports storing AKS backups offsite, which is protected against tenant compromise, malicious attacks and ransomware threats. Along with backup stored in a vault, you can also use the backups in a regional disaster scenario and recover backups.
+
+Once the feature is enabled, your snapshot-based AKS backups stored in Operational Tier are converted into blobs and moved to a Vault-standard tier outside of your tenant. You can enable/disable this feature by updating the retention rules of your backup policy. This feature also allows you to back up data for long term storage as per the compliance and regulatory requirements. With this feature, you can also enable a Backup vault to be *Globally redundant* with *Cross Region Restore*, and then your vaulted backups will be available in an Azure Paired region for restore. In case of primary region outage, you can use these backups to restore your AKS clusters in a secondary region.
+
+For more information, see [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
 
 ## Encryption using Customer Managed Keys for Backup vaults (preview)
 
@@ -392,7 +402,7 @@ Azure Backup now provides enhanced capabilities (in preview) to manage encryptio
 >[!NOTE]
 >- The above capabilities are supported through the Azure portal only, PowerShell is currently not supported.<br>If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 >- You can use the audit policy for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021.  
->- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#use-azure-policies-to-audit-and-enforce-encryption-with-customer-managed-keys-in-preview).
+>- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#use-azure-policy-to-audit-and-enforce-encryption-via-customer-managed-keys-in-preview).
 
 For more information, see [Encryption for Azure Backup using customer-managed keys](encryption-at-rest-with-cmk.md). 
 

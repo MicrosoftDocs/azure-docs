@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 12/28/2023
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 
@@ -94,7 +94,7 @@ Follow these steps to begin the configuration:
     > * For GcmAes128 and GcmAesXpn128, the CAK must be an even-length string with 32 hexadecimal digits (0-9, A-F).
     > * For GcmAes256 and GcmAesXpn256, the CAK must be an even-length string with 64 hexadecimal digits (0-9, A-F).
 
-1. Grant the user identity the authorization to perform the GET operation.
+1. Grant the user identity the authorization to perform the `GET` operation.
 
     ```azurepowershell-interactive
     Set-AzKeyVaultAccessPolicy -VaultName "your_key_vault_name" -PermissionsToSecrets get -ObjectId $identity.PrincipalId

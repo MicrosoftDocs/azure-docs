@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
 ms.reviewer: tamram
-ms.custom: engagement-fy23, devx-track-linux
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # How to mount Azure Blob Storage as a file system with BlobFuse v1
@@ -39,7 +39,7 @@ cat /etc/*-release
 Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
 
-# [RHEL](#tab/RHEL) 
+# [RHEL](#tab/RHEL)
 
 As an example, on a Redhat Enterprise Linux 8 distribution:
 
@@ -50,7 +50,7 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-pr
 Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
 
 # [CentOS](#tab/CentOS)
- 
+
 As an example, on a CentOS 8 distribution:
 
 ```bash
@@ -71,16 +71,16 @@ sudo apt-get update
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
-# [SLES](#tab/SLES) 
+# [SLES](#tab/SLES)
 
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-prod.rpm
 ```
---- 
+---
 
 ### Install BlobFuse v1
 
-# [RHEL](#tab/RHEL) 
+# [RHEL](#tab/RHEL)
 
 ```bash
 sudo yum install blobfuse
@@ -96,7 +96,7 @@ sudo yum install blobfuse
 ```bash
 sudo apt-get install blobfuse
 ```
-# [SLES](#tab/SLES)  
+# [SLES](#tab/SLES)
 
 ```bash
 sudo zypper install blobfuse
@@ -146,7 +146,7 @@ containerName mycontainer
 authType Key
 ```
 
-The `accountName` is the name of your storage account, and not the full URL. You need to update `myaccount`, `storageaccesskey`, and `mycontainer` with your storage information. 
+The `accountName` is the name of your storage account, and not the full URL. You need to update `myaccount`, `storageaccesskey`, and `mycontainer` with your storage information.
 
 Create this file using:
 

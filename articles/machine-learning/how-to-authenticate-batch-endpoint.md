@@ -193,7 +193,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
     ```
 
     > [!IMPORTANT]
-    > Notice that the resource scope for invoking a batch endpoints (`https://ml.azure.com1) is different from the resource scope used to manage them. All management APIs in Azure use the resource scope `https://management.azure.com`, including Azure Machine Learning.
+    > Notice that the resource scope for invoking a batch endpoints (`https://ml.azure.com) is different from the resource scope used to manage them. All management APIs in Azure use the resource scope `https://management.azure.com`, including Azure Machine Learning.
 
 3. Once authenticated, use the query to run a batch deployment job:
 

@@ -114,6 +114,7 @@ This sandbox setup is to help developers start building the application. Once yo
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
 |Page size - ListMessages|200 |
+|Message Size|28 KB |
 |Number of Azure Communication Services resources per Azure Bot|1000 |
 
 ### Rate Limits
@@ -191,6 +192,18 @@ The following timeouts apply to the Communication Services Calling SDKs:
 ### Action to take
 
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
+
+## Job Router
+When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests will be dropped until the token of bucket to handle requests is replenished after a certain time.
+
+Rate Limits for Job Router:
+
+|Operation|Scope|Timeframe (seconds)| Limit (number of requests) | Timeout in seconds|
+|---------|-----|-------------|-------------------|-------------------------|
+|General Requests|Per Resource|10|1000|10|
+
+### Action to take
+If you need to send a volume of messages that exceeds the rate limits, email us at acs-ccap@microsoft.com.
 
 ## Teams Interoperability and Microsoft Graph
 Using a Teams interoperability scenario, you'll likely use some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  

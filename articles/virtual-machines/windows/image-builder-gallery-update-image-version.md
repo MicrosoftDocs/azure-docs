@@ -1,9 +1,9 @@
 ---
-title: Create a new Windows image version from an existing image version using Azure VM Image Builder 
+title: Create a new Windows image version from an existing image version using Azure VM Image Builder
 description: Create a new Windows VM image version from an existing image version using Azure VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines

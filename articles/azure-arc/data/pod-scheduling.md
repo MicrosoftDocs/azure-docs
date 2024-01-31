@@ -122,3 +122,7 @@ spec:
         matchLabels:
           name: sql1
 ```
+
+> [!NOTE]  
+> These label selectors and constraints should be added or edited as part of the `SqlManagedInstance` custom resource definition spec, either during deployment or post deployment edit.
+> It is not recommended to modify/edit statefulset or pod spec for SqlManagedInstance. These dodifications could be lost after next update/upgrade. 

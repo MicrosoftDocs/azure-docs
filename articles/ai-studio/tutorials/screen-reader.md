@@ -2,14 +2,15 @@
 title: Using Azure AI Studio with a screen reader
 titleSuffix: Azure AI Studio
 description: This tutorial guides you through using Azure AI Studio with a screen reader.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Tutorial: Using Azure AI Studio with a screen reader
@@ -41,7 +42,7 @@ Within **Explore**, you can explore many capabilities found within the secondary
 
 ## Projects 
 
-To work within the Azure AI Studio, you must first create a project: 
+To work within the Azure AI Studio, you must first [create a project](../how-to/create-projects.md): 
 1. Navigate to the Build tab in the primary navigation.
 1. Press the Tab key until you hear *New project* and select this button.  
 1. Enter the information requested in the **Create a new project** dialog.  

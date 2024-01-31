@@ -7,7 +7,7 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl 
 ms.topic: how-to
-ms.custom: template-how-to, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: template-how-to, sdkv2, event-tier1-build-2022, ignite-2022, update-code
 ms.reviewer: ssalgado
 ms.date: 05/26/2022
 ---
@@ -33,8 +33,10 @@ If your labeled training data is in a different format (like, pascal VOC or COCO
 
 ## Get labeled data 
 In order to train computer vision models using AutoML, you need to first get labeled training data. The images need to be uploaded to the cloud and label annotations need to be in JSONL format. You can either use the Azure Machine Learning Data Labeling tool to label your data or you could start with prelabeled image data.
+In order to train computer vision models using AutoML, you need to first get labeled training data. The images need to be uploaded to the cloud and label annotations need to be in JSONL format. You can either use the Azure Machine Learning Data Labeling tool to label your data or you could start with prelabeled image data.
 
 ### Using Azure Machine Learning Data Labeling tool to label your training data
+If you don't have prelabeled data, you can use Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images. This tool automatically generates the data required for training in the accepted format.
 If you don't have prelabeled data, you can use Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images. This tool automatically generates the data required for training in the accepted format.
 
 It helps to create, manage, and monitor data labeling tasks for 
@@ -74,6 +76,7 @@ my_training_data_input = Input(
 # [Studio](#tab/Studio)
 
 Refer to Cli/Sdk tabs for reference.
+Refer to Cli/Sdk tabs for reference.
 
 ---
 
@@ -83,11 +86,12 @@ If you have previously labeled data that you would like to use to train your mod
 The following script uploads the image data on your local machine at path "./data/odFridgeObjects" to datastore in Azure Blob Storage. It then creates a new data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace. 
 
 If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it updates the version number of the data asset and point it to the new location where the image data uploaded.
+If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it updates the version number of the data asset and point it to the new location where the image data uploaded.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-Create a .yml file with the following configuration.
+Create an .yml file with the following configuration.
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
@@ -97,7 +101,7 @@ path: ./data/odFridgeObjects
 type: uri_folder
 ```
 
-To upload the images as a data asset, you run the following CLI v2 command with the path to your .yml file, workspace name, resource group and subscription ID.
+To upload the images as a data asset, you run the following CLI v2 command with the path to your .yml file, workspace name, resource group, and subscription ID.
 
 ```azurecli
 az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
@@ -116,11 +120,12 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 ---
 
 If you already have your data present in an existing datastore and want to create a data asset out of it, you can do so by providing the path to the data in the datastore, instead of providing the path of your local machine. Update the code [above](how-to-prepare-datasets-for-automl-images.md#using-prelabeled-training-data-from-local-machine) with the following snippet.
+If you already have your data present in an existing datastore and want to create a data asset out of it, you can do so by providing the path to the data in the datastore, instead of providing the path of your local machine. Update the code [above](how-to-prepare-datasets-for-automl-images.md#using-prelabeled-training-data-from-local-machine) with the following snippet.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-Create a .yml file with the following configuration.
+Create an .yml file with the following configuration.
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
@@ -148,6 +153,7 @@ my_data = Data(
 
 ---
 
+Next, you'll need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
 Next, you'll need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
 
 If your training data is in a different format (like, pascal VOC or COCO), [helper scripts](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to convert the data to JSONL are available in [notebook examples](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs).

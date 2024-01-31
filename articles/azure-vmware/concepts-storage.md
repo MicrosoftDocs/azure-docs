@@ -4,7 +4,7 @@ description: Learn about storage capacity, storage policies, fault tolerance, an
 ms.topic: conceptual
 ms.custom: contperf-fy21q4, engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/05/2023
+ms.date: 12/13/2023
 ---
 
 # Azure VMware Solution storage concepts
@@ -34,7 +34,7 @@ The default storage policy is set to **RAID-1 FTT-1**, with Object Space Reserva
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an operations perspective.
 
 >[!NOTE]
->When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thin** provisioning. Please note that this is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
+>When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thick** provisioning. Please note that this is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
 
 >[!NOTE]
 >All of the software-defined data center (SDDC) management VMs (vCenter Server, NSX-T Manager, NSX-T Data Center Edges, and others) use the **Microsoft vSAN Management Storage Policy**, with **Object Space Reservation** set to **Thin** provisioning.
@@ -42,19 +42,33 @@ In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft g
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend deploying the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. In reference to [SLA for Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/), note that more than 6 hosts should be configured in the cluster to use an FTT-2 policy (RAID-1, or RAID-6). Also note that the storage policy is not automatically updated based on cluster size. Similarly, changing the default does not automatically update the running VM policies.  
 
-
 ## Data-at-rest encryption
 
 vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a cluster, all data on SSDs is invalidated immediately.
 
 ## Datastore capacity expansion options
 
-The existing cluster vSAN storage capacity can be expanded by connecting Azure storage resources such as [Azure NetApp Files volumes as additional datastores](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md). Virtual machines can be migrated between vSAN and Azure NetApp Files datastores using storage vMotion.
-Azure NetApp Files is available in [Ultra, Premium and Standard performance tiers](../azure-netapp-files/azure-netapp-files-service-levels.md) to allow for adjusting performance and cost to the requirements of the workloads. 
+The existing cluster vSAN storage capacity can be expanded by connecting Azure storage resources including Azure NetApp Files or Azure Elastic SAN. Virtual machines can be migrated between vSAN datastores and other datastores non-disruptively using storage vMotion. Expanding datastore capacity using Azure storage resources allows increased datastore capacity without scaling the clusters. 
+
+### Azure NetApp Files 
+
+Azure NetApp Files is an enterprise-class, high-performance, metered file storage service. The service supports the demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. 
+
+You can create Network File System (NFS) datastores with Azure NetApp Files volumes and attach them to clusters of your choice. By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. Azure NetApp Files is available in [Ultra, Premium and Standard performance tiers](../azure-netapp-files/azure-netapp-files-service-levels.md) to allow for adjusting performance and cost to the requirements of the workloads. 
+
+For more information, see [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md).
+
+### Azure Elastic SAN
+
+Azure Elastic storage area network (SAN) is Microsoft’s answer to the problem of workload optimization and integration between your large-scale databases and performance-intensive mission-critical applications. 
+
+Azure VMware Solution supports attaching iSCSI datastores as a persistent storage option. You can create Virtual Machine File System (VMFS) datastores with Azure Elastic SAN volumes and attach them to clusters of your choice. By using VMFS datastores backed by Azure Elastic SAN, you can expand your storage instead of scaling the clusters.  
+
+For more information, see [Use Azure VMware Solution with Azure Elastic SAN](configure-azure-elastic-san.md). 
 
 ## Azure storage integration
 
-You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. 
+You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, Blob Storage, and file storage (Azure Files and Azure NetApp Files). The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. 
 
 ## Alerts and monitoring
 

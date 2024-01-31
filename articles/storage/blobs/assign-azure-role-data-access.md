@@ -8,7 +8,8 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 04/19/2022
 ms.reviewer: dineshm
-ms.devlang: powershell, azurecli
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -127,7 +128,7 @@ For information about assigning roles with PowerShell at the subscription or res
 
 # [Azure CLI](#tab/azure-cli)
 
-To assign an Azure role to a security principal with Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
+To assign an Azure role to a security principal with Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
 
 To assign a role scoped to a container, specify a string containing the scope of the container for the `--scope` parameter. The scope for a container is in the form:
 
