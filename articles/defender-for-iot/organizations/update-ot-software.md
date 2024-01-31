@@ -55,7 +55,7 @@ To perform the procedures described in this article, make sure that you have:
 
     For more information, see [Networking requirements](networking-requirements.md) and [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-## Update OT sensors {.tabset}
+## Update OT sensors
 
 This section describes how to update Defender for IoT OT sensors using any of the supported methods.
 
@@ -88,7 +88,7 @@ This procedure describes how to send a software version update to one or more OT
     :::image type="content" source="media/update-ot-software/remote-update-step-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/remote-update-step-1.png":::
 
 1. In the **Send package** pane that appears, under **Available versions**, select the software version from the list. If the version you need doesn't appear, select **Show more** to list all available versions.
-
+    
     To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
     :::image type="content" source="media/update-ot-software/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/send-package-multiple-versions.png" border="false":::
@@ -101,7 +101,7 @@ This procedure describes how to send a software version update to one or more OT
 
     Hover over the **Sensor version** value to see the source and target version for your update.
 
-### Update your sensor from the Azure portal
+### Run your sensor update from the Azure portal
 
 Run the sensor update only when you see the :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update** icon in the **Sensor version** column.
 
