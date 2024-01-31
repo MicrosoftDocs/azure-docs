@@ -107,17 +107,6 @@ Benefits for new payment participants:
 - Lowers upfront investment via the Azure subscription model
 - Offers access to latest certified hardware and software on-demand
 
-## Supported SKUs
-
-Azure Payment HSM supports the following SKUs:
-
-- payShield10K_LMK1_CPS60
-- payShield10K_LMK1_CPS250
-- payShield10K_LMK1_CPS2500
-- payShield10K_LMK2_CPS60
-- payShield10K_LMK2_CPS250
-- payShield10K_LMK2_CPS2500
-
 ## Glossary
 
 | Term | Definition |

@@ -72,6 +72,26 @@ Azure Payment HSM is currently available in the following regions:
 - North Europe
 - West Europe
 
+## Pricing
+
+[Azure Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm/#pricing) includes:
+- A Thales payShield premium package license
+- A Thales payShield optional license (see [Thales: payShield 10K](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k), "Accessories" tab)
+- A Thales enhanced support Plan for payShield software, application, firmware support.
+
+Firmware customization is not included. Customers who desire firmware customer must get an exact quote from Thales .
+
+## Supported SKUs
+
+Azure Payment HSM supports the following SKUs:
+
+- payShield10K_LMK1_CPS60
+- payShield10K_LMK1_CPS250
+- payShield10K_LMK1_CPS2500
+- payShield10K_LMK2_CPS60
+- payShield10K_LMK2_CPS250
+- payShield10K_LMK2_CPS2500
+
 ## Microsoft support
 
 Microsoft provides support for hardware issues, networking issues, and provisioning issues. Enterprise customers should contact their CSAM to find out details of their support contract.

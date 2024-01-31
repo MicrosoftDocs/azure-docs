@@ -39,7 +39,7 @@ sections:
       - question: |
           How do I get started with the service? 
         answer: |
-          As Azure Payment HSM is a specialized service, customers should ask their Microsoft account manager and CSA to send a request [via email](mailto:paymentHSMRequest@microsoft.com).       
+          Azure Payment HSM is a specialized service. To qualify for onboarding and use of Azure Payment HSM, customers must have an assigned Microsoft Account Manager. The Microsoft account manager and CSA must send a request [via email](mailto:paymentHSMRequest@microsoft.com).       
       - question: |
           What HSM SKUs are supported for Azure Payment HSM?
         answer: |

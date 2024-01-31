@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 ## Remove a payment HSM from the payShield manager
 
-Navigate to the payShield manager, following the steps in [Access the payShield manager](access-payshield-manager.md#access-the-payshield-manager). From there, select "Remove device".
+Navigate to the payShield manager, following the steps in [Access the payShield manager](access-payshield-manager.md). From there, select "Remove device".
 
 :::image type="content" source="./media/payshield-manager-remove-device.png" alt-text="Screenshot of the payShield manager for Azure Payment HSM, remove device screen.":::
 
