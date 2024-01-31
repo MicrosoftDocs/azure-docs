@@ -87,7 +87,7 @@ Learn more:
 
 **Store and manage medical imaging data with Azure Data Lake Storage (Preview)**
 
-With the integration of Azure Data Lake Storage available for preview, organizations can now enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
+With the integration of Azure Data Lake Storage available for preview, organizations have full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
 
 - Enable direct access to medical imaging data stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
 - Open medical imaging data up to the entire ecosystem of tools for working with Azure storage, including AzCopy, Azure Storage Explorer, and the Data Movement library.
@@ -296,7 +296,7 @@ General availability (GA) of Azure Health Data services in Japan East region.
 **Introduction of _till parameters and throughput improvement by 50x**
 
 _till parameter is introduced as optional parameter and allows you to export resources that have been modified until the specified time. 
-This feature improvement is applicable to System export, for more information on export, see [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html)
+This feature improvement is applicable to System export, for more information on export, see [FHIR specification](https://hl7.org/fhir/uv/bulkdata/)
 
 Also see [Export your FHIR data by invoking the $export command on the FHIR service](./../healthcare-apis/fhir/export-data.md)
 
