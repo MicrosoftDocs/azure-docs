@@ -1,37 +1,34 @@
 ---
-title: Packet inspection with Azure Network Watcher
-description: This article describes how to use Azure Network Watcher to perform deep packet inspection collected from a VM.
-services: network-watcher
+title: Inspect and analyze packet capture files
+titleSuffix: Azure Network Watcher
+description: Learn how to inspect and analyze packet capture network data previously captured using Azure Network Watcher.
 author: halkazwini
-ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 01/07/2021
-ms.author: halkazwini
+ms.date: 01/31/2024
+#CustomerIntent: As a network administrator, I want to inspect packets captured by Network Watcher to investigate network issues.
 ---
 
-# Packet inspection with Azure Network Watcher
+# Inspect and analyze Network Watcher packet capture files
 
-Using the packet capture feature of Network Watcher, you can initiate and manage captures sessions on your Azure VMs from the portal, PowerShell, CLI, and programmatically through the SDK and REST API. Packet capture allows you to address scenarios that require packet level data by providing the information in a readily usable format. Leveraging freely available tools to inspect the data, you can examine communications sent to and from your VMs and gain insights into your network traffic. Some example uses of packet capture data include: investigating network or application issues, detecting network misuse and intrusion attempts, or maintaining regulatory compliance. In this article, we show how to open a packet capture file provided by Network Watcher using a popular open source tool. We'll also provide examples showing how to calculate a connection latency, identify abnormal traffic, and examine networking statistics.
+Using the packet capture feature of Network Watcher, you can initiate and manage capture sessions on your Azure virtual machines (VMs) and virtual machine scale sets from the Azure portal, PowerShell, Azure CLI, and programmatically through the SDK and REST API.
 
-## Before you begin
+Packet capture allows you to address scenarios that require packet level data by providing the information in a readily usable format. Using freely available tools to inspect the data, you can examine communications sent to and from your VMs or scale sets to gain insights into your network traffic. Some example uses of packet capture data include investigating network or application issues, detecting network misuse and intrusion attempts, or maintaining regulatory compliance.
 
-This article goes through some pre-configured scenarios on a packet capture that was run previously. These scenarios illustrate capabilities that can be accessed by reviewing a packet capture. This scenario uses [WireShark](https://www.wireshark.org/) to inspect the packet capture.
+In this article, you learn how to open a packet capture file provided by Network Watcher using a popular open source tool. You'll also learn how to calculate a connection latency, identify abnormal traffic, and examine networking statistics.
 
-This scenario assumes you already ran a packet capture on a virtual machine. To learn how to create a packet capture visit [Manage packet captures with the portal](network-watcher-packet-capture-manage-portal.md) or with REST by visiting [Managing Packet Captures with REST API](network-watcher-packet-capture-manage-rest.md).
+## Prerequisites
 
-## Scenario
+- A packet capture file created using Network Watcher. For more information, see [Manage packet captures for virtual machines using the Azure portal](network-watcher-packet-capture-manage-portal.md).
 
-In this scenario, you:
-
-* Review a packet capture
+- Wireshark. For more information, see [https://www.wireshark.org/](https://www.wireshark.org/).
 
 ## Calculate network latency
 
 In this scenario, we show how to view the initial Round Trip Time (RTT) of a Transmission Control Protocol (TCP) conversation occurring between two endpoints.
 
-When a TCP connection is established, the first three packets sent in the connection follow a pattern commonly referred to as the three-way handshake. By examining the first two packets sent in this handshake, an initial request from the client and a response from the server, we can calculate the latency when this connection was established. This latency is referred to as the Round Trip Time (RTT). For more information on the TCP protocol and the three-way handshake, refer to the following resource. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
+When a TCP connection is established, the first three packets sent in the connection follow a pattern commonly referred to as the three-way handshake. By examining the first two packets sent in this handshake, an initial request from the client and a response from the server, we can calculate the latency when this connection was established. This latency is referred to as the Round Trip Time (RTT). For more information on the TCP protocol and the three-way handshake, see the following resource. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
 
 ### Step 1
 
@@ -57,15 +54,15 @@ Since we're looking to filter on all [SYN] and [SYN, ACK] packets, under flags c
 
 ### Step 4
 
-Now that you've filtered the window to only see packets with the [SYN] bit set, you can easily select conversations you are interested in to view the initial RTT. A simple way to view the RTT in WireShark is to simply select the dropdown marked “SEQ/ACK” analysis. You'll then see the RTT displayed. In this case, the RTT was 0.0022114 seconds, or 2.211 ms.
+Now that you've filtered the window to only see packets with the [SYN] bit set, you can easily select conversations you're interested in to view the initial RTT. A simple way to view the RTT in WireShark is to select the dropdown marked “SEQ/ACK” analysis. You'll then see the RTT displayed. In this case, the RTT was 0.0022114 seconds, or 2.211 ms.
 
 ![figure 8][8]
 
-## Unwanted protocols
+## Find unwanted protocols
 
 You can have many applications running on a virtual machine instance you've deployed in Azure. Many of these applications communicate over the network, perhaps without your explicit permission. Using packet capture to store network communication, we can investigate how applications are talking on the network and look for any issues.
 
-In this example, we review a previous ran packet capture for unwanted protocols that may indicate unauthorized communication from an application running on your machine.
+In this example, we review a previous ran packet capture for unwanted protocols that might indicate unauthorized communication from an application running on your machine.
 
 ### Step 1
 
@@ -77,7 +74,7 @@ The protocol hierarchy window appears. This view provides a list of all the prot
 
 ![protocol hierarchy opened][3]
 
-As you can see in the following screen capture, there was traffic using the BitTorrent protocol, which is used for peer to peer file sharing. As an administrator you don't expect to see BitTorrent traffic on this particular virtual machine. Now you aware of this traffic, you can remove the peer to peer software that installed on this virtual machine, or block the traffic using Network Security Groups or a Firewall. Additionally, you may elect to run packet captures on a schedule, so you can review the protocol use on your virtual machines regularly. For an example on how to automate network tasks in Azure, visit [Monitor network resources with Azure automation](network-watcher-monitor-with-azure-automation.md).
+As you can see in the following screen capture, there was traffic using the BitTorrent protocol, which is used for peer to peer file sharing. As an administrator you don't expect to see BitTorrent traffic on this particular virtual machine. Now you aware of this traffic, you can remove the peer to peer software that installed on this virtual machine, or block the traffic using Network Security Groups or a Firewall. Additionally, you can elect to run packet captures on a schedule, so you can review the protocol use on your virtual machines regularly. For an example on how to automate network tasks in Azure, visit [Monitor network resources with Azure Automation](network-watcher-monitor-with-azure-automation.md).
 
 ## Finding top destinations and ports
 
@@ -93,7 +90,7 @@ Using the same capture in the previous scenario, select **Statistics** > **IPv4 
 
 As we look through the results a line stands out, there were multiple connections on port 111. The most used port was 3389, which is remote desktop, and the remaining are RPC dynamic ports.
 
-While this traffic may mean nothing, it's a port that was used for many connections and is unknown to the administrator.
+While this traffic might mean nothing, it's a port that was used for many connections and is unknown to the administrator.
 
 ![figure 5][5]
 
@@ -113,7 +110,7 @@ We enter the filter text in the filter textbox and press enter.
 
 From the results, we can see all the traffic is coming from a local virtual machine on the same subnet. If we still don’t understand why this traffic is occurring, we can further inspect the packets to determine why it's making these calls on port 111. With this information, we can take the appropriate action.
 
-## Next steps
+## Next step
 
 Learn about the other diagnostic features of Network Watcher by visiting [Azure network monitoring overview](network-watcher-monitoring-overview.md).
 
