@@ -48,7 +48,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       "vmSku": {
         "type": "string",
-        "defaultValue": "Standard_D1_v2",
+        "defaultValue": "Standard_D2s_v3",
         "metadata": {
           "description": "Size of VMs in the VM Scale Set."
         }
