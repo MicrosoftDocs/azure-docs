@@ -1,36 +1,33 @@
 ---
 title: 'Tutorial: Use a Remote Desktop client to connect to a dev box'
 titleSuffix: Microsoft Dev Box
-description: In this tutorial, you download and use a remote desktop client to connect to a dev box in Microsoft Dev Box. Configure the RDP client for a multi-monitor setup.
+description: In this tutorial, you download and use a remote desktop client to connect to a dev box in Microsoft Dev Box. 
 services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/15/2023
+ms.date: 01/30/2024
 ms.topic: tutorial
 ---
 
 # Tutorial: Use a remote desktop client to connect to a dev box 
 
-In this tutorial, you download and use a remote desktop client application to connect to a dev box in Microsoft Dev Box. Learn how to configure the application to take advantage of a multi-monitor setup.
+In this tutorial, you download and use a remote desktop client application to connect to a dev box. 
 
 Remote Desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
-Alternately, you can also connect to your dev box through the browser from the Microsoft Dev Box developer portal.
+Alternately, you can connect to your dev box through the browser from the Microsoft Dev Box developer portal.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Download a remote desktop client.
+> * Connect to a dev box by using a subscription URL.
 > * Connect to an existing dev box.
-> * Configure the remote desktop client for multiple monitors.
 
 ## Prerequisites
 
-To complete this tutorial, you must first:
-
-- [Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
-- [Create a dev box](./quickstart-create-dev-box.md#create-a-dev-box) on the [developer portal](https://aka.ms/devbox-portal).
+To complete this tutorial, you must have access to a dev box through the developer portal.
 
 ## Download the remote desktop client and connect to your dev box
 
@@ -54,9 +51,9 @@ To download and set up the Remote Desktop client for Windows:
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/connect-remote-desktop-client.png" alt-text="Screenshot that shows how to select your platform configuration for the Windows Remote Desktop client.":::
 
-1. After you select your platform configuration, click the platform configuration to start the download process for the Remote Desktop client.
+1. After you select your platform configuration, select the platform configuration to start the download process for the Remote Desktop client.
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot that shows how to click the platform configuration again to download the Windows Remote Desktop client.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot that shows how to select the platform configuration again to download the Windows Remote Desktop client.":::
 
 1. After the Remote Desktop MSI file downloads to your computer, open the file and follow the prompts to install the Remote Desktop app. 
 
@@ -145,54 +142,7 @@ To use a non-Windows Remote Desktop client to connect to your dev box:
 1. Your dev box appears in the Remote Desktop client's **Workspaces** area. Double-click the dev box to connect.
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png" alt-text="Screenshot of a dev box in a non-Windows Remote Desktop client Workspace." lightbox="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png":::
-
 ---
-
-## Configure Remote Desktop to use multiple monitors
-
-When you connect to your cloud-hosted developer machine in Microsoft Dev Box, you can take advantage of a multi-monitor setup. Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac both support up to 16 monitors.
-
-Use the following steps to configure Remote Desktop to use multiple monitors.
-
-# [Windows](#tab/windows)
-
-1. Open Remote Desktop.
- 
-1. Right-click the dev box you want to configure, and then select **Settings**.
- 
-1. On the settings pane, turn off **Use default settings**.
- 
-   :::image type="content" source="media/tutorial-connect-to-dev-box-with-remote-desktop-app/turn-off-default-settings.png" alt-text="Screenshot showing the Use default settings slider.":::
- 
-1. In **Display Settings**, in the **Display configuration** list, select the displays to use and configure the options:
- 
-   | Value | Description | Options |
-   |---|---|---|
-   | All displays | Remote desktop uses all available displays. | - Use only a single display when in windowed mode. <br> - Fit the remote session to the window. |
-   | Single display | Remote desktop uses a single display. | - Start the session in full screen mode. <br> - Fit the remote session to the window. <br> - Update the resolution on when a window is resized. |
-   | Select displays | Remote Desktop uses only the monitors you select. | - Maximize the session to the current displays. <br> - Use only a single display when in windowed mode. <br> - Fit the remote connection session to the window. |
-
-   :::image type="content" source="media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-select-display.png" alt-text="Screenshot showing the Remote Desktop display settings, highlighting the option to select the number of displays.":::
-
-1. Close the settings pane, and then select your dev box to begin the Remote Desktop session.
-
-# [Non-Windows](#tab/non-Windows)
-
-1. Open Remote Desktop.
- 
-1. Select **PCs**.
-
-1. On the Connections menu, select **Edit PC**.
- 
-1. Select **Display**.
- 
-1. On the Display tab, select **Use all monitors**, and then select **Save**.
-
-   :::image type="content" source="media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-for-mac.png" alt-text="Screenshot showing the Edit PC dialog box with the display configuration options.":::
-
-1. Select your dev box to begin the Remote Desktop session.
-
---- 
 
 ## Clean up resources
 
@@ -210,5 +160,5 @@ The dev box might take a few moments to stop.
 
 ## Related content
 
+- Learn how to [configure multiple monitors](./tutorial-configure-multiple-monitors.md) for your Remote Desktop client.
 - [Manage a dev box by using the developer portal](how-to-create-dev-boxes-developer-portal.md)
-- Learn how to [connect to a dev box through the browser](./quickstart-create-dev-box.md#connect-to-a-dev-box)
