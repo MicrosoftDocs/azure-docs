@@ -5,6 +5,7 @@ services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-arm-template
 ms.topic: tutorial
 ms.date: 01/15/2024
 ms.author: namalu
