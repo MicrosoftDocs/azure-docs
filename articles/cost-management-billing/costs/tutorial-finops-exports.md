@@ -1,37 +1,30 @@
 ---
-title: Tutorial - Setup multiple FinOps dataset exports automatically - Preview
+title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2023
+ms.date: 01/31/2023
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
 ---
 
-# Tutorial: Setup multiple FinOps datasets exports automatically - Preview
+# Tutorial: Improved exports experience - Preview
 
-This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format. The preview functionality is designed to streamline your FinOps practice by automating the export of cost-impacting datasets. The updated Exports feature optimizations help to handle large datasets. It includes an updated user interface with enhanced manageability. You can selectively rerun existing exports for enhanced security and compliance with firewall configurations.
+This tutorial helps you create automatic exports using the improved exports experience that can be enabled from [Cost Management labs](enable-preview-features-cost-management-labs.md#exports-preview) by selecting **Exports (preview)** button. The improved Exports experience is designed to streamline your FinOps practice by automating the export of other cost-impacting datasets. The updated exports are optimized to handle large datasets while enhancing the user experience.
 
 Review [Azure updates](https://azure.microsoft.com/updates/) to see when the feature becomes available generally available.
 
-## Exports preview functions
+## Improved functionality
 
-The Exports preview feature supports new datasets. You can export more datasets, including price sheets, reservation recommendations, reservation details, and reservation transactions. Also, you can download cost and usage details using the open-source FinOps Open Cost and Usage Specification [FOCUS](https://focus.finops.org/) format. It combines actual and amortized costs and reduces data processing times and storage and compute costs.
+The improved Exports feature supports new datasets including price sheets, reservation recommendations, reservation details, and reservation transactions. Also, you can download cost and usage details using the open-source FinOps Open Cost and Usage Specification [FOCUS](https://focus.finops.org/) format. It combines actual and amortized costs and reduces data processing times and storage and compute costs.
+FinOps datasets are often large and challenging to manage. Exports improve file manageability, reduce download latency, and help save on storage and network charges with the following functionality:
 
-The Exports (preview) feature is designed for large files. FinOps datasets are often large and challenging to manage. You can easily handle large datasets with new functionality:
+- File partitioning, which breaks the file into manageable smaller chunks.
+- File overwrite, which replaces the previous day's file with an updated file each day in daily export.
 
-- File partitioning breaks the file into manageable smaller chunks.
-- Daily export support file overwrite, which replaces the previous day's file with an updated file each day.
-
-New optimizations improve file manageability, reduce download latency, and help save on storage and network charges. It has an updated user interface so can easily create multiple exports for various cost management datasets to Azure storage using a single, simplified create experience.
-
-It supports multiple dataset schema versions. You can choose the latest or any of the earlier dataset schema versions when you create a new export. Support for earlier schema versions ensures that the data processing layers that you built on for existing datasets are reused without compromising on the latest API functionality.
-
-You can selectively export historical data. You can rerun an existing Export job for a historical period instead of creating a new one-time export for a specific date range.
-
-Secured storage accounts with firewall are supported. You can enhance security and compliance by configuring exports to storage accounts behind a firewall. The Azure Storage firewall provides access control for the public endpoint of the storage account.
+The Exports feature has an updated user interface, which helps you to easily create multiple exports for various cost management datasets to Azure storage using a single, simplified create experience. Exports let you choose the latest or any of the earlier dataset schema versions when you create a new export. Supporting multiple versions ensures that the data processing layers that you built on for existing datasets are reused while you adopt the latest API functionality. You can selectively export historical data by rerunning an existing Export job for a historical period. So you don't have to create a new one-time export for a specific date range. You can enhance security and compliance by configuring exports to storage accounts behind a firewall. The Azure Storage firewall provides access control for the public endpoint of the storage account.
 
 ## Prerequisites
 
@@ -65,11 +58,11 @@ You can create multiple exports of various data types using the following steps.
 ### Choose a scope and navigate to Exports
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
-2. Search for **Cost Management + Billing**.
+2. Search for **Cost Management**.
 3. Select a billing scope.
 4. In the left navigation menu, select **Exports**.
-
-**For Partners**: You can export data to an Azure Storage account linked to your partner storage account, if you have an active subscription in your CSP tenant. Sign in as a partner at the billing account scope or on a customer's tenant.
+    - **For Partners**: Sign in as a partner at the billing account scope or on a customer's tenant. Then you can export data to an Azure Storage account that is linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
+5. Set the schedule frequency.
 
 ### Create new exports
 
@@ -132,42 +125,38 @@ All types of data support various schedule frequency options, as described in th
 
 | **Type of data** | **Frequency options** |
 | --- | --- |
-| Price sheet | • One-time export <br> • Current month|
+| Price sheet | • One-time export <br> • Current month <br>• Daily export of the current month |
 | Reservation details | • One-time export <br> • Daily export of month-to-date costs <br> • Monthly export of last month's costs |
 | Reservation recommendations | • One-time export <br> • Daily export |
-| Reservation transactions | • One-time export <br> • Daily export |
+| Reservation transactions | • One-time export <br> • Daily export <br> • Monthly export of last month's data|
 | Cost and usage details (actual)<br> Cost and usage details (amortized) <br> Cost and usage details (FOCUS)<br> Cost and usage details (usage only) | • One-time export <br>• Daily export of month-to-date costs<br>•  Monthly export of last month's costs <br>• Monthly export of last billing month's costs<br>• Weekly export of week-to-date costs<br>• Weekly export of the last seven days |
 
 ## Understand data types
 
-The following sections describe the data type options available in exports.
-
-### Cost and usage details
-
-Cost and usage details supports the following options.
-
-- Cost and usage details (actual) – Select this option to export standard usage and purchase charges.
-- Cost and usage details (amortized) – Select this option to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.
-- Cost and usage details (FOCUS) – Select this option to export cost and usage details using the open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format. It combines actual and amortized costs. This format reduces data processing time and storage and compute charges for exports.
-- Cost and usage details (usage only) – Select this option to export standard usage charges without purchase information. Although you can't use this option when creating new exports, existing exports using this option are still supported.
+- Cost and usage details (actual) - Select this option to export standard usage and purchase charges.
+- Cost and usage details (amortized) - Select this option to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.
+- Cost and usage details (FOCUS) - Select this option to export cost and usage details using the open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format. It combines actual and amortized costs. This format reduces data processing time and storage and compute charges for exports. The management group scope isn't supported for Cost and usage details (FOCUS) exports.
+- Cost and usage details (usage only) - Select this option to export standard usage charges without purchase information. Although you can't use this option when creating new exports, existing exports using this option are still supported.
 
 Agreement types, scopes, and required roles are explained at [Understand and work with scopes](understand-work-scopes.md).
 
-| **Agreement type** | **Export scope**   | **Required role**   | **Supported actions**   |
-| --- | --- | --- | --- |
-| Enterprise Agreement (EA) | Billing account (enrollment scope) | Enterprise admin, enterprise read only  | Create, read, update, delete  |
-|  Enterprise Agreement (EA)  | Department scope | Enterprise admin, enterprise read only, department admin, department read only  | Create, read, update, delete. <br> • Department admin and department read only have permissions only when the **DA view charges** setting is enabled.  |
-|  Enterprise Agreement (EA) | Account scope | Enterprise admin, enterprise read only, department admin, department read only, account owner  | Create, read, update, delete. <br> • Department admin and department read only have permissions when the **DA view charges** setting is enabled. <br> • Account owners have permissions only when the **AO view charges** setting is enabled. |
-| Microsoft Customer Agreement (MCA)  | Billing account | Billing account owner, billing account contributor, billing account reader | Create, read, update, delete  |
-| Microsoft Customer Agreement (MCA) | Billing profile  | Billing profile owner, billing profile contributor, billing profile reader and invoice manager   | Read and update for invoice manager. Create, read, update, delete for all other roles. |
-| Microsoft Customer Agreement (MCA) | Invoice section | Invoice section owner, invoice section contributor, invoice section reader, Azure subscription creator | Create, read, update, delete  |
+| **Data types** | **Supported agreement** | **Supported scopes** |
+| --- | --- | --- |
+| Cost and usage (actual) | • EA<br> • MCA that you bought through the Azure website <br> • MCA enterprise<br> • MCA that you buy through a Microsoft partner <br> • Microsoft Online Service Program (MOSP), also known as pay-as-you-go (PAYG) <br> • Azure internal | • EA - Enrollment, department, account, management group, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • Microsoft Partner Agreement (MPA) - Customer, subscription, and resource group |
+| Cost and usage (amortized) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner <br> • Microsoft Online Service Program (MOSP), also known as pay-as-you-go (PAYG) <br> • Azure internal | • EA - Enrollment, department, account, management group, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • MPA - Customer, subscription, and resource group |
+| Cost and usage (FOCUS) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner| • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, invoice section, subscription, and resource group <br> • MPA - Customer, subscription, resource group. **NOTE**: The management group scope isn't supported for Cost and usage details (FOCUS) exports. |
+| All available prices | • EA <br>  • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner  | • EA - Billing account <br> • All other supported agreements - Billing profile |
+| Reservation recommendations | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner | • EA - Billing account <br> • All other supported agreements - Billing profile |
+| Reservation transactions | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner | • EA - Billing account <br> • All other supported agreements - Billing profile |
+| Reservation details | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner | • EA - Billing account <br> • All other supported agreements - Billing profile |
 
-### Price sheet, Reservation details, Reservation recommendations, and Reservation transactions
+## Limitations
 
-| **Agreement type**   | **Export scope**   | **Required role**   | **Supported actions**   |
-| --- | --- | --- | --- |
-| Enterprise Agreement  | Billing account, also known as enrollment scope.  | Enterprise admin, enterprise read only  | Create, read, update, delete  |
-| Microsoft Customer Agreement (MCA)  | Billing profile  | Billing profile owner, billing profile contributor, billing profile reader and invoice manager   | Read and update for invoice manager. Create, read, update, delete for all other roles.|
+The improved exports experience currently has the following limitations.
+
+- The new Exports experience doesn't fully support the management group scope and it has feature limitations.
+- Azure internal and MOSP billing scopes and subscriptions don’t support FOCUS datasets.
+- Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract or Azure Lighthouse.
 
 ## Next steps
 
