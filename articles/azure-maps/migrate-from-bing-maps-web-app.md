@@ -1751,10 +1751,10 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
 [Pushpin clustering]: #pushpin-clustering
-[Render]: /rest/api/maps/render-v2
+[Render]: /rest/api/maps/render
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
-[road tiles]: /rest/api/maps/render-v2/get-map-tile
-[satellite tiles]: /rest/api/maps/render-v2/get-map-static-image
+[road tiles]: /rest/api/maps/render/get-map-tile
+[satellite tiles]: /rest/api/maps/render/get-map-static-image
 [Setting the map view]: #setting-the-map-view
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
 [Show traffic data]: #show-traffic-data

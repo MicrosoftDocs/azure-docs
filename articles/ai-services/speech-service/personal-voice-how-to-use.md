@@ -45,7 +45,8 @@ You can use the SSML via the [Speech SDK](./get-started-text-to-speech.md), [RES
 
 ## Reference documentation
 
-The API reference documentation is made available to approved customers. You can apply for access [here](https://aka.ms/customneural).
+> [!div class="nextstepaction"]
+> [Custom voice API specification - 2023-12-01-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/Speech/TextToSpeech/preview/2023-12-01-preview/texttospeech.json/)
 
 ## Next steps
 

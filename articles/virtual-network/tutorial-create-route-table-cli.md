@@ -13,7 +13,7 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 04/20/2022
 ms.author: allensu
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 
@@ -37,7 +37,7 @@ Azure automatically routes traffic between all subnets within a virtual network,
 
 ## Create a route table
 
-Before you can create a route table, create a resource group with [az group create](/cli/azure/group) for all resources created in this article. 
+Before you can create a route table, create a resource group with [az group create](/cli/azure/group) for all resources created in this article.
 
 ```azurecli-interactive
 # Create a resource group.
@@ -46,7 +46,7 @@ az group create \
   --location eastus
 ```
 
-Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*. 
+Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*.
 
 ```azurecli-interactive
 # Create a route table
@@ -57,7 +57,7 @@ az network route-table create \
 
 ## Create a route
 
-Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
+Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create).
 
 ```azurecli-interactive
 az network route-table route create \
@@ -112,7 +112,7 @@ az network vnet subnet update \
 
 ## Create an NVA
 
-An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.  We will create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes. 
+An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.  We will create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes.
 
 Create a VM to be used as the NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *myVmNvaVMNic* and a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
@@ -127,7 +127,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and returns output about the VM. 
+The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and returns output about the VM.
 
 For a network interface myVmNvaVMNic to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
 
@@ -153,7 +153,7 @@ The command may take up to a minute to execute.  Note that this change will not 
 
 ## Create virtual machines
 
-Create two VMs in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the NVA in a later step. 
+Create two VMs in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the NVA in a later step.
 
 Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command. To streamline this article, a password is used. Keys are typically used in production deployments. If you use keys, you must also configure SSH agent forwarding. For more information, see the documentation for your SSH client. Replace `<replace-with-your-password>` in the following command with a password of your choosing.
 
@@ -184,7 +184,7 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-The VM takes a few minutes to create. After the VM is created, the Azure CLI shows information similar to the following example: 
+The VM takes a few minutes to create. After the VM is created, the Azure CLI shows information similar to the following example:
 
 ```output
 {
@@ -231,7 +231,7 @@ traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
 
-You can see that traffic is routed directly from the *myVmPrivate* VM to the *myVmPublic* VM. Azure's default routes, route traffic directly between subnets. 
+You can see that traffic is routed directly from the *myVmPrivate* VM to the *myVmPublic* VM. Azure's default routes, route traffic directly between subnets.
 
 Use the following command to SSH to the *myVmPublic* VM from the *myVmPrivate* VM:
 

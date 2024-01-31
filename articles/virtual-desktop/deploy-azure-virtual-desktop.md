@@ -224,9 +224,9 @@ Here's how to create a host pool using the Azure portal.
 
 1. Once the host pool has been created, select **Go to resource** to go to the overview of your new host pool, then select **Properties** to view its properties.
 
-### Optional: Post deployment
+### Post deployment
 
-If you also added session hosts to your host pool, there's some extra configuration you might need to do, which is covered in the following sections.
+If you also added session hosts to your host pool, there's some extra configuration you need to do, which is covered in the following sections.
 
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
 
@@ -751,6 +751,8 @@ Here's how to assign users or user groups to an application group to a workspace
 
 ## Next steps
 
+# [Portal](#tab/portal)
+
 Once you've deployed Azure Virtual Desktop, your users can connect. There are several platforms you can connect from, including from a web browser. For more information, see [Remote Desktop clients for Azure Virtual Desktop](users/remote-desktop-clients-overview.md) and [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md).
 
 Here are some extra tasks you might want to do:
@@ -758,5 +760,25 @@ Here are some extra tasks you might want to do:
 - Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
 
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+- [Enable diagnostics settings](diagnostics-log-analytics.md).
+
+# [Azure PowerShell](#tab/powershell)
+
+Once you've deployed a host pool, workspace, and application group, you'll need to create session hosts before your users can connect. You can do this by following the steps in [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+Here are some extra tasks you might want to do:
+
+- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
+
+- [Enable diagnostics settings](diagnostics-log-analytics.md).
+
+# [Azure CLI](#tab/cli)
+
+Once you've deployed a host pool, workspace, and application group, you'll need to create session hosts before your users can connect. You can do this by following the steps in [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+Here are some extra tasks you might want to do:
+
+- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).

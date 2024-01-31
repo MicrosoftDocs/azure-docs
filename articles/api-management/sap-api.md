@@ -7,7 +7,6 @@ author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
 ms.date: 07/21/2023
-ms.custom: 
 ---
 
 # Import SAP OData metadata as an API

@@ -1,7 +1,6 @@
 ---
 title: 'Azure for Network Engineers'
 description: This page explains to traditional network engineers how networks work in Azure.
-documentationcenter: na
 services: networking
 author: osamazia
 manager: tracsman

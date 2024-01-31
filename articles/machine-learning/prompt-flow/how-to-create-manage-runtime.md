@@ -287,6 +287,21 @@ If you select **Use customized environment**, you first need to rebuild the envi
 - One runtime will only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.
 - In automatic runtime, one flow will only have one runtime, as we expect each flow is self contained it defined the base image and required python packge in flow folder. In compute instance runtime, you can run different flow on same compute instance runtime, but you need make sure the packages and image is compatible.
 
+## Switch compute instance runtime to automatic runtime (preview)
+
+Automatic runtime (preview) has following advantages over compute instance runtime:
+- Automatic manage lifecycle of runtime and underlying compute. You don't need to manually create and managed them anymore.
+- Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
+
+We would recommend you to switch to automatic runtime (preview) if you're using compute instance runtime. If you have a compute instance runtime, you can switch it to an automatic runtime (preview) by using the following steps:
+- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Automatic runtime (preview) will install the packages in `requirements.txt` file when it starts.
+- If you create custom environment to create compute instance runtime, you can also use get the image from environment detail page, and specify it in `flow.dag.yaml` file in the flow folder.  To learn more, see [Change the base image for automatic runtime (preview)](#change-the-base-image-for-automatic-runtime-preview). Make sure you have `acr pull` permission for the image.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-create-manage-runtime/image-path-environment-detail.png":::
+
+- If you want to keep the automatic runtime (preview) as long running compute like compute instance, you can disable the idle shutdown toggle under automatic runtime (preview) edit option.
+
+
 ## Next steps
 
 - [Develop a standard flow](how-to-develop-a-standard-flow.md)

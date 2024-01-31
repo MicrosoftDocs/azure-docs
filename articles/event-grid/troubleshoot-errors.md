@@ -34,7 +34,7 @@ This troubleshooting guide provides you the following information:
 | HttpStatusCode.Forbidden <br/>403 | Publishing to {Topic/Domain} by client {IpAddress} is rejected because of IpAddress filtering rules. | The topic or domain has IP firewall rules configured and access is restricted only to configured IP addresses. | Add the IP address to the IP firewall rules, see [Configure IP firewall](configure-firewall.md) |
 | HttpStatusCode.Forbidden <br/> 403 | Publishing to {Topic/Domain} by client is rejected as request came from Private Endpoint and no matching private endpoint connection found for the resource. | The topic or domain has private endpoints and publish request came from a private endpoint that's not configured or approved. | Configure a private endpoint for the topic/domain. [Configure private endpoints](configure-private-endpoints.md) |
 
-Also, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it's, disable the following firewall rules and do an HTTP POST again:
+Also, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it is, disable the following firewall rules and do an HTTP POST again:
 
 - 920300 (Request missing an accept header)
 - 942430 (Restricted SQL character anomaly detection (args): # of special characters exceeded (12))

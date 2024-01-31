@@ -3,7 +3,7 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/15/2023
+ms.date: 01/23/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -16,6 +16,8 @@ Large enterprises often centrally manage Azure services or resources. However, d
 
 With cost allocation, you can reassign or distribute the costs of shared services. Costs from subscriptions, resource groups, or tags get assigned to other subscriptions, resource groups or tags in your organization. Cost allocation shifts costs of the shared services to another subscription, resource groups, or tags owned by the consuming internal departments or business units. In other words, cost allocation helps to manage and show _cost accountability_ from one place to another.
 
+Cost allocation doesn't support purchases, including reservations and savings plans.
+
 Cost allocation doesn't affect your billing invoice. Billing responsibilities don't change. The primary purpose of cost allocation is to help you charge back costs to others. All chargeback processes happen in your organization outside of Azure. Cost allocation helps you charge back costs by showing them as the get reassigned or distributed.
 
 Allocated costs appear in cost analysis. They appear as other items associated with the targeted subscriptions, resource groups, or tags that you specify when you create a cost allocation rule.
@@ -23,8 +25,8 @@ Allocated costs appear in cost analysis. They appear as other items associated w
 ## Prerequisites
 
 - Cost allocation currently only supports customers with:
-  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. It's also called an MCA enterprise agreement.
-  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) that you bought through the Azure website. It's also called an MCA individual agreement.
+  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
+  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) that you bought through the Azure website. Also called an MCA individual agreement.
   - An [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/).
 - To create or manage a cost allocation rule, you must use an Enterprise Administrator account for [Enterprise Agreements](../manage/understand-ea-roles.md). Or you must be a [Billing account](../manage/understand-mca-roles.md) owner for Microsoft Customer Agreements.
 
@@ -96,7 +98,7 @@ Use a similar process to assess the effect of a cost allocation rule for a resou
 
 ### View cost allocation for tags
 
-In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In Cost analysis, select **Add filter**. Select **Tag**, choose the tag key, and tag values that have cost allocated to them.
+In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In Cost analysis, select **Add filter**. Select **Tag**, choose the tag key, and tag values with allocated costs.
 
 :::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Example showing costs for tagged items" lightbox="./media/allocate-costs/tagged-costs.png" :::
 

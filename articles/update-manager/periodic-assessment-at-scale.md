@@ -4,7 +4,7 @@ description: This article shows how to manage update settings for your Windows a
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 01/17/2024
 ms.topic: conceptual
 ---
 
@@ -15,7 +15,7 @@ This article describes how to enable Periodic Assessment for your machines at sc
 ## Enable Periodic Assessment for your Azure machines by using Azure Policy
 
 1. Go to **Policy** in the Azure portal and select **Authoring** > **Definitions**.
-1. From the **Category** dropdown, select **Update Manager**. Select **[Preview]: Configure periodic checking for missing system updates on Azure virtual machines** for Azure machines.
+1. From the **Category** dropdown, select **Update Manager**. Select **Configure periodic checking for missing system updates on Azure virtual machines** for Azure machines.
 1. When **Policy definition** opens, select **Assign**.
 1. On the **Basics** tab, select your subscription as your scope. You can also specify a resource group within your subscription as the scope. Select **Next**.
 1. On the **Parameters** tab, clear **Only show parameters that need input or review** so that you can see the values of parameters. In **Assessment** mode, select **AutomaticByPlatform** > **Operating system** > **Next**. You need to create separate policies for Windows and Linux.
@@ -28,7 +28,7 @@ You can monitor the compliance of resources under **Compliance** and remediation
 ## Enable Periodic Assessment for your Azure Arc-enabled machines by using Azure Policy
 
 1. Go to **Policy** in the Azure portal and select **Authoring** > **Definitions**.
-1. From the **Category** dropdown, select **Update Manager**. Select **[Preview]: Configure periodic checking for missing system updates on Azure Arc-enabled servers** for Azure Arc-enabled machines.
+1. From the **Category** dropdown, select **Update Manager**. Select **Configure periodic checking for missing system updates on Azure Arc-enabled servers** for Azure Arc-enabled machines.
 1. When **Policy definition** opens, select **Assign**.
 1. On the **Basics** tab, select your subscription as your scope. You can also specify a resource group within your subscription as the scope. Select **Next**.
 1. On the **Parameters** tab, clear **Only show parameters that need input or review** so that you can see the values of parameters. In **Assessment** mode, select **AutomaticByPlatform** > **Operating system** > **Next**. You need to create separate policies for Windows and Linux.
@@ -43,7 +43,7 @@ You can monitor compliance of resources under **Compliance** and remediation sta
 This procedure applies to both Azure and Azure Arc-enabled machines.
 
 1. Go to **Policy** in the Azure portal and select **Authoring** > **Definitions**.
-1. From the **Category** dropdown, select **Update Manager**. Select **[Preview]: Machines should be configured to periodically check for missing system updates**.
+1. From the **Category** dropdown, select **Update Manager**. Select **Machines should be configured to periodically check for missing system updates**.
 1. When **Policy definition** opens, select **Assign**.
 1. On the **Basics** tab, select your subscription as your scope. You can also specify a resource group within your subscription as the scope. Select **Next**.
 1. On the **Parameters** and **Remediation** tabs, select **Next**.

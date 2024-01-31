@@ -4,7 +4,7 @@ description: Full list of available reliability recommendations in Advisor.
 author: mabrahms
 ms.author: v-mabrahms
 ms.topic: article
-ms.date: 09/27/2023
+ms.date: 12/11/2023
 ---
 
 # Reliability recommendations
@@ -544,7 +544,7 @@ Learn more about [Front Door Profile - RenewExpiredBYOC (Renew the expired Azure
 
 Deploying two or more medium or large sized instances ensures business continuity during outages caused by planned or unplanned maintenance.
 
-Learn more about [Application gateway - AppGateway (Upgrade your SKU or add more instances to ensure fault tolerance)](https://aka.ms/aa_gatewayrec_learnmore).
+Learn more about [Improve the reliability of your application by using Azure Advisor - Ensure application gateway fault tolerance)](/azure/advisor/advisor-high-availability-recommendations#ensure-application-gateway-fault-tolerance).
 
 ### Avoid hostname override to ensure site integrity
 
