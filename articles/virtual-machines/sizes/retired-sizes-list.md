@@ -73,7 +73,7 @@ For a list of previous-gen FPGA accelerated sizes which will soon be retired, se
 
 |Series name       |Replacement series  |
 |------------------|--------------------|
-| HB-series        | [HBv2-series](../../virtual-machines/hbv2-series) |
+| HB-series        | [HBv2-series](../../virtual-machines/hbv2-series.md) |
 
 For a list of previous-gen HPC sizes which will soon be retired, see [previous-gen HPC sizes](./previous_gen_sizes_list.md#hpc-previous-gen-sizes).
 
