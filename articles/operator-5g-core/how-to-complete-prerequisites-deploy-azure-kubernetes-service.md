@@ -11,19 +11,19 @@ ms.date: 01/30/2024
 
 # Complete the prerequisites to deploy Azure Operator 5G Core on Advanced Kubernetes Service
 
-This article shows you how to complete the prerequisite steps to deploy AO5GC on the Advanced Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
+This article shows you how to complete the prerequisite steps to deploy Azure Operator 5G Core on the Advanced Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
 
 ## Prerequisites
 
 To deploy on the Azure Kubernetes service, you must have the following configurations:
 
 - Resource Group/Subscription
-- The AO5GC release version and corresponding Kubernetes version
+- The Azure Operator 5G Core release version and corresponding Kubernetes version
 - Networks created for Data plane
 - Sizing (the number of worker nodes/VM sizes/flavors/subnet sizes)
 - Availability Zones
 - Federations installed
-- Appropriate roles and permissions in your Tenant to create the cluster and modify the VMSS.
+- Appropriate roles and permissions in your Tenant to create the cluster and modify the Azure Virtual Machine Scale Sets.
  
 ## Create the initial cluster
 
@@ -31,7 +31,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
 1. On the Azure portal home pages, select **Create a Resource**.
 1. In the **Categories** section, select **Containers** > **Azure Kubernetes Service (AKS)**.
 1. On the **Basics** tab:
-    - Enter the **Subscription**, **Resource Group**, **Cluster Name**, **Availability Zones**, and **Pricing Tier** based on your AO5GC requirements.
+    - Enter the **Subscription**, **Resource Group**, **Cluster Name**, **Availability Zones**, and **Pricing Tier** based on your Azure Operator 5G Core requirements.
     -  Disable **Automatic upgrade**.
     - Select **Local accounts with Kubernetes RBAC** for the **Authentication and Authorization** method.
 2. Navigate to the **Add a node pool** tab, then:
@@ -43,7 +43,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
     - Select **Manual** as the **Scale method**.
     - Select **1** for the **Node count**.
     - Select **250** as the **Max pods per node**, and don't mark to **Enable public IP per node**.
-3. On the **Networking** tab, select Kubernetes from the **Networking Configuration** section. Then mark the box for **BYO vnet** and select the vnet and subnet for your cluster's default network. Leave all other values as default.
+3. On the **Networking** tab, select Kubernetes from the **Networking Configuration** section. Then mark the box for **BYO vnet** and select the virtual network and subnet for your cluster's default network. Leave all other values as default.
 1. Unless you have a specific requirement to do otherwise, don't change any values on the  **Integrations** tab.
 1. Turn **Azure monitor** off.
 1. Navigate to the **Advanced** tab and mark the box for **Enable Secret Store CSI Driver**. Don't edit any other field.
@@ -62,7 +62,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
     - Select **Add network interface**. A **Create Network Interface** tab appears. 
 2. On the **Create Network Interface** tab:
     - Enter a **Name** for the network interface, mark the **NIC network security group** as **None**. 
-    - Attach the network interface to your subnet based on your requirements, and select **Create**. Repeat this step for each data plane port required in the VMSS template.
+    - Attach the network interface to your subnet based on your requirements, and select **Create**. Repeat this step for each data plane port required in the Virtual Machine Scale Set template.
 3. Open a separate window and navigate to the **Azure Resource Explorer**. On the left side of the screen, locate the **Subscription** for this cluster.
 1. In the Azure Resource Explorer, find the **Infrastructure Resource group** for the cluster. Select **providers** \> **Microsoft.Compute** \> **virtualMachineScaleSets** \> **\<your VMSS name\>**. 
 1. Select the VMM, then select and change from **Read Only** to **Read/Write**.
