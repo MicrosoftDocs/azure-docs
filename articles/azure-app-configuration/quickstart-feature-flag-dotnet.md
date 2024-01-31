@@ -12,7 +12,7 @@ ms.date: 3/20/2023
 ms.author: malev
 #Customer intent: As a .NET Framework developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
-# Quickstart: Add feature flags to a .NET Framework app
+# Quickstart: Add feature flags to a .NET Framework console app
 
 In this quickstart, you incorporate Azure App Configuration into a .NET Framework app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states. 
 
@@ -32,7 +32,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-## Create a .NET console app
+## Create a .NET Framework console app
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
 
@@ -45,7 +45,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
 
     ```
-    Microsoft.Extensions.DependencyInjection
     Microsoft.Extensions.Configuration.AzureAppConfiguration
     Microsoft.FeatureManagement
     ```
@@ -53,37 +52,33 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 1. Open *Program.cs* and add the following statements:
 
     ```csharp
-    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
     using System.Threading.Tasks;
     ```
 
-1. Update the `Main` method to connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Then display a message if the `Beta` feature flag is enabled.
+1. Update the `Main` method to connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definitions from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
 
     ```csharp
         public static async Task Main(string[] args)
         {         
-            IConfigurationRoot configuration = new ConfigurationBuilder()
+            IConfiguration configuration = new ConfigurationBuilder()
                 .AddAzureAppConfiguration(options =>
                 {
                     options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
                            .UseFeatureFlags();
                 }).Build();
 
-            IServiceCollection services = new ServiceCollection();
+            IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
 
-            services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement();
+            IFeatureManager featureManager = new FeatureManager(
+                featureDefinitionProvider, 
+                new FeatureManagementOptions());
 
-            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
+            if (await featureManager.IsEnabledAsync("Beta"))
             {
-                IFeatureManager featureManager = serviceProvider.GetRequiredService<IFeatureManager>();
-
-                if (await featureManager.IsEnabledAsync("Beta"))
-                {
-                    Console.WriteLine("Welcome to the beta!");
-                }
+                Console.WriteLine("Welcome to the beta!");
             }
 
             Console.WriteLine("Hello World!");

@@ -12,10 +12,10 @@ metadata:
   ms.topic: landing-page
   author: laujan
   ms.author: lajanuar
-  ms.date: 01/02/2024
+  ms.date: 01/31/2024
   monikerRange: '<=doc-intel-4.0.0'
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-# Limits: https://review.learn.microsoft.com/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
+# Limits: https://learn.learn.microsoft.com/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -35,11 +35,11 @@ landingContent:
             url: whats-new.md
       - linkListType: reference
         links:
-           - text: 🆕 SDK overview 2023-10-31-preview (preview)
+           - text: 🆕 SDK overview ```2023-10-31-preview``` (preview)
              url: sdk-overview-v4-0.md
-           - text: SDK overview 2023-07-31 latest (GA)
+           - text: SDK overview ```2023-07-31``` latest (GA)
              url: sdk-overview-v3-1.md
-           - text: SDK overview 2022-08-31 legacy (GA)
+           - text: SDK overview ```2022-08-31``` legacy (GA)
              url: sdk-overview-v3-0.md
 
 #Card 2

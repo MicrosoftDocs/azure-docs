@@ -1,7 +1,7 @@
 ---
 title: Role-based access control in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: This article introduces role-based access control in Azure AI Studio
+description: This article introduces role-based access control in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
@@ -13,7 +13,7 @@ ms.author: larryfr
 author: Blackmist
 ---
 
-# Role-based access control in Azure AI Studio 
+# Role-based access control in Azure AI Studio
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 

@@ -4,9 +4,9 @@ description: "Artifact streaming is a feature in Azure Container Registry to enh
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
+ms.custom: devx-track-azurecli
 ms.topic: conceptual #Don't change
 ms.date: 12/14/2023
-
 #customer intent: As a developer, I want artifact streaming capabilities so that I can efficiently deliver and serve containerized applications to end-users in real-time.
 ---
 
@@ -200,4 +200,3 @@ Follow the steps to create artifact streaming in the [Azure portal](https://port
 [az-acr-artifact-streaming-operation-cancel]: /cli/azure/acr/artifact-streaming/operation#az-acr-artifact-streaming-operation-cancel
 [az-acr-artifact-streaming-operation-show]: /cli/azure/acr/artifact-streaming/operation#az-acr-artifact-streaming-operation-show
 [az-acr-artifact-streaming-update]: /cli/azure/acr/artifact-streaming#az-acr-artifact-streaming-update
-

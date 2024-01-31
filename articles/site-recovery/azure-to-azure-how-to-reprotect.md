@@ -58,7 +58,7 @@ By default, the following occurs:
 1. Temporary replicas of the source disks (disks attached to the VMs in secondary region) are created with the name `ms-asr-<GUID>`, that are used to transfer / read data. The temp disks let us utilize the complete bandwidth of the disk instead of only 16% bandwidth of the original disks (that are connected to the VM). The temp disks are deleted once the reprotection completes.
 1. If the target availability set doesn't exist, a new one is created as part of the reprotect job if necessary. If you've customized the reprotection settings, then the selected set is used.
 
-When you trigger a reprotect job, and the target VM exists, the following occurs:
+**When you trigger a reprotect job, and the target VM exists, the following occurs:**
 
 1. The target side VM is turned off if it's running.
 1. If the VM is using managed disks, a copy of the original disk is created with an `-ASRReplica` suffix. The original disks are deleted. The `-ASRReplica` copies are used for replication.
@@ -66,12 +66,16 @@ When you trigger a reprotect job, and the target VM exists, the following occurs
 1. Only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. Check below to find the estimated time to complete the reprotection.
 1. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
 
-When you trigger a reprotect job, and the target VM and disks don't exist, the following occurs:
+**When you trigger a reprotect job, and the target VM and disks don't exist, the following occurs:**
 
 1. If the VM is using managed disks, replica disks are created with `-ASRReplica` suffix. The `-ASRReplica` copies are used for replication.
 1. If the VM is using unmanaged disks, replica disks are created in the target storage account.
 1. The entire disks are copied from the failed over region to the new target region.
 1. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
+
+> [!NOTE]
+> The `ms-asr` disks are temporary disks that are deleted after the *reprotect* action is completed.  You will be charged a minimal cost based on the Azure managed disk price for the time that these disks are active.
+
 
 #### Estimated time to do the reprotection
 
