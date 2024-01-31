@@ -9,10 +9,10 @@ Run the following command in PowerShell to give your session host a friendly nam
 
 ```powershell
 $parameters = @{
-   HostPoolName = <HostPoolName>
-   Name = <SessionHostName>
-   ResourceGroupName = <ResourceGroupName>
-   FriendlyName = <SessionHostFriendlyName>
+   HostPoolName = 'HostPoolName'
+   Name = 'SessionHostName'
+   ResourceGroupName = 'ResourceGroupName'
+   FriendlyName = 'SessionHostFriendlyName'
 }
 
 Update-AzWvdSessionHost @parameters
