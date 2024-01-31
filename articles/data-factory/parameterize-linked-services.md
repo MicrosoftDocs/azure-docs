@@ -64,6 +64,7 @@ All the linked service types are supported for parameterization.
 - Generic HTTP
 - Generic REST
 - Google AdWords
+- Google BigQuery
 - Informix
 - MariaDB
 - Microsoft Access
