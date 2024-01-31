@@ -83,7 +83,7 @@ If you have previously labeled data that you would like to use to train your mod
 The following script uploads the image data on your local machine at path "./data/odFridgeObjects" to datastore in Azure Blob Storage. It then creates a new data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace. 
 
 
-If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it updates the version number of the data asset and point it to the new location where the image data uploaded.
+If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it updates the version number of the data asset and points it to the new location where the image data uploaded.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
