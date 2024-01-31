@@ -16,7 +16,7 @@ ms.date: 01/29/2024
 
 Azure AI Search provides vector data structures and configurations for [vector search](vector-search-overview.md) and [hybrid queries](hybrid-search-overview.md). Support is implemented at the field level, which means you can combine vector and nonvector fields in the same search corpus.
 
-In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests. You can use Azure AI Search as a pure vector store.
+In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests.
 
 The [Create Index REST API](/rest/api/searchservice/indexes/create-or-update) or equivalent Azure SDK methods create the vector store.
 

@@ -132,7 +132,7 @@
     - name: Search index
       href: search-what-is-an-index.md
     - name: Vector store
-      href: vector-database-store.md
+      href: vector-store.md
     - name: Knowledge store 
       href: knowledge-store-concept-intro.md
     - name: Data import strategies
