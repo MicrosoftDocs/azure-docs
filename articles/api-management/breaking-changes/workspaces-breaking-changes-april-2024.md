@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Workspaces - breaking changes (April 2024)
 
-On 30 April 2024 as part of our development of [workspaces](../workspaces-overview.md) (preview) in Azure API Management, we're introducing several breaking changes. 
+On 30 April 2024, as part of our development of [workspaces](../workspaces-overview.md) (preview) in Azure API Management, we're introducing several breaking changes. 
 
 These changes will have no effect on the availability of your API Management service. However, you may have to take action to continue using full workspaces functionality beyond 30 April 2024.
 
@@ -25,7 +25,7 @@ Review the following breaking changes to determine if you need to take action:
 
 ### Change to supported service tiers
 
-The following service tiers will no longer support workspaces: **Standard** and **Developer**. Workspaces will be available in the **Premium** tier.
+The following service tiers will no longer support workspaces: **Standard** and **Developer**. Workspaces will be available in the **Premium** tier. For availability in the v2 tiers, see [Azure API Management v2 tiers](../v2-service-tiers-overview.md).
 
 ### Changes to support for assigning service-level entities in workspaces
 
@@ -35,14 +35,6 @@ The following assignments of workspace entities to service-level entities will n
 * Assign workspace APIs to service-level tags
 * Assign workspace products to service-level tags
 
-
-### Changes to support for referencing service-level resources from workspace-level policies
-
-The following capabilities of workspace-level policies will no longer be supported:
-
-* Reference service-level backends
-* List service-level certificates with `context.Deployment.Certificates`. When used in a service-level policy, this method will return service-level certificates only.
-* Reference named values, policy fragments, loggers, cache, schemas, and related policy resources from the service level
 
 ### Changes to supported context objects
 

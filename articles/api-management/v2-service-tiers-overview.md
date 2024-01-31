@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 10/02/2023
+ms.date: 01/31/2024
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -85,7 +85,7 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Built-in analytics
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from v1 tiers 
-* Workspaces
+* Workspaces (*Standard v2*)
 
 **Developer portal**
 * Delegation of user registration and product subscription
