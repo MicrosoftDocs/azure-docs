@@ -61,9 +61,9 @@ Defender for Cloud provides recommendations when an endpoint detection and respo
 
 1. In the search field, enter the appropriate recommendation.
 
-    - Azure VM - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
-    - AWS EC2 instances - `Endpoint Detection and Response (EDR) solution should be installed on EC2s`
-    - GCP VM instances - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`
+    - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
+    - `Endpoint Detection and Response (EDR) solution should be installed on EC2s`
+    - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`
 
 1. Select the recommendation.
 
@@ -83,9 +83,9 @@ When Defender for Cloud detects misconfigurations in your endpoint detection and
 
 1. In the search field, enter the appropriate recommendation.
 
-    - Azure VM - `Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines`
-    - AWS EC2 instances - `Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s`
-    - GCP VM instances - `Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines`
+    - `Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines`
+    - `Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s`
+    - `Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines`
 
 1. Select the recommendation.
 
