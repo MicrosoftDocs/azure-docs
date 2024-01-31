@@ -75,7 +75,7 @@ The image and video retrieval services return a field called "relevance." The te
 - The dimensions of the image must be greater than 10 x 10 pixels and less than 16,000 x 16,000 pixels
 
 **Text input**
-- The text string must be between (inclusive) one word and 75 words.
+- The text string must be between (inclusive) one word and 70 words.
 
 ## Next steps
 
