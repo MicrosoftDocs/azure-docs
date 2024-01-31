@@ -24,7 +24,7 @@
         href: relocation-postgresql-flexible-server.md
       - name: Azure Monitor - Log Analytics Workspace
         href: relocation-log-analytics.md
-      - name: Azure Private Link
+      - name: Azure Private Link Service
         href: relocation-private-link.md  
       - name: Storage Account
         href: relocation-storage-account.md

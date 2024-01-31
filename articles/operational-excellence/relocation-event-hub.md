@@ -30,7 +30,7 @@ If you have other resources in the Azure resource group that contains the Event 
 - Identify all resources dependencies. Depending on how you've deployed Event Hub, the following services *may* need deployment in the target region:
 
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
-    - [Azure Private Link](./relocation-private-link.md)
+    - [Azure Private Link Service](./relocation-private-link.md)
     - [Virtual Network](./relocation-virtual-network.md)
     - Event Hub Namespace
     - [Event Hub Cluster](/azure/event-hubs/move-cluster-across-regions)

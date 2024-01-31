@@ -21,7 +21,7 @@ This article shows you how to create a key vault in a new region, by manually co
 - Identify all Key Vault dependant resources.
 - Depending on your Azure Key Vault deployment, the following dependent resources *may* need to be deployed and configured in the target region prior to relocation:
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
-    - [Azure Private Link](./relocation-private-link.md)
+    - [Azure Private Link Service](./relocation-private-link.md)
     - [Virtual Network](./relocation-virtual-network.md)
 
 - Before you begin to plan your key vault relocation, keep the following considerations in mind:  

@@ -24,11 +24,12 @@ This article shows you how to relocate an Azure Storage Account to a new region 
 - Ensure that the services and features that your account uses are supported in the target region.
 - For preview features, ensure that your subscription is allowlisted for the target region. 
 - Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
+
     - [Virtual Network, Network Security Groups, and User Defined Route](./relocation-virtual-network.md)
     - [Azure Key Vault](./relocation-key-vault.md)
     - [Azure Automation](./relocation-automation.md)
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
-    - [Azure Private Link](./relocation-private-link.md)
+    - [Azure Private Link Service](./relocation-private-link.md)
 
 ## Prepare
 
