@@ -164,7 +164,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
     "resources": [
               {
             "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2023-04-01",
             "name": "[variables('networkSecurityGroupName')]",
             "location": "[parameters('location')]",
             "properties": {
@@ -187,7 +187,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
         },
       {
         "type": "Microsoft.Network/virtualNetworks",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('virtualNetworkName')]",
         "location": "[parameters('location')]",
         "properties": {
@@ -211,7 +211,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Network/publicIPAddresses",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('publicIPAddressName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -227,7 +227,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Network/loadBalancers",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('loadBalancerName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -291,7 +291,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Compute/virtualMachineScaleSets",
-        "apiVersion": "2021-03-01",
+        "apiVersion": "2023-09-01",
         "name": "[parameters('vmssName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -374,7 +374,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Insights/autoscaleSettings",
-        "apiVersion": "2015-04-01",
+        "apiVersion": "2022-10-01",
         "name": "[concat(parameters('vmssName'), '-autoscalehost')]",
         "location": "[parameters('location')]",
         "dependsOn": [
