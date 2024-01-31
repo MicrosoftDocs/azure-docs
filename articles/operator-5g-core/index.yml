@@ -28,8 +28,6 @@ landingContent:
             url: overview-architecture.md
       - linkListType: concept
         links:
-         - text: Build a 5G Core network
-           url: concept-build-5g-core-network.md
          - text: Centralized lifecycle management
            url: concept-centralized-lifecycle-management.md
          - text: Security
@@ -38,8 +36,10 @@ landingContent:
         links:
           - text: Getting an Azure Operator 5G Core subscription
             url: quickstart-subscription.md
-          - text: Create a Mobile Packet Core in your subscription
-            url: quickstart-create-mobile-packet-core.md         
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Azure Operator 5G Core
+            url: how-to-deploy-5g-core.md     
 # Card                   
   - title: Learn about network functions
     linkLists:
