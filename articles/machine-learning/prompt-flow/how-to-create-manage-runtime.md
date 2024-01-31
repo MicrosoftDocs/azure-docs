@@ -128,7 +128,7 @@ Same as authoring UI, you can also specify the runtime in CLI/SDK when you submi
 
 # [Azure CLI](#tab/cli)
 
-In you `run.yml` you can specify the runtime name or use the automatic runtime. If you specify the runtime name, it will use the runtime with the name you specified. If you specify automatic, it will use the automatic runtime. If you don't specify the runtime, it will use the automatic runtime by default.
+In your `run.yml` you can specify the runtime name or use the automatic runtime. If you specify the runtime name, it uses the runtime with the name you specified. If you specify automatic, it uses the automatic runtime. If you don't specify the runtime, it uses the automatic runtime by default.
 
 In automatic runtime case, you can also specify the instance type, if you don't specify the instance type,  Azure Machine Learning chooses an instance type (VM size) based on factors like quota, cost, performance and disk size, learn more about [serverless compute](../how-to-use-serverless-compute.md)
 
@@ -183,10 +183,10 @@ base_run = pf.run(
 print(base_run)
 ```
 
-Learn full e2e code first example: [Integrate prompt flow with LLM-based application DevOps](./how-to-integrate-with-llm-app-devops.md)
+Learn full end to end code first example: [Integrate prompt flow with LLM-based application DevOps](./how-to-integrate-with-llm-app-devops.md)
 
-### Referencing files outside of the flow folder - automatic runtime only
-Sometimes, you may want to reference a `requirements.txt` file that is outside of the flow folder. For example, you may want have big project which include multiple flows, and they share the same `requirements.txt` file. To do this, You can add this field `additional_includes` into the `flow.dag.yaml`. The value of this field is a list of the relative file/folder path to the flow folder. For example, if requirements.txt is in the parent folder of the flow folder, you can add `../requirements.txt` to the `additional_includes` field.
+### Reference files outside of the flow folder - automatic runtime only
+Sometimes, you might want to reference a `requirements.txt` file that is outside of the flow folder. For example, you might have complex project that includes multiple flows, and they share the same `requirements.txt` file. To do this, You can add this field `additional_includes` into the `flow.dag.yaml`. The value of this field is a list of the relative file/folder path to the flow folder. For example, if requirements.txt is in the parent folder of the flow folder, you can add `../requirements.txt` to the `additional_includes` field.
 
 ```yaml
 inputs:
@@ -203,7 +203,7 @@ additional_includes:
 ...
 ```
 
-When you submit flow run using automatic runtime, the `requirements.txt` file will be copied to the flow folder, and use it to start your automatic runtime.
+When you submit flow run using automatic runtime, the `requirements.txt` file is copied to the flow folder, and use it to start your automatic runtime.
 
 ## Update a runtime on the UI
 
@@ -281,11 +281,11 @@ If you select **Use customized environment**, you first need to rebuild the envi
 
 ## Relationship between runtime, compute resource, flow and user.
 
-- One single user can have multiple compute resource (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resource. For example, one user can have multiple compute resource with different VM size. You can find 
-- One compute resource can only used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resource. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resource.
-- One compute resource can host multiple runtimes. Runtime is container running on underling compute resource, as in common case, prompt flow authoring didn't need too many compute resource, we allow single compute resource to host multiple runtimes from same user. 
-- One runtime will only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.
-- In automatic runtime, one flow will only have one runtime, as we expect each flow is self contained it defined the base image and required python packge in flow folder. In compute instance runtime, you can run different flow on same compute instance runtime, but you need make sure the packages and image is compatible.
+- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. You can find 
+- One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resources.
+- One compute resource can host multiple runtimes. Runtime is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple runtimes from same user. 
+- One runtime only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.
+- In automatic runtime, one flow only have one runtime, as we expect each flow is self contained it defined the base image and required python package in flow folder. In compute instance runtime, you can run different flow on same compute instance runtime, but you need make sure the packages and image is compatible.
 
 ## Next steps
 
