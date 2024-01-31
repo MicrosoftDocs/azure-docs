@@ -31,7 +31,10 @@ To see all Microsoft assessment choices, go to the [Learn platform > Assessments
 
 ## Prerequisites
 
-You can manage access to Advisor reviews using built-in roles. The permissions vary by role. These roles need to be configured for the subscription that was used to publish the review.
+You can manage access to Advisor reviews using built-in roles. The permissions vary by role. 
+
+> [!NOTE]
+> These roles must be configured for the subscription that was used to publish the review.
 
 | **Name** | **Description** |
 |---|:---:|
@@ -91,9 +94,9 @@ You can choose to:
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-workload.png" alt-text="Sreenshot of Azure Advisor **Choose assessment workload** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-workload.png":::
 
-1.	On that page, select a workload type. Each workload type consists of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
+1.	On that page, select a workload type. Each workload type results in a list of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
 
-  * Core Well-Architected Review: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your workload’s design. To learn more, see [Azure Well-Architected Review](/assessments/azure-architecture-review/)
+  * Core Well-Architected Review: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of the selected subscription. To learn more, see [Azure Well-Architected Review](/assessments/azure-architecture-review/)
 
   * Azure Machine Learning: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your machine learning models. The Compute targets and Instance types are two key concepts in Azure Machine Learning. To learn more, see [Assessing your machine learning workloads](/shows/azure-enablement/assessing-your-machine-learning-workloads)
 
@@ -137,19 +140,19 @@ When ready, select **Next**. The second assessment questions page opens.
 
 :::image type="content" source="./media/advisor-waf-assessments/waf-assessments-export-results.png" alt-text="Sreenshot of Azure Advisor **Guidance** page, export results." lightbox="./media/advisor-waf-assessments/waf-assessments-export-results.png":::
 
-The assessment recommendations are available in Azure Advisor after a maximum of 8 hours of after completion. 
+The assessment recommendations are available in Azure Advisor after a maximum of 8 hours of after completion.  
 
-Key Points to note:
+**Key Points**:
 
 * The assessments are tailored to your selected workload type, such as IoT, SAP, data services, machine learning, etc., which you choose during the questioning. The Azure Well-Architected Framework provides a suite of actionable guidance that you can use to improve your workloads in the areas that matter most to your business. The framework is designed to help you evaluate your workloads against the latest set of Azure best practices.	
 * There's no limit on the number of assessments that can be taken for a subscription. However, while creating a new assessment, you're notified if there's an existing assessment already created for the same subscription and workload. 
-* Currently we don't allow you to edit completed assessments in Advisor.
+* Currently, we don't allow you to edit completed assessments in Advisor.
 
 ## View and Azure Advisor WAF assessment recommendations
 
 There are multiple avenues to access the recommendations. But you must have the correct permissions.
 
-To learn more about permissions, see [Permissions in Azure Advisor](/azure/advisor/permissions). To find out what subscriptions you have permissions for, and what level of permissions, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription). If you have Contributor permissions, you can view the recommendations for assessments created by other users and those created by yourself. 
+To learn more about permissions, see [Permissions in Azure Advisor](/azure/advisor/permissions). To find out what subscriptions you have permissions for, and what level of permissions, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription). If you have Contributor permissions, you can view the recommendations for assessments created by other users and the assessments that you created. 
 
 1. Open the **Assessments** main page and then any completed assessment. The recommendations list page for that assessment opens. 
 
@@ -159,9 +162,9 @@ To learn more about permissions, see [Permissions in Azure Advisor](/azure/advis
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane.png" alt-text="Sreenshot of Azure Advisor **Recommendations list** page, detail pane." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane.png":::
 
-From the recommendations list page, you can
+From the recommendations list page, you can:
   * Select a recommendation and see details about it in a pane that opens
-  * Postpone, Dismiss, or Mark as in progress. If you mark a recommendation as in progress and finish with it (take the recommended actions), it's important to mark it as completed. You do this through the recommendation list in the In progress view, or through the detail pane of a recommendation in progress. 
+  * *Postpone*, *Dismiss*, or mark as *In progress*. If you mark a recommendation as in progress and finish with it (take the recommended actions), it's important to mark it as completed. You do this through the recommendation list in the **In progress** view, or through the detail pane of a recommendation in progress. 
 
 > [!NOTE]
 > Assessment recommendations have no immediate impact on your existing Advisor score. 
