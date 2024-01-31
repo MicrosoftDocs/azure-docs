@@ -8,7 +8,7 @@ manager: vikasbagde
 ms.service: load-balancer
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 10/25/2023
+ms.date: 01/02/2024
 ms.author: sriramiyer
 ms.custom: devx-track-terraform
 #Customer intent: I want to create a load balancer by using Terraform so that I can load balance internet traffic to VMs.
