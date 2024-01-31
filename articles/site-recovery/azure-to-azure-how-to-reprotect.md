@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/14/2023
+ms.date: 01/31/2024
 ms.author: ankitadutta
 ---
 
