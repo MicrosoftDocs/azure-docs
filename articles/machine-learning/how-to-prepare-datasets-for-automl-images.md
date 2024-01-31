@@ -34,10 +34,8 @@ If your labeled training data is in a different format (like, pascal VOC or COCO
 ## Get labeled data 
 In order to train computer vision models using AutoML, you need to first get labeled training data. The images need to be uploaded to the cloud and label annotations need to be in JSONL format. You can either use the Azure Machine Learning Data Labeling tool to label your data or you could start with prelabeled image data.
 
-
 ### Using Azure Machine Learning Data Labeling tool to label your training data
 If you don't have prelabeled data, you can use Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images. This tool automatically generates the data required for training in the accepted format.
-
 
 It helps to create, manage, and monitor data labeling tasks for 
 
@@ -75,8 +73,7 @@ my_training_data_input = Input(
 
 # [Studio](#tab/Studio)
 
-Refer to Cli/Sdk tabs for reference.
-Refer to Cli/Sdk tabs for reference.
+Refer to CLI/SDK tabs for reference.
 
 ---
 
@@ -85,7 +82,7 @@ If you have previously labeled data that you would like to use to train your mod
 
 The following script uploads the image data on your local machine at path "./data/odFridgeObjects" to datastore in Azure Blob Storage. It then creates a new data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace. 
 
-If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it updates the version number of the data asset and point it to the new location where the image data uploaded.
+
 If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it updates the version number of the data asset and point it to the new location where the image data uploaded.
 
 # [Azure CLI](#tab/cli)
@@ -151,7 +148,6 @@ my_data = Data(
 ![Animation showing how to register a dataset from data already present in datastore](media\how-to-prepare-datasets-for-automl-images\ui-dataset-datastore.gif)
 
 ---
-
 
 Next, you'll need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
 
