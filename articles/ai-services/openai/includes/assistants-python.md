@@ -2,8 +2,9 @@
 title: 'Quickstart: Use the OpenAI Service via the Python SDK'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Python SDK. 
-#services: cognitive-services
 manager: nitinme
+author: mrbullwinkle
+ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 02/01/2024

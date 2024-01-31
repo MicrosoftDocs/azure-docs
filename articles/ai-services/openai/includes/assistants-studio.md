@@ -3,6 +3,8 @@ title: 'Quickstart: Use Azure OpenAI Assistants (Preview) via the Azure OpenAI S
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
 manager: nitinme
+author: mrbullwinkle
+ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 02/01/2024
@@ -80,7 +82,7 @@ By default there are three panels: assistant setup, chat session, and Logs. **Sh
     :::image type="content" source="../media/quickstarts/assistant-configuration.png" alt-text="Screenshot of the assistant with configuration details entered." lightbox="../media/quickstarts/assistant-configuration.png":::
 
 7. Enter a question for the assistant to answer: "I need to solve the equation `3x + 11 = 14`. Can you help me?"
-8. Select the **Add and run button** ![add and run icon](../media/quickstarts/run.png)
+8. Select the **Add and run button** :::image type="icon" source="../media/quickstarts/run.png":::
 
     ```output
     The solution to the equation (3x + 11 = 14) is (x = 1).
@@ -108,7 +110,7 @@ By default there are three panels: assistant setup, chat session, and Logs. **Sh
     solution  
     ```
 
-:::image type="content" source="../media/quickstarts/assistant-session.png" alt-text="Screenshot of conversation session in the Assistant playground" lightbox="../media/quickstarts/assistant-session.png":::
+:::image type="content" source="../media/quickstarts/assistant-session.png" alt-text="Screenshot of conversation session in the Assistant playground." lightbox="../media/quickstarts/assistant-session.png":::
 
 You could also consult the logs in the right-hand panel to confirm that code interpreter was used and to validate the code that was run to generate the response. It is important to remember that while code interpreter gives the model the capability to respond to more complex math questions by converting the questions into code and running in a sandboxed Python environment, you still need to validate the response to confirm that the model correctly translated your question into a valid representation in code.
 

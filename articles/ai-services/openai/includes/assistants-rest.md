@@ -2,8 +2,9 @@
 title: 'Quickstart: Use the OpenAI Service to make your AI Assistant with the REST API'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI AI Assistants API with the REST API. 
-#services: cognitive-services
 manager: nitinme
+author: mrbullwinkle
+ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 02/01/2023
