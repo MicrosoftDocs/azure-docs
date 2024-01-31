@@ -11,7 +11,7 @@ ms.author: pgrandhi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Get the latest version of the [.NET Microsoft Azure EventGrid Management SDK](/azure/event-grid/sdk-overview).
-- Setup a way to authenticate to Azure with [Azure Identity](dotnet/api/overview/azure/identity-readme) library as described below.
+- Setup a way to authenticate to Azure with [Azure Identity](/dotnet/api/overview/azure/identity-readme) library as described below.
 - An [Azure Communication Services resource](../../create-communication-resource.md).
 
 ## Retreiving Communication Services ResourceId
