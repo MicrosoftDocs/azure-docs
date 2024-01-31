@@ -1,10 +1,10 @@
 ---
 title: Manage a Confluent Cloud
 description: This article describes management of a Confluent Cloud on the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
-
+# customerIntent: As a developer I want to learn how to manage Apache Kafka & Apache Flink on Confluent Cloud, so that I can enable single sign-on, delete a Confluent organization, and get support. 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 11/20/2023
+ms.date: 1/31/2024
 
 ---
 

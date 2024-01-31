@@ -15,7 +15,7 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service
+  - title: About Apache Kafka & Apache Flink on Confluent Cloud
     linkLists:
       - linkListType: overview
         links:

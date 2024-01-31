@@ -1,10 +1,10 @@
 ---
-title: Create Apache Kafka & Apache Flink on Confluent Cloud through Azure CLI
-description: This article describes how to use the Azure CLI to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
-
+title: 'Create Apache Kafka & Apache Flink on Confluent Cloud through Azure CLI'
+description: This quickstart describes how to use the Azure CLI to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
+# customerIntent: As a developer I want to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud using the Azure CLI.
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 11/20/2023
+ms.date: 1/31/2024
 
 ---
 
@@ -29,7 +29,7 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 
 1. From the **Marketplace** page, you have two options based on the type of plan you want. You can sign up for a pay-as-you-go plan or commitment plan. Pay-as-you-go is publicly available. The commitment plan is available to customers who have been approved for a private offer.
 
-   - For **pay-as-you-go** customers, search for _AApache Kafka & Apache Flink on Confluent Cloud_. Select the offer for Apache Kafka & Apache Flink on Confluent Cloud.
+   - For **pay-as-you-go** customers, search for _Apache Kafka & Apache Flink on Confluent Cloud_. Select the offer for Apache Kafka & Apache Flink on Confluent Cloud.
 
      :::image type="content" source="media/search-pay-as-you-go.png" alt-text="search Azure Marketplace offer.":::
 

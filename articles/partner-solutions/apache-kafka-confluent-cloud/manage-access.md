@@ -5,7 +5,7 @@ description: This article describes how to use Confluent Access Management in th
 ms.service: partner-services
 subservice: confluent
 ms.topic: how-to
-ms.date: 11/29/2023
+ms.date: 1/31/2024
 # CustomerIntent: As an organization admin, I want to manage user permissions in Apache Kafka & Apache Flink on Confluent Cloud so that I can add, delete and manage users.
 ---
 
