@@ -38,5 +38,7 @@
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework
     href: /azure/well-architected/operational-excellence/principles
+  - name: Azure Resource Mover Documentation
+    href: /azure/resource-mover/overview
   
 

@@ -1,36 +1,39 @@
 ---
-title: Create Azure Private Link for workload relocation to another region
-titleSufffix: Azure Private Link
-description: Find out how to create Azure Private Link for workload relocation to another region
+title: Relocate Azure Private Link Service to another region
+description: Learn how to relocate an Azure Private Link Service to a new region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 01/26/2024
+ms.date: 01/31/2024
 ms.service: private-link
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - subject-relocation
 ---
 
-# Create Azure Private Link for workload relocation to another region
+# Relocate Azure Private Link Service to another region
 
-This article shows you how to create [Azure Private Link](/azure/private-link/private-link-overview) when moving a Platform as a Service (PaaS) service, such as Azure Storage or SQL Database, to another region. 
+This article shows you how relocate [Azure Private Link Service](/azure/private-link/private-link-overview) when moving your workload to another region. 
 
-The actual steps to relocate [Azure Private Link](/azure/private-link/private-link-overview) is covered in the section of the related service such as Storage Account, Static WebApp, App Service, etc. 
-
-
+To learn how to to reconfigure [private endpoints](/azure/private-link/private-link-overview) for a particular service, see the [appropriate service relocation guide](overview-relocation.md).
 
 
-## Create Azure Private Link Service for relocated workload
+## Prepare
 
-1. Redeploy all dependent resources that are used by Private Link, such as Application Insights, log storage, [Log Analytics](./relocation-log-analytics.md), etc.
+- Identify all resources that are used by Private Link Service, such as Application Insights, log storage, [Log Analytics](./relocation-log-analytics.md), etc.
 
-1. Ensure that the standard load balancer with all dependent resources is relocated to the target region.
+## Redeploy
 
-1. Create a Private Link that references the relocated load balancer. To create the Private Link, you can use [Azure Portal](/azure/private-link/create-private-link-service-portalp), [PowerShell](/azure/private-link/create-private-link-service-powershell), or [Azure CLI](/azure/private-link/create-private-link-service-cli). In the load balancer selection process:
-    - Choose the frontend IP configuration where you want to receive the traffic. 
-    - Choose a subnet for NAT IP addresses for the Private Link Service. 
-    - Choose Private Link Service settings that are the same as the source Private Link Service. 
+1. Redeploy all resources that are used by Private Link Service.
+
+1. Ensure that a standard load balancer with all dependent resources is relocated to the target region.
+
+1. Create a Private Link Service that references the relocated load balancer. To create the Private Link, you can use [Azure Portal](/azure/private-link/create-private-link-service-portalp), [PowerShell](/azure/private-link/create-private-link-service-powershell), or [Azure CLI](/azure/private-link/create-private-link-service-cli). 
+
+    In the load balancer selection process:
+        - Choose the frontend IP configuration where you want to receive the traffic. 
+        - Choose a subnet for NAT IP addresses for the Private Link Service. 
+        - Choose Private Link Service settings that are the same as the source Private Link Service. 
     
 1. Redeploy the private endpoint into the relocated virtual network.
 
