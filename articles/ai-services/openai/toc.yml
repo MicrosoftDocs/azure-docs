@@ -22,6 +22,8 @@ items:
       href: faq.yml
 - name: Quickstarts
   items:
+    - name: Assistants (preview)
+      href: assistants-quickstart.md
     - name: Completions
       href: quickstart.md
     - name: Chat
