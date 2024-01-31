@@ -64,7 +64,7 @@ On the **Security** page of the **Create Topic**  or **Create Event Grid Domain*
     :::image type="content" source="./media/authenticate-with-microsoft-entra-id/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
 1. Configure the minimum required Transport Layer Security (TLS) version. For more information, see [Configure minimum TLS version](transport-layer-security-configure-minimum-version.md).
 
-    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/configure-transport-layer-security-version.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can select the minimum TLS version.":::
+    :::image type="content" source="./media/create-custom-topic/configure-transport-layer-security-version.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can select the minimum TLS version.":::
 1. Select **Advanced** at the bottom of the page to switch to the **Advanced** page. 
 
 ## Advanced page
