@@ -246,6 +246,8 @@ As with top-level simple fields, simple subfields of complex fields can only be 
 
 Azure search has the limitation wherein the complex object in all the collections total in a document cannot exceeed 3000
 
+User wil encounter the below error during indexing when there are complex collection exceedding 3000 limit
+
 “A collection in your document exceeds the maximum elements across all complex collections limit. The document with key '1052' has '4303' objects in collections (JSON arrays). At most '3000' objects are allowed to be in collections across the entire document. Remove objects from collections and try indexing the document again."
 
 In some cases we might need to add more than 3000 .In those cases we can pipe and store it as a string .There is no limitation of number of strings stored in an array in azure search
@@ -295,6 +297,18 @@ foreach (var filterItem in filterCombinations)
         }
 
 ```
+Similarly if user searched for France and 1234 product code we will take the user input and construct a delimited string as below and match against our search array
+>`|FRA|1234|*|`
+
+If user tries to search for countries not present in our list it will not match the delimited array stroed in search index and no results will be returned
+Example user searches for Canada and product code 1234.The user search would be converted as 
+
+>`|CAN|1234|*|`
+
+This will not match any of the entries in the delimited array in our search index 
+
+This way we can satisfy our business use case where in we need to search on combination of country,category and product by storing it as simple delimited string type instead of complex collection
+
 ## Next steps
 
 Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels) in the **Import data** wizard. You need the Azure Cosmos DB connection information provided in the readme to access the data.
