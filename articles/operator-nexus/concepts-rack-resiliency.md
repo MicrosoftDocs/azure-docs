@@ -60,7 +60,7 @@ Operator Nexus supports control plane resiliency in single rack configurations b
 
 ## Resiliency implications of lost quorum
 
-In disaster situations when the control plane loses quorum, there are impacts to the Kubernetes API across the instance. This scenario can affect a workload's ability to read and write Customer Resources (CRs) and talk across racks. 
+In disaster situations when the control plane loses quorum, there are impacts to the Kubernetes API across the instance. This scenario can affect a workload's ability to read and write Custom Resources (CRs) and talk across racks. 
 
 ## Related Links
 
