@@ -1559,6 +1559,11 @@
         "source_path_from_root": "/articles/postgresql/single-server/overview.md",
         "redirect_url": "/azure/postgresql/flexible-server/service-overview",
         "redirect_document_id": false
-    }    
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/howto-manage-firewall-using-cli.md",
+        "redirect_url": "/azure/postgresql/quickstart-create-server-database-azure-cli#configure-a-server-based-firewall-rule",
+        "redirect_document_id": true
+    }
     ]
 }
