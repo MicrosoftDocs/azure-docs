@@ -3002,7 +3002,7 @@ groups:
   title: Quickstart interaction type
   prompt: Choose how you'd like to interact with the quickstart
   pivots:
-  - id: blob-storage-quickstart-step-by-step
-    title: Follow step by step instructions
-  - id: blob-storage-quickstart-completed-sample
-    title: Explore a completed code sample
+  - id: blob-storage-quickstart-scratch
+    title: Start from scratch
+  - id: blob-storage-quickstart-template
+    title: Start from a template
