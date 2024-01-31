@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Marketplace Store Charge API.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2024
+ms.date: 01/31/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -41,7 +41,7 @@ You can call the API using the following scopes:
 - Enrollment: `/providers/Microsoft.Billing/billingAccounts/{billingAccountId}`
 - EnrollmentAccount: `/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}`
 - Management Group: `/providers/Microsoft.Management/managementGroups/{managementGroupId}`
-- Subscription: `/subscriptions/{subscriptionId}/` for a subscription scope
+- Subscription: `/subscriptions/{subscriptionId}/`
 
 For subscription, billing account, department, enrollment account, and management group scopes you can also add a billing period to the scope using `/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}`. For example, to specify a billing period at the department scope, use `/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}`.
 
