@@ -4,7 +4,7 @@ description: Learn how to enable user-assigned managed identities on Batch pools
 ms.topic: conceptual
 ms.date: 04/03/2023
 ms.devlang: csharp
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ---
 # Configure managed identities in Batch pools
 

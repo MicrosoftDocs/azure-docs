@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Image Analysis client 4.0 SDK for .NET"
 description: In this quickstart, get started with the Image Analysis 4.0 client SDK for .NET.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
@@ -13,9 +13,9 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for C# to analyze an image to read text and generate an image caption. This quickstart calls a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console. 
+Use the Image Analysis client SDK for .NET to analyze an image to read text and generate an image caption. This quickstart analyzes a remote image and prints the results to the console. 
 
-[Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) | [Packages (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | [Package (NuGet)](https://aka.ms/azsdk/image-analysis/package/nuget) | [Samples](https://aka.ms/azsdk/image-analysis/samples/csharp)
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -23,9 +23,8 @@ Use the Image Analysis client SDK for C# to analyze an image to read text and ge
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled. Or if you don't plan on using Visual Studio IDE, you need [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or higher installed.
-* [.NET Runtime](https://dotnet.microsoft.com/download/dotnet/) installed.
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, select **Go to resource**.
+- The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled. Or, if you don't plan on using Visual Studio IDE, you need the [.NET SDK](https://dotnet.microsoft.com/download/dotnet) installed.
+- Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the supported Azure regions (see [Image captions](/azure/ai-services/computer-vision/concept-describe-images-40)). After it deploys, select **Go to resource**.
     * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -40,7 +39,7 @@ Open Visual Studio, and under **Get started** select **Create a new project**. S
 
 ### Install the client SDK 
 
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp).
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. 
 
 #### [CLI](#tab/cli)
 
@@ -68,13 +67,11 @@ Build succeeded.
 
 ### Install the client SDK
 
-Within the application directory, install the Azure AI Vision client SDK for .NET with the following command:
+Within the application directory, install the Image Analysis SDK for .NET with the following command:
 
 ```dotnet
-dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
+dotnet add package Azure.AI.Vision.ImageAnalysis --prerelease
 ```
-
-For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp).
     
 ---
 
@@ -87,10 +84,8 @@ From the project directory, open the *Program.cs* file that was created previous
 > [!TIP]
 > The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/quick-start/program.cs?name=snippet_single)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-quickstart/Program.cs?name=snippet_single)]
 
-
-Then, build and run the application. You should see output similar to the one shown here.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 
@@ -177,8 +172,6 @@ Text:
      Word: 'review', Bounding polygon {{X=560,Y=371},{X=576,Y=371},{X=575,Y=376},{X=559,Y=376}}, Confidence 0.0400 
 ```
 
-
-
 ## Clean up resources
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -190,9 +183,8 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 In this quickstart, you learned how to install the Image Analysis client SDK and make basic image analysis calls. Next, learn more about the Analysis 4.0 API features.
 
-
 > [!div class="nextstepaction"]
 >[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
-* Sample source code can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk).
+* Sample source code can be found on [GitHub](https://aka.ms/azsdk/image-analysis/samples/csharp).

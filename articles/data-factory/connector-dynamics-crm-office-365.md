@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 11/20/2023
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -115,7 +115,7 @@ The following properties are supported for the Dynamics linked service.
 | serviceUri | The service URL of your Dynamics instance, the same one you access from browser. An example is "https://\<organization-name>.crm[x].dynamics.com". | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal", "Office365" and "ManagedIdentity". | Yes |
 | servicePrincipalId | The client ID of the Microsoft Entra application. | Yes when authentication is "AADServicePrincipal" |
-| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". <br/><br/>Note: It's recommended to use ServicePrincipalKey. There's known limitation for ServicePrincipalCert credential type where the service may encounter transient issue of failing to retrieve secret from the key vault.| Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
@@ -620,6 +620,6 @@ IncomingStream sink(allowSchemaDrift: true,
 
 To learn details about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of supported data stores the copy activity as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

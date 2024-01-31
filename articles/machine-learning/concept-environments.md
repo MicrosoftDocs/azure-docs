@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ositanachi  
 ms.author: osiotugo 
 ms.reviewer: larryfr
-ms.date: 11/04/2022
+ms.date: 01/03/2024
 ---
 
 # What are Azure Machine Learning environments?

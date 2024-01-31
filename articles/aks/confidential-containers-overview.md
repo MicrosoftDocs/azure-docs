@@ -7,7 +7,7 @@ ms.date: 11/13/2023
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 
-Confidential containers provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security, data privacy and runtime code integrity goals. Azure Kubernetes Service (AKS) includes Confidential Containers (preview) on AKS.
+Confidential Containers provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security, data privacy and runtime code integrity goals. Azure Kubernetes Service (AKS) includes Confidential Containers (preview) on AKS.
 
 Confidential Containers builds on Kata Confidential Containers and hardware-based encryption to encrypt container memory. It establishes a new level of data confidentiality by preventing data in memory during computation from being in clear text, readable format. Trust is earned in the container through hardware attestation, allowing access to the encrypted data by trusted entities.
 
@@ -50,10 +50,10 @@ The following are considerations with this preview of Confidential Containers:
 * Pulling container images from a private container registry or container images that originate from a private container registry in a Confidential Containers pod manifest isn't supported in this release.
 * Version 1 container images aren't supported.
 * Updates to secrets and ConfigMaps aren't reflected in the guest.
-* Ephemeral containers and other troubleshooting methods require a policy modification and redeployment. It includes `exec` in container
-log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) is enabled.
+* Ephemeral containers and other troubleshooting methods like `exec` into a container,
+log outputs from containers, and `stdio` (ReadStreamRequest and WriteStreamRequest) require a policy modification and redeployment.
 * The policy generator tool doesn't support cronjob deployment types.
-* Due to container image layer measurements being encoded in the security policy, we don't recommend using the `latest` tag when specifying containers. It's also a restriction with the policy generator tool.
+* Due to container image layer measurements being encoded in the security policy, we don't recommend using the `latest` tag when specifying containers.
 * Services, Load Balancers, and EndpointSlices only support the TCP protocol.
 * All containers in all pods on the clusters must be configured to `imagePullPolicy: Always`.
 * The policy generator only supports pods that use IPv4 addresses.
@@ -65,7 +65,7 @@ log output from containers. `stdio` (ReadStreamRequest and WriteStreamRequest) i
 It's important you understand the memory and processor resource allocation behavior in this release.
 
 * CPU: The shim assigns one vCPU to the base OS inside the pod. If no resource `limits` are specified, the workloads don't have separate CPU shares assigned, the vCPU is then shared with that workload. If CPU limits are specified, CPU shares are explicitly allocated for workloads.
-* Memory: The Kata-CC handler uses 2 GB memory for the UVM OS and X MB memory for containers based on resource `limits` if specified (resulting in a 2-GB VM when no limit is given, without implicit memory for containers). The [Kata][kata-technical-documentation] handler uses 256 MB base memory for the UVM OS and X MB memory when resource `limits` are specified. If limits are unspecified, an implicit limit of 1,792 MB is added resulting in a 2 GB VM and 1,792 MB implicit memory for containers.
+* Memory: The Kata-CC handler uses 2 GB memory for the UVM OS and X MB additional memory where X is the resource `limits` if specified in the YAML manifest (resulting in a 2-GB VM when no limit is given, without implicit memory for containers). The [Kata][kata-technical-documentation] handler uses 256 MB base memory for the UVM OS and X MB additional memory when resource `limits` are specified in the YAML manifest. If limits are unspecified, an implicit limit of 1,792 MB is added resulting in a 2 GB VM and 1,792 MB implicit memory for containers.
 
 In this release, specifying resource requests in the pod manifests aren't supported. The Kata container ignores resource requests from pod YAML manifest, and as a result, containerd doesn't pass the requests to the shim. Use resource `limit` instead of resource `requests` to allocate memory or CPU resources for workloads or containers.
 

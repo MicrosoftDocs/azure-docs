@@ -2,14 +2,15 @@
 title: How to create vector indexes
 titleSuffix: Azure AI Studio
 description: Learn how to create and use a vector index for performing Retrieval Augmented Generation (RAG).
-author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 01/15/2024
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # How to create a vector index
@@ -26,7 +27,8 @@ You must have:
 
 ## Create an index
 
-1. Sign in to Azure AI Studio and open the Azure AI project in which you want to create the index.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
 1. From the collapsible menu on the left, select **Indexes** under **Components**.
 
     :::image type="content" source="../media/index-retrieve/project-left-menu.png" alt-text="Screenshot of Project Left Menu." lightbox="../media/index-retrieve/project-left-menu.png":::
@@ -68,24 +70,63 @@ You must have:
 
 1. Select **Next** after configuring index settings
 1. Review the details you entered and select **Create**
-1. You're taken to the index details page where you can see the status of your index creation
+    
+    > [!NOTE]
+    > If you see a **DeploymentNotFound** error, you need to assign more permissions. See [mitigate DeploymentNotFound error](#mitigate-deploymentnotfound-error) for more details.
+
+1. You're taken to the index details page where you can see the status of your index creation.
+
+
+### Mitigate DeploymentNotFound error
+
+When you try to create a vector index, you might see the following error at the **Review + Finish** step:
+
+**Failed to create vector index. DeploymentNotFound: A valid deployment for the model=text-embedding-ada-002 was not found in the workspace connection=Default_AzureOpenAI provided.**
+
+This can happen if you are trying to create an index using an **Owner**, **Contributor**, or **Azure AI Developer** role at the project level. To mitigate this error, you might need to assign more permissions using either of the following methods. 
+
+> [!NOTE]
+> You need to be assigned the **Owner** role of the resource group or higher scope (like Subscription) to perform the operation in the next steps. This is because only the Owner role can assign roles to others. See details [here](/azure/role-based-access-control/built-in-roles).
+
+#### Method 1: Assign more permissions to the user on the Azure AI resource
+
+If the Azure AI resource the project uses was created through Azure AI Studio:
+1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
+1. Select **Settings** from the collapsible left menu.
+1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
+1. In the Azure portal under **Overview** > **Resources** select the Azure AI service type. It's named similar to "YourAzureAIResourceName-aiservices."
+
+    :::image type="content" source="../media/roles-access/resource-group-azure-ai-service.png" alt-text="Screenshot of Azure AI service in a resource group." lightbox="../media/roles-access/resource-group-azure-ai-service.png":::
+
+1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
+1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
+
+> [!NOTE]
+> You can also opt to assign more permissions [on the resource group](#method-2-assign-more-permissions-on-the-resource-group). However, that method assigns more permissions than needed to mitigate the **DeploymentNotFound** error.
+
+#### Method 2: Assign more permissions on the resource group
+
+If the Azure AI resource the project uses was created through Azure portal:
+1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
+1. Select **Settings** from the collapsible left menu.
+1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
+1. Select **Access control (IAM)** > **+ Add** to add a role assignment.
+1. Add the **Cognitive Services OpenAI User** role to the user who wants to make an index. `Cognitive Services OpenAI Contributor` and `Cognitive Services Contributor` also work, but they assign more permissions than needed for creating an index in Azure AI Studio.
 
 
 ## Use an index in prompt flow
 
 1. Open your AI Studio project
 1. In Flows, create a new Flow or open an existing flow 
-1. On the top menu of the flow designer, select More tools, and then select Vector Index Lookup
+1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***
 
-    :::image type="content" source="../media/index-retrieve/vector-index-lookup.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/vector-index-lookup.png":::
+    :::image type="content" source="../media/index-retrieve/index-lookup-tool.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/index-lookup-tool.png":::
 
-1. Provide a name for your step and select **Add**.
-1. The Vector Index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas
-1. Enter the path to your vector index, along with the query that you want to perform against the index.
+1. Provide a name for your Index Lookup Tool and select **Add**.
+1. Select the **mlindex_content** value box, and select your index. After completing this step, enter the queries and **query_types** to be performed against the index.
 
-    :::image type="content" source="../media/index-retrieve/configure-index-lookup.png" alt-text="Screenshot of Configure Vector index Lookup." lightbox="../media/index-retrieve/configure-index-lookup.png":::
+    :::image type="content" source="../media/index-retrieve/configure-index-lookup-tool.png" alt-text="Screenshot of Configure Index Lookup." lightbox="../media/index-retrieve/configure-index-lookup-tool.png":::
 
 ## Next steps
 
 - [Learn more about RAG](../concepts/retrieval-augmented-generation.md)
-

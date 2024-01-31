@@ -4,7 +4,8 @@ description: Use Azure Container Registry commands to quickly build, push, and r
 ms.topic: quickstart
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ms.custom: contperf-fy21q1, devx-track-azurecli, mode-other
 ---
 
@@ -32,11 +33,11 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-Create a container registry using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry008* is used. Update this to a unique value.
+Create a container registry using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *mycontainerregistry008* is used. Update this to a unique value.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup \
-  --name myContainerRegistry008 --sku Basic
+  --name mycontainerregistry008 --sku Basic
 ```
 
 This example creates a *Basic* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
@@ -53,7 +54,7 @@ Run the [az acr build][az-acr-build] command, which builds the image and, after 
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \
-  --registry myContainerRegistry008 \
+  --registry mycontainerregistry008 \
   --file Dockerfile . 
 ```
 
@@ -116,7 +117,7 @@ Now quickly run the image you built and pushed to your registry. Here you use [a
 The following example uses $Registry to specify the endpoint of the registry where you run the command:
 
 ```azurecli-interactive
-az acr run --registry myContainerRegistry008 \
+az acr run --registry mycontainerregistry008 \
   --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
 

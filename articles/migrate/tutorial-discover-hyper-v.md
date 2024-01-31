@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 10/25/2023
+ms.date: 12/28/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
@@ -111,7 +111,7 @@ Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-SHA256 | 0DD9D0E2774BB8B33EB7EF7D97D44A90A7928A4B1A30686C5B01EBD867F3BD68
+SHA256 | 0dd9d0e2774bb8b33eb7ef7d97d44a90a7928a4b1a30686c5b01ebd867f3bd68
 
 ### Create an account to access servers
 

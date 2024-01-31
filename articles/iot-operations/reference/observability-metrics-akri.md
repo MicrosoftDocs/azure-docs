@@ -1,6 +1,6 @@
 ---
 title: Metrics for Azure IoT Akri
-# titleSuffix: Azure IoT Operations
+titleSuffix: Azure IoT Operations
 description: Available observability metrics for Azure IoT Akri to monitor the health and performance of your solution.
 author: timlt
 ms.author: timlt

@@ -303,7 +303,7 @@ For the **description** field, the index is as follows:
 
 **Matching query terms against indexed terms**
 
-Given the inverted indices above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks like this: 
+Given the inverted indexes above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks like this: 
 
  ![Conceptual diagram of a boolean query with analyzed terms.][4]
 
@@ -391,7 +391,7 @@ This article explored full text search in the context of Azure AI Search. We hop
 
 ## Next steps
 
-+ Build the sample index, try out different queries and review results. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
++ Build the sample index, try out different queries and review results. For instructions, see [Build and query an index in the portal](search-get-started-portal.md).
 
 + Try other query syntax from the [Search Documents](/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 

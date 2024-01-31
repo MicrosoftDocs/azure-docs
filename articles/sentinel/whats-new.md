@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 01/11/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -21,13 +21,62 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## February 2024
+
+### AWS and GCP data connectors now support Azure Government clouds
+
+Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
+
+The configurations for these connectors for Azure Government customers differs slightly from the public cloud configuration. See the relevant documentation for details:
+
+- [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
+- [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)
+
+## January 2024
+
+### Reduce false positives for SAP systems with analytics rules
+
+Use analytics rules together with the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP® systems. The Microsoft Sentinel solution for SAP® applications now includes the following enhancements:
+
+- The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
+
+- The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
+
+For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
+
 ## November 2023
 
-- [Visualize data with enrichment widgets](#visualize-data-with-enrichment-widgets-preview)
+- [Take advantage of Microsoft Defender for Cloud integration with Microsoft Defender XDR (Preview)](#take-advantage-of-microsoft-defender-for-cloud-integration-with-microsoft-defender-xdr-preview)
+- [Near-real-time rules now generally available](#near-real-time-rules-now-generally-available)
+- [Elevate your cybersecurity intelligence with enrichment widgets (Preview)](#elevate-your-cybersecurity-intelligence-with-enrichment-widgets-preview)
 
-### Visualize data with enrichment widgets (Preview)
+### Take advantage of Microsoft Defender for Cloud integration with Microsoft Defender XDR (Preview)
 
-In the fast-moving, high-pressure environment of your Security Operations Center, data visualization is one of your SIEM's key capabilities to help you quickly and effectively find usable information within the vast sea of data that constantly confronts you. Microsoft Sentinel uses widgets, the latest evolution of its data visualization capabilities, to present you with its most relevant findings.
+Microsoft Defender for Cloud is now [integrated with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview), formerly known as Microsoft 365 Defender. This integration, currently **in Preview**, allows Defender XDR to collect alerts from Defender for Cloud and create Defender XDR incidents from them.
+
+Thanks to this integration, Microsoft Sentinel customers who have enabled [Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md) will now be able to ingest and synchronize Defender for Cloud incidents, with all their alerts, through Microsoft Defender XDR.
+
+To support this integration, Microsoft has added a new **Tenant-based Microsoft Defender for Cloud (Preview)** connector. This connector will allow Microsoft Sentinel customers to receive Defender for Cloud alerts and incidents across their entire tenants, without having to monitor and maintain the connector's enrollment to all their Defender for Cloud subscriptions.
+
+This connector can be used to ingest Defender for Cloud alerts, regardless of whether you have Defender XDR incident integration enabled.
+
+- Learn more about [Microsoft Defender for Cloud integration with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview).
+- Learn more about [ingesting Defender for Cloud incidents into Microsoft Sentinel](ingest-defender-for-cloud-incidents.md).
+<!--
+- Learn how to [connect the tenant-based Defender for Cloud data connector](connect-defender-for-cloud-tenant.md) (in Preview).
+-->
+
+### Near-real-time rules now generally available
+
+Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) are now generally available (GA). These highly responsive rules provide up-to-the-minute threat detection by running their queries at intervals just one minute apart.
+
+- [Learn more about near-real-time rules](near-real-time-rules.md).
+- [Create and work with near-real-time rules](create-nrt-rules.md).
+
+<a name="visualize-data-with-enrichment-widgets-preview"></a>
+### Elevate your cybersecurity intelligence with enrichment widgets (Preview)
+
+Enrichment widgets in Microsoft Sentinel are dynamic components designed to provide you with in-depth, actionable intelligence about entities. They integrate external and internal content and data from various sources, offering a comprehensive understanding of potential security threats. These widgets serve as a powerful enhancement to your cybersecurity toolkit, offering both depth and breadth in information analysis.
 
 Widgets are already available in Microsoft Sentinel today (in Preview). They currently appear for IP entities, both on their full [entity pages](entity-pages.md) and on their [entity info panels](incident-investigation.md) that appear in Incident pages. These widgets show you valuable information about the entities, from both internal and third-party sources.
 

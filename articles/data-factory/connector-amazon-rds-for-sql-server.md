@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Copy data from Amazon RDS for SQL Server by using Azure Data Factory or Azure Synapse Analytics
@@ -439,5 +439,5 @@ When you copy data from/to Amazon RDS for SQL Server with [Always Encrypted](/sq
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port. 
 6. **Verify connection**: To connect to Amazon RDS for SQL Server by using a fully qualified name, use Amazon RDS for SQL Server Management Studio from a different machine. An example is `"<machine>.<domain>.corp.<company>.com,1433"`.
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

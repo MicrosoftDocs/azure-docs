@@ -2,7 +2,7 @@
 title: "Scale to handle more enrolled users - Face"
 titleSuffix: Azure AI services
 description: This guide is an article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects.
-services: cognitive-services
+#services: cognitive-services
 author: nitinme
 manager: nitinme
 

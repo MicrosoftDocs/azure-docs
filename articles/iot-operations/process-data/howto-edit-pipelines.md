@@ -3,7 +3,7 @@ title: Edit and manage pipelines
 description: Use the advanced features in the Digital Operations portal to edit pipelines and import and export pipelines.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

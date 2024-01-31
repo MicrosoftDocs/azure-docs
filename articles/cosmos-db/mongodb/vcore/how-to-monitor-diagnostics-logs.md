@@ -7,8 +7,7 @@ ms.author: sasinnat
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/31/2023
 # CustomerIntent: As a operations engineer, I want to review diagnostic logs so that I troubleshoot issues as they occur.
@@ -109,8 +108,11 @@ Platform metrics and Activity logs are gathered automatically. To collect resour
 
     > [!IMPORTANT]
     > By enabling the `--export-to-resource-specific true` setting, you ensure that the API for MongoDB vCore request log events are efficiently ingested into the `vCoreMongoRequests` table specifically designed with a dedicated schema.
-    >
+    >    
     > In contrast, neglecting to configure `--export-to-resource-specific true` would result in the API for MongoDB vCore request log events being routed to the general `AzureDiagnostics` table.
+    >
+    > It's important to note that when creating the diagnostic setting through the Portal, log events will currently flow to the `AzureDiagnostics` table. For customers who prefer exporting logs to the resource-specific `VCoreMongoRequests` table, utilizing the Azure CLI with the `--export-to-resource-specific true` option is recommended.
+    > 
 
 ### [Azure Storage account](#tab/azure-storage)
 

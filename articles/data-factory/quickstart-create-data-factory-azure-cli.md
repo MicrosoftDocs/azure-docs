@@ -274,7 +274,7 @@ In this quickstart, you created the following JSON files:
 
 Delete them by using standard Bash commands.
 
-## Next steps
+## Related content
 
 - [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md)
 - [Linked services in Azure Data Factory](concepts-linked-services.md)

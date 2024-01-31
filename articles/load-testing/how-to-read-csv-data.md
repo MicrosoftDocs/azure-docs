@@ -85,7 +85,7 @@ To add a CSV file to your load test by using the Azure portal:
 
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
-If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-identify-performance-regression-with-cicd.md).
+If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see [how to add load testing to CI/CD](./how-to-configure-load-test-cicd.md).
 
 To add a CSV file to your load test:
 
@@ -163,7 +163,7 @@ To configure your load test to split input CSV files:
 
 ### Test status is failed and test log has `File {my-filename} must exist and be readable`
 
-When the load test completes with the Failed status, you can [download the test logs](./how-to-troubleshoot-failing-test.md#download-apache-jmeter-worker-logs).
+When the load test completes with the Failed status, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-worker-logs-for-your-load-test).
 
 When you receive an error message `File {my-filename} must exist and be readable` in the test log, the input CSV file couldn't be found when running the JMeter script.
 

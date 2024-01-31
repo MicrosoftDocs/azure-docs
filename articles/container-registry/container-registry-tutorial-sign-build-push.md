@@ -1,5 +1,5 @@
 ---
-title: Sign container images with Notation and Azure Key Vault using a self-signed certificate (Preview)
+title: Sign container images with Notation and Azure Key Vault using a self-signed certificate
 description: In this tutorial you'll learn to create a self-signed certificate in Azure Key Vault (AKV), build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image with notation.
 author: yizha1
 ms.author: yizha1
@@ -9,12 +9,9 @@ ms.topic: how-to
 ms.date: 4/23/2023
 ---
 
-# Sign container images with Notation and Azure Key Vault using a self-signed certificate (Preview)
+# Sign container images with Notation and Azure Key Vault using a self-signed certificate
 
 Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been modified. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by the [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store certificates with signing keys that can be used by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach signatures to container images and other artifacts as well as view those signatures.
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 In this tutorial:
 
@@ -33,11 +30,11 @@ In this tutorial:
 
 ## Install Notation CLI and AKV plugin
 
-1. Install Notation v1.0.0 on a Linux amd64 environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/).
+1. Install Notation v1.0.1 on a Linux amd64 environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/).
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0/notation_1.0.0_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.1/notation_1.0.1_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the Notation binary to the desired bin directory in your $PATH, for example
@@ -153,6 +150,9 @@ The following steps show how to create a self-signed certificate for testing pur
           "keyType": "RSA",
           "reuseKey": true
         },
+        "secretProperties": {
+          "contentType": "application/x-pem-file"
+        },
         "x509CertificateProperties": {
         "ekus": [
             "1.3.6.1.5.5.7.3.3"
@@ -194,7 +194,7 @@ The following steps show how to create a self-signed certificate for testing pur
     In this tutorial, if the image has already been built and is stored in the registry, the tag serves as an identifier for that image for convenience.
 
     ```bash
-    IMAGE=$REGISTRY/${REPO}@$TAG
+    IMAGE=$REGISTRY/${REPO}:$TAG
     ```
 
 3. Get the Key ID of the signing key. A certificate in AKV can have multiple versions, the following command gets the Key ID of the latest version.

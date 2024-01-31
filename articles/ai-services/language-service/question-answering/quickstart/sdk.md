@@ -3,11 +3,12 @@ title: "Quickstart: Use SDK to create and manage project - custom question answe
 description: This quickstart shows you how to create and manage your project using custom question answering.
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 12/19/2023
 author: jboback
 ms.author: jboback
 recommendations: false
-ms.devlang: csharp, python
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-api, devx-track-dotnet
 zone_pivot_groups: custom-qna-quickstart
 ---

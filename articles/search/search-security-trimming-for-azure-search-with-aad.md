@@ -48,7 +48,7 @@ This step integrates your application with Microsoft Entra ID for the purpose of
 
 1. Once the app registration is created, copy the Application (client) ID. You'll need to provide this string to your application.
 
-   If you're stepping through the [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSecurityTrimming), paste this value into the **app.config** file.
+   If you're stepping through the DotNetHowToSecurityTrimming, paste this value into the **app.config** file.
 
    Repeat for the Tenant ID.
 

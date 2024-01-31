@@ -278,7 +278,7 @@ Copy activity currently supports the following interim data types: Boolean, Byte
 
 The following data type conversions are supported between the interim types from source to sink.
 
-| Source\Sink | Boolean | Byte array | Decimal | Date/Time (1)</small> | Float-point <small>(2)</small> | GUID | Integer <small>(3) | String | TimeSpan |
+| Source\Sink | Boolean | Byte array | Decimal | Date/Time (1) | Float-point (2) | GUID | Integer (3) | String | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
 | Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Byte array  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
@@ -382,7 +382,7 @@ In the following example, the input dataset has a structure, and it points to a 
 }
 ```
 
-In this sample, the output dataset has a structure and it points to a table in Salesfoce.
+In this sample, the output dataset has a structure and it points to a table in Salesforce.
 
 ```json
 {
@@ -518,7 +518,7 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
 }
 ```
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

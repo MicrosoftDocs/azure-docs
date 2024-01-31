@@ -7,9 +7,10 @@ ms.author: rifox
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-### Record calls
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK.
+
+### Cloud Recording
 
 Call recording is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
@@ -37,4 +38,30 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
+```
+
+You can also get a list of recordings by using the `recordings` property of `callRecordingApi`. It returns `RecordingInfo[]` which will have the displayName of the user and current state of the cloud recording.
+
+```js
+const recordings = callRecordingApi.recordings;
+
+recordings.forEach(r => {
+    console.log("User: ${r.displayName}, State: ${r.state});
+```
+
+You can also subscribe to 'recordingsUpdated' and get a collection of updated recordings. This event is triggered whenever there is a recording update
+
+```js
+const cloudRecordingsUpdatedHandler = (args: { added: SDK.RecordingInfo[], removed: SDK.RecordingInfo[]}) => {
+                        console.log('Recording started by: ');
+                        args.added?.forEach(a => {
+                            console.log('User: ${a.displayName}');
+                        });
+
+                        console.log('Recording stopped by: ');
+                        args.removed?.forEach(r => {
+                            console.log('User: ${r.displayName});
+                        });
+                    };
+callRecordingApi.on('recordingsUpdated', cloudRecordingsUpdatedHandler );
 ```

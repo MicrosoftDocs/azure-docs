@@ -3,7 +3,7 @@ title: Call a gRPC endpoint from a pipeline
 description: Configure a gRPC call out pipeline stage to make an HTTP request from a pipeline to incorporate custom processing logic.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

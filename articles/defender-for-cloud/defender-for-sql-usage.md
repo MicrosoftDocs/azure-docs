@@ -22,7 +22,7 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 
 - Learn more about [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
-- For on-premises SQL servers, you can learn more about [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) and how to [install Log Analytics agent on Windows computers without Azure Arc](../azure-monitor/agents/agent-windows.md).
+- For on-premises SQL servers, you can learn more about [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview) and how to [install Log Analytics agent on Windows computers without Azure Arc](../azure-monitor/agents/agent-windows.md).
 
 - For multicloud SQL servers:
 

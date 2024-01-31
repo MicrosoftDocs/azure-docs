@@ -2,19 +2,18 @@
 title: 'Quickstart: Generate images with the Python SDK for Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
 description: Learn how to generate images with Azure OpenAI Service by using the Python SDK and the endpoint and access keys for your Azure OpenAI resource.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
 ms.topic: include
 ms.date: 11/06/2023
-keywords:
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Python.
 
-[Library source code](https://github.com/openai/openai-python/tree/main/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
+[Library source code](https://github.com/openai/openai-python/tree/main/src/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
 
 ## Prerequisites
 
@@ -64,8 +63,6 @@ Open a command prompt and browse to your project folder. Create a new python fil
 
 ## Install the Python SDK
 
-> [!IMPORTANT]
-> The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E when used with Azure OpenAI. To access DALL-E with Azure OpenAI use version `0.28.1`.
 
 Install the OpenAI Python SDK by using the following command:
 
@@ -76,6 +73,9 @@ pip install openai
 ```
 
 #### [DALL-E 2](#tab/dalle2)
+
+> [!IMPORTANT]
+> The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E 2 when used with Azure OpenAI. To access DALL-E 2 with Azure OpenAI use version `0.28.1`. Or, follow the [migration guide](/azure/ai-services/openai/how-to/migration?tabs=python%2Cdalle-fix) to use DALL-E 2 with OpenAI 1.x.
 
 ```bash
 pip install openai==0.28.1

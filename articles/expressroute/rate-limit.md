@@ -34,22 +34,6 @@ You can enable rate limiting for an ExpressRoute Direct circuit, either during t
 > - Currently, the only way to enable rate limiting is through the Azure portal.
 > - The rate limiting feature is currently in the preview stage and can only be enabled after the circuit creation process is completed. The feature will be available for enabling during the circuit creation process in the general availability (GA) stage.
 
-To enable rate limiting while creating an ExpressRoute Direct circuit, follow these steps:
-
-1. Sign-in to the [Azure portal](https://portal.azure.com/) and select **+ Create a resource**.
-
-1. Search for *ExpressRoute circuit* and select **Create**.
-
-1. Enter the required information in the **Basics** tab and select **Next** button.
-
-1. In the **Configuration** tab, enter the required information and select the **Enable Rate Limiting** check box. The following diagram shows a screenshot of the **Configuration** tab.
-
-    :::image type="content" source="./media/rate-limit/create-circuit.png" alt-text="Screenshot of the configuration tab for a new ExpressRoute Direct circuit.":::
-
-1. Select **Next: Tags** and provide tagging for the circuit, if necessary.
-
-1. Select **Review + create** and then select **Create** to create the circuit.
-
 ### Existing ExpressRoute Direct circuits
 
 To enable rate limiting for an existing ExpressRoute Direct circuit, follow these steps:

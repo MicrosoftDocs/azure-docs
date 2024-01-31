@@ -57,8 +57,12 @@
     href: private-endpoint-overview.md
   - name: Private Link service
     href: private-link-service-overview.md    
-  - name: Private endpoint DNS integration
-    href: private-endpoint-dns.md   
+  - name: DNS
+    items:  
+    - name: Private DNS zone values
+      href: private-endpoint-dns.md
+    - name: Private endpoint DNS integration
+      href: private-endpoint-dns-integration.md   
   - name: RBAC permissions
     href: rbac-permissions.md 
   - name: Private Link and DNS in Azure Virtual WAN
@@ -71,6 +75,8 @@
       href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
+  - name: Approve private link connections across subscriptions
+    href: how-to-approve-private-link-cross-subscription.md
   - name: Configure an application security group
     href: configure-asg-private-endpoint.md
   - name: Export private endpoint DNS records

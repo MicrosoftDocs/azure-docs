@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 04/11/2023
+ms.date: 01/05/2024
 ms.author: lle
 ---
 
@@ -252,7 +252,7 @@ You might notice other data factories (on different tenants) as you're attemptin
 The self-hosted IR can't be shared across tenants.
 
 
-## Next steps
+## Related content
 
 For more help with troubleshooting, try the following resources:
 

@@ -1,7 +1,7 @@
 ---
-title: Enable or disable semantic ranking
+title: Enable or disable semantic ranker
 titleSuffix: Azure AI Search
-description: Steps for turning semantic ranking on or off in Azure AI Search.
+description: Steps for turning semantic ranker on or off in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,16 +10,16 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/04/2023
+ms.date: 12/12/2023
 ---
 
-# Enable or disable semantic ranking
+# Enable or disable semantic ranker
 
-Semantic ranking is a premium feature that's billed by usage. By default, semantic ranking is disabled on all services. 
+Semantic ranker is a premium feature that's billed by usage. By default, semantic ranker is disabled on all services. 
 
 ## Enable semantic ranking
 
-Follow these steps to enable [semantic ranking](semantic-search-overview.md) at the service level. Once enabled, it's available to all indexes. You can't turn it on or off for specific indexes.
+Follow these steps to enable [semantic ranker](semantic-search-overview.md) at the service level. Once enabled, it's available to all indexes. You can't turn it on or off for specific indexes.
 
 ### [**Azure portal**](#tab/enable-portal)
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use the various tools and visualization charts in the Responsible AI dashboard in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: mithigpe
@@ -50,7 +50,7 @@ You can also find this information on the Responsible AI dashboard page by selec
 
 ### Enable full functionality of the Responsible AI dashboard
 
-1. Select a running compute instance in the **Compute** dropdown list at the top of the dashboard. If you don’t have a running compute, create a new compute instance by selecting the plus sign (**+**) next to the dropdown. Or you can select the **Start compute** button to start a stopped compute instance. Creating or starting a compute instance might take few minutes.
+1. Select a running compute instance in the **Compute** dropdown list at the top of the dashboard. If you don't have a running compute, create a new compute instance by selecting the plus sign (**+**) next to the dropdown. Or you can select the **Start compute** button to start a stopped compute instance. Creating or starting a compute instance might take few minutes.
 
     :::image type="content" source="./media/how-to-responsible-ai-dashboard/select-compute.png" alt-text="Screenshot of the 'Compute' dropdown box for selecting a running compute instance." lightbox = "./media/how-to-responsible-ai-dashboard/select-compute.png":::
     
@@ -113,7 +113,7 @@ You can name your new dataset cohort, select **Add filter** to add each filter y
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/view-dashboard-new-cohort.png" alt-text="Screenshot of making a new cohort in the dashboard." lightbox= "./media/how-to-responsible-ai-dashboard/view-dashboard-new-cohort.png":::
 
-Select **Dashboard configuration** to open a panel with a list of the components you’ve configured on your dashboard. You can hide components on your dashboard by selecting the **Trash** icon, as shown in the following image:
+Select **Dashboard configuration** to open a panel with a list of the components you've configured on your dashboard. You can hide components on your dashboard by selecting the **Trash** icon, as shown in the following image:
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard/dashboard-configuration.png" alt-text="Screenshot showing the dashboard configuration." lightbox="./media/how-to-responsible-ai-dashboard/dashboard-configuration.png":::
 
@@ -232,7 +232,7 @@ The **Chart view** panel shows you aggregate and individual plots of datapoints.
 
 ### Feature importances (model explanations)
 
-By using the model explanation component, you can see which features were most important in your model’s predictions. You can view what features affected your model’s prediction overall on the **Aggregate feature importance** pane or view feature importances for individual data points on the **Individual feature importance** pane.
+By using the model explanation component, you can see which features were most important in your model's predictions. You can view what features affected your model's prediction overall on the **Aggregate feature importance** pane or view feature importances for individual data points on the **Individual feature importance** pane.
 
 #### Aggregate feature importances (global explanations)
 

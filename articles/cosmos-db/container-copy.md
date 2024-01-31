@@ -25,7 +25,7 @@ You might need to copy data within your Azure Cosmos DB account if you want to a
 * Update the [unique keys](unique-keys.md) for a container.
 * Rename a container or database.
 * Change capacity mode of an account from serverless to provisioned or vice-versa.
-* Adopt new features that are supported only for new containers.
+* Adopt new features that are supported only for new containers, e.g. [Hierarchical partition keys](hierarchical-partition-keys.md).
 
 Container copy jobs can be [created and managed by using Azure CLI commands](how-to-container-copy.md).
 
@@ -139,10 +139,12 @@ Currently, container copy is supported in the following regions:
 | East US 2 | Norway West | Southeast Asia |
 | East US 2 EUAP | Switzerland North | UAE Central |
 | North Central US | Switzerland West | West India |
-| South Central US | UK South | Not supported |
-| West Central US | UK West  | Not supported |
-| West US | West Europe | Not supported |
-| West US 2 | Not supported | Not supported |
+| South Central US | UK South | East Asia |
+| West Central US | UK West  | Malaysia South |
+| West US | West Europe | Japan West |
+| West US 2 | Israel Central | Australia Southeast |
+| Not supported | South Africa North | Not supported | 
+
 
 ## Known and common issues
 

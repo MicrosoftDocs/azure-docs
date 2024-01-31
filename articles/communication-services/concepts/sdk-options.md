@@ -32,8 +32,9 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
 | Call Automation | [REST](/rest/api/communication/callautomation/call-connection) | Service | Build customized calling workflows for PSTN and VoIP calls |
-| Job Router | [REST](/rest/api/communication/jobrouter/job-router) | Service | Optimize the management of customer interactions across various applications |
+| Job Router | [REST](/rest/api/communication/jobrouter/job-router-operations) | Service | Optimize the management of customer interactions across various applications |
 | Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
+| Rooms | [REST](/rest/api/communication/rooms/operation-groups)| Service| Create and manage structured communication rooms  |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 
 ### Languages and publishing locations
@@ -53,8 +54,10 @@ Publishing locations for individual SDK packages are detailed below.
 |Call Automation|[npm](https://www.npmjs.com/package/@azure/communication-call-automation)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallAutomation/)|[PyPi](https://pypi.org/project/azure-communication-callautomation/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callautomation)
 |Job Router|[npm](https://www.npmjs.com/package/@azure-rest/communication-job-router)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.JobRouter/)|[PyPi](https://pypi.org/project/azure-communication-jobrouter/)|[Maven](https://search.maven.org/artifact/com.azure/azure-communication-jobrouter)
 |Network Traversal| [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
+| Rooms          | [npm](https://www.npmjs.com/package/@azure/communication-rooms)     | [NuGet](https://www.nuget.org/packages/Azure.Communication.Rooms)     | [PyPi](https://pypi.org/project/azure-communication-rooms/)    | [Maven](https://search.maven.org/search?q=a:azure-communication-rooms) | - | - | - |
 | UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
-| Reference Documentation | [docs](https://azure.github.io/azure-sdk-for-js/communication.html) | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)| -| [docs](http://azure.github.io/azure-sdk-for-java/communication.html) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| -|
+| Advanced Messaging | - | [NuGet](https://www.nuget.org/packages/Azure.Communication.Messages) | - | - | - | - | - |
+| Reference Documentation | [docs](/javascript/api/overview/azure/communication) | [docs](/dotnet/api/overview/azure/communication)| [docs](/python/api/overview/azure/communication) | [docs](/java/api/overview/azure/communication) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| - |
 
 ### SDK platform support details
 
@@ -77,8 +80,8 @@ Calling supports the platforms listed below.
 All other Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
 
 - Support via .NET Framework 4.6.1
-    - Windows 10, 8.1, 8 and 7
-    - Windows Server 2012 R2, 2012 and 2008 R2 SP1
+  - Windows 10, 8.1, 8 and 7
+  - Windows Server 2012 R2, 2012 and 2008 R2 SP1
 - Support via .NET Core 2.0:
   - Windows 10 (1607+), 7 SP1+, 8.1
   - Windows Server 2008 R2 SP1+

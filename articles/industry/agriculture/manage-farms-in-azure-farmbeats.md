@@ -1,31 +1,36 @@
 ---
 title: Manage Farms
 description: Describes how to manage farms
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 
 # Manage farms
 
-You can manage your farms in Azure FarmBeats. This article provides the information about how to create farms, install devices, sensors, and drones that helps you manage your farms.
+You can manage your farms in Azure FarmBeats. This article provides the information about how to create farms, install devices, sensors, and drones that help you manage your farms.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information, see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 ## Create farms
 
 Use the following steps:
 
-1. Login to the Farm Accelerator, the **Farms** page displays.
-    The **Farms** page displays the list of farms in case they have already been created in subscription.
+1. Sign-in to the Farm Accelerator, the **Farms** page displays.
+    The **Farms** page displays the list of farms in case they're created in subscription.
 
-    Here is the sample image:
+    Here's the sample image:
 
     ![Screenshot that shows the Farms page.](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Select **Create Farm** and provide **Name**, **Crops** and **Address**.
-3. In the **Define Farm Boundary**, (mandatory field) select either **Mark on Map** or **Paste GeoJSON code**.
+3. In the **Define Farm Boundary** (mandatory field) select either **Mark on Map** or **Paste GeoJSON code**.
 
 Here are the two ways to define a farm boundary:
 
@@ -44,10 +49,10 @@ Use the tooltips to help fill in the information.
 
 The Farm list page displays a list of created farms. Select a farm to view the list of:
 
- - **Device count** — displays the number and status of devices deployed within the farm.
- - **Map** — map of the farm with the devices deployed in the farm.
- - **Telemetry** — displays the telemetry from the sensors deployed in the farm.
- - **Latest Precision Maps** — displays the latest Satellite Indices map (EVI, NDWI), Soil Moisture Heatmap and Sensor Placement map.
+ - **Device count—displays the number and status of devices deployed within the farm.
+ - **Map—map of the farm with the devices deployed in the farm.
+ - **Telemetry—displays the telemetry from the sensors deployed in the farm.
+ - **Latest Precision Maps—displays the latest Satellite Indices map (EVI, NDWI), Soil Moisture Heatmap and Sensor Placement map.
 
 ## Edit farm
 
@@ -75,4 +80,4 @@ The **Farms** page displays a list of farms created. Use the following steps to 
 
 ## Next steps
 
-Now that you have created your farm, learn how to [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm.
+Now that your farm is created, learn how to [get sensor data](get-sensor-data-from-sensor-partner.md) flowing into your farm.

@@ -3,15 +3,15 @@ title: Configure VMware HCX in Azure VMware Solution
 description: In this tutorial, learn how to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 12/05/2022
+ms.date: 12/07/2023
 ms.custom: engagement-fy23
 ---
 
 # Configure on-premises VMware HCX Connector
 
-Once you've [installed the VMware HCX add-on](install-vmware-hcx.md), configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.
+After you [install the VMware HCX add-on](install-vmware-hcx.md), configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.
 
-In this tutorial, you'll learn how to:
+In this article, learn how to:
 
 > [!div class="checklist"]
 > * Pair your on-premises VMware HCX Connector with your Azure VMware > Solution HCX Cloud Manager
@@ -64,7 +64,7 @@ In your data center, connect or pair the VMware HCX Cloud Manager in Azure VMwar
    >
    > * A service account from your external identity source, such as Active Directory, is recommended for site pairing connections. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
-   A screen will display the connection (pairing) between your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector.
+   A screen displays the connection (pairing) between your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector.
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot of the site pairing between HCX Manager in Azure VMware Solution and VMware HCX Connector.":::
 
@@ -159,7 +159,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="Screenshot showing where to create a service mesh in the vSphere Client." lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
 
-1. Review the pre-populated sites, and then select **Continue**.
+1. Review the prepopulated sites, and then select **Continue**.
 
    > [!NOTE]
    > If this is your first service mesh configuration, you won't need to modify this screen.
@@ -175,7 +175,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="Screenshot that shows selecting the remote compute profile." lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::
 
-1. Review services that will be enabled, and then select **Continue**.
+1. Review services to be enabled, and then select **Continue**.
 
 1. In **Advanced Configuration - Override Uplink Network profiles**, select **Continue**.
 
@@ -197,7 +197,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
    :::image type="content" source="media/tutorial-vmware-hcx/monitor-service-mesh.png" alt-text="Screenshot displaying the button to view tasks.":::
 
-   When the service mesh deployment finishes successfully, you'll see the services as green.
+   When the service mesh deployment finishes successfully, the services show as green.
 
    :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="Screenshot displaying green indicators on services." lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
 
@@ -212,13 +212,13 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
    >
    >:::image type="content" source="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png" alt-text="Screenshot displaying the HCX service mesh datastore and host." lightbox="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png":::
 
-The HCX interconnect tunnel status should display **UP** in green. Now you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations with or without a network extension. This allows you to migrate workloads in your vSphere environment and create networks on-premises, and deploy VMs onto those networks. For more information, see the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html).
+The HCX interconnect tunnel status should display **UP** in green. Now you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations with or without a network extension that allow you to migrate workloads in your vSphere environment, create networks on-premises, and deploy VMs onto those networks. For more information, see the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html).
 
 For an end-to-end overview of this procedure, watch the [Azure VMware Solution: Service Mesh](https://www.youtube.com/embed/COY3oIws108) video.
 
 ## Next steps
 
-Now that you've configured the HCX Connector, explore the following topics:
+Now that you configured the HCX Connector, explore the following articles:
 
 - [Create an HCX network extension](configure-hcx-network-extension.md)
 - [VMware HCX Mobility Optimized Networking (MON) guidance](vmware-hcx-mon-guidance.md)

@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 11/28/2023
 ms.author: duau
 
 ---
@@ -42,9 +42,9 @@ No. You can purchase a private connection of any speed from your service provide
 
 ### Is it possible to use more bandwidth than I procured for my ExpressRoute circuit?
 
-Yes, you can use up to two times the bandwidth limit you procured by using the bandwidth available on the secondary connection of your ExpressRoute circuit. The built-in redundancy of your circuit is configured using primary and secondary connections, each of the procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary connection can be used for more traffic if necessary. Since the secondary connection is meant for redundancy, it isn't guaranteed and shouldn't be used for extra traffic for a sustained period of time. To learn more about how to use both connections to transmit traffic, see [use AS PATH prepending](expressroute-optimize-routing.md#solution-use-as-path-prepending).
+Yes, you can use up to two times the bandwidth limit you procured by spreading the traffic across both links of your ExpressRoute circuit and thereby using the redundant bandwidth available. The built-in redundancy of your circuit is configured using redundant links, each with procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary link can be used for more traffic if necessary. Since the second link is meant for redundancy, it isn't guaranteed and shouldn't be used for extra traffic for a sustained period of time. To learn more about how to use both connections to transmit traffic, see [use AS PATH prepending](expressroute-optimize-routing.md#solution-use-as-path-prepending).
 
-If you plan to use only your primary connection to transmit traffic, the bandwidth for the connection is fixed, and attempting to oversubscribe it results in increased packet drops. If traffic flows through an ExpressRoute Gateway, the bandwidth for the Gateway SKU is fixed and not burstable. For the bandwidth of each Gateway SKU, see [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md#aggthroughput).
+If you plan to use only your primary link to transmit traffic, the bandwidth for the connection is fixed, and attempting to oversubscribe it results in increased packet drops. If traffic flows through an ExpressRoute Gateway, the bandwidth for the Gateway SKU is fixed and not burstable. For the bandwidth of each Gateway SKU, see [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md#aggthroughput).
 
 ### If I pay for unlimited data, do I get unlimited egress data transfer for services accessed over Microsoft peering?
 
@@ -186,7 +186,8 @@ See [here](./designing-for-high-availability-with-expressroute.md) for designing
 You can achieve high availability by connecting up to 4 ExpressRoute circuits in the same peering location to your virtual network. You can also connect up to 16 ExpressRoute circuits in different peering locations to your virtual network. For example, Singapore and Singapore2. If one ExpressRoute circuit disconnects, connectivity fails over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use **connection weight** to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
 > [!NOTE]
-> Although it is possible to connect up to 16 circuits to your virtual network, the outgoing traffic from your virtual network will be load-balanced using Equal-Cost Multipath (ECMP) across a maximum of 4 circuits.
+> - Although it is possible to connect up to 16 circuits to your virtual network, the outgoing traffic from your virtual network will be load-balanced using Equal-Cost Multipath (ECMP) across a maximum of 4 circuits.
+> - Equal-Cost Multipath (ECMP) in ExpressRoute uses the Per-Flow (based on 5-tuple) load balancing method. Accordingly, traffic flow between a given source and destination host pair are guaranteed to take the same path, even if multiple ECMP paths are available. 
 
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
 

@@ -598,7 +598,7 @@ For more SSIS documentation, see:
 - [Connect to on-premises data sources with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
 - [Schedule package executions in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages)
 
-## Next steps
+## Related content
 
 In this tutorial, you learned how to: 
 

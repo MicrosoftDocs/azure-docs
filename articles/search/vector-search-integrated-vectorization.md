@@ -46,7 +46,7 @@ Here's a checklist of the components responsible for integrated vectorization:
 + A skillset providing a Text Split skill for data chunking, and a skill for vectorization (either the AzureOpenAiEmbedding skill or a custom skill pointing to an external embedding model).
 + Optionally, index projections (also defined in a skillset) to push chunked data to a secondary index
 + An embedding model, deployed on Azure OpenAI or available through an HTTP endpoint.
-+ An indexer for driving the process end-t-end. An indexer also specifies a schedule, field mappings, and properties for change detection.
++ An indexer for driving the process end-to-end. An indexer also specifies a schedule, field mappings, and properties for change detection.
 
 This checklist focuses on integrated vectorization, but your solution isn't limited to this list. You can add more skills for AI enrichment, create a knowledge store, add semantic ranking, add relevance tuning, and other query features.
 
@@ -65,7 +65,7 @@ Data chunking (Text Split skill) is free and available on all Azure AI services 
 
 + Subdivide large documents into chunks, useful for vector and non-vector scenarios. For vectors, chunks help you meet the input constraints of embedding models. For non-vector scenarios, you might have a chat-style search app where GPT is assembling responses from indexed chunks. You can use vectorized or non-vectorized chunks for chat-style search.
 
-+ Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector index to retrieve document IDs, and then send the document's vector fields to another model.
++ Build a vector store where all of the fields are vector fields, and the document ID (required for a search index) is the only string field. Query the vector store to retrieve document IDs, and then send the document's vector fields to another model.
 
 + Combine vector and text fields for hybrid search, with or without semantic ranking. Integrated vectorization simplifies all of the [scenarios supported by vector search](vector-search-overview.md#what-scenarios-can-vector-search-support).
 

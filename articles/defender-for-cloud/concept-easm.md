@@ -28,4 +28,4 @@ EASM collects data for publicly exposed assets (“outside-in”). Defender for 
 
 - Learn about [cloud security explorer and attack paths](concept-attack-path.md) in Defender for Cloud.
 - Learn about [Defender EASM](../external-attack-surface-management/index.md).
-- Learn how [deploy Defender for EASM](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md).
+- Learn how to [deploy Defender for EASM](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md).

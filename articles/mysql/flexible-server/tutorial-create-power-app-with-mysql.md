@@ -1,6 +1,6 @@
 ---
-title: Create a Power app with Azure Database for MySQL Flexible Server
-description: Create a Power app with Azure Database for MySQL Flexible Server
+title: Create a Power app
+description: Create a Power app with Azure Database for MySQL - Flexible Server.
 author: mksuni
 ms.author: sumuth
 ms.reviewer: maghan
@@ -10,13 +10,15 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ---
 
-# Tutorial: Create a Power app with Azure Database for MySQL Flexible Server
+# Tutorial: Create a Power app with Azure Database for MySQL - Flexible Server
 
-[Power Apps](/power-apps/) is a low-code platform that enables you to build custom applications quickly and easily. You can create a Power App with MySQL database on Azure database for MySQL Flexible Server(overview.md), to meet your business needs. You can establish a connection to your MySQL database, add data to your app, and customize it to meet your specific needs. With the Azure database for MySQL Connector, you'll have a fully functional app with your data that you can customize and share on any device.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-## Azure Database for MySQL connector
+[Power Apps](/power-apps/) is a low-code platform that enables you to build custom applications quickly and easily. You can create a Power App with MySQL database on [Azure Database for MySQL flexible server](overview.md), to meet your business needs. You can establish a connection to your Azure Database for MySQL flexible server database, add data to your app, and customize it to meet your specific needs. With the Azure Database for MySQL flexible server Connector, you'll have a fully functional app with your data that you can customize and share on any device.
 
-[Azure Database for MySQLconnector](/connectors/azuremysql/) allows you to perform read, write, and delete operations with data stored in Azure Database for MySQL in addition to connecting to the database. Here is the list of actions you can run using the connector with Power Apps.
+## Azure Database for MySQL flexible server connector
+
+[Azure Database for MySQL flexible server](/connectors/azuremysql/) allows you to perform read, write, and delete operations with data stored in Azure Database for MySQL flexible server in addition to connecting to the database. Here is the list of actions you can run using the connector with Power Apps.
 
 | **Operation** | **Purpose** |
 | --- | --- |
@@ -34,10 +36,10 @@ You may experience throttling limits if you hit the threshold of running 200 API
 1. Sign in to [Power Apps](https://make.powerapps.com/) and, if necessary, [switch environments](/power-apps/maker/canvas-apps/getting-started).
 1. In left-hand navigation menu go to **Connections** and select **New connection.**
 1. Select **Azure database for MySQL (preview)** to add a new connection.
-   :::image type="content" source="./media/tutorial-create-power-app-with-mysql/select-azure-db-for-mysql-connector.png" alt-text="Screenshot of selecting Azure database for MySQL connector to add a connection" lightbox="./media/tutorial-create-power-app-with-mysql/select-azure-db-for-mysql-connector.png":::
+   :::image type="content" source="./media/tutorial-create-power-app-with-mysql/select-azure-db-for-mysql-connector.png" alt-text="Screenshot of selecting Azure Database for MySQL flexible server connector to add a connection." lightbox="./media/tutorial-create-power-app-with-mysql/select-azure-db-for-mysql-connector.png":::
 
-1. Enter the server's name, database name, and authentication information for your MySQL database. Select "Create" to establish a connection to your database.
-   :::image type="content" source="./media/tutorial-create-power-app-with-mysql/power-apps-add-mysql-connection.png" alt-text="Screenshot adding new connection for mysql using the Azure database for MySQL connector" lightbox="./media/tutorial-create-power-app-with-mysql/power-apps-add-mysql-connection.png":::
+1. Enter the server's name, database name, and authentication information for your Azure Database for MySQL flexible server database. Select "Create" to establish a connection to your database.
+   :::image type="content" source="./media/tutorial-create-power-app-with-mysql/power-apps-add-mysql-connection.png" alt-text="Screenshot adding new connection for mysql using the Azure Database for MySQL flexible server connector." lightbox="./media/tutorial-create-power-app-with-mysql/power-apps-add-mysql-connection.png":::
 
    > [!NOTE]  
    > Newly created connections are shareable, so that if a Power App is shared with another user, the connection is also shared. In addition, you don't need to  set up a data gateway to connect to the server, as it is required to connect to an on-premises MySQL server.
@@ -50,10 +52,10 @@ You can create a new Power App from scratch or use Dataverse to get started quic
    :::image type="content" source="./media/tutorial-create-power-app-with-mysql/create-power-app-from-dataverse.png" alt-text="Screenshot of adding a Dataverse app." lightbox="./media/tutorial-create-power-app-with-mysql/create-power-app-from-dataverse.png":::
 
 1. Select the previously added connection. Choose a table and select **Connect**.
-   :::image type="content" source="./media/tutorial-create-power-app-with-mysql/add-connection-dataverse-app.png" alt-text="Screenshot adding new connection when creating a dataverse app" lightbox="./media/tutorial-create-power-app-with-mysql/add-connection-dataverse-app.png":::
+   :::image type="content" source="./media/tutorial-create-power-app-with-mysql/add-connection-dataverse-app.png" alt-text="Screenshot of adding new connection when creating a Dataverse app." lightbox="./media/tutorial-create-power-app-with-mysql/add-connection-dataverse-app.png":::
 
 1. You can see a simple app created which lists all the customers from **classicmodels.customers** table.
-   :::image type="content" source="./media/tutorial-create-power-app-with-mysql/power-app-with-azure-mysql.png" alt-text="Screenshot new power app using dataverse with mysql" lightbox="./media/tutorial-create-power-app-with-mysql/power-app-with-azure-mysql.png":::
+   :::image type="content" source="./media/tutorial-create-power-app-with-mysql/power-app-with-azure-mysql.png" alt-text="Screenshot of new Power App using Dataverse with Azure Database for MySQL flexible server." lightbox="./media/tutorial-create-power-app-with-mysql/power-app-with-azure-mysql.png":::
 
 ## Customize your app
 
@@ -61,6 +63,6 @@ With your data added to your app, you can now customize it to meet your specific
 
 ## Next steps
 
-Learn more about Power apps and Azure database for MySQL connector.
-- [Azure Database for MySQL - Connectors documentation](/connectors/azuremysql/)
+Learn more about Power apps and Azure Database for MySQL flexible server connector.
+- [Azure Database for MySQL flexible server - Connectors documentation](/connectors/azuremysql/)
 - [Power Apps documentation](/power-apps/)

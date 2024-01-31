@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurepowershell
   - build-2023
   - ignite-2023
-ms.date: 04/27/2023
+ms.date: 11/15/2023
 ---
 
 # Custom topics in Azure Event Grid

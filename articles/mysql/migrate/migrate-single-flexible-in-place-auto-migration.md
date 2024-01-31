@@ -24,8 +24,8 @@ The in-place migration provides a highly resilient and self-healing offline migr
 > [!NOTE]
 > In-place migration is only for Single Server database workloads with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled. All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure MySQL Import to migrate.
 
-## What's new?
-* If you own a Single Server workload with Basic or GP SKU, data storage used <= 20 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). (Sept 2023)
+## Eligibility
+* If you own a Single Server workload with Basic or GP SKU, data storage used <= 20 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
 
 ## Configure migration alerts and review migration schedule
 

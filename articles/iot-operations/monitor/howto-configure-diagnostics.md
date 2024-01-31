@@ -1,9 +1,10 @@
 ---
-title: Configure Azure IoT MQ diagnostics service
-# titleSuffix: Azure IoT MQ
+title: Configure MQ diagnostics service
+titleSuffix: Azure IoT MQ
 description: How to configure Azure IoT MQ diagnostics service.
 author: timlt
 ms.author: timlt
+ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
@@ -33,7 +34,7 @@ The diagnostics service processes and collates diagnostic signals from various A
 | logLevel | false | String | `info` | Log level. `trace`, `debug`, `info`, `warn`, or `error`. |
 | maxDataStorageSize | false | Unsigned integer | `16` | Maximum data storage size in MiB |
 | metricsPort | false | Int32 | `9600` | Port for metrics |
-| openTelemetryCollectorAddr | false | String | `null` | Endpoint URL of the OpenTelemetry collector |
+| openTelemetryTracesCollectorAddr | false | String | `null` | Endpoint URL of the OpenTelemetry collector |
 | staleDataTimeoutSeconds | false | Int32 | `600` | Data timeouts in seconds |
 
 Here's an example of a Diagnostics service resource with basic configuration:

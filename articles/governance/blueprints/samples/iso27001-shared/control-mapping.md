@@ -9,8 +9,7 @@ ms.topic: sample
 [!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 The following article details how the Azure Blueprints ISO 27001 Shared Services blueprint sample
-maps to the ISO 27001 controls. For more information about the controls, see
-[ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
+maps to the ISO 27001 controls.
 
 The following mappings are to the **ISO 27001:2013** controls. Use the navigation on the right to
 jump directly to a specific control mapping. Many of the mapped controls are implemented with an

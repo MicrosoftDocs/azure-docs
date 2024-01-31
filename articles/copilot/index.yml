@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Microsoft Copilot for Azure (preview)
   description: Manage operations from cloud to edge with an AI assistant.
-  ms.service: azure
+  ms.service: copilot-for-azure
   ms.custom:
     - ignite-2023
     - ignite-2023-copilotinAzure
@@ -85,3 +85,6 @@ conceptualContent:
             - url: ./author-api-management-policies.md
               itemType: get-started
               text: Author API Management policies
+            - url: ./troubleshoot-app-service.md
+              itemType: get-started
+              text: Troubleshoot deployed web apps

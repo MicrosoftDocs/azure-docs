@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Perform exploratory data analysis to understand feature biases and imbalances by using the Responsible AI dashboard's data analysis.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki

@@ -1,17 +1,18 @@
 ---
-title: Deploy Azure IoT Layered Network Management to an AKS cluster
-# titleSuffix: Azure IoT Layered Network Management
-description: Configure Azure IoT Layered Network Management to an AKS cluster.
+title: "Quickstart: Configure Layered Network Management to Arc-enable a cluster in Azure environment"
+titleSuffix: Azure IoT Layered Network Management
+description: Deploy Azure IoT Layered Network Management to an AKS cluster and Arc-enable a cluster on an Ubuntu VM.
 author: PatAltimore
+ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/07/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
-# Deploy Azure IoT Layered Network Management to an AKS cluster
+# Quickstart: Configure Layered Network Management to Arc-enable a cluster in Azure environment
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -47,7 +48,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the installation was successful, run:
 
     ```bash
-    kubectl get pods
+    kubectl get pods -n azure-iot-operations
     ```
 
     You should see an output that looks like the following example:
@@ -64,7 +65,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
     kind: Lnm
     metadata:
       name: level4
-      namespace: default
+      namespace: azure-iot-operations
     spec:
       image:
         pullPolicy: IfNotPresent
@@ -130,7 +131,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the instance, run:
 
     ```bash
-    kubectl get pods
+    kubectl get pods -n azure-iot-operations
     ```
 
     The output should look like:
@@ -144,7 +145,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To view the service, run:
 
     ```bash
-    kubectl get services
+    kubectl get services -n azure-iot-operations
     ```
 
     The output should look like the following example:
@@ -156,7 +157,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To view the config maps, run:
 
     ```bash
-    kubectl get cm
+    kubectl get cm -n azure-iot-operations
     ```
     The output should look like the following example:
     ```

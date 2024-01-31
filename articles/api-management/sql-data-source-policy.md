@@ -209,7 +209,7 @@ The following example resolves a GraphQL query by making a single-result T-SQL r
         </sql-statement> 
         <parameters> 
             <parameter name="@familyId">       
-                {context.GraphQL.Arguments.["id"]}
+                @(context.GraphQL.Arguments["id"])
             </parameter> 
         </parameters> 
     </request>
@@ -242,7 +242,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
         </sql-statement> 
         <parameters> 
             <parameter name="@familyId">       
-                {context.GraphQL.Arguments.["id"]}
+                @(context.GraphQL.Arguments["id"])
             </parameter> 
         </parameters> 
     </request> 
@@ -288,10 +288,10 @@ The following example resolves a GraphQL mutation using a T-SQL INSERT statement
         </sql-statement> 
         <parameters> 
             <parameter name="@familyId">       
-                {context.GraphQL.Arguments.["id"]}
+                @(context.GraphQL.Arguments["id"])
             </parameter>
             <parameter name="@familyName">       
-                {context.GraphQL.Arguments.["name"]}
+                @(context.GraphQL.Arguments["name"])
             </parameter> 
         </parameters> 
     </request>    

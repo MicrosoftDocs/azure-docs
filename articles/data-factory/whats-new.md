@@ -24,13 +24,19 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## November 2023
+
+### Continuous integration and continuous deployment
+
+Azure Data Factory now supports Azure DevOps Server 2022 for Git integration, including on-premises ADO server. [Learn more](source-control.md)
+
 ## October 2023
 
 ### Data movement
 
 General Availability of Time to Live (TTL) for Managed Virtual Network [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/general-availability-of-time-to-live-ttl-for-managed-virtual/ba-p/3922218)
 
-### Region expanstion
+### Region expansion
 
 Azure Data Factory is generally available in Poland Central [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/continued-region-expansion-azure-data-factory-is-generally/ba-p/3965769)
 
@@ -110,21 +116,7 @@ We introduce optional Source settings for DelimitedText and JSON sources in top-
 
 [Data factory in Microsoft Fabric](/fabric/data-factory/) provides cloud-scale data movement and data transformation services that allow you to solve the most complex data factory and ETL scenarios. It's intended to make your data factory experience easy to use, powerful, and truly enterprise-grade.
 
-## April 2023
-
-### Data flow
-
-Easily unroll multiple arrays in ADF data flows. ADF updated the **Flatten** transformation that now makes it super easy to unroll multiple arrays from a single **Flatten** transformation step. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/unroll-multiple-arrays-in-a-single-flatten-step-in-adf/ba-p/3802457)
-
-### Continuous integration and continuous deployment
-
-You can customize the commit message in Git mode now. Type in a detailed description about the changes you make, and we will save it to Git repository.
-
-### Connectors
-
-The Azure Blob Storage connector now supports anonymous authentication. [Learn more](connector-azure-blob-storage.md#anonymous-authentication)
-
-## More information
+## Related content
 
 - [What's new archive](whats-new-archive.md)
 - [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv)

@@ -1,14 +1,14 @@
 ---
-title: Azure VM Image Builder overview 
+title: Azure VM Image Builder overview
 description: In this article, you learn about VM Image Builder for virtual machines in Azure.
 author: sumit-kalra
 ms.author: sukalra
-ms.date: 07/31/2023
+ms.date: 12/20/2023
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
-ms.reviewer: erd
+ms.reviewer: jushiman
 ---
 
 # Azure VM Image Builder overview
@@ -17,7 +17,7 @@ ms.reviewer: erd
 
 By using standardized virtual machine (VM) images, your organization can more easily migrate to the cloud and help ensure consistency in your deployments. Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you need only create a configuration that describes your image and submit it to the service, where the image is built and then distributed. 
 
-With VM Image Builder, you can migrate your existing image customization pipeline to Azure as you continue to use existing scripts, commands, and processes. You can integrate your core applications into a VM image, so that your VMs can take on workloads after the images are created. You can even add configurations to build images for Azure Virtual Desktop, as virtual hard discs (VHDs) for use in Azure Stack, or for ease of exporting.
+With VM Image Builder, you can migrate your existing image customization pipeline to Azure as you continue to use existing scripts, commands, and processes. You can integrate your core applications into a VM image, so that your VMs can take on workloads after the images are created. You can even add configurations to build images for Azure Virtual Desktop, as virtual hard disks (VHDs) for use in Azure Stack, or for ease of exporting.
 
 VM Image Builder lets you start with Windows or Linux images either from Azure Marketplace or as existing custom images, and then add your own customizations. You can also specify where you want your resulting images to be hosted in [Azure Compute Gallery](shared-image-galleries.md) (formerly Shared Image Gallery), as managed images or as VHDs.
 
@@ -191,7 +191,10 @@ For more information about permissions, see
 * [Create a VM Image Builder template](./linux/image-builder-json.md#identity) 
 
 ## Costs
-You'll incur some compute, networking, and storage costs when you create, build, and store images by using VM Image Builder. These costs are similar to those that you incur when you create custom images manually. Your resources are charged at your Azure rates. 
+You'll incur some compute, networking, and storage costs when you create, build, and store images by using VM Image Builder. These costs are similar to those that you incur when you create custom images manually. Your resources are charged at your Azure rates.
+
+> [!NOTE]
+> The Azure Image Builder service currently does not support Azure Hybrid Benefit for Windows Server at this time.
 
 During the image-creation process, files are downloaded and stored in the `IT_<DestinationResourceGroup>_<TemplateName>` resource group, which incurs a small storage cost. If you don't want to keep these files, delete the image template after you've built the image.
  

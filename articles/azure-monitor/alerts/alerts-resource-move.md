@@ -6,7 +6,7 @@ ms.custom: subject-moving-resources
 ms.date: 05/28/2023
 ms.reviewer: ofmanor
 ---
-# How to update alert rules or alert processing rules when their target resource moves to a different Azure region
+# Update alert rules or alert processing rules when their target resource moves to a different Azure region
 
 This article describes why existing [alert rules](./alerts-overview.md) and [alert processing rules](./alerts-action-rules.md) may be impacted when you move other Azure resources between regions, and how to identify and resolve those issues. Check the main [resource move documentation](../../azure-resource-manager/management/move-resources-overview.md) for additional information on when is resource move between regions useful and a checklist of designing a move process.
 

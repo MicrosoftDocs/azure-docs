@@ -63,10 +63,13 @@ conceptualContent:
               text: Deploy the FHIR service
             - url: ./fhir/configure-cross-origin-resource-sharing.md
               itemType: how-to-guide
-              text: Configure settings
+              text: Configure cross-origin resource sharing (CORS)
+            - url: ./fhir/configure-customer-managed-keys.md
+              itemType: how-to-guide
+              text: Configure customer-managed keys (CMK) 
             - url: ./fhir/centers-for-medicare-tutorial-introduction.md
               itemType: how-to-guide
-              text: CMS operability and patient access
+              text: CMS operability and patient access 
 
         # Card
         - title: Imaging data
@@ -77,6 +80,9 @@ conceptualContent:
             - url: ./dicom/deploy-dicom-services-in-azure.md
               itemType: how-to-guide
               text: Deploy the DICOM service
+            - url: ./dicom/configure-customer-managed-keys.md
+              itemType: how-to-guide
+              text: Configure customer-managed keys (CMK) 
             - url: ./dicom/get-started-with-analytics-dicom.md
               itemType: how-to-guide
               text: Use image data for analytics

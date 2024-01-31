@@ -1,7 +1,7 @@
 ---
 title: Map business processes to Standard workflows
 description: Map business process stages to operations in Standard workflows created with Azure Logic Apps.
-ms.service: azure
+ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 11/15/2023

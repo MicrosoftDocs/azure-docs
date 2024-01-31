@@ -5,9 +5,8 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: quickstart
-ms.custom:
-  - ignite-2023
-ms.date: 11/15/2023
+ms.custom: ignite-2023, devx-track-azurecli
+ms.date: 01/31/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -29,52 +28,48 @@ The services deployed in this quickstart include:
 * [Azure IoT Layered Network Management](../manage-layered-network/overview-layered-network.md)
 * [Observability](../monitor/howto-configure-observability.md)
 
+The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+
 ## Prerequisites
 
 Review the prerequisites based on the environment you use to host the Kubernetes cluster.
 
-For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use AKS Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
+For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use Azure Kubernetes Service (AKS) Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
 
 # [Virtual](#tab/codespaces)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
-
 * A [GitHub](https://github.com) account.
 
 # [Windows](#tab/windows)
 
+* You'll use the `AksEdgeQuickStartForAio.ps1` script to set up an AKS Edge Essentials single-machine K3S Linux-only cluster. Ensure that your machine has a minimum of 10 GB RAM, 4 vCPUs, and 40 GB free disk space. To learn more, see the [AKS Edge Essentials system requirements](/azure/aks/hybrid/aks-edge-system-requirements).
+
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-* At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
-
-<!-- * Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements. -->
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
   This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
-* The Azure IoT Operations extension for Azure CLI.
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
-  ```powershell
-  az extension add --name azure-iot-ops
+  ```bash
+  az extension add --upgrade --name azure-iot-ops
   ```
 
 # [Linux](#tab/linux)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
-
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
   This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
-* The Azure IoT Operations extension for Azure CLI.
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
   ```bash
-  az extension add --name azure-iot-ops
+  az extension add --upgrade --name azure-iot-ops
   ```
 
 ---
@@ -177,7 +172,6 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
    ```bash
    mkdir ~/.kube
-   cp ~/.kube/config ~/.kube/config.back
    sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
    mv ~/.kube/merged ~/.kube/config
    chmod  0600 ~/.kube/config
@@ -206,57 +200,43 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
 ---
 
+## Verify cluster
+
+Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
+
+```azurecli
+az iot ops verify-host
+```
+
+This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints. If the cluster has an Ubuntu OS, it checks if `nfs-common` is installed, and if not give you the option to install on your behalf.
+
 ## Configure cluster and deploy Azure IoT Operations
 
 Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you. Once your cluster is configured, then you can deploy Azure IoT Operations.
 
-Use the Azure portal to create a key vault, build the `az iot ops init` command based on your resources, and then deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+Use the Azure CLI to create a key vault, build the `az iot ops init` command based on your resources, and then deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
 
 ### Create a key vault
 
-You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
+You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
 
-1. Open the [Azure portal](https://portal.azure.com).
+To create a new key vault, use the following command:
 
-1. In the search bar, search for and select **Key vaults**.
-
-1. Select **Create**.
-
-1. On the **Basics** tab of the **Create a key vault** page, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription that also contains your Arc-enabled Kubernetes cluster. |
-   | **Resource group** | Select the resource group that also contains your Arc-enabled Kubernetes cluster. |
-   | **Key vault name** | Provide a globally unique name for your key vault. |
-   | **Region** | Select a region close to you. |
-   | **Pricing tier** | The default **Standard** tier is suitable for this quickstart. |
-
-1. Select **Next**.
-
-1. On the **Access configuration** tab, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Permission model** | Select **Vault access policy**. |
-
-   :::image type="content" source="./media/quickstart-deploy/key-vault-access-policy.png" alt-text="Screenshot of selecting the vault access policy permission model in the Azure portal.":::
-
-1. Select **Review + create**.
-
-1. Select **Create**.
+```azurecli
+az keyvault create --enable-rbac-authorization false --name "<your unique key vault name>" --resource-group "<the name of the resource group that contains your Kubernetes cluster>"
+```
 
 ### Deploy Azure IoT Operations
 
 1. In the Azure portal search bar, search for and select **Azure Arc**.
 
-1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
+1. Select **Azure IoT Operations (preview)** from the **Application Services** section of the Azure Arc menu.
 
    :::image type="content" source="./media/quickstart-deploy/arc-iot-operations.png" alt-text="Screenshot of selecting Azure IoT Operations from Azure Arc.":::
 
 1. Select **Create**.
 
-1. On the **Basics** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
+1. On the **Basic** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
 
    | Field | Value |
    | ----- | ----- |
@@ -279,22 +259,16 @@ You can use an existing key vault for your secrets, but verify that the **Permis
 
 1. Select **Next: Automation**.
 
-1. On the **Automation** tab, select **Pick or create an Azure Key Vault**.
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-automation-1.png" alt-text="Screenshot of selecting your key vault in the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Provide the following information to connect a key vault:
+1. On the **Automation** tab, provide the following information:
 
    | Field | Value |
    | ----- | ----- |
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Key vault** | Choose the key vault that you created in the previous section from the drop-down list. |
+   | **Azure Key Vault** | Use the **Select a key vault** drop-down menu to choose the key vault that you set up in the previous section. |
 
-1. Select **Select**.
+1. Once you select a key vault, the **Automation** tab uses all the information you've selected so far to populate an Azure CLI command that configures your cluster and deploys Azure IoT Operations. Copy the CLI command.
 
-1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy the **Required** CLI command.
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-automation-2.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
+   :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
 
 1. Sign in to Azure CLI on your development machine or in your codespace terminal. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
 
@@ -303,7 +277,7 @@ You can use an existing key vault for your secrets, but verify that the **Permis
    ```
 
    > [!NOTE]
-   > When using a Github codespace in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+   > When using a GitHub codespace in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
    >
    > * Open the codespace in VS Code desktop, and then run `az login` again in the browser terminal.
    > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
@@ -313,17 +287,13 @@ You can use an existing key vault for your secrets, but verify that the **Permis
    >[!TIP]
    >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
-1. Return to the Azure portal and select **Review + Create**.
-
-1. Wait for the validation to pass and then select **Create**.
-
 ## View resources in your cluster
 
 While the deployment is in progress, you can watch the resources being applied to your cluster. You can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
 
 To view the pods on your cluster, run the following command:
 
-```bash
+```console
 kubectl get pods -n azure-iot-operations
 ```
 

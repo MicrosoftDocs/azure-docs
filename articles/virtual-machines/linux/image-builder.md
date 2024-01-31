@@ -3,20 +3,20 @@ title: Use Azure VM Image Builder with an Azure Compute Gallery for Linux VMs
 description: Create Linux VM images with Azure VM Image Builder and Azure Compute Gallery.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # Create a Linux image and distribute it to an Azure Compute Gallery by using the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets  
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 In this article, you learn how to use Azure VM Image Builder and the Azure CLI to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly Shared Image Gallery) and then distribute the image globally. You can also create an image version by using [Azure PowerShell](../windows/image-builder-gallery.md).
 
-This article uses a sample JSON template to configure the image. The JSON file is at [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+This article uses a sample JSON template to configure the image. The JSON file is at [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json).
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
@@ -116,7 +116,7 @@ az role assignment create \
 
 To use VM Image Builder with Azure Compute Gallery, you need to have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
 
-If you don't already have a gallery and image definition to use, start by creating them. 
+If you don't already have a gallery and image definition to use, start by creating them.
 
 First, create a gallery:
 
@@ -157,7 +157,7 @@ sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIG.json
 
 ## Create the image version
 
-In this section you create the image version in the gallery. 
+In this section you create the image version in the gallery.
 
 Submit the image configuration to the Azure VM Image Builder service:
 
@@ -177,7 +177,7 @@ az resource invoke-action \
      --resource-group $sigResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
      -n helloImageTemplateforSIG01 \
-     --action Run 
+     --action Run
 ```
 
 It can take a few moments to create the image and replicate it to both regions. Wait until this part is finished before you move on to create a VM.

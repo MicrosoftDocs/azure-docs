@@ -3,7 +3,7 @@ title: Filter data in a pipeline
 description: Configure a filter pipeline stage to remove messages that aren't needed for further processing and to avoid sending unnecessary data to cloud services.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

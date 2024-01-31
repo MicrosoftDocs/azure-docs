@@ -73,7 +73,7 @@ On the activity asset, click the Lineage tab, you can see all the lineage inform
     > [!NOTE] 
     > For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet.
 
-## Next steps
+## Related content
 
 [Catalog lineage user guide](../purview/catalog-lineage-user-guide.md)
 

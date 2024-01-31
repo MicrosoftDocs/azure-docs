@@ -3,7 +3,7 @@ title: Data Processor jq usage
 description: Overview of how the Azure IoT Data Processor uses jq expressions and paths to configure pipeline stages.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.custom:
   - ignite-2023

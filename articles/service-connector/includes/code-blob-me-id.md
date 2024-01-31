@@ -89,6 +89,9 @@ var blobServiceClient = new BlobServiceClient(
         .buildClient();
     ```
 
+### [springBoot](#tab/springBoot)
+Authentication type is not supported for Spring Boot.
+
 ### [Python](#tab/python)
 1. Install dependencies
    ```bash

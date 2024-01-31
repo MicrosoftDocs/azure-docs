@@ -2,14 +2,13 @@
 title: 'Quickstart: Generate images with Azure OpenAI Service and Azure OpenAI Studio'
 titleSuffix: Azure OpenAI
 description: Learn how to generate images with Azure OpenAI Service in the DALL-E playground (Preview) in Azure OpenAI Studio.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
 ms.topic: include
 ms.date: 08/08/2023
-keywords:
 ---
 
 Use this guide to get started generating images with Azure OpenAI in your browser.

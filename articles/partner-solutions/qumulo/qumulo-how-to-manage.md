@@ -4,6 +4,8 @@ description: This article describes how to manage Azure Native Qumulo Scalable F
 
 ms.topic: how-to 
 ms.date: 11/15/2023
+ms.custom:
+  - ignite-2023
 ---
 
 

@@ -187,16 +187,16 @@ System.out.printf("Worker %s is assigned job %s\n", worker.getId(), accept.getJo
 Once the worker has completed the work associated with the job (for example, completed the call), we complete the job.
 
 ```java
-routerClient.completeJob(accept.getJobId(), accept.getAssignmentId());
+routerClient.completeJobWithResponse(accept.getJobId(), accept.getAssignmentId(), null);
 System.out.printf("Worker %s has completed job %s\n", worker.getId(), accept.getJobId());
 ```
 
 ## Close the job
 
-Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
+Once the worker is ready to take on new jobs, the worker should close the job.
 
 ```java
-routerClient.closeJob(accept.getJobId(), accept.getAssignmentId(), new CloseJobOptions().setDispositionCode("Resolved"));
+routerClient.closeJobWithResponse(accept.getJobId(), accept.getAssignmentId(), null);
 System.out.printf("Worker %s has closed job %s\n", worker.getId(), accept.getJobId());
 ```
 
@@ -204,7 +204,7 @@ System.out.printf("Worker %s has closed job %s\n", worker.getId(), accept.getJob
 
 Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
 
-```javascript
+```java
 routerClient.deleteJob(accept.getJobId());
 System.out.printf("Deleting job %s\n", accept.getJobId());
 ```
@@ -245,7 +245,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/azure/developer/java/sdk/) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication-jobrouter) or [REST API reference](/rest/api/communication/jobrouter/job-router-operations).
 
 <!-- LINKS -->
 

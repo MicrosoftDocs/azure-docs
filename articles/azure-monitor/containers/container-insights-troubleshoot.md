@@ -18,7 +18,7 @@ The following table summarizes known errors you might encounter when you use Con
 | Error messages  | Action |
 | ---- | --- |
 | Error message "No data for selected filters"  | It might take some time to establish monitoring data flow for newly created clusters. Allow at least 10 to 15 minutes for data to appear for your cluster.<br><br>If data still doesn't show up, check if the Log Analytics workspace is configured for `disableLocalAuth = true`. If yes, update back to `disableLocalAuth = false`.<br><br>`az resource show  --ids "/subscriptions/[Your subscription ID]/resourcegroups/[Your resource group]/providers/microsoft.operationalinsights/workspaces/[Your workspace name]"`<br><br>`az resource update --ids "/subscriptions/[Your subscription ID]/resourcegroups/[Your resource group]/providers/microsoft.operationalinsights/workspaces/[Your workspace name]" --api-version "2021-06-01" --set properties.features.disableLocalAuth=False` |
-| Error message "Error retrieving data" | While an AKS cluster is setting up for health and performance monitoring, a connection is established between the cluster and a Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error might occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted. If it was, reenable monitoring of your cluster with Container insights. Then specify an existing workspace or create a new one. To reenable, [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Container insights again. |
+| Error message "Error retrieving data" | While an AKS cluster is setting up for health and performance monitoring, a connection is established between the cluster and a Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error might occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted. If it was, reenable monitoring of your cluster with Container insights. Then specify an existing workspace or create a new one. To reenable, [disable](kubernetes-monitoring-disable.md) monitoring for the cluster and [enable](kubernetes-monitoring-enable.md) Container insights again. |
 | "Error retrieving data" after adding Container insights through `az aks cli` | When you enable monitoring by using `az aks cli`, Container insights might not be properly deployed. Check whether the solution is deployed. To verify, go to your Log Analytics workspace and see if the solution is available by selecting **Legacy solutions** from the pane on the left side. To resolve this issue, redeploy the solution.  Follow the instructions in [Enable Container insights](container-insights-onboard.md). |
 | Error message "Missing Subscription registration" | If you receive the error "Missing Subscription registration for Microsoft.OperationsManagement," you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. For the steps, see [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md). |
 | Error message "The reply url specified in the request doesn't match the reply urls configured for the application: '<application ID\>'." | You might see this error message when you enable live logs. For the solution, see [View container data in real time with Container insights](./container-insights-livedata-setup.md#configure-azure-ad-integrated-authentication). |
@@ -88,6 +88,8 @@ To diagnose the problem if you can't view status information or no results are r
     ama-logs-windows-6drwq                  1/1       Running   0          1d
     ```
 
+1. If the pods are in a running state, but there is no data in Log Analytics or data appears to only send during a certain part of the day, it might be an indication that the daily cap has been met. When this limit is met each day, data stops ingesting into the Log Analytics Workspace and resets at the reset time. For more information, see [Log Analytics Daily Cap](../../azure-monitor/logs/daily-cap.md#determine-your-daily-cap).
+
 ## Container insights agent ReplicaSet Pods aren't scheduled on a non-AKS cluster
 
 Container insights agent ReplicaSet Pods have a dependency on the following node selectors on the worker (or agent) nodes for the scheduling:
@@ -102,15 +104,13 @@ If your worker nodes don’t have node labels attached, agent ReplicaSet Pods wo
 
 ## Performance charts don't show CPU or memory of nodes and containers on a non-Azure cluster
 
-Container insights agent pods use the cAdvisor endpoint on the node agent to gather the performance metrics. Verify the containerized agent on the node is configured to allow `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
+Container insights agent pods use the cAdvisor endpoint on the node agent to gather performance metrics. Verify the containerized agent on the node is configured to allow `cAdvisor secure port: 10250` or  `cAdvisor unsecure port: 10255` to be opened on all nodes in the cluster to collect performance metrics. See the [prerequisites for hybrid Kubernetes clusters](./container-insights-hybrid-setup.md#prerequisites) for more information.
 
 ## Non-AKS clusters aren't showing in Container insights
 
 To view the non-AKS cluster in Container insights, read access is required on the Log Analytics workspace that supports this insight and on the Container insights solution resource **ContainerInsights (*workspace*)**.
 
 ## Metrics aren't being collected
-
-1. Verify that the cluster is in a [supported region for custom metrics](../essentials/metrics-custom-overview.md#supported-regions).
 
 1. Verify that the **Monitoring Metrics Publisher** role assignment exists by using the following CLI command:
 
@@ -234,7 +234,7 @@ ContainerLog
 
 Reenable collection for these properties for every container log line.
 
-If the first option isn't convenient because of query changes involved, you can reenable collecting these fields. Enable the setting `log_collection_settings.enrich_container_logs` in the agent config map as described in the [data collection configuration settings](./container-insights-agent-config.md).
+If the first option isn't convenient because of query changes involved, you can reenable collecting these fields. Enable the setting `log_collection_settings.enrich_container_logs` in the agent config map as described in the [data collection configuration settings](./container-insights-data-collection-configmap.md).
 
 > [!NOTE]
 > We don't recommend the second option for large clusters that have more than 50 nodes. It generates API server calls from every node in the cluster to perform this enrichment. This option also increases data size for every log line collected.
@@ -242,6 +242,11 @@ If the first option isn't convenient because of query changes involved, you can 
 ## I can't upgrade a cluster after onboarding
 
 Here's the scenario: You enabled Container insights for an Azure Kubernetes Service cluster. Then you deleted the Log Analytics workspace where the cluster was sending its data. Now when you attempt to upgrade the cluster, it fails. To work around this issue, you must disable monitoring and then reenable it by referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.
+
+
+## Not collecting logs on Azure Stack HCI cluster
+If you registered your cluster and/or configured HCI Insights before November 2023, features that use the Azure Monitor agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud, or Microsoft Sentinel might not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later#repair-ama-for-azure-stack-hci) for steps to reconfigure the agent and HCI Insights.
+
 
 ## Next steps
 

@@ -1,14 +1,14 @@
 ---
-title: Adult, racy, gory content - Azure AI Vision
+title: Detect Adult, racy, or gory content - Azure AI Vision
 titleSuffix: Azure AI services
 description: Concepts related to detecting adult content in images using the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
@@ -21,6 +21,9 @@ Try out the adult content detection features quickly and easily in your browser 
 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
+
+> [!TIP]
+> Azure AI Content Safety is the latest offering in AI content moderation. For more information, see the [Azure AI Content Safety overview](/azure/ai-services/content-safety/overview).
 
 ## Content flag definitions
 

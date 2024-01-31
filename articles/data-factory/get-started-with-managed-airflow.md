@@ -55,7 +55,7 @@ Mitigation: Sign in into the Airflow UI and see if there are any DAG parsing err
 
    :::image type="content" source="media/how-does-managed-airflow-work/import-dag-issues.png" alt-text="Screenshot shows import dag issues.":::
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

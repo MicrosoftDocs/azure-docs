@@ -262,6 +262,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `int unsigned` |`Int64`|
 | `integer` |`Int32` |
 | `integer unsigned` |`Int64` |
+| `json` |`String` |
 | `long varbinary` |`Byte[]` |
 | `long varchar` |`String` |
 | `longblob` |`Byte[]` |
@@ -290,5 +291,5 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

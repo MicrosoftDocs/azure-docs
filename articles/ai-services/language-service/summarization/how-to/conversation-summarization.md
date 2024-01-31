@@ -2,12 +2,12 @@
 title: Summarize text with the conversation summarization API
 titleSuffix: Azure AI services
 description: This article shows you how to summarize chat logs with the conversation summarization API.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom:
   - language-service-summarization
@@ -542,7 +542,7 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversat
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
 
-Example narrative summarization JSON response:
+Example recap and follow-up summarization JSON response:
 
 ```json
 {

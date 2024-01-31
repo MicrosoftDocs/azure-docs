@@ -51,9 +51,8 @@ await client.path("/routing/jobs/{jobId}", "job1").patch({
         channelId: "Voice",
         queueId: "Callback",
         matchingMode: {
-            scheduleAndSuspendMode: {
-                scheduleAt: new Date(Date.now() + 3 * 60000)
-            }
+            kind: "scheduleAndSuspend",
+            scheduleAt: new Date(Date.now() + 3 * 60000)
         }
     },
     contentType: "application/merge-patch+json"
@@ -118,7 +117,7 @@ if (eventGridEvent.EventType == "Microsoft.Communication.RouterJobWaitingForActi
 
     await client.path("/routing/jobs/{jobId}", eventGridEvent.data.jobId).patch({
       body: {
-          matchingMode: { kind: "queue-and-match" },
+          matchingMode: { kind: "queueAndMatch" },
           priority: 100
       },
       contentType: "application/merge-patch+json"

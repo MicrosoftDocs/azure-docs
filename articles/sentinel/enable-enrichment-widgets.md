@@ -1,5 +1,5 @@
 ---
-title: Visualize data with enrichment widgets in Microsoft Sentinel
+title: Enable enrichment widgets in Microsoft Sentinel
 description: This article shows you how to enable the enrichment widgets experience, allowing you to better visualize entity data and insights and make better, faster decisions.
 author: yelevin
 ms.author: yelevin
@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/15/2023
 ---
 
-# Visualize data with enrichment widgets in Microsoft Sentinel 
+# Enable enrichment widgets in Microsoft Sentinel 
 
-This article shows you how to enable the enrichment widgets experience, allowing you to better visualize entity data and insights and make better, faster decisions.
+Enrichment widgets are dynamic components that provide you with in-depth, actionable intelligence about entities. They integrate external and internal content and data from various sources, allowing you a better understanding of potential security threats.
 
-Enrichment widgets are components that help you retrieve, visualize, and understand more information about entities. These widgets take data presentation to the next level by integrating external content, enhancing your ability to make informed decisions quickly.
+This article shows you how to enable the enrichment widgets experience, allowing you to take advantage of this new capability and helping you make better, faster decisions.
 
 > [!IMPORTANT]
 >
@@ -117,9 +117,9 @@ This section contains instructions for creating or finding your credentials for 
 
 #### Credentials for Microsoft Defender Threat Intelligence
 
-1. The Microsoft Defender Threat Intelligence widget should fetch the data automatically if you have the relevant Microsoft Defender Threat Intelligence license. There is no need for credentials.
+1. The Microsoft Defender Threat Intelligence widget should fetch the data automatically if you have the relevant [Microsoft Defender Threat Intelligence](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence) license. There is no need for credentials.
 
-1. You can check if you have the relevant license, and if necessary, purchase it, at the [Microsoft Defender Threat Intelligence official website](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence).
+1. If you don't have the proper license, [contact the Microsoft Security team](https://info.microsoft.com/ww-landing-security-generic-contact-me.html?culture=en-us&country=ww) for guidance.
 
 ## Add new widgets when they become available
 

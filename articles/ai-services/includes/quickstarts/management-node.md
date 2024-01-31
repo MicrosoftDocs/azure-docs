@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Azure management client library for Node.js"
 description: In this quickstart, get started with the Azure management client library for Node.js.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services

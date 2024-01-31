@@ -2,12 +2,12 @@
 title: "Analyze video content for objectionable material in C# - Content Moderator"
 titleSuffix: Azure AI services
 description: How to analyze video content for various objectionable material using the Content Moderator SDK for .NET
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 01/18/2024
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet

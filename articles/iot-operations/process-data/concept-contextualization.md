@@ -3,7 +3,7 @@ title: Understand message contextualization
 description: Understand how you can use message contextualization in Azure IoT Data Processor to enrich messages in a pipeline.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: concept-article
 ms.custom:
   - ignite-2023

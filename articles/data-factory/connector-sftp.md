@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics
@@ -589,5 +589,5 @@ For information about Delete activity properties, see [Delete activity](delete-a
 ]
 ```
 
-## Next steps
+## Related content
 For a list of data stores that are supported as sources and sinks by the Copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

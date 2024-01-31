@@ -187,7 +187,7 @@ dotnet add package Azure.Communication.Chat
 
 ### Create a chat client
 
-To create a chat client, use your Communication Services endpoint and the user access token you generated earlier. Use the `CommunicationIdentityClient` class from the Identity SDK to create a user and issue a token to pass to your chat client. Access tokens can be generated in the portal using the following [instructions](/quickstarts/identity/access-tokens).
+To create a chat client, use your Communication Services endpoint and the user access token you generated earlier. Use the `CommunicationIdentityClient` class from the Identity SDK to create a user and issue a token to pass to your chat client. Access tokens can be generated in the portal using the following [instructions](/azure/communication-services/quickstarts/identity/access-tokens).
 
 Copy the following code and paste it in the *Program.cs* source file:
 

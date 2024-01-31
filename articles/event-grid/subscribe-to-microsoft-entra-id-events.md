@@ -4,7 +4,7 @@ description: This article explains how to subscribe to events published by Micro
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/09/2023
+ms.date: 11/15/2023
 ---
 
 # Subscribe to events published by Microsoft Entra ID

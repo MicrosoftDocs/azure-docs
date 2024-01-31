@@ -66,7 +66,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About confidential VMs
+          - text: Azure Confidential VM options
             url: confidential-vm-overview.md
           - text: Confidential VM solutions
             url: virtual-machine-solutions.md
@@ -78,12 +78,12 @@ landingContent:
             url: guest-attestation-defender-for-cloud.md
       - linkListType: quickstart
         links:
-          - text: Create an AMD confidential VM in the Azure portal
-            url: quick-create-confidential-vm-portal-amd.md
-          - text: Create an AMD confidential VM with ARM template
-            url: quick-create-confidential-vm-arm-amd.md
-          - text: Create an AMD confidential VM with Azure CLI
-            url: quick-create-confidential-vm-azure-cli-amd.md
+          - text: Create confidential VM in the Azure portal
+            url: quick-create-confidential-vm-portal.md
+          - text: Create confidential VM with ARM template
+            url: quick-create-confidential-vm-arm.md
+          - text: Create confidential VM with Azure CLI
+            url: quick-create-confidential-vm-azure-cli.md
       - linkListType: how-to-guide
         links:
           - text: Use sample app for guest attestation
@@ -94,8 +94,8 @@ landingContent:
             url: vmss-deployment-from-hardened-linux-image.md
       - linkListType: reference
         links:
-          - text: AMD confidential VMs FAQ 
-            url: confidential-vm-faq-amd.yml
+          - text: Confidential VMs FAQ 
+            url: confidential-vm-faq.yml
           - text: DCasv5 and DCadsv5-series VM specs
             url: ../virtual-machines/dcasv5-dcadsv5-series.md
           - text: ECasv5 and ECadsv5-series VM specs

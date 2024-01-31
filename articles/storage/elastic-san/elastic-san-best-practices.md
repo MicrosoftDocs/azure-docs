@@ -87,7 +87,7 @@ Update the below registry settings for iSCSI initiator on Windows.
 |Sets maximum data the initiator can receive in an iSCSI PDU from the target to 256 KB     |MaxRecvDataSegmentLength=262144         |
 |Disables R2T flow control     |InitialR2T=0         |
 |Enables immediate data     |ImmediateData=1         |
-|Sets timeout value for WMI requests to 15 seconds     |WMIRequestTimeout = 15 seconds         |
+|Sets timeout value for WMI requests to 30 seconds     |WMIRequestTimeout = 30 seconds         |
 
 
 In cluster configurations, ensure iSCSI initiator names unique across all nodes that are sharing volumes. In Windows, you can update them via iSCSI Initiator app.
@@ -114,7 +114,7 @@ Update /etc/iscsi/iscsid.conf file with the following values:
 |# Set maximum data the initiator can receive in an iSCSI PDU from the target to 256 KB     |node.conn[0].iscsi.MaxRecvDataSegmentLength = 262144         |
 |# Disable R2T flow control     |node.session.iscsi.InitialR2T = No         |
 |# Enable immediate data     |node.session.iscsi.ImmediateData = Yes         |
-|# Set timeout value for WMI requests to 15 seconds     |node.conn[0].timeo.login_timeout = 15<br></br>node.conn[0].timeo.logout_timeout = 15         |
+|# Set timeout value for WMI requests     |node.conn[0].timeo.login_timeout = 30<br></br>node.conn[0].timeo.logout_timeout = 15         |
 |# Enable CRC digest checking for header and data     |node.conn[0].iscsi.HeaderDigest = CRC32C<br></br>node.conn[0].iscsi.DataDigest = CRC32C         |
 
 

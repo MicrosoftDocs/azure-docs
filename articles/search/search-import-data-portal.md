@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/25/2023
+ms.date: 11/16/2023
 ---
 # Import data wizard in Azure AI Search
 

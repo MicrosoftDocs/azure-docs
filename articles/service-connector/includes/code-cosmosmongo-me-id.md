@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/31/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
@@ -26,6 +26,7 @@ ms.author: wchi
     using System.Threading.Tasks;
     using MongoDB.Driver;
     using Azure.Identity;
+    using System.Text.Json;
     
     var endpoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_RESOURCEENDPOINT");
     var listConnectionStringUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTCONNECTIONSTRINGURL");
@@ -58,8 +59,8 @@ ms.author: wchi
     httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken.Token}");
     var response = await httpClient.POSTAsync(listConnectionStringUrl);
     var responseBody = await response.Content.ReadAsStringAsync();
-    var connectionStrings = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseBody);
-    var connectionString = connectionStrings["Primary MongoDB Connection String"];
+    var connectionStrings = JsonSerializer.Deserialize<Dictionary<string, List<Dictionary<string, string>>>>(responseBody);
+    string connectionString = connectionStrings["connectionStrings"][0]["connectionString"];
     
     // Connect to Azure Cosmos DB for MongoDB
     var client = new MongoClient(connectionString);
@@ -130,7 +131,8 @@ ms.author: wchi
     HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
     JSONParser parser = new JSONParser();
     JSONObject responseBody = parser.parse(response.body());
-    String connectionString = responseBody.get("Primary MongoDB Connection String");
+    List<Map<String, String>> connectionStrings = responseBody.get("connectionStrings");
+    String connectionString = connectionStrings[0]["connectionString"];
     
     // Connect to Azure Cosmos DB for MongoDB
     MongoClientURI uri = new MongoClientURI(connectionString);
@@ -139,6 +141,51 @@ ms.author: wchi
 
 ### [SpringBoot](#tab/springBoot)
 The authentication type is not supported for Spring Boot.
+
+### [Python](#tab/python)
+1. Install dependencies.
+    ```bash
+    pip install pymongo
+    pip install azure-identity
+    ```
+
+2. In code, get access token via `azure-identity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+    ```python
+    import os
+    import pymongo
+    import requests
+    from azure.core.pipeline.policies import BearerTokenCredentialPolicy
+    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
+
+    endpoint = os.getenv('AZURE_COSMOS_RESOURCEENDPOINT')
+    listConnectionStringUrl = os.getenv('AZURE_COSMOS_LISTCONNECTIONSTRINGURL')
+    scope = os.getenv('AZURE_COSMOS_SCOPE')
+
+    # Uncomment the following lines according to the authentication type.
+    # For system-assigned managed identity
+    # cred = ManagedIdentityCredential()
+
+    # For user-assigned managed identity
+    # managed_identity_client_id = os.getenv('AZURE_COSMOS_CLIENTID')
+    # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
+
+    # For service principal
+    # tenant_id = os.getenv('AZURE_COSMOS_TENANTID')
+    # client_id = os.getenv('AZURE_COSMOS_CLIENTID')
+    # client_secret = os.getenv('AZURE_COSMOS_CLIENTSECRET')
+    # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
+
+    # Get the connection string
+    session = requests.Session()
+    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
+    response = session.post(listConnectionStringUrl)
+    keys_dict = response.json()
+    conn_str = keys_dict["connectionStrings"][0]["connectionString"]
+
+    # Connect to Azure Cosmos DB for MongoDB
+    client = pymongo.MongoClient(conn_str)
+    ```
+
 
 
 ### [Go](#tab/go)
@@ -165,7 +212,7 @@ The authentication type is not supported for Spring Boot.
         "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     )
     
-    endpoint = os.Getenv("AAZURE_COSMOS_RESOURCEENDPOINT")
+    endpoint = os.Getenv("AZURE_COSMOS_RESOURCEENDPOINT")
     listConnectionStringUrl = os.Getenv("AZURE_COSMOS_LISTCONNECTIONSTRINGURL")
     scope = os.Getenv("AZUE_COSMOS_SCOPE")
 
@@ -199,7 +246,7 @@ The authentication type is not supported for Spring Boot.
     body, err := ioutil.ReadAll(resp.Body)
     var result map[string]interface{}
     json.Unmarshal(body, &result)
-    connectionString, err := result["Primary MongoDB Connection String"]
+    connectionString, err := result["connectionStrings"][0]["connectionString"];
     
     // Connect to Azure Cosmos DB for MongoDB
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -208,7 +255,7 @@ The authentication type is not supported for Spring Boot.
     c, err := mongo.Connect(ctx, clientOptions)
     ```
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
    ```bash
    npm install mongodb
@@ -253,7 +300,7 @@ The authentication type is not supported for Spring Boot.
     };
     const response = await axios(config);
     const keysDict = response.data;
-    const connectionString = keysDict['Primary MongoDB Connection String'];
+    const connectionString = keysDict['connectionStrings'][0]['connectionString'];
     
     const client = new MongoClient(connectionString);
     ```

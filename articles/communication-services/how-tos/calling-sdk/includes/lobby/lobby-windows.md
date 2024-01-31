@@ -36,7 +36,7 @@ CallLobby object allows user with the Organizer, Co-organizer and Presenter role
 
 ```csharp
 AdmitParticipantsResult result = await callLobby?.AdmitAsync(identifiers);
-Trace.WriteLine("Admit result. success count: " + result.SuccessCount + ", failure count: " + result.FailureCount + ", failure participants: " + result.FailedParticipants);
+Trace.WriteLine("Admit result. success count: " + result.SuccessCount + ", failure count: " + result.FailedParticipants.Count + ", failure participants: " + result.FailedParticipants);
 foreach (RemoteParticipant participant in result.FailureParticipants.ToList<RemoteParticipant>())
 {
     Trace.WriteLine("Admit participant: " + participant.DisplayName + " failed ");

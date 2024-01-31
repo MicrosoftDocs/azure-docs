@@ -3,7 +3,8 @@ title: Back up Azure NetApp Files datastores and VMs using Cloud Backup (preview
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/20/2023
+ms.date: 11/28/2023
+ms.custom: engagement-fy23
 ---
 
 # Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines (preview)
@@ -53,8 +54,8 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 
 1.	In the left navigation of the vCenter web client page, select **Cloud Backup for Virtual Machines** > **Policies**.
 2.	On the **Policies** page, select **Create** to initiate the wizard.
-3.	On the **New Backup Policy** page, select the vCenter Server that will use the policy, then enter the policy name and a description.
-* **Only alphanumeric characters and underscores (_) are supported in VM, datastore, cluster, policy, backup, or resource group names.** Other special characters are not supported. 
+3.	On the **New Backup Policy** page, select the vCenter Server that uses the policy, then enter the policy name and a description.
+* **Only alphanumeric characters and underscores (_) are supported in VM, datastore, cluster, policy, backup, or resource group names.** Other special characters aren't supported. 
 4.	Specify the retention settings.
     The maximum retention value is 255 backups. If the **"Backups to keep"** option is selected during the backup operation, Cloud Backup for Virtual Machines retains backups within the specified retention count and delete the backups that exceed the retention count.
 5.	Specify the frequency settings.
@@ -63,16 +64,16 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 
     | Field | Action |
     | ---- | ---- |
-    | VM consistency | Check this box to pause the VMs and create a VMware snapshot each time the backup job runs. <br> When you check the VM consistency box, backup operations might take longer and require more storage space. In this scenario, the VMs are first paused, then VMware performs a VM consistent snapshot. Cloud Backup for Virtual Machines then performs its backup operation, and then VM operations are resumed. <br> VM guest memory is not included in VM consistency snapshots. |
+    | VM consistency | Check this box to pause the VMs and create a VMware snapshot each time the backup job runs. <br> When you check the VM consistency box, backup operations might take longer and require more storage space. In this scenario, the VMs are first paused, then VMware performs a VM consistent snapshot. Cloud Backup for Virtual Machines then performs its backup operation, and then VM operations are resumed. <br> VM guest memory isn't included in VM consistency snapshots. |
     | Include datastores with independent disks	| Check this box to include any datastores with independent disks that contain temporary data in your backup. | 
 7. Select **Add** to save your policy.
-    You can verify that the policy has been created successfully and review the policy configuration by selecting the policy in the **Policies** page.
+    You can verify the policy was created successfully and review the configuration by selecting the policy in the **Policies** page.
 
 ## Resource groups
 
 A resource group is the container for VMs and datastores that you want to protect.
 
-Do not add VMs in an inaccessible state to a resource group. Although a resource group can contain a VM in an inaccessible state, the inaccessible state causes backups for the resource group to fail. 
+Don't add VMs in an inaccessible state to a resource group. Although a resource group can contain a VM in an inaccessible state, the inaccessible state causes backups for the resource group to fail. 
 
 ### Considerations for resource groups
 
@@ -84,7 +85,7 @@ You can add or remove resources from a resource group at any time.
 * **Compatibility checks:** Cloud Backup for VMs performs compatibility checks when you create a resource group. Reasons for incompatibility might be:
     * Virtual machine disks (VMDKs) are on unsupported storage.
     * A shared PCI device is attached to a VM.
-    * You have not added the Azure subscription account.
+    * The Azure subscription account wasn't added.
 
 ### Create a resource group using the wizard
 
@@ -108,9 +109,9 @@ You can add or remove resources from a resource group at any time.
 
 1. On the **Spanning disks** page, select an option for VMs with multiple VMDKs across multiple datastores:
     * Always exclude all spanning datastores 
-        (This is the default option for datastores)
+        (The default option for datastores)
     * Always include all spanning datastores
-        (This is the default for VMs)
+        (The default for VMs)
     * Manually select the spanning datastores to be included
 1. On the **Policies** page, select or create one or more backup policies.
     * To use **an existing policy**, select one or more policies from the list.
@@ -143,7 +144,7 @@ Backup operations are performed on all the resources defined in a resource group
 
 ## Prerequisites to back up resource groups
 
-* You must have created a resource group with a policy attached.
+* You must have a resource group created with a policy attached.
     >[!NOTE]
     > Do not start an on-demand backup job when a job to back up the Cloud Backup for Virtual Machines MySQL database is already running. Use the maintenance console to see the configured backup schedule for the MySQL database.
 
@@ -159,7 +160,7 @@ Backup operations are performed on all the resources defined in a resource group
     >[!NOTE]
     >You can't rename a backup once it's created. 
 1. **Optional:** Monitor the operation progress by selecting **Recent Tasks** at the bottom of the window or on the dashboard Job Monitor for more details.
-    If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning and is marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it is possible that some of the VMs were successfully paused. In the job monitor, the failed VM details will show the pause operation as failed.
+    If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning. It's marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it's possible that some of the VMs were successfully paused. In the job monitor, the failed VM details show the pause operation as failed.
 
 ## Next steps
 

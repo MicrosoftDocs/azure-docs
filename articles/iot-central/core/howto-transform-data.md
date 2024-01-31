@@ -3,7 +3,7 @@ title: Transform data for an IoT Central application
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data both on the way in and out of IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/10/2023
+ms.date: 11/27/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -148,7 +148,7 @@ To build the custom module in the [Azure Cloud Shell](https://shell.azure.com/):
 
 This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create IoT Central device template for the gateway device in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
 
-In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if the IoT Edge device had sent it.
+In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if the IoT Edge device has sent it.
 
 To create a device template for the IoT Edge gateway device:
 
@@ -276,7 +276,7 @@ To check that the IoT Edge gateway device is running correctly:
 
 1. Open your IoT Central application. Then navigate to the **IoT Edge Gateway device** on the list of devices on the **Devices** page.
 
-1. Select the **Modules** tab and check the status of the three modules. It takes a few minutes for the IoT Edge runtime to start up in the virtual machine. When it's started, the status of the three modules is **Running**. If the IoT Edge runtime doesn't start, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
+1. Select the **Modules** tab and check the status of the three modules. It takes a few minutes for the IoT Edge runtime to start up in the virtual machine. When the virtual machine is running, the status of the three modules is **Running**. If the IoT Edge runtime doesn't start, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
 
 For your IoT Edge device to function as a gateway, it needs some certificates to prove its identity to any downstream devices. This article uses demo certificates. In a production environment, use certificates from your certificate authority.
 
@@ -600,7 +600,7 @@ Set up the data export to send data to your Device bridge:
 
 ### Verify
 
-The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and npm installed on your local machine. If you don't want to install these prerequisites, use the [Azure Cloud Shell](https://shell.azure.com/) that has them preinstalled.
+The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and npm installed on your local machine. If you don't want to install these prerequisites, use the [Azure Cloud Shell](https://shell.azure.com/) where they are preinstalled.
 
 To run a sample device that tests the scenario:
 

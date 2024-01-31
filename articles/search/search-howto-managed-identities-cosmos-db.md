@@ -4,7 +4,6 @@ titleSuffix: Azure AI Search
 description: Learn how to set up an indexer connection to an Azure Cosmos DB account via a managed identity
 author: gmndrg
 ms.author: gimondra
-manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to

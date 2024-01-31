@@ -58,7 +58,7 @@ var classificationPolicy = await client.path("/routing/classificationPolicies/{c
         queueSelectorAttachments: [{            
             kind: "conditional",
             condition: {
-                kind: "expression-rule",
+                kind: "expression",
                 expression: 'job.Region = "NA"'
             },
             queueSelectors: [{
@@ -69,7 +69,7 @@ var classificationPolicy = await client.path("/routing/classificationPolicies/{c
         }],
         fallbackQueueId: "XBOX_DEFAULT_QUEUE",
         prioritizationRule: {
-            kind: "expression-rule",
+            kind: "expression",
             expression: "If(job.Hardware_VIP = true, 10, 1)"
         }
     },
@@ -285,7 +285,7 @@ await client.path("/routing/classificationPolicies/{classificationPolicyId}", "p
     body: {
         workerSelectorAttachments: [{
             kind: "conditional",
-            condition: { kind: "expression-rule", expression: "job.Urgent = true" },
+            condition: { kind: "expression", expression: "job.Urgent = true" },
             workerSelectors: [{ key: "Foo", labelOperator: "equal", value: "Bar" }]
         }]
     },
@@ -347,7 +347,7 @@ await administrationClient.CreateClassificationPolicyAsync(
 ```typescript
 await client.path("/routing/classificationPolicies/{classificationPolicyId}", "policy-1").patch({
     body: {
-        workerSelectorAttachments: [{ kind: "pass-through", key: "Foo", labelOperator: "equal" }]
+        workerSelectorAttachments: [{ kind: "passThrough", key: "Foo", labelOperator: "equal" }]
     },
     contentType: "application/merge-patch+json"
 });
@@ -411,7 +411,7 @@ await administrationClient.CreateClassificationPolicyAsync(new CreateClassificat
 await client.path("/routing/classificationPolicies/{classificationPolicyId}", "policy-1").patch({
     body: {
         workerSelectorAttachments: [{
-            kind: "weighted-allocation-worker-selector",
+            kind: "weightedAllocation",
             allocations: [
             { 
                 weight: 0.3,

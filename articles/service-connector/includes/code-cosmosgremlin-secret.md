@@ -3,14 +3,14 @@ author: wchigit
 description: code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/31/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies.
+1. Install dependency.
     ```bash
     dotnet add package Gremlin.Net
     ```
@@ -41,7 +41,7 @@ ms.author: wchi
 
 ### [Java](#tab/java)
 
-1. Add the following dependencies in your *pom.xml* file:
+1. Add the following dependency in your *pom.xml* file:
     ```xml
     <dependency>
       <groupId>org.apache.tinkerpop</groupId>
@@ -70,7 +70,7 @@ ms.author: wchi
     ```
 
 ### [Python](#tab/python)
-1. Install dependencies.
+1. Install dependency.
     ```bash
     pip install gremlinpython
     ```
@@ -94,8 +94,25 @@ ms.author: wchi
     )
     ```
 
-### [NodeJS](#tab/node)
-1. Install dependencies
+### [Go](#tab/go)
+1. Install dependency.
+    ```bash
+    go get github.com/go-gremlin/gremlin
+    ```
+2. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin.
+    ```go
+    username = os.Getenv("AZURE_COSMOS_USERNAME")
+    password = os.getenv("AZURE_COSMOS_PASSWORD")
+    endpoint = os.getenv("AZURE_COSMOS_RESOURCEENDPOINT")
+    port = os.getenv("AZURE_COSMOS_PORT")
+    
+    auth := gremlin.OptAuthUserPass(username, password)
+	client, err := gremlin.NewClient(endpoint, auth)
+    ```
+
+
+### [NodeJS](#tab/nodejs)
+1. Install dependency.
    ```bash
    npm install gremlin
    ```

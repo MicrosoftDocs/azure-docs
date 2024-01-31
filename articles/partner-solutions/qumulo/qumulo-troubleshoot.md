@@ -4,7 +4,8 @@ description: This article provides information about troubleshooting Azure Nativ
 
 ms.topic: conceptual
 ms.date: 11/15/2023
-
+ms.custom:
+  - ignite-2023
 ---
 
 # Troubleshoot Azure Native Qumulo Scalable File Service
@@ -18,17 +19,9 @@ Try the troubleshooting information in this article first. If that doesn't work,
 
 :::image type="content" source="media/qumulo-troubleshooting/qumulo-support-request.png" alt-text="Screenshot that shows a request form for Qumulo support.":::
 
-## You got a purchase error related to a payment method
+## Purchase errors
 
-A purchase can fail because a valid credit card is not connected to the Azure subscription, or because a payment method is not associated with the subscription.
-
-Try using a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Update the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
-
-## You got a purchase error related to an Enterprise Agreement
-
-Some Microsoft Enterprise Agreement (EA) subscriptions don't allow Azure Marketplace purchases.
-
-Try using a different subscription, or [enable your subscription for Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ## You can't create a resource
 

@@ -102,7 +102,8 @@ A sample control file is as below:
 
 	:::image type="content" source="media/solution-template-replicate-multiple-objects-sap-cdc/sap-cdc-template-pipeline.png" alt-text="Screenshot of SAP CDC pipeline.":::
 	   
-## Next steps
+## Related content
 
 - [Azure Data Factory SAP CDC](sap-change-data-capture-introduction-architecture.md)
+- [SAP CDC advanced topics](sap-change-data-capture-advanced-topics.md)
 - [Azure Data Factory change data capture](concepts-change-data-capture.md)

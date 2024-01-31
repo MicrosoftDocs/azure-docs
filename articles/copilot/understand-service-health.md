@@ -3,7 +3,7 @@ title: Understand service health events and status using Microsoft Copilot for A
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can provide information about service health events.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -17,6 +17,8 @@ You can ask Microsoft Copilot for Azure (preview) questions to get information f
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to get service health information. Modify these prompts based on your real-life scenarios, or try additional prompts about specific service health events.
@@ -29,7 +31,7 @@ Here are a few examples of the kinds of prompts you can use to get service healt
 
 ## Examples
 
-You can ask "Is there any Azure outage ongoing?" In this example, no outages or service health issues are found. If there are service health issues impacting your account, you can ask further questions to get more information.
+You can ask "**Is there any Azure outage ongoing?**" In this example, no outages or service health issues are found. If there are service health issues impacting your account, you can ask further questions to get more information.
 
 :::image type="content" source="media/understand-service-health/azure-service-health-outage-planned-maintenance.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing information about service issues and planned maintenance.":::
 

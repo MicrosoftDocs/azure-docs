@@ -4,7 +4,7 @@ description: This article describes how delivery and retry works with Azure Even
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/20/2023
+ms.date: 11/15/2023
 author: robece
 ms.author: robece
 ---

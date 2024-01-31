@@ -2,15 +2,12 @@
 title: Data encryption models in Microsoft Azure
 description: This article provides an overview of data encryption models In Microsoft Azure.
 services: security
-documentationcenter: na
 author: msmbaldwin
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/05/2023
 ms.author: mbaldwin
 ---
@@ -139,7 +136,7 @@ The Azure services that support each encryption model:
 | Product, Feature, or Service | Server-Side Using Service-Managed Key   | Server-Side Using Customer-Managed Key | Client-Side Using Client-Managed Key  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **AI and Machine Learning**      |                    |                    |                    |
-| Azure Cognitive Search           | Yes                | Yes                | -                  |
+| Azure AI Search           | Yes                | Yes                | -                  |
 | Azure AI services         | Yes                | Yes, including Managed HSM | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
 | Content Moderator                | Yes                | Yes, including Managed HSM | -                  |

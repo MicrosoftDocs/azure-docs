@@ -361,5 +361,5 @@ To create a mapping data flow using the Microsoft 365 connector as a source, com
 
 6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

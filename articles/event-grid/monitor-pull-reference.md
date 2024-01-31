@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - build-2023
   - ignite-2023
-ms.date: 04/28/2023
+ms.date: 11/15/2023
 ---
 
 # Monitor data reference for Azure Event Grid's pull delivery 

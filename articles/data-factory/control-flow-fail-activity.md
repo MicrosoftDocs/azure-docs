@@ -71,7 +71,7 @@ The dynamic content in both `message` and `errorCode` can't be interpreted. | "F
 
 \* This situation shouldn't occur if the pipeline is developed with the web user interface (UI) of Data Factory.
 
-## Next steps
+## Related content
 
 See other supported control flow activities, including:
 

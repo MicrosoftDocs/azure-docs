@@ -69,9 +69,9 @@ Read more about [how to choose the right compute service on Azure](/azure/archit
 
 ## Enhance functionalities in the application
 
-### Azure Cognitive Search
-Azure Cognitive Search is fully managed cloud search service that provides auto-complete, geospatial search, filtering and faceting capabilities for a rich user experience.
-Here's how you can [index data from the Azure Cosmos DB for MongoDB account](../../search/search-howto-index-cosmosdb-mongodb.md) to use with Azure Cognitive Search.
+### Azure AI Search
+Azure AI Search is fully managed cloud search service that provides auto-complete, geospatial search, filtering and faceting capabilities for a rich user experience.
+Here's how you can [index data from the Azure Cosmos DB for MongoDB account](../../search/search-howto-index-cosmosdb-mongodb.md) to use with Azure AI Search.
 
 ## Improve database security
 

@@ -2,14 +2,15 @@
 title: How to configure a managed network for Azure AI
 titleSuffix: Azure AI Studio
 description: Learn how to configure a managed network for Azure AI
-author: eric-urban
-manager: nitinme
-ms.service: azure-ai-services
+manager: scottpolly
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.author: eur
+ms.reviewer: jhirono
+ms.author: larryfr
+author: Blackmist
 ---
 
 # How to configure a managed network for Azure AI
@@ -37,7 +38,7 @@ There are three different configuration modes for outbound traffic from the mana
 | ----- | ----- | ----- |
 | Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | You want unrestricted access to machine learning resources on the internet, such as python packages or pretrained models.<sup>1</sup> |
 | Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | * You want to minimize the risk of data exfiltration, but you need to prepare all required machine learning artifacts in your private environment.</br>* You want to configure outbound access to an approved list of services, service tags, or FQDNs. |
-| Disabled | Inbound and outbound traffic isn't restricted or you're using your own Azure Virtual Network to protect resources. | You want public inbound and outbound from the Azure AI, or you're handling network isolation with your own Azure VNet. |
+| Disabled | Inbound and outbound traffic isn't restricted. | You want public inbound and outbound from the Azure AI. |
 
 <sup>1</sup> You can use outbound rules with _allow only approved outbound_ mode to achieve the same result as using allow internet outbound. The differences are:
 
@@ -302,6 +303,8 @@ Private endpoints are currently supported for the following Azure services:
 When you create a private endpoint, you provide the _resource type_ and _subresource_ that the endpoint connects to. Some resources have multiple types and subresources. For more information, see [what is a private endpoint](/azure/private-link/private-endpoint-overview).
 
 When you create a private endpoint for Azure AI dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the Azure AI.
+
+A private endpoint is automatically created for a connection if the target resource is an Azure resource listed above. A valid target ID is expected for the private endpoint. A valid target ID for the connection can be the ARM ID of a parent resource. The target ID is also expected in the target of the connection or in `metadata.resourceid`. For more on connections, see [How to add a new connection in Azure AI Studio](connections-add.md).
 
 ## Pricing
 
