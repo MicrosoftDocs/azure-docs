@@ -42,7 +42,7 @@ Within **Explore**, you can explore many capabilities found within the secondary
 
 ## Projects 
 
-To work within the Azure AI Studio, you must first create a project: 
+To work within the Azure AI Studio, you must first [create a project](../how-to/create-projects.md): 
 1. Navigate to the Build tab in the primary navigation.
 1. Press the Tab key until you hear *New project* and select this button.  
 1. Enter the information requested in the **Create a new project** dialog.  
