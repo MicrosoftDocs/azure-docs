@@ -1,22 +1,23 @@
 ---
-title: Dev center (DevCenter) diagnostic logs reference
+title: Monitoring Microsoft Dev Box data reference
 titleSuffix: Microsoft Dev Box
-description: Schema reference for dev center (DevCenter) diagnostic logs. Review the list of Azure Storage and Azure Monitor Logs properties included in monitoring data.
+description: Important reference material needed when you monitor Dev Box. Schema reference for dev center diagnostic logs. Review the included Azure Storage and Azure Monitor Logs properties.
 services: dev-box
 ms.service: dev-box
 ms.topic: reference
 author: delvissantos
 ms.author: delvissantos
-ms.date: 01/17/2024
+ms.custom: horz-monitor, subject-monitoring
+ms.date: 01/30/2023
 ---
 
-# Microsoft dev center monitoring data reference
+# Monitoring Microsoft Dev Box data reference
 
-This article provides a reference for log and metric data collected for a Microsoft Dev Box dev center. You can use the collected data to analyze the performance and availability of resources within your dev center. For details about how to collect and analyze monitoring data for your dev center, see [Configure Azure diagnostic logs for a dev center](how-to-configure-dev-box-azure-diagnostic-logs.md).
+This article provides a reference for log and metric data collected for a Microsoft Dev Box dev center. You can use the collected data to analyze the performance and availability of resources within your dev center. For details about how to collect and analyze monitoring data for your dev center, see [Monitoring Microsoft Dev Box](monitor-dev-box.md).
 
 ## Resource logs
 
-The following table lists the properties of resource logs in a dev center. The resource logs are collected into Azure Monitor Logs or Azure Storage. In Azure Monitor, logs are collected in the **DevCenterDiagnosticLogs** table under the resource provider name of `MICROSOFT.DEVCENTER`.
+The following table lists the properties of resource logs in a Microsoft Dev Box dev center. The resource logs are collected into Azure Monitor Logs or Azure Storage. In Azure Monitor, logs are collected in the **DevCenterDiagnosticLogs** table under the resource provider name of `MICROSOFT.DEVCENTER`.
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
 | --- | --- | --- |
@@ -37,5 +38,5 @@ A dev center uses Kusto tables from Azure Monitor Logs. You can query these tabl
 
 ## Related content
 
-- [Configure Azure diagnostic logs for a dev center](how-to-configure-dev-box-azure-diagnostic-logs.md)
+- [Monitor Dev Box](monitor-dev-box.md)
 - [Monitor Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
