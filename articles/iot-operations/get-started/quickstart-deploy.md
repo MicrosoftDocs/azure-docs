@@ -6,7 +6,7 @@ ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 12/06/2023
+ms.date: 01/31/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -52,19 +52,11 @@ For this quickstart, we recommend GitHub Codespaces as a quick way to get starte
 
   This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
-* The Azure IoT Operations extension for Azure CLI.
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
-  * If you haven't installed the extension before, use `az extension add`:
-
-    ```bash
-    az extension add --name azure-iot-ops
-    ```
-
-  * If you have installed the extension before, use `az extension update` to make sure that you have the latest version:
-
-    ```bash
-    az extension update --name azure-iot-ops 
-    ```
+  ```bash
+  az extension add --upgrade --name azure-iot-ops
+  ```
 
 # [Linux](#tab/linux)
 
@@ -74,19 +66,11 @@ For this quickstart, we recommend GitHub Codespaces as a quick way to get starte
 
   This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
-* The Azure IoT Operations extension for Azure CLI.
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
-  * If you haven't installed the extension before, use `az extension add`:
-
-    ```bash
-    az extension add --name azure-iot-ops
-    ```
-
-  * If you have installed the extension before, use `az extension update` to make sure that you have the latest version:
-
-    ```bash
-    az extension update --name azure-iot-ops 
-    ```
+  ```bash
+  az extension add --upgrade --name azure-iot-ops
+  ```
 
 ---
   
@@ -218,7 +202,7 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
 ## Verify cluster
 
-Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command:
+Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
 
 ```azurecli
 az iot ops verify-host

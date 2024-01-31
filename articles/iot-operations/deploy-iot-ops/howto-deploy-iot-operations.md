@@ -6,7 +6,7 @@ ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 01/22/2024
+ms.date: 01/31/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -21,25 +21,17 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
-* The Azure IoT Operations extension for Azure CLI.
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
-  * If you haven't installed the extension before, use `az extension add`:
-
-    ```bash
-    az extension add --name azure-iot-ops
-    ```
-
-  * If you have installed the extension before, use `az extension update` to make sure that you have the latest version:
-
-    ```bash
-    az extension update --name azure-iot-ops 
-    ```
+  ```bash
+  az extension add --upgrade --name azure-iot-ops
+  ```
 
 * An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu). Using Ubuntu in Windows Subsystem for Linux (WSL) is the simplest way to get a Kubernetes cluster for testing.
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
 
-  Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command:
+  Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
 
   ```azurecli
   az iot ops verify-host
