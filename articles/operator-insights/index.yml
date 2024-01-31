@@ -31,14 +31,18 @@ landingContent:
         links:
           - text: Managed identity
             url: managed-identity.md
+          - text: Business continuity and disaster recovery
+            url: business-continuity-disaster-recovery.md
           - text: Data quality and data monitoring 
             url: concept-data-quality-monitoring.md
           - text: Data types 
             url: concept-data-types.md
           - text: Data visualization
             url: concept-data-visualization.md 
-          - text: MCC Data Product 
+          - text:  Quality of Experience - Affirmed MCC Data Product
             url: concept-mcc-data-product.md
+          - text: Monitoring - Affirmed MCC Data Product
+            url: concept-monitoring-mcc-data-product.md
 
   # Card 
   - title: Get started with Azure Operator Insights

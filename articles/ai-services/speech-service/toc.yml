@@ -75,11 +75,11 @@ items:
         href: batch-transcription-create.md
       - name: Get batch transcription results
         href: batch-transcription-get.md
-    - name: Custom Speech
+    - name: Custom speech
       items:
-        - name: What is Custom Speech?
+        - name: What is custom speech?
           href: custom-speech-overview.md
-        - name: Create a Custom Speech model 
+        - name: Create a custom speech model 
           items:
           - name: Create a project
             href: how-to-custom-speech-create-project.md
@@ -93,7 +93,7 @@ items:
             href: how-to-custom-speech-train-model.md
           - name: Deploy a model
             href: how-to-custom-speech-deploy-model.md
-        - name: Custom Speech datasets
+        - name: Custom speech datasets
           items:
           - name: Training and testing datasets
             href: how-to-custom-speech-test-and-train.md
@@ -103,9 +103,11 @@ items:
             href: customize-pronunciation.md
           - name: Online transcription editor
             href: how-to-custom-speech-transcription-editor.md
-        - name: Custom Speech model lifecycle
+          - name: Display text format training data
+            href: how-to-custom-speech-display-text-format.md
+        - name: Custom speech model lifecycle
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
-        - name: CI/CD for Custom Speech
+        - name: CI/CD for custom speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
     - name: How to use Pronunciation Assessment
       href: how-to-pronunciation-assessment.md
@@ -447,7 +449,11 @@ items:
       href: swagger-documentation.md
       displayName: rest, swagger
     - name: Embedded Speech
-      href: embedded-speech.md
+      items:
+        - name: Overview
+          href: embedded-speech.md
+        - name: Performance evaluations
+          href: embedded-speech-performance-evaluations.md
     - name: Power automate batch transcription
       href: power-automate-batch-transcription.md
     - name: Containers

@@ -2,15 +2,9 @@
 title: SMB performance best practices for Azure NetApp Files| Microsoft Docs
 description: Helps you understand SMB performance and best practices for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2022
 ms.author: anfdocs

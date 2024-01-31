@@ -6,7 +6,7 @@ ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 12/19/2023
 ---
 
 # Connect Custom Question Answering with Azure OpenAI on your data 

@@ -70,7 +70,7 @@ You can optionally configure your MailFrom address to be something other than th
 
 ## Next steps
 
-* [Get started by connecting Email Communication Service with an Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 * [How to send an email using Azure Communication Service](../../quickstarts/email/send-email.md)
 

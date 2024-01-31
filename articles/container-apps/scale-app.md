@@ -4,7 +4,7 @@ description: Learn how applications scale in and out in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: conceptual
 ms.date: 12/08/2022
 ms.author: cshoe
@@ -39,7 +39,7 @@ Scaling is defined by the combination of limits, rules, and behavior.
 - **Behavior** is how the rules and limits are combined together to determine scale decisions over time.
 
     [Scale behavior](#scale-behavior) explains how scale decisions are calculated.
-  
+
 As you define your scaling rules, keep in mind the following items:
 
 - You aren't billed usage charges if your container app scales to zero.
@@ -62,7 +62,7 @@ If you define more than one scale rule, the container app begins to scale once t
 
 ## HTTP
 
-With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. [Container Apps jobs](jobs.md) don't support HTTP scaling rules. 
+With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. [Container Apps jobs](jobs.md) don't support HTTP scaling rules.
 
 In the following example, the revision scales out up to five replicas and can scale in to zero. The scaling property is set to 100 concurrent requests per second.
 
@@ -378,7 +378,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. In your container app, create the [secrets](./manage-secrets.md) that match the `secretTargetRef` properties.
 
-1. In the CLI command, set parameters for each `secretTargetRef` entry. 
+1. In the CLI command, set parameters for each `secretTargetRef` entry.
 
     1. Create a secret entry with the `--secrets` parameter. If there are multiple secrets, separate them with a space.
 
@@ -508,6 +508,8 @@ If the app was scaled to the maximum replica count of 20, scaling goes through t
 - In "multiple revisions" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
 
 - No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
+
+- You need to enable data protection for all .NET apps on Azure Container Apps. See [Deploying and scaling an ASP.NET Core app on Azure Container Apps](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps) for details.
 
 ### Known limitations
 

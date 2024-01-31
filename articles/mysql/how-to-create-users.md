@@ -6,7 +6,7 @@ ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 12/01/2023
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: how-to
 ---
 # Create users in Azure Database for MySQL

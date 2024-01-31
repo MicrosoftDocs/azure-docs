@@ -48,12 +48,27 @@ vSAN datastores use data-at-rest encryption by default using keys stored in Azur
 
 ## Datastore capacity expansion options
 
-The existing cluster vSAN storage capacity can be expanded by connecting Azure storage resources such as [Azure NetApp Files volumes as additional datastores](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md). Virtual machines can be migrated between vSAN and Azure NetApp Files datastores using storage vMotion.
-Azure NetApp Files is available in [Ultra, Premium and Standard performance tiers](../azure-netapp-files/azure-netapp-files-service-levels.md) to allow for adjusting performance and cost to the requirements of the workloads. 
+The existing cluster vSAN storage capacity can be expanded by connecting Azure storage resources including Azure NetApp Files or Azure Elastic SAN. Virtual machines can be migrated between vSAN datastores and other datastores non-disruptively using storage vMotion. Expanding datastore capacity using Azure storage resources allows increased datastore capacity without scaling the clusters. 
+
+### Azure NetApp Files 
+
+Azure NetApp Files is an enterprise-class, high-performance, metered file storage service. The service supports the demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. 
+
+You can create Network File System (NFS) datastores with Azure NetApp Files volumes and attach them to clusters of your choice. By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. Azure NetApp Files is available in [Ultra, Premium and Standard performance tiers](../azure-netapp-files/azure-netapp-files-service-levels.md) to allow for adjusting performance and cost to the requirements of the workloads. 
+
+For more information, see [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md).
+
+### Azure Elastic SAN
+
+Azure Elastic storage area network (SAN) is Microsoft’s answer to the problem of workload optimization and integration between your large-scale databases and performance-intensive mission-critical applications. 
+
+Azure VMware Solution supports attaching iSCSI datastores as a persistent storage option. You can create Virtual Machine File System (VMFS) datastores with Azure Elastic SAN volumes and attach them to clusters of your choice. By using VMFS datastores backed by Azure Elastic SAN, you can expand your storage instead of scaling the clusters.  
+
+For more information, see [Use Azure VMware Solution with Azure Elastic SAN](configure-azure-elastic-san.md). 
 
 ## Azure storage integration
 
-You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. 
+You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, Blob Storage, and file storage (Azure Files and Azure NetApp Files). The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. 
 
 ## Alerts and monitoring
 

@@ -7,7 +7,7 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 11/22/2023
+ms.date: 01/06/2023
 manager: nitinme
 ---
 
@@ -31,10 +31,11 @@ We recommend using environment variables. If you haven't done this before our [P
 <td>
 
 ```python
+import os
 from openai import OpenAI
 
 client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY']  
+    api_key=os.getenv("OPENAI_API_KEY")
 )
 
 
@@ -51,7 +52,7 @@ from openai import AzureOpenAI
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),  
     api_version="2023-12-01-preview",
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
 )
 ```
 
@@ -61,7 +62,7 @@ client = AzureOpenAI(
 
 <a name='azure-active-directory-authentication'></a>
 
-### Microsoft Entra authentication
+### Microsoft Entra ID authentication
 
 <table>
 <tr>
@@ -71,10 +72,11 @@ client = AzureOpenAI(
 <td>
 
 ```python
+import os
 from openai import OpenAI
 
 client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY']  
+    api_key=os.getenv("OPENAI_API_KEY")
 )
 
 
@@ -93,7 +95,9 @@ client = OpenAI(
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 from openai import AzureOpenAI
 
-token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+)
 
 api_version = "2023-12-01-preview"
 endpoint = "https://my-resource.openai.azure.com"
@@ -111,7 +115,10 @@ client = AzureOpenAI(
 
 ## Keyword argument for model
 
-OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](create-resource.md?pivots=web-portal#deploy-a-model). When using Azure OpenAI `model` should refer to the underling deployment name you chose when you deployed the model. 
+OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](create-resource.md?pivots=web-portal#deploy-a-model). When using Azure OpenAI `model` should refer to the underlying deployment name you chose when you deployed the model.
+
+> [!IMPORTANT]
+> When you access the model via the API in Azure OpenAI you will need to refer to the deployment name rather than the underlying model name in API calls. This is one of the [key differences](../how-to/switching-endpoints.md) between OpenAI and Azure OpenAI. OpenAI only requires the model name, Azure OpenAI always requires deployment name, even when using the model parameter. In our docs we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.
 
 <table>
 <tr>
@@ -122,8 +129,8 @@ OpenAI uses the `model` keyword argument to specify what model to use. Azure Ope
 
 ```python
 completion = client.completions.create(
-    model='gpt-3.5-turbo-instruct',
-    prompt="<prompt>")
+    model="gpt-3.5-turbo-instruct",
+    prompt="<prompt>"
 )
 
 chat_completion = client.chat.completions.create(
@@ -132,8 +139,8 @@ chat_completion = client.chat.completions.create(
 )
 
 embedding = client.embeddings.create(
-    input="<input>",
-    model="text-embedding-ada-002"
+    model="text-embedding-ada-002",
+    input="<input>"
 )
 ```
 
@@ -142,18 +149,18 @@ embedding = client.embeddings.create(
 
 ```python
 completion = client.completions.create(
-    model=gpt-35-turbo-instruct, # This must match the custom deployment name you chose for your model.
-    prompt=<"prompt">
+    model="gpt-35-turbo-instruct", # This must match the custom deployment name you chose for your model.
+    prompt="<prompt>"
 )
 
 chat_completion = client.chat.completions.create(
     model="gpt-35-turbo", # model = "deployment_name".
-    messages=<"messages">
+    messages="<messages>"
 )
 
 embedding = client.embeddings.create(
-    input = "<input>",
-    model= "text-embedding-ada-002" # model = "deployment_name".
+    model="text-embedding-ada-002", # model = "deployment_name".
+    input="<input>"
 )
 ```
 
@@ -163,7 +170,7 @@ embedding = client.embeddings.create(
 
 ## Azure OpenAI embeddings multiple input support
 
-OpenAI currently allows a larger number of array inputs with text-embedding-ada-002. Azure OpenAI currently supports input arrays up to 16 for text-embedding-ada-002 Version 2. Both require the max input token limit per API request to remain under 8191 for this model.
+OpenAI and Azure OpenAI currently support input arrays up to 2048 input items for text-embedding-ada-002. Both require the max input token limit per API request to remain under 8191 for this model.
 
 <table>
 <tr>
@@ -176,8 +183,8 @@ OpenAI currently allows a larger number of array inputs with text-embedding-ada-
 inputs = ["A", "B", "C"] 
 
 embedding = client.embeddings.create(
-  input=inputs,
-  model="text-embedding-ada-002"
+    input=inputs,
+    model="text-embedding-ada-002"
 )
 
 
@@ -187,12 +194,12 @@ embedding = client.embeddings.create(
 <td>
 
 ```python
-inputs = ["A", "B", "C"] #max array size=16
+inputs = ["A", "B", "C"] #max array size=2048
 
 embedding = client.embeddings.create(
-  input=inputs,
-  model="text-embedding-ada-002" # This must match the custom deployment name you chose for your model.
-  #engine="text-embedding-ada-002"
+    input=inputs,
+    model="text-embedding-ada-002" # This must match the custom deployment name you chose for your model.
+    # engine="text-embedding-ada-002"
 )
 
 ```

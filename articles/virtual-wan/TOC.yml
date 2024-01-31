@@ -292,7 +292,7 @@
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Monitoring - best practices
+    - name: Monitoring - Best practices
       href: monitoring-best-practices.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md

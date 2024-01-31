@@ -7,13 +7,12 @@ brand: azure
 metadata:
   title: Azure Cosmos DB
   description: Fully managed, distributed NoSQL & relational database for modern apps. High performance, availability, and support for PostgreSQL, MongoDB, and Cassandra.
-  services: cosmos-db
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: mjbrown
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.collection: collection
+
   ms.date: 02/28/2023
   ms.custom: ignite-2022
 highlightedContent:

@@ -138,7 +138,7 @@ Fix Hypothesis mode issue
 
 Fix HTTP Proxy issue
 
-Custom Speech to text container disconnected mode
+Custom speech to text container disconnected mode
 
 Add CNV Disconnected container support to TTS Frontend
 
@@ -209,7 +209,7 @@ Add support for these locales:
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 
-#### Custom Speech to text 3.6.0-amd64
+#### Custom speech to text 3.6.0-amd64
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 

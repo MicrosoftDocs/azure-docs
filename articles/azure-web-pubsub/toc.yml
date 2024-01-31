@@ -27,8 +27,6 @@
 - name: Tutorials
   expanded: false
   items:
-    - name: Build a real-time chat app with client authentication
-      href: quickstart-serverless.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -37,6 +35,8 @@
       href: tutorial-subprotocol.md
     - name: Authentication and permissions
       href: tutorial-permission.md
+    - name: Build a serverless chat app with Azure Functions
+      href: quickstart-serverless.md
 - name: How-to guides
   expanded: false
   items:
@@ -102,6 +102,8 @@
           href: howto-custom-domain.md
     - name: Scale and geo-replicate
       items:
+        - name: Manual scale
+          href: howto-scale-manual-scale.md
         - name: Autoscale
           href: howto-scale-autoscale.md
         - name: Geo-replication
@@ -152,6 +154,8 @@
           href: socketio-migrate-from-self-hosted.md
         - name: Integrate with Azure App Service
           href: socket-io-howto-integrate-web-app.md
+        - name: Integrate with API Management
+          href: socket-io-howto-integrate-apim.md
         - name: Authentication
           href: socketio-authentication.md
         - name: Troubleshoot

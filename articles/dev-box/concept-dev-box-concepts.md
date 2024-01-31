@@ -22,7 +22,9 @@ Microsoft Dev Box builds on the same foundations as [Azure Deployment Environmen
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
 :::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-architecture.png" :::
-    
+
+For more in-depth information about the Microsoft Dev Box architecture, see the [architecture overview](./concept-dev-box-architecture.md) article.
+
 ## Dev center
 
 A dev center is a collection of [Projects](#project) that require similar settings. Dev centers enable platform engineers to:
@@ -57,7 +59,20 @@ When you're creating a network connection, you must choose the Active Directory 
 
 To learn more about native Microsoft Entra join and Microsoft Entra hybrid join, see [Plan your Microsoft Entra device deployment](../active-directory/devices/plan-device-deployment.md).
 
-The virtual network specified in a network connection also determines the region for a dev box. You can create multiple network connections based on the regions where you support developers. You can then use those connections when you're creating dev box pools to ensure that dev box users create dev boxes in a region close to them. Using a region close to the dev box user provides the best experience.
+
+## Azure regions for Dev Box
+
+Before setting up Dev Box, you need to choose the best regions for your organization. 
+- Dev centers and projects typically exist in the same region as your main office or IT management center. 
+- Dev box pools can be in different regions, depending on the network connection they use. Developers should create dev boxes from a pool close to them for the least latency.
+
+The region of the virtual network specified in a network connection determines the region for a dev box. You can create multiple network connections based on the regions where you support developers. You can then use those connections when you're creating dev box pools to ensure that dev box users create dev boxes in a region close to them. Using a region close to the dev box user provides the best experience.
+
+To help you decide on the regions to use, check:
+- [Dev Box availability by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box) 
+- [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#choose-your-region). 
+
+If the region you prefer isn’t available for Dev Box, choose a region within 500 miles.
 
 ## Dev box pool
 
@@ -71,6 +86,7 @@ As a dev box user, you have control over your own dev boxes. You can create more
 
 ## Related content
 
+- [Microsoft Dev Box architecture overview](./concept-dev-box-architecture.md)
 - [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
 - [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
 - [What is Azure Deployment Environments?](../deployment-environments/overview-what-is-azure-deployment-environments.md)

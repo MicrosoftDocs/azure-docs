@@ -3,7 +3,7 @@ title: Concept - Integrate an Azure VMware Solution deployment in a hub and spok
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 11/30/2023
+ms.date: 12/21/2023
 ms.custom: engagement-fy23
 ---
 
@@ -34,9 +34,9 @@ The architecture has the following main components:
 
 - **On-premises site:** Customer on-premises datacenter(s) connected to Azure through an ExpressRoute connection.
 
-- **Azure VMware Solution private cloud:** Azure VMware Solution SDDC formed by one or more vSphere clusters, each one with a maximum of 16 hosts.
+- **Azure VMware Solution private cloud:** Azure VMware Solution Software-Defined Data Center formed by one or more vSphere clusters, each one with a maximum of 16 hosts.
 
-- **ExpressRoute gateway:** Enables the communication between Azure VMware Solution private cloud, shared services on Hub virtual network, and workloads running on Spoke virtual networks.
+- **ExpressRoute gateway:** Enables the communication between Azure VMware Solution private cloud, shared services on Hub virtual network, and workloads running on Spoke virtual networks via an ExpressRoute Connection.
 
 - **ExpressRoute Global Reach:** Enables the connectivity between on-premises and Azure VMware Solution private cloud. The connectivity between Azure VMware Solution and the Azure fabric is through ExpressRoute Global Reach only.
 
@@ -64,7 +64,7 @@ Because an ExpressRoute gateway doesn't provide transitive routing between its c
 
   :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Diagram showing the on-premises to Azure VMware Solution traffic flow." border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
-* **Azure VMware Solution to Hub VNET traffic flow**
+* **Azure VMware Solution to Hub VNet traffic flow**
 
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Diagram showing the Azure VMware Solution to Hub virtual network traffic flow." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 

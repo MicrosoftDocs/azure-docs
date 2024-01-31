@@ -2,15 +2,9 @@
 title: Manage volumes in Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
 description: Describes how to manage a volume from its application volume group for SAP HANA. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/19/2021
 ms.author: anfdocs

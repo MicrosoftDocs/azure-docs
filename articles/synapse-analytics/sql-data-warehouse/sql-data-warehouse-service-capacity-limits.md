@@ -48,6 +48,7 @@ Maximum values allowed for various components of dedicated SQL pool in Azure Syn
 | Statistics |Statistics created on columns per table. |30,000 |
 | Stored Procedures |Maximum levels of nesting. |8 |
 | View |Columns per view |1,024 |
+| Workload Classifier |User-defined classifier  |100 |
 ||||
 
 ## Loads

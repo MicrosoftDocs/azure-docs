@@ -147,7 +147,7 @@ The `create` parameters that go into the json file format are as shown below:
 | `adminCredentials` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
 | `sourceServerUserName` | Required | The default value is the admin user created during the creation of single server and the password provided is used for authentication against this user. In case you aren't using the default user, this parameter is the user or role on the source server used for performing the migration. This user should have necessary privileges and ownership on the database objects involved in the migration and should be a member of **azure_pg_admin** role. |
 | `targetServerUserName` | Required | The default value is the admin user created during the creation of flexible server and the password provided is used for authentication against this user. In case you aren't using the default user, this parameter is the user or role on the target server used for performing the migration. This user should be a member of **azure_pg_admin**, **pg_read_all_settings**, **pg_read_all_stats**,**pg_stat_scan_tables** roles and should have the **Create role, Create DB** attributes. |
-| `dbsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. |
+| `dbsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. Note only user databases are migrated. System databases or template databases such as template0, template1 will not be migrated. |
 | `overwriteDbsInTarget` | Required | When set to true, if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
 | `SetupLogicalReplicationOnSourceDBIfNeeded` | Optional | You can enable logical replication on the source server automatically by setting this property to `true`. This change in the server settings requires a server restart with a downtime of two to three minutes. |
 | `SourceDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution for a virtual network. Provide the FQDN of the Single Server source according to the custom DNS server for this property. |
@@ -162,7 +162,9 @@ Note these important points for the command response:
 - The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
 
 > [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations.  Support for **Online** migrations is currently available in Central US, France Central, Germany West Central, North Central US, South Central US, North Europe, all West US regions, UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+
+:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 
 #### Setup replication
 

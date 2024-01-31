@@ -203,6 +203,8 @@
     - name: Stream cloud alerts to a partner SIEM
       href: integrations/send-cloud-data-to-partners.md
       displayName: Splunk
+    - name: Aruba ClearPass
+      href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
     - name: Forescout
@@ -215,22 +217,18 @@
       href: integrations/logrhythm.md
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
+    - name: Microsoft Sentinel (legacy)
+      href: integrations/on-premises-sentinel.md
+    - name: Palo Alto
+      href: tutorial-palo-alto.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
     - name: ServiceNow
       href: tutorial-servicenow.md
-    - name: Legacy integrations
-      items:
-      - name: Aruba ClearPass
-        href: tutorial-clearpass.md
-      - name: Microsoft Sentinel
-        href: integrations/on-premises-sentinel.md
-      - name: Palo Alto
-        href: tutorial-palo-alto.md
-      - name: ServiceNow
-        href: integrations/service-now-legacy.md
-      - name: Splunk
-        href: tutorial-splunk.md
+    - name: ServiceNow (legacy)
+      href: integrations/service-now-legacy.md
+    - name: Splunk
+      href: tutorial-splunk.md
   - name: Maintain your Defender for IoT system
     items:
     - name: Manage billing plans

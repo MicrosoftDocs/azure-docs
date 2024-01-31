@@ -35,6 +35,10 @@ The steps you'll take are:
 > * Get details of the second deployment
 > * Roll out the new deployment and delete the first one
 
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial.  The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=7d0e09a5-c319-4e6a-85e2-c9601a0fba68]
+
 ## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]

@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: engagement-fy23
-ms.date: 09/07/2022
+ms.date: 01/04/2024
 ---
 
 # Managed connectors in Azure Logic Apps

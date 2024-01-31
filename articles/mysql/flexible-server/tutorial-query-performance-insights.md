@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Query Performance Insight for Azure Database for MySQL - Flexible Server'
-description: 'This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL - Flexible Server.'
+title: 'Tutorial: Query Performance Insight'
+description: This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
@@ -11,6 +11,7 @@ ms.date: 10/01/2021
 ---
 
 # Tutorial: Query Performance Insight for Azure Database for MySQL - Flexible Server
+
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Query Performance Insight proposes to provide intelligent query analysis for databases. The most preferred insights are the workload patterns and the longer-running queries. Understanding these insights can help you find which queries to optimize to improve overall performance and to use your available resources efficiently. 
@@ -20,7 +21,7 @@ Query Performance Insight is designed to help you spend less time troubleshootin
 * The query details: view the history of execution with minimum, maximum, average, and standard deviation query time.
 * The resource utilizations (CPU, memory, and storage).
  
-This article discusses how to use MySQL slow query logs, the Log Analytics tool, and workbooks templates to visualize Query Performance Insight for Azure Database for MySQL - Flexible Server.
+This article discusses how to use Azure Database for MySQL flexible server slow query logs, the Log Analytics tool, and workbooks templates to visualize Query Performance Insight for Azure Database for MySQL flexible server.
 
 In this tutorial, you'll learn how to:
 >[!div class="checklist"]
@@ -31,7 +32,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- [Create an Azure Database for MySQL - Flexible Server instance](./quickstart-create-server-portal.md).
+- [Create an Azure Database for MySQL flexible server instance](./quickstart-create-server-portal.md).
 - [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
 
@@ -39,7 +40,7 @@ In this tutorial, you'll learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Select your flexible server instance.
+1. Select your Azure Database for MySQL flexible server instance.
 
 1. On the left pane, under **Settings**, select **Server parameters**.
 
@@ -61,37 +62,32 @@ You can return to the list of logs by closing the **Server parameters** page.
 
 ## Configure slow query logs by using the Azure CLI
  
-Alternatively, you can enable and configure slow query logs for your flexible server from the Azure CLI by running the following command: 
+Alternatively, you can enable and configure slow query logs for your Azure Database for MySQL flexible server instance from the Azure CLI by running the following command: 
 
 > [!IMPORTANT]
-> To ensure that your flexible server's performance is not heavily affected, we recommend that you log only the event types and users that are required for your auditing purposes.
+> To ensure that your Azure Database for MySQL flexible server instance's performance is not heavily affected, we recommend that you log only the event types and users that are required for your auditing purposes.
+
+- Enable slow query logs.
 
 ```azurecli
-# Turn on statement level log.
-
-az mysql flexible-server parameter set \
---name log_statement \
---resource-group myresourcegroup \
---server-name mydemoserver \
---value all
-
-
-# Set log_min_duration_statement time to 10 seconds. This setting will log all queries that execute for more than 10 seconds. Adjust this threshold based on your definition for slow queries.
-
-az mysql server configuration set \
---name log_min_duration_statement \
---resource-group myresourcegroup \
---server mydemoserver \
---value 10000
-
-# Enable slow query logs.
-
 az mysql flexible-server parameter set \
 --name slow_query_log \
 --resource-group myresourcegroup \
 --server-name mydemoserver \
 --value ON
 ```
+
+- Set long_query_time time to 10 seconds. This setting will log all queries that execute for more than 10 seconds. Adjust this threshold based on your definition for slow queries.
+
+```azurecli
+az mysql server configuration set \
+--name long_query_time \
+--resource-group myresourcegroup \
+--server mydemoserver \
+--value 10
+```
+
+
 
 ## Set up diagnostics
 
@@ -122,7 +118,7 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 
 1. After you've configured the data sinks to pipe the slow query logs to, select **Save**.
 
-    :::image type="content" source="./media/tutorial-query-performance-insights/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::
+    :::image type="content" source="./media/tutorial-query-performance-insights/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted.":::
 
 ## View query insights by using Log Analytics 
 
@@ -147,7 +143,7 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 
 ## View query insights by using workbooks 
 
-1. In the Azure portal, on the left pane, under **Monitoring** for your Azure Database for MySQL - Flexible Server instance, select **Workbooks**.
+1. In the Azure portal, on the left pane, under **Monitoring** for your Azure Database for MySQL flexible server instance, select **Workbooks**.
 
 1.	Select the **Query Performance Insight** template. 
 

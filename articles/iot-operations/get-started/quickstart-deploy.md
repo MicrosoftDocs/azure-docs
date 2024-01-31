@@ -28,11 +28,13 @@ The services deployed in this quickstart include:
 * [Azure IoT Layered Network Management](../manage-layered-network/overview-layered-network.md)
 * [Observability](../monitor/howto-configure-observability.md)
 
+The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+
 ## Prerequisites
 
 Review the prerequisites based on the environment you use to host the Kubernetes cluster.
 
-For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use AKS Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
+For this quickstart, we recommend GitHub Codespaces as a quick way to get started in a virtual environment without installing new tools. Or, use Azure Kubernetes Service (AKS) Edge Essentials to create a cluster on Windows devices or K3s on Ubuntu Linux devices.
 
 # [Virtual](#tab/codespaces)
 
@@ -42,9 +44,9 @@ For this quickstart, we recommend GitHub Codespaces as a quick way to get starte
 
 # [Windows](#tab/windows)
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* You'll use the `AksEdgeQuickStartForAio.ps1` script to set up an AKS Edge Essentials single-machine K3S Linux-only cluster. Ensure that your machine has a minimum of 10 GB RAM, 4 vCPUs, and 40 GB free disk space. To learn more, see the [AKS Edge Essentials system requirements](/azure/aks/hybrid/aks-edge-system-requirements).
 
-<!-- * Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements) for other prerequisites, specifically the system and OS requirements. -->
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -254,12 +256,12 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
    | **Azure Key Vault** | Use the **Select a key vault** drop-down menu to choose the key vault that you set up in the previous section. |
 
-1. Once you select a key vault, the **Automation** tab populates Azure CLI commands with your deployment information. Copy the **Required** CLI command.
+1. Once you select a key vault, the **Automation** tab populates an Azure CLI command that configures your cluster with your deployment information. Copy the CLI command.
 
    >[!TIP]
-   >The **Required** CLI command configures your cluster with the information that it needs to communicate securely with Azure resources but does not deploy Azure IoT Operations. After running the configuration command, you'll deploy Azure IoT Operations on the **Summary** tab. The **Optional** CLI command does the same configuration tasks on your cluster and then also deploys Azure IoT Operations.
+   >Select the **Azure CLI deployment -- Efficiency unleashed** automation option to generate a CLI command that performs the configuration tasks on your cluster and then also deploys Azure IoT Operations.
 
-   :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
+   <!-- :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal."::: -->
 
 1. Sign in to Azure CLI on your development machine or in your codespace terminal. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
 

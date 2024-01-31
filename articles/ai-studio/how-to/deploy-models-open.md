@@ -2,12 +2,13 @@
 title: How to deploy open models with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to deploy open models with Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
-ms.author: eur
+ms.reviewer: fasantia
+ms.author: mopeakande
+author: msakande
 ---
 
 # How to deploy large language models with Azure AI Studio 

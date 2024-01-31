@@ -3,8 +3,8 @@ title: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
 description: Learn how to remove Arc-enabled Azure VMware Solution vSphere resources from Azure.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 11/01/2023
-ms.custom: references_regions
+ms.date: 12/18/2023
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Remove Arc-enabled Azure VMware Solution vSphere resources from Azure

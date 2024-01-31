@@ -2,15 +2,9 @@
 title: Disable backup functionality for an Azure NetApp Files volume  | Microsoft Docs
 description: Describes how to disable the backup functionality for a volume that no longer needs backup protection. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: anfdocs

@@ -1,7 +1,6 @@
 ---
 title: Defender for Cloud's GCP connector
 description: Learn how the GCP connector works on Microsoft Defender for Cloud.
-
 ms.topic: conceptual
 ms.service: defender-for-cloud
 ms.date: 06/29/2023
@@ -19,7 +18,7 @@ The GCP connector allows for continuous monitoring of Google Cloud resources for
 
 The authentication process between Microsoft Defender for Cloud and GCP is a federated authentication process.  
 
-When you onboard to Defender for Cloud, the GCloud template is used to create the following resources as part of the authentication process: 
+When you onboard to Defender for Cloud, the GCloud template is used to create the following resources as part of the authentication process:
 
 - Workload identity pool and providers
 
@@ -61,9 +60,9 @@ From here, you can decide which resources you want to protect based on the secur
 
 ### Configure access
 
-Once you've selected the plans, you want to enable and the resources you want to protect you have to configure access between Defender for Cloud and your GCP project.
+Once you selected the plans, you want to enable and the resources you want to protect you have to configure access between Defender for Cloud and your GCP project.
 
-:::image type="content" source="media/concept-gcp-connector/configure-access-gcp-connector.png" alt-text="Screenshot of the configure access screen between Defender for Cloud and your GCP project." lightbox="media/concept-gcp-connector/configure-access-gcp-connector.png":::
+:::image type="content" source="media/concept-gcp-connector/configure-access-gcp-connector.png" alt-text="Screenshot of the Configure access screen between Defender for Cloud and your GCP project." lightbox="media/concept-gcp-connector/configure-access-gcp-connector.png":::
 
 In this step, you can find the GCloud script that needs to be run on the GCP project that is going to onboarded. The GCloud script is generated based on the plans you selected to onboard.
 
@@ -106,25 +105,25 @@ From here, you can decide which resources you want to protect based on the secur
 
 ### Configure access
 
-Once you've selected the plans, you want to enable and the resources you want to protect you have to configure access between Defender for Cloud and your GCP project.
+Once you selected the plans, you want to enable and the resources you want to protect you have to configure access between Defender for Cloud and your GCP project.
 
-:::image type="content" source="media/concept-gcp-connector/configure-access-organization.png" alt-text="Screenshot of the configure access screen between Defender for Cloud and your GCP organization." lightbox="media/concept-gcp-connector/configure-access-organization.png":::
+:::image type="content" source="media/concept-gcp-connector/configure-access-organization.png" alt-text="Screenshot of the Configure access screen between Defender for Cloud and your GCP organization." lightbox="media/concept-gcp-connector/configure-access-organization.png":::
 
 When you onboard an organization, there's a section that includes management project details. Similar to other GCP projects, the organization is also considered a project and is utilized by Defender for Cloud to create all of the required resources needed to connect the organization to Defender for Cloud.
 
 In the management project details section, you have the choice of:
 
-- Dedicating a management project for Defender for Cloud to include in the GCloud script. 
+- Dedicating a management project for Defender for Cloud to include in the GCloud script.
 - Provide the details of an already existing project to be used as the management project with Defender for Cloud.  
 
-You need to decide what is your best option for your organization's architecture. We recommend creating a dedicated project for Defender for Cloud. 
+You need to decide what is your best option for your organization's architecture. We recommend creating a dedicated project for Defender for Cloud.
 
 The GCloud script is generated based on the plans you selected to onboard. The script creates all of the required resources on your GCP environment so that Defender for Cloud can operate and provide the following security benefits:
 
 - Workload identity pool
 - Workload identity provider for each plan
 - Custom role to grant Defender for Cloud access to discover and get the project under the onboarded organization
-- A service account for each plan 
+- A service account for each plan
 - A service account for the autoprovisioning service
 - Organization level policy bindings for each service account
 - API enablement(s) at the management project level.  

@@ -2,11 +2,11 @@
 title: Confidential computing application enclave nodes on Azure Kubernetes Service (AKS)
 description: Intel SGX based confidential computing VM nodes with application enclave support
 services: virtual-machines
-author: agowdamsft
+author: angarg05
 ms.service: confidential-computing
 ms.topic: overview
 ms.date: 07/15/2022
-ms.author: amgowda
+ms.author: ananyagarg
 ms.custom: ignite-fall-2021
 ---
 

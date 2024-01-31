@@ -59,8 +59,8 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     ```kusto
     AzureActivity
-    | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-    | where ActivityStatus == "Succeeded"
+    | where OperationNameValue == "MICROSOFT.COMPUTE/VIRTUALMACHINES/WRITE" or OperationNameValue == "MICROSOFT.RESOURCES/DEPLOYMENTS/WRITE"
+    | where ActivityStatusValue == "Succeeded"
     | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
     ```
 
