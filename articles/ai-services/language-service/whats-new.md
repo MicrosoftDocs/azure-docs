@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: whats-new
-ms.date: 04/14/2023
+ms.date: 01/31/2024
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -15,6 +15,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # What's new in Azure AI Language?
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## January 2024
+
+* [Native document support](native-document-support/use-native-documents.md) is now available in `2023-11-15-preview` public preview.
 
 ## November 2023
 
@@ -31,10 +35,10 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 ## April 2023
 
 * [Custom Text analytics for health](./custom-text-analytics-for-health/overview.md) is available in public preview, which enables you to build custom AI models to extract healthcare specific entities from unstructured text
-* You can now use Azure OpenAI to automatically label or generate data during authoring. Learn more with the links below. 
-    * Auto-label your documents in [Custom text classification](./custom-text-classification/how-to/use-autolabeling.md) or [Custom named entity recognition](./custom-named-entity-recognition/how-to/use-autolabeling.md).
+* You can now use Azure OpenAI to automatically label or generate data during authoring. Learn more with the following links: 
+    * Autolabel your documents in [Custom text classification](./custom-text-classification/how-to/use-autolabeling.md) or [Custom named entity recognition](./custom-named-entity-recognition/how-to/use-autolabeling.md).
     * Generate suggested utterances in [Conversational language understanding](./conversational-language-understanding/how-to/tag-utterances.md#suggest-utterances-with-azure-openai).
-* The latest model version (2022-10-01) for Language Detection now supports 6 more International languages and 12 Romanized Indic languages.
+* The latest model version (`2022-10-01`) for Language Detection now supports 6 more International languages and 12 Romanized Indic languages.
 
 ## March 2023
 
@@ -86,7 +90,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 
 ## February 2023
 
-* Conversational language understanding and orchestration workflow is now available in the following regions in the sovereign cloud for China:
+* Conversational language understanding and orchestration workflow now available in the following regions in the sovereign cloud for China:
   * China East 2 (Authoring and Prediction)
   * China North 2 (Prediction)
 * New model evaluation updates for Conversational language understanding and Orchestration workflow.
@@ -131,7 +135,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 
 * The summarization feature now has the following capabilities:
     * [Document summarization](./summarization/overview.md):
-        * Abstractive summarization, which generates a summary of a document that may not use the same words as those in the document, but captures the main idea.
+        * Abstractive summarization, which generates a summary of a document that can't use the same words as presented in the document, but captures the main idea.
     * [Conversation summarization](./summarization/overview.md?tabs=document-summarization?tabs=conversation-summarization)
         * Chapter title summarization, which returns suggested chapter titles of input conversations.
         * Narrative summarization, which returns call notes, meeting notes or chat summaries of input conversations.
@@ -145,7 +149,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
     * [Orchestration workflow](./orchestration-workflow/overview.md)
     * [Custom text classification](./custom-text-classification/overview.md) 
     * [Custom named entity recognition](./custom-named-entity-recognition/overview.md)
-* [Regular expressions](./conversational-language-understanding/concepts/entity-components.md#regex-component) in conversational language understanding and [required components](./conversational-language-understanding/concepts/entity-components.md#required-components), offering an additional ability to influence entity predictions.
+* [Regular expressions](./conversational-language-understanding/concepts/entity-components.md#regex-component) in conversational language understanding and [required components](./conversational-language-understanding/concepts/entity-components.md#required-components), offering an added ability to influence entity predictions.
 * [Entity resolution](./named-entity-recognition/concepts/entity-resolutions.md) in named entity recognition
 * New region support for:
     * [Conversational language understanding](./conversational-language-understanding/service-limits.md#regional-availability)
@@ -160,7 +164,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
   * Central India
   * Switzerland North
   * West US 2
-* Text Analytics for Health now [supports additional languages](./text-analytics-for-health/language-support.md) in preview: Spanish, French, German Italian, Portuguese and Hebrew. These languages are available when using a docker container to deploy the API service. 
+* Text Analytics for Health now [supports more languages](./text-analytics-for-health/language-support.md) in preview: Spanish, French, German Italian, Portuguese and Hebrew. These languages are available when using a docker container to deploy the API service. 
 * The Azure.AI.TextAnalytics client library v5.2.0 are generally available and ready for use in production applications. For more information on Language service client libraries, see the [**Developer overview**](./concepts/developer-guide.md).
     * Java
         * [**Package (Maven)**](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0)
@@ -190,7 +194,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 
 * Conversational PII is now available in all Azure regions supported by the Language service.
 
-* A new version of the Language API (`2022-07-01-preview`) has been released. It provides:
+* A new version of the Language API (`2022-07-01-preview`) is available. It provides:
     * [Automatic language detection](./concepts/use-asynchronously.md#automatic-language-detection) for asynchronous tasks.
     * Text Analytics for health confidence scores are now returned in relations.
 
@@ -206,7 +210,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.0.0/sdk/cognitivelanguage/azure-ai-language-conversations)
 * v1.1.0b1 client library for [conversation summarization](summarization/quickstart.md?tabs=conversation-summarization&pivots=programming-language-python) is available as a preview for:
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md)
-* There is a new endpoint URL and request format for making REST API calls to prebuilt Language service features. See the following quickstart guides and reference documentation for information on structuring your API calls. All text analytics 3.2-preview.2 API users can begin migrating their workloads to this new endpoint.
+* There's a new endpoint URL and request format for making REST API calls to prebuilt Language service features. See the following quickstart guides and reference documentation for information on structuring your API calls. All text analytics `3.2-preview.2` API users can begin migrating their workloads to this new endpoint.
     * [Entity linking](./entity-linking/quickstart.md?pivots=rest-api)
     * [Language detection](./language-detection/quickstart.md?pivots=rest-api)
     * [Key phrase extraction](./key-phrase-extraction/quickstart.md?pivots=rest-api)
@@ -258,17 +262,17 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 
 * Model improvements for latest model-version for [text summarization](summarization/overview.md)
 
-* Model 2021-10-01 is Generally Available (GA) for [Sentiment Analysis and Opinion Mining](sentiment-opinion-mining/overview.md), featuring enhanced modeling for emojis and better accuracy across all supported languages.
+* Model `2021-10-01` is Generally Available (GA) for [Sentiment Analysis and Opinion Mining](sentiment-opinion-mining/overview.md), featuring enhanced modeling for emojis and better accuracy across all supported languages.
 
 * [Question Answering](question-answering/overview.md): Active learning v2 incorporates a better clustering logic providing improved accuracy of suggestions. It considers user actions when suggestions are accepted or rejected to avoid duplicate suggestions, and improve query suggestions.
 
 ## December 2021
 
-* The version 3.1-preview.x REST endpoints and 5.1.0-beta.x client library have been retired. Please upgrade to the General Available version of the API(v3.1). If you're using the client libraries, use package version 5.1.0 or higher. See the [migration guide](./concepts/migrate-language-service-latest.md) for details.
+* The version 3.1-preview.x REST endpoints and 5.1.0-beta.x client library are retired. Upgrade to the General Available version of the API(v3.1). If you're using the client libraries, use package version 5.1.0 or higher. See the [migration guide](./concepts/migrate-language-service-latest.md) for details.
 
 ## November 2021
 
-* Based on ongoing customer feedback, we have increased the character limit per document for Text Analytics for health from 5,120 to 30,720.
+* Based on ongoing customer feedback, we increased the character limit per document for Text Analytics for health from 5,120 to 30,720.
 
 * Azure AI Language release, with support for:
 
@@ -286,7 +290,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 * Preview model version `2021-10-01-preview` for [Sentiment Analysis and Opinion mining](sentiment-opinion-mining/overview.md), which provides:
 
   * Improved prediction quality.
-  * [Additional language support](sentiment-opinion-mining/language-support.md?tabs=sentiment-analysis) for the opinion mining feature.
+  * [Added language support](sentiment-opinion-mining/language-support.md?tabs=sentiment-analysis) for the opinion mining feature.
   * For more information, see the [project z-code site](https://www.microsoft.com/research/project/project-zcode/).
   * To use this [model version](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), you must specify it in your API calls, using the model version parameter.
 

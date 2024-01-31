@@ -190,7 +190,7 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Vector storage limits
+    - name: Vector index size limits
       href: vector-search-index-size.md
     - name: Plan capacity
       href: search-capacity-planning.md
