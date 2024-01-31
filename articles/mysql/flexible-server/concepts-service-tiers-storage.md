@@ -157,6 +157,9 @@ For example, if you have provisioned 1000 GB of storage, and the actual utilizat
 
 Remember that storage once auto-scaled up, cannot be scaled down.
 
+>[!NOTE]
+> Storage autogrow is default enabled for a High-Availability configured server and can not to be disabled. 
+
 ## IOPS
 
 Azure Database for MySQL flexible server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
