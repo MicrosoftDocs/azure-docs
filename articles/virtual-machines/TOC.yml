@@ -448,11 +448,11 @@
     - name: Previous generation and retired sizes
       items:
       - name: Overview
-        href: retirement-overview.md
+        href: ./sizes/retirement-overview.md
       - name: Previous-gen sizes
-        href: previous-gen-sizes-list.md
+        href: ./sizes/previous-gen-sizes-list.md
       - name: Retired sizes
-        href: retired-sizes-list.md
+        href: ./sizes/retired-sizes-list.md
     - name: Generation 2 VMs
       displayName: Gen2, generation, gen1
       href: generation-2.md

@@ -17,7 +17,7 @@ VM sizes are retired over time as newer hardware takes its place. This article p
 > [!NOTE]
 > Retired sizes are **no longer available** and can't be used. 
 > 
-> For more info on size series retirement and migrating to replacement options, see [Size series retirement overview](./retirement_overview.md).
+> For more info on size series retirement and migrating to replacement options, see [Size series retirement overview](./retirement-overview.md).
 
 ## List of retired sizes
 
@@ -27,7 +27,7 @@ VM sizes are retired over time as newer hardware takes its place. This article p
 |-------------------|--------------------|
 | Av1-series | [Av2-series](../../virtual-machines/av2-series.md) |
 
-For a list of previous-gen general purpose sizes which will soon be retired, see [previous-gen general purpose sizes](./previous_gen_sizes_list.md#general-purpose-previous-gen-sizes).
+For a list of previous-gen general purpose sizes which will soon be retired, see [previous-gen general purpose sizes](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes).
 
 ### Compute optimized retired sizes
 
@@ -35,7 +35,7 @@ For a list of previous-gen general purpose sizes which will soon be retired, see
 |------------------|--------------------|
 |                  |                    |
 
-For a list of previous-gen compute optimized sizes which will soon be retired, see [previous-gen compute optimized sizes](./previous_gen_sizes_list.md#compute-optimized-previous-gen-sizes).
+For a list of previous-gen compute optimized sizes which will soon be retired, see [previous-gen compute optimized sizes](./previous-gen-sizes-list.md#compute-optimized-previous-gen-sizes).
 
 ### Memory optimized retired sizes
 
@@ -44,13 +44,13 @@ For a list of previous-gen compute optimized sizes which will soon be retired, s
 | GS-series        | [Easv4-series](../../virtual-machines/eav4-easv4-series.md) |
 | G-series        | [Easv4-series](../../virtual-machines/eav4-easv4-series.md) |
 
-For a list of previous-gen memory optimized sizes which will soon be retired, see [previous-gen memory optimized sizes](./previous_gen_sizes_list.md#memory-optimized-previous-gen-sizes).
+For a list of previous-gen memory optimized sizes which will soon be retired, see [previous-gen memory optimized sizes](./previous-gen-sizes-list.md#memory-optimized-previous-gen-sizes).
 
 ### Storage optimized retired sizes
 
 Currently there are no retired storage optimized sizes.
 
-For a list of previous-gen compute optimized sizes which will soon be retired, see [previous-gen storage optimized sizes](./previous_gen_sizes_list.md#storage-optimized-previous-gen-sizes).
+For a list of previous-gen compute optimized sizes which will soon be retired, see [previous-gen storage optimized sizes](./previous-gen-sizes-list.md#storage-optimized-previous-gen-sizes).
 
 ### GPU accelerated retired sizes
 
@@ -61,13 +61,13 @@ For a list of previous-gen compute optimized sizes which will soon be retired, s
 | NCv2-series      | [NCasT4_v3-series](../../virtual-machines/nct4-v3-series.md) |
 | ND-series        | [NDv2-series](../../virtual-machines/nct4-v3-series.md) |
 
-For a list of previous-gen GPU accelerated sizes which will soon be retired, see [previous-gen GPU accelerated sizes](./previous_gen_sizes_list.md#gpu-accelerated-previous-gen-sizes).
+For a list of previous-gen GPU accelerated sizes which will soon be retired, see [previous-gen GPU accelerated sizes](./previous-gen-sizes-list.md#gpu-accelerated-previous-gen-sizes).
 
 ### FPGA accelerated retired sizes
 
 Currently there are no retired FPGA accelerated sizes.
 
-For a list of previous-gen FPGA accelerated sizes which will soon be retired, see [previous-gen FPGA accelerated sizes](./previous_gen_sizes_list.md#fpga-accelerated-previous-gen-sizes).
+For a list of previous-gen FPGA accelerated sizes which will soon be retired, see [previous-gen FPGA accelerated sizes](./previous-gen-sizes-list.md#fpga-accelerated-previous-gen-sizes).
 
 ### HPC retired sizes
 
@@ -75,7 +75,7 @@ For a list of previous-gen FPGA accelerated sizes which will soon be retired, se
 |------------------|--------------------|
 | HB-series        | [HBv2-series](../../virtual-machines/hbv2-series.md) |
 
-For a list of previous-gen HPC sizes which will soon be retired, see [previous-gen HPC sizes](./previous_gen_sizes_list.md#hpc-previous-gen-sizes).
+For a list of previous-gen HPC sizes which will soon be retired, see [previous-gen HPC sizes](./previous-gen-sizes-list.md#hpc-previous-gen-sizes).
 
 ### ADH retired sizes
 
@@ -86,8 +86,8 @@ For a list of previous-gen HPC sizes which will soon be retired, see [previous-g
 | Esv3-Type1       |                    |
 | Esv3-Type2       |                    |
 
-For a list of previous-gen ADH sizes which will soon be retired, see [previous-gen ADH sizes](./previous_gen_sizes_list.md#adh-previous-gen-sizes).
+For a list of previous-gen ADH sizes which will soon be retired, see [previous-gen ADH sizes](./previous-gen-sizes-list.md#adh-previous-gen-sizes).
 
 ## Next steps
-- For a list of previous-gen sizes, see [Previous generation Azure VM sizes](./previous_gen_sizes_list.md).
+- For a list of previous-gen sizes, see [Previous generation Azure VM sizes](./previous-gen-sizes-list.md).
 - For more information on VM sizes, see [Sizes for virtual machines in Azure](../sizes.md).
