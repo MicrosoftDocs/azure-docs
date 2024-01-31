@@ -155,6 +155,18 @@ The `spec.featureFlag.refresh` property has the following child properties.
 |enabled|The setting that determines whether feature flags from Azure App Configuration are automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
 |interval|The interval at which the feature flags will be refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds will be used.|false|duration string|
 
+## Installation
+
+You can use helm to [install Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about#usage). To override default [helm-values](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml), use the `--set` flag and pass configuration from the command line.
+
+### Autoscaling
+
+It's useful to enable `autoscaling` when you need to deploy multiple instances of the `AzureAppConfigurationProvider` resource in AKS cluster. Setting `autoscaling.enabled` to `true` , [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) will be used for managing pod autoscaling of Kubernetes Provider. `autoscaling` is disabled by default.
+
+### Node assignment
+
+You can set `nodeSelector`, `affinity` or `tolerations` to run Kubernetes Provider pod on particular nodes. For example, setting `nodeSelector.KEY=VALUE` during installation, Kubernetes Provider will be scheduled to the node with the label `KEY=VALUE`.
+
 ## Examples
 
 ### Authentication
@@ -550,7 +562,3 @@ data:
     key2=value2
     key3=value3
 ```
-
-## Supported helm chart values
-
-You can use helm to [install Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about#usage), see [helm-values](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml) for all supported values.
