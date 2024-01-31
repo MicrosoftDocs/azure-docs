@@ -38,16 +38,16 @@ The metrics in the following table refer to the connection between your network 
 
 | Metric | Unit | Description |
 |:-------|:----|:------------|
-| SIP 2xx Responses Received | Count | Count of the total number of 2xx OPTIONS and INVITEs received.|
-| SIP 2xx Responses Sent | Count | Count of the total number of 2xx OPTIONS and INVITEs sent.|
-| SIP 3xx Responses Received | Count | Count of the total number of 3xx OPTIONS and INVITEs received.|
-| SIP 3xx Responses Sent | Count | Count of the total number of 3xx OPTIONS and INVITEs sent.|
-| SIP 4xx Responses Received | Count | Count of the total number of 4xx OPTIONS and INVITEs received.|
-| SIP 4xx Responses Sent | Count | Count of the total number of 4xx OPTIONS and INVITEs sent.|
-| SIP 5xx Responses Received | Count | Count of the total number of 5xx OPTIONS and INVITEs received.|
-| SIP 5xx Responses Sent | Count | Count of the total number of 5xx OPTIONS and INVITEs sent.|
-| SIP 6xx Responses Received | Count | Count of the total number of 6xx OPTIONS and INVITEs received.|
-| SIP 6xx Responses Sent | Count | Count of the total number of 6xx OPTIONS and INVITEs sent.|
+| SIP 2xx Responses Received | Count | Count of the total number of SIP 2xx responses received for OPTIONS and INVITEs.|
+| SIP 2xx Responses Sent | Count | Count of the total number of SIP 2xx responses sent for OPTIONS and INVITEs.|
+| SIP 3xx Responses Received | Count | Count of the total number of SIP 3xx responses received for OPTIONS and INVITEs.|
+| SIP 3xx Responses Sent | Count | Count of the total number of SIP 3xx responses sent for OPTIONS and INVITEs.|
+| SIP 4xx Responses Received | Count | Count of the total number of SIP 4xx responses received for OPTIONS and INVITEs.|
+| SIP 4xx Responses Sent | Count | Count of the total number of SIP 4xx responses sent for OPTIONS and INVITEs.|
+| SIP 5xx Responses Received | Count | Count of the total number of SIP 5xx responses received for OPTIONS and INVITEs.|
+| SIP 5xx Responses Sent | Count | Count of the total number of SIP 5xx responses sent for OPTIONS and INVITEs.|
+| SIP 6xx Responses Received | Count | Count of the total number of SIP 6xx responses received for OPTIONS and INVITEs.|
+| SIP 6xx Responses Sent | Count | Count of the total number of SIP 6xx responses sent for OPTIONS and INVITEs.|
 
 ## Metric Dimensions
 
