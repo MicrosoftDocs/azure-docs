@@ -15,20 +15,26 @@ ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-This article shows you how to change an existing virtual machine's [VM size](../sizes.md).
+This article shows you how to change an existing virtual machine's [VM size](sizes.md).
 
 After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. Deallocation may be necessary if the new size isn't available on the same hardware cluster that is currently hosting the VM.
+
+![A diagram showing a smaller Azure VM icon with a growing arrow pointing to a new larger Azure VM icon.](./media/size-resize-vm.png "Resizing a VM")
 
 If your VM uses Premium Storage, make sure that you choose an **s** version of the size to get Premium Storage support. For example, choose Standard_E4**s**_v3 instead of Standard_E4_v3.
 
 ## Change the VM size
 
 ### [Portal](#tab/portal)
-
-1. Open the [Azure portal](https://portal.azure.com).
-1. Open the page for the virtual machine.
-1. In the left menu, select **Size**.
-1. Pick a new size from the list of available sizes and then select **Resize**.
+1. Open the [Azure portal](https://portal.azure.com). <br/><br/>
+1. Type *virtual machines* in the search. Under **Services**, select **Virtual machines**.
+    ![Screenshot of the Azure portal search bar](./media/portal_vms_search.png)<br/><br/>
+1. In the **Virtual machines** page, select the virtual machine you want to resize.
+    ![Screenshot of an example VM selected](./media/portal_select_vm.png)<br/><br/>
+1. In the left menu, select **size**. Pick a new compatible size from the list of available sizes 
+    ![Screenshot of the size selection in the Azure portal](./media/portal_size_select.png)<br/><br/>
+1. After picking a size, select **Resize**.
+    ![Screenshot of the resize button in the Azure portal](./media/portal_resize_button.png)<br/><br/>
 
 > [!Note] 
 > If the virtual machine is currently running, changing its size will cause it to restart. 
@@ -40,6 +46,28 @@ If your VM is still running and you don't see the size you want in the list, sto
    > 
    > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
   
+
+### [PowerShell](#tab/powershell)
+1. Set the resource group and VM name variables. Replace the values with information of the VM you want to resize.
+
+    ```powershell
+    $resourceGroup = "myResourceGroup"
+    $vmName = "myVM"
+    ```
+
+1. List the VM sizes that are available on the hardware cluster where the VM is hosted.
+
+    ```powershell
+    Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName
+    ```
+
+1. Resize the VM to the new size.
+
+    ```powershell
+    $vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
+    $vm.HardwareProfile.VmSize = "<newAv2VMsize>"
+    Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+    ```
 
 ### [CLI](#tab/cli)
 
@@ -240,7 +268,7 @@ When resizing a VM, it's important to choose the right SKU based on the signals 
 
 
 For more information on choosing the right SKU, you can use the following resources:
-- [Sizes for VMs in Azure](../sizes.md): This article lists all the VM sizes available in Azure.
+- [Sizes for VMs in Azure](sizes.md): This article lists all the VM sizes available in Azure.
 - [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/): This tool helps you find the right VM SKU based on your workload type, OS and software, and deployment region.
 
 
@@ -254,12 +282,13 @@ The only combinations allowed for resizing are:
 - VM (with local temp disk) -> VM (with local temp disk); and
 - VM (with no local temp disk) -> VM (with no local temp disk).
 
-For a work-around, see [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk? ](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---). The work-around can be used to resize a VM with no local temp disk to VM with a local temp disk. You create a snapshot of the VM with no local temp disk > create a disk from the snapshot > create VM from the disk with appropriate [VM size](../sizes.md) that supports VMs with a local temp disk.
+For a work-around, see [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk? ](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---). The work-around can be used to resize a VM with no local temp disk to VM with a local temp disk. You create a snapshot of the VM with no local temp disk > create a disk from the snapshot > create VM from the disk with appropriate [VM size](sizes.md) that supports VMs with a local temp disk.
 
 
 ## Next steps
+
 - For more scalability, run multiple VM instances and scale out.
-- For more SKU selection information, see [Sizes for virtual machines in Azure](../sizes.md).
+- For more SKU selection information, see [Sizes for virtual machines in Azure](sizes.md).
 - To determine VM sizes by workload type, OS and software, or deployment region, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
 - For more information on Virtual Machine Scale Sets (VMSS) sizes, see [Automatically scale machines in a VMSS](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
 - For more cost management planning information, see the [Plan and manage your Azure costs](/training/modules/plan-manage-azure-costs/1-introduction) module.
