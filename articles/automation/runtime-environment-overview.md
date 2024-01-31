@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/24/2024
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Runtime environment in Azure Automation
@@ -96,4 +96,3 @@ While the new Runtime environment experience is recommended, you can also switch
 
 * To work with runbooks and Runtime environment, see [Manage Runtime environment](manage-runtime-environment.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
-

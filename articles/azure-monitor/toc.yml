@@ -453,6 +453,23 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
+    - name: Configure Container Insights (logs)
+      items:
+      - name: Configure data collection
+        items:
+        - name: Configure with ConfigMap
+          displayName: Container insights
+          href: containers/container-insights-data-collection-configmap.md
+        - name: Configure with  Data collection rule
+          displayName: Container insights
+          href: containers/container-insights-data-collection-dcr.md
+      - name: Log schema
+        href: containers/container-insights-logs-schema.md
+      - name: Data transformations
+        displayName: Container insights
+        href: containers/container-insights-transformations.md
+      - name: Authentication
+        href: containers/container-insights-authentication.md
     - name: Configure Prometheus (metrics)
       items:
       - name: Customize data collection
@@ -472,75 +489,60 @@ items:
         - name: High scale
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-scale.md
-      - name: Private link data ingestion
-        displayName: Private link data ingestion
-        href: essentials/private-link-data-ingestion.md
-      - name: Private link data query
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: KEDA integration
         displayName: Prometheus
         href: containers/integrate-keda.md
-      - name: Microsoft Entra authorization proxy
-        displayName: Prometheus
-        href: containers/prometheus-authorization-proxy.md
-      - name: Remote write
-        items:
-        - name: Overview
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write.md
-        - name: Managed identity authentication
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-managed-identity.md
-        - name: Microsoft Entra authentication
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-active-directory.md
-        - name: Microsoft Entra pod-managed identity authentication
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-azure-ad-pod-identity.md
-        - name: Microsoft Entra Workload ID (preview) authentication
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-azure-workload-identity.md
       - name: Send to multiple metric workspaces
         displayName: Prometheus
         href: containers/prometheus-metrics-multiple-workspaces.md
       - name: Send Prometheus metrics to Logs
         href: containers/container-insights-prometheus-logs.md
-      - name: Query Prometheus metrics
-        items:
-        - name: Query using Grafana
-          items:
-          - name: Configure Grafana with managed system identity
-            displayName: Prometheus
-            href: essentials/prometheus-grafana.md
-          - name: Configure Grafana with Microsoft Entra ID
-            displayName: Prometheus
-            href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
-        - name: Query using Azure workbooks
-          displayName: Prometheus
-          href: essentials/prometheus-workbooks.md
-        - name: Query using the API and PromQL
-          displayName: Prometheus
-          href: essentials/prometheus-api-promql.md        
-    - name: Configure Container Insights (logs)
+    - name: Remote-write with Prometheus
       items:
-      - name: Configure data collection
-        items:
-        - name: Configure with ConfigMap
-          displayName: Container insights
-          href: containers/container-insights-data-collection-configmap.md
-        - name: Configure with  Data collection rule
-          displayName: Container insights
-          href: containers/container-insights-data-collection-dcr.md
-      - name: Log schema
-        href: containers/container-insights-logs-schema.md
-      - name: Data transformations
-        displayName: Container insights
-        href: containers/container-insights-transformations.md
-      - name: Authentication
-        href: containers/container-insights-authentication.md
+      - name: Overview
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write.md
+      - name: Microsoft Entra authorization proxy
+        displayName: Prometheus
+        href: containers/prometheus-authorization-proxy.md
+      - name: Managed identity authentication
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-managed-identity.md
+      - name: Microsoft Entra authentication
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-active-directory.md
+      - name: Microsoft Entra pod-managed identity authentication
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-azure-ad-pod-identity.md
+      - name: Microsoft Entra Workload ID (preview) authentication
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-azure-workload-identity.md
+    - name: Private Link
+      items:
+      - name: Private link data ingestion with Prometheus metrics
+        displayName: Private link data ingestion
+        href: essentials/private-link-data-ingestion.md
+      - name: Private link data query of Prometheus metrics
+        displayName: Private link data query
+        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: Private link for Container Insights          
         href: containers/container-insights-private-link.md
+    - name: Query Prometheus metrics
+      items:
+      - name: Query using Grafana
+        items:
+        - name: Configure Grafana with managed system identity
+          displayName: Prometheus
+          href: essentials/prometheus-grafana.md
+        - name: Configure Grafana with Microsoft Entra ID
+          displayName: Prometheus
+          href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
+      - name: Query using Azure workbooks
+        displayName: Prometheus
+        href: essentials/prometheus-workbooks.md
+      - name: Query using the API and PromQL
+        displayName: Prometheus
+        href: essentials/prometheus-api-promql.md        
     - name: Disable monitoring
       href: containers/kubernetes-monitoring-disable.md
     - name: Monitor
