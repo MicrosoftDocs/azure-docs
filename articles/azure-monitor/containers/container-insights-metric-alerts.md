@@ -41,14 +41,13 @@ The methods currently available for creating Prometheus alert rules are Azure Re
 
 1. Download the template that includes the set of alert rules you want to enable. For a list of the rules for each, see [Alert rule details](#alert-rule-details).
 
-   - [Community alerts](https://aka.ms/azureprometheus-communityalerts)
-   - [Recommended alerts](https://aka.ms/azureprometheus-recommendedalerts)
+   [Recommended metric alerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
 
 2. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md#deploy-the-sample-templates).
 
 ### [Bicep template](#tab/bicep)
 
-1. To deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep) and follow the README.md file in the same folder for how to deploy.
+1. To deploy recommended metric alerts, follow this [template](https://aka.ms/azureprometheus-recommendedmetricalertsbicep) and follow the README.md file in the same folder for how to deploy.
 
 
 
@@ -111,7 +110,7 @@ The configuration change can take a few minutes to finish before it takes effect
 ### Prerequisites
 
 You might need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
-  
+
 ### Enable and configure metric alert rules
 
 #### [Azure portal](#tab/azure-portal)
@@ -181,7 +180,7 @@ The following sections present information on the alert rules provided by Contai
 
 ### Community alert rules
 
-These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-communityalerts):
+These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-recommendedmetricalerts):
 
 | Alert name | Description | Default threshold |
 |:---|:---|:---|
@@ -207,7 +206,7 @@ These handpicked alerts come from the Prometheus community. Source code for thes
 ### Recommended alert rules
 
 The following table lists the recommended alert rules that you can enable for either Prometheus metrics or custom metrics.
-Source code for the recommended alerts can be found in [GitHub](https://github.com/Azure/prometheus-collector/blob/68ab5b195a77d72b0b8e36e5565b645c3d1e2d5d/mixins/kubernetes/rules/recording_and_alerting_rules/templates/ci_recommended_alerts.json):
+Source code for the recommended alerts can be found in [GitHub](https://aka.ms/azureprometheus-recommendedmetricalerts):
 
 | Prometheus alert name | Custom metric alert name | Description | Default threshold |
 |:---|:---|:---|:---|

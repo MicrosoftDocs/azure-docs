@@ -213,7 +213,7 @@
               - name: Train with MLflow Projects
                 displayName: log, monitor, metrics, model registry, register
                 href: how-to-train-mlflow-projects.md
-              - name: Log metrics, parameters and files
+              - name: Log metrics, parameters, and files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
               - name: Log MLflow models

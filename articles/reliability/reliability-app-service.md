@@ -40,7 +40,7 @@ To explore how Azure App Service can bolster the reliability and resiliency of y
 ### High availability
  
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-1 - Deploy zone-redundant App Service plans** 
-To enhance the resiliency and reliability of your business-critical workloads, it's recommended that you deploy your new App Service Plans with zone-redundancy. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](/azure/spring-apps/concepts-blue-green-deployment-strategies) approach to failover to the new site.
+To enhance the resiliency and reliability of your business-critical workloads, it's recommended that you deploy your new App Service Plans with zone-redundancy. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](../spring-apps/enterprise/concepts-blue-green-deployment-strategies.md) approach to failover to the new site.
 
 By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. For more information on availability zone support in Azure App Service, see [Availability zone support](#availability-zone-support).
 
