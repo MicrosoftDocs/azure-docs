@@ -20,15 +20,35 @@ Reference layers enable the enhancement of spatial visualizations by overlaying 
 
 ## Add a spatial dataset as a reference layer
 
-To add a spatial dataset as a reference layer:
+You have two options to add a spatial dataset as a reference layer. You can either reference a hosted file by providing the URL, or select a file to upload.
+
+# [Upload file](#tab/upload)
+
+To upload a spatial dataset as a reference layer:
 
 1. Navigate to the **Format** pane.
 1. Expand the **Reference Layer** section.
+1. Select **File Upload** from the **Type** drop-down list.
 1. Select **Browse**. The file selection dialog opens, allowing you to choose a file with a `.json`, `.geojson`, `.wkt` or `.kml` extension.
 
-    :::image type="content" source="./media/power-bi-visual/reference-layer.png" alt-text="Screenshot showing the reference layers upload a file control.":::
+    :::image type="content" source="./media/power-bi-visual/reference-layer-upload.png" alt-text="Screenshot showing the reference layers section when uploading a file control.":::
 
 Once the file is added to the reference layer, the file name appears in the **Browse** field. An '**X**' button is added that removes the data from the visual and deletes the associated file from Power BI when selected.
+
+# [Reference hosted file](#tab/hosted)
+
+To use a hosted spatial dataset as a reference layer:
+
+1. Navigate to the **Format** pane.
+1. Expand the **Reference Layer** section.
+1. Select **URL** from the **Type** drop-down list.
+1. Select **Enter a URL** and enter a valid URL pointing to your hosted file. Hosted files must be a valid spatial datasets with a `.json`, `.geojson`, `.wkt` or `.kml` extension.
+
+    :::image type="content" source="./media/power-bi-visual/reference-layer-hosted.png" alt-text="Screenshot showing the reference layers section when hosting a file control.":::
+
+Once the link to the hosted file is added to the reference layer, the URL appears in the **Enter a URL** field. To remove the data from the visual simply delete the URL.
+
+---
 
 The following map displays [2016 census tracts for Colorado]. The areas are colored, based on population, using the reference layer.
 
