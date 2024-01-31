@@ -5124,6 +5124,71 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-hc-known-issues.md",
             "redirect_url": "/azure/virtual-machines/hb-hc-known-issues",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/index.md",
+            "redirect_URL": "/azure/sap/workloads/get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-marketplace-self-managed",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/openshift-container-platform-3x-post-deployment.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-post-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/openshift-container-platform-3x-prerequisites.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/openshift-container-platform-3x-troubleshooting.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/openshift-container-platform-3x.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/linux/openshift-container-platform-3x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/image-builder-prefetch.md",
+            "redirect_url": "/azure/virtual-machines/vm-boot-optimization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-reliability.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/reliability-virtual-machines.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/image-builder-reliability.md",
+            "redirect_url": "/azure/reliability/reliability-image-builder.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/h-series.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/h-series-retirement.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/articles/virtual-machines/h-series-retirement",
+            "redirect_document_id": false
         }
     ]
 }
