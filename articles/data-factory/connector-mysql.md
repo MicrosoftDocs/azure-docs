@@ -33,7 +33,7 @@ This MySQL connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this MySQL connector supports MySQL **version 5.6, 5.7 and 8.0**.
+Specifically, this MySQL connector supports MySQL **version 5.5, 5.6, 5.7, 8.0, 8.1 and 8.2**.
 
 ## Prerequisites
 
@@ -313,13 +313,13 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Migrate the MySQL linked service
-
-Migrating your MySQL linked service is highly recommended if you use the legacy version. Take the following steps:  
+## Upgrade the MySQL driver version
 
 1. Create a new MySQL linked service and configure it by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
+
+1. More MySQL versions are supported for the latest driver version. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 
 ## Related content
 
