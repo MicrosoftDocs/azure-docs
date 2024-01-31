@@ -270,8 +270,9 @@ Use the [Google Cloud Platform Log Router service](https://cloud.google.com/logg
 
 1. In the **Connect a new collector** panel, type the resource parameters you created when you [created the GCP resources](#set-up-gcp-environment). 
 
+    :::image type="content" source="media/connect-google-cloud-platform/new-collector-dialog.png" alt-text="Screenshot of new collector side panel.":::
 
-***???*** Make sure that the Data Collection Endpoint Name and the Data Collection Rule Name begin with **Microsoft-Sentinel-** and select **Connect**. 
+1. Make sure that the values in all the fields match their counterparts in your GCP project, and select **Connect**. 
 
 ## Verify that the GCP data is in the Microsoft Sentinel environment 
 
