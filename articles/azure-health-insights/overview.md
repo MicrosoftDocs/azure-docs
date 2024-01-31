@@ -25,19 +25,21 @@ Azure AI Health Insights is a Cognitive Service that provides prebuilt models th
 
 ## Available models
 
-There are currently two models available in Azure AI Health Insights: 
+There are currently three models available in Azure AI Health Insights: 
 
 The [Trial Matcher](./trial-matcher/overview.md) model receives patients' data and clinical trials protocols, and provides relevant clinical trials based on eligibility criteria.
 
 The [Onco-Phenotype](./oncophenotype/overview.md) receives clinical records of oncology patients and outputs cancer staging, such as  **clinical stage TNM** categories and **pathologic stage TNM categories** as well as **tumor site** and **histology**.
 
+The [Radiology Insights](./radiology-insights/overview.md) model receives patients' radiology report and provides quality checks with feedback on errors and mismatches to ensure critical findings are surfaced and presented using the full context of a radiology report. In addition, follow-up recommendations and clinical findings with measurements documented by the radiologist are flagged.
 
 ## Architecture
 
 ![Diagram that shows Azure AI Health Insights architecture.](media/architecture.png) 
+    [ ![Diagram that shows Azure AI Health Insights architecture.](media/architecture.png)](media/architecture.png#lightbox)
 
-Azure AI Health Insights service receives patient data through multiple input channels. This can be unstructured healthcare data, FHIR resources or specific JSON format data. This in combination with the correct model configuration, such as ```includeEvidence```. 
-With these input channels and configuration, the service can run the data through several health insights AI models, such as Trial Matcher or Onco-Phenotype.  
+Azure AI Health Insights service receives patient data in different modalities, such as unstructured healthcare data, FHIR resources or specific JSON format data. In addition, the service receives a model configuration, such as ```includeEvidence``` parameter. 
+With these input patient data and configuration, the service can run the data through the selected health insights AI model, such as Trial Matcher, Onco-Phenotype or Radiology Insights.  
 
 ## Next steps
 
@@ -50,4 +52,7 @@ Review the following information to learn how to deploy Azure AI Health Insights
 > [Onco-Phenotype](oncophenotype/overview.md) 
 
 >[!div class="nextstepaction"]
-> [Trial Matcher](trial-matcher//overview.md) 
+> [Trial Matcher](trial-matcher//overview.md)
+
+>[!div class="nextstepaction"]
+> [Radiology Insights](radiology-insights//overview.md)
