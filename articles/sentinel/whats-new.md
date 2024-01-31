@@ -30,7 +30,7 @@ The listed features were released in the last three months. For information abou
 Incident tasks, which help you standardize your incident investigation and response practices so you can more effectively manage incident workflow, are now generally available (GA) in Microsoft Sentinel.
 
 - Learn more about [incident tasks](incident-tasks.md).
-- See [this blog post by Benji Kovacevic](link) that shows how you can use incident tasks in combination with watchlists, automation rules, and playbooks to build a task management solution with two parts:
+- See [this blog post by Benji Kovacevic](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-tasks-repository-in-microsoft-sentinel/ba-p/4038563) that shows how you can use incident tasks in combination with watchlists, automation rules, and playbooks to build a task management solution with two parts:
     - A repository of incident tasks.
     - A mechanism that automatically attaches tasks to newly created incidents, according to the incident title, and assigns them to the proper personnel.
 
