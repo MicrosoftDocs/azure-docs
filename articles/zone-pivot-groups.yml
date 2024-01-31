@@ -489,9 +489,9 @@ groups:
   prompt: Choose how to run   
   pivots: 
   - id: in-proc
-    title: In-process
+    title: In-process model
   - id: isolated
-    title: Isolated worker process
+    title: Isolated worker model
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app

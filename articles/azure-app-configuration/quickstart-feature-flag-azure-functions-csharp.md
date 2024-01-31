@@ -12,7 +12,7 @@ ms.author: malev
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
-In this quickstart, you create an Azure Functions app and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
+In this quickstart, you create an Azure Functions C# code project and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
 
 The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
 
@@ -21,7 +21,6 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
-- [Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## Add a feature flag
 
