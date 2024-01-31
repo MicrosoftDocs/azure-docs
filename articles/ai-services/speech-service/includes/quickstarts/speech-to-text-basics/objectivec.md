@@ -75,7 +75,7 @@ Follow these steps to recognize speech in a macOS application.
 1. To build and run the example code, select **Product** > **Run** from the menu or select the **Play** button.
 
   > [!IMPORTANT]
-  > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+  > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 After you select the button in the app and say a few words, you should see the text that you spoke on the lower part of the screen. When you run the app for the first time, it prompts you to give the app access to your computer's microphone.
 

@@ -60,7 +60,7 @@ curl --location --request POST \
 * * *
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. The command recognizes up to 60 seconds of audio and converts it to text.
 
