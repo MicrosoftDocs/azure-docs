@@ -64,8 +64,12 @@ Preserving data is important while working with persistent volumes to avoid risk
     "diskState": "Unattached",
     ```
 
-1. To validate the disk state, run the 
+1. If `diskState` shows `Attached`, first verify if any workloads are still accessing the volume and stop them first. After a period of time, disk state will report `Unattached` and can then be moved.
+
+
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
 [move-resources-new-subscription-resource-group]: ../azure-resource-manager/management/move-resource-group-and-subscription.md
+[az-aks-show]: /cli/azure/disk#az-disk-show
+[az-disk-list]: /cli/azure/disk#az-disk-list
