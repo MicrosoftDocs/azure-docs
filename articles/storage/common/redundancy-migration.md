@@ -18,7 +18,7 @@ Initial: 81 (3717/68)
 Current: 98 (3765/4)
 -->
 
-# Change how a storage account is replicated
+# Change the redundancy configuration for a storage account
 
 Azure Storage always stores multiple copies of your data to protect it in the face of both planned and unplanned events. These events include transient hardware failures, network or power outages, and massive natural disasters. Data redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/), even in the face of failures.
 
