@@ -1,19 +1,19 @@
 ---
-title: Quickstart - Add Argumented Reality filter to your app
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to add Augmented Reality filter to your app using Azure Communication Services and other effects SDKs.
+title: Tutorial - Add Argumented Reality filter to your app
+titleSuffix: An Azure Communication Services tutorial
+description: In this tutorial, you learn how to add Augmented Reality filter to your app using Azure Communication Services and other effects SDKs.
 author: sloanster
 services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 01/15/2024
-ms.topic: quickstart
+ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
 
-# QuickStart: Add Augmented Reality filters to your video calls
+# Tutorial: How to add Augmented Reality filters to your video calls
 
 In some usage scenarios, you may want to apply some video processing to the original camera video, such as background blur or background replacement.
 This can provide a better user experience.

@@ -119,10 +119,6 @@ items:
         href: quickstarts/rooms/get-started-rooms.md
       - name: Join a room call
         href: quickstarts/rooms/join-rooms-call.md
-    - name: Integrate with other SDKs
-      items:
-      - name: Add Augmented Reality filters to your video calls
-        href: quickstarts/voice-video-calling/get-started-video-ar-sample.md
     - name: Use UI components for voice and video
       href: quickstarts/ui-library/get-started-composites.md
     - name: Add data channel messaging to your calling app
@@ -431,6 +427,10 @@ items:
         href: concepts/analytics/insights/rooms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
+    - name: Integrate with other SDKs
+      items:
+      - name: Add Augmented Reality filters to your video calls
+        href: tutorial/add-video-ar-tutorial.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
