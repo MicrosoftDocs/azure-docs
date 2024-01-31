@@ -132,7 +132,7 @@
     - name: Search index
       href: search-what-is-an-index.md
     - name: Vector store
-      href: vector-search-overview.md
+      href: vector-database-store.md
     - name: Knowledge store 
       href: knowledge-store-concept-intro.md
     - name: Data import strategies
@@ -152,7 +152,7 @@
     - name: Full-text search
       href: search-lucene-query-architecture.md
     - name: Vector search
-      href: vector-search-overview.md
+      href: vector-database-query.md
     - name: Hybrid search
       href: hybrid-search-overview.md
     - name: Retrieval Augmented Generation (RAG)

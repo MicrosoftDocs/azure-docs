@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 01/31/2024
 ---
 
 # Relevance and ranking in vector search
