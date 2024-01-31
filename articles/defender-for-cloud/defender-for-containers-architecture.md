@@ -77,7 +77,7 @@ When you enable the agentless discovery for Kubernetes extension, the following 
    Learn more about [AKS Trusted Access](/azure/aks/trusted-access-feature).
 
 - **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
-- **Bind**: Upon discovery of an AKS cluster, Defender for Cloud performs an AKS bind operation between the created identity and the Kubernetes role *Microsoft.Security/pricings/microsoft-defender-operator*. The role is visible via API and gives Defender for Cloud data plane read permission inside the cluster.
+- **Bind**: Upon discovery of an AKS cluster, Defender for Cloud performs an AKS bind operation by creating a `ClusterRoleBinding` between the created identity and the Kubernetes `ClusterRole` *aks:trustedaccessrole:defender-containers:microsoft-defender-operator*. The `ClusterRole` is visible via API and gives Defender for Cloud data plane read permission inside the cluster.
 
 ## [**On-premises / IaaS (Arc)**](#tab/defender-for-container-arch-arc)
 
