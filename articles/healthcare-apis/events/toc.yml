@@ -20,7 +20,7 @@ items:
   items: 
     - name: Use metrics
       href: events-use-metrics.md
-    - name: Disable events or delete events-enabled workspaces
+    - name: Disable events notifications
       href: events-disable-delete-workspace.md
     - name: Enable diagnostic settings
       href: events-enable-diagnostic-settings.md

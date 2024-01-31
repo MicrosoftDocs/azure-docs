@@ -12,7 +12,9 @@ ms.author: jasteppe
 
 # Events FAQ
 
-Events let you subscribe to data changes in the FHIR and DICOM services and get notified through Azure Event Grid. You can use events to trigger workflows, automate tasks, send alerts, and more. In this FAQ, you’ll find answers to some common questions about events.
+**Applies to:** [!INCLUDE [Yes icon](../includes/applies-to.md)][!INCLUDE [FHIR service](../includes/fhir-service.md)], [!INCLUDE [DICOM service](../includes/DICOM-service.md)]
+
+Events let you subscribe to data changes in the FHIR&reg; or DICOM&reg; service and get notified through Azure Event Grid. You can use events to trigger workflows, automate tasks, send alerts, and more. In this FAQ, you’ll find answers to some common questions about events.
 
 #### Can I use events with a non-Microsoft FHIR or DICOM service?
 
