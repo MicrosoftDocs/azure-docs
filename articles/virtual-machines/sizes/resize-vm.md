@@ -69,89 +69,6 @@ If your VM is still running and you don't see the size you want in the list, sto
     Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
     ```
 
-### [CLI](#tab/cli)
-
-To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az sign-in](/cli/azure/reference-index).
-
-The below script checks if the desired VM size is available before resizing. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again. You can replace the values of `resourceGroup`, `vm`, and `size` with your own.
-   
-```azurecli-interactive
- # Set variables
-resourceGroup=myResourceGroup
-vm=myVM
-size=Standard_DS3_v2
-
-# Check if the desired VM size is available
-if ! az vm list-vm-resize-options --resource-group $resourceGroup --name $vm --query "[].name" | grep -q $size; then
-    echo "The desired VM size is not available."
-    exit 1
-fi
-
-# Deallocate the VM
-az vm deallocate --resource-group $resourceGroup --name $vm
-
-# Resize the VM
-az vm resize --resource-group $resourceGroup --name $vm --size $size
-
-# Start the VM
-az vm start --resource-group $resourceGroup --name $vm
-```
-   
-   > [!WARNING]
-   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
-   > 
-   > If you are resizing a production VM, consider using [Azure Capacity Reservations](../capacity-reservation-overview.md) to reserve Compute capacity in the region. 
-
-**Use Azure CLI to resize a VM in an availability set.**
-
-The below script sets the variables `resourceGroup`, `vm`, and `size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
-
-
-```azurecli-interactive
-# Set variables
-resourceGroup="myResourceGroup"
-vmName="myVM"
-newVmSize="<newVmSize>"
-availabilitySetName="<availabilitySetName>"
-
-# Check if the desired VM size is available
-availableSizes=$(az vm list-vm-resize-options \
-  --resource-group $resourceGroup \
-  --name $vmName \
-  --query "[].name" \
-  --output tsv)
-if [[ ! $availableSizes =~ $newVmSize ]]; then
-  # Deallocate all VMs in the availability set
-  vmIds=$(az vmss list-instances \
-    --resource-group $resourceGroup \
-    --name $availabilitySetName \
-    --query "[].instanceId" \
-    --output tsv)
-  az vm deallocate \
-    --ids $vmIds \
-    --no-wait
-
-  # Resize and restart the VMs in the availability set
-  az vmss update \
-    --resource-group $resourceGroup \
-    --name $availabilitySetName \
-    --set virtualMachineProfile.hardwareProfile.vmSize=$newVmSize
-  az vmss start \
-    --resource-group $resourceGroup \
-    --name $availabilitySetName \
-    --instance-ids $vmIds
-  exit
-fi
-
-# Resize the VM
-az vm resize \
-  --resource-group $resourceGroup \
-  --name $vmName \
-  --size $newVmSize
-```
-
-### [PowerShell](#tab/powershell)
-
 **Use PowerShell to resize a VM not in an availability set.**
 
 This Cloud shell PowerShell script initializes the variables `$resourceGroup`, `$vm`, and `$size` with the resource group name, VM name, and desired VM size respectively. It then retrieves the VM object from Azure using the `Get-AzVM` cmdlet. The script modifies the `VmSize` property of the VM's hardware profile to the desired size. Finally, it applies these changes to the VM in Azure using the `Update-AzVM` cmdlet.
@@ -241,6 +158,88 @@ Update-AzVM `
 ```
 
 This script sets the variables `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName`. It then checks if the desired VM size is available by using `Get-AzVMSize` and checking if the output contains the desired size. If the desired size isn't available, the script deallocates all VMs in the availability set, resizes them, and starts them again. If the desired size is available, the script resizes the VM.
+
+
+### [CLI](#tab/cli)
+
+To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az sign-in](/cli/azure/reference-index).
+
+The below script checks if the desired VM size is available before resizing. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again. You can replace the values of `resourceGroup`, `vm`, and `size` with your own.
+   
+```azurecli-interactive
+ # Set variables
+resourceGroup=myResourceGroup
+vm=myVM
+size=Standard_DS3_v2
+
+# Check if the desired VM size is available
+if ! az vm list-vm-resize-options --resource-group $resourceGroup --name $vm --query "[].name" | grep -q $size; then
+    echo "The desired VM size is not available."
+    exit 1
+fi
+
+# Deallocate the VM
+az vm deallocate --resource-group $resourceGroup --name $vm
+
+# Resize the VM
+az vm resize --resource-group $resourceGroup --name $vm --size $size
+
+# Start the VM
+az vm start --resource-group $resourceGroup --name $vm
+```
+   
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](../capacity-reservation-overview.md) to reserve Compute capacity in the region. 
+
+**Use Azure CLI to resize a VM in an availability set.**
+
+The below script sets the variables `resourceGroup`, `vm`, and `size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
+
+
+```azurecli-interactive
+# Set variables
+resourceGroup="myResourceGroup"
+vmName="myVM"
+newVmSize="<newVmSize>"
+availabilitySetName="<availabilitySetName>"
+
+# Check if the desired VM size is available
+availableSizes=$(az vm list-vm-resize-options \
+  --resource-group $resourceGroup \
+  --name $vmName \
+  --query "[].name" \
+  --output tsv)
+if [[ ! $availableSizes =~ $newVmSize ]]; then
+  # Deallocate all VMs in the availability set
+  vmIds=$(az vmss list-instances \
+    --resource-group $resourceGroup \
+    --name $availabilitySetName \
+    --query "[].instanceId" \
+    --output tsv)
+  az vm deallocate \
+    --ids $vmIds \
+    --no-wait
+
+  # Resize and restart the VMs in the availability set
+  az vmss update \
+    --resource-group $resourceGroup \
+    --name $availabilitySetName \
+    --set virtualMachineProfile.hardwareProfile.vmSize=$newVmSize
+  az vmss start \
+    --resource-group $resourceGroup \
+    --name $availabilitySetName \
+    --instance-ids $vmIds
+  exit
+fi
+
+# Resize the VM
+az vm resize \
+  --resource-group $resourceGroup \
+  --name $vmName \
+  --size $newVmSize
+```
 
 ### [Terraform](#tab/terraform)
 
