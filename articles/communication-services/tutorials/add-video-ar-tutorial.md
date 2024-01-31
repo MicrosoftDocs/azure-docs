@@ -26,8 +26,8 @@ Let's try DeepAR to enrich your video with Augmented Reality!
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Communication Service resource. Further details can be found in the [Create an Azure Communication Services resource](../create-communication-resource.md) quickstart.
-- An Azure Communication Services voice and video calling enabled client. [Add video calling to your app](./get-started-with-video-calling.md?pivots=platform-web).
+- An Azure Communication Service resource. Further details can be found in the [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md) quickstart.
+- An Azure Communication Services voice and video calling enabled client. [Add video calling to your app](../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web).
 - DeepAR license key. [Getting started | DeepAR](https://docs.deepar.ai/deepar-sdk/platforms/web/getting-started).
 
 ## How video input and output work between ACS Web SDK and DeepAR
@@ -130,6 +130,6 @@ await deepAR.stopVideo();
 ## Next steps
 For more information, see the following articles:
 
-- Learn about [Video effects](./get-started-video-effects.md?pivots=platform-web).
-- Learn more about [Manage video during calls](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web).
+- Learn about [Video effects](../quickstarts/voice-video-calling/get-started-video-effects.md?pivots=platform-web).
+- Learn more about [Manage video during calls](../how-tos/calling-sdk/manage-video.md?pivots=platform-web).
 - DeepAR documentation. [Getting started | DeepAR](https://docs.deepar.ai/deepar-sdk/platforms/web/getting-started).

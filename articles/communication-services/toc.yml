@@ -430,7 +430,7 @@ items:
     - name: Integrate with other SDKs
       items:
       - name: Add Augmented Reality filters to your video calls
-        href: tutorial/add-video-ar-tutorial.md
+        href: tutorials/add-video-ar-tutorial.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
