@@ -184,6 +184,7 @@ The following instructions apply for public **Azure Commercial clouds** only. Fo
    | **Options** | *Require external ID* | *Do not* select *Require MFA* |
    | **External ID** | Your Microsoft Sentinel *Workspace ID*,<br>pasted from your clipboard. | This identifies *your specific Microsoft Sentinel account* to AWS. |
    | **Permissions to assign** | <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`<li>Additional policies for ingesting the different types of AWS service logs. | For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in the Microsoft Sentinel GitHub repository. |
+   | **Name** | Example: "*MicrosoftSentinelRole*". | Choose a meaningful name that includes a reference to Microsoft Sentinel. |
 
 1. Continue with [Add the AWS role and queue information to the S3 data connector](#add-the-aws-role-and-queue-information-to-the-s3-data-connector) below.
 
@@ -208,7 +209,7 @@ The following instructions apply for public **Azure Commercial clouds** only. Fo
    | **Trusted entity type** | *Web identity* | Instead of default *AWS service*. |
    | **Identity provider** | `sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/` | The provider you created in the previous step. |
    | **Audience** | `api://d4230588-5f84-4281-a9c7-2c15194b28f7` | The audience you defined for the identity provider in the previous step. |
-   | **Permissions to assign** | <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`<li>Additional policies for ingesting the different types of AWS service logs. | For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in the Microsoft Sentinel GitHub repository. |
+   | **Permissions to assign** | <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`<li>Additional policies for ingesting the different types of AWS service logs. | For information on these policies, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPoliciesForGov.md) for Government, in the Microsoft Sentinel GitHub repository. |
    | **Name** | Example: "*MicrosoftSentinelRole*". | Choose a meaningful name that includes a reference to Microsoft Sentinel. |
 
 
