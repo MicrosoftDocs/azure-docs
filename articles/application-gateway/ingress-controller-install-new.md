@@ -16,7 +16,7 @@ The instructions below assume Application Gateway Ingress Controller (AGIC) will
 installed in an environment with no pre-existing components.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md).
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Required Command Line Tools
 

@@ -13,7 +13,7 @@ ms.author: greglin
 
 # Application Gateway for Containers components 
 
-This article provides detailed descriptions and requirements for components of Application Gateway for Containers. Information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target is provided.  For a general overview of Application Gateway for Containers, see [What is Application Gateway for Containers?](overview.md).
+This article provides detailed descriptions and requirements for components of Application Gateway for Containers. Information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target is provided.  For a general overview of Application Gateway for Containers, see [What is Application Gateway for Containers](overview.md).
 
 ### Core components
 - Application Gateway for Containers is an Azure parent resource that deploys the control plane

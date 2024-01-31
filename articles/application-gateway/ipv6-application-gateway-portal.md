@@ -350,4 +350,4 @@ To opt out of the public preview for the enhanced Application Gateway network co
 
 ## Next steps
 
-- [What is Azure Application Gateway v2?](overview-v2.md)
+- [What is Azure Application Gateway v2](overview-v2.md).
