@@ -157,9 +157,9 @@ items:
     items:
     - name: Set up a staging environment
       href: how-to-staging-environment.md
-    - name: Use IntelliJ to deploy apps
+    - name: Deploy apps using IntelliJ
       href: how-to-intellij-deploy-apps.md
-    - name: Use VS Code to deploy apps
+    - name: Deploy apps using VS Code
       href: https://code.visualstudio.com/docs/java/java-spring-apps
     - name: Deploy Spring apps with Maven
       href: how-to-maven-deploy-apps.md

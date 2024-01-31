@@ -10,6 +10,21 @@ ms.date: 04/18/2023
 
 The Kubernetes provider allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
+> [!NOTE]
+> Kubernetes provider is not currently supported for private clusters:
+> 
+> ```json
+> resource AKS 'Microsoft.ContainerService/managedClusters@2023-01-02-preview' = {
+>  properties: {
+>   "apiServerAccessProfile": {
+>     "enablePrivateCluster": "true"
+>     }
+>   }
+> }
+> 
+> ```
+> 
+
 ## Enable the preview feature
 
 This preview feature can be enabled by configuring the [bicepconfig.json](./bicep-config.md):
