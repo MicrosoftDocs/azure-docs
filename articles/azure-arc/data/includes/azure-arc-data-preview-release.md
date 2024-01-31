@@ -33,7 +33,7 @@ Fed 2024 test release is now available.
 |`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
-|Azure Resource Manager (ARM) API version|2024-02-01-preview|
+|Azure Resource Manager (ARM) API version|2023-11-01-preview|
 |`arcdata` Azure CLI extension version|1.6.0 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.27.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
