@@ -97,8 +97,8 @@ If you're new to vectors, this section explains some core concepts.
  -->
 
 Vector search is a method of information retrieval where documents and queries are represented as vectors instead of plain text. In vector search, embedding models generate the vector representations of source inputs, which can be text, images, or other content. Having a mathematic representation of content provides a common basis for search scenarios. If everything is a vector, a query can find a match in vector space, even if the associated original content is in different media or language than the query.
-
-## Why use vector search
+<!-- 
+## Why use vector search -->
 
 Vector representation is the basis for matching on semantically or conceptually similar content. The embedding model used for vectorization is trained to recognize which words and concepts are similar, and it places the resulting vectors close together in the embedding space. For example, vectorized source documents about "clouds" and "fog" are more likely to show up in a query about "mist" because they're semantically similar, even if they aren't a lexical match.
 
@@ -121,9 +121,18 @@ For example, documents that talk about different species of dogs would be cluste
 
 In Azure AI Search, there are two patterns for working with the search engine's response.
 
-+ Send the search results directly to the client app.
++ Send the search results directly to the client app. 
 + Send the search results to a chat model and an orchestration layer that coordinates prompts and maintains chat history for a conversational approach.
 
+In a direct reponse from the search engine, results are returned in a flattened row set, and you can choose which fields are included. It's expected that you would populate the vector store (search index) with non-vector content that's human readable so that you don't have to decode vectors for your response. The search engine matches on vectors, but returns non-vector values from the same search document.
+
+In a chat solution, results are fed into prompt flows and chat models like GPT and Text-Davinci use the search results, with or without their own training data, in a custom or provided client app (such as Azure OpenAI Studio). This is approach is based on **Retreieval augmented generation (RAG)** architecture.
+
+## Structure of a vector query
+
+TBD
+
+## How vector query execution works
 
 <a name="eknn"></a>
 
