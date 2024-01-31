@@ -5,7 +5,7 @@ author: ju-shim
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 01/31/2024
 ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell
