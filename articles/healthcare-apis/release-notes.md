@@ -59,9 +59,14 @@ Learn more:
 - [SMART on FHIR](fhir/smart-on-fhir.md)
 - [Sample: Azure ONC (g)(10) SMART on FHIR](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/patientandpopulationservices-smartonfhir-oncg10)
 
-**Storage size support in FHIR service beyond 4TB** 
+**Request more than 4 TB of storage for the FHIR service**
 
-By default each FHIR instance is limited to storage capacity of 4TB. To provision a FHIR instance with storage capacity beyond 4TB, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with the Issue type 'Service and Subscription limit (quotas)'.
+The FHIR service can store and exchange large amounts of health data, but each instance has a 4 TB storage limit by default. If you have more data, you can ask Microsoft to increase storage for your FHIR service.
+ 
+By adding more storage to the FHIR service, organizations can handle large data sets that enable them to perform complex FHIR operations, such as analytics and transactions. For example, you can use more storage to manage population health, conduct research, and gain new insights from health data. Plus, more storage allows Azure API for FHIR customers with high-volume data to migrate to the FHIR service in Azure Health Data Services easily and seamlessly.
+
+To request more storage, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) on the Azure portal and use the issue type **Service and Subscription limit (quotas)**.
+
 > [!NOTE]
 > Due to an issue with billing metrics for storage, customers opting for more than 4TB storage capacity won't be billed for storage until the issue is addressed.
 
