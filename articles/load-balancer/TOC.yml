@@ -20,6 +20,9 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Terraform
+      displayName: Terraform
+      href: quickstart-load-balancer-standard-public-terraform.md
     expanded: true
   - name: Create an internal load balancer
     items:

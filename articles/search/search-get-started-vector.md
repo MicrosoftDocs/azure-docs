@@ -14,12 +14,14 @@ ms.date: 01/19/2024
 
 # Quickstart: Vector search using REST APIs
 
-Get started with vector search in Azure AI Search using the **2023-11-01** REST APIs that create, load, and query a search index. 
+Get started with vector stores in Azure AI Search using the **2023-11-01** REST APIs that load, and query vectors. 
 
-Search indexes can have vector and nonvector fields. You can execute pure vector queries, or hybrid queries targeting both vector *and* textual fields configured for filters, sorts, facets, and semantic reranking.
+In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests. The [Create Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store.
+
+You can execute pure vector queries, or hybrid queries targeting both vector *and* textual fields configured for filters, sorts, facets, and semantic reranking.
 
 > [!NOTE]
-> The stable REST API version depends on external modules for data chunking and embedding. If you want test-drive the [built-in data chunking and vectorization (public preview)](vector-search-integrated-vectorization.md) features, try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) for an end-to-end walkthrough.
+> The stable REST API version depends on external solutions for data chunking and embedding. If you want evalulate the [built-in data chunking and vectorization (public preview)](vector-search-integrated-vectorization.md) features, try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) for an end-to-end walkthrough.
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ Search indexes can have vector and nonvector fields. You can execute pure vector
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created. You can use the Free tier for this quickstart, but Basic or higher is recommended for larger data files.
 
 + Optionally, for [semantic reranking](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 

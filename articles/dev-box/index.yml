@@ -54,8 +54,10 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:              
-          - text: Configure the Remote Desktop client to connect to a dev box with multiple monitors
+          - text: Configure the Remote Desktop client to connect to a dev box
             url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+          - text: Use multiple monitors with your dev box 
+            url: tutorial-configure-multiple-monitors.md 
       - linkListType: how-to-guide
         links:
           - text: Troubleshoot dev box connectivity issues
