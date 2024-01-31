@@ -58,7 +58,7 @@ To activate dynamic quota for your deployment, you can go to the advanced proper
 
 :::image type="content" source="../media/how-to/dynamic-quota/dynamic-quota.png" alt-text="Screenshot of advanced configuration UI for deployments" lightbox="../media/how-to/dynamic-quota/dynamic-quota.png":::
 
-Alternatively, you can enable it programmatically with Azure CLI's [`az rest`](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-rest):
+Alternatively, you can enable it programmatically with Azure CLI's [`az rest`](/cli/azure/reference-index?view=azure-cli-latest#az-rest&preserve-view=true):
 
 Replace the `{subscriptionId}`, `{resourceGroupName}`, `{accountName}`, and `{deploymentName}` with the relevant values for your resource. In this case, `accountName` is equal to Azure OpenAI resource name.
 
