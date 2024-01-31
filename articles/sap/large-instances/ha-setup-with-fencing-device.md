@@ -2,10 +2,8 @@
 title: High availability setup with fencing device for SAP HANA on Azure (Large Instances)| Microsoft Docs
 description: Learn to establish high availability for SAP HANA on Azure (Large Instances) in SUSE by using the fencing device.
 services: virtual-machines-linux
-documentationcenter:
 author: ju-shim
 manager: juergent
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

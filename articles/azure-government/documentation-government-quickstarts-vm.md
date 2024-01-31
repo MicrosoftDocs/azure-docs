@@ -3,11 +3,9 @@ title: Create Virtual Machines in Azure Government | Microsoft Docs
 description: This tutorial shows steps for creating Virtual Machines with Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
 

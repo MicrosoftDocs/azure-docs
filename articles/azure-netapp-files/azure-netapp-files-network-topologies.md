@@ -2,15 +2,9 @@
 title: Guidelines for Azure NetApp Files network planning | Microsoft Docs
 description: Describes guidelines that can help you design an effective network architecture by using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: ram-kakani
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/10/2023
 ms.author: ramakk
@@ -118,6 +112,9 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * UAE North 
 * UK South
 * UK West
+* US Gov Arizona
+* US Gov Texas 
+* US Gov Virginia
 * West Europe 
 * West US 
 * West US 2*  

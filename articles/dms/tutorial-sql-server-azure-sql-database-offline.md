@@ -25,7 +25,6 @@ In this tutorial, you learn how to:
 > - Run an assessment of your source SQL Server databases
 > - Collect performance data from your source SQL Server instance
 > - Get a recommendation of the Azure SQL Database SKU that will work best for your workload
-> - Deploy your on-premises database schema to Azure SQL Database
 > - Create an instance of Azure Database Migration Service
 > - Start your migration and monitor progress to completion
 
@@ -61,14 +60,14 @@ Before you begin the tutorial:
 
 - Make sure that the SQL Server login that connects to the source SQL Server instance is a member of the db_datareader role and that the login for the target SQL Server instance is a member of the db_owner role.
 
-- Migrate the database schema from source to target by using the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio.
-
+- To migrate the database schema from source to target Azure SQL DB by using the Database Migration Service, the minimum supported [SHIR version](https://www.microsoft.com/download/details.aspx?id=39717) required is 5.37 or above.
+    
 - If you're using Database Migration Service for the first time, make sure that the Microsoft.DataMigration [resource provider is registered in your subscription](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
 > [!NOTE]  
-> Make sure to migrate the database schema from source to target by using the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio before selecting the list of tables to migrate.
+> Now, you can migrate database Schema and data both using Database Migration Service. Also, you can use tools like the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio to migrate schema before selecting the list of tables to migrate.
 >  
-> If no tables exist on the Azure SQL Database target, or no tables are selected before starting the migration, the **Next** button isn't available to select to initiate the migration task.
+> If no table exist on the Azure SQL Database target, or no tables are selected before starting the migration, the **Next** button isn't available to select to initiate the migration task. If no table exists on target then you must select the Schema migration option to move forward.
 
 ### Open the Migrate to Azure SQL wizard in Azure Data Studio
 
@@ -179,7 +178,7 @@ To open the Migrate to Azure SQL wizard:
 > [!NOTE]  
 > If no tables are selected or if a username and password aren't entered, the **Next** button isn't available to select.
 >  
-> Make sure to migrate the database schema from source to target by using the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio before selecting the list of tables to migrate.
+> Now, you can migrate database Schema and data both using Database Migration Service. Also, you can use tools like the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio to migrate Schema before selecting the list of tables to migrate.
 
 ### Create a Database Migration Service instance
 
@@ -312,14 +311,14 @@ Before you begin the tutorial:
 
 - Make sure that the SQL Server login that connects to the source SQL Server instance is a member of the **db_datareader** role, and that the login for the target SQL Server instance is a member of the **db_owner** role.
 
-- Migrate the database schema from source to target by using the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio.
+- To migrate the database Schema from source to target Azure SQL DB by using the Database Migration Service, the minimum supported [SHIR version](https://www.microsoft.com/download/details.aspx?id=39717) required is 5.37 or above.
 
 - If you're using Database Migration Service for the first time, make sure that the `Microsoft.DataMigration` [resource provider is registered in your subscription](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
 > [!NOTE]  
-> Make sure to migrate the database schema from source to target by using the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio before selecting the list of tables to migrate.
+> Now, you can migrate database Schema and data both using Database Migration Service. Also, you can use tools like the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio to migrate schema before selecting the list of tables to migrate.
 >
-> If no tables exists on the Azure SQL Database target, or no tables are selected before starting the migration. The **Next** button isn't available to select to initiate the migration task.
+> If no table exists on the Azure SQL Database target, or no tables are selected before starting the migration. The **Next** button isn't available to select to initiate the migration task. If no table exists on target then you must select the Schema migration option to move forward.
 
 [!INCLUDE [create-database-migration-service-instance](includes/create-database-migration-service-instance.md)]
 
@@ -371,7 +370,7 @@ Before you begin the tutorial:
       > [!NOTE]
       > In an offline migration, application downtime starts when the migration starts.
       >
-      > Make sure to migrate the database schema from source to target by using the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio before selecting the list of tables to migrate.
+      > Now, you can migrate database Schema and data both using Database Migration Service. Also, you can use tools like the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio to migrate schema before selecting the list of tables to migrate.
 
 ### Monitor the database migration
 

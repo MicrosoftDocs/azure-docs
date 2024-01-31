@@ -1,6 +1,6 @@
 ---
 title: Create callable or nestable workflows
-description: Set up HTTPS endpoints to call, trigger, or nest workflows in Azure Logic Apps.
+description: Create workflows that receive inbound requests over HTTPS in Azure Logic Apps.
 services: logic-apps
 ms.workload: integration
 ms.reviewer: estfan, azla
@@ -13,7 +13,7 @@ ms.date: 01/09/2024
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Some scenarios might require that you create a workflow that you can call using a URL or that can receive inbound requests from other services or workflows. For this task, you can expose a native synchronous HTTPS endpoint on your workflow when you use any of the following request-based trigger types:
+Some scenarios might require that you create a logic app workflow that can receive inbound requests from other services or workflows, or a workflow that you can call by using a URL. For this task, you can expose a native synchronous HTTPS endpoint on your workflow when you use any of the following request-based trigger types:
 
 * [Request](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)

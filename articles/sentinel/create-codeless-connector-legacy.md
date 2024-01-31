@@ -585,7 +585,7 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
 
     # [Connect via API](#tab/connect-via-api)
 
-    Use the [CONNECT](/rest/api/securityinsights/preview/data-connectors/connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
+    Use the CONNECT endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
 
     Use the following API attributes, depending on the [authType](#authtype) defined. For each `authType` parameter, all listed attributes are mandatory and are string values.
 

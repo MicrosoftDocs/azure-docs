@@ -228,6 +228,8 @@
           href: ../notebooks-faq.yml
     - name: Emulator
       href: ../emulator.md
+    - name: Network bandwidth
+      href: ../network-bandwidth.md
 - name: How to
   items:
     - name: Develop applications

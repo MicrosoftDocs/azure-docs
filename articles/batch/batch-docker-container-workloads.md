@@ -2,9 +2,10 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 12/06/2023
-ms.devlang: csharp, python
-ms.custom: seodec18, devx-track-csharp, devx-track-linux
+ms.date: 01/19/2024
+ms.devlang: csharp
+# ms.devlang: csharp, python
+ms.custom: seodec18, devx-track-csharp, linux-related-content
 ---
 
 # Use Azure Batch to run container workloads
@@ -47,7 +48,7 @@ Keep in mind the following limitations:
 - For Windows container workloads, you should choose a multicore VM size for your pool.
 
 > [!IMPORTANT]
-> Note that docker, by default, will create a network bridge with a subnet specification of `172.17.0.0/16`. If you are specifying a
+> Docker, by default, will create a network bridge with a subnet specification of `172.17.0.0/16`. If you are specifying a
 > [virtual network](batch-virtual-network.md) for your pool, please ensure that there are no conflicting IP ranges.
 
 ## Supported VM images
@@ -56,36 +57,43 @@ Use one of the following supported Windows or Linux images to create a pool of V
 
 ### Windows support
 
-Batch supports Windows server images that have container support designations. Typically, these image SKU names are suffixed with `win_2016_mcr_20_10` or `win_2022_mcr_20_10` under the Mirantis publisher and are offered as `windows_2016_with_mirantis_container_runtime` or `windows_2022_with_mirantis_container_runtime`. Additionally, [the API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotes a `DockerCompatible` capability if the image supports Docker containers.
+Batch supports Windows server images that have container support designations.
+[The API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotes
+a `DockerCompatible` capability if the image supports Docker containers. Batch allows, but doesn't directly
+support, images published by Mirantis with capability noted as `DockerCompatible`. These images may only be
+deployed under a User Subscription pool allocation mode Batch account.
 
-You can also create custom images from VMs running Docker on Windows.
+You can also create a [custom image](batch-sig-images.md) to enable container functionality on Windows.
 
 > [!NOTE]
-> The image SKUs `-with-containers` or `-with-containers-smalldisk` are retired. Please see the [announcement](https://techcommunity.microsoft.com/t5/containers/updates-to-the-windows-container-runtime-support/ba-p/2788799) for details and alternative container runtime options for Kubernetes environment.
+> The image SKUs `-with-containers` or `-with-containers-smalldisk` are retired. Please see the [announcement](https://techcommunity.microsoft.com/t5/containers/updates-to-the-windows-container-runtime-support/ba-p/2788799) for details and alternative container runtime options.
 
 ### Linux support
 
-For Linux container workloads, Batch currently supports the following Linux images published by Microsoft Azure Batch in the Azure Marketplace without the need for a custom image.
-
-#### VM sizes without RDMA
-
-- Publisher: `microsoft-azure-batch`
-  - Offer: `centos-container`
-  - Offer: `ubuntu-server-container`
-
-#### VM sizes with RDMA
-
-- Publisher: `microsoft-azure-batch`
-  - Offer: `centos-container-rdma`
-  - Offer: `ubuntu-server-container-rdma`
+For Linux container workloads, Batch currently supports the following Linux images published in the Azure Marketplace
+without the need for a custom image.
 
 - Publisher: `microsoft-dsvm`
   - Offer: `ubuntu-hpc`
 
+#### Alternate image options
+
+Currently there are other images published by `microsoft-azure-batch` that support container workloads:
+
+- Publisher: `microsoft-azure-batch`
+  - Offer: `centos-container`
+  - Offer: `centos-container-rdma` (For use exclusively on VM SKUs with Infiniband)
+  - Offer: `ubuntu-server-container`
+  - Offer: `ubuntu-server-container-rdma` (For use exclusively on VM SKUs with Infiniband)
+
+> [!IMPORTANT]
+> It is recommended to use the `microsoft-dsvm` `ubuntu-hpc` VM image instead of images published by
+> `microsoft-azure-batch`. This image may be used on any VM SKU.
+
 #### Notes
   The docker data root of the above images lies in different places:
-  - For the batch image `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc.), the docker data root is mapped to _/mnt/batch/docker_, which is usually located on the temporary disk.
-  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are usually located on the OS disk.
+  - For the Azure Batch published `microsoft-azure-batch` images (Offer: `centos-container-rdma`, etc.), the docker data root is mapped to _/mnt/batch/docker_, which is located on the temporary disk.
+  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default, which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are located on the OS disk.
 
   For non-Batch published images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
 
@@ -111,14 +119,21 @@ These images are only supported for use in Azure Batch pools and are geared for 
 - Pre-installed NVIDIA GPU drivers and NVIDIA container runtime, to streamline deployment on Azure N-series VMs.
 - VM images with the suffix of `-rdma` are pre-configured with support for InfiniBand RDMA VM sizes. These VM images shouldn't be used with VM sizes that don't have InfiniBand support.
 
-You can also create custom images from VMs running Docker on one of the Linux distributions that's compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed image to create a custom image pool](batch-custom-images.md).
+You can also create [custom images](batch-sig-images.md) compatible for Batch containers on one of the Linux distributions
+that's compatible with Batch. For Docker support on a custom image, install a suitable Docker-compatible runtime, such as
+a version of [Docker](https://www.docker.com) or
+[Mirantis Container Runtime](https://www.mirantis.com/software/mirantis-container-runtime/). Installing just
+a Docker-CLI compatible tool is insufficient; a Docker Engine compatible runtime is required.
 
-For Docker support on a custom image, install [Docker Pro](https://www.docker.com/products/pro/) or the open-source [Docker Community Edition](https://www.docker.com/community).
+> [!IMPORTANT]
+> Neither Microsoft or Azure Batch will provide support for issues related to Docker (any version or edition),
+> Mirantis Container Runtime, or Moby runtimes. Customers electing to use these runtimes in their images should reach
+> out to the company or entity providing support for runtime issues.
 
-Additional considerations for using a custom Linux image:
+More considerations for using a custom Linux image:
 
 - To take advantage of the GPU performance of Azure N-series sizes when using a custom image, pre-install NVIDIA drivers. Also, you need to install the Docker Engine Utility for NVIDIA GPUs, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
-- To access the Azure RDMA network, use an RDMA-capable VM size. Necessary RDMA drivers are installed in the CentOS HPC and Ubuntu images supported by Batch. Additional configuration may be needed to run MPI workloads. See [Use RDMA or GPU instances in Batch pool](batch-pool-compute-intensive-sizes.md).
+- To access the Azure RDMA network, use an RDMA-capable VM size. Necessary RDMA drivers are installed in the CentOS HPC and Ubuntu images supported by Batch. Extra configuration may be needed to run MPI workloads. See [Use RDMA or GPU instances in Batch pool](batch-pool-compute-intensive-sizes.md).
 
 ## Container configuration for Batch pool
 
@@ -136,9 +151,9 @@ To configure a container-enabled pool without prefetched container images, defin
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
-    publisher='microsoft-azure-batch',
-    offer='ubuntu-server-container',
-    sku='20-04-lts',
+    publisher='microsoft-dsvm',
+    offer='ubuntu-hpc',
+    sku='2204',
     version='latest')
 
 """
@@ -152,17 +167,17 @@ new_pool = batch.models.PoolAddParameter(
     virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
         image_reference=image_ref_to_use,
         container_configuration=container_conf,
-        node_agent_sku_id='batch.node.ubuntu 20.04'),
-    vm_size='STANDARD_D1_V2',
+        node_agent_sku_id='batch.node.ubuntu 22.04'),
+    vm_size='STANDARD_D2S_V3',
     target_dedicated_nodes=1)
 ...
 ```
 
 ```csharp
 ImageReference imageReference = new ImageReference(
-    publisher: "microsoft-azure-batch",
-    offer: "ubuntu-server-container",
-    sku: "20-04-lts",
+    publisher: "microsoft-dsvm",
+    offer: "ubuntu-hpc",
+    sku: "2204",
     version: "latest");
 
 // Specify container configuration. This is required even though there are no prefetched images.
@@ -171,14 +186,14 @@ ContainerConfiguration containerConfig = new ContainerConfiguration();
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 20.04");
+    nodeAgentSkuId: "batch.node.ubuntu 22.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 1,
-    virtualMachineSize: "STANDARD_D1_V2",
+    virtualMachineSize: "STANDARD_D2S_V3",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
@@ -190,9 +205,9 @@ The following basic Python example shows how to prefetch a standard Ubuntu conta
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
-    publisher='microsoft-azure-batch',
-    offer='ubuntu-server-container',
-    sku='20-04-lts',
+    publisher='microsoft-dsvm',
+    offer='ubuntu-hpc',
+    sku='2204',
     version='latest')
 
 """
@@ -207,8 +222,8 @@ new_pool = batch.models.PoolAddParameter(
     virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
         image_reference=image_ref_to_use,
         container_configuration=container_conf,
-        node_agent_sku_id='batch.node.ubuntu 20.04'),
-    vm_size='STANDARD_D1_V2',
+        node_agent_sku_id='batch.node.ubuntu 22.04'),
+    vm_size='STANDARD_D2S_V3',
     target_dedicated_nodes=1)
 ...
 ```
@@ -217,9 +232,9 @@ The following C# example assumes that you want to prefetch a TensorFlow image fr
 
 ```csharp
 ImageReference imageReference = new ImageReference(
-    publisher: "microsoft-azure-batch",
-    offer: "ubuntu-server-container",
-    sku: "20-04-lts",
+    publisher: "microsoft-dsvm",
+    offer: "ubuntu-hpc",
+    sku: "2204",
     version: "latest");
 
 ContainerRegistry containerRegistry = new ContainerRegistry(
@@ -236,7 +251,7 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 20.04");
+    nodeAgentSkuId: "batch.node.ubuntu 22.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
@@ -245,7 +260,7 @@ StartTask startTaskContainer = new StartTask( commandLine: "<native-host-command
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    virtualMachineSize: "Standard_NC6",
+    virtualMachineSize: "Standard_NC6S_V3",
     virtualMachineConfiguration: virtualMachineConfiguration);
 
 // Start the task in the pool
@@ -259,10 +274,10 @@ You can also prefetch container images by authenticating to a private container 
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
-        publisher='microsoft-azure-batch',
-        offer='ubuntu-server-container',
-        sku='20-04-lts',
-        version='latest')
+    publisher='microsoft-dsvm',
+    offer='ubuntu-hpc',
+    sku='2204',
+    version='latest')
 
 # Specify a container registry
 container_registry = batch.models.ContainerRegistry(
@@ -280,8 +295,8 @@ new_pool = batch.models.PoolAddParameter(
             virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
                 image_reference=image_ref_to_use,
                 container_configuration=container_conf,
-                node_agent_sku_id='batch.node.ubuntu 20.04'),
-            vm_size='STANDARD_D1_V2',
+                node_agent_sku_id='batch.node.ubuntu 22.04'),
+            vm_size='STANDARD_D2S_V3',
             target_dedicated_nodes=1)
 ```
 
@@ -301,21 +316,25 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 20.04");
+    nodeAgentSkuId: "batch.node.ubuntu 22.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 4,
-    virtualMachineSize: "Standard_NC6",
+    targetDedicatedComputeNodes: 2,
+    virtualMachineSize: "Standard_NC6S_V3",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ...
 ```
 
 ### Managed identity support for ACR
 
-When you access containers stored in [Azure Container Registry](https://azure.microsoft.com/services/container-registry), either a username/password or a managed identity can be used to authenticate with the service. To use a managed identity, first ensure that the identity has been [assigned to the pool](managed-identity-pools.md) and that the identity has the `AcrPull` role assigned for the container registry you wish to access. Then, simply tell Batch which identity to use when authenticating with ACR.
+When you access containers stored in [Azure Container Registry](https://azure.microsoft.com/services/container-registry),
+either a username/password or a managed identity can be used to authenticate with the service. To use a managed identity,
+first ensure that the identity has been [assigned to the pool](managed-identity-pools.md) and that the identity has the
+`AcrPull` role assigned for the container registry you wish to access. Then, instruct Batch with which identity to use
+when authenticating with ACR.
 
 ```csharp
 ContainerRegistry containerRegistry = new ContainerRegistry(
@@ -332,14 +351,14 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 20.04");
+    nodeAgentSkuId: "batch.node.ubuntu 22.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 4,
-    virtualMachineSize: "Standard_NC6",
+    targetDedicatedComputeNodes: 2,
+    virtualMachineSize: "Standard_NC6S_V3",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ...
 ```
@@ -348,11 +367,9 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 To run a container task on a container-enabled pool, specify container-specific settings. Settings include the image to use, registry, and container run options.
 
-- Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class. Note that the `--rm` container option doesn't require an additional `--runtime` option since it's taken care of by Batch.
+- Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class. The `--rm` container option doesn't require another `--runtime` option since it's taken care of by Batch.
 
 - If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](/dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) don't require container settings (that is, they can run within a container context or directly on the node).
-
-- For Windows, tasks must be run with [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) set to `admin`.
 
 - For Linux, Batch maps the user/group permission to the container. If access to any folder within the container requires Administrator permission, you may need to run the task as pool scope with admin elevation level. This ensures that Batch runs the task as root in the container context. Otherwise, a non-admin user might not have access to those folders.
 
@@ -372,17 +389,21 @@ If the container image for a Batch task is configured with an [ENTRYPOINT](https
 
 - If the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`
 
-Optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) are additional arguments you provide to the `docker create` command that Batch uses to create and run the container. For example, to set a working directory for the container, set the `--workdir <directory>` option. See the [docker create](https://docs.docker.com/engine/reference/commandline/create/) reference for additional options.
+Optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) are other arguments you provide to the `docker create` command that Batch uses to create and run the container. For example, to set a working directory for the container, set the `--workdir <directory>` option. See the [docker create](https://docs.docker.com/engine/reference/commandline/create/) reference for more options.
 
 ### Container task working directory
 
-A Batch container task executes in a working directory in the container that's very similar to the directory that Batch sets up for a regular (non-container) task. Note that this working directory is different from the [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) if configured in the image, or the default container working directory (`C:\`  on a Windows container, or `/` on a Linux container).
+A Batch container task executes in a working directory in the container that's similar to the directory that Batch sets up for a regular (non-container) task. This working directory is different from the [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) if configured in the image, or the default container working directory (`C:\`  on a Windows container, or `/` on a Linux container).
 
 For a Batch container task:
 
 - All directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` on the host node (the root of Azure Batch directories) are mapped into the container.
 - All task environment variables are mapped into the container.
 - The task working directory `AZ_BATCH_TASK_WORKING_DIR` on the node is set the same as for a regular task and mapped into the container.
+
+> [!IMPORTANT]
+> For Windows container pools on VM families with ephemeral disks, the entire ephemeral disk is mapped to container space
+> due to Windows container limitations.
 
 These mappings allow you to work with container tasks in much the same way as non-container tasks. For example, install applications using application packages, access resource files from Azure Storage, use task environment settings, and persist task output files after the container stops.
 

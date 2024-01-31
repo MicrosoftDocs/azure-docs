@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 10/27/2023
+ms.date: 1/17/2024
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -44,12 +44,13 @@ The following regions are supported for Speech service features such as speech t
 | Europe | France Central | `francecentral` |
 | Europe | Germany West Central | `germanywestcentral` |
 | Europe | Norway East | `norwayeast` |
-| Europe | Sweden Central | `swedentcentral`<sup>8</sup> |
+| Europe | Sweden Central | `swedencentral`<sup>8</sup> |
 | Europe | Switzerland North | `switzerlandnorth` <sup>6</sup>|
 | Europe | Switzerland West | `switzerlandwest` |
 | Europe | UK South | `uksouth` <sup>1,2,3,4,7</sup>|
 | Middle East | UAE North | `uaenorth` <sup>6</sup>|
 | South America | Brazil South | `brazilsouth` <sup>6</sup>|
+| Qatar | Qatar Central | `qatarcentral`<sup>8</sup> |
 | US | Central US | `centralus` |
 | US | East US | `eastus` <sup>1,2,3,4,5,7,9</sup>|
 | US | East US 2 | `eastus2` <sup>1,2,4,5</sup>|
@@ -60,7 +61,7 @@ The following regions are supported for Speech service features such as speech t
 | US | West US 2 | `westus2` <sup>1,2,4,5,7</sup>|
 | US | West US 3 | `westus3` |
 
-<sup>1</sup> The region has dedicated hardware for Custom Speech training. If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
+<sup>1</sup> The region has dedicated hardware for custom speech training. If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
 
 <sup>2</sup> The region is available for custom neural voice training. You can copy a trained neural voice model to other regions for deployment.
 

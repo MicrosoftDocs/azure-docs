@@ -8,7 +8,6 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: zetiaatgithub
 ms.author: zetia
-ms.reviewer: 
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ms.date: 09/26/2023
 ---
