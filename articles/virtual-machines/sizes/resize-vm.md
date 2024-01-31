@@ -44,7 +44,7 @@ If your VM is still running and you don't see the size you want in the list, sto
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
    > 
-   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](../capacity-reservation-overview.md) to reserve Compute capacity in the region. 
   
 
 ### [PowerShell](#tab/powershell)
@@ -100,7 +100,7 @@ az vm start --resource-group $resourceGroup --name $vm
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
    > 
-   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](../capacity-reservation-overview.md) to reserve Compute capacity in the region. 
 
 **Use Azure CLI to resize a VM in an availability set.**
 
@@ -196,7 +196,7 @@ Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
    > 
-   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region.
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](../capacity-reservation-overview.md) to reserve Compute capacity in the region.
 
 
 **Use PowerShell to resize a VM in an availability set**
@@ -254,7 +254,7 @@ To resize your VM in Terraform code, you modify the `size` parameter in the `azu
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
    > 
-   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](../capacity-reservation-overview.md) to reserve Compute capacity in the region. 
 
 ---
 
