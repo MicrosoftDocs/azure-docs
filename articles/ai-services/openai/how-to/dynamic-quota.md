@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Azure OpenAI Dynamic quota (Preview)
 
-Dynamic quota is an Azure OpenAI feature that enables a standard (pay-as-you-go) deployment to opportunistically take advantage of more quota when extra capacity is available. When dynamic quota is set to off, your deployment will be able to process a maximum throughput established by your tokens per minute setting. When you exceed your preset TPM requests will return HTTP 429 responses. When dynamic quota is enabled, the deployment has the capability to access higher throughput before returning 429 responses, allowing you to perform more calls earlier. The extra requests are still billed at the [regular pricing rates](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
+Dynamic quota is an Azure OpenAI feature that enables a standard (pay-as-you-go) deployment to opportunistically take advantage of more quota when extra capacity is available. When dynamic quota is set to off, your deployment will be able to process a maximum throughput established by your Tokens Per Minute (TPM) setting. When you exceed your preset TPM, requests will return HTTP 429 responses. When dynamic quota is enabled, the deployment has the capability to access higher throughput before returning 429 responses, allowing you to perform more calls earlier. The extra requests are still billed at the [regular pricing rates](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
 Dynamic quota can only temporarily *increase* your available quota: it will never decrease below your configured value.
 
@@ -34,7 +34,7 @@ For dynamic quota, consider scenarios such as:
 
 ### When does dynamic quota come into effect?
 
-The Azure OpenAI backend decides if, when, and how much extra dynamic quota is added or removed from different deployments. It isn't forecasted or announced in advance, and isn't predictable. Azure OpenAI lets your application know there's more quota available by responding with an HTTP 429 and not letting your API calls through. To take advantage of dynamic quota, your application code must be able to issue more requests as HTTP 429 responses become infrequent.
+The Azure OpenAI backend decides if, when, and how much extra dynamic quota is added or removed from different deployments. It isn't forecasted or announced in advance, and isn't predictable. Azure OpenAI lets your application know there's more quota available by responding with an HTTP 429 and not letting more API calls through. To take advantage of dynamic quota, your application code must be able to issue more requests as HTTP 429 responses become infrequent.
 
 ### How does dynamic quota change costs?
 
