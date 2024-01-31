@@ -14,7 +14,7 @@ ms.author: pgrandhi
 - Setup a way to authenticate to Azure with [Azure Identity](/dotnet/api/overview/azure/identity-readme) library as described below.
 - An [Azure Communication Services resource](../../create-communication-resource.md).
 
-## Retreiving Communication Services ResourceId
+## Retrieving Communication Services ResourceId
 You will need to know the resourceId of your Azure Commmunication Services resource. This can be acquired from the portal:
 
 1. Login into your Azure account
