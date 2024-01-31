@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.reviewer: franksolomon
-ms.author: wibuchan
-author: buchananwp
+ms.author: xunwan
+author: SturgeonMi
 ms.date: 08/08/2023
 ms.topic: how-to
 ms.custom: UpdateFrequency5, data4ml, contperf-fy21q2, sdkv1, event-tier1-build-2022

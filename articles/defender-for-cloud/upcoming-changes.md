@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/28/2024
+ms.date: 01/31/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,7 +25,9 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Deprecation of endpoint recommendations](#deprecation-of-endpoint-recommendations) | January 28, 2024 | February 28, 2024 |
+| [Deprecation of endpoint recommendations](#deprecation-of-endpoint-recommendations) | January 31, 2024 | February 28, 2024 |
+| [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
+| [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
 | [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 11, 2024 | February 2024 |
@@ -45,7 +47,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 ## Deprecation of endpoint recommendations
 
-**Announcement date: January 28, 2024**
+**Announcement date: January 31, 2024**
 
 **Estimated date of change: February 2024**
 
@@ -62,13 +64,35 @@ The following recommendations will be deprecated:
 | Install endpoint protection solution on your machines | MMA | August 2024 |
 | Install endpoint protection solution on virtual machines | MMA | August 2024 |
 
+## Change in pricing for multicloud container threat detection
+
+**Announcement date: January 30, 2024**
+
+**Estimated date for change: April 2024**
+
+When [multicloud container threat detection](support-matrix-defender-for-containers.md) moves to GA, it will no longer be free of charge. For more information, see [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+## Enforcement of Defender CSPM for Premium DevOps Security Value
+
+**Announcement date: January 29, 2024**
+
+**Estimated date for change: March 7, 2024**
+
+Defender for Cloud will begin enforcing the Defender CSPM plan check for premium DevOps security value beginning **March 7th, 2024**. If you have the Defender CSPM plan enabled on a cloud environment (Azure, AWS, GCP) within the same tenant your DevOps connectors are created in, you'll continue to receive premium DevOps capabilities at no additional cost. If you aren't a Defender CSPM customer, you have until **March 7th, 2024** to enable Defender CSPM before losing access to these security features. To enable Defender CSPM on a connected cloud environment before March 7, 2024, follow the enablement documentation outlined [here](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan).
+
+For more information about which DevOps security features are available across both the Foundational CSPM and Defender CSPM plans, see [our documentation outlining feature availability](devops-support.md#feature-availability).
+
+For more information about DevOps Security in Defender for Cloud, see the [overview documentation](defender-for-devops-introduction.md).
+
+For more information on the code to cloud security capabilities in Defender CSPM, see [how to protect your resources with Defender CSPM](tutorial-enable-cspm-plan.md).
+
 ## Update to agentless VM scanning built-in Azure role
 
 **Announcement date: January 14, 2024**
 
 **Estimated date of change: February 2024**
 
-In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner operator](/azure/defender-for-cloud/faq-permissions)) with the minimum necessary permissions required to scan and assess your VMs for security issues. To continuously provide relevant scan health and configuration recommendations for VMs with encrypted volumes, an update to this role's permissions is planned. The update includes the addition of the ```Microsoft.Compute/DiskEncryptionSets/read``` permission. This permission solely enables improved identification of encrypted disk usage in VMs. It doesn't provide Defender for Cloud any other capabilities to decrypt or access the content of these encrypted volumes beyond the encryption methods [already supported](/azure/defender-for-cloud/concept-agentless-data-collection#availability) prior to this change. This change is expected to take place during February 2024 and no action is required on your end.
+In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner operator](/azure/defender-for-cloud/faq-permissions)) with the minimum necessary permissions required to scan and assess your VMs for security issues. To continuously provide relevant scan health and configuration recommendations for VMs with encrypted volumes, an update to this role's permissions is planned. The update includes the addition of the ```Microsoft.Compute/DiskEncryptionSets/read``` permission. This permission solely enables improved identification of encrypted disk usage in VMs. It doesn't provide Defender for Cloud any additional capabilities to decrypt or access the content of these encrypted volumes beyond the encryption methods [already supported](/azure/defender-for-cloud/concept-agentless-data-collection#availability) prior to this change. This change is expected to take place during February 2024 and no action is required on your end.
 
 ## Deprecation of two recommendations related to PCI
 
@@ -256,7 +280,7 @@ The following table lists the alerts to be deprecated:
 
 | AlertDisplayName | AlertType |
 |--|--|
-| Communication with suspicious random domain name (Preview) | DNS_RandomizedDomain
+| Communication with suspicious random domain name (Preview) | DNS_RandomizedDomain |
 | Communication with suspicious domain identified by threat intelligence (Preview) | DNS_ThreatIntelSuspectDomain |
 | Digital currency mining activity (Preview) | DNS_CurrencyMining |
 | Network intrusion detection signature activation (Preview) | DNS_SuspiciousDomain |

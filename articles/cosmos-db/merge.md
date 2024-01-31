@@ -174,17 +174,29 @@ az cosmosdb sql container merge \
 
 For **shared throughput databases**, start the merge by using `az cosmosdb sql database merge`.
 
-```azurecli
-az cosmosdb sql database merge \
-	--account-name '<cosmos-account-name>'                               
-	--name '<cosmos-database-name>'                                
-	--resource-group '<resource-group-name>'
+```azurecli-interactive
+az cosmosdb sql database merge `
+    --resource-group "<resource-group-name>" `         
+    --name "<database-name>"  `
+    --account-name "<cosmos-db-account-name>" 
 ```
 
 
-```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
-```
+```azurecli-interactive
+databaseId=$(az cosmosdb sql database show `
+    --resource-group "<resource-group-name>" `
+    --name "<database-name>" `
+    --account-name "<cosmos-db-account-name>" `
+    --query "id" `
+    --output "tsv"
+)
+
+endpoint="https://management.azure.com$databaseId/partitionMerge?api-version=2023-11-15-preview"
+
+az rest `
+    --method "POST" `
+    --url $endpoint `
+    --body "{}"
 
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
 
@@ -262,9 +274,9 @@ az cosmosdb mongodb collection merge \
 
 
 ---
-For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database?view=azure-cli-latest).
+For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database).
 
-```azurecli
+```azurecli-interactive
 az cosmosdb mongodb database merge \
 	--account-name '<cosmos-account-name>'                               
 	--name '<cosmos-database-name>'                                
@@ -272,7 +284,7 @@ az cosmosdb mongodb database merge \
 ```
 
 
-```http
+```http-interactive
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
 ```
 

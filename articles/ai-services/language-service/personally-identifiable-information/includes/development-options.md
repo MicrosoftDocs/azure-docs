@@ -8,7 +8,7 @@ ms.date: 12/19/2023
 ms.author: aahi
 ---
 
-To use PII detection, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no customization to the model used on your data. There are two ways to use PII detection:
+To use PII detection, you submit text for analysis and handle the API output in your application. Analysis is performed as-is, with no customization to the model used on your data. There are two ways to use PII detection:
 
 
 |Development option  |Description  |
