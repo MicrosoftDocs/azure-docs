@@ -86,8 +86,10 @@ You can set up the environment in one of two ways:
     terraform apply 
     ```
 
-1. When the script prompts for your Microsoft tenant ID, copy and paste it into the terminal. You can find and copy your tenant ID on the **GCP Pub/Sub Audit Logs** connector page in the Microsoft Sentinel portal, or in the **Portal settings** screen (accessible anywhere in the portal by selecting the gear icon along the top of the screen), in the **Directory ID** column.
-    :::image type="content" source="media/connect-google-cloud-platform/find-tenant-id.png" alt-text="Screenshot of portal settings screen." lightbox="media/connect-google-cloud-platform/find-tenant-id.png":::
+1. When the script prompts for your Microsoft tenant ID, copy and paste it into the terminal.
+   > [!NOTE] 
+   > You can find and copy your tenant ID on the **GCP Pub/Sub Audit Logs** connector page in the Microsoft Sentinel portal, or in the **Portal settings** screen (accessible anywhere in the Azure portal by selecting the gear icon along the top of the screen), in the **Directory ID** column.
+   > :::image type="content" source="media/connect-google-cloud-platform/find-tenant-id.png" alt-text="Screenshot of portal settings screen." lightbox="media/connect-google-cloud-platform/find-tenant-id.png":::
 
 1. When asked if a workload Identity Pool has already been created for Azure, answer *yes* or *no* accordingly.
 
@@ -128,9 +130,9 @@ For more information about service accounts in Google Cloud Platform, see [Servi
 1. Follow the instructions in the Google Cloud documentation to [**create the workload identity pool and provider**](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-clouds#create_the_workload_identity_pool_and_provider).
 
 1. For the **Name** and **Pool ID**, enter your Azure **Tenant ID**, with the dashes removed.
-
    > [!NOTE]
-   > To find the tenant ID, in the Azure portal, navigate to **All Services Microsoft Entra ID Overview** and copy the **TenantID**. 
+   > You can find and copy your tenant ID on the **Portal settings** screen, in the **Directory ID** column. The portal settings screen is accessible anywhere in the Azure portal by selecting the gear icon along the top of the screen.
+   > :::image type="content" source="media/connect-google-cloud-platform/find-tenant-id.png" alt-text="Screenshot of portal settings screen." lightbox="media/connect-google-cloud-platform/find-tenant-id.png":::
 
 1. Add an identity provider to the pool. Choose **Open ID Connect (OIDC)** as the provider type.
 
