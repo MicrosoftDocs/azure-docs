@@ -79,7 +79,7 @@ You must grant the Language resource access to your storage account before it ca
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select your Language resource.
-1. In the **Resource Management** group in the left pane, select **Identity**. If your resource was created in the global region, the **Identity** tab will not be visible. You can still use [Shared Access Signature tokens (SAS)](shared-access-signatures.md) for authentication.
+1. In the **Resource Management** group in the left pane, select **Identity**. If your resource was created in the global region, the **Identity** tab isn't visible. You can still use [Shared Access Signature tokens (SAS)](shared-access-signatures.md) for authentication.
 1. Within the **System assigned** tab, turn on the **Status** toggle.
 
     :::image type="content" source="media/resource-management-identity-tab.png" alt-text="Screenshot that shows the resource management identity tab in the Azure portal.":::
@@ -114,7 +114,7 @@ You must grant the Language resource access to your storage account before it ca
     |**Resource**| **_The name of your storage resource_**.|
     |**Role** | **_Storage Blob Data Contributor_**.|
 
-     :::image type="content" source="media/add-role-assignment-window.png" alt-text="Screenshot that shows the add role assignments page in the Azure portal.":::
+     :::image type="content" source="media/add-role-assignment-window.png" alt-text="Screenshot that shows the role assignments page in the Azure portal.":::
 
 1. After the _Added Role assignment_ confirmation message appears, refresh the page to see the added role assignment.
 
