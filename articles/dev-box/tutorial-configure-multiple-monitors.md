@@ -12,7 +12,9 @@ ms.topic: tutorial
 
 # Tutorial: Use multiple monitors on a dev box 
 
-In this tutorial, you configure a remote desktop client to use multiple monitors when you connect to your dev box.
+In this tutorial, you configure a remote desktop client to use dual or more monitors when you connect to your dev box.
+
+Using multiple monitors gives yopu more screen real estate to work with. You can spread your work across multiple screens, or use one screen for your development environment and another for documentation, email or messaging. 
 
 In this tutorial, you learn how to:
 
