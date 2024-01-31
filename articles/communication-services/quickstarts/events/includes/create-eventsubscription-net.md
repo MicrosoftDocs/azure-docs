@@ -44,7 +44,8 @@ You will need to know the resourceId of your Azure Commmunication Services resou
 ### Prerequisites:
 1. Create a Microsoft Entra application and Service Principal that can access the resources in your subscription by following the instructions [here](/entra/identity-platform/howto-create-service-principal-portal).
 2. Create a new Client secret or upload a trusted certificate issued by a certificate authority following the instructions above.
-3. Give contributor or owner access to the subscription to that application following the instructions [here](/azure/role-based-access-control/role-assignments-portal-subscription-admin).
+3. Give contributor or owner access to the subscription to that application following the instructions [here](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+4. Read more about authorizing access to Event Grid resources [here](/azure/event-grid/security-authorization). 
 
 The Azure Identity library provides Microsoft Entra ID (Formerly Azure Active Directory) token authentication support across the Azure SDK. It provides a set of TokenCredential implementations which can be used to construct Azure SDK clients which support Microsoft Entra token authentication. You can read more about it [here](/dotnet/api/overview/azure/identity-readme).
 
