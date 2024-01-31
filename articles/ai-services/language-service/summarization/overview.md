@@ -58,15 +58,15 @@ There are two types of document summarization this API provides:
   * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization returns the three highest scored sentences.
   * Positional information: The start position and length of extracted sentences.
 
-* **Abstractive summarization**: Generates a summary that may not use the same words as in the document, but captures the main idea.
-  * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document may be segmented so multiple groups of summary texts may be returned with their contextual input range. 
+* **Abstractive summarization**: Generates a summary that doesn't use the same words as in the document, but captures the main idea.
+  * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document can be segmented so multiple groups of summary texts can be returned with their contextual input range.
   * Contextual input range: The range within the input document that was used to generate the summary text.
 
 As an example, consider the following paragraph of text:
 
 *"At Microsoft, we are on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there's magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code enables us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pretrained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we achieve human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."*
 
-The document summarization API request is processed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API is returned. The output is available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response may contain text offsets. For more information, see [how to process offsets](../concepts/multilingual-emoji-support.md).
+The document summarization API request is processed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API is returned. The output is available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response can contain text offsets. For more information, see [how to process offsets](../concepts/multilingual-emoji-support.md).
 
 If we use the above example, the API might return these summarized sentences:
 
@@ -144,13 +144,13 @@ Conversation summarization feature would simplify the text as follows:
 
 # [Document summarization](#tab/document-summarization)
 
-* Summarization takes text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
-* Summarization works with various written languages. See [language support](language-support.md?tabs=document-summarization) for more information.
+* Summarization takes text for analysis. For more information, see [Data and service limits](../concepts/data-limits.md) in the how-to guide.
+* Summarization works with various written languages. For more information, see [language support](language-support.md?tabs=document-summarization).
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-* Conversation summarization takes structured text for analysis. See the [data and service limits](../concepts/data-limits.md) for more information.
-* Conversation summarization accepts text in English. See [language support](language-support.md?tabs=conversation-summarization) for more information.
+* Conversation summarization takes structured text for analysis. For more information, see [data and service limits](../concepts/data-limits.md).
+* Conversation summarization accepts text in English. For more information, see [language support](language-support.md?tabs=conversation-summarization).
 
 ---
 

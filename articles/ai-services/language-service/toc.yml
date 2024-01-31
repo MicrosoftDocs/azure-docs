@@ -107,7 +107,7 @@ items:
           href: conversational-language-understanding/how-to/tag-utterances.md
         - name: Train a model
           href: conversational-language-understanding/how-to/train-model.md
-        - name: View model performance
+        - name: View your model's performance
           href: conversational-language-understanding/how-to/view-model-evaluation.md
         - name: Deploy a model
           href: conversational-language-understanding/how-to/deploy-model.md
@@ -374,7 +374,7 @@ items:
           href: orchestration-workflow/how-to/tag-utterances.md
         - name: Train a model
           href: orchestration-workflow/how-to/train-model.md
-        - name: View model performance
+        - name: View your model's performance
           href: orchestration-workflow/how-to/view-model-evaluation.md
         - name: Deploy a model
           href: orchestration-workflow/how-to/deploy-model.md
@@ -706,7 +706,7 @@ items:
           href: custom-text-analytics-for-health/how-to/label-data.md
         - name: Train a model
           href: custom-text-analytics-for-health/how-to/train-model.md
-        - name: View model evaluation
+        - name: View your model's evaluation
           href: custom-text-analytics-for-health/how-to/view-model-evaluation.md
         - name: Deploy a model
           href: custom-text-analytics-for-health/how-to/deploy-model.md
