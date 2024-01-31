@@ -22,7 +22,7 @@ Azure Machine Learning supports the following types of runtimes:
 
 |Runtime type|Underlying compute type|Life cycle management|Customize environment              |
 |------------|----------------------|---------------------|---------------------|
-|Automatic runtime (preview)        |Serverless compute| Automatic | Easily customize packages|
+|Automatic runtime (preview)        |[Serverless compute](../how-to-use-serverless-compute.md)| Automatic | Easily customize packages|
 |Compute instance runtime | Compute instance | Manual | Manually customize via Azure Machine Learning environment|
 
 If you're a new user, we recommend that you use the automatic runtime (preview). You can easily customize the environment by adding packages in the `requirements.txt` file in `flow.dag.yaml` in the flow folder. If you're already familiar with the Azure Machine Learning environment and compute instances, you can use your existing compute instance and environment to build a compute instance runtime.
@@ -278,6 +278,14 @@ To get the best experience and performance, try to keep your runtime up to date.
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env.png" alt-text="Screenshot of the pane for editing a compute instance runtime and the option for using the default environment." lightbox = "./media/how-to-create-manage-runtime/runtime-update-env.png":::
 
 If you select **Use customized environment**, you first need to rebuild the environment by using the latest prompt flow image. Then update your runtime with the new custom environment.
+
+## Relationship between runtime, compute resource, flow and user.
+
+- One single user can have multiple compute resource (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resource. For example, one user can have multiple compute resource with different VM size. You can find 
+- One compute resource can only used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resource. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resource.
+- One compute resource can host multiple runtimes. Runtime is container running on underling compute resource, as in common case, prompt flow authoring didn't need too many compute resource, we allow single compute resource to host multiple runtimes from same user. 
+- One runtime will only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.
+- In automatic runtime, one flow will only have one runtime, as we expect each flow is self contained it defined the base image and required python packge in flow folder. In compute instance runtime, you can run different flow on same compute instance runtime, but you need make sure the packages and image is compatible.
 
 ## Next steps
 
