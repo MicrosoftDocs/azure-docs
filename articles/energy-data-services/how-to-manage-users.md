@@ -22,7 +22,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 
 ## Fetch OID
 
-The object ID (OID) is the Microsoft Entra user OID.
+The Azure object ID (OID) is the Microsoft Entra user OID.
 
 1. Find the OID of the users first. If you're managing an application's access, you must find and use the application ID (or client ID) instead of the OID.
 1. Input the OID of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy instance.
