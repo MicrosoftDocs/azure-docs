@@ -73,7 +73,7 @@ Use the following steps to create a new resource group:
 
 ### 3.4. Install extension and register namespace
 
-Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
+Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the `Microsoft.SaaS` namespace:
 
 ```azurecli
 az extension add --name spring --upgrade

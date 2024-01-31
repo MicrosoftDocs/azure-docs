@@ -14,7 +14,7 @@ To reuse the Spring Apps instance deployment steps in other articles, a separate
 
 -->
 
-1. Enter the project root directory, use the following command to build and deploy the frontend application:
+1. Enter the project root directory and use the following command to build and deploy the frontend application:
 
    ```azurecli
    az spring app deploy --service ${SPRING_APPS} --name ${APP_FRONTEND} \
@@ -22,7 +22,7 @@ To reuse the Spring Apps instance deployment steps in other articles, a separate
        --source-path ./spring-petclinic-frontend
    ```
 
-1. Use the following command to build and deploy the customer service application:
+1. Use the following command to build and deploy the `customers-service` application:
 
    ```azurecli
    az spring app deploy --service ${SPRING_APPS} --name ${APP_CUSTOMERS_SERVICE} \
@@ -30,7 +30,7 @@ To reuse the Spring Apps instance deployment steps in other articles, a separate
        --build-env BP_MAVEN_BUILT_MODULE=spring-petclinic-customers-service BP_JVM_VERSION=17
    ```
 
-1. Use the following command to build and deploy the vet service application:
+1. Use the following command to build and deploy the `vets-service` application:
 
    ```azurecli
    az spring app deploy --service ${SPRING_APPS} --name ${APP_VETS_SERVICE} \
@@ -38,7 +38,7 @@ To reuse the Spring Apps instance deployment steps in other articles, a separate
        --build-env BP_MAVEN_BUILT_MODULE=spring-petclinic-vets-service BP_JVM_VERSION=17
    ```
 
-1. Use the following command to build and deploy the visit service application:
+1. Use the following command to build and deploy the `visits-service` application:
 
    ```azurecli
    az spring app deploy --service ${SPRING_APPS} --name ${APP_VISITS_SERVICE} \
