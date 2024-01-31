@@ -41,7 +41,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Vectors in Azure AI Search
-            url: vector-database-store.md
+            url: vector-search-overview.md
           - text: Integrated vectorization (preview)
             url: vector-search-integrated-vectorization.md
           - text: Retrieval Augmented Generation (RAG)

@@ -152,7 +152,7 @@
     - name: Full-text search
       href: search-lucene-query-architecture.md
     - name: Vector search
-      href: vector-database-query.md
+      href: vector-search-overview.md
     - name: Hybrid search
       href: hybrid-search-overview.md
     - name: Retrieval Augmented Generation (RAG)
@@ -163,11 +163,11 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Scoring in keyword queries (BM25)
+    - name: Tuning keyword queries (BM25)
       href: index-similarity-and-scoring.md
-    - name: Scoring in vector queries
+    - name: Tuning vector queries
       href: vector-search-ranking.md
-    - name: Scoring in hybrid queries (RRF)
+    - name: Scoring hybrid queries (RRF)
       href: hybrid-search-ranking.md
   - name: Security
     items:
