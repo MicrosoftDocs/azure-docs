@@ -14,6 +14,8 @@
         href: relocation-key-vault.md
       - name: Azure Event Hubs
         href: relocation-event-hub.md
+      - name: Azure Event Hubs Cluster
+        href: relocation-event-hub-cluster.md
       - name: Azure Virtual Network
         href: relocation-virtual-network.md 
       - name: Network Security Groups (NSG)

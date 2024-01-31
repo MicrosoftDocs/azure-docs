@@ -33,7 +33,7 @@ If you have other resources in the Azure resource group that contains the Event 
     - [Azure Private Link Service](./relocation-private-link.md)
     - [Virtual Network](./relocation-virtual-network.md)
     - Event Hub Namespace
-    - [Event Hub Cluster](/azure/event-hubs/move-cluster-across-regions)
+    - [Event Hub Cluster](./relocation-event-hub-cluster.md)
     - [Storage Account](./relocation-storage-account.md)
         >[!TIP]
         >When Capture is enabled, you can either relocate a Storage Account from the source or use an existing one in the target region.
