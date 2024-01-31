@@ -32,7 +32,7 @@ From your continuous integration (CI) pipeline, you can use MSBuild tasks and CL
 
 You can find the latest version from these pages. For example:
 
-:::image type="content" source="./media/msbuild-bicep-file/bicep-nuget-package-version.png" alt-text="Find the latest Bicep NuGet package version." border="true":::
+:::image type="content" source="./media/msbuild-bicep-file/bicep-nuget-package-version.png" alt-text="Screenshot showing how to find the latest Bicep NuGet package version." border="true":::
 
 The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) version. 
 
