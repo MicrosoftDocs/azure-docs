@@ -1,12 +1,12 @@
 ---
 title: Frequently asked questions about events. Azure Health Data Services
-description: Get answers to common questions about the events capability in the FHIR and DICOM services in Azure Health Data Services. Find out how events work, what types of events are supported, and how to subscribe to events by using Event Grid.
+description: Get answers to common questions about the events capability in the FHIR and DICOM services in Azure Health Data Services. Find out how events work, what types of events are supported, and how to subscribe to events by using Azure Event Grid.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: events
 ms.topic: reference
-ms.date: 01/29/2024
+ms.date: 01/31/2024
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasteppe
 
 **Applies to:** [!INCLUDE [Yes icon](../includes/applies-to.md)][!INCLUDE [FHIR service](../includes/fhir-service.md)], [!INCLUDE [DICOM service](../includes/DICOM-service.md)]
 
-Events let you subscribe to data changes in the FHIR&reg; or DICOM&reg; service and get notified through Azure Event Grid. You can use events to trigger workflows, automate tasks, send alerts, and more. In this FAQ, you’ll find answers to some common questions about events.
+Events let you subscribe to data changes in thegit  FHIR&reg; or DICOM&reg; service and get notified through Azure Event Grid. You can use events to trigger workflows, automate tasks, send alerts, and more. In this FAQ, you’ll find answers to some common questions about events.
 
 #### Can I use events with a non-Microsoft FHIR or DICOM service?
 

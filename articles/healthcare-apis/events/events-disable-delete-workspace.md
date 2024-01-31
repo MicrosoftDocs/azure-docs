@@ -1,6 +1,6 @@
 ---
 title: Disable events for the FHIR or DICOM service in Azure Health Data Services
-description: Disable events for the FHIR or DICOM service in statuAzure Health Services by deleting an event subscription. Learn why and how to stop sending notifications from your data and resources.
+description: Disable events for the FHIR or DICOM service in Azure Health Services by deleting an event subscription. Learn why and how to stop sending notifications from your data and resources.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -16,7 +16,7 @@ ms.author: jasteppe
 
 Events in Azure Health Services allow you to monitor and respond to changes in your data and resources. By creating an event subscription, you can specify the conditions and actions for sending notifications to various endpoints.
 
-However, there may be situations where you want to temporarily or permanently stop receiving notifications from an event subscription. For example, you might want to pause the notifications during maintenance or testing, or you may want to delete the event subscription if you no longer need it. 
+However, there may be situations where you want to temporarily or permanently stop receiving notifications from an event subscription. For example, you might want to pause notifications during maintenance or testing, or delete the event subscription if you no longer need it. 
 
 To disable events from sending notifications for an **Event Subscription**, you need to delete the subscription.
 
