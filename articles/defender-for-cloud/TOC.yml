@@ -428,10 +428,6 @@
         - name: Automate responses to alerts
           displayName: workflow
           href: workflow-automation.md
-    - name: Manage the classic connectors
-      displayName: classic, connector, AWS, GCP
-      href: how-to-use-the-classic-connector.md
-
 
 - name: Protect your workloads
   items:
@@ -480,6 +476,9 @@
       items:
       - name: Deploy Defender for Servers
         href: tutorial-enable-servers-plan.md
+      - name: Configure monitoring coverage
+        displayName: Defender for Servers, monitoring coverage, Log analytics, agentless scanning, Vulnerability assessment, Endpoint protection
+        href: configure-servers-coverage.md
       - name: Plan Defender for Servers deployment
         items:
           - name: Get started
@@ -971,7 +970,9 @@
         - name: Agentless secrets scanning for virtual machines
           href: episode-forty-two.md
         - name: Unified insights from Microsoft Entra permissions management
-          href: episode-forty-three.md   
+          href: episode-forty-three.md
+        - name: Agentless malware detection
+          href: episode-forty-four.md   
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation

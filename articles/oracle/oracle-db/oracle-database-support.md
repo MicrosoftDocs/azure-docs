@@ -17,7 +17,7 @@ In this article, you learn how to get information and support for Oracle Databas
 
 ## Oracle Support scope and contact information 
 
-Oracle Support can help you with the following types of Oracle Database@Azure issues:
+Oracle Support is your first line of support for all Oracle Database@Azure issues. Oracle Support can help you with the following types of Oracle Database@Azure issues:
 
 - Database connection issues (Oracle TNS)
 - Oracle Database performance issues

@@ -764,7 +764,9 @@
     - name: Archive tier
       href: troubleshoot-archive-tier.md
     - name: Azure Kubernetes Service
-      href: azure-kubernetes-service-backup-troubleshoot.md  
+      href: azure-kubernetes-service-backup-troubleshoot.md
+    - name: Data recovery from Microsoft Azure Backup Server 
+      href: backup-azure-alternate-dpm-server-troubleshoot.md    
 - name: Reference
   items:
   - name: Archived release notes

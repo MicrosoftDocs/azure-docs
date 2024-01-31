@@ -20,9 +20,6 @@ initiative definition, open **Policy** in the Azure portal and select the **Defi
 Then, find and select the **New Zealand ISM Restricted** Regulatory Compliance built-in
 initiative definition.
 
-This built-in initiative is deployed as part of the
-[New Zealand ISM Restricted blueprint sample](../../blueprints/samples/new-zealand-ism.md).
-
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
 > These policies may help you [assess compliance](../how-to/get-compliance-data.md) with the
