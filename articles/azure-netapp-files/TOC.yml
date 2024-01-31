@@ -121,6 +121,8 @@
         href: performance-virtual-machine-sku.md 
   - name: Application volume groups 
     items:
+      - name: Understand application volume groups
+        href: application-volume-group-concepts.md 
       - name: Application volume groups for SAP HANA
         items: 
         - name: Understand application volume group for SAP HANA
