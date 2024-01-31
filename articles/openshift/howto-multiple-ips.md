@@ -5,14 +5,14 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 12/05/2023
+ms.date: 01/30/2024
 #Customer intent: As an ARO SRE, I need to configure multiple outbound IP addresses per ARO cluster load balancers
 ---
 # Configure multiple IP addresses per ARO cluster load balancer (Preview)
 
 ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of nodes, you need to assign multiple additional public IP addresses to the load balancer.
 
-You can configure up to 20 IP addresses per cluster.
+You can configure up to 20 IP addresses per cluster. The outbound rules and frontend IP configurations are adjusted to accommodate the number of IP addresses.
 
 ## Requirements (Preview only)
 
@@ -40,4 +40,4 @@ az aro update --resource-group aroResourceGroup --name aroCluster \
               --load-balancer-managed-outbound-ip-count 4
 ```
 
-You can use this update method to either increase or decrease the number of IPs on a cluster to be between 1 and 20.
+You can use this update method to either increase or decrease the number of IPs on a cluster to be between 1 and 20. Note that scaling down the number of clusters can interrupt the outbound network traffic from the cluster.
