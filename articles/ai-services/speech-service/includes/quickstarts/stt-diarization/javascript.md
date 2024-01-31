@@ -26,7 +26,7 @@ To set up your environment, install the Speech SDK for JavaScript. If you just w
 
 Follow these steps to create a new console application for conversation transcription.
 
-1. Open a Command Prompt window where you want the new project, and create a new file named `ConversationTranscription.js`.
+1. Open a command prompt window where you want the new project, and create a new file named `ConversationTranscription.js`.
 
 1. Install the Speech SDK for JavaScript:
 
@@ -105,7 +105,7 @@ Follow these steps to create a new console application for conversation transcri
    ```
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 The transcribed conversation should be output as text:
 

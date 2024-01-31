@@ -26,7 +26,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a console application and install the Speech SDK.
 
-1. Command Prompt window in the folder where you want the new project. Run this command to create a console application with the .NET CLI.
+1. Open a command prompt window in the folder where you want the new project. Run this command to create a console application with the .NET CLI.
 
     ```dotnetcli
     dotnet new console
@@ -133,7 +133,7 @@ Follow these steps to create a console application and install the Speech SDK.
    ```
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment [variables](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 The transcribed conversation should be output as text:
 

@@ -31,7 +31,7 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 Follow these steps to create a new console application.
 
-1. Open a Command Prompt window where you want the new project, and create a new file named `conversation_transcription.py`.
+1. Open a command prompt window where you want the new project, and create a new file named `conversation_transcription.py`.
 
 1. Run this command to install the Speech SDK:  
 
@@ -120,7 +120,7 @@ Follow these steps to create a new console application.
    ```
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 The transcribed conversation should be output as text:
 
