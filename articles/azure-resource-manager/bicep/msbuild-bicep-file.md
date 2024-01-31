@@ -25,7 +25,7 @@ If your environment doesn't have nuget.org configured as a package feed, dependi
 dotnet nuget add source  https://api.nuget.org/v3/index.json -n nuget.org
 ```
 
-In certain environments, using a single package feed helps prevent problems arising from packages with the same ID and version containing different contents in different feeds. For Azure Artifacts users, this can be done using the [upstream sources feature](/azure/devops/artifacts/concepts/upstream-sources?view=azure-devops).
+In certain environments, using a single package feed helps prevent problems arising from packages with the same ID and version containing different contents in different feeds. For Azure Artifacts users, this can be done using the [upstream sources feature](/azure/devops/artifacts/concepts/upstream-sources).
 
 ## MSBuild tasks and Bicep packages
 
