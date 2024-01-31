@@ -168,7 +168,7 @@ To accelerate labeling tasks, on the **ML assisted labeling** page, you can trig
 
 At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases that are present in the dataset. For example, if 80 percent of your items are of a single class, then approximately 80 percent of the data used to train the model lands in that class.
 
-To enable assisted labeling, select **Enable ML assisted labeling** and specify a GPU. If you don't have a GPU in your workspace, a GPU cluster is created for you and added to your workspace. The cluster is created with a minimum of zero nodes, which means it costs nothing when not in use.
+To enable assisted labeling, select **Enable ML assisted labeling** and specify a GPU. If you don't have a GPU in your workspace, a GPU cluster (resource name: DefLabelNC6v3, vmsize: Standard_NC6s_v3) is created for you and added to your workspace. The cluster is created with a minimum of zero nodes, which means it costs nothing when not in use.
 
 ML-assisted labeling consists of two phases:
 

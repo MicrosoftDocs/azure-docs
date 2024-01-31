@@ -702,7 +702,7 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
     Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Storage Account. Also set `spark_enabled: true`:
 
     > [!TIP]
-    > This example is for a managed VNet configured using `isolation_mode: allow_internet_outbound` to allow internet traffic.  If you want to allow only approved outbound traffic to enable data exfiltration protection (DEP), use `isolation_mode: allow_only_approved_outbound`.
+    > This example is for a managed VNet configured using `isolation_mode: allow_internet_outbound` to allow internet traffic.  If you want to allow only approved outbound traffic, use `isolation_mode: allow_only_approved_outbound`.
 
     ```yml
     name: myworkspace
@@ -724,7 +724,7 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
     ```
 
     > [!NOTE]
-    > - When data exfiltration protection (DEP) is enabled, conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in your Spark job.
+    > - When **Allow Only Approved Outbound** is enabled (`isolation_mode: allow_only_approved_outbound`), conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in your Spark job.
     > - If the workspace was created with `isolation_mode: allow_internet_outbound`, it can not be updated later to use `isolation_mode: allow_only_approved_outbound`.
 
     # [Python SDK](#tab/python)
@@ -732,7 +732,7 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the Azure Storage Account and sets `spark_enabled=true`:
 
     > [!TIP]
-    > The following example is for a managed VNet configured using `IsolationMode.ALLOW_INTERNET_OUTBOUND` to allow internet traffic. If you want to allow only approved outbound traffic to enable data exfiltration protection (DEP), use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.  
+    > The following example is for a managed VNet configured using `IsolationMode.ALLOW_INTERNET_OUTBOUND` to allow internet traffic. If you want to allow only approved outbound traffic, use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.  
         
     ```python
     # Get the existing workspace
@@ -759,7 +759,7 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
     ml_client.workspaces.begin_update(ws)
     ```
     > [!NOTE]
-    > - When data exfiltration protection (DEP) is enabled, conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in the Spark job.
+    > - When **Allow Only Approved Outbound** is enabled (`isolation_mode: allow_only_approved_outbound`), conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in the Spark job.
     > - If the workspace was created with `IsolationMode.ALLOW_INTERNET_OUTBOUND`, it can not be updated later to use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`. 
 
 
