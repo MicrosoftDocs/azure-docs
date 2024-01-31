@@ -165,7 +165,8 @@ If labeling is active in Azure Machine Learning, you have two choices:
 
 * Select **Disconnect from Language Studio** to sever the relationship with Language Studio. Once you disconnect, the project loses its association with Language Studio, and no longer shows the Language Studio tab. Disconnecting your project from Language Studio is a permanent, irreversible process and can't be undone. You'll no longer be able to access your labels for this project in Language Studio. The labels are available only in Azure Machine Learning from this point onward.
 
---- 
+---
+
 ## Add new labels to a project
 
 During the data labeling process, you might want to add more labels to classify your items. For example, you might want to add an *Unknown* or *Other* label to indicate confusion.
