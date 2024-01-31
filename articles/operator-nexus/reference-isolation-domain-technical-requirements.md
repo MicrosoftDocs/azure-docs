@@ -1,3 +1,14 @@
+---
+title: Technical Requirements for Isolation Domains
+description: Overview of Technical Requirements for Isolation Domains.
+author: joemarshallmsft
+ms.author: joemarshall
+ms.reviewer: jdasari
+ms.date: 01/31/2024
+ms.service: azure-operator-nexus
+ms.topic: reference
+---
+
 # Technical Requirements for an Isolation Domain
 
 -   To create an isolation domain, the network fabric must be in provisioned state.
