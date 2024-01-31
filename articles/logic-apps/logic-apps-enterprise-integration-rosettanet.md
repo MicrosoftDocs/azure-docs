@@ -58,7 +58,7 @@ The RosettaNet connector is available only for Consumption logic app workflows.
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 | **Consumption** | Integration service environment (ISE) | Built-in connector, which appears in the designer with the **CORE** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 
 <a name="rosettanet-operations"></a>
@@ -117,7 +117,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
    | **PIP Code** | Yes | The three-digit PIP code. For more information, see [RosettaNet PIPs](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
    | **PIP Version** | Yes | The PIP version number, which depends on your selected PIP code. |
 
-   For more information about these PIP properties, visit the [RosettaNet website](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg).
+   For more information about these PIP properties, visit the [RosettaNet website](https://www.gs1us.org/resources/rosettanet/standards-library/pip-directory).
 
 1. When you're done, select **OK** to create the PIP configuration.
 
@@ -137,11 +137,11 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
 
 1. On the integration account navigation menu, under **Settings**, select **Agreements**.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/select-agreements.png" alt-text="Screenshot of the Azure portal with the integration account page open. On the navigation menu, Agreements is selected.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/select-agreements.png" alt-text="Screenshot shows Azure portal with the integration account page open. On the navigation menu, the Agreements option is selected.":::
 
 1. On the **Agreements** page, select **Add**. Under **Add**, enter your agreement details.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png" alt-text="Screenshot of the Agreements page, with Add selected. On the Add pane, boxes appear for the agreement name and type and for partner information.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png" alt-text="Screenshot shows Agreements page with Add option selected. On the pane named Add, boxes appear for the agreement name and type and for partner information.":::
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -190,7 +190,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
       | **Action URL** |  Yes | The URL to use for sending action messages. The URL is a required field for both synchronous and asynchronous messages. |
       | **Acknowledgment URL** | Yes | The URL to use for sending acknowledgment messages. The URL is a required field for asynchronous messages. |
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png" alt-text="Screenshot of the Send Settings page, with options for signing and encrypting messages and for entering algorithms, certificates, and endpoints.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png" alt-text="Screenshot shows the Send Settings page, with options for signing and encrypting messages and for entering algorithms, certificates, and endpoints.":::
 
 1. To set up your agreement with the RosettaNet PIP references for partners, select **RosettaNet PIP references**. Under **PIP Name**, select the name of the PIP that you created earlier.
 
@@ -198,7 +198,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
 
    Your selection populates the remaining properties, which are based on the PIP that you set up in your integration account. If necessary, you can change the **PIP Role**.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-selected-pip.png" alt-text="Screenshot that shows a table of PIP information. A row for the PIP called MyPIPConfig contains accurate information.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-selected-pip.png" alt-text="Screenshot shows a table with PIP information. The row for the PIP named MyPIPConfig shows accurate information.":::
 
 After you complete these steps, you're ready to send or receive RosettaNet messages.
 
