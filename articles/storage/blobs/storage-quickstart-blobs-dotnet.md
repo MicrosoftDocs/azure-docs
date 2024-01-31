@@ -14,6 +14,20 @@ zone_pivot_groups: azure-blob-storage-quickstart-options
 
 # Quickstart: Azure Blob Storage client library for .NET
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
+> [!NOTE]
+> The **Start from scratch** option walks you step by step through the process of creating a new project, installing packages, writing the code, and running a basic console app. This approach is recommended if you want to understand all the details involved in creating an app that connects to Azure Blob Storage. If you prefer to automate deployment tasks and start with a completed project, choose **Start from a template**.
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+> [!NOTE]
+> The **Start from a template** option uses the Azure Developer CLI to automate deployment tasks and starts you off with a completed project. This approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. If you prefer step by step instructions through all aspects of building the app, choose **Start from scratch**.
+
+::: zone-end
+
 Get started with the Azure Blob Storage client library for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud, and is optimized for storing massive amounts of unstructured data.
 
 ::: zone pivot="blob-storage-quickstart-scratch"
