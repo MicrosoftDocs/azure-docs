@@ -185,7 +185,7 @@ Terminal Server has been deployed and configured as follows:
 
 3. Setup support admin user:
 
-   For each port
+   For each user
    ```bash
    ogcli create user << 'END'
    description="Support Admin User"
@@ -199,28 +199,37 @@ Terminal Server has been deployed and configured as follows:
 
    | Parameter name     | Description                         |
    | ------------------ | ----------------------------------- |
-   | SUPPORT_USER       | Support admin user                        |
+   | SUPPORT_USER       | Support admin user                  |
    | HASHED_SUPPORT_PWD | Encoded support admin user password |
 
-4. Verify settings:
+4. Add sudo support for admin users (added at admin group level):
 
    ```bash
-   ping $PE1_IP -c 3  # ping test to PE1
-   ping $PE2_IP -c 3 # ping test to PE2
-   ogcli get conns # verify NET1, NET2
-   ogcli get users # verify support admin user
-   ogcli get static_routes # there should be no static routes
-   ip r # verify only interface routes
-   ip a # verify loopback, NET1, NET2
+   sudo vi /etc/sudoers.d/opengear
+   %netgrp ALL=(ALL) ALL
+   %admin ALL=(ALL) NOPASSWD: ALL
    ```
-5. Start the LLDP service if it is not running by default:
+   
+5. Start/Enable the LLDP service if it is not running:
    
    Check if LLDP service is running on TS:
    ```bash
    sudo systemctl status lldpd
+   lldpd.service - LLDP daemon
+       Loaded: loaded (/lib/systemd/system/lldpd.service; enabled; vendor preset: disabled)
+       Active: active (running) since Thu 2023-09-14 19:10:40 UTC; 3 months 25 days ago
+         Docs: man:lldpd(8)
+     Main PID: 926 (lldpd)
+        Tasks: 2 (limit: 9495)
+       Memory: 1.2M
+       CGroup: /system.slice/lldpd.service
+               ├─926 lldpd: monitor.
+               └─992 lldpd: 3 neighbors.
+
+   Notice: journal has been rotated since unit was started, output may be incomplete.
    ```
 
-   If the service is not running/inactive, start the service:
+   If the service is not active (running), start the service:
    ```bash
    sudo systemctl start lldpd
    ```
@@ -229,11 +238,69 @@ Terminal Server has been deployed and configured as follows:
    ```bash
    sudo systemctl enable lldpd
    ```
+6. Check system date/time:
 
-   Execute the following to verify:
    ```bash
+   date
+   
+   # To fix date if incorrect:
+   ogcli replace system/time
+   Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
+   time="21:08 Nov 7, 2023"
+   ```
+7. Label TS Ports (if missing/incorrect):
+
+   ```bash
+   ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
+   ```
+8. Settings required for PURE Array serial connections:
+
+   ```bash
+   ogcli update port ports-<PORT_#> 'baudrate="115200"'	<PORT_#>	Pure Storage Controller console
+   ogcli update port ports-<PORT_#> 'pinout="X1"'	<PORT_#>	Pure Storage Controller console
+   ```
+
+9. Verify Settings
+
+   ```bash
+   ping $PE1_IP -c 3  # ping test to PE1 //TS subnet +2
+   ping $PE2_IP -c 3 # ping test to PE2 //TS subnet +2
+   ogcli get conns # verify NET1, NET2, NET3 Removed
+   ogcli get users # verify support admin user
+   ogcli get static_routes # there should be no static routes
+   ip r # verify only interface routes
+   ip a # verify loopback, NET1, NET2
+   date # check current date/time
+   pmshell # Check ports labelled
+   
    sudo lldpctl
-   sudo lldpcli show neighbors # to check the LLDP neighbors.
+   sudo lldpcli show neighbors # to check the LLDP neighbors - should show date from NET1 and NET2
+   # Should include 
+   -------------------------------------------------------------------------------
+   LLDP neighbors:
+   -------------------------------------------------------------------------------
+   Interface:    net2, via: LLDP, RID: 2, Time: 0 day, 20:28:36
+    Chassis:     
+      ChassisID:    mac 12:00:00:00:00:85
+      SysName:      austx502xh1.els-an.att.net
+      SysDescr:      7.7.2, S9700-53DX-R8
+      Capability:   Router, on
+    Port:         
+      PortID:       ifname TenGigE0/0/0/0/3
+      PortDescr:     GE10_Bundle-Ether83_austx4511ts1_net2_net2_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
+      TTL:          120
+   -------------------------------------------------------------------------------
+   Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
+   Chassis:     
+       ChassisID:    mac 12:00:00:00:00:05
+      SysName:      austx501xh1.els-an.att.net
+      SysDescr:      7.7.2, S9700-53DX-R8
+      Capability:   Router, on
+    Port:         
+      PortID:       ifname TenGigE0/0/0/0/3
+      PortDescr:     GE10_Bundle-Ether83_austx4511ts1_net1_net1_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
+      TTL:          120
+   -------------------------------------------------------------------------------
    ```
 
 ## Set up storage array
