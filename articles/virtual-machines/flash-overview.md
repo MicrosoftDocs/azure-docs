@@ -1,0 +1,41 @@
+---
+title: Project Flash - Advancing Azure Virtual Machine availability
+description: This article covers important concepts for monitoring Azure virtual machine availability using the features of Project Flash.
+ms.service: virtual-machines
+ms.author: tomcassidy
+author: tomvcassidy
+ms.custom: subject-monitoring
+ms.date: 01/31/2024
+ms.topic: conceptual
+---
+
+# Project Flash - Advancing Azure Virtual Machine availability
+
+Flash, as the project is internally known, derives its name from our steadfast commitment to building a robust, reliable, and rapid mechanism for customers to monitor virtual machine (VM) health. Our primary objective is to ensure customers can reliably access actionable and precise telemetry, promptly receive alerts on changes, and periodically monitor data at scale. We also place strong emphasis on developing a centralized and coherent experience that customers can conveniently use to meet their unique observability requirements. It's our mission to ensure you can:
+
+- **Consume accurate and actionable data** on VM availability disruptions (for example, VM reboots and restarts, application freezes due to network driver updates, and 30-second host OS updates), along with precise failure details (for example, platform versus user-initiated, reboot versus freeze, planned versus unplanned).
+- **Analyze and alert on trends in VM availability** for quick debugging and month-over-month reporting.
+- **Periodically monitor data at scale** and build custom dashboards to stay updated on the latest availability states of all resources.
+- **Receive automated root cause analyses (RCAs)** detailing impacted VMs, downtime cause and duration, consequent fixes, and similar—all to enable targeted investigations and post-mortem analyses.
+- **Receive instantaneous notifications** on critical changes in VM availability to quickly trigger remediation actions and prevent end-user impact.
+- **Dynamically tailor and automate platform recovery policies** , based on ever-changing workload sensitivities and failover needs.
+
+## Flash solutions
+
+The Flash initiative is dedicated to developing solutions over the years that cater to the diverse monitoring needs of our customers. To help you determine the most suitable Flash monitoring solution(s) for your specific requirements, refer to the following table:
+
+| **Solution** | **Description** |
+| --- | --- |
+| Azure Resource Graph (General Availability) | For investigations at scale, centralized resource repository and history lookup, large customers want to periodically consume resource availability telemetry across all their workloads, at once, using Azure Resource Graph (ARG). |
+| Event Grid system topic (Public Preview) | To trigger time-sensitive and critical mitigations (redeploy, restart VM actions) for prevention of end-user impact, customers (for example, Pearl Abyss, Krafton) want to receive alerts within seconds of critical changes in resource availability via Event Handlers in Event Grid. |
+| Azure Monitor (Public Preview) | To track trends, aggregate platform metrics (CPU, disk etc.), and set up precise threshold-based alerts, customers want to consume an out-of-box VM Availability metric via Azure Monitor. |
+| Resource Health (General Availability) | To perform instantaneous and convenient Portal UI health checks per-resource customers can quickly view the RHC blade on the portal. They can also access a 30-day historical view of health checks for that resource for quick and easy troubleshooting. |
+
+## Next steps
+
+To learn more about the solutions offered, proceed to corresponding solution article:
+* [Use Azure Resourse Graph to monitor Azure Virtual Machine availability](flash-azure-resource-graph.md)
+* [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
+* [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
+* [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
+* [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
