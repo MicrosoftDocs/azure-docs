@@ -63,6 +63,8 @@ It isn't common to have multiple ISPs to connect to. If the slowdown is on a spe
 
 - Students receive the message, "Remote Desktop can't connect to the remote computer … Make sure the remote computer is turned on and connected to the network, and that remote access is enabled"
 
+:::image type="content" source="./media/troubleshoot-connect-lab-vm/rdp-error-cannot-connect-remote.png" alt-text="Modal for Remote Desktop Connection that shows an error stating that 'Remote Desktop can't connect to the remote computer … Make sure the remote computer is turned on and connected to the network, and that remote access is enabled' ":::
+
 ### Causes
 
 - The virtual machine that the students are trying to connect to isn't running
