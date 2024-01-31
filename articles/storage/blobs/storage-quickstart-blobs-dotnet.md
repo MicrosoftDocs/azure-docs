@@ -24,7 +24,7 @@ In this article, you follow steps to install the package and try out example cod
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-In this article, you use [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to deploy Azure resources and initialize a completed console app with just a few commands.
+In this article, you use the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to deploy Azure resources and run a completed console app with just a few commands.
 
 ::: zone-end
 
@@ -183,7 +183,7 @@ From an empty directory, follow these steps to initialize the `azd` template, pr
 
     ```console
     azd up
-    ```console
+    ```
 
     You'll be prompted for the following information:
 
@@ -201,7 +201,7 @@ At this point, the resources are deployed to Azure and the project is almost rea
 
 This app creates a test file in your local *data* folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-If you're using Visual Studio, press F5 to build and run the code and interact with the console app. If you're using the .NET CLI, navigate to your application directory, then build and run the application.
+If you're using Visual Studio, press F5 to build and run the code and interact with the console app. If you're using the .NET CLI, navigate to your application directory, then build and run the application using the following commands:
 
 ```console
 dotnet build
@@ -504,8 +504,6 @@ Console.WriteLine("Done");
 
 ---
 
-::: zone-end
-
 ## Run the code
 
 This app creates a test file in your local *data* folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
@@ -541,6 +539,8 @@ Done
 ```
 
 Before you begin the clean-up process, check your *data* folder for the two files. You can open them and observe that they're identical.
+
+::: zone-end
 
 ## Clean up resources
 
