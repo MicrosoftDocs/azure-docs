@@ -213,9 +213,9 @@ The following instructions apply for public **Azure Commercial clouds** only. Fo
    | **Name** | Example: "*MicrosoftSentinelRole*". | Choose a meaningful name that includes a reference to Microsoft Sentinel. |
 
 
-1. Edit the new role's trust policy and add another condition: `"sts:RoleSessionName": "MicrosoftSentinel_{WORKSPACE_ID)"`
+1. Edit the new role's trust policy and add another condition:<br>`"sts:RoleSessionName": "MicrosoftSentinel_{WORKSPACE_ID)"`
 
-   The trust policy should look like this:
+   The finished trust policy should look like this:
 
    ```json
    {
@@ -224,20 +224,24 @@ The following instructions apply for public **Azure Commercial clouds** only. Fo
        {
          "Effect": "Allow",
          "Principal": {
-           "Federated": "arn:aws:iam::123456789000:oidc-provider/sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/"
+           "Federated": "arn:aws:iam::XXXXXXXXXXXX:oidc-provider/sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/"
          },
          "Action": "sts:AssumeRoleWithWebIdentity",
          "Condition": {
            "StringEquals": {
              "sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/:aud": "api://d4230588-5f84-4281-a9c7-2c15194b28f7",
-             "sts:RoleSessionName": "MicrosoftSentinel_12341234-abab-cdcd-efef-567890567890"
+             "sts:RoleSessionName": "MicrosoftSentinel_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
            }
          }
        }
      ]
    }
    ```
-   Update the policy when you're done editing.
+
+   - `XXXXXXXXXXXX` is your AWS Account ID.
+   - `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` is your Microsoft Sentinel workspace ID.
+
+   Update (save) the policy when you're done editing.
 
 ### Add the AWS role and queue information to the S3 data connector
 
