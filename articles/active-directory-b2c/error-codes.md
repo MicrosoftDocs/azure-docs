@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 11/08/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand the possible error codes and their meanings, so that I can handle them appropriately and provide a better user experience.
+
 ---
 
 # Error codes: Azure Active Directory B2C

@@ -3,7 +3,7 @@ title: Create a persistent volume with Azure Files in Azure Kubernetes Service (
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 11/28/2023
 ---
 
@@ -418,7 +418,7 @@ Kubernetes needs credentials to access the file share created in the previous st
 
     ```bash
     kubectl delete pod mypod
-    
+
     kubectl apply -f azure-files-pod.yaml
     ```
 
@@ -456,7 +456,7 @@ spec:
           readOnly: false
   volumes:
     - name: azure
-      csi: 
+      csi:
         driver: file.csi.azure.com
         volumeAttributes:
           secretName: azure-secret  # required

@@ -2,7 +2,6 @@
 title: Azure API Management policy reference - validate-jwt | Microsoft Docs
 description: Reference for the validate-jwt policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management

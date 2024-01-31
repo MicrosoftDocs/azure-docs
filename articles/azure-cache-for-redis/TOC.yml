@@ -142,6 +142,8 @@
       href: cache-network-isolation.md
     - name: Connect to cache using Private Link
       href: cache-private-link.md
+    - name: Using TLS with a cache
+      href: cache-tls-configuration.md
     - name: Migrate from VNet injection to Private Link
       href: cache-vnet-migration.md
     - name: Secure your cache with a virtual network
@@ -236,6 +238,8 @@
         href: cache-overview-vector-similarity.md
       - name: Vector similarity search
         href: cache-tutorial-vector-similarity.md
+      - name: Semantic caching search
+        href: cache-tutorial-semantic-cache.md
   - name: ASP.NET
     items:
     - name: Use session state provider
@@ -325,4 +329,3 @@
        href: cache-best-practices-scale.md
      - name: Server load management
        href: cache-best-practices-server-load.md
-

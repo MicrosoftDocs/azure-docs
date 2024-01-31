@@ -3,7 +3,7 @@ title: Azure Kubernetes Services (AKS) Core Basic Concepts
 description: Learn about the core components that make up workloads and clusters in Kubernetes and their counterparts on Azure Kubernetes Services (AKS).
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 12/13/2023
+ms.date: 01/16/2024
 ---
 
 # Core Kubernetes concepts for Azure Kubernetes Service
@@ -88,13 +88,14 @@ If you need advanced configuration and control on your Kubernetes node container
 AKS uses node resources to help the node function as part of your cluster. This usage can create a discrepancy between your node's total resources and the allocatable resources in AKS. Remember this information when setting requests and limits for user deployed pods.
 
 To find a node's allocatable resources, run:
+
 ```kubectl
 kubectl describe node [NODE_NAME]
 ```
 
 To maintain node performance and functionality, AKS reserves resources on each node. As a node grows larger in resources, the resource reservation grows due to a higher need for management of user-deployed pods.
 
->[!NOTE]
+> [!NOTE]
 > Using AKS add-ons such as Container Insights (OMS) will consume additional node resources.
 
 Two types of resources are reserved:
@@ -103,9 +104,9 @@ Two types of resources are reserved:
 
 Reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features.
 
-| CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
-|---|---|---|---|---|---|---|---|
-|Kube-reserved (millicores)|60|100|140|180|260|420|740|
+| CPU cores on host          | 1  | 2   | 4   | 8   | 16  | 32  | 64  |
+|----------------------------|----|-----|-----|-----|-----|-----|-----|
+| Kube-reserved (millicores) | 60 | 100 | 140 | 180 | 260 | 420 | 740 |
 
 #### Memory
 
@@ -237,6 +238,7 @@ A pod is a logical resource, but application workloads run on the containers. Po
 A *deployment* represents identical pods managed by the Kubernetes Deployment Controller. A deployment defines the number of pod *replicas* to create. The Kubernetes Scheduler ensures that additional pods are scheduled on healthy nodes if pods or nodes encounter problems.
 
 You can update deployments to change the configuration of pods, container image used, or attached storage. The Deployment Controller:
+
 * Drains and terminates a given number of replicas.
 * Creates replicas from the new deployment definition.
 * Continues the process until all replicas in the deployment are updated.

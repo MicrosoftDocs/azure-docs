@@ -2023,7 +2023,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | registries / models / versions | No | No |
 > | virtualclusters | Yes | Yes |
 > | workspaces | Yes | Yes |
-> | workspaces / batchEndpoints | Yes | Yes |
+> | workspaces / batchEndpoints | Yes | No |
 > | workspaces / batchEndpoints / deployments | Yes | Yes |
 > | workspaces / batchEndpoints / deployments / jobs | No | No |
 > | workspaces / batchEndpoints / jobs | No | No |
@@ -2050,7 +2050,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / services | No | No |
 
 > [!NOTE]
-> Workspace tags don't propagate to compute clusters and compute instances.
+> Workspace tags don't propagate to compute clusters and compute instances. It is not supported with tracking cost at cluster/batch endpoint level.
 
 ## Microsoft.Maintenance
 

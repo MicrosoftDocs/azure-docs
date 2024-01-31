@@ -2,7 +2,6 @@
 title: Azure Hybrid Benefit for Linux Virtual Machine Scale Sets 
 description: Learn how Azure Hybrid Benefit can apply to Virtual Machine Scale Sets and save you money on Linux virtual machines in Azure.
 services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machine-scale-sets

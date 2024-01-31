@@ -1,7 +1,6 @@
 ---
 title: Chargeback and finance integration
 description: This article helps you understand the chargeback and finance integration capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 06/23/2023

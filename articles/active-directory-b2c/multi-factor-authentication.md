@@ -5,13 +5,17 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 01/11/2024
 ms.custom: project-no-code
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer, I want to learn how to enable multifactor authentication in consumer-facing applications secured by Azure Active Directory B2C.
+
+
+
+#Customer intent: As an application developer using Azure Active Directory B2C, I want to enable multifactor authentication for sign-up and sign-in experiences, so that I can add an extra layer of security to my applications without writing code.
 
 ---
 

@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 1/18/2024
 ms.author: eur
 ---
 
@@ -31,7 +31,7 @@ Batch synthesis properties are described in the following table.
 |`description`|The description of the batch synthesis.<br/><br/>This property is optional.|
 |`displayName`|The name of the batch synthesis. Choose a name that you can refer to later. The display name doesn't have to be unique.<br/><br/>This property is required.|
 |`id`|The batch synthesis job ID.<br/><br/>This property is read-only.|
-|`inputs`|The plain text or SSML to be synthesized.<br/><br/>When the `textType` is set to `"PlainText"`, provide plain text as shown here: `"inputs": [{"text": "The rainbow has seven colors."}]`. When the `textType` is set to `"SSML"`, provide text in the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) as shown here: `"inputs": [{"text": "<speak version='\''1.0'\'' xml:lang='\''en-US'\''><voice xml:lang='\''en-US'\'' xml:gender='\''Female'\'' name='\''en-US-JennyNeural'\''>The rainbow has seven colors.</voice></speak>"}]`.<br/><br/>Include up to 1,000 text objects if you want multiple audio output files. Here's example input text that should be synthesized to two audio output files: `"inputs": [{"text": "synthesize this to a file"},{"text": "synthesize this to another file"}]`. However, if the `properties.concatenateResult` property is set to `true`, then each synthesized result will be written to the same audio output file.<br/><br/>You don't need separate text inputs for new paragraphs. Within any of the (up to 1,000) text inputs, you can specify new paragraphs using the "\r\n" (newline) string. Here's example input text with two paragraphs that should be synthesized to the same audio output file: `"inputs": [{"text": "synthesize this to a file\r\nsynthesize this to another paragraph in the same file"}]`<br/><br/>There are no paragraph limits, but keep in mind that the maximum JSON payload size (including all text inputs and other properties) that will be accepted is 500 kilobytes.<br/><br/>This property is required when you create a new batch synthesis job. This property isn't included in the response when you get the synthesis job.|
+|`inputs`|The plain text or SSML to be synthesized.<br/><br/>When the `textType` is set to `"PlainText"`, provide plain text as shown here: `"inputs": [{"text": "The rainbow has seven colors."}]`. When the `textType` is set to `"SSML"`, provide text in the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) as shown here: `"inputs": [{"text": "<speak version='\''1.0'\'' xml:lang='\''en-US'\''><voice xml:lang='\''en-US'\'' xml:gender='\''Female'\'' name='\''en-US-JennyNeural'\''>The rainbow has seven colors.</voice></speak>"}]`.<br/><br/>Include up to 1,000 text objects if you want multiple audio output files. Here's example input text that should be synthesized to two audio output files: `"inputs": [{"text": "synthesize this to a file"},{"text": "synthesize this to another file"}]`. However, if the `properties.concatenateResult` property is set to `true`, then each synthesized result is written to the same audio output file.<br/><br/>You don't need separate text inputs for new paragraphs. Within any of the (up to 1,000) text inputs, you can specify new paragraphs using the "\r\n" (newline) string. Here's example input text with two paragraphs that should be synthesized to the same audio output file: `"inputs": [{"text": "synthesize this to a file\r\nsynthesize this to another paragraph in the same file"}]`<br/><br/>There are no paragraph limits, but the maximum JSON payload size (including all text inputs and other properties) is 500 kilobytes.<br/><br/>This property is required when you create a new batch synthesis job. This property isn't included in the response when you get the synthesis job.|
 |`lastActionDateTime`|The most recent date and time when the `status` property value changed.<br/><br/>This property is read-only.|
 |`outputs.result`|The location of the batch synthesis result files with audio output and logs.<br/><br/>This property is read-only.|
 |`properties`|A defined set of optional batch synthesis configuration settings.|
@@ -44,10 +44,10 @@ Batch synthesis properties are described in the following table.
 |`properties.durationInTicks`|The audio output duration in ticks.<br/><br/>This property is read-only.|
 |`properties.failedAudioCount`|The count of batch synthesis inputs to audio output failed.<br/><br/>This property is read-only.|
 |`properties.outputFormat`|The audio output format.<br/><br/>For information about the accepted values, see [audio output formats](rest-text-to-speech.md#audio-outputs). The default output format is `riff-24khz-16bit-mono-pcm`.|
-|`properties.sentenceBoundaryEnabled`|Determines whether to generate sentence boundary data. This optional `bool` value ("true" or "false") is "false" by default.<br/><br/>If sentence boundary data is requested, then a corresponding `[nnnn].sentence.json` file will be included in the results data ZIP file.|
+|`properties.sentenceBoundaryEnabled`|Determines whether to generate sentence boundary data. This optional `bool` value ("true" or "false") is "false" by default.<br/><br/>If sentence boundary data is requested, then a corresponding `[nnnn].sentence.json` file is included in the results data ZIP file.|
 |`properties.succeededAudioCount`|The count of batch synthesis inputs to audio output succeeded.<br/><br/>This property is read-only.|
 |`properties.timeToLive`|A duration after the synthesis job is created, when the synthesis results will be automatically deleted. The value is an ISO 8601 encoded duration. For example, specify `PT12H` for 12 hours. This optional setting is `P31D` (31 days) by default. The maximum time to live is 31 days. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the `lastActionDateTime` + `timeToLive` properties.<br/><br/>Otherwise, you can call the [delete](./batch-synthesis.md#delete-batch-synthesis) synthesis method to remove the job sooner.|
-|`properties.wordBoundaryEnabled`|Determines whether to generate word boundary data. This optional `bool` value ("true" or "false") is "false" by default.<br/><br/>If word boundary data is requested, then a corresponding `[nnnn].word.json` file will be included in the results data ZIP file.|
+|`properties.wordBoundaryEnabled`|Determines whether to generate word boundary data. This optional `bool` value ("true" or "false") is "false" by default.<br/><br/>If word boundary data is requested, then a corresponding `[nnnn].word.json` file is included in the results data ZIP file.|
 |`status`|The batch synthesis processing status.<br/><br/>The status should progress from "NotStarted" to "Running", and finally to either "Succeeded" or "Failed".<br/><br/>This property is read-only.|
 |`synthesisConfig`|The configuration settings to use for batch synthesis of plain text.<br/><br/>This property is only applicable when `textType` is set to `"PlainText"`.|
 |`synthesisConfig.pitch`|The pitch of the audio output.<br/><br/>For information about the accepted values, see the [adjust prosody](speech-synthesis-markup-voice.md#adjust-prosody) table in the Speech Synthesis Markup Language (SSML) documentation. Invalid values are ignored.<br/><br/>This optional property is only applicable when `textType` is set to `"PlainText"`.|
@@ -73,7 +73,7 @@ The latency for batch synthesis is as follows (approximately):
 
 ### Best practices
 
-When considering batch synthesis for your application, it's recommended to assess whether the latency meets your requirements. If the latency aligns with your desired performance, batch synthesis can be a suitable choice. However, if the latency does not meet your needs, you might consider using real-time API.
+When considering batch synthesis for your application, it's recommended to assess whether the latency meets your requirements. If the latency aligns with your desired performance, batch synthesis can be a suitable choice. However, if the latency doesn't meet your needs, you might consider using real-time API.
 
 ## HTTP status codes
 
@@ -100,7 +100,7 @@ Here are examples that can result in the 400 error:
 - The number of requested text inputs exceeded the limit of 1,000.
 - The `top` query parameter exceeded the limit of 100.
 - You tried to use an invalid deployment ID or a custom voice that isn't successfully deployed. Make sure the Speech resource has access to the custom voice, and the custom voice is successfully deployed. You must also ensure that the mapping of `{"your-custom-voice-name": "your-deployment-ID"}` is correct in your batch synthesis request.
-- You tried to delete a batch synthesis job that hasn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
+- You tried to delete a batch synthesis job that isn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
 - You tried to use a *F0* Speech resource, but the region only supports the *Standard* Speech resource pricing tier. 
 - You tried to create a new batch synthesis job that would exceed the limit of 200 active jobs. Each Speech resource can have up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
 
@@ -132,9 +132,9 @@ Here's an example request that results in an HTTP 400 error, because the `top` q
 curl -v -X GET "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis?skip=0&top=200" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
-In this case, the response headers will include `HTTP/1.1 400 Bad Request`.
+In this case, the response headers include `HTTP/1.1 400 Bad Request`.
 
-The response body will resemble the following JSON example:
+The response body resembles the following JSON example:
 
 ```json
 {
