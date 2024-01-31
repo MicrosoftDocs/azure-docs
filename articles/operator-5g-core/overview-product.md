@@ -66,7 +66,7 @@ Any-G is built on top of Azure Operator Nexus and Azure – with flexible Networ
 
 ### Resiliency  
 
-Azure Operator 5G Core supports recovery mechanisms for failure scenarios such as single pod, multi-pod, VM, multi-VM within the same rack, and multi-VM spread across multiple racks. As the system scales to accommodate millions of subscribers, it requires mechanisms capable of addressing both internal and external faults, extending to the failure of an entire geographical location. To effectively mitigate potential disruptions and to ensure minimal impact, Azure Operator 5G Coreincorporates Geographical Redundancy and In-Service Software Upgrade (ISSU) mechanisms.  
+Azure Operator 5G Core supports recovery mechanisms for failure scenarios such as single pod, multi-pod, VM, multi-VM within the same rack, and multi-VM spread across multiple racks. As the system scales to accommodate millions of subscribers, it requires mechanisms capable of addressing both internal and external faults, extending to the failure of an entire geographical location. To effectively mitigate potential disruptions and to ensure minimal impact, Azure Operator 5G Core incorporates Geographical Redundancy and In-Service Software Upgrade (ISSU) mechanisms.  
 
 ### Orchestration
 
