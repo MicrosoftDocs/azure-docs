@@ -182,8 +182,7 @@ These examples are just a small sample of the rich queries that can be performed
 
 ## Related content
 
-To learn more about Azure logs, see the following articles:
-
-* [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
-* [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
-* [Azure Log Analytics REST API](/rest/api/loganalytics)
+- [Monitor Dev Box](monitor-dev-box.md)
+- [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
+- [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
+- [Azure Log Analytics REST API](/rest/api/loganalytics)

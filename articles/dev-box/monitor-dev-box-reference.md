@@ -11,13 +11,13 @@ ms.custom: horz-monitor, subject-monitoring
 ms.date: 01/30/2023
 ---
 
-# Monitoring Microsoft dev center data reference
+# Monitoring Microsoft Dev Box data reference
 
 This article provides a reference for log and metric data collected for a Microsoft Dev Box dev center. You can use the collected data to analyze the performance and availability of resources within your dev center. For details about how to collect and analyze monitoring data for your dev center, see [Monitoring Microsoft Dev Box](monitor-dev-box.md).
 
 ## Resource logs
 
-The following table lists the properties of resource logs in a dev center. The resource logs are collected into Azure Monitor Logs or Azure Storage. In Azure Monitor, logs are collected in the **DevCenterDiagnosticLogs** table under the resource provider name of `MICROSOFT.DEVCENTER`.
+The following table lists the properties of resource logs in a Microsoft Dev Box dev center. The resource logs are collected into Azure Monitor Logs or Azure Storage. In Azure Monitor, logs are collected in the **DevCenterDiagnosticLogs** table under the resource provider name of `MICROSOFT.DEVCENTER`.
 
 | Azure Storage field or property | Azure Monitor Logs property | Description |
 | --- | --- | --- |
@@ -38,5 +38,5 @@ A dev center uses Kusto tables from Azure Monitor Logs. You can query these tabl
 
 ## Related content
 
-- [Configure Azure diagnostic logs for a dev center](monitor-dev-box.md)
+- [Monitor Dev Box](monitor-dev-box.md)
 - [Monitor Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
