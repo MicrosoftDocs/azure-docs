@@ -582,9 +582,13 @@ The examples in this article used a "select" statement to specify text (non-vect
 > [!NOTE]
 > Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response.
 
-### Number of results
+### Number of ranked results in a vector query response
 
-A query might match to any number of documents, as many as all of them if the search criteria are weak (for example "search=*" for a null query). Because it's seldom practical to return unbounded results, you should specify a maximum for the response:
+A vector query specifies the `k` parameter, which determines how many matches are returned in the results. The search engine always returns `k` number of matches. If `k` is larger than the number of documents in the index, then the number of documents determines the upper limit of what can be returned.
+
+If you're familiar with full text search, you know to expect zero results if the index doesn't contain a term or phrase. However, in vector search, similarity is relative to the input query vector, not absolute. It's possible to get positive results for a nonsensical or off-topic query, especially if you aren't using prompts to set boundaries. Less relevant results have a worse similarity score, but they're still the "nearest" vectors if there isn't anything closer. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low. A [hybrid approach](hybrid-search-overview.md) that includes full text search can mitigate this problem.
+
+Query parameters affecting result count include:
 
 + `"k": n` results for vector-only queries
 + `"top": n` results for hybrid queries that include a "search" parameter

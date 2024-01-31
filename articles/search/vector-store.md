@@ -14,9 +14,9 @@ ms.date: 01/29/2024
 
 # Vector storage in Azure AI Search
 
-Azure AI Search provides vector data structures and configurations for [vector search](vector-search-overview.md) and [hybrid queries](hybrid-search-overview.md). Support is implemented at the field level, which means you can combine vector and nonvector fields in the same search corpus.
+Azure AI Search provides vector storage and configurations for [vector search](vector-search-overview.md) and [hybrid queries](hybrid-search-overview.md). Support is implemented at the field level, which means you can combine vector and nonvector fields in the same search corpus.
 
-In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests.
+In Azure AI Search, a vector store has an index schema that defines vector and nonvector fields and a vector configuration for algorithms that create navigation structures.
 
 The [Create Index REST API](/rest/api/searchservice/indexes/create-or-update) or equivalent Azure SDK methods create the vector store.
 
@@ -32,7 +32,7 @@ In a chat solution, results are fed into prompt flows and chat models like GPT a
 
 ## Basic schema for vectors
 
-A schema for vector store needs a name, a key field, one or more vector fields, and a vector configuration. Content fields and metadata fields are recommended. For more information about configuring a vector index, see [Create a vector store](vector-search-how-to-create-index.md).
+A schema for a vector store requires a name, a key field, one or more vector fields, and a vector configuration. Content fields are recommended for hybrid queries, or for returning human readable content that doesn't have to be decoded first. For more information about configuring a vector index, see [Create a vector store](vector-search-how-to-create-index.md).
 
 ```json
 {
@@ -64,7 +64,11 @@ A schema for vector store needs a name, a key field, one or more vector fields, 
 }
 ```
 
-If you use search results as grounding data, where a chat model generates the answer to a query, design a schema that stores chunks of text. Data chunking is a requirement if source files are large, but it's also efficient at query time if the original content has verbose text. 
+The vector search algorithms specify the navigation structures used at query time. The structures are created during indexing, but used during queries.
+
+The content of your vector fields is determined by the [embedding step](vector-search-how-to-generate-embeddings.md) that vectorizes or encodes your content. If you use the same embedding model for all of your fields, you can [build vector queries](vector-search-how-to-query.md) that cover all of them. 
+
+If you use search results as grounding data, where a chat model generates the answer to a query, design a schema that stores chunks of text. Data chunking is a requirement if source files are too large for the embedding model, but it's also efficient for chat if the original source files contain a varied information. 
 
 
 ## Next steps
