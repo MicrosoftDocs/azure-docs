@@ -11,7 +11,7 @@ ms.date: 01/31/2024
 
 # Deploy Azure Operator 5G Core
 
-Azure Operator 5G Core (AO5GC) is deployed using the AO5GC Resource Provider (RP). Bicep scripts are bundled along with empty parameter files for each Mobile Packet Core resource. These resources are:
+Azure Operator 5G Core is deployed using the Azure Operator 5G Core Resource Provider (RP). Bicep scripts are bundled along with empty parameter files for each Mobile Packet Core resource. These resources are:
 
 - Microsoft.MobilePacketCore/clusterServices - per cluster PaaS services
 - Microsoft.MobilePacketCore/amfDeployments - AMF/MME network function
@@ -23,19 +23,19 @@ Azure Operator 5G Core (AO5GC) is deployed using the AO5GC Resource Provider (RP
 
 ## Prerequisites
 
-Before you can successfully deploy Azure Operator 5G Core (AO5GC), you must:
+Before you can successfully deploy Azure Operator 5G Core, you must:
 - [register your resource provider](../azure-resource-manager/management/resource-providers-and-types.md) for the HybridNetwork and MobilePacketCore namespaces.
 - [Complete the prerequisites to deploy Azure Operator 5G Core on Advanced Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md)
 - [Deploy a cluster on Advanced Kubernetes Services (AKS)](quickstart-deploy-cluster.md)
 
 ## Post Cluster Creation 
 
-After you complete the prerequisite steps and create a cluster, you must enable resources used to deploy AO5GC. The AO5GC resource provider manages the remote cluster through line-of-sight communications via Azure ARC. AO5GC workload is deployed through helm operator services provided by the Network Function Manager (NFM). To enable these services, the cluster must be ARC enabled, the NFM Kubernetes extension  must be installed, and an Azure custom location must be created. The following Azure CLI commands describe how to enable these services. Run the commands from any command prompt displayed when you sign in using the `az-login` command.
+After you complete the prerequisite steps and create a cluster, you must enable resources used to deploy Azure Operator 5G Core. The Azure Operator 5G Core resource provider manages the remote cluster through line-of-sight communications via Azure ARC. Azure Operator 5G Core workload is deployed through helm operator services provided by the Network Function Manager (NFM). To enable these services, the cluster must be ARC enabled, the NFM Kubernetes extension  must be installed, and an Azure custom location must be created. The following Azure CLI commands describe how to enable these services. Run the commands from any command prompt displayed when you sign in using the `az-login` command.
 
 
 ## ARC-enable the cluster
 
-ARC is used to enable communication from the AO5GC resource provider to Kubernetes. You must have access to the cluster's kubeconfig file, or to Kubernetes API server to run the connectedK8s command. Use the following Azure CLI command:
+ARC is used to enable communication from the Azure Operator 5G Core resource provider to Kubernetes. You must have access to the cluster's kubeconfig file, or to Kubernetes API server to run the connectedK8s command. Use the following Azure CLI command:
 
 `$ az connectedk8s connect --name <ARC NAME> --resource-group <RESOURCE GROUP> --custom-locations-oid <LOCATION> --kube-config <KUBECONFIG FILE>`
 
@@ -57,14 +57,14 @@ The empty parameter files that were bundled with the Bicep scripts must be popul
 
 You can also modify the parameterized values yaml file to change tuning parameters such as cpu, memory limits and requests. You can also add new parameters manually.
 
-The Bicep scripts read these parameter files to produce a JSON object. The object is passed to Azure Resource Manager and used to deploy the AO5GC resource.
+The Bicep scripts read these parameter files to produce a JSON object. The object is passed to Azure Resource Manager and used to deploy the Azure Operator 5G Core resource.
 
 > [!IMPORTANT]
 > Any new parameters must be added to both the parameters file and the Bicep script file. 
 
 ## Deploy Azure Operator 5G Core via Azure Resource Manager
 
-You can deploy AO5GC resources by using either Azure CLI or PowerShell.
+You can deploy Azure Operator 5G Core resources by using either Azure CLI or PowerShell.
 
 ### Deploy using Azure CLI
 
