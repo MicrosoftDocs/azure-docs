@@ -183,11 +183,11 @@ The resulting output consists of the predominant language, with a score of less 
 }
 ```
 
-## Script detection
+## Script name and code content
 
 > [!NOTE]
-> Script detection is currently limited to [select languages](../language-support.md#script-detection).  
-
+> * Script detection is currently limited to [select languages](../language-support.md#script-detection).  
+> * The script detection is only available for textual input which is greater than 12 characters in length.
 
 Language detection offers the ability to detect more than one script per language according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924). Specifically, Language Detection returns two script-related properties:
 
