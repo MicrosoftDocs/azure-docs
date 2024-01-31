@@ -36,12 +36,12 @@ If this is your first interaction with **Firmware analysis,** then you'll need t
 
 1. Sign into the Azure portal and go to Defender for IoT.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot that shows the Defender for IoT portal.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot that shows the Defender for IoT portal." lightbox="media/tutorial-firmware-analysis/defender-portal.png":::
 
 1. Select **Firmware analysis**.
 1. Select a region to use for storage.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/select-region-updated.png" alt-text="Screenshot that shows selecting an Azure Region.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/select-region-updated.png" alt-text="Screenshot that shows selecting an Azure Region." lightbox="media/tutorial-firmware-analysis/select-region-updated.png":::
 
 ## Upload a firmware image for analysis
 
@@ -51,7 +51,7 @@ If this is your first interaction with **Firmware analysis,** then you'll need t
 
 1. In the **Upload a firmware image** pane, select **Choose file**. Browse to and select the firmware image file you want to upload.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within Firmware Analysis.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within Firmware Analysis." lightbox="media/tutorial-firmware-analysis/upload.png":::
 
 1. Enter the following details:
 
@@ -72,11 +72,11 @@ The analysis time will vary based on the size of the firmware image and the numb
 
 1. Select the row of the firmware you want to view. The **Firmware overview** pane shows basic data about the firmware on the right.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/firmware-details.png" alt-text="Screenshot that shows clicking the row with the firmware image to see the side panel details.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/firmware-details.png" alt-text="Screenshot that shows clicking the row with the firmware image to see the side panel details." lightbox="media/tutorial-firmware-analysis/firmware-details.png":::
     
 1. Select **View results** to drill down for more details.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image." lightbox="media/tutorial-firmware-analysis/overview.png":::
     
 1. The firmware details page shows security analysis results on the following tabs:
 
@@ -90,7 +90,7 @@ The analysis time will vary based on the size of the firmware image and the numb
     |**Certificates**     |   View a list of TLS/SSL certificates found in the firmware.<br><br>Select a specific certificate to view more details.|
     |**Keys**     |   View a list of public and private crypto keys in the firmware.<br><br>Select a specific key to view more details.|
 
-    :::image type="content" source="media/tutorial-firmware-analysis/weaknesses.png" alt-text="Screenshot that shows the weaknesses (CVE) analysis of the firmware image.":::
+    :::image type="content" source="media/tutorial-firmware-analysis/weaknesses.png" alt-text="Screenshot that shows the weaknesses (CVE) analysis of the firmware image." lightbox="media/tutorial-firmware-analysis/weaknesses.png":::
 
 ## Delete a firmware image
 
