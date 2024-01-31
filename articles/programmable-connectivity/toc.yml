@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Programmable Connectivity?
     href: azure-programmable-connectivity-overview.md
+  - name: Security overview for Azure Programmable Connectivity
+    href: azure-programmable-connectivity-security-overview.md
   - name: Features
     expanded: true
     items:
