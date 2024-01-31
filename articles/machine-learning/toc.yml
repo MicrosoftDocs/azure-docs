@@ -352,6 +352,9 @@
       - name: Create text labeling projects
         displayName: data, dataset
         href: how-to-create-text-labeling-projects.md
+      - name: Manage labeling projects
+        displayName: data, dataset
+        href: how-to-manage-labeling-projects.md        
       - name: Add users
         displayName: data, dataset, labeling
         href: how-to-add-users.md
