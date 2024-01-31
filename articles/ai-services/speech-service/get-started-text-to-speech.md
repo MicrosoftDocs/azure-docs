@@ -39,15 +39,11 @@ keywords: text to speech
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-
-Azure Speech services are not supported.
-
+[!INCLUDE [ObjectiveC include](includes/quickstarts/text-to-speech-basics/objectivec.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-
-Azure Speech services are not supported.
-
+[!INCLUDE [Swift include](includes/quickstarts/text-to-speech-basics/swift.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -62,7 +58,7 @@ Azure Speech services are not supported.
 [!INCLUDE [CLI include](includes/quickstarts/text-to-speech-basics/cli.md)]
 ::: zone-end
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about speech synthesis](how-to-speech-synthesis.md)

@@ -26,7 +26,7 @@ Install the Speech SDK for Go. For requirements and instructions, see [Install t
 
 Follow these steps to create a Go module.
 
-1. Open a Command Prompt window in the folder where you want the new project. Create a new file named *speech-synthesis.go*.
+1. Open a command prompt window in the folder where you want the new project. Create a new file named *speech-synthesis.go*.
 1. Copy the following code into *speech-synthesis.go*:
 
     ```go
