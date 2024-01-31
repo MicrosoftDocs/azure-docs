@@ -31,7 +31,7 @@ A subset of the availability zones that support data resilience currently also s
     
 ## Data resilience - supported regions
 
-Workspace logs are stored in clusters. By default, workspaces aren't explicitly linked to a dedicated cluster and are assigned to a shared cluster. Some customers choose to use a dedicated cluster, that handles a single or multiple workspaces they own.
+Azure Monitor creates Log Analytics workspaces in a shared cluster, unless you [set up a dedicated cluster](../logs/logs-dedicated-clusters.md) for your workspaces.
 
 ### Shared clusters (default)
 All shared cluster are in the following regions use availability zones. If your workspace is created in one of these regions, logs being stored are replicated across the region-specific zones (starting January 24).
