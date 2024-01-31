@@ -69,9 +69,9 @@ On-premises management software is backwards compatible, and can connect to sens
 
 Select the update method you want to use:
 
-## [Azure portal (Preview)](#tab/portal azure)
+## [Azure portal (Preview)](#tab/portal)
 
-This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. Bulk updates are supported for up to 10 sensors at a time.
+This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. <!-- remove this, not sure it is correct anymore?! -->Bulk updates are supported for up to 10 sensors at a time. It is recommended to update a site instead of individual sensors.
 
 ### Send the software update to your OT sensor
 
@@ -121,7 +121,7 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
 If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
-## [OT sensor UI](#tab/sensor UI)
+## [OT sensor UI](#tab/sensor)
 
 This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console's UI.
 
@@ -153,7 +153,7 @@ This procedure describes how to manually download the new sensor software versio
 
     The update process starts, and might take about 30 minutes and include one or two reboots. If your machine reboots, make sure to sign in again as prompted.
 
-## [OT sensor CLI](#tab/sensor cli)
+## [OT sensor CLI](#tab/cli)
 
 This procedure describes how to update OT sensor software via the CLI, directly on the OT sensor.
 
