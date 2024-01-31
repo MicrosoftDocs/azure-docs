@@ -101,7 +101,7 @@ Maintain comprehensive documentation outlining application volume group configur
 
 ## Benefits of using application volume group
 
-Volumes deployed by application volume group are placed in the regional or zonal infrastructure to achieve optimized latency and throughput for the application VMs. The deployed volumes provide the same flexibility for resizing performance and throughput as individually created volumes. Also like individually created volumes, the deployed volumes support data protection solutions including snaphots, cross-zone replication, and cross-region replication. 
+Volumes deployed by application volume group are placed in the regional or zonal infrastructure to achieve optimized latency and throughput for the application VMs. The deployed volumes provide the same flexibility for resizing performance and throughput as individually created volumes. Also like individually created volumes, the deployed volumes support data protection solutions including snapshots, cross-zone replication, and cross-region replication. 
 
 AVG is currently available for SAP HANA and Oracle databases.
 
