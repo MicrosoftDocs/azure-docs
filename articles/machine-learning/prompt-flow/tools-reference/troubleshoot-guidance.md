@@ -73,7 +73,7 @@ There are possible reasons for this issue:
 
     :::image type="content" source="../media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "../media/faq/datastore-with-wrong-account-key.png":::
  
-- If you're using AI studio, the storage account needs set CORS to allow AI studio access the storage account, otherwise, you'll see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
+- If you're using AI studio, the storage account needs to set CORS to allow AI studio access the storage account, otherwise, you'll see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
     - Go to storage account page, select `Resource sharing (CORS)` under `settings`, and select to `File service` tab.
     - Allowed origins: `https://mlworkspace.azure.ai,https://ml.azure.com,https://*.ml.azure.com,https://ai.azure.com,https://*.ai.azure.com,https://mlworkspacecanary.azure.ai,https://mlworkspace.azureml-test.net`
     - Allowed methods: `DELETE, GET, HEAD, POST, OPTIONS, PUT`
@@ -92,7 +92,7 @@ First, go to the compute instance terminal and run `docker ps` to find the root 
 
 Use `docker images` to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime. It attempts to restart the runtime and compute instance.
 
-If you're using compute instance runtime AI studio, this isn't scenario currently supported, please try use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime-preview).
+If you're using compute instance runtime AI studio, this scenario isn't currently supported, so use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime-preview).
 
 ### Run failed because of "No module named XXX"
 
