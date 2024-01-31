@@ -28,7 +28,7 @@ To set up your environment, install the Speech SDK for JavaScript. Run this comm
 
 Follow these steps to create a Node.js console application for speech recognition.
 
-1. Open a Command Prompt window where you want the new project, and create a new file named *SpeechRecognition.js*.
+1. Open a command prompt window where you want the new project, and create a new file named *SpeechRecognition.js*.
 1. Install the Speech SDK for JavaScript:
 
    ```console

@@ -39,11 +39,11 @@ keywords: speech to text, speech to text software
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-Azure Speech services aren't supported.
+[!INCLUDE [ObjectiveC include](includes/quickstarts/speech-to-text-basics/objectivec.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-Azure Speech services aren't supported.
+[!INCLUDE [Swift include](includes/quickstarts/speech-to-text-basics/swift.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
