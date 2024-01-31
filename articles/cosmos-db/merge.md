@@ -274,7 +274,7 @@ az cosmosdb mongodb collection merge \
 
 
 ---
-For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database?view=azure-cli-latest).
+For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database).
 
 ```azurecli-interactive
 az cosmosdb mongodb database merge \
