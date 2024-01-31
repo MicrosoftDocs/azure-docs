@@ -81,7 +81,7 @@ Follow these steps to synthesize speech in a macOS application.
 1. To build and run the example code, select **Product** > **Run** from the menu or select the **Play** button.
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 After you input some text and select the button in the app, you should hear the synthesized audio played.
 
