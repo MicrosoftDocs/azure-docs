@@ -21,6 +21,17 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## February 2024
+
+### AWS and GCP data connectors now support Azure Government clouds
+
+Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
+
+The configurations for these connectors for Azure Government customers differs slightly from the public cloud configuration. See the relevant documentation for details:
+
+- [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
+- [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)
+
 ## January 2024
 
 ### Reduce false positives for SAP systems with analytics rules
