@@ -22,8 +22,7 @@ The Chaos Studio agent is tested for compatibility with the following operating 
 | Windows Server 2019             | ✓ |   |
 | Windows Server 2016             | ✓ |   |
 | Windows Server 2012 R2          | ✓ |   |
-| Red Hat Enterprise Linux 8      | ✓ |   |
-| Red Hat Enterprise Linux 8.2    | ✓ |   |
+| Red Hat Enterprise Linux 8      | ✓ | Currently tested up to 8.9 |
 | openSUSE Leap 15.2              | ✓ |   |
 | CentOS 8                        | ✓ |   |
 | Debian 10 Buster                | ✓ | Installation of `unzip` utility required |
@@ -34,7 +33,7 @@ The agent isn't currently tested against custom Linux distributions or hardened 
 
 If an operating system isn't currently listed, you may still attempt to install, use, and troubleshoot the virtual machine extension, agent, and agent-based capabilities, but Chaos Studio cannot guarantee behavior or support for an unlisted operating system.
 
-To request validation on more operating systems or versions, use the [Chaos Studio Feedback Community](https://aka.ms/ChaosStudioFeedback).
+To request validation and support on more operating systems or versions, use the [Chaos Studio Feedback Community](https://aka.ms/ChaosStudioFeedback).
 
 ## Chaos Mesh compatibility
 
@@ -42,7 +41,13 @@ Faults within Azure Kubernetes Service resources currently integrate with the op
 
 Find Chaos Mesh's support policy and release dates here: [Supported Releases](https://chaos-mesh.org/supported-releases/).
 
-Azure Chaos Studio currently tests with Azure Kubernetes Service version `1.25.11` and Chaos Mesh version `2.5.1`.
+Chaos Studio currently tests with the following version combinations. 
+
+| Chaos Studio fault version | Kubernetes version | Chaos Mesh version | Notes |
+|:---:|:---:|:---:|:---:|
+| 2.1 | 1.25.11 | 2.5.1 | |
+
+The *Chaos Studio fault version* column refers to the individual fault version for each AKS Chaos Mesh fault used in the experiment JSON, for example `urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1`. If a past version of the corresponding Chaos Studio fault remains available from the Chaos Studio API (for example, `...podChaos/1.0`), it is within support.
 
 ## Browser compatibility
 
