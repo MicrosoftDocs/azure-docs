@@ -6,7 +6,7 @@ ms.author: rdunstan
 ms.topic: reference
 ms.service: communications-gateway
 ms.custom: subject-monitoring
-ms.date: 01/25/2024
+ms.date: 02/01/2024
 ---
 
 
@@ -34,17 +34,19 @@ This section lists all the automatically collected metrics collected for Azure C
 
 ### Connectivity metrics
 
+The metrics in the following table refer to the connection between your network and the Azure Communications Gateway resource.
+
 | Metric | Unit | Description |
 |:-------|:----|:------------|
-| SIP 2xx Responses Received | Count | Count of the total number of 2xx OPTIONS and INVITEs received.
+| SIP 2xx Responses Received | Count | Count of the total number of 2xx OPTIONS and INVITEs received.|
 | SIP 2xx Responses Sent | Count | Count of the total number of 2xx OPTIONS and INVITEs sent.|
-| SIP 3xx Responses Received | Count | Count of the total number of 3xx OPTIONS and INVITEs received.
+| SIP 3xx Responses Received | Count | Count of the total number of 3xx OPTIONS and INVITEs received.|
 | SIP 3xx Responses Sent | Count | Count of the total number of 3xx OPTIONS and INVITEs sent.|
-| SIP 4xx Responses Received | Count | Count of the total number of 4xx OPTIONS and INVITEs received.
+| SIP 4xx Responses Received | Count | Count of the total number of 4xx OPTIONS and INVITEs received.|
 | SIP 4xx Responses Sent | Count | Count of the total number of 4xx OPTIONS and INVITEs sent.|
-| SIP 5xx Responses Received | Count | Count of the total number of 5xx OPTIONS and INVITEs received.
+| SIP 5xx Responses Received | Count | Count of the total number of 5xx OPTIONS and INVITEs received.|
 | SIP 5xx Responses Sent | Count | Count of the total number of 5xx OPTIONS and INVITEs sent.|
-| SIP 6xx Responses Received | Count | Count of the total number of 6xx OPTIONS and INVITEs received.
+| SIP 6xx Responses Received | Count | Count of the total number of 6xx OPTIONS and INVITEs received.|
 | SIP 6xx Responses Sent | Count | Count of the total number of 6xx OPTIONS and INVITEs sent.|
 
 ## Metric Dimensions

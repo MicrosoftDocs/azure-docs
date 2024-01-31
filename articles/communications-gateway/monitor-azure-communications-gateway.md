@@ -44,7 +44,7 @@ You can analyze metrics for Azure Communications Gateway, along with metrics fro
 
 Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. Connectivity metrics also support the **OPTIONS or INVITE** dimension.
 
-You can also split a metric by these dimensions to visualize how different segments of the metric compare with each other. 
+You can also split a metric by these dimensions to visualize how different segments of the metric compare with each other.
 
 For more information on filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
