@@ -1252,7 +1252,7 @@
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/governance/policy/.openpublishing.redirection.policy.json",
   "articles/governance/policy/.openpublishing.redirection.resource-graph.json",
-  "articles/governance/blueprints/openpublishing.redirection.blueprints.json",
+  "articles/governance/blueprints/.openpublishing.redirection.blueprints.json",
   "articles/governance/management-groups/.openpublishing.redirection.management-groups.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
   "articles/hdinsight-aks/.openpublishing.redirection.hdinsight-aks.json",
