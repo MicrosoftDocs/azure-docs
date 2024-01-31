@@ -15,6 +15,39 @@ In this quickstart, you install the [Speech SDK](~/articles/ai-services/speech-s
 
 ## Install the Speech SDK for Objective-C
 
+
+# [Mac](#tab/mac)
+
+The Speech SDK for Objective-C is available natively as a CocoaPod package for Mac x64 and ARM-based silicons.
+
+System requirements for Mac:
+
+- A macOS version 10.14 or later
+
+The macOS CocoaPod package is available for download and use with the [Xcode 9.4.1](https://apps.apple.com/us/app/xcode/id497799835) or later integrated development environment (IDE).
+
+1. Go to the Xcode directory where your *.xcodeproj* project file is located.
+1. Run `pod init` to create a pod file named *Podfile*.
+1. Replace the contents of *Podfile* with the following content. Update the `target` name from `AppName` to the name of your app. Update the platform or pod version as needed.
+
+   ```objc
+   platform :osx, 10.14
+   use_frameworks!
+    
+   target 'AppName' do
+     pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.34.1'
+   end
+   ```
+
+1. Run `pod install` to install the Speech SDK.
+
+Alternatively, you can download the [binary CocoaPod](https://aka.ms/csspeech/macosbinary) and extract its contents. In your Xcode project, add a reference to the extracted *MicrosoftCognitiveServicesSpeech.xcframework* folder and its contents.
+
+> [!NOTE]
+> .NET developers can build native macOS applications by using the Xamarin.Mac application framework. For more information, see [Xamarin.Mac](/xamarin/mac/).
+
+# [iOS](#tab/ios)
+
 The Speech SDK for Objective-C is available natively as a CocoaPod package.
 
 System requirements for iOS:
@@ -24,7 +57,7 @@ System requirements for iOS:
 
 The macOS CocoaPod package is available for download and use with the [Xcode 9.4.1](https://apps.apple.com/us/app/xcode/id497799835) or later integrated development environment (IDE).
 
-1. Go to the Xcode directory where the *.xcodeproj* project file is located.
+1. Go to the Xcode directory where your *.xcodeproj* project file is located.
 1. Run `pod init` to create a pod file named *Podfile*.
 1. Replace the contents of *Podfile* with the following content. Update the `target` name from `AppName` to the name of your app. Update the platform or pod version as needed.
 
@@ -44,3 +77,4 @@ Alternatively, you can download the [binary CocoaPod](https://aka.ms/csspeech/io
 > [!NOTE]
 > .NET developers can build native iOS applications by using the Xamarin.iOS application framework For more information, see [Xamarin.iOS](/xamarin/ios/).
 
+---

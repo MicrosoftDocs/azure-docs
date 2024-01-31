@@ -13,8 +13,6 @@ ms.custom: ignite-fall-2021
 
 This guide shows how to create a Universal Windows Platform (UWP) project and install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for C#. The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
 
-### Prerequisites
-
 This guide requires:
 
 - [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing this file for the first time might require a restart.
@@ -41,7 +39,7 @@ Make sure you're set up correctly in Visual Studio for UWP development:
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog box.
 
-1. On the **Workloads** tab, find the **Universal Windows Platform development** workload. If that workload is already selected, close the **Modifying** dialog box and close Visual Studio Installer
+1. On the **Workloads** tab, find the **Universal Windows Platform development** workload. If that workload is already selected, close the **Modifying** dialog box and close Visual Studio Installer. Skip the rest of this procedure.
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png" alt-text="Screenshot that shows the Workloads tab of the Modifying dialog box, with the workload for Universal Windows Platform development highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png":::
 
@@ -94,11 +92,9 @@ Allow the project to capture audio input:
 
 1. In **Solution Explorer**, select **Package.appxmanifest** to open the package application manifest.
 
-1. Select the **Capabilities** tab.
+1. Select the **Capabilities** tab, then select the **Microphone** capability.
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-07-capabilities.png" alt-text="Screenshot of Visual Studio that shows the Capabilities tab in the package application manifest." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-07-capabilities.png":::
-
-1. Select the box for the **Microphone** capability.
 
 1. From the menu bar, select **File** > **Save Package.appxmanifest** to save your changes.
 
@@ -108,9 +104,7 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), 
 
 1. In Solution Explorer, right-click your solution, and select **Manage NuGet Packages for Solution** to go to the **NuGet - Solution** window.
 
-1. Select **Browse**.  
-
-1. In **Package source**, select **nuget.org**.
+1. Select **Browse**. In **Package source**, select **nuget.org**.
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-nuget-solution-browse.png" alt-text="Screenshot that shows the Manage Packages for Solution dialog box, with the Browse tab, search box, and package source highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-nuget-solution-browse.png":::
 
@@ -122,6 +116,8 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), 
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png" alt-text="Screenshot that shows the Microsoft.CognitiveServices.Speech package selected, with the project and the Install button highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png":::
 
-1. In the **Preview Changes** dialog box, select **OK**.
+1. In the **Preview Changes** dialog box, select **Apply**.
 
-1. In the **License Acceptance** dialog box, view the license, and then select **I Accept**. The package installation begins. When installation is complete, the **Output** pane displays a message that's similar to the following text: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.15.0' to helloworld`.
+1. In the **License Acceptance** dialog box, view the license, and then select **I Accept**. The package installation begins.
+
+   When installation is complete, the **Output** pane displays a message that's similar to the following text: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.15.0' to helloworld`.
