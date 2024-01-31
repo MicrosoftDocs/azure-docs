@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
-manager: femila
 ---
 # Migrate manually from Azure Virtual Desktop (classic)
 

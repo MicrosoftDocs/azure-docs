@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: release-notes
 ms.date: 03/16/2023
 ms.author: helohr
-manager: femila
 ms.custom: references_regions
 ---
 # What's new in Azure Virtual Desktop Insights?

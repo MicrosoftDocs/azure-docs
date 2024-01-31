@@ -213,7 +213,7 @@
               - name: Train with MLflow Projects
                 displayName: log, monitor, metrics, model registry, register
                 href: how-to-train-mlflow-projects.md
-              - name: Log metrics, parameters and files
+              - name: Log metrics, parameters, and files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
               - name: Log MLflow models
@@ -692,6 +692,8 @@
               href: ./prompt-flow/tools-reference/vector-index-lookup-tool.md
             - name: Content Safety (text) tool
               href: ./prompt-flow/tools-reference/content-safety-text-tool.md
+            - name: Index Lookup tool
+              href: ./prompt-flow/tools-reference/index-lookup-tool.md
             - name: Faiss Index Lookup tool
               href: ./prompt-flow/tools-reference/faiss-index-lookup-tool.md
             - name: Vector DB Lookup tool

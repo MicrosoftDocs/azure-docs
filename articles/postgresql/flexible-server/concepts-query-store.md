@@ -3,7 +3,7 @@ title: Query Store
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 12/30/2023
+ms.date: 01/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

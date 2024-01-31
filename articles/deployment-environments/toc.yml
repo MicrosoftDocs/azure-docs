@@ -18,7 +18,7 @@ items:
     - name: Create and access an environment
       href: quickstart-create-access-environments.md
 - name: Concepts
-  expanded: false
+  expanded: true
   items:
     - name: Key concepts
       href: concept-environments-key-concepts.md
@@ -26,52 +26,50 @@ items:
       href: concept-environments-scenarios.md
     - name: Parameters and data types in environment.yaml
       href: concept-environment-yaml.md  
-    - name:  Best practices for designing catalogs
+    - name: Best practices for designing catalogs
       href: best-practice-catalog-structure.md
     - name: Reliability in Azure Deployment Environments
       href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
-- name: How-to guides
-  expanded: true
+- name: Configure resources
+  expanded: false
   items:
-    - name: Configure resources in the Azure Portal
-      expanded: false
-      items:
-       - name: Add & configure a catalog
-         href: how-to-configure-catalog.md
-       - name: Add & configure an environment definition
-         href: configure-environment-definition.md
-       - name: Configure a managed identity
-         href: how-to-configure-managed-identity.md
-       - name: Configure dev center environment types
-         href: how-to-configure-devcenter-environment-types.md
-       - name: Add & delete project environment types
-         href: how-to-configure-project-environment-types.md
-       - name: Provide access to dev managers
-         href: how-to-configure-project-admin.md
-       - name: Provide access to developers
-         href: how-to-configure-deployment-environments-user.md         
-    - name: Configure resources from the CLI
-      expanded: false
-      items:
-       - name: Install Azure CLI extension
-         href: how-to-install-devcenter-cli-extension.md
-       - name: Create and configure a dev center
-         href: how-to-create-configure-dev-center.md
-       - name: Create and configure a project
-         href: how-to-create-configure-projects.md
-       - name: Create environments
-         href: how-to-create-access-environments.md
-    - name: Manage costs
-      expanded: false
-      items:         
-      - name: Request a quota limit increase
-        href: how-to-request-quota-increase.md  
+    - name: Add & configure a catalog
+      href: how-to-configure-catalog.md
+    - name: Add & configure an environment definition
+      href: configure-environment-definition.md
+    - name: Configure a managed identity
+      href: how-to-configure-managed-identity.md
+    - name: Configure dev center environment types
+      href: how-to-configure-devcenter-environment-types.md
+    - name: Add & delete project environment types
+      href: how-to-configure-project-environment-types.md     
+    - name: Automatically delete an environment
+      href: how-to-schedule-environment-deletion.md
+    - name: Create and configure a dev center from the CLI
+      href: how-to-create-configure-dev-center.md
+    - name: Create and configure a project from the CLI
+      href: how-to-create-configure-projects.md
+- name: Create environments
+  expanded: false
+  items: 
     - name: Create an environment with AZD
       href: how-to-create-environment-with-azure-developer.md
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
-    - name: Automatic deletion of an environment
-      href: how-to-schedule-environment-deletion.md  
+    - name: Create an environment from the CLI
+      href: how-to-create-access-environments.md
+- name: Manage costs
+  expanded: false
+  items:         
+    - name: Request a quota limit increase
+      href: how-to-request-quota-increase.md  
+- name: Security
+  expanded: false
+  items:
+    - name: Provide access to dev managers
+      href: how-to-configure-project-admin.md
+    - name: Provide access to developers
+      href: how-to-configure-deployment-environments-user.md   
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
 - name: Tutorials
@@ -81,6 +79,8 @@ items:
       href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Reference
   items:
+    - name: Install Azure CLI extension
+      href: how-to-install-devcenter-cli-extension.md  
     - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API
