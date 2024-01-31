@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Migrating from Twilio video to ACS
 titleSuffix: An Azure Communication Services tutorial
-description: In this tutorial, you learn how to migrate your calling product from Twilio to Azure Communication Services.
+description: Learn how to migrate a calling product from Twilio to Azure Communication Services.
 author: sloanster
 services: azure-communication-services
 
@@ -15,51 +15,53 @@ ms.custom: template-how-to
 
 # Migration Guide from Twilio Video to Azure Communication Services
 
-This article provides guidance on how to migrate your existing Twilio Video implementation to the [Azure Communication Services' Calling SDK](../concepts/voice-video-calling/calling-sdk-features.md) for WebJS. Twilio Video and Azure Communication Services' calling SDK for WebJS are both cloud-based platforms that enable developers to add voice and video calling features to their web applications. However, there are some key differences between them that may affect your choice of platform or require some changes to your existing code if you decide to migrate. In this article, we will compare the main features and functionalities of both platforms and provide some guidance on how to migrate your existing Twilio Video implementation to Azure Communication Services' Calling SDK for WebJS.
+This article describes how to migrate an existing Twilio Video implementation to the [Azure Communication Services' Calling SDK](../concepts/voice-video-calling/calling-sdk-features.md) for WebJS. Both Twilio Video and Azure Communication Services' Calling SDK for WebJS are also cloud-based platforms that enable developers to add voice and video calling features to their web applications.
+
+However, there are some key differences between them that may affect your choice of platform or require some changes to your existing code if you decide to migrate. In this article, we compare the main features and functions of both platforms and provide some guidance on how to migrate your existing Twilio Video implementation to Azure Communication Services' Calling SDK for WebJS.
 
 ## Key features of the Azure Communication Services calling SDK
 
--  Addressing - Azure Communication Services provides [identities](../concepts/identity-model.md) for authentication and addressing communication endpoints. These identities are used within Calling APIs, providing clients with a clear view of who is connected to a call (the roster).
--  Encryption - The Calling SDK safeguards traffic by encrypting it and preventing tampering along the way.
--  Device Management and Media - The SDK handles the management of audio and video devices, efficiently encodes content for transmission, and supports both screen and application sharing.
--  PSTN - The SDK can initiate voice calls with the traditional Public Switched Telephone Network (PSTN), [using phone numbers acquired either in the Azure portal](../quickstarts/telephony/get-phone-number.md) or programmatically.
--  Teams Meetings – Azure Communication Services is equipped to [join Teams meetings](../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with Teams voice and its video calls.
--  Notifications - Azure Communication Services provides APIs for notifying clients of incoming calls, allowing your application to listen to events (for example, incoming calls) even when your application is not running in the foreground.
--  User Facing Diagnostics (UFD) - Azure Communication Services utilizes [events](../concepts/voice-video-calling/user-facing-diagnostics.md) designed to provide insights into underlying issues that could affect call quality, allowing developers to subscribe to triggers such as weak network signals or muted microphones for proactive issue awareness.
--  Media Statics - Provides comprehensive insights into VoIP and video call [metrics](../concepts/voice-video-calling/media-quality-sdk.md), including call quality information, empowering developers to enhance communication experiences.
--  Video Constraints - Azure Communication Services offers APIs that control [video quality among other parameters](../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls. By adjusting parameters like resolution and frame rate, the SDK supports different call situations for varied levels of video quality.
+-  **Addressing** - Azure Communication Services provides [identities](../concepts/identity-model.md) for authentication and addressing communication endpoints. These identities are used within Calling APIs, providing clients with a clear view of who is connected to a call (the roster).
+-  **Encryption** - The Calling SDK safeguards traffic by encrypting it and preventing tampering along the way.
+-  **Device Management and Media enablement** - The SDK manages audio and video devices, efficiently encodes content for transmission, and supports both screen and application sharing.
+-  **PSTN calling** - You can use the SDK to initiate voice calling using the traditional Public Switched Telephone Network (PSTN), [using phone numbers acquired either in the Azure portal](../quickstarts/telephony/get-phone-number.md) or programmatically.
+-  **Teams Meetings** – Azure Communication Services is equipped to [join Teams meetings](../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with Teams voice and video calls.
+-  **Notifications** - Azure Communication Services provides APIs to notify clients of incoming calls. This allows your application to listen for events (such as incoming calls) even when your application isn't running in the foreground.
+-  **User Facing Diagnostics** - Azure Communication Services uses [events](../concepts/voice-video-calling/user-facing-diagnostics.md) designed to provide insights into underlying issues that could affect call quality. You can subscribe your application to triggers such as weak network signals or muted microphones for proactive issue awareness.
+-  **Media Quality Statistics** - Provides comprehensive insights into VoIP and video call [metrics](../concepts/voice-video-calling/media-quality-sdk.md). Metrics include call quality information, empowering developers to enhance communication experiences.
+-  **Video Constraints** - Azure Communication Services offers APIs that control [video quality among other parameters](../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls. The SDK supports different call situations for varied levels of video quality, so developers can adjust parameters like resolution and frame rate.
 
-**For a more detailed understanding of the capabilities of the Calling SDK for different platforms, consult** [**this document**](../concepts/voice-video-calling/calling-sdk-features.md#detailed-capabilities)**.**
+**For a more detailed understanding of the Calling SDK for different platforms, see** [**this document**](../concepts/voice-video-calling/calling-sdk-features.md#detailed-capabilities)**.**
 
 If you're embarking on a new project from the ground up, see the [Quickstarts of the Calling SDK](../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web).
 
 **Prerequisites:**
 
-1.  **Azure Account:** Confirm that you have an active subscription in your Azure account. New users can create a free Azure account [here](https://azure.microsoft.com/free/).
-2.  **Node.js 18:** Ensure Node.js 18 is installed on your system; download can be found right [here](https://nodejs.org/en).
-3.  **Communication Services Resource:** Set up a [Communication Services Resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note down your connection string.
-4.  **Azure CLI:** You can get the Azure CLI installer from [here](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
+1.  **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/free/).
+2.  **Node.js 18:** Ensure Node.js 18 is installed on your system. Download from [Node.js](https://nodejs.org/en).
+3.  **Communication Services Resource:** Set up a [Communication Services Resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
+4.  **Azure CLI:** Follow the instructions at [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
 5.  **User Access Token:** Generate a user access token to instantiate the call client. You can create one using the Azure CLI as follows:
 ```console
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
 
-For more information, see the guide on how to [Use Azure CLI to Create and Manage Access Tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
+For more information, see [Use Azure CLI to Create and Manage Access Tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
 For Video Calling as a Teams user:
 
--   You also can use Teams identity. For instructions on how to generate an access token for a Teams User, [follow this guide](../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
--   Obtain the Teams thread ID for call operations using the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Additional information on how to create a chat thread ID can be found [here](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
+-   You can also use Teams identity. To generate an access token for a Teams User, see [Manage teams identity](../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
+-   Obtain the Teams thread ID for call operations using the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). For information about creating a thread ID, see [Create chat - Microsoft Graph v1.0 > Example2: Create a group chat](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
 
 ### UI library
 
-The UI Library simplifies the process of creating modern communication user interfaces using Azure Communication Services. It offers a collection of ready-to-use UI components that you can easily integrate into your application.
+The UI library simplifies the process of creating modern communication user interfaces using Azure Communication Services. It offers a collection of ready-to-use UI components that you can easily integrate into your application.
 
-This prebuilt set of controls facilitates the creation of aesthetically pleasing designs using [Fluent UI SDK](https://developer.microsoft.com/en-us/fluentui#/) components and the development of audio/video communication experiences. If you wish to explore more about the UI Library, check out the [overview page](../concepts/ui-library/ui-library-overview.md), where you find comprehensive information about both web and mobile platforms.
+This open source prebuilt set of controls enables you to create aesthetically pleasing designs using [Fluent UI SDK](https://developer.microsoft.com/en-us/fluentui#/) components and develop high quality audio/video communication experiences. For more information, check out the [Azure Communications Services UI Library overview](../concepts/ui-library/ui-library-overview.md). The overview includes comprehensive information about both web and mobile platforms.
 
 ### Calling support
 
-The Azure Communication Services Calling SDK supports the following streaming configurations:
+The Azure Communication Services calling SDK supports the following streaming configurations:
 
 | Limit                                                                     | Web                                                                                                   | Windows/Android/iOS         |
 |---------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------|
@@ -68,13 +70,13 @@ The Azure Communication Services Calling SDK supports the following streaming co
 
 ## Call Types in Azure Communication Services
 
-Azure Communication Services offers various call types. The type of call you choose impacts your signaling schema, the flow of media traffic, and your pricing model. Further details can be found [here](../concepts/voice-video-calling/about-call-types.md).
+Azure Communication Services offers various call types. The type of call you choose impacts your signaling schema, the flow of media traffic, and your pricing model. For more information, see [Voice and video concepts](../concepts/voice-video-calling/about-call-types.md).
 
--   Voice Over IP (VoIP) - This type of call involves one user of your application calling another over an internet or data connection. Both signaling and media traffic are routed over the internet.
--   Public Switched Telephone Network (PSTN) - When your users interact with a traditional telephone number, calls are facilitated via PSTN voice calling. In order to make and receive PSTN calls, you need to introduce telephony capabilities to your Azure Communication Services resource. Here, signaling and media employ a mix of IP-based and PSTN-based technologies to connect your users.
--   One-to-One Call - When one of your users connects with another through our SDKs. The call can be established via either VoIP or PSTN.
--   Group Call - Involved when three or more participants connect. Any combination of VoIP and PSTN-connected users can partake in a group call. A one-to-one call can evolve into a group call by adding more participants to the call, and one of these participants can be a bot.
--   Rooms Call - A Room acts as a container that manages activity between end-users of Azure Communication Services. It provides application developers with enhanced control over who can join a call, when they can meet, and how they collaborate. For a more comprehensive understanding of Rooms, please refer to the [conceptual documentation](../concepts/rooms/room-concept.md).
+-   **Voice Over IP (VoIP)** - When a user of your application calls another over an internet or data connection. Both signaling and media traffic are routed over the internet.
+-   **Public Switched Telephone Network (PSTN)** - When your users call a traditional telephone number, calls are facilitated via PSTN voice calling. To make and receive PSTN calls, you need to introduce telephony capabilities to your Azure Communication Services resource. Here, signaling and media employ a mix of IP-based and PSTN-based technologies to connect your users.
+-   **One-to-One Calls** - When one of your users connects with another through our SDKs. The call can be established via either VoIP or PSTN.
+-   **Group Calls** - Happens when three or more participants connect in a single call. Any combination of VoIP and PSTN-connected users can be on a group call. A one-to-one call can evolve into a group call by adding more participants to the call, and one of these participants can be a bot.
+-   **Rooms Call** - A Room acts as a container that manages activity between end-users of Azure Communication Services. It provides application developers with enhanced control over who can join a call, when they can meet, and how they collaborate. For a more comprehensive understanding of Rooms, see the [Rooms overview](../concepts/rooms/room-concept.md).
 
 ## Installation
 
@@ -87,30 +89,30 @@ npm install @azure/communication-common npm install @azure/communication-calling
 
 ### Remove the Twilio SDK from the project
 
-You can remove the Twilio SDK from your project by uninstalling the package
+You can remove the Twilio SDK from your project by uninstalling the package.
 ```console
 npm uninstall twilio-video
 ```
 
-## Object model
+## Object Model
 
 The following classes and interfaces handle some of the main features of the Azure Communication Services Calling SDK:
 
 | **Name**                          | **Description**                                                                                                                                                                        |
 |-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | CallClient                        | The main entry point to the Calling SDK.                                                                                                                                               |
-| AzureCommunicationTokenCredential | Implements the CommunicationTokenCredential interface, which is used to instantiate the CallAgent.                                                                                     |
-| CallAgent                         | Used to start and manage calls.                                                                                                                                                        |
-| Device Manager                    | Used to manage media devices.                                                                                                                                                          |
-| Call                              | Used for representing a Call.                                                                                                                                                          |
-| LocalVideoStream                  | Used for creating a local video stream for a camera device on the local system.                                                                                                        |
-| RemoteParticipant                 | Used for representing a remote participant in the Call.                                                                                                                                |
-| RemoteVideoStream                 | Used for representing a remote video stream from a Remote Participant.                                                                                                                 |
-| LocalAudioStream                  | Represents a local audio stream for a local microphone device                                                                                                                          |
-| AudioOptions                      | Audio options, which are provided when making an outgoing call or joining a group call                                                                                                  |
-| AudioIssue                        | Represents the end of call survey audio issues, example responses would be NoLocalAudio - the other participants were unable to hear me, or LowVolume - the call’s audio volume was low |
+| AzureCommunicationTokenCredential | Implements the `CommunicationTokenCredential` interface, which is used to instantiate the CallAgent.                                                                                     |
+| CallAgent                         | Start and manage calls.                                                                                                                                                        |
+| Device Manager                    | Manage media devices.                                                                                                                                                          |
+| Call                              | Represents a Call.                                                                                                                                                          |
+| LocalVideoStream                  | Create a local video stream for a camera device on the local system.                                                                                                        |
+| RemoteParticipant                 | Represents a remote participant in the Call.                                                                                                                                |
+| RemoteVideoStream                 | Represents a remote video stream from a Remote Participant.                                                                                                                 |
+| LocalAudioStream                  | Represents a local audio stream for a local microphone device.                                                                                                                          |
+| AudioOptions                      | Audio options, provided to a participant when making an outgoing call or joining a group call.                                                                                                  |
+| AudioIssue                        | Represents the end of call survey audio issues. Example responses might be `NoLocalAudio` - the other participants were unable to hear me, or `LowVolume` - the call audio volume was too low. |
 
-When using in a Teams implementation there are a few differences:
+When using ACS calling in a Teams call, there are a few differences:
 
 -   Instead of `CallAgent` - use `TeamsCallAgent` for starting and managing Teams calls.
 -   Instead of `Call` - use `TeamsCall` for representing a Teams Call.
@@ -123,7 +125,7 @@ Using the `CallClient`, initialize a `CallAgent` instance. The `createCallAgent`
 
 #### Twilio
 
-Twilio doesn't have a Device Manager analog, tracks are being created using the system’s default device. For customization, you should obtain the desired source track via:
+Twilio doesn't have a Device Manager analog. Tracks are created using the system’s default device. To customize a device, obtain the desired source track via:
 ```javascript
 navigator.mediaDevices.getUserMedia()
 ```
@@ -142,10 +144,10 @@ callClient = new CallClient();
 const callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'optional user name'});
 ```
 
-You can use the getDeviceManager method on the CallClient instance to access deviceManager.
+You can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
 
-```javascript
 const deviceManager = await callClient.getDeviceManager(); 
+```javascript
 // Get a list of available video devices for use.  
 const localCameras = await deviceManager.getCameras(); 
 
@@ -189,16 +191,16 @@ twilioRoom = await twilioVideo.connect('token', { name: 'roomName', audio: false
 
 ### Azure Communication Services
 
-To create and start a call, use one of the APIs on `callAgent` and provide a user that you created through the Communication Services identity SDK.
+To create and start a call, use one of the `callAgent` APIs and provide a user that you created through the Communication Services identity SDK.
 
-Call creation and start are synchronous. The `call` instance allows you to subscribe to call events - subscribe to `stateChanged` event for value changes.
+Call creation and start are synchronous. The `call` instance enables you to subscribe to call events. Subscribe to the `stateChanged` event for value changes.
 ```javascript
 call.on('stateChanged', async () =\> {  console.log(\`Call state changed: \${call.state}\`) });
-``````
+```
 
 ### Azure Communication Services 1:1 Call
 
-To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's CommunicationUserIdentifier that you [created with the Communication Services administration library](../quickstarts/identity/access-tokens.md).
+To call another Azure Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../quickstarts/identity/access-tokens.md).
 ```javascript
 const userCallee = { communicationUserId: '\<Azure_Communication_Services_USER_ID\>' };
 const oneToOneCall = callAgent.startCall([userCallee]);
@@ -206,16 +208,16 @@ const oneToOneCall = callAgent.startCall([userCallee]);
 
 ### Azure Communication Services Room Call
 
-To join a `room` call, you can instantiate a context object with the `roomId` property as the room identifier. To join the call, use the join method and pass the context instance.
+To join a `Room` call, you can instantiate a context object with the `roomId` property as the room identifier. To join the call, use the `join` method and pass the context instance.
 ```javascript
 const context = { roomId: '\<RoomId\>' };
 const call = callAgent.join(context);
 ```
-A **room** offers application developers better control over who can join a call, when they meet and how they collaborate. To learn more about **rooms**, you can read the [conceptual documentation](../concepts/rooms/room-concept.md) or follow the [quick start guide](../quickstarts/rooms/join-rooms-call.md).
+A **Room** offers application developers better control over who can join a call, when they meet and how they collaborate. To learn more about **Rooms**, see the [Rooms overview](../concepts/rooms/room-concept.md), or see [Quickstart: Join a room call](../quickstarts/rooms/join-rooms-call.md).
 
-### Azure Communication Services group Call
+### Azure Communication Services Group Call
 
-To start a new group call or join an ongoing group call, use the `join` method and pass an object with a groupId property. The `groupId` value has to be a GUID.
+To start a new group call or join an ongoing group call, use the `join` method and pass an object with a `groupId` property. The `groupId` value must be a GUID.
 ```javascript
 const context = { groupId: '\<GUID\>'};
 const call = callAgent.join(context);
@@ -223,7 +225,7 @@ const call = callAgent.join(context);
 
 ### Azure Communication Services Teams call
 
-Start a synchronous one-to-one or group call with `startCall` API on `teamsCallAgent`. You can provide `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as a parameter to define the target of the call. The method returns the `TeamsCall` instance that allows you to subscribe to call events.
+Start a synchronous one-to-one or group call using the `startCall` API on `teamsCallAgent`. You can provide `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as a parameter to define the target of the call. The method returns the `TeamsCall` instance that allows you to subscribe to call events.
 ```javascript
 const userCallee = { microsoftTeamsUserId: '\<MICROSOFT_TEAMS_USER_ID\>' };
 const oneToOneCall = teamsCallAgent.startCall(userCallee);
@@ -233,7 +235,7 @@ const oneToOneCall = teamsCallAgent.startCall(userCallee);
 
 ### Twilio
 
-The Twilio Video SDK the Participant is being created after joining the room, and it doesn't have any information about other rooms.
+When using Twilio Video SDK, the Participant is created after joining the room; and it doesn't have any information about other rooms.
 
 ### Azure Communication Services
 
@@ -246,7 +248,7 @@ callAgent.on('incomingCall', async (call) =\>{
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
-When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it's disabled in the system, the call starts with video off, and a `cameraStartFailed:` true call diagnostic will be raised.
+When starting, joining, or accepting a call with *video on*, if the specified video camera device is being used by another process or if it's disabled in the system, the call starts with *video off*, and returns a `cameraStartFailed: true` call diagnostic.
 
 ```javascript
 const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {  
@@ -255,7 +257,7 @@ const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
   // Get incoming call ID  
   var incomingCallId = incomingCall.id  
 
-  // Get information about this Call. This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK  
+  // Get information about this Call.  
   var callInfo = incomingCall.info;  
 
   // Get information about caller  
@@ -280,7 +282,7 @@ callAgentInstance.on('incomingCall', incomingCallHandler);
 
 ```
 
-After starting a call, joining a call, or accepting a call, you can also use the callAgents' `callsUpdated` event to be notified of the new Call object and start subscribing to it.
+After starting a call, joining a call, or accepting a call, you can also use the `callAgent` `callsUpdated` event to be notified of the new `Call` object and start subscribing to it.
 ```javascript
 callAgent.on('callsUpdated', (event) => { 
   event.added.forEach((call) => { 
@@ -293,7 +295,7 @@ callAgent.on('callsUpdated', (event) => {
 });
 ```
 
-For Azure Communication Services Teams implementation, check how to [Receive a Teams Incoming Call](../how-tos/cte-calling-sdk/manage-calls.md#receive-a-teams-incoming-call).
+For Azure Communication Services Teams implementation, see how to [Receive a Teams Incoming Call](../how-tos/cte-calling-sdk/manage-calls.md#receive-a-teams-incoming-call).
 
 ## Adding participants to call
 
@@ -322,7 +324,7 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 
 **Add participant:**
 
-To add a participant to a call, you can use `addParticipant`. Provide one of the Identifier types. It synchronously returns the remoteParticipant instance.
+To add a participant to a call, you can use `addParticipant`. Provide one of the Identifier types. It synchronously returns the `remoteParticipant` instance.
 
 The `remoteParticipantsUpdated` event from Call is raised when a participant is successfully added to the call.
 ```javascript
@@ -332,7 +334,7 @@ const remoteParticipant = call.addParticipant(userIdentifier);
 
 **Remove participant:**
 
-To remove a participant from a call, you can invoke `removeParticipant`. You have to pass one of the Identifier types. This method resolves asynchronously after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
+To remove a participant from a call, use `removeParticipant`. You need to pass one of the Identifier types. This method resolves asynchronously after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
 ```javascript
 const userIdentifier = { communicationUserId: '<Azure_Communication_Services_USER_ID>' }; 
 await call.removeParticipant(userIdentifier);
@@ -372,34 +374,33 @@ const videoTrack = await twilioVideo.createLocalVideoTrack({ constraints });
 const videoTrackPublication = await localParticipant.publishTrack(videoTrack, { options });
 ```
 
-Camera is enabled by default, however it can be disabled and enabled back if necessary:
+The camera is enabled by default. It can be disabled and enabled back if necessary:
 ```javascript
 videoTrack.disable();
 ```
-Or
+Or:
 ```javascript
 videoTrack.enable();
 ```
 
-Later created video track should be attached locally:
+If there's a later created video track, attach it locally:
 
 ```javascript
 const videoElement = videoTrack.attach();
 const localVideoContainer = document.getElementById( localVideoContainerId );
 localVideoContainer.appendChild(videoElement);
-
 ```
 
-Twilio Tracks rely on default input devices and reflect the changes in defaults. However, to change an input device, the previous Video Track should be unpublished:
+Twilio Tracks rely on default input devices and reflect the changes in defaults. To change an input device, you need to unpublish the previous Video Track:
 
 ```javascript
 localParticipant.unpublishTrack(videoTrack);
 ```
 
-And a new Video Track with the correct constraints should be created.
+Then create a new Video Track with the correct constraints.
 
 #### Azure Communication Services
-To start a video while on a call, you have to enumerate cameras using the getCameras method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` with the desired camera and then pass the `LocalVideoStream` object into the `startVideo` method of an existing call object:
+To start a video while on a call, you need to enumerate cameras using the `getCameras` method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` with the desired camera and pass the `LocalVideoStream` object into the `startVideo` method of an existing call object:
 
 ```javascript
 const deviceManager = await callClient.getDeviceManager();
@@ -409,17 +410,17 @@ const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
 
-After you successfully start sending video, a LocalVideoStream instance of type Video is added to the localVideoStreams collection on a call instance.
+After you successfully start sending video, a `LocalVideoStream` instance of type Video is added to the `localVideoStreams` collection on a call instance.
 ```javascript
 const localVideoStream = call.localVideoStreams.find( (stream) =\> { return stream.mediaStreamType === 'Video'} );
 ```
 
-To stop local video while on a call, pass the localVideoStream instance that's being used for video:
+To stop local video while on a call, pass the `localVideoStream` instance that's being used for video:
 ```javascript
 await call.stopVideo(localVideoStream);
 ```
 
-You can switch to a different camera device while a video is sending by invoking switchSource on a localVideoStream instance:
+You can switch to a different camera device while a video is sending by calling `switchSource` on a `localVideoStream` instance:
 
 ```javascript
 const cameras = await callClient.getDeviceManager().getCameras();
@@ -429,15 +430,15 @@ localVideoStream.switchSource(camera);
 
 If the specified video device is being used by another process, or if it's disabled in the system:
 
--   While in a call, if your video is off and you start video using call.startVideo(), this method throws a `SourceUnavailableError` and `cameraStartFailed` will be set to true.
--   A call to the `localVideoStream.switchSource()` method causes `cameraStartFailed` to be set to true. Our [Call Diagnostics guide](../concepts/voice-video-calling/call-diagnostics.md) provides additional information on how to diagnose call related issues.
+-   While in a call, if your video is off and you start video using `call.startVideo()`, this method returns a `SourceUnavailableError` and `cameraStartFailed` will be set to true.
+-   A call to the `localVideoStream.switchSource()` method causes `cameraStartFailed` to be set to true. See the [Call Diagnostics guide](../concepts/voice-video-calling/call-diagnostics.md) for more information about how to diagnose call-related issues.
 
-To verify if the local video is on or off you can use `isLocalVideoStarted` API, which returns true or false:
+To verify whether the local video is *on* or *off* you can use the `isLocalVideoStarted` API, which returns true or false:
 ```javascript
 call.isLocalVideoStarted;
 ```
 
-To listen for changes to the local video, you can subscribe and unsubscribe to the `isLocalVideoStartedChanged` event
+To listen for changes to the local video, you can subscribe and unsubscribe to the `isLocalVideoStartedChanged` event:
 
 ```javascript
 // Subscribe to local video event
@@ -451,11 +452,11 @@ call.off('isLocalVideoStartedChanged', () => {
 
 ```
 
-### Rendering a remote user video
+### Rendering a remote user's video
 
 #### Twilio
 
-As soon as a Remote Participant publishes a Video Track, it needs to be attached. `trackSubscribed` event on Room or Remote Participant allows you to detect when the track can be attached:
+As soon as a Remote Participant publishes a Video Track, it needs to be attached. The `trackSubscribed` event on Room or Remote Participant enables you to detect when the track can be attached:
 
 ```javascript
 twilioRoom.on('participantConneted', (participant) => {
@@ -486,9 +487,9 @@ const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStr
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 
-To render `RemoteVideoStream`, you have to subscribe to its `isAvailableChanged` event. If the `isAvailable` property changes to true, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous createView method. You can then attach `view.target` to any UI element.
+To render `RemoteVideoStream`, you need to subscribe to its `isAvailableChanged` event. If the `isAvailable` property changes to true, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method. You can then attach `view.target` to any UI element.
 
-Whenever availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or a specific `VideoStreamRendererView`. If you do decide to keep them it will result in displaying a blank video frame.
+Whenever availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or a specific `VideoStreamRendererView`. If you do decide to keep them, it displays a blank video frame.
 
 ```javascript
 // Reference to the html's div where we would display a grid of all remote video streams from all participants.
@@ -555,10 +556,9 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
         console.log(`Remote video stream size changed: new height: ${remoteVideoStream.size.height}, new width: ${remoteVideoStream.size.width}`);
     });
 }
-
 ```
 
-Subscribe to the remote participant's videoStreamsUpdated event to be notified when the remote participant adds new video streams and removes video streams.
+Subscribe to the remote participant's `videoStreamsUpdated` event to be notified when the remote participant adds new video streams and removes video streams.
 
 ```javascript
 remoteParticipant.on('videoStreamsUpdated', e => {
@@ -570,19 +570,18 @@ remoteParticipant.on('videoStreamsUpdated', e => {
         // Unsubscribe from remote participant's video streams
     });
 });
-
 ```
 
 ### Virtual background
 
 #### Twilio
 
-To use Virtual Background, Twilio helper library should be installed:
+To use Virtual Background, install Twilio helper library:
 ```console
 npm install @twilio/video-processors
 ```
 
-New Processor instance should be created and loaded:
+Create and load a new `Processor` instance:
 
 ```javascript
 import { GaussianBlurBackgroundProcessor } from '@twilio/video-processors';
@@ -591,11 +590,11 @@ const blurProcessor = new GaussianBlurBackgroundProcessor({ assetsPath: virtualB
 
 await blurProcessor.loadModel();
 ```
-As soon as the model is loaded the background can be added to the video track via addProcessor method:
-```javascript
-videoTrack.addProcessor(processor, {  inputFrameBufferType: 'video',  outputFrameBufferContextType: 'webgl2' });
-```
 
+As soon as the model is loaded, you can add the background to the video track using the `addProcessor` method:
+
+| videoTrack.addProcessor(processor, {  inputFrameBufferType: 'video',  outputFrameBufferContextType: 'webgl2' }); |
+|------------------------------------------------------------------------------------------------------------------|
 
 #### Azure Communication Services
 
@@ -645,7 +644,7 @@ if (backgroundBlurSupported) {
 }
 ```
 
-For background replacement with an image you need to provide the URL of the image you want as the background to this effect. Currently supported image formats are: png, jpg, jpeg, tiff, bmp, and current supported aspect ratio is 16:9
+For background replacement with an image you need to provide the URL of the image you want as the background to this effect. Supported image formats are: PNG, JPG, JPEG, TIFF, and BMP. The supported aspect ratio is 16:9.
 
 ```javascript
 const backgroundImage = 'https://linkToImageFile'; 
@@ -664,7 +663,7 @@ if (backgroundReplacementSupported) {
 }
 ```
 
-Changing the image for this effect can be done by passing it via the configured method:
+Change the image for this effect by passing it via the configured method:
 ```javascript
 const newBackgroundImage = 'https://linkToNewImageFile'; 
 
@@ -673,7 +672,7 @@ await backgroundReplacementEffect.configure({
 });
 ```
 
-Switching effects can be done using the same method on the video effects feature API:
+To switch effects, use the same method on the video effects feature API:
 
 ```javascript
 // Switch to background blur 
@@ -683,9 +682,9 @@ await videoEffectsFeatureApi.startEffects(backgroundBlurEffect);
 await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect);
 ```
 
-At any time if you want to check what effects are active, you can use the `activeEffects` property. The `activeEffects` property returns an array with the names of the currently active effects and returns an empty array if there are no affects active.
+At any time, if you want to check which effects are active, use the `activeEffects` property. The `activeEffects` property returns an array with the names of the currently active effects and returns an empty array if there are no effects active.
 ```javascript
-// Using the video effects feature API
+// Using the video effects feature api
 const currentActiveEffects = videoEffectsFeatureApi.activeEffects;
 ```
 
@@ -706,7 +705,7 @@ const audioTrack = await twilioVideo.createLocalAudioTrack({ constraints });
 const audioTrackPublication = await localParticipant.publishTrack(audioTrack, { options });
 ```
 
-Microphone is enabled by default, however it can be disabled and enabled back if necessary:
+The microphone is enabled by default. You can disable and enable it back as needed:
 ```javascript
 audioTrack.disable();
 ```
@@ -716,7 +715,7 @@ Or
 audioTrack.enable();
 ```
 
-Created Audio Track should be attached by Local Participant the same way as Video Track:
+Any created Audio Track should be attached by Local Participant the same way as Video Track:
 
 ```javascript
 const audioElement = audioTrack.attach();
@@ -736,7 +735,7 @@ twilioRoom.on('participantConneted', (participant) => {
 });
 ```
 
-Or
+Or:
 
 ```javascript
 twilioRoom..on('trackSubscribed', (track, publication, participant) => {
@@ -748,7 +747,7 @@ twilioRoom..on('trackSubscribed', (track, publication, participant) => {
 
 ```
 
-It is impossible to mute incoming audio in Twilio Video SDK.
+It isn't possible to mute incoming audio in Twilio Video SDK.
 
 #### Azure Communication Services
 
@@ -777,11 +776,11 @@ await call.unmuteIncomingAudio();
 
 ```
 
-### Detecting Dominant speaker
+### Detecting dominant speaker
 
 #### Twilio
 
-To detect the loudest Participant in the Room, Dominant Speaker API can be used. It can be enabled in the connection options when joining the Group Room with at least 2 participants:
+To detect the loudest Participant in the Room, use the Dominant Speaker API. You can enable it in the connection options when joining the Group Room with at least 2 participants:
 ```javascript
 twilioRoom = await twilioVideo.connect('token', { 
 name: 'roomName', 
@@ -791,7 +790,7 @@ dominantSpeaker: true
 }); 
 ```
 
-When the loudest speaker in the Room will change, the dominantSpeakerChanged event is emitted:
+When the loudest speaker in the Room changes, the `dominantSpeakerChanged` event is emitted:
 
 ```javascript
 twilioRoom.on('dominantSpeakerChanged', (participant) => {
@@ -801,7 +800,7 @@ twilioRoom.on('dominantSpeakerChanged', (participant) => {
 
 #### Azure Communication Services
 
-Dominant speakers for a call are an extended feature of the core Call API and allows you to obtain a list of the active speakers in the call. This is a ranked list, where the first element in the list represents the last active speaker on the call and so on.
+Dominant speakers for a call are an extended feature of the core Call API. It enables you to obtain a list of the active speakers in the call. This is a ranked list, where the first element in the list represents the last active speaker on the call and so on.
 
 In order to obtain the dominant speakers in a call, you first need to obtain the call dominant speakers feature API object:
 ```javascript
@@ -816,7 +815,8 @@ Next you can obtain the list of the dominant speakers by calling `dominantSpeake
 let dominantSpeakers: DominantSpeakersInfo = callDominantSpeakersApi.dominantSpeakers;
 ```
 
-Also, you can subscribe to the `dominantSpeakersChanged` event to know when the dominant speakers list has changed.
+You can also subscribe to the `dominantSpeakersChanged` event to know when the dominant speakers list changes.
+
 
 ```javascript
 const dominantSpeakersChangedHandler = () => {
@@ -830,7 +830,7 @@ callDominantSpeakersApi.on('dominantSpeakersChanged', dominantSpeakersChangedHan
 ## Enabling screen sharing
 ### Twilio
 
-To share the screen in Twilio Video, source track should be obtained via navigator.mediaDevices
+To share the screen in Twilio Video, obtain the source track via `navigator.mediaDevices`:
 
 Chromium-based browsers:
 ```javascript
@@ -847,32 +847,32 @@ const stream = await navigator.mediaDevices.getUserMedia({ mediaSource: 'screen'
 const track = stream.getTracks()[0];
 ```
 
-Obtain the screen share track can then be published and managed the same way as casual Video Track (see the “Video” section).
+Obtain the screen share track, then you can publish and manage it the same way as the casual Video Track (see the “Video” section).
 
 ### Azure Communication Services
 
-To start screen sharing while on a call, you can use asynchronous API `startScreenSharing`:
+To start screen sharing while on a call, you can use the asynchronous API `startScreenSharing`:
 ```javascript
 await call.startScreenSharing();
 ```
 
-After successfully starting to sending screen sharing, a `LocalVideoStream` instance of type `ScreenSharing` is created and is added to the `localVideoStreams` collection on the call instance.
+After successfully starting to sending screen sharing, a `LocalVideoStream` instance of type `ScreenSharing` is created and added to the `localVideoStreams` collection on the call instance.
 
 ```javascript
 const localVideoStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'ScreenSharing'} );
 ```
 
-To stop screen sharing while on a call, you can use asynchronous API `stopScreenSharing`:
+To stop screen sharing while on a call, you can use the asynchronous API `stopScreenSharing`:
 ```javascript
 await call.stopScreenSharing();
 ```
 
-To verify if screen sharing is on or off, you can use `isScreenSharingOn` API, which returns true or false:
+To verify whether screen sharing is on or off, you can use `isScreenSharingOn` API, which returns true or false:
 ```javascript
 call.isScreenSharingOn;
 ```
 
-To listen for changes to the screen share, you can subscribe and unsubscribe to the `isScreenSharingOnChanged` event
+To listen for changes to the screen share, subscribe and unsubscribe to the `isScreenSharingOnChanged` event:
 
 ```javascript
 // Subscribe to screen share event
@@ -890,14 +890,14 @@ call.off('isScreenSharingOnChanged', () => {
 
 ### Twilio
 
-To collect real-time media stats, the getStats method can be used.
+To collect real-time media stats, use the `getStats`` method.
 ```javascript
 const stats = twilioRoom.getStats();
 ```
 
 ### Azure Communication Services
 
-Media quality statistics is an extended feature of the core Call API. You first need to obtain the mediaStatsFeature API object:
+Media quality statistics is an extended feature of the core Call API. You first need to obtain the `mediaStatsFeature` API object:
 
 ```javascript
 const mediaStatsFeature = call.feature(Features.MediaStats);
@@ -906,10 +906,10 @@ const mediaStatsFeature = call.feature(Features.MediaStats);
 
 To receive the media statistics data, you can subscribe `sampleReported` event or `summmaryReported` event:
 
-- `sampleReported` event triggers every second. It's suitable as a data source for UI display or your own data pipeline.
-- `summmaryReported` event contains the aggregated values of the data over intervals, which is useful when you just need a summary.
+- `sampleReported` event triggers every second. Suitable as a data source for UI display or your own data pipeline.
+- `summmaryReported` event contains the aggregated values of the data over intervals. Useful when you just need a summary.
 
-If you want control over the interval of the summmaryReported event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`. Otherwise, the SDK uses default values.
+If you want control over the interval of the `summmaryReported` event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`. Otherwise, the SDK uses default values.
 ```javascript
 const mediaStatsCollectorOptions: SDK.MediaStatsCollectorOptions = {
     aggregationInterval: 10,
@@ -927,24 +927,24 @@ mediaStatsCollector.on('summaryReported', (summary) => {
 });
 ```
 
-In case you don't need to use the media statistics collector, you can call dispose method of `mediaStatsCollector`.
+If you don't need to use the media statistics collector, you can call the dispose method of `mediaStatsCollector`.
 
 ```javascript
 mediaStatsCollector.dispose();
 ```
 
 
-It's not necessary to call the dispose method of `mediaStatsCollector` every time the call ends, as the collectors are reclaimed internally when the call ends.
+You don't need to call the dispose method of `mediaStatsCollector` every time a call ends. The collectors are reclaimed internally when the call ends.
 
-You can learn more about media quality statistics [here](../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web).
+For more information, see [Media quality statistics](../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web).
 
 ## Diagnostics
 
 ### Twilio
 
-To test connectivity, Twilio offers Preflight API - a test call is performed to identify signaling and media connectivity issues.
+To test connectivity, Twilio offers Preflight API. This is a test call performed to identify signaling and media connectivity issues.
 
-To launch the test, an access token is required:
+An access token is required to launch the test:
 
 ```javascript
 const preflightTest = twilioVideo.runPreflight(token);
@@ -964,10 +964,9 @@ preflightTest.on('failed', (error, report) => {
 preflightTest.on('completed', (report) => {
   console.log(`Preflight test report: ${report}`);
 });
-
 ```
 
-Another way to identify network issues during the call is Network Quality API, which monitors Participant's network and provides quality metrics. It can be enabled in the connection options when joining the Group Room:
+Another way to identify network issues during the call is by using the Network Quality API, which monitors a Participant's network and provides quality metrics. You can enable it in the connection options when a participant joins the Group Room:
 
 ```javascript
 twilioRoom = await twilioVideo.connect('token', { 
@@ -981,7 +980,7 @@ twilioRoom = await twilioVideo.connect('token', {
 });
 ```
 
-When the network quality for Participant changes, a `networkQualityLevelChanged` event will be emitted:
+When the network quality for Participant changes, it generates a `networkQualityLevelChanged` event:
 ```javascript
 participant.on(networkQualityLevelChanged, (networkQualityLevel, networkQualityStats)  => {
     // Processing Network Quality stats
@@ -989,14 +988,14 @@ participant.on(networkQualityLevelChanged, (networkQualityLevel, networkQualityS
 ```
 
 ### Azure Communication Services
-Azure Communication Services provides a feature called `"User Facing Diagnostics" (UFD)` that can be used to examine various properties of a call to determine what the issue might be. User Facing Diagnostics are events that are fired off that could indicate due to some underlying issue (poor network, the user has their microphone muted) that a user might have a poor experience.
+Azure Communication Services provides a feature called `"User Facing Diagnostics" (UFD)` that you can use to examine various properties of a call to identify the issue. User Facing Diagnostics events could be caused by some underlying issue (poor network, the user has their microphone muted) that could cause a user to have a poor call experience.
 
-User-facing diagnostics is an extended feature of the core Call API and allows you to diagnose an active call.
+User-facing diagnostics is an extended feature of the core Call API and enables you to diagnose an active call.
 ```javascript
 const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
 ```
 
-Subscribe to the diagnosticChanged event to monitor when any user-facing diagnostic changes:
+Subscribe to the `diagnosticChanged`` event to monitor when any user-facing diagnostic changes:
 ```javascript
 /**
  *  Each diagnostic has the following data:
@@ -1029,12 +1028,11 @@ const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEvent
 
 userFacingDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
 userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
-
 ```
 
-You can learn more about User Facing Diagnostics and the different diagnostic values available in [this article](../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).
+To learn more about User Facing Diagnostics and the different diagnostic values available, see [User Facing Diagnostics](../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).
 
-ACS also provides a pre-call diagnostics API. To Access the Pre-Call API, you need to initialize a `callClient`, and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
+Azure Communication Services also provides a precall diagnostics API. To Access the Pre-Call API, you need to initialize a `callClient`, and provision an Azure Communication Services access token. Then you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```javascript
 import { CallClient, Features} from "@azure/communication-calling";
@@ -1045,7 +1043,7 @@ const tokenCredential = new AzureCommunicationTokenCredential("INSERT ACCESS TOK
 const preCallDiagnosticsResult = await callClient.feature(Features.PreCallDiagnostics).startTest(tokenCredential);
 ```
 
-The Pre-Call API returns a full diagnostic of the device including details like device permissions, availability and compatibility, call quality stats and in-call diagnostics. The results are returned as a PreCallDiagnosticsResult object.
+The Pre-Call API returns a full diagnostic of the device including details like device permissions, availability and compatibility, call quality stats and in-call diagnostics. The results are returned as a `PreCallDiagnosticsResult` object.
 
 ```javascript
 export declare type PreCallDiagnosticsResult  = {
@@ -1058,12 +1056,11 @@ export declare type PreCallDiagnosticsResult  = {
 };
 ```
 
-You can learn more about ensuring precall readiness [here](../concepts/voice-video-calling/pre-call-diagnostics.md).
-
+You can learn more about ensuring precall readiness in [Pre-Call diagnostics](../concepts/voice-video-calling/pre-call-diagnostics.md).
 
 ## Event listeners
 
-### Twilio
+Twilio
 
 ```javascript
 twilioRoom.on('participantConneted', (participant) => { 

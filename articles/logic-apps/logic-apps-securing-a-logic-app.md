@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 01/29/2024
+ms.date: 01/30/2024
 ms.custom: ignite-fall-2021
 ---
 
@@ -35,17 +35,32 @@ For more information about security in Azure, review these topics:
 
 ## Access to logic app operations
 
-For Consumption logic apps only, before you can create or manage logic apps and their connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can also set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles:
+For Consumption logic apps only, before you can create or manage logic apps and their connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can also set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles, based on whether you have a Consumption or Standard logic app workflow:
 
-* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
+##### Consumption workflows
 
-* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Lets you read, enable, and disable logic apps, but you can't edit or update them.
+| Role | Description |
+|------|-------------|
+| [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor) | You can manage logic app workflows, but you can't change access to them. |
+| [**Logic App Operator**](../role-based-access-control/built-in-roles.md#logic-app-operator) | You can read, enable, and disable logic app workflows, but you can't edit or update them. |
+| [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) | You have full access to manage all resources, but you can't assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. |
 
-* [Contributor](../role-based-access-control/built-in-roles.md#contributor): Grants full access to manage all resources, but doesn't allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+For example, suppose you have to work with a logic app workflow that you didn't create and authenticate connections used by that logic app workflow. Your Azure subscription requires **Contributor** permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
 
-  For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
+To prevent others from changing or deleting your logic app workflow, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
 
-To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
+##### Standard workflows
+
+> [!NOTE]
+>
+> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+| Role | Description |
+|------|-------------|
+| [**Logic Apps Standard Reader** (Preview)](../role-based-access-control/built-in-roles.md#logic-apps-standard-reader) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. |
+| [**Logic Apps Standard Operator** (Preview)](../role-based-access-control/built-in-roles.md#logic-apps-standard-operator) | You have access to enable, resubmit, and disable workflows and to create connections to services, systems, and networks for a Standard logic app. The Operator role can perform administration and support tasks on the Azure Logic Apps platform, but doesn't have permissions to edit workflows or settings. |
+| [**Logic Apps Standard Developer** (Preview)](../role-based-access-control/built-in-roles.md#logic-apps-standard-developer) | You have access to create and edit workflows, connections, and settings for a Standard logic app. The Developer role doesn't have permissions to make changes outside the scope of workflows, for example, application-wide changes such as configure virtual network integration. App Service Plans aren't supported. |
+| [**Logic Apps Standard Contributor** (Preview)](../role-based-access-control/built-in-roles.md#logic-apps-standard-contributor) | You have access to manage all aspects of a Standard logic app, but you can't change access or ownership. |
 
 <a name="secure-run-history"></a>
 
