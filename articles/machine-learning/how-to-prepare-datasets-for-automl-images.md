@@ -33,11 +33,11 @@ If your labeled training data is in a different format (like, pascal VOC or COCO
 
 ## Get labeled data 
 In order to train computer vision models using AutoML, you need to first get labeled training data. The images need to be uploaded to the cloud and label annotations need to be in JSONL format. You can either use the Azure Machine Learning Data Labeling tool to label your data or you could start with prelabeled image data.
-In order to train computer vision models using AutoML, you need to first get labeled training data. The images need to be uploaded to the cloud and label annotations need to be in JSONL format. You can either use the Azure Machine Learning Data Labeling tool to label your data or you could start with prelabeled image data.
+
 
 ### Using Azure Machine Learning Data Labeling tool to label your training data
 If you don't have prelabeled data, you can use Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images. This tool automatically generates the data required for training in the accepted format.
-If you don't have prelabeled data, you can use Azure Machine Learning's [data labeling tool](how-to-create-image-labeling-projects.md) to manually label images. This tool automatically generates the data required for training in the accepted format.
+
 
 It helps to create, manage, and monitor data labeling tasks for 
 
@@ -152,7 +152,7 @@ my_data = Data(
 
 ---
 
-Next, you'll need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
+
 Next, you'll need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
 
 If your training data is in a different format (like, pascal VOC or COCO), [helper scripts](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to convert the data to JSONL are available in [notebook examples](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs).
@@ -162,7 +162,6 @@ Once you have created jsonl file following the above steps, you can register it 
 ![Animation showing how to register a data asset from the jsonl files](media\how-to-prepare-datasets-for-automl-images\ui-dataset-jsnol.gif)
 
 ### Using prelabeled training data from Azure Blob storage
-
 If you have your labeled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-datastore.md#create-an-azure-blob-datastore).
 
 ## Create MLTable
