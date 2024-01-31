@@ -16,7 +16,7 @@ ms.date: 02/01/2024
 This article provides guidance on how to troubleshoot common connectivity issues with Azure Lab Services.
 
 > [!IMPORTANT]
-> Azure Lab Services is a managed offering where some of the backing resources for a Lab are not directly accessible. This impacts the ability to utilize other Azure VM troubleshooting guides like [Troubleshoot RDP connections on an Azure Virtual Machine](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
+> Azure Lab Services is a managed offering where some of the backing resources for a Lab are not directly accessible. This impacts the ability to utilize other Azure VM troubleshooting guides like [Troubleshoot RDP connections on an Azure Virtual Machine](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
 
 ## Connection speed
 
@@ -63,8 +63,8 @@ It isn't common to have multiple ISPs to connect to. If the slowdown is on a spe
 
 - Students receive the message, "Remote Desktop can't connect to the remote computer … Make sure the remote computer is turned on and connected to the network, and that remote access is enabled"
 
-:::image type="content" source="./media/troubleshoot-connect-lab-vm/rdp-error-cannot-connect-remote.png" alt-text="Modal for Remote Desktop Connection that shows an error stating that 'Remote Desktop can't connect to the remote computer … Make sure the remote computer is turned on and connected to the network, and that remote access is enabled' ":::
-
+    :::image type="content" source="./media/troubleshoot-connect-lab-vm/rdp-error-cannot-connect-remote.png" alt-text="Modal for Remote Desktop Connection that shows an error stating that 'Remote Desktop can't connect to the remote computer … Make sure the remote computer is turned on and connected to the network, and that remote access is enabled'":::
+    
 #### Causes
 
 - The virtual machine that the students are trying to connect to isn't running
@@ -115,7 +115,7 @@ Consider removing the RDP/SSH restriction or add an exemption for the [lab publi
 
 A lab template can be set up with a [script to autoreset the networking](https://techcommunity.microsoft.com/t5/azure-lab-services-blog/running-a-powershell-shutdown-script-on-windows-lab-services/ba-p/3273163) on machine shutdown. Otherwise, students or teachers would need to [reimage the lab VM](/azure/lab-services/how-to-reset-and-redeploy-vm#reimage-a-lab-vm), which will get them back to a good state.
 
-If custom DNS is needed, use [Advanced Networking](/azure/lab-services/how-to-connect-vnet-injection) and specify custom DNS servers on the virtual network.) 
+If custom DNS is needed, use [Advanced Networking](/azure/lab-services/how-to-connect-vnet-injection) and specify custom DNS servers on the virtual network.
 
 ## Unable to connect an outgoing VPN from a lab VM
 
@@ -190,7 +190,7 @@ Using the Azure VM that is connected directly to the virtual network (from the p
 #### Default User Defined Route (Route table problem) 
 Advanced networking allows the network to be customized as needed, including modifying the route table.  A user-defined route table directs traffic to the appropriate destinations.  There is a special route, the “internet route” (0.0.0.0/0) which directs traffic not bound for another local address to the Internet.  Azure Lab Services advanced networking does not support updating the ‘next hop’ for the 0.0.0.0/0 route to anything except the internet.  Changing this to a specific IP address (for example, directing outbound internet traffic to a firewall or other network appliance) will break connectivity to the lab by introducing an asymmetric routing issue.  When debugging issues, check for a custom route table and make sure that the default route is set to have 0.0.0.0/0 to the Internet.  
 
-## Further troubleshooting and data collection
+## Further troubleshooting
 
 If you're still experiencing issues after following the above steps, you may need to collect more data for further troubleshooting. This could include logs from your virtual machine, network trace data, or other relevant information.
 
