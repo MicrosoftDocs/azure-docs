@@ -1,88 +1,45 @@
 ---
 title: Security in Azure Operator 5G Core
 description: Review the security features embedded in Azure Operator 5G Core
-author: HollyCl
-ms.author: HollyCl
+author: SarahBoris
+ms.author: sboris
 ms.service: azure
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 01/18/2024
+
+ms.date: 01/31/2024
 ---
 
 # Security in Azure Operator 5G Core
 
-TODO: Add your heading
+Microsoft is built on Zero Trust security, including Azure Operator 5G Core (AO5GC). Rather than assuming that everything behind the corporate firewall is safe, Zero Trust assumes an open environment where trust must always be validated. Zero Trust is equally applied to all workload environments, both on Nexus and on Azure. 
 
-<!-- 2. Introductory paragraph
-----------------------------------------------------------
+ Zero Trust follows AO5GC from development through deployment and monitoring.  
 
-Required. Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short.
+## Development
 
-* Answer the fundamental "Why do I want this knowledge?" question.
-* Don't start the article with a bunch of notes or caveats.
-* Don’t link away from the article in the introduction.
-* For definitive concepts, it's better to lead with a sentence in the form, "X is a (type of) Y that does Z."
+AO5GC software development incorporates processes and tools to ensure the software is secure and hardened to vulnerability. Security during development addresses the different product dimensions of application, container/VM, orchestration, and communication in the following ways:  
 
--->
+- Vulnerability scanning is performed at multiple stages in the development process (source scans, build scans, image scans) with multiple ADO tools.
+- Regular checkpoints are set on threat modeling, privacy, and crypto reviews.  
+- Penetration testing is performed during development. 
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+## Deployment
+AO5GC is deployed based on a security blueprint that ensures the solution is hardened from external and internal attacks on the network. Security during deployment provides: 
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+- Secure access to software repositories. 
+- Least access privilege based on Role-based Access Control (RBAC) methodology. 
+- Centralized Identity / Privilege Management using Microsoft Entra ID. 
+- Secure transport to Azure through Express Route.  
+- Encryption of traffic within the NFs and between NFs (3GPP). 
+- Secure storage of data at rest. 
 
-Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
+## Monitoring
+Security monitoring of the application occurs through a combination of native alerting from the NF and Azure security applications. It includes: 
 
--->
-
-## Prerequisites
-TODO: [List the prerequisites if appropriate]
-
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
-
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
-
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
-
--->
-
-## [Section 1 heading]
-TODO: add your content
-
-## [Section 2 heading]
-TODO: add your content
-
-## [Section n heading]
-TODO: add your content
-
-
-<!-- 6. Next step/Related content ------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related
-content. You don't have to use either, but don't use both. For Next step, provide one link to the
-next step in a sequence. Use the blue box format For Related content provide 1-3 links. Include some
-context so the customer can determine why they would click the link. Add a context sentence for the
-following links.
-
--->
-
-## Next step
-TODO: Add your next step link(s)
-> [!div class="nextstepaction"]
-> 
-<!-- OR -->
+- Security Logging - Visibility for actions internal to the application. 
+- Microsoft Defender – Optional protection from cyber threats and vulnerabilities. 
 
 ## Related content
-TODO: Add your next step link(s)
-- 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
--->
+- [What is Azure Operator 5G Core?](overview-product.md)
+- [Azure Operator 5G Core architecture](overview-architecture.md)
+- [Observability analytics in Azure Operator 5G Core](concept-observability-analytics.md)
