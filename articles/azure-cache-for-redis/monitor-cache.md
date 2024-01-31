@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure Cache for Redis
 description: Start here to learn how to monitor Azure Cache for Redis.
-ms.date: 01/26/2024
+ms.date: 01/31/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
-author: v-thepet
-ms.author: v-thepet
+author: robb
+ms.author: robb
 ms.service: cache
 ---
 

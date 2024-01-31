@@ -114,8 +114,6 @@
     href: cache-monitor-diagnostic-settings.md
   - name: Monitoring data reference
     href: monitor-cache-reference.md
-  - name: Supported metrics details
-    href: cache-how-to-monitor.md
 
 - name: Scaling and performance
   items:
