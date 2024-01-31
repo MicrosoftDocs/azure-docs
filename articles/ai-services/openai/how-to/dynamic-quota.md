@@ -1,110 +1,79 @@
-# AOAI Dynamic Quota (Preview)
-
-Dynamic Quota is an AOAI feature that enables a Pay-Go deployment to opportunistically get more quota when server capacity is available. When Dynamic Quota is set to off, your deployment will be able to process a maximum throughput established by your tokens per second setting - more requests above that will return HTTP 429 responses. When Dynamic Quota is enabled, the deployment may occasionally provide a higher throughput before returning 429 responses, allowing you to perform more calls earlier. The additional requests are still paid with regular pricing.
-
-Dynamic Quota can only temporarily *increase* your available quota: it will never decrease below your configured value.
-
-## When to use Dynamic Quota
-Dynamic Quota is useful in most scenarios, particularly when your application can use extra capacity opportunistically or the application itself is driving the rate at which the AOAI API is called.
-
-The only situations in which you may prefer to avoid it is when your application may provide an adverse experience if quota is volatile. 
-
-For Dynamic quota, consider scenarios such as:
-* Bulk processing, 
-* Creating summarizations or embeddings for RAG,
-* Offline analysis of logs for generation of metrics and evaluations, 
-* Low-priority research, 
-* Apps that have very little quota allocated.
+---
+title: Azure OpenAI Service dynamic quota
+titleSuffix: Azure AI services
+description: Learn how to use Azure OpenAI dynamic quota
+#services: cognitive-services
+author: mrbullwinkle
+manager: nitinme
+ms.service: azure-ai-openai
+ms.topic: how-to
+ms.date: 01/30/2024
+ms.author: mbullwin
+---
 
 
-### When does Dynamic Quota come into effect?
+# Azure OpenAI Dynamic quota (Preview)
 
-The AOAI backend decides if, when and how much extra dynamic quota is added or removed from different deployments. It is not forecasted or announced in advance, and is not predictable. AOAI lets your application know there is more quota available by simply not responding with 429 and letting your calls through. To take advantage of Dynamic Quota, your application code must be able to issue more requests as 429s become infrequent.
+Dynamic quota is an Azure OpenAI feature that enables a standard (pay-as-you-go) deployment to opportunistically take advantage of more quota when extra capacity is available. When dynamic quota is set to off, your deployment will be able to process a maximum throughput established by your tokens per minute setting. When you exceed your preset TPM requests will return HTTP 429 responses. When dynamic quota is enabled, the deployment has the capability to access higher throughput before returning 429 responses, allowing you to perform more calls earlier. The extra requests are still billed at the [regular pricing rates](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
+Dynamic quota can only temporarily *increase* your available quota: it will never decrease below your configured value.
 
-### How does Dynamic Quota change costs?
-Calls that are done above your base quota have the same SLAs and costs as regular calls.
-There is no extra cost to turn on Dynamic quota on a deployment.
+## When to use dynamic quota
 
-Note with Dynamic Quota, there is no call enforcement of a "ceiling" quota or throughput. AOAI will process as many requests as it can above your baseline quota. If you need to control the rate of spend even when quota is less constrained, youur application code needs to hold back requests accordingly.
+Dynamic quota is useful in most scenarios, particularly when your application can use extra capacity opportunistically or the application itself is driving the rate at which the Azure OpenAI API is called.
 
+Typically, the situation in which you might prefer to avoid dynamic quota is when your application would provide an adverse experience if quota is volatile or increased.
 
-## How to use Dynamic Quota
+For dynamic quota, consider scenarios such as:
 
-To use Dynamic Quota you must
-1. Turn the Dynamic Quota property on in your AOAI deployment, and
-2. Make sure your application can take advantage of Dynamic Quota
+* Bulk processing,
+* Creating summarizations or embeddings for Retrieval Augmented Generation (RAG),
+* Offline analysis of logs for generation of metrics and evaluations,
+* Low-priority research,
+* Apps that have a small amount of quota allocated.
 
-### 1. How to turn Dynamic Quota On
-To activate Dynamic Quita for your deployment, you can go to the deployment properties in the resource configuration, and switch it on:
+### When does dynamic quota come into effect?
 
-![image](https://user-images.githubusercontent.com/1182549/279494568-99aa9c98-2fb4-42a0-a17e-201df028f420.png)
+The Azure OpenAI backend decides if, when, and how much extra dynamic quota is added or removed from different deployments. It isn't forecasted or announced in advance, and isn't predictable. Azure OpenAI lets your application know there's more quota available by responding with an HTTP 429 and not letting your API calls through. To take advantage of dynamic quota, your application code must be able to issue more requests as HTTP 429 responses become infrequent.
 
-Alternatively, you can enable it programatically:
+### How does dynamic quota change costs?
 
-```
-az rest --method patch --url { your deploymenbt URL} --body '{"properties": {"dynamicThrottlingEnabled": true} }'
-```
+* Calls that are done above your base quota have the same costs as regular calls.
 
-## 2. How to use Dynamic Quota in your application
+* There's no extra cost to turn on dynamic quota on a deployment, though the increased throughput could ultimately result in increased cost depending on the amount of traffic your deployment receives.
 
-AOAI Ddeployments return 429 when the throughput limit is being reached. With Dynamic Quota, this limit will be on occasions reached with higher demand than usual.
+> [!NOTE]
+> With dynamic quota, there is no call enforcement of a "ceiling" quota or throughput. Azure OpenAI will process as many requests as it can above your baseline quota. If you need to control the rate of spend even when quota is less constrained, your application code needs to hold back requests accordingly.
 
-You can acheive this by coding your application so it adjusts the rate of requests based on the 429 responses it receives, for example, issuing more or less requests until no more than one 429 error is encountered every 2 minutes. 
+## How to use dynamic quota
 
-``` 
-// Pseudocode for application code that dynamically adjusts with dynamic quota availability.
-// This code adjusts the wait time between requests by monitoring the rate of 429 responses.
-// If there are 429s encountered, the wait time goes slightly up. if there are no 429s in a couple minutes, the waiti time goes slightly down.
-// More sophisticated implementations could implement PID and other approximation algorithms, but this will be good enough for most situations.
+To use dynamic quota, you must:
 
-wait_time = 1000; //time to wait between calls
+* Turn on the dynamic quota property in your Azure OpenAI deployment.
+* Make sure your application can take advantage of dynamic quota.
 
-last_429_time = null //to keep track of last time a 429 error was encountered.
+### Enable dynamic quota
 
-wait_time_step_up = 200; //time to add in milliseconds if 429 is encountered
-wait_time_step_down =100; //time to add in milliseconds if 429 is encountered
+To activate dynamic quota for your deployment, you can go to the advanced properties in the resource configuration, and switch it on:
 
-min_wait_time = 100; //don't wait less than this, even if we are not getting 429s
+:::image type="content" source="../media/how-to/dynamic-quota/dynamic-quota.png" alt-text="Screenshot of advanced configuration UI for deployments" lightbox="../media/how-to/dynamic-quota/dynamic-quota.png":::
 
+Alternatively, you can enable it programmatically with Azure CLI's [`az rest`](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-rest):
 
-while (there_is_work_to_be_done)
-{
-    response = {call AOAI API}
-    
-    //adjust wait time dynamically
-    if (response.status_code == 429)
-    {
-        //429: increasing wait time
-        wait_time = wait time + wait_time_step_up;
-        last_429_time = now();
-    }
-    else
-    {
-        //# Check if it has been 2 minutes since the last 429
-        if ( (last_429_time > 0) && (now() - last_429_time >= 120) )
-        {
-            wait_time = max (min_wait_time, wait_time - wait_step_down);
-            last_429_time = null;
-        }
-    }
-    
-    // more work...
-    
-    sleep (wait_time);
-}
+Replace the `{subscriptionId}`, `{resourceGroupName}`, `{accountName}`, and `{deploymentName}` with the relevant values for your resource. In this case, `accountName` is equal to Azure OpenAI resource name.
 
+```azurecli
+az rest --method patch --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}?2023-10-01-preview" --body '{"properties": {"dynamicThrottlingEnabled": true} }'
 ```
 
-#### How do I know how much throughput Dynamic Quota is adding to my app?
+### How do I know how much throughput dynamic quota is adding to my app?
 
-To monitor how it is working, you can track the throughput of your application in Azure Monitor. During the Preview of Dynamic Quota there is no specific metric or log to indicate quota has been dynamically increased or decreased.
-Dynamic quota is less likely to appear for your deployment if it runs in heavily utilized regions, and during peak hours of use for those regions. 
+To monitor how it's working, you can track the throughput of your application in Azure Monitor. During the Preview of dynamic quota, there's no specific metric or log to indicate if quota has been dynamically increased or decreased.
+dynamic quota is less likely to be engaged for your deployment if it runs in heavily utilized regions, and during peak hours of use for those regions.
 
+## Next Steps
 
-
-## More Information {AOAI docs team}
-* Setting Quota on an AOAI endpoint
-* 429 responses in AOAI APIs
+* Learn more about how [quota works](./quota.md).
+* Learn more about [monitoring Azure OpenAI](./monitoring.md).
 
 
