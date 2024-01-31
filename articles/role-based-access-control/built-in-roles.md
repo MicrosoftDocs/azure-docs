@@ -4277,7 +4277,7 @@ Grants access to read map related data from an Azure maps account.
 
 Allow read, write and delete access to Azure Spring Cloud Config Server
 
-[Learn more](/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac)
+[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4322,7 +4322,7 @@ Allow read, write and delete access to Azure Spring Cloud Config Server
 
 Allow read access to Azure Spring Cloud Config Server
 
-[Learn more](/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac)
+[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4402,7 +4402,7 @@ Allow read access to Azure Spring Cloud Data
 
 Allow read, write and delete access to Azure Spring Cloud Service Registry
 
-[Learn more](/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac)
+[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4447,7 +4447,7 @@ Allow read, write and delete access to Azure Spring Cloud Service Registry
 
 Allow read access to Azure Spring Cloud Service Registry
 
-[Learn more](/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac)
+[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
