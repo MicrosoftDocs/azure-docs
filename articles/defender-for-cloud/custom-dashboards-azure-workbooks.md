@@ -1,6 +1,6 @@
 ---
-title: Use gallery workbooks 
-description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data by using workbooks from the integrated Azure Monitor workbooks gallery.
+title: Use Azure Monitor gallery workbooks with Defender for Cloud data
+description: Learn how to create rich, interactive reports for your Microsoft Defender for Cloud data by using workbooks from the integrated Azure Monitor workbooks gallery.
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
@@ -9,7 +9,7 @@ ms.date: 12/06/2023
 
 # Create rich, interactive reports of Defender for Cloud data by using workbooks
 
-[Azure workbooks](../azure-monitor/visualize/workbooks-overview.md) are a flexible canvas that you can use to analyze data and create rich, visual reports in the Azure portal. In workbooks, you can tap into multiple data sources across Azure. You can combine workbooks into unified, interactive experiences.
+[Azure workbooks](../azure-monitor/visualize/workbooks-overview.md) are flexible canvas that you can use to analyze data and create rich, visual reports in the Azure portal. In workbooks, you can access multiple data sources across Azure. Combine workbooks into unified, interactive experiences.
 
 Workbooks provide a rich set of capabilities for visualizing your Azure data. For detailed information about each visualization type, see the [visualizations examples and documentation](../azure-monitor/visualize/workbooks-text-visualizations.md).
 
@@ -21,7 +21,7 @@ For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/
 
 ## Prerequisites
 
-**Required roles and permissions**: To save a workbook, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the affected resource group.
+**Required roles and permissions**: To save a workbook, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions for the relevant resource group.
 
 **Cloud availability**: :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)
 
@@ -29,19 +29,19 @@ For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/
 
 ## Use Defender for Cloud gallery workbooks
 
-With the integrated Azure workbooks functionality, Defender for Cloud makes it straightforward to build your own custom, interactive workbooks. Defender for Cloud also includes a gallery that has the following workbooks ready for you to customize:
+In Defender for Cloud, you can use integrated Azure workbooks functionality to build custom, interactive workbooks that display your security data. Defender for Cloud includes a workbooks gallery that has the following workbooks ready for you to customize:
 
 - [Coverage workbook](#coverage-workbook): Track the coverage of Defender for Cloud plans and extensions across your environments and subscriptions.
 - [Secure Score Over Time workbook](#secure-score-over-time-workbook): Track your subscription scores and changes to recommendations for your resources.
 - [System Updates workbook](#system-updates-workbook): View missing system updates by resource, OS, severity, and more.
 - [Vulnerability Assessment Findings workbook](#vulnerability-assessment-findings-workbook): View the findings of vulnerability scans of your Azure resources.
-- [Compliance Over Time workbook](#compliance-over-time-workbook): View the status of a subscription's compliance with the regulatory or industry standards that you select.
+- [Compliance Over Time workbook](#compliance-over-time-workbook): View the status of a subscription's compliance with regulatory standards or industry standards that you select.
 - [Active Alerts workbook](#active-alerts-workbook): View active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
-- Price Estimation workbook: View monthly, consolidated price estimations for Microsoft Defender for Cloud plans based on the resource telemetry in your own environment. The numbers are estimates based on retail prices and don't represent actual billing or invoice data.
-- Governance workbook: Use the governance report in the governance rules settings to track progress of the rules that are effective in the organization.
-- [DevOps Security (Preview) workbook](#devops-security-workbook): View a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you set up.
+- Price Estimation workbook: View monthly, consolidated price estimations for Defender for Cloud plans based on the resource telemetry in your environment. The numbers are estimates that are based on retail prices and don't represent actual billing or invoice data.
+- Governance workbook: Use the governance report in the governance rules settings to track progress of the rules that affect your organization.
+- [DevOps Security (preview) workbook](#devops-security-workbook): View a customizable foundation that helps you visualize the state of your DevOps posture for the connectors that you set up.
 
-Along with built-in workbooks, you can find other useful workbooks in the **Community** category. These workbooks are provided as-is and have no SLA or support. You can choose one of the supplied workbooks or create your own.
+Along with built-in workbooks, you can find useful workbooks in the **Community** category. These workbooks are provided as-is and have no SLA or support. You can choose one of the provided workbooks or create your own workbook.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Screenshot that shows the gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
@@ -57,7 +57,7 @@ Along with built-in workbooks, you can find other useful workbooks in the **Comm
 
 If you enable Defender for Cloud across multiple subscriptions and environments (Azure, Amazon Web Services, and Google Cloud Platform), you might find it challenging to keep track of which plans are active. It's especially true if you have multiple subscriptions and environments.
 
-The Coverage workbook helps you keep track of which Defender for Cloud plans are active in which parts of your environments. This workbook can help you ensure that your environments and subscriptions are fully protected. By having access to detailed coverage information, you can also identify areas that might need more protection so that you can take action to address those areas.
+The Coverage workbook helps you keep track of which Defender for Cloud plans are active in which parts of your environments. This workbook can help you ensure that your environments and subscriptions are fully protected. By having access to detailed coverage information, you can identify areas that might need more protection so that you can take action to address those areas.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/coverage.png" alt-text="Screenshot that shows the Coverage workbook, which displays the plans and extensions that are enabled in various subscriptions and environments." lightbox="media/custom-dashboards-azure-workbooks/coverage.png":::
 
@@ -66,15 +66,15 @@ In this workbook, you can select a subscription (or all subscriptions), and then
 - **Additional information**: Shows release notes and an explanation of each toggle.
 - **Relative coverage**: Shows the percentage of subscriptions or connectors that have a specific Defender for Cloud plan enabled.
 - **Absolute coverage**: Shows each plan's status per subscription.
-- **Detailed coverage**: Shows additional settings that can be enabled or must need to be enabled on relevant plans to get each plan's full value.
+- **Detailed coverage**: Shows additional settings that can be enabled or that must need to be enabled on relevant plans to get each plan's full value.
 
-You also can select the Azure, Amazon Web Services, or Google Cloud Platform environment in each or all subscriptions to see which plans and extensions are enabled for that environment.
+You also can select the Azure, Amazon Web Services, or Google Cloud Platform environment in each or all subscriptions to see which plans and extensions are enabled for the environments.
 
 <a name="use-the-secure-score-over-time-workbook"></a>
 
 ### Secure Score Over Time workbook
 
-The Secure Score Over Time workbook uses secure score data from your Log Analytics workspace. The data must be exported from the continuous export tool as described in [Configure continuous export from the Defender for Cloud pages in the Azure portal](continuous-export.md?tabs=azure-portal).
+The Secure Score Over Time workbook uses secure score data from your Log Analytics workspace. The data must be exported by using the continuous export tool as described in [Set up continuous export for Defender for Cloud in the Azure portal](continuous-export.md?tabs=azure-portal).
 
 When you set up continuous export, under **Export frequency**, select both **Streaming updates** and **Snapshots (Preview)**.
 
@@ -84,7 +84,7 @@ When you set up continuous export, under **Export frequency**, select both **Str
 > Snapshots are exported weekly. There's a delay of at least one week after the first snapshot is exported before you can view data in the workbook.
 
 > [!TIP]
-> To configure continuous export across your organization, use the supplied `DeployIfNotExist` policies in Azure Policy that are described in [Configure continuous export at scale](continuous-export.md?tabs=azure-policy).
+> To configure continuous export across your organization, use the provided `DeployIfNotExist` policies in Azure Policy that are described in [Set up continuous export at scale](continuous-export.md?tabs=azure-policy).
 
 The Secure Score Over Time workbook has five graphs for the subscriptions that report to the selected workspaces:
 
@@ -132,13 +132,13 @@ The Vulnerability Assessment Findings workbook gathers these findings and organi
 
 ### Compliance Over Time workbook
 
-Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select the specific standards relevant to your organization using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select standards that are relevant to your organization by using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 The Compliance Over Time workbook tracks your compliance status over time by using the various standards that you add to your dashboard.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-select-standards.png" alt-text="Screenshot that shows how to select the standards for your Compliance Over Time report.":::
 
-When you select a standard from the overview area of the report, the lower pane reveals a more detailed breakdown:
+When you select a standard from the overview area of the report, the lower pane displays a more detailed breakdown:
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="Screenshot that shows how to a detailed breakdown of the changes regarding a specific standard.":::
 
@@ -153,12 +153,12 @@ To view the resources that passed or failed each control, you can keep drilling 
 
 ### Active Alerts workbook
 
-The Active Alerts workbook displays the active security alerts for your subscriptions on one dashboard. Security alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. Defender for Cloud prioritizes and lists the alerts with the information you need to quickly investigate and remediate.
+The Active Alerts workbook displays the active security alerts for your subscriptions on one dashboard. Security alerts are the notifications that Defender for Cloud generates when it detects threats against your resources. Defender for Cloud prioritizes and lists the alerts with the information that you need to quickly investigate and remediate.
 
 This workbook benefits you by helping you be aware of and prioritize the active threats in your environment.
 
 > [!NOTE]
-> Most workbooks use Azure Resource Graph to query data. For example, to display Map View, a Log Analytics workspace is used to query the data. [Continuous export](continuous-export.md) should be enabled. Export the security alerts to the Log Analytics workspace.
+> Most workbooks use Azure Resource Graph to query data. For example, to display a map view, data is queried in a Log Analytics workspace. [Continuous export](continuous-export.md) should be enabled. Export the security alerts to the Log Analytics workspace.
 
 You can view active alerts by severity, resource group, and tag.
 
@@ -180,7 +180,7 @@ You can see all the active alerts in a table and filter by columns.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-table.png" alt-text="Screenshot that shows the table of active alerts.":::
 
-To see all the details of a specific alert, select the alert in the table, and then select the **Open Alert View** button.
+To see details for a specific alert, select the alert in the table, and then select the **Open Alert View** button.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/alert-details-screen.png" alt-text="Screenshot that shows an alert's details and the Open Alert View button.":::
 
@@ -241,7 +241,7 @@ The **Threats & Tactics** tab displays the count of threats and tactics by repos
 
 ## Import workbooks from other workbook galleries
 
-To move workbooks that you build in other Azure services into your Microsoft Defender for Cloud workbooks gallery:
+To move workbooks that you build in other Azure services into your Microsoft Defender for Cloud workbook gallery:
 
 1. Open the workbook that you want to import.
 
@@ -255,11 +255,11 @@ To move workbooks that you build in other Azure services into your Microsoft Def
 
 1. In the workbook gallery template, select all the JSON in the file and copy it.
 
-1. Open the workbooks gallery in Defender for Cloud, and then select **New** on the menu bar.
+1. Open the workbook gallery in Defender for Cloud, and then select **New** on the menu bar.
 
 1. Select **</>** to open the Advanced Editor.
 
-1. Paste in the entire gallery template JSON.
+1. Paste the entire gallery template JSON code.
 
 1. Select **Apply**.
 
@@ -271,14 +271,16 @@ To move workbooks that you build in other Azure services into your Microsoft Def
 
    - A name for the workbook.
    - The Azure region to use.
-   - Subscription, resource group, and sharing information, if relevant.
+   - Any relevant information about the subscription, resource group, and sharing.
 
 To find the saved workbook, go to the **Recently modified workbooks** category.
 
 ## Related content
 
-This article describes Defender for Cloud integrated Azure workbooks page that has built-in reports and the option to build your own custom, interactive reports.
+This article describes the Defender for Cloud integrated Azure workbooks page that has built-in reports and the option to build your own custom, interactive reports.
 
 - Learn more about [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md).
 
-- The built-in workbooks get their data from Defender for Cloud recommendations. Learn about the many security recommendations in [Security recommendations: A reference guide](recommendations-reference.md).
+Built-in workbooks get their data from Defender for Cloud recommendations.
+
+- Learn about the many security recommendations in [Security recommendations: A reference guide](recommendations-reference.md).
