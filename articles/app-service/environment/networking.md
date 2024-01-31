@@ -65,7 +65,10 @@ As you scale your App Service plans in your App Service Environment, you use mor
 
 ### Bring your own inbound address
 
-You can bring your own inbound address to your App Service Environment. If you create an App Service Environment with an internal VIP, you can specify a static IP address in the subnet. If you create an App Service Environment with an external VIP, you can use your own Azure Public IP address (by specifying the resource ID of the Public IP address). The inbound address can't be changed after the App Service Environment is created.
+You can bring your own inbound address to your App Service Environment. If you create an App Service Environment with an internal VIP, you can specify a static IP address in the subnet. If you create an App Service Environment with an external VIP, you can use your own Azure Public IP address by specifying the resource ID of the Public IP address. The following are limitations for bringing your own inbound address:
+
+- For App Service Environment with external VIP, the Azure Public IP address resource must be in the same subscription as the App Service Environment. 
+- The inbound address can't be changed after the App Service Environment is created.
 
 ## Ports and network restrictions
 
