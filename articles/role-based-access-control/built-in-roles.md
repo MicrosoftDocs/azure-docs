@@ -34,15 +34,15 @@ The following table provides a brief description of each built-in role. Click th
 > | **Compute** |  |  |
 > | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | [Data Operator for Managed Disks](#data-operator-for-managed-disks) | Provides permissions to upload data to empty managed disks, read, or export data of managed disks (not attached to running VMs) and snapshots using SAS URIs and Azure AD authentication. | 959f8984-c045-4866-89c7-12bf9737be2e |
-> | [Disk Backup Reader](#disk-backup-reader) | Provides permission to back up vault to perform disk backup. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
+> | [Disk Backup Reader](#disk-backup-reader) | Provides permission to backup vault to perform disk backup. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
 > | [Disk Pool Operator](#disk-pool-operator) | Provide permission to StoragePool Resource Provider to manage disks added to a disk pool. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
-> | [Disk Restore Operator](#disk-restore-operator) | Provides permission to back up vault to perform disk restore. | b50d9833-a0cb-478e-945f-707fcc997c13 |
-> | [Disk Snapshot Contributor](#disk-snapshot-contributor) | Provides permission to back up vault to manage disk snapshots. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
+> | [Disk Restore Operator](#disk-restore-operator) | Provides permission to backup vault to perform disk restore. | b50d9833-a0cb-478e-945f-707fcc997c13 |
+> | [Disk Snapshot Contributor](#disk-snapshot-contributor) | Provides permission to backup vault to manage disk snapshots. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
 > | [Virtual Machine Administrator Login](#virtual-machine-administrator-login) | View Virtual Machines in the portal and login as administrator | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | [Virtual Machine Contributor](#virtual-machine-contributor) | Create and manage virtual machines, manage disks, install and run software, reset password of the root user of the virtual machine using VM extensions, and manage local user accounts using VM extensions. This role does not grant you management access to the virtual network or storage account the virtual machines are connected to. This role does not allow you to assign roles in Azure RBAC. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | [Virtual Machine Data Access Administrator (preview)](#virtual-machine-data-access-administrator-preview) | Manage access to Virtual Machines by adding or removing role assignments for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments. | 66f75aeb-eabe-4b70-9f1e-c350c4c9ad04 |
 > | [Virtual Machine User Login](#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
-> | [Windows Admin Center Administrator Login](#windows-admin-center-administrator-login) | Lets you manage the OS of your resource via Windows Admin Center as an administrator. | a6333a3e-0164-44c3-b281-7a577aff287f |
+> | [Windows Admin Center Administrator Login](#windows-admin-center-administrator-login) | Let's you manage the OS of your resource via Windows Admin Center as an administrator. | a6333a3e-0164-44c3-b281-7a577aff287f |
 > | **Networking** |  |  |
 > | [Azure Front Door Domain Contributor](#azure-front-door-domain-contributor) | For internal use within Azure. Can manage Azure Front Door domains, but can't grant access to other users. | 0ab34830-df19-4f8c-b84e-aa85b8afa6e8 |
 > | [Azure Front Door Domain Reader](#azure-front-door-domain-reader) | For internal use within Azure. Can view Azure Front Door domains, but can't make changes. | 0f99d363-226e-4dca-9920-b807cf8e1a5f |
@@ -103,7 +103,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Media Services Account Administrator](#media-services-account-administrator) | Create, read, modify, and delete Media Services accounts; read-only access to other Media Services resources. | 054126f8-9a2b-4f1c-a9ad-eca461f08466 |
 > | [Media Services Live Events Administrator](#media-services-live-events-administrator) | Create, read, modify, and delete Live Events, Assets, Asset Filters, and Streaming Locators; read-only access to other Media Services resources. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
 > | [Media Services Media Operator](#media-services-media-operator) | Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and Jobs; read-only access to other Media Services resources. | e4395492-1534-4db2-bedf-88c14621589c |
-> | [Media Services Policy Administrator](#media-services-policy-administrator) | Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies, and Transforms; read-only access to other Media Services resources. Can't create Jobs, Assets or Streaming resources. | c4bba371-dacd-4a26-b320-7250bca963ae |
+> | [Media Services Policy Administrator](#media-services-policy-administrator) | Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies, and Transforms; read-only access to other Media Services resources. Cannot create Jobs, Assets or Streaming resources. | c4bba371-dacd-4a26-b320-7250bca963ae |
 > | [Media Services Streaming Endpoints Administrator](#media-services-streaming-endpoints-administrator) | Create, read, modify, and delete Streaming Endpoints; read-only access to other Media Services resources. | 99dba123-b5fe-44d5-874c-ced7199a5804 |
 > | [Search Index Data Contributor](#search-index-data-contributor) | Grants full access to Azure Cognitive Search index data. | 8ebe5a00-799e-43f5-93ac-243d3dce84a7 |
 > | [Search Index Data Reader](#search-index-data-reader) | Grants read access to Azure Cognitive Search index data. | 1407120a-92aa-4202-b7e9-c0e197c71c8f |
@@ -174,8 +174,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Cognitive Services Metrics Advisor Administrator](#cognitive-services-metrics-advisor-administrator) | Full access to the project, including the system level configuration. | cb43c632-a144-4ec5-977c-e80c4affc34a |
 > | [Cognitive Services OpenAI Contributor](#cognitive-services-openai-contributor) | Full access including the ability to fine-tune, deploy and generate text | a001fd3d-188f-4b5d-821b-7da978bf7442 |
 > | [Cognitive Services OpenAI User](#cognitive-services-openai-user) | Read access to view files, models, deployments. The ability to create completion and embedding calls. | 5e0bd9bd-7b93-4f28-af87-19fc36ad61bd |
-> | [Cognitive Services QnA Maker Editor](#cognitive-services-qna-maker-editor) | Lets you create, edit, import and export a KB. You can't publish or delete a KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
-> | [Cognitive Services QnA Maker Reader](#cognitive-services-qna-maker-reader) | Lets you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
+> | [Cognitive Services QnA Maker Editor](#cognitive-services-qna-maker-editor) | Let's you create, edit, import and export a KB. You cannot publish or delete a KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
+> | [Cognitive Services QnA Maker Reader](#cognitive-services-qna-maker-reader) | Let's you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Cognitive Services Usages Reader](#cognitive-services-usages-reader) | Minimal permission to view Cognitive Services usages. | bba48692-92b0-4667-a9ad-c31c7b334ac2 |
 > | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Internet of things** |  |  |
@@ -240,9 +240,9 @@ The following table provides a brief description of each built-in role. Click th
 > | **Security** |  |  |
 > | [App Compliance Automation Administrator](#app-compliance-automation-administrator) | Create, read, download, modify and delete reports objects and related other resource objects. | 0f37683f-2463-46b6-9ce7-9b788b988ba2 |
 > | [App Compliance Automation Reader](#app-compliance-automation-reader) | Read, download the reports objects and related other resource objects. | ffc6bbe0-e443-4c3b-bf54-26581bb2f78e |
-> | [Attestation Contributor](#attestation-contributor) | Can read, write, or delete the attestation provider instance | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
+> | [Attestation Contributor](#attestation-contributor) | Can read write or delete the attestation provider instance | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
 > | [Attestation Reader](#attestation-reader) | Can read the attestation provider properties | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
-> | [Key Vault Administrator](#key-vault-administrator) | Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Can't manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Key Vault Administrator](#key-vault-administrator) | Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 > | [Key Vault Certificates Officer](#key-vault-certificates-officer) | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Key Vault Contributor](#key-vault-contributor) | Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [Key Vault Crypto Officer](#key-vault-crypto-officer) | Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
@@ -250,7 +250,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Key Vault Crypto Service Release User](#key-vault-crypto-service-release-user) | Release keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 08bbd89e-9f13-488c-ac41-acfcb10c90ab |
 > | [Key Vault Crypto User](#key-vault-crypto-user) | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
 > | [Key Vault Data Access Administrator](#key-vault-data-access-administrator) | Manage access to Azure Key Vault by adding or removing role assignments for the Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, or Key Vault Secrets User roles. Includes an ABAC condition to constrain role assignments. | 8b54135c-b56d-4d72-a534-26097cfdc8d8 |
-> | [Key Vault Reader](#key-vault-reader) | Read metadata of key vaults and its certificates, keys, and secrets. Can't read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Key Vault Reader](#key-vault-reader) | Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
 > | [Key Vault Secrets Officer](#key-vault-secrets-officer) | Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 > | [Key Vault Secrets User](#key-vault-secrets-user) | Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Managed HSM contributor](#managed-hsm-contributor) | Lets you manage managed HSM pools, but not access to them. | 18500a29-7fe2-46b2-a342-b16a415e101d |
@@ -262,11 +262,11 @@ The following table provides a brief description of each built-in role. Click th
 > | [Security Admin](#security-admin) | View and update permissions for Microsoft Defender for Cloud. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md). | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Microsoft Defender for Cloud | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Admin instead. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Security Reader](#security-reader) | View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but can't make changes.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md). | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Security Reader](#security-reader) | View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but cannot make changes.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md). | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Lab Assistant](#lab-assistant) | Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab. | ce40b423-cede-4313-a93f-9b28290b72e1 |
-> | [Lab Contributor](#lab-contributor) | At lab level, enables you to manage the lab. At resource group level, enables you to create and manage labs. | 5daaa2af-1fe8-407c-9122-bba179798270 |
+> | [Lab Contributor](#lab-contributor) | Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs. | 5daaa2af-1fe8-407c-9122-bba179798270 |
 > | [Lab Creator](#lab-creator) | Lets you create new labs under your Azure Lab Accounts. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | [Lab Operator](#lab-operator) | Gives you limited ability to manage existing labs. | a36e6959-b6be-4b12-8e9f-ef4b474d304d |
 > | [Lab Services Contributor](#lab-services-contributor) | Enables you to fully control all Lab Services scenarios in the resource group. | f69b8690-cc87-41d6-b77a-a4bc3c0a966f |
@@ -288,12 +288,12 @@ The following table provides a brief description of each built-in role. Click th
 > | [Azure Arc Kubernetes Admin](#azure-arc-kubernetes-admin) | Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
 > | [Azure Arc Kubernetes Cluster Admin](#azure-arc-kubernetes-cluster-admin) | Lets you manage all resources in the cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
 > | [Azure Arc Kubernetes Viewer](#azure-arc-kubernetes-viewer) | Lets you view all resources in cluster/namespace, except secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
-> | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster) roles and (cluster) role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
 > | [Azure Connected Machine Onboarding](#azure-connected-machine-onboarding) | Can onboard Azure Connected Machines. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | [Azure Connected Machine Resource Administrator](#azure-connected-machine-resource-administrator) | Can read, write, delete and re-onboard Azure Connected Machines. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [Billing Reader](#billing-reader) | Allows read access to billing data | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | [Blueprint Contributor](#blueprint-contributor) | Can manage blueprint definitions, but not assign them. | 41077137-e803-4205-871c-5a86e6a753b4 |
-> | [Blueprint Operator](#blueprint-operator) | Can assign existing published blueprints, but can't create new blueprints. Note that this only works if the assignment is done with a user-assigned managed identity. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
+> | [Blueprint Operator](#blueprint-operator) | Can assign existing published blueprints, but cannot create new blueprints. Note that this only works if the assignment is done with a user-assigned managed identity. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
 > | [Cost Management Contributor](#cost-management-contributor) | Can view costs and manage cost configuration (e.g. budgets, exports) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Cost Management Reader](#cost-management-reader) | Can view cost data and configuration (e.g. budgets, exports) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | [Hierarchy Settings Administrator](#hierarchy-settings-administrator) | Allows users to edit and delete Hierarchy Settings | 350f8d15-c687-4448-8ae1-157740a3936d |
@@ -311,7 +311,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Reservation Purchaser](#reservation-purchaser) | Lets you purchase reservations | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
 > | [Resource Policy Contributor](#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
-> | [Site Recovery Operator](#site-recovery-operator) | Lets you fail over and fail back but not perform other Site Recovery management operations | 494ae006-db33-4328-bf46-533a6560a3ca |
+> | [Site Recovery Operator](#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Tag Contributor](#tag-contributor) | Lets you manage tags on entities, without providing access to the entities themselves. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
@@ -336,9 +336,9 @@ The following table provides a brief description of each built-in role. Click th
 > | [Grafana Admin](#grafana-admin) | Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. | 22926164-76b3-42b3-bc55-97df8dab3e41 |
 > | [Grafana Editor](#grafana-editor) | View and edit a Grafana instance, including its dashboards and alerts. | a79a5197-3a5c-4973-a920-486035ffd60f |
 > | [Grafana Viewer](#grafana-viewer) | View a Grafana instance, including its dashboards and alerts. | 60921a7e-fef1-4a43-9b16-a26c52ad4769 |
-> | [Load Test Contributor](#load-test-contributor) | View, create, update, delete and execute load tests. View and list load test resources but can't make any changes. | 749a398d-560b-491b-bb21-08924219302e |
+> | [Load Test Contributor](#load-test-contributor) | View, create, update, delete and execute load tests. View and list load test resources but can not make any changes. | 749a398d-560b-491b-bb21-08924219302e |
 > | [Load Test Owner](#load-test-owner) | Execute all operations on load test resources and load tests | 45bb0b16-2f0c-4e78-afaa-a07599b003f6 |
-> | [Load Test Reader](#load-test-reader) | View and list all load tests and load test resources but can't make any changes | 3ae3fb29-0000-4ccd-bf80-542e7b26e081 |
+> | [Load Test Reader](#load-test-reader) | View and list all load tests and load test resources but can not make any changes | 3ae3fb29-0000-4ccd-bf80-542e7b26e081 |
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Services Hub Operator](#services-hub-operator) | Services Hub Operator allows you to perform all read, write, and deletion operations related to Services Hub Connectors. | 82200a5b-e217-47a5-b665-6d8765ee745b |
 
@@ -696,7 +696,7 @@ Provides permissions to upload data to empty managed disks, read, or export data
 
 ### Disk Backup Reader
 
-Provides permission to back up vault to perform disk backup.
+Provides permission to backup vault to perform disk backup.
 
 [Learn more](/azure/backup/disk-backup-faq)
 
@@ -718,7 +718,7 @@ Provides permission to back up vault to perform disk backup.
   "assignableScopes": [
     "/"
   ],
-  "description": "Provides permission to back up a vault to perform disk backup.",
+  "description": "Provides permission to backup vault to perform disk backup.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/3e5e47e6-65f7-47ef-90b5-e5dd4d455f24",
   "name": "3e5e47e6-65f7-47ef-90b5-e5dd4d455f24",
   "permissions": [
@@ -790,7 +790,7 @@ Provide permission to StoragePool Resource Provider to manage disks added to a d
 
 ### Disk Restore Operator
 
-Provides permission to back up vault to perform disk restore.
+Provides permission to backup vault to perform disk restore.
 
 [Learn more](/azure/backup/restore-managed-disks)
 
@@ -813,7 +813,7 @@ Provides permission to back up vault to perform disk restore.
   "assignableScopes": [
     "/"
   ],
-  "description": "Provides permission to back up a vault to perform disk restore.",
+  "description": "Provides permission to backup vault to perform disk restore.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/b50d9833-a0cb-478e-945f-707fcc997c13",
   "name": "b50d9833-a0cb-478e-945f-707fcc997c13",
   "permissions": [
@@ -837,7 +837,7 @@ Provides permission to back up vault to perform disk restore.
 
 ### Disk Snapshot Contributor
 
-Provides permission to back up a vault to manage disk snapshots.
+Provides permission to backup vault to manage disk snapshots.
 
 [Learn more](/azure/backup/backup-managed-disks)
 
@@ -868,7 +868,7 @@ Provides permission to back up a vault to manage disk snapshots.
   "assignableScopes": [
     "/"
   ],
-  "description": "Provides permission to back up a vault to manage disk snapshots.",
+  "description": "Provides permission to backup vault to manage disk snapshots.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/7efff54f-a5b4-42b5-a1c5-5411624893ce",
   "name": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
   "permissions": [
@@ -968,7 +968,7 @@ Create and manage virtual machines, manage disks, install and run software, rese
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Create and manage compute availability sets |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | Create and manage compute locations |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Perform all virtual machine actions including create, update, delete, start, restart, and power off virtual machines. Execute scripts on virtual machines. |
@@ -1093,7 +1093,7 @@ Manage access to Virtual Machines by adding or removing role assignments for the
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
@@ -1212,7 +1212,7 @@ View Virtual Machines in the portal and login as a regular user.
 
 ### Windows Admin Center Administrator Login
 
-Lets you manage the OS of your resource via Windows Admin Center as an administrator.
+Let's you manage the OS of your resource via Windows Admin Center as an administrator.
 
 [Learn more](/windows-server/manage/windows-admin-center/azure/manage-vm)
 
@@ -1273,7 +1273,7 @@ Lets you manage the OS of your resource via Windows Admin Center as an administr
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage the OS of your resource via Windows Admin Center as an administrator.",
+  "description": "Let's you manage the OS of your resource via Windows Admin Center as an administrator.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/a6333a3e-0164-44c3-b281-7a577aff287f",
   "name": "a6333a3e-0164-44c3-b281-7a577aff287f",
   "permissions": [
@@ -1435,7 +1435,7 @@ Can view AFD standard and premium profiles and their endpoints, but can't make c
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/*/read |  |
@@ -1588,7 +1588,7 @@ Can manage CDN endpoints, but can't grant access to other users.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/endpoints/* |  |
@@ -1641,7 +1641,7 @@ Can view CDN endpoints, but can't make changes.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/endpoints/*/read |  |
@@ -1698,7 +1698,7 @@ Can manage CDN and Azure Front Door standard and premium profiles and their endp
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/* |  |
@@ -1751,7 +1751,7 @@ Can view CDN profiles and their endpoints, but can't make changes.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/*/read |  |
@@ -1808,7 +1808,7 @@ Lets you manage classic networks, but not access to them.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/* | Create and manage classic networks |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -1861,7 +1861,7 @@ Lets you manage DNS zones and record sets in Azure DNS, but does not let you con
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/dnsZones/* | Create and manage DNS zones and records |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -1912,7 +1912,7 @@ Lets you manage networks, but not access to them.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/* | Create and manage networks |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -1974,7 +1974,7 @@ Lets you manage private DNS zone resources, but not the virtual networks they ar
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/privateDnsOperationStatuses/* |  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/join/action | Joins a virtual network. Not Alertable. |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2022,7 +2022,7 @@ Lets you manage Traffic Manager profiles, but does not let you control who has a
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/trafficManagerProfiles/* |  |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -2078,7 +2078,7 @@ Can create and manage an Avere vFXT cluster.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/*/read |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/proximityPlacementGroups/* |  |
@@ -2230,7 +2230,7 @@ Lets you manage backup service, but can't create vaults and give access to other
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/* |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/operationResults/* | Manage results of operation on backup management |
@@ -2423,7 +2423,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/operationResults/read | Returns status of the operation |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/operationResults/read | Gets result of Operation performed on Protection Container. |
@@ -2646,7 +2646,7 @@ Can view backup services, but can't make changes
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/operationResults/read | Returns status of the operation |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/operationResults/read | Gets result of Operation performed on Protection Container. |
@@ -2817,7 +2817,7 @@ Lets you manage classic storage accounts, but not access to them.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/* | Create and manage storage accounts |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -2913,7 +2913,7 @@ Lets you manage everything under Data Box Service except giving access to others
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -2964,7 +2964,7 @@ Lets you manage Data Box Service except creating order or editing order details 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Databox](resource-provider-operations.md#microsoftdatabox)/*/read |  |
 > | [Microsoft.Databox](resource-provider-operations.md#microsoftdatabox)/jobs/listsecrets/action |  |
 > | [Microsoft.Databox](resource-provider-operations.md#microsoftdatabox)/jobs/listcredentials/action | Lists the unencrypted credentials related to the order. |
@@ -3023,7 +3023,7 @@ Lets you submit, monitor, and manage your own jobs but not create or delete Data
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | [Microsoft.DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
@@ -3149,7 +3149,7 @@ Allows for full access to all resources under Azure Elastic SAN including changi
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -3335,7 +3335,7 @@ Lets you perform backup and restore operations using Azure Backup on the storage
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/locks/read | Gets locks at the specified scope. |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/locks/write | Add locks at the specified scope. |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/locks/delete | Delete locks at the specified scope. |
@@ -3410,7 +3410,7 @@ Permits management of storage accounts. Provides access to the account key, whic
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
@@ -4281,7 +4281,7 @@ Grants access to read map related data from an Azure maps account.
 
 Allow read, write and delete access to Azure Spring Cloud Config Server
 
-[Learn more](/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac)
+[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4326,7 +4326,7 @@ Allow read, write and delete access to Azure Spring Cloud Config Server
 
 Allow read access to Azure Spring Cloud Config Server
 
-[Learn more](/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac)
+[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4406,7 +4406,7 @@ Allow read access to Azure Spring Cloud Data
 
 Allow read, write and delete access to Azure Spring Cloud Service Registry
 
-[Learn more](/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac)
+[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4451,7 +4451,7 @@ Allow read, write and delete access to Azure Spring Cloud Service Registry
 
 Allow read access to Azure Spring Cloud Service Registry
 
-[Learn more](/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac)
+[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4495,7 +4495,7 @@ Create, read, modify, and delete Media Services accounts; read-only access to ot
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Read metrics |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
@@ -4560,7 +4560,7 @@ Create, read, modify, and delete Live Events, Assets, Asset Filters, and Streami
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Read metrics |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
@@ -4625,7 +4625,7 @@ Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Read metrics |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
@@ -4685,12 +4685,12 @@ Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and 
 
 ### Media Services Policy Administrator
 
-Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies, and Transforms; read-only access to other Media Services resources. Can't create Jobs, Assets or Streaming resources.
+Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies, and Transforms; read-only access to other Media Services resources. Cannot create Jobs, Assets or Streaming resources.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Read metrics |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
@@ -4716,7 +4716,7 @@ Create, read, modify, and delete Account Filters, Streaming Policies, Content Ke
   "assignableScopes": [
     "/"
   ],
-  "description": "Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies, and Transforms; read-only access to other Media Services resources. Can't create Jobs, Assets or Streaming resources.",
+  "description": "Create, read, modify, and delete Account Filters, Streaming Policies, Content Key Policies, and Transforms; read-only access to other Media Services resources. Cannot create Jobs, Assets or Streaming resources.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/c4bba371-dacd-4a26-b320-7250bca963ae",
   "name": "c4bba371-dacd-4a26-b320-7250bca963ae",
   "permissions": [
@@ -4757,7 +4757,7 @@ Create, read, modify, and delete Streaming Endpoints; read-only access to other 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metrics/read | Read metrics |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
@@ -4896,7 +4896,7 @@ Lets you manage Search services, but not access to them.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -4949,7 +4949,7 @@ Read SignalR Service Access Keys
 > | --- | --- |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/*/read |  |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/listkeys/action | View the value of SignalR access keys in the management portal or through API |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
@@ -5167,7 +5167,7 @@ Create, Read, Update, and Delete SignalR service resources
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/* |  |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -5215,7 +5215,7 @@ Manage the web plans for websites. Does not allow you to assign roles in Azure R
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -5270,7 +5270,7 @@ Manage websites, but not web plans. Does not allow you to assign roles in Azure 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/components/* | Create and manage Insights components |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -5592,7 +5592,7 @@ This role grants admin access - provides write permissions on most objects withi
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -5701,7 +5701,7 @@ Lets you manage all resources in the fleet manager cluster.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -5752,7 +5752,7 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -5853,7 +5853,7 @@ Allows read/write access to most objects in a namespace. This role does not allo
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -6134,7 +6134,7 @@ Lets you manage all resources under cluster/namespace, except update or delete r
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -6193,7 +6193,7 @@ Lets you manage all resources in the cluster.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -6244,7 +6244,7 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -6353,7 +6353,7 @@ Allows read/write access to most objects in a namespace. This role does not allo
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -7670,7 +7670,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 > | [Microsoft.ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/virtualMachines/extensions/* |  |
 > | [Microsoft.ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/extensions/* |  |
-> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/write | Installs or updates an Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/* |  |
@@ -8394,8 +8394,8 @@ Lets you perform detect, verify, identify, group, and find similar operations on
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/identify/action | 1-to-many identification to find the closest matches of the specific query person face from a person group or large person group. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/group/action | Divide candidate faces into groups based on face similarity. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/findsimilars/action | Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list. faceId |
-> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detectliveness/multimodal/action | <p>Performs liveness detection on a target face in a sequence of infrared, color and/or depth images, and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification can't be made with the given inputs.</p> |
-> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detectliveness/singlemodal/action | <p>Performs liveness detection on a target face in a sequence of images of the same modality (e.g. color or infrared), and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification can't be made with the given inputs.</p> |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detectliveness/multimodal/action | <p>Performs liveness detection on a target face in a sequence of infrared, color and/or depth images, and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detectliveness/singlemodal/action | <p>Performs liveness detection on a target face in a sequence of images of the same modality (e.g. color or infrared), and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detectlivenesswithverify/singlemodal/action | Detects liveness of a target face in a sequence of images of the same stream type (e.g. color) and then compares with VerifyImage to return confidence score for identity scenarios. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/*/sessions/action |  |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/*/sessions/delete |  |
@@ -8612,7 +8612,7 @@ Read access to view files, models, deployments. The ability to create completion
 
 ### Cognitive Services QnA Maker Editor
 
-Lets you create, edit, import and export a KB. You can't publish or delete a KB.
+Let's you create, edit, import and export a KB. You cannot publish or delete a KB.
 
 [Learn more](/azure/ai-services/qnamaker/)
 
@@ -8672,7 +8672,7 @@ Lets you create, edit, import and export a KB. You can't publish or delete a KB.
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you create, edit, import and export a KB. You can't publish or delete a KB.",
+  "description": "Let's you create, edit, import and export a KB. You cannot publish or delete a KB.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/f4cc2bf9-21be-47a1-bdf1-5c5804381025",
   "name": "f4cc2bf9-21be-47a1-bdf1-5c5804381025",
   "permissions": [
@@ -8735,7 +8735,7 @@ Lets you create, edit, import and export a KB. You can't publish or delete a KB.
 
 ### Cognitive Services QnA Maker Reader
 
-Lets you read and test a KB only.
+Let's you read and test a KB only.
 
 [Learn more](/azure/ai-services/qnamaker/)
 
@@ -8774,7 +8774,7 @@ Lets you read and test a KB only.
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you read and test a KB only.",
+  "description": "Let's you read and test a KB only.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/466ccd10-b268-4a11-b098-b4849f024126",
   "name": "466ccd10-b268-4a11-b098-b4849f024126",
   "permissions": [
@@ -11706,9 +11706,12 @@ You have read-only access to all resources in a Standard logic app and workflows
 
 ## Identity
 
+
 ### Domain Services Contributor
 
-Can manage Azure AD Domain Services and related network configurations. [Learn more](/entra/identity/domain-services/tutorial-create-instance)
+Can manage Azure AD Domain Services and related network configurations
+
+[Learn more](/entra/identity/domain-services/tutorial-create-instance)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -12223,7 +12226,9 @@ Read, download the reports objects and related other resource objects.
 
 ### Attestation Contributor
 
-Can read, write, or delete the attestation provider instance. [Learn more](/azure/attestation/quickstart-powershell)
+Can read write or delete the attestation provider instance
+
+[Learn more](/azure/attestation/quickstart-powershell)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -12243,7 +12248,7 @@ Can read, write, or delete the attestation provider instance. [Learn more](/azur
   "assignableScopes": [
     "/"
   ],
-  "description": "Can read, write, or delete the attestation provider instance.",
+  "description": "Can read write or delete the attestation provider instance",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/bbf86eb8-f7b4-4cce-96e4-18cddf81d86e",
   "name": "bbf86eb8-f7b4-4cce-96e4-18cddf81d86e",
   "permissions": [
@@ -12307,7 +12312,7 @@ Can read the attestation provider properties
 
 ### Key Vault Administrator
 
-Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Can't manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model.
+Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 [Learn more](/azure/key-vault/general/rbac-guide)
 
@@ -12336,7 +12341,7 @@ Perform all data plane operations on a key vault and all objects in it, includin
   "assignableScopes": [
     "/"
   ],
-  "description": "Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Can't manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model.",
+  "description": "Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483",
   "name": "00482a5a-887f-4fb3-b363-3b7fe8e74483",
   "permissions": [
@@ -12763,7 +12768,7 @@ Manage access to Azure Key Vault by adding or removing role assignments for the 
 
 ### Key Vault Reader
 
-Read metadata of key vaults and its certificates, keys, and secrets. Can't read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model.
+Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 [Learn more](/azure/key-vault/general/rbac-guide)
 
@@ -12793,7 +12798,7 @@ Read metadata of key vaults and its certificates, keys, and secrets. Can't read 
   "assignableScopes": [
     "/"
   ],
-  "description": "Read metadata of key vaults and its certificates, keys, and secrets. Can't read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model.",
+  "description": "Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/21090545-7ca7-4776-b22c-e363652d74d2",
   "name": "21090545-7ca7-4776-b22c-e363652d74d2",
   "permissions": [
@@ -12938,9 +12943,9 @@ Lets you manage managed HSM pools, but not access to them.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/managedHSMs/* |  |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/deletedManagedHsms/read | View the properties of a deleted managed HSM |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/deletedManagedHsms/read | View the properties of a deleted managed HSM |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/deletedManagedHsms/purge/action | Purge a soft deleted managed HSM |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/deletedManagedHsms/read | View the properties of a deleted managed hsm |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/deletedManagedHsms/read | View the properties of a deleted managed hsm |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/deletedManagedHsms/purge/action | Purge a soft deleted managed hsm |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/managedHsmOperationResults/read | Check the result of a long run operation |
 > | **NotActions** |  |
 > | *none* |  |
@@ -13503,7 +13508,7 @@ This is a legacy role. Please use Security Admin instead.
 
 ### Security Reader
 
-View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but can't make changes.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md).
+View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but cannot make changes.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md).
 
 [Learn more](/azure/defender-for-cloud/permissions)
 
@@ -13751,7 +13756,7 @@ Enables you to view an existing lab, perform actions on the lab VMs and send inv
 
 ### Lab Contributor
 
-At lab level, enables you to manage the lab and applies at lab level. At resource group level, enables you to create and manage labs.
+Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs.
 
 [Learn more](/azure/lab-services/administrator-guide)
 
@@ -15133,7 +15138,7 @@ Lets you view all resources in cluster/namespace, except secrets.
 
 ### Azure Arc Kubernetes Writer
 
-Lets you update everything in cluster/namespace, except (cluster) roles and (cluster) role bindings.
+Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings.
 
 [Learn more](/azure/azure-arc/kubernetes/azure-rbac)
 
@@ -15188,7 +15193,7 @@ Lets you update everything in cluster/namespace, except (cluster) roles and (clu
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you update everything in cluster/namespace, except (cluster) roles and (cluster) role bindings.",
+  "description": "Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/5b999177-9696-4545-85c7-50de3797e5a1",
   "name": "5b999177-9696-4545-85c7-50de3797e5a1",
   "permissions": [
@@ -15462,7 +15467,7 @@ Can manage blueprint definitions, but not assign them.
 
 ### Blueprint Operator
 
-Can assign existing published blueprints, but can't create new blueprints. Note that this only works if the assignment is done with a user-assigned managed identity.
+Can assign existing published blueprints, but cannot create new blueprints. Note that this only works if the assignment is done with a user-assigned managed identity.
 
 [Learn more](/azure/governance/blueprints/overview)
 
@@ -15486,7 +15491,7 @@ Can assign existing published blueprints, but can't create new blueprints. Note 
   "assignableScopes": [
     "/"
   ],
-  "description": "Can assign existing published blueprints, but can't create new blueprints. NOTE: this only works if the assignment is done with a user-assigned managed identity.",
+  "description": "Can assign existing published blueprints, but cannot create new blueprints. NOTE: this only works if the assignment is done with a user-assigned managed identity.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/437d2ced-4a38-4302-8479-ed2bcb43d090",
   "name": "437d2ced-4a38-4302-8479-ed2bcb43d090",
   "permissions": [
@@ -16436,7 +16441,7 @@ Lets you manage Site Recovery service except vault creation and role assignment
 
 ### Site Recovery Operator
 
-Lets you fail over and fail back but not perform other Site Recovery management operations
+Lets you failover and failback but not perform other Site Recovery management operations
 
 [Learn more](/azure/site-recovery/site-recovery-role-based-linked-access-control)
 
@@ -16514,7 +16519,7 @@ Lets you fail over and fail back but not perform other Site Recovery management 
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you fail over and fail back but not perform other Site Recovery management operations",
+  "description": "Lets you failover and failback but not perform other Site Recovery management operations",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/494ae006-db33-4328-bf46-533a6560a3ca",
   "name": "494ae006-db33-4328-bf46-533a6560a3ca",
   "permissions": [
@@ -17743,7 +17748,7 @@ View a Grafana instance, including its dashboards and alerts.
 
 ### Load Test Contributor
 
-View, create, update, delete and execute load tests. View and list load test resources but can't make any changes.
+View, create, update, delete and execute load tests. View and list load test resources but can not make any changes.
 
 [Learn more](/azure/load-testing/how-to-assign-roles)
 
@@ -17767,7 +17772,7 @@ View, create, update, delete and execute load tests. View and list load test res
   "assignableScopes": [
     "/"
   ],
-  "description": "View, create, update, delete and execute load tests. View and list load test resources but can't make any changes.",
+  "description": "View, create, update, delete and execute load tests. View and list load test resources but can not make any changes.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/749a398d-560b-491b-bb21-08924219302e",
   "name": "749a398d-560b-491b-bb21-08924219302e",
   "permissions": [
@@ -17845,7 +17850,7 @@ Execute all operations on load test resources and load tests
 
 ### Load Test Reader
 
-View and list all load tests and load test resources but can't make any changes
+View and list all load tests and load test resources but can not make any changes
 
 [Learn more](/azure/load-testing/how-to-assign-roles)
 
@@ -17869,7 +17874,7 @@ View and list all load tests and load test resources but can't make any changes
   "assignableScopes": [
     "/"
   ],
-  "description": "View and list all load tests and load test resources but can't make any changes",
+  "description": "View and list all load tests and load test resources but can not make any changes",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/3ae3fb29-0000-4ccd-bf80-542e7b26e081",
   "name": "3ae3fb29-0000-4ccd-bf80-542e7b26e081",
   "permissions": [
