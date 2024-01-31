@@ -57,8 +57,8 @@ At a high level, you need to follow the below steps to migrate your machines and
 
 ### Unsupported scenarios
 
-1. Update schedules having Pre/Post tasks won't be migrated for now.
-1. Non-Azure Saved Search Queries won't be migrated; these have to be migrated manually.
+- Update schedules having Pre/Post tasks won't be migrated for now.
+- Non-Azure Saved Search Queries won't be migrated; these have to be migrated manually.
 
 For the complete list of limitations and things to note, see the last section of this article.
 
@@ -91,13 +91,13 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
 
    You can fetch AutomationAccountResourceId by going to **Automation Account** > **Properties**.
 
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id.png" alt-text="Screenshot that shows how to fetch the resource id." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id.png":::
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id.png" alt-text="Screenshot that shows how to fetch the resource ID." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id.png":::
 
 **C. Verify** 
 
    After you run the script, verify that a user managed identity is created in the automation account. **Automation account** > **Identity** > **User Assigned**.
 
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/script-verification.png" alt-text="Screenshot that shows how verify that a user managed identity is created." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/script-verification.png":::
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/script-verification.png" alt-text="Screenshot that shows how to verify that a user managed identity is created." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/script-verification.png":::
 
 **D. Backend operations by the script**
 
@@ -123,7 +123,7 @@ This step involves using an automation runbook to migrate all the machines and s
 
    Runbook supports PowerShell 5.1.
 
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/runbook-support.png" alt-text="Screenshot that shows runbook supports PowerShell 5.1 while importing" lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/runbook-support.png":::
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/runbook-support.png" alt-text="Screenshot that shows runbook supports PowerShell 5.1 while importing." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/runbook-support.png":::
 
 1. Set Verbose Logging to True for the runbook. 
 
@@ -135,11 +135,11 @@ This step involves using an automation runbook to migrate all the machines and s
 
    1. You can fetch AutomationAccountResourceId from **Automation Account** > **Properties**.
 
-      :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-portal.png" alt-text="Screenshot that shows how to fetch Automation account resource id." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-portal.png":::
+      :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-portal.png" alt-text="Screenshot that shows how to fetch Automation account resource ID." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-portal.png":::
 
    1. You can fetch UserManagedServiceIdentityClientId from **Automation Account** > **Identity** > **User Assigned** > **Identity** > **Properties** > **Client ID**.
 
-      :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-client-id.png" alt-text="Screenshot that shows how to fetch client id." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-client-id.png":::
+      :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-client-id.png" alt-text="Screenshot that shows how to fetch client ID." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-client-id.png":::
 
    1. Setting **EnablePeriodicAssessmentForMachinesOnboardedToUpdateManagement** to **TRUE** would enable periodic assessment property on all the machines onboarded to Automation Update Management. 
 
@@ -218,11 +218,11 @@ You can also search with the name of the update schedule to get logs specific to
 
    You can fetch AutomationAccountResourceId from **Automation Account** > **Properties**.
 
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-deboard.png" alt-text="Screenshot that shows how fetch resource id while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-runbook-parameters.png":::
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-deboard.png" alt-text="Screenshot that shows how to fetch resource ID while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-runbook-parameters.png":::
 
    You can fetch UserManagedServiceIdentityClientId from **Automation Account** > **Identity** > **User Assigned** > **Identity** > **Properties** > **Client ID**.
 
-   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-fetch-client-id.png" alt-text="Screenshot that shows how fetch client id while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-fetch-client-id.png":::
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-fetch-client-id.png" alt-text="Screenshot that shows how to fetch client ID while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-fetch-client-id.png":::
 
 1. Check Azure runbook logs for the status of deboarding of machines and schedules.
 
