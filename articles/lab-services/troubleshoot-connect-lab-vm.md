@@ -144,6 +144,35 @@ A lab template can be set up with a [script to autoreset the networking](https:/
 
 The [activity log](/azure/azure-monitor/essentials/activity-log?tabs=powershell) can be filtered on the resource group that the lab is located in. The events may take a few minutes to be available in the log. These event logs contain more detailed information that can be used for troubleshooting and should be included if a support ticket needs to be created.
 
+## Login with username and password 
+
+### Symptoms
+
+- Unable to connect to lab VM with username and password
+- Recieve error message 'Your credentials did not work"
+
+### Causes
+
+- Student using wrong credentials
+- Student forgot their password
+- Password associated with Azure Compute Gallery image
+- Machine was compromised
+
+### Resolution
+
+#### Student using wrong credentials
+Confirm the student is using the correct username and password for their lab VM. If the lab was created with "Use same password for all virtual machines" enabled, then the username and password should be the same for each student.
+#### Student forgot their password
+If they have a custom password and have forgotten it, then the student can [reset the password on the machine from the lab](/azure/lab-services/how-to-set-virtual-machine-passwords). Additionally, the student can [reimage the machine](azure/lab-services/how-to-reset-and-redeploy-vm#reimage-a-lab-vm), but any user data will be deleted and not be retrievable. 
+#### Password associated with Azure Compute Gallery image
+If other students can’t login using the common lab username and password and the lab was created using an existing custom image this may be caused by a known [limitation](azure/lab-services/troubleshoot-access-lab-vm#unable-to-login-with-the-credentials-you-used-for-creating-the-lab). The workaround is to use the username and password when the image was created or reset the password. 
+#### Machine was compromised
+There are situations where a student password could be fraudulently changed by a bad actor. The student can reset their password to regain access to the machine, but here are some suggestions to reduce the likelihood of this happening: 
+- Do not use common passwords, uncheck the use same password option when creating the lab. Having individual specific passwords reduces the scope if the password is compromised. 
+- [Use strong passwords](https://support.microsoft.com/windows/create-and-use-strong-passwords-c5cebb49-8c53-4f5e-2bc4-fe357ca048eb) and secure them 
+- [Restrict access to the lab](azure/lab-services/how-to-manage-lab-users?tabs=manual), so that only those students that are in the class can access the machines. By default, the lab is restricted.  
+#### Remote Desktop Gateway configured
+While uncommon, the remote desktop client the students are using may have a Remote Desktop Gateway configured. If so, they would need to enter their gateway credentials first (to authenticate to the gateway) before connecting to their student VM.
 
 ## Advanced Networking Troubleshooting Items 
 The list below contains troubleshooting items that only apply to [advanced networking scenarios](/azure/lab-services/concept-lab-services-supported-networking-scenarios). 
