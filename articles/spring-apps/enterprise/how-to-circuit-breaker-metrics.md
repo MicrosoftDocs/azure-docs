@@ -181,7 +181,7 @@ Use the following steps to build and deploy the sample applications.
    > [!NOTE]
    > If not enable the Application Insight, you can enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal).
 
-1. Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+1. Enable dimension collection for resilience4j metrics from the [Application Insights guide](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 1. Select **Metrics** in the navigation pane. The **Metrics** page provides dropdown menus and options to define the charts in this procedure. For all charts, set **Metric Namespace** to **azure.applicationinsights**.
 
@@ -218,7 +218,7 @@ Use the following steps to build and deploy the sample applications.
    > [!NOTE]
    > If there isn't a default Application Insight, you can enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md?pivots=sc-enterprise-tier#manage-application-insights-using-the-azure-portal).
 
-1. Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+1. Enable dimension collection for resilience4j metrics from the [Application Insights guide](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 1. Select **Metrics** in the navigation pane. The **Metrics** page provides dropdown menus and options to define the charts in this procedure. For all charts, set **Metric Namespace** to **azure.applicationinsights**.
 
