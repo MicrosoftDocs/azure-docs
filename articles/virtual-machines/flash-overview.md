@@ -1,5 +1,5 @@
 ---
-title: Project Flash - Advancing Azure Virtual Machine availability
+title: Project Flash - Advancing Azure Virtual Machine availability monitoring
 description: This article covers important concepts for monitoring Azure virtual machine availability using the features of Project Flash.
 ms.service: virtual-machines
 ms.author: tomcassidy
@@ -9,7 +9,7 @@ ms.date: 01/31/2024
 ms.topic: conceptual
 ---
 
-# Project Flash - Advancing Azure Virtual Machine availability
+# Project Flash - Advancing Azure Virtual Machine availability monitoring
 
 Flash, as the project is internally known, derives its name from our steadfast commitment to building a robust, reliable, and rapid mechanism for customers to monitor virtual machine (VM) health. Our primary objective is to ensure customers can reliably access actionable and precise telemetry, promptly receive alerts on changes, and periodically monitor data at scale. We also place strong emphasis on developing a centralized and coherent experience that customers can conveniently use to meet their unique observability requirements. It's our mission to ensure you can:
 
