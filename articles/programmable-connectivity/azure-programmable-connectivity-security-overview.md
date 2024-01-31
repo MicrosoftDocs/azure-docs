@@ -10,6 +10,8 @@ ms.custom: template-overview
 ---
  
 # Overview of Security for Azure Programmable Connectivity
+
+This article provides an overview of how encryption is used in Azure Programmable Connectivity. It covers the major areas of encryption, including encryption at rest and encryption in transit.
  
 ## Encryption at rest
  
