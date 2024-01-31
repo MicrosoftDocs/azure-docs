@@ -20,7 +20,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 - Generate the service principal access token that's needed to call the Entitlement APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 - Keep all the parameter values handy. They're needed to run different user management requests via the Entitlements API.
 
-## Fetch `object-id`
+## Fetch object-id
 
 The Azure object ID (OID) is the Microsoft Entra user OID.
 
