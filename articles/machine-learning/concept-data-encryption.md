@@ -193,11 +193,12 @@ Each workspace has an associated system-assigned managed identity that has the s
 * [Create datastores](how-to-datastore.md)
 * [Create data assets](how-to-create-data-assets.md)
 * [Access data in a training job](how-to-read-write-data-v2.md)
+* [Use customer-managed keys](concept-customer-managed-keys.md)
 :::moniker-end
 :::moniker range="azureml-api-1"
 * [Connect to Azure storage services](./v1/how-to-access-data.md)
 * [Get data from a datastore](./v1/how-to-create-register-datasets.md)
 * [Connect to data](v1/how-to-connect-data-ui.md)
 * [Train with datasets](v1/how-to-train-with-datasets.md)
-:::moniker-end
 * [Use customer-managed keys](concept-customer-managed-keys.md)
+:::moniker-end
