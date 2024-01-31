@@ -43,20 +43,11 @@ Use one of the following three ways to configure the connection string:
    ```console
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
-- Add the following section to your `appsettings.json` config file:
-  ```json
-  {
-    "AzureMonitor": {
-        "ConnectionString": "<Your Connection String>"
-    }
-  }
-  ```
   
 > [!NOTE]
 > If you set the connection string in more than one place, we adhere to the following precedence:
 > 1. Code
 > 2. Environment Variable
-> 3. Configuration File
 
 ### [.NET](#tab/net)
 
