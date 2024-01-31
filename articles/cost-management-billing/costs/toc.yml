@@ -191,7 +191,7 @@
     items:
     - name: Export data
       href: tutorial-export-acm-data.md
-    - name: Setup multiple FinOps dataset exports (preview)
+    - name: Tutorial - Improved exports (Preview)
       href: tutorial-finops-exports.md
     - name: Seed historical cost dataset with Exports API
       href: ../automate/tutorial-seed-historical-cost-dataset-exports-api.md
