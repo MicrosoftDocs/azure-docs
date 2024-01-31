@@ -2,12 +2,8 @@
 title: List Azure deny assignments using the REST API - Azure RBAC
 description: Learn how to list Azure deny assignments for users, groups, and applications using the REST API and Azure role-based access control (Azure RBAC).
 services: active-directory
-documentationcenter: na
 author: rolyon
 manager: amycolannino
-editor: ''
-
-ms.assetid: 
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api

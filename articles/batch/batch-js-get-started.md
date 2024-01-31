@@ -4,7 +4,7 @@ description: Learn the basic concepts of Azure Batch and build a simple solution
 ms.topic: how-to
 ms.date: 05/16/2023
 ms.devlang: javascript
-ms.custom: devx-track-js, devx-track-linux
+ms.custom: devx-track-js, linux-related-content
 ---
 
 # Get started with Batch SDK for JavaScript
@@ -82,7 +82,7 @@ Following code snippet first imports the azure-batch JavaScript module and then 
 
 import { BatchServiceClient, BatchSharedKeyCredentials } from "@azure/batch";
 
-// Replace values below with Batch Account details 
+// Replace values below with Batch Account details
 const batchAccountName = '<batch-account-name>';
 const batchAccountKey = '<batch-account-key>';
 const batchEndpoint = '<batch-account-url>';

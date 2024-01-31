@@ -9,7 +9,7 @@ ms.workload: infrastructure
 ms.date: 01/04/2024
 ms.author: jushiman
 ms.reviewer: jushiman
-ms.custom: mvc, mode-ui, devx-track-linux
+ms.custom: mvc, mode-ui, linux-related-content
 ---
 
 # Quickstart: Create a Linux virtual machine in the Azure portal
@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Enter *myResourceGroup* for the name.*. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Enter *myResourceGroup* for the name.*.
 
 	![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
 
@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     ![Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials](./media/quick-create-portal/administrator-account.png)
 
-1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
+1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
 	![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -79,7 +79,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Create an [SSH connection](/azure/virtual-machines/linux-vm-connect) with the VM.
 
-1. If you are on a Mac or Linux machine, open a Bash prompt and set read-only permission on the .pem file using `chmod 400 ~/Downloads/myKey.pem`. If you are on a Windows machine, open a PowerShell prompt. 
+1. If you are on a Mac or Linux machine, open a Bash prompt and set read-only permission on the .pem file using `chmod 400 ~/Downloads/myKey.pem`. If you are on a Windows machine, open a PowerShell prompt.
 
 1. At your prompt, open an SSH connection to your virtual machine. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
@@ -130,7 +130,7 @@ Use a web browser of your choice to view the default NGINX welcome page. Type th
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 1. On the Overview page for the VM, select the **Resource group** link.
-1. At the top of the page for the resource group, select **Delete resource group**. 
+1. At the top of the page for the resource group, select **Delete resource group**.
 1. A page will open warning you that you are about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
 

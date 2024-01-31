@@ -6,7 +6,7 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: steveesp
-ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-linux
+ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content
 ---
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 
@@ -58,7 +58,7 @@ In the following examples, you can replace the example parameters such as `<myRe
 1. The NSG contains several default rules, one of which disables all inbound access from the internet. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to open a port to allow remote desktop protocol (RDP) or secure shell (SSH) access to the VM.
 
    # [Windows](#tab/windows)
-   
+
    ```azurecli
    az network nsg rule create \
      --resource-group <myResourceGroup> \
@@ -73,9 +73,9 @@ In the following examples, you can replace the example parameters such as `<myRe
      --destination-address-prefix "*" \
      --destination-port-range 3389
    ```
-   
+
    # [Linux](#tab/linux)
-   
+
    ```azurecli
    az network nsg rule create \
      --resource-group <myResourceGroup> \
@@ -215,7 +215,7 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
    - **CentOS**: 3.10.0-693.
 
    > [!NOTE]
-   > Other kernel versions may be supported. For an updated list, see the compatibility tables for each distribution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows), and confirm that SR-IOV is supported. You can find more details in the release notes for [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). * 
+   > Other kernel versions may be supported. For an updated list, see the compatibility tables for each distribution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows), and confirm that SR-IOV is supported. You can find more details in the release notes for [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). *
 
 1. Use the `lspci` command to confirm that the Mellanox VF device is exposed to the VM. The returned output should be similar to the following example:
 

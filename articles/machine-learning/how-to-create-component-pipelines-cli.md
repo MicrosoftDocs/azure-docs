@@ -16,7 +16,8 @@ ms.custom:
   - event-tier1-build-2022
   - build-2023
   - ignite-2023
-ms.devlang: azurecli, cliv2
+ms.devlang: azurecli
+# ms.devlang: azurecli, cliv2
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning CLI

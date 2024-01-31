@@ -430,7 +430,7 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [Data]: /rest/api/maps/data
 [Creator]: /rest/api/maps-creator/
 [Spatial]: /rest/api/maps/spatial
-[Search]: /rest/api/maps/search
+[Search]: /rest/api/maps/search?view=rest-maps-1.0
 [Route]: /rest/api/maps/route
 
 [How to configure Azure RBAC for Azure Maps]: how-to-manage-authentication.md

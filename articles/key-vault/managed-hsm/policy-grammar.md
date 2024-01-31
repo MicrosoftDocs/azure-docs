@@ -1,11 +1,9 @@
 ---
 title: Azure Managed HSM Secure key release policy grammar
 description: Managed HSM Secure key release policy grammar
-keywords: 
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference

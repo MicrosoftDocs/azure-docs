@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/16/2023
+ms.date: 01/05/2024
 ms.custom:
   - subject-rbac-steps
   - references_regions
@@ -368,11 +368,17 @@ For more information on how to acquire a token for a specific environment, see [
 
 If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure AI Search. The following instructions explain how to set up a Postman collection to send requests as the current user.
 
-1. Get a bearer token for the current user:
+1. Get a bearer token for the current user using the Azure CLI:
 
     ```azurecli
     az account get-access-token --scope https://search.azure.com/.default
     ```
+
+   Or by using PowerShell:
+
+   ```powershell
+   Get-AzAccessToken -ResourceUrl "https://graph.microsoft.com/"
+   ```
 
 1. Start a new Postman collection and edit its properties. In the **Variables** tab, create the following variable:
 

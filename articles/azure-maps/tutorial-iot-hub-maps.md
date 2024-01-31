@@ -272,7 +272,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [free account]: https://azure.microsoft.com/free/
 [general-purpose v2 storage account]: ../storage/common/storage-account-overview.md
 [Get Geofence]: /rest/api/maps/spatial/getgeofence
-[Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
+[Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0
 [How to create data registry]: how-to-create-data-registries.md
 [IoT Hub message routing]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
 [IoT Plug and Play]: ../iot-develop/index.yml
@@ -283,7 +283,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [rentalCarSimulation]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation
 [resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
 [the root of the sample]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
-[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
+[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0
 [Send telemetry from a device]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp
 [Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

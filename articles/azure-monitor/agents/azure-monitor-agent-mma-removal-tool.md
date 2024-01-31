@@ -20,8 +20,8 @@ The utility works in two steps
 You do all the setup steps in a [Visual Studio Code](https://code.visualstudio.com/) with the [PowerShell Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
  - Windows 10+ or Windows Server 2019+
  - PowerShell 5.0 or higher. Check the version by running `$PSVersionTable` and checking the PS Version
- - PowerShell. The language must be set to mode `FullLanguage`. Check the mode by running `$ExecutionContext.SessionState.LanguageMode` in PowerShell. You can find more details [here](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes?source=recommendations) 
- - Bicep. The setup scripts us Bicep to automate the installation. Check the installation by running `bicep --version`. See [install in PowerShell](https://learn.microsoft.com/azure/azure-resource-manager/bicep/install#azure-powershell) 
+ - PowerShell. The language must be set to mode `FullLanguage`. Check the mode by running `$ExecutionContext.SessionState.LanguageMode` in PowerShell. You can find more details [here](/powershell/module/microsoft.powershell.core/about/about_language_modes?source=recommendations) 
+ - Bicep. The setup scripts us Bicep to automate the installation. Check the installation by running `bicep --version`. See [install in PowerShell](/azure/azure-resource-manager/bicep/install#azure-powershell) 
  - A [User-Assigned Managed Identity (MI)](/azure/active-directory/managed-identities-azure-resources/overview) which has 'Reader', Virtual Machine Contributor' and 'Azure Arc ScVmm VM Contributor' access on target scopes configured. 
  - A new Resource Group to contain all the Azure resources created automatically by the set up automation.
  - For granting remediation user-assigned MI with above mentioned roles on the target scopes, 
@@ -110,7 +110,7 @@ Point the current path to the folder containing the extracted deployment package
 ```
 
 2. Installing required Az modules.
-Az modules contain cmdlets to deploy Azure resources, which are used to create resources. Install the required Az PowerShell Modules using this command. For more details of Az Modules, refer [link](https://docs.microsoft.com/powershell/azure/install-az-ps). You must point current path to the extracted folder location.
+Az modules contain cmdlets to deploy Azure resources, which are used to create resources. Install the required Az PowerShell Modules using this command. For more details of Az Modules, refer [link](/powershell/azure/install-az-ps). You must point current path to the extracted folder location.
 
 ``` PowerShell
 Set-Prerequisites

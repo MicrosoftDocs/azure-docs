@@ -376,10 +376,6 @@
       href: data-connectors/automated-logic-webctrl.md
     - name: Awake Security
       href: data-connectors/awake-security.md
-    - name: Microsoft Entra ID
-      href: data-connectors/azure-active-directory.md
-    - name: Microsoft Entra ID Protection
-      href: data-connectors/azure-active-directory-identity-protection.md
     - name: Azure Activity
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
@@ -422,6 +418,8 @@
       href: data-connectors/cisco-application-centric-infrastructure.md
     - name: Cisco ASA
       href: data-connectors/cisco-asa.md
+    - name: Cisco ASA/FTD via AMA (Preview)
+      href: data-connectors/cisco-asa-ftd-via-ama.md
     - name: Cisco Duo Security (using Azure Functions)
       href: data-connectors/cisco-duo-security-using-azure-functions.md
     - name: Cisco Identity Services Engine
@@ -460,8 +458,12 @@
       href: data-connectors/cortex-xdr-incidents.md
     - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md
+    - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
+      href: data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md
     - name: CrowdStrike Falcon Endpoint Protection
       href: data-connectors/crowdstrike-falcon-endpoint-protection.md
+    - name: CyberArk Enterprise Password Vault (EPV) Events
+      href: data-connectors/cyberark-enterprise-password-vault-epv-events.md
     - name: CyberArkEPM (using Azure Functions)
       href: data-connectors/cyberarkepm-using-azure-functions.md
     - name: Cybersixgill Actionable Alerts (using Azure Functions)
@@ -546,6 +548,8 @@
       href: data-connectors/infoblox-nios.md
     - name: InfoSecGlobal Data Connector
       href: data-connectors/infosecglobal-data-connector.md
+    - name: IONIX Security Logs
+      href: data-connectors/ionix-security-logs.md
     - name: ISC Bind
       href: data-connectors/isc-bind.md
     - name: Island Enterprise Browser Admin Audit (Polling CCP)
@@ -598,6 +602,10 @@
       href: data-connectors/microsoft-defender-for-office-365.md
     - name: Microsoft Defender Threat Intelligence
       href: data-connectors/microsoft-defender-threat-intelligence.md
+    - name: Microsoft Entra ID
+      href: data-connectors/azure-active-directory.md
+    - name: Microsoft Entra ID Protection
+      href: data-connectors/microsoft-entra-id-protection.md
     - name: Microsoft Power BI (preview)
       href: data-connectors/microsoft-powerbi.md
     - name: Microsoft Project (preview)
@@ -684,6 +692,8 @@
       href: data-connectors/rsa-securid-authentication-manager.md
     - name: Rubrik Security Cloud data connector (using Azure Functions)
       href: data-connectors/rubrik-security-cloud-data-connector-using-azure-functions.md
+    - name: SaaS Security
+      href: data-connectors/saas-security.md
     - name: SailPoint IdentityNow (using Azure Functions)
       href: data-connectors/sailpoint-identitynow-using-azure-function.md
     - name: Salesforce Service Cloud (using Azure Functions)
@@ -696,6 +706,8 @@
       href: data-connectors/senservapro.md
     - name: SentinelOne (using Azure Functions)
       href: data-connectors/sentinelone-using-azure-functions.md
+    - name: Seraphic Web Security
+      href: data-connectors/seraphic-web-security.md
     - name: Slack Audit (using Azure Functions)
       href: data-connectors/slack-audit-using-azure-functions.md
     - name: Snowflake (using Azure Functions)

@@ -67,6 +67,9 @@ The following tables describe how to configure a collection of NSG allow rules. 
 
 # [Consumption only environment](#tab/consumption-only)
 
+>[!Note]
+> When using Consumption only environments, all [outbound ports required by Azure Kubernetes Service](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) are also required for your container app.
+
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
 | TCP | Your container app's subnet<sup>1</sup> | \* | Your Container Registry | Your container registry's port | This is required to communicate with your container registry. For example, when using ACR, you need `AzureContainerRegistry` and `AzureActiveDirectory` for the destination, and the port will be your container registry's port unless using private endpoints.<sup>2</sup> |
