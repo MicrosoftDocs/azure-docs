@@ -8,11 +8,11 @@ ms.custom: template-how-to
 
 # How to configure Azure Functions with a virtual network
 
-This article shows you how to perform tasks related to configuring your function app to connect to and run on a virtual network. For an in-depth tutorial on how to secure your storage account, refer to the [Connect to a Virtual Network tutorial](functions-create-vnet.md). To learn more about Azure Functions and networking, see [Azure Functions networking options](functions-networking-options.md).
+This article shows you how to connect your function app to a secured storage account. For an in-depth tutorial on how to create your function app with inbound and outbound access restrictions, refer to the [Integrate with a virtual network](functions-create-vnet.md) tutorial. To learn more about Azure Functions and networking, see [Azure Functions networking options](functions-networking-options.md).
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you either create a new storage account or link to an existing storage account. During function app creation, you can secure a new storage account behind a virtual network and integrate the function app with this network. At this time, you can't secure an existing storage account being used by your function app in the same way. 
+When you create a function app, you either create a new storage account or link to an existing one. Currently, only [ARM template and Bicep deployments](functions-infrastructure-as-code.md#secured-deployments) support function app creation with an existing secured storage account. 
 
 > [!NOTE]  
 > Securing your storage account is supported for all tiers in both Dedicated (App Service) and Elastic Premium plans. Consumption plans currently don't support virtual networks.
@@ -21,7 +21,7 @@ For a list of all restrictions on storage accounts, see [Storage account require
 
 ### During function app creation 
 
-You can create a new function app along with a new storage account secured behind a virtual network. The following links show you how to create these resources by using either the Azure portal or by using deployment templates:  
+You can create a function app along with a new storage account secured behind a virtual network that is accessible via private endpoints. The following links show you how to create these resources by using either the Azure portal or by using deployment templates:  
 
 # [Azure portal](#tab/portal)
 
