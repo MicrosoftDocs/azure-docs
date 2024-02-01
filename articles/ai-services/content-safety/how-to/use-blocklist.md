@@ -99,6 +99,34 @@ else if (createResponse.Status == 200)
 
 #### [Java](#tab/java)
 
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+BlocklistClient blocklistClient = new BlocklistClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+String blocklistName = "<your_list_name>";
+
+
+Map<String, String> description = new HashMap<>();
+description.put("description", "<description>");
+BinaryData resource = BinaryData.fromObject(description);
+RequestOptions requestOptions = new RequestOptions();
+Response<BinaryData> response =
+        blocklistClient.createOrUpdateTextBlocklistWithResponse(blocklistName, resource, requestOptions);
+if (response.getStatusCode() == 201) {
+    System.out.println("\nBlocklist " + blocklistName + " created.");
+} else if (response.getStatusCode() == 200) {
+    System.out.println("\nBlocklist " + blocklistName + " updated.");
+}
+```
+
+1. Replace `<your_list_name>` with a custom name for your list. Allowed characters: `0-9, A-Z, a-z, - . _ ~`.
+1. Optionally replace `<description>` with a custom description.
+1. Run the code.
 
 #### [Python](#tab/python)
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -213,6 +241,7 @@ BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new Azu
 
 var blocklistName = "<your_list_name>";
 
+
 string blocklistItemText1 = "<block_item_text_1>";
 string blocklistItemText2 = "<block_item_text_2>";
 
@@ -235,6 +264,36 @@ if (addedBlocklistItems != null && addedBlocklistItems.Value != null)
 1. Run the code.
 
 #### [Java](#tab/java)
+
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+BlocklistClient blocklistClient = new BlocklistClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+String blocklistName = "<your_list_name>";
+
+String blockItemText1 = "<block_item_text_1>";
+String blockItemText2 = "<block_item_text_2>";
+List<TextBlocklistItem> blockItems = Arrays.asList(new TextBlocklistItem(blockItemText1).setDescription("Kill word"),
+        new TextBlocklistItem(blockItemText2).setDescription("Hate word"));
+AddOrUpdateTextBlocklistItemsResult addedBlockItems = blocklistClient.addOrUpdateBlocklistItems(blocklistName,
+        new AddOrUpdateTextBlocklistItemsOptions(blockItems));
+if (addedBlockItems != null && addedBlockItems.getBlocklistItems() != null) {
+    System.out.println("\nBlockItems added:");
+    for (TextBlocklistItem addedBlockItem : addedBlockItems.getBlocklistItems()) {
+        System.out.println("BlockItemId: " + addedBlockItem.getBlocklistItemId() + ", Text: " + addedBlockItem.getText() + ", Description: " + addedBlockItem.getDescription());
+    }
+}
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Replace the values of the `blockItemText1` and `blockItemText2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Optionally add more blockItem strings to the `blockItems` parameter.
+1. Run the code.
 
 #### [Python](#tab/python)
 
@@ -385,6 +444,41 @@ if (response.Value.BlocklistsMatch != null)
 
 #### [Java](#tab/java)
 
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+
+ContentSafetyClient contentSafetyClient = new ContentSafetyClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+String blocklistName = "<your_list_name>";
+
+AnalyzeTextOptions request = new AnalyzeTextOptions("<sample_text>");
+request.setBlocklistNames(Arrays.asList(blocklistName));
+request.setHaltOnBlocklistHit(true);
+
+AnalyzeTextResult analyzeTextResult;
+try {
+    analyzeTextResult = contentSafetyClient.analyzeText(request);
+} catch (HttpResponseException ex) {
+    System.out.println("Analyze text failed.\nStatus code: " + ex.getResponse().getStatusCode() + ", Error message: " + ex.getMessage());
+    throw ex;
+}
+
+if (analyzeTextResult.getBlocklistsMatch() != null) {
+    System.out.println("\nBlocklist match result:");
+    for (TextBlocklistMatch matchResult : analyzeTextResult.getBlocklistsMatch()) {
+        System.out.println("BlocklistName: " + matchResult.getBlocklistName() + ", BlockItemId: " + matchResult.getBlocklistItemId() + ", BlockItemText: " + matchResult.getBlocklistItemText());
+    }
+}
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Replace the `request` input text with whatever text you want to analyze.
+1. Run the script.
 
 #### [Python](#tab/python)
 
@@ -497,6 +591,27 @@ foreach (var blocklistItem in allBlocklistitems)
 
 #### [Java](#tab/java)
 
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+BlocklistClient blocklistClient = new BlocklistClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+String blocklistName = "<your_list_name>";
+
+PagedIterable<TextBlocklistItem> allBlockitems = blocklistClient.listTextBlocklistItems(blocklistName);
+System.out.println("\nList BlockItems:");
+for (TextBlocklistItem blocklistItem : allBlockitems) {
+    System.out.println("BlockItemId: " + blocklistItem.getBlocklistItemId() + ", Text: " + blocklistItem.getText() + ", Description: " + blocklistItem.getDescription());
+}
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Run the script.
+
 
 #### [Python](#tab/python)
 
@@ -592,6 +707,23 @@ Run the script.
 
 #### [Java](#tab/java)
 
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+BlocklistClient blocklistClient = new BlocklistClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+PagedIterable<TextBlocklist> allTextBlocklists = blocklistClient.listTextBlocklists();
+System.out.println("\nList Blocklist:");
+for (TextBlocklist blocklist : allTextBlocklists) {
+    System.out.println("Blocklist: " + blocklist.getName() + ", Description: " + blocklist.getDescription());
+}
+```
+
+Run the script.
 
 #### [Python](#tab/python)
 
@@ -683,6 +815,26 @@ if (getBlocklist != null && getBlocklist.Value != null)
 
 #### [Java](#tab/java)
 
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+BlocklistClient blocklistClient = new BlocklistClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+String blocklistName = "<your_list_name>";
+
+TextBlocklist getBlocklist = blocklistClient.getTextBlocklist(blocklistName);
+if (getBlocklist != null) {
+    System.out.println("\nGet blocklist:");
+    System.out.println("BlocklistName: " + getBlocklist.getName() + ", Description: " + getBlocklist.getDescription());
+}
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Run the script.
 
 #### [Python](#tab/python)
 
@@ -778,6 +930,27 @@ Console.WriteLine("BlocklistItemId: {0}, Text: {1}, Description: {2}", getBlockl
 
 #### [Java](#tab/java)
 
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+BlocklistClient blocklistClient = new BlocklistClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+String blocklistName = "<your_list_name>";
+
+String getBlockItemId = "<your_block_item_id>";
+
+TextBlocklistItem getBlockItem = blocklistClient.getTextBlocklistItem(blocklistName, getBlockItemId);
+System.out.println("\nGet BlockItem:");
+System.out.println("BlockItemId: " + getBlockItem.getBlocklistItemId() + ", Text: " + getBlockItem.getText() + ", Description: " + getBlockItem.getDescription());
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Replace `<your_block_item_id>` with the ID of a previously added item.
+1. Run the script.
 
 #### [Python](#tab/python)
 
@@ -895,6 +1068,27 @@ if (removeResult != null && removeResult.Status == 204)
 
 #### [Java](#tab/java)
 
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+BlocklistClient blocklistClient = new BlocklistClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+String blocklistName = "<your_list_name>";
+
+String removeBlockItemId = "<your_block_item_id>";
+
+List<String> removeBlockItemIds = new ArrayList<>();
+removeBlockItemIds.add(removeBlockItemId);
+blocklistClient.removeBlocklistItems(blocklistName, new RemoveTextBlocklistItemsOptions(removeBlockItemIds));
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Replace `<your_block_item_id>` with the ID of a previously added item. 
+1. Run the script.
 
 #### [Python](#tab/python)
 
@@ -1001,6 +1195,22 @@ if (deleteResult != null && deleteResult.Status == 204)
 
 #### [Java](#tab/java)
 
+Create a Java application and open it in your preferred editor or IDE. Paste in the following code.
+
+```java
+String endpoint = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_ENDPOINT");
+String key = Configuration.getGlobalConfiguration().get("CONTENT_SAFETY_KEY");
+BlocklistClient blocklistClient = new BlocklistClientBuilder()
+        .credential(new KeyCredential(key))
+        .endpoint(endpoint).buildClient();
+
+String blocklistName = "<your_list_name>";
+
+blocklistClient.deleteTextBlocklist(blocklistName);
+```
+
+1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
+1. Run the script.
 
 #### [Python](#tab/python)
 
