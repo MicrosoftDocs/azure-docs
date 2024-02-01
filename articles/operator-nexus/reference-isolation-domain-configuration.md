@@ -27,7 +27,7 @@ Nexus is a platform that enables different types of communication between worklo
 
 -   East-West Communication: communication between workloads within the same Nexus instance, such as inter-k8s cluster communication for a 5G control plane.
 
--   External-Internal Communication: communication between workloads inside and outside the AON instance. For example:
+-   External-Internal Communication: communication between workloads inside and outside the instance. For example:
     - North-south communication with option B, which involves inserting and scaling firewall and network address translation appliances.
     - North-south communication between a 5G user plane with control plane.
 
