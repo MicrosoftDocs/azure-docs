@@ -47,17 +47,17 @@ items:
       href: how-to-create-configure-dev-center.md
     - name: Create and configure a project from the CLI
       href: how-to-create-configure-projects.md
-- name: Create environments
+- name: Create and manage environments
   expanded: false
   items: 
     - name: Create an environment with AZD
       href: how-to-create-environment-with-azure-developer.md
-    - name: Manage environments as a developer
+    - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
     - name: Create an environment from the CLI
       href: how-to-create-access-environments.md
-    - name: Deploy environments in CI/CD with GitHub
-      href: tutorial-deploy-environments-in-cicd-github.md  
+- name: Deploy environments in CI/CD with GitHub
+  href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Manage costs
   expanded: false
   items:
