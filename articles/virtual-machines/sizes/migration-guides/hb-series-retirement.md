@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: conceptual
 author: iamwilliew
-ms.author: iamwilliew
+ms.author: wwilliams
 ms.date: 12/7/2023
 ---
 
