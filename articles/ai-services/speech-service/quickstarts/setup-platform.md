@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ms.custom:
   - devx-track-python

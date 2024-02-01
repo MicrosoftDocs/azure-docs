@@ -6,7 +6,7 @@ author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -15,8 +15,8 @@ This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-s
 
 This setup guide requires:
 
-- [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing it for the first time might require a restart.
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+- [Microsoft Visual C++ Redistributable for Visual Studio](/cpp/windows/latest-supported-vc-redist) for the Windows platform. Installing it for the first time might require a restart.
+- [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 
 ### Create a project in Visual Studio and install the Speech SDK
 
@@ -43,9 +43,9 @@ To start, make sure you're set up correctly in Visual Studio for C++ desktop dev
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-cpp-workload.png" alt-text="Screenshot that shows the Workloads tab of the Modifying dialog box for Visual Studio Installer." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-cpp-workload.png":::
 
-1. On the **Individual components** tab, find the **NuGet package manager** check box. If it isn't already selected, select it.
+1. On the **Individual components** tab, find **NuGet package manager**. If it isn't already selected, select it.
 
-1. In the corner, select either **Close** or **Modify**. The button name varies depending on whether you selected any features for installation.
+1. Select either **Close** or **Modify**. The button name varies depending on whether you selected any features for installation.
 
    If you select **Modify**, installation begins. The process might take a while.
 
