@@ -85,7 +85,7 @@ Yes. Event Grid supports Health Insurance Portability and Accountability Act (HI
 
 On average, you should receive your event message within one second after a successful HTTP request. 99.99% of the event messages should be delivered within five seconds unless the limitation of either the FHIR service, DICOM service, or [Event Grid](../../event-grid/quotas-limits.md) is reached.
 
-#### Is it possible to receive duplicate events messages?
+**Is it possible to receive duplicate events messages?**
 
 Yes. The Event Grid guarantees at least one events message delivery with its push mode. There may be cases when the event delivery request returns with a transient failure status code for random reasons. In this situation, the Event Grid considers it a delivery failure and resends the events message. For more information, see [Azure Event Grid delivery and retry](../../event-grid/delivery-and-retry.md).
 
