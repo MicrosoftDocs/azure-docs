@@ -163,9 +163,9 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Tuning keyword queries (BM25)
+    - name: Relevance in keyword search (BM25 ranking)
       href: index-similarity-and-scoring.md
-    - name: Tuning vector queries
+    - name: Relevance in vector search
       href: vector-search-ranking.md
     - name: Scoring hybrid queries (RRF)
       href: hybrid-search-ranking.md

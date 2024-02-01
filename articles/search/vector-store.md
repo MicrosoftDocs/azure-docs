@@ -16,9 +16,7 @@ ms.date: 01/29/2024
 
 Azure AI Search provides vector storage and configurations for [vector search](vector-search-overview.md) and [hybrid queries](hybrid-search-overview.md). Support is implemented at the field level, which means you can combine vector and nonvector fields in the same search corpus.
 
-In Azure AI Search, a vector store has an index schema that defines vector and nonvector fields and a vector configuration for algorithms that create navigation structures.
-
-The [Create Index REST API](/rest/api/searchservice/indexes/create-or-update) or equivalent Azure SDK methods create the vector store.
+Vectors are stored in a search index. Use the [Create Index REST API](/rest/api/searchservice/indexes/create-or-update) or an equivalent Azure SDK methods to create the vector store.
 
 ## Retrieval patterns
 
@@ -32,7 +30,7 @@ In a chat solution, results are fed into prompt flows and chat models like GPT a
 
 ## Basic schema for vectors
 
-A schema for a vector store requires a name, a key field, one or more vector fields, and a vector configuration. Content fields are recommended for hybrid queries, or for returning human readable content that doesn't have to be decoded first. For more information about configuring a vector index, see [Create a vector store](vector-search-how-to-create-index.md).
+An index schema for a vector store requires a name, a key field, one or more vector fields, and a vector configuration. Content fields are recommended for hybrid queries, or for returning human readable content that doesn't have to be decoded first. For more information about configuring a vector index, see [Create a vector store](vector-search-how-to-create-index.md).
 
 ```json
 {

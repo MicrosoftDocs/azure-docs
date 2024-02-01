@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 01/31/2024
 ---
 
-# Relevance tuning and ranking in vector search
+# Relevance in vector search
 
 In vector query execution, the search engine looks for similar vectors to find the best candidates to return in search results. Depending on how you indexed the vector content, the search for relevant matches is either exhaustive, or constrained to near neighbors for faster processing. Once candidates are found, similarity metrics are used to score each result based on the strength of the match. 
 
