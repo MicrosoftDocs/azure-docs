@@ -72,7 +72,7 @@ items:
   items:
   - name: API version lifecycle
     href: ./api-version-deprecation.md
-  - name: Assistants (Preview)
+  - name: Assistants (preview)
     items:
     - name: Getting started with Assistants
       href: ./how-to/assistant.md
