@@ -86,6 +86,7 @@ The connection logs have slightly different implementations, contents, and setup
 <!-- ### External tools -->
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
+<a name="view-cache-metrics"></a>
 ### View metrics from an Azure Cache for Redis instance
 
 You can view Azure Monitor metrics for Azure Cache for Redis directly from an Azure Cache for Redis resource in the [Azure portal](https://portal.azure.com).
@@ -130,9 +131,8 @@ For nonclustered caches, it's best to use the metrics without the suffix `Instan
 
 In contrast, for clustered caches, use the metrics with the suffix `Instance Based`. Then, add a split or filter on `ShardId`. For example, to check the server load of shard 1, use the metric **Server Load (Instance Based)**, then apply filter **ShardId = 1**.
 
-<a name="view-cache-metrics"></a>
-
-### Export Azure Cache for Redis metrics to a storage account
+<a name="use-a-storage-account-to-export-azure-cache-for-redis-metrics"></a>
+### Export cache metrics to a storage account
 
 By default, Azure Cache for Redis metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. To persist your cache metrics for longer than 30 days, you can use a [storage account](/azure/azure-monitor/essentials/create-diagnostic-settings?tabs=portal) and specify a **Retention (days)** policy that meets your requirements. The storage account must be in the same region as the cache.
 
@@ -166,14 +166,14 @@ Ask your PMs if you don't know. This information is the BIGGEST request we get i
 
 If critical conditions or imminent changes occur during resource operations, an alert displays on the **Overview** page in the portal.
 
-:::image type="content" source="media/monitor-cache/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed when Overview is selected in the Resource menu.":::
+:::image type="content" source="./media/monitor-cache/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed when Overview is selected in the Resource menu.":::
 
 You can find more information and recommended fixes for the alert in **Advisor recommendations** under **Monitoring**. During normal operations, no advisor recommendations display.
 
 <!-- end of Advisor recommendations include -->
 The following screenshot shows an advisor recommendation for an Azure Cache for Redis alert:
 
-:::image type="content" source="media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations.":::
+:::image type="content" source="./media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations.":::
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](cache-configure.md#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
 
