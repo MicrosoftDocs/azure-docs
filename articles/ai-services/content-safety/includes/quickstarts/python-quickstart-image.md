@@ -11,6 +11,9 @@ ms.date: 05/03/2023
 ms.author: pafarley
 ---
 
+[Reference documentation](https://pypi.org/project/azure-ai-contentsafety/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety) | [Package (PyPI)](https://pypi.org/project/azure-ai-contentsafety/) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/python/1.0.0) |
+
+
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
@@ -36,9 +39,11 @@ The following section walks through a sample request with the Python SDK.
 
     ```python
     import os
+
     from azure.ai.contentsafety import ContentSafetyClient
+    from azure.ai.contentsafety.models import AnalyzeImageOptions, ImageData, ImageCategory
     from azure.core.credentials import AzureKeyCredential
-    from azure.ai.contentsafety.models import AnalyzeImageOptions, ImageData
+    from azure.core.exceptions import HttpResponseError
     
     def analyze_image():
         endpoint = os.environ.get('CONTENT_SAFETY_ENDPOINT')
@@ -65,15 +70,19 @@ The following section walks through a sample request with the Python SDK.
             print(e)
             raise
 
-        if response.hate_result:
-            print(f"Hate severity: {response.hate_result.severity}")
-        if response.self_harm_result:
-            print(f"SelfHarm severity: {response.self_harm_result.severity}")
-        if response.sexual_result:
-            print(f"Sexual severity: {response.sexual_result.severity}")
-        if response.violence_result:
-            print(f"Violence severity: {response.violence_result.severity}")
+        hate_result = next(item for item in response.categories_analysis if item.category == ImageCategory.HATE)
+        self_harm_result = next(item for item in response.categories_analysis if item.category == ImageCategory.SELF_HARM)
+        sexual_result = next(item for item in response.categories_analysis if item.category == ImageCategory.SEXUAL)
+        violence_result = next(item for item in response.categories_analysis if item.category == ImageCategory.VIOLENCE)
     
+        if hate_result:
+            print(f"Hate severity: {hate_result.severity}")
+        if self_harm_result:
+            print(f"SelfHarm severity: {self_harm_result.severity}")
+        if sexual_result:
+            print(f"Sexual severity: {sexual_result.severity}")
+        if violence_result:
+            print(f"Violence severity: {violence_result.severity}")
     
     if __name__ == "__main__":
         analyze_image()
