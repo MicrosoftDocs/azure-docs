@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Servers plan in Mi
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/07/2024
+ms.date: 02/01/2024
 ---
 
 # Defender for Servers support
@@ -59,7 +59,7 @@ The following table shows feature support for Windows machines in Azure, Azure A
 
 | **Feature** | **Azure VMs*<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |--|:-:|:-:|:-:|
-| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔</br>(on supported versions) | ✔ | Yes |
+| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔</br> Available on: Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows 10/11 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>Not available on: Azure VMs running Windows 10 or Windows 11 (except if running Windows 10/11 Enterprise multi-session) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ | Yes |
 | [Fileless security alerts](alerts-reference.md#alerts-windows) | ✔ | ✔ | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
@@ -84,7 +84,7 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 
 | **Feature** | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |--|:-:|:-:|:-:|
-| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ | ✔ | Yes |
+| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ <br> ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md) | ✔</br>(on supported versions) | ✔ | Yes |
 | [Fileless security alerts](alerts-reference.md#alerts-windows) | - | - | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
