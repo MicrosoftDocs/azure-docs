@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/12/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 monikerRange: 'azureml-api-1 || azureml-api-2'
-#customer intent: As a project manager, I want to set up a project to label images in the project. I want to enable machine learning-assisted labeling to help with the task.
+# Customer intent: As a project manager, I want to set up a project to label images in the project. I want to enable machine learning-assisted labeling to help with the task.
 ---
 
 # Set up an image labeling project
