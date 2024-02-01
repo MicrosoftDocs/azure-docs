@@ -21,16 +21,16 @@ Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to
 
 ### Supported regions
 
-Azure OpenAI Assistants are currently available in Sweden Central, East US 2, and Australia East. Consult the [model's page](../concepts/models.md) for the most up-to-date info on region/model availability.
+Azure OpenAI Assistants are currently available in Sweden Central, East US 2, and Australia East. Consult the [model's page](../concepts/models.md#assistants-preview) for the most up-to-date info on region/model availability.
 
 ### Supported models
 
 Certain tools/features require using the latest models:
 
-`gpt-4-1106-preview` ([region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability))
-`gpt-35-turbo-1106` ([region availability)](../concepts/models.md#gpt-35-turbo-model-availability))
+`gpt-4-1106-preview`
+`gpt-35-turbo-1106`
 
-If you aren't using a tool that requires the latest models you can use any of the older `gpt-35-turbo` or `gpt-4` models. But we recommend using assistants with the latest models to take advantage of the latest features, as well as the larger context windows, and more up-to-date training data.
+If you aren't using a tool that requires the latest models you can use any of the older `gpt-35-turbo` or `gpt-4` models that are available in [regions where assistant's is supported](../concepts/models.md#assistants-preview). However, we recommend using assistants with the latest models to take advantage of new features, as well as the larger context windows, and more up-to-date training data.
 
 ### API Version
 
@@ -72,12 +72,9 @@ If you aren't using a tool that requires the latest models you can use any of th
 
 An individual assistant can access up to 128 tools including `code interpreter`, but you can also define your own custom tools via [functions](./assistant-functions.md).
 
-> [!NOTE]
-> The `retrieval` tool is currently not available, but is coming soon.
-
 ### Files
 
-Files can be uploaded via Studio, or programmatically. The `file_ids` parameter is required to give tools like `code_interpreter` access to files. When using the File upload endpoint, you must have the purpose set to assistants to be used with the Assistants API.
+Files can be uploaded via Studio, or programmatically. The `file_ids` parameter is required to give tools like `code_interpreter` access to files. When using the File upload endpoint, you must have the `purpose` set to assistants to be used with the Assistants API.
 
 ## Assistants playground
 
@@ -97,7 +94,7 @@ We provide a walkthrough of the Assistants playground in our [quickstart guide](
 
 ### Create an assistant
 
-For this example we'll create an assistant that writes code to generate visualizations using the capabilities of the `code_interpreter` tool. The examples below are designed to be run sequentially in an environment like [Jupyter Notebooks](https://jupyter.org/).
+For this example we'll create an assistant that writes code to generate visualizations using the capabilities of the `code_interpreter` tool. The examples below are intended to be run sequentially in an environment like [Jupyter Notebooks](https://jupyter.org/).
 
 ```Python
 import os
@@ -172,7 +169,7 @@ print(thread)
 Thread(id='thread_6bunpoBRZwNhovwzYo7fhNVd', created_at=1705972465, metadata={}, object='thread')
 ```
 
-A thread is essentially the record of the conversation session between the assistant and the user. It's similar to the messages array/list in a typical chat completions API call. One of they key differences, is unlike a chat completions messages array, you don't need to track tokens with each call to make sure that you're remaining below the context length of the model. Threads abstract away this management detail and will compress the thread history as needed in order to allow the conversation to continue. The ability of threads to accomplish this with larger conversations is enhanced when using the latest models, which have larger context lengths as well as support for the latest features.
+A thread is essentially the record of the conversation session between the assistant and the user. It's similar to the messages array/list in a typical chat completions API call. One of the key differences, is unlike a chat completions messages array, you don't need to track tokens with each call to make sure that you're remaining below the context length of the model. Threads abstract away this management detail and will compress the thread history as needed in order to allow the conversation to continue. The ability for threads to accomplish this with larger conversations is enhanced when using the latest models, which have larger context lengths as well as support for the latest features.
 
 Next create the first user question to add to the thread
 
@@ -252,7 +249,7 @@ print(status)
 completed
 ```
 
-Depending on the complexity of the query you run the thread could take longer to execute. In that case you can create a loop to monitor the [run status](#run-status-definitions) of the thread with code like the example below:
+Depending on the complexity of the query you run, the thread could take longer to execute. In that case you can create a loop to monitor the [run status](#run-status-definitions) of the thread with code like the example below:
 
 ```python
 import time
@@ -372,7 +369,7 @@ print(messages.model_dump_json(indent=2))
 
 ### Retrieve file ID
 
-We had requested that the model generate  an image of a sine wave. In order to download the image, we first need to retrieve the images file ID.
+We had requested that the model generate an image of a sine wave. In order to download the image, we first need to retrieve the images file ID.
 
 ```python
 data = json.loads(messages.model_dump_json(indent=2))  # Load JSON data into a Python object
@@ -878,7 +875,7 @@ image.show()
 
 ## Message annotations
 
-Assistant message annotations are different from the [content filtering](../concepts/content-filter.md) that are present in completion and chat completion API responses. Assistant annotations can occur within the content array of the object. Annotations provide information around how you should annotate the text in the responses to the user.
+Assistant message annotations are different from the [content filtering annotations](../concepts/content-filter.md) that are present in completion and chat completion API responses. Assistant annotations can occur within the content array of the object. Annotations provide information around how you should annotate the text in the responses to the user.
 
 When annotations are present in the Message content array, you'll see illegible model-generated substrings in the text that you need to replace with the correct annotations. These strings might look something like `【13†source】` or `sandbox:/mnt/data/file.csv`. Here’s a Python code snippet from OpenAI that replaces these strings with the information present in the annotations.
 
@@ -926,7 +923,6 @@ message_content.value += '\n' + '\n'.join(citations)
 |---|---|
 | `file_citation` | File citations are created by the retrieval tool and define references to a specific quote in a specific file that was uploaded and used by the Assistant to generate the response. |
 |`file_path` | File path annotations are created by the code_interpreter tool and contain references to the files generated by the tool. |
-
 
 ## Next steps
 

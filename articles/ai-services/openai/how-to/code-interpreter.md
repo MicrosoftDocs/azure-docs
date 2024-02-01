@@ -15,7 +15,7 @@ recommendations: false
 
 # Azure OpenAI Assistants Code Interpreter
 
-Code Interpreter allows the Assistants API to write and run Python code in a sandboxed execution environment.  With Code Interpreter enabled, your Assistant can run code iteratively to solve more challenging code and math problems. When your Assistant writes code that fails to run, it can iterate on this code by attempting to run different code until the code execution succeeds.
+Code Interpreter allows the Assistants API to write and run Python code in a sandboxed execution environment.  With Code Interpreter enabled, your Assistant can run code iteratively to solve more challenging code, math, and data analysis problems. When your Assistant writes code that fails to run, it can iterate on this code by modifying and running different code until the code execution succeeds.
 
 Use of Code Interpreter has [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) beyond the token based fees for Azure OpenAI usage. If your Assistant calls Code Interpreter simultaneously in two different threads, two code interpreter sessions are created. Each session is active by default for one hour.
 
@@ -25,7 +25,7 @@ Use of Code Interpreter has [additional charges](https://azure.microsoft.com/pri
 
 You can use any of the `gpt-35-turbo` or `gpt-4` models in [regions where Assistants is supported](../concepts/models.md) with code interpreter.
 
-We recommend using assistants with the latest models to take advantage of the latest features, as well as the larger context windows, and more up-to-date training data.
+We recommend using assistants with the latest models to take advantage of the new features, as well as the larger context windows, and more up-to-date training data.
 
 ### API Version
 

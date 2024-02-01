@@ -23,8 +23,8 @@ The Assistants API supports function calling, which allows you to describe the s
 
 To use all features of function calling including parallel functions, you need to use the latest models:
 
-- `gpt-4-1106-preview` ([region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability))
-- `gpt-35-turbo-1106` ([region availability)](../concepts/models.md#gpt-35-turbo-model-availability))
+- `gpt-4-1106-preview`
+- `gpt-35-turbo-1106`
 
 ### API Version
 
@@ -123,7 +123,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2
 
 ## Reading the functions
 
-When you initiate a Run with a user Message that triggers the function, the Run will enter a pending status. After it processes, the run will enter a requires_action state that you can verify by retrieving the Run.
+When you initiate a **Run** with a user Message that triggers the function, the **Run** will enter a pending status. After it processes, the run will enter a requires_action state that you can verify by retrieving the **Run**.
 
 ```json
 {
@@ -160,7 +160,7 @@ When you initiate a Run with a user Message that triggers the function, the Run 
 
 ## Submitting function outputs
 
-You can then complete the Run by submitting the tool output from the function(s) you call. Pass the `tool_call_id` referenced in the `required_action` object above to match output to each function call.
+You can then complete the **Run** by submitting the tool output from the function(s) you call. Pass the `tool_call_id` referenced in the `required_action` object above to match output to each function call.
 
 
 # [Python 1.x](#tab/python)
@@ -211,7 +211,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/ru
 
 ---
 
-After you submit tool outputs, the run will enter the `queued` state before it continues execution.
+After you submit tool outputs, the **Run** will enter the `queued` state before it continues execution.
 
 ## Next steps
 
