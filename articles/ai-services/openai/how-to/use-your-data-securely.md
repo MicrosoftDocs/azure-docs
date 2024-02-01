@@ -50,7 +50,7 @@ If an embedding deployment is provided in the inference request, the rewritten q
 
 ## Resources configuration
 
-Use the following sections to configure your resources for optimal secure usage. If you plan to only secure part of your resources, you can skip the sections unrelated to your use case.
+Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below, because of the [known issues](https://github.com/microsoft/sample-app-aoai-chatGPT/issues/566).
 
 ## Create resource group
 
