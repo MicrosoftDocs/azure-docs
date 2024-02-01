@@ -433,6 +433,11 @@ No. Virtual WAN does not support ASN changes for VPN gateways.
 
 [!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
 
+### If I connect an ExpressRoute Local circuit to a Virtual WAN hub, will I only be able to access regions in the same metro location as the Local circuit? 
+
+Local circuits can only be connected to ExpressRoute gateways in their corresponding Azure region. However, there is no limitation to route traffic to spoke virtual networks in other regions. 
+
+
 ### <a name="update-router"></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
 
 > [!NOTE]
