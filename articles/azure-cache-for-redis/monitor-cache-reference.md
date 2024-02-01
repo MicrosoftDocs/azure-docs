@@ -160,14 +160,14 @@ The following list provides details and more information about the supported Azu
 
 ### Azure Cache for Redis
 microsoft.cache/redis
-- [ACRConnectedClientList](acrconnectedclientlist.md)
-- [AzureActivity](azureactivity.md)
-- [AzureMetrics](azuremetrics.md)
+- [ACRConnectedClientList](~/azure-reference-other-repo/azure-monitor-ref/tables/acrconnectedclientlist.md)
+- [AzureActivity](~/azure-reference-other-repo/azure-monitor-ref/tables/azureactivity.md)
+- [AzureMetrics](~/azure-reference-other-repo/azure-monitor-ref/tables/azuremetrics.md)
 
 
 ### Azure Cache for Redis Enterprise
 Microsoft.Cache/redisEnterprise
-- [REDConnectionEvents](redconnectionevents.md)
+- [REDConnectionEvents](~/azure-reference-other-repo/azure-monitor-ref/tables/redconnectionevents.md)
 
 <!-- ## Activity log -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
