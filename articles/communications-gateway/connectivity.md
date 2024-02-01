@@ -30,7 +30,7 @@ The following table lists all the available connection types and whether they're
 
 |Connection type  | Operator Connect / Teams Phone Mobile  | Microsoft Teams Direct Routing  | Zoom Phone Cloud Peering | Notes |
 |---------|---------|---------|---------|---------|
-| MAPS Voice |✅ |✅|✅|- Best media quality because of prioritization with Microsoft network<br>- No extra costs<br>- See [Azure Internet peering for Communications Services walkthrough](../internet-peering/walkthrough-communications-services-partner.md)|
+| MAPS Voice |✅ |✅|✅|- Best media quality because of prioritization with Microsoft network<br>- No extra costs<br>- See [Internet peering for Peering Service Voice walkthrough](../internet-peering/walkthrough-communications-services-partner.md)|
 |ExpressRoute Microsoft Peering |✅|✅|✅|- Easy to deploy<br>- Extra cost<br>- Consult with your onboarding team and ensure that it's available in your region<br>- See [Using ExpressRoute for Microsoft PSTN services](/azure/expressroute/using-expressroute-for-microsoft-pstn)|
 |Public internet |❌|✅|✅|- No extra setup<br>- Not recommended for production|
 
