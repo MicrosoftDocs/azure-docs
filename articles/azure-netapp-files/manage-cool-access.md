@@ -81,7 +81,7 @@ Before creating or enabling a cool-access volume, you need to configure a Standa
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
     When you select **Enable Cool Access**, the UI automatically selects the auto QoS type. The manual QoS type isn't supported for Standard service with cool access. 
 
-    :::image type="content" source="../media/azure-netapp-files/cool-access-new-capacity-pool.png" alt-text="Screenshot that shows the New Capacity Pool window with the Enable Cool Access option selected." lightbox="../media/azure-netapp-files/cool-access-new-capacity-pool.png"::: 
+    :::image type="content" source="./media/manage-cool-access/cool-access-new-capacity-pool.png" alt-text="Screenshot that shows the New Capacity Pool window with the Enable Cool Access option selected." lightbox="./media/manage-cool-access/cool-access-new-capacity-pool.png"::: 
 
 #### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 
@@ -91,7 +91,7 @@ You can enable cool access support on an existing Standard service-level capacit
 
 2. Select **Enable Cool Access**: 
 
-    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-pool.png" alt-text="Screenshot that shows the right-click menu on an existing capacity pool. The menu enables you to select the Enable Cool Access option." lightbox="../media/azure-netapp-files/cool-access-existing-pool.png"::: 
+    :::image type="content" source="./media/manage-cool-access/cool-access-existing-pool.png" alt-text="Screenshot that shows the right-click menu on an existing capacity pool. The menu enables you to select the Enable Cool Access option." lightbox="./media/manage-cool-access/cool-access-existing-pool.png"::: 
 
 ### Configure a volume for cool access 
 
@@ -131,7 +131,7 @@ Standard storage with cool access can be enabled during the creation of a volume
         * When the cool access setting is disabled on the volume, you can't modify the cool access retrieval policy setting on the volume. 
         * Once you disable the cool access setting on the volume, the cool access retrieval policy setting automatically reverts to `Default`.   
 
-    :::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a Volume page. Under the basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="../media/azure-netapp-files/cool-access-new-volume.png"::: 
+    :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a Volume page. Under the basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 
 1. Follow one of the following articles to complete the volume creation:   
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
@@ -172,7 +172,7 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
         * Once you disable the cool access setting on the volume, the cool access retrieval policy setting automatically reverts to `Default`.   
 
 
-    :::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.png" alt-text="Screenshot that shows the Enable Cool Access window with the Enable Cool Access field selected. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.png"::: 
+    :::image type="content" source="./media/manage-cool-access/cool-access-existing-volume.png" alt-text="Screenshot that shows the Enable Cool Access window with the Enable Cool Access field selected. " lightbox="./media/manage-cool-access/cool-access-existing-volume.png"::: 
 
 ### <a name="modify_cool"></a>Modify cool access configuration for a volume
 

@@ -131,13 +131,13 @@ LDAP can be a name mapping resource, if the LDAP schema attributes on the LDAP s
 
 In the following example, a user has a Windows name of `asymmetric` and needs to map to a UNIX identity of `UNIXuser`. To achieve that in Azure NetApp Files, open an instance of the [Active Directory Users and Computers MMC](/troubleshoot/windows-server/system-management-components/remote-server-administration-tools). Then, find the desired user and open the properties box. (Doing so requires [enabling the Attribute Editor](http://directoryadmin.blogspot.com/2019/02/attribute-editor-tab-missing-in-active.html)). Navigate to the Attribute Editor tab and find the UID field, then populate the UID field with the desired UNIX user name `UNIXuser` and click **Add** and **OK** to confirm.
 
-:::image type="content" source="../media/azure-netapp-files/asymmetric-properties.png" alt-text="Screenshot that shows the Asymmetric Properties window and Multi-valued String Editor window." lightbox="../media/azure-netapp-files/asymmetric-properties.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol/asymmetric-properties.png" alt-text="Screenshot that shows the Asymmetric Properties window and Multi-valued String Editor window." lightbox="./media/lightweight-directory-access-protocol/asymmetric-properties.png":::
 
 After this action is done, files written from Windows SMB shares by the Windows user `asymmetric` will be owned by `UNIXuser` from the NFS side.
 
 The following example shows Windows SMB owner `asymmetric`:
 
-:::image type="content" source="../media/azure-netapp-files/windows-owner-asymmetric.png" alt-text="Screenshot that shows Windows SMB owner named Asymmetric." lightbox="../media/azure-netapp-files/windows-owner-asymmetric.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol/windows-owner-asymmetric.png" alt-text="Screenshot that shows Windows SMB owner named Asymmetric." lightbox="./media/lightweight-directory-access-protocol/windows-owner-asymmetric.png":::
 
 The following example shows NFS owner `UNIXuser` (mapped from Windows user `asymmetric` using LDAP):
 
