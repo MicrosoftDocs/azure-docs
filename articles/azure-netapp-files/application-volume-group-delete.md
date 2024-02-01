@@ -18,10 +18,12 @@ This article describes how to delete an application volume group.
 
 ## Steps
 
-1. Click **Application volume groups**.   
-1. From the Volume Overview page, select the volume group you want to delete.  Select **Delete** and confirm the deletion in the popup window. 
+1. Select **Application volume groups**. Select the volume group you want to delete.
 
-    [![Screenshot that shows Application Volume Groups deletion.](../media/azure-netapp-files/application-volume-group-delete.png)](../media/azure-netapp-files/application-volume-group-delete.png#lightbox) 
+2. To delete the volume group, select **Delete**. If you are prompted, type the volume group name to confirm the deletion.  
+
+    [![Screenshot that shows Application Volume Groups list.](./media/application-volume-group-delete/application-volume-group-list.png) ](./media/application-volume-group-delete/application-volume-group-list.png#lightbox)
+
 
 ## Next steps  
 

@@ -29,11 +29,11 @@ Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 1. From the NetApp Account view, go to **Capacity pools**, and select the capacity pool that you want to resize.
 2. Right-click the capacity pool name or select the "…" icon at the end of the capacity pool row to display the context menu. Select **Resize**. 
 
-    ![Screenshot that shows pool context menu.](../media/azure-netapp-files/resize-pool-context-menu.png)  
+    ![Screenshot that shows pool context menu.](./media/azure-netapp-files-resize-capacity-pools-or-volumes/resize-pool-context-menu.png)  
 
 3. In the Resize pool window, specify the pool size. Select **OK**.
 
-    ![Screenshot that shows Resize pool window.](../media/azure-netapp-files/resize-pool-window.png) 
+    ![Screenshot that shows Resize pool window.](./media/azure-netapp-files-resize-capacity-pools-or-volumes/resize-pool-window.png) 
 
 ## Resize a volume using the Azure portal
 
@@ -42,11 +42,11 @@ You can change the size of a volume as necessary. A volume's capacity consumptio
 1. From the NetApp Account view, go to **Volumes**, and select the volume that you want to resize.
 2. Right-click the volume name or select the "…" icon at the end of the volume's row to display the context menu. Select **Resize**.
 
-    ![Screenshot that shows volume context menu.](../media/azure-netapp-files/resize-volume-context-menu.png) 
+    ![Screenshot that shows volume context menu.](./media/azure-netapp-files-resize-capacity-pools-or-volumes/resize-volume-context-menu.png) 
     
 3. In the Update volume quota window, specify the quota for the volume. Select **OK**.   
 
-    ![Screenshot that shows Update Volume Quota window.](../media/azure-netapp-files/resize-volume-quota-window.png) 
+    ![Screenshot that shows Update Volume Quota window.](./media/azure-netapp-files-resize-capacity-pools-or-volumes/resize-volume-quota-window.png) 
 
 ## Resizing the capacity pool or a volume using Azure CLI  
 

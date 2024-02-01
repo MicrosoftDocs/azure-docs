@@ -19,22 +19,22 @@ You can manage a volume from its volume group. You can resize, delete, or change
 
 2. Select the volume you want to resize, delete, or change throughput. The volume overview is displayed. 
 
-    [![Screenshot that shows Application Volume Groups overview page.](../media/azure-netapp-files/application-volume-group-overview.png)](../media/azure-netapp-files/application-volume-group-overview.png#lightbox)  
+    [![Screenshot that shows Application Volume Groups overview page.](./media/application-volume-group-manage-volumes/application-volume-group-overview.png)](./media/application-volume-group-manage-volumes/application-volume-group-overview.png#lightbox)  
 
     * To resize the volume, click **Resize** and specify the quota in GiB.
     
-    ![Screenshot that shows the Update Volume Quota window.](../media/azure-netapp-files/application-volume-resize.png) 
+    ![Screenshot that shows the Update Volume Quota window.](./media/application-volume-group-manage-volumes/application-volume-resize.png)
 
     * To change the throughput for the volume, click **Change throughput** and specify the intended throughput in MiB/s.
 
-    ![Screenshot that shows the Change Throughput window.](../media/azure-netapp-files/application-volume-change-throughput.png) 
+    ![Screenshot that shows the Change Throughput window.](./media/application-volume-group-manage-volumes/application-volume-change-throughput.png)
 
     * To delete the volume in the volume group, click **Delete**. If you are prompted, type the volume name to confirm the deletion.  
 
     > [!IMPORTANT]
     > The volume deletion operation cannot be undone.
     
-    ![Screenshot that shows the Delete Volume window.](../media/azure-netapp-files/application-volume-delete.png) 
+    ![Screenshot that shows the Delete Volume window.](./media/application-volume-group-manage-volumes/application-volume-delete.png)
 
 ## Next steps  
 

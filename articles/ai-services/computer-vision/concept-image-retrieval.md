@@ -39,7 +39,9 @@ Multi-modal embedding has a variety of applications in different fields, includi
 
 ## What are vector embeddings? 
 
-Vector embeddings are a way of representing content&mdash;text or images&mdash;as vectors of real numbers in a high-dimensional space. Vector embeddings are often learned from large amounts of textual and visual data using machine learning algorithms, such as neural networks. Each dimension of the vector corresponds to a different feature or attribute of the content, such as its semantic meaning, syntactic role, or context in which it commonly appears. 
+Vector embeddings are a way of representing content&mdash;text or images&mdash;as vectors of real numbers in a high-dimensional space. Vector embeddings are often learned from large amounts of textual and visual data using machine learning algorithms, such as neural networks. 
+
+Each dimension of the vector corresponds to a different feature or attribute of the content, such as its semantic meaning, syntactic role, or context in which it commonly appears. In Azure AI Vision, image and text vector embeddings have 1024 dimensions.
 
 > [!NOTE]
 > Vector embeddings can only be meaningfully compared if they are from the same model type.
@@ -65,6 +67,15 @@ The image and video retrieval services return a field called "relevance." The te
 
 > [!IMPORTANT]
 > The relevance score is a good measure to rank results such as images or video frames with respect to a single query. However, the relevance score cannot be accurately compared across queries. Therefore, it's not possible to easily map the relevance score to a confidence level. It's also not possible to trivially create a threshold algorithm to eliminate irrelevant results based solely on the relevance score. 
+
+## Input requirements
+
+**Image input**
+- The file size of the image must be less than 20 megabytes (MB)
+- The dimensions of the image must be greater than 10 x 10 pixels and less than 16,000 x 16,000 pixels
+
+**Text input**
+- The text string must be between (inclusive) one word and 70 words.
 
 ## Next steps
 
