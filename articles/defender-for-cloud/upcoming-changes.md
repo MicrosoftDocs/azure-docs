@@ -60,9 +60,9 @@ These public preview recommendations will be deprecated.
 | [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | February 2024 | New agentless recommendations. |
 | [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | February 2024 | New agentless recommendations. |
 
-These current generally available recommendations will remain supported until August 2024.
+The current generally available recommendations will remain supported until August 2024.
 
-As part of that deprecation, we’ll be introducing new endpoint protection recommendations. These recommendations will be available in Defender for Servers Plan 2 and the Defender CSPM plan. They’re available for Azure and multicloud machines. On-premises machines are not supported.
+As part of that deprecation, we’ll be introducing new agentless endpoint protection recommendations. These recommendations will be available in Defender for Servers Plan 2 and the Defender CSPM plan. They will support Azure and multicloud machines. On-premises machines are not supported.
 
 | Preliminary recommendation name | Estimated release date |
 |--|--|--|
