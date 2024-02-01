@@ -3,6 +3,7 @@ title: Blue/Green deployments using Azure Front Door
 description: Learn how to use Azure Front Door to implement a blue/green deployment strategy for your web applications.
 services: frontdoor
 author: duongau
+ms.author: duau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 01/29/2024
@@ -29,6 +30,7 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 1. On the **Basics** tab, enter or select the following information:
 
     | Settings | Values |
+    | -- | -- |
     | Subscriptions | Select your subscription. |
     | Resource group | Select **Create new** and enter myAFDResourceGroup into the text box. |
     | Resource group location | Select **East US**. |
@@ -52,6 +54,7 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
     :::image type="content" source="./media/blue-green-deployment/add-current-origin.png" alt-text="Screenshot of the adding the first origin in an origin group for a new Azure Front Door profile.":::
 
     | Settings | Values |
+    | -- | -- |
     | Name | Enter **CurrentWebApp** for the name. |
     | Origin type | Select *App Service* from the dropdown. |
     | Hostname | Enter the hostname of your Web App. This example uses *webapp-current.azurewebsites.net*. |
@@ -64,6 +67,7 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
     :::image type="content" source="./media/blue-green-deployment/add-new-origin.png" alt-text="Screenshot of the adding the second origin in an origin group for a new Azure Front Door profile.":::
 
     | Settings | Values |
+    | -- | -- |
     | Name | Enter **NewWebApp** for the name. |
     | Origin type | Select *App Service* from the dropdown. |
     | Hostname | Enter the hostname of your Web App. This example uses *webapp-new.azurewebsites.net*. |
@@ -86,6 +90,7 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
      :::image type="content" source="./media/blue-green-deployment/configure-origin-group-settings.png" alt-text="Screenshot of configuring the origin group settings.":::
 
     | Settings | Values |
+    | -- | -- |
     | Sample size | Enter **4**. |
     | Successful samples required | Enter **3**. |
     | Latency sensitivity (in milliseconds) | Enter **500**. |
