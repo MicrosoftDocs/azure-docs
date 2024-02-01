@@ -18,7 +18,6 @@ The [Crowdstrike](https://www.crowdstrike.com/) Falcon Data Replicator connector
 | --- | --- |
 | **Azure function app code** | https://aka.ms/sentinel-CrowdstrikeReplicatorV2-functionapp |
 | **Kusto function alias** | CrowdstrikeReplicator |
-| **Kusto function url** | https://aka.ms/sentinel-crowdstrikereplicator-parser |
 | **Log Analytics table(s)** | CrowdStrike_Additional_Events_CL<br/> ASimNetworkSessionLogs<br/> ASimDnsActivityLogs<br/> ASimAuditEventLogs<br/> ASimFileEventLogs<br/> ASimAuthenticationEventLogs<br/> ASimProcessEventLogs<br/> ASimRegistryEventLogs<br/> ASimUserManagementActivityLogs<br/> CrowdStrike_Secondary_Data_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
