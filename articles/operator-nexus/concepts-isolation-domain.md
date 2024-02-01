@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Isolation Domain Overview
 
-An Isolation Domain resource enables the creation of layer-2 and layer-3 networks that your network functions can connect to. This enables inter-rack and intra-rack communication between the network functions. The Nexus Network Fabric Automation Service (NFA) enables three types of isolation domain:
+An Isolation Domain resource enables the creation of layer-2 and layer-3 networks that your network functions can connect to. This enables inter-rack and intra-rack communication between the network functions. The Nexus Network Fabric (NNF) Service enables three types of isolation domain:
 
 -   **Layer-2 isolation domain** - provides layer-2 networking capabilities within and across the racks for workloads running on servers. Workloads can take advantage of the isolated layer-2 network to establish direct connectivity among themselves at layer 2 and above.
 
