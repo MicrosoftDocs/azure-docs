@@ -62,8 +62,6 @@ landingContent:
             url: concept-nexus-deployment-order.md
       - linkListType: quickstart
         links:
-          - text: Deploy a cluster
-            url: quickstart-deploy-cluster-nexus.md
           - text: Deploy observability
             url:  quickstart-deploy-observability-nexus.md
           - text: Deploy a network function
@@ -81,8 +79,6 @@ landingContent:
             url: concept-deployment-order.md
       - linkListType: quickstart
         links:
-          - text: Deploy a cluster
-            url: quickstart-deploy-cluster.md
           - text: Deploy observability
             url:  quickstart-deploy-observability.md
           - text: Deploy a network function
@@ -96,8 +92,4 @@ landingContent:
             url:  how-to-monitor-deployment-status.md
           - text: Perform health and configuration checks post-deployment
             url: how-to-perform-checks-post-deployment.md
-          - text: Update an existing deployment
-            url: how-to-update-existing-deployment.md
-          - text: Troubleshoot deployments
-            url: troubleshoot-deployments.md
-            
+         

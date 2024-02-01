@@ -43,8 +43,4 @@ ARMClient.exe DELETE
 
 ## Related content
 
-- [Update an existing deployment of Azure Operator 5G Core](how-to-update-existing-deployment.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+- [Deploy a network function on Advanced Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
