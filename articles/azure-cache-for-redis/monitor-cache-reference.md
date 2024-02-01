@@ -161,8 +161,8 @@ The following list provides details and more information about the supported Azu
 ### Azure Cache for Redis
 microsoft.cache/redis
 - [ACRConnectedClientList](/azure/azure-monitor/reference/tables/acrconnectedclientlist)
-- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity.md)
-- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics.md)
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
 
 
 ### Azure Cache for Redis Enterprise
