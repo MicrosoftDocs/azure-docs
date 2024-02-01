@@ -244,15 +244,15 @@ To filter on a complex collection field, you can use a **lambda expression** wit
 
 As with top-level simple fields, simple subfields of complex fields can only be included in filters if they have the **filterable** attribute set to `true` in the index definition. For more information, see the [Create Index API reference](/rest/api/searchservice/create-index).
 
-Azure Search has the limitation wherein the complex object in the collections across a single document cannot exceed 3000
+Azure Search has the limitation that the complex objects in the collections across a single document cannot exceed 3000.
 
-Users will encounter the below error during indexing when complex collections exceed the 3000 limit
+Users will encounter the below error during indexing when complex collections exceed the 3000 limit.
 
 “A collection in your document exceeds the maximum elements across all complex collections limit. The document with key '1052' has '4303' objects in collections (JSON arrays). At most '3000' objects are allowed to be in collections across the entire document. Remove objects from collections and try indexing the document again."
 
-In some use cases, we might need to add more than 3000 items to a collection. In those use cases, we can pipe(|) or use any form of delimiter to delimit the values concatenate them, and store them as a delimited string. There is no limitation on the number of strings stored in an array in Azure Search. Storing these complex values as strings avoids the limitation. The customer needs to validate whether this workaround meets their scenario requirements.
+In some use cases, we might need to add more than 3000 items to a collection. In those use cases, we can pipe (|) or use any form of delimiter to delimit the values, concatenate them, and store them as a delimited string. There is no limitation on the number of strings stored in an array in Azure Search. Storing these complex values as strings avoids the limitation. The customer needs to validate whether this workaround meets their scenario requirements.
 
-Consider, For example, it wouldn't be possible to use complex types if the "searchScope" array below had more than 3000 elements
+Consider, For example, it wouldn't be possible to use complex types if the "searchScope" array below had more than 3000 elements.
 
 ```json
 
@@ -283,24 +283,25 @@ Storing these complex values as strings with a delimiter avoids the limitation
 ]
 
 ```
-The reason we have stored the values with wildcards instead of just storing them as below 
+The reason we have stored the values with wildcards instead of just storing them as below
 
 >`|FRA|1234|C100|`
 
-is to cater to search scenarios where the customer might want to search for items which have country France irrespective of products and categories. Similarly, the customer might need to search if the item has product 1234 irrespective of the country or the category.
+is to cater to search scenarios where the customer might want to search for items that have country France, irrespective of products and categories. Similarly, the customer might need to search to see if the item has product 1234, irrespective of the country or the category.
 
 If we had stored only one entry
 
 >`|FRA|1234|C100|`
 
-without wild cards then if user wants to filter only on France we cannot convert the user input to match the searchScope array cause we don't know what all combination France is present in our searchScope array
+without wildcards, if the user wants to filter only on France, we cannot convert the user input to match the "searchScope" array because we don't know what combination of France is present in our "searchScope" array
 
 
-If the user wants to filter only on country let's say France. We will take the user input and construct it as a string as below
+If the user wants to filter only by country, let's say France. We will take the user input and construct it as a string as below:
 
 >`|FRA|*|*|`
 
 which we can then use to filter in azure search as we search in an array of item values
+
 ```csharp
 foreach (var filterItem in filterCombinations)
         {
@@ -309,31 +310,31 @@ foreach (var filterItem in filterCombinations)
         }
 
 ```
-Similarly, if user searches for France and the 1234 product code we will take the user input and construct it as a delimited string as below and match it against our search array
+Similarly, if the user searches for France and the 1234 product code, we will take the user input, construct it as a delimited string as below, and match it against our search array.
 
 >`|FRA|1234|*|`
 
-if user searches for 1234 product code we will take the user input and construct it as a delimited string as below and match it against our search array
+If the user searches for 1234 product code, we will take the user input, construct it as a delimited string as below, and match it against our search array.
 
 >`|*|1234|*|`
 
-if user searches for C100 category code we will take the user input and construct it as a delimited string as below and match it against our search array
+If the user searches for the C100 category code, we will take the user input, construct it as a delimited string as below, and match it against our search array.
 
 >`|*|*|C100|`
 
-if user searches for France and the 1234 product code and C100 category code we will take the user input and construct it as a delimited string as below and match it against our search array
+If the user searches for France and the 1234 product code and C100 category code, we will take the user input, construct it as a delimited string as below, and match it against our search array.
 
 >`|FRA|1234|C100|`
 
-If a user tries to search for countries not present in our list it will not match the delimited array "searchScope" stored in the search index and no results will be returned
-For example user searches for Canada and product code 1234. The user search would be converted as 
+If a user tries to search for countries not present in our list, it will not match the delimited array "searchScope" stored in the search index, and no results will be returned.
+For example, a user searches for Canada and product code 1234. The user search would be converted to
 
 >`|CAN|1234|*|`
 
-This will not match any of the entries in the delimited array in our search index 
+This will not match any of the entries in the delimited array in our search index.
 
 
-We can thus satisfy requirements where we need to search for a combination of values by storing it as a delimited string instead of a complex collection if our complex collections exceed the Azure Search limit. This is one of the workarounds and the customer needs to validate if this would meet their scenario requirements.
+We can thus satisfy requirements where we need to search for a combination of values by storing it as a delimited string instead of a complex collection if our complex collections exceed the Azure Search limit. This is one of the workarounds, and the customer needs to validate if this would meet their scenario requirements.
 
 ## Next steps
 
