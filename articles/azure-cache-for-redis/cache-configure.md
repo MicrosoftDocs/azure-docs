@@ -170,7 +170,8 @@ Select **(Preview) Microsoft Entra Authentication** to  a password-free authenti
 
 :::image type="content" source="media/cache-configure/cache-microsoft-entra.png" alt-text="Screenshot showing Authentication selected in the Resource menu and Microsoft Entra ID in the working pane.":::
 
---- 
+---
+
 ### Advanced settings
 
 The following settings are configured on the **Advanced settings** on the left.
