@@ -4,35 +4,34 @@ description: Learn how to prepare for the deprecation of the Log Analytics MMA a
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: how-to
-ms.date: 01/29/2024
+ms.date: 02/01/2024
 ---
 
 # Prepare for retirement of the Log Analytics agent
 
-The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) [will retire in August 2024](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). The Log Analytics agent as well as the Azure Monitoring Agent (AMA) are used by the Defender for Servers and Defender for SQL Servers on Machines plans in Microsoft Defender for Cloud.
+The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) [will retire in August 2024](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341). The Log Analytics agent as well as the Azure Monitoring Agent (AMA) are used by the Defender for Servers and Defender for SQL Servers on Machines plans in Microsoft Defender for Cloud.
 
 This article summarizes plans for agent retirement.
 
 ## Preparing Defender for Servers
 
-The Defender for Servers plan uses the Log Analytics Agent in general availability (GA) and AMA (in public preview) for [several capabilities](plan-defender-for-servers-agents.md). Here's what's happening:
+The Defender for Servers plan uses the Log Analytics agent in general availability (GA) and AMA (in preview) for [several capabilities](plan-defender-for-servers-agents.md). Here's what's happening going forward:
 
 - All Defender for Servers capabilities will be provided by integration with Microsoft Defender for Endpoint (MDE), and with agentless machine scanning.
 - Using AMA for Defender for Servers features is currently in preview and won’t be released in GA.
-- You can continue to use AMA in public preview until all features supported by AMA are provided by Defender for Endpoint integration or agentless machine scanning.
-- After August 2024, use of the Log Analytics agent for Defender for Servers features will be deprecated.
+- You can continue to use AMA in preview until all features supported by AMA are provided by Defender for Endpoint integration or agentless machine scanning.
 - By enabling Defender for Endpoint integration and agentless scanning early, your Defender for Servers deployment stays up to date and supported.
 
 ### Feature functionality
 
 The following table summarizes how Defender for Servers features will be provided as part of the deprecation plan.
 
-| Feature | Current functionality | New functionality | New functionality status |
+| Feature | Current support | New support | New experience status |
 |----|----|----|----|
 | Endpoint protection for machines running Windows Server 2016, 2012 R2 | Legacy Defender for Endpoint sensor, Log Analytics agent (GA) | Defender for Endpoint agent |Functionality with the Defender for Endpoint agent is GA<br/>Functionality with the legacy Defender for Endpoint sensor and the Log Analytics agent will deprecate in August 2024. |
 | OS-level threat detection | Log Analytics agent (GA) | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent is GA |
 | Adaptive application controls | Log Analytics agent (GA), AMA (Preview) | Not applicable | The adaptive application control feature will be deprecated in August 2024. |
-| Endpoint discovery and protection recommendations | Recommendations provided by foundational CSPM in Defender for Cloud using the Log Analytics agent (GA), AMA (Preview) | Agentless scanning | Functionality with agentless scanning will release to review around April 2024 as part of Defender for Servers plan 2 and the Defender CSPM plan. Azure Arc-connected machines and on-premises machines (with or without Arc) won’t be supported. |
+| Endpoint discovery and protection recommendations | Recommendations provided by foundational CSPM in Defender for Cloud using the Log Analytics agent (GA), AMA (Preview) | Agentless scanning | Functionality with agentless machine scanning will release to preview in February 2024 as part of Defender for Servers plan 2 and the Defender CSPM plan. Azure VMs, GCP instances, and AWS instances will be supported. On-premises machines aren't supported. |
 | Missing OS system update recommendation | Log Analytics agent (GA), Guest Configuration agent (Preview} | Integration with Update Manager, Microsoft Defender Vulnerability Management. | New recommendations based on Update Manager integration are GA, with no agent dependencies.<br/>The Guest Configuration agent functionality will deprecate when an alternative is provided with Microsoft Defender Vulnerability Management premium.<br/>Support for this feature in Docker Hub and VMMS will deprecated in August 2024. |
 | OS misconfigurations (Microsoft Cloud Security Benchmark) | Log Analytics agent (GA), AMA (Preview) | Microsoft Defender Vulnerability Management premium. | Functionality based on integration with Microsoft Defender Vulnerability Management premium will be available in early 2024.<br/>Functionality with the Log Analytics agent will deprecate in August 2024.<br/>Functionality with AMA will deprecate when the Microsoft Defender Vulnerability Management is available. |
 | File integrity monitoring | Log Analytics agent (GA), AMA (Preview) | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent will be available around April 2024.<br/>Functionality with the Log Analytics agent will deprecate in August 2024.<br/>Functionality with AMA will deprecate when the Defender for Endpoint integration is released. |
@@ -71,14 +70,18 @@ The following table summarizes the timetable for recommendations being retired a
 #### How will the replacement work?
 
 - Current recommendations provided by the Log Analytics Agent or the AMA will deprecate over time. Some of these existing recommendations will be replaced by new recommendations based on machine assessment with agentless machine scanning.
-- Recommendations that will be replaced will deprecate when the new recommendation is available in preview.
-- Recommendation that will deprecated without being replaced with deprecate in August 2024. Recommendations that affect secure score will continue to do so until then.
-- Old and new recommendations are located under the same Microsoft Cloud Security Benchmark control, without overlap in assessed resources. This ensures that there’s no duplicate impact on secure score.
+- Recommendations currently GA will remain until the Log Analytics agent retires. 
+- Recommendations that are currently in preview will be replaced when the new recommendation is available in preview.
+
+#### What's happening with secure score?
+
+- Recommendations that are currently in GA will continue to impact secure score.
+- Current and upcoming new recommendations are located under the same Microsoft Cloud Security Benchmark control. This ensures that there’s no duplicate impact on secure score.
 
 #### How do I prepare for the new recommendations?
 
-- Ensure that agentless scanning is enabled.
-- If you want to preempt the deprecation of recommendations in August 2024, you can remove them at an earlier date. You can do that by disabling the recommendation in the built-in Defender for Cloud initiative in Azure Policy.
+- Ensure that [agentless scanning is enabled]().
+- If suitable for your environment, for the best experience, we recommend that you remove deprecated recommendations once the replacement GA recommendation is available. You can do that by disabling the recommendation in the [built-in Defender for Cloud initiative in Azure Policy]().
 
 ## Preparing Defender for SQL on machines
 
