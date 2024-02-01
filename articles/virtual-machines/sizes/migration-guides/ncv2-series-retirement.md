@@ -19,10 +19,10 @@ We are retiring our NC (v2) GPU VM sizes,  powered by NVIDIA Tesla P100 GPUs on 
 
 After 6 September 2023, any remaining NCv2 size virtual machines remaining in your subscription will be set to a deallocated state. These virtual machines will be stopped and removed from the host. These virtual machines will no longer be billed in the deallocated state. 
 
-This VM size retirement only impacts the VM sizes in the [NCv2-series](ncv2-series.md). This doesn't impact the newer [NCv3](ncv3-series.md), [NCasT4 v3](nct4-v3-series.md), and [NC A100 v4](nc-a100-v4-series.md) series virtual machines. 
+This VM size retirement only impacts the VM sizes in the [NCv2-series](../../ncv2-series.md). This doesn't impact the newer [NCv3](../../ncv3-series.md), [NCasT4 v3](../../nct4-v3-series.md), and [NC A100 v4](../../nc-a100-v4-series.md) series virtual machines. 
 
 ## What actions should I take?  
-You need to resize or deallocate your NC virtual machines. We recommend moving your GPU workloads to another GPU Virtual Machine size. Learn more about migrating your workloads to another [GPU Accelerated Virtual Machine size](sizes-gpu.md).
+You need to resize or deallocate your NC virtual machines. We recommend moving your GPU workloads to another GPU Virtual Machine size. Learn more about migrating your workloads to another [GPU Accelerated Virtual Machine size](../../sizes-gpu.md).
 
 ## Help and support
 
@@ -39,6 +39,6 @@ If you have questions, ask community experts in [Microsoft Q&A](/answers/topics/
 Follow instructions in the **Solutions** and **Details** tabs, as applicable, and then **Review + create**.
 ## Next steps
 
-[Learn more](n-series-migration.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
+[Learn more](../../n-series-migration.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
 
 If you have questions, contact us through customer support.

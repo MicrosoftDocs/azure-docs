@@ -18,12 +18,12 @@ With this in mind, we're retiring our ND GPU VM sizes,  powered by NVIDIA Tesla 
 
 After 6 September 2023, any remaining ND size virtual machines remaining in your subscription will be set to a deallocated state. These virtual machines will be stopped and removed from the host. These virtual machines will no longer be billed in the deallocated state. 
 
-This VM size retirement only impacts the VM sizes in the [ND-series](nd-series.md). This retirement doesn't impact the newer [NCv3](ncv3-series.md), [NC T4 v3](nct4-v3-series.md), and [ND v2](ndv2-series.md) series virtual machines. 
+This VM size retirement only impacts the VM sizes in the [ND-series](../../nd-series.md). This retirement doesn't impact the newer [NCv3](../../ncv3-series.md), [NC T4 v3](../../nct4-v3-series.md), and [ND v2](../../ndv2-series.md) series virtual machines. 
 
 ## What actions should I take?  
-You'll need to resize or deallocate your ND virtual machines. We recommend moving your GPU workloads to another GPU Virtual Machine size. Learn more about migrating your workloads to another [GPU Accelerated Virtual Machine size](sizes-gpu.md).
+You'll need to resize or deallocate your ND virtual machines. We recommend moving your GPU workloads to another GPU Virtual Machine size. Learn more about migrating your workloads to another [GPU Accelerated Virtual Machine size](../../sizes-gpu.md).
 
 ## Next steps
-[Learn more](n-series-migration.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
+[Learn more](../../n-series-migration.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
 
 If you have questions, contact us through customer support.
