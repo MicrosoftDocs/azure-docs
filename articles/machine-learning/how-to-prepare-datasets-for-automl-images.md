@@ -43,7 +43,7 @@ It helps to create, manage, and monitor data labeling tasks for
 + Object detection (bounding box)
 + Instance segmentation (polygon)
 
-If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning Dataset](how-to-create-image-labeling-projects.md#export-the-labels) and then access the dataset under 'Datasets' tab in Azure Machine Learning studio. This exported dataset can then be passed as an input using `azureml:<tabulardataset_name>:<version>` format. Here's an example of how to pass existing dataset as input for training computer vision models.
+If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning Dataset](how-to-manage-labeling-projects.md#export-the-labels) and then access the dataset under 'Datasets' tab in Azure Machine Learning studio. This exported dataset can then be passed as an input using `azureml:<tabulardataset_name>:<version>` format. Here's an example of how to pass existing dataset as input for training computer vision models.
 
 # [Azure CLI](#tab/cli)
 
@@ -73,7 +73,7 @@ my_training_data_input = Input(
 
 # [Studio](#tab/Studio)
 
-Refer to Cli/Sdk tabs for reference.
+Refer to CLI/SDK tabs for reference.
 
 ---
 
@@ -82,7 +82,8 @@ If you have previously labeled data that you would like to use to train your mod
 
 The following script uploads the image data on your local machine at path "./data/odFridgeObjects" to datastore in Azure Blob Storage. It then creates a new data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace. 
 
-If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it updates the version number of the data asset and point it to the new location where the image data uploaded.
+
+If there already exists a data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace, it updates the version number of the data asset and points it to the new location where the image data uploaded.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
@@ -115,7 +116,7 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 
 ---
 
-If you already have your data present in an existing datastore and want to create a data asset out of it, you can do so by providing the path to the data in the datastore, instead of providing the path of your local machine. Update the code [above](how-to-prepare-datasets-for-automl-images.md#using-prelabeled-training-data-from-local-machine) with the following snippet.
+If you already have your data present in an existing datastore and want to create a data asset out of it, you can do so by providing the path to the data in the datastore, instead of providing the path of your local machine. Update the code [above](#using-prelabeled-training-data-from-local-machine) with the following snippet.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
@@ -157,7 +158,7 @@ Once you have created jsonl file following the above steps, you can register it 
 ![Animation showing how to register a data asset from the jsonl files](media\how-to-prepare-datasets-for-automl-images\ui-dataset-jsnol.gif)
 
 ### Using prelabeled training data from Azure Blob storage
-If you have your labeled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-datastore.md#create-an-azure-blob-datastore). 
+If you have your labeled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-datastore.md#create-an-azure-blob-datastore).
 
 ## Create MLTable
 
