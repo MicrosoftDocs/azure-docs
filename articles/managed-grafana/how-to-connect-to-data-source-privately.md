@@ -40,7 +40,7 @@ To follow the steps in this guide, you must have:
 
 ## Create a managed private endpoint for Azure Monitor workspace
 
-You can create a managed private endpoint in your Azure Managed Grafana workspace to connect to a [supported Azure data source](#supported-azure-data-sources) using a private link.
+You can create a managed private endpoint in your Azure Managed Grafana workspace to connect to a [supported data source](#supported-data-sources) using a private link.
 
 1. In the Azure portal, navigate to your Grafana workspace and then select **Networking (Preview)**.
 1. Select **Managed Private Endpoint**, and then select **Create**.
@@ -49,7 +49,7 @@ You can create a managed private endpoint in your Azure Managed Grafana workspac
 
 1. In the *New managed private endpoint* pane, fill out required information for resource to connect to.
 
-   :::image type="content" source="media/managed-private-endpoint/new-mpe-details.png" alt-text="Screenshot of the Azure portal new managed private endpoint details." lightbox="media/managed-private-endpoint/new-mpe-details.png":::
+   :::image type="content" source="media/managed-private-endpoint/new-mpe-details-azure-monitor.png" alt-text="Screenshot of the Azure portal new managed private endpoint details for Azure Monitor workspace.":::
 
 1. Select an Azure *Resource type* (for example, **Microsoft.Monitor/accounts** for Azure Monitor Managed Service for Prometheus).
 1. Select **Create** to add the managed private endpoint resource.
@@ -64,12 +64,14 @@ If you have a data source internal to your virtual network, such as an InfluxDB 
 
 Once you've set up the private link service, you can create a managed private endpoint in your Grafana workspace that connects to the new private link.
 
-1. In the Azure portal, navigate to your Grafana resource and then select **Networking**.
-1. Select **Managed private endpoint**, and then select **Create**.
+1. In the Azure portal, navigate to your Grafana resource and then select **Networking (Preview)**.
+1. Select **Managed Private Endpoint**, and then select **Create**.
 
    :::image type="content" source="media/managed-private-endpoint/create-mpe.png" alt-text="Screenshot of the Azure portal create managed private endpoint." lightbox="media/managed-private-endpoint/create-mpe.png":::
 
 1. In the *New managed private endpoint* pane, fill out required information for resource to connect to.
+
+   :::image type="content" source="media/managed-private-endpoint/new-mpe-details-private-link.png" alt-text="Screenshot of the Azure portal new managed private endpoint details for Private link services.png":::
 
    > [!TIP]
    > The *Domain name* field is optional. If you specify a domain name, Azure Managed Grafana will ensure that this domain name will be resolved to the managed private endpoint's private IP inside this Grafana's service managed network. You can use this domain name in your Grafana data source's URL configuration instead of the private IP address. You will be required to use the domain name if you enabled TLS or Server Name Indication (SNI) for your self-hosted data store.
