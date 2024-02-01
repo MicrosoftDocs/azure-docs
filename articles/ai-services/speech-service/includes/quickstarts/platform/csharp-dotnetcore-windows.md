@@ -35,7 +35,7 @@ This guide requires:
 
 1. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png" alt-text="Screenshot of Solution Explorer, with Manage NuGet Packages for Solution highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png" alt-text="Screenshot of Solution Explorer, with Manage NuGet Packages for Solution highlighted.":::
 
 1. Select **Browse**, then in the upper-right corner, for **Package Source**, select **nuget.org**.
 
