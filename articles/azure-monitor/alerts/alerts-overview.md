@@ -77,9 +77,7 @@ The alert condition for stateful alerts is `fired`, until it is considered resol
 
 For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
-Stateful log alerts have these limitations:
-- they can trigger up to 300 alerts per evaluation.
-- you can have a maximum of 5000 alerts with the `fired` alert condition.
+Stateful log alerts have limitations - details [here](https://learn.microsoft.com/azure/azure-monitor/service-limits#alerts).
 
 This table describes when a stateful alert is considered resolved:
 

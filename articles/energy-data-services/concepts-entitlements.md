@@ -49,7 +49,8 @@ The entitlement service enables three use cases for authorization:
 
 #### Peculiarity of `users.data.root@` group
 - users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU.
-- users.data.root is the default and permanent owner of all the data records as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98)
+- users.data.root becomes automatically the default and permanent owner of all the data records when the records get created in the system as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98). As a result, irrespective of the OSDU membership of the user, the system checks if the user is “DataManager”, i.e., part of data.root group, to grant access of the data record.
+- The default membership in users.data.root is only the `app-id` that is used to set up the instance. You can add other users explicitly to this group to give them default access of data records. 
 
 As an example in the scenario, 
 - A data_record_1 has 2 ACLs: ACL_1 and ACL_2.

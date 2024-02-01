@@ -22,7 +22,7 @@ Azure Machine Learning supports the following types of runtimes:
 
 |Runtime type|Underlying compute type|Life cycle management|Customize environment              |
 |------------|----------------------|---------------------|---------------------|
-|Automatic runtime (preview)        |Serverless compute| Automatic | Easily customize packages|
+|Automatic runtime (preview)        |[Serverless compute](../how-to-use-serverless-compute.md)| Automatic | Easily customize packages|
 |Compute instance runtime | Compute instance | Manual | Manually customize via Azure Machine Learning environment|
 
 If you're a new user, we recommend that you use the automatic runtime (preview). You can easily customize the environment by adding packages in the `requirements.txt` file in `flow.dag.yaml` in the flow folder. If you're already familiar with the Azure Machine Learning environment and compute instances, you can use your existing compute instance and environment to build a compute instance runtime.
@@ -65,7 +65,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
   - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
   - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
 
-    If you don't set this identity, you use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+    If you don't set this identity, we use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
 
@@ -112,7 +112,7 @@ Before you create a compute instance runtime, make sure that a compute instance 
 
      :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png" alt-text="Screenshot of the option to use an existing custom application and the box for selecting an application." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png":::
 
-## Use a runtime in prompt flow authoring
+## Use a runtime in prompt flow authoring UI
 
 When you're authoring a flow, you can select and change the runtime from the **Runtime** dropdown list on the upper right of the flow page.
 
@@ -122,13 +122,97 @@ When you're performing evaluation, you can use the original runtime in the flow 
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of runtime details on the wizard page for configuring an evaluation." lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
 
+## Use a runtime to submit a flow run in CLI/SDK
+
+Same as authoring UI, you can also specify the runtime in CLI/SDK when you submit a flow run.
+
+# [Azure CLI](#tab/cli)
+
+In your `run.yml` you can specify the runtime name or use the automatic runtime. If you specify the runtime name, it uses the runtime with the name you specified. If you specify automatic, it uses the automatic runtime. If you don't specify the runtime, it uses the automatic runtime by default.
+
+In automatic runtime case, you can also specify the instance type, if you don't specify the instance type,  Azure Machine Learning chooses an instance type (VM size) based on factors like quota, cost, performance and disk size, learn more about [serverless compute](../how-to-use-serverless-compute.md)
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
+flow: <path_to_flow>
+data: <path_to_flow>/data.jsonl
+
+column_mapping:
+  url: ${data.url}
+
+# define cloud resource
+# if omitted, it will use the automatic runtime, you can also specify the runtime name, specify automatic will also use the automatic runtime.
+# runtime: <runtime_name> 
+
+
+# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+resources:
+  instance_type: <instance_type>
+
+```
+
+Submit this run via CLI:
+
+```sh
+pfazure run create --file run.yml
+```
+
+# [Python SDK](#tab/python)
+
+```python
+# load flow
+flow = "<path_to_flow>"
+data = "<path_to_flow>/data.jsonl"
+
+
+# define cloud resource
+# runtime = <runtime_name>
+define instance type
+resources = {"instance_type": <instance_type>}
+
+# create run
+base_run = pf.run(
+    flow=flow,
+    data=data,
+    runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
+    column_mapping={
+        "url": "${data.url}"
+    }, 
+)
+print(base_run)
+```
+
+Learn full end to end code first example: [Integrate prompt flow with LLM-based application DevOps](./how-to-integrate-with-llm-app-devops.md)
+
+### Reference files outside of the flow folder - automatic runtime only
+Sometimes, you might want to reference a `requirements.txt` file that is outside of the flow folder. For example, you might have complex project that includes multiple flows, and they share the same `requirements.txt` file. To do this, You can add this field `additional_includes` into the `flow.dag.yaml`. The value of this field is a list of the relative file/folder path to the flow folder. For example, if requirements.txt is in the parent folder of the flow folder, you can add `../requirements.txt` to the `additional_includes` field.
+
+```yaml
+inputs:
+  question:
+    type: string
+outputs:
+  output:
+    type: string
+    reference: ${answer_the_question_with_context.output}
+environment:
+  python_requirements_txt: requirements.txt
+additional_includes:
+  - ../requirements.txt
+...
+```
+
+When you submit flow run using automatic runtime, the `requirements.txt` file is copied to the flow folder, and use it to start your automatic runtime.
+
 ## Update a runtime on the UI
 
 ### Update an automatic runtime (preview) on a flow page
 
 On a flow page, you can use the following options to manage an automatic runtime (preview):
 
-- **Install packages** triggers `pip install -r requirements.txt` in the flow folder. This process can take a few minutes, depending on the packages that you install.
+- **Install packages** Open `requirements.txt` in prompt flow UI, you can add packages in it.
+- **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
 - **Reset** deletes the current runtime and creates a new one with the same environment. If you encounter a package conflict issue, you can try this option.
 - **Edit** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
 - **Stop** deletes the current runtime. If there's no active runtime on the underlying compute, the compute resource is also deleted.
@@ -195,6 +279,14 @@ To get the best experience and performance, try to keep your runtime up to date.
 
 If you select **Use customized environment**, you first need to rebuild the environment by using the latest prompt flow image. Then update your runtime with the new custom environment.
 
+## Relationship between runtime, compute resource, flow and user.
+
+- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. You can find 
+- One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resources.
+- One compute resource can host multiple runtimes. Runtime is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple runtimes from same user. 
+- One runtime only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.
+- In automatic runtime, one flow only have one runtime, as we expect each flow is self contained it defined the base image and required python package in flow folder. In compute instance runtime, you can run different flow on same compute instance runtime, but you need make sure the packages and image is compatible.
+
 ## Switch compute instance runtime to automatic runtime (preview)
 
 Automatic runtime (preview) has following advantages over compute instance runtime:
@@ -208,6 +300,7 @@ We would recommend you to switch to automatic runtime (preview) if you're using 
 :::image type="content" source="./media/how-to-create-manage-runtime/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-create-manage-runtime/image-path-environment-detail.png":::
 
 - If you want to keep the automatic runtime (preview) as long running compute like compute instance, you can disable the idle shutdown toggle under automatic runtime (preview) edit option.
+
 
 ## Next steps
 

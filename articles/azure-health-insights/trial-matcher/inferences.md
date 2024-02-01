@@ -12,9 +12,13 @@ ms.author: behoorne
 ---
 
 
+
 # Trial Matcher inference information
 
 The result of the Trial Matcher model includes a list of inferences made regarding the patient. For each trial that was queried for the patient, the model returns an indication of whether the patient appears eligible or ineligible for the trial. If the model concluded the patient is ineligible for a trial, it also provides a piece of evidence to support its conclusion (unless the ```evidence``` flag was set to false). 
+
+> [!NOTE] 
+> The examples below are based on API version: 2023-03-01-preview.
 
 ## Example model result
 ```json

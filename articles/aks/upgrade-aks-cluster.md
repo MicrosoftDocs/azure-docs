@@ -3,7 +3,7 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 ms.topic: article
 ms.custom: azure-kubernetes-service, devx-track-azurecli
-ms.date: 10/19/2023
+ms.date: 01/26/2024
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
@@ -114,15 +114,15 @@ If your Azure CLI is updated and you receive the following example output, it me
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `az aks get-upgrades` shows that no upgrades are available.
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. AKS does not support upgrading a cluster to a newer Kubernetes version when `az aks get-upgrades` shows that no upgrades are available.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `Get-AzAksUpgradeProfile` shows that no upgrades are available.
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. AKS does not support upgrading a cluster to a newer Kubernetes version when `Get-AzAksUpgradeProfile` shows that no upgrades are available.
 
 ### [Azure portal](#tab/azure-portal)
 
-If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when no upgrades are available.
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. AKS does not support upgrading a cluster to a newer Kubernetes version when no upgrades are available.
 
 ---
 
@@ -135,7 +135,7 @@ During the cluster upgrade process, AKS performs the following operations:
 * For long running pods, you can configure the node drain timeout, which allows for custom wait time on the eviction of pods and graceful termination per node. If not specified, the default is 30 minutes.
 * When the old node is fully drained, it's reimaged to receive the new version and becomes the buffer node for the following node to be upgraded.
 * Optionally, you can set a duration of time to wait between draining a node and proceeding to reimage it and move on to the next node. A short interval allows you to complete other tasks, such as checking application health from a Grafana dashboard during the upgrade process. We recommend a short timeframe for the upgrade process, as close to 0 minutes as reasonably possible. Otherwise, a higher node soak time (preview) affects how long before you discover an issue. The minimum soak time value is 0 minutes, with a maximum of 30 minutes. If not specified, the default value is 0 minutes.
-* This process repeats until all nodes in the cluster have been upgraded.
+* This process repeats until all nodes in the cluster are upgraded.
 * At the end of the process, the last buffer node is deleted, maintaining the existing agent node count and zone balance.
 
 [!INCLUDE [alias minor version callout](./includes/aliasminorversion/alias-minor-version-upgrade.md)]
@@ -233,8 +233,7 @@ AKS accepts both integer values and a percentage value for max surge. An integer
 
 #### Set node drain timeout value
 
-At times, you may have a long running workload on a certain pod and it cannot be rescheduled to another node during runtime, for example, a memory intensive stateful workload that must finish running. In these cases, you can configure a node drain timeout that AKS will respect in the upgrade workflow. If no node drain timeout value is specified, the default is 30 minutes. If the drain time out value elapses and pods have not yet finished running , then the upgrade operation is stopped. Any subsequent PUT operation shall resume the stopped upgrade. 
-
+At times, you may have a long running workload on a certain pod and it can't be rescheduled to another node during runtime, for example, a memory intensive stateful workload that must finish running. In these cases, you can configure a node drain timeout that AKS will respect in the upgrade workflow. If no node drain timeout value is specified, the default is 30 minutes. If the drain timeout value elapses and pods are still running, then the upgrade operation is stopped. Any subsequent PUT operation shall resume the stopped upgrade.
 
 * Set node drain timeout for new or existing node pools using the [`az aks nodepool add`][az-aks-nodepool-add] or [`az aks nodepool update`][az-aks-nodepool-update] command.
 
@@ -252,7 +251,7 @@ To allow for a duration of time to wait between draining a node and proceeding t
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-> [!NOTE] 
+> [!NOTE]
 > To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.173 or later installed.
 
 * Enable the aks-preview Azure CLI.
@@ -273,7 +272,6 @@ To allow for a duration of time to wait between draining a node and proceeding t
     # Set node soak time when upgrading an existing node pool
     az aks nodepool upgrade -n MyNodePool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33% --node-soak-duration 20
     ```
-
 
 ## View upgrade events
 
@@ -297,7 +295,9 @@ To allow for a duration of time to wait between draining a node and proceeding t
 
 ## Next steps
 
-To learn how to configure automatic upgrades, see [Configure automatic upgrades for an AKS cluster][configure-automatic-aks-upgrades].
+To learn how to configure automatic upgrades, see [Configure automatic upgrades for an AKS cluster][configure-automatic-aks-upgrades]. 
+
+For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
@@ -316,6 +316,7 @@ To learn how to configure automatic upgrades, see [Configure automatic upgrades 
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
 [configure-automatic-aks-upgrades]: ./upgrade-cluster.md#configure-automatic-upgrades
 [release-tracker]: release-tracker.md
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
