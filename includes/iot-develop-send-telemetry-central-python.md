@@ -26,7 +26,7 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 
 Install the following prerequisites on your development machine:
 
-- [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python3 --version`.
+- [Python](https://www.python.org/downloads/). Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. To check your Python version, run `python3 --version`.
 - [Git](https://git-scm.com/downloads).
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
