@@ -78,7 +78,7 @@ On the Exports page, at the top of the page, select **+ Create**.
 3. Depending on the **Type of data** and **Frequency** that you select, you might need to specify more fields to define the date range in UTC format.
 4. Select **Add** to see the export listed on the Basic tab.
 
-:::image type="content" source="./media/tutorial-improved-exports/new-export.png" alt-text="Screenshot of the Add export page." lightbox="./media/tutorial-improved-exports/new-export.png" :::
+:::image type="content" source="./media/tutorial-improved-exports/new-export.png" alt-text="Screenshot of Add export page." lightbox="./media/tutorial-improved-exports/new-export.png" :::
 
 ### Optionally add more exports
 
@@ -135,7 +135,7 @@ All types of data support various schedule frequency options, as described in th
 | Reservation details | • One-time export <br> • Daily export of month-to-date costs <br> • Monthly export of last month's costs |
 | Reservation recommendations | • One-time export <br> • Daily export |
 | Reservation transactions | • One-time export <br> • Daily export <br> • Monthly export of last month's data|
-| Cost and usage details (actual)<br> Cost and usage details (amortized) <br> Cost and usage details (FOCUS)<br> Cost and usage details (usage only) | • One-time export <br>• Daily export of month-to-date costs<br>•  Monthly export of last month's costs <br>• Monthly export of last billing month's costs<br>• Weekly export of week-to-date costs<br>• Weekly export of the last seven days |
+| Cost and usage details (actual)<br> Cost and usage details (amortized) <br> Cost and usage details (FOCUS)<br> Cost and usage details (usage only) | • One-time export <br>• Daily export of month-to-date costs<br>•  Monthly export of last month's costs <br>• Monthly export of last billing month's costs |
 
 ## Understand data types
 
@@ -143,6 +143,10 @@ All types of data support various schedule frequency options, as described in th
 - Cost and usage details (amortized) - Select this option to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.
 - Cost and usage details (FOCUS) - Select this option to export cost and usage details using the open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format. It combines actual and amortized costs. This format reduces data processing time and storage and compute charges for exports. The management group scope isn't supported for Cost and usage details (FOCUS) exports.
 - Cost and usage details (usage only) - Select this option to export standard usage charges without purchase information. Although you can't use this option when creating new exports, existing exports using this option are still supported.
+- Price sheet – Select this option to export your download your organization's Azure pricing.
+- Reservation details – Select this option to export the current list of all available reservations.
+- Reservation recommendations – Select this option to export the list of reservation recommendations, which help with rate optimization.
+- Reservation transactions – Select this option to export the list of all reservation purchases, exchanges, and refunds.
 
 Agreement types, scopes, and required roles are explained at [Understand and work with scopes](understand-work-scopes.md).
 
