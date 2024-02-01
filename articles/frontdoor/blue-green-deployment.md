@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 01/29/2024
 ---
 
-# Blue/Green deployments using Azure Front Door
+# Blue/green deployments using Azure Front Door
 
 *Blue/Green deployment* is a software release methodology that gradually introduces application enhancements to a small subset of end users. If the enhancements are successful, the number of users on the new deployment is slowly increased until all users are on the new deployment. In case of any issues, requests are routed to the old backend with the previous application version. This is a much safer way to introduce code changes than suddenly pointing all users to the new enhancements. 
 
-Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. This article explains how to use Front Door’s global load balancing capabilities to set up a blue/green deployment model for your backends.
+Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. This article explains how to use Azure Front Door’s global load balancing capabilities to set up a blue/green deployment model for your backends.
 
 ## Prerequisites
 
@@ -25,6 +25,7 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 1. Select **Create a resource** from the home page, search for *Front Door and CDN profiles*, and select **Create**.
 
 1. Select **Custom create** on the *Compare offerings* page, and then select **Continue to create a Front Door**.
+
 1. On the **Basics** tab, enter or select the following information:
 
     | Settings | Values |
@@ -38,11 +39,17 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 
 1. Select **+ Add a route** to configure routing to your Web App origin.
 
+    :::image type="content" source="./media/blue-green-deployment/endpoint.png" alt-text="Screenshot of the add a new endpoint for a new Azure Front Door profile.":::
+
 1. Provide a name for the route and configure the route settings based on the needs of your application. For more information, see [Create a Front Door for your application](create-front-door-portal.md#create-a-front-door-for-your-application).
+
+    :::image type="content" source="./media/blue-green-deployment/add-a-route.png" alt-text="Screenshot of the add route page for a new Azure Front Door profile.":::
 
 1. To create a new origin group, select **Add a new origin group** and enter *myOriginGroup* as the name.
 
 1. Select **+ Add** to add an origin to the origin group. Enter the following information for the existing version of the application:
+
+    :::image type="content" source="./media/blue-green-deployment/add-current-origin.png" alt-text="Screenshot of the adding the first origin in an origin group for a new Azure Front Door profile.":::
 
     | Settings | Values |
     | Name | Enter **CurrentWebApp** for the name. |
@@ -53,6 +60,8 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
     | Status | Select the check box for **Enable this origin**. |
 
 1. Select **+ Add** to add another origin to the origin group. Enter the following information for the new version of the application:
+
+    :::image type="content" source="./media/blue-green-deployment/add-new-origin.png" alt-text="Screenshot of the adding the second origin in an origin group for a new Azure Front Door profile.":::
 
     | Settings | Values |
     | Name | Enter **NewWebApp** for the name. |
@@ -74,6 +83,8 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 
 1. Under **Load balancing settings**, enter the following information:
 
+     :::image type="content" source="./media/blue-green-deployment/configure-origin-group-settings.png" alt-text="Screenshot of configuring the origin group settings.":::
+
     | Settings | Values |
     | Sample size | Enter **4**. |
     | Successful samples required | Enter **3**. |
@@ -86,8 +97,16 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 
 ## Start Blue/Green deployment
 
-When you're ready to beging the blue/green deployment, you can start by enabling the new origin. This will start routing traffic to the new origin, while still allowing you to revert back to the old origin if needed.
+When you're ready to begin the blue/green deployment, you can start by enabling the new origin. This will start routing traffic to the new origin, while still allowing you to revert back to the old origin if needed.
 
 1. After the Front Door profile gets created, go to the origin group you created earlier. Select the new origin, and then select **Enable this origin**. This will start routing traffic to the new origin.
 
-1.  
+     :::image type="content" source="./media/blue-green-deployment/enable-new-origin.png" alt-text="Screenshot of enabling the new origin to receive traffic.":::
+
+1. Monitor the new origin to ensure that it is working as expected. Once you're confident that the new origin is working as expected, you can gradually increase the weight of the new origin and decrease the weight of the old origin. Keep doing this until all traffic is routed to the new origin.
+
+1. If you experience any issues with the new origin, you can disable the new origin to route all traffic back to the old origin. This will allow you to investigate and fix the issues without impacting your users.
+
+## Next steps
+
+[Secure traffic to your Azure Front Door origins](origin-security.md)
