@@ -183,9 +183,6 @@ select * from retail.orders_info;
 
 Check the change data capture events in the Kafka topic
 
-> [!NOTE]
-> Note that the topic name is `myserver.retail.orders_info` which as per the [connector convention](https://debezium.io/documentation/reference/1.3/connectors/postgresql.html#postgresql-topic-names)
-
 ```bash
 cd <KAFKA_HOME>/bin
 
