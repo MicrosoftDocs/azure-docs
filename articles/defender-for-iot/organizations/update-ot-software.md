@@ -75,7 +75,7 @@ This procedure describes how to send a software version update to OT sensors at 
 
 ### Send the software update to your OT sensor
 
-1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) <!-- can we remove this link, is it really needed? -->in the Azure portal, select **Sites and sensors**.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) <!-- can we remove this link, is it really needed? check with other docs to see what is normal -->in the Azure portal, select **Sites and sensors**.
 
     If you know your site and sensor name, you can browse or search for it directly, or apply a filter to help locate the site you need. <!-- Belle wants to add other images so I suggest removing this one, instead of ones that are more important --> For example:
 
@@ -83,8 +83,9 @@ This procedure describes how to send a software version update to OT sensors at 
 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**. For example:
 <!-- placement holder need image of this , instead of the one that was below for the individual sensor :::image type="content" source="media/update-ot-software/remote-update-step-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/remote-update-step-1.png":::-->
+<!-- ask Mia for help with the screen shots -->
 
-    For one or more individual sensors, select the  **Step one: Send package to sensor** option is also available from the **...** options menu to the right of the sensor row.
+For one or more individual sensors, select the  **Step one: Send package to sensor** option is also available from the **...** options menu to the right of the sensor row.
 
 1. In the **Send package** pane that appears, under **Available versions**, select the software version from the list. If the version you need doesn't appear, select **Show more** to list all available versions.
 
@@ -102,14 +103,14 @@ This procedure describes how to send a software version update to OT sensors at 
 
     Hover over the **Sensor version** value to see the source and target version for your update.
 
-### Update your sensor from the Azure portal <!-- update or install??-->
+### Update your sensor from the Azure portal <!-- change to install-->
 
 Run the sensor update only when you see the :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update** icon in the **Sensor version** column.
 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step 2: Update sensor** from the toolbar. The **Update sensor** pane opens in the right side of the screen. For example:
 <!-- placement holder need image of this , instead of the one that was below for the individual sensor -->
 
-    For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu. <!-- check the wording of the menu item does it include step 2? -->
+    For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu. 
 
 1. In the **Update sensor** pane that appears, verify your update details.
 
