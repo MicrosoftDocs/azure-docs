@@ -423,11 +423,11 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
         }
     }
     ```
-
+    
     The `ListLogger` class implements the following members as contracted by the `ILogger` interface:
-    
+        
     - **BeginScope**: Scopes add context to your logging. In this case, the test just points to the static instance on the `NullScope` class to allow the test to function.
-    
+       
     - **IsEnabled**: A default value of `false` is provided.
     
     - **Log**: This method uses the provided `formatter` function to format the message and then adds the resulting text to the `Logs` collection.
