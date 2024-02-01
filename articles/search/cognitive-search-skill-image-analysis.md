@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 06/24/2022
+ms.date: 01/31/2024
 ---
 
 # Image Analysis cognitive skill
@@ -39,7 +39,7 @@ Parameters are case-sensitive.
 
 | Parameter name | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` | A string indicating the language to return. The service returns recognition results in a specified language. If this parameter isn't specified, the default value is "en". <br/><br/>Supported languages include all of the [generally available languages](../ai-services/computer-vision/language-support.md#image-analysis) of Azure AI Vision. |
+| `defaultLanguageCode` | A string indicating the language to return. The service returns recognition results in a specified language. If this parameter isn't specified, the default value is "en". <br/><br/>Supported languages include a subset of [generally available languages](../ai-services/computer-vision/language-support.md#image-analysis) of Azure AI Vision. When a language is newly introduced with general availability status into the AI Vision service, there is expected delay before they are fully integrated within this skill. |
 | `visualFeatures` | An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic (depicts nudity or a sex act), gory (depicts extreme violence or blood) or suggestive (also known as racy content). </li><li>*brands* - detects various brands within an image, including the approximate location. </li><li> *categories* - categorizes image content according to a [taxonomy](../ai-services/Computer-vision/Category-Taxonomy.md) defined by Azure AI services. </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age. </li><li>*objects* - detects various objects within an image, including the approximate location. </li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Both *color* and *imageType* visual features have been deprecated, but you can access this functionality through a [custom skill](./cognitive-search-custom-skill-interface.md). Refer to the [Azure AI Vision Image Analysis documentation](../ai-services/computer-vision/language-support.md#image-analysis) on which visual features are supported with each `defaultLanguageCode`.|
 | `details`	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image. </li></ul> |
 
