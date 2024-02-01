@@ -141,7 +141,7 @@ For information on moving resources from one resource group to another, and from
 
 The **Settings** section allows you to access and configure the following settings for your cache.
 
-- [Access keys](#access-keys)
+- [Authentication](#authentication)
 - [Advanced settings](#advanced-settings)
 - [Scale](#scale)
 - [Cluster size](#cluster-size)
@@ -158,13 +158,13 @@ The **Settings** section allows you to access and configure the following settin
 
 You have two options for authentication: access keys and Microsoft Entra Authentication.
 
-#### Access keys(#tab/access-keys)
+#### [Access keys](#tab/access-keys)
 
 Select **Access keys** to view or regenerate the access keys for your cache. These keys are used by the clients connecting to your cache.
 
 :::image type="content" source="media/cache-configure/redis-cache-manage-keys.png" alt-text="Screenshot showing Authentication selected in the Resource menu and access Keys in the working pane.":::
 
-#### (Preview) Microsoft Entra Authentication(#tab/entra-id)
+#### [(Preview) Microsoft Entra Authentication](#tab/entra-id)
 
 Select **(Preview) Microsoft Entra Authentication** to  a password-free authentication mechanism by integrating with Microsoft Entra ID. This integration also includes role-based access control functionality provided through access control lists (ACLs) supported in open source Redis.
 
@@ -382,8 +382,6 @@ Use **Insights** to see groups of predefined tiles and charts to use as starting
 
 For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
 
-<!-- create link to new content for Insights when it is added by the monitor team -->
-
 ### Metrics
 
 Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
@@ -413,7 +411,6 @@ If any conditions occur during the operations of your cache such as imminent cha
 Further information can be found on the **Recommendations** in the working pane of the Azure portal.
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations":::
-<!-- How do we trigger an event that causes a good recommendation for the image? -->
 
 You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu.
 

@@ -16,11 +16,10 @@ ms.author: franlanglois
 
 Azure Cache for Redis offers two methods to authenticate to your cache instance:
 
-- [access key](cache-configure.md#access-keys)
+- access keys
+- Microsoft Entra ID
 
-- [Microsoft Entra token](/azure/active-directory/develop/access-tokens)
-
-Although access key authentication is simple, it comes with a set of challenges around security and password management. In this article, you learn  how to use a Microsoft Entra token for cache authentication.
+Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
 Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open source Redis.
 
@@ -34,7 +33,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 ## Prerequisites and limitations
 
-- To enable Microsoft Entra token-based authentication for your Azure Cache for Redis instance, at least one Redis user must be configured under the **Data Access Policy** setting in the Resource menu.
+- To enable Microsoft Entra ID authentication for your Azure Cache for Redis instance, at least one Redis user must be configured under the **Data Access Policy** setting in the Resource menu.
 - Microsoft Entra ID-based authentication is supported for SSL connections and TLS 1.2 only.
 <!-- We mention TLS 1.2 here. -->
 - Microsoft Entra ID-based authentication isn't supported on Azure Cache for Redis instances that run Redis version 4.
@@ -46,9 +45,7 @@ To use the ACL integration, your client application must assume the identity of 
 > [!IMPORTANT]
 > Once a connection is established using Microsoft Entra token, client applications must periodically refresh Microsoft Entra token before expiry, and send an `AUTH` command to Redis server to avoid disruption of connections. For more information, see [Configure your Redis client to use Microsoft Entra ID](#configure-your-redis-client-to-use-azure-active-directory).
 
-<!-- <a name='enable-azure-ad-token-based-authentication-on-your-cache'></a> -->
-
-## Enable Microsoft Entra token based authentication on your cache
+## Enable Microsoft Entra ID authentication on your cache
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to configure Microsoft Entra token-based authentication.
 
