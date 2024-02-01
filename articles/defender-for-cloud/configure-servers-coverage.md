@@ -1,11 +1,11 @@
 ---
-title: Configure monitoring coverage
+title: Configure Defender for Servers features
 description: Learn how to configure the different monitoring components that are available in Defender for Servers in Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 01/25/2024
+ms.date: 02/01/2024
 ---
 
-# Configure monitoring coverage
+# Configure Defender for Servers features
 
 Microsoft Defender for Cloud's Defender for Servers plans contains components that monitor your environments to provide extended coverage on your servers. Each of these components can be enabled, disabled or configured to your meet your specific requirements. 
 
@@ -17,6 +17,9 @@ Microsoft Defender for Cloud's Defender for Servers plans contains components th
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | Plan 2 | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
 
 When you enable Defender for Servers plan 2, all of these components are toggled to **On** by default.
+
+> [!NOTE]
+> The Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). All Defender for Servers features that depend on the AMA, including those described on the [Enable Defender for Endpoint (Log Analytics)](endpoint-protection-recommendations-technical.md) page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
 ## Configure Log Analytics agent
 
