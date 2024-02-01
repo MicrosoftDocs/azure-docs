@@ -71,7 +71,7 @@ Select the update method you want to use:
 
 ## [Azure portal (Preview)](#tab/portal)
 
-This procedure describes how to send a software version update to OT sensors at one or more sites, and run the updates remotely using the Azure portal. It is recommended to update by choosing sites instead of choosing a list of individual sensors.
+This procedure describes how to send a software version update to OT sensors at one or more sites, and run the updates remotely using the Azure portal. It's recommended to update by choosing sites instead of choosing a list of individual sensors.
 
 ### Send the software update to your OT sensor
 
@@ -90,7 +90,7 @@ This procedure describes how to send a software version update to OT sensors at 
 
     To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-    The lower half of the screen shows the list of sensors to be updated and their status. It is important to check this properly, as there may be reasons why an update cannot be sent to a sensor. This can be because it's already updated to the version you want to send, or there is a problem with the sensor, such as it is disconnected.
+    The lower half of the screen shows the list of sensors to be updated and their status. It's important to check this properly, as there might be reasons why an update can't be sent to a sensor. This can be because it's updated to the version you wish to send, or there's a problem with the sensor, such as it's disconnected.
     <!-- we need to make a better version of the image, clearer and sharper-->
     :::image type="content" source="media/update-ot-software/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/send-package-multiple-versions.png" border="false":::
 
