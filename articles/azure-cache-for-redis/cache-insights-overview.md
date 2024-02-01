@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.topic: conceptual
 ms.service: cache
 ms.date: 01/29/2024
-ms.custom: subject-monitoring, ignite-2022, horz-monitor
+ms.custom: subject-monitoring, ignite-2022
 
 ---
 
