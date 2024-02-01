@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/07/2023
 ms.author: edbaynash
 
-#customer-intent: As a customer, I want to understand how to migrate from the metrics API to the getBatch API
+# Customer intent: As a customer, I want to understand how to migrate from the metrics API to the getBatch API
 ---
 # How to migrate from the metrics API to the getBatch API
 
