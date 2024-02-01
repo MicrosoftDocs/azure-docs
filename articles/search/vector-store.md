@@ -1,5 +1,5 @@
 ---
-title: Vector store
+title: Vector store database
 titleSuffix: Azure AI Search
 description: Describes concepts behind vector storage in Azure AI Search.
 
@@ -16,7 +16,7 @@ ms.date: 01/29/2024
 
 Azure AI Search provides vector storage and configurations for [vector search](vector-search-overview.md) and [hybrid queries](hybrid-search-overview.md). Support is implemented at the field level, which means you can combine vector and nonvector fields in the same search corpus.
 
-Vectors are stored in a search index. Use the [Create Index REST API](/rest/api/searchservice/indexes/create-or-update) or an equivalent Azure SDK methods to create the vector store.
+Vectors are stored in a search index. Use the [Create Index REST API](/rest/api/searchservice/indexes/create-or-update) or an equivalent Azure SDK method to create the vector store.
 
 ## Retrieval patterns
 
