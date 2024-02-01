@@ -96,11 +96,11 @@ You can choose to:
 
 1.	On that page, select a workload type. Each workload type results in a list of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
 
-  * Core Well-Architected Review: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of the selected subscription. To learn more, see [Azure Well-Architected Review](/assessments/azure-architecture-review/)
+  * Core Well-Architected Review (WAF only, not Mission Critical): Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of the selected subscription. To learn more, see [Azure Well-Architected Review](/assessments/azure-architecture-review/)
 
   * Azure Machine Learning: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your machine learning models. The Compute targets and Instance types are two key concepts in Azure Machine Learning. To learn more, see [Assessing your machine learning workloads](/shows/azure-enablement/assessing-your-machine-learning-workloads)
 
-  * Internet of Things: Evaluates your IoT solution through the lenses of the Well-Architected Framework Security and Reliability pillars. After the assessment identifies key recommendations for your IoT solution, you can use the following content to help implement the recommendations:
+  * Internet of Things: Evaluates your IoT solution through the lenses of the Well-Architected Framework Security and Reliability pillars. After the assessment (WAF only, not Mission Critical) identifies key recommendations for your IoT solution, you can use the following content to help implement the recommendations:
 
     * [Reliability](/azure/well-architected/iot/iot-reliability): Complete the reliability questions for IoT workloads in the Azure Well-Architected Review.
      
@@ -173,15 +173,7 @@ From the recommendations list page, you can:
 
 ## Related content
 
-**Well architected**
 * [Complete an Azure Well-Architected Review assessment](/azure/well-architected/cross-cutting-guides/implementing-recommendations)
-**Machine Learning**
 * [Tailored Well-Architected Assessments for your workloads](https://techcommunity.microsoft.com/t5/azure-governance-and-management/tailored-well-architected-assessments-for-your-workloads/ba-p/2914022)
 * [Azure Machine Learning](/assessments/eec33ce4-4ef0-4bd2-9f69-1956e50465d4/)
-**IoT**
-* [Reliability in your IoT workload](/azure/well-architected/iot/iot-reliability)
-* [Security in your IoT workload](/azure/well-architected/iot/iot-security)
-**SAP**
-* [SAP workloads on Azure: planning and deployment checklist](/azure/sap/workloads/deployment-checklist)
-* [Well-Architected for SAP workloads - Continuous Improvement through Operational Excellence](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/well-architected-for-sap-workloads-continuous-improvement/ba-p/3672295)
 
