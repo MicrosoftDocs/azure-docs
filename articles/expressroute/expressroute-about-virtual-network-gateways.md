@@ -104,7 +104,7 @@ The new gateway SKUs also support other deployment options to best match your ne
 
 #### VNet to VNet and VNet to Virtual WAN connectivity
 
-By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit for these availability zone gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivit-guidance.md). To enabled this traffic, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet or-vnet-to-virtual-wan-traffic-through-expressroute).
+By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit for these availability zone gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enabled this traffic, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 ## <a name="fastpath"></a>FastPath
 
