@@ -35,8 +35,14 @@ The data produced by the MCC varies according to the functionality.  This variat
 
 The following data types are provided for all Quality of Experience - Affirmed MCC Data Products.
 
-- *edr* contains data from the Event Data Records (EDRs) written by the MCC network elements.  EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns.
-- *edr-sanitized* contains data from the *edr* data type but with personal data suppressed. Sanitized data types can be used to support data analysis while also enforcing subscriber privacy.
+- *edr* : This datatype handles Event Data Records (EDRs) from the MCC.
+- *edr-sanitized* : This data type contains the same information as edr but with personal data suppressed to support operators' compliance with privacy legislation.
+- *edr-validation* : This contains a subset of performance management statistics and provides operator an ability to optionally ingest a minimum number of PMstats tables for a data quality check.
+- *device* : This optional datatype holds the device reference table and provides operator an ability to ingest device reference data to further enrich the MCC Event Data Records. To implement this datatype, operators need to upload the device reference data in CSV format to the input ADLS. The device reference schema should conform to the schema outlined in the [Device Reference Schema](device-reference-schema.md).
+- *enrichment*: This datatype holds the enriched Event Data Records and covers multiple sub data types for pre-computed aggregations targeted to accelerate specific dashboards, granularities and queries. These multiple sub data types includes:
+    - *agg-enrichment-5m*: contains 5m aggregated enriched Event Data Records.
+    - *agg-enrichment-1h*: contains 1h aggregated enriched Event Data Records.
+    - *enriched-flow-dcount*: contains pre-computed counts used to report the unique IMSIs, MCCs, and Applications over time.
 
 ## Setup
 
