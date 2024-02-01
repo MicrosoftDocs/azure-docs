@@ -43,7 +43,7 @@ To use the ACL integration, your client application must assume the identity of 
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
 > [!IMPORTANT]
-> Once a connection is established using Microsoft Entra token, client applications must periodically refresh Microsoft Entra token before expiry, and send an `AUTH` command to Redis server to avoid disruption of connections. For more information, see [Configure your Redis client to use Microsoft Entra ID](#configure-your-redis-client-to-use-azure-active-directory).
+> Once a connection is established using Microsoft Entra token, client applications must periodically refresh Microsoft Entra token before expiry, and send an `AUTH` command to Redis server to avoid disruption of connections. For more information, see [Configure your Redis client to use Microsoft Entra ID](#configure-your-redis-client-to-use-microsoft-entra-id).
 
 ## Enable Microsoft Entra ID authentication on your cache
 
@@ -73,17 +73,13 @@ To use the ACL integration, your client application must assume the identity of 
    > [!IMPORTANT]
    > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
 
-<!-- <a name='configure-your-redis-client-to-use-azure-active-directory'></a> -->
-
 ## Configure your Redis client to use Microsoft Entra ID
 
 Because most Azure Cache for Redis clients assume that a password/access key is used for authentication, you likely need to update your client workflow to support authentication using Microsoft Entra ID. In this section, you learn how to configure your client applications to connect to Azure Cache for Redis using a Microsoft Entra token.
 
-<!-- :::image type="content" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Microsoft Entra ID to a customer application to a cache."::: -->
+<!-- :::image type="content" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Microsoft Entra ID to a customer application to a cache."::: 
 
-<!-- That conceptual image needs to be recreated or omitted. -->
-
-<!-- <a name='azure-ad-client-workflow'></a> -->
+This conceptual image needs to be recreated or omitted. -->
 
 ### Microsoft Entra Client Workflow
 
@@ -124,8 +120,6 @@ The following table includes links to code samples, which demonstrate how to con
 | Redisson            | Java           | [Redisson code sample](https://aka.ms/redis/aad/sample-code/java-redisson) |
 | ioredis             | Node.js        | [ioredis code sample](https://aka.ms/redis/aad/sample-code/js-ioredis)    |
 | node-redis          | Node.js        | [node-redis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
-
-<!-- <a name='best-practices-for-azure-ad-authentication'></a> -->
 
 ### Best practices for Microsoft Entra authentication
 
