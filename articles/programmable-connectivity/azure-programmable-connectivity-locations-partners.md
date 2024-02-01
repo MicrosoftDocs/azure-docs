@@ -12,11 +12,12 @@ ms.custom: references_regions
 
 # Azure Programmable Connectivity Partners and APIs
  
+## List of supported operators and APIs
+
 The table in this article provides detailed information about the availability of APC.
 
 | **Operator** | **Supported APIs** |
 | --- | --- |
-| | |
 | Claro| Number Verify, SIM Swap |
 | Orange | Number Verify, SIM Swap |
 | Telefonica | Location, Number Verify, SIM Swap |
