@@ -10,8 +10,6 @@ ms.topic: reference
 
 In this tutorial, you'll learn about using the Fluid Framework [Audience](https://fluidframework.com/docs/build/audience/) with [React](https://reactjs.org/) to create a visual demonstration of users connecting to a container. The audience object holds information related to all users connected to the container. In this example, the Azure Client library will be used to create the container and audience.
 
-To jump ahead into the finished demo, check out the [Audience demo in our FluidExamples repo](https://github.com/microsoft/FluidExamples/tree/main/audience-demo).
-
 The following image shows ID buttons and a container ID input field. Leaving the container ID field blank and clicking a user ID button will create a new container and join as the selected user. Alternatively, the end-user can input a container ID and choose a user ID to join an existing container as the selected user.
 
 :::image type="content" source="../images/container-select-user.png" alt-text="A screenshot of a browser with buttons for selecting a user.":::
@@ -133,7 +131,7 @@ The next image shows multiple users connected to a container represented by boxe
 
 You can use a helper function to get the Fluid data, from the Audience object, into the view layer (the React state). The `tryGetAudienceObject` method is called when the view component loads after a user ID is selected. The returned value is assigned to a React state property.
 
-1. Replace `TODO 1` with the following code. Note that the values for `userId` `userName` `containerId` will be passed in from the **App** component. If there is no `containerId`, a new container is created. Also, note that the `containerId` is stored on the URL hash. A user entering a session from a new browser may copy the URL from an existing session browser or navigate to `localhost:3000` and manually input the container ID. With this implementation, we want to wrap the `getContainer` call in a try catch in the case that the user inputs a container ID which does not exist. Visit the [React demo](https://fluidframework.com/docs/recipes/react/) and [Containers](../concepts/architecture.md#container) documentation for more information.
+1. Replace `TODO 1` with the following code. Note that the values for `userId` `userName` `containerId` will be passed in from the **App** component. If there is no `containerId`, a new container is created. Also, note that the `containerId` is stored on the URL hash. A user entering a session from a new browser may copy the URL from an existing session browser or navigate to `localhost:3000` and manually input the container ID. With this implementation, we want to wrap the `getContainer` call in a try catch in the case that the user inputs a container ID which does not exist. Visit the [Containers](../concepts/architecture.md#container) documentation for more information.
 
     ```js
         const userConfig = {
