@@ -64,6 +64,7 @@ The following table summarizes the timetable for recommendations being retired a
 | [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) | AMA | February 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
 | Endpoint protection health failures should be remediated on virtual machine scale sets | MMA | August 2024 | No replacement. |
 | Endpoint protection solution should be installed on virtual machine scale sets | MMA | August 2024 | No replacement. |
+| Install endpoint protection solution on your machines (for non-Azure resources)  | MMA | August 2024 | No replacement. |
 | Install endpoint protection solution on your machines | MMA | August 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
 | Install endpoint protection solution on virtual machines | MMA | August 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
 
