@@ -449,7 +449,7 @@ version = registered_model.version
     1. Provide a name for the endpoint and deployment or keep the default names.
     1. Select __Deploy__ to deploy the model to the endpoint.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/deployment-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/deployment-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models":::
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/deployment-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/deployment-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models.":::
 
 
 1. Assign all the traffic to the deployment. So far, the endpoint has one deployment, but none of its traffic is assigned to it.
@@ -709,14 +709,14 @@ To deploy an MLflow model with a custom scoring script:
     1. Select the MLflow model you registered previously.
     1. Select __More options__ in the endpoint creation wizard to open up advanced options.
 
-    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/select-advanced-deployment-options.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/select-advanced-deployment-options.png" alt-text="Screenshot showing how to select advanced deployment options when creating an endpoint"::: 
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/select-advanced-deployment-options.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/select-advanced-deployment-options.png" alt-text="Screenshot showing how to select advanced deployment options when creating an endpoint."::: 
 
     1. Provide a name and authentication type for the endpoint, and then select __Next__ to see that the model you selected is being used for your deployment.
     1. Select __Next__ to continue to the ___Deployment__ page.
     1. Select __Next__ to go to the __Code + environment__ page. When you select a model registered in MLflow format, you don't need to specify a scoring script or an environment on this page. However, you want to specify one in this section
     1. Select the slider next to __Customize environment and scoring script__.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/configure-scoring-script-mlflow.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/configure-scoring-script-mlflow.png" alt-text="Screenshot showing how to indicate an environment and scoring script for MLflow models":::
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/configure-scoring-script-mlflow.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/configure-scoring-script-mlflow.png" alt-text="Screenshot showing how to indicate an environment and scoring script for MLflow models.":::
 
     1. Browse to select the scoring script you created previously.
     1. Select __Custom environments__ for the environment type.
