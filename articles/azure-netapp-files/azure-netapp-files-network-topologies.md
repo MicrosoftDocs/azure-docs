@@ -212,7 +212,7 @@ Configuring UDRs on the source VM subnets with the address prefix of delegated s
 
 The following diagram illustrates an Azure-native environment:
 
-:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png" alt-text="Diagram depicting Azure native environment setup." lightbox="../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png":::
+:::image type="content" source="./media/azure-netapp-files-network-topologies/azure-netapp-files-network-azure-native-environment.png" alt-text="Diagram depicting Azure native environment setup." lightbox="./media/azure-netapp-files-network-topologies/azure-netapp-files-network-azure-native-environment.png":::
 
 ### Local VNet
 
@@ -232,7 +232,7 @@ In the diagram above, although VM 3 can connect to Volume 1, VM 4 can't connect 
 
 The following diagram illustrates an Azure-native environment with cross-region VNet peering. 
 
-:::image type="content" source="../media/azure-netapp-files/azure-native-cross-region-peering.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/azure-native-cross-region-peering.png":::
+:::image type="content" source="./media/azure-netapp-files-network-topologies/azure-native-cross-region-peering.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="./media/azure-netapp-files-network-topologies/azure-native-cross-region-peering.png":::
 
 With Standard network features, VMs are able to connect to volumes in another region via global or cross-region VNet peering. The above diagram adds a second region to the configuration in the [local VNet peering section](#vnet-peering). For VNet 4 in this diagram, an Azure NetApp Files volume is created in a delegated subnet and can be mounted on VM5 in the application subnet.
 
@@ -242,7 +242,7 @@ In the diagram, VM2 in Region 1 can connect to Volume 3 in Region 2. VM5 in Regi
 
 The following diagram illustrates a hybrid environment: 
 
-:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png" alt-text="Diagram depicting hybrid networking environment." lightbox="../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png":::
+:::image type="content" source="./media/azure-netapp-files-network-topologies/azure-netapp-files-network-hybrid-environment.png" alt-text="Diagram depicting hybrid networking environment." lightbox="./media/azure-netapp-files-network-topologies/azure-netapp-files-network-hybrid-environment.png":::
 
 In the hybrid scenario, applications from on-premises datacenters need access to the resources in Azure. This is the case whether you want to extend your datacenter to Azure or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) for information on how to connect multiple resources on-premises to resources in Azure through a site-to-site VPN or an ExpressRoute.
 

@@ -26,7 +26,7 @@ Folders can be assigned inheritance flags, which means that parent folder permis
 
 * In Windows SMB shares, inheritance is controlled in the advanced permission view.
 
-:::image type="content" source="../media/azure-netapp-files/share-inheritance.png" alt-text="Screenshot of enable inheritance interface." lightbox="../media/azure-netapp-files/share-inheritance.png":::
+:::image type="content" source="./media/network-attached-file-permissions/share-inheritance.png" alt-text="Screenshot of enable inheritance interface." lightbox="./media/network-attached-file-permissions/share-inheritance.png":::
 
 * For NFSv3, permission inheritance doesn’t work via ACL, but instead can be mimicked using umask and setgid flags. 
 * With NFSv4.1, permission inheritance can be handled using inheritance flags on ACLs. 

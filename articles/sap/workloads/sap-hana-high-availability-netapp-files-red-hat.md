@@ -8,6 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.workload: infrastructure
 ms.date: 01/17/2024
 ms.author: radeltch

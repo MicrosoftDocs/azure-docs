@@ -8,7 +8,7 @@ ms.author: guywild
 ms.date: 06/05/2023
 ms.custom: references_regions
 
-#customer-intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide to ensure my data and services are sufficiently protected in the event of datacenter failure.
+# Customer intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide to ensure my data and services are sufficiently protected in the event of datacenter failure.
 ---
 # Enhance data and service resilience in Azure Monitor Logs with availability zones
 

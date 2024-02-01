@@ -62,8 +62,6 @@ To get started, you need:
 
   1. After your resource successfully deploys, select **Go to resource**.
 
-<!-- > [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Prerequisites) -->
 
 ### Retrieve your key and document translation endpoint
 
@@ -73,14 +71,9 @@ Requests to the Translator service require a read-only key and custom endpoint t
 
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 
-1. Copy and paste your **`key`** and **`document translation endpoint`** in a convenient location, such as *Microsoft Notepad*. Only one key is necessary to make an API call.
-
-1. You paste your **`key`** and **`document translation endpoint`** into the code samples to authenticate your request to the Document Translation service.
+1. You can copy and paste your **`key`** and **`document translation endpoint`** into the code samples to authenticate your request to the Document Translation service. Only one key is necessary to make an API call.
 
     :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
-
-<!-- > [!div class="nextstepaction"]
-> [I ran into an issue retrieving my key and endpoint.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Retrieve-your-keys-and-endpoint) -->
 
 ## Create Azure Blob Storage containers
 
@@ -93,7 +86,7 @@ You need to [**create containers**](../../../../storage/blobs/storage-quickstart
 
 The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. *See* [**Create SAS tokens for Document Translation process**](../how-to-guides/create-sas-tokens.md).
 
-* Your **source** container or blob must designate **read** and **list** access.
+* Your **source** container or blob must designate  **read** and **list** access.
 * Your **target** container or blob must designate  **write** and **list** access.
 * Your **glossary** blob must designate  **read** and **list** access.
 
@@ -102,9 +95,6 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 > * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
 > * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication.
-
-<!-- > [!div class="nextstepaction"]
-> [I ran into an issue creating blob storage containers with authentication.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-blob-storage-containers) -->
 
 ### Sample document
 
@@ -144,4 +134,5 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 
 ## Next steps
 
-
+> [!div class="nextstepaction"]
+> [**Learn more about Document Translation operations**](../reference/rest-api-guide.md)
