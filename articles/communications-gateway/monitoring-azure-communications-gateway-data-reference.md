@@ -58,7 +58,7 @@ Azure Communications Gateway has the following dimensions associated with its me
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | **Region** | The Service Locations defined in your Azure Communications Gateway resource. |
-| **OPTIONS or INVITE** | The type of SIP message being sent and received:<br>- SIP OPTIONS messages sent and received by your Azure Communications Gateway resource to monitor its connectivity to its peers<br>- SIP INVITE messages sent and received by your Azure Communications Gateway resource. |
+| **OPTIONS or INVITE** | The SIP method for responses being sent and received:<br>- SIP OPTIONS responses sent and received by your Azure Communications Gateway resource to monitor its connectivity to its peers<br>- SIP INVITE responses sent and received by your Azure Communications Gateway resource. |
 
 
 ## Next steps
