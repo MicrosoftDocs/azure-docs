@@ -316,8 +316,8 @@ The secret should be created in kube-system namespace and then the configmap/CRD
 
 Below are the details about how to provide the TLS config settings through a configmap or CRD.
 
-1. To provide the TLS config setting in a configmap, please create the self-signed certificate and key inside /etc/prometheus/certs directory inside your mtls enabled app.
-        An example tlsConfig inside the config map should look like this below:
+- To provide the TLS config setting in a configmap, please create the self-signed certificate and key inside /etc/prometheus/certs directory inside your mtls enabled app.
+        An example tlsConfig inside the config map should look like this:
 
 ```yaml
 tls_config:
@@ -327,8 +327,8 @@ tls_config:
     insecure_skip_verify: false
 ```
 
-2. To provide the TLS config setting in a CRD, please create the self-signed certificate and key inside /etc/prometheus/certs directory inside your mtls enabled app.
-    An example tlsConfig inside a Podmonitor should look like this below:
+- To provide the TLS config setting in a CRD, please create the self-signed certificate and key inside /etc/prometheus/certs directory inside your mtls enabled app.
+    An example tlsConfig inside a Podmonitor should look like this:
 
 ```yaml
 tlsConfig:
@@ -346,15 +346,15 @@ tlsConfig:
     insecureSkipVerify: false
 ```
 > [!NOTE]
-> Please make sure that the certificate file name and key name inside the mtls app should be of the following format in case of a CRD based scraping.
+> Make sure that the certificate file name and key name inside the mtls app is in the following format in case of a CRD based scraping.
     For example: secret_kube-system_ama-metrics-mtls-secret_cert-name.pem and secret_kube-system_ama-metrics-mtls-secret_key-name.pem.
-> The CRD needs to be be created in kube-system namespace.
+> The CRD needs to be created in kube-system namespace.
 > The secret name should exactly be ama-metrics-mtls-secret in kube-system namespace. An example command for creating secret: kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem --from-file=secret_kube-system_ama-metrics-mtls-secret_client-key.pem=secret_kube-system_ama-metrics-mtls-secret_client-key.pem -n kube-system
 
 To read more on TLS authentication, the following documents might be helpful.
 
-1. Generating TLS certificates -> https://o11y.eu/blog/prometheus-server-tls/
-2. Configurations -> https://prometheus.io/docs/alerting/latest/configuration/#tls_config
+- Generating TLS certificates -> https://o11y.eu/blog/prometheus-server-tls/
+- Configurations -> https://prometheus.io/docs/alerting/latest/configuration/#tls_config
 
 ## Next steps
 
