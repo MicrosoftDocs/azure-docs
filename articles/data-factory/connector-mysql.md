@@ -315,6 +315,8 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Upgrade the MySQL driver version
 
+Here are steps that help you upgrade your MySQL driver version: 
+
 1. Create a new MySQL linked service and configure it by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
