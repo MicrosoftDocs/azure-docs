@@ -73,7 +73,7 @@ export USER_ASSIGNED_IDENTITY=<user-assigned-identity-name>
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the following [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli
 az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
@@ -81,38 +81,38 @@ az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
 
 ## Set up your Key Vault
 
-To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#az-keyvault-create):
+To create a Key Vault, use the following [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
 
 > [!Important]
 > Each Key Vault must have a unique name.
 
 ```azurecli
 az keyvault create \
-   --resource-group ${RESOURCE_GROUP} \
-   --name ${KEY_VAULT}
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${KEY_VAULT}
 ```
 
 Use the following command to show the app URL and then make a note of the returned URL, which is in the format `https://${KEY_VAULT}.vault.azure.net`. Use this value in the following step.
 
 ```azurecli
 az keyvault show \
-   --resource-group ${RESOURCE_GROUP} \
-   --name ${KEY_VAULT} \
-   --query properties.vaultUri --output tsv
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${KEY_VAULT} \
+    --query properties.vaultUri --output tsv
 ```
 
-You can now place a secret in your Key Vault with the command [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
+You can now place a secret in your Key Vault by using the following [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command:
 
 ```azurecli
 az keyvault secret set \
-   --vault-name ${KEY_VAULT} \
-   --name "connectionString" \
-   --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
+    --vault-name ${KEY_VAULT} \
+    --name "connectionString" \
+    --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
 ```
 
 ## Create Azure Spring Apps service and app
 
-After installing corresponding extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
+After you install all corresponding extensions, use the following command to create an Azure Spring Apps instance:
 
 ::: zone pivot="sc-enterprise"
 
@@ -126,7 +126,7 @@ az spring create \
 
 ### [System-assigned managed identity](#tab/system-assigned-managed-identity)
 
-The following example creates the app with a system-assigned managed identity, as requested by the `--system-assigned` parameter.
+The following example creates the app with a system-assigned managed identity, as requested by the `--system-assigned` parameter:
 
 ```azurecli
 az spring app create \
@@ -144,19 +144,19 @@ export MANAGED_IDENTITY_PRINCIPAL_ID=$(az spring app show \
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-Use the following command to create a user managed identity:
+Use the following command to create a user-assigned managed identity:
 
 ```azurecli
 az identity create --resource-group ${RESOURCE_GROUP} --name ${USER_ASSIGNED_IDENTITY}
 export MANAGED_IDENTITY_PRINCIPAL_ID=$(az identity show --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
-	--query principalId --output tsv)
+    --query principalId --output tsv)
 export USER_IDENTITY_RESOURCE_ID=$(az identity show --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
-	--query id --output tsv)
+    --query id --output tsv)
 ```
 
-The following command creates the app with a user-assigned managed identity, as requested by the `--user-assigned` parameter.
+The following command creates the app with a user-assigned managed identity, as requested by the `--user-assigned` parameter:
 
 ```azurecli
 az spring app create \
@@ -201,16 +201,16 @@ export MANAGED_IDENTITY_PRINCIPAL_ID=$(az spring app show \
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-Use the following command to create a user managed identity:
+Use the following command to create a user-assigned managed identity:
 
 ```azurecli
 az identity create --resource-group ${RESOURCE_GROUP} --name ${USER_ASSIGNED_IDENTITY}
 export MANAGED_IDENTITY_PRINCIPAL_ID=$(az identity show --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
-	--query principalId --output tsv)
+    --query principalId --output tsv)
 export USER_IDENTITY_RESOURCE_ID=$(az identity show --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
-	--query id --output tsv)
+    --query id --output tsv)
 ```
 
 The following command creates the app with a user-assigned managed identity, as requested by the `--user-assigned` parameter.
@@ -241,7 +241,7 @@ az keyvault set-policy \
 ```
 
 > [!NOTE]
-> For system-assigned managed identity case, use `az keyvault delete-policy --name ${KEY_VAULT} --object-id ${MANAGED_IDENTITY_PRINCIPAL_ID}` to remove the access for your app after system-assigned managed identity is disabled.
+> For system-assigned managed identity, use `az keyvault delete-policy --name ${KEY_VAULT} --object-id ${MANAGED_IDENTITY_PRINCIPAL_ID}` to remove the access for your app after system-assigned managed identity is disabled.
 
 ## Build a sample Spring Boot app with Spring Boot starter
 
@@ -271,12 +271,12 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identi
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-Query the client ID of the user-assigned managed identity with the following command:
+Use the following command to query the client ID of the user-assigned managed identity:
 
 ```azurecli
 az identity show --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
-	--query clientId --output tsv
+    --query clientId --output tsv
 ```
 
 ```properties
@@ -290,7 +290,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<cli
    > [!NOTE]
    > You must add the key vault URL in the *application.properties* file as shown previously. Otherwise, the key vault URL may not be captured during runtime.
 
-1. Update the class *src/main/java/com/example/demo/DemoApplication.java* with the following code example. This code retrieves the connection string from the key vault.
+1. Update *src/main/java/com/example/demo/DemoApplication.java* with the following code example. This code retrieves the connection string from the Key Vault.
 
    ```Java
    package com.example.demo;
@@ -335,7 +335,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<cli
 
 ::: zone pivot="sc-standard"
 
-1. Now you can deploy your app to Azure Spring Apps with the following command:
+1. Use the following command to deploy your app to Azure Spring Apps:
 
    ```azurecli
    az spring app deploy \
@@ -349,7 +349,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<cli
 
 ::: zone pivot="sc-enterprise"
 
-1. Now you can deploy your app to Azure Spring Apps with the following command:
+1. Use the following command to deploy your app to Azure Spring Apps:
 
    ```azurecli
    az spring app deploy \
@@ -368,11 +368,11 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<cli
    curl https://${SPRING_APPS}-${APP}.azuremicroservices.io/get
    ```
 
-   You're shown the message `jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
+   The following message is returned in the response body: `jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
 
 ## Clean up resources
 
-Use the following command to delete the entire resource group, including the newly created service:
+Use the following command to delete the entire resource group, including the newly created service instance:
 
 ```azurecli
 az group delete --name ${RESOURCE_GROUP} --yes
@@ -380,7 +380,7 @@ az group delete --name ${RESOURCE_GROUP} --yes
 
 ## Next steps
 
-* [How to access Storage blob with managed identity in Azure Spring Apps](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/managed-identity-storage-blob)
-* [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
-* [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
-* [Authenticate Azure Spring Apps with Key Vault in GitHub Actions](./github-actions-key-vault.md)
+- [How to access Storage blob with managed identity in Azure Spring Apps](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/managed-identity-storage-blob)
+- [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
+- [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
+- [Authenticate Azure Spring Apps with Key Vault in GitHub Actions](./github-actions-key-vault.md)
