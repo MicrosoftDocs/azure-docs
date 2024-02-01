@@ -129,12 +129,12 @@ spec:
       paths:
       - path: /blog
         backend:
-         service
+         service:
            name: blogservice
            port: 80
       - path: /store
         backend:
-         service
+         service:
            name: storeservice
            port: 80
 ```
