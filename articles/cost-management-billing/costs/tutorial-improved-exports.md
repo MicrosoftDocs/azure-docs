@@ -78,6 +78,8 @@ On the Exports page, at the top of the page, select **+ Create**.
 3. Depending on the **Type of data** and **Frequency** that you select, you might need to specify more fields to define the date range in UTC format.
 4. Select **Add** to see the export listed on the Basic tab.
 
+:::image type="content" source="./media/tutorial-improved-exports/new-export.png" alt-text="Screenshot of the Add export page." lightbox="./media/tutorial-improved-exports/new-export.png" :::
+
 ### Optionally add more exports
 
 You can create up to 10 exports when you select **+ Add new exports**.
@@ -94,6 +96,8 @@ Select **Next** when you're ready to define the destination.
 6. File partitioning is enabled by default. It splits large files into smaller ones.
 7. **Overwrite data** is enabled by default. For daily exports, it replaces the previous day's file with an updated file.
 8. Select **Next** to move to the **Review + create** tab.
+
+:::image type="content" source="./media/tutorial-improved-exports/destination-tab.png" alt-text="Screenshot showing Destination tab information." lightbox="./media/tutorial-improved-exports/destination-tab.png" :::
 
 ### Review and create
 
@@ -118,6 +122,8 @@ You can perform the following actions by selecting the ellipsis (**…**) on the
 - Disable - Temporarily suspends the export job.
 - Delete - Permanently removes the export.
 - Refresh - Updates the Run history.
+
+:::image type="content" source="./media/tutorial-improved-exports/exports-list-details.png" alt-text="Screenshot showing the list of exports and details." lightbox="./media/tutorial-improved-exports/exports-list-details.png" :::
 
 ### Schedule frequency
 
