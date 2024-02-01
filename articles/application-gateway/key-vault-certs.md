@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 02/01/2024
 ms.author: greglin
 ---
 
@@ -66,10 +66,13 @@ You can either create a new user-assigned managed identity or reuse an existing 
 Define access policies to use the user-assigned managed identity with your Key Vault:
 
 1. In the Azure portal, go to **Key Vault**.
-1. Select the Key Vault that contains your certificate.
-1. If you're using the permission model **Vault access policy**: Select **Access Policies**, select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
+2. Select the Key Vault that contains your certificate.
+3. If you're using the permission model **Vault access policy**: Select **Access Policies**, select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
    
    If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
+
+> [!NOTE]
+> If you have Key Vaults for your HTTPS listener that use different identities, creating or updating the listener requires checking the certificates associated with each identity. In order for the operation to be successful, you must [grant permission](../key-vault/general/rbac-guide.md) to all identities.
 
 ### Verify Firewall Permissions to Key Vault
 
@@ -84,9 +87,9 @@ When you're using a restricted Key Vault, use the following steps to configure A
 > If using Private Endpoints to access Key Vault, you must link the privatelink.vaultcore.azure.net private DNS zone, containing the corresponding record to the referenced Key Vault, to the virtual network containing Application Gateway. Custom DNS servers may continue to be used on the virtual network instead of the Azure DNS provided resolvers, however the private dns zone will need to remain linked to the virtual network as well.
 
 1. In the Azure portal, in your Key Vault, select **Networking**.
-1. On the **Firewalls and virtual networks** tab, select **Selected networks**.
-1. For **Virtual networks**, select **+ Add existing virtual networks**, and then add the virtual network and subnet for your Application Gateway instance. If prompted, ensure the _Do not configure 'Microsoft.KeyVault' service endpoint(s) at this time_ checkbox is unchecked to ensure the `Microsoft.KeyVault` service endpoint is enabled on the subnet.
-1. Select **Yes** to allow trusted services to bypass the Key Vault's firewall.
+2. On the **Firewalls and virtual networks** tab, select **Selected networks**.
+3. For **Virtual networks**, select **+ Add existing virtual networks**, and then add the virtual network and subnet for your Application Gateway instance. If prompted, ensure the _Do not configure 'Microsoft.KeyVault' service endpoint(s) at this time_ checkbox is unchecked to ensure the `Microsoft.KeyVault` service endpoint is enabled on the subnet.
+4. Select **Yes** to allow trusted services to bypass the Key Vault's firewall.
 
    ![Screenshot that shows selections for configuring Application Gateway to use firewalls and virtual networks.](media/key-vault-certs/key-vault-firewall.png)
 
@@ -155,10 +158,10 @@ Under **Choose a certificate** select the certificate named in the previous step
 Azure Application Gateway doesn't just poll for the renewed certificate version on Key Vault at every four-hour interval. It also logs any error and is integrated with Azure Advisor to surface any misconfiguration with a recommendation for its fix.
  
 1. Sign-in to your Azure portal
-1. Select Advisor
-1. Select Operational Excellence category from the left menu.
-1. You will find a recommendation titled **Resolve Azure Key Vault issue for your Application Gateway**, if your gateway is experiencing this issue. Ensure the correct Subscription is selected from the drop-down options above.
-1. Select it to view the error details, the associated key vault resource and the  [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to fix your exact issue.
+2. Select Advisor
+3. Select Operational Excellence category from the left menu.
+4. You will find a recommendation titled **Resolve Azure Key Vault issue for your Application Gateway**, if your gateway is experiencing this issue. Ensure the correct Subscription is selected from the drop-down options above.
+5. Select it to view the error details, the associated key vault resource and the  [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to fix your exact issue.
 
 By identifying such an event through Azure Advisor or Resource Health, you can quickly resolve any configuration problems with your Key Vault. We strongly recommend you take advantage of [Azure Advisor](../advisor/advisor-alerts-portal.md) and [Resource Health](../service-health/resource-health-alert-monitor-guide.md) alerts to stay informed when a problem is detected.
  
