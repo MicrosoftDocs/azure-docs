@@ -23,10 +23,10 @@ For any migration method that doesn't use the [migration feature](migrate.md), y
 
 [Networking changes](networking.md) between App Service Environment v1/v2 and App Service Environment v3 involve new (and for internet-facing environments, additional) IP addresses. You need to update any infrastructure that relies on these IPs. Be sure to account for inbound dependency changes, such as the Azure Load Balancer port.
 
-Multiple App Service Environments can't exist in a single subnet. If you need to use your existing subnet for your new App Service Environment v3 instance, you must delete the existing App Service Environment before you create a new one. For this scenario, we recommend that you [back up your apps and then restore them](#back-up-and-restore) in the new environment after you create and configure the environment. This process causes application downtime because of the time it takes to:
+Multiple App Service Environments can't exist in a single subnet. If you need to use your existing subnet for your new App Service Environment v3 instance, you must delete the existing App Service Environment before you create a new one. For this scenario, we recommend that you [back up your apps and then restore them](#evaluate-backup-and-restore) in the new environment after you create and configure the environment. This process causes application downtime because of the time it takes to:
 
 - Delete the old environment.
-- Create the new App Service Environment v3 instance.
+- Create the App Service Environment v3 instance.
 - Configure any infrastructure and connected resources to work with the new environment.
 - Deploy your apps onto the new environment.
 
@@ -150,7 +150,7 @@ You can [deploy ARM templates](../deploy-complex-application-predictably.md) by 
 
 The [migration feature](migrate.md) automates the migration to App Service Environment v3 and transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If your apps can't have any downtime, we recommend that you use one of the manual options to re-create your apps in App Service Environment v3.
 
-You can distribute traffic between your old and new environments by using [Application Gateway](../networking/app-gateway-with-service-endpoints.md). If you're using an internal load balancer (ILB) App Service Environment, [create an Azure Application Gateway instance](integrate-with-application-gateway.md) with an extra back-end pool to distribute traffic between your environments. For information about ILB App Service Environments and internet-facing App Service Environments, see [Application Gateway integration](overview-app-gateway-integration.md).
+You can distribute traffic between your old and new environments by using [Application Gateway](../networking/app-gateway-with-service-endpoints.md). If you're using an internal load balancer (ILB) App Service Environment, [create an Azure Application Gateway instance](integrate-with-application-gateway.md) with an extra back-end pool to distribute traffic between your environments. For information about ILB App Service Environments and internet-facing App Service Environments, see [Application Gateway integration](../overview-app-gateway-integration.md).
 
 You can also use services like [Azure Front Door](../../frontdoor/quickstart-create-front-door.md), [Azure Content Delivery Network](../../cdn/cdn-add-to-web-app.md), and [Azure Traffic Manager](../../cdn/cdn-traffic-manager.md) to distribute traffic between environments. Using these services allows for testing of your new environment in a controlled manner and helps you move to your new environment at your own pace.
 
@@ -173,7 +173,7 @@ After your migration and any testing with your new environment are complete, del
 - **Is backup and restore supported for moving apps from App Service Environment v2 to v3?**
   The [back up and restore](../manage-backup.md) feature supports restoring apps between App Service Environment versions as long as you use a custom backup for the restoration. Automatic backup doesn't support restoration to different App Service Environment versions.
 - **What will happen to my App Service Environment v1 and v2 resources after August 31, 2024?**  
-  After August 31, 2024, if you haven't migrated to App Service Environment v3, your [App Service Environment v1 and v2 instances and the apps deployed in them will no longer be available]((https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/)).
+  After August 31, 2024, if you haven't migrated to App Service Environment v3, your [App Service Environment v1 and v2 instances and the apps deployed in them will no longer be available](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
   
   App Service Environment v1 and v2 are hosted on App Service scale units that run on [Azure Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) architecture. Because this architecture will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/), App Service Environment v1 and v2 won't be available after that date. Migrate to App Service Environment v3 to keep your apps running, or save or back up any resources or data that you need to maintain.
 

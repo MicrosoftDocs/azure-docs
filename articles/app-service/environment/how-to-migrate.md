@@ -53,7 +53,7 @@ If there are no errors, your migration is supported, and you can continue to the
 
 ## 3. Generate IP addresses for your new App Service Environment v3 instance
 
-Run the following command to create the new IPs. This step takes about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time.
+Run the following command to create new IP addresses. This step takes about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration"
