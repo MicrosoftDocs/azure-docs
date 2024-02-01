@@ -103,6 +103,9 @@ A subscriber can use an API Management subscription key in one of two ways:
 > [!TIP]
 > **Ocp-Apim-Subscription-Key** is the default name of the subscription key header, and **subscription-key** is the default name of the query parameter. If desired, you may modify these names in the settings for each API. For example, in the portal, update these names on the **Settings** tab of an API.
 
+> [!NOTE]
+> When included in a request header or query parameter, the subscription key by default is passed to the backend and may be exposed in backend monitoring logs or other systems. If this is considered sensitive data, you can configure a policy in the `outbound` section to remove the subscription key header ([`set-header`](set-header-policy.md)) or query parameter ([`set-query-parameter`](set-query-parameter-policy.md)).  
+
 ## Enable or disable subscription requirement for API or product access
 
 By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.
