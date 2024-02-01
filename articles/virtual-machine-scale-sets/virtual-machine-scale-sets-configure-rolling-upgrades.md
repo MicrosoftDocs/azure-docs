@@ -12,9 +12,13 @@ ms.custom: upgradepolicy
 # Configure Rolling Upgrades on Virtual Machine Scale Sets
 
 > [!IMPORTANT]
-> **Upgrade Policies for Virtual Machine Scale Sets using Flexible Orchestration mode are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+> **Rolling Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 >
->Upgrade Policies for Virtual Machine Scale Sets using Uniform Orchestration mode are generally available (GA). 
+> To enable Rolling Upgrade Policy on your Virtual Machine Scale Sets with Flexible Orchestration, register the provider feature using `Register-AzProviderFeature -FeatureName VmssFlexRollingUpgrade -ProviderNamespace Microsoft.Compute`
+>
+>To enable MaxSurge functionality on your Virtual Machine Scale Sets with Flexible Orchestration, register the provider feature using `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`
+>
+>Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration are generally available (GA). 
 
 Rolling Upgrade Policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances that are still available to take traffic, meaning you don't need to take down your entire workload to push a change. 
 
@@ -22,9 +26,11 @@ Rolling Upgrade Policy is best suited for Production workloads but can also be u
 
 
 ## Requirements
+
+
 When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
-Virtual Machine Scale Sets using Uniform Orchestration Mode can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration Mode, Application Health Extension is required as Health probes aren't supported in Flexible Orchestration Mode. 
+Virtual Machine Scale Sets using Uniform Orchestration can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration, Application Health Extension is required as Health probes aren't supported in Flexible Orchestration. 
 
 ## Concepts
 
@@ -37,7 +43,7 @@ Virtual Machine Scale Sets using Uniform Orchestration Mode can use either a hea
 | **Max unhealthy upgrade %**| Specifies the allowed total number of instances marked as unhealthy after being upgrade. <br><br>Example: A max unhealthy upgrade % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy after being upgraded, the Rolling Upgrade is canceled. This is a very important setting because it allows the scale set to catch unstable or poor updates before they roll out to the entire scale set. |
 |**Prioritize unhealthy instances** | Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. <br><br>Example: If some instances in your scale set that show as failed or unhealthy when a Rolling Upgrade begins, the scale set updates those instances first. |
 | **Enable cross-zone upgrade** | Allows the scale set to ignore Availability Zone boundaries when determining batches. |
-| **MaxSurge** | With MaxSurge enabled, new instances are created in the scale set using the latest scale model in batches. Once the batch of new instances is successfully created and marked as healthy they will begin taking traffic. The scale set will then delete instances matching the old scale set model. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. It's important to ensure you have enough quota in your subscription and region to utilize MaxSurge. <br><br>With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. Rolling upgrades without MaxSurge doesn't require more quota however, it does result in your scale set having reduced capacity during the upgrade process. |
+| **MaxSurge** | MaxSurge is currently in Preview. To utilize MaxSurge on both Virtual Machine Scale Sets using Flexible Orchestration and Uniform Orchestration, register the provider feature using `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`<br><br> With MaxSurge enabled, new instances are created in the scale set using the latest scale model in batches. Once the batch of new instances is successfully created and marked as healthy they will begin taking traffic. The scale set will then delete instances matching the old scale set model. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. It's important to ensure you have enough quota in your subscription and region to utilize MaxSurge. <br><br>With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. Rolling upgrades without MaxSurge doesn't require more quota however, it does result in your scale set having reduced capacity during the upgrade process. |
 
 
 ## Setting or updating the Rolling Upgrade Policy

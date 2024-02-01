@@ -12,9 +12,9 @@ ms.custom: upgradepolicy
 # Performing Manual Upgrades on Virtual Machine Scale Sets
 
 > [!IMPORTANT]
-> **Upgrade Policies for Virtual Machine Scale Sets using Flexible Orchestration mode are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+> **Manual Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 >
->Upgrade Policies for Virtual Machine Scale Sets using Uniform Orchestration mode are generally available (GA). 
+>Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration mode are generally available (GA). 
  
 If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing virtual machine to apply changes to the instances based on the updated scale set model. 
 
@@ -26,20 +26,20 @@ Select the Virtual Machine Scale Set you want to perform instance upgrades for. 
 
 
 ### [CLI](#tab/cli1)
-Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). The `--instance-ids` parameter refers to the ID of the instance if using Uniform Orchestration mode and the Instance name if using Flexible Orchestration mode.  
+Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). The `--instance-ids` parameter refers to the ID of the instance if using Uniform Orchestration and the Instance name if using Flexible Orchestration.  
 
 ```azurecli-interactive
 az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
 ```
 ### [PowerShell](#tab/powershell1)
-Update Virtual Machine Scale Set instances using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance). The `-InstanceId` parameter refers to the ID of the instance if using Uniform Orchestration mode and the Instance name if using Flexible Orchestration mode. 
+Update Virtual Machine Scale Set instances using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance). The `-InstanceId` parameter refers to the ID of the instance if using Uniform Orchestration and the Instance name if using Flexible Orchestration. 
     
 ```azurepowershell-interactive
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
 ```
 
 ### [REST API](#tab/rest1)
-Update Virtual Machine Scale Set instances using [update instances](/rest/api/compute/virtualmachinescalesets/updateinstances). The `instanceIds` parameter refers to the ID of the instance if using Uniform Orchestration mode and the Instance name if using Flexible Orchestration mode. 
+Update Virtual Machine Scale Set instances using [update instances](/rest/api/compute/virtualmachinescalesets/updateinstances). The `instanceIds` parameter refers to the ID of the instance if using Uniform Orchestration and the Instance name if using Flexible Orchestration. 
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}

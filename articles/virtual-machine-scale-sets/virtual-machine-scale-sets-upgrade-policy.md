@@ -11,11 +11,6 @@ ms.custom: upgradepolicy
 ---
 # Upgrade Policies for Virtual Machine Scale Sets
 
-> [!IMPORTANT]
-> **Upgrade Policies for Virtual Machine Scale Sets using Flexible Orchestration mode are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
->
->Upgrade Policies for Virtual Machine Scale Sets using Uniform Orchestration mode are generally available (GA). 
-
 The Upgrade Policy of a Virtual Machine Scale Set determines how virtual machines are brought up-to-date with the latest scale set model. 
 
 ## Upgrade Policy modes
@@ -25,6 +20,12 @@ Each Virtual Machine Scale Set has an Upgrade Policy that determines how virtual
 Additionally, there can be situations where you might want specific instances in your scale set to be treated differently from the rest. For example, certain instances in the scale set could be needed to perform different tasks than the other members of the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the controls needed to protect these instances from being upgraded along side the other instances in when an upgrade occurs. 
 
 ### Automatic Upgrade Policy
+
+> [!IMPORTANT]
+> **Automatic Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+>
+> Automatic Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration is generally available. 
+
 With an Automatic Upgrade Policy, the scale set makes no guarantees about the order of virtual machines being brought down. The scale set might take down all virtual machines at the same time to perform upgrades. 
 
 Automatic Upgrade Policy is best suited for DevTest scenarios where you aren't concerned about the uptime of your instances while making changes to configurations and settings. 
@@ -32,11 +33,22 @@ Automatic Upgrade Policy is best suited for DevTest scenarios where you aren't c
 If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ### Manual Upgrade Policy
+> [!IMPORTANT]
+> **Manual Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+>
+> Manual Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration is generally available. 
+
 With a Manual Upgrade Policy, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing virtual machines when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available. 
 
 Manual Upgrade Policy is best suited for workloads where the instances in the scale set are composed of different configurations and each configuration might require different updates and changes.
 
 ### Rolling Upgrade Policy
+> [!IMPORTANT]
+> **Rolling Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+>
+> If using Rolling Upgrade Policy, see **[Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)** for more information. 
+>
+> Rolling Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration is generally available. 
 
 With a Rolling Upgrade Policy, the scale set performs updates in batches with an optional pause time in between. You also get more control over the upgrades with settings like batch size, max healthy percentage, prioritizing unhealthy instances and enabling upgrades across multiple availability zones at the same time. 
 
