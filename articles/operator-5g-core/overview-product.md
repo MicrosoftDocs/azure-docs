@@ -115,7 +115,7 @@ The table shows which versions of Azure Kubernetes/Nexus Azure Kubernetes K8s ar
 |Azure Operator 5G Core Version  |AKS K8s Version   |Nexus K8s Version  |
 |---------|---------|---------|
 |2402.0     |   1.27.3      |     1.27.3    |
-|       |         |      |
+
 
 
 ## Related content

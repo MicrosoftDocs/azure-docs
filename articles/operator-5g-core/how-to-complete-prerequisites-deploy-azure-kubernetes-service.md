@@ -1,6 +1,6 @@
 ---
-title: Prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service
-description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core on the Azure Kubernetes Service
+title: Deploy Azure Operator 5G Core on Azure Kubernetes Service
+description: Learn how to deploy Azure Operator 5G Core on the Azure Kubernetes Service
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure
@@ -9,9 +9,9 @@ ms.date: 01/30/2024
 
 ---
 
-# Complete the prerequisites to deploy Azure Operator 5G Core on Advanced Kubernetes Service
+# Deploy Azure Operator 5G Core on Advanced Kubernetes Service
 
-This article shows you how to complete the prerequisite steps to deploy Azure Operator 5G Core on the Advanced Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
+This article shows you how to deploy Azure Operator 5G Core on the Advanced Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
     - Select **250** as the **Max pods per node**, and don't mark to **Enable public IP per node**.
 3. On the **Networking** tab, select Kubernetes from the **Networking Configuration** section. Then mark the box for **BYO vnet** and select the virtual network and subnet for your cluster's default network. Leave all other values as default.
 1. Unless you have a specific requirement to do otherwise, don't change any values on the  **Integrations** tab.
-1. Turn **Azure monitor** off.
+1. Turn **Azure monitor** to **off**.
 1. Navigate to the **Advanced** tab and mark the box for **Enable Secret Store CSI Driver**. Don't edit any other field.
 1. Note the name of the **Infrastructure Resource group** displayed. This name is required to modify the cluster and add data plane ports.
 1. Select **Review + Create** once validation completes.

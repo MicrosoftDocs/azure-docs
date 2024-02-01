@@ -28,7 +28,7 @@ Before you can successfully deploy Azure Operator 5G Core, you must:
 - [Complete the prerequisites to deploy Azure Operator 5G Core on Advanced Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md)
 - [Deploy a cluster on Advanced Kubernetes Services (AKS)](quickstart-deploy-cluster.md)
 
-## Post Cluster Creation 
+## Post cluster creation 
 
 After you complete the prerequisite steps and create a cluster, you must enable resources used to deploy Azure Operator 5G Core. The Azure Operator 5G Core resource provider manages the remote cluster through line-of-sight communications via Azure ARC. Azure Operator 5G Core workload is deployed through helm operator services provided by the Network Function Manager (NFM). To enable these services, the cluster must be ARC enabled, the NFM Kubernetes extension  must be installed, and an Azure custom location must be created. The following Azure CLI commands describe how to enable these services. Run the commands from any command prompt displayed when you sign in using the `az-login` command.
 
