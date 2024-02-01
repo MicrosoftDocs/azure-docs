@@ -31,16 +31,16 @@ The following video describes how to manage secrets using Azure Key Vault.
 
 ::: zone pivot="sc-enterprise"
 
-* [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
-* [Install the Azure CLI version 2.55.0 or higher](/cli/azure/install-azure-cli)
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.55.0 or higher.
 
 ::: zone-end
 
 ::: zone pivot="sc-standard"
 
-* [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* [Install the Azure CLI version 2.55.0 or higher](/cli/azure/install-azure-cli)
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.55.0 or higher.
 
 ::: zone-end
 
@@ -88,28 +88,26 @@ To create a Key Vault, use the command [az keyvault create](/cli/azure/keyvault#
 
 ```azurecli
 az keyvault create \
-    --resource-group ${RESOURCE_GROUP} \
-    --name ${KEY_VAULT}
+   --resource-group ${RESOURCE_GROUP} \
+   --name ${KEY_VAULT}
 ```
 
-Use the following command to show the app url, make a note of the returned URL, which is in the format `https://${KEY_VAULT}.vault.azure.net`. You use this value in the following step.
-
-::: zone-end
+Use the following command to show the app URL and then make a note of the returned URL, which is in the format `https://${KEY_VAULT}.vault.azure.net`. Use this value in the following step.
 
 ```azurecli
 az keyvault show \
-    --resource-group ${RESOURCE_GROUP} \
-    --name ${KEY_VAULT} \
-	--query properties.vaultUri --output tsv
+   --resource-group ${RESOURCE_GROUP} \
+   --name ${KEY_VAULT} \
+   --query properties.vaultUri --output tsv
 ```
 
 You can now place a secret in your Key Vault with the command [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
 
 ```azurecli
 az keyvault secret set \
-    --vault-name ${KEY_VAULT} \
-    --name "connectionString" \
-    --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
+   --vault-name ${KEY_VAULT} \
+   --name "connectionString" \
+   --value "jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;"
 ```
 
 ## Create Azure Spring Apps service and app
