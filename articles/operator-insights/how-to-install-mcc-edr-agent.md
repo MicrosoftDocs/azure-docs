@@ -55,9 +55,9 @@ The VM used for the MCC EDR agent should be set up following best practice for s
   - Access to the directory where the logs are stored *(/var/log/az-mcc-edr-uploader/)*
   - Access to the certificate and private key for the service principal that you create during this procedure
 
-## Acquire the agent RPM
+## Download the RPM for the agent
 
-A link to download the MCC EDR agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
+Download the RPM for the MCC EDR agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2254537](https://go.microsoft.com/fwlink/?linkid=2254537).
 
 ## Set up authentication
 
