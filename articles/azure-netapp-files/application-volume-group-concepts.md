@@ -37,9 +37,9 @@ To understand how AVGs work, you should understand the different components.
 
 The fundamental building blocks within an application volume group are individual volumes. These volumes store application data and are organized based on specific characteristics or usage patterns.
 
-This diagram captures an example layout of volumes deployed by an application group, which includes application volume groups provisioned in a secondary availability zone. 
+This diagram captures an example layout of volumes deployed by AVG, which includes application volume groups provisioned in a secondary availability zone. 
 
-:::image type="content" source="../media/azure-netapp-files/application-volume-group-layout.png" alt-text="Diagram of volume layout in application volume groups." lightbox="../media/azure-netapp-files/application-volume-group-layout.png":::
+:::image type="content" source="./media/application-volume-group-concepts/application-volume-group-layout.png" alt-text="Diagram of volume layout in application volume groups." lightbox="./media/application-volume-group-concepts/application-volume-group-layout.png":::
 
 <!-- 
 The volumes are named by the application volume group based on your inputs about volume function. 
@@ -65,7 +65,7 @@ In resource-constrained regions, application volume group may deploy volumes on 
 
 The following diagram shows a volume layout in a resource-constrained 
 
-:::image type="content" source="../media/azure-netapp-files/resource-constrained-layout.png" alt-text="Diagram of resource-constrained volume layout." lightbox="../media/azure-netapp-files/resource-constrained-layout.png":::
+:::image type="content" source="./media/application-volume-group-concepts/resource-constrained-layout.png" alt-text="Diagram of resource-constrained volume layout." lightbox="./media/application-volume-group-concepts/resource-constrained-layout.png":::
 
 ## Functionality
 
@@ -103,7 +103,7 @@ Maintain comprehensive documentation outlining application volume group configur
 
 Volumes deployed by application volume group are placed in the regional or zonal infrastructure to achieve optimized latency and throughput for the application VMs. The deployed volumes provide the same flexibility for resizing performance and throughput as individually created volumes. Also like individually created volumes, the deployed volumes support data protection solutions including snapshots, cross-zone replication, and cross-region replication. 
 
-AVG is currently available for SAP HANA and Oracle databases.
+AVG is available for SAP HANA and Oracle databases.
 
 ## Conclusion
 
