@@ -47,6 +47,6 @@ A layer 3 isolation domain provides workloads with the ability to exchange layer
 
 Layer-3 isolation domains can provide two types of network:
 
--   **Internal Network** - a Layer 3 Isolation Domain Internal Network enables east-west layer 3 communication between workloads on the AON Network fabric. An internal network is a complete solution for layer-3 inter- and intra-rack communication for compute workloads. Each workload can connect to multiple internal networks.
+-   **Internal Network** - a Layer 3 Isolation Domain Internal Network enables east-west layer 3 communication between workloads on the Nexus Network fabric. An internal network is a complete solution for layer-3 inter and intra-rack communication for compute workloads. Each workload can connect to multiple internal networks.
 
 -   **External Network** - a Layer 3 Isolation Domain External Network enables workloads to communicate with external services via the operator network. An external network creates a communication channel between Nexus workloads and services hosted outside of the Nexus network fabric. Each Layer 3 isolation domain supports one external network.
