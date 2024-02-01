@@ -28,7 +28,7 @@ To learn how to to reconfigure [private endpoints](/azure/private-link/private-l
 
 1. Ensure that a standard load balancer with all dependent resources is relocated to the target region.
 
-1. Create a Private Link Service that references the relocated load balancer. To create the Private Link, you can use [Azure Portal](/azure/private-link/create-private-link-service-portalp), [PowerShell](/azure/private-link/create-private-link-service-powershell), or [Azure CLI](/azure/private-link/create-private-link-service-cli). 
+1. Create a Private Link Service that references the relocated load balancer. To create the Private Link, you can use [Azure Portal](/azure/private-link/create-private-link-service-portal), [PowerShell](/azure/private-link/create-private-link-service-powershell), or [Azure CLI](/azure/private-link/create-private-link-service-cli). 
 
     In the load balancer selection process:
         - Choose the frontend IP configuration where you want to receive the traffic. 
