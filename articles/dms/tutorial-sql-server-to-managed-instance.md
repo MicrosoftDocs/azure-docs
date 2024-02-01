@@ -18,7 +18,7 @@ ms.custom:
 [!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](./includes/deprecation-announcement-dms-classic-sql.md)]
 
 > [!NOTE]
-> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-managed-instance-offline-ads.md). 
+> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](/data-migration/sql-server/managed-instance/database-migration-service). 
 >
 > To compare features between versions, review [compare versions](dms-overview.md#compare-versions).
 
