@@ -249,6 +249,8 @@
         - name: Reference list of DevOps recommendations
           displayName: devops, recommendations
           href: recommendations-reference-devops.md
+        - name: Assessment checks for endpoint detection and response solutions
+          href: endpoint-protection-recommendations-technical.md
     - name: Security alerts and incidents
       items:
         - name: About security alerts and incidents
@@ -476,7 +478,7 @@
       items:
       - name: Deploy Defender for Servers
         href: tutorial-enable-servers-plan.md
-      - name: Configure monitoring coverage
+      - name: Configure Defender for Servers features
         displayName: Defender for Servers, monitoring coverage, Log analytics, agentless scanning, Vulnerability assessment, Endpoint protection
         href: configure-servers-coverage.md
       - name: Plan Defender for Servers deployment
@@ -871,8 +873,6 @@
       href: policy-reference.md
     - name: Azure updates blog
       href: https://azure.microsoft.com/updates/?product=security-center
-    - name: Endpoint protection assessment and recommendations
-      href: endpoint-protection-recommendations-technical.md
     - name: Azure CLI
       href: /cli/azure/security
     - name: Azure PowerShell
