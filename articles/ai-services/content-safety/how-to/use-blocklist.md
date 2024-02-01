@@ -97,6 +97,8 @@ else if (createResponse.Status == 200)
 1. Optionally replace `<description>` with a custom description.
 1. Run the code.
 
+#### [Java](#tab/java)
+
 
 #### [Python](#tab/python)
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -139,6 +141,9 @@ except HttpResponseError as e:
 1. Replace `<your_list_name>` with a custom name for your list. Allowed characters: `0-9, A-Z, a-z, - . _ ~`.
 1. Replace `<description>` with a custom description.
 1. Run the script.
+
+#### [JavaScript](#tab/javascript)
+
 
 ---
 
@@ -229,6 +234,8 @@ if (addedBlocklistItems != null && addedBlocklistItems.Value != null)
 1. Optionally add more blockItem strings to the `blockItems` parameter.
 1. Run the code.
 
+#### [Java](#tab/java)
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -274,6 +281,8 @@ except HttpResponseError as e:
 1. Replace the values of the `blocklist_item_text_1` and `blocklist_item_text_2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
 1. Optionally add more blockItem strings to the `block_items` parameter.
 1. Run the script.
+
+#### [JavaScript](#tab/javascript)
 
 
 ---
@@ -374,6 +383,9 @@ if (response.Value.BlocklistsMatch != null)
 1. Replace the `request` input text with whatever text you want to analyze.
 1. Run the script.
 
+#### [Java](#tab/java)
+
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -420,6 +432,9 @@ except HttpResponseError as e:
 1. Replace `<your_list_name>` with the name you used in the list creation step.
 1. Replace the `input_text` variable with whatever text you want to analyze.
 1. Run the script.
+
+#### [JavaScript](#tab/javascript)
+
 
 ---
 ## Other blocklist operations
@@ -480,6 +495,9 @@ foreach (var blocklistItem in allBlocklistitems)
 1. Replace `<your_list_name>` with the name you used in the list creation step.
 1. Run the script.
 
+#### [Java](#tab/java)
+
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -520,6 +538,8 @@ except HttpResponseError as e:
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
 1. Run the script.
+
+#### [JavaScript](#tab/javascript)
 
 
 ---
@@ -570,6 +590,9 @@ foreach (var blocklist in blocklists)
 
 Run the script.
 
+#### [Java](#tab/java)
+
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -604,6 +627,9 @@ except HttpResponseError as e:
 ```
 
 Run the script.
+
+#### [JavaScript](#tab/javascript)
+
 
 ---
 
@@ -655,6 +681,9 @@ if (getBlocklist != null && getBlocklist.Value != null)
 1. Replace `<your_list_name>` with the name you used in the list creation step.
 1. Run the script.
 
+#### [Java](#tab/java)
+
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -690,6 +719,9 @@ except HttpResponseError as e:
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
 1. Run the script.
+
+#### [JavaScript](#tab/javascript)
+
 
 ---
 
@@ -744,6 +776,9 @@ Console.WriteLine("BlocklistItemId: {0}, Text: {1}, Description: {2}", getBlockl
 1. Replace `<your_block_item_id>` with the ID of a previously added item.
 1. Run the script.
 
+#### [Java](#tab/java)
+
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -793,6 +828,9 @@ except HttpResponseError as e:
 1. Replace `<your_list_name>` with the name you used in the list creation step.
 1. Replace `<block_item_text>` with your block item text.
 1. Run the script.
+
+#### [JavaScript](#tab/javascript)
+
 
 ---
 
@@ -855,6 +893,9 @@ if (removeResult != null && removeResult.Status == 204)
 1. Replace `<your_block_item_id>` with the ID of a previously added item. 
 1. Run the script.
 
+#### [Java](#tab/java)
+
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -908,6 +949,9 @@ except HttpResponseError as e:
 Replace `<block_item_text>` with your block item text.
 1. Run the script.
 
+#### [JavaScript](#tab/javascript)
+
+
 ---
 
 
@@ -955,6 +999,9 @@ if (deleteResult != null && deleteResult.Status == 204)
 1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
 1. Run the script.
 
+#### [Java](#tab/java)
+
+
 #### [Python](#tab/python)
 
 Create a new Python script and open it in your preferred editor or IDE. Paste in the following code.
@@ -988,6 +1035,8 @@ except HttpResponseError as e:
 
 1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
 1. Run the script.
+
+#### [JavaScript](#tab/javascript)
 
 ---
 
