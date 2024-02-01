@@ -75,6 +75,5 @@ To deploy on the Azure Kubernetes service, you must have the following configura
 ## Next steps
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).
-- [Deploy a cluster on Advanced Kubernetes Services (AKS)](quickstart-deploy-cluster.md).
 - [Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md).
 - [Deploy a network function on Advanced Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
