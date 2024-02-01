@@ -546,7 +546,7 @@ For details on the inference REST API endpoints for Azure OpenAI and how to crea
 
 This section describes the Azure OpenAI content streaming experience and options. With approval, you have the option to receive content from the API as it's generated, instead of waiting for chunks of content that have been verified to pass your content filters.
 
-### Default filtering
+### Default
 
 The content filtering system is integrated and enabled by default for all customers. In the default streaming scenario, completion content is buffered, the content filtering system runs on the buffered content, and – depending on the content filtering configuration – content is either returned to the user if it does not violate the content filtering policy (Microsoft's default or a custom user configuration), or it’s immediately blocked and returns a content filtering error, without returning the harmful completion content. This process is repeated until the end of the stream. Content is fully vetted according to the content filtering policy before it's returned to the user. Content is not returned token-by-token in this case, but in “content chunks” of the respective buffer size.
 
