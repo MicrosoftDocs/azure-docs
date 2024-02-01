@@ -96,6 +96,8 @@ Image Analysis works on images that meet the following requirements:
 - The file size of the image must be less than 20 megabytes (MB)
 - The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
+> [!TIP]
+> Input requirements for multi-modal embeddings are different and are listed in [Multi-modal embeddings](/azure/ai-services/computer-vision/concept-image-retrieval#input-requirements)
 
 #### [Version 3.2](#tab/3-2)
 

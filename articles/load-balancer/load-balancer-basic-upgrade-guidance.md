@@ -7,7 +7,7 @@ ms.author: mbender
 ms.topic: conceptual
 ms.date: 09/27/2023
 ms.custom: template-concept
-#customer-intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
+# Customer intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
 # Upgrading from basic Load Balancer - Guidance
