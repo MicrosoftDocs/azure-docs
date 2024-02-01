@@ -56,14 +56,14 @@ As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known 
 
 These recommendations will be deprecated.
 
-| Recommendation | Agent | Deprecation date |
-|--|--|--|
-| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) | AMA | February 2024 |
-| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) | AMA | February 2024 |
-| Endpoint protection health failures should be remediated on virtual machine scale sets | MMA | August 2024 |
-| Endpoint protection solution should be installed on virtual machine scale sets | MMA | August 2024 |
-| Install endpoint protection solution on your machines | MMA | August 2024 |
-| Install endpoint protection solution on virtual machines | MMA | August 2024 |
+| Recommendation | Agent | Deprecation date | Replacement recommendation |
+|--|--|--|--|
+| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) | AMA | February 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
+| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) | AMA | February 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
+| Endpoint protection health failures should be remediated on virtual machine scale sets | MMA | August 2024 | No replacement. |
+| Endpoint protection solution should be installed on virtual machine scale sets | MMA | August 2024 | No replacement. |
+| Install endpoint protection solution on your machines | MMA | August 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
+| Install endpoint protection solution on virtual machines | MMA | August 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
 
 ## Upcoming new endpoint recommendations
 
@@ -75,7 +75,7 @@ The previous section (add link) describes the recommendations currently provided
 
 As part of that replacement, we’ll be introducing new endpoint protection recommendations. These recommendations will be available in Defender for Servers and in the Defender CSPM plan. They’re only available for Azure VMs, and GCP/AWS instances onboard as Azure Arc-connected machines. On-premises machines are not supported.
 
-| New recommendation | Plan required | Estimated release date |
+| Preliminary recommendation name | Plan required | Estimated release date |
 |--|--|--|
 | Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | Defender CSPM <br> Defender for Servers Plan 1 <br> Defender for Servers Plan 2 | February 2024 |
 | Endpoint Detection and Response (EDR) solution should be installed on EC2s | Defender CSPM <br> Defender for Servers Plan 1 <br> Defender for Servers Plan 2 | February 2024 |
