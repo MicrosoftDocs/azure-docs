@@ -38,6 +38,9 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
+    - name: Terraform
+      displayName: Terraform
+      href: quickstart-load-balancer-standard-internal-terraform.md
     expanded: true
 - name: Tutorials
   items:

@@ -4,7 +4,7 @@ description: Learn how to deploy microservice applications to Azure Spring Apps.
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 01/10/2024
+ms.date: 01/19/2023
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-tier-selection
@@ -45,7 +45,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on the Azure Spring Apps Standard plan.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on the Azure Spring Apps standard plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram that shows the architecture of the PetClinic sample on the Azure Spring Apps standard plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
@@ -68,6 +68,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 - The **Azure portal** option is the easiest and the fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
 - The **Azure portal + Maven plugin** option is a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
+- The **Azure CLI** option uses a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
@@ -117,6 +118,14 @@ This article provides the following options for deploying to Azure Spring Apps:
 - (Optional) [Node.js](https://nodejs.org/en/download), version 16.20 or higher.
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
 
+### [Azure CLI](#tab/Azure-CLI-ent)
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.55.0 or higher.
+
 ---
 
 ::: zone-end
@@ -141,14 +150,37 @@ The following sections describe how to validate the deployment.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [validate-the-apps](includes/quickstart-deploy-microservice-apps/validate-the-apps.md)]
+### 5.1. Access the applications
+
+After the deployment finishes, you can find the Spring Cloud Gateway URL from the deployment outputs, as shown in the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png" alt-text="Screenshot of the Azure portal that shows the Deployment Outputs page." lightbox="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png":::
+
+Open the gateway URL. The application should look similar to the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
+
+### 5.2. Query the application logs
+
+After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using custom queries, as shown in the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Logs page of the query on PetClinic application and the results for the Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query-enterprise.png":::
+
+### 5.3. Monitor the applications
+
+Application Insights monitors the application dependencies, as shown by the following application tracing map:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
+
+You can find the Application Live View URL from the deployment outputs. Open the Application Live View URL to monitor application runtimes, as shown in the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-live-view.png" alt-text="Screenshot of the Application Live View for the PetClinic application." lightbox="media/quickstart-deploy-microservice-apps/application-live-view.png":::
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 ### 5.1. Access the applications
 
-Using the endpoint assigned from Spring Cloud Gateway - for example, `
-https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. The application should look similar to the following screenshot:
+Use the endpoint assigned from Spring Cloud Gateway - for example, `https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. The application should look similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
 
@@ -165,6 +197,50 @@ Application Insights monitors the application dependencies, as shown by the foll
 :::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
 
 Open the Application Live View URL exposed by the Developer Tools to monitor application runtimes, as shown in the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-live-view.png" alt-text="Screenshot of the Application Live View for the PetClinic application." lightbox="media/quickstart-deploy-microservice-apps/application-live-view.png":::
+
+### [Azure CLI](#tab/Azure-CLI-ent)
+
+### 5.1. Access the applications
+
+Use the following commands to retrieve the URL for Spring Cloud Gateway:
+
+```azurecli
+export GATEWAY_URL=$(az spring gateway show \
+    --service ${SPRING_APPS} \
+    --query properties.url \
+    --output tsv)
+echo "https://${GATEWAY_URL}"
+```
+
+The application should look similar to the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
+
+### 5.2. Query the application logs
+
+After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using custom queries, as shown in the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Logs page of the query on PetClinic application and the results for the Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query-enterprise.png":::
+
+### 5.3. Monitor the applications
+
+Application Insights monitors the application dependencies, as shown by the following application tracing map:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
+
+Use the following commands to retrieve the URL for Application Live View:
+
+```azurecli
+export DEV_TOOL_URL=$(az spring dev-tool show \
+    --service ${SPRING_APPS} \
+    --query properties.url \
+    --output tsv)
+echo "https://${DEV_TOOL_URL}/app-live-view"
+```
+
+Open the Application Live View URL to monitor application runtimes, as shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-live-view.png" alt-text="Screenshot of the Application Live View for the PetClinic application." lightbox="media/quickstart-deploy-microservice-apps/application-live-view.png":::
 
@@ -190,11 +266,31 @@ Open the Application Live View URL exposed by the Developer Tools to monitor app
 
 Be sure to delete the resources you created in this article when you no longer need them. You can delete the Azure resource group, which includes all the resources in the resource group.
 
-Use the following steps to delete the entire resource group, including the newly created service instance:
+### [Azure portal](#tab/Azure-portal-ent)
 
-1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups** and then select the name of your resource group.
+Use the following steps to delete the entire resource group:
+
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
 
 1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to delete the entire resource group:
+
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
+
+1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
+
+### [Azure CLI](#tab/Azure-CLI-ent)
+
+Use the following command to delete the resource group:
+
+```azurecli
+az group delete --name ${RESOURCE_GROUP}
+```
+
+---
 
 ::: zone-end
 
