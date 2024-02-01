@@ -55,6 +55,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --network fabric-id "$NFC_ID" \
   --cluster-service-principal application-id="$SP_APP_ID" \
     password="$SP_PASS" principal-id="$SP_ID" tenant-id="$TENANT_ID" \
+  --secret-archive "{key-vault-id:$KVRESOURCE_ID, use-key-vault:true}" \
   --cluster-type "$CLUSTER_TYPE" --cluster-version "$CLUSTER_VERSION" \
   --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2"
 
@@ -99,6 +100,7 @@ You can instead create a Cluster with ARM template/parameter files in
 | SP_PASS                   | Service Principal Password                                                                                            |
 | SP_ID                     | Service Principal ID                                                                                                  |
 | TENANT_ID                 | Subscription tenant ID                                                                                                |
+| KV_RESOURCE_ID            | Key Vault ID                                                                                                          |
 | CLUSTER_TYPE              | Type of cluster, Single or MultiRack                                                                                  |
 | CLUSTER_VERSION           | NC Version of cluster                                                                                                 |
 | TAG_KEY1                  | Optional tag1 to pass to Cluster Create                                                                               |
