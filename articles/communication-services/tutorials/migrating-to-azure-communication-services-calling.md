@@ -200,7 +200,7 @@ call.on('stateChanged', async () =\> {  console.log(\`Call state changed: \${cal
 
 #### 1:1 Call
 
-To call another Azure Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../quickstarts/identity/access-tokens.md).
+To call another Azure Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../quickstarts/identity/access-tokens.md).
 ```javascript
 const userCallee = { communicationUserId: '\<Azure_Communication_Services_USER_ID\>' };
 const oneToOneCall = callAgent.startCall([userCallee]);
@@ -213,7 +213,7 @@ To join a `Room` call, you can instantiate a context object with the `roomId` pr
 const context = { roomId: '\<RoomId\>' };
 const call = callAgent.join(context);
 ```
-A **Room** offers application developers better control over who can join a call, when they meet and how they collaborate. To learn more about **Rooms**, see the [Rooms overview](../../concepts/rooms/room-concept.md), or see [Quickstart: Join a room call](../../quickstarts/rooms/join-rooms-call.md).
+A **Room** offers application developers better control over who can join a call, when they meet and how they collaborate. To learn more about **Rooms**, see the [Rooms overview](../concepts/rooms/room-concept.md), or see [Quickstart: Join a room call](../quickstarts/rooms/join-rooms-call.md).
 
 #### Group Call
 
@@ -295,7 +295,7 @@ callAgent.on('callsUpdated', (event) => {
 });
 ```
 
-For Azure Communication Services Teams implementation, see how to [Receive a Teams Incoming Call](../../how-tos/cte-calling-sdk/manage-calls.md#receive-a-teams-incoming-call).
+For Azure Communication Services Teams implementation, see how to [Receive a Teams Incoming Call](../how-tos/cte-calling-sdk/manage-calls.md#receive-a-teams-incoming-call).
 
 ## Adding and removing participants to a call
 
