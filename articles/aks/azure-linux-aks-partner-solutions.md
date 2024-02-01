@@ -10,9 +10,9 @@ ms.date: 02/01/2024
 
 # Azure Linux AKS Container Host Partner Solutions
 
-Microsoft has collaborated with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Azure Linux Container Host on AKS.
+Microsoft collaborates with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Azure Linux Container Host on AKS.
 
-Our 3rd party partners featured below have published introduction guides to start using their solutions with your applications running on Azure Linux Container Host on AKS.
+Our third party partners featured in this article have published introduction guides to start using their solutions with your applications running on Azure Linux Container Host on AKS.
 
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
@@ -48,7 +48,7 @@ For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/e
 |----------|------------|
 | Terraform | DevOps |
 
-At HashiCorp, we believe infrastructure enables innovation, and we are helping organizations to operate that infrastructure in the cloud. Our suite of multi-cloud infrastructure automation products — built on projects with source code freely available at their core — underpin the most important applications for the largest enterprises in the world. As part of the once-in-a-generation shift to the cloud, organizations of all sizes, from well-known brands to ambitious start-ups, rely on our solutions to provision, secure, connect, and run their business-critical applications so they can deliver essential services, communications tools, and entertainment platforms worldwide. |
+At HashiCorp, we believe infrastructure enables innovation, and we're helping organizations to operate that infrastructure in the cloud. Our suite of multicloud infrastructure automation products, built on projects with source code freely available at their core, underpin the most important applications for the largest enterprises in the world. As part of the once-in-a-generation shift to the cloud, organizations of all sizes, from well-known brands to ambitious start-ups, rely on our solutions to provision, secure, connect, and run their business-critical applications so they can deliver essential services, communications tools, and entertainment platforms worldwide. |
 
 For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Hasicorp on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/hashicorp-4665790.terraform-azure-saas?tab=overview).
 
@@ -60,7 +60,7 @@ For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Has
 |----------|------------|
 | Akuity Platform | DevOps |
 
-The Akuity Platform is a managed solution for Argo CD from the creators of Argo open source project. Argo Project is a suite of open source tools for deploying and running applications and workloads on Kubernetes. It extends the Kubernetes APIs and unlocks new and powerful capabilities in application deployment, container orchestration, event automation, progressive delivery, and more. Akuity is rooted in Argo, extending its capabilities and using the same familiar user interface. The platform will solve real-life DevOps use cases using battle-tested patterns packaged into a product with the best possible developer experience.
+The Akuity Platform is a managed solution for Argo CD from the creators of Argo open source project. Argo Project is a suite of open source tools for deploying and running applications and workloads on Kubernetes. It extends the Kubernetes APIs and unlocks new and powerful capabilities in application deployment, container orchestration, event automation, progressive delivery, and more. Akuity is rooted in Argo, extending its capabilities and using the same familiar user interface. The platform solves real-life DevOps use cases using battle-tested patterns packaged into a product with the best possible developer experience.
 
 For more information, see [Akuity Solutions](https://akuity.io/).
 
@@ -72,9 +72,9 @@ For more information, see [Akuity Solutions](https://akuity.io/).
 |----------|------------|
 | Kong Connect | DevOps <br> Security |
 
-Kong Konnect is the unified cloud-native API lifecycle platform to optimize any environment. It reduces operational complexity, promotes federated governance, and provides robust security by seamlessly managing Kong Gateway, Kong Ingress Controller and Kong Mesh with a single management console delivering API configuration, portal, service catalog, and analytics capabilities.
+Kong Konnect is the unified cloud-native API lifecycle platform to optimize any environment. It reduces operational complexity, promotes federated governance, and provides robust security by seamlessly managing Kong Gateway, Kong Ingress Controller and Kong Mesh with a single management console, delivering API configuration, portal, service catalog, and analytics capabilities.
 
-A unified Konnect control plane empowers businesses to: • Define a collection of API Data Plane Nodes that share the same configuration and provide a single control plane to catalog, connect to, and monitor the status of all control planes and instances as well as manage group configuration.<br/> • Browse APIs, reference documentation, test endpoints, and register to create applications using specific APIs through a customizable and unified API portal for developers.<br/> • Create a single source of truth by cataloging all services with the Service Hub.<br/> • Access key statistics, monitor vital signs, and spot patterns in real time to see how your APIs and gateways are performing.<br/> • Deliver a fully Kubernetes-centric operational lifecycle model through the integration of DevOps-ready config-driven API management layer and KIC’s unrivaled runtime performance.<br/> • Kong’s extensive ecosystem of community and enterprise plugins, which delivers critical functionality including authentication, authorization, rate limiting, request enforcement, caching and more, without increasing API platform’s footprint.
+A unified Konnect control plane empowers businesses to: • Define a collection of API Data Plane Nodes that share the same configuration and provide a single control plane to catalog, connect to, and monitor the status of all control planes and instances as well as manage group configuration.<br/> • Browse APIs, reference documentation, test endpoints, and register to create applications using specific APIs through a customizable and unified API portal for developers.<br/> • Create a single source of truth by cataloging all services with the Service Hub.<br/> • Access key statistics, monitor vital signs, and spot patterns in real time to see how your APIs and gateways are performing.<br/> • Deliver a fully Kubernetes-centric operational lifecycle model through the integration of DevOps-ready config-driven API management layer and KIC’s unrivaled runtime performance.<br/> • Kong’s extensive ecosystem of community and enterprise plugins delivers critical functionality, including authentication, authorization, rate limiting, request enforcement, caching and more, without increasing API platform’s footprint.
 
 For more information, see [Kong Solutions](https://konghq.com/) and [Kong on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/konginc1581527938760.kong-enterprise?tab=Overview).
 
@@ -104,7 +104,7 @@ For more information, see [Buoyant Solutions](https://buoyant.io/cloud) and [Buo
 
 Isovalent Enterprise for Cilium provides advanced network policy capabilities, including DNS-aware policy, L7 policy, and deny policy, enabling fine-grained control over network traffic for micro-segmentation and improved security. It also provides multi-cluster connectivity via Cluster Mesh, seamless networking and security across multiple clouds, including public cloud providers like AWS, Azure, and Google Cloud Platform, as well as on-premises environments. With free service-to-service communication and advanced load balancing, Isovalent makes it easy to deploy and manage complex microservices architectures.
 
-The Hubble flow observability + User Interface feature provides real-time network traffic flow and policy visualization, as well as a powerful User Interface for easy troubleshooting and network management. Tetragon provides advanced security capabilities such as protocol enforcement, IP and port whitelisting, and automatic application-aware policy generation to protect against the most sophisticated threats. Built on eBPF, allows Tetragon to scale to meet the needs of the most demanding cloud-native environments with ease. Isovalent provides enterprise-grade support from their experienced team of experts, ensuring that any issues are resolved in a timely and efficient manner. Additionally, professional services help organizations deploy and manage Cilium in production environments.
+The Hubble flow observability + User Interface feature provides real-time network traffic flow and policy visualization, as well as a powerful User Interface for easy troubleshooting and network management. Tetragon provides advanced security capabilities such as protocol enforcement, IP and port whitelisting, and automatic application-aware policy generation to protect against the most sophisticated threats. Tetragon is built on eBPF, enabling scaling to meet the needs of the most demanding cloud-native environments with ease. Isovalent provides enterprise-grade support from their experienced team of experts, ensuring that any issues are resolved in a timely and efficient manner. Additionally, professional services help organizations deploy and manage Cilium in production environments.
 
 For more information, see [Isovalent Solutions](https://isovalent.com/blog/post/isovalent-azure-linux/) and [Isovalent on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/isovalentinc1662143158090.isovalent-cilium-enterprise?tab=overview).
 
@@ -136,7 +136,7 @@ Ensure the integrity and confidentiality of applications, thereby fostering trus
 |----------|------------|
 | Tetrate Istio Distro (TID) | Security <br> Networking |
 
-Tetrate Istio Distro (TID) is a simple, safe enterprise-grade Istio distro, providing the easiest way of installing, operating, and upgrading. TID enforces fetching certified versions of Istio and enables only compatible versions of Istio installation. It includes a FIPS-compliant flavor, delivers platform-based Istio configuration validations by integrating validation libraries from multiple sources, uses a number of cloud provider certificate management systems to create Istio CA certs that are used for signing service mesh managed workloads, and provides multiple additional integration points with cloud providers.
+Tetrate Istio Distro (TID) is a simple, safe enterprise-grade Istio distro, providing the easiest way of installing, operating, and upgrading. TID enforces fetching certified versions of Istio and enables only compatible versions of Istio installation. It includes a FIPS-compliant flavor, delivers platform-based Istio configuration validations by integrating validation libraries from multiple sources, uses various cloud provider certificate management systems to create Istio CA certs that are used for signing service mesh managed workloads, and provides multiple additional integration points with cloud providers.
 
 For more information, see [Tetrate Solutions](https://istio.tetratelabs.io/download/) and [Tetrate on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tetrate1598353087553.tetrateistio?tab=Overview).
 
@@ -184,7 +184,7 @@ LOGO HERE
 |----------|------------|
 | CloudCasa | Migration |
 
-CloudCasa is a Kubernetes backup, recovery, and migration solution that is fully compatible with AKS, as well as all other major Kubernetes distributions and managed services. Simply install the CloudCasa agent and let it do all the hard work of protecting and recovering your cluster resources and persistent data from human error, security breaches, and service failures, including providing the business continuity and compliance that your business requires.
+CloudCasa is a Kubernetes backup, recovery, and migration solution that is fully compatible with AKS, as well as all other major Kubernetes distributions and managed services. Install the CloudCasa agent and let it do all the hard work of protecting and recovering your cluster resources and persistent data from human error, security breaches, and service failures, including providing the business continuity and compliance that your business requires.
 
 From a single dashboard, CloudCasa makes cross-cluster, cross-tenant, cross-region and cross-cloud recoveries easy. Recovery and migration from backups includes recovering an entire cluster along with your vNETs, add-ons, load balancers and more. During recovery, users can migrate to Azure Linux, and migrate storage resources from Azure Disk to Azure Container Storage.
 
