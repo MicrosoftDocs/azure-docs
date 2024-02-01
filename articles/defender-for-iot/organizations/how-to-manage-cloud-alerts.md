@@ -1,7 +1,7 @@
 ---
 title: View and manage alerts on the Azure portal - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts triggered by cloud-connected Microsoft Defender for IoT network sensors on the Azure portal.
-ms.date: 12/12/2022
+ms.date: 12/19/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
@@ -27,7 +27,7 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 - **To view alerts on the Azure portal**, you must have access as a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
 
-- **To manage alerts on the Azure portal**, you must have access as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). Alert management activities include modifying their statuses or severities, *Learning* an alert, or accessing PCAP data.
+- **To manage alerts on the Azure portal**, you must have access as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). Alert management activities include modifying their statuses or severities, *Learning* an alert, accessing PCAP data, or using alert suppression rules.
 
 For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
@@ -63,6 +63,9 @@ For more information, see [Azure user roles and permissions for Defender for IoT
         | **Zone** | The zone assigned to the sensor that detected the alert.|
         | **Category**| The [category](alert-engine-messages.md#supported-alert-categories) associated with the alert, such as *operational issues*, *custom alerts*, or *illegal commands*. |
         | **Type**| The  internal name of the alert. |
+
+> [!TIP]
+> If you're seeing more alerts than expected, you might want to create suppression rules to prevent alerts from being triggered for legitimate network activity. For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts).
 
 ### Filter alerts displayed
 

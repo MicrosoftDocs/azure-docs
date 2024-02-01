@@ -16,11 +16,22 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## January 2024
+## February 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> |
+| **OT networks** | - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) |
+
+### Alert suppression rules from the Azure portal (Public preview)
+
+Now you can configure alert suppression rules from the Azure portal to instruct your OT sensors to specified traffic on your network that would otherwise trigger an alert.
+
+- Configure which alerts to suppress by specifying an alert title, IP/MAC address, hostname, subnet, sensor, or site.
+- Set each suppression rule to be active always, or only during a predefined period, such as for a specific maintenance window.
+
+> [!TIP]
+> If you're currently using exclusion rules on the on-premises management console, we recommend that you migrate them to suppression rules on the Azure portal. 
+For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts).
 
 ### Sensor update in Azure portal now supports selecting a specific version
 
@@ -31,6 +42,7 @@ You might want to update your sensor to a specific version for various reasons, 
 :::image type="content" source="media/whats-new/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." border="false" lightbox="media/whats-new/send-package-multiple-versions.png" :::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#send-the-software-update-to-your-ot-sensor).
+| **OT networks** |**Version 24.1.0**: <br>- [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)|
 
 ## December 2023
 
