@@ -63,13 +63,10 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-<<<<<<< HEAD
           - text: Azure Database for MySQL - Flexible Server long-term retention (preview)
             url: backup-azure-mysql-flexible-server-about.md
-=======
           - text: Cross Region Restore for Azure PostgreSQL Database
             url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup
->>>>>>> 22c65793212cdb8663a2fc037aa593f1611173b2
           - text: Vaulted backup and Cross Region Restore for support for AKS (preview)
             url: azure-kubernetes-service-backup-overview.md
           - text: Back up database instance snapshots
