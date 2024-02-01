@@ -25,13 +25,6 @@ Currently, integrated security solutions include vulnerability assessment by [Qu
 
 Learn more about the integration of [vulnerability scanning tools from Qualys](deploy-vulnerability-assessment-vm.md), including a built-in scanner available to customers that enable Microsoft Defender for Servers.
 
-Defender for Cloud also offers vulnerability analysis for your:
-
-- SQL databases - [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
-- Azure Container Registry images - [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
-- Amazon AWS Elastic Container Registry images - [Vulnerability assessments for AWS with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md)
-- GCP images - [Vulnerability assessments for GCP with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-gcp.md)
-
 ## How security solutions are integrated
 
 Azure security solutions that are deployed from Defender for Cloud are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.

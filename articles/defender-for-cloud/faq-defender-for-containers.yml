@@ -186,7 +186,6 @@ sections:
 
           1. Open the relevant AWS connector.
           1. Open the **Settings** page for Defender for Containers.
-          1. Disable **In-account vulnerability management (deprecated)**.
           1. Enable **Agentless Container Vulnerability Assessment**.
           1. Complete the steps of the connector wizard, including deployment of the new onboarding script in AWS.
           1. Manually delete the resources created during onboarding:
