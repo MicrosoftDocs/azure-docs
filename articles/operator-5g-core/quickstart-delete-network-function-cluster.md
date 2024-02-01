@@ -44,7 +44,3 @@ ARMClient.exe DELETE
 ## Related content
 
 - [Deploy a network function on Advanced Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
