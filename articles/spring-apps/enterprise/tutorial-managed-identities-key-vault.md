@@ -73,7 +73,7 @@ export USER_ASSIGNED_IDENTITY=<user-assigned-identity-name>
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the following [az group create](/cli/azure/group#az-group-create) command:
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the [az group create](/cli/azure/group#az-group-create) command, as shown in the following example:
 
 ```azurecli
 az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
@@ -81,9 +81,9 @@ az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
 
 ## Set up your Key Vault
 
-To create a Key Vault, use the following [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
+To create a Key Vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command, as shown in the following example:
 
-> [!Important]
+> [!IMPORTANT]
 > Each Key Vault must have a unique name.
 
 ```azurecli
@@ -101,7 +101,7 @@ az keyvault show \
     --query properties.vaultUri --output tsv
 ```
 
-You can now place a secret in your Key Vault by using the following [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command:
+You can now place a secret in your Key Vault by using the [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command, as shown in the following example:
 
 ```azurecli
 az keyvault secret set \
@@ -148,10 +148,12 @@ Use the following command to create a user-assigned managed identity:
 
 ```azurecli
 az identity create --resource-group ${RESOURCE_GROUP} --name ${USER_ASSIGNED_IDENTITY}
-export MANAGED_IDENTITY_PRINCIPAL_ID=$(az identity show --resource-group ${RESOURCE_GROUP} \
+export MANAGED_IDENTITY_PRINCIPAL_ID=$(az identity show \
+    --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
     --query principalId --output tsv)
-export USER_IDENTITY_RESOURCE_ID=$(az identity show --resource-group ${RESOURCE_GROUP} \
+export USER_IDENTITY_RESOURCE_ID=$(az identity show \
+    --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
     --query id --output tsv)
 ```
@@ -205,10 +207,12 @@ Use the following command to create a user-assigned managed identity:
 
 ```azurecli
 az identity create --resource-group ${RESOURCE_GROUP} --name ${USER_ASSIGNED_IDENTITY}
-export MANAGED_IDENTITY_PRINCIPAL_ID=$(az identity show --resource-group ${RESOURCE_GROUP} \
+export MANAGED_IDENTITY_PRINCIPAL_ID=$(az identity show \
+    --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
     --query principalId --output tsv)
-export USER_IDENTITY_RESOURCE_ID=$(az identity show --resource-group ${RESOURCE_GROUP} \
+export USER_IDENTITY_RESOURCE_ID=$(az identity show \
+    --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
     --query id --output tsv)
 ```
@@ -274,7 +278,8 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identi
 Use the following command to query the client ID of the user-assigned managed identity:
 
 ```azurecli
-az identity show --resource-group ${RESOURCE_GROUP} \
+az identity show \
+    --resource-group ${RESOURCE_GROUP} \
     --name ${USER_ASSIGNED_IDENTITY} \
     --query clientId --output tsv
 ```
