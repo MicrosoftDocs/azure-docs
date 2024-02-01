@@ -113,7 +113,7 @@ To prepare for appliance deployment:
 - Review [port](migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
 
 > [!NOTE]
-> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate and Modernize discovery and assessment appliance you might have installed before.
+> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
 
 ## Set up the replication appliance
 
