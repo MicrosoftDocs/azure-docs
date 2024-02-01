@@ -125,13 +125,13 @@ This section contains the cost estimate by recommended target (Annual cost and a
     - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit.
     - **Savings** - This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
 - Azure SQL:
-    - **Estimated cost by savings options**: This card includes compute cost for Azure SQL MI. It is recommended that all idle SQL instances are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance to maximize savings.
+    - **Estimated cost by savings options**: This card includes compute cost for Azure SQL MI. It's recommended that all idle SQL instances are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance to maximize savings.
     - **Distribution by recommended service tier** : This card covers the recommended service tier.
 - Azure App Service and App Service Container:
-   - **Estimated cost by savings options**: This card includes Azure App Service Plans cost. It is recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
+   - **Estimated cost by savings options**: This card includes Azure App Service Plans cost. It's recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
    - **Distribution by recommended plans** : This card covers the recommended App Service plan.
 - Azure Kubernetes Service:
-   - **Estimated cost by savings options**: This card includes the cost of the recommended AKS node pools. It is recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
+   - **Estimated cost by savings options**: This card includes the cost of the recommended AKS node pools. It's recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
    - **Distribution by recommended Node pool SKU**: This card covers the recommended SKUs for AKS node pools.
 
 #### [On-premises](#tab/paas-on-premises)
@@ -145,7 +145,7 @@ This section contains the cost estimate by recommended target (Annual cost and a
 
 ## On-premises vs AVS report
 It covers cost components for on-premises and AVS, savings, and insights to understand the savings better.
-:::image type="content" source="./media/how-to-view-a-business-case/comparison-avs-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/comparison-avs-expanded.png":::
+:::image type="content" source="./media/how-to-view-a-business-case/comparison-avs-inline.png" alt-text="Screenshot of on-premises and AVS comparison." lightbox="./media/how-to-view-a-business-case/comparison-avs-expanded.png":::
 
 ## AVS report
 
