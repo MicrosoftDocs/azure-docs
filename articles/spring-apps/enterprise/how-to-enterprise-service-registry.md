@@ -229,7 +229,7 @@ az spring app create \
     --bind-service-registry
 ```
 
-You can also bind the new creating apps from the Azure portal, as shown in the following screenshot.
+You can also do this from the Azure portal, as shown in the following screenshot.
 
 :::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app-when-creation.png" alt-text="Azure portal screenshot of 'Create App' screen with 'Bind' dropdown showing.":::
 
