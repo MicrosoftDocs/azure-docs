@@ -83,7 +83,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         
         If you have not delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each Virtual Network, only one subnet can be delegated to Azure NetApp Files.   
     
-        ![Create subnet](./media/azure-netapp-files-create-volumes/azure-netapp-files-create-subnet.png)
+        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.

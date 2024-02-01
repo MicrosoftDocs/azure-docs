@@ -122,7 +122,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         
         If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
     
-        ![Create subnet](./media/create-volumes-dual-protocol/azure-netapp-files-create-subnet.png)
+        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
