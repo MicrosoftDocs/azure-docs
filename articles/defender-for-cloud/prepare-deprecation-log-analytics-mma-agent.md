@@ -56,7 +56,7 @@ The following table compares the recommendations experience across agents.
 
 | Area | Current experience | Upcoming experience |
 |----|----|----|
-| What keeps a resource healthy? | You have antivirus/antimalware	You have an endpoint detection and response solution (Microsoft/Third-Party) |
+| What keeps a resource healthy? | You have antivirus/antimalware | You have an endpoint detection and response solution (Microsoft/Third-Party) |
 | What health checks are done? | Real time protection is off<br/>Signatures are out-of-date | Antimalware/antivirus is off or partially configured<br/>Signatures are out-of-date<br/>Quick and full scan haven’t run for seven days |
 | What agent is needed? | Log Analytics agent/AMA | Agentless machine scanning |
 | What plan is needed? | No plan is required. Recommendations are provided as part of the Defender for Cloud foundational CSPM recommendations | Defender for Servers plan 2 or the Defender CSPM plan |
