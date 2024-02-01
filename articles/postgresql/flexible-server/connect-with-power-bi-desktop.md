@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 author: techieari
 ms.author: arianap
-ms.date: 04/26/2023
+ms.date: 01/02/2024
 ---
 
 # Import data from Azure Database for PostgreSQL - Flexible Server in Power BI 

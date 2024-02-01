@@ -2,6 +2,7 @@
 title: Configure Container insights data collection using data collection rule
 description: Describes how you can configure cost optimization and other data collection for Container insights using a data collection rule.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 12/19/2023
 ms.reviewer: aul
 ---

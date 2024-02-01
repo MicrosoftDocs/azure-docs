@@ -1771,7 +1771,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | storageaccounts | **Yes** | **Yes** | **Yes**<br/><br/> [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
+> | storageaccounts | **Yes** | **Yes** | [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
 
 ## Microsoft.StorageCache
 

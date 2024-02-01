@@ -3,7 +3,7 @@ title: Semantic search with Azure OpenAI
 description: Semantic Search with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI.
 author: mulander
 ms.author: adamwolk
-ms.date: 12/15/2023
+ms.date: 01/04/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:

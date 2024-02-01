@@ -7,7 +7,7 @@ ms.reviewer: kabharati
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/16/2023
+ms.date: 01/16/2024
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -88,10 +88,9 @@ When using Azure Database for PostgreSQL flexible server for a busy database wit
 ### Storage
 
 - Once configured, storage size can't be reduced. You have to create a new server with desired storage size, perform manual [dump and restore](../howto-migrate-using-dump-and-restore.md) and migrate your database(s) to the new server.
-- Currently, storage auto-grow feature isn't available. You can monitor the usage and increase the storage to a higher size. 
-- When the storage usage reaches 95% or if the available capacity is less than 5 GiB whichever is more, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. In rare cases, if the rate of data growth outpaces the time it takes switch to read-only mode, your Server may still run out of storage.
-- We recommend setting alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
-- If you're using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot isn't in use (due to non-available subscriber), Azure Database for PostgreSQL flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation. 
+- When the storage usage reaches 95% or if the available capacity is less than 5 GiB whichever is more, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. In rare cases, if the rate of data growth outpaces the time it takes to switch to read-only mode, your Server may still run out of storage. You can enable storage autogrow to avoid these issues and automatically scale your storage based on your workload demands.
+- We recommend setting alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percentage exceeds 80% usage.
+- If you're using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise, the WAL files accumulate in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot isn't in use (due to a non-available subscriber), Azure Database for PostgreSQL flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation. 
 - We don't support the creation of tablespaces, so if you're creating a database, don’t provide a tablespace name. Azure Database for PostgreSQL flexible server uses the default one that is inherited from the template database. It's unsafe to provide a tablespace like the temporary one because we can't ensure that such objects will remain persistent after server restarts, HA failovers, etc.
    
 ### Networking
@@ -99,7 +98,7 @@ When using Azure Database for PostgreSQL flexible server for a busy database wit
 - Moving in and out of VNET is currently not supported.
 - Combining public access with deployment within a VNET is currently not supported.
 - Firewall rules aren't supported on VNET, Network security groups can be used instead.
-- Public access database servers can connect to public internet, for example through `postgres_fdw`, and this access can't be restricted. VNET-based servers can have restricted outbound access using Network Security Groups.
+- Public access database servers can connect to the public internet, for example through `postgres_fdw`, and this access can't be restricted. VNET-based servers can have restricted outbound access using Network Security Groups.
 
 ### High availability (HA)
 
@@ -107,7 +106,7 @@ When using Azure Database for PostgreSQL flexible server for a busy database wit
 
 ### Availability zones
 
-- Manually moving servers to a different availability zone is currently not supported. However, you can enable HA using the preferred AZ as the standby zone. Once established, you can fail over to the standby and then disable HA.
+- Manually moving servers to a different availability zone is currently not supported. However, using the preferred AZ as the standby zone, you can enable HA. Once established, you can fail over to the standby and then disable HA.
 
 ### Postgres engine, extensions, and PgBouncer
 

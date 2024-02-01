@@ -6,7 +6,7 @@ author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/02/2024
 ---
 
 # Restart Azure Database for PostgreSQL - Flexible Server
