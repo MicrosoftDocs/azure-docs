@@ -11,7 +11,7 @@ ms.date: 12/12/2023
 At this time, a test or preview build is not available for the next release.
 <!--
 
-Fed 2024 test release is now available.
+February, 2024 test release is now available.
 
 |Component|Value|
 |-----------|-----------|

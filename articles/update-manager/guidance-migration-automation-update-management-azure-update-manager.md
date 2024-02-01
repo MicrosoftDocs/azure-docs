@@ -4,7 +4,7 @@ description: Guidance overview on migration from Automation Update Management to
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 01/23/2024
+ms.date: 02/01/2024
 ms.author: sudhirsneha
 ---
 
@@ -39,7 +39,7 @@ Guidance to move various capabilities is provided in table below:
 7 | Customize workflows using pre and post scripts. | Available as Automation runbooks. | We recommend that you try out the Public Preview for pre and post scripts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Manage pre and post events (preview)](manage-pre-post-events.md) | |
 8 | Create alerts based on updates data for your environment | Alerts can be set up on updates data stored in Log Analytics. | We recommend that you try out the Public Preview for alerts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Create alerts (preview)](manage-alerts.md) | |
 
-## Scripts to migrate from Automation Update Management to Azure Update Manager
+## Scripts to migrate from Automation Update Management to Azure Update Manager (preview)
 
 Using migration runbooks, you can automatically migrate all workloads (machines and schedules) from Automation Update Management to Azure Update Manager. This section details on how to run the script, what the script does at the backend, expected behavior, and any limitations, if applicable. The script can migrate all the machines and schedules in one automation account at one go. If you have multiple automation accounts, you have to run the runbook for all the automation accounts.
 
