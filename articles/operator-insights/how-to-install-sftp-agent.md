@@ -136,7 +136,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 7. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at `/etc/ssh/ssh_known_hosts`.
 
 > [!TIP]
-> Use the Linux command `ssh-keyscan` to add a server's SSH key to a VM's `known_hosts` file manually. For example, `sudo sh -c 'ssh-keyscan -H 10.213.0.6 >> /etc/ssh/ssh_known_hosts'`.
+> Use the Linux command `ssh-keyscan` to add a server's SSH public key to a VM's `known_hosts` file manually. For example, `ssh-keyscan -H <server-ip> | sudo tee -a /etc/ssh/ssh_known_hosts`.
 
 ## Configure the connection between the SFTP server and VM
 
