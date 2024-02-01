@@ -25,7 +25,21 @@ You can change the display name for a remote desktop for your users by setting i
 >[!NOTE]
 >The following instructions only apply to personal desktops, not pooled desktops. Also, personal host pools only allow and support desktop application groups.
 
-To add or change a session host's friendly name, use the [Session Host - Update REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
+[!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
+
+### Get the session host friendly name
+
+To get the session host friendly name, run the following command in PowerShell:
+
+```powershell
+$sessionHostParams = @{
+  HostPoolName = 'HostPoolName'
+  Name = 'SessionHostName'
+  ResourceGroupName = 'ResourceGroupName'
+}
+
+Get-AzWvdSessionHost @sessionHostParams | FL Name, AssignedUser, FriendlyName
+```
 
 ## Customize the display name for a RemoteApp
 

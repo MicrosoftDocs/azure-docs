@@ -3,7 +3,7 @@ title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 01/31/2024
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 ---
@@ -257,11 +257,13 @@ The Azure portal doesn't currently have a way to give session host friendly name
 To get the session host friendly name, run the following command in PowerShell:
 
 ```powershell
-$getParams = @{
-  Path = '/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview'
-  Method = 'GET'
+$sessionHostParams = @{
+  HostPoolName = 'HostPoolName'
+  Name = 'SessionHostName'
+  ResourceGroupName = 'ResourceGroupName'
 }
-Invoke-AzRestMethod @getParams
+
+Get-AzWvdSessionHost @sessionHostParams | FL Name, AssignedUser, FriendlyName
 ```
 
 There isn't currently a way to get the session host friendly name in the Azure portal.

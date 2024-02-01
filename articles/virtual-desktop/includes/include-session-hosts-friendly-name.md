@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 01/30/2024
 ---
 
-Run the following command in PowerShell to give your session host a friendly name:
+Run the following command in PowerShell to add or change a session host's friendly name:
 
 ```powershell
 $parameters = @{
