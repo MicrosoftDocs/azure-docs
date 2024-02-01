@@ -332,32 +332,32 @@ After you verify that the test migration works as expected, you can migrate the 
 
 ## Troubleshooting and tips
 
-**Question:** I can't see my AWS VM in the discovered list of servers for migration.
+**Question:** I can't see my AWS VM in the discovered list of servers for migration.<br>
 **Answer:** Check if your replication appliance meets the requirements. Make sure Mobility Agent is installed on the source VM to be migrated and is registered to the Configuration Server. Check the network setting and firewall rules to enable a network path between the replication appliance and source AWS VMs.
 
-**Question:** How do I know if my VM was successfully migrated?
+**Question:** How do I know if my VM was successfully migrated?<br>
 **Answer:** Post migration, you can view and manage the VM from the **Virtual Machines** page. Connect to the migrated VM to validate.
 
-**Question:** I'm unable to import VMs for migration from my previously created Server Assessment results.
+**Question:** I'm unable to import VMs for migration from my previously created Server Assessment results.<br>
 **Answer:** Currently, we don't support the import of assessment for this workflow. As a workaround, you can export the assessment and then manually select the VM recommendation during the Enable Replication step.
 
-**Question:** I'm getting the error "Failed to fetch BIOS GUID" while trying to discover my AWS VMs.
+**Question:** I'm getting the error "Failed to fetch BIOS GUID" while trying to discover my AWS VMs.<br>
 **Answer:** Always use root login for authentication and not any pseudo user. Also, review supported operating systems for AWS VMs.
 
-**Question:** My replication status isn't progressing.
+**Question:** My replication status isn't progressing.<br>
 **Answer:** Check if your replication appliance meets the requirements. Make sure that you enabled the required ports on your replication appliance TCP port 9443 and HTTPS 443 for data transport. Ensure that no stale duplicate versions of the replication appliance are connected to the same project.
 
-**Question:** I'm unable to discover AWS instances by using Azure Migrate and Modernization because of the HTTP status code of 504 from the remote Windows management service.
+**Question:** I'm unable to discover AWS instances by using Azure Migrate and Modernization because of the HTTP status code of 504 from the remote Windows management service.<br>
 **Answer:** Make sure to review the Azure Migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
 
-**Question:** Do I have to make any changes before I migrate my AWS VMs to Azure?
+**Question:** Do I have to make any changes before I migrate my AWS VMs to Azure?<br>
 **Answer:** You might have to make the following changes before you migrate your EC2 VMs to Azure:
 
 - If you're using cloud-init for your VM provisioning, you might want to disable cloud-init on the VM before you replicate it to Azure. The provisioning steps performed by cloud-init on the VM might be specific to AWS and won't be valid after the migration to Azure. ​
 - If the VM is a paravirtualized (PV) VM and not a hardware VM, you might not be able to run it as is on Azure. PV VMs use a custom boot sequence in AWS. You might be able to overcome this challenge by uninstalling PV drivers before you perform a migration to Azure.
 - We always recommend that you run a test migration before the final migration.
 
-**Question:** Can I migrate AWS VMs running the Amazon Linux operating system?
+**Question:** Can I migrate AWS VMs running the Amazon Linux operating system?<br>
 **Answer:** VMs running Amazon Linux can't be migrated as is because the Amazon Linux OS is only supported on AWS.
 To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure. Then you can migrate the workload running on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration. These tools might be for databases or deployment tools for web servers.
 
