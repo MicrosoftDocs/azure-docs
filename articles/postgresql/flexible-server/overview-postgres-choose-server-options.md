@@ -7,7 +7,7 @@ ms.topic: overview
 author: varun-dhawan
 ms.author: varundhawan
 ms.custom: mvc, ignite-2022
-ms.date: 01/02/2024
+ms.date: 01/25/2024
 ---
 
 # Choose the right Azure Database for PostgreSQL - Flexible Server hosting option in Azure

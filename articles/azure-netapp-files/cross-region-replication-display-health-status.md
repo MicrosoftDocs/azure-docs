@@ -36,7 +36,7 @@ You can view replication status on the source volume or the destination volume. 
 
     * **Total progress** – Shows the total number of cumulative bytes transferred over the lifetime of the relationship. This amount is the actual bytes transferred, and it might differ from the logical space that the source and destination volumes report.  
 
-    ![Replication health status](../media/azure-netapp-files/cross-region-replication-health-status.png)
+    ![Replication health status](./media/cross-region-replication-display-health-status/cross-region-replication-health-status.png)
 
 > [!NOTE] 
 > Replication relationship shows health status as *unhealthy* if previous replication jobs are not complete. This status is a result of large volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a large volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
@@ -58,7 +58,7 @@ Create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md
     * If your replication schedule is daily, enter 103,680 (24 hours * 60 minutes * 60 seconds * 1.2).
 9.	Select **Review + create**. The alert rule is ready for use.
 
-:::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="../media/azure-netapp-files/alert-config-signal-logic.png":::
+:::image type="content" source="./media/cross-region-replication-display-health-status/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="./media/cross-region-replication-display-health-status/alert-config-signal-logic.png":::
 
 ## Next steps
 

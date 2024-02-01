@@ -206,7 +206,7 @@ select * from  pgaadauth_create_principal('Prod DB Readonly', false, false).
 When group members sign in, they use their access tokens but specify the group name as the username.
 
 > [!NOTE]  
-> Azure Database for PostgreSQL flexible server supports managed identities as group members.
+> Azure Database for PostgreSQL flexible server supports managed identities and service principals as group members.
 
 ### Sign in to the user's Azure subscription
 

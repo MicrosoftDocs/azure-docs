@@ -35,7 +35,7 @@ You must delegate a subnet to Azure NetApp Files. When you create a volume, you 
     * **Address range**: Specify the IP address range.
     * **Subnet delegation**: Select **Microsoft.NetApp/volumes**. 
 
-      ![Subnet delegation](../media/azure-netapp-files/azure-netapp-files-subnet-delegation.png)
+      ![Subnet delegation](./media/azure-netapp-files-delegate-subnet/azure-netapp-files-subnet-delegation.png)
     
 You can also create and delegate a subnet when you [create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md). 
 

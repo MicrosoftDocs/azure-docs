@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 01/26/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -267,8 +267,8 @@ In the following redirect URI:
 https://<custom-domain-name>/<tenant-name>/oauth2/authresp
 ``` 
 
-- Replace **&lt;custom-domain-name&gt;** with your custom domain name.
-- Replace **&lt;tenant-name&gt;** with the name of your tenant, or your tenant ID.
+- Replace &lt;`custom-domain-name`&gt; with your custom domain name.
+- Replace &lt;`tenant-name`&gt; with the name of your tenant, or your tenant ID.
 
 The following example shows a valid OAuth redirect URI:
 
@@ -295,9 +295,9 @@ The custom domain integration applies to authentication endpoints that use Azure
 - <code>https://\<custom-domain\>/<tenant-name\>/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
 
 Replace:
-- **custom-domain** with your custom domain
-- **tenant-name** with your tenant name or tenant ID
-- **policy-name** with your policy name.
+- &lt;`custom-domain`&gt; with your custom domain
+- &lt;`tenant-name`&gt; with your tenant name or tenant ID
+- &lt;`policy-name`&gt; with your policy name.
 
 The [SAML service provider](./saml-service-provider.md) metadata may look like the following sample: 
 

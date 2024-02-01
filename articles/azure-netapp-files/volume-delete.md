@@ -26,7 +26,7 @@ This article describes how to delete an Azure NetApp Files volume.
 1. From the Azure portal and under storage service, select **Volumes**.  Locate the volume you want to delete.   
 2. Right click the volume name and select **Delete**.   
 
-    ![Screenshot that shows right-click menu for deleting a volume.](../media/azure-netapp-files/volume-delete.png)
+    ![Screenshot that shows right-click menu for deleting a volume.](./media/volume-delete/volume-delete.png)
 
 ## Next steps  
 

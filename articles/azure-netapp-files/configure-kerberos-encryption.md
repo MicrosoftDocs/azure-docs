@@ -34,7 +34,7 @@ The following requirements apply to NFSv4.1 client encryption:
     > [!IMPORTANT] 
     > You cannot modify the Kerberos enablement selection after the volume is created.
 
-    ![Create NFSv4.1 Kerberos volume](../media/azure-netapp-files/create-kerberos-volume.png)  
+    ![Create NFSv4.1 Kerberos volume](./media/configure-kerberos-encryption/create-kerberos-volume.png)  
 
 2. Select **Export Policy** to match the desired level of access and security option (Kerberos 5, Kerberos 5i, or Kerberos 5p) for the volume.   
 
@@ -54,7 +54,7 @@ The following requirements apply to NFSv4.1 client encryption:
 
     AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files will use DNS Server records to locate additional KDC servers as needed. 
 
-    ![Kerberos Realm](../media/azure-netapp-files/kerberos-realm.png)
+    ![Kerberos Realm](./media/configure-kerberos-encryption/kerberos-realm.png)
  
 3.	Click **Join** to save the configuration.
 
@@ -80,7 +80,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
     For example: 
 
-    ![Mount instructions for Kerberos volumes](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
+    ![Mount instructions for Kerberos volumes](./media/configure-kerberos-encryption/mount-instructions-kerberos-volume.png)  
 
 3. Create the directory (mount point) for the new volume.  
 
