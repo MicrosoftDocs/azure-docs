@@ -22,16 +22,16 @@ You can manage a volume from its volume group. You can resize, delete, or change
 ## Steps
 
 1. From your NetApp account, select **Application volume groups**.   
-    Click a volume group to display the volumes in the group. 
+    Select a volume group to display the volumes in the group. 
 
 2. Select the volume you want to resize, delete, or change throughput. The volume overview will be displayed. 
 
-    [![Screenshot that shows Application Volume Groups overview page for Oracle.](../media/azure-netapp-files/application-volume-group-overview-oracle.png)](../media/azure-netapp-files/application-volume-group-overview-oracle.png#lightbox)  
+    [![Screenshot that shows Application Volume Groups overview page for Oracle.](./media/volume-hard-quota-guidelines/application-volume-group-overview-oracle.png)](./media/volume-hard-quota-guidelines/application-volume-group-overview-oracle.png#lightbox)  
 
 3. From **Volume Overview**, you can select:
 
     * **Edit**    
-        You can change individual volume properties such as:
+        You can change individual volume properties:
         * Protocol type
         * Hide snapshot path
         * Snapshot policy
@@ -46,7 +46,7 @@ You can manage a volume from its volume group. You can resize, delete, or change
     * **Change Throughput**   
         You can adapt the throughput of the volume.
 
-    [![Screenshot that shows the Edit window for Oracle.](../media/azure-netapp-files/application-volume-edit-oracle.png)](../media/azure-netapp-files/application-volume-edit-oracle.png#lightbox)  
+    [![Screenshot that shows the Edit window for Oracle.](./media/volume-hard-quota-guidelines/application-volume-edit-oracle.png)](./media/volume-hard-quota-guidelines//application-volume-edit-oracle.png#lightbox)  
 
 ## Next steps
 
