@@ -49,8 +49,6 @@ Arc SQL Server & Arc Data Services | Available in Norway East Region | GA
 
 Arc SQL Server & Arc Data Services | Available in UK West Region | GA
 
-Arc SQL Server | Windows Update detectoid changes to enable auto-deployment of ESUs | GA
-
 Arc SQL Server | Support for TLS 1.3
 
 Arc SQL Server | Improved prompt for feedback in Azure portal | GA
