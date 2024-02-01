@@ -99,8 +99,7 @@ The deployment script allows to select which set of components to deploy.
 Other hosting and deployment methods:
 
 - For production deployments that require staging, rollback, scaling, and resilience, the platform can be deployed into [Azure Kubernetes Service (AKS)](/azure/aks/learn/quick-kubernetes-deploy-cli)
-- Deploying Azure Industrial IoT Platform microservices into an existing Kubernetes cluster using [Helm](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/api-management/how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
-- Deploying [Azure Kubernetes Service (AKS) cluster on top of Azure Industrial IoT Platform created by deployment script and adding Azure Industrial IoT components into the cluster](https://github.com/Azure/Industrial-IoT/blob/main/docs/deploy/howto-add-aks-to-ps1.md).
+- Deploying Azure Industrial IoT Platform microservices into an existing Kubernetes cluster using [Helm](/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes-helm).
 
 References:
 - [Deploying Azure Industrial IoT Platform](/azure/industrial-iot/tutorial-deploy-industrial-iot-platform)

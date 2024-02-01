@@ -908,6 +908,65 @@ For this example configuration, the resource group is `LAB-SECE-DEP05-INFRASTRUC
 
     Select the playbook `1) BoM Downloader` to download the SAP software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
 
+    You can either run the playbook using the configuration menu or directly from the command line.
+
+    ```bash
+    
+    cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/BOMS/
+    
+    export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+    
+    playbook_options=(
+            --inventory-file="${sap_sid}_hosts.yaml"
+            --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+            --extra-vars="_workspace_directory=`pwd`"
+            --extra-vars="@sap-parameters.yaml"
+            --extra-vars="bom_processing=true"
+            "${@}"
+    )
+    
+    # Run the playbook to retrieve the ssh key from the Azure key vault
+    ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+    
+    # Run the playbook to perform the Operating System configuration
+    ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
+
+    
+    ```
+
+    if you want you can also pass the SAP User credentials as parameters
+
+    ```bash
+    
+    cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/BOMS/
+
+    sap_username=<sap-username>
+    sap_user_password='<sap-password>'
+    
+    export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+    
+    playbook_options=(
+            --inventory-file="${sap_sid}_hosts.yaml"
+            --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+            --extra-vars="_workspace_directory=`pwd`"
+            --extra-vars="@sap-parameters.yaml"
+            --extra-vars="s_user=${sap_username}"
+            --extra-vars="s_password=${sap_user_password}"
+            --extra-vars="bom_processing=true"
+            "${@}"
+    )
+    
+    # Run the playbook to retrieve the ssh key from the Azure key vault
+    ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+    
+    # Run the playbook to perform the Operating System configuration
+    ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
+
+    
+    ```
+
+
+
 
 ## SAP application installation
 

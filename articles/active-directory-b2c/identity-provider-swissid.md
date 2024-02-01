@@ -13,6 +13,9 @@ ms.date: 12/07/2021
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating SwissID accounts with Azure Active Directory B2C, I want to set up sign-up and sign-in functionality for customers with SwissID accounts, so that they can easily access my application using their existing credentials.
+
 ---
 
 # Set up sign-up and sign-in with a SwissID account using Azure Active Directory B2C

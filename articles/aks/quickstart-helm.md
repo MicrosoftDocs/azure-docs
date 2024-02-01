@@ -3,7 +3,7 @@ title: Develop on Azure Kubernetes Service (AKS) with Helm
 description: Use Helm with AKS and Azure Container Registry to package and run application containers in a cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 12/26/2023
+ms.date: 01/18/2024
 ---
 
 # Quickstart: Develop on Azure Kubernetes Service (AKS) with Helm
@@ -24,13 +24,13 @@ You need to store your container images in an Azure Container Registry (ACR) to 
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create an Azure resource group using the [`az group create`][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+1. Create an Azure resource group using the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location eastus
     ```
 
-2. Create an Azure Container Registry using the [`az acr create`][az-acr-create] command. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
+2. Create an Azure Container Registry using the [az acr create][az-acr-create] command. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
 
     ```azurecli-interactive
     az acr create --resource-group myResourceGroup --name myhelmacr --sku Basic
@@ -62,13 +62,13 @@ You need to store your container images in an Azure Container Registry (ACR) to 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Create an Azure resource group using the [`New-AzResourceGroup`][new-azresourcegroup] cmdlet. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+1. Create an Azure resource group using the [New-AzResourceGroup][new-azresourcegroup] cmdlet. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
 
-2. Create an Azure Container Registry using the [`New-AzContainerRegistry`][new-azcontainerregistry] cmdlet. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
+2. Create an Azure Container Registry using the [New-AzContainerRegistry][new-azcontainerregistry] cmdlet. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
 
     ```azurepowershell-interactive
     New-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myhelmacr -Sku Basic
@@ -91,7 +91,7 @@ Your new AKS cluster needs access to your ACR to pull the container images and r
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Create an AKS cluster using the [`az aks create`][az-aks-create] command with the `--attach-acr` parameter to grant the cluster access to your ACR. The following example creates an AKS cluster named *myAKSCluster* and grants it access to the *myhelmacr* ACR. Make sure you replace `myhelmacr` with the name of your ACR.
+* Create an AKS cluster using the [az aks create][az-aks-create] command with the `--attach-acr` parameter to grant the cluster access to your ACR. The following example creates an AKS cluster named *myAKSCluster* and grants it access to the *myhelmacr* ACR. Make sure you replace `myhelmacr` with the name of your ACR.
 
     ```azurecli-interactive
     az aks create --resource-group myResourceGroup --name myAKSCluster --location eastus --attach-acr myhelmacr --generate-ssh-keys
@@ -99,7 +99,7 @@ Your new AKS cluster needs access to your ACR to pull the container images and r
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet with the `-AcrNameToAttach` parameter to grant the cluster access to your ACR. The following example creates an AKS cluster named *myAKSCluster* and grants it access to the *myhelmacr* ACR. Make sure you replace `myhelmacr` with the name of your ACR.
+* Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet with the `-AcrNameToAttach` parameter to grant the cluster access to your ACR. The following example creates an AKS cluster named *myAKSCluster* and grants it access to the *myhelmacr* ACR. Make sure you replace `myhelmacr` with the name of your ACR.
 
     ```azurepowershell-interactive
     New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -Location eastus -AcrNameToAttach myhelmacr -GenerateSshKey 
@@ -113,13 +113,13 @@ To connect a Kubernetes cluster locally, you use the Kubernetes command-line cli
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Install `kubectl` locally using the [`az aks install-cli`][az-aks-install-cli] command.
+1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command.
 
     ```azurecli-interactive
     az aks install-cli
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following command gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*.
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -127,13 +127,13 @@ To connect a Kubernetes cluster locally, you use the Kubernetes command-line cli
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Install `kubectl` locally using the [`Install-AzAksKubectl`][install-azakskubectl] cmdlet.
+1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet.
 
     ```azurepowershell-interactive
     Install-AzAksKubectl
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. The following command gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*:  
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following command gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*:  
 
     ```azurepowershell-interactive
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
@@ -159,7 +159,7 @@ This quickstart uses the [Azure Vote application][azure-vote-app].
 
 ## Build and push the sample application to ACR
 
-* Build and push the image to your ACR using the [`az acr build`][az-acr-build] command. The following example builds an image named *azure-vote-front:v1* and pushes it to the *myhelmacr* ACR. Make sure you replace `myhelmacr` with the name of your ACR.
+* Build and push the image to your ACR using the [az acr build][az-acr-build] command. The following example builds an image named *azure-vote-front:v1* and pushes it to the *myhelmacr* ACR. Make sure you replace `myhelmacr` with the name of your ACR.
 
     ```azurecli-interactive
     az acr build --image azure-vote-front:v1 --registry myhelmacr --file Dockerfile .
@@ -281,7 +281,7 @@ This quickstart uses the [Azure Vote application][azure-vote-app].
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Remove your resource group, AKS cluster, Azure container registry, container images stored in the ACR, and all related resources using the [`az group delete`][az-group-delete] command with the `--yes` parameter to confirm deletion and the `--no-wait` parameter to return to the command prompt without waiting for the operation to complete.
+* Remove your resource group, AKS cluster, Azure container registry, container images stored in the ACR, and all related resources using the [az group delete][az-group-delete] command with the `--yes` parameter to confirm deletion and the `--no-wait` parameter to return to the command prompt without waiting for the operation to complete.
 
     ```azurecli-interactive
     az group delete --name myResourceGroup --yes --no-wait
@@ -289,7 +289,7 @@ This quickstart uses the [Azure Vote application][azure-vote-app].
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Remove your resource group, AKS cluster, Azure container registry, container images stored in the ACR, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet with the `--yes` parameter to confirm deletion and the `--no-wait` parameter to return to the command prompt without waiting for the operation to complete.
+* Remove your resource group, AKS cluster, Azure container registry, container images stored in the ACR, and all related resources using the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet with the `--yes` parameter to confirm deletion and the `--no-wait` parameter to return to the command prompt without waiting for the operation to complete.
 
     ```azurepowershell-interactive
     Remove-AzResourceGroup -Name myResourceGroup
