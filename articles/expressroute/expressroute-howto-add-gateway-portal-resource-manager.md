@@ -95,7 +95,7 @@ The steps for this tutorial use the values in the following configuration refere
 
 1. Select **Review + Create**, and then **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
 
-## Enable or disable VNet to VNet or VNet to WAN connectivity through ExpressRoute
+## Enable or disable VNet to VNet or VNet to WAN traffic through ExpressRoute
 
 You can enable or disable VNet to VNet or VNet to WAN connectivity through ExpressRoute. By default, VNet to VNet or VNet to WAN traffic is disabled through ExpressRoute. Currently this option is only available for ExpressRoute virtual network gateways with ErGw1AZ, ErGw2AZ, and ErGw3AZ SKUs. You can enable this traffic by using the following steps:
 
