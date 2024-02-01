@@ -38,7 +38,7 @@ Azure Resource Manager templates are JSON files that define the infrastructure a
 
 [!code-json[create-linux-vm](~/quickstart-templates/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json)]
 
-
+You can also download or create a template and specify the local path with the `--template-file` parameter.
 
 ## Create a quickstart template VM with Azure CLI
 
@@ -81,7 +81,7 @@ You can then SSH to your VM as normal. Provide you own public IP address from th
 ssh <adminUsername>@<ipAddress>
 ```
 
-## Next steps
+## Other templates
 
 In this example, you created a basic Linux VM. For more Resource Manager templates that include application frameworks or create more complex environments, browse the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
@@ -93,9 +93,7 @@ To learn more about creating templates, view the JSON syntax and properties for 
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
 
-In this article, you specified a template stored in GitHub. You can also download or create a template and specify the local path with the `--template-file` parameter.
-
-Here are some additional resources:
+## Next steps
 
 - To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
 - To see the Azure virtual machine schemas, see [Azure template reference](/azure/templates/microsoft.compute/allversions).
