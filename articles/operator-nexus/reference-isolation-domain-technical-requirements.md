@@ -84,3 +84,22 @@ The status of the isolation domain creation or deletion can be monitored using t
 -   **l3domain**: The name of the L3 isolation-domain the external network belongs to.
 
 -   **resource-name**: The name of the external network.
+
+## BGP Configuration
+
+| **Name** | **Description** | **Example** | **Required** |
+|--|--|--|--|
+| allowAS | Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. Possible values are 0-10. To disable the feature, select 0. The default is 2. | 2 | |
+| allowASOverride | Enable Or Disable state. | Enable | |
+| annotation | Switch configuration description. | string | |
+| bfdConfiguration | BFD configuration properties | Refer to the BFD Configuration table |  |
+| defaultRouteOriginate | Originate a defaultRoute. Ex: \"True\" \| \"False\".  | True |  |
+| fabricASN | ASN of the Network Fabric. | 65048 |  |
+| ipv4ListenRangePrefixes | List of BGP IPv4 Listen Range prefixes. | 10.1.0.0/26 | yes  |
+| ipv4NeighborAddress | List of IPv4 neighbor addresses. | 10.1.1.4  |  |
+| ipv6ListenRangePrefixes | List of BGP IPv6 Listen Ranges prefixes.  | 2fff::/66  |  |
+| ipv6NeighborAddress | List of IPv6 neighbor addresses.  | 2fff:: |  |
+| peerASN  | ASN of workload  | 65047  | yes  |
+
+
+
