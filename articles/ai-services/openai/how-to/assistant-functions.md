@@ -1,0 +1,218 @@
+---
+title: 'How to use Azure OpenAI Assistants Function Calling'
+titleSuffix: Azure OpenAI
+description: Learn how to use Assistants Function Calling
+services: cognitive-services
+manager: nitinme
+ms.service: azure-ai-openai
+ms.topic: how-to
+ms.date: 02/01/2024
+author: mrbullwinkle
+ms.author: mbullwin
+recommendations: false
+
+---
+
+# Azure OpenAI Assistants function calling
+
+The Assistants API supports function calling, which allows you to describe the structure of functions to an Assistant and then return the functions that need to be called along with their arguments.
+
+## Function calling support
+
+### Supported models
+
+To use all features of function calling including parallel functions, you need to use the latest models:
+
+- `gpt-4-1106-preview` ([region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability))
+- `gpt-35-turbo-1106` ([region availability)](../concepts/models.md#gpt-35-turbo-model-availability))
+
+### API Version
+
+- `2024-02-15-preview`
+
+## Example function definition
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+assistant = client.beta.assistants.create(
+  instructions="You are a weather bot. Use the provided functions to answer questions.",
+  model="gpt-4-1106-preview", #Replace with model deployment name
+  tools=[{
+      "type": "function",
+    "function": {
+      "name": "getCurrentWeather",
+      "description": "Get the weather in location",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {"type": "string", "description": "The city and state e.g. San Francisco, CA"},
+          "unit": {"type": "string", "enum": ["c", "f"]}
+        },
+        "required": ["location"]
+      }
+    }
+  }, {
+    "type": "function",
+    "function": {
+      "name": "getNickname",
+      "description": "Get the nickname of a city",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {"type": "string", "description": "The city and state e.g. San Francisco, CA"},
+        },
+        "required": ["location"]
+      }
+    } 
+  }]
+)
+```
+
+# [REST](#tab/rest)
+
+```output
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
+  -H "api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "OpenAI-Beta: assistants=v1" \
+  -d '{
+    "instructions": "You are a weather bot. Use the provided functions to answer questions.",
+    "tools": [{
+      "type": "function",
+      "function": {
+        "name": "getCurrentWeather",
+        "description": "Get the weather in location",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {"type": "string", "description": "The city and state e.g. San Francisco, CA"},
+            "unit": {"type": "string", "enum": ["c", "f"]}
+          },
+          "required": ["location"]
+        }
+      }	
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "getNickname",
+        "description": "Get the nickname of a city",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {"type": "string", "description": "The city and state e.g. San Francisco, CA"}
+          },
+          "required": ["location"]
+        }
+      }	
+    }],
+    "model": "gpt-4-1106-preview"
+  }'
+```
+
+---
+
+## Reading the functions
+
+When you initiate a Run with a user Message that triggers the function, the Run will enter a pending status. After it processes, the run will enter a requires_action state that you can verify by retrieving the Run.
+
+```json
+{
+  "id": "run_abc123",
+  "object": "thread.run",
+  "assistant_id": "asst_abc123",
+  "thread_id": "thread_abc123",
+  "status": "requires_action",
+  "required_action": {
+    "type": "submit_tool_outputs",
+    "submit_tool_outputs": {
+      "tool_calls": [
+        {
+          "id": "call_abc123",
+          "type": "function",
+          "function": {
+            "name": "getCurrentWeather",
+            "arguments": "{\"location\":\"San Francisco\"}"
+          }
+        },
+        {
+          "id": "call_abc456",
+          "type": "function",
+          "function": {
+            "name": "getNickname",
+            "arguments": "{\"location\":\"Los Angeles\"}"
+          }
+        }
+      ]
+    }
+  },
+...
+```
+
+## Submitting function outputs
+
+You can then complete the Run by submitting the tool output from the function(s) you call. Pass the `tool_call_id` referenced in the `required_action` object above to match output to each function call.
+
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+
+run = client.beta.threads.runs.submit_tool_outputs(
+  thread_id=thread.id,
+  run_id=run.id,
+  tool_outputs=[
+      {
+        "tool_call_id": call_ids[0],
+        "output": "22C",
+      },
+      {
+        "tool_call_id": call_ids[1],
+        "output": "LA",
+      },
+    ]
+)
+```
+
+# [REST](#tab/rest)
+
+```output
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/runs/run_123/submit_tool_outputs?api-version=2024-02-15-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -H "OpenAI-Beta: assistants=v1" \
+  -d '{
+    "tool_outputs": [{
+      "tool_call_id": "call_abc123",
+      "output": "{"temperature": "22", "unit": "celsius"}"
+    }, {
+      "tool_call_id": "call_abc456",
+      "output": "{"nickname": "LA"}"
+    }]
+  }'
+```
+
+---
+
+After you submit tool outputs, the run will enter the `queued` state before it continues execution.
+
+## Next steps
+
+* Learn more about how to use Assistants with our [How-to guide on Assistants](../how-to/assistant.md).
