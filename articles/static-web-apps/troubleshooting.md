@@ -111,5 +111,5 @@ Use the following steps to add a new variable.
 1. Select **OK**.
 1. Select **Save**.
 
-## Review the Diagnose and Solve reports
+## Review diagnostic reports
 Tthe [diagnose and solve](diagnostics-overview.md) feature can guide you through steps to troubleshoot problems.
