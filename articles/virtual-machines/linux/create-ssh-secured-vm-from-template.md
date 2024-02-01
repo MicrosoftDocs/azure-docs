@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.collection: linux
 ms.topic: how-to
-ms.date: 2/01/2023
+ms.date: 02/01/2023
 ms.author: mattmcinnes
 ms.reviewer: jamesser
 ---
