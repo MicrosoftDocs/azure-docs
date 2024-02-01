@@ -90,31 +90,31 @@ For more information on configurable parameters, see the How to Guides or, or co
 | allowAS | Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. Possible values are 0-10. To disable the feature, select 0. The default is 2. | 2 | |
 | allowASOverride | Enable Or Disable state. | Enable | |
 | annotation | Switch configuration description. | string | |
-| bfdConfiguration | BFD configuration properties | Refer to the BFD Configuration table |  |
+| bfdConfiguration | BFD configuration properties. | Refer to the BFD Configuration table |  |
 | defaultRouteOriginate | Originate a defaultRoute. Ex: \"True\" \| \"False\".  | True |  |
 | fabricASN | ASN of the Network Fabric. | 65048 |  |
 | ipv4ListenRangePrefixes | List of BGP IPv4 Listen Range prefixes. | 10.1.0.0/26 | yes  |
 | ipv4NeighborAddress | List of IPv4 neighbor addresses. | 10.1.1.4  |  |
 | ipv6ListenRangePrefixes | List of BGP IPv6 Listen Ranges prefixes.  | 2fff::/66  |  |
 | ipv6NeighborAddress | List of IPv6 neighbor addresses.  | 2fff:: |  |
-| peerASN  | ASN of workload  | 65047  | yes  |
+| peerASN  | ASN of workload.  | 65047  | yes  |
 
 ## Static Configuration
 
 | **Name** | **Description** | **Example** | **Required** |
 |--|--|--|--|
-| ipv4Routes | List of IPv4 Routes defining prefix and next hop |                      |              |
-| Ipv6Routes   | List of IPv6 Routes defining prefix and next hop |                      |              |
-| nextHop      | List of next hop addresses.                      | 10.20.0.0, 10.20.0.2 | Yes          |
-| prefix       | Prefix of the route.                             | 10.20.0.1/19         | Yes          |
+| ipv4Routes | List of IPv4 Routes defining prefix and next hop. |                      |              |
+| Ipv6Routes   | List of IPv6 Routes defining prefix and next hop. |                      |              |
+| nextHop      | List of next hop addresses.                      | 10.20.0.0, 10.20.0.2 | Yes.          |
+| prefix       | Prefix of the route.                             | 10.20.0.1/19         | Yes.          |
 
 ## Isolation Domain Administrative state
 
-Administrative states of Isolation domains state designed to support operational. Table below provide information on administrative actions that can be taken at Isolation domain resource .
+Isolation domains have an administrative state which helps operators o manage them. The table below provide information on the available actions, and how they affect the isolation domain.
 
-| **Name**               | **Type**            | **Description**                           |
+| **Name** | **Type** | **Description** |
 |--|--|--|
-| Disabled               | string              | Resource is disabled                      |
-| Enabled                | string              | Resource is enabled                       |
-| MAT                    | string              | Manual action taken by operator           |
-| RMA                    | string              | State of resource for planned maintenance |
+| Disabled | string | Resource is disabled.                      |
+| Enabled  | string | Resource is enabled.                       |
+| MAT      | string | Manual action taken by operator.           |
+| RMA      | string | State of resource for planned maintenance. |
