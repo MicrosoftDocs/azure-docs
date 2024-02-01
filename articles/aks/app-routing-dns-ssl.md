@@ -57,9 +57,11 @@ az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName> --enab
 
 ### Create and export a self-signed SSL certificate
 
-> [!NOTE]
-> If you already have a certificate, you can skip this step.
-> 
+For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. If you already have a certificate, you can skip this step.
+
+> [!CAUTION]
+> Self-signed certificates are digital certificates that are not signed by a trusted third-party CA. Self-signed certificates are created, issued, and signed by the company or developer who is responsible for the website or software being signed. This is why self-signed certificates are considered unsafe for public-facing websites and applications. Azure Key Vault has a [trusted partnership with the some Certificate Authorities](../key-vault/certificates/how-to-integrate-certificate-authority.md).
+
 1. Create a self-signed SSL certificate to use with the Ingress using the `openssl req` command. Make sure you replace *`<Hostname>`* with the DNS name you're using.
 
     ```bash
