@@ -9,7 +9,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Create your first function in the Azure portal
 
-Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
+Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal. 
+
+Choose your preferred programming language at the top of the article.
 
 ::: zone pivot="programming-language-csharp"  
 >[!NOTE]
@@ -74,7 +76,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 You must have a function app to host the execution of your functions. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources. 
 
-Use these steps to create your function app and related Azure resources, whether or not you are able to edit your code in the Azure portal. 
+Use these steps to create your function app and related Azure resources, whether or not you're able to edit your code in the Azure portal. 
 ::: zone pivot="programming-language-csharp" 
 To be able to create a C# script app that you can edit in the portal, you must choose **6 (LTS)** for .NET **Version**.
 ::: zone-end
@@ -97,7 +99,7 @@ Next, create a function in the new function app.
 ::: zone pivot="programming-language-java,programming-language-csharp,programming-language-typescript,programming-language-python" 
 ## Create your functions locally
 
-If you aren't able to create your function code in the portal, you can instead create a local project and publish to your new function app.
+If you aren't able to create your function code in the portal, you can instead create a local project and publish the function code to your new function app.
 
 1. In your function app, select **Overview**, and then in **Create functions in your preferred environment** under **Functions**.
 
