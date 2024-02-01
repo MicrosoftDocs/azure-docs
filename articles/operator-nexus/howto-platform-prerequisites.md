@@ -183,7 +183,26 @@ Terminal Server has been deployed and configured as follows:
    | TS_NET2_NETMASK | The terminal server PE2 to TS NET2 netmask |
    | TS_NET2_GW      | The terminal server PE2 to TS NET2 gateway |
 
-3. Setup support admin user:
+3. Clear net3 interface if existing:
+
+   Check for any interface configured on physical interface net3 and "Default IPv4 Static Address":
+   ```bash
+   ogcli get conns 
+   **description="Default IPv4 Static Address"**
+   **name="$TS_NET3_CONN_NAME"**
+   **physif="net3"**
+   ```
+   
+   Remove if existing:
+   ```bash
+   ogcli delete conn "$TS_NET3_CONN_NAME"
+   ```
+
+   | Parameter name    | Description                                |
+   | ----------------- | ------------------------------------------ |
+   | TS_NET3_CONN_NAME | The terminal server NET3 Connection name   |
+
+4. Setup support admin user:
 
    For each user
    ```bash
@@ -202,7 +221,7 @@ Terminal Server has been deployed and configured as follows:
    | SUPPORT_USER       | Support admin user                  |
    | HASHED_SUPPORT_PWD | Encoded support admin user password |
 
-4. Add sudo support for admin users (added at admin group level):
+5. Add sudo support for admin users (added at admin group level):
 
    ```bash
    sudo vi /etc/sudoers.d/opengear
@@ -210,7 +229,7 @@ Terminal Server has been deployed and configured as follows:
    %admin ALL=(ALL) NOPASSWD: ALL
    ```
    
-5. Start/Enable the LLDP service if it is not running:
+6. Start/Enable the LLDP service if it is not running:
    
    Check if LLDP service is running on TS:
    ```bash
@@ -238,29 +257,46 @@ Terminal Server has been deployed and configured as follows:
    ```bash
    sudo systemctl enable lldpd
    ```
-6. Check system date/time:
+7. Check system date/time:
 
    ```bash
    date
-   
-   # To fix date if incorrect:
+   ```
+
+   To fix date if incorrect:
+   ```bash
    ogcli replace system/time
    Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
-   time="21:08 Nov 7, 2023"
+   time="$CURRENT_DATE_TIME"
    ```
-7. Label TS Ports (if missing/incorrect):
+
+   | Parameter name     | Description                                   |
+   | ------------------ | --------------------------------------------- |
+   | CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYY |
+
+8. Label TS Ports (if missing/incorrect):
 
    ```bash
    ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
    ```
-8. Settings required for PURE Array serial connections:
+
+   | Parameter name  | Description                 |
+   | ----------------| --------------------------- |
+   | NEW_NAME        | Port label name             |
+   | PORT_#          | Terminal Server port number |
+
+9. Settings required for PURE Array serial connections:
 
    ```bash
    ogcli update port ports-<PORT_#> 'baudrate="115200"'	<PORT_#>	Pure Storage Controller console
    ogcli update port ports-<PORT_#> 'pinout="X1"'	<PORT_#>	Pure Storage Controller console
    ```
 
-9. Verify Settings
+   | Parameter name  | Description                 |
+   | ----------------| --------------------------- |
+   | PORT_#          | Terminal Server port number |
+
+10. Verify Settings
 
    ```bash
    ping $PE1_IP -c 3  # ping test to PE1 //TS subnet +2
