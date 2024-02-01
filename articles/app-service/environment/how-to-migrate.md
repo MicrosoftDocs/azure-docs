@@ -118,7 +118,7 @@ If your existing App Service Environment uses a custom domain suffix, you need t
 
 If your migration doesn't include a custom domain suffix and you aren't enabling zone redundancy, you can move on to migration.
 
-To set these configurations, create a file called *parameters.json* with the following details based on your scenario. Don't include the custom domain suffix properties if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property, because this configuration is irreversible after migration. Set the value of the `kind` property based on your existing App Service Environment version. Accepted values for the `kind` property are `ASEV1` and `ASEV2`.
+To set these configurations, create a file called *parameters.json* with the following details based on your scenario. Don't include the properties for a custom domain suffix if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property, because this configuration is irreversible after migration. Set the value of the `kind` property based on your existing App Service Environment version. Accepted values for the `kind` property are `ASEV1` and `ASEV2`.
 
 If you're migrating without a custom domain suffix and you're enabling zone redundancy, use this code:
 
@@ -211,7 +211,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ## 1. Validate that migration is supported
 
-In the [Azure portal](https://portal.azure.com), go to the **Migration** page for the App Service Environment that you're migrating. You can get to the migration page by selecting the banner at the top of the **Overview** page for your App Service Environment, or by selecting the **Migration** item on the left menu.
+In the [Azure portal](https://portal.azure.com), go to the **Migration** page for the App Service Environment that you're migrating. You can get to the **Migration** page by selecting the banner at the top of the **Overview** page for your App Service Environment, or by selecting the **Migration** item on the left menu.
 
 :::image type="content" source="./media/migration/portal-overview.png" alt-text="Screenshot that shows migration access points.":::
 
@@ -225,7 +225,7 @@ If your App Service Environment isn't supported for migration at this time or yo
 
 :::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Screenshot that shows an example portal message that says the migration feature doesn't support the App Service Environment.":::
 
-If migration is supported for your App Service Environment, proceed to the next step in the process. The migration page guides you through the series of steps to complete the migration.
+If migration is supported for your App Service Environment, proceed to the next step in the process. The **Migration** page guides you through the series of steps to complete the migration.
 
 :::image type="content" source="./media/migration/migration-ux-pre.png" alt-text="Screenshot that shows a sample migration page with unfinished steps in the process.":::
 
@@ -310,7 +310,7 @@ If your migration included a custom domain suffix, the domain appeared in the **
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use an App Service Environment v3](using.md)
+> [Use an App Service Environment v3 instance](using.md)
 
 > [!div class="nextstepaction"]
 > [App Service Environment v3 networking](networking.md)
