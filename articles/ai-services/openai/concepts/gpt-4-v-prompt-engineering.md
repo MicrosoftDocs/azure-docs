@@ -46,7 +46,7 @@ Context can help improve feedback from the model. For example, if you're working
 ### Task-oriented prompts
 Giving the model a specific task to follow is one way of sharpening the response. In this example, this prompt steers the model to concentrate on elements crucial for insurance assessments, thereby improving accuracy and relevancy.
 
-|<div style="width:500px">Basic prompt</div>|Model output|
+|Basic prompt|Model output|
 |--------|-----------|
 | :::image type="content" source="../media/concepts/gpt-v/car-crash.jpg" lightbox="../media/concepts/gpt-v/car-crash.jpg" alt-text="Photograph of a car crashed into a pole."::: What is in this image? | The image shows a silver sedan that has been in an accident. The front end of the car is damaged, with the hood crumpled, and the bumper partially detached. The car is resting against a utility pole on the sidewalk, and there is visible smoke coming from the engine area, indicating a recent crash. The setting appears to be a residential street, as indicated by the presence of houses in the background, a neatly trimmed hedge, and a sidewalk. |
 
