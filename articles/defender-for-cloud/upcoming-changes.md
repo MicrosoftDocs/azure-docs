@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/21/2024
+ms.date: 02/01/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Changes in endpoint protection recommendations](#changes-in-endpoint-protection-recommendations) | February 1, 2024 | February 28, 2024 |
 | [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
@@ -43,6 +44,34 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Changes in endpoint protection recommendations
+
+**Announcement date: February 1, 2024**
+
+**Estimated date of change: February 2024**
+
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), existing endpoint recommendations which rely on those agents, will be replaced with new recommendations. The new recommendations rely on [agentless machine scanning](concept-agentless-data-collection.md) which allows the recommendations to discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
+
+These public preview recommendations will be deprecated.
+
+| Recommendation | Agent | Deprecation date | Replacement recommendation |
+|--|--|--|--|
+| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | February 2024 | New agentless recommendations. |
+| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | February 2024 | New agentless recommendations. |
+
+The current generally available recommendations will remain supported until August 2024.
+
+As part of that deprecation, we’ll be introducing new agentless endpoint protection recommendations. These recommendations will be available in Defender for Servers Plan 2 and the Defender CSPM plan. They will support Azure and multicloud machines. On-premises machines are not supported.
+
+| Preliminary recommendation name | Estimated release date |
+|--|--|--|
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on EC2s | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | February 2024 |
 
 ## Change in pricing for multicloud container threat detection
 

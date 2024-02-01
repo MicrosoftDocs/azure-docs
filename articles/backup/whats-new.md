@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 12/25/2023
+ms.date: 02/01/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -20,6 +20,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 - January 2024
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
+  - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 - December 2023
   - [Vaulted backup and Cross Region Restore for support for AKS (preview)](#vaulted-backup-and-cross-region-restore-for-support-for-aks-preview)
 - November 2023
@@ -83,6 +84,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
 
+
 ## Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)
 
 Azure Backup and Azure Database Services provide a new backup solution for the MySQL - Flexible Servers that support retaining backups for up to **10 years**. This feature provides you with access to:
@@ -97,7 +99,11 @@ Azure Backup and Azure Database services together help you build an enterprise-c
 
 For more information, see [About Azure Database for MySQL - Flexible Server retention for long term (preview)](backup-azure-mysql-flexible-server-about.md).
 
+## Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available
 
+Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.
+
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup).
 
 ## Vaulted backup and Cross Region Restore for support for AKS (preview)
  
@@ -199,7 +205,7 @@ For more information, see [Save and manage MARS agent passphrase securely in Azu
 
 You can now restore data from the secondary region for MARS Agent backups using Cross Region Restore on Recovery Services vaults with Geo-redundant storage (GRS) replication. You can use this capability to do recovery drills from the secondary region for audit or compliance. If disasters cause partial or complete unavailability of the primary region, you can directly access the  backup data from the secondary region.
 
-For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview).
+For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore).
 
 ## SAP HANA System Replication database backup support is now generally available
 
@@ -213,7 +219,7 @@ For more information, see [Back up a HANA system with replication enabled](sap-h
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region.
 
-For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview).
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup).
 
 ## Microsoft Azure Backup Server v4 is now generally available
 
