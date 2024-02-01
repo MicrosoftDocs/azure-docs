@@ -62,6 +62,8 @@ landingContent:
         links:
           - text: Quota
             url: ./how-to/quota.md
+          - text: Dynamic quota
+            url: ./how-to/dynamic-quota.md
           - text: Provisioned Throughput Units (PTU)
             url: ./concepts/provisioned-throughput.md
           - text: Content filtering

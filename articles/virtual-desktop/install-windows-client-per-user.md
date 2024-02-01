@@ -9,7 +9,7 @@ ms.author: daknappe
 
 # Install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager
 
-You can install the [Remote Desktop client for Windows](./users/connect-windows.md) on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and administrators control updates. Per-user installation installs the application to a subfolder within the local AppData folder of each user's profile, enabling users to install updates with needing administrative rights.
+You can install the [Remote Desktop client for Windows](./users/connect-windows.md) on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and administrators control updates. Per-user installation installs the application to a subfolder within the local AppData folder of each user's profile, enabling users to install updates without needing administrative rights.
 
 When you install the client using `msiexec.exe`, per-system is the default method of client installation. You can use the parameters `ALLUSERS=2 MSIINSTALLPERUSER=1` with `msiexec` to install the client per-user, however if you're deploying the client with Intune or Configuration Manager, using `msiexec` directly to install the client causes it to be installed per-system, regardless of the parameters used. Wrapping the `msiexec` command in a PowerShell script enables the client to be successfully installed per-user.
 

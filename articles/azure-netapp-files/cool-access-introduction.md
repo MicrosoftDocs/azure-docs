@@ -45,12 +45,15 @@ Standard storage with cool access is supported for the following regions:
 * East Asia  
 * East US 2   
 * France Central
+* Germany West Central
 * North Central US 
 * North Europe  
 * Southeast Asia
 * Switzerland North 
 * Switzerland West 
+* Sweden Central
 * UAE North 
+* UK South
 * US Gov Arizona
 * US Gov Texas
 * US Gov Virginia 
