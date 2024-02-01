@@ -1,21 +1,19 @@
 ---
 title: Changes to behavior in PowerShell Desired State Configuration for machine configuration
 description: This article describes the platform used to deliver configuration changes to machines through Azure Policy.
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ---
 # Changes to behavior in PowerShell Desired State Configuration for machine configuration
 
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
-
 Before you begin, it's a good idea to read the overview of [machine configuration][01].
 
 [A video walk-through of this document is available][02].
 
-Machine configuration uses [Desired State Configuration (DSC)][03] version 3 to audit and configure
-machines. The DSC configuration defines the state that the machine should be in. There's many
-notable differences in how DSC is implemented in machine configuration.
+Machine configuration uses [PowerShell Desired State Configuration (PSDSC)][03] version 3 to audit
+and configure machines. The DSC configuration defines the state that the machine should be in.
+There's many notable differences in how DSC is implemented in machine configuration.
 
 ## Machine configuration uses PowerShell 7 cross platform
 
@@ -321,34 +319,30 @@ DSC versions, so don't try to manage the same settings.
 ## Next steps
 
 - Read the [machine configuration overview][01].
-- Set up a custom machine configuration package [development environment][18].
-- [Create a package artifact][07] for machine configuration.
-- [Test the package artifact][19] from your development environment.
+- [Develop a custom machine configuration package][07].
 - Use the `GuestConfiguration` module to [create an Azure Policy definition][20] for at-scale
   management of your environment.
 - [Assign your custom policy definition][21] using Azure portal.
 - Learn how to view [compliance details for machine configuration][22] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ./overview.md
+[01]: ../overview.md
 [02]: https://youtu.be/nYd55FiKpgs
 [03]: /powershell/dsc/overview
 [04]: https://github.com/Microsoft/PowerShell-DSC-for-Linux
 [05]: https://www.powershellgallery.com/packages/PSDesiredStateConfiguration
 [06]: /powershell/dsc/pull-server/partialConfigs
-[07]: ./how-to-create-package.md
-[08]: ../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell
+[07]: ../how-to/develop-custom-package/overview.md
+[08]: /azure/automation/automation-dsc-compile#compile-your-dsc-configuration-in-windows-powershell
 [09]: /powershell/dsc/managing-nodes/metaConfig#basic-settings
-[10]: assignments.md
-[11]: ./remediation-options.md#remediation-on-demand-applyandmonitor
+[10]: ../concepts/assignments.md
+[11]: ../concepts/remediation-options.md#remediation-on-demand-applyandmonitor
 [12]: https://github.com/Azure/azure-policy/blob/master/samples/GuestConfiguration/package-samples/resource-modules/SecureProtocolWebServer/DSCResources/SecureWebServer/SecureWebServer.psm1#L253
 [13]: /powershell/dsc/configurations/crossnodedependencies
 [14]: /powershell/dsc/configurations/reboot-a-node
 [15]: https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers
 [16]: /powershell/dsc/getting-started/wingettingstarted
 [17]: /powershell/dsc/getting-started/lnxgettingstarted
-[18]: ./how-to-set-up-authoring-environment.md
-[19]: ./how-to-test-package.md
-[20]: ./how-to-create-policy-definition.md
-[21]: ../policy/assign-policy-portal.md
-[22]: ../policy/how-to/determine-non-compliance.md
+[20]: ../how-to/create-policy-definition.md
+[21]: ../../policy/assign-policy-portal.md
+[22]: ../../policy/how-to/determine-non-compliance.md

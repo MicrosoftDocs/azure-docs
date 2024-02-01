@@ -1,12 +1,10 @@
 ---
-title: Azure Automanage machine configuration agent release notes
+title: Azure machine configuration agent release notes
 description: Details guest configuration agent release notes, issues, and frequently asked questions.
-ms.date: 04/18/2023
+ms.date:  02/01/2024
 ms.topic: conceptual
 ---
-# Azure Automanage machine configuration agent release notes
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
+# Azure machine configuration agent release notes
 
 ## About the machine configuration agent
 
@@ -86,11 +84,11 @@ az vm extension set \
 - Learn how to view [compliance details for machine configuration][09] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ../../azure-arc/servers/agent-release-notes.md
+[01]: /azure/azure-arc/servers/agent-release-notes
 [03]: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007
-[04]: ./how-to-set-up-authoring-environment.md
-[05]: ./how-to-create-package.md
-[06]: ./how-to-test-package.md
-[07]: ./how-to-create-policy-definition.md
-[08]: ../policy/assign-policy-portal.md
-[09]: ../policy/how-to/determine-non-compliance.md
+[04]: ../how-to/develop-custom-package/1-set-up-authoring-environment.md
+[05]: ../how-to/develop-custom-package/2-create-package.md
+[06]: ../how-to/develop-custom-package/3-test-package.md
+[07]: ../how-to/create-policy-definition.md
+[08]: ../../policy/assign-policy-portal.md
+[09]: ../../policy/how-to/determine-non-compliance.md

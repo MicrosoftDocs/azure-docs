@@ -1,12 +1,10 @@
 ---
 title: Understand machine configuration assignment resources
 description: Machine configuration creates extension resources named machine configuration assignments that map configurations to machines.
-ms.date: 08/10/2023
+ms.date: 02/01/2024
 ms.topic: conceptual
 ---
 # Understand machine configuration assignment resources
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 When an Azure Policy is assigned, if it's in the category `Guest Configuration` there's metadata
 included to describe a guest assignment.
@@ -116,22 +114,16 @@ $guestAssignment | Remove-AzResource
 
 ## Next steps
 
-- Read the [machine configuration overview][03].
-- Set up a custom machine configuration package [development environment][04].
-- [Create a package artifact][05] for machine configuration.
-- [Test the package artifact][06] from your development environment.
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][07] for at-scale
+- [Develop a custom machine configuration package][03].
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][04] for at-scale
   management of your environment.
-- [Assign your custom policy definition][08] using Azure portal.
-- Learn how to view [compliance details for machine configuration][09] policy assignments.
+- [Assign your custom policy definition][05] using Azure portal.
+- Learn how to view [compliance details for machine configuration][06] policy assignments.
 
 <!-- Reference link definitions -->
 [01]: https://youtu.be/DmCphySEB7A
-[02]: ../policy/how-to/get-compliance-data.md
-[03]: ./overview.md
-[04]: ./how-to-set-up-authoring-environment.md
-[05]: ./how-to-create-package.md
-[06]: ./how-to-test-package.md
-[07]: ./how-to-create-policy-definition.md
-[08]: ../policy/assign-policy-portal.md
-[09]: ../policy/how-to/determine-non-compliance.md
+[02]: ../../policy/how-to/get-compliance-data.md
+[03]: ../how-to/develop-custom-package/overview.md
+[04]: ../how-to/create-policy-definition.md
+[05]: ../../policy/assign-policy-portal.md
+[06]: ../../policy/how-to/determine-non-compliance.md
