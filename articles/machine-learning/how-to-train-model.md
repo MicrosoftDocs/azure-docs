@@ -136,7 +136,7 @@ When you train using the REST API, data and training scripts must be uploaded to
 ### 2. Create a compute resource for training
 
 > [!NOTE]
-> To try [serverless compute](./how-to-use-serverless-compute.md), skip this step and proceed to [ 4. Submit the training job](#4-submit-the-training-job).
+> To try [serverless compute](./how-to-use-serverless-compute.md), skip this step and proceed to [ 3. Submit the training job](#3-submit-the-training-job).
 
 An Azure Machine Learning compute cluster is a fully managed compute resource that can be used to run the training job. In the following examples, a compute cluster named `cpu-compute` is created.
 
@@ -181,7 +181,7 @@ curl -X PUT \
 
 ---
 
-### 4. Submit the training job
+### 3. Submit the training job
 
 # [Python SDK](#tab/python)
 

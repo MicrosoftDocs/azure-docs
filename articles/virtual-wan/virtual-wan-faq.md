@@ -433,6 +433,11 @@ No. Virtual WAN does not support ASN changes for VPN gateways.
 
 [!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
 
+### If I connect an ExpressRoute Local circuit to a Virtual WAN hub, will I only be able to access regions in the same metro location as the Local circuit? 
+
+Local circuits can only be connected to ExpressRoute gateways in their corresponding Azure region. However, there is no limitation to route traffic to spoke virtual networks in other regions. 
+
+
 ### <a name="update-router"></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
 
 > [!NOTE]
@@ -455,6 +460,8 @@ Additional things to note:
 * The user will need to have an **owner** or **contributor** role to see an accurate status of the hub router version. If a user is assigned a **reader** role to the Virtual WAN resource and subscription, the Azure portal displays to that user that the hub router needs to be upgraded to the latest version, even if the hub is already on the latest version. 
 
 * If you change your spoke virtual network's subscription status from disabled to enabled and then upgrade the virtual hub, you'll need to update your virtual network connection after the virtual hub upgrade (Ex: you can configure the virtual network connection to propagate to a dummy label).
+
+* If your hub is connected to a large number of spoke virtual networks (60 or more), then you may notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
 
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 

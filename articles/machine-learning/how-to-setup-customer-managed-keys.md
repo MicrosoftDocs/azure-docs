@@ -168,7 +168,7 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 ## Next steps
 
 * [Customer-managed keys with Azure Machine Learning](concept-customer-managed-keys.md)
-* [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
-* [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
-* [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
+* [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace)
+* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key)
+* [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace)
+* [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys)
