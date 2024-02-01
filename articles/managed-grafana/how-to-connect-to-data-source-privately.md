@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 01/22/2024
+ms.date: 01/31/2024
 --- 
 
 # Connect to a data source privately
@@ -18,17 +18,18 @@ A private endpoint connection is created in a "Pending" state when you create a 
 
 While managed private endpoints are free, there may be charges associated with private link usage on a data source. For more information, see your data source’s pricing details.
 
-## Supported Azure data sources
+## Supported data sources
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
 
-1.	Azure Monitor private link scope (for example, Log Analytics workspace)
-1.	Azure Monitor workspace, for Managed Service for Prometheus
-1.	Azure Data Explorer
 1.	Azure Cosmos DB for Mongo DB
 1.	Azure Cosmos DB for PostgreSQL
-1.	Azure SQL server
+1.	Azure Data Explorer
+1.	Azure Monitor private link scope (for example, Log Analytics workspace)
+1.	Azure Monitor workspace, for Managed Service for Prometheus
 1.	Azure SQL managed instance
+1.	Azure SQL server
+1. Private link services
 
 ## Prerequisites
 
@@ -41,8 +42,8 @@ To follow the steps in this guide, you must have:
 
 You can create a managed private endpoint in your Azure Managed Grafana workspace to connect to a [supported Azure data source](#supported-azure-data-sources) using a private link.
 
-1. In the Azure portal, navigate to your Grafana workspace and then select **Networking**.
-1. Select **Managed private endpoint**, and then select **Create**.
+1. In the Azure portal, navigate to your Grafana workspace and then select **Networking (Preview)**.
+1. Select **Managed Private Endpoint**, and then select **Create**.
 
    :::image type="content" source="media/managed-private-endpoint/create-mpe.png" alt-text="Screenshot of the Azure portal create managed private endpoint." lightbox="media/managed-private-endpoint/create-mpe.png":::
 
