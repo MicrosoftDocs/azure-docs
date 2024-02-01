@@ -286,7 +286,7 @@ For more information, see [Accelerated Networking overview](../virtual-network/a
 >
 > Use the Standard Load Balancer to provide greater reliability and resources, support for multiple availability zones, HTTP probes, and functionality across multiple data centers.
 
-In Azure, the [Standard Load Balancer](../load-balancer/skus.md#sku-comparison) SKU is designed to be equipped for load balancing network layer traffic when high performance and low latency are needed. The Standard Load Balancer routes traffic within and across regions and to availability zones for high resiliency. The Standard SKU is the recommended and default SKU to use when creating an AKS cluster.
+In Azure, the [Standard Load Balancer](../load-balancer/skus.md) SKU is designed to be equipped for load balancing network layer traffic when high performance and low latency are needed. The Standard Load Balancer routes traffic within and across regions and to availability zones for high resiliency. The Standard SKU is the recommended and default SKU to use when creating an AKS cluster.
 
 The following example shows a `LoadBalancer` service manifest that uses the Standard Load Balancer:
 
