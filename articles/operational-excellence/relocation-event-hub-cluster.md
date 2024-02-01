@@ -29,7 +29,7 @@ To get started, export a Resource Manager template. This template contains setti
 3. On the **Event Hubs Cluster** page, select **Export template** in the **Automation** section on the left menu. 
 4. Choose **Download** in the **Export template** page.
 
-    :::image type="content" source="../event-hubs/media/move-cluster-across-regions/download-template.png" alt-text="Download Resource Manager template" lightbox="./media/move-cluster-across-regions/download-template.png":::
+    :::image type="content" source="../event-hubs/media/move-cluster-across-regions/download-template.png" alt-text="Download Resource Manager template" lightbox="../event-hubs/media/move-cluster-across-regions/download-template.png":::
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
