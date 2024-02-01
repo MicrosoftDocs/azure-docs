@@ -15,6 +15,9 @@ ms.custom: mode-other
 
 # Tutorial: How to add Augmented Reality filters to your video calls
 
+> [!NOTE]
+DeepAR SDK is third-party software which is licensed under its own terms.  Microsoft does not make any representations or warranties concerning the use of third-party software.
+
 In some usage scenarios, you may want to apply some video processing to the original camera video, such as background blur or background replacement.
 This can provide a better user experience.
 The Azure Communication Calling video effects package provides several video processing functions. However, this is not the only choice.
