@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/01/2023
+ms.date: 01/23/2024
 ms.author: glenga
 ms.custom:
   - include file
@@ -67,7 +67,7 @@ The following table shows the language versions supported for Java functions. Se
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux) | Preview | September 2028 |
+| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux-only) | Preview | September 2028 |
 | [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
