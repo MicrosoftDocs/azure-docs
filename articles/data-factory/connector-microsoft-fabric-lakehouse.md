@@ -15,7 +15,7 @@ ms.date: 02/01/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more.  When writing data to Lakehouse Table, V-Order is enabled by default, and you can go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order) for more information.
+Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more. By default, data is written into Lakehouse Table in V-Order, and you can go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order) for more information.
 
 This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse and use Data Flow to transform data in Microsoft Fabric Lakehouse. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
@@ -471,7 +471,7 @@ To copy data to Microsoft Fabric Lakehouse using Microsoft Fabric Lakehouse Tabl
 | type                         | The **type** property of the Copy Activity source must be set to **LakehouseTableSink**. | Yes      |
 
 >[!Note]
-> V-Order is enabled by default when writing data to Lakehouse Table. For more information, go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order).
+> Data is written into Lakehouse Table in V-Order by default. For more information, go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order).
 
 **Example:**
 
