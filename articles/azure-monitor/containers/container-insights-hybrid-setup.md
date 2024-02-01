@@ -305,7 +305,7 @@ Supported API definitions for the Azure Stack Hub cluster can be found in the ex
 
 ## Configure agent data collection
 
-Starting with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. For more information on agent data collection settings, see [Configure agent data collection for Container insights](container-insights-agent-config.md).
+Starting with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. For more information on agent data collection settings, see [Configure agent data collection for Container insights](container-insights-data-collection-configmap.md).
 
 After you've successfully deployed the chart, you can review the data for your hybrid Kubernetes cluster in Container insights from the Azure portal.
 

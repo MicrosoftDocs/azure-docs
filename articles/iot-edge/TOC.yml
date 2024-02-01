@@ -204,13 +204,7 @@
     - name: Deploy Azure SQL Edge modules
       href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Manage with DevOps tools
-    items:
-    - name: Azure DevOps
-      items:
-      - name: YAML
-        href: how-to-continuous-integration-continuous-deployment.md
-      - name: Classic editor
-        href: how-to-continuous-integration-continuous-deployment-classic.md
+    href: how-to-continuous-integration-continuous-deployment.md
   - name: Troubleshoot
     items:
     - name: Diagnose IoT Edge devices

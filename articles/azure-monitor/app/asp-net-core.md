@@ -4,7 +4,7 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 11/15/2023
+ms.date: 01/31/2024
 ms.reviewer: mmcc
 ---
 # Application Insights for ASP.NET Core applications

@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 01/17/2024
 ms.author: rogarana
 ---
 
@@ -100,8 +100,6 @@ You can use snapshots of managed disks to create new elastic SAN volumes using t
 1. Select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
-
-The following command will create a 1 GiB
 
 ```azurepowershell
 New-AzElasticSanVolume -ElasticSanName $esname -ResourceGroupName $rgname -VolumeGroupName $vgname -Name $volname2 -CreationDataSourceId $snapshot.Id -SizeGiB 1

@@ -6,10 +6,14 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating a REST API within an Azure AD B2C user flow, I want to learn how to secure my REST API endpoint with authentication, so that only authorized services like Azure AD B2C can make calls to the endpoint.
+
 ---
 
 # Secure APIs used for API connectors in Azure AD B2C 

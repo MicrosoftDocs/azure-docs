@@ -1,14 +1,13 @@
 ### YamlMime:Landing
 
 title: Azure Resource Graph documentation
-summary: Explore all of your cloud resources and more effectively manage your cloud inventory
+summary: Explore all of your cloud resources and more effectively manage your cloud inventory.
 
 metadata:
   title: Azure Resource Graph documentation
-  description: Explore all of your cloud resources and more effectively manage your cloud inventory
+  description: Explore all of your cloud resources and more effectively manage your cloud inventory.
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.collection: collection
   author: davidsmatlak
   ms.author: davidsmatlak
   ms.date: 01/05/2024
@@ -39,22 +38,10 @@ landingContent:
             url: ./first-query-azurecli.md
           - text: First query (Azure PowerShell)
             url: ./first-query-powershell.md
-          - text: First query (.NET)
-            url: ./first-query-dotnet.md
-          - text: First query (Go)
-            url: ./first-query-go.md
-          - text: First query (Java)
-            url: ./first-query-java.md
-      - linkListType: quickstart
-        links:
-          - text: First query (JavaScript)
-            url: ./first-query-javascript.md
-          - text: First query (Python)
-            url: ./first-query-python.md
-          - text: First query (Ruby)
-            url: ./first-query-ruby.md
           - text: First query (REST)
             url: ./first-query-rest-api.md
+          - text: Create alert on ARG query
+            url: ./alerts-query-quickstart.md
           - text: Share queries (Portal)
             url: ./tutorials/create-share-query.md
       - linkListType: concept

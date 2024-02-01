@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # What are the comparisons between Azure CDN product features?
 
-Azure Content Delivery Network (CDN) includes four products:
+Azure Content Delivery Network (CDN) includes three products:
 
 * **Azure CDN Standard from Microsoft**
 * **Azure CDN Standard from Edgio (formerly Verizon)**

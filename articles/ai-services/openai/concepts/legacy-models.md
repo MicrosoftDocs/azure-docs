@@ -10,7 +10,6 @@ manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
 recommendations: false
-keywords: 
 ---
 
 # Azure OpenAI Service legacy models

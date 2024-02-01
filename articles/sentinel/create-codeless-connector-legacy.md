@@ -585,7 +585,7 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
 
     # [Connect via API](#tab/connect-via-api)
 
-    Use the [CONNECT](/rest/api/securityinsights/preview/data-connectors/connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
+    Use the CONNECT endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
 
     Use the following API attributes, depending on the [authType](#authtype) defined. For each `authType` parameter, all listed attributes are mandatory and are string values.
 
@@ -622,7 +622,7 @@ Use one of the following methods:
 
 - **Azure portal**: In your Microsoft Sentinel data connector page, select **Disconnect**.
 
-- **API**: Use the [DISCONNECT](/rest/api/securityinsights/preview/data-connectors/disconnect) API to send a PUT call with an empty body to the following URL:
+- **API**: Use the *DISCONNECT* API to send a PUT call with an empty body to the following URL:
 
     ```http
     https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
