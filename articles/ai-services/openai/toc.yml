@@ -72,6 +72,16 @@ items:
   items:
   - name: API version lifecycle
     href: ./api-version-deprecation.md
+  - name: Assistants (preview)
+    items:
+    - name: Getting started with Assistants
+      href: ./how-to/assistant.md
+    - name: Tools
+      items:
+      - name: Code Interpreter
+        href: ./how-to/code-interpreter.md
+      - name: Function calling
+        href: ./how-to/assistant-functions.md
   - name: Completions & chat completions
     items:
     - name: GPT-35-Turbo & GPT-4 

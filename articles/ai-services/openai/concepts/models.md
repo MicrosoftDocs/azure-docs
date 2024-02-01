@@ -178,6 +178,15 @@ These models can only be used with Embedding API requests.
 |  --- |  --- | :---: |
 | `whisper` | North Central US <br> West Europe | 25 MB |
 
+### Assistants (Preview)
+
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
+
+| Supported models | Supported Regions |
+|---|---|
+| gpt-35-turbo (all versions except instruct) | Sweden Central, East US 2, Australia East |
+| gpt-4 (all versions except GPT-4 Vision Preview) |  Sweden Central, East US 2, Australia East |
+
 ## Next steps
 
 - [Learn more about working with Azure OpenAI models](../how-to/working-with-models.md)
