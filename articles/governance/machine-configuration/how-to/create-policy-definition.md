@@ -1,12 +1,10 @@
 ---
 title: How to create custom machine configuration policy definitions
 description: Learn how to create a machine configuration policy.
-ms.date: 11/02/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ---
 # How to create custom machine configuration policy definitions
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01], and
 the details about machine configuration's [remediation options][02].
@@ -313,14 +311,14 @@ updated.
 - Learn how to view [compliance details for machine configuration][11] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ./overview.md
-[02]: ./remediation-options.md
-[03]: ./how-to-set-up-authoring-environment.md
-[04]: ./how-to-create-package.md
-[05]: ./how-to-test-package.md
-[06]: ../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account
-[07]: ../policy/overview.md
-[08]: ../policy/assign-policy-portal.md
-[09]: ../policy/assign-policy-azurecli.md
-[10]: ../policy/assign-policy-powershell.md
-[11]: ../policy/how-to/determine-non-compliance.md#compliance-details
+[01]: ../overview.md
+[02]: ../concepts/remediation-options.md
+[03]: ./develop-custom-package/1-set-up-authoring-environment.md
+[04]: ./develop-custom-package/2-create-package.md
+[05]: ./develop-custom-package/3-test-package.md
+[06]: /azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account
+[07]: ../../policy/overview.md
+[08]: ../../policy/assign-policy-portal.md
+[09]: ../../policy/assign-policy-azurecli.md
+[10]: ../../policy/assign-policy-powershell.md
+[11]: ../../policy/how-to/determine-non-compliance.md#compliance-details

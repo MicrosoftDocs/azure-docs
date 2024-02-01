@@ -1,12 +1,10 @@
 ---
 title: Remediation options for machine configuration
 description: Azure Policy's machine configuration feature offers options for continuous remediation or control using remediation tasks.
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ---
 # Remediation options for machine configuration
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
@@ -142,29 +140,24 @@ report on compliance status and allow drift or to automatically correct.
 
 ## Next steps
 
-- Read the [machine configuration overview][01].
-- Set up a custom machine configuration package [development environment][11].
-- [Create a package artifact][12] for machine configuration.
-- [Test the package artifact][13] from your development environment.
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][14] for at-scale
+- [Develop a custom machine configuration package][11].
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][12] for at-scale
   management of your environment.
-- [Assign your custom policy definition][15] using Azure portal.
-- Learn how to view [compliance details for machine configuration][16] policy assignments.
+- [Assign your custom policy definition][13] using Azure portal.
+- Learn how to view [compliance details for machine configuration][14] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ./overview.md
-[02]: ../policy/concepts/effects.md#deployifnotexists
-[03]: ../policy/concepts/effects.md#deployifnotexists-evaluation
+[01]: ../overview.md
+[02]: ../../policy/concepts/effects.md#deployifnotexists
+[03]: ../../policy/concepts/effects.md#deployifnotexists-evaluation
 [04]: https://youtu.be/rjAk1eNmDLk
 [05]: /rest/api/guestconfiguration/guest-configuration-assignments/get#assignmenttype
 [06]: /powershell/dsc/resources/get-test-set#test
 [07]: /powershell/dsc/resources/get-test-set#set
-[08]: ../policy/concepts/assignment-structure.md#enforcement-mode
-[09]: ../policy/how-to/remediate-resources.md
+[08]: ../../policy/concepts/assignment-structure.md#enforcement-mode
+[09]: ../../policy/how-to/remediate-resources.md
 [10]: /rest/api/guestconfiguration/guest-configuration-assignments/get#compliancestatus
-[11]: ./how-to-set-up-authoring-environment.md
-[12]: ./how-to-create-package.md
-[13]: ./how-to-test-package.md
-[14]: ./how-to-create-policy-definition.md
-[15]: ../policy/assign-policy-portal.md
-[16]: ../policy/how-to/determine-non-compliance.md
+[11]: ../how-to/develop-custom-package/overview.md
+[12]: ../how-to/create-policy-definition.md
+[13]: ../../policy/assign-policy-portal.md
+[14]: ../../policy/how-to/determine-non-compliance.md
