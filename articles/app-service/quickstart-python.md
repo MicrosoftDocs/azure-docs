@@ -51,7 +51,7 @@ To run the application locally:
 
 1. Create a virtual environment for the app:
 
-    [!INCLUDE [Virtual environment setup](./includes/quickstart-python/virtual-environment-setup.md>)]
+    [!INCLUDE [Virtual environment setup](./includes/quickstart-python/virtual-environment-setup.md)]
 
 1. Install the dependencies:
 
@@ -81,7 +81,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 1. Create a virtual environment for the app:
 
-    [!INCLUDE [Virtual environment setup](./includes/quickstart-python/virtual-environment-setup.md>)]
+    [!INCLUDE [Virtual environment setup](./includes/quickstart-python/virtual-environment-setup.md)]
 
 1. Install the dependencies:
 
