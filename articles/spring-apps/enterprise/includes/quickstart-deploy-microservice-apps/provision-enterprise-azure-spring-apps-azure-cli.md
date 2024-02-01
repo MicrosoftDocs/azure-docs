@@ -4,10 +4,10 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 01/19/2023
+ms.date: 02/01/2024
 ---
 
-<!-- 
+<!--
 To reuse the Spring Apps instance creation steps in other articles, a separate markdown file is used to describe how to provision enterprise Spring Apps instance with Azure CLI.
 
 [!INCLUDE [provision-enterprise-azure-spring-apps-azure-cli](provision-enterprise-azure-spring-apps-azure-cli.md)]
@@ -30,6 +30,8 @@ export GIT_CONFIG_REPO=default
 ```
 
 ### 3.2. Sign in to the Azure CLI
+
+Use the following steps to sign in:
 
 1. Use the following command to sign in to the Azure CLI:
 
@@ -108,14 +110,21 @@ Use the following steps to create the service instance:
        --enable-application-live-view
    ```
 
-### 3.6. Configure Azure Spring Apps instance
+### 3.6. Configure the Azure Spring Apps instance
+
+Use the following steps to configure the service instance:
 
 1. Use the following command to configure diagnostic settings for the Azure Spring Apps instance:
 
    ```azurecli
-   export SPRING_APPS_RESOURCE_ID=$(az spring show --name ${SPRING_APPS} --query id --output tsv)
-   az monitor diagnostic-settings create --name logs-and-metrics \
-       --resource ${SPRING_APPS_RESOURCE_ID} --workspace ${SPRING_APPS} \
+   export SPRING_APPS_RESOURCE_ID=$(az spring show \
+       --name ${SPRING_APPS} \
+       --query id \
+       --output tsv)
+   az monitor diagnostic-settings create \
+       --resource ${SPRING_APPS_RESOURCE_ID} \
+       --name logs-and-metrics \
+       --workspace ${SPRING_APPS} \
        --logs '[
          {
            "category": "ApplicationConsole",
@@ -175,19 +184,25 @@ Use the following steps to create the service instance:
 
    ```azurecli
    az spring application-configuration-service git repo add \
-     --service ${SPRING_APPS} \
-     --name ${GIT_CONFIG_REPO} \
-     --patterns application,api-gateway,customers-service,vets-service,visits-service \
-     --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
-     --label master
+       --service ${SPRING_APPS} \
+       --name ${GIT_CONFIG_REPO} \
+       --patterns application,api-gateway,customers-service,vets-service,visits-service \
+       --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
+       --label master
    ```
 
 1. Use the following commands to bind applications to the Application Configuration Service:
 
    ```azurecli
-   az spring application-configuration-service bind --service ${SPRING_APPS} --app ${APP_CUSTOMERS_SERVICE}
-   az spring application-configuration-service bind --service ${SPRING_APPS} --app ${APP_VETS_SERVICE}
-   az spring application-configuration-service bind --service ${SPRING_APPS} --app ${APP_VISITS_SERVICE}
+   az spring application-configuration-service bind \
+       --service ${SPRING_APPS} \
+       --app ${APP_CUSTOMERS_SERVICE}
+   az spring application-configuration-service bind \
+       --service ${SPRING_APPS} \
+       --app ${APP_VETS_SERVICE}
+   az spring application-configuration-service bind \
+       --service ${SPRING_APPS} \
+       --app ${APP_VISITS_SERVICE}
    ```
 
 1. Use the following command to assign an endpoint to Spring Cloud Gateway:
@@ -200,8 +215,10 @@ Use the following steps to create the service instance:
 
    ```azurecli
    az spring gateway route-config create \
-       --name ${APP_CUSTOMERS_SERVICE} --service ${SPRING_APPS} \
-       --app-name ${APP_CUSTOMERS_SERVICE} --routes-json '[
+       --service ${SPRING_APPS} \
+       --name ${APP_CUSTOMERS_SERVICE} \
+       --app-name ${APP_CUSTOMERS_SERVICE} \
+       --routes-json '[
          {
            "predicates": [
              "Path=/api/customer/**"
@@ -217,8 +234,10 @@ Use the following steps to create the service instance:
 
    ```azurecli
    az spring gateway route-config create \
-       --name ${APP_VETS_SERVICE} --service ${SPRING_APPS} \
-       --app-name ${APP_VETS_SERVICE} --routes-json '[
+       --service ${SPRING_APPS} \
+       --name ${APP_VETS_SERVICE} \
+       --app-name ${APP_VETS_SERVICE} \
+       --routes-json '[
          {
            "predicates": [
              "Path=/api/vet/**"
@@ -234,8 +253,10 @@ Use the following steps to create the service instance:
 
    ```azurecli
    az spring gateway route-config create \
-       --name ${APP_VISITS_SERVICE} --service ${SPRING_APPS} \
-       --app-name ${APP_VISITS_SERVICE} --routes-json '[
+       --service ${SPRING_APPS} \
+       --name ${APP_VISITS_SERVICE} \
+       --app-name ${APP_VISITS_SERVICE} \
+       --routes-json '[
          {
            "predicates": [
              "Path=/api/visit/**"
@@ -251,8 +272,10 @@ Use the following steps to create the service instance:
 
    ```azurecli
    az spring gateway route-config create \
-       --name ${APP_FRONTEND} --service ${SPRING_APPS} \
-       --app-name ${APP_FRONTEND} --routes-json '[
+       --service ${SPRING_APPS} \
+       --name ${APP_FRONTEND} \
+       --app-name ${APP_FRONTEND} \
+       --routes-json '[
          {
            "predicates": [
              "Path=/**"

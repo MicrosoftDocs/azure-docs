@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 01/19/2023
+ms.date: 02/01/2024
 ---
 
 <!--
@@ -135,7 +135,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
    ```
 
 ### [Azure CLI](#tab/Azure-CLI-ent)
-    
+
 [!INCLUDE [deploy-microservice-apps-azure-cli](deploy-microservice-apps-azure-cli.md)]
 
 ---

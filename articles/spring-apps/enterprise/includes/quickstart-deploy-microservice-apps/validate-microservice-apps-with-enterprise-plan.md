@@ -4,10 +4,10 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 01/19/2023
+ms.date: 02/01/2024
 ---
 
-<!-- 
+<!--
 To reuse the Spring Apps validation steps in other articles, a separate markdown file is used to describe how to validate enterprise Spring Apps instance.
 
 [!INCLUDE [validate-microservice-apps-with-enterprise-plan](validate-microservice-apps-with-enterprise-plan)]

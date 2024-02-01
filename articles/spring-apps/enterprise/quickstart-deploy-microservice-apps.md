@@ -152,9 +152,9 @@ The following sections describe how to validate the deployment.
 
 ### 5.1. Access the applications
 
-After the deployment finishes, you can find the Spring Cloud Gateway URL from the deployment outputs:
+After the deployment finishes, you can find the Spring Cloud Gateway URL from the deployment outputs, as shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png" alt-text="Diagram that shows the enterprise URL of the ARM deployment outputs." lightbox="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png" alt-text="Screenshot of the Azure portal that shows the Deployment Outputs page." lightbox="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png":::
 
 Open the gateway URL. The application should look similar to the following screenshot:
 
@@ -207,8 +207,10 @@ Open the Application Live View URL exposed by the Developer Tools to monitor app
 Use the following commands to retrieve the URL for Spring Cloud Gateway:
 
 ```azurecli
-export GATEWAY_URL=$(az spring gateway show --service ${SPRING_APPS} \
-    --query properties.url --output tsv)
+export GATEWAY_URL=$(az spring gateway show \
+    --service ${SPRING_APPS} \
+    --query properties.url \
+    --output tsv)
 echo "https://${GATEWAY_URL}"
 ```
 
@@ -231,8 +233,10 @@ Application Insights monitors the application dependencies, as shown by the foll
 Use the following commands to retrieve the URL for Application Live View:
 
 ```azurecli
-export DEV_TOOL_URL=$(az spring dev-tool show --service ${SPRING_APPS} \
-    --query properties.url --output tsv)
+export DEV_TOOL_URL=$(az spring dev-tool show \
+    --service ${SPRING_APPS} \
+    --query properties.url \
+    --output tsv)
 echo "https://${DEV_TOOL_URL}/app-live-view"
 ```
 
