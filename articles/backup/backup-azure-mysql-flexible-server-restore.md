@@ -17,7 +17,7 @@ Learn more about the [supported scenarios. considerations, and limitations](back
 
 To restore the database, follow these steps:
 
-1. Go to the *Backup vault* > **Backup Instances**.
+1. Go to the *Backup vault* > **Backup instances**.
 
 2. Select the **Azure database for MySQL - Flexible Server** > **Restore**.
 
@@ -29,7 +29,7 @@ To restore the database, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore-point.png" alt-text="Screenshot shows the selection of point-in-time recovery point." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore-point.png":::
 
-4. On the **Restore parameters** tab, choose the **Target storage account**, and then select **Validate** to check if the restore parameters and permissions are assigned for the restore operation.
+4. On the **Restore parameters** tab, choose the **Target Storage account**, and then select **Validate** to check if the restore parameters and permissions are assigned for the restore operation.
 
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore.png" alt-text="Screenshot shows the selection of restore parameters." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore.png":::

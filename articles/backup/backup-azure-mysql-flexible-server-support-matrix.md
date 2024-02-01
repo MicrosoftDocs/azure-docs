@@ -24,7 +24,7 @@ Long-term retention for Azure Database for MySQL - Flexible Server (preview) is 
 
 ## Limitations
 - Individual database- level granular selection is currently not supported.
-- The support for end-to-end MySQL - Flexible Server creation and database restoration by using Azure Backup is currently not available. 
+- The end-to-end creation and database restoration of MySQL - Flexible Server by using Azure Backup is currently not supported. 
 
 ## Next steps
 
