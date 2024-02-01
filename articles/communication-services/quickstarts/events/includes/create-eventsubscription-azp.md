@@ -10,8 +10,9 @@ ms.author: pgrandhi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - An [Azure Communication Services resource](../../create-communication-resource.md).
-- Register the [Event Grid Resource Provider](./register-event-grid-resource-provider.md).
-- Create a Webhook to receive events. [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md).
+- Create a Webhook to receive events. [Webhook Event Delivery](/azure/event-grid/webhook-event-delivery).
+
+[!INCLUDE [register-event-grid-resource-provider.md](register-event-grid-resource-provider.md)]
 
 ## Create Event Subscription
 
@@ -30,7 +31,7 @@ To create an Event subscription for Azure Communication Services resource, first
 1. 
     :::image type="content" source="../media/subscribe-through-portal/select-event-types.png" alt-text="Screenshot that shows the selection of event types." lightbox="../media/subscribe-through-portal/select-event-types.png":::
 
-For more information on Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md)
+For more information on Communication Services events, see [Communication Services Events](/azure/event-grid/event-schema-communication-services)
 
 1. Select the Endpoint Type as Web Hook.
 1. 
@@ -70,8 +71,6 @@ To update an Event subscription for Azure Communication Services resource, first
 
     :::image type="content" source="../media/subscribe-through-portal/update-event-types.png" alt-text="Screenshot that shows the selection of event types to update." lightbox="../media/subscribe-through-portal/update-event-types.png":::
 
-For more information on Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md)
-
 1. To enable dead lettering and customize retry policies, select **Additional Features**.
 
     :::image type="content" source="../media/subscribe-through-portal/select-additional-features.png" alt-text="Screenshot that shows the Additional features tab of the Update Event Subscription page." lightbox="../media/subscribe-through-portal/select-additional-features.png":::
@@ -98,7 +97,7 @@ To delete an Event subscription for Azure Communication Services resource, first
     :::image type="content" source="../media/subscribe-through-portal/delete-subscription.png" alt-text="Screenshot highlighting the delete event subscription button in the Azure portal." lightbox="../media/subscribe-through-portal/delete-subscription.png":::
 
 ## Next steps
-* For a list of Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md).
-* For a list of supported event handlers, see [Event handlers](../../../../../articles/event-grid/includes/event-handlers.md).
-* For information about event delivery and retries, [Event Grid message delivery and retry](../../../../../articles/event-grid/delivery-and-retry.md).
-* For an introduction to Event Grid, see [About Event Grid](../../../../../articles/event-grid/overview.md).
+* For a list of Communication Services events, see [Communication Services Events](/azure/event-grid/event-schema-communication-services).
+* For a list of supported event handlers, see [Event handlers](/azure/event-grid/event-handlers).
+* For information about event delivery and retries, [Event Grid message delivery and retry](/azure/event-grid/delivery-and-retry).
+* For an introduction to Event Grid, see [About Event Grid](/azure/event-grid/overview).

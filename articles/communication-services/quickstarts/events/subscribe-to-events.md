@@ -18,7 +18,7 @@ ms.devlang: azurecli
 
 This article describes how to subscribe to Azure Communication Services events through the portal, Azure CLI, PowerShell and .NET SDK. Communication Services resources event subscritptions can be provisioned through the [Azure portal](https://portal.azure.com) or with the Azure [EventGrid Management SDK](https://www.nuget.org/packages/Azure.ResourceManager.EventGrid/). 
 
-For this Quickstart, we will walk through the process of setting up webhook to subscribe to Azure Communication Services SMS events. For a full list of events, see this [page](../../../../articles/event-grid/event-schema-communication-services.md). 
+For this Quickstart, we will walk through the process of setting up webhook to subscribe to Azure Communication Services SMS events. For a full list of events, see this [page](/azure/event-grid/event-schema-communication-services). 
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-eventsubscription-azp.md)]
