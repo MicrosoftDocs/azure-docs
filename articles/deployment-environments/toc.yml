@@ -58,6 +58,8 @@ items:
       href: how-to-manage-environments.md
     - name: Create an environment from the CLI
       href: how-to-create-access-environments.md
+    - name: Deploy environments in CI/CD with GitHub
+      href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Manage costs
   expanded: false
   items:         
@@ -72,11 +74,6 @@ items:
       href: how-to-configure-deployment-environments-user.md   
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
-- name: Tutorials
-  expanded: false
-  items:
-    - name: Deploy environments in CI/CD with GitHub
-      href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Reference
   items:
     - name: Install Azure CLI extension
