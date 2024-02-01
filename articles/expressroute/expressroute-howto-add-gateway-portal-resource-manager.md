@@ -97,7 +97,7 @@ The steps for this tutorial use the values in the following configuration refere
 
 ## Enable or disable VNet to VNet or VNet to Virtual WAN traffic through ExpressRoute
 
-You can enable or disable VNet to VNet or VNet to WAN connectivity through ExpressRoute. By default, VNet to VNet or VNet to WAN traffic is disabled through ExpressRoute. Currently this option is only available for ExpressRoute virtual network gateways with ErGw1AZ, ErGw2AZ, and ErGw3AZ SKUs. You can enable this traffic by using the following steps:
+You can enable or disable VNet to VNet or VNet to WAN connectivity through ExpressRoute. By default, VNet to VNet or VNet to WAN traffic is disabled through ExpressRoute. You can enable this traffic by using the following steps.
 
 1. In the Azure portal, navigate to the ExpressRoute virtual network gateway.
 
@@ -106,6 +106,8 @@ You can enable or disable VNet to VNet or VNet to WAN connectivity through Expre
 1. In the **Configuration** section, select the checkbox for **Allow traffic from remote virtual networks**. You can also enable traffic from remote Virtual WAN networks by selecting the checkbox for **Allow traffic from remote Virtual WAN network**.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/allow-remote-virtual-network-wan.png" alt-text="Screenshot that shows how to enable VNet to VNet and VNet to WAN traffic.":::
+
+These steps will need to be completed on all virtual networks that need to communicate with each other through ExpressRoute.
 
 ## Clean up resources
 

@@ -29,7 +29,7 @@ ExpressRoute connectivity gets managed by a pair of Microsoft Enterprise Edge (M
 
 ## Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute
 
-By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet or-vnet-to-WAN-connectivity-through-expressroute).
+By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-WAN-connectivity-through-expressroute).
 
 ## Next steps
 
