@@ -156,18 +156,21 @@ The **Settings** section allows you to access and configure the following settin
 
 ### Authentication
 
-#### Access keys
+You have two options for authentication: access keys and Microsoft Entra Authentication.
+
+#### Access keys(#tab/access-keys)
 
 Select **Access keys** to view or regenerate the access keys for your cache. These keys are used by the clients connecting to your cache.
 
-:::image type="content" source="media/cache-configure/redis-cache-manage-keys.png" alt-text="Azure Cache for Redis Access Keys":::
+:::image type="content" source="media/cache-configure/redis-cache-manage-keys.png" alt-text="Screenshot showing Authentication selected in the Resource menu and access Keys in the working pane.":::
 
-#### (Preview) Microsoft Entra Authentication
+#### (Preview) Microsoft Entra Authentication(#tab/entra-id)
 
-Select **(Preview) Microsoft Entra Authentication** to .
+Select **(Preview) Microsoft Entra Authentication** to  a password-free authentication mechanism by integrating with Microsoft Entra ID. This integration also includes role-based access control functionality provided through access control lists (ACLs) supported in open source Redis.
 
-<!-- get an image  -->
+:::image type="content" source="media/cache-configure/cache-microsoft-entra.png" alt-text="Screenshot showing Authentication selected in the Resource menu and Microsoft Entra ID in the working pane.":::
 
+--- 
 ### Advanced settings
 
 The following settings are configured on the **Advanced settings** on the left.
