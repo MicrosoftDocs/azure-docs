@@ -26,12 +26,11 @@ This article describes the process of changing replication setting(s) for an exi
 
 ## Options for changing the replication type
 
-Four aspects of the redundancy configuration of a storage account determine how your data is replicated and accessible:
+When deciding which redundancy configuration is best for your scenario, consider the tradeoffs between lower costs and higher availability. The factors that help determine which redundancy configuration you should choose include:
 
-- **Local redundancy** - your data is always replicated three times within the local or primary region (LRS)
-- **Zone redundancy** - whether your data is replicated between different zones within the primary region (LRS vs. ZRS)
-- **Geo-redundancy** - replication within a single "local" region or between a primary and a secondary region (LRS vs. GRS)
-- **Read access (RA)** - read access to the secondary region when geo-redundancy is used (GRS vs. RA-GRS)
+- **How your data is replicated within the primary region.** Data in the primary region can be replicated locally using [locally redundant storage (LRS)](storage-redundancy.md#locally-redundant-storage), or across Azure availability zones using [zone-redundant storage (ZRS)](storage-redundancy.md#zone-redundant-storage).
+- **Whether your data is geo-replicated.** Geo-replication provides protection against regional disasters by replicating your data to a second region that is geographically distant to the primary region. Geo-replicated configurations include [geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) and [geo-zone-redundant storage (GZRS)](storage-redundancy.md#geo-zone-redundant-storage).
+- **Whether your application requires read access to the replicated data in the secondary region.** You can configure your storage account to allow read access to data replicated to the secondary region if the primary region becomes unavailable for any reason. Configurations that provide [read access to data in the secondary region](storage-redundancy.md#read-access-to-data-in-the-secondary-region) include read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS).
 
 For a detailed overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -160,17 +159,17 @@ During a conversion, there's [no data loss or application downtime required](#do
 There are two ways to initiate a conversion:
 
 - [Customer-initiated](#customer-initiated-conversion)
-- [Support-requested](#support-requested-conversion)
+- [support-initiated](#support-initiated-conversion)
 
 > [!TIP]
-> Microsoft recommends you use customer-initiated conversion instead of support-requested conversion when possible. With customer-initiated conversion you can start and monitor the progress of the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
+> Microsoft recommends you use customer-initiated conversion instead of support-initiated conversion when possible. With customer-initiated conversion you can start and monitor the progress of the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
 
 #### Customer-initiated conversion
 
-Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start and monitor the progress of the conversion directly from the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually **begin**, but potential delays related to opening and managing a support request are eliminated.
+Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start and monitor the progress of the conversion directly from the Azure portal. Once initiated, the conversion could still take up to 72 hours to begin, but potential delays related to opening and managing a support request are eliminated.
 
 > [!IMPORTANT]
-> A customer-initiated conversion could take up to 72 hours to actually **begin** after you initiate it.
+> A customer-initiated conversion could take up to 72 hours to begin after you initiate it.
 >
 > There is no SLA for completion of a customer-initiated conversion.
 >
@@ -191,10 +190,10 @@ As the conversion request is evaluated and processed, the status should progress
 | Status                                         | Explanation                                                                          |
 |------------------------------------------------|--------------------------------------------------------------------------------------|
 | Submitted for conversion                       | The conversion request was successfully submitted for processing.                    |
-| In Progress<sup>1</sup>                        | The actual conversion is in progress.                                                |
+| In Progress<sup>1</sup>                        | The conversion is in progress.                                                |
 | Completed<br>**- or -**</br>Failed<sup>2</sup> | The conversion is completed successfully.<br>**- or -**</br>The conversion failed.                 |
 
-<sup>1</sup> Once initiated, the conversion could take up to 72 hours to actually **begin**. If the conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
+<sup>1</sup> Once initiated, the conversion could take up to 72 hours to begin. If the conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
 <sup>2</sup> If the conversion fails, submit a support request to Microsoft to determine the reason for the failure.<br />
 
 > [!NOTE]
@@ -202,7 +201,7 @@ As the conversion request is evaluated and processed, the status should progress
 >
 > Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
-#### Support-requested conversion
+#### support-initiated conversion
 
 Customers can still request a conversion by opening a support request with Microsoft.
 
@@ -310,7 +309,7 @@ The following table provides an overview of redundancy options available for sto
 | Standard general purpose v1 | &#x2705;     |              |    <sup>3</sup>         |                           | &#x2705;                  |
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |
 
-<sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-requested-conversion); [Customer-initiated conversion](#customer-initiated-conversion) isn't currently supported.<br />
+<sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-initiated-conversion); [Customer-initiated conversion](#customer-initiated-conversion) isn't currently supported.<br />
 <sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](../../virtual-machines/disks-redundancy.md#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](../../virtual-machines/disks-convert-types.md). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Migrate your managed disks](../../reliability/migrate-vm.md#migrate-your-managed-disks). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
@@ -389,7 +388,7 @@ If you choose to perform a manual migration, downtime is required but you have m
 
 ## Timing and frequency
 
-If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to actually **begin**. It could take longer to start if you [request a conversion by opening a support request](#support-requested-conversion). If a customer-initiated conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
+If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to begin. It could take longer to start if you [request a conversion by opening a support request](#support-initiated-conversion). If a customer-initiated conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
 
 > [!IMPORTANT]
 > There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
