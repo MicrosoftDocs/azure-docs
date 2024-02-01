@@ -33,7 +33,7 @@ sections:
 
            - There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs.
 
-           - There are no breaking changes to application programming interfaces (APIs) or SDKs. Starting from 2023-10-31-preview, API and SDKs will be renamed to "documentintelligence".
+           - There are no breaking changes to application programming interfaces (APIs) or SDKs. REST APIs and SDKs, 2023-10-31-preview and later, will be renamed ```document intelligence```.
 
            - Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
@@ -49,7 +49,7 @@ sections:
           How is Document Intelligence related to Retrieval Augmented Generation (RAG)?
         answer: |
 
-          Semantic chunking is a key step in RAG to ensure its efficient storage and retrieval. The Document Intelligence [Layout model](concept-layout.md) offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural elements to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on provided building blocks. Check for more details in this [article](concept-retrieval-augumented-generation.md).
+          Semantic chunking is a key step in RAG to ensure its efficient storage and retrieval. The Document Intelligence [Layout model](concept-layout.md) offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural elements to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on provided building blocks. Check for more details in [Retrieval Augmented Generation](concept-retrieval-augumented-generation.md).
 
 
       - question: |
@@ -212,13 +212,14 @@ sections:
           Where can I find the supported API version for the latest programming language SDKs?
         answer:   |
 
-          This table provides links to the latest SDK versions and shows the relationship between supported Document Intelligence SDK and API versions: 
-            | Supported Language | Azure SDK reference|Supported API version|
-            | ----- | -----|-----|
-            | C#/.NET| [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
-            | Java | [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)| [**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
-            | JavaScript | [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)|[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
-            | Python | [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) |[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+          This table provides links to the latest SDK versions and shows the relationship between supported Document Intelligence SDK and API versions:
+
+            | Supported Language Azure SDK reference|Supported API versions|
+            | ----- | -----|
+            | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[**2023-10-31-preview**](https://learn.microsoft.com/rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP&branch=main)<br>[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+
+          For more information, *see* [Supported clients](sdk-overview-v4-0.md#supported-clients)
+
 
            For more information, *see* [Supported clients](sdk-overview-v3-1.md#supported-clients)
 
@@ -284,7 +285,7 @@ sections:
 
           - When analyzing Microsoft Word and HTML files supported by the Read and Layout model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, the two pages with 3,000 characters each and one page with 1,000 characters adds up to a total of three pages.
 
-          - When using the Read or Layout model to analyze Microsoft Word, Excel, PowerPoint and HTML files, embedded or linked images are not supported. So they will not be counted as additional images for chargeing.
+          - When using the Read or Layout model to analyze Microsoft Word, Excel, PowerPoint and HTML files, embedded or linked images aren't supported. So they aren't counted as added images.
 
           - Training a custom model is always free with Document Intelligence. You’re only charged when a model is used to analyze a document.
 
@@ -370,11 +371,11 @@ sections:
         answer: |
            With the [Model Compose](how-to-guides/compose-custom-models.md?view=doc-intel-2.1.0&preserve-view=true#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
 
-           - When you make the Analyze request with a composed modelID, Document Intelligence classifies the submitted form, chooses the best model, and returns the results.
+           - When you make the ```Analyze Document``` request with a composed modelID, Document Intelligence classifies the submitted form, chooses the best model, and returns the results.
 
            - Model Compose is currently available only for custom models trained with labels.
 
-           - Analyzing a document with composed models is identical to analyzing a document with a single model, the Analyze result returns a ```docType``` property indicating which of the component models was selected for analyzing the document. There's no change in pricing for analyzing a document with an individual custom model or a composed custom model.
+           - Analyzing a document with composed models is identical to analyzing a document with a single model, the ```Analyze Document``` result returns a ```docType``` property indicating which of the component models was selected for analyzing the document. There's no change in pricing for analyzing a document with an individual custom model or a composed custom model.
 
            Learn more about [composed models](concept-custom.md).
 
@@ -430,7 +431,7 @@ sections:
       - question: |
           Why was I charged for Layout when running custom training?
         answer: |
-          Layout is required to generate lables for your dataset. If the data set you run custom training on does not have label files available, they will be auto-generated for you. 
+          Layout is required to generate labels for your dataset. If the data set you run custom training on doesn't have label files available, they're autogenerated for you.
 
   - name: Storage account
     questions:
@@ -459,7 +460,7 @@ sections:
 
           - You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a **Reader** role to access Document Intelligence Studio.
 
-          - For **document analysis and prebuilt models**, you need full access—**Cognitive Services User** role—to at least one [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
+          - For **document analysis and prebuilt models**, you need full access—**Cognitive Services User** role—to at least one [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
 
           - For **custom models**, you can either use a **Cognitive Services User** role, or use the endpoint and key of a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Storage Blob Data Contributor** role to access to at least one blob storage account.
 
@@ -483,13 +484,14 @@ sections:
           Why am I receiving a Storage error on Project Sharing, Auto Label, or OCR Upgrade when my Storage Account resource is configured with a firewall or virtual network?
         answer: |
 
-          Please refer to [Managed identities for Document Intelligence](managed-identities.md) to set up up your Azure resources.
+          Refer to [Managed identities for Document Intelligence](managed-identities.md) to set up your Azure resources.
 
       - question: |
           Why am I receiving 'Access denied due to Virtual Network/Firewall rules' on Auto Label or OCR Upgrading when my Document Intelligence resource is configured with a firewall or virtual network?
         answer: |
 
-          Add our website IP address, 20.3.165.95, to the firewall allowlist for Document Intelligence resource. This is Document Intelligence Studio's dedicated IP address and can be safely allowed.
+          Our website dedicated IP address, 20.3.165.95, can be safely added to the firewall allowlist for your Document Intelligence resource.
+
 
       - question: |
           Can I reuse or customize the labeling experience from Studio and build it into my own application?
