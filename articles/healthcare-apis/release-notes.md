@@ -291,7 +291,7 @@ General availability (GA) of Azure Health Data services in Japan East region.
 **Introduction of _till parameters and throughput improvement by 50x**
 
 _till parameter is introduced as optional parameter and allows you to export resources that have been modified until the specified time. 
-This feature improvement is applicable to System export, for more information on export, see [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html)
+This feature improvement is applicable to System export, for more information on export, see [FHIR specification](https://www.hl7.org/fhir/)
 
 Also see [Export your FHIR data by invoking the $export command on the FHIR service](./../healthcare-apis/fhir/export-data.md)
 
