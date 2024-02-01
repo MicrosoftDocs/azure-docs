@@ -23,7 +23,7 @@ You can deploy workloads that advertise external service IP addresses to PE devi
 
 ## Tenant Networking Use Cases
 
-AON is a platform that enables different types of communication between workloads:
+Nexus is a platform that enables different types of communication between workloads:
 
 -   East-West Communication: communication between workloads within the same AON instance, such as inter-k8s cluster communication for a 5G control plane.
 
