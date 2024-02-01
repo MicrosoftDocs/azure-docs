@@ -29,9 +29,9 @@ The table in this article provides detailed information about the availability o
 Currently, APC can be deployed in the following Azure regions:
 
 
-Brazil South  
-East US  
-Germany West Central  
+- Brazil South  
+- East US  
+- Germany West Central  
 
 ## Next steps
 * For more information about Azure Programmable Connectivity, see the [Overview](azure-programmable-connectivity-overview.md).
