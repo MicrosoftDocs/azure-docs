@@ -19,7 +19,6 @@ For documentation specific to the other solutions offered by Flash, choose from 
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
-* [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
 
 ## Azure Resource Graph - HealthResources
 
@@ -137,4 +136,5 @@ To learn more about the solutions offered, proceed to corresponding solution art
 * [Use Event Grid system topics to monitor Azure Virtual Machine availability](flash-event-grid-system-topic.md)
 * [Use Azure Monitor to monitor Azure Virtual Machine availability](flash-azure-monitor.md)
 * [Use Azure Resource Health to monitor Azure Virtual Machine availability](flash-azure-resource-health.md)
-* [Facilitate holistic Azure Virtual Machine availability monitoring](flash-holistic-monitoring.md)
+
+For a general overview of how to monitor Azure Virtual Machines, see [Monitor Azure virtual machines](monitor-vm.md) and the [Monitoring Azure virtual machines reference](monitor-vm-reference.md).

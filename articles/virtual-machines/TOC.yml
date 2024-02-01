@@ -1960,8 +1960,6 @@
       href: flash-azure-monitor.md
     - name: Use Azure Resource Health
       href: flash-azure-resource-health.md
-    - name: Facilitate holistic monitoring
-      href: flash-holistic-monitoring.md
   - name: Analyze availability
     href: resource-graph-availability.md
   - name: VM usage
