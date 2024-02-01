@@ -35,6 +35,8 @@ Configuring Resource Health alerts for an ARO cluster requires an alert rule. Al
 
 1. Select **Resource health**, then select **Add resource health alert**.
 
+    :::image type="content" source="media/howto-monitor-alerts/resource-health.png" alt-text="Screenshot showing Resource health window with Add resource health alert button highlighted.":::
+
 1. Enter all applicable parameters for the alert rule in the various tabs of the window, including an **Alert rule name** in the **Details** tab.
   
 1. Select **Review + Create**.

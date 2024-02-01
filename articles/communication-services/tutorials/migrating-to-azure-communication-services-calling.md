@@ -80,7 +80,7 @@ Azure Communication Services offers various call types. The type of call you cho
 
 ## Installation
 
-### Install the Azure Communication Services calling SDK
+### Install the Azure Communication Services Calling SDK
 
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 ```console
@@ -198,7 +198,7 @@ Call creation and start are synchronous. The `call` instance enables you to subs
 call.on('stateChanged', async () =\> {  console.log(\`Call state changed: \${call.state}\`) });
 ```
 
-### Azure Communication Services 1:1 Call
+#### 1:1 Call
 
 To call another Azure Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../quickstarts/identity/access-tokens.md).
 ```javascript
@@ -206,7 +206,7 @@ const userCallee = { communicationUserId: '\<Azure_Communication_Services_USER_I
 const oneToOneCall = callAgent.startCall([userCallee]);
 ```
 
-### Azure Communication Services Room Call
+#### Rooms Call
 
 To join a `Room` call, you can instantiate a context object with the `roomId` property as the room identifier. To join the call, use the `join` method and pass the context instance.
 ```javascript
@@ -215,7 +215,7 @@ const call = callAgent.join(context);
 ```
 A **Room** offers application developers better control over who can join a call, when they meet and how they collaborate. To learn more about **Rooms**, see the [Rooms overview](../concepts/rooms/room-concept.md), or see [Quickstart: Join a room call](../quickstarts/rooms/join-rooms-call.md).
 
-### Azure Communication Services Group Call
+#### Group Call
 
 To start a new group call or join an ongoing group call, use the `join` method and pass an object with a `groupId` property. The `groupId` value must be a GUID.
 ```javascript
@@ -223,7 +223,7 @@ const context = { groupId: '\<GUID\>'};
 const call = callAgent.join(context);
 ```
 
-### Azure Communication Services Teams call
+#### Teams call
 
 Start a synchronous one-to-one or group call using the `startCall` API on `teamsCallAgent`. You can provide `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as a parameter to define the target of the call. The method returns the `TeamsCall` instance that allows you to subscribe to call events.
 ```javascript
@@ -297,7 +297,7 @@ callAgent.on('callsUpdated', (event) => {
 
 For Azure Communication Services Teams implementation, see how to [Receive a Teams Incoming Call](../how-tos/cte-calling-sdk/manage-calls.md#receive-a-teams-incoming-call).
 
-## Adding participants to call
+## Adding and removing participants to a call
 
 ### Twilio
 
@@ -363,11 +363,11 @@ remoteParticipant.on('stateChanged', () => {
 });
 ```
 
-## Video
+## Video calling
 
-### Starting and stopping video
+## Starting and stopping video
 
-#### Twilio
+### Twilio
 
 ```javascript
 const videoTrack = await twilioVideo.createLocalVideoTrack({ constraints }); 
@@ -399,7 +399,7 @@ localParticipant.unpublishTrack(videoTrack);
 
 Then create a new Video Track with the correct constraints.
 
-#### Azure Communication Services
+### Azure Communication Services
 To start a video while on a call, you need to enumerate cameras using the `getCameras` method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` with the desired camera and pass the `LocalVideoStream` object into the `startVideo` method of an existing call object:
 
 ```javascript
@@ -592,13 +592,13 @@ await blurProcessor.loadModel();
 ```
 
 As soon as the model is loaded, you can add the background to the video track using the `addProcessor` method:
-
-| videoTrack.addProcessor(processor, {  inputFrameBufferType: 'video',  outputFrameBufferContextType: 'webgl2' }); |
-|------------------------------------------------------------------------------------------------------------------|
+```javascript
+videoTrack.addProcessor(processor, {  inputFrameBufferType: 'video',  outputFrameBufferContextType: 'webgl2' });
+```
 
 #### Azure Communication Services
 
-Use the npm install command to install the Azure Communication Services Effects SDK for JavaScript.
+Use the npm install command to install the [Azure Communication Services Effects SDK](../quickstarts/voice-video-calling/get-started-video-effects.md?pivots=platform-web) for JavaScript.
 ```console
 npm install @azure/communication-calling-effects --save
 ```
@@ -1060,7 +1060,7 @@ You can learn more about ensuring precall readiness in [Pre-Call diagnostics](..
 
 ## Event listeners
 
-Twilio
+### Twilio
 
 ```javascript
 twilioRoom.on('participantConneted', (participant) => { 

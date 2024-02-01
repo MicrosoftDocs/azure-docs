@@ -25,7 +25,7 @@ You can break file locks for all files in a volume or break all file locks initi
 
 1. Select **Break File Locks**.
 
-    :::image type="content" source="../media/azure-netapp-files/break-file-locks.png" alt-text="Screenshot of break file locks portal." lightbox="../media/azure-netapp-files/break-file-locks.png":::
+    :::image type="content" source="./media/troubleshoot-file-locks/break-file-locks.png" alt-text="Screenshot of break file locks portal." lightbox="./media/troubleshoot-file-locks/break-file-locks.png":::
 
 1. Confirm you understand that breaking file locks may be disruptive.
 

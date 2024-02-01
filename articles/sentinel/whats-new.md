@@ -23,6 +23,9 @@ The listed features were released in the last three months. For information abou
 
 ## February 2024
 
+- [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
+- [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
 ### AWS and GCP data connectors now support Azure Government clouds
 
 Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
@@ -31,6 +34,12 @@ The configurations for these connectors for Azure Government customers differs s
 
 - [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
 - [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)
+
+### Windows DNS Events via AMA connector now generally available (GA)
+
+Windows DNS events can now be ingested to Microsoft Sentinel using the Azure Monitor Agent with the now generally available data connector. This connector allows you to define Data Collection Rules (DCRs) and powerful, complex filters so that you ingest only the specific DNS records and fields you need.
+
+- For more information, see [Stream and filter data from Windows DNS servers with the AMA connector](connect-dns-ama.md).
 
 ## January 2024
 
