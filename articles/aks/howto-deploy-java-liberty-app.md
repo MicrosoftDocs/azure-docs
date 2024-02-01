@@ -57,23 +57,23 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
    1. Create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
    1. Select *East US* as **Region**.
    
-   Create environment variables in your shell for the resource group names for the cluster and the database.
-
-   ### [Bash](#tab/in-bash)
-
-   ```bash
-   export RESOURCE_GROUP_NAME=<your-resource-group-name>
-   export DB_RESOURCE_GROUP_NAME=<your-resource-group-name>
-   ```
-
-   ### [PowerShell](#tab/in-powershell)
-
-   ```powershell
-   $Env:RESOURCE_GROUP_NAME="<your-resource-group-name>"
-   $Env:DB_RESOURCE_GROUP_NAME="<your-resource-group-name>"
-   ```
-
-   ---
+    Create environment variables in your shell for the resource group names for the cluster and the database.
+ 
+    ### [Bash](#tab/in-bash)
+ 
+    ```bash
+    export RESOURCE_GROUP_NAME=<your-resource-group-name>
+    export DB_RESOURCE_GROUP_NAME=<your-resource-group-name>
+    ```
+ 
+    ### [PowerShell](#tab/in-powershell)
+ 
+    ```powershell
+    $Env:RESOURCE_GROUP_NAME="<your-resource-group-name>"
+    $Env:DB_RESOURCE_GROUP_NAME="<your-resource-group-name>"
+    ```
+ 
+    ---
 
 1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. The remaining values do not need to be changed from their default values.
 
