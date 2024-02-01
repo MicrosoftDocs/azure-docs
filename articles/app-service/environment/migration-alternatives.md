@@ -39,7 +39,7 @@ Multiple App Service Environments can't exist in a single subnet. If you need to
 
 ## Size and scale the environment
 
-App Service Environment v3 uses Isolated v2 Azure App Service plans. Review the [pricing details](https://azure.microsoft.com/pricing/details/app-service/windows/) to understand how you're new environment needs to be sized and scaled to ensure appropriate capacity. There's no difference in how you create App Service plans for App Service Environment v3 compared to previous versions.
+App Service Environment v3 uses Isolated v2 Azure App Service plans that are priced and sized differently from Isolated plans. Review the [pricing details](https://azure.microsoft.com/pricing/details/app-service/windows/) to understand how you're new environment needs to be sized and scaled to ensure appropriate capacity. There's no difference in how you create App Service plans for App Service Environment v3 compared to previous versions.
 
 ## Evaluate backup and restore
 
@@ -79,7 +79,7 @@ To clone an app using the Azure portal:
    1. For **Region**, use your App Service Environment v3 name.
    1. If you want to clone your deployment source, select the **Clone deployment source** checkbox.
    1. For **Windows Plan**, you can use an existing App Service plan from your new environment if you created one already, or you can create a new one. The available App Service plans in your new App Service Environment v3 instance appear in the dropdown list.
-   1. For **Sku and size**, modify the memory and CPU as needed by using one of the Isolated v2 options if you're creating a new App Service plan. App Service Environment v3 uses Isolated v2 plans, which have more memory and CPU per corresponding instance size compared to the Isolated plan. For more information, see the [App Service Environment v3 pricing details](overview.md#pricing).
+   1. For **Sku and size**, modify the memory and CPU as needed by using one of the Isolated v2 options if you're creating a new App Service plan. App Service Environment v3 uses Isolated v2 plans, which have more memory and CPU per corresponding instance size compared to the Isolated plans. For more information, see the [App Service Environment v3 pricing details](overview.md#pricing).
 
 :::image type="content" source="./media/migration/portal-clone-sample.png" alt-text="Screenshot that shows options for cloning an app to App Service Environment v3 by using the portal.":::
 

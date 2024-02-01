@@ -14,7 +14,7 @@ zone_pivot_groups: app-service-cli-portal
 You can automatically migrate App Service Environment v1 and v2 to [App Service Environment v3](overview.md) by using the migration feature. To learn more about the migration process and to see if your App Service Environment supports migration at this time, see the [overview of the migration feature](migrate.md).
 
 > [!IMPORTANT]
-> We recommend that you use this feature for development environments before migrating any production environments to avoid unexpected problems. Please provide any feedback related to this article or the feature by using the buttons at the bottom of the page.
+> We recommend that you use this feature for development environments before migrating any production environments, to avoid unexpected problems. Please provide any feedback related to this article or the feature by using the buttons at the bottom of the page.
 
 ## Prerequisites
 
@@ -22,17 +22,17 @@ Ensure that you understand how migrating to App Service Environment v3 affects y
 
 Ensure that there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration.
 
-Ensure that no Azure policies are blocking actions required for the migration, including subnet modifications and Azure App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
+Ensure that no Azure policies are blocking actions that are required for the migration, including subnet modifications and Azure App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
 
 ::: zone pivot="experience-azcli"
 
-We recommend that you use the [Azure portal](how-to-migrate.md?pivots=experience-azp) for the migration experience. If you decide to use the Azure CLI for the migration, follow the steps described here in order and as written, because you're making Azure REST API calls. We recommend that you use the [Azure CLI](/cli/azure/) to make these API calls. For information about other methods, see [Azure REST API reference](/rest/api/azure/).
+We recommend that you use the [Azure portal](how-to-migrate.md?pivots=experience-azp) for the migration experience. If you decide to use the [Azure CLI](/cli/azure/) for the migration, follow the steps described here in order and as written, because you're making Azure REST API calls. We recommend that you use the Azure CLI to make these API calls. For information about other methods, see [Azure REST API reference](/rest/api/azure/).
 
 For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/).
 
 ## 1. Get your App Service Environment ID
 
-Run the following commands to get your App Service Environment ID and store it as an environment variable. Replace the placeholders for name and resource groups with your values for the App Service Environment that you want to migrate. `ASE_RG` and `VNET_RG` are the same if your virtual network and App Service Environment are in the same resource group.
+Run the following commands to get your App Service Environment ID and store it as an environment variable. Replace the placeholders for the name and resource groups with your values for the App Service Environment that you want to migrate. `ASE_RG` and `VNET_RG` are the same if your virtual network and App Service Environment are in the same resource group.
 
 ```azurecli
 ASE_NAME=<Your-App-Service-Environment-name>
@@ -43,7 +43,7 @@ ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --quer
 
 ## 2. Validate that migration is supported
 
-The following command checks whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages you can get. If your environment [isn't supported for migration](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
+The following command checks whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages that you can get. If your environment [isn't supported for migration](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
@@ -73,11 +73,13 @@ az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2021
 
 ## 4. Update dependent resources with new IPs
 
-By using the new IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is complete. It's your responsibility to make any necessary updates. This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3. These changes include the port change for Azure Load Balancer, which now uses port 80. Don't migrate until you complete this step.
+By using the new IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is complete. It's your responsibility to make any necessary updates.
+
+This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3. These changes include the port change for Azure Load Balancer, which now uses port 80. Don't migrate until you complete this step.
 
 ## 5. Delegate your App Service Environment subnet
 
-App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You need to confirm that your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by going to the subnet in the [Azure portal](https://portal.azure.com).
+App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You need to confirm that your subnet is delegated properly and update the delegation (if necessary) before migrating. You can update the delegation either by running the following command or by going to the subnet in the [Azure portal](https://portal.azure.com).
 
 ```azurecli
 az network vnet subnet update --resource-group $VNET_RG --name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
@@ -87,7 +89,7 @@ az network vnet subnet update --resource-group $VNET_RG --name <subnet-name> --v
 
 Virtual network locks block platform operations during migration. If your virtual network has locks, you need to remove them before migrating. If necessary, you can add back the locks after migration is complete.
 
-Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, you need to remove them before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+Locks can exist at three scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, you need to remove them before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
 
 Use the following command to check if your virtual network has any locks:
 
@@ -112,13 +114,13 @@ Zone redundancy is an optional configuration. You can set it only during the cre
 If your existing App Service Environment uses a custom domain suffix, you need to [configure one for your new App Service Environment v3 instance during the migration process](./migrate.md#choose-your-app-service-environment-v3-configurations). Migration fails if you don't configure a custom domain suffix and are using one currently. Migration also fails if you try to add a custom domain suffix during migration to an environment that doesn't have one configured. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
 > [!NOTE]
-> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated during the IP address generation in step 3.
+> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated in step 3.
 
 If your migration doesn't include a custom domain suffix and you aren't enabling zone redundancy, you can move on to migration.
 
 To set these configurations, create a file called *parameters.json* with the following details based on your scenario. Don't include the custom domain suffix properties if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property, because this configuration is irreversible after migration. Set the value of the `kind` property based on your existing App Service Environment version. Accepted values for the `kind` property are `ASEV1` and `ASEV2`.
 
-If you're migrating without a custom domain suffix and are enabling zone redundancy, use this code:
+If you're migrating without a custom domain suffix and you're enabling zone redundancy, use this code:
 
 ```json
 {
@@ -132,7 +134,7 @@ If you're migrating without a custom domain suffix and are enabling zone redunda
 }
 ```
 
-If you're using a user-assigned managed identity for your custom domain suffix configuration and are enabling zone redundancy, use this code:
+If you're using a user-assigned managed identity for your custom domain suffix configuration and you're enabling zone redundancy, use this code:
 
 ```json
 {
@@ -151,7 +153,7 @@ If you're using a user-assigned managed identity for your custom domain suffix c
 }
 ```
 
-If you're using a system-assigned managed identity for your custom domain suffix configuration and are *not* enabling zone redundancy, use this code:
+If you're using a system-assigned managed identity for your custom domain suffix configuration and you're *not* enabling zone redundancy, use this code:
 
 ```json
 {
@@ -169,9 +171,11 @@ If you're using a system-assigned managed identity for your custom domain suffix
 }
 ```
 
-## 8. Migrate to App Service Environment v3
+## 8. Migrate to App Service Environment v3 and check status
 
-Start this step after you complete all premigration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3). This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations, depending on environment size. During that time, there's about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
+After you complete all of the preceding steps, you can start the migration. Make sure that you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3).
+
+This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations, depending on the environment size. During that time, there's about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
 
 Include the `body` parameter in the following command if you're enabling zone redundancy and/or configuring a custom domain suffix. If neither of those configurations applies to your migration, you can remove the parameter from the command.
 
@@ -187,7 +191,7 @@ The first command gets the operation ID for the migration. Copy the value of the
 az rest --method get --uri "${ASE_ID}/operations?api-version=2022-03-01"
 ```
 
-Replace the placeholder for the operation ID in the following command with the value that you copied in the previous step. This command returns the detailed status of your migration. You can run this command as often as needed to get the latest status.
+Replace the placeholder for the operation ID in the following command with the value that you copied. This command returns the detailed status of your migration. You can run this command as often as needed to get the latest status.
 
 ```azurecli
 az rest --method get --uri "${ASE_ID}/operations/<operation-id>/details/default?api-version=2022-09-01"
@@ -215,11 +219,11 @@ On the **Migration** page, the platform validates if migration is supported for 
 
 :::image type="content" source="./media/migration/migration-validation.png" alt-text="Screenshot that shows the button for validating migration eligibility.":::
 
-If your environment isn't supported for migration, a banner appears at the top of the page and includes an error message with a reason. For descriptions of the error messages that can appear if you aren't eligible for migration, see the [troubleshooting](migrate.md#troubleshooting) section.
+If your environment isn't supported for migration, a banner appears at the top of the page and includes an error message with a reason. For descriptions of the error messages that can appear if you aren't eligible for migration, see [Troubleshooting](migrate.md#troubleshooting).
 
 If your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state, you can't use the migration feature. If your environment [isn't supported for migration with the migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
 
-:::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Screenshot of the Azure portal that shows an example message that says the migration feature doesn't support the App Service Environment.":::
+:::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Screenshot that shows an example portal message that says the migration feature doesn't support the App Service Environment.":::
 
 If migration is supported for your App Service Environment, proceed to the next step in the process. The migration page guides you through the series of steps to complete the migration.
 
@@ -233,7 +237,7 @@ Under **Get new IP addresses**, confirm that you understand the implications and
 
 When the previous step finishes, the IP addresses for your new App Service Environment v3 instance appear. Use the new IPs to update any resources and networking components so that your new environment functions as intended after migration is complete. It's your responsibility to make any necessary updates.
 
-This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes in moving to App Service Environment v3. These changes include the port change for the Azure Load Balancer, which now uses port 80. Don't move to the next step until you confirm that you made these updates.
+This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes in moving to App Service Environment v3. These changes include the port change for Azure Load Balancer, which now uses port 80. Don't move to the next step until you confirm that you made these updates.
 
 :::image type="content" source="./media/migration/ip-sample.png" alt-text="Screenshot that shows sample IPs generated during premigration.":::
 
@@ -253,7 +257,7 @@ Your App Service plans are converted from Isolated to the corresponding Isolated
 
 Virtual network locks block platform operations during migration. If your virtual network has locks, you need to remove them before migrating. If necessary, you can add back the locks after migration is complete.
 
-Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, you need to remove them before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+Locks can exist at three scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, you need to remove them before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
 
 For details on how to check if your subscription or resource group has locks, see [Configure locks](../../azure-resource-manager/management/lock-resources.md#configure-locks).
 
@@ -274,40 +278,42 @@ If your existing App Service Environment uses a [custom domain suffix](./migrate
 If you want to use a custom domain suffix but don't currently have one configured, you can configure one after migration is complete. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
 > [!NOTE]
-> If you're configuring a custom domain suffix, when adding the network permissions on your Azure Key Vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated during the IP address generation in step 2.
+> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated in step 2.
 
-:::image type="content" source="./media/migration/input-custom-domain-suffix.png" alt-text="Screenshot that shows how to add a custom domain suffix configuration.":::
+:::image type="content" source="./media/migration/input-custom-domain-suffix.png" alt-text="Screenshot that shows the link for adding a custom domain suffix.":::
 
-After you add your custom domain suffix details, the "Migrate" button will be enabled.
+After you add the details for your custom domain suffix, the **Migrate** button is available.
 
-:::image type="content" source="./media/migration/custom-domain-suffix.png" alt-text="Screenshot that shows the configuration details are added and environment is ready for migration.":::
+:::image type="content" source="./media/migration/custom-domain-suffix.png" alt-text="Screenshot that shows that the configuration details are added and the environment is ready for migration.":::
 
 ## 8. Migrate to App Service Environment v3
 
-Once you complete all of the above steps, you can start migration. Make sure you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what happens during this time. This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. Scaling and modifications to your existing App Service Environment are blocked during this step.
+After you complete all of the preceding steps, you can start the migration. Make sure that you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3), including what happens during this time.
+
+This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations, depending on the environment size. Scaling and modifications to your existing App Service Environment are blocked during this step.
 
 > [!NOTE]
-> In rare cases, you might see a notification in the portal that says "Migration to App Service Environment v3 failed" after you start migration. There's a known bug that might trigger this notification even if the migration is progressing. Check the activity log for the App Service Environment to determine the validity of this error message.
+> In rare cases, you might see a notification in the portal that says "Migration to App Service Environment v3 failed" after you start the migration. There's a known bug that might trigger this notification even if the migration is progressing. Check the activity log for the App Service Environment to determine the validity of this error message.
 >
-> :::image type="content" source="./media/migration/migration-error.png" alt-text="Screenshot that shows the potential error notification after starting migration.":::
+> :::image type="content" source="./media/migration/migration-error.png" alt-text="Screenshot that shows the potential error notification after migration starts.":::
 
-Detailed migration statuses are only available when using the Azure CLI at this time. For more information, see the CLI guidance under the Azure CLI section for Migrate to App Service Environment v3.
+At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the [Azure CLI section for migrating to App Service Environment v3](#8-migrate-to-app-service-environment-v3-and-check-status).
 
-When migration is complete, you have an App Service Environment v3, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
+When migration is complete, you have an App Service Environment v3 instance, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
-If your migration included a custom domain suffix, the domain was shown in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it's no longer shown there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously.
+If your migration included a custom domain suffix, the domain appeared in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it no longer appears there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page to confirm that your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously.
 
-:::image type="content" source="./media/migration/custom-domain-suffix-app-service-environment-v3.png" alt-text="Screenshot that shows how to access custom domain suffix configuration for App Service Environment v3.":::
+:::image type="content" source="./media/migration/custom-domain-suffix-app-service-environment-v3.png" alt-text="Screenshot that shows the page for custom domain suffix configuration for App Service Environment v3.":::
 
 ::: zone-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Using an App Service Environment v3](using.md)
+> [Use an App Service Environment v3](using.md)
 
 > [!div class="nextstepaction"]
-> [App Service Environment v3 Networking](networking.md)
+> [App Service Environment v3 networking](networking.md)
 
 > [!div class="nextstepaction"]
 > [Custom domain suffix](./how-to-custom-domain-suffix.md)
