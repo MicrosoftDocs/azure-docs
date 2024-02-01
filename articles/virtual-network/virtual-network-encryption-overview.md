@@ -8,7 +8,7 @@ ms.author: allensu
 ms.topic: overview
 ms.date: 01/17/2024
 ms.custom: template-overview, references_regions
-# customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
+# Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
 ---
 

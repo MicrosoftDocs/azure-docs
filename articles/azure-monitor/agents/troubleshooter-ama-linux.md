@@ -8,7 +8,7 @@ ms.date: 12/14/2023
 ms.custom: references_regions
 ms.reviewer: jeffwo
 
-# customer-intent: When AMA is experiencing issues, I want to investigate the issues and determine if I can resolve the issue on my own.
+# Customer intent: When AMA is experiencing issues, I want to investigate the issues and determine if I can resolve the issue on my own.
 ---
 
 # How to use the Linux operating system (OS) Azure Monitor Agent Troubleshooter
