@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage monitoring data reference
+title: Azure Blob Storage monitoring data reference old
 titleSuffix: Azure Storage
 description: Log and metrics reference for monitoring data from Azure Blob Storage.
 recommendations: false
@@ -26,9 +26,11 @@ Capacity metrics values are refreshed daily (up to 24 Hours). The time grain def
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
-#### Account Level
-
+(includes:)(
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
+[!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
+[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-operation.md)]
+[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-authentication.md)]
 
 #### Blob storage
 
@@ -46,26 +48,6 @@ This table shows [Blob storage metrics](../../azure-monitor/essentials/metrics-s
 
 Transaction metrics are emitted on every request to a storage account from Azure Storage to Azure Monitor. In the case of no activity on your storage account, there will be no data on transaction metrics in the period. All transaction metrics are available at both account and Blob storage service level. The time grain defines the time interval that metric values are presented. The supported time grains for all transaction metrics are PT1H and PT1M.
 
-[!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
-
-<a id="metrics-dimensions"></a>
-
-## Metrics dimensions
-
-Azure Storage supports following dimensions for metrics in Azure Monitor.
-
-### Dimensions available to all storage services
-
-[!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
-
-### Dimensions specific to Blob storage
-
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append blobs are included in **BlockBlob**. |
-| **Tier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](../blobs/access-tiers-overview.md). The supported values include: <br><br>**Hot**: Hot tier<br>**Cool**: Cool tier<br>**Cold**: Cold tier<br>**Archive**: Archive tier<br>**Premium**: Premium tier for block blob<br>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob<br>**Standard**: Tier type for standard page Blob<br>**Untiered**: Tier type for general purpose v1 storage account |
-
-For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. If you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
 
 <a id="resource-logs-preview"></a>
 
@@ -93,7 +75,6 @@ The following table lists the properties for Azure Storage resource logs when th
 }
 ```
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-operation.md)]
 
 ### Fields that describe how the operation was authenticated
 
@@ -134,7 +115,6 @@ The following table lists the properties for Azure Storage resource logs when th
 
 ```
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-authentication.md)]
 
 ### Fields that describe the service
 
@@ -174,9 +154,3 @@ The following table lists the properties for Azure Storage resource logs when th
 }
 ```
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
-
-## See also
-
-- See [Monitoring Azure Storage](monitor-blob-storage.md) for a description of monitoring Azure Storage.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

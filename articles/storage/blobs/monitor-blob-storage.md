@@ -86,6 +86,7 @@ For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs).
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
 NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
+<a name="collection-and-routing"></a>
 ### Azure Blob Storage diagnostic settings
 
 When you create the diagnostic setting, choose **blob** as the type of storage that you want to enable logs for. Then, specify one of the following categories of operations for which you want to collect logs.
@@ -130,6 +131,7 @@ If your service has other logs that aren't resource logs or in the activity log,
 <!-- ANALYSIS SECTION START -------------------------------------->
 
 <!-- ## Analyze data. Required section. -->
+<a name="analyzing-logs"></a>
 [!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 <!-- ### External tools. Required section. -->
