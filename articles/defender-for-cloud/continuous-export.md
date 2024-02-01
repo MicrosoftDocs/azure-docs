@@ -39,7 +39,7 @@ You can use continuous export to export the following data types whenever they c
 - Security recommendations.
 - Security findings.
 
-   Findings can be thought of as "sub" recommendations. Each findings belongs to a "parent" recommendation. For example:
+   Findings can be thought of as "sub" recommendations and belong to a "parent" recommendation. For example:
 
   - The recommendations [System updates should be installed on your machines (powered by Update Center)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e1145ab1-eb4f-43d8-911b-36ddf771d13f) and [System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4ab6e3c5-74dd-8b35-9ab9-f61b30875b27) each has one sub recommendation per outstanding system update.
   - The recommendation [Machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f) has a sub recommendation for every vulnerability that the vulnerability scanner identifies.
