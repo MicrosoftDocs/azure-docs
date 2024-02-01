@@ -79,14 +79,14 @@ These generally available recommendations will remain supported until the estima
 
 Following the [deprecation of the (public preview) endpoint protection recommendations](#deprecation-of-endpoint-protection-recommendations). As part of that deprecation, we’ll be introducing new endpoint protection recommendations. These recommendations will be available in Defender for Servers Plan 2 and the Defender CSPM plan. They’re available for Azure and multicloud machines. On-premises machines are not supported.
 
-| Preliminary recommendation name | Plan required | Estimated release date |
+| Preliminary recommendation name | Estimated release date |
 |--|--|--|
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | Defender for Servers Plan 2 <br Defender CSPM  | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on EC2s | Defender for Servers Plan 2 <br Defender CSPM | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | Defender for Servers Plan 2 <br Defender CSPM | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | Defender for Servers Plan 2 <br Defender CSPM | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | Defender for Servers Plan 2 <br Defender CSPM | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | Defender for Servers Plan 2 <br Defender CSPM | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on EC2s | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | February 2024 |
 
 ## Change in pricing for multicloud container threat detection
 
