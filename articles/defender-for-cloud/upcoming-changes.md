@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/31/2024
+ms.date: 02/01/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,7 +25,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Deprecation of endpoint recommendations](#deprecation-of-endpoint-recommendations) | January 31, 2024 | February 28, 2024 |
+| [Deprecation of endpoint recommendations](#deprecation-of-endpoint-recommendations) | February 1, 2024 | February 28, 2024 |
+| [Upcoming new endpoint recommendations](#upcoming-new-endpoint-recommendations) | February 1, 2024 | February 28, 2024 |
 | [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
@@ -47,13 +48,13 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 ## Deprecation of endpoint recommendations
 
-**Announcement date: January 31, 2024**
+**Announcement date: February 1, 2024**
 
 **Estimated date of change: February 2024**
 
-As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), functionality is replaced by the [Microsoft Defender for Endpoint unified agent](onboard-machines-with-defender-for-endpoint.md), and [agentless machine scanning](concept-agentless-data-collection.md).  As part of the move, we’re deprecating existing recommendations, and will replace them with new recommendations that will utilize agentless scanning for machines to identify the presence of Endpoint Detection and Response (EDR) solutions or misconfigurations of Defender for Endpoint on your machines. 
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), existing endpoint recommendations provided by Defender for Cloud foundational CSPM will be replaced with new recommendations provided by [agentless machine scanning](concept-agentless-data-collection.md) that discovers and assesses the configuration of supported endpoint detection and response solutions.
 
-The following recommendations will be deprecated:
+These recommendations will be deprecated.
 
 | Recommendation | Agent | Deprecation date |
 |--|--|--|
@@ -63,6 +64,25 @@ The following recommendations will be deprecated:
 | Endpoint protection solution should be installed on virtual machine scale sets | MMA | August 2024 |
 | Install endpoint protection solution on your machines | MMA | August 2024 |
 | Install endpoint protection solution on virtual machines | MMA | August 2024 |
+
+## Upcoming new endpoint recommendations
+
+**Announcement date: February 1, 2024**
+
+**Estimated date of change: February 2024**
+
+The previous section (add link) describes the recommendations currently provided using the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) that will be [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269) and replaced by recommendations based on endpoint discovery and assessment using [agentless machine scanning](concept-agentless-data-collection.md).
+
+As part of that replacement, we’ll be introducing new endpoint protection recommendations. These recommendations will be available in Defender for Servers and in the Defender CSPM plan. They’re only available for Azure VMs, and GCP/AWS instances onboard as Azure Arc-connected machines. On-premises machines are not supported.
+
+| New recommendation | Plan required | Estimated release date |
+|--|--|--|
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | Defender CSPM <br> Defender for Servers Plan 1 <br> Defender for Servers Plan 2 | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on EC2s | Defender CSPM <br> Defender for Servers Plan 1 <br> Defender for Servers Plan 2 | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | Defender CSPM <br> Defender for Servers Plan 1 <br> Defender for Servers Plan 2 | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | Defender CSPM <br> Defender for Servers Plan 2 | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | Defender CSPM <br> Defender for Servers Plan 2 | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | Defender CSPM <br> Defender for Servers Plan 2 | February 2024 |
 
 ## Change in pricing for multicloud container threat detection
 
