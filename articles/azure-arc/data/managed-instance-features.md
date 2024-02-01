@@ -91,7 +91,7 @@ SQL Managed Instance enabled by Azure Arc share a common code base with the late
 
 | Feature | SQL Managed Instance enabled by Azure Arc |
 |--|--|
-| Dedicated admin connection | Yes |
+| Dedicated administrator connection | Yes |
 | PowerShell scripting support | Yes |
 | Support for data-tier application component operations - extract, deploy, upgrade, delete | Yes |
 | Policy automation (check on schedule and change) | Yes |
@@ -99,7 +99,7 @@ SQL Managed Instance enabled by Azure Arc share a common code base with the late
 | Standard performance reports | Yes |
 | Plan guides and plan freezing for plan guides | Yes |
 | Direct query of indexed views (using NOEXPAND hint) | Yes |
-| Automatic indexed views maintenance | Yes |
+| Automatically maintain indexed views | Yes |
 | Distributed partitioned views | Yes |
 | Parallel indexed operations | Yes |
 | Automatic use of indexed view by query optimizer | Yes |
