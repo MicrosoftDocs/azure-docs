@@ -26,33 +26,33 @@ Microsoft Defender for Cloud provides health assessments of [supported](supporte
 | Recommendation | Appears when |
 |--|--|
 | **Endpoint protection should be installed on your machines** | [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) runs and the result is **AMServiceEnabled: False** |
-| **Endpoint protection health issues should be resolved on your machines** | [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) runs and any of the following occurs: <br><br> - Any of the following properties are false: <br> - **AMServiceEnabled** <br> - **AntispywareEnabled** <br> - **RealTimeProtectionEnabled** <br> - **BehaviorMonitorEnabled** <br> - **IoavProtectionEnabled** <br> - **OnAccessProtectionEnabled** <br> <br>  - If one or both of the following properties are 7 or more: <br> - **AntispywareSignatureAge** <br> - **AntivirusSignatureAge** |
+| **Endpoint protection health issues should be resolved on your machines** | [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) runs and any of the following occurs: <br><br> Any of the following properties are false: <br><br> - **AMServiceEnabled** <br> - **AntispywareEnabled** <br> - **RealTimeProtectionEnabled** <br> - **BehaviorMonitorEnabled** <br> - **IoavProtectionEnabled** <br> - **OnAccessProtectionEnabled** <br> <br> If one or both of the following properties are 7 or more: <br><br> - **AntispywareSignatureAge** <br> - **AntivirusSignatureAge** |
 
 ## Microsoft System Center endpoint protection
 
 | Recommendation | Appears when |
 |--|--|
 | **Endpoint protection should be installed on your machines** | importing **SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** and running **Get-MProtComputerStatus** results in **AMServiceEnabled = false** |
-| **Endpoint protection health issues should be resolved on your machines** | **Get-MprotComputerStatus** runs and any of the following occurs: <br><br> - At least one of the following properties is false: <br> - **AMServiceEnabled** <br> - **AntispywareEnabled** <br> - **RealTimeProtectionEnabled** <br> - **BehaviorMonitorEnabled** <br> - **IoavProtectionEnabled** <br> - **OnAccessProtectionEnabled** <br><br> - If one or both of the following Signature Updates are greater or equal to 7: <br> - **AntispywareSignatureAge** <br> - **AntivirusSignatureAge** |
+| **Endpoint protection health issues should be resolved on your machines** | **Get-MprotComputerStatus** runs and any of the following occurs: <br><br> At least one of the following properties is false: <br><br> - **AMServiceEnabled** <br> - **AntispywareEnabled** <br> - **RealTimeProtectionEnabled** <br> - **BehaviorMonitorEnabled** <br> - **IoavProtectionEnabled** <br> - **OnAccessProtectionEnabled** <br><br> If one or both of the following Signature Updates are greater or equal to 7: <br><br> - **AntispywareSignatureAge** <br> - **AntivirusSignatureAge** |
 
 ## Trend Micro
 
 | Recommendation | Appears when |
 |--|--|
-| **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br> - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists <br> - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists <br> - The **dsa_query.cmd** file is found in the Installation Folder <br> - Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected** |
+| **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br><br> - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists <br> - **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists <br> - The **dsa_query.cmd** file is found in the Installation Folder <br> - Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected** |
 
 ## Symantec endpoint protection
 
 | Recommendation | Appears when |
 |--|--|
-| **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br> <br> - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"** <br> - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1** <br> <br> Or <br> <br> - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"** <br> - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**|
+| **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br> <br> - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"** <br> - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1** <br> Or <br> - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"** <br> - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**|
 | **Endpoint protection health issues should be resolved on your machines** | any of the following checks aren't met: <br> <br> - Check Symantec Version >= 12: Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"** <br> - Check Real-Time Protection status: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1** <br> - Check Signature Update status: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 days** <br> - Check Full Scan status: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 days** <br> - Find signature version number Path to signature version for Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"** <br> - Path to signature version for Symantec 14: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"** <br><br> Registry Paths: <br> <br> - **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;** <br> - **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path** |
 
 ## McAfee endpoint protection for Windows
 
 | Recommendation | Appears when |
 |--|--| 
-| **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br> - **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists <br> - **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**|
+| **Endpoint protection should be installed on your machines** | any of the following checks aren't met: <br><br> - **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists <br> - **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**|
 | **Endpoint protection health issues should be resolved on your machines** | any of the following checks aren't met: <br> <br> - McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10** <br> - Find Signature Version: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"** <br> - Find Signature date: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days** <br> - Find Scan date: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days** |
 
 ## McAfee Endpoint Security for Linux Threat Prevention
