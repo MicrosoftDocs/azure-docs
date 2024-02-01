@@ -8,7 +8,6 @@ ms.topic: how-to #required; leave this attribute/value as-is.
 ms.date: 02/01/2024
 ---
 
-
 # Monitor the  status of your Azure Operator 5G Core deployment
 
 Azure Operator 5G Core provides network function health check information using the Azure portal. 

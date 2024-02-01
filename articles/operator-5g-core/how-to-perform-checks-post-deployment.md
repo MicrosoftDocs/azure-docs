@@ -18,9 +18,9 @@ After Azure Operator 5G Core is deployed, you can perform health and configurati
 
 ## Set up the Azure CLI
 
-1. Log in using the `az login--use-device-code` command. Complete the log in process with your user account.
+1. Sign in using the `az login--use-device-code` command. Complete the sign in process with your user account.
 1. Set the subscription: `az account set -s <subscriptionName>`
-1. Run the following commands to install the CLI extenstions:
+1. Run the following commands to install the CLI extensions:
 
    `az extension add --yes --name connectedk8s` 
 
@@ -50,7 +50,7 @@ Enter the following command to configure the ARC:
 
 2. Run the `kubectl label namespace ao5gc-monitor name=ao5gc-monitor` command to create a **name=ao5gc-monitor** label for the newly created **ao5gc-monitor** namespace.
 
-    The namespace and all necessary Azure Operator 5G Core extension pods, configuration mpas, and services are created within the namespace.  
+    The namespace and all necessary Azure Operator 5G Core extension pods, configuration maps, and services are created within the namespace.  
 
 To delete the Azure Operator 5G Core extension, you can run the following command:
 
@@ -64,7 +64,7 @@ az k8s-extension delete \
 
 ## Set permission for Azure Operator 5G Core extension to access metrics
 
-By default, the fed-prometheus cluster can be reached only from a small set of predefined namespaces. You must add the newly created **ao5gc-monitor** to the allow list to obtain observability metrics.
+By default, the fed-prometheus cluster can be reached only from a small set of predefined namespaces. You must add the newly created **ao5gc-monitor** to the allowlist to obtain observability metrics.
 
 To add the namespace to fed-prometheus:
 
