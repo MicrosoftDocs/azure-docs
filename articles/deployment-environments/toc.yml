@@ -43,8 +43,6 @@ items:
       href: how-to-configure-devcenter-environment-types.md
     - name: Add & delete project environment types
       href: how-to-configure-project-environment-types.md     
-    - name: Automatically delete an environment
-      href: how-to-schedule-environment-deletion.md
     - name: Create and configure a dev center from the CLI
       href: how-to-create-configure-dev-center.md
     - name: Create and configure a project from the CLI
@@ -62,7 +60,9 @@ items:
       href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Manage costs
   expanded: false
-  items:         
+  items:
+    - name: Automatically delete an environment
+      href: how-to-schedule-environment-deletion.md         
     - name: Request a quota limit increase
       href: how-to-request-quota-increase.md  
 - name: Security
