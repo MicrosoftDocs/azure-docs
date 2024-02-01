@@ -48,7 +48,7 @@ AO5GC network function images and Helm charts are Azure-managed and accessed by 
 
 Local Observability is provided by UnityCloud Observability components listed in the diagram. Because the Observability function is local, it also available in break-glass scenarios for Nexus where the interfaces can be accessed locally.
  
-:::image type="content" source="media/concept-centralized-lifecycle-management/local-observability.png" alt-text="Diagram showing how UnityCloud observability components are used in Azure Operator 5G Core. ":::
+:::image type="content" source="media/concept-centralized-lifecycle-management/local-observability.png" alt-text="Diagram showing how UnityCloud observability components are used in Azure Operator 5G Core." lightbox="media/concept-centralized-lifecycle-management/local-observability.png":::
 
 
 
