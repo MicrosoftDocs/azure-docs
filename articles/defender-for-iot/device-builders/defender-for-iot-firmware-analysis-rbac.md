@@ -17,7 +17,7 @@ Roles are a collection of permissions packaged together. There are two types of 
 In Defender for IoT Firmware Analysis, the most common roles are Owner, Contributor, Security Admin, and Firmware Analysis Admin. Learn more about [which roles you need for different permissions](../../../articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-rbac.md#defender-for-iot-firmware-analysis-roles-scopes-and-capabilities), such as uploading firmware images or sharing firmware analysis results. 
 
 ## Understanding the Representation of Firmware Images in the Azure Resource Hierarchy
-Azure organizes resources into resource hierarchies, which are in a top-down structure, and you can assign roles at each level of the hierarchy. The level at which you assign a role is the "scope," and lower scopes may inherit roles assigned at higher scopes. Learn more about the [levels of hierarchy and how to organize your resources in the hierarchy](/cloud-adoption-framework/ready/azure-setup-guide/organize-resources).
+Azure organizes resources into resource hierarchies, which are in a top-down structure, and you can assign roles at each level of the hierarchy. The level at which you assign a role is the "scope," and lower scopes may inherit roles assigned at higher scopes. Learn more about the [levels of hierarchy and how to organize your resources in the hierarchy](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources).
 
 When you register your subscription to the Defender for IoT Firmware Analysis tool, the action automatically creates the **FirmwareAnalysisRG** Resource Group for you. To locate **FirmwareAnalysisRG**, navigate to your **Resource groups** page in the left menu:
 
