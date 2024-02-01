@@ -230,7 +230,7 @@ The following table lists these features along with guidance for adding them to 
 
 ### Move data to the new storage account
 
-AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=/azure/storage/blobs/toc.json).
+AzCopy is the preferred tool to move your data over due to its performance optimization.  With AzCopy, data is copied directly between storage servers, and so it doesn't use the network bandwidth of your computer. You can run AzCopy at the command line or as part of a custom script. For more information, see [Copy blobs between Azure storage accounts by using AzCopy](s/azure/storage/common/storage-use-azcopy-blobs-copy?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json&branch=pr-en-us-259662).
 
 You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:.
 
