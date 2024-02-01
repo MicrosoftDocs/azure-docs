@@ -103,24 +103,23 @@ For one or more individual sensors, select the  **Step one: Send package to sens
 
     Hover over the **Sensor version** value to see the source and target version for your update.
 
-### Update your sensor from the Azure portal <!-- change to install-->
+### Install your sensor from the Azure portal
 
-Run the sensor update only when you see the :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update** icon in the **Sensor version** column.
+To install the sensor software update ensure that you see the :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update** icon in the **Sensor version** column.
 
-1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step 2: Update sensor** from the toolbar. The **Update sensor** pane opens in the right side of the screen. For example:
-<!-- placement holder need image of this , instead of the one that was below for the individual sensor -->
+1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step 2: Update sensor** from the toolbar. The **Update sensor** pane opens in the right side of the screen. For example:<!-- placement holder need image of this , instead of the one that was below for the individual sensor -->
 
-    For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu. 
+    For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu.
 
 1. In the **Update sensor** pane that appears, verify your update details.
 
-    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, and an update progress bar appears showing you the percentage complete. The bar automatically updates, so that you can track the progress until the installation is complete.
+    When you're ready, select **Update now** > **Confirm update** to install the update on the sensor. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, and an update progress bar appears showing you the percentage complete. The bar automatically updates, so that you can track the progress until the installation is complete.
 
     :::image type="content" source="media/update-ot-software/sensor-version-install-bar.png" alt-text="Screenshot of the install bar in the Sensor version column." lightbox="media/update-ot-software/sensor-version-install-bar.png":::
 
-    When completed, the sensor value switches to the new sensor version number instead.
+    When completed, the sensor value switches to the newly installed sensor version number.
 
-If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
+If a sensor update fails to install for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
 ## [OT sensor UI](#tab/sensor)
 
