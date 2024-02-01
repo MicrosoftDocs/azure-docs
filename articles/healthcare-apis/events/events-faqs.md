@@ -53,7 +53,7 @@ Events are generated from the following DICOM service types:
 
 - **DicomImageDeleted**. The event emitted after a DICOM image is deleted.
 
-- **DicomImageUpdated**. The event emitted after a DICOM image is updated.
+- **DicomImageUpdated**. The event emitted after a DICOM image is updated. For more information, see [Update DICOM files](../dicom/update-files.md)
 
 #### What is the payload of an events message? 
 
