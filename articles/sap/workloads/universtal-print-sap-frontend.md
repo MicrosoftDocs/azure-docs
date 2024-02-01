@@ -25,10 +25,11 @@ Universal Print is a cloud-based print solution that enables organizations to ma
 
 [SAP front-end printing](https://help.sap.com/docs/SAP_NETWEAVER_750/290ce8983cbc4848a9d7b6f5e77491b9/4e96bc2a7e9e40fee10000000a421937.html) sends an output to a printer available for the user on their front-end device. In other words, a printer accessible by the operating system. Same client computer runs SAP GUI or browser. To use Universal Print, you need to have access to such printer(s). 
 
--	[Add Universal Print printer](/universal-print/fundamentals/universal-print-getting-started#step-4-add-a-universal-print-printer-to-a-windows-device.md) to your Windows client
+- Client OS with support for Universal Print
+-	Add Universal Print printer to your Windows client
 -	Able to print on Universal Print printer from OS
 
-One or more Universal Print printers are visible in your device’s printer list. For SAP front-end printing it's not necessary to make it your default printer.
+See the [Universal Print documentation](/universal-print/fundamentals/universal-print-getting-started#step-4-add-a-universal-print-printer-to-a-windows-device.md) for details on these prerequisites. As a result, one or more Universal Print printers are visible in your device’s printer list. For SAP front-end printing it's not necessary to make it your default printer.
 
 [![Example showing Universal Print printers in Windows 11 settings dialog.](./media/universtal-print-sap/frontend-os-printer.png)](./media/universtal-print-sap/frontend-os-printer.png#lightbox)
 
