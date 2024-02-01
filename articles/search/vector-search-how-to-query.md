@@ -586,7 +586,9 @@ The examples in this article used a "select" statement to specify text (non-vect
 
 A vector query specifies the `k` parameter, which determines how many matches are returned in the results. The search engine always returns `k` number of matches. If `k` is larger than the number of documents in the index, then the number of documents determines the upper limit of what can be returned.
 
-If you're familiar with full text search, you know to expect zero results if the index doesn't contain a term or phrase. However, in vector search, similarity is relative to the input query vector, not absolute. It's possible to get positive results for a nonsensical or off-topic query, especially if you aren't using prompts to set boundaries. Less relevant results have a worse similarity score, but they're still the "nearest" vectors if there isn't anything closer. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low. A [hybrid approach](hybrid-search-overview.md) that includes full text search can mitigate this problem.
+If you're familiar with full text search, you know to expect zero results if the index doesn't contain a term or phrase. However, in vector search, the search operation is identifying nearest neighbors, and it will alwyas return `k` results even if the nearest neighbors are not that similar. Consequently, it's possible to get results for nonsensical or off-topic queries, especially if you aren't using prompts to set boundaries. Less relevant results have a worse similarity score, but they're still the "nearest" vectors if there isn't anything closer. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low. 
+
+A [hybrid approach](hybrid-search-overview.md) that includes full text search can mitigate this problem. Another mitigation is to set a minimum threshold on the search score, but only if the query is a pure single vector query. Hybrid queries aren't conducive to minimum thresholds because the ranges are so much smaller and volatile.
 
 Query parameters affecting result count include:
 
@@ -599,7 +601,7 @@ Both "k" and "top" are optional. Unspecified, the default number of results in a
 
 Ranking of results is computed by either:
 
-+ The similarity metric specified in the index `vectorSearch` section for a vector-only query. Valid values are `cosine` , `euclidean`, and `dotProduct`.
++ The similarity metric specified in the index `vectorSearch` section for a vector-only query. Valid values are `cosine`, `euclidean`, and `dotProduct`.
 + Reciprocal Rank Fusion (RRF) if there are multiple sets of search results.
 
 Azure OpenAI embedding models use cosine similarity, so if you're using Azure OpenAI embedding models, `cosine` is the recommended metric. Other supported ranking metrics include `euclidean` and `dotProduct`.

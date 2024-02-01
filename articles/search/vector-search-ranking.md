@@ -38,7 +38,7 @@ Exhaustive KNN support is available through [2023-11-01 REST API](/rest/api/sear
 
 ### When to use HNSW
 
-During indexing, HNSW creates extra data structures for faster search, organizing data points into a hierarchical graph structure. However, you aren't locked into using them on every search. HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. For example, at query time, you can specify options for exhaustive search, even if the vector field is indexed for HNSW.
+During indexing, HNSW creates extra data structures for faster search, organizing data points into a hierarchical graph structure. HHNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. For example, at query time, you can specify options for exhaustive search, even if the vector field is indexed for HNSW.
 
 During query execution, HNSW enables fast neighbor queries by navigating through the graph. This approach strikes a balance between search accuracy and computational efficiency. HNSW is recommended for most scenarios due to its efficiency when searching over larger data sets. 
 
@@ -52,7 +52,7 @@ When vector fields are indexed for exhaustive KNN, the query executes against "a
 
 ### Creating the HNSW graph
 
-During indexing, the search service creates the HNSW graph. The goal of indexing a new vector into an HNSW graph is to add it to the graph structure in a manner that allows for efficient nearest neighbor search. The following steps summarize the process:
+During indexing, the search service constructs the HNSW graph. The goal of indexing a new vector into an HNSW graph is to add it to the graph structure in a manner that allows for efficient nearest neighbor search. The following steps summarize the process:
 
 1. Initialization: Start with an empty HNSW graph, or the existing HNSW graph if it's not a new index.
 

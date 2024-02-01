@@ -163,11 +163,11 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Relevance in keyword search (BM25 ranking)
+    - name: Keyword queries (BM25 ranking)
       href: index-similarity-and-scoring.md
-    - name: Relevance in vector search
+    - name: Vector queries
       href: vector-search-ranking.md
-    - name: Scoring hybrid queries (RRF)
+    - name: Hybrid queries (RRF)
       href: hybrid-search-ranking.md
   - name: Security
     items:
