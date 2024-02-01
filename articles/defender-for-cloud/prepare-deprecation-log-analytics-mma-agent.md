@@ -23,7 +23,7 @@ The Defender for Servers plan uses the Log Analytics Agent in general availabili
 - After August 2024, use of the Log Analytics agent for Defender for Servers features will be deprecated.
 - By enabling Defender for Endpoint integration and agentless scanning early, your Defender for Servers deployment stays up to date and supported.
 
-### Feature Functionality
+### Feature functionality
 
 The following table summarizes how Defender for Servers features will be provided as part of the deprecation plan.
 
@@ -39,16 +39,7 @@ The following table summarizes how Defender for Servers features will be provide
 
 ### Endpoint recommendations experience
 
-Endpoint discovery and recommendations are currently provided by Defender for Cloud foundational CSPM using the Log Analytics agent in GA, or the AMA in preview. This experience will be replaced by security recommendations that are gathered using agentless scanning. The following table compares the recommendations experience across agents.
-
-| Area | Current experience | Upcoming experience |
-|---|---|---|
-| What keeps a resource healthy? | You have antivirus/antimalware |	You have an endpoint detection and response solution (Microsoft/Third-Party) |
-| What health checks are done? | Real time protection is off<br/>Signatures are out-of-date | Antimalware/antivirus is off or partially configured<br/>Signatures are out-of-date<br/>Quick and full scan haven’t run for seven days |
-| What agent is needed? | Log Analytics agent/AMA | Agentless machine scanning |
-| What plan is needed? | No plan is required. Recommendations are provided as part of the Defender for Cloud foundational CSPM recommendations. | Defender for Servers plan 2 or the Defender CSPM plan. |
-| What machines are supported? | Azure VMs, AWS/GCP instances onboarded as Azure Arc VMs, on-premises machines onboarded as Azure Arc VMs, on-premises machines running the agent (not onboarded as Azure Arc machines). | Assessment with agentless scanning is supported for Azure VMs and AWS/GCP instances. It's not supported for on-premises machines, even if they're onboarded to Azure with Azure Arc. |
-| How do I fix a recommendation to install endpoint protection? | Install Microsoft antimalware. | Enable Microsoft Defender for Endpoint integration with Defender for Cloud in your subscription, or connect to a third-party endpoint detection and response solution. |
+Endpoint discovery and recommendations are currently provided by Defender for Cloud foundational CSPM using the Log Analytics agent in GA, or the AMA in preview. This experience will be replaced by security recommendations that are gathered using agentless scanning.
 
 #### What’s the difference between the recommendations experiences?
 
@@ -75,15 +66,6 @@ The following table summarizes the timetable for recommendations being retired a
 | Endpoint protection solution should be installed on virtual machine scale sets | MMA | August 2024 | No replacement. |
 | Install endpoint protection solution on your machines | MMA | August 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
 | Install endpoint protection solution on virtual machines | MMA | August 2024 | Exact deprecation date will occur when a replacement recommendation releases to preview. |
-
-| Preliminary recommendation name | Plan required | Estimated release date |
-|--|--|--|
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | Defender CSPM <br> Defender for Servers Plan 1 <br> Defender for Servers Plan 2 | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on EC2s | Defender CSPM <br> Defender for Servers Plan 1 <br> Defender for Servers Plan 2 | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | Defender CSPM <br> Defender for Servers Plan 1 <br> Defender for Servers Plan 2 | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | Defender CSPM <br> Defender for Servers Plan 2 | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | Defender CSPM <br> Defender for Servers Plan 2 | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | Defender CSPM <br> Defender for Servers Plan 2 | February 2024 |
 
 #### How will the replacement work?
 
