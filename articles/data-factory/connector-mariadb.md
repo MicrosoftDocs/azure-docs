@@ -287,8 +287,6 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Upgrade the MariaDB driver version
 
-Migrating your MariaDB linked service is highly recommended if you use the legacy version. Take the following steps:
-
 1. Create a new MariaDB linked service and configure it by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 
 1. The data type mapping for the latest MariaDB linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
