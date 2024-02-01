@@ -24,8 +24,6 @@ landingContent:
         links:
           - text: What is Azure Operator 5G Core?
             url: overview-product.md
-          - text: Azure Operator 5G Core architecture
-            url: overview-architecture.md
       - linkListType: concept
         links:
          - text: Centralized lifecycle management
