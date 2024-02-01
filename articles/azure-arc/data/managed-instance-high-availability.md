@@ -89,7 +89,7 @@ Capabilities that contained availability groups enable:
 
 ### Deploy SQL Server Managed Instance enabled by Azure Arc with multiple replicas using Azure portal
 
-From Azure portal, on the create Azure Arc-enabled SQL Managed Instance page:
+From Azure portal, on the create SQL Managed Instance enabled by Azure Arc page:
 1. Select **Configure Compute + Storage** under Compute + Storage. The portal shows advanced settings.
 2. Under Service tier, select **Business Critical**.
 3. Check the "For development use only", if using for development purposes.

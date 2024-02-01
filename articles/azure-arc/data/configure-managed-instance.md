@@ -114,7 +114,7 @@ spec:
 
 If you already have an existing SQL managed instance enabled by Azure Arc, you can run `kubectl edit sqlmi <sqlminame> -n <namespace>` and add the above options into the spec.
 
-Sample Azure Arc-enabled SQL Managed Instance YAML file:
+Example YAML file:
 
 ```yml
 apiVersion: sql.arcdata.microsoft.com/v13

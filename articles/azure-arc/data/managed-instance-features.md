@@ -1,6 +1,6 @@
 ---
-title: Features and Capabilities of Azure Arc-enabled SQL Managed Instance
-description: Features and Capabilities of Azure Arc-enabled SQL Managed Instance
+title: Features and Capabilities of SQL Managed Instance enabled by Azure Arc
+description: Features and Capabilities of SQL Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -12,9 +12,9 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Features and Capabilities of Azure Arc-enabled SQL Managed Instance
+# Features and Capabilities of SQL Managed Instance enabled by Azure Arc
 
-Azure Arc-enabled SQL Managed Instance share a common code base with the latest stable version of SQL Server. Most of the standard SQL language, query processing, and database management features are identical. The features that are common between SQL Server and SQL Database or SQL Managed Instance are:
+SQL Managed Instance enabled by Azure Arc share a common code base with the latest stable version of SQL Server. Most of the standard SQL language, query processing, and database management features are identical. The features that are common between SQL Server and SQL Database or SQL Managed Instance are:
 
 - Language features - [Control of flow language keywords](/sql/t-sql/language-elements/control-of-flow), [Cursors](/sql/t-sql/language-elements/cursors-transact-sql), [Data types](/sql/t-sql/data-types/data-types-transact-sql), [DML statements](/sql/t-sql/queries/queries), [Predicates](/sql/t-sql/queries/predicates), [Sequence numbers](/sql/relational-databases/sequence-numbers/sequence-numbers), [Stored procedures](/sql/relational-databases/stored-procedures/stored-procedures-database-engine), and [Variables](/sql/t-sql/language-elements/variables-transact-sql).
 - Database features - [Automatic tuning (plan forcing)](/sql/relational-databases/automatic-tuning/automatic-tuning), [Change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), [Database collation](/sql/relational-databases/collations/set-or-change-the-database-collation), [Contained databases](/sql/relational-databases/databases/contained-databases), [Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable), [Data compression](/sql/relational-databases/data-compression/data-compression), [Database configuration settings](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql), [Online index operations](/sql/relational-databases/indexes/perform-index-operations-online), [Partitioning](/sql/relational-databases/partitions/partitioned-tables-and-indexes), and [Temporal tables](/sql/relational-databases/tables/temporal-tables) ([see getting started guide](/sql/relational-databases/tables/getting-started-with-system-versioned-temporal-tables)).
@@ -24,7 +24,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 ## <a name="RDBMSHA"></a> RDBMS High Availability  
   
-|Feature|Azure Arc-enabled SQL Managed Instance|
+|Feature|SQL Managed Instance enabled by Azure Arc|
 |-------------|----------------|
 |Always On failover cluster instance<sup>1</sup>| Not Applicable. Similar capabilities available.|
 |Always On availability groups<sup>2</sup>|Business Critical service tier.|
@@ -49,7 +49,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 ## <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
-| Feature | Azure Arc-enabled SQL Managed Instance |
+| Feature | SQL Managed Instance enabled by Azure Arc |
 |--|--|
 | Columnstore | Yes |
 | Large object binaries in clustered columnstore indexes | Yes |
@@ -71,7 +71,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 ## <a name="RDBMSS"></a> RDBMS Security
 
-| Feature | Azure Arc-enabled SQL Managed Instance |
+| Feature | SQL Managed Instance enabled by Azure Arc |
 |--|--|
 | Row-level security | Yes |
 | Always Encrypted | Yes |
@@ -89,7 +89,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 ## <a name="RDBMSM"></a> RDBMS Manageability  
 
-| Feature | Azure Arc-enabled SQL Managed Instance |
+| Feature | SQL Managed Instance enabled by Azure Arc |
 |--|--|
 | Dedicated admin connection | Yes |
 | PowerShell scripting support | Yes |
@@ -107,7 +107,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 ### <a name="Programmability"></a> Programmability  
 
-| Feature | Azure Arc-enabled SQL Managed Instance |
+| Feature | SQL Managed Instance enabled by Azure Arc |
 |--|--|
 | JSON | Yes |
 | Query Store | Yes | 
@@ -128,9 +128,9 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 ### Tools
 
-Azure Arc-enabled SQL Managed Instance supports various data tools that can help you manage your data.
+SQL Managed Instance enabled by Azure Arc supports various data tools that can help you manage your data.
 
-| **Tool** | Azure Arc-enabled SQL Managed Instance|
+| **Tool** | SQL Managed Instance enabled by Azure Arc|
 | --- | --- | --- |
 | Azure portal | Yes |
 | Azure CLI | Yes |
@@ -147,7 +147,7 @@ Azure Arc-enabled SQL Managed Instance supports various data tools that can help
 
 ### <a name="Unsupported"></a> Unsupported Features & Services
 
-The following features and services are not available for Azure Arc-enabled SQL Managed Instance.
+The following features and services are not available for SQL Managed Instance enabled by Azure Arc.
 
 | Area | Unsupported feature or service |
 |-----|-----|
