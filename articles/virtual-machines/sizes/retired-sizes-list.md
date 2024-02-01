@@ -25,7 +25,7 @@ Series with *Retirement Status* listed as **Announced** are still available, but
 
 *Capacity limited* series and *previous-gen* series are not retired and still fully supported, but they have limitations similar to series that are announced for retirement. For a list of previous-gen sizes, see [previous generation Azure VM sizes](./previous-gen-sizes-list.md).
 
-## General Purpose retired sizes
+## General purpose retired sizes
 
 |Series name        | Retirement Status |Retirement Announcement Date | Planned Retirement Date | Migration Guide |
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|

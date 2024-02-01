@@ -28,13 +28,13 @@ If your VM uses Premium Storage, make sure that you choose an **s** version of t
 ### [Portal](#tab/portal)
 1. Open the [Azure portal](https://portal.azure.com). <br/><br/>
 1. Type *virtual machines* in the search. Under **Services**, select **Virtual machines**.
-    ![Screenshot of the Azure portal search bar](./media/portal-vms-search.png)<br/><br/>
+    ![Screenshot of the Azure portal search bar.](./media/portal-vms-search.png)<br/><br/>
 1. In the **Virtual machines** page, select the virtual machine you want to resize.
-    ![Screenshot of an example VM selected](./media/portal-select-vm.png)<br/><br/>
+    ![Screenshot of an example VM selected.](./media/portal-select-vm.png)<br/><br/>
 1. In the left menu, select **size**. Pick a new compatible size from the list of available sizes 
-    ![Screenshot of the size selection in the Azure portal](./media/portal-size-select.png)<br/><br/>
+    ![Screenshot of the size selection in the Azure portal.](./media/portal-size-select.png)<br/><br/>
 1. After picking a size, select **Resize**.
-    ![Screenshot of the resize button in the Azure portal](./media/portal-resize-button.png)<br/><br/>
+    ![Screenshot of the resize button in the Azure portal.](./media/portal-resize-button.png)<br/><br/>
 
 > [!Note] 
 > If the virtual machine is currently running, changing its size will cause it to restart. 

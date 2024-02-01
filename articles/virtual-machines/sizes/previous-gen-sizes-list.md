@@ -23,11 +23,11 @@ To learn more about size series retirement, see the [size series retirement over
 Previous generations virtual machine sizes can still be used, but there are newer generations available. Capacity increases are not guaranteed for previous-gen sizes. It's recommended to migrate to the latest generation replacements.
 
 ## What are capacity limited previous-gen sizes?
-Capacity limited virtual machine sizes are are older sizes which are still fully supported, but they won't receive more capacity. Unlike other size series which will be deployed based on demand, capacity limited sizes are limited to what is currently deployed and decreases as hardware is phased out. There are newer or alternative sizes that are generally available.
+Capacity limited virtual machine sizes are older sizes which are still fully supported, but they won't receive more capacity. Unlike other size series which will be deployed based on demand, capacity limited sizes are limited to what is currently deployed and decreases as hardware is phased out. There are newer or alternative sizes that are generally available.
 
 
 
-## General Purpose previous-gen sizes
+## General purpose previous-gen sizes
 
 |Series name                 | Status                 | Migration guide   |
 |----------------------------|------------------------|-------------------|
@@ -74,7 +74,7 @@ For a list of storage optimized sizes listed as "retired" and "announced for ret
 |----------------------------|------------------------|-------------------|
 | NVv2-series                | Previous-gen           |                   |
 
-For a list of GPU accelerated sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired gpu accelerated sizes](./retired-sizes-list.md#gpu-accelerated-retired-sizes).
+For a list of GPU accelerated sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired GPU accelerated sizes](./retired-sizes-list.md#gpu-accelerated-retired-sizes).
 
 ## FPGA accelerated previous-gen sizes
 

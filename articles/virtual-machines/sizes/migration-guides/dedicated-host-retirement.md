@@ -76,4 +76,4 @@ A: After June 30, 2023 any dedicated host running on the SKUs that are marked fo
 
 ### Q:  What will happen to my VMs if a Host is automatically deallocated?
 
-A: If the underlying host is deallocated the VMs that were running on the host would be deallocated but not deleted. You would be able to either create a new host (of same VM family) and allocate VMs on the host or run the VMs on multi-tenant infrastructure.
+A: If the underlying host is deallocated the VMs that were running on the host would be deallocated but not deleted. You would be able to either create a new host (of the same VM family) and allocate VMs on the host or run the VMs on multitenant infrastructure.
