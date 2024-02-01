@@ -78,7 +78,7 @@ items:
       href: ./how-to/assistant.md
     - name: Tools
       items:
-      - name: Code interpreter
+      - name: Code Interpreter
         href: ./how-to/code-interpreter.md
       - name: Function calling
         href: ./how-to/assistant-functions.md

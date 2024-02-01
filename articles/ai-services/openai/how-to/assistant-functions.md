@@ -1,7 +1,7 @@
 ---
-title: 'How to use Azure OpenAI Assistants Function Calling'
+title: 'How to use Azure OpenAI Assistants function calling'
 titleSuffix: Azure OpenAI
-description: Learn how to use Assistants Function Calling
+description: Learn how to use Assistants function calling
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai

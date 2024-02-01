@@ -5,6 +5,7 @@ description: Learn how to create helpful AI Assistants with tools like Code Inte
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom: references_regions
 ms.topic: how-to
 ms.date: 02/01/2024
 author: mrbullwinkle
@@ -404,7 +405,7 @@ image = Image.open("sinewave.png")
 image.show()
 ```
 
-:::image type="content" source="../media/how-to/assistants/sine-wave.png" alt-text="Screenshot of code interpreter generated sinewave" lightbox="../media/how-to/assistants/sine-wave.png":::
+:::image type="content" source="../media/how-to/assistants/sine-wave.png" alt-text="Screenshot of code interpreter generated sinewave." lightbox="../media/how-to/assistants/sine-wave.png":::
 
 ### Ask a follow-up question on the thread
 
@@ -856,7 +857,7 @@ image = Image.open("dark_sine.png")
 image.show()
 ```
 
-:::image type="content" source="../media/how-to/assistants/dark-mode.png" alt-text="Screenshot of code interpreter generated sinewave in darkmode" lightbox="../media/how-to/assistants/dark-mode.png":::
+:::image type="content" source="../media/how-to/assistants/dark-mode.png" alt-text="Screenshot of code interpreter generated sinewave in darkmode." lightbox="../media/how-to/assistants/dark-mode.png":::
 
 ## Additional reference
 
@@ -869,8 +870,8 @@ image.show()
 |`completed` | The Run successfully completed! You can now view all Messages the Assistant added to the Thread, and all the steps the Run took. You can also continue the conversation by adding more user Messages to the Thread and creating another Run.|
 |`requires_action` | When using the Function calling tool, the Run will move to a required_action state once the model determines the names and arguments of the functions to be called. You must then run those functions and submit the outputs before the run proceeds. If the outputs are not provided before the expires_at timestamp passes (roughly 10-mins past creation), the run will move to an expired status.|
 |`expired` | This happens when the function calling outputs weren't submitted before expires_at and the run expires. Additionally, if the runs take too long to execute and go beyond the time stated in expires_at, our systems will expire the run.|
-|`cancelling`| You can attempt to cancel an in_progress run using the Cancel Run endpoint. Once the attempt to cancel succeeds, status of the Run moves to cancelled. Cancellation is attempted but not guaranteed.|
-|`cancelled` |Run was successfully cancelled.|
+|`cancelling`| You can attempt to cancel an in_progress run using the Cancel Run endpoint. Once the attempt to cancel succeeds, status of the Run moves to canceled. Cancelation is attempted but not guaranteed.|
+|`cancelled` |Run was successfully canceled.|
 |`failed` |You can view the reason for the failure by looking at the `last_error` object in the Run. The timestamp for the failure will be recorded under failed_at.|
 
 ## Message annotations
