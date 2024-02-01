@@ -112,4 +112,4 @@ Use the following steps to add a new variable.
 1. Select **Save**.
 
 ## Review diagnostic reports
-Tthe [diagnose and solve](diagnostics-overview.md) feature can guide you through steps to troubleshoot problems.
+The [diagnose and solve](diagnostics-overview.md) feature can guide you through steps to troubleshoot problems.
