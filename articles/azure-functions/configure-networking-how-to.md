@@ -2,7 +2,7 @@
 title: How to configure Azure Functions with a virtual network
 description: Article that shows you how to perform certain virtual networking tasks for Azure Functions.
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 01/31/2024
 ms.custom: template-how-to
 ---
 
@@ -19,21 +19,21 @@ When you create a function app, you either create a new storage account or link 
 
 For a list of all restrictions on storage accounts, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
-### During function app creation 
+## Secure storage during function app creation 
 
 You can create a function app along with a new storage account secured behind a virtual network that is accessible via private endpoints. The following links show you how to create these resources by using either the Azure portal or by using deployment templates:  
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 Complete the following tutorial to create a new function app a secured storage account: [Use private endpoints to integrate Azure Functions with a virtual network](functions-create-vnet.md).
 
-# [Deployment templates](#tab/templates)
+### [Deployment templates](#tab/templates)
 
 Use Bicep files or Azure Resource Manager (ARM) templates to create a secured function app and storage account resources. When you create a secured storage account in an automated deployment, you must also specifically set the `WEBSITE_CONTENTSHARE` setting and create the file share as part of your deployment. For more information, including links to example deployments, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). 
 
 ---
 
-### Existing function app
+## Secure storage for an existing function app
 
 When you have an existing function app, you can't directly secure the storage account currently being used by the app. You must instead swap-out the existing storage account for a new, secured storage account.
 
@@ -87,8 +87,8 @@ Finally, you need to update your application settings to point at the new secure
 
     | Setting name | Value | Comment |
     |----|----|----|
-    | `AzureWebJobsStorage`<br>`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Storage connection string | This is the connection string for the new secured storage account, which you saved earlier. |
-    | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside. |
+    | [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)<br>[`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md#website_contentazurefileconnectionstring) | Storage connection string | Both settings contain the connection string for the new secured storage account, which you saved earlier. |
+    | [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md#website_contentshare) | File share | The name of the file share created in the secured storage account where the project deployment files reside. |
 
 1. Select **Save** to save the application settings. Changing app settings causes the app to restart.  
 
