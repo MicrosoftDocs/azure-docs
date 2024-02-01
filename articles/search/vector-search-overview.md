@@ -1,7 +1,7 @@
 ---
 title: Vector search
 titleSuffix: Azure AI Search
-description: Describes concepts, scenarios, and availability of the vector search feature in Azure AI Search.
+description: Describes concepts, scenarios, and availability of vector capabilities in Azure AI Search.
 
 author: robertklee
 ms.author: robertlee
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/29/2024
 ---
 
-# Vector stores and vector search in Azure AI Search
+# Vectors in Azure AI Search
 
 Vector search is an approach in information retrieval that stores numeric representations of content for search scenarios. Because the content is numeric rather than plain text, the search engine matches on vectors that are the most similar to the query, with no requirement for matching on exact terms.
 
-This article is a high-level introduction to vector support in Azure AI Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
+This article is a high-level introduction to vectors in Azure AI Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
 
 We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -110,7 +110,7 @@ In order to create effective embeddings for vector search, it's important to tak
 
 ### What is the embedding space?
 
-*Embedding space* is the corpus for vector queries. Within a search index, it's all of the vector fields populated with embeddings from the same embedding model. Machine learning models create the embedding space by mapping individual words, phrases, or documents (for natural language processing), images, or other forms of data into a representation comprised of a vector of real numbers representing a coordinate in a high-dimensional space. In this embedding space, similar items are located close together, and dissimilar items are located farther apart. 
+*Embedding space* is the corpus for vector queries. Within a search index, an embedding space is all of the vector fields populated with embeddings from the same embedding model. Machine learning models create the embedding space by mapping individual words, phrases, or documents (for natural language processing), images, or other forms of data into a representation comprised of a vector of real numbers representing a coordinate in a high-dimensional space. In this embedding space, similar items are located close together, and dissimilar items are located farther apart. 
 
 For example, documents that talk about different species of dogs would be clustered close together in the embedding space. Documents about cats would be close together, but farther from the dogs cluster while still being in the neighborhood for animals. Dissimilar concepts such as cloud computing would be much farther away. In practice, these embedding spaces are abstract and don't have well-defined, human-interpretable meanings, but the core idea stays the same.
 

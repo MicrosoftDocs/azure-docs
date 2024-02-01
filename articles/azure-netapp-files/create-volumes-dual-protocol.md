@@ -83,7 +83,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 1.	Click the **Volumes** blade from the Capacity Pools blade. Click **+ Add volume** to create a volume. 
 
-    ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
+    ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png) 
 
 2.	In the Create a Volume window, click **Create**, and provide information for the following fields under the Basics tab:   
     * **Volume name**      
@@ -122,7 +122,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         
         If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
     
-        ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
@@ -137,7 +137,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
         For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
-        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
+        ![Show advanced selection](./media/shared/volume-create-advanced-selection.png)
 
 3. Click the **Protocol** tab, and then complete the following actions:  
     * Select **Dual-protocol** as the protocol type for the volume.   
@@ -180,7 +180,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 
-    ![Specify dual-protocol](../media/azure-netapp-files/create-volume-protocol-dual.png)
+    ![Specify dual-protocol](./media/create-volumes-dual-protocol/create-volume-protocol-dual.png)
 
 4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
 
@@ -200,13 +200,13 @@ The **Allow local NFS users with LDAP** option in Active Directory connections e
 
 2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 
-    ![Screenshot that shows the Allow local NFS users with LDAP option](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
+    ![Screenshot that shows the Allow local NFS users with LDAP option](./media/shared/allow-local-nfs-users-with-ldap.png)  
 
 ## Manage LDAP POSIX Attributes
 
 You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor: 
 
-![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
+![Active Directory Attribute Editor](./media/shared/active-directory-attribute-editor.png) 
 
 You need to set the following attributes for LDAP users and LDAP groups: 
 * Required attributes for LDAP users:   
@@ -221,7 +221,7 @@ You need to set the following attributes for LDAP users and LDAP groups:
 
 The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
 
-![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
+![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](./media/shared/multi-valued-string-editor.png) 
 
 Microsoft Entra Domain Services doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
 
@@ -234,7 +234,7 @@ On a Windows system, you can access the Active Directory Attribute Editor as fol
 1. Click **Start**, navigate to **Windows Administrative Tools**, and then click **Active Directory Users and Computers** to open the Active Directory Users and Computers window.  
 2.	Click the domain name that you want to view, and then expand the contents.  
 3.	To display the advanced Attribute Editor, enable the **Advanced Features** option in the Active Directory Users Computers **View** menu.   
-    ![Screenshot that shows how to access the Attribute Editor Advanced Features menu.](../media/azure-netapp-files/attribute-editor-advanced-features.png) 
+    ![Screenshot that shows how to access the Attribute Editor Advanced Features menu.](./media/create-volumes-dual-protocol/attribute-editor-advanced-features.png) 
 4. Double-click **Users** on the left pane to see the list of users.
 5. Double-click a particular user to see its **Attribute Editor** tab.
  
