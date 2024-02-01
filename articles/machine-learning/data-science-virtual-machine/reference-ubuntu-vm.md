@@ -138,7 +138,7 @@ The following Azure tools are installed on the VM:
 
 ## Azure Machine Learning
 
-Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models in Azure Machine Learning studio (preview). You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://ml.azure.com).
+Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models in Azure Machine Learning studio. You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://ml.azure.com).
 
 After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
@@ -207,8 +207,6 @@ cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
 cd xgboostdemo
 xgboost mushroom.conf
 ```
-
-A .model file is written to the specified directory. You can find information about this demo example [on GitHub](https://github.com/dmlc/xgboost/tree/master/demo/CLI/binary_classification).
 
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/) and its [GitHub repository](https://github.com/dmlc/xgboost).
 

@@ -61,6 +61,7 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * Central US
 * East US
 * East US 2
+* France Central
 * Germany West Central
 * Japan East
 * North Europe

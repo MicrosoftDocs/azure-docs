@@ -1,9 +1,11 @@
 ---
 title: Differences between in-process and isolate worker process .NET Azure Functions
-description: Compares features and functionality differences between running .NET Functions in-process or as an isolated worker process. 
+description: Compares features and functionality differences between running .NET Functions in-process or as an isolated worker process.
 ms.service: azure-functions
-ms.custom: devx-track-dotnet
-ms.topic: conceptual 
+ms.custom:
+  - devx-track-dotnet
+  - ignite-2023
+ms.topic: conceptual
 ms.date: 08/03/2023
 recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.
@@ -23,7 +25,7 @@ Use the following table to compare feature and functional differences between th
 
 | Feature/behavior | Isolated worker process  |  In-process<sup>3</sup> |
 | ---- | ---- | ---- |
-| [Supported .NET versions](#supported-versions) | Long Term Support (LTS) versions<sup>6</sup>,<br/>Standard Term Support (STS) versions,<br/>.NET Framework | Long Term Support (LTS) versions<sup>6</sup> |
+| [Supported .NET versions](#supported-versions) | Long Term Support (LTS) versions,<br/>Standard Term Support (STS) versions,<br/>.NET Framework | Long Term Support (LTS) versions<sup>6</sup> |
 | Core packages | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) |
 | Binding extension packages | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  |
 | Durable Functions | [Supported](durable/durable-functions-dotnet-isolated-overview.md)| [Supported](durable/durable-functions-overview.md) |
@@ -41,7 +43,7 @@ Use the following table to compare feature and functional differences between th
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 
-<sup>2</sup> Cold start times may be additionally impacted on Windows when using some preview versions of .NET due to just-in-time loading of preview frameworks. This impact applies to both the in-process and out-of-process models but may be noticeable when comparing across different versions. This delay for preview versions isn't present on Linux plans.
+<sup>2</sup> Cold start times could be additionally impacted on Windows when using some preview versions of .NET due to just-in-time loading of preview frameworks. This impact applies to both the in-process and out-of-process models but can be noticeable when comparing across different versions. This delay for preview versions isn't present on Linux plans.
 
 <sup>3</sup> C# Script functions also run in-process and use the same libraries as in-process class library functions. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md). 
 
@@ -49,7 +51,7 @@ Use the following table to compare feature and functional differences between th
 
 <sup>5</sup> ASP.NET Core types are not supported for .NET Framework.
 
-<sup>6</sup> The isolated worker model supports .NET 8 [as a preview](./dotnet-isolated-process-guide.md#preview-net-versions). For information about .NET 8 plans, including future options for the in-process model, see the [Azure Functions Roadmap Update post](https://aka.ms/azure-functions-dotnet-roadmap).
+<sup>6</sup> .NET 8 is not yet supported on the in-process model, though it is available on the isolated worker model. For information about .NET 8 plans, including future options for the in-process model, see the [Azure Functions Roadmap Update post](https://aka.ms/azure-functions-dotnet-roadmap).
 
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult

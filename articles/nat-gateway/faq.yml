@@ -44,6 +44,10 @@ sections:
       - question: How do I delete a NAT gateway resource?
         answer: |
           To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
+
+      - question: Does NAT gateway support IP fragmentation?
+        answer: |
+          No, NAT gateway does not support IP fragmentation for TCP or UDP protocols.
                   
   - name: Outbound connectivity with NAT gateway
     questions:

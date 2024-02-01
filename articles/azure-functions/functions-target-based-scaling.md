@@ -26,7 +26,6 @@ The default _target executions per instance_ values come from the SDKs used by t
 The following considerations apply when using target-based scaling:
 
 + Target-based scaling is enabled by default for function apps on the Consumption plan or for Premium plans, but you can [opt-out](#opting-out). Event-driven scaling isn't supported when running on Dedicated (App Service) plans. 
-+ Your [function app runtime version](set-runtime-version.md) must be 4.3.0 or a later version.
 + Target Based Scaling is enabled by default on function app runtime 4.19.0 or a later version.
 + When using target-based scaling, the `functionAppScaleLimit` site setting is still honored. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
 + To achieve the most accurate scaling based on metrics, use only one target-based triggered function per function app.

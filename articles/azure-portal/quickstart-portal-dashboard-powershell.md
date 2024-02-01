@@ -8,7 +8,9 @@ ms.date: 03/27/2023
 
 # Quickstart: Create an Azure portal dashboard with PowerShell
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This article focuses on the process of using the Az.Portal PowerShell module to create a dashboard. The dashboard shows the performance of a virtual machine (VM) that you create, as well as some static information and links.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This article focuses on the process of using the [Az.Portal PowerShell module](/powershell/module/az.portal) to create a dashboard. The dashboard shows the performance of a virtual machine (VM) that you create, as well as some static information and links.
+
+A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and organized view of your cloud resources. This quickstart shows how to use the Az.Portal PowerShell to create a dashboard. The example dashboard shows the performance of a virtual machine (VM), along with some static information and links.
 
 ## Prerequisites
 

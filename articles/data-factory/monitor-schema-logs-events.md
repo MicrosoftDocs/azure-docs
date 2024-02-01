@@ -467,6 +467,6 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
     | $.properties.SystemParameters | SystemParameters | Dynamic |
     | $.properties.Tags | Tags | Dynamic |
 
-## Next steps
+## Related content
 
 [Monitor programmatically using SDKs](monitor-programmatically.md)

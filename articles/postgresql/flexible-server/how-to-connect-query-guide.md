@@ -34,8 +34,7 @@ Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or
 
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
 
-- [Postgres 12 extensions](./concepts-extensions.md#postgres-12-extensions)
-- [Postgres 11 extensions](./concepts-extensions.md#postgres-11-extensions)
+- [Postgres extensions](./concepts-extensions.md#extension-versions)
 - [dblink and postgres_fdw](./concepts-extensions.md#dblink-and-postgres_fdw)
 - [pg_prewarm](./concepts-extensions.md#pg_prewarm)
 - [pg_stat_statements](./concepts-extensions.md#pg_stat_statements)

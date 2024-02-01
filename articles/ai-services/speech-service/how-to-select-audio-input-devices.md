@@ -2,14 +2,14 @@
 title: Select an audio input device with the Speech SDK
 titleSuffix: Azure AI services
 description: 'Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-C, Java, and JavaScript) by obtaining the IDs of the audio devices connected to a system.'
-services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.devlang: cpp, csharp, java, javascript, objective-c, python
+ms.devlang: cpp
+# ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: devx-track-js, ignite-fall-2021, devx-track-python
 ---
 

@@ -35,7 +35,7 @@ The geo-redundant storage account is deployed in the primary region, but has pri
 
 [ ![Diagram of PE environment.](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-topology.png) ](./media/storage-failover-private-endpoints/storage-failover-private-endpoints-topology.png#lightbox)
 
-The two private endpoints can't use the same Private DNS Zone for the same endpoint.  As a result, each region uses its own Private DNS Zone.  Each regional zone is attached to the hub network for the region. This design uses the [DNS forwarder scenario](../../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) to provide resolution.
+The two private endpoints can't use the same Private DNS Zone for the same endpoint.  As a result, each region uses its own Private DNS Zone.  Each regional zone is attached to the hub network for the region. This design uses the [DNS forwarder scenario](../../private-link/private-endpoint-dns-integration.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) to provide resolution.
 
 As a result, regardless of the region of the VM trying to access the private endpoint, there's a local endpoint available that can access the storage blob, regardless of the region the storage account is currently operating in.
 

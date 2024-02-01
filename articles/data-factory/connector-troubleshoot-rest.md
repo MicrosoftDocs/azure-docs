@@ -60,7 +60,7 @@ This article provides suggestions to troubleshoot common problems with the REST 
 
       Tools like **Postman** and **Fiddler** are recommended for the preceding case.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

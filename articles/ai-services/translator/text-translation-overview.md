@@ -2,7 +2,7 @@
 title: What is Azure Text Translation?
 titlesuffix: Azure AI services
 description: Integrate the Text Translation API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
@@ -57,6 +57,26 @@ Add Text Translation to your projects and applications using the following resou
     >
     > * The [**Translator container image**](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/about) supports limited features compared to cloud offerings.
     >
+
+## Data residency
+
+Text Translation data residency depends on the Azure region where your Translator resource was created:
+
+* Translator resources **created** in any region in Europe are **processed** at data center in West Europe and North Europe.
+* Translator resources **created** in any region in Asia or Australia are **processed** at data center in Southeast Asia and Australia East.
+* Translator resource **created** in all other regions including Global, North America and South America are **processed** at data center in East US and West US 2.
+
+### Text Translation data residency
+
+✔️ Feature: **Translator Text** </br>
+✔️ Region where resource created: **Any**
+
+| Service endpoint | Request processing data center |
+|------------------|--------------------------|
+|**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
+|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US &bull; South Central US &bull; West Central US &bull; West US 2|
+|**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|North Europe &bull; West Europe|
+| **Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Korea South &bull; Japan East &bull; Southeast Asia &bull; Australia East|
 
 ## Get started with Text Translation
 

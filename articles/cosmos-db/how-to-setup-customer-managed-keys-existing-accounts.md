@@ -36,9 +36,9 @@ To enable CMK on an existing account, update the account with an ARM template se
 
 ```
     {
-    "properties": {
+        "properties": {
         "keyVaultKeyUri": "<key-vault-key-uri>"
-    }
+        }
     }
 ```
 
@@ -48,7 +48,7 @@ The output of this CLI command for enabling CMK waits for the completion of encr
     az cosmosdb update --name "testaccount" --resource-group "testrg" --key-uri "https://keyvaultname.vault.azure.net/keys/key1"
 ```
 
-### Steps to enable CMK on your existing Azure Cosmos DB account with PITR or Analytical store account
+### Steps to enable CMK on your existing Azure Cosmos DB account with Continuous backup or Analytical store account
 
 For enabling CMK on existing account that has continuous backup and point in time restore enabled, we need to follow some extra steps. Follow step 1 to step 5 and then follow instructions to enable CMK on existing account.
 
@@ -63,7 +63,7 @@ For enabling CMK on existing account that has continuous backup and point in tim
 
     **For System managed identity :**
     ```
-    az cosmosdb update --resource-group $resourceGroupName  --name $accountName  --default- identity "SystemAssignedIdentity=subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyRG/providers/Microsoft.ManagedIdentity/ systemAssignedIdentities/MyID"
+    az cosmosdb update --resource-group $resourceGroupName  --name $accountName  --default-identity "SystemAssignedIdentity=subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyRG/providers/Microsoft.ManagedIdentity/ systemAssignedIdentities/MyID"
     ```
 
     **For User managed identity  :**
@@ -120,21 +120,21 @@ As you would expect, by enabling CMK there's a slight increase in data size and 
 
 **Should you back up the data before enabling CMK?**
 
-Enabling CMK doesn't pose any threat of data loss. In general, we suggest you back up the data regularly.
+Enabling CMK doesn't pose any threat of data loss.
 
 **Are old backups taken as a part of periodic backup encrypted?**
 
 No. Old periodic backups aren't encrypted. Newly generated backups after CMK enabled is encrypted.
 
-**What is the behavior on existing accounts that are enabled for Continuous backup (PITR)**
+**What is the behavior on existing accounts that are enabled for Continuous backup?**
 
-When CMK is turned on, the encryption is turned on for continuous backups as well. All restores going forward is encrypted.
+When CMK is turned on, the encryption is turned on for continuous backups as well. Once CMK is turned on, all restored accounts going forward will be CMK enabled.
 
 **What is the behavior if CMK is enabled on PITR enabled account and we restore account to the time CMK was disabled?**
 
 In this case CMK is explicitly enabled on the restored target account for the following reasons: 
 - Once CMK is enabled on the account, there's no option to disable CMK. 
-- This behavior is in line with the current design of restore of CMK enabled account if periodic backup
+- This behavior is in line with the current design of restore of CMK enabled account with periodic backup
 
 **What happens when user revokes the key while CMK migration is in-progress?**
 

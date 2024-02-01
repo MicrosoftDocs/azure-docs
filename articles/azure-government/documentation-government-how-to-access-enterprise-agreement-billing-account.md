@@ -11,12 +11,12 @@ ms.reviewer: sapnakeshari
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/03/2023
+ms.date: 11/08/2023
 ---
 
 # Access your EA billing account in the Azure Government portal
 
-As an Azure Government Enterprise Agreement (EA) customer, you can now manage your EA billing account directly from [Azure Government portal](https://portal.azure.us/). This article helps you to get started with your billing account on the Azure Government portal.
+As an Azure Government Enterprise Agreement (EA) customer or Microsoft Partner, you can now manage your EA billing account directly from [Azure Government portal](https://portal.azure.us/). This article helps you to get started with your billing account on the Azure Government portal.
 
 > [!NOTE]
 > On November 15, 2023, the Azure Enterprise portal is retiring for EA enrollments in the Commercial cloud and is becoming read-only for EA enrollments in the Azure Government cloud.
@@ -24,9 +24,9 @@ As an Azure Government Enterprise Agreement (EA) customer, you can now manage yo
 
 ## Access the Azure Government portal
 
-You can manage your Enterprise Agreement (EA) billing account using the [Azure Government portal](https://portal.azure.us/). To access the portal, sign in using your Azure Government credentials.
+You can manage your Enterprise Agreement (EA) billing account or billing profile using the [Azure Government portal](https://portal.azure.us/). To access the portal, sign in using your Azure Government credentials.
 
-If you don't have Azure Government credentials, contact the User Administrator or Global Administrator of your Azure Government Microsoft Entra tenant. Ask them to add you as a new user in Azure Government Active directory.
+If you don't have Azure Government credentials, contact the User Administrator or Global Administrator of your Azure Government Microsoft Entra tenant. Ask them to add you as a new user in Azure Government Active directory. If you don’t have an Azure Government Microsoft Entra tenant, you need to submit request to create one. To submit request, see the following [Submit a request to create a tenant](#submit-a-request-to-create-a-tenant) section.
 
 A User Administrator or Global Administrator uses the following steps to add a new user:
 
@@ -40,7 +40,9 @@ A User Administrator or Global Administrator uses the following steps to add a n
 
 Once you have the credentials, sign into the [Azure Government Portal](https://portal.azure.us/) and you should see **Microsoft Azure Government** in the upper left section of the main navigation bar.
 
-:::image type="content" source="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-02.png" alt-text="Screenshot showing the Microsoft Azure Government environment." lightbox="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-02.png" :::
+:::image type="content" source="./media/connect-with-portal/azure-gov-portal.png" alt-text="Screenshot showing the Microsoft Azure Government environment." lightbox="./media/connect-with-portal/azure-gov-portal.png" :::
+
+### Access for customers
 
 To access your Enterprise Agreement (EA) billing account or enrollment, assign the appropriate permissions to the newly created Azure Government user account. Reach out to an existing Enterprise Administrator and they should be able to assign one of the following roles:
 
@@ -52,15 +54,71 @@ To access your Enterprise Agreement (EA) billing account or enrollment, assign t
 
 Each role has a varying degree of user limits and permissions. For more information, see [Organization structure and permissions by role](../cost-management-billing/manage/understand-ea-roles.md#organization-structure-and-permissions-by-role).
 
-## Access your EA billing account
+### Access for Partners
+
+To access your customer Enterprise Agreement (EA) billing profile or enrollment, assign the appropriate permissions to the newly created Azure Government user account. Reach out to an existing Partner Administrator and they should be able to assign one of the following roles:
+
+- Partner Administrator
+- Partner Administrator (read only)
+
+Each role has a varying degree of user limits and permissions. For more information, see [Organization structure and permissions by role](../cost-management-billing/manage/understand-ea-roles.md#organization-structure-and-permissions-by-role).
+
+### Access your EA billing account as a customer
 
 Billing administration on the Azure Government portal happens in the context of a billing account scope (or enrollment scope). To access your EA billing account, use the following steps:
 
-1. Sign in to the [Azure Government Portal](https://portal.azure.us/)
-1. Search for **Cost Management + Billing**  and select it.  
+1. Sign in to the [Azure Government Portal](https://portal.azure.us/).
+1. Search for **Cost Management + Billing** and select it.  
       :::image type="content" source="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-03.png" alt-text="Screenshot showing search for Cost Management + Billing." lightbox="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-03.png" :::
 1. If you have access to more than one billing account, select **Billing scopes** from the navigation menu. Then, select the billing account that you want to work with.  
     :::image type="content" source="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-04.png" alt-text="Screenshot showing Billing scopes." lightbox="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-04.png" :::
+
+### Access Partner billing account and customer billing profile as a Partner user
+
+Billing administration in the Azure Government portal happens in the context of a billing account scope. To access your billing account, use the following steps:
+
+1. Sign in to the [Azure Government Portal](https://portal.azure.us/).
+2.	Search for **Cost Management + Billing** and select it.  
+    :::image type="content" source="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-03.png" alt-text="Screenshot showing search for Cost Management + Billing as a partner." lightbox="./media/documentation-government-how-to-access-enterprise-agreement-billing-account-03.png" :::
+3.	If you have access to more than one billing account, select **Billing scopes** from the navigation menu. Then, select the billing account that you want to work with.  
+    :::image type="content" source="./media/select-partner-billing-scope.png" alt-text="Screenshot showing Select billing scope as partner." lightbox="./media/select-partner-billing-scope.png" :::
+4.	After selecting a billing account, in the left navigation menu, select **Billing profiles**. They're EA enrollments.  
+:::image type="content" source="./media/select-billing-profiles.png" alt-text="Screenshot showing where to select Billing profiles." lightbox="./media/select-billing-profiles.png" :::
+
+## Submit a request to create a tenant
+
+To manage an Azure Government enrollment, partners and customers use the [Azure Government Portal](https://portal.azure.us/). To sign in to the Azure Government portal, you need user credentials available in the Azure tenant hosted in the Government cloud. If you don’t have an existing Azure Government tenant, you can submit request to your organization with the following steps:
+
+> [!NOTE]
+> A Partner can also submit a tenant creation request for their own organization.
+
+Step 1 - Navigate to the intake form at [Government Validation System](https://usgovintake.embark.microsoft.com/) and select **Customers handling government-controlled data**.
+
+:::image type="content" source="./media/intake-form-customers-handling-data.png" alt-text="Screenshot showing the intake form to select Customers handling data." lightbox="./media/intake-form-customers-handling-data.png" :::
+
+Step 2 - Partners select at least **Azure Government Trial**, which results Azure Tenant creation, after approval. However, Partners can also select more services.
+
+:::image type="content" source="./media/intake-form-trial.png" alt-text="Screenshot showing the intake form to select trial." lightbox="./media/intake-form-trial.png" :::
+
+Step 3 - Enter your **Desired Domain** and **Desired Username** using the parameters provided in the tool tip and then select **Next** when finished. We recommend that you enter a domain and username that allows your organization to easily identify the purpose for the tenant. Doing so can help when there are multiple tenants created for the organization.
+
+:::image type="content" source="./media/intake-form-tenant-information.png" alt-text="Screenshot showing the tenant information." lightbox="./media/intake-form-tenant-information.png" :::
+
+Step 4 - Next, enter your organization's information. Make sure that the details you provide are the same ones shown on legal documents for the organization associated with government contracts. Ensure that the organization contact person is an employee of the organization. They must have access to the email address entered. Information requests and tenant credentials are sent to the contact person. After you enter the information, select **Next**.
+
+:::image type="content" source="./media/intake-form-organization-contact-information.png" alt-text="Screenshot showing the organization and contact information." lightbox="./media/intake-form-organization-contact-information.png" :::
+
+Step 5 - On the Supporting information page, select all applicable categories. When no categories apply, in the **Additional notes** box, type `This request is for partner migration due to enterprise portal deprecation`. To help the validation process, you can enter other information like PCN numbers, CAGE numbers, and so on, in the notes box.
+
+:::image type="content" source="./media/supporting-information.png" alt-text="Screenshot showing the supporting information tab." lightbox="./media/supporting-information.png" :::
+
+Step 6 - Select the agreement boxes and then select **Submit**.
+
+:::image type="content" source="./media/additional-notes.png" alt-text="Screenshot showing the additional notes box and agreement boxes." lightbox="./media/additional-notes.png" :::
+
+Step 7 - After the tenant is created successfully, the contact email address receives a confirmation email that includes user credentials.
+
+Step 8 - The user credentials must be associated with as EA role, such as a Partner administrator, to access Cost Management + Billing. An existing Partner administrator that has access to the Azure Government portal can assign EA roles to the new user credential. If you can't add the EA role, you can submit a support request. For more information, see [Add a partner administrator](../cost-management-billing/manage/ea-billing-administration-partners.md#add-a-partner-administrator).
 
 ## Next steps
 

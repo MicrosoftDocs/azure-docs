@@ -24,7 +24,7 @@ This article will explain how to deploy and access an Azure NetApp Files volume 
 
 ## Considerations
 
-* You should be familiar with network policies for Azure NetApp Files [private endpoints](../private-link/disable-private-endpoint-network-policy.md). Refer to [Route Azure NetApp Files traffic from on-premises via Azure Firewall](#route-azure-netapp-files-traffic-from-on-premises-via-azure-firewall) for further information.
+* Azure NetApp Files connectivity over Virtual WAN is supported only when using Standard networking features. For more information see [Supported network topologies](azure-netapp-files-network-topologies.md#supported-network-topologies).
 
 ## Before you begin
 
@@ -57,7 +57,7 @@ The following image of the Azure portal shows an example virtual hub of effectiv
 :::image type="content" source="../media/azure-netapp-files/effective-routes.png" alt-text="Screenshot of effective routes in Azure portal.":::
 
 > [!IMPORTANT] 
-> Azure NetApp Files mount leverages Azure Private Endpoint. The specific IP address entry is required, even if a CIDR to which the Azure NetApp Files volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
+> Azure NetApp Files mount leverages private IP addresses within a delegated [subnet](azure-netapp-files-network-topologies.md#subnets). The specific IP address entry is required, even if a CIDR to which the Azure NetApp Files volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
 
 ## List Azure NetApp Files volume IP under virtual hub effective routes
 

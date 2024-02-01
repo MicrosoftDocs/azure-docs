@@ -13,13 +13,14 @@ ms.author: danlep
 ---
 # Policies in Azure API Management
 
-In Azure API Management, API publishers can change API behavior through configuration using *policies*. Policies are a collection of statements that are run sequentially on the request or response of an API. Popular statements include:
+In Azure API Management, API publishers can change API behavior through configuration using *policies*. Policies are a collection of statements that are run sequentially on the request or response of an API. API Management provides more than 50 policies out of the box that you can configure to address common API scenarios such as authentication, rate limiting, caching, and transformation of requests or responses. For a complete list, see [API Management policy reference](api-management-policies.md).
+
+Popular policies include:
 
 * Format conversion from XML to JSON
 * Call rate limiting to restrict the number of incoming calls from a developer 
 * Filtering requests that come from certain IP addresses
 
-Many more policies are available out of the box. For a complete list, see [API Management policy reference](api-management-policies.md).
 
 Policies are applied inside the gateway between the API consumer and the managed API. While the gateway receives requests and forwards them, unaltered, to the underlying API, a policy can apply changes to both the inbound request and outbound response.
 
@@ -115,6 +116,8 @@ In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is config
 * The gateway evaluates a resolver-scoped policy *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
 
 For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
+
+[!INCLUDE [api-management-policies-azure-copilot](../../includes/api-management-policies-azure-copilot.md)]
 
 ## Examples
 

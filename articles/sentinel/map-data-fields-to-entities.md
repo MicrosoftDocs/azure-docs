@@ -71,8 +71,8 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 In this document, you learned how to map data fields to entities in Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 
+- Explore the other ways to enrich your alerts:
+    - [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md)
+    - [Customize alert details in Microsoft Sentinel](customize-alert-details.md)
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).
-
-
-

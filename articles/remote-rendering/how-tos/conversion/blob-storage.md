@@ -1,8 +1,8 @@
 ---
 title: Use Azure Blob Storage for model conversion
 description: Describes common steps to set up and use blob storage for model conversion.
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ---

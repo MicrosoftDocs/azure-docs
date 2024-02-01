@@ -39,7 +39,7 @@ This model of centralized management has the following advantages:
 > [!IMPORTANT]
 > If workspaces are only created in customer tenants, the Microsoft.SecurityInsights & Microsoft.OperationalInsights resource providers must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant.
 
-An alternate deployment model is to create one Microsoft Sentinel workspace in the managing tenant. In this model, Azure Lighthouse enables log collection from data sources across managed tenants. However, there are some data sources that can't be connected across tenants, such as Microsoft 365 Defender. Because of this limitation, this model isn't suitable for many service provider scenarios.
+An alternate deployment model is to create one Microsoft Sentinel workspace in the managing tenant. In this model, Azure Lighthouse enables log collection from data sources across managed tenants. However, there are some data sources that can't be connected across tenants, such as Microsoft Defender XDR. Because of this limitation, this model isn't suitable for many service provider scenarios.
 
 ## Granular Azure role-based access control (Azure RBAC)
 

@@ -8,7 +8,7 @@ metadata:
   
   ms.service: api-management
   ms.topic: faq
-  ms.date: 10/24/2022
+  ms.date: 11/21/2023
   ms.author: danlep 
   ms.custom: engagement-fy23,fasttrack-edit
 title: Azure API Management FAQs
@@ -133,3 +133,10 @@ sections:
         answer: |
           Historically and by convention a URL ending with a trailing slash is treated as a directory, for example `https://contoso.com/sample/` whereas the same URL without the trailing slash `https://contoso.com/sample` would indicate a file. This isn't mandated; some systems consider those two URLs unique, others consider them the same. API Management doesn’t make a distinction, thus a single operation `resource` will accept either `resource` or `resource/`. However, the distinction may matter to the backend host. Some web servers will automatically redirect a URL not ending with a trailing slash, to the same URL ending in a trailing slash. As API Management is the client to the backend (server), an automatic redirect isn't always desirable. If needed, create a [Rewrite URL policy](rewrite-uri-policy.md) to ensure a trailing slash is always added to the outbound backend call.
  
+      - question: Can the name of an API Management API be changed?  
+        answer: |
+          No, you can't change the name (or ID) of an API in Azure API Management after you create it. However, you can change the display name.
+          
+          When you clone an API, the new instance is created with a system-generated value for the name, which you can't change. To specify a name for the API, 
+          manually create a new API and import the API definition. For more information, see [Import an API](api-management-howto-import-api.md).
+

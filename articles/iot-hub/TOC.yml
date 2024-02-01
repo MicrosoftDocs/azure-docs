@@ -428,7 +428,6 @@
           href: iot-hub-raspberry-pi-web-simulator-get-started.md
         - name: Use a physical device
           displayName: IoT scenarios, Node.js, C
-          href: iot-hub-get-started-physical.md
           items:
             - name: Raspberry Pi with Node.js
               displayName: BME280 sensor

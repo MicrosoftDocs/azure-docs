@@ -1,20 +1,22 @@
 ---
 title: Azure Table indexer
-titleSuffix: Azure Cognitive Search
-description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure AI Search.
 
 manager: nitinme
-author: mgottein 
+author: mgottein
 ms.author: magottei
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 03/22/2023
 ---
 
 # Index data from Azure Table Storage
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Table Storage and makes it searchable in Azure Cognitive Search. Inputs to the indexer are your entities, in a single table. Output is a search index with searchable content and metadata stored in individual fields.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Table Storage and makes it searchable in Azure AI Search. Inputs to the indexer are your entities, in a single table. Output is a search index with searchable content and metadata stored in individual fields.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing from Azure Table Storage. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
@@ -98,7 +100,7 @@ Indexers can connect to a table using the following connections.
 
 ### Partition for improved performance
 
-By default, Azure Cognitive Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
+By default, Azure AI Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
 
 To avoid a full scan, you can use table partitions to narrow the scope of each indexer job.
 

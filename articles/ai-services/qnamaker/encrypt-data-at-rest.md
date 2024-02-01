@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 12/19/2023
 ms.author: egeaney
 #Customer intent: As a user of the QnA Maker service, I want to learn how encryption at rest works.
 ms.custom: ignite-fall-2021
@@ -33,7 +33,7 @@ QnA Maker uses CMK support from Azure search. Configure [CMK in Azure Search usi
 
 The QnA Maker service uses CMK from the Azure Search service. Follow these steps to enable CMKs:
 
-1. Create a new Azure Search instance and enable the prerequisites mentioned in the [customer-managed key prerequisites for Azure Cognitive Search](../../search/search-security-manage-encryption-keys.md#prerequisites).
+1. Create a new Azure Search instance and enable the prerequisites mentioned in the [customer-managed key prerequisites for Azure AI Search](../../search/search-security-manage-encryption-keys.md#prerequisites).
 
    ![View Encryption settings 1](../media/cognitive-services-encryption/qna-encryption-1.png)
 

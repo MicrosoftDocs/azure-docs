@@ -52,12 +52,9 @@ Currently, HTTP/2 support is active for all Azure CDN profiles. No further actio
 
 ## Next Steps
 
-To see the benefits of HTTP/2 in action, see [this demo from Akamai](https://http2.akamai.com/demo).
-
 To learn more about HTTP/2, visit the following resources:
 
 *   [HTTP/2 specification homepage](https://http2.github.io/)
 *   [Official HTTP/2 FAQ](https://http2.github.io/faq/)
-*   [Akamai HTTP/2 information](https://http2.akamai.com/)
 
 To learn more about Azure CDN's available features, see the [Azure CDN Overview](./cdn-overview.md).

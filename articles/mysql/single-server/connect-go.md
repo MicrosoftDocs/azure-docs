@@ -381,4 +381,4 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
+> [Migrate your database using Export and Import](../flexible-server/concepts-migrate-import-export.md)

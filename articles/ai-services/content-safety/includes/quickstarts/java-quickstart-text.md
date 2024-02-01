@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Analyze text content with Java"
-description: In this quickstart, get started using the Content Safety Java SDK to analyze text content for objectionable material.
-services: cognitive-services
+description: In this quickstart, get started using the Azure AI Content Safety Java SDK to analyze text content for objectionable material.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
@@ -77,6 +77,11 @@ dependencies {
 ## Analyze text content
 
 Open *ContentSafetyQuickstart.java* in your preferred editor or IDE and paste in the following code. Replace `<your text sample>` with the text content you'd like to use.
+
+> [!TIP]
+> Text size and granularity
+>
+> The default maximum length for text submissions is **10K** characters.
 
 ```Java
 import com.azure.ai.contentsafety.models.AnalyzeTextOptions;

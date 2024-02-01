@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with Datawiza
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Datawiza for secure hybrid access 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: gasinh

@@ -2,7 +2,7 @@
 title: Azure Container Instance recipe
 titleSuffix: Azure AI services
 description: Learn how to deploy Azure AI containers on Azure Container Instance
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom: seodec18, devx-track-azurecli

@@ -1,14 +1,14 @@
 ---
 title: Use extensions with Batch pools
-description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. 
+description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
 ms.topic: how-to
 ms.custom: devx-track-linux
-ms.date: 05/26/2023
+ms.date: 12/05/2023
 ---
 
 # Use extensions with Batch pools
 
-Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. You can select any of the extensions that are allowed by Azure Batch and have them installed on the compute nodes as they are provisioned. After that, the extension can perform its intended operation.
+Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. You can select any of the extensions that are allowed by Azure Batch and have them installed on the compute nodes as they're provisioned. After that, the extension can perform its intended operation.
 
 You can check the live status of the extensions you use and retrieve the information they return in order to pursue any detection, correction, or diagnostics capabilities.
 
@@ -17,6 +17,9 @@ You can check the live status of the extensions you use and retrieve the informa
 - Pools with extensions must use [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration).
 - The CustomScript extension type is reserved for the Azure Batch service and can't be overridden.
 - Some extensions may need pool-level Managed Identity accessible in the context of a compute node in order to function properly. Please see [configuring managed identities in Batch pools](managed-identity-pools.md) if applicable for the extension(s).
+
+> [!TIP]
+> Extensions cannot be added to an existing pool. Pools must be recreated to add, remove, or update extensions.
 
 ## Supported extensions
 
@@ -61,12 +64,12 @@ Request Body
         "deploymentConfiguration": {
             "virtualMachineConfiguration": {
                 "imageReference": {
-                    "publisher": "almalinux",
-                    "offer": "almalinux",
-                    "sku": "9-gen1",
+                    "publisher": "microsoftcblmariner",
+                    "offer": "cbl-mariner",
+                    "sku": "cbl-mariner-2",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.el 9",
+                "nodeAgentSkuId": "batch.node.mariner 2.0",
                 "extensions": [
                     {
                         "name": "secretext",

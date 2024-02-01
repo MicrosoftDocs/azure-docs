@@ -28,7 +28,7 @@ Managed disks are designed for 99.999% availability. Managed disks achieve this 
 
 ### Simple and scalable VM deployment
 
-Using managed disks, you can create up to 50,000 VM **disks** of a type in a subscription per region, allowing you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) by allowing you to create up to 1,000 VMs in a virtual machine scale set using a Marketplace image.
+Using managed disks, you can create up to 50,000 VM **disks** of a type in a subscription per region, allowing you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) by allowing you to create up to 1,000 VMs in a virtual machine scale set using a Marketplace image or Azure Compute Gallery image.
 
 ### Integration with availability sets
 

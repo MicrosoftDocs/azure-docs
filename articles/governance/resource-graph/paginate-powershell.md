@@ -74,10 +74,11 @@ We'll then configure the query to return five records (VMs) at a time.
    ```powershell
    # Login first with Connect-AzAccount if not using Cloud Shell
 
-   # Run Azure Resource Graph query Search-AzGraph -Query "Resources | join kind=leftouter
-   (ResourceContainers | where type=='microsoft.resources/subscriptions' | project subscriptionName
-   = name, subscriptionId) on subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' |
-   project VMResourceId = id, subscriptionName, resourceGroup, name"
+   # Run Azure Resource Graph query
+   Search-AzGraph -Query "Resources | join kind=leftouter (ResourceContainers | where 
+   type=='microsoft.resources/subscriptions' | project subscriptionName = name, subscriptionId) on 
+   subscriptionId | where type =~ 'Microsoft.Compute/virtualMachines' | project VMResourceId = id, 
+   subscriptionName, resourceGroup, name"
    ```
 
 1. Update the query to implement the `skipToken` parameter and return 5 VMs in each batch:

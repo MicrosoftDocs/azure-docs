@@ -20,8 +20,6 @@ In the Azure portal, you can change your default payment method to a new credit 
 - For a Microsoft Online Service Program (pay-as-you-go) account, you must be an [Account Administrator](add-change-subscription-administrator.md#whoisaa). 
 - For a Microsoft Customer Agreement, you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes.
 
-[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
-
 The supported payment methods for Microsoft Azure are credit cards, debit cards, and wire transfer. To get approved to pay by wire transfer, see [Pay for your Azure subscription wire transfer](pay-by-invoice.md).
 
 >[!NOTE]

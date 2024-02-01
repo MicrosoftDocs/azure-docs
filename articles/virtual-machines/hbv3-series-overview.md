@@ -1,17 +1,17 @@
 ---
-title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs 
-description: Learn about the HBv3-series VM size in Azure.  
-services: virtual-machines 
-tags: azure-resource-manager 
+title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
+description: Learn about the HBv3-series VM size in Azure.
+services: virtual-machines
+tags: azure-resource-manager
 ms.custom: devx-track-linux
-ms.service: virtual-machines 
+ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
-ms.topic: article 
+ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 04/21/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # HBv3-series virtual machine overview 

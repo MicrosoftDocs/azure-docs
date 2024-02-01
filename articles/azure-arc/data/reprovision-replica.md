@@ -1,6 +1,6 @@
 ---
 title: Reprovision replica
-description: This article explains how to rebuild a broken Azure Arc-enabled SQL Managed Instance replica. A replica may break due to storage corruption, for example. 
+description: This article explains how to rebuild a broken SQL Server Managed Instance enabled by Azure Arc replica. A replica may break due to storage corruption, for example. 
 services: sql-database
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,11 +11,11 @@ ms.reviewer: mikeray
 ms.date: 10/05/2022
 ---
 
-# Reprovision replica - Azure Arc-enabled SQL Managed Instance
+# Reprovision replica - SQL Server Managed Instance enabled by Azure Arc
 
-This article describes how to provision a new replica to replace an existing replica in Azure Arc-enabled SQL Managed Instance.
+This article describes how to provision a new replica to replace an existing replica in SQL Server Managed Instance enabled by Azure Arc.
 
-When you reprovision a replica, you rebuild a new managed instance replica for an Azure Arc-enabled SQL Managed Instance deployment. Use this task to replace a replica that is failing to synchronize, for example, due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue.
+When you reprovision a replica, you rebuild a new managed instance replica for a SQL Server Managed Instance enabled by Azure Arc deployment. Use this task to replace a replica that is failing to synchronize, for example, due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue.
 
 You can reprovision a replica [via `az` CLI](#via-az-cli) or [via `kubectl`](#via-kubectl). You can't reprovision a replica from the Azure portal.
 

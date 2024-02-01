@@ -40,7 +40,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. Policy expressions aren't allowed.| Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds. Policy expressions aren't allowed.                                           | Yes      | N/A     |
-| total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. Policy expressions aren't allowed. |  No | N/A  |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. Policy expressions aren't allowed. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. Policy expressions aren't allowed.|  No | N/A  |

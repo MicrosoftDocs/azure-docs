@@ -73,7 +73,7 @@ In this example, the JSON object represents a store's inventory. We're going to 
 
     :::image type="content" source="media/workbooks-jsonpath/query-jsonpath.png" alt-text="Screenshot that shows editing a query item with JSON data source and JSON path result format.":::
 
-## Use regular expressions to covert values
+## Use regular expressions to convert values
 
 You may have some data that isn't in a standard format. To use that data effectively, you would want to convert that data into a standard format.
 

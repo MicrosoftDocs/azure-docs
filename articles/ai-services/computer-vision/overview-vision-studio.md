@@ -24,7 +24,7 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Azure
 
 1. Create an Azure Subscription if you don't have one already. You can [create one for free](https://azure.microsoft.com/free/ai/).
 
-1. Go to the [Vision Studio website](https://portal.vision.cognitive.azure.com/). If it's your first time logging in, you'll see a popup window that prompts you to sign in to Azure and then choose or create a Vision resource. You can skip this step and do it later.
+1. Go to the [Vision Studio website](https://portal.vision.cognitive.azure.com/). If it's your first time logging in, you'll see a popup window that prompts you to sign in to Azure and then choose or create a Computer Vision resource. You can skip this step and do it later.
 
     :::image type="content" source="./Images/vision-studio-wizard-1.png" alt-text="Screenshot of Vision Studio startup wizard.":::
 

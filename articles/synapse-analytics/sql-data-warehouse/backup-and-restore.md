@@ -41,10 +41,12 @@ from     sys.pdw_loader_backup_runs
 order by run_id desc
 ;
 ```
+> [!NOTE]
+> Backups occur every four (4) hours to meet an eight (8) hour SLA. Therefore, the sys.pdw_loader_backup_runs dynamic management view will display backup activity every four (4) hours.
 
 ## User-Defined Restore Points
 
-This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.synapse/new-azsynapsesqlpoolrestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) or the Azure portal.
+This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](#delete-user-defined-restore-points) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.synapse/new-azsynapsesqlpoolrestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) or the Azure portal.
 
 > [!NOTE]
 > If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8).
@@ -56,6 +58,19 @@ This feature enables you to manually trigger snapshots to create restore points 
 > 3. After you have restored, you have the dedicated SQL pool online. Pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Synapse storage rate. 
 > 
 > If you need an active copy of the restored data warehouse, you can resume, which should take only a few minutes.
+
+### Delete User Defined Restore Points
+
+To delete a specific user-defined restore point programmatically, verify the below methods. It is crucial to use the correct method based on the SQL Pool you are using—either a formerly SQL DW or a SQL Pool within a Synapse workspace.
+
+
+**Azure PowerShell**
+- For dedicated SQL pool (formerly SQL DW), use [Remove-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/remove-azsqldatabaserestorepoint)
+- For dedicated SQL pool (within Synapse workspace), use [Remove-AzSynapseSqlPoolRestorePoint](/powershell/module/az.synapse/remove-azsynapsesqlpoolrestorepoint)
+
+**REST APIs**
+- For dedicated SQL pool (formerly SQL DW), use [Restore Points - Delete](/rest/api/sql/restore-points/delete)
+- For dedicated SQL pool (within Synapse workspace), use [Sql Pool Restore Points - Delete](/rest/api/synapse/resourcemanager/sql-pool-restore-points/delete)
 
 ### Restore point retention
 

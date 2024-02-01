@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 11/02/2023
 ---
 # Investigate API findings, recommendations, and alerts
 
@@ -56,17 +56,13 @@ To see the alert process in action, you can simulate an action that triggers a D
 
 In Defender CSPM, [Cloud Security Graph](concept-attack-path.md) collects data to provide a map of assets and connections across organization, to expose security risks, vulnerabilities, and possible lateral movement paths.
 
-When the Defender CSPM plan is enabled together with Defender for APIs, you can use Cloud Security Explorer to identify, review and analyze API security risks across your organization. 
+When the Defender CSPM plan is enabled together with Defender for APIs, you can use Cloud Security Explorer to identify, review and analyze API security risks across your organization.
 
 1. In the Defender for Cloud portal, select **Cloud Security Explorer**.
 1. In **What would you like to search?** select the **APIs** category. 
 1. Review the search results so that you can review, prioritize, and fix any API issues.
 1. Alternatively, you can select one of the templated API queries to see high risk issues like **Internet exposed API endpoints with sensitive data** or **APIs communicating over unencrypted protocols with unauthenticated API endpoints**
 
-
 ## Next steps
 
-[Manage](defender-for-apis-manage.md) your Defender for APIs deployment.
-
-
-
+[Manage your Defender for APIs deployment](defender-for-apis-manage.md)

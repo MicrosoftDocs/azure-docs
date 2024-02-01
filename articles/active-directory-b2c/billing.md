@@ -1,17 +1,21 @@
 ---
 title: Billing model for Azure Active Directory B2C
 description: Learn about Azure AD B2C's monthly active users (MAU) billing model, how to link an Azure AD B2C tenant to an Azure subscription, and how to select the appropriate premium tier pricing.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: reference
-ms.workload: identity
-ms.date: 06/06/2023
+
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
+
+
+#Customer intent: As a business decision maker managing an Azure AD B2C tenant, I want to understand the billing model based on monthly active users (MAU), so that I can determine the cost and pricing structure for my Azure AD B2C tenant.
+
 ---
 
 # Billing model for Azure Active Directory B2C
@@ -125,7 +129,7 @@ To change your pricing tier, follow these steps:
 
    ![Screenshot that shows how to select the pricing tier.](media/billing/select-tier.png)
 
-Learn about the [Microsoft Entra features, which are supported in Azure AD B2C](supported-azure-ad-features.md). 
+Learn about the [Microsoft Entra ID features, which are supported in Azure AD B2C](supported-azure-ad-features.md). 
  
 
 ## Switch to MAU billing (pre-November 2019 Azure AD B2C tenants)

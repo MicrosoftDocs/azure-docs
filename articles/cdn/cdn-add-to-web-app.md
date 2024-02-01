@@ -68,7 +68,7 @@ In the **Azure Content Delivery Network** page, provide the **New endpoint** set
 | Setting | Suggested value | Description |
 | ------- | --------------- | ----------- |
 | **CDN profile** | myCDNProfile | A CDN profile is a collection of CDN endpoints with the same pricing tier. |
-| **Pricing tier** | Standard Akamai | The [pricing tier](cdn-features.md) specifies the provider and available features. This tutorial uses *Standard Akamai*. |
+| **Pricing tier** | Microsoft CDN (classic) | The [pricing tier](cdn-features.md) specifies the provider and available features. |
 | **CDN endpoint name** | Any name that is unique in the azureedge.net domain | You access your cached resources at the domain *&lt;endpointname&gt;*.azureedge.net.
 
 Select **Create** to create a CDN profile.
@@ -80,8 +80,7 @@ Azure creates the profile and endpoint. The new endpoint appears in the **Endpoi
 ### Test the CDN endpoint
 
  Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
-   - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
-   - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+   - For **Azure CDN Standard from Microsoft (classic)** profiles, propagation usually completes in 10 minutes. 
    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes. 
 
 The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:

@@ -76,4 +76,4 @@ The following table shows the mappings between concepts in Managed Identity scop
 ## Next steps
 
 - [Learn more about managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)
-- [How to use managed identities with Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+- [How to use managed identities with Java SDK](https://github.com/Azure-Samples/azure-spring-apps-samples)

@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Discover what caused the non-compliance with the policy.
-ms.date: 10/26/2023
+ms.date: 11/30/2023
 ms.topic: how-to
 ms.author: davidsmatlak
 author: davidsmatlak
@@ -176,12 +176,9 @@ in the policy definition:
 
 ## Component details for Resource Provider modes
 
-For assignments with a
-[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes), select the
-_Non-compliant_ resource to open a deeper view. The **Component Compliance** tab shows more information specific to the Resource Provider mode on the assigned policy with the
-_Non-compliant_ **Component** and **Component ID**.
+For assignments with a Resource Provider mode, select the _Non-compliant_ resource to view its component compliance records. The **Component Compliance** tab shows more information specific to the [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) like **Component Name**, **Component ID**, and **Type**.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot of Component Compliance tab and compliance details for a Resource Provider mode assignment." :::
+:::image type="content" source="../media/determine-non-compliance/component-compliance-dashboard.png" alt-text="Screenshot of Component Compliance dashboard and compliance details for assignments with a Resource Provider mode.":::
 
 ## Compliance details for guest configuration
 
@@ -248,7 +245,7 @@ detection is triggered when the Azure Resource Manager properties are added, rem
 
    :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Screenshot of the Change History Visual Diff of the before and after state of properties on the Change history page." :::
 
-The _visual diff_ aides in identifying changes to a resource. The changes detected might not be
+   The _visual diff_ aides in identifying changes to a resource. The changes detected might not be
 related to the current compliance state of the resource.
 
 Change history data is provided by [Azure Resource Graph](../../resource-graph/overview.md). To

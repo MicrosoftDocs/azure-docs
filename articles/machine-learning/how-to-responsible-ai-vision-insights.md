@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to generate Responsible AI vision insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: ilmat
@@ -65,12 +65,12 @@ To start, register your input model in Azure Machine Learning and reference the 
 
     ```python
     DataFrame({
-    ‘image_path_1’ : [
+    'image_path_1' : [
     [object_1, topX1, topY1, bottomX1, bottomY1, (optional) confidence_score],
     [object_2, topX2, topY2, bottomX2, bottomY2, (optional) confidence_score],
     [object_3, topX3, topY3, bottomX3, bottomY3, (optional) confidence_score]
     ],
-    ‘image_path_2’: [
+    'image_path_2': [
     [object_1, topX4, topY4, bottomX4, bottomY4, (optional) confidence_score],
     [object_2, topX5, topY5, bottomX5, bottomY5, (optional) confidence_score]
     ]
@@ -80,7 +80,7 @@ To start, register your input model in Azure Machine Learning and reference the 
 - Image Classification
 
     ```python
-    DataFrame({ ‘image_path_1’ : ‘label_1’, ‘image_path_2’ : ‘label_2’ ... })
+    DataFrame({ 'image_path_1' : 'label_1', 'image_path_2' : 'label_2' ... })
     ```
 
 The RAI vision insights component also accepts the following parameters:
@@ -121,7 +121,7 @@ After specifying and submitting the pipeline to Azure Machine Learning for execu
         path: ${{parent.inputs.my_test_data}}
       target_column_name: ${{parent.inputs.target_column_name}}
       maximum_rows_for_test_dataset: 5000
-      classes: '[“cat”, “dog”]'
+      classes: '["cat", "dog"]'
       precompute_explanation: True
       enable_error_analysis: True
 
@@ -132,13 +132,13 @@ After specifying and submitting the pipeline to Azure Machine Learning for execu
 ```python
 #First load the RAI component: 
 rai_vision_insights_component = ml_client_registry.components.get(
-    name="rai_vision_insights", label=”latest”
+    name="rai_vision_insights", label="latest"
 )
 
 #Then construct the pipeline: 
         # Initiate Responsible AI Vision Insights
         rai_vision_job = rai_vision_insights_component(
-            title=”From Python”,
+            title="From Python",
             task_type="image_classification",
             model_info=expected_model_id,
             model_input=Input(type=AssetTypes.MLFLOW_MODEL, path= "<azureml:model_name:model_id>"),
@@ -181,7 +181,7 @@ In addition to the list of Responsible AI vision insights parameters provided in
 | Parameter name | Description                                           | Type                             |
 |----------------|-------------------------------------------------------|----------------------------------|
 | `model_type`   | Flavor of the model. Select pyfunc for AutoML models. | Enum <br> - Pyfunc <br> - fastai |
-| `dataset_type` | Whether the Images in the dataset are read from publicly available url or they're stored in the user’s datastore. <br> For AutoML models, images are always read from User’s workspace datastore, hence the dataset type for AutoML models is “private”. <br> For private dataset type, we download the images on the compute before generating the explanations. | Enum <br> - Public <br> - Private |
+| `dataset_type` | Whether the Images in the dataset are read from publicly available url or they're stored in the user's datastore. <br> For AutoML models, images are always read from User's workspace datastore, hence the dataset type for AutoML models is "private". <br> For private dataset type, we download the images on the compute before generating the explanations. | Enum <br> - Public <br> - Private |
 | `xai_algorithm` | Type of the XAI algorithms supported for AutoML Models <br> Note: Shap isn't supported for AutoML models. | Enum <br> - `guided_backprop` <br> - `guided_gradcam` <br> - `integrated_gradients` <br> - `xrai` |
 | `xrai_fast` | Whether to use faster version of XRAI. if True, then computation time for explanations is faster but leads to less accurate explanations (attributions) | Boolean |
 | `approximation_method` | This Parameter is only specific to Integrated gradients. <br> Method for approximating the integral. Available approximation methods are `riemann_middle` and `gausslegendre`.| Enum <br> - `riemann_middle` <br> - `gausslegendre` |

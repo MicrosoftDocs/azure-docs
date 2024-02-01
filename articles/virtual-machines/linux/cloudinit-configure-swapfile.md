@@ -41,7 +41,7 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
 
-The mount is created with the `nofail` option to ensure that the boot will continue even if the mount is not completed successfully.
+The mount is created with the `nofail` option to ensure that the boot process continues even if the mount is not completed successfully.
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -62,6 +62,41 @@ az vm create \
 
 > [!NOTE]
 > Replace **myResourceGroup**, **vmName**, and **imageCIURN** values accordingly. Make sure an image with Cloud-init is chosen.
+
+## Modify an already running machine
+
+If you already provisioned your server and wish to modify the mount point of the ephemeral storage and want to configure a part of the disk as swap space, use the following steps.
+
+Create cloud-init configuration file named `00-azure-swap.cfg` in the `/etc/cloud/cloud.cfg.d` directory with the following content:
+
+```yaml
+#cloud-config
+disk_setup:
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
+fs_setup:
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
+mounts:
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
+```
+
+Next, append a line to the `/etc/systemd/system.conf` file with following content:
+
+```config
+DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"
+```
+
+> [!NOTE]
+> The name of the file is totally arbitrary, it can be replaced with any particular name of your preference, it just needs the .cfg suffix and make sure to reflect the changes in the CLOUD_CFG parameter line as well.
+
+After the changes are done, the machine needs to be deallocated or re-deployed for the changes to take effect.
+
 
 ## Verify swap partition was created
 
@@ -89,7 +124,7 @@ Filename                Type        Size    Used    Priority
 
 ## Next steps
 
-For additional cloud-init examples of configuration changes, see the following:
+For more cloud-init examples of configuration changes, see the following:
 
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)

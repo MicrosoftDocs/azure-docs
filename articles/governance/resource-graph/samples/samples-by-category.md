@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 10/27/2023
+ms.date: 12/13/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -15,6 +15,10 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 ## Azure Advisor
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-advisor](../../../../includes/resource-graph/samples/bycat/azure-advisor.md)]
+
+## Azure App Service
+
+[!INCLUDE [app-service-resources-tls-version](../../includes/resource-graph/query/app-service-resources-tls-version.md)]
 
 ## Azure Arc
 
@@ -47,6 +51,11 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 [!INCLUDE [azure-monitor-data-collection-rules-resources-table](../../includes/resource-graph/query/resources-monitor-data-collection-rules.md)]
 
 [!INCLUDE [azure-monitor-data-collection-rules-insight-resources-table](../../includes/resource-graph/query/insight-resources-monitor-data-collection-rules.md)]
+
+
+## Azure Orbital Ground Station
+
+[!INCLUDE [azure-orbitals-contacts-samples](../../includes/resource-graph/query/orbital-resources-contacts.md)]
 
 ## Azure Policy
 

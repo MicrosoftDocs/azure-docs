@@ -8,7 +8,8 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/28/2022
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
-ms.devlang: java, azurecli
+ms.devlang: java
+# ms.devlang: java, azurecli
 ---
 
 # Expose applications with end-to-end TLS in a virtual network

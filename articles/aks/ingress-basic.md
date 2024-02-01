@@ -7,7 +7,8 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 12/13/2023
+ROBOTS: NOINDEX
 ---
 
 # Create an unmanaged ingress controller
@@ -15,6 +16,9 @@ ms.date: 08/07/2023
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. When you use an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster.
 
 This article shows you how to deploy the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. Two applications are then run in the AKS cluster, each of which is accessible over the single IP address.
+
+> [!IMPORTANT]
+> The Application routing add-on is recommended for ingress in AKS. For more information, see [Managed nginx Ingress with the application routing add-on][aks-app-add-on].
 
 > [!NOTE]
 > There are two open source ingress controllers for Kubernetes based on Nginx: one is maintained by the Kubernetes community ([kubernetes/ingress-nginx][nginx-ingress]), and one is maintained by NGINX, Inc. ([nginxinc/kubernetes-ingress]). This article will be using the Kubernetes community ingress controller.
@@ -253,8 +257,8 @@ helm install ingress-nginx ingress-nginx/ingress-nginx `
     --set controller.image.tag=$ControllerTag `
     --set controller.image.digest="" `
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
-    --set controller.service.loadBalancerIP=10.224.0.42 \
-    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true \
+    --set controller.service.loadBalancerIP=10.224.0.42 `
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true `
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz `
     --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
     --set controller.admissionWebhooks.patch.image.image=$PatchImage `
@@ -588,3 +592,4 @@ This article included some external components to AKS. To learn more about these
 [aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [azure-powershell-install]: /powershell/azure/install-az-ps
+[aks-app-add-on]: app-routing.md

@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.custom: devx-track-python
-ms.date: 09/08/2023
+ms.date: 11/21/2023
 ms.author: radeltch
 ---
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
@@ -188,12 +188,12 @@ The steps in this section use the following prefixes:
    sudo vgcreate vg_hana_shared_HN1 /dev/disk/azure/scsi1/lun3
    ```
 
-   Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance. Align the stripe sizes to the values documented in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of the underlying physical volumes, and the `-I` argument is the stripe size. 
+   Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance. Align the stripe sizes to the values documented in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of the underlying physical volumes, and the `-I` argument is the stripe size.
 
    In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. The stripe size for the data volume is **256KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.
 
    > [!IMPORTANT]
-   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size when you're creating a striped volume. 
+   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size when you're creating a striped volume.
    > See [SAP HANA VM storage configurations](./hana-vm-operations-storage.md) for recommended storage configurations, including stripe sizes and number of disks. The following layout examples don't necessarily meet the performance guidelines for a particular system size. They're for illustration only.
 
    ```bash
@@ -239,7 +239,7 @@ The steps in this section use the following prefixes:
    * [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
    * [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
    * [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
-   * [2593824 - Linux: Running SAP applications compiled with GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824) 
+   * [2593824 - Linux: Running SAP applications compiled with GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824)
    * [2886607 - Linux: Running SAP applications compiled with GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
 
 1. **[A]** Install the SAP HANA.
@@ -463,6 +463,11 @@ The steps in this section use the following prefixes:
 
 Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
 
+> [!IMPORTANT]
+> With the systemd based SAP Startup Framework, SAP HANA instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As outlined in SAP Note [3189534](https://me.sap.com/notes/3189534), any new installations of SAP HANA SPS07 revision 70 or above, or updates to HANA systems to HANA 2.0 SPS07 revision 70 or above, SAP Startup framework will be automatically registered with systemd.
+>
+> When using HA solutions to manage SAP HANA system replication in combination with systemd-enabled SAP HANA instances (refer to SAP Note [3189534](https://me.sap.com/notes/3189534)), additional steps are necessary to ensure that the HA cluster can manage the SAP instance without systemd interference. So, for SAP HANA system integrated with systemd, additional steps outlined in [Red Hat KBA 7029705](https://access.redhat.com/solutions/7029705) must be followed on all cluster nodes.
+
 ## Implement the Python system replication hook SAPHanaSR
 
 This important step optimizes the integration with the cluster and improves the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook.
@@ -655,7 +660,7 @@ Use the command `sudo pcs status` to check the state of the cluster resources cr
 
 ## Configure HANA active/read-enabled system replication in Pacemaker cluster
 
-Starting with SAP HANA 2.0 SPS 01, SAP allows active/read-enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads. 
+Starting with SAP HANA 2.0 SPS 01, SAP allows active/read-enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads.
 
 To support such a setup in a cluster, a second virtual IP address is required, which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary SAPHana resource.
 
@@ -883,7 +888,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523). 
+You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523).
 
 In this example, we use the `net_breaker` script as root to block all access to the network:
 

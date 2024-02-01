@@ -37,7 +37,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Azure Synapse Analytics (formerly SQL Data Warehouse)|Generally available|Yes|Yes|<ul><li>[Analyze data in a storage account](../../synapse-analytics/get-started-analyze-storage.md)</li></ul>|
 |SQL Server Integration Services (SSIS)|Generally available|Yes|Yes|<ul><li>[Azure Storage connection manager](/sql/integration-services/connection-manager/azure-storage-connection-manager)</li></ul>|
 |Azure Data Explorer|Generally available|Yes|Yes|<ul><li>[Query data in Azure Data Lake using Azure Data Explorer](/azure/data-explorer/data-lake-query-data)</li></ul>|
-|Azure Cognitive Search|Generally available|Yes|Yes|<ul><li>[Index and search Azure Data Lake Storage Gen2 documents](../../search/search-howto-index-azure-data-lake-storage.md)</li></ul>|
+|Azure AI Search|Generally available|Yes|Yes|<ul><li>[Index and search Azure Data Lake Storage Gen2 documents](../../search/search-howto-index-azure-data-lake-storage.md)</li></ul>|
 |Azure SQL Managed Instance|Preview|No|Yes|<ul><li>[Data virtualization with Azure SQL Managed Instance](/azure/azure-sql/managed-instance/data-virtualization-overview)</li></ul>|
 
 

@@ -2,7 +2,7 @@
 title: How to install and run the Spatial Analysis container - Azure AI Vision
 titleSuffix: Azure AI services
 description: The Spatial Analysis container lets you can detect people and distances.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
@@ -20,7 +20,7 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [!INCLUDE [contributor-requirement](../includes/quickstarts/contributor-requirement.md)]
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You'll need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
 
 ### Spatial Analysis container requirements

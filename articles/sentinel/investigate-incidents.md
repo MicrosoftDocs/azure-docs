@@ -49,7 +49,7 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
 1. Triage a specific incident and take some actions on it immediately, right from the **details pane** on the **Incidents** page, without having to enter the incident’s full details page.
 
-    - **Investigate Microsoft 365 Defender incidents in Microsoft 365 Defender:** Follow the [**Investigate in Microsoft 365 Defender**](microsoft-365-defender-sentinel-integration.md) link to pivot to the parallel incident in the Defender portal. Any changes you make to the incident in Microsoft 365 Defender will be synchronized to the same incident in Microsoft Sentinel.
+    - **Investigate Microsoft Defender XDR incidents in Microsoft Defender XDR:** Follow the [**Investigate in Microsoft Defender XDR**](microsoft-365-defender-sentinel-integration.md) link to pivot to the parallel incident in the Defender portal. Any changes you make to the incident in Microsoft Defender XDR will be synchronized to the same incident in Microsoft Sentinel.
 
     - **Open the list of assigned tasks:** Incidents for which any tasks have been assigned will display a count of completed and total tasks and a **View full details** link. Follow the link to open the [**Incident tasks**](incident-tasks.md) panel to see the list of tasks for this incident.
 

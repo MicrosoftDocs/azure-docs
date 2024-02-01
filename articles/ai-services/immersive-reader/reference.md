@@ -2,7 +2,7 @@
 title: "Immersive Reader SDK Reference"
 titleSuffix: Azure AI services
 description: The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
 
@@ -13,14 +13,14 @@ ms.date: 11/15/2021
 ms.author: rwaller
 ---
 
-# Immersive Reader JavaScript SDK Reference (v1.2)
+# Immersive Reader JavaScript SDK Reference (v1.4)
 
 The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 
 You may use `npm`, `yarn`, or an `HTML` `<script>` element to include the library of the latest stable build in your web application:
 
 ```html
-<script type='text/javascript' src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js'></script>
+<script type='text/javascript' src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.4.0.js'></script>
 ```
 
 ```bash

@@ -414,5 +414,5 @@ If you need more troubleshooting data, you can [view the Kubernetes primary node
 [install-azure-cli]: /cli/azure/install-azure-cli
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [ssh-steps]: ssh.md
-[view-primary-logs]: monitor-aks.md#resource-logs
+[view-primary-logs]: monitor-aks.md#aks-control-planeresource-logs
 [azure-bastion]: ../bastion/bastion-overview.md  

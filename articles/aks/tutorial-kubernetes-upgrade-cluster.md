@@ -100,6 +100,8 @@ If using Azure PowerShell, this tutorial requires Azure PowerShell version 5.9.0
 4. In **Kubernetes version**, select **Upgrade version**. This redirects you to a new page.
 5. In **Kubernetes version**, select the version to check for available upgrades.
 
+      :::image type="content" source="media/tutorial-kubernetes-upgrade-cluster/upgrade-kubernetes-version.png" alt-text="Screenshot of the Upgrade version screen.":::
+
 If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when no upgrades are available.
 
 ---
@@ -191,6 +193,8 @@ You can either [manually upgrade your cluster](#manually-upgrade-cluster) or [co
 3. In **Kubernetes version**, select **Upgrade version**. This redirects you to a new page.
 4. In **Kubernetes version**, select your desired version and then select **Save**.
 
+      :::image type="content" source="media/tutorial-kubernetes-upgrade-cluster/available-upgrade-versions.png" alt-text="Screenshot of the Upgrade version screen with available upgrade versions.":::
+
 It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
 
 ---
@@ -219,6 +223,8 @@ It takes a few minutes to upgrade the cluster, depending on how many nodes you h
 2. Under **Settings**, select **Cluster configuration**.
 3. In **Kubernetes version**, select **Upgrade version**.
 4. For **Automatic upgrade**, select **Enabled with patch (recommended)** > **Save**.
+
+      :::image type="content" source="media/tutorial-kubernetes-upgrade-cluster/automatic-upgrade-kubernetes-version.png" alt-text="Screenshot of the Upgrade version screen with the Automatic upgrade option set to Enabled with patch (recommended).":::
 
 ---
 
@@ -294,6 +300,8 @@ AKS regularly provides new node images. Linux node images are updated weekly, an
 1. In the Azure portal, navigate to your AKS cluster.
 2. On the **Overview** page, select the **Kubernetes version** and ensure it's the latest version you installed in the previous step.
 
+      :::image type="content" source="media/tutorial-kubernetes-upgrade-cluster/validate-kubernetes-upgrade.png" alt-text="Screenshot of the Upgrade version screen with the current updated Kubernetes version.":::
+
 ---
 
 ## Delete the cluster
@@ -320,7 +328,9 @@ As this tutorial is the last part of the series, you might want to delete your A
 
 1. In the Azure portal, navigate to your AKS cluster.
 2. On the **Overview** page, select **Delete**.
-3. On the popup that asks you to confirm the deletion of the cluster, select **Yes**.
+3. On the **Delete cluster confirmation** page, select **Delete**.
+
+      :::image type="content" source="media/tutorial-kubernetes-upgrade-cluster/delete-cluster-confirmation.png" alt-text="Screenshot of the Delete cluster confirmation screen.":::
 
 ---
 

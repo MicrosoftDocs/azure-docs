@@ -322,6 +322,6 @@ In this step, you trigger a pipeline run.
 
 You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule, such as hourly or daily. For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
-## Next steps
+## Related content
 - [Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory with PowerShell](how-to-invoke-ssis-package-ssis-activity-powershell.md)
 - [Modernize and extend your ETL/ELT workflows with SSIS activities in Azure Data Factory pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

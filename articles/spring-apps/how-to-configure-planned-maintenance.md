@@ -9,7 +9,7 @@ ms.date: 11/07/2023
 ms.custom: 
 ---
 
-# How to configure planned maintenance
+# How to configure planned maintenance (preview)
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.

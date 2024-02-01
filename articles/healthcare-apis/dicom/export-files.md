@@ -120,7 +120,7 @@ POST /export HTTP/1.1
 Accept: */*
 Content-Type: application/json
 {
-    "sources": {
+    "source": {
         "type": "identifiers",
         "settings": {
             "values": [

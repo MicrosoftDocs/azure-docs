@@ -1,7 +1,7 @@
 ---
-title: Deploy Project Health Insights using the Azure portal
-titleSuffix: Project Health Insights
-description: This article describes how to deploy Project Health Insights in the Azure portal.
+title: Deploy Azure AI Health Insights using the Azure portal
+titleSuffix: Azure AI Health Insights
+description: This article describes how to deploy Azure AI Health Insights in the Azure portal.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,19 +12,19 @@ ms.author: behoorne
 ---
 
 
-# Quickstart: Deploy Project Health Insights using the Azure portal
+# Quickstart: Deploy Azure AI Health Insights using the Azure portal
 
-In this quickstart, you learn how to deploy Project Health Insights using the Azure portal.
+In this quickstart, you learn how to deploy Azure AI Health Insights using the Azure portal.
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created Project Health Insights, and retrieve the needed details  such your service URL, keys and manage your access controls.
+Once deployment is complete, you can use the Azure portal to navigate to the newly created Azure AI Health Insights, and retrieve the needed details  such your service URL, keys and manage your access controls.
 
-## Deploy Project Health Insights
+## Deploy Azure AI Health Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Create a new **Resource group**.
 3. Add a new Azure AI services account to your Resource group and search for **Health Insights**.
 
-    ![Screenshot of how to create the new Project Health Insights service.](media/create-service.png) 
+    ![Screenshot of how to create the new Azure AI Health Insights service.](media/create-service.png) 
 
     or Use this [link](https://portal.azure.com/#create/Microsoft.CognitiveServicesHealthInsights) to create a new Azure AI services account.
 
@@ -50,10 +50,10 @@ Once the Azure AI services account is successfully created, configure private en
 
 ## Next steps
 
-To get started using Project Health Insights, get started with one of the following models:
+To get started using Azure AI Health Insights, get started with one of the following models:
 
 >[!div class="nextstepaction"]
-> [Onco Phenotype](oncophenotype/index.yml) 
+> [Onco-Phenotype](oncophenotype/index.yml) 
 
 >[!div class="nextstepaction"]
 > [Trial Matcher](trial-matcher/index.yml) 

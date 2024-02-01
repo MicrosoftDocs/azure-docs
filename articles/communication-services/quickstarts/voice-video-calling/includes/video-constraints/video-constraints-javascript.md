@@ -13,9 +13,6 @@ ms.subservice: calling
 
 You can set video constraints in your calls to control the video quality based on resolution or frameRate or bitrate in your video calls. In this quickstart guide, we'll illustrate how to set video constraints at the start of a call and how to use our `setConstraints` method on the call object to set video constraints dynamically during the call.
 
-
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 > [!NOTE]
 > Currently, we only support setting video send constraints. You cannot set video constraints on incoming videos at this point of time.
 

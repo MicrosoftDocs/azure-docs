@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 manager: femila
 ---
 
-# Deploy a Azure Virtual Desktop (classic) management tool with PowerShell
+# Deploy an Azure Virtual Desktop (classic) management tool with PowerShell
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.

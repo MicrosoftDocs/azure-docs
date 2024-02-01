@@ -3,7 +3,8 @@ title: Azure Blob storage trigger for Azure Functions
 description: Learn how to run an Azure Function as Azure Blob storage data changes.
 ms.topic: reference
 ms.date: 09/08/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---

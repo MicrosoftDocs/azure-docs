@@ -6,7 +6,7 @@ ms.author: wwilliams
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 05/01/2023
+ms.date: 10/30/2023
 ms.custom: template-how-to-pattern
 
 
@@ -32,35 +32,35 @@ To enable the NVMe interface, the following prerequisites must be met:
 - Choose one of the Azure regions where NVMe is enabled
 
 By meeting the above five conditions, you'll be able to enable NVMe on the supported VM family in no time. Please follow the above conditions to successfully create or resize a VM with NVMe without any complications. Refer to the [FAQ](enable-nvme-faqs.yml) to learn about NVMe enablement.
+
 ## OS Images supported
 
 ### Linux
-| Distribution | Image |
+
+| Distribution                         | Image                                                            |
 |--------------------------------------|------------------------------------------------------------------|
-|       Almalinux 8.x (currently 8.7)  |     almalinux: almalinux:8-gen2: latest                          |
+|     Almalinux 8.x (currently 8.7)    |   almalinux: almalinux:8-gen2: latest                            |
 |     Almalinux 9.x (currently 9.1)    |   almalinux: almalinux:9-gen2: latest                            |
 |     Debian 11                        |   Debian: debian-11:11-gen2: latest                              |
 |     CentOS 7.9                       |   openlogic: centos:7_9-gen2: latest                             |
 |     RHEL 7.9                         |   RedHat: RHEL:79-gen2: latest                                   |
 |     RHEL 8.6                         |   RedHat: RHEL:86-gen2: latest                                   |
 |     RHEL 8.7                         |   RedHat: RHEL:87-gen2: latest                                   |
+|     RHEL 9.0                         |   RedHat: RHEL:90-gen2: latest                                   |
 |     RHEL 9.1                         |   RedHat: RHEL:91-gen2: latest                                   |
-|     Ubuntu 18.04                     |   Canonical: UbuntuServer:18_04-lts-gen2: latest                 |
-|     Ubuntu 20.04                     |   Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2: latest  |
-|     Ubuntu 22.04                     |   canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2: latest  |
-|     Oracle 7.9                       |  Oracle: Oracle-Linux:ol79-lvm-gen2:latest                       |
-|     Oracle 8.5                       |  Oracle: Oracle-Linuz:ol85-lvm-gen2:latest                       |
-|     Oracle 8.6                       |  Oracle: Oracle-Linux:ol86-lvm-gen2:latest                       |
-|     Oracle 8.7                       |  Oracle: Oracle-Linux:ol87-lvm-gen2:latest                       |
-|     Oracle 9.0                       |  Oracle: Oracle-Linux:ol9-lvm-gen2:latest                        |
-|     Oracle 9.1                       |  Oracle: Oracle-Linux:ol91-lvm-gen2:latest                       |
-|     RHEL 9.0                         |  RedHat: RHEL:90-gen2:latest                                     |
-|     SLES 15.4                        |  suse: sles-15-sp4:gen2:latest                                   |
-
-
-
-
-
+|     Ubuntu 18.04                     |   Canonical:UbuntuServer:18_04-lts-gen2:latest                   |
+|     Ubuntu 20.04                     |   Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest   |
+|     Ubuntu 22.04                     |   Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest   |
+|     Oracle 7.9                       |   Oracle: Oracle-Linux:79-gen2:latest                       |
+|     Oracle 8.5                       |   Oracle: Oracle-Linuz:ol85-lvm-gen2:latest                      |
+|     Oracle 8.6                       |   Oracle: Oracle-Linux:ol86-lvm-gen2:latest                      |
+|     Oracle 8.7                       |   Oracle: Oracle-Linux:ol87-lvm-gen2:latest                      |
+|     Oracle 9.0                       |   Oracle: Oracle-Linux:ol9-lvm-gen2:latest                       |
+|     Oracle 9.1                       |   Oracle: Oracle-Linux:ol91-lvm-gen2:latest                      |
+|     SLES-for-SAP 15.3                |   SUSE:sles-sap-15-sp3:gen2:latest                               |
+|     SLES-for-SAP 15.4                |   SUSE:sles-sap-15-sp4:gen2:latest                               |
+|     SLES 15.4                        |   SUSE:sles-15-sp4:gen2:latest                                   |
+|     SLES 15.5                        |   SUSE:sles-15-sp5:gen2:latest                                   |
 
 
 ### Windows
@@ -95,10 +95,12 @@ By meeting the above five conditions, you'll be able to enable NVMe on the suppo
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition-core](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core)
 - [Azure portal - Plan 2022-datacenter-azure-edition-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core-smalldisk)
 
+
 ## Launching a VM with NVMe interface
 NVMe can be enabled during VM creation using various methods such as: Azure portal, CLI, PowerShell, and ARM templates. To create an NVMe VM, you must first enable the NVMe option on a VM and select the NVMe controller disk type for the VM. Note that the NVMe diskcontrollertype can be enabled during creation or updated to NVMe when the VM is stopped and deallocated, provided that the VM size supports NVMe. 
 
 ### Azure portal View
+
 1. Add Disk Controller Filter. To find the NVMe eligible sizes, select **See All Sizes**, select the **Disk Controller** filter, and then select **NVMe**:
 
    :::image type="content" source="./media/enable-nvme/azure-portal-1.png" alt-text="Screenshot of instructions to add disk controller filter for NVMe interface.":::

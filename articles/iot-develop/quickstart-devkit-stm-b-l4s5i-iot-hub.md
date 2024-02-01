@@ -4,7 +4,7 @@ description: Use Azure RTOS embedded software to connect an STMicroelectronics B
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
-ms.devlang: cs
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 06/27/2023
 ---

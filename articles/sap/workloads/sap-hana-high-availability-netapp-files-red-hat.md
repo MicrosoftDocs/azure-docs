@@ -59,7 +59,6 @@ Read the following SAP Notes and papers first:
   - [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   - [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
   - [Configure SAP HANA scale-up system replication in a Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
-- [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 - [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 
 ## Overview
@@ -425,6 +424,11 @@ This section describes the steps required for a cluster to operate seamlessly wh
 
 Follow the steps in [Set up Pacemaker on Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) in Azure to create a basic Pacemaker cluster for this HANA server.
 
+> [!IMPORTANT]
+> With the systemd based SAP Startup Framework, SAP HANA instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As outlined in SAP Note [3189534](https://me.sap.com/notes/3189534), any new installations of SAP HANA SPS07 revision 70 or above, or updates to HANA systems to HANA 2.0 SPS07 revision 70 or above, SAP Startup framework will be automatically registered with systemd.
+>
+> When using HA solutions to manage SAP HANA system replication in combination with systemd-enabled SAP HANA instances (refer to SAP Note [3189534](https://me.sap.com/notes/3189534)), additional steps are necessary to ensure that the HA cluster can manage the SAP instance without systemd interference. So, for SAP HANA system integrated with systemd, additional steps outlined in [Red Hat KBA 7029705](https://access.redhat.com/solutions/7029705) must be followed on all cluster nodes.
+
 ### Implement the Python system replication hook SAPHanaSR
 
 This step is an important one to optimize the integration with the cluster and improve the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. Follow the steps in [Implement the Python system replication hook SAPHanaSR](sap-hana-high-availability-rhel.md#implement-the-python-system-replication-hook-saphanasr).
@@ -602,7 +606,7 @@ This section describes how you can test your setup.
 1. Verify the cluster configuration for a failure scenario when a node loses access to the NFS share (`/hana/shared`).
 
    The SAP HANA resource agents depend on binaries stored on `/hana/shared` to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented scenario.  
-   
+
    It's difficult to simulate a failure where one of the servers loses access to the NFS share. As a test, you can remount the file system as read-only. This approach validates that the cluster can fail over, if access to `/hana/shared` is lost on the active node.
 
    **Expected result:** On making `/hana/shared` as a read-only file system, the `OCF_CHECK_LEVEL` attribute of the resource `hana_shared1`, which performs read/write operations on file systems, fails. It isn't able to write anything on the file system and performs HANA resource failover. The same result is expected when your HANA node loses access to the NFS shares.

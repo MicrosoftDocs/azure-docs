@@ -6,7 +6,8 @@ author: SudheeshGH
 ms.author: sunaray
 ms.topic: how-to
 ms.date: 04/19/2023
-ms.devlang: csharp, golang, java, php, python, ruby
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, php, python, ruby
 ms.custom: devx-track-csharp, devx-track-linux
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB

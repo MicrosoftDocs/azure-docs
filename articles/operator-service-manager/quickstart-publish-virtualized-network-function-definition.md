@@ -51,9 +51,11 @@ Here's sample input-vnf-nfd.json file:
     }, 
     "vhd": { 
         "file_path": "livecd.ubuntu-cpc.azure.vhd", 
-        "version": "1-0-0" 
+        "version": "1-0-0",
+        "image_disk_size_GB": 30,
+        "image_hyper_v_generation": "V1",
+        "image_api_version": "2023-03-01"
     } 
-
 } 
 ```
 
@@ -71,9 +73,15 @@ Here's sample input-vnf-nfd.json file:
 |    | *file_path*: Optional. File path of the artifact you wish to upload from your local disk. Delete if not required. Relative paths are relative to the configuration file. On Windows escape any backslash with another backslash.      |   
 |  | *version*: Version of the artifact. For ARM templates version must be in format A.B.C.
 **vhd** |*artifact_name*: Name of the artifact.
-|  |*file_path*: Optional. File path of the artifact you wish to upload from your local disk. Delete if not required. Relative paths are relative to the configuration file. On Windows escape any backslash with another backslash.
+|  |*file_path*: Optional. File path of the artifact you wish to upload from your local disk. Delete if not required. Relative paths are relative to the configuration file. On Windows escape any backslash with another backslash. 
 |  |*blob_sas_url*: Optional. SAS URL of the blob artifact you wish to copy to your Artifact Store. Delete if not required.
-|  |*version*: Version of the artifact. Version of the artifact. For VHDs version must be in format A-B-C. 
+|  |*version*: Version of the artifact. Version of the artifact. For VHDs version must be in format A-B-C.
+|  |*"image_disk_size_GB*: Optional. Specifies the size of empty data disks in gigabytes. This value cannot be larger than 1023 GB. Delete if not required.
+|  |*image_hyper_v_generation*: Optional. Specifies the HyperVGenerationType of the VirtualMachine created from the image. Valid values are V1 and V2. V1 is the default if not specified. Delete if not required.
+|  |*image_api_version*: Optional. The ARM API version used to create the Microsoft.Compute/images resource. Delete if not required.
+    
+> [!Note]
+> When utilizing the file_path option, it's essential to have a reliable internet connection with sufficient bandwidth, as the upload duration may vary depending on the file size.
 
 > [!IMPORTANT]
 > Each variable described in the previous table must be unique. For instance, the resource group name cannot already exist, and publisher and artifact store names must be unique in the region. 

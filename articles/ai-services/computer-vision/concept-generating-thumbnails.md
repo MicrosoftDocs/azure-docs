@@ -2,7 +2,7 @@
 title: Smart-cropped thumbnails - Azure AI Vision
 titleSuffix: Azure AI services
 description: Concepts related to generating thumbnails for images using the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

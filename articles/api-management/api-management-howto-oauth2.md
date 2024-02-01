@@ -290,37 +290,6 @@ To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) po
 
 [!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
-
-## Legacy developer portal - test the OAuth 2.0 user authorization
-
-[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
-
-Once you've configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the developer portal and calling an API. Select **Developer portal (legacy)** in the top menu from your Azure API Management instance **Overview** page.
-
-Select **APIs** in the top menu and select **Echo API**.
-
-![Echo API][api-management-apis-echo-api]
-
-> [!NOTE]
-> If you have only one API configured or visible to your account, then clicking APIs takes you directly to the operations for that API.
-
-Select the **GET Resource** operation, select **Open Console**, and then select **Authorization code** from the drop-down.
-
-![Open console][api-management-open-console]
-
-When **Authorization code** is selected, a pop-up window is displayed with the sign-in form of the OAuth 2.0 provider. In this example, the sign-in form is provided by Microsoft Entra ID.
-
-> [!NOTE]
-> If you have pop-ups disabled, you'll be prompted to enable them by the browser. After you enable them, select **Authorization code** again and the sign-in form will be displayed.
-
-![Sign in][api-management-oauth2-signin]
-
-Once you've signed in, the **Request headers** are populated with an `Authorization : Bearer` header that authorizes the request.
-
-![Request header token][api-management-request-header-token]
-
-At this point you can configure the desired values for the remaining parameters, and submit the request.
-
 ## Next steps
 
 For more information about using OAuth 2.0 and API Management, see [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).

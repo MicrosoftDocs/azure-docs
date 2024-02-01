@@ -30,6 +30,6 @@ In the below example, the data flow is reading taxi trip data. Output aggregated
 > [!NOTE]
 > When clicking the plus (+) to add transformations to your graph, you will only see the New Branch option when there are subsequent transformation blocks. This is because New Branch creates a reference to the existing stream and requires further upstream processing to operate on. If you do not see the New Branch option, add a Derived Column or other transformation first, then return to the previous block and you will see New Branch as an option.
 
-## Next steps
+## Related content
 
 After branching, you may want to use the [data flow transformations](data-flow-transformation-overview.md)

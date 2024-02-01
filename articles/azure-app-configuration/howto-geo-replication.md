@@ -4,7 +4,8 @@ description: Learn how to use Azure App Configuration geo replication to create,
 services: azure-app-configuration
 author: mrm9084
 ms.service: azure-app-configuration
-ms.devlang: csharp, java
+ms.devlang: csharp
+# ms.devlang: csharp, java
 ms.topic: how-to
 ms.date: 03/20/2023
 ms.author: mametcal

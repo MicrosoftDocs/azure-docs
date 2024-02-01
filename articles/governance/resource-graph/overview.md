@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 10/31/2023
+ms.date: 12/18/2023
 ms.topic: overview
 ms.custom: devx-track-arm-template
 ms.author: davidsmatlak
@@ -69,7 +69,7 @@ When an Azure resource is updated, Azure Resource Manager notifies Azure Resourc
 > Resource Graph uses a `GET` to the latest non-preview application programming interface (API) of each resource provider to gather
 > properties and values. As a result, the property expected may not be available. In some cases, the
 > API version used has been overridden to provide more current or widely used properties in the
-> results. See the [Show API version for each resource type](./samples/advanced.md#apiversion)
+> results. See the [Show API version for each resource type](./samples/advanced.md#show-resource-types-and-api-versions)
 > sample for a complete list in your environment.
 
 ## The query language
@@ -115,7 +115,7 @@ to, the response is a _403_ (Forbidden).
 As a free service, queries to Resource Graph are throttled to provide the best experience and
 response time for all customers. If your organization wants to use the Resource Graph API for
 large-scale and frequent queries, use portal **Feedback** from the
-[Resource Graph portal page](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+[Resource Graph portal page](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade).
 Provide your business case and select the **Microsoft can email you about your feedback** checkbox in
 order for the team to contact you.
 

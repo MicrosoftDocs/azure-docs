@@ -31,6 +31,10 @@ A Service Fabric cluster offers several entry points to its management functiona
 > [!NOTE]
 > Microsoft Entra ID now requires an application (app registration) publishers domain to be verified or use of default scheme. See [Configure an application's publisher domain](../active-directory/develop/howto-configure-publisher-domain.md) and [AppId Uri in single tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
 
+> [!NOTE]
+> Starting in Service Fabric 11.0, Service Fabric Explorer will require a Single-page application Redirect URI instead of a Web Redirect URI.
+
+
 ## Prerequisites
 
 In this article, we assume that you have already created a tenant. If you have not, start by reading [How to get a Microsoft Entra tenant][active-directory-howto-tenant].
@@ -61,7 +65,7 @@ Run `SetupApplications.ps1` and provide the tenant ID, cluster name, web applica
 
 - **clusterName:** *ClusterName* is used to prefix the Microsoft Entra applications that are created by the script. It does not need to match the actual cluster name exactly. It is intended only to make it easier to map Microsoft Entra artifacts to the Service Fabric cluster that they're being used with.
 
-- **webApplicationReplyUrl:** *WebApplicationReplyUrl* is the default endpoint that Microsoft Entra ID returns to your users after they finish signing in. Set this endpoint as the Service Fabric Explorer endpoint for your cluster. If you are creating Microsoft Entra applications to represent an existing cluster, make sure this URL matches your existing cluster's endpoint. If you are creating applications for a new cluster, plan the endpoint your cluster will have and make sure not to use the endpoint of an existing cluster. By default the Service Fabric Explorer endpoint is: `https://<cluster_domain>:19080/Explorer`
+- **SpaApplicationReplyUrl:** *SpaApplicationReplyUrl* is the default endpoint that Microsoft Entra ID returns to your users after they finish signing in. Set this endpoint as the Service Fabric Explorer endpoint for your cluster. If you are creating Microsoft Entra applications to represent an existing cluster, make sure this URL matches your existing cluster's endpoint. If you are creating applications for a new cluster, plan the endpoint your cluster will have and make sure not to use the endpoint of an existing cluster. By default the Service Fabric Explorer endpoint is: `https://<cluster_domain>:19080/Explorer/index.html`
 
 - **webApplicationUri:** *WebApplicationUri* is either the URI of a 'verified domain' or URI using API scheme format of api://{{tenant Id}}/{{cluster name}}. See [AppId Uri in single tenant applications will require use of default scheme or verified domains](../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains) for additional information.
 
@@ -78,13 +82,13 @@ Run `SetupApplications.ps1` and provide the tenant ID, cluster name, web applica
 
 $tenantId = '0e3d2646-78b3-4711-b8be-74a381d9890c'
 $clusterName = 'mysftestcluster'
-$webApplicationReplyUrl = 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' # <--- client browser redirect url
+$spaApplicationReplyUrl = 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' # <--- client browser redirect url
 #$webApplicationUri = 'https://mysftestcluster.contoso.com' # <--- must be verified domain due to AAD changes
 $webApplicationUri = "api://$tenantId/$clusterName" # <--- does not have to be verified domain
 
 $configObj = .\SetupApplications.ps1 -TenantId $tenantId `
   -ClusterName $clusterName `
-  -WebApplicationReplyUrl $webApplicationReplyUrl `
+  -SpaApplicationReplyUrl $spaApplicationReplyUrl `
   -AddResourceAccess `
   -WebApplicationUri $webApplicationUri `
   -Verbose
@@ -183,7 +187,7 @@ It may be necessary to 'Grant admin consent' for the 'API permissions' being con
 
 ## Verifying Microsoft Entra Configuration
 
-Navigate to the Service Fabric Explorer (SFX) URL. This should be the same as the parameter webApplicationReplyUrl. An Azure authentication dialog should be displayed. Log on with an account configured with the new Microsoft Entra configuration. Verify that the administrator account has read/write access and that the user has read access. Any modification to the cluster, for example, performing an action, is an administrative action.
+Navigate to the Service Fabric Explorer (SFX) URL. This should be the same as the parameter spaApplicationReplyUrl. An Azure authentication dialog should be displayed. Log on with an account configured with the new Microsoft Entra configuration. Verify that the administrator account has read/write access and that the user has read access. Any modification to the cluster, for example, performing an action, is an administrative action.
 
 
 <a name='troubleshooting-help-in-setting-up-azure-active-directory'></a>
