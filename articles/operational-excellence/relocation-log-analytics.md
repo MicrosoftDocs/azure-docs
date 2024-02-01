@@ -4,7 +4,7 @@ description: Learn how to relocate an Azure Monitor - Log Analytics Workspace to
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 01/23/2024
+ms.date: 02/01/2024
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: how-to
@@ -27,7 +27,7 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
 
 ## Prerequisites
 
-- To export the workspace configuration to a template that can be deployed to another region, you need the [Log Analytics Contributor](../azure-monitor/role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Monitoring Contributor](../azure-monitor/role-based-access-control/built-in-roles.md#monitoring-contributor) role, or higher.
+- To export the workspace configuration to a template that can be deployed to another region, you need the [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Monitoring Contributor](/azure/role-based-access-control/built-in-roles.md#monitoring-contributor) role, or higher.
 
 - Identify all the resources that are currently associated with your workspace, including:
   - *Connected agents*: Enter **Logs** in your workspace and query a [heartbeat](../azure-monitor/insights/solution-agenthealth.md#azure-monitor-log-records) table to list connected agents.
@@ -305,7 +305,7 @@ The following procedures show how to prepare the workspace and resources for the
     | summarize max(TimeGenerated) by Type
     ```
 
-After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](../azure-monitor/cross-workspace-query.md). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
+After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](../azure-monitor/logs/cross-workspace-query.md). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
 
 Here's an example for a query across two workspaces that have the same name:
 
