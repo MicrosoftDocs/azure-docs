@@ -45,7 +45,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on the Azure Spring Apps Standard plan.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on the Azure Spring Apps standard plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram that shows the architecture of the PetClinic sample on the Azure Spring Apps standard plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
@@ -124,7 +124,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.55.0 or higher.
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.55.0 or higher.
 
 ---
 
@@ -156,7 +156,7 @@ After the deployment finishes, you can find the Spring Cloud Gateway URL from th
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png" alt-text="Diagram that shows the enterprise URL of the ARM deployment outputs." lightbox="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png":::
 
-Access the gateway URL, the application should look similar to the following screenshot:
+Open the gateway URL. The application should look similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
 
@@ -180,8 +180,7 @@ You can find the Application Live View URL from the deployment outputs. Open the
 
 ### 5.1. Access the applications
 
-Using the endpoint assigned from Spring Cloud Gateway - for example, `https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. 
-The application should look similar to the following screenshot:
+Use the endpoint assigned from Spring Cloud Gateway - for example, `https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. The application should look similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
 

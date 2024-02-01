@@ -108,7 +108,7 @@ Use the following steps to create the service instance:
        --enable-application-live-view
    ```
 
-### 3.6. Configure the Azure Spring Apps instance
+### 3.6. Configure Azure Spring Apps instance
 
 1. Use the following command to configure diagnostic settings for the Azure Spring Apps instance:
 
@@ -196,7 +196,7 @@ Use the following steps to create the service instance:
    az spring gateway update --service ${SPRING_APPS} --assign-endpoint
    ```
 
-1. Use the following command to set routing for the **customers-service** app:
+1. Use the following command to set routing for the `customers-service` application:
 
    ```azurecli
    az spring gateway route-config create \
@@ -213,7 +213,7 @@ Use the following steps to create the service instance:
       ]'
    ```
 
-1. Use the following command to set routing for the **vets-service** app:
+1. Use the following command to set routing for the `vets-service` application:
 
    ```azurecli
    az spring gateway route-config create \
@@ -230,7 +230,7 @@ Use the following steps to create the service instance:
        ]'
    ```
 
-1. Use the following command to set routing for the **visits-service** app:
+1. Use the following command to set routing for the `visits-service` application:
 
    ```azurecli
    az spring gateway route-config create \
@@ -247,7 +247,7 @@ Use the following steps to create the service instance:
        ]'
    ```
 
-1. Use the following command to set routing for the **frontend** app:
+1. Use the following command to set routing for the `frontend` application:
 
    ```azurecli
    az spring gateway route-config create \
