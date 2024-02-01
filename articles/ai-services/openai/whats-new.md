@@ -10,11 +10,20 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 11/30/2023
+ms.date: 2/1/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
+
+## February 2024
+
+### OpenAI text to speech voices public preview
+
+Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get AI-generated speech from the text you provide. To learn more, see the [overview guide](../speech-service/openai-voices.md) and try the [quickstart](./text-to-speech-quickstart.md).
+
+> [!NOTE]
+> Azure AI Speech also supports OpenAI text to speech voices. To learn more, see [OpenAI text to speech voices via Azure OpenAI Service or via Azure AI Speech](../speech-service/openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech) guide. 
 
 ## December 2023
 

@@ -1179,7 +1179,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
-| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI resource. |
 | ```deployment-id``` | string | Required | The name of your Whisper model deployment such as *MyWhisperDeployment*. You're required to first deploy a Whisper model before you can make calls. |
 | ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format.  |
 
@@ -1262,7 +1262,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
-| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI resource. |
 | ```deployment-id``` | string | Required | The name of your Whisper model deployment such as *MyWhisperDeployment*. You're required to first deploy a Whisper model before you can make calls. |
 | ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format.  |
 
@@ -1298,6 +1298,53 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 }
 ```
 
+## Text to speech
+
+Synthesize text to speech.
+
+```http
+POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/audio/speech?api-version={api-version}
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI resource. |
+| ```deployment-id``` | string | Required | The name of your text to speech model deployment such as *MyTextToSpeechDeployment*. You're required to first deploy a text to speech model (such as `tts-1` or `tts-1-hd`) before you can make calls. |
+| ```api-version``` | string | Required |The API version to use for this operation. This value follows the YYYY-MM-DD format.  |
+
+**Supported versions**
+
+- `2024-02-15-preview`
+
+**Request body**
+
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| ```model```| string | Yes | N/A | One of the available TTS models: `tts-1` or `tts-1-hd` |
+| ```input``` | string | Yes | N/A | The text to generate audio for. The maximum length is 4096 characters. Specify input text in the language of your choice.<sup>1</sup> |
+| ```voice``` | string | Yes | N/A | The voice to use when generating the audio. Supported voices are `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`. Previews of the voices are available in the [OpenAI text to speech guide](https://platform.openai.com/docs/guides/text-to-speech/voice-options). |
+
+<sup>1</sup> The text to speech models generally support the same languages as the Whisper model. For the list of supported languages, see the [OpenAI documentation](https://platform.openai.com/docs/guides/speech-to-text/supported-languages).
+
+### Example request
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/audio/speech?api-version=2024-02-15-preview \
+ -H "api-key: $YOUR_API_KEY" \
+ -H "Content-Type: application/json" \
+ -d '{
+    "model": "tts-hd",
+    "input": "I'm excited to try text to speech.",
+    "voice": "alloy"
+}' --output speech.mp3
+```
+
+### Example response
+
+The speech is returned as an audio file from the previous request.
+
 ## Management APIs
 
 Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI services rely on the same set of management APIs for creation, update and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
@@ -1306,5 +1353,5 @@ Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI servic
 
 ## Next steps
 
-Learn about [ Models, and fine-tuning with the REST API](/rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview).
+Learn about [Models, and fine-tuning with the REST API](/rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview).
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).
