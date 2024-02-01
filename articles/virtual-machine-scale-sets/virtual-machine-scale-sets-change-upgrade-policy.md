@@ -14,7 +14,7 @@ ms.custom: upgradepolicy
 > [!IMPORTANT]
 > **Upgrade Policies for Virtual Machine Scale Sets using Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 >
-> If using Rolling Upgrade Policy, see **[configure Rolling upgrades](virtual-machine-scale-sets-configure-rolling-upgrades.md)** for more information. 
+> If using Rolling Upgrade Policy, see **[Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)** for more information. 
 >
 >Upgrade Policies for Virtual Machine Scale Sets using Uniform Orchestration are generally available (GA). 
 
