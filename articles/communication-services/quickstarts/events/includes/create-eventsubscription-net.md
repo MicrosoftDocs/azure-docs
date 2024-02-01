@@ -56,7 +56,7 @@ using Azure.Security.KeyVault.Secrets
 
 a. Get Access token using secret credential
 
-To get the secret credentials, you will need to read it from the Keyvault you created in Prerequisite #2 using [SecretClient](/dotnet/api/azure.security.keyvault.secrets.secretclient). 
+To get the secret credentials, you will need to read it from the Keyvault you created in Prerequisite #2 using [SecretClient](/azure/key-vault/secrets/quick-create-net). 
 
 ```csharp
 // Authenticate the Keyvault client with DefaultAzureCredential and get the secret.
@@ -80,8 +80,9 @@ var token = await application
 
 b. Get Access token using certificate credential
 
-To get the secret credentials, you will need to read it from the Keyvault you created in Prerequisite #2 using [CertificateClient](/dotnet/api/azure.security.keyvault.certificates.certificateclient). 
-Read more about the Microsoft Entra Application configuration Authority [here](/entra/identity-platform/msal-client-application-configuration.)
+To get the secret credentials, you will need to read it from the Keyvault you created in Prerequisite #2 using [CertificateClient](/azure/key-vault/certificates/quick-create-net). 
+
+Read more about the Microsoft Entra Application configuration Authority [here](/entra/identity-platform/msal-client-application-configuration)
 
 ```csharp
 // Authenticate the certificate client with DefaultAzureCredential and get the certificate.
