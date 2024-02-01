@@ -25,7 +25,7 @@ You can deploy workloads that advertise external service IP addresses to PE devi
 
 Nexus is a platform that enables different types of communication between workloads:
 
--   East-West Communication: communication between workloads within the same AON instance, such as inter-k8s cluster communication for a 5G control plane.
+-   East-West Communication: communication between workloads within the same Nexus instance, such as inter-k8s cluster communication for a 5G control plane.
 
 -   External-Internal Communication: communication between workloads inside and outside the AON instance. For example:
     - North-south communication with option B, which involves inserting and scaling firewall and network address translation appliances.
