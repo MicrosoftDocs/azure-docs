@@ -12,13 +12,13 @@ ms.custom: upgradepolicy
 # Configure Rolling Upgrades on Virtual Machine Scale Sets
 
 > [!IMPORTANT]
-> **Rolling Upgrade Policy for Virtual Machine Scale Sets using Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+> **Rolling Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 >
-> To enable Rolling Upgrade Policy on your Virtual Machine Scale Sets using Flexible Orchestration, register the provider feature using `Register-AzProviderFeature -FeatureName VmssFlexRollingUpgrade -ProviderNamespace Microsoft.Compute`
+> To enable Rolling Upgrade Policy on your Virtual Machine Scale Sets with Flexible Orchestration, register the provider feature using `Register-AzProviderFeature -FeatureName VmssFlexRollingUpgrade -ProviderNamespace Microsoft.Compute`
 >
->To enable MaxSurge functionality on your Virtual Machine Scale Sets using Flexible Orchestration, register the provider feature using `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`
+>To enable MaxSurge functionality on your Virtual Machine Scale Sets with Flexible Orchestration, register the provider feature using `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`
 >
->Upgrade Policies for Virtual Machine Scale Sets using Uniform Orchestration are generally available (GA). 
+>Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration are generally available (GA). 
 
 Rolling Upgrade Policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances that are still available to take traffic, meaning you don't need to take down your entire workload to push a change. 
 

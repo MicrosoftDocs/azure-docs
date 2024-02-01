@@ -22,9 +22,9 @@ Additionally, there can be situations where you might want specific instances in
 ### Automatic Upgrade Policy
 
 > [!IMPORTANT]
-> **Automatic Upgrade Policy for Virtual Machine Scale Sets using Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+> **Automatic Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 >
-> Automatic Upgrade Policy for Virtual Machine Scale Sets using Uniform Orchestration is generally available. 
+> Automatic Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration is generally available. 
 
 With an Automatic Upgrade Policy, the scale set makes no guarantees about the order of virtual machines being brought down. The scale set might take down all virtual machines at the same time to perform upgrades. 
 
@@ -34,9 +34,9 @@ If your scale set is part of a Service Fabric cluster, *Automatic* mode is the o
 
 ### Manual Upgrade Policy
 > [!IMPORTANT]
-> **Manual Upgrade Policy for Virtual Machine Scale Sets using Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+> **Manual Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 >
-> Manual Upgrade Policy for Virtual Machine Scale Sets using Uniform Orchestration is generally available. 
+> Manual Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration is generally available. 
 
 With a Manual Upgrade Policy, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing virtual machines when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available. 
 
@@ -44,11 +44,11 @@ Manual Upgrade Policy is best suited for workloads where the instances in the sc
 
 ### Rolling Upgrade Policy
 > [!IMPORTANT]
-> **Rolling Upgrade Policy for Virtual Machine Scale Sets using Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+> **Rolling Upgrade Policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 >
 > If using Rolling Upgrade Policy, see **[Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)** for more information. 
 >
-> Rolling Upgrade Policy for Virtual Machine Scale Sets using Uniform Orchestration is generally available. 
+> Rolling Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration is generally available. 
 
 With a Rolling Upgrade Policy, the scale set performs updates in batches with an optional pause time in between. You also get more control over the upgrades with settings like batch size, max healthy percentage, prioritizing unhealthy instances and enabling upgrades across multiple availability zones at the same time. 
 

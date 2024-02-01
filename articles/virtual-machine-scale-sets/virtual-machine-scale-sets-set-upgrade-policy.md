@@ -12,11 +12,11 @@ ms.custom: upgradepolicy
 # Set the Upgrade Policy on Virtual Machine Scale Sets
 
 > [!IMPORTANT]
-> **Upgrade Policies for Virtual Machine Scale Sets using Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+> **Upgrade Policies for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 >
 > If using Rolling Upgrade Policy, see **[Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)** for more information. 
 >
->Upgrade Policies for Virtual Machine Scale Sets using Uniform Orchestration are generally available (GA). 
+>Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration are generally available (GA). 
 
 The Upgrade Policy can be set during the scale set creation process or changed post deployment. If you don't explicitly set the Upgrade Policy, it defaults to Manual. To change the Upgrade Policy of an existing scale set deployment, see [Changing the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md).
 
