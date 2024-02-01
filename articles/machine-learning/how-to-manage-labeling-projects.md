@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 02/01/2024
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 monikerRange: 'azureml-api-1 || azureml-api-2'
 # customer intent: As a project manager, I want to monitor and administer a labeling project in Azure Machine Learning.
