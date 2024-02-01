@@ -132,7 +132,7 @@
     - name: Search index
       href: search-what-is-an-index.md
     - name: Vector store
-      href: vector-search-overview.md
+      href: vector-store.md
     - name: Knowledge store 
       href: knowledge-store-concept-intro.md
     - name: Data import strategies
@@ -163,11 +163,11 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Scoring in keyword queries (BM25)
+    - name: Keyword queries (BM25 ranking)
       href: index-similarity-and-scoring.md
-    - name: Scoring in vector queries
+    - name: Vector queries
       href: vector-search-ranking.md
-    - name: Scoring in hybrid queries (RRF)
+    - name: Hybrid queries (RRF)
       href: hybrid-search-ranking.md
   - name: Security
     items:
