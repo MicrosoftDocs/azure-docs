@@ -100,9 +100,16 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
-    `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>`
+    `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-filename>`
 
-5. Ensure the certificate(s) are base64 encoded. On Linux, you can based64 encode a pkcs12-formatted certificate by using the command:
+> [!IMPORTANT]
+> The pkcs12 file must not be protected with a passphrase. OpenSSL will prompt you for an export password, press <kbd>Enter</kbd> to supply an empty passphrase.
+
+1. Validate your pkcs12 file, this will output information about the pkcs12 file including the certificate(s) and private key:
+
+    `openssl pkcs12 -nodes -in <pkcs12-certificate-filename> -info`
+
+1. Ensure the pkcs12 file is base64 encoded. On Linux, you can base64 encode a pkcs12-formatted certificate by using the command:
 
     `base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>`
 
