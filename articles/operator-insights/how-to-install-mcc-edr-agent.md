@@ -82,7 +82,7 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
-    `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-filename>`
+    `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>`
 
 > [!IMPORTANT]
 > The pkcs12 file must not be protected with a passphrase. OpenSSL will prompt you for an export password, press <kbd>Enter</kbd> to supply an empty passphrase.
