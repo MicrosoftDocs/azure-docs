@@ -32,7 +32,7 @@ Events are generated from these FHIR service types:
 
 For more information about delete types in the FHIR service, see [FHIR REST API capabilities for Azure Health Data Services](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
 
-#### Does events support FHIR bundles?
+**Does events support FHIR bundles?**
 
 Yes. The events capability emits notifications of data changes at the FHIR resource level. 
 
@@ -45,7 +45,7 @@ Events support these [FHIR bundle types](http://hl7.org/fhir/R4/valueset-bundle-
 > [!NOTE]
 > Events aren't sent in the sequence of the data operations in the FHIR bundle.
 
-#### What DICOM image changes does events support?
+**What DICOM image changes does events support?**
 
 Events are generated from the following DICOM service types:
 
@@ -55,33 +55,33 @@ Events are generated from the following DICOM service types:
 
 - **DicomImageUpdated**. The event emitted after a DICOM image is updated. For more information, see [Update DICOM files](../dicom/update-files.md).
 
-#### What is the payload of an events message? 
+**What is the payload of an events message?**
 
 For a description of the events message structure and required and nonrequired elements, see [Events message structures](events-message-structure.md). 
 
-#### What is the throughput for events messages?
+**What is the throughput for events messages?**
 
 The throughput of the FHIR or DICOM service and the Event Grid governs the throughput of FHIR and DICOM events. When a request made to the FHIR service is successful, it returns a 2xx HTTP status code. It also generates a FHIR resource or DICOM image changing event. The current limitation is 5,000 events/second per workspace for all FHIR or DICOM service instances in the workspace. 
 
-#### How am I charged for using events?
+**How am I charged for using events?**
 
 There are no extra charges for using [Azure Health Data Services events](https://azure.microsoft.com/pricing/details/health-data-services/). However, applicable charges for the [Event Grid](https://azure.microsoft.com/pricing/details/event-grid/) are assessed against your Azure subscription.
 
-#### How do I subscribe separately to multiple FHIR or DICOM services in the same workspace?
+**How do I subscribe separately to multiple FHIR or DICOM services in the same workspace?**
 
 Use the Event Grid filtering feature. There are unique identifiers in the event message payload to differentiate accounts and workspaces. You can find a global unique identifier for workspace in the `source` field, which is the Azure Resource ID. You can locate the unique FHIR account name in that workspace in the `data.resourceFhirAccount` field. You can locate the unique DICOM account name in the workspace in the `data.serviceHostName` field. When you create a subscription, use the filtering operators to select the events you want to include in the subscription.
 
 :::image type="content" source="media\event-grid\event-grid-filters.png" alt-text="Screenshot of the Event Grid filters tab." lightbox="media\event-grid\event-grid-filters.png":::
 
-#### Can I use the same subscriber for multiple workspaces, FHIR accounts, or DICOM accounts?
+**Can I use the same subscriber for multiple workspaces, FHIR accounts, or DICOM accounts?**
 
 Yes. We recommend that you use different subscribers for each FHIR or DICOM service to enable processing in isolated scopes.
 
-#### Is the Event Grid compatible with HIPAA and HITRUST compliance requirements?
+**Is the Event Grid compatible with HIPAA and HITRUST compliance requirements?**
 
 Yes. Event Grid supports Health Insurance Portability and Accountability Act (HIPAA) and Health Information Trust Alliance (HITRUST) obligations. For more information, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
-#### How long does it take to receive an events message?
+**How long does it take to receive an events message?**
 
 On average, you should receive your event message within one second after a successful HTTP request. 99.99% of the event messages should be delivered within five seconds unless the limitation of either the FHIR service, DICOM service, or [Event Grid](../../event-grid/quotas-limits.md) is reached.
 
