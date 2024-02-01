@@ -35,11 +35,11 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 1.	On the Volumes page, right-click the volume whose service level you want to change. Select **Change Pool**.
 
-    ![Right-click volume](../media/azure-netapp-files/right-click-volume.png)
+    ![Right-click volume](./media/dynamic-change-volume-service-level/right-click-volume.png)
 
 2. In the Change pool window, select the capacity pool you want to move the volume to. 
 
-    ![Change pool](../media/azure-netapp-files/change-pool.png)
+    ![Change pool](./media/dynamic-change-volume-service-level/change-pool.png)
 
 3.	Select **OK**.
 
