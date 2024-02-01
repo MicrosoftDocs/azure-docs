@@ -57,10 +57,10 @@ To prevent others from changing or deleting your logic app workflow, you can use
 
 | Role | Description |
 |------|-------------|
-| [**Logic Apps Standard Reader** (Preview)](../role-based-access-control/built-in-roles.md#logic-apps-standard-reader) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. |
-| [**Logic Apps Standard Operator** (Preview)](../role-based-access-control/built-in-roles.md#logic-apps-standard-operator) | You have access to enable, resubmit, and disable workflows and to create connections to services, systems, and networks for a Standard logic app. The Operator role can perform administration and support tasks on the Azure Logic Apps platform, but doesn't have permissions to edit workflows or settings. |
-| [**Logic Apps Standard Developer** (Preview)](../role-based-access-control/built-in-roles.md#logic-apps-standard-developer) | You have access to create and edit workflows, connections, and settings for a Standard logic app. The Developer role doesn't have permissions to make changes outside the scope of workflows, for example, application-wide changes such as configure virtual network integration. App Service Plans aren't supported. |
-| [**Logic Apps Standard Contributor** (Preview)](../role-based-access-control/built-in-roles.md#logic-apps-standard-contributor) | You have access to manage all aspects of a Standard logic app, but you can't change access or ownership. |
+| [**Logic Apps Standard Reader (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-reader-preview) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. |
+| [**Logic Apps Standard Operator (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-operator-preview) | You have access to enable, resubmit, and disable workflows and to create connections to services, systems, and networks for a Standard logic app. The Operator role can perform administration and support tasks on the Azure Logic Apps platform, but doesn't have permissions to edit workflows or settings. |
+| [**Logic Apps Standard Developer (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-developer-preview) | You have access to create and edit workflows, connections, and settings for a Standard logic app. The Developer role doesn't have permissions to make changes outside the scope of workflows, for example, application-wide changes such as configure virtual network integration. App Service Plans aren't supported. |
+| [**Logic Apps Standard Contributor (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-contributor-preview) | You have access to manage all aspects of a Standard logic app, but you can't change access or ownership. |
 
 <a name="secure-run-history"></a>
 
