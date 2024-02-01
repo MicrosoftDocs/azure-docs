@@ -13,8 +13,8 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 This article demonstrates how to:
 
 - Run your Java, Java EE, or Jakarta EE on Oracle WebLogic Server (WLS).
-- Stand up a WLS cluster using Azure Marketplace offer.
-- Build the application Docker image and serve as auxiliary image to provide WDT models and applications.
+- Stand up a WLS cluster using the Azure Marketplace offer.
+- Build the application Docker image to serve as auxiliary image to provide WDT models and applications.
 - Deploy the containerized application to the existing WLS cluster on AKS.
 
 This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
@@ -36,10 +36,10 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
     > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/) from Oracle.
   - Accept the license agreement.
 - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux). 
-  - [Azure CLI](/cli/azure); use `az --version`` to test if az works. This document was tested with version 2.55.1.
+  - [Azure CLI](/cli/azure); use `az --version` to test if az works. This document was tested with version 2.55.1.
   - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7. Use `docker info` to test if Docker Daemon is running.
   - [kubectl](https://kubernetes-io-vnext-staging.netlify.com/docs/tasks/tools/install-kubectl/); use `kubectl version` to test if kubectl works. This document was tested with version v1.21.2.
-  - A Java JDK, Version 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
+  - A Java JDK, Version 11 or later. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Ensure that you have the zip/unzip utility installed; use `zip/unzip -v` to test if `zip/unzip` works.
 
@@ -60,12 +60,12 @@ The following steps show you how to find the WLS on AKS offer and fill out the *
 
    :::image type="content" source="media/howto-deploy-java-wls-app/portal-start-experience.png" alt-text="Screenshot of the Azure portal showing WebLogic Server on AKS." lightbox="media/howto-deploy-java-wls-app/portal-start-experience.png":::
 
-1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and then fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `ejb0723wls``.
+1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and then fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `ejb0723wls`.
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where AKS is available, see [AKS region availability](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 1. Under **Credentials for WebLogic**, leave the default value for **Username for WebLogic Administrator**.
 1. Fill in `wlsAksCluster2022` for the **Password for WebLogic Administrator**. Use the same value for the confirmation and **Password for WebLogic Model encryption** fields.
 1. Scroll to the bottom of the **Basics** pane and notice the helpful links for documentation, community support, and how to report problems.
-1. Select **Next: AKS**.
+1. Select **Next**.
 
 The following steps show you how to start the deployment process.
 
@@ -73,16 +73,23 @@ The following steps show you how to start the deployment process.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/configure-single-sign-on.png" alt-text="Screenshot of the Azure portal showing the configure sso pane." lightbox="media/howto-deploy-java-wls-app/configure-single-sign-on.png":::
 
+1. Follow the steps in the info box starting with **Before moving forward, you must accept the Oracle Standard Terms and Restrictions.**
+
+1. Depending on whether or not the Oracle SSO account has an Oracle support entitlement, select the appropriate option for **Select the type of WebLogic Server Images.**. If the account has a support entititlement, select **Patched WebLogic Server Images**. Otherwise select **General WebLogic Server Images**.
+
+1. Leave the value in **Select desired combination of WebLogic Server...** at its default value. You have a broad range of choices for WLS, JDK, and OS version.
+
 1. In the **Application** section, next to **Deploy an application?**, select **No**.
 
 The following steps make it so the WLS admin console and the sample app are exposed to the public Internet with a built-in Application Gateway ingress add-on. For a more information, see [What is Application Gateway Ingress Controller?](/azure/application-gateway/ingress-controller-overview).
 
 :::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of the Azure portal showing the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
 
-1. Select the **Load balancing** pane.
+1. Select **Next** to see the **TLS/SSL** pane.
+1. Select **Next** to see the **Load balancing** pane.
 1. Next to **Load Balancing Options**, select **Application Gateway Ingress Controller**.
 1. Under the **Application Gateway Ingress Controller**, you should see all fields pre-populated with the defaults for **Virtual network** and **Subnet**. Leave the default values.
-1. For **Create ingress for Administration Console. Make sure no application with path /console\*, it will cause conflict with Administration Console path.**, select **Yes**.
+1. For **Create ingress for Administration Console**, select **Yes**.
 
     :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal showing Application Gateway Ingress Controllor configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png":::
 
@@ -620,6 +627,9 @@ Learn more about running WLS on AKS or virtual machines by following these links
 
 > [!div class="nextstepaction"]
 > [WLS on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks)
+
+> [!div class="nextstepaction"]
+> [Migrate WebLogic Server applications to Azure Kubernetes Service](/azure/developer/java/migration/migrate-weblogic-to-azure-kubernetes-service)
 
 > [!div class="nextstepaction"]
 > [WLS on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
