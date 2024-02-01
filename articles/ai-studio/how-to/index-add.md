@@ -27,7 +27,8 @@ You must have:
 
 ## Create an index
 
-1. Sign in to Azure AI Studio and open the Azure AI project in which you want to create the index.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
 1. From the collapsible menu on the left, select **Indexes** under **Components**.
 
     :::image type="content" source="../media/index-retrieve/project-left-menu.png" alt-text="Screenshot of Project Left Menu." lightbox="../media/index-retrieve/project-left-menu.png":::

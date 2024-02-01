@@ -174,25 +174,41 @@ az cosmosdb sql container merge \
 
 For **shared throughput databases**, start the merge by using `az cosmosdb sql database merge`.
 
-```azurecli
-az cosmosdb sql database merge \
-	--account-name '<cosmos-account-name>'                               
-	--name '<cosmos-database-name>'                                
-	--resource-group '<resource-group-name>'
+```azurecli-interactive
+az cosmosdb sql database merge `
+    --resource-group "<resource-group-name>" `         
+    --name "<database-name>"  `
+    --account-name "<cosmos-db-account-name>" 
 ```
 
 
-```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
+```azurecli-interactive
+databaseId=$(az cosmosdb sql database show `
+    --resource-group "<resource-group-name>" `
+    --name "<database-name>" `
+    --account-name "<cosmos-db-account-name>" `
+    --query "id" `
+    --output "tsv"
+)
+
+endpoint="https://management.azure.com$databaseId/partitionMerge?api-version=2023-11-15-preview"
+
+az rest `
+    --method "POST" `
+    --url $endpoint `
+    --body "{}"
+
 ```
 
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
+
 
 For **provisioned throughput** containers, use `Invoke-AzCosmosDBMongoDBCollectionMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
 
 
 
 ```azurepowershell-interactive
+
 $parameters = @{
     ResourceGroupName = "<resource-group-name>"
     AccountName = "<cosmos-account-name>"
@@ -200,11 +216,11 @@ $parameters = @{
     Name = "<cosmos-container-name>"
     WhatIf = $true
 }
+
 Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
 ```
 
 Start the merge by running the same command without the `-WhatIf` parameter.
-
 
 
 ```azurepowershell-interactive
@@ -262,18 +278,13 @@ az cosmosdb mongodb collection merge \
 
 
 ---
-For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database?view=azure-cli-latest).
+For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database).
 
-```azurecli
+```azurecli-interactive
 az cosmosdb mongodb database merge \
 	--account-name '<cosmos-account-name>'                               
 	--name '<cosmos-database-name>'                                
 	--resource-group '<resource-group-name>'
-```
-
-
-```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
 ```
 
 
