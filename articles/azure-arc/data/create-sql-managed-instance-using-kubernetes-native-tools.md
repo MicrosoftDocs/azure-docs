@@ -53,7 +53,7 @@ A Kubernetes secret is stored as a base64 encoded string - one for the username 
 > For optimum security, using the value `sa` is not allowed for the login .
 > Follow the [password complexity policy](/sql/relational-databases/security/password-policy#password-complexity).
 
-You can use an online tool to base64 encode your desired username and password or you can use built in CLI tools depending on your platform.
+You can use an online tool to base64 encode your desired username and password or you can use CLI tools depending on your platform.
 
 PowerShell
 
@@ -90,7 +90,7 @@ Requirements for resource limits and requests:
 - The cores limit and request must be a positive integer value, if specified.
 - The minimum of 1 core is required for the cores request, if specified.
 - The memory value format follows the Kubernetes notation. 
-- A minimum of 2 Gi is required for memory request, if specified.
+- A minimum of 2 GB is required for memory request, if specified.
 - As a general guideline, you should have 4 GB of RAM for each 1 core for production use cases.
 
 ### Customizing service type

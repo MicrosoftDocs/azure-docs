@@ -35,7 +35,7 @@ SQL Managed Instance enabled by Azure Arc share a common code base with the late
 |Backup compression|Yes|
 |Backup mirror |Yes|
 |Backup encryption|Yes|
-|Backup to Azure to (backup to URL)|Yes|
+|Back up to Azure to (back up to URL)|Yes|
 |Database snapshot|Yes|
 |Fast recovery|Yes|
 |Hot add memory and CPU|Yes|

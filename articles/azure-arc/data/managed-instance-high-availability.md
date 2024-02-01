@@ -200,7 +200,7 @@ And the Contained Availability Dashboard:
 
 Unlike SQL Server Always On availability groups, the contained availability group is a managed high availability solution. Hence, the failover modes are limited compared to the typical modes available with SQL Server Always On availability groups.
 
-Deploy Business Critical service tier SQL managed instances in either two-replica configuration or three replica configuration. The effects of failures and the subsequent recoverability is different with each configuration. A three replica instance provides a much higher level of availability and recovery, than a two replica instance. 
+Deploy Business Critical service tier SQL managed instances in either two-replica configuration or three replica configuration. The effects of failures and the subsequent recoverability are different with each configuration. A three replica instance provides a much higher level of availability and recovery, than a two replica instance. 
 
 In a two replica configuration, when both the node states are `SYNCHRONIZED`, if the primary replica becomes unavailable, the secondary replica is automatically promoted to primary. When the failed replica becomes available, it will be updated with all the pending changes. If there are connectivity issues between the replicas, then the primary replica may not commit any transactions as every transaction needs to be committed on both replicas before a success is returned back on the primary. 
 
