@@ -20,7 +20,7 @@ Events let you subscribe to data changes in the FHIR&reg; or DICOM&reg; service 
 
 No. The Events capability only supports the Azure Health Data Services FHIR and DICOM services.
 
-#### What FHIR resource changes are supported by events?
+**What FHIR resource changes are supported by events?**
 
 Events are generated from these FHIR service types:
 
