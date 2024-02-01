@@ -20,7 +20,7 @@ The remaining VMs with these specific sizes on your subscription will be set to 
 
 ## Migrate workloads to Av2-series VMs
 
-You can resize your virtual machines to the Av2-series using the [Azure portal, PowerShell, or the CLI](resize-vm.md). Below are examples on how to resize your VM using the Azure portal and PowerShell.
+You can resize your virtual machines to the Av2-series using the [Azure portal, PowerShell, or the CLI](../resize-vm.md). Below are examples on how to resize your VM using the Azure portal and PowerShell.
 
 > [!IMPORTANT]
 > Resizing a virtual machine results in a restart. We recommend that you perform actions that result in a restart during off-peak business hours.
@@ -73,4 +73,4 @@ Follow instructions in the **Solutions** and **Details** tabs, as applicable, an
 
 ## Next steps
 
-Learn more about the [Av2-series VMs](av2-series.md)
+Learn more about the [Av2-series VMs](../../av2-series.md)

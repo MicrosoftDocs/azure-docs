@@ -4,6 +4,8 @@ description: HB-series retirement started September 1, 2021.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: conceptual
+author: iamwilliew
+ms.author: iamwilliew
 ms.date: 12/7/2023
 ---
 
@@ -11,7 +13,7 @@ ms.date: 12/7/2023
 
 Microsoft Azure has introduced HBv2 and HBv3-series virtual machines (VMs) for high-performance computing (HPC). For this reason, we recommend that you migrate workloads from original HB-series VMs to our newer offerings.
 
-Azure [HBv2](hbv2-series.md) and [HBv3](hbv3-series.md) VMs have greater memory bandwidth, improved remote direct memory access (RDMA) networking capabilities, larger and faster local solid-state drives, and better cost and performance across various HPC workloads. As a result, we're retiring our HB-series Azure VM sizes on August 31, 2024.
+Azure [HBv2](../../hbv2-series.md) and [HBv3](../../hbv3-series.md) VMs have greater memory bandwidth, improved remote direct memory access (RDMA) networking capabilities, larger and faster local solid-state drives, and better cost and performance across various HPC workloads. As a result, we're retiring our HB-series Azure VM sizes on August 31, 2024.
 
 ## How does the HB-series migration affect me?
 
@@ -24,7 +26,7 @@ After August 31, 2024, any remaining HB-size VM subscriptions will be set to a d
 
 You'll need to resize or deallocate your H-series VMs. We recommend that you migrate workloads from the original H-series VMs and the HB-series Promo VMs to our newer offerings.
 
-[HBv2](hbv2-series.md) and [HBv3](hbv3-series.md) VMs offer substantially higher levels of HPC workload performance and cost efficiency because of:
+[HBv2](../../hbv2-series.md) and [HBv3](../../hbv3-series.md) VMs offer substantially higher levels of HPC workload performance and cost efficiency because of:
 
 - Large improvements in CPU core architecture.
 - Higher memory bandwidth.
@@ -35,7 +37,7 @@ As a result, HBv2 and HBv3 series will in general offer substantially better per
 
 All regions that contain HB-series VMs contain HBv2 and HBv3-series VMs. Existing workloads that run on HB-series VMs can be migrated without concern for geographic placement or for access to more services in those regions.
 
-[HB-series](hb-series.md) VMs won't be retired until September 2024. We're providing this guide in advance to give you a long window to assess, plan, and execute your migration.
+[HB-series](../../hb-series.md) VMs won't be retired until September 2024. We're providing this guide in advance to give you a long window to assess, plan, and execute your migration.
 
 ### Recommendations for workload migration from HB-series VMs
 
@@ -54,8 +56,8 @@ All regions that contain HB-series VMs contain HBv2 and HBv3-series VMs. Existin
 
 ### Get a quota for the target VM family
 
-Follow the guide to [request an increase in vCPU quota by VM family](../azure-portal/supportability/per-vm-quota-requests.md).
+Follow the guide to [request an increase in vCPU quota by VM family](../../../azure-portal/supportability/per-vm-quota-requests.md).
 
 ### Resize the current VM
 
-You can [resize the virtual machine](resize-vm.md).
+You can [resize the virtual machine](../resize-vm.md).

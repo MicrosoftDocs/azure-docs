@@ -68,7 +68,7 @@ A:
 
 ### Q: What happens to my Azure Reservation?
 
-A: You need to [exchange your reservation](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md#how-to-exchange-or-refund-an-existing-reservation) through the Azure portal to match the new Dedicated Host SKU. 
+A: You need to [exchange your reservation](../../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md#how-to-exchange-or-refund-an-existing-reservation) through the Azure portal to match the new Dedicated Host SKU. 
 
 ### Q: What would happen to my host if I do not migrate by June 30, 2023?
 
