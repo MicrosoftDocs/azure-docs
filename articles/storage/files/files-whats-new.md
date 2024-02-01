@@ -16,7 +16,7 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ### 2024 quarter 1 (January, February, March)
 
-#### Metadata caching for premium SMB file shares is in private preview
+#### Metadata caching for premium SMB file shares is in public preview
 
 Metadata caching is an enhancement for SMB Azure premium file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-premium-smb-file-shares-preview).
 
