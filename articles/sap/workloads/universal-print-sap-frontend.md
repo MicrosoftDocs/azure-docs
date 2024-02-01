@@ -29,7 +29,7 @@ Universal Print is a cloud-based print solution that enables organizations to ma
 -	Add Universal Print printer to your Windows client
 -	Able to print on Universal Print printer from OS
 
-See the [Universal Print documentation](/universal-print/fundamentals/universal-print-getting-started#step-4-add-a-universal-print-printer-to-a-windows-device.md) for details on these prerequisites. As a result, one or more Universal Print printers are visible in your device’s printer list. For SAP front-end printing it's not necessary to make it your default printer.
+See the [Universal Print documentation](/universal-print/fundamentals/universal-print-getting-started#step-4-add-a-universal-print-printer-to-a-windows-device.md) for details on these prerequisites. As a result, one or more Universal Print printers are visible in your device’s printer list. For SAP front-end printing, it's not necessary to make it your default printer.
 
 [![Example showing Universal Print printers in Windows 11 settings dialog.](./media/universtal-print-sap/frontend-os-printer.png)](./media/universtal-print-sap/frontend-os-printer.png#lightbox)
 
@@ -47,15 +47,15 @@ For SAP front-end printing, Universal Print relies on SAP GUI and [SAP printer a
 ![Example dialog in SAP transaction SPAD showing printer definition.](./media/universtal-print-sap/frontend-sap-spad-2.png)
  
 
-For Universal Print use, it’s important the access method (1) is set to ‘G’, as this uses SAP GUI’s integration into the operating system. For host printer field (2), value of __DEFAULT calls the relevant default printer name. Leaving option “No device selection at front end” unchecked (3), you are prompted to select the printer from your OS printer list. With the option checked, print output goes directly to the OS default printer without additional user input.
+For Universal Print use, it’s important the access method (1) is set to ‘G’, as this uses SAP GUI’s integration into the operating system. For host printer field (2), value of __DEFAULT calls the relevant default printer name. Leaving option “No device selection at front end” unchecked (3), you're prompted to select the printer from your OS printer list. With the option checked, print output goes directly to the OS default printer without extra user input.
 
 With such SAP printer definition, SAP GUI uses the operating system printer details. The operating system already knows your added Universal Print printers. As with SAP web applications, there's no direct communication between the SAP system and Universal Print APIs. No settings to configure for your SAP system beyond the available output device for front-end printing.
 
-When using SAP GUI for HTML and front-end printing, you can print to an SAP defined printer, too. In the SAP system you need a front-end printer with access method ‘G’ and a device type of PDF or derivate. For more information, see [SAP’s documentation](https://help.sap.com/docs/SAP_NETWEAVER_750/290ce8983cbc4848a9d7b6f5e77491b9/4e96c13b7e9e40fee10000000a421937.html). Such print output is displayed in browser as a PDF from the SAP system. You open the common OS printing dialog and select a Universal Print printer installed on your computer.
+When using SAP GUI for HTML and front-end printing, you can print to an SAP defined printer, too. In the SAP system, you need a front-end printer with access method ‘G’ and a device type of PDF or derivate. For more information, see [SAP’s documentation](https://help.sap.com/docs/SAP_NETWEAVER_750/290ce8983cbc4848a9d7b6f5e77491b9/4e96c13b7e9e40fee10000000a421937.html). Such print output is displayed in browser as a PDF from the SAP system. You open the common OS printing dialog and select a Universal Print printer installed on your computer.
 
 ## Limitations
 
-SAP defines front-end printing with several [constraints](https://help.sap.com/docs/SAP_NETWEAVER_750/290ce8983cbc4848a9d7b6f5e77491b9/4e96cd237e6240fde10000000a421937.html). It can't be used for background printing, nor should it be relied upon for production or mass printing. See if your SAP printer definition is correct, as printers with access method ‘F’ won't work correctly with current SAP releases. Additional details can be found in [SAP note 2028598 - Technical changes for front-end printing with access method F](https://me.sap.com/notes/2028598).
+SAP defines front-end printing with several [constraints](https://help.sap.com/docs/SAP_NETWEAVER_750/290ce8983cbc4848a9d7b6f5e77491b9/4e96cd237e6240fde10000000a421937.html). It can't be used for background printing, nor should it be relied upon for production or mass printing. See if your SAP printer definition is correct, as printers with access method ‘F’ don't work correctly with current SAP releases. More details can be found in [SAP note 2028598 - Technical changes for front-end printing with access method F](https://me.sap.com/notes/2028598).
 
 
 
