@@ -34,7 +34,7 @@ Azure Resource Manager templates are JSON files that define the infrastructure a
 >
 > If you don't have an SSH key pair, [create and use an SSH key pair for Linux VMs in Azure](mac-create-ssh-keys.md). 
 
-[View the Azure Quickstart template JSON as raw text]((https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json)) or click **Copy** below:
+[View the Azure Quickstart Template JSON as raw text]((https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json)) or click **Copy**:
 
 [!code-json[create-linux-vm](~/quickstart-templates/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json)]
 
@@ -42,7 +42,7 @@ You can also download or create a template and specify the local path with the `
 
 ## Create a quickstart template VM with Azure CLI
 
-Once you've acquired or created a quickstart template, you can create a VM with it using the Azure CLI. 
+After acquiring or creating a quickstart template, create a VM with it using the Azure CLI. 
 
 The following command requests several pieces of input from the user. These include:
 - Name of the Resource Group (resourceGroupName)
@@ -75,7 +75,7 @@ The last line in the command shows the public IP address of the newly created VM
 
 ## Connect to virtual machine
 
-You can then SSH to your VM as normal. Provide you own public IP address from the preceding command:
+You can then SSH to your VM as normal. Provide your own public IP address from the preceding command:
 
 ```bash
 ssh <adminUsername>@<ipAddress>
@@ -83,7 +83,7 @@ ssh <adminUsername>@<ipAddress>
 
 ## Other templates
 
-In this example, you created a basic Linux VM. For more Resource Manager templates that include application frameworks or create more complex environments, browse the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+In this example, you created a basic Linux VM. For more Resource Manager templates that include application frameworks or create more complex environments, browse the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 To learn more about creating templates, view the JSON syntax and properties for the resources types you deployed:
 
