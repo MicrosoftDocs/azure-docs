@@ -1,5 +1,5 @@
 ---
-title: Setting up Key Vault for managed credential rotation in Operator Nexus
+title: Setting up Key Vault for Managed Credential Rotation in Operator Nexus
 description: Step by step guide on setting up a key vault for managing and rotating credentials
 author: ghugo
 ms.author: gagehugo
@@ -9,7 +9,7 @@ ms.date: 01/24/2024
 ms.custom: template-how-to
 ---
 
-# Setting up Key Vault for managed credential rotation in Operator Nexus
+# Setting up Key Vault for Managed Credential Rotation in Operator Nexus
 
 If a user wants rotated credentials to be stored in their own key vault, the key vault needs to be configured for the Nexus cluster.  The user adds a role assignment to the customer key vault to allow the credential manager to write updated credentials and associates the key vault as a secret archive for each cluster.
 
@@ -22,7 +22,7 @@ If a user wants rotated credentials to be stored in their own key vault, the key
 > [!NOTE]
 > A single Key Vault can be used for any number of clusters.
 
-## Writing credential updates to a Customer Key Vault on Nexus Cluster
+## Writing Credential Updates to a Customer Key Vault on Nexus Cluster
 
 1. Ensure that the *Microsoft.NetworkCloud* resource provider is registered with the customer subscription.
 
