@@ -289,7 +289,7 @@ az spring app deploy \
     --config-file-pattern <config-file-pattern>
 ```
 
-## Bind Apps to Application Configuration Service during Creation
+## Bind to Application Configuration Service during application creation
 
 When you create new apps, you can also bind them to the Application Configuration Service as you create them.
 
