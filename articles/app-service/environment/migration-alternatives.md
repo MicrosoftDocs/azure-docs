@@ -96,7 +96,7 @@ To clone an app by using the Azure portal:
 
 If the migration feature doesn't support your apps or you want to take a more manual route, you can deploy your apps by following the same process that you used for your existing App Service Environment. You don't need to make updates when you deploy your apps to your new environment.
 
-You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in or with your new environment. To export a template for just an app, go to your App Service plan. Under **Automation**, select **Export template**.
+You can export [Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) (ARM templates) of your existing apps, App Service plans, and any other supported resources and deploy them in or with your new environment. To export a template for just an app, go to your App Service plan. Under **Automation**, select **Export template**.
 
 :::image type="content" source="./media/migration/export-toc.png" alt-text="Screenshot of the option to export a template on the left pane of the Azure portal.":::
 
