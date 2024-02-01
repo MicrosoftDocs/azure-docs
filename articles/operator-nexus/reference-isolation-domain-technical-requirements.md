@@ -25,7 +25,7 @@ ms.topic: reference
     -   200 Layer 3 isolation domains per Nexus instance
 
 
-## Information required for the Isolation Domain Resource
+## Configuration parameters for the Isolation Domain Resource
 
 When you create an isolation domain resource, the following information must be specified:
 
@@ -46,3 +46,41 @@ When you create an isolation domain resource, the following information must be 
 -   **Subscription ID**: The Azure subscription ID for your Operator Nexus instance. It should be the same as the one used for the network fabric resource.
 
 The status of the isolation domain creation or deletion can be monitored using the **Provisioning state**. It can be Succeeded, Failed, or InProgress.
+
+### Additional configuration for internal networks
+
+-   **vlan-id**: The VLAN identifier value for the internal network. It must be between 501 and 3000.
+
+-   **resource-group**: The name of the resource group where the internal network is created.
+
+-   **l3-isolation-domain-name**: The name of the L3 isolation-domain the internal network belongs to.
+
+-   **resource-name**: The name of the internal network.
+
+-   **location**: The Azure region where the internal network is created.
+
+-   **connected-ipv4-subnets** or **connected-ipv6-subnets**: The IPv4 or IPv6 subnet prefixes used by the workloads in the internal network.
+
+-   **mtu**: The maximum transmission unit for the internal network. The default value is 1500.
+
+-   **bgp-configuration**: The BGP configuration table for the internal network.
+
+-   **static-route-configuration**: Static route configuration for the internal network. It includes the IPv4 or IPv6 route prefixes and next hops, the extension flag, and the BFD configuration.
+
+-   **is-monitoring-enabled**: A flag to enable or disable monitoring on the internal network. The default value is False.
+
+-   **extension**: The extension flag for the internal network. It can be NoExtension or NPB.
+
+### Additional configuration for external networks
+
+-   **peering-option**: The peering option for the external network. It can be OptionA or OptionB.
+
+-   **option-a-properties**: The properties for the OptionA peering, including the peer ASN, the VLAN ID, the MTU, and the primary and secondary IPv4 or IPv6 prefixes. This parameter is required for OptionA.
+
+-   **option-b-properties**: The properties for the OptionB peering, including the route targets for import and export of IPv4 or IPv6 routes. This parameter is required for OptionB.
+
+-   **resource-group**: The name of the resource group where the external network is created.
+
+-   **l3domain**: The name of the L3 isolation-domain the external network belongs to.
+
+-   **resource-name**: The name of the external network.
