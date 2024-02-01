@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/02/2023
+ms.date: 12/19/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -15,7 +15,7 @@ zone_pivot_groups: front-door-tiers
 
 Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration.
 
-Logs and metrics are stored and managed by [Azure Monitor](../azure-monitor/overview.md).
+Logs and metrics get stored and managed by [Azure Monitor](../azure-monitor/overview.md).
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -23,22 +23,22 @@ Logs and metrics are stored and managed by [Azure Monitor](../azure-monitor/over
 
 ## Metrics
 
-Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to be processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
+Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to get processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
 
 The metrics listed in the following table are recorded and stored free of charge for a limited period of time. For an extra cost, you can store for a longer period of time.
 
-| Metrics  | Description | Dimensions |
-| ------------- | ------------- | ------------- |
+| Metrics | Description | Dimensions |
+|--|--|--|
 | Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. The byte hit ratio is  low if most of the traffic is forwarded to the origin rather than served from the cache. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li></ul> | Endpoint |
-| Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins.| Origin, Origin Group |
-| Origin Latency | The time calculated from when the request was sent by the Azure Front Door edge to the origin until Azure Front Door received the last response byte from the origin. | Endpoint, Origin |
-| Origin Request Count  | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group |
+| Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins. | Origin, Origin Group |
+| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. | Endpoint, Origin |
+| Origin Request Count | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group |
 | Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region |
 | Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region |
 | Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
 | Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group |
-| Response Size | The number of bytes sent as responses from Front Door to clients. |Endpoint, client Country, client Region, HTTP Status, HTTP Status Group |
-| Total Latency | The total time taken from when the client request was received by Azure Front Door until the last response byte was sent from Azure Front Door to the client. |Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
+| Response Size | The number of bytes sent as responses from Front Door to clients. | Endpoint, client Country, client Region, HTTP Status, HTTP Status Group |
+| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
 | Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name |
 
 > [!NOTE]
@@ -93,6 +93,8 @@ Information about every request is logged into the access log. Each access log e
 | OriginURL | The full URL of the origin where the request was sent. The URL is composed of the scheme, host header, port, path, and query string. <br> **URL rewrite**: If the request URL was rewritten by the Rules Engine, the path refers to the rewritten path. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
 | OriginIP | The IP address of the origin that served the request. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
 | OriginName| The full hostname (DNS name) of the origin. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
+| Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
+| Sni | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. | 
 
 ## Health probe log
 
@@ -230,7 +232,7 @@ Front Door currently provides diagnostic logs. Diagnostic logs provide individua
 
 | Property  | Description |
 | ------------- | ------------- |
-| BackendHostname | If request was being forwarded to a backend, this field represents the hostname of the backend. This field will be blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
+| BackendHostname | If request was being forwarded to a backend, this field represents the hostname of the backend. This field is blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
 | CacheStatus | For caching scenarios, this field defines the cache hit/miss at the POP |
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
@@ -251,10 +253,12 @@ Front Door currently provides diagnostic logs. Diagnostic logs provide individua
 | TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
 | UserAgent | The browser type that the client used. |
 | ErrorInfo | This field contains the specific type of error for further troubleshooting. </br> Possible values include: </br> **NoError**: Indicates no error was found. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. </br> **ClientDisconnected**: Request failure because of client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address couldn't be resolved. </br> **OriginConnectionAborted**: The connection with the origin was stopped abruptly. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin wasn't able to established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned too large of a response header. </br> **RestrictedIP**: The request was blocked because of restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. </br> **SSLMismatchedSNI**:The request was invalid because the HTTP message header didn't match the value presented in the TLS SNI extension during SSL/TLS connection setup.|
+| Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
+| Sni | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. |
 
 ### Sent to origin shield deprecation
 
-The raw log property **isSentToOriginShield** has been deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
+The raw log property **isSentToOriginShield** is deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
 
 Raw logs include logs generated from both CDN edge (child POP) and origin shield. Origin shield refers to parent nodes that are strategically located across the globe. These nodes communicate with origin servers and reduce the traffic load on origin. 
 

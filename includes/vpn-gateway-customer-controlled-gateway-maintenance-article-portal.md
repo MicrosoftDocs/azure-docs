@@ -30,8 +30,8 @@ Use the following steps to create a maintenance configuration.
 
    Values for **Type** are:
 
-   * **VPN Gateway:** Virtual network gateways
-   * **ExpressRoute:** Virtual network gateways
-   * **Virtual WAN:** VPN gateways and Express route gateways
+   * **VPN Gateways:** Virtual WAN site-to-site VPN gateways
+   * **ExpressRoute Gateways:** Virtual WAN ExpressRoute gateways
+   * **Virtual network gateways** VPN and ExpressRoute Virtual network gateways
 
 1. Click **Review + Create** to validate. Once validation completes, click **Create**.

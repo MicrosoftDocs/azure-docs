@@ -10,9 +10,9 @@ ms.reviewer: mikeray
 ms.date: 03/06/2023
 ms.topic: how-to
 ---
-# Rotate Azure Arc-enabled SQL Managed Instance service-managed credentials (preview)
+# Rotate SQL Server Managed Instance enabled by Azure Arc service-managed credentials (preview)
 
-This article describes how to rotate service-managed credentials for Azure Arc-enabled SQL Managed Instance. Arc data services generate various service-managed credentials like certificates and SQL logins used for Monitoring, Backup/Restore, High Availability etc. These credentials are considered custom resource credentials managed by Azure Arc data services.
+This article describes how to rotate service-managed credentials for SQL Managed Instance enabled by Azure Arc. Arc data services generate various service-managed credentials like certificates and SQL logins used for Monitoring, Backup/Restore, High Availability etc. These credentials are considered custom resource credentials managed by Azure Arc data services.
 
 Service-managed credential rotation is a user-triggered operation that you initiate during a security issue or when periodic rotation is required for compliance.
 
@@ -40,9 +40,9 @@ There's a brief moment of downtime when the failover occurs.
 
 ## Prerequisites: 
 
-Before you proceed with this article, you must have an Azure Arc-enabled SQL Managed Instance resource created.
+Before you proceed with this article, you must have a SQL Managed Instance enabled by Azure Arc resource created.
 
-- [An Azure Arc-enabled SQL Managed Instance created](./create-sql-managed-instance.md)
+- [a SQL Managed Instance enabled by Azure Arc created](./create-sql-managed-instance.md)
 
 ## How to rotate service-managed credentials in a managed instance
 
@@ -81,7 +81,7 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 
 Triggering rollback is the same as triggering a rotation of service-managed credentials except that the target generation is previous generation and doesn't generate a new generation or credentials.
 
-## Next steps
+## Related content
 
 - [View the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
 - [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

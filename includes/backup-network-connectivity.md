@@ -3,7 +3,6 @@ title: include file
 description: include file
 services: backup
 author: v-amallick
-manager: carmonm
 ms.service: backup
 ms.topic: include
 ms.date: 11/15/2022

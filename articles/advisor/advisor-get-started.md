@@ -5,7 +5,7 @@ author: mabrahms
 ms.author: v-mabrahms
 ms.service: azure
 ms.topic: article
-ms.date: 09/16/2023
+ms.date: 12/1/2023
 
 ---
 
@@ -88,9 +88,9 @@ From any Azure Advisor page, click **Configuration** in the left navigation pane
 
 * **Resources**: Uncheck any subscriptions you don't want to receive Advisor recommendations for, click **Apply**. The page refreshes.
 
-* **VM/VMSS right sizing**: You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge.
+* **VM/VMSS right sizing**: You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can setup a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting will filter recommendations but will not change how they are generated.
 
-  1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing and certain privileges are required; for more information on permissions, see [Permissions in Azure Advisor](permissions.md).
+  1. Select the subscriptions you’d like to setup a filter for average CPU utilization, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing and certain privileges are required; for more information on permissions, see [Permissions in Azure Advisor](permissions.md).
     
   1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 

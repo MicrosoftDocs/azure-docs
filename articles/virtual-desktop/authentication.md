@@ -5,9 +5,8 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/11/2023
+ms.date: 11/14/2023
 ms.author: helohr
-manager: femila
 ---
 # Supported identities and authentication methods
 
@@ -26,9 +25,9 @@ Since users must be discoverable through Microsoft Entra ID to access the Azure 
 
 ### Hybrid identity
 
-Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Microsoft Entra ID, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Microsoft Entra ID using [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You can also use Microsoft Entra ID to manage these identities and sync them to [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md).
+Azure Virtual Desktop supports [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) through Microsoft Entra ID, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Microsoft Entra ID using [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect). You can also use Microsoft Entra ID to manage these identities and sync them to [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md).
 
-When accessing Azure Virtual Desktop using hybrid identities, sometimes the User Principal Name (UPN) or Security Identifier (SID) for the user in Active Directory (AD) and Microsoft Entra ID don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Microsoft Entra ID. Azure Virtual Desktop only supports this type of configuration if either the UPN or SID for both your AD and Microsoft Entra accounts match. SID refers to the user object property "ObjectSID" in AD and "OnPremisesSecurityIdentifier" in Microsoft Entra ID.
+When accessing Azure Virtual Desktop using hybrid identities, sometimes the User Principal Name (UPN) or Security Identifier (SID) for the user in Active Directory (AD) and Microsoft Entra ID don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Microsoft Entra ID. Azure Virtual Desktop only supports this type of configuration if either the UPN or SID for both your AD and Microsoft Entra ID accounts match. SID refers to the user object property "ObjectSID" in AD and "OnPremisesSecurityIdentifier" in Microsoft Entra ID.
 
 ### Cloud-only identity
 
@@ -69,18 +68,17 @@ To use a smart card to authenticate to Microsoft Entra ID, you must first [confi
 
 ## Session host authentication
 
-If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports.
-
+If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports. Some clients might require a specific version to be used, which you can find in the link for each authentication type.
 
 |Client  |Supported authentication type(s)  |
 |---------|---------|
 |Windows Desktop client    | Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Microsoft Entra authentication](configure-single-sign-on.md)               |
 |Azure Virtual Desktop Store app     |  Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Microsoft Entra authentication](configure-single-sign-on.md)           |
 |Remote Desktop app     |  Username and password       |
-|Web client    | Username and password        |
-|Android client   | Username and password        |
-|iOS client     |   Username and password      |
-|macOS client    | Username and password <br>Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.        |
+|Web client    | Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
+|Android client   | Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
+|iOS client     |   Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)      |
+|macOS client    | Username and password <br>Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
 
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
@@ -101,14 +99,9 @@ Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for sessi
 
 Once you're connected to your RemoteApp or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
 
-### In-session passwordless authentication (preview)
+### In-session passwordless authentication
 
-> [!IMPORTANT]
-> In-session passwordless authentication is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Virtual Desktop supports in-session passwordless authentication (preview) using [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys when using the [Windows Desktop client](users/connect-windows.md). Passwordless authentication is enabled automatically when the session host and local PC are using the following operating systems:
+Azure Virtual Desktop supports in-session passwordless authentication using [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys when using the [Windows Desktop client](users/connect-windows.md). Passwordless authentication is enabled automatically when the session host and local PC are using the following operating systems:
 
   - Windows 11 single or multi-session with the [2022-10 Cumulative Updates for Windows 11 (KB5018418)](https://support.microsoft.com/kb/KB5018418) or later installed.
   - Windows 10 single or multi-session, versions 20H2 or later with the [2022-10 Cumulative Updates for Windows 10 (KB5018410)](https://support.microsoft.com/kb/KB5018410) or later installed.

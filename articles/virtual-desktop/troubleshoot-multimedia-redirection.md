@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 07/18/2023
 ms.author: helohr
-manager: femila
 ---
 # Troubleshoot multimedia redirection for Azure Virtual Desktop
 

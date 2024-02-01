@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Cisco Stealthwatch connector for Microsoft Sentinel
 
-The [Cisco Stealthwatch](https://www.cisco.com/c/en/us/products/security/stealthwatch/index.html) data connector provides the capability to ingest [Cisco Stealthwatch events](https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/management_console/securit_events_alarm_categories/SW_7_2_1_Security_Events_and_Alarm_Categories_DV_1_0.pdf) into Microsoft Sentinel. Refer to [Cisco Stealthwatch documentation](https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/system_installation_configuration/SW_7_3_2_System_Configuration_Guide_DV_1_0.pdf) for more information.
+The [Cisco Stealthwatch](https://www.cisco.com/c/en/us/products/security/stealthwatch/index.html) data connector provides the capability to ingest [Cisco Stealthwatch events](https://www.cisco.com/c/dam/en/us/td/docs/security/stealthwatch/management_console/securit_events_alarm_categories/SW_7_2_1_Security_Events_and_Alarm_Categories_DV_1_0.pdf) into Microsoft Sentinel.
 
 ## Connector attributes
 

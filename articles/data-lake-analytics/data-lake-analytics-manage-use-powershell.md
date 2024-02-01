@@ -4,7 +4,7 @@ description: This article describes how to use Azure PowerShell to manage Data L
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -540,11 +540,8 @@ foreach ($sub in $subs)
 }
 ```
 
-## Create a Data Lake Analytics account using a template
-
-You can also use an Azure Resource Group template using the following sample: [Create a Data Lake Analytics account using a template](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
-
 ## Next steps
+
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Get started with Data Lake Analytics using the [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)
 * Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md)

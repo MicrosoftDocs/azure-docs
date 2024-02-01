@@ -1,15 +1,20 @@
 ---
 title: Imagery partner integration
 description: This article describes imagery partner integration.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Imagery partner integration
 
 This article describes how to use the Azure FarmBeats Translator component to send imagery data to FarmBeats. Agricultural imagery data can be generated from various sources, such as multispectral cameras, satellites, and drones. Agricultural imagery partners can integrate with FarmBeats to provide customers with custom-generated maps for their farms.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 Data, once available, can be visualized through the FarmBeats Accelerator and potentially be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by agricultural businesses or customer system integrators.
 

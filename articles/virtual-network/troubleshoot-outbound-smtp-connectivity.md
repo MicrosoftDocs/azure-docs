@@ -7,7 +7,7 @@ manager: dcscontentpm
 ms.service: virtual-network
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
-ms.date: 10/30/2023
+ms.date: 12/20/2023
 ms.author: allensu
 ---
 
@@ -16,7 +16,7 @@ ms.author: allensu
 Outbound email messages that are sent directly to external domains (such as outlook.com and gmail.com) from a virtual machine (VM) are made available only to certain subscription types in Microsoft Azure. 
 
 > [!IMPORTANT]
-> For the following examples, the process applies mainly to Virtual Machines & VM Scale Sets resources (`Microsoft.Compute/virtualMachines` & `Microsoft.Compute/virtualMachineScaleSets`). It's possible to use port 25 for outbound communication on [Azure App Service](https://azure.microsoft.com/services/app-service) and [Azure Functions](https://azure.microsoft.com/services/functions) through the [virtual network integration feature](/azure/app-service/overview-vnet-integration#application-routing) or when using [App Service Environment v3](../app-service/environment/networking.md#network-routing). However, the following subscription limitations described still apply. Sending email on Port 25 is unsupported for all other Azure Platform-as-a-Service (PaaS) resources. 
+> For the following examples, the process applies mainly to Virtual Machines & VM Scale Sets resources (`Microsoft.Compute/virtualMachines` & `Microsoft.Compute/virtualMachineScaleSets`). It's possible to use port 25 for outbound communication on [Azure App Service](https://azure.microsoft.com/services/app-service) and [Azure Functions](https://azure.microsoft.com/services/functions) through the [virtual network integration feature](/azure/app-service/overview-vnet-integration#application-routing) or when using [App Service Environment v3](../app-service/environment/networking.md#network-routing). It's also possible to send port 25 outbound communication through Azure Firewall. However, the following subscription limitations described still apply. Sending email on Port 25 is unsupported for all other Azure Platform-as-a-Service (PaaS) resources. 
 
 ## Recommended method of sending email
 
@@ -24,9 +24,9 @@ We recommend you use authenticated SMTP relay services to send email from Azure 
 
 Using these email delivery services isn't restricted in Azure, regardless of the subscription type.
 
-## Enterprise Agreement
+## Enterprise and MCA-E
 
-For VMs that are deployed in standard Enterprise Agreement subscriptions, the outbound SMTP connections on TCP port 25 aren't blocked. However, there's no guarantee that external domains accept the incoming emails from the VMs. For emails rejected or filtered by the external domains, contact the email service providers of the external domains to resolve the problems. These problems aren't covered by Azure support.
+For VMs and Azure Firewall that are deployed in standard Enterprise Agreement or Microsoft Customer Agreement for enterprise (MCA-E) subscriptions, the outbound SMTP connections on TCP port 25 aren't blocked. However, there's no guarantee that external domains accept the incoming emails from the VMs and Azure Firewall. For emails rejected or filtered by the external domains, contact the email service providers of the external domains to resolve the problems. These problems aren't covered by Azure support.
 
 For Enterprise Dev/Test subscriptions, port 25 is blocked by default.
 
@@ -36,15 +36,14 @@ After the subscription is exempted from this block and the VMs are stopped and r
 
 ## All Other Subscription Types 
 
-The Azure platform blocks outbound SMTP connections on TCP port 25 for deployed VMs.  This block is to ensure better security for Microsoft partners and customers, protect Microsoft’s Azure platform, and conform to industry standards. 
+The Azure platform blocks outbound SMTP connections on TCP port 25 for deployed VMs. This block is to ensure better security for Microsoft partners and customers, protect Microsoft’s Azure platform, and conform to industry standards. 
 
-If you're using a nonenterprise subscription type, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article.
+If you're using a subscription type that isn't an Enterprise Agreement or MCA-E, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article.
 
 ## Changing subscription type
 
-If you change your subscription type from Enterprise Agreement to another type of subscription, changes to your deployments might result in outbound SMTP being blocked.  
-
+If you change your subscription type from Enterprise Agreement or MCA-E to another type of subscription, changes to your deployments might result in outbound SMTP being blocked.  
 
 ## Need help? Contact support
 
-If you're using an Enterprise Agreement subscription and still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Cannot send email (SMTP/Port 25)**.
+If you're using an Enterprise Agreement or MCA-E subscription and still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Cannot send email (SMTP/Port 25)**.

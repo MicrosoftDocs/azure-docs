@@ -2,7 +2,7 @@
 title: "Text Translation REST API reference guide"
 titleSuffix: Azure AI services
 description: View a list of with links to the Text Translation REST APIs.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator

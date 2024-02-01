@@ -58,7 +58,7 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Lease Blob](/rest/api/storageservices/find-blobs-by-tags) (acquire, release, renew)      | Other                     | Other                       | Read                        |
 | [Lease Blob](/rest/api/storageservices/find-blobs-by-tags) (break, change)                | Other                     | Other                       | Write                       |
 | [Snapshot Blob](/rest/api/storageservices/snapshot-blob)                                  | Other                     | Other                       | Read                        |
-| [Copy Blob](/rest/api/storageservices/copy-blob)                                          | Write                     | Write                       | Write                       |
+| [Copy Blob](/rest/api/storageservices/copy-blob)                                          | Write<sup>2</sup>         | Write<sup>2</sup>           | Write<sup>2</sup>           |
 | [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url)                        | Write                     | Write                       | Write                       |
 | [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)                              | Other                     | Other                       | Write                       |
 | [Delete Blob](/rest/api/storageservices/delete-blob)                                      | Free                      | Free                        | Free                        |
@@ -78,9 +78,11 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Append Block](/rest/api/storageservices/append-block)                                    | Write                     | Write                       | Write                       |
 | [Append Block from URL](/rest/api/storageservices/append-block-from-url)                  | Write                     | Write                       | Write                       |
 | [Append Blob Seal](/rest/api/storageservices/append-blob-seal)                            | Write                     | Write                       | Write                       |
-| [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       | 
+| [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       |
 
 <sup>1</sup>    In addition to a read charge, charges are incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
+
+<sup>2</sup> When the source object is in a different account, the source account incurs one transaction for each read request to the source object.
 
 ## Operation type of each Data Lake Storage Gen2 REST operation
 

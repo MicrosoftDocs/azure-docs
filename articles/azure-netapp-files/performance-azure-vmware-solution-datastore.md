@@ -2,17 +2,11 @@
 title: Azure VMware Solution datastore performance considerations for Azure NetApp Files | Microsoft Docs
 description: Describes considerations for Azure VMware Solution (AVS) datastore design and sizing when used with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 11/12/2023
 ms.author: anfdocs
 ---
 # Azure VMware Solution datastore performance considerations for Azure NetApp Files 
@@ -68,7 +62,7 @@ Testing both small and large block operations and iterating through sequential a
 The results in this article were achieved using the following environment configuration:   
 
 * AVS hosts:
-    * Size: [AV36](../azure-vmware/introduction.md#av36p-and-av52-node-sizes-available-in-azure-vmware-solution) 
+    * Size: [AV36](../azure-vmware/introduction.md) 
     * Host count: 4
     * VMware ESXi version 7u3
 * AVS private cloud connectivity: UltraPerformance gateway with FastPath

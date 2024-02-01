@@ -184,6 +184,10 @@ You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS)
 * Not Found (404)
 * Unauthorized (401)
 
+## Limitations
+
+If you're using an Azure ML Managed Endpoint service, Stream Analytics can currently only access endpoints that have public network access enabled. Read more about it on the page about [Azure ML private endpoints](/azure/machine-learning/concept-secure-online-endpoint?view=azureml-api-2&tabs=cli#secure-inbound-scoring-requests).
+
 ## Next steps
 
 * [Tutorial: Azure Stream Analytics JavaScript user-defined functions](stream-analytics-javascript-user-defined-functions.md)

@@ -4,7 +4,8 @@ description: Configure rules to access an Azure container registry from behind a
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.service: container-registry
+ms.date: 10/31/2023
 ---
 
 # Configure rules to access an Azure container registry behind a firewall

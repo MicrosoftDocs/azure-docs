@@ -2,18 +2,18 @@
 title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2023
-ms.custom: project-no-code
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating apps with Azure Active Directory B2C, I want to learn how to customize the default user interfaces by using my own HTML, CSS files and JavaScript, so that I can provide a branded and seamless user experience in my application.
+
 ---
 
 # Customize the user interface with HTML templates in Azure Active Directory B2C
@@ -53,7 +53,7 @@ Your custom page content can contain any HTML elements, including CSS and JavaSc
 
 Instead of creating your custom page content from scratch, you can customize Azure AD B2C's default page content.
 
-The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages.
+The following table lists the default page content provided by Azure AD B2C. Download the files and use them as a starting point for creating your own custom pages. See [Sample templates](#sample-templates) to learn how you can download and use the sample templates.
 
 | Page | Description | Templates |
 |:-----------------------|:--------|-------------|
@@ -326,6 +326,9 @@ To configure UI customization, copy the **ContentDefinition** and its child elem
     ```
 
 1. Save the extensions file.
+
+1. [Enable JavaScript](javascript-and-page-layout.md?pivots=b2c-custom-policy#enable-javascript)
+
 
 ### 5. Upload and test your updated custom policy
 

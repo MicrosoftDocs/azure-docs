@@ -16,7 +16,7 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./networking.md#configuring-udr-with-azure-firewall) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-1) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Networking in Azure Container Apps environments](./networking.md#user-defined-routes-udr).
+In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./networking.md#configuring-udr-with-azure-firewall) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-2) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Networking in Azure Container Apps environments](./networking.md#user-defined-routes-udr).
 
 In the Consumption only environment, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
 
@@ -66,6 +66,9 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
 
 # [Consumption only environment](#tab/consumption-only)
+
+>[!Note]
+> When using Consumption only environments, all [outbound ports required by Azure Kubernetes Service](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) are also required for your container app.
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|

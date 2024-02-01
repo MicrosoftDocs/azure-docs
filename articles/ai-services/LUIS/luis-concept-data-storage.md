@@ -2,7 +2,7 @@
 title: Data storage - LUIS
 titleSuffix: Azure AI services
 description: LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. 
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/19/2024
 ---
 
 # Data storage and removal in Language Understanding (LUIS) Azure AI services

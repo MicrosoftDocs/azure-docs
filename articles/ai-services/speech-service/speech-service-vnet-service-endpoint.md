@@ -2,12 +2,11 @@
 title: Use Virtual Network service endpoints with Speech service
 titleSuffix: Azure AI services
 description: This article describes how to use Speech service with an Azure Virtual Network service endpoint.
-services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 1/22/2024
 ms.author: alexeyo
 ---
 
@@ -55,7 +54,7 @@ You need to add all virtual networks that are allowed access via the service end
    > [!NOTE]
    > To use Virtual Network service endpoints, you need to select the **Selected Networks and Private Endpoints** network security option. No other options are supported. If your scenario requires the **All networks** option, consider using [private endpoints](speech-services-private-link.md), which support all three network security options.
 
-5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint will automatically be enabled for the selected subnets. This operation can take up to 15 minutes. Also, see the note at the beginning of this section.
+5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint is automatically enabled for the selected subnets. This operation can take up to 15 minutes. Also, see the note at the beginning of this section.
 
 ### Enabling service endpoint for an existing virtual network 
 

@@ -12,6 +12,8 @@ ms.reviewer: mmcc
 
 A *dependency* is a component that's called by your application. It's typically a service called by using HTTP, a database, or a file system. [Application Insights](./app-insights-overview.md) measures the duration of dependency calls and whether it's failing or not, along with information like the name of the dependency. You can investigate specific dependency calls and correlate them to requests and exceptions.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 ## Automatically tracked dependencies
 
 Application Insights SDKs for .NET and .NET Core ship with `DependencyTrackingTelemetryModule`, which is a telemetry module that automatically collects dependencies. This dependency collection is enabled automatically for [ASP.NET](./asp-net.md) and [ASP.NET Core](./asp-net-core.md) applications when it's configured according to the linked official docs. The module `DependencyTrackingTelemetryModule` is shipped as the [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet package. It's brought automatically when you use either the `Microsoft.ApplicationInsights.Web` NuGet package or the `Microsoft.ApplicationInsights.AspNetCore` NuGet package.
@@ -125,7 +127,7 @@ In the preceding cases, the proper way of validating that the instrumentation en
 ## Where to find dependency data
 
 * [Application Map](app-map.md) visualizes dependencies between your app and neighboring components.
-* [Transaction Diagnostics](./search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) shows unified, correlated server data.
+* [Transaction Diagnostics](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics) shows unified, correlated server data.
 * [Browsers tab](javascript.md) shows AJAX calls from your users' browsers.
 * Select from slow or failed requests to check their dependency calls.
 * [Analytics](#logs-analytics) can be used to query dependency data.
@@ -230,7 +232,7 @@ Like every Application Insights SDK, the dependency collection module is also op
 
 ## Dependency auto-collection
 
-Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. These dependencies are visualized in the Application Insights [Application map](./app-map.md) and [Transaction diagnostics](./search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
+Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. These dependencies are visualized in the Application Insights [Application map](./app-map.md) and [Transaction diagnostics](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
 ### .NET
 

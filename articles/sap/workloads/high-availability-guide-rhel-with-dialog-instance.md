@@ -2,16 +2,14 @@
 title: Deploy SAP Dialog Instance with SAP ASCS/SCS high availability VMs on RHEL | Microsoft Docs
 description: Configure SAP Dialog Instance on SAP ASCS/SCS high availability VMs on RHEL
 services: virtual-machines-linux,virtual-network,storage
-documentationcenter: saponazure
 author: dennispadia
 manager: rdeltcheva
 tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/16/2022
+ms.date: 01/21/2024
 ms.author: depadia
 ---
 
@@ -98,49 +96,35 @@ Once you have installed **ASCS**, **ERS** and **Database** instance using SWPM, 
 
 ## Configure Azure Load Balancer for PAS and AAS
 
-This document assumes that you’ve already configured SAP ASCS/SCS cluster setup, which requires Azure Load Balancer. In the same Azure load balancer, follow below steps to create virtual IPs and load balancing rules for PAS and AAS.
+This document assumes that you already configured the load balancer for SAP ASCS/SCS cluster setup as described in [configure Azure load balancer](./high-availability-guide-rhel-nfs-azure-files.md#configure-azure-load-balancer). In the same Azure load balancer, follow below steps to create additional frontend IPs and load balancing rules for PAS and AAS.
 
-1. Open the internal load balancer that you've created for SAP ASCS/SCS cluster setup.
-2. Create the frontend IP address for PAS and AAS instance
-   1. IP address for PAS is **10.90.90.30**
-      1. In **Settings** > **Frontend IP configuration**, click on **Add**.
-      2. Enter the name of the new frontend IP (for example, **frontend.NW1.PAS**).
-      3. Select the **subnet**.
-      4. Set the **assignment** to **Static** and enter the IP address (for example, **10.90.90.30**).
-      5. Click Ok.
-   2. IP address for AAS is **10.90.90.31**
-      1. Repeat the steps above under "2.a" to create a frontend IP address for ERS (for example **10.90.90.31** and **frontend.NW1.AAS**)
-3. Backend Pool remains same, as we're deploying PAS and AAS on the same backend pool (**backend.NW1**).
-4. Create health probe for PAS and AAS instance
-   1. Port for PAS is **62002**
-      1. In **Settings** > **Health probes**, click on **Add**.
-      2. Enter the name of the health probe (for example, **health.NW1.PAS**).
-      3. Select **TCP** as protocol, port **62002** and keep interval **5**.
-      4. Click Ok.
-   2. Port for AAS is **62003**
-      1. Repeat the steps above under "4.a" to create health probe for AAS (for example **62003** and **health.NW1.AAS**)
-5. Create load balancing rules for PAS and AAS instance
-   1. Load balancing rule for PAS
-      1. In **Settings** > **Load balancing rules**, click on **Add**.
-      2. Enter the name of load balancing rule (for example, **lb.NW1.PAS**).
-      3. Select the frontend IP address for PAS, backend pool, and health probe you created earlier (for example **frontend.NW1.PAS**, **backend.NW1**, and **health.NW1.PAS**)
-      4. Select **HA ports**
-      5. Make sure to **enable Floating IP**
-      6. Click OK
-   2. Load balancing rule for AAS
-      1. Repeat the steps above under “5.1” to create load balancing rule for AAS (for example, **lb.NW1.AAS**).
+1. Open the internal load balancer that was created for SAP ASCS/SCS cluster setup.
+2. Frontend IP Configuration: Create two frontend IP, one for PAS and another for AAS (for example: 10.90.90.30 and 10.90.90.31).
+3. Backend Pool: Backend Pool remains same, as we're deploying PAS and AAS on the same backend pool.
+4. Inbound rules: Create two load balancing rule, one for PAS and another for AAS. Follow the same steps for both load balancing rules.
+5. Frontend IP address: Select frontend IP
+   1. Backend pool: Select backend pool
+   2. Check "High availability ports"
+   3. Protocol: TCP
+   4. Health Probe: Create health probe with below details (applies for both PAS and AAS)
+      1. Protocol: TCP
+      2. Port: [for example: 620<Instance-no.> for PAS, 620<Instance-no.> for AAS]
+      3. Interval: 5
+      4. Probe Threshold: 2
+   5. Idle timeout (minutes): 30
+   6. Check "Enable Floating IP"
+
+> [!NOTE]
+> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
 
 > [!IMPORTANT]
->
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
->
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
->
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to `0`. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ## Prepare servers for PAS and AAS installation
 
@@ -247,17 +231,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 5. **[A]** Add firewall rules for PAS and AAS
 
    ```bash
-   # Probe port for PAS and AAS
-   sudo firewall-cmd --zone=public --add-port=62002/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62002/tcp
-   sudo firewall-cmd --zone=public --add-port=62003/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62003/tcp
-   
-   # Gateway port for PAS and AAS
-   sudo firewall-cmd --zone=public --add-port=3302/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3302/tcp
-   sudo firewall-cmd --zone=public --add-port=3303/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3303/tcp
+   # Probe and gateway port for PAS and AAS
+   sudo firewall-cmd --zone=public --add-port={62002,62003,3302,3303}/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port={62002,62003,3303,3303}/tcp
    ```
 
 ## Installing SAP Netweaver PAS instance
@@ -643,7 +619,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs resource enable g-NW1_PAS
    ```
 
-   The score of -1000 is to ensure that if only one node is available then both the instances will continue to run on the other node. If you would like to keep the AAS instance down in such situation, then you can use the `score=-INFINITY` to enforce this condition.
+   The score of -1000 is to ensure that if only one node is available then both the instances continue to run on the other node. If you would like to keep the AAS instance down in such situation, then you can use the `score=-INFINITY` to enforce this condition.
 
 3. Check the status of cluster.
 

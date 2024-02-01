@@ -1,10 +1,10 @@
 ---
-title: Creating an ingress controller with a new Application Gateway 
-description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway. 
+title: Creating an ingress controller with a new Application Gateway
+description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: greglin
@@ -191,14 +191,14 @@ To install Microsoft Entra Pod Identity to your cluster:
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
-    Or copy the YAML file below: 
-    
+    Or copy the YAML file below:
+
     ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
     # Verbosity level of the App Gateway Ingress Controller
     verbosityLevel: 3
-    
+
     ################################################################################
     # Specify which application gateway the ingress controller will manage
     #
@@ -206,12 +206,12 @@ To install Microsoft Entra Pod Identity to your cluster:
         subscriptionId: <subscriptionId>
         resourceGroup: <resourceGroupName>
         name: <applicationGatewayName>
-    
+
         # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
         # This prohibits AGIC from applying config for any host/path.
         # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.
         shared: false
-    
+
     ################################################################################
     # Specify which kubernetes namespace the ingress controller will watch
     # Default value is "default"
@@ -220,7 +220,7 @@ To install Microsoft Entra Pod Identity to your cluster:
     #
     # kubernetes:
     #   watchNamespace: <namespace>
-    
+
     ################################################################################
     # Specify the authentication with Azure Resource Manager
     #
@@ -230,17 +230,17 @@ To install Microsoft Entra Pod Identity to your cluster:
         type: aadPodIdentity
         identityResourceID: <identityResourceId>
         identityClientID:  <identityClientId>
-    
+
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --role Contributor --sdk-auth | base64 -w0" >>
-    
+
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
-    
+
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
@@ -254,7 +254,7 @@ To install Microsoft Entra Pod Identity to your cluster:
     sed -i "s|<identityResourceId>|${identityResourceId}|g" helm-config.yaml
     sed -i "s|<identityClientId>|${identityClientId}|g" helm-config.yaml
     ```
-    
+
 
    > [!NOTE]
    > **For deploying to Sovereign Clouds (e.g., Azure Government)**, the `appgw.environment` configuration parameter must be added and set to the appropriate value as documented below.
@@ -270,8 +270,8 @@ To install Microsoft Entra Pod Identity to your cluster:
      - `kubernetes.watchNamespace`: Specify the namespace that AGIC should watch. The namespace value can be a single string value, or a comma-separated list of namespaces.
     - `armAuth.type`: could be `aadPodIdentity` or `servicePrincipal`
     - `armAuth.identityResourceID`: Resource ID of the Azure Managed Identity
-    - `armAuth.identityClientID`: The Client ID of the Identity. More information about **identityClientID** is provided below. 
-    - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`) 
+    - `armAuth.identityClientID`: The Client ID of the Identity. More information about **identityClientID** is provided below.
+    - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`)
 
 
    > [!NOTE]

@@ -5,7 +5,7 @@ ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-for-usql-developers
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
 
 # Understand Apache Spark for U-SQL developers

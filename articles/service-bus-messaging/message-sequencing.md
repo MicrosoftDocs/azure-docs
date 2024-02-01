@@ -43,12 +43,18 @@ You can schedule messages using any of our clients in two ways:
 
 Scheduled messages and their sequence numbers can also be discovered using [message browsing](message-browsing.md).
 
-The **SequenceNumber** for a scheduled message is only valid while the message is in this state. As the message transitions to the active state, the message is appended to the queue as if had been enqueued at the current instant, which includes assigning a new **SequenceNumber**.
+The **SequenceNumber** for a scheduled message is only valid while the message is in this state. As the message transitions to the active state, the message is appended to the queue as if it had been enqueued at the current instant, which includes assigning a new **SequenceNumber**.
 
 Because the feature is anchored on individual messages and messages can only be enqueued once, Service Bus doesn't support recurring schedules for messages.
 
 > [!NOTE]
 > Message enqueuing time doesn't mean that the message will be sent at the same time. It will get enqueued, but the actual sending time depends on the queue's workload and its state.
+
+### Using scheduled messages with workflows
+
+It is common to see longer-running business workflows that have an explicit time component to them, like 5-minute timeouts for 2-factor authentication, hour-long timeouts for users confirming their email address, and multi-day, week, or month long time components in domains like banking and insurance.
+
+These workflows are often kicked off by the processing of some message, which then stores some state, and then schedules a message to continue the process at a later time. Frameworks like [NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/2-timeouts/) and [MassTransit](https://masstransit.io/documentation/configuration/sagas/overview) make it easier to integrate all of these elements together.
 
 ## Next steps
 

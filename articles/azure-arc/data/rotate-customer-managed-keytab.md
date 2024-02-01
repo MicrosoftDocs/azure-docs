@@ -10,16 +10,16 @@ ms.reviewer: mikeray
 ms.date: 05/05/2023
 ms.topic: how-to
 ---
-# Rotate Azure Arc-enabled SQL Managed Instance customer-managed keytab
+# Rotate SQL Server Managed Instance enabled by Azure Arc customer-managed keytab
 
-This article describes how to rotate customer-managed keytabs for Azure Arc-enabled SQL Managed Instance. These keytabs are used to enable Active Directory logins for the managed instance.
+This article describes how to rotate customer-managed keytabs for SQL Managed Instance enabled by Azure Arc. These keytabs are used to enable Active Directory logins for the managed instance.
 
 ## Prerequisites: 
 
-Before you proceed with this article, you must have an active directory connector in customer-managed keytab mode and an Azure Arc-enabled SQL Managed Instance created.
+Before you proceed with this article, you must have an active directory connector in customer-managed keytab mode and a SQL Managed Instance enabled by Azure Arc created.
 
 - [Deploy a customer-managed keytab active directory connector](./deploy-customer-managed-keytab-active-directory-connector.md)
-- [Deploy and connect an Azure Arc-enabled SQL Managed Instance](./deploy-active-directory-sql-managed-instance.md)
+- [Deploy and connect a SQL Managed Instance enabled by Azure Arc](./deploy-active-directory-sql-managed-instance.md)
 
 ## How to rotate customer-managed keytabs in a managed instance
 
@@ -95,7 +95,7 @@ Additionally, after getting the kerberos Ticket-Granting Ticket (TGT) by using `
 
 We can also enable debug logging for the `kinit` command by running the following: `KRB5_TRACE=/dev/stdout kinit -V arcsqlmi@CONTOSO.COM`. This increases the verbosity and outputs the logs to stdout as the command is being executed.
 
-## Next steps
+## Related content
 
 - [View the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
 - [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

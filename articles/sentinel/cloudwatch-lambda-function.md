@@ -37,7 +37,6 @@ The lambda function uses Python 3.9 runtime and x86_64 architecture.
 
     :::image type="content" source="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png" alt-text="Screenshot of the AWS Management Console Add permissions policies screen." lightbox="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png":::
 
-1. Copy the code link from the [source file](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLanbdaFunction.py). 
 1. Return to the function, select **Code**, and paste the code link under **Code source**.
 
     :::image type="content" source="media/cloudwatch-lambda-function/lambda-code-source.png" alt-text="Screenshot of the AWS Management Console Code source screen." lightbox="media/cloudwatch-lambda-function/lambda-code-source.png":::

@@ -27,7 +27,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**:  Double-check and fix the source columns, as necessary.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

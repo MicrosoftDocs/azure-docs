@@ -3,17 +3,17 @@ title: Configure HCX network extension high availability
 description: Learn how to configure HCX network extension high availability
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/26/2022
+ms.date: 12/06/2023
 ms.custom: engagement-fy23
 ---
 
 # HCX Network extension high availability (HA)
 
-VMware HCX is an application mobility platform that's designed to simplify application migration, workload rebalancing, and business continuity across data centers and clouds. 
+VMware HCX is an application mobility platform designed to simplify application migration, workload rebalancing, and business continuity across data centers and clouds. 
 
 The HCX Network Extension service provides layer 2 connectivity between sites. Network Extension HA protects extended networks from a Network Extension appliance failure at either the source or remote site. 
 
-HCX 4.3.0 or later allows network extension high availability. Network Extension HA operates in Active/Standby mode. In this article, you'll learn how to configure HCX network extension High Availability on Azure private cloud.
+HCX 4.3.0 or later allows network extension high availability. Network Extension HA operates in Active/Standby mode. In this article, learn how to configure HCX network extension High Availability on Azure private cloud.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
 1. Locate **Services** in the left navigation and select **Network Extension**.
 1. Select **Create a Network Extension**.
 1. Choose the Network you want and select **Next**.
-1. In **mandatory fields**, provide the gateway IP address in CIDR format, select the HA group under **Extension Appliances** (this was created in the previous step), and select **Submit** to extend the Network.
+1. In **mandatory fields**, provide the gateway IP address in CIDR format, select the HA group under **Extension Appliances** (created in the previous step), and select **Submit** to extend the Network.
 1. After the network is extended, under **Extension Appliance**, you can see the extension details and HA group.
 
     :::image type="content" source="media/hcx/extend-network-details-high-availability-group.png" alt-text="screenshot of the extension appliance details and high availability group."lightbox="media/hcx/extend-network-details-high-availability-group.png":::
@@ -72,6 +72,6 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
 
 ## Next steps
 
- Now that you've learned how to configure and extend HCX network extension high availability (HA), use the following resource to learn more about how to manage HCX network extension HA.
+ Now that you learned how to configure and extend HCX network extension high availability (HA), use the following resource to learn more about how to manage HCX network extension HA.
 
 [Managing Network Extension High Availability](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-4A745694-5E32-4E87-92D2-AC1191170412.html)

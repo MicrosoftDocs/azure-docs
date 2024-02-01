@@ -154,7 +154,7 @@ For more information about how to find and manage the solutions, see [Discover a
 ### ReversingLabs TitaniumCloud
 
 - Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/ReversingLabs-EnrichFileHash).
-- See the ReversingLabs Intelligence Logic App [connector documentation](/connectors/reversinglabsintelligence/).
+- See the ReversingLabs Intelligence Logic App connector documentation.
 
 ### RiskIQ Passive Total
 

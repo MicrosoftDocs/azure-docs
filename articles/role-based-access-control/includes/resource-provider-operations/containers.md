@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 09/13/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -195,6 +195,12 @@ Azure service: [Container Registry](../../../container-registry/index.yml)
 > | **DataAction** | **Description** |
 > | Microsoft.ContainerRegistry/registries/quarantinedArtifacts/read | Allows pull or get of the quarantined artifacts from container registry. This is similar to Microsoft.ContainerRegistry/registries/quarantine/read except that it is a data action |
 > | Microsoft.ContainerRegistry/registries/quarantinedArtifacts/write | Allows write or update of the quarantine state of quarantined artifacts. This is similar to Microsoft.ContainerRegistry/registries/quarantine/write action except that it is a data action |
+> | Microsoft.ContainerRegistry/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | Microsoft.ContainerRegistry/registries/repositories/content/write | Push or Write images to a container registry. |
+> | Microsoft.ContainerRegistry/registries/repositories/content/delete | Delete artifact in a container registry. |
+> | Microsoft.ContainerRegistry/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | Microsoft.ContainerRegistry/registries/repositories/metadata/write | Updates the metadata of a repository for a container registry |
+> | Microsoft.ContainerRegistry/registries/repositories/metadata/delete | Delete the metadata of a repository for a container registry |
 > | Microsoft.ContainerRegistry/registries/trustedCollections/write | Allows push or publish of trusted collections of container registry content. This is similar to Microsoft.ContainerRegistry/registries/sign/write action except that this is a data action |
 
 ### Microsoft.ContainerService
@@ -212,6 +218,7 @@ Azure service: [Azure Kubernetes Service (AKS)](../../../aks/index.yml)
 > | Microsoft.ContainerService/fleetMemberships/read | Get a fleet membership extension |
 > | Microsoft.ContainerService/fleetMemberships/write | Create or Update a fleet membership extension |
 > | Microsoft.ContainerService/fleetMemberships/delete | Delete a fleet membership extension |
+> | Microsoft.ContainerService/fleetMemberships/forward/action | Forwards a call to the underlying cluster |
 > | Microsoft.ContainerService/fleets/read | Get fleet |
 > | Microsoft.ContainerService/fleets/write | Create or Update a fleet |
 > | Microsoft.ContainerService/fleets/delete | Delete a fleet |
@@ -224,12 +231,17 @@ Azure service: [Azure Kubernetes Service (AKS)](../../../aks/index.yml)
 > | Microsoft.ContainerService/fleets/updateRuns/delete | Delete a fleet update run |
 > | Microsoft.ContainerService/fleets/updateRuns/start/action | Starts a fleet update run |
 > | Microsoft.ContainerService/fleets/updateRuns/stop/action | Stops a fleet update run |
+> | Microsoft.ContainerService/fleets/updateStrategies/read | Get a fleet update strategy |
+> | Microsoft.ContainerService/fleets/updateStrategies/write | Create or Update a fleet update strategy |
+> | Microsoft.ContainerService/fleets/updateStrategies/delete | Delete a fleet update strategy |
 > | Microsoft.ContainerService/locations/guardrailsVersions/read | Get Guardrails Versions |
+> | Microsoft.ContainerService/locations/kubernetesversions/read | List available Kubernetes versions in the region. |
 > | Microsoft.ContainerService/locations/meshRevisionProfiles/read | Read service mesh revision profiles in a location |
 > | Microsoft.ContainerService/locations/operationresults/read | Gets the status of an asynchronous operation result |
 > | Microsoft.ContainerService/locations/operations/read | Gets the status of an asynchronous operation |
 > | Microsoft.ContainerService/locations/orchestrators/read | Lists the supported orchestrators |
 > | Microsoft.ContainerService/locations/osOptions/read | Gets OS options |
+> | Microsoft.ContainerService/locations/usages/read | List resource usage on Microsoft.ContainerService resource provider. |
 > | Microsoft.ContainerService/managedClusters/read | Get a managed cluster |
 > | Microsoft.ContainerService/managedClusters/write | Creates a new managed cluster or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/delete | Deletes a managed cluster |

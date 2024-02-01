@@ -1,11 +1,11 @@
 ---
 title: Add a prediction resource
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include 
-ms.date: 05/14/2021
+ms.date: 01/19/2024
 ms.author: aahi
 ---
 

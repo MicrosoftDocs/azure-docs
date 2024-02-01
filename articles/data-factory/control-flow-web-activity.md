@@ -277,7 +277,7 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities:
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

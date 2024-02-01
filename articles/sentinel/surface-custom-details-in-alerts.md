@@ -49,11 +49,14 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
     > **Service limits**
     > - You can define **up to 20 custom details** in a single analytics rule.
     >
-    > - The size limit for all custom details, collectively, is **2 KB**.
+    > - The combined size limit for all custom details and [alert details](customize-alert-details.md), collectively, is **64 KB**.
 
 ## Next steps
 
 In this document, you learned how to surface custom details in alerts using Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 
+- Explore the other ways to enrich your alerts:
+    - [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md)
+    - [Customize alert details in Microsoft Sentinel](customize-alert-details.md)
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).

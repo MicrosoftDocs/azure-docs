@@ -70,6 +70,8 @@ The **Entities tab** contains a list of all the entities in the incident. When a
 - **Timeline** contains a list of the alerts that feature this entity and activities the entity has done, as collected from logs in which the entity appears.
 - **Insights** contains answers to questions about the entity relating to its behavior in comparison to its peers and its own history, its presence on watchlists or in threat intelligence, or any other sort of unusual occurrence relating to it. These answers are the results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
 
+    As of November 2023, the **Insights** panel includes the next generation of insights, available in **PREVIEW**, in the form of [enrichment widgets](whats-new.md#visualize-data-with-enrichment-widgets-preview), alongside the existing insights. To take advantage of these new widgets, you must [enable the widget experience](enable-enrichment-widgets.md).
+
 Depending on the entity type, you can take a number of further actions from this side panel:
 - Pivot to the entity's full [entity page](entity-pages.md) to get even more details over a longer timespan or launch the graphical investigation tool centered on that entity.
 - Run a [playbook](respond-threats-during-investigation.md) to take specific response or remediation actions on the entity (in Preview).

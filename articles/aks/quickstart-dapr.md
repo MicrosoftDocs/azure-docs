@@ -4,8 +4,8 @@ description: Use the Dapr cluster extension for Azure Kubernetes Service (AKS) o
 author: nickomang
 ms.author: nickoman
 ms.topic: quickstart
-ms.date: 06/22/2023
-ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, devx-track-linux
+ms.date: 12/27/2023
+ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, linux-related-content
 ---
 
 # Quickstart: Deploy an application using the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes
@@ -34,7 +34,7 @@ In this quickstart, you use the [Dapr cluster extension][dapr-overview] in an AK
 
 ## Create and configure a state store
 
-Dapr can use many different state stores such as, Redis, Azure Cosmos DB, DynamoDB, and Cassandra to persist and retrieve state. For this example, we use Redis.
+Dapr can use many different state stores, such as Redis, Azure Cosmos DB, DynamoDB, and Cassandra, to persist and retrieve state. For this example, we use Redis.
 
 ### Create a Redis store
 
@@ -146,13 +146,6 @@ Once your store is created, you need to add the keys to the `redis.yaml` file in
     { "orderId": "42" }
     ```
 
-    > [!TIP]
-    > This is a good time to get familiar with the Dapr dashboard, a convenient interface to check status, information, and logs of applications running on Dapr. To access the dashboard at `http://localhost:8080/`, run the following command:
-    >
-    > ```bash
-    > kubectl port-forward svc/dapr-dashboard -n dapr-system 8080:8080
-    > ```
-
 ## Deploy the Python app with the Dapr sidecar
 
 1. Navigate to the Python app directory in the `hello-kubernetes` quickstart and open `app.py`.
@@ -220,7 +213,7 @@ Now that both the Node.js and Python applications are deployed, you watch messag
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Remove the resource group, cluster, namespace, and all related resources using the [`az group delete`][az-group-delete] command.
+* Remove the resource group, cluster, namespace, and all related resources using the [az group delete][az-group-delete] command.
 
     ```azurecli-interactive
     az group delete --name MyResourceGroup
@@ -228,7 +221,7 @@ Now that both the Node.js and Python applications are deployed, you watch messag
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Remove the resource group, cluster, namespace, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] command.
+* Remove the resource group, cluster, namespace, and all related resources using the [Remove-AzResourceGroup][remove-azresourcegroup] command.
 
     ```azurepowershell-interactive
     Remove-AzResourceGroup -Name MyResourceGroup

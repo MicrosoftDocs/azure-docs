@@ -8,8 +8,13 @@ ms.topic: overview
 author: frogglew
 ms.author: saoh
 ms.reviewer: sgilley
-ms.date: 09/22/2022
-ms.custom: event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai
+ms.date: 01/29/2024
+ms.custom:
+  - event-tier1-build-2022
+  - ignite-2022
+  - build-2023
+  - build-2023-dataai
+  - ignite-2023
 adobe-target: true
 ---
 
@@ -34,10 +39,13 @@ Enterprises working in the Microsoft Azure cloud can use familiar security and r
 
 ML projects often require a team with a varied skill set to build and maintain. Machine Learning has tools that help enable you to:
 
-* Collaborate with your team via shared notebooks, compute resources, [serverless compute (preview)](how-to-use-serverless-compute.md), data, and environments.
-* Develop models for fairness and explainability and tracking and auditability to fulfill lineage and audit compliance requirements.
-* Deploy ML models quickly and easily at scale, and manage and govern them efficiently with MLOps.
-* Run ML workloads anywhere with built-in governance, security, and compliance.
+* Collaborate with your team via shared notebooks, compute resources, [serverless compute](how-to-use-serverless-compute.md), data, and environments
+
+* Develop models for fairness and explainability, tracking and auditability to fulfill lineage and audit compliance requirements
+
+* Deploy ML models quickly and easily at scale, and manage and govern them efficiently with MLOps
+
+* Run machine learning workloads anywhere with built-in governance, security, and compliance
 
 ### Cross-compatible platform tools that meet your needs
 
@@ -45,7 +53,7 @@ Anyone on an ML team can use their preferred tools to get the job done. Whether 
 
 * [Azure Machine Learning studio](https://ml.azure.com)
 * [Python SDK (v2)](https://aka.ms/sdk-v2-install)
-* [Azure CLI (v2)](how-to-configure-cli.md))
+* [Azure CLI (v2)](how-to-configure-cli.md)
 * [Azure Resource Manager REST APIs](/rest/api/azureml/)
 
 As you're refining the model and collaborating with others throughout the rest of the Machine Learning development cycle, you can share and find assets, resources, and metrics for your projects on the Machine Learning studio UI.
@@ -86,7 +94,7 @@ Other integrations with Azure services support an ML project from end to end. Th
 * [Microsoft Purview, which allows you to discover and catalog data assets across your organization](../purview/register-scan-azure-machine-learning.md).
 
 > [!Important]
-> Machine Learning doesn't store or process your data outside of the region where you deploy.
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
 
 ## Machine learning project workflow
 
@@ -108,11 +116,11 @@ You can deploy models to the managed inferencing solution, for both real-time an
 
 ## Train models
 
-In Machine Learning, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks so that they can operationalize them in the cloud.
+In Azure Machine Learning, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks so that they can operationalize them in the cloud.
 
 ### Open and interoperable
 
-Data scientists can use models in Machine Learning that they've created in common Python frameworks, such as:
+Data scientists can use models in Azure Machine Learning that they've created in common Python frameworks, such as:
 
 * PyTorch
 * TensorFlow
@@ -141,9 +149,9 @@ For more information, see [Tune hyperparameters](how-to-tune-hyperparameters.md)
 
 ### Multinode distributed training
 
-Efficiency of training for deep learning and sometimes classical ML training jobs can be drastically improved via multinode distributed training. Machine Learning compute clusters and [serverless compute (preview)](how-to-use-serverless-compute.md) offer the latest GPU options.
+Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters and  [serverless compute](how-to-use-serverless-compute.md) offer the latest GPU options.
 
-Frameworks supported via Azure Machine Learning Kubernetes, Machine Learning compute clusters, and [serverless compute (preview)](how-to-use-serverless-compute.md) include:
+Supported via Azure Machine Learning Kubernetes, Azure Machine Learning compute clusters, and  [serverless compute](how-to-use-serverless-compute.md):
 
 * PyTorch
 * TensorFlow
@@ -159,7 +167,7 @@ Scaling an ML project might require scaling embarrassingly parallel model traini
 
 ## Deploy models
 
-To bring a model into production, it's deployed. The Machine Learning managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
+To bring a model into production, you deploy the model. The Azure Machine Learning managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
 
 ### Real-time and batch scoring (inferencing)
 
@@ -199,10 +207,12 @@ Machine Learning also includes features for monitoring and auditing:
 * Job artifacts, such as code snapshots, logs, and other outputs.
 * Lineage between jobs and assets, such as containers, data, and compute resources.
 
+If you use Apache Airflow, the [airflow-provider-azure-machinelearning](https://github.com/Azure/airflow-provider-azure-machinelearning) package is a provider that enables you to submit workflows to Azure Machine Learning from Apache AirFlow.
+
 ## Next steps
 
 Start using Azure Machine Learning:
 
-- [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
-- [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
-- [Run training jobs](how-to-train-model.md)
+* [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
+* [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
+* [Run training jobs](how-to-train-model.md)

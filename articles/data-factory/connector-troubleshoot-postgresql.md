@@ -29,7 +29,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Cause**: No partition column name is provided, and it couldn't be decided automatically.
  
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

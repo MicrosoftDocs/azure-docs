@@ -81,6 +81,6 @@ YYYY-MM-DD HH:MM:SS.mmmm | ERROR | [AzureUpload] Upload task exception: A config
 
 
 
-## Next steps
+## Related content
 
 [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal)

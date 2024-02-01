@@ -15,7 +15,7 @@ This article helps you create a Containerized Network Functions (CNF) site using
 A site can represent:
 - A physical location such as DC or rack(s). 
 - A node in the network that needs to be upgraded separately (early or late) vs other nodes. 
-- Resources serving particular class of customer. 
+- Resources serving particular class of audience. 
 
 Sites can be within a single Azure region or an on-premises location. If collocated, they can span multiple NFVIs (such as multiple K8s clusters in a single Azure region). 
 

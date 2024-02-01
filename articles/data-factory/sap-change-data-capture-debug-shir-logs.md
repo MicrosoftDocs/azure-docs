@@ -33,6 +33,6 @@ After you've uploaded and sent your self-hosted integration runtime logs, contac
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-diagnostics-report-id.png" alt-text="Screenshot of the self-hosted integration runtime's diagnostic log confirmation, with Report ID and Timestamp highlighted.":::
 
-## Next steps
+## Related content
 
 [SAP CDC (Change Data Capture) Connector](connector-sap-change-data-capture.md)

@@ -207,6 +207,13 @@ The following table describes the support matrix for moving virtual machines net
 | NIC | Supported | By default, a new resource is created, however, you can specify an existing resource in the target configuration. | 
 | VNET | Supported| By default, the source virtual network (VNET) is used, or you can specify an existing resource in the target configuration. | 
 
+### How to move a VM from regional to zonal configuration
+
+Before moving a VM from regional to zonal configuration, see [FAQ - Move Azure single instance VM from regional to zonal](../virtual-machines/move-virtual-machines-regional-zonal-faq.md).
+
+To learn how to move VMs from regional to zonal configuration within same region in the Azure portal, see [Move Azure single instance VMs from regional to zonal configuration](../virtual-machines/move-virtual-machines-regional-zonal-portal.md).
+
+To learn how to do the same using Azure PowerShell and CLI, see [Move a VM in an availability zone using Azure PowerShell and CLI](../virtual-machines/move-virtual-machines-regional-zonal-powershell.md).
 
 ## Migration Option 3: Azure Resource Mover
 

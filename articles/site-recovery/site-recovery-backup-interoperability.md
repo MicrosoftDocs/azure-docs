@@ -5,11 +5,14 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/10/2024
 ms.author: ankitadutta
 
 ---
 # Support for using Site Recovery with Azure Backup
+
+> [!NOTE]
+> Running MARS agent of both ASR and Backup on the same Hyper-V host is not be supported.
 
 This article summarizes support for using the [Site Recovery service](site-recovery-overview.md) together with the [Azure Backup service](../backup/backup-overview.md).
 
@@ -20,4 +23,5 @@ This article summarizes support for using the [Site Recovery service](site-recov
 **Disk restore** | No current support | If you restore a backed up disk, you need to disable and re-enable replication for the VM again.
 **VM restore** | No current support | If you restore a VM or group of VMs, you need to disable and re-enable replication for the VM.  
 
-Please note that the above table is applicable across all supported Azure Site Recovery scenarios.
+> [!IMPORTANT]
+> The above table is applicable across all supported Azure Site Recovery scenarios.

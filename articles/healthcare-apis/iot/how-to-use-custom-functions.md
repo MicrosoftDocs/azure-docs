@@ -13,8 +13,7 @@ ms.author: jasteppe
 
 Many functions are available when using **JMESPath** as the expression language. Besides the built-in functions available as part of the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions), many more custom functions can also be used. This article describes how to use the MedTech service-specific custom functions with the MedTech service [device mapping](overview-of-device-mapping.md).
 
-> [!TIP]
-> You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR&reg; destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
+You can use the MedTech service [Mapping debugger](how-to-use-mapping-debugger.md) for assistance creating, updating, and troubleshooting the MedTech service device and FHIR&reg; destination mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
 ## Function signature
 

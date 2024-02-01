@@ -19,7 +19,7 @@ ms.subservice: calling
 
 ![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
-This project aims to guide developers to initiate a call from the ACS Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
+This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
 As per your requirements, you might need to offer your customers an easy way to reach out to you without any complex setup.
 
@@ -37,7 +37,7 @@ Following this tutorial will:
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
-- Complete the Teams tenant setup in [Teams calling and chat interoperability](../../concepts/interop/calling-chat.md)
+- Complete the Teams tenant setup in [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
 - Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
 - Working with [Teams Auto Attendants](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) and Azure Communication Services.
 
@@ -101,13 +101,13 @@ function App() {
   /**
    * Token for local user.
    */
-  const token = "<Enter your ACS token here>";
+  const token = "<Enter your Azure Communication Services token here>";
 
   /**
    * User identifier for local user.
    */
   const userId: CommunicationIdentifier = {
-    communicationUserId: "<Enter your ACS ID here>",
+    communicationUserId: "<Enter your Azure Communication Services ID here>",
   };
 
   /**

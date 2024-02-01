@@ -6,14 +6,14 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 09/28/2023
+ms.date: 11/29/2023
 
 #CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
 ---
 
 # Tutorial: Diagnose a communication problem between virtual networks using the Azure portal
 
-This tutorial shows you how to use Azure Network Watcher [VPN troubleshoot](network-watcher-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue between two virtual networks. The virtual networks are connected via VPN gateways using VNet-to-VNet connections. 
+This tutorial shows you how to use Azure Network Watcher [VPN troubleshoot](vpn-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue between two virtual networks. The virtual networks are connected via VPN gateways using VNet-to-VNet connections. 
 
 :::image type="content" source="./media/diagnose-communication-problem-between-networks/vpn-troubleshoot-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
 
@@ -132,16 +132,32 @@ After creating **VNet1GW** and **VNet2GW** virtual network gateways, you can cre
 
 1. Select **+ Add** to create a connection from **VNet1** to **VNet2**.
 
-1. In **Add connection**, enter or select the following values:
+1. In **Create connection**, enter or select the following values in the **Basics** tab:
 
     | Setting | Value |
     | --- | --- |
-    | Name | Enter ***to-VNet2***. |
+    | **Project details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
+    | **Instance details** |  |
     | Connection type | Select **VNet-to-VNet**. |
+    | Name | Enter ***to-VNet2***. |
+    | Region | Select **East US**. |
+
+1. Select the **Settings** tab or select **Next: Settings** button.
+
+1. In **Settings** tab, enter or select the following values:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Virtual network gateway** |  |
+    | First virtual network gateway | Select **VNet1GW**. |
     | Second virtual network gateway | Select **VNet2GW**. |
     | Shared key (PSK) | Enter ***123***. |
 
-1. Select **OK**.
+1. Select **Review + create**.
+
+1. Review the settings, and then select **Create**.
 
 ### Create second connection
 
@@ -152,6 +168,7 @@ After creating **VNet1GW** and **VNet2GW** virtual network gateways, you can cre
     | Setting | Value |
     | --- | --- |
     | Name | **to-VNet1** |
+    | First virtual network gateway | **VNet2GW** |
     | Second virtual network gateway | **VNet1GW** |
     | Shared key (PSK) | **000** |
 
@@ -199,7 +216,7 @@ Fix the problem by correcting the key on **to-VNet1** connection to match the ke
 
 1. Go to **to-VNet1** connection.
 
-1. Under **Settings**, select **Shared key**.
+1. Under **Settings**, select **Authentication Type**.
 
 1. In **Shared key (PSK)**, enter ***123*** and then select **Save**.
 

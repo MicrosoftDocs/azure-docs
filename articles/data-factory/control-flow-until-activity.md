@@ -298,7 +298,7 @@ while ($True) {
 }
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
