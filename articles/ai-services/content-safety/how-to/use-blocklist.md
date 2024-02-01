@@ -172,6 +172,59 @@ except HttpResponseError as e:
 
 #### [JavaScript](#tab/javascript)
 
+Create a new JavaScript script and open it in your preferred editor or IDE. Paste in the following code.
+
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
+
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+async function createOrUpdateTextBlocklist() {
+  const blocklistName = "<your_list_name>";
+  const blocklistDescription = "<description>";
+
+  const createOrUpdateTextBlocklistParameters = {
+    contentType: "application/merge-patch+json",
+    body: {
+      description: blocklistDescription,
+    },
+  };
+
+  const result = await client
+    .path("/text/blocklists/{blocklistName}", blocklistName)
+    .patch(createOrUpdateTextBlocklistParameters);
+
+  if (isUnexpected(result)) {
+    throw result;
+  }
+
+  console.log(
+    "Blocklist created or updated. Name: ",
+    result.body.blocklistName,
+    ", Description: ",
+    result.body.description
+  );
+}
+
+(async () => {
+  await createOrUpdateTextBlocklist();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+
+1. Replace `<your_list_name>` with a custom name for your list. Allowed characters: `0-9, A-Z, a-z, - . _ ~`.
+1. Optionally replace `<description>` with a custom description.
+1. Run the script.
 
 ---
 
@@ -344,6 +397,72 @@ except HttpResponseError as e:
 #### [JavaScript](#tab/javascript)
 
 
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
+
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+async function addBlocklistItems() {
+  const blocklistName = "<your_list_name>";
+  const blocklistItemText1 = "<block_item_text_1>";
+  const blocklistItemText2 = "<block_item_text_2>";
+  const addOrUpdateBlocklistItemsParameters = {
+    body: {
+      blocklistItems: [
+        {
+          description: "Test blocklist item 1",
+          text: blocklistItemText1,
+        },
+        {
+          description: "Test blocklist item 2",
+          text: blocklistItemText2,
+        },
+      ],
+    },
+  };
+
+  const result = await client
+    .path("/text/blocklists/{blocklistName}:addOrUpdateBlocklistItems", blocklistName)
+    .post(addOrUpdateBlocklistItemsParameters);
+
+  if (isUnexpected(result)) {
+    throw result;
+  }
+
+  console.log("Blocklist items added: ");
+  if (result.body.blocklistItems) {
+    for (const blocklistItem of result.body.blocklistItems) {
+      console.log(
+        "BlocklistItemId: ",
+        blocklistItem.blocklistItemId,
+        ", Text: ",
+        blocklistItem.text,
+        ", Description: ",
+        blocklistItem.description
+      );
+    }
+  }
+}
+(async () => {
+  await addBlocklistItems();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Replace the values of the `block_item_text_1` and `block_item_text_2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Optionally add more blockItem strings to the `blocklistItems` parameter.
+1. Run the script.
 ---
 
 > [!NOTE]
@@ -529,8 +648,65 @@ except HttpResponseError as e:
 
 #### [JavaScript](#tab/javascript)
 
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
+
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+async function analyzeTextWithBlocklists() {
+  const blocklistName = "<your_list_name>";
+  const inputText = "<your_input_text>";
+  const analyzeTextParameters = {
+    body: {
+      text: inputText,
+      blocklistNames: [blocklistName],
+      haltOnBlocklistHit: false,
+    },
+  };
+
+  const result = await client.path("/text:analyze").post(analyzeTextParameters);
+
+  if (isUnexpected(result)) {
+    throw result;
+  }
+
+  console.log("Blocklist match results: ");
+  if (result.body.blocklistsMatch) {
+    for (const blocklistMatchResult of result.body.blocklistsMatch) {
+      console.log(
+        "BlocklistName: ",
+        blocklistMatchResult.blocklistName,
+        ", BlocklistItemId: ",
+        blocklistMatchResult.blocklistItemId,
+        ", BlocklistItemText: ",
+        blocklistMatchResult.blocklistItemText
+      );
+    }
+  }
+}
+
+(async () => {
+  await analyzeTextWithBlocklists();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Replace the `inputText` variable with whatever text you want to analyze.
+1. Run the script.
 
 ---
+
 ## Other blocklist operations
 
 This section contains more operations to help you manage and use the blocklist feature.
@@ -656,6 +832,56 @@ except HttpResponseError as e:
 
 #### [JavaScript](#tab/javascript)
 
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
+
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+async function listBlocklistItems() {
+  const blocklistName = "<your_list_name>";
+
+  const result = await client
+    .path("/text/blocklists/{blocklistName}/blocklistItems", blocklistName)
+    .get();
+
+  if (isUnexpected(result)) {
+    throw result;
+  }
+
+  console.log("List blocklist items: ");
+  if (result.body.value) {
+    for (const blocklistItem of result.body.value) {
+      console.log(
+        "BlocklistItemId: ",
+        blocklistItem.blocklistItemId,
+        ", Text: ",
+        blocklistItem.text,
+        ", Description: ",
+        blocklistItem.description
+      );
+    }
+  }
+}
+
+(async () => {
+  await listBlocklistItems();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Run the script.
+
 
 ---
 
@@ -762,9 +988,50 @@ Run the script.
 
 #### [JavaScript](#tab/javascript)
 
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
+
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+async function listTextBlocklists() {
+  const result = await client.path("/text/blocklists").get();
+
+  if (isUnexpected(result)) {
+    throw result;
+  }
+
+  console.log("List blocklists: ");
+  if (result.body.value) {
+    for (const blocklist of result.body.value) {
+      console.log(
+        "BlocklistName: ",
+        blocklist.blocklistName,
+        ", Description: ",
+        blocklist.description
+      );
+    }
+  }
+}
+
+(async () => {
+  await listTextBlocklists();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+
+Run the script.
 
 ---
-
 
 ### Get a blocklist by blocklistName 
 
@@ -874,6 +1141,43 @@ except HttpResponseError as e:
 
 #### [JavaScript](#tab/javascript)
 
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
+
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+async function getTextBlocklist() {
+  const blocklistName = "<your_list_name>";
+
+  const result = await client.path("/text/blocklists/{blocklistName}", blocklistName).get();
+
+  if (isUnexpected(result)) {
+    throw result;
+  }
+
+  console.log("Get blocklist: ");
+  console.log("Name: ", result.body.blocklistName, ", Description: ", result.body.description);
+}
+
+
+(async () => {
+  await getTextBlocklist();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Run the script.
 
 ---
 
@@ -1004,9 +1308,61 @@ except HttpResponseError as e:
 
 #### [JavaScript](#tab/javascript)
 
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
 
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+async function getBlocklistItem() {
+  const blocklistName = "<your_list_name>";
+
+  const blocklistItemId = "<your_block_item_id>";
+
+  // Get this blocklistItem by blocklistItemId
+  const blocklistItem = await client
+    .path(
+      "/text/blocklists/{blocklistName}/blocklistItems/{blocklistItemId}",
+      blocklistName,
+      blocklistItemId
+    )
+    .get();
+
+  if (isUnexpected(blocklistItem)) {
+    throw blocklistItem;
+  }
+
+  console.log("Get blocklistitem: ");
+  console.log(
+    "BlocklistItemId: ",
+    blocklistItem.body.blocklistItemId,
+    ", Text: ",
+    blocklistItem.body.text,
+    ", Description: ",
+    blocklistItem.body.description
+  );
+}
+
+
+(async () => {
+  await getBlocklistItem();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
 ---
 
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+1. Replace `<your_block_item_id>` with the ID of the item you want to get.
+1. Run the script.
 
 
 ### Remove blocklistItems from a blocklist. 
@@ -1145,6 +1501,54 @@ Replace `<block_item_text>` with your block item text.
 
 #### [JavaScript](#tab/javascript)
 
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
+
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+// Sample: Remove blocklistItems from a blocklist
+async function removeBlocklistItems() {
+  const blocklistName = "<your_list_name>";
+
+  const blocklistItemId = "<your_block_item_id>";
+
+  // Remove this blocklistItem by blocklistItemId
+  const removeBlocklistItemsParameters = {
+    body: {
+      blocklistItemIds: [blocklistItemId],
+    },
+  };
+  const removeBlocklistItem = await client
+    .path("/text/blocklists/{blocklistName}:removeBlocklistItems", blocklistName)
+    .post(removeBlocklistItemsParameters);
+
+  if (isUnexpected(removeBlocklistItem)) {
+    throw removeBlocklistItem;
+  }
+
+  console.log("Removed blocklistItem: ", blocklistItemText);
+}
+
+
+(async () => {
+  await removeBlocklistItems();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+
+1. Replace `<your_list_name>` with the name you used in the list creation step.
+Replace `<your_block_item_id` with the ID of the item you want to remove.
+1. Run the script.
 
 ---
 
@@ -1247,6 +1651,42 @@ except HttpResponseError as e:
 1. Run the script.
 
 #### [JavaScript](#tab/javascript)
+```javascript
+const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
+  { isUnexpected } = require("@azure-rest/ai-content-safety");
+const { AzureKeyCredential } = require("@azure/core-auth");
+
+// Load the .env file if it exists
+require("dotenv").config();
+
+const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] || "<endpoint>";
+const key = process.env["CONTENT_SAFETY_API_KEY"] || "<key>";
+
+const credential = new AzureKeyCredential(key);
+const client = ContentSafetyClient(endpoint, credential);
+
+async function deleteBlocklist() {
+  const blocklistName = "<your_list_name>";
+
+  const result = await client.path("/text/blocklists/{blocklistName}", blocklistName).delete();
+
+  if (isUnexpected(result)) {
+    throw result;
+  }
+
+  console.log("Deleted blocklist: ", blocklistName);
+}
+
+
+(async () => {
+  await deleteBlocklist();
+})().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+
+1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
+1. Run the script.
 
 ---
 
