@@ -71,7 +71,7 @@ Create a new C# console app and open it in your preferred editor or IDE. Paste i
 string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
 string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
 
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 var blocklistName = "<your_list_name>";
 var blocklistDescription = "<description>";
@@ -81,7 +81,8 @@ var data = new
     description = blocklistDescription,
 };
 
-var createResponse = client.CreateOrUpdateTextBlocklist(blocklistName, RequestContent.Create(data));
+var createResponse = blocklistClient.CreateOrUpdateTextBlocklist(blocklistName, RequestContent.Create(data));
+
 if (createResponse.Status == 201)
 {
     Console.WriteLine("\nBlocklist {0} created.", blocklistName);
@@ -102,7 +103,7 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 
 ```python
 import os
-from azure.ai.contentsafety import ContentSafetyClient
+from azure.ai.contentsafety import BlocklistClient
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.contentsafety.models import TextBlocklist
 from azure.core.exceptions import HttpResponseError
@@ -110,14 +111,17 @@ from azure.core.exceptions import HttpResponseError
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
   
-# Create a Content Safety client
-client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+# Create a Blocklist client
+client = BlocklistClient(endpoint, AzureKeyCredential(key))
 
 blocklist_name = "<your_list_name>"
 blocklist_description = "<description>"
 
 try:
-    blocklist = client.create_or_update_text_blocklist(blocklist_name=blocklist_name, resource={"description": blocklist_description})
+    blocklist = client.create_or_update_text_blocklist(
+        blocklist_name=blocklist_name,
+        options=TextBlocklist(blocklist_name=blocklist_name, description=blocklist_description),
+    )
     if blocklist:
         print("\nBlocklist created or updated: ")
         print(f"Name: {blocklist.blocklist_name}, Description: {blocklist.description}")
@@ -200,28 +204,28 @@ Create a new C# console app and open it in your preferred editor or IDE. Paste i
 ```csharp
 string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
 string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 var blocklistName = "<your_list_name>";
 
-string blockItemText1 = "<block_item_text_1>";
-string blockItemText2 = "<block_item_text_2>";
+string blocklistItemText1 = "<block_item_text_1>";
+string blocklistItemText2 = "<block_item_text_2>";
 
-var blockItems = new TextBlockItemInfo[] { new TextBlockItemInfo(blockItemText1), new TextBlockItemInfo(blockItemText2) };
-var addedBlockItems = client.AddBlockItems(blocklistName, new AddBlockItemsOptions(blockItems));
+var blocklistItems = new TextBlocklistItem[] { new TextBlocklistItem(blocklistItemText1), new TextBlocklistItem(blocklistItemText2) };
+var addedBlocklistItems = blocklistClient.AddOrUpdateBlocklistItems(blocklistName, new AddOrUpdateTextBlocklistItemsOptions(blocklistItems));
 
-if (addedBlockItems != null && addedBlockItems.Value != null)
+if (addedBlocklistItems != null && addedBlocklistItems.Value != null)
 {
-    Console.WriteLine("\nBlockItems added:");
-    foreach (var addedBlockItem in addedBlockItems.Value.Value)
+    Console.WriteLine("\nBlocklistItems added:");
+    foreach (var addedBlocklistItem in addedBlocklistItems.Value.BlocklistItems)
     {
-        Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", addedBlockItem.BlockItemId, addedBlockItem.Text, addedBlockItem.Description);
+        Console.WriteLine("BlocklistItemId: {0}, Text: {1}, Description: {2}", addedBlocklistItem.BlocklistItemId, addedBlocklistItem.Text, addedBlocklistItem.Description);
     }
 }
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
-1. Replace the values of the `blockItemText1` and `blockItemText2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Replace the values of the `blocklistItemText1` and `blocklistItemText2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
 1. Optionally add more blockItem strings to the `blockItems` parameter.
 1. Run the code.
 
@@ -231,36 +235,33 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 
 ```python
 import os
-from azure.ai.contentsafety import ContentSafetyClient
+from azure.ai.contentsafety import BlocklistClient
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.contentsafety.models import (
-    TextBlockItemInfo,
-    AddBlockItemsOptions
+    AddOrUpdateTextBlocklistItemsOptions, TextBlocklistItem
 )
 from azure.core.exceptions import HttpResponseError
 
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
 
-# Create an Content Safety client
-client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+# Create a Blocklist client
+client = BlocklistClient(endpoint, AzureKeyCredential(key))
 
 blocklist_name = "<your_list_name>"
-block_item_text_1 = "<block_item_text_1>"
-block_item_text_2 = "<block_item_text_2>"
+blocklist_item_text_1 = "<block_item_text_1>"
+blocklist_item_text_2 = "<block_item_text_2>"
 
-block_items = [TextBlockItemInfo(text=block_item_text_1), TextBlockItemInfo(text=block_item_text_2)]
+blocklist_items = [TextBlocklistItem(text=blocklist_item_text_1), TextBlocklistItem(text=blocklist_item_text_2)]
 try:
-    result = client.add_block_items(
-        blocklist_name=blocklist_name,
-        body=AddBlockItemsOptions(block_items=block_items),
-    )
-    if result and result.value:
-        print("\nBlock items added: ")
-        for block_item in result.value:
-            print(f"BlockItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
+    result = client.add_or_update_blocklist_items(
+        blocklist_name=blocklist_name, options=AddOrUpdateTextBlocklistItemsOptions(blocklist_items=blocklist_items)
+    for blocklist_item in result.blocklist_items:
+        print(
+            f"BlocklistItemId: {blocklist_item.blocklist_item_id}, Text: {blocklist_item.text}, Description: {blocklist_item.description}"
+        )
 except HttpResponseError as e:
-    print("\nAdd block items failed: ")
+    print("\nAdd blocklistItems failed: ")
     if e.error:
         print(f"Error code: {e.error.code}")
         print(f"Error message: {e.error.message}")
@@ -270,7 +271,7 @@ except HttpResponseError as e:
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
-1. Replace the values of the `block_item_text_1` and `block_item_text_2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Replace the values of the `blocklist_item_text_1` and `blocklist_item_text_2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
 1. Optionally add more blockItem strings to the `block_items` parameter.
 1. Run the script.
 
@@ -346,7 +347,7 @@ var blocklistName = "<your_list_name>";
 // After you edit your blocklist, it usually takes effect in 5 minutes, please wait some time before analyzing with blocklist after editing.
 var request = new AnalyzeTextOptions("<your_input_text>");
 request.BlocklistNames.Add(blocklistName);
-request.BreakByBlocklists = true;
+request.HaltOnBlocklistHit  = true;
 
 Response<AnalyzeTextResult> response;
 try
@@ -359,13 +360,12 @@ catch (RequestFailedException ex)
     throw;
 }
 
-if (response.Value.BlocklistsMatchResults != null)
+if (response.Value.BlocklistsMatch != null)
 {
     Console.WriteLine("\nBlocklist match result:");
-    foreach (var matchResult in response.Value.BlocklistsMatchResults)
+    foreach (var matchResult in response.Value.BlocklistsMatch)
     {
-        Console.WriteLine("Blockitem was hit in text: Offset: {0}, Length: {1}", matchResult.Offset, matchResult.Length);
-        Console.WriteLine("BlocklistName: {0}, BlockItemId: {1}, BlockItemText: {2}, ", matchResult.BlocklistName, matchResult.BlockItemId, matchResult.BlockItemText);
+        Console.WriteLine("BlocklistName: {0}, BlocklistItemId: {1}, BlocklistText: {2}, ", matchResult.BlocklistName, matchResult.BlocklistItemId, matchResult.BlocklistItemText);
     }
 }
 ```
@@ -388,20 +388,25 @@ from azure.core.exceptions import HttpResponseError
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
 
-# Create an Content Safety client
+# Create a Content Safety client
 client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
 
 blocklist_name = "<your_list_name>"
 input_text = "<your_input_text>"
 
 try:
-    # After you edit your blocklist, it usually takes effect in 5 minutes, please wait some time before analyzing with blocklist after editing.
-    analysis_result = client.analyze_text(AnalyzeTextOptions(text=input_text, blocklist_names=[blocklist_name], break_by_blocklists=False))
-    if analysis_result and analysis_result.blocklists_match_results:
+    # After you edit your blocklist, it usually takes effect in 5 minutes, please wait some time before analyzing
+    # with blocklist after editing.
+    analysis_result = client.analyze_text(
+        AnalyzeTextOptions(text=input_text, blocklist_names=[blocklist_name], halt_on_blocklist_hit=False)
+    )
+    if analysis_result and analysis_result.blocklists_match:
         print("\nBlocklist match results: ")
-        for match_result in analysis_result.blocklists_match_results:
-            print(f"Block item was hit in text, Offset={match_result.offset}, Length={match_result.length}.")
-            print(f"BlocklistName: {match_result.blocklist_name}, BlockItemId: {match_result.block_item_id}, BlockItemText: {match_result.block_item_text}")
+        for match_result in analysis_result.blocklists_match:
+            print(
+                f"BlocklistName: {match_result.blocklist_name}, BlocklistItemId: {match_result.blocklist_item_id}, "
+                f"BlocklistItemText: {match_result.blocklist_item_text}"
+            )
 except HttpResponseError as e:
     print("\nAnalyze text failed: ")
     if e.error:
@@ -459,16 +464,17 @@ Create a new C# console app and open it in your preferred editor or IDE. Paste i
 ```csharp
 string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
 string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 var blocklistName = "<your_list_name>";
 
-var allBlockitems = client.GetTextBlocklistItems(blocklistName);
-Console.WriteLine("\nList BlockItems:");
-foreach (var blocklistItem in allBlockitems)
+var allBlocklistitems = blocklistClient.GetTextBlocklistItems(blocklistName);
+Console.WriteLine("\nList BlocklistItems:");
+foreach (var blocklistItem in allBlocklistitems)
 {
-    Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", blocklistItem.BlockItemId, blocklistItem.Text, blocklistItem.Description);
+    Console.WriteLine("BlocklistItemId: {0}, Text: {1}, Description: {2}", blocklistItem.BlocklistItemId, blocklistItem.Text, blocklistItem.Description);
 }
+
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
@@ -481,26 +487,29 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 
 ```python
 import os
-from azure.ai.contentsafety import ContentSafetyClient
+from azure.ai.contentsafety import BlocklistClient
 from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
 
-# Create an Content Safety client
-client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+# Create a Blocklist client
+client = BlocklistClient(endpoint, AzureKeyCredential(key))
 
 blocklist_name = "<your_list_name>"
 
 try:
-    block_items = client.list_text_blocklist_items(blocklist_name=blocklist_name)
-    if block_items:
-        print("\nList block items: ")
-        for block_item in block_items:
-            print(f"BlockItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
+    blocklist_items = client.list_text_blocklist_items(blocklist_name=blocklist_name)
+    if blocklist_items:
+        print("\nList blocklist items: ")
+        for blocklist_item in blocklist_items:
+            print(
+                f"BlocklistItemId: {blocklist_item.blocklist_item_id}, Text: {blocklist_item.text}, "
+                f"Description: {blocklist_item.description}"
+            )
 except HttpResponseError as e:
-    print("\nList block items failed: ")
+    print("\nList blocklist items failed: ")
     if e.error:
         print(f"Error code: {e.error.code}")
         print(f"Error message: {e.error.message}")
@@ -549,13 +558,13 @@ Create a new C# console app and open it in your preferred editor or IDE. Paste i
 ```csharp
 string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
 string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new AzureKeyCredential(key));
 
-var blocklists = client.GetTextBlocklists();
+var blocklists = blocklistClient.GetTextBlocklists();
 Console.WriteLine("\nList blocklists:");
 foreach (var blocklist in blocklists)
 {
-    Console.WriteLine("BlocklistName: {0}, Description: {1}", blocklist.BlocklistName, blocklist.Description);
+    Console.WriteLine("BlocklistName: {0}, Description: {1}", blocklist.Name, blocklist.Description);
 }
 ```
 
@@ -567,15 +576,16 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 
 ```python
 import os
-from azure.ai.contentsafety import ContentSafetyClient
+from azure.ai.contentsafety import BlocklistClient
 from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
 
-# Create an Content Safety client
-client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+# Create a Blocklist client
+client = BlocklistClient(endpoint, AzureKeyCredential(key))
+
 
 try:
     blocklists = client.list_text_blocklists()
@@ -630,16 +640,15 @@ Create a new C# console app and open it in your preferred editor or IDE. Paste i
 ```csharp
 string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
 string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
-
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 var blocklistName = "<your_list_name>";
 
-var getBlocklist = client.GetTextBlocklist(blocklistName);
+var getBlocklist = blocklistClient.GetTextBlocklist(blocklistName);
 if (getBlocklist != null && getBlocklist.Value != null)
 {
     Console.WriteLine("\nGet blocklist:");
-    Console.WriteLine("BlocklistName: {0}, Description: {1}", getBlocklist.Value.BlocklistName, getBlocklist.Value.Description);
+    Console.WriteLine("BlocklistName: {0}, Description: {1}", getBlocklist.Value.Name, getBlocklist.Value.Description);
 }
 ```
 
@@ -652,15 +661,15 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 
 ```python
 import os
-from azure.ai.contentsafety import ContentSafetyClient
+from azure.ai.contentsafety import BlocklistClient
 from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
 
-# Create an Content Safety client
-client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+# Create a Blocklist client
+client = BlocklistClient(endpoint, AzureKeyCredential(key))
 
 blocklist_name = "<your_list_name>"
 
@@ -720,16 +729,15 @@ Create a new C# console app and open it in your preferred editor or IDE. Paste i
 ```csharp
 string endpoint = Environment.GetEnvironmentVariable("CONTENT_SAFETY_ENDPOINT");
 string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
-
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 var blocklistName = "<your_list_name>";
-var getBlockItemId = "<your_block_item_id>";
+var getBlocklistItemId = "<your_block_item_id>";
 
-var getBlockItem = client.GetTextBlocklistItem(blocklistName, getBlockItemId);
+var getBlocklistItem = blocklistClient.GetTextBlocklistItem(blocklistName, getBlocklistItemId);
 
-Console.WriteLine("\nGet BlockItem:");
-Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", getBlockItem.Value.BlockItemId, getBlockItem.Value.Text, getBlockItem.Value.Description);
+Console.WriteLine("\nGet BlocklistItem:");
+Console.WriteLine("BlocklistItemId: {0}, Text: {1}, Description: {2}", getBlocklistItem.Value.BlocklistItemId, getBlocklistItem.Value.Text, getBlocklistItem.Value.Description);
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
@@ -742,39 +750,38 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 
 ```python
 import os
-from azure.ai.contentsafety import ContentSafetyClient
+from azure.ai.contentsafety import BlocklistClient
 from azure.core.credentials import AzureKeyCredential
-from azure.ai.contentsafety.models import TextBlockItemInfo, AddBlockItemsOptions
+from azure.ai.contentsafety.models import TextBlocklistItem, AddOrUpdateTextBlocklistItemsOptions
 from azure.core.exceptions import HttpResponseError
 
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
 
-# Create an Content Safety client
-client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+# Create a Blocklist client
+client = BlocklistClient(endpoint, AzureKeyCredential(key))
 
 blocklist_name = "<your_list_name>"
-block_item_text_1 = "<block_item_text>"
+blocklist_item_text_1 = "<block_item_text>"
 
 try:
-    # Add a blockItem
-    add_result = client.add_block_items(
+    # Add a blocklistItem
+    add_result = client.add_or_update_blocklist_items(
         blocklist_name=blocklist_name,
-        body=AddBlockItemsOptions(block_items=[TextBlockItemInfo(text=block_item_text_1)]),
+        options=AddOrUpdateTextBlocklistItemsOptions(blocklist_items=[TextBlocklistItem(text=blocklist_item_text_1)]),
     )
-    if not add_result or not add_result.value or len(add_result.value) <= 0:
-        raise RuntimeError("BlockItem not created.")
-    block_item_id = add_result.value[0].block_item_id
+    if not add_result or not add_result.blocklist_items or len(add_result.blocklist_items) <= 0:
+        raise RuntimeError("BlocklistItem not created.")
+    blocklist_item_id = add_result.blocklist_items[0].blocklist_item_id
 
-    # Get this blockItem by blockItemId
-    block_item = client.get_text_blocklist_item(
-        blocklist_name=blocklist_name,
-        block_item_id= block_item_id
+    # Get this blocklistItem by blocklistItemId
+    blocklist_item = client.get_text_blocklist_item(blocklist_name=blocklist_name, blocklist_item_id=blocklist_item_id)
+    print("\nGet blocklistItem: ")
+    print(
+        f"BlocklistItemId: {blocklist_item.blocklist_item_id}, Text: {blocklist_item.text}, Description: {blocklist_item.description}"
     )
-    print("\nGet blockitem: ")
-    print(f"BlockItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
 except HttpResponseError as e:
-    print("\nGet block item failed: ")
+    print("\nGet blocklist item failed: ")
     if e.error:
         print(f"Error code: {e.error.code}")
         print(f"Error message: {e.error.message}")
@@ -830,18 +837,17 @@ Create a new C# console app and open it in your preferred editor or IDE. Paste i
 ```csharp
 string endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"];
 string key = os.environ["CONTENT_SAFETY_KEY"];
-
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 var blocklistName = "<your_list_name>";
 
-var removeBlockItemId = "<your_block_item_id>";
-var removeBlockItemIds = new List<string> { removeBlockItemId };
-var removeResult = client.RemoveBlockItems(blocklistName, new RemoveBlockItemsOptions(removeBlockItemIds));
+var removeBlocklistItemId = "<your_block_item_id>";
+var removeBlocklistItemIds = new List<string> { removeBlocklistItemId };
+var removeResult = blocklistClient.RemoveBlocklistItems(blocklistName, new RemoveTextBlocklistItemsOptions(removeBlocklistItemIds));
 
 if (removeResult != null && removeResult.Status == 204)
 {
-    Console.WriteLine("\nBlockItem removed: {0}.", removeBlockItemId);
+    Console.WriteLine("\nBlocklistItem removed: {0}.", removeBlocklistItemId);
 }
 ```
 
@@ -855,42 +861,41 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 
 ```python
 import os
-from azure.ai.contentsafety import ContentSafetyClient
+from azure.ai.contentsafety import BlocklistClient
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.contentsafety.models import (
-    TextBlockItemInfo,
-    AddBlockItemsOptions,
-    RemoveBlockItemsOptions
+    TextBlocklistItem,
+    AddOrUpdateTextBlocklistItemsOptions,
+    RemoveTextBlocklistItemsOptions,
 )
 from azure.core.exceptions import HttpResponseError
 
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
 
-# Create an Content Safety client
-client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+# Create a Blocklist client
+client = BlocklistClient(endpoint, AzureKeyCredential(key))
 
 blocklist_name = "<your_list_name>"
-block_item_text_1 = "<block_item_text>"
+blocklist_item_text_1 = "<block_item_text>"
 
 try:
-    # Add a blockItem
-    add_result = client.add_block_items(
+    # Add a blocklistItem
+    add_result = client.add_or_update_blocklist_items(
         blocklist_name=blocklist_name,
-        body=AddBlockItemsOptions(block_items=[TextBlockItemInfo(text=block_item_text_1)]),
+        options=AddOrUpdateTextBlocklistItemsOptions(blocklist_items=[TextBlocklistItem(text=blocklist_item_text_1)]),
     )
-    if not add_result or not add_result.value or len(add_result.value) <= 0:
-        raise RuntimeError("BlockItem not created.")
-    block_item_id = add_result.value[0].block_item_id
+    if not add_result or not add_result.blocklist_items or len(add_result.blocklist_items) <= 0:
+        raise RuntimeError("BlocklistItem not created.")
+    blocklist_item_id = add_result.blocklist_items[0].blocklist_item_id
 
-    # Remove this blockItem by blockItemId
-    client.remove_block_items(
-        blocklist_name=blocklist_name,
-        body=RemoveBlockItemsOptions(block_item_ids=[block_item_id])
+    # Remove this blocklistItem by blocklistItemId
+    client.remove_blocklist_items(
+        blocklist_name=blocklist_name, options=RemoveTextBlocklistItemsOptions(blocklist_item_ids=[blocklist_item_id])
     )
-    print(f"\nRemoved blockItem: {add_result.value[0].block_item_id}")
+    print(f"\nRemoved blocklistItem: {add_result.blocklist_items[0].blocklist_item_id}")
 except HttpResponseError as e:
-    print("\nRemove block item failed: ")
+    print("\nRemove blocklist item failed: ")
     if e.error:
         print(f"Error code: {e.error.code}")
         print(f"Error message: {e.error.message}")
@@ -936,12 +941,11 @@ Create a new C# console app and open it in your preferred editor or IDE. Paste i
 ```csharp
 string endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"];
 string key = os.environ["CONTENT_SAFETY_KEY"];
-
-ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
+BlocklistClient blocklistClient = new BlocklistClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 var blocklistName = "<your_list_name>";
 
-var deleteResult = client.DeleteTextBlocklist(blocklistName);
+var deleteResult = blocklistClient.DeleteTextBlocklist(blocklistName);
 if (deleteResult != null && deleteResult.Status == 204)
 {
     Console.WriteLine("\nDeleted blocklist.");
@@ -957,15 +961,15 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 
 ```python
 import os
-from azure.ai.contentsafety import ContentSafetyClient
+from azure.ai.contentsafety import BlocklistClient
 from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 
 key = os.environ["CONTENT_SAFETY_KEY"]
 endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
 
-# Create an Content Safety client
-client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+# Create a Blocklist client
+client = BlocklistClient(endpoint, AzureKeyCredential(key))
 
 blocklist_name = "<your_list_name>"
 
