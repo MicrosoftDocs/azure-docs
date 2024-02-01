@@ -144,12 +144,6 @@ The following list provides details and more information about the supported Azu
 - Used Memory RSS
   - The amount of cache memory used in MB during the specified reporting interval, including fragmentation. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 
-
-
-
-
-
-
 <!-- ## Resource logs -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
@@ -164,23 +158,16 @@ The following list provides details and more information about the supported Azu
 <!-- ## Azure Monitor Logs tables -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-### Microsoft.Cache/redis
-Azure Cache for Redis logs use the following columns.
+### Azure Cache for Redis
+microsoft.cache/redis
+- [ACRConnectedClientList](acrconnectedclientlist.md)
+- [AzureActivity](azureactivity.md)
+- [AzureMetrics](azuremetrics.md)
 
-#### ACRConnectedClientList
-[!INCLUDE [ACRConnectedClientList](~/azure-reference-other-repo/azure-monitor-ref/includes/acrconnectedclientlist-include.md)]
 
-#### AzureActivity
-- [Columns](/azure/azure-monitor/reference/tables/azureactivity#columns)
-
-#### AzureMetrics
-- [Columns](/azure/azure-monitor/reference/tables/azuremetrics#columns)
-
-### Microsoft.Cache/redisEnterprise
-Azure Cache for Redis Enterprise logs use the following columns.
-
-#### REDConnectionEvents
-[!INCLUDE [REDConnectionEvents](~/azure-reference-other-repo/azure-monitor-ref/includes/redconnectionevents-include.md)]
+### Azure Cache for Redis Enterprise
+Microsoft.Cache/redisEnterprise
+- [REDConnectionEvents](redconnectionevents.md)
 
 <!-- ## Activity log -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
