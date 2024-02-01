@@ -100,13 +100,13 @@ To use the ACL integration, your client application must assume the identity of 
 
 Because most Azure Cache for Redis clients assume that a password/access key is used for authentication, you likely need to update your client workflow to support authentication using Microsoft Entra ID. In this section, you learn how to configure your client applications to connect to Azure Cache for Redis using a Microsoft Entra token.
 
-<!-- :::image type="content" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Microsoft Entra ID to a customer application to a cache."::: 
+:::image type="content" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Microsoft Entra ID to a customer application to a cache.":::
 
-This conceptual image needs to be recreated or omitted. -->
+This conceptual image needs to be recreated or omitted.
 
 ### Microsoft Entra Client Workflow
 
-1. Configure your client application to acquire a Microsoft Entra token for scope  `https://redis.azure.com/.default` or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default` using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
+1. Configure your client application to acquire a Microsoft Entra token for scope,  `https://redis.azure.com/.default` or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
 
    <!-- (ADD code snippet) -->
 
