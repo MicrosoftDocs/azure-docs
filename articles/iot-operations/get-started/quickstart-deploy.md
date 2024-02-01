@@ -6,7 +6,7 @@ ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 12/06/2023
+ms.date: 01/31/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -50,12 +50,12 @@ For this quickstart, we recommend GitHub Codespaces as a quick way to get starte
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-  This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+  This quickstart requires Azure CLI version 2.46.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
-* The Azure IoT Operations extension for Azure CLI.
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
-  ```powershell
-  az extension add --name azure-iot-ops
+  ```bash
+  az extension add --upgrade --name azure-iot-ops
   ```
 
 # [Linux](#tab/linux)
@@ -64,12 +64,12 @@ For this quickstart, we recommend GitHub Codespaces as a quick way to get starte
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-  This quickstart requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+  This quickstart requires Azure CLI version 2.46.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
-* The Azure IoT Operations extension for Azure CLI.
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
   ```bash
-  az extension add --name azure-iot-ops
+  az extension add --upgrade --name azure-iot-ops
   ```
 
 ---
@@ -200,6 +200,16 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
 ---
 
+## Verify cluster
+
+Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
+
+```azurecli
+az iot ops verify-host
+```
+
+This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints. If the cluster has an Ubuntu OS, it checks if `nfs-common` is installed, and if not give you the option to install on your behalf.
+
 ## Configure cluster and deploy Azure IoT Operations
 
 Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you. Once your cluster is configured, then you can deploy Azure IoT Operations.
@@ -220,13 +230,13 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
 
 1. In the Azure portal search bar, search for and select **Azure Arc**.
 
-1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
+1. Select **Azure IoT Operations (preview)** from the **Application Services** section of the Azure Arc menu.
 
    :::image type="content" source="./media/quickstart-deploy/arc-iot-operations.png" alt-text="Screenshot of selecting Azure IoT Operations from Azure Arc.":::
 
 1. Select **Create**.
 
-1. On the **Basics** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
+1. On the **Basic** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
 
    | Field | Value |
    | ----- | ----- |
@@ -256,12 +266,9 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
    | **Azure Key Vault** | Use the **Select a key vault** drop-down menu to choose the key vault that you set up in the previous section. |
 
-1. Once you select a key vault, the **Automation** tab populates an Azure CLI command that configures your cluster with your deployment information. Copy the CLI command.
+1. Once you select a key vault, the **Automation** tab uses all the information you've selected so far to populate an Azure CLI command that configures your cluster and deploys Azure IoT Operations. Copy the CLI command.
 
-   >[!TIP]
-   >Select the **Azure CLI deployment -- Efficiency unleashed** automation option to generate a CLI command that performs the configuration tasks on your cluster and then also deploys Azure IoT Operations.
-
-   <!-- :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal."::: -->
+   :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
 
 1. Sign in to Azure CLI on your development machine or in your codespace terminal. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
 
@@ -277,14 +284,8 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
 
 1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
 
-   Wait for the command to complete before continuing to the next step.
-
    >[!TIP]
    >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
-
-1. Return to the Azure portal and select **Review + Create**.
-
-1. Wait for the validation to pass and then select **Create**.
 
 ## View resources in your cluster
 
