@@ -72,7 +72,7 @@ You can use the `--max-inactive-revisions` parameter with the `containerapp crea
 This example demonstrates how to create a new container app that tracks 50 inactive revisions:
 
 ```azurecli
-az containerapp create --max-inactive-revisions <MAXIMUM_NUMBER_OF_REVISIONS>
+az containerapp create --max-inactive-revisions 50
 ```
 
 ## Revision modes
