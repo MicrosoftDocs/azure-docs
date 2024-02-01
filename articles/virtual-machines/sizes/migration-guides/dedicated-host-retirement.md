@@ -68,7 +68,7 @@ A:
 
 ### Q: What happens to my Azure Reservation?
 
-A: You need to [exchange your reservation](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md#how-to-exchange-or-refund-an-existing-reservation) through the Azure portal to match the new Dedicated Host SKU. 
+A: You need to [exchange your reservation](../../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md#how-to-exchange-or-refund-an-existing-reservation) through the Azure portal to match the new Dedicated Host SKU. 
 
 ### Q: What would happen to my host if I do not migrate by June 30, 2023?
 
@@ -76,4 +76,4 @@ A: After June 30, 2023 any dedicated host running on the SKUs that are marked fo
 
 ### Q:  What will happen to my VMs if a Host is automatically deallocated?
 
-A: If the underlying host is deallocated the VMs that were running on the host would be deallocated but not deleted. You would be able to either create a new host (of same VM family) and allocate VMs on the host or run the VMs on multi-tenant infrastructure.
+A: If the underlying host is deallocated the VMs that were running on the host would be deallocated but not deleted. You would be able to either create a new host (of the same VM family) and allocate VMs on the host or run the VMs on multitenant infrastructure.

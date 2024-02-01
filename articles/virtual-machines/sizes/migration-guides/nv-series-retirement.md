@@ -17,12 +17,12 @@ We continue to bring modern and optimized virtual machine (VM) instances to Azur
 
 After September 6, 2023, any remaining NV and NV_Promo-size VMs remaining in your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state.
 
-The current VM size retirement only affects the VM sizes in the [NV series](nv-series.md). This retirement doesn't affect the [NVv3](nvv3-series.md) and [NVv4](nvv4-series.md) series VMs. 
+The current VM size retirement only affects the VM sizes in the [NV series](../../nv-series.md). This retirement doesn't affect the [NVv3](../../nvv3-series.md) and [NVv4](../../nvv4-series.md) series VMs. 
 
 ## What actions should I take?
 
-You'll need to resize or deallocate your NV VMs. We recommend moving your GPU visualizations or graphics workloads to another [GPU accelerated VM size](sizes-gpu.md).
+You'll need to resize or deallocate your NV VMs. We recommend moving your GPU visualizations or graphics workloads to another [GPU accelerated VM size](../../sizes-gpu.md).
 
-[Learn more](nv-series-migration-guide.md) about migrating your workloads to other GPU Azure VM sizes. 
+[Learn more](../../nv-series-migration-guide.md) about migrating your workloads to other GPU Azure VM sizes. 
 
 If you have questions, contact us through customer support.
