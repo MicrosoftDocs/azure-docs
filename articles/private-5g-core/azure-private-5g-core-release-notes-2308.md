@@ -5,32 +5,32 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: release-notes
-ms.date: 11/01/2023
+ms.date: 11/20/2023
 ---
 
 # Azure Private 5G Core 2308 release notes
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2308 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
 
-This article applies to the AP5GC 2308 release (2308.0-7). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2303 and ASE 2309 releases and by the 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
+This article applies to the AP5GC 2308 release (2308.0-9). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2303 and ASE 2309 releases. It supports the 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
-For more details about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
+For more information about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
 
-With this release, there's a new naming scheme and Packet Core versions are now called ‘2308.0-1’ rather than ‘PMN-2308.’
+With this release, there's a new naming scheme and Packet Core versions are now called ‘2308.0-9’ rather than ‘PMN-2308.’
 
 > [!WARNING]
-> For this release, it's important that the packet core version is upgraded to the AP5GC 2308 release before the upgrading to the ASE 2309 release.  Upgrading to ASE 2309 before upgrading to Packet Core 2308.0.1 causes a total system outage.  Recovery requires you to delete and re-create the AKS cluster on your ASE.
+> For this release, it's important that the packet core version is upgraded to the AP5GC 2308 release before the upgrading to the ASE 2309 release.  Upgrading to ASE 2309 before upgrading to Packet Core 2308.0.9 causes a total system outage.  Recovery requires you to delete and re-create the AKS cluster on your ASE.
 
 ## Support lifetime
 
-Packet core versions are supported until two subsequent versions have been released (unless otherwise noted), which is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
+Packet core versions are supported until two subsequent versions are released. You should plan to upgrade your packet core in this time frame to avoid losing support.
 
 ### Currently supported packet core versions
 The following table shows the support status for different Packet Core releases.
 
 | Release | Support Status |
 |---------|----------------|
-| AP5GC 2308 | Supported until AP5GC 2311 released |
+| AP5GC 2308 | Supported until AP5GC 2401 released |
 | AP5GC 2307 | Supported until AP5GC 2310 released |
 | AP5GC 2306 and earlier | Out of Support |
 
@@ -68,6 +68,9 @@ The following table provides a summary of issues fixed in this release.
   |No.  |Feature  | Issue |
   |-----|-----|-----|
   | 1 | Packet Forwarding |  If the packet forwarding component of the userplane crashes, it may not recover. If it does not, the system experiences an outage until manually recovered |
+  | 2 | Packet Forwarding | An intermittent fault at the network layer causes an outage of packet forwarding |
+  | 3 | Diagnosability | During packet capture, uplink userplane packets can be omitted from packet captures |
+  | 4 | Packet Forwarding | Errors in userplane packet detection rules can cause incorrect packet handling | 
   
 
 ## Known issues in the AP5GC 2308 release

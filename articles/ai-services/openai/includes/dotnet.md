@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Azure OpenAI Service with the C# SDK'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the C# SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -49,16 +49,15 @@ using static System.Environment;
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
 
-// Enter the deployment name you chose when you deployed the model.
-string engine = "gpt-35-turbo-instruct";
+var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
 
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+CompletionsOptions completionsOptions = new()
+{
+    DeploymentName = "gpt-35-turbo-instruct", 
+    Prompts = { "When was Microsoft founded?" },
+};
 
-string prompt = "When was Microsoft founded?";
-Console.Write($"Input: {prompt}\n");
-
-Response<Completions> completionsResponse = 
-    await client.GetCompletionsAsync(engine, prompt);
+Response<Completions> completionsResponse = client.GetCompletions(completionsOptions);
 string completion = completionsResponse.Value.Choices[0].Text;
 Console.WriteLine($"Chatbot: {completion}");
 ```
@@ -73,10 +72,9 @@ dotnet run program.cs
 ## Output
 
 ```console
-Input: When was Microsoft founded?
 Chatbot:
 
-Microsoft was founded on April 4, 1975
+Microsoft was founded on April 4, 1975.
 ```
 
 > [!div class="nextstepaction"]

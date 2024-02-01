@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
-ms.date: 11/04/2022
+ms.date: 01/17/2024
 ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 #Customer intent: As a data scientist, I want to know whether to use v1 or v2 of CLI and SDK.
 ---
@@ -92,18 +92,15 @@ SDK v2 is useful in the following scenarios:
 
 ## Should I use v1 or v2?
 
-Here are some considerations to help you decide which version to use.
+Support for CLI v2 will end on September 30, 2025.  
+
+We encourage you to migrate your code for both CLI and SDK v1 to CLI and SDK v2. For more information, see [Upgrade to v2](how-to-migrate-from-v1.md).
 
 ### CLI v2
 
-Azure Machine Learning CLI v1 has been deprecated. We recommend that you use CLI v2 if:
+Azure Machine Learning CLI v1 has been deprecated. Support for the v1 extension will end on September 30, 2025. You will be able to install and use the v1 extension until that date.
 
-* You were a CLI v1 user.
-* You want to use new features like reusable components and managed inferencing.
-* You don't want to use a Python SDK. CLI v2 allows you to use YAML with scripts in Python, R, Java, Julia, or C#.
-* You were a user of R SDK previously. Machine Learning won't support an SDK in `R`. However, CLI v2 has support for `R` scripts.
-* You want to use command line-based automation or deployments.
-* You don't need Spark Jobs. This feature is currently available in preview in CLI v2.
+We recommend that you transition to the `ml`, or v2, extension before September 30, 2025.
 
 ### SDK v2
 

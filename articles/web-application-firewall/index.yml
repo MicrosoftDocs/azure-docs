@@ -98,3 +98,22 @@ landingContent:
         links:
          - text: Azure network security
            url: ../networking/security/index.yml
+
+# Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI - Front Door
+            url: /cli/azure/network/front-door
+          - text: Azure CLI - Application Gateway
+            url: /cli/azure/network/application-gateway
+          - text: Azure PowerShell - Front Door
+            url: /powershell/module/az.frontdoor/
+          - text: Azure PowerShell - Application Gateway
+            url: /powershell/module/az.network/#application_gateway
+          - text: REST - Front Door
+            url: /rest/api/frontdoor
+          - text: REST - Application Gateway
+            url: /rest/api/application-gateway
+

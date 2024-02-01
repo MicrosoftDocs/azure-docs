@@ -1,13 +1,13 @@
 ---
 title: include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: include
 ms.custom: include file, ignite-fall-2021
-ms.date: 09/13/2021
+ms.date: 12/19/2023
 ---
 
 This cURL-based quickstart walks you through getting an answer from your knowledge base.

@@ -107,7 +107,7 @@
         - name: Node DNS names
           href: concepts-node-domain-name.md
           displayName: DNS, FQDN, connection, connect
-        - name: Customer managed keys
+        - name: Customer-managed keys
           href: concepts-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
         - name: Row-level security
@@ -132,6 +132,8 @@
           displayName: backup, restore, outage
         - name: High availability
           href: concepts-high-availability.md
+        - name: Availability zones
+          href: concepts-availability-zones.md
     - name: Replication
       href: concepts-read-replicas.md
     - name: Connection pooling (PgBouncer)
@@ -211,6 +213,8 @@
       items:
         - name: Configure high availability
           href: howto-high-availability.md
+        - name: Use availability zones
+          href: howto-availability-zones.md
         - name: Manage read replicas
           href: howto-read-replicas-portal.md
           displayName: replication, read replica
@@ -227,7 +231,7 @@
         - name: Manage Microsoft Entra ID and Postgres users
           href: how-to-configure-authentication.md
           displayName: Azure Active Directory, PosgreSQL roles, authentication
-        - name: Customer managed keys
+        - name: Customer-managed keys
           href: how-to-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
         - name: Configure TLS/SSL
@@ -279,6 +283,8 @@
           href: reference-metadata.md
     - name: REST APIs
       href: /rest/api/postgresqlhsc/
+    - name: Terraform support
+      href: reference-terraform.md
     - name: ARM templates
       href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
     - name: Bicep
@@ -300,6 +306,8 @@
 
 - name: Resources
   items:
+    - name: Learning path - Azure Cosmos DB for PostgreSQL
+      href: /training/paths/azure-cosmos-db-for-postgresql/
     - name: Pricing
       href: resources-pricing.md
     - name: Regional availability

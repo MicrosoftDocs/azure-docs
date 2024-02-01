@@ -13,8 +13,8 @@ ms.date: 06/21/2023
 Workbooks support hierarchical views via tree grids. Trees allow some rows to be expandable into the next level for a drill-down experience.
 
 The following example shows container health metrics of a working set size that are visualized as a tree grid. The top-level nodes here are Azure Kubernetes Service (AKS) nodes. The next-level nodes are pods, and the final-level nodes are containers. Notice that you can still format your columns like you do in a grid with heatmaps, icons, and links. The underlying data source in this case is a Log Analytics workspace with AKS logs.
-
-[![Screenshot that shows a tile summary view.](./media/workbooks-tree-visualizations/trees.png)](./media/workbooks-tree-visualizations/trees.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-tree-visualizations/trees.png" lightbox="./media/workbooks-tree-visualizations/trees.png" alt-text="Screenshot that shows a tile summary view." border="false":::
 
 ## Add a tree grid
 
@@ -49,8 +49,8 @@ The following example shows container health metrics of a working set size that 
     * **Show the expander on**: `Name`
     * Select the **Expand the top level of the tree** checkbox.
 1. Select the **Save and Close** button at the bottom of the pane.
-
-[![Screenshot that shows a tile summary view with settings.](./media/workbooks-tree-visualizations/tree-settings.png)](./media/workbooks-tree-visualizations/tree-settings.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-tree-visualizations/tree-settings.png" lightbox="./media/workbooks-tree-visualizations/tree-settings.png" alt-text="Screenshot that shows a tile summary view with settings." border="false":::
 
 ## Tree settings
 
@@ -91,8 +91,8 @@ You can use grouping to build hierarchical views similar to the ones shown in th
     * **Then by**: `None`
     * Select the **Expand the top level of the tree** checkbox.
 1. Select the **Save and Close** button at the bottom of the pane.
-
-[![Screenshot that shows the creation of a tree visualization in workbooks.](./media/workbooks-tree-visualizations/tree-group-create.png)](./media/workbooks-tree-visualizations/tree-group-create.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-tree-visualizations/tree-group-create.png" lightbox="./media/workbooks-tree-visualizations/tree-group-create.png" alt-text="Screenshot that shows the creation of a tree visualization in workbooks." border="false":::
 
 ## Next steps
 

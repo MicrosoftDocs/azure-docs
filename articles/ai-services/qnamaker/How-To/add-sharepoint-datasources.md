@@ -7,7 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 12/19/2023
 ---
 
 # Add a secured SharePoint data source to your knowledge base

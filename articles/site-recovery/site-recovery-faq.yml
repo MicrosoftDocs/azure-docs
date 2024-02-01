@@ -65,9 +65,7 @@ sections:
       - question: |
          Will tenant application data ever go to Azure?
         answer: |
-              When replicating between service provider-owned sites, application data never goes to Azure. Data is encrypted in-transit (HTTPS), and replicated directly between the service provider sites.
-
-              If you're replicating to Azure, application data is sent to Azure storage but not to the Site Recovery service. Data is encrypted in-transit, and remains encrypted in Azure.
+              When you're replicating to Azure, application data is sent to Azure storage but not to the Site Recovery service. Data is encrypted in-transit (HTTPS), and remains encrypted in Azure.
 
       - question: |
          Will my tenants receive a bill for any Azure services?
@@ -92,7 +90,7 @@ sections:
       - question: |
          Do you support single Azure Pack and single VMM server deployments?
         answer: |
-             Yes, you can replicate Hyper-V virtual machines to Azure, or between service provider sites.  Note that if you replicate between service provider sites, Azure runbook integration isn't available.
+             No, you can replicate Hyper-V virtual machines only to Azure.
 
   - name: Pricing
     questions:
@@ -147,7 +145,7 @@ sections:
       - question: |
          Does Site Recovery encrypt replication?
         answer: |
-              For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](../storage/common/storage-service-encryption.md) are supported.
+              For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](../storage/common/storage-service-encryption.md) are supported.
 
       - question: |
          Does Azure-to-Azure Site Recovery use TLS 1.2 for all communications across microservices of Azure?
@@ -260,9 +258,9 @@ sections:
         answer: |
               Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to replicate on-premises virtual machines to Azure.
 
-              - Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or use an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new circuits)  to use ExpressRoute for Site Recovery replication.
+              - Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or use an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new circuits) to use ExpressRoute for Site Recovery replication.
               - Microsoft peering is the recommended routing domain for replication.
-              - Replication is not supported over private peering.
+              - Replication is supported over private peering only when private endpoints are enabled for the vault.
               - If you're protecting VMware machines or physical machines, ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for Configuration Server are also met. Connectivity to specific URLs is required by Configuration Server for orchestration of Site Recovery replication. ExpressRoute cannot be used for this connectivity.
               - After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) setup with the Azure virtual network.
 

@@ -4,7 +4,7 @@ description: Get implementation tips for using Linux-based HDInsight (Hadoop) cl
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 
 # Information about using HDInsight on Linux

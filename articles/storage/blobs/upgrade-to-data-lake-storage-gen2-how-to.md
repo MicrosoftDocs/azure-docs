@@ -57,8 +57,8 @@ The migration process creates a directory for each path segment of a blob. Data 
 The upgrade might fail if an application writes to the storage account during the upgrade. To prevent such write activity:
 
 1. Quiesce any applications or services that might perform write operations.
-1. Release or break existing leases on containers and blobs in the storage account.
-1. Acquire new leases on all containers and blobs in the account. The new leases should be infinite or long enough to prevent write access for the duration of the upgrade.
+
+2. Release or break existing leases on containers and blobs in the storage account.
 
 After the upgrade has completed, break the leases you created to resume allowing write access to the containers and blobs.
 

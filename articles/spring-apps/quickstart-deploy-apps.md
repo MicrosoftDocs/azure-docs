@@ -42,13 +42,13 @@ Use the following steps to download the sample app. If you've been using the Azu
    ```
 
    ```console
-   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
+   git clone https://github.com/Azure-Samples/azure-spring-apps-samples
    ```
 
 1. Navigate to the repository directory.
 
    ```console
-   cd Azure-Spring-Cloud-Samples
+   cd azure-spring-apps-samples
    ```
 
 ## Deploy PlanetWeatherProvider

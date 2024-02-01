@@ -3,15 +3,11 @@ title: Set up diagnostics for autoscale in Azure Virtual Desktop
 description: How to set up diagnostic reports for the scaling service in your Azure Virtual Desktop deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ---
 # Set up diagnostics for autoscale in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Autoscale for personal host pools is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Diagnostics lets you monitor potential issues and fix them before they interfere with your autoscale scaling plan.
 

@@ -101,7 +101,7 @@ Because SAS parameters aren't visible to Azure CDN, Azure CDN can't change its d
 | --- | --- |
 | Start | The time that Azure CDN can begin to access the blob file. Due to clock skew (when a clock signal arrives at different times for different components), choose a time 15 minutes earlier if you want the asset to be available immediately. |
 | End | The time after which Azure CDN can no longer access the blob file. Previously cached files on Azure CDN are still accessible. To control the file expiry time, either set the appropriate expiry time on the Azure CDN security token or purge the asset. |
-| Allowed IP addresses | Optional. If you're using **Azure CDN from Edgio**, you can set this parameter to the ranges defined in [Azure CDN from Edgio Edge Server IP Ranges](./cdn-pop-list-api.md). If you're using **Azure CDN from Akamai**, you can't set the IP ranges parameter because the IP addresses aren't static.|
+| Allowed IP addresses | Optional. If you're using **Azure CDN from Edgio**, you can set this parameter to the ranges defined in [Azure CDN from Edgio Edge Server IP Ranges](./cdn-pop-list-api.md). |
 | Allowed protocols | The protocol(s) allowed for a request made with the account SAS. The HTTPS setting is recommended.|
 
 ## Next steps

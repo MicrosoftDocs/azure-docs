@@ -93,7 +93,7 @@ Enter the following information for an admin user, and then select **Apply**:
 Enter the following information for a read-only user, and then select **Apply**:
 - **Display name**: Enter **ReadOnly**.
 - **Allowed member types**: Select **Users/Groups**.
-- **Value**: Enter **ReadOnly**.
+- **Value**: Enter **User**.
 - **Description**: Enter **ReadOnly roles have limited query access**.
 
 ![Screenshot of selections for creating a read-only user role in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-cluster-roles-readonly.png)

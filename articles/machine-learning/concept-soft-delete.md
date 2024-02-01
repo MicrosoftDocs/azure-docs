@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 11/07/2022
+ms.date: 01/16/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As an IT pro, understand how to enable data protection capabilities, to protect against accidental deletion.
 ---

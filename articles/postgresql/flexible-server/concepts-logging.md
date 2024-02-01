@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 12/26/2021
 ---
 
 # Logs in Azure Database for PostgreSQL - Flexible Server
@@ -43,7 +43,7 @@ The following table describes the fields for the **PostgreSQLLogs** type. Depend
 | SubscriptionId | GUID for the subscription that the server belongs to |
 | ResourceGroup | Name of the resource group the server belongs to |
 | ResourceProvider | Name of the resource provider. Always `MICROSOFT.DBFORPOSTGRESQL` |
-| ResourceType | `Servers` |
+| ResourceType | `FlexibleServers` |
 | ResourceId | Resource URI |
 | Resource | Name of the server |
 | Category | `PostgreSQLLogs` |

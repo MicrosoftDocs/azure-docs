@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/02/2023
+ms.date: 01/05/2024
 ---
 
 # Manage Azure Data Factory settings and preferences
@@ -75,7 +75,7 @@ To apply changes, select a **Regional format** and make sure to hit the **Apply*
 > [!NOTE]
 > Applying regional format changes will discard any unsaved changes in your data factory. 
 
-## Next steps
+## Related content
 - [Manage the ADF preview experience](how-to-manage-studio-preview-exp.md)
 - [Introduction to Azure Data Factory](introduction.md)
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)

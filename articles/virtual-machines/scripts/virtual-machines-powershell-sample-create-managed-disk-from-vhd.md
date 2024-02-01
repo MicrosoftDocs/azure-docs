@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.topic: sample
 ms.workload: infrastructure
 ms.custom: devx-track-azurepowershell
-ms.date: 10/24/2023
+ms.date: 12/04/2023
 ms.author: ramankum
 ---
 
@@ -25,7 +25,7 @@ Don't create multiple identical managed disks from a VHD file in small amount of
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-managed-disks-from-vhd-in-different-subscription/create-managed-disks-from-vhd-in-different-subscription.ps1 "Create managed disk from VHD")]
+[!code-powershell[main](../../../new_powershell_scripts/managed-disks/create-managed-disks-from-vhd-in-different-subscription.ps1 "Create managed disk from VHD")]
 
 
 ## Script explanation

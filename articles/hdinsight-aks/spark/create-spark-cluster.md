@@ -3,15 +3,15 @@ title: How to create Spark cluster in HDInsight on AKS
 description: Learn how to create Spark cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 12/28/2023
 ---
 
 # Create Spark cluster in HDInsight on AKS (Preview)
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Once the [prerequisite](../prerequisites-resources.md) steps are complete, and you have a cluster pool deployed, continue to use the Azure portal to create a Spark cluster. 
-You can use the Azure portal to create an Apache Spark cluster in cluster pool. You then create a Jupyter Notebook and use it to run Spark SQL queries against Apache Hive tables.
+Once the  [subscription prerequisites](../prerequisites-subscription.md) and [resource prerequisites](../prerequisites-resources.md)  steps are complete, and you have a cluster pool deployed, continue to use the Azure portal to create a Spark cluster. 
+You can use the Azure portal to create an Apache Spark cluster in cluster pool. You can then create a Jupyter Notebook and use it to run Spark SQL queries against Apache Hive tables.
 
 1. In the Azure portal, type cluster pools, and select cluster pools to go to the cluster pools page. On the cluster pools page, select the cluster pool in which you can add a new Spark cluster.
 1. On the specific cluster pool page, click **+ New cluster**.
@@ -20,11 +20,7 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
     
     This step opens the cluster create page.
     
-    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page-1.png" alt-text="Screenshot showing create cluster basic page 1." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page-1.png":::
-    
-    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page-2.png" alt-text="Screenshot showing create cluster basic page 2." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page-2.png":::
-    
-    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page-3.png" alt-text="Screenshot showing create cluster basic page 3." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page-3.png":::
+    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page.png" alt-text="Screenshot showing create cluster basic page." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page.png":::
     
     |Property |	Description |
     |-|-|
@@ -45,8 +41,6 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
     |SQL admin username |Enter the SQL admin username|
     |Key vault 	|From the drop-down list, select the Key Vault, which contains a secret with password for SQL admin username|
     |SQL password secret name |Enter the secret name from the Key Vault where the SQL DB password is stored| 
-    |Virtual Network |Virtual Network is prepopulated as selected during the time of cluster pool creation|
-    |Subnet|Subnet is pre populated|
    
     > [!NOTE]
     > * Currently HDInsight support only MS SQL Server databases.

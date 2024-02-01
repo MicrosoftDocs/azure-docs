@@ -76,7 +76,7 @@ The following example function shows how to read and return user information.
 
 ```javascript
 module.exports = async function (context, req) {
-  const header = req.headers['x-ms-client-principal'];
+  const header = req.headers.get('x-ms-client-principal');
   const encoded = Buffer.from(header, 'base64');
   const decoded = encoded.toString('ascii');
 

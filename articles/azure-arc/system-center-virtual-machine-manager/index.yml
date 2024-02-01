@@ -12,7 +12,7 @@ metadata:
   ms.author: v-gjeronika
 
 landingContent:
-  - title: About Azure Arc-enabled System Center Virtual Machine Manager (preview)
+  - title: About Azure Arc-enabled System Center Virtual Machine Manager
     linkLists:
       - linkListType: overview
         links:

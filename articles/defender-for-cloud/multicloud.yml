@@ -39,7 +39,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Troubleshooting multicloud connectors
-            url: troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector
+            url: troubleshooting-guide.md#troubleshoot-connectors
             
   # Card
   - title: Defend Amazon AWS resources

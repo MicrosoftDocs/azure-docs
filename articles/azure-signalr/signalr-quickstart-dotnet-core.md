@@ -1,12 +1,12 @@
 ---
 title: Quickstart to learn how to use Azure SignalR Service
-description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core MVC apps.
+description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core web apps.
 author: vicancy
 ms.service: signalr
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.topic: quickstart
-ms.date: 07/01/2023
+ms.date: 11/11/2023
 ms.author: lianwei
 ---
 
@@ -14,7 +14,7 @@ ms.author: lianwei
 
 Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features.
 
-This article shows you how to get started with the Azure SignalR Service. In this quickstart, you'll create a chat application by using an ASP.NET Core MVC web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You'll host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients.
+This article shows you how to get started with the Azure SignalR Service. In this quickstart, you'll create a chat application by using an ASP.NET Core web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You'll host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients.
 
 You can use any code editor to complete the steps in this quickstart. One option is [Visual Studio Code](https://code.visualstudio.com/), which is available on the Windows, macOS, and Linux platforms.
 
@@ -45,7 +45,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to create an ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.
 
-1. Create a folder for your project. This quickstart uses the *E:\Testing\chattest* folder.
+1. Create a folder for your project. This quickstart uses the *chattest* folder.
 
 2. In the new folder, run the following command to create the project:
 
@@ -98,7 +98,7 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
     app.Run();
     ```
 
-    Not passing a parameter to `AddAzureSignalR()` means it uses the default configuration key for the SignalR Service resource connection string. The default configuration key is *Azure:SignalR:ConnectionString*. It also uses `ChatHub` which we will create in the below section.
+    Not passing a parameter to `AddAzureSignalR()` means it uses the default configuration key for the SignalR Service resource connection string. The default configuration key is *Azure:SignalR:ConnectionString*. It also uses `ChatSampleHub` which we will create in the below section.
 
 ### Add a hub class
 
@@ -109,7 +109,7 @@ In SignalR, a *hub* is a core component that exposes a set of methods that can b
 
 Both methods use the `Clients` interface that the ASP.NET Core SignalR SDK provides. This interface gives you access to all connected clients, so you can push content to your clients.
 
-1. In your project directory, add a new folder named *Hub*. Add a new hub code file named *ChatHub.cs* to the new folder.
+1. In your project directory, add a new folder named *Hub*. Add a new hub code file named *ChatSampleHub.cs* to the new folder.
 
 2. Add the following code to *ChatSampleHub.cs* to define your hub class and save the file.
 
@@ -139,142 +139,166 @@ Create a new file in the *wwwroot* directory named *index.html*, copy and paste 
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/site.css" rel="stylesheet" />
-    <title>Azure SignalR Group Chat</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/site.css" rel="stylesheet" />
+  <title>Azure SignalR Group Chat</title>
 </head>
 <body>
-    <h2 class="text-center" style="margin-top: 0; padding-top: 30px; padding-bottom: 30px;">Azure SignalR Group Chat</h2>
-    <div class="container" style="height: calc(100% - 110px);">
-        <div id="messages" style="background-color: whitesmoke; "></div>
-        <div style="width: 100%; border-left-style: ridge; border-right-style: ridge;">
-            <textarea id="message"
-                      style="width: 100%; padding: 5px 10px; border-style: hidden;"
-                      placeholder="Type message and press Enter to send..."></textarea>
-        </div>
-        <div style="overflow: auto; border-style: ridge; border-top-style: hidden;">
-            <button class="btn-warning pull-right" id="echo">Echo</button>
-            <button class="btn-success pull-right" id="sendmessage">Send</button>
-        </div>
+  <h2 class="text-center" style="margin-top: 0; padding-top: 30px; padding-bottom: 30px;">Azure SignalR Group Chat</h2>
+  <div class="container" style="height: calc(100% - 110px);">
+    <div id="messages" style="background-color: whitesmoke; "></div>
+    <div style="width: 100%; border-left-style: ridge; border-right-style: ridge;">
+      <textarea id="message" style="width: 100%; padding: 5px 10px; border-style: hidden;"
+        placeholder="Type message and press Enter to send..."></textarea>
     </div>
-    <div class="modal alert alert-danger fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div>Connection Error...</div>
-                    <div><strong style="font-size: 1.5em;">Hit Refresh/F5</strong> to rejoin. ;)</div>
-                </div>
-            </div>
-        </div>
+    <div style="overflow: auto; border-style: ridge; border-top-style: hidden;">
+      <button class="btn-warning pull-right" id="echo">Echo</button>
+      <button class="btn-success pull-right" id="sendmessage">Send</button>
     </div>
+  </div>
+  <div class="modal alert alert-danger fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>Connection Error...</div>
+          <div><strong style="font-size: 1.5em;">Hit Refresh/F5</strong> to rejoin. ;)</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!--Reference the SignalR library. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
-    
-    <!--Add script to update the page and send messages.-->
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
+  <!--Reference the SignalR library. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
 
-            const generateRandomName = () =>
-                Math.random().toString(36).substring(2, 10);
+  <!--Add script to update the page and send messages.-->
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      function getUserName() {
+        function generateRandomName() {
+          return Math.random().toString(36).substring(2, 10);
+        }
 
-            let username = generateRandomName();
-            const promptMessage = 'Enter your name:';
-            do {
-                username = prompt(promptMessage, username);
-                if (!username || username.startsWith('_') || username.indexOf('<') > -1 || username.indexOf('>') > -1) {
-                    username = '';
-                    promptMessage = 'Invalid input. Enter your name:';
-                }
-            } while (!username)
+        // Get the user name and store it to prepend to messages.
+        var username = generateRandomName();
+        var promptMessage = "Enter your name:";
+        do {
+          username = prompt(promptMessage, username);
+          if (!username || username.startsWith("_") || username.indexOf("<") > -1 || username.indexOf(">") > -1) {
+            username = "";
+            promptMessage = "Invalid input. Enter your name:";
+          }
+        } while (!username)
+        return username;
+      }
 
-            const messageInput = document.getElementById('message');
-            messageInput.focus();
+      username = getUserName();
+      // Set initial focus to message input box.
+      var messageInput = document.getElementById("message");
+      messageInput.focus();
 
-            function createMessageEntry(encodedName, encodedMsg) {
-                var entry = document.createElement('div');
-                entry.classList.add("message-entry");
-                if (encodedName === "_SYSTEM_") {
-                    entry.innerHTML = encodedMsg;
-                    entry.classList.add("text-center");
-                    entry.classList.add("system-message");
-                } else if (encodedName === "_BROADCAST_") {
-                    entry.classList.add("text-center");
-                    entry.innerHTML = `<div class="text-center broadcast-message">${encodedMsg}</div>`;
-                } else if (encodedName === username) {
-                    entry.innerHTML = `<div class="message-avatar pull-right">${encodedName}</div>` +
-                        `<div class="message-content pull-right">${encodedMsg}<div>`;
-                } else {
-                    entry.innerHTML = `<div class="message-avatar pull-left">${encodedName}</div>` +
-                        `<div class="message-content pull-left">${encodedMsg}<div>`;
-                }
-                return entry;
-            }
+      function createMessageEntry(encodedName, encodedMsg) {
+        var entry = document.createElement("div");
+        entry.classList.add("message-entry");
+        if (encodedName === "_SYSTEM_") {
+          entry.innerHTML = encodedMsg;
+          entry.classList.add("text-center");
+          entry.classList.add("system-message");
+        } else if (encodedName === "_BROADCAST_") {
+          entry.classList.add("text-center");
+          entry.innerHTML = `<div class="text-center broadcast-message">${encodedMsg}</div>`;
+        } else if (encodedName === username) {
+          entry.innerHTML = `<div class="message-avatar pull-right">${encodedName}</div>` +
+            `<div class="message-content pull-right">${encodedMsg}<div>`;
+        } else {
+          entry.innerHTML = `<div class="message-avatar pull-left">${encodedName}</div>` +
+            `<div class="message-content pull-left">${encodedMsg}<div>`;
+        }
+        return entry;
+      }
 
-            function bindConnectionMessage(connection) {
-                var messageCallback = function (name, message) {
-                    if (!message) return;
-                    var encodedName = name;
-                    var encodedMsg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                    var messageEntry = createMessageEntry(encodedName, encodedMsg);
+      function appendMessage(encodedName, encodedMsg) {
+        var messageEntry = createMessageEntry(encodedName, encodedMsg);
+        var messageBox = document.getElementById("messages");
+        messageBox.appendChild(messageEntry);
+        messageBox.scrollTop = messageBox.scrollHeight;
+      }
 
-                    var messageBox = document.getElementById('messages');
-                    messageBox.appendChild(messageEntry);
-                    messageBox.scrollTop = messageBox.scrollHeight;
-                };
-                connection.on('broadcastMessage', messageCallback);
-                connection.on('echo', messageCallback);
-                connection.onclose(onConnectionError);
-            }
+      function bindConnectionMessage(connection) {
+        var messageCallback = function (name, message) {
+          if (!message) return;
+          // Html encode display name and message.
+          var encodedName = name;
+          var encodedMsg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+          appendMessage(encodedName, encodedMsg);
+        };
+        // Create a function that the hub can call to broadcast messages.
+        connection.on("broadcastMessage", messageCallback);
+        connection.on("echo", messageCallback);
+        connection.onclose(onConnectionError);
+      }
 
-            function onConnected(connection) {
-                console.log('connection started');
-                connection.send('broadcastMessage', '_SYSTEM_', username + ' JOINED');
-                document.getElementById('sendmessage').addEventListener('click', function (event) {
-                    if (messageInput.value) {
-                        connection.send('broadcastMessage', username, messageInput.value);
-                    }
+      function onConnected(connection) {
+        console.log("connection started");
+        connection.send("broadcastMessage", "_SYSTEM_", username + " JOINED");
+        document.getElementById("sendmessage").addEventListener("click", function (event) {
+          // Call the broadcastMessage method on the hub.
+          if (messageInput.value) {
+            connection.send("broadcastMessage", username, messageInput.value)
+              .catch((e) => appendMessage("_BROADCAST_", e.message));
+          }
 
-                    messageInput.value = '';
-                    messageInput.focus();
-                    event.preventDefault();
-                });
-                document.getElementById('message').addEventListener('keypress', function (event) {
-                    if (event.keyCode === 13) {
-                        event.preventDefault();
-                        document.getElementById('sendmessage').click();
-                        return false;
-                    }
-                });
-                document.getElementById('echo').addEventListener('click', function (event) {
-                    connection.send('echo', username, messageInput.value);
-
-                    messageInput.value = '';
-                    messageInput.focus();
-                    event.preventDefault();
-                });
-            }
-
-            function onConnectionError(error) {
-                if (error && error.message) {
-                    console.error(error.message);
-                }
-                var modal = document.getElementById('myModal');
-                modal.classList.add('in');
-                modal.style = 'display: block;';
-            }
-
-            const connection = new signalR.HubConnectionBuilder()
-                .withUrl('/chat')
-                .build();
-            bindConnectionMessage(connection);
-            connection.start()
-                .then(() => onConnected(connection))
-                .catch(error => console.error(error.message));
+          // Clear text box and reset focus for next comment.
+          messageInput.value = "";
+          messageInput.focus();
+          event.preventDefault();
         });
-    </script>
+        document.getElementById("message").addEventListener("keypress", function (event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("sendmessage").click();
+            return false;
+          }
+        });
+        document.getElementById("echo").addEventListener("click", function (event) {
+          // Call the echo method on the hub.
+          connection.send("echo", username, messageInput.value);
+
+          // Clear text box and reset focus for next comment.
+          messageInput.value = "";
+          messageInput.focus();
+          event.preventDefault();
+        });
+      }
+
+      function onConnectionError(error) {
+        if (error && error.message) {
+          console.error(error.message);
+        }
+        var modal = document.getElementById("myModal");
+        modal.classList.add("in");
+        modal.style = "display: block;";
+      }
+
+      var connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chat")
+        .build();
+      bindConnectionMessage(connection);
+      connection.start()
+        .then(function () {
+          onConnected(connection);
+        })
+        .catch(function (error) {
+          console.error(error.message);
+        });
+    });
+  </script>
 </body>
 </html>
+
 ```
 
 The code in *index.html* calls `HubConnectionBuilder.build()` to make an HTTP connection to the Azure SignalR resource.

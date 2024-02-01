@@ -33,8 +33,8 @@ The sample is forked from this [repository](https://github.com/StackAbuse/spring
 Clone the sample repository to your develop environment:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
-cd Azure-Spring-Cloud-Samples/hystrix-turbine-sample
+git clone https://github.com/Azure-Samples/azure-spring-apps-samples.git
+cd azure-spring-apps-samples/hystrix-turbine-sample
 ```
 
 Build the three applications that are in this tutorial:

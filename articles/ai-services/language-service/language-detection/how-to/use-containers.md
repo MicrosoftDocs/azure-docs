@@ -2,12 +2,12 @@
 title: Use language detection Docker containers on-premises
 titleSuffix: Azure AI services
 description: Use Docker containers for the Language Detection API to determine the language of written text, on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom: language-service-language-detection, ignite-fall-2021
 keywords: on-premises, Docker, container

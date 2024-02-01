@@ -14,9 +14,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Azure Spot Virtual Machines for Virtual Machine Scale Sets 
 
-Using Azure Spot Virtual Machines on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machine instances. Therefore, Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
+Using Azure Spot Virtual Machines on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure evicts Azure Spot Virtual Machine instances. Therefore, Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machine instances on scale sets, Azure will allocate the instance only if there is capacity available, but there is no SLA for these instances. An Azure Spot Virtual Machine Scale Set is deployed in a single fault domain and offers no high availability guarantees.
+The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machine instances on scale sets, Azure allocates the instance only if there's capacity available, but there's no SLA for these instances. An Azure Spot Virtual Machine Scale Set is deployed in a single fault domain and offers no high availability guarantees.
 
 ## Limitations
 
@@ -38,18 +38,18 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 Pricing for Azure Spot Virtual Machine instances is variable, based on region and SKU. For more information, see pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-With variable pricing, you have option to set a max price, in US dollars (USD), using up to five decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for Azure Spot Virtual Machine or the price for a standard instance, which ever is less, as long as there is capacity and quota available.
+With variable pricing, you have option to set a max price, in US dollars (USD), using up to five decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for Azure Spot Virtual Machine or the price for a standard instance, which ever is less, as long as there's capacity and quota available.
 
 
 ## Eviction policy
 
 When creating a scale set using Azure Spot Virtual Machines, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
-The *Deallocate* policy moves your evicted instances to the stopped-deallocated state allowing you to redeploy evicted instances. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your scale set instance quota and you will be charged for your underlying disks. 
+The *Deallocate* policy moves your evicted instances to the stopped-deallocated state allowing you to redeploy evicted instances. However, there's no guarantee that the allocation will succeed. The deallocated VMs counts against your scale set instance quota and you are charged for your underlying disks. 
 
-If you would like your instances to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the autoscale feature on Azure Spot Virtual Machine Scale Sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
+If you would like your instances to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you won't be charged for the storage. You can also use the autoscaling feature of scale sets to automatically try and compensate for evicted VMs, however, there's no guarantee that the allocation succeeds. It is recommended you only use the autoscale feature on Azure Spot Virtual Machine Scale Sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
 
-Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
+Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This notifies you if your VMs are being evicted and you have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
 ## Eviction history
 You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.  The pricing and eviction rates in the following images are only examples. 
@@ -64,7 +64,7 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 ## Try & restore 
 
-This platform-level feature will use AI to automatically try to restore evicted Azure Spot Virtual Machine instances inside a scale set to maintain the target instance count. 
+This platform-level feature uses AI to automatically try to restore evicted Azure Spot Virtual Machine instances inside a scale set to maintain the target instance count. 
 
 Try & restore benefits:
 - Attempts to restore Azure Spot Virtual Machines evicted due to capacity.
@@ -98,6 +98,9 @@ The process to create a scale set that uses Azure Spot Virtual Machines is the s
 
 ## Azure CLI
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 The process to create a scale set with Azure Spot Virtual Machines is the same as detailed in the [getting started article](quick-create-cli.md). Just add the '--Priority Spot', and add `--max-price`. In this example, we use `-1` for `--max-price` so the instance won't be evicted based on price.
 
 ```azurecli
@@ -105,7 +108,6 @@ az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
     --image Ubuntu2204 \
-    --upgrade-policy-mode automatic \
     --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -118,6 +120,9 @@ az vmss create \
 
 ## PowerShell
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 The process to create a scale set with Azure Spot Virtual Machines is the same as detailed in the [getting started article](quick-create-powershell.md).
 Just add '-Priority Spot', and supply a `-max-price` to the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
@@ -126,7 +131,6 @@ $vmssConfig = New-AzVmssConfig `
     -Location "East US 2" `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `
-    -UpgradePolicyMode Automatic `
     -Priority "Spot" `
     -max-price -1 `
     -EnableSpotRestore `
@@ -169,7 +173,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 ## Simulate an eviction
 
-You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine to test how well your application will respond to a sudden eviction. 
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine to test how well your application responds to a sudden eviction. 
 
 Replace the following with your information: 
 
@@ -190,7 +194,7 @@ For more information, see [Testing a simulated eviction notification](../virtual
 
 **Q:** Once created, is an Azure Spot Virtual Machine instance the same as standard instance?
 
-**A:** Yes, except there is no SLA for Azure Spot Virtual Machines and they can be evicted at any time.
+**A:** Yes, except there's no SLA for Azure Spot Virtual Machines and they can be evicted at any time.
 
 
 **Q:** What to do when you get evicted, but still need capacity?
@@ -200,12 +204,12 @@ For more information, see [Testing a simulated eviction notification](../virtual
 
 **Q:** How is quota managed for Azure Spot Virtual Machine?
 
-**A:** Azure Spot Virtual Machine instances and standard instances will have separate quota pools. Azure Spot Virtual Machine quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**A:** Azure Spot Virtual Machine instances and standard instances have separate quota pools. Azure Spot Virtual Machine quota is shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **Q:** Can I request for additional quota for Azure Spot Virtual Machine?
 
-**A:** Yes, you will be able to submit the request to increase your quota for Azure Spot Virtual Machines through the [standard quota request process](../azure-portal/supportability/per-vm-quota-requests.md).
+**A:** Yes, you are able to submit the request to increase your quota for Azure Spot Virtual Machines through the [standard quota request process](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **Q:** Can I convert existing scale sets to Azure Spot Virtual Machine Scale Sets?

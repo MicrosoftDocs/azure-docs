@@ -2,7 +2,7 @@
 title: Spatial Analysis camera placement
 titleSuffix: Azure AI services
 description: Learn how to set up a camera for use with Spatial Analysis
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

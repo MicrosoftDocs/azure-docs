@@ -2,7 +2,7 @@
 title: Immersive Reader Kotlin (Android) client library quickstart 
 titleSuffix: Azure AI services
 description: In this quickstart, you build an Android app from scratch and add the Immersive Reader API functionality.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: guillasi
 ms.service: azure-ai-immersive-reader
@@ -536,7 +536,7 @@ Licensed under the MIT License. -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script type="text/javascript" src="https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js"></script>
+    <script type="text/javascript" src="https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.4.0.js"></script>
 </head>
 <body>
 <script type="text/javascript">

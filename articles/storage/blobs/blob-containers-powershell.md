@@ -267,6 +267,9 @@ The following example illustrates the process of configuring a service SAS for a
  -Protocol $protocol | Write-Output
 ```
 
+> [!NOTE]
+> The SAS token returned by Blob Storage doesn't include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to also append the delimiter character.
+
 ## Delete containers
 
 Depending on your use case, you can delete a container or list of containers with the `Remove-AzStorageContainer` cmdlet. When deleting a list of containers, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.

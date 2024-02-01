@@ -116,7 +116,7 @@ private async void StartCaptions()
 {
     var options = new StartCaptionsOptions
     {
-        SpokenLanguage = "en-US"
+        SpokenLanguage = "en-us"
     };
     try
     {

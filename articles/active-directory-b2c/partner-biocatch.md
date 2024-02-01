@@ -2,12 +2,12 @@
 title: Tutorial to configure BioCatch with Azure Active Directory B2C 
 titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with BioCatch to identify risky and fraudulent users
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/13/2023
 ms.author: gasinh

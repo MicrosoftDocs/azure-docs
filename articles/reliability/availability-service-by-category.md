@@ -50,7 +50,7 @@ Azure services are presented in the following tables by category. Note that some
 > | Azure ExpressRoute                     | Azure Bastion                                     |
 > | Azure Key Vault                        | Azure Batch                                       | 
 > | Azure Load Balancer                    | Azure Cache for Redis                             | 
-> | Azure Public IP                        | Azure Cognitive Search                            | 
+> | Azure Public IP                        | Azure AI Search                            | 
 > | Azure Service Bus                      | Azure Container Registry                          | 
 > | Azure Service Fabric                   | Azure Container Instances                         |
 > | Azure Site Recovery                    | Azure Data Explorer                               |  
@@ -89,7 +89,9 @@ Azure services are presented in the following tables by category. Note that some
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and strategic. Service categories are assigned at general availability. Often, services start their lifecycle as a strategic service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists strategic services. 
 
 > [!div class="mx-tableFixed"]
-> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic                                          |
+> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg)
+
+>  Strategic                                          |
 > |------------------------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
@@ -112,7 +114,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Remote Rendering                               |
 > | Azure SignalR Service                                |
 > | Azure Spatial Anchors                                |
-> | Azure Spring Cloud                                   |
+> | Azure Spring Apps                                |
 > | Azure Storage: Archive Storage                       |
 > | Azure Synapse Analytics                              |
 > | Azure Ultra Disk Storage                             |
@@ -141,8 +143,9 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: NDv2-series                        |
 > | Virtual Machines: NP-series                          |
 > | Virtual Machines: NVv3-series                        |
-> | Virtual Machines: NVv4-series                        | 
+> | Virtual Machines: NVv4-series                        |
 > | Virtual Machines: SAP HANA on Azure Large Instances  |
+
 
 Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
 

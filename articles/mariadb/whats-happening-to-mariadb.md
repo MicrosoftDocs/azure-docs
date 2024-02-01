@@ -4,7 +4,7 @@ description: The Azure Database for MariaDB service is being deprecated.
 author: karla-escobar
 ms.author: karlaescobar
 ms.reviewer: maghan
-ms.date: 09/19/2023
+ms.date: 11/27/2023
 ms.service: mariadb
 ms.topic: overview
 ms.custom: deprecation announcement
@@ -51,6 +51,10 @@ A. Your existing Azure Database for MariaDB workloads will continue to function 
 **Q. Can I choose to continue running Azure Database for MariaDB beyond the sunset date?**
 
 A. Unfortunately, we don't plan to support Azure Database for MariaDB beyond the sunset date of September 19, 2025. Hence, we advise that you start planning your migration as soon as possible.
+
+**Q. How do I manage my reserved instances for MariaDB?**
+
+A. You will not be able to purchase or renew MariaDB reserved instances starting **December 1 2023**. You can renew the reserved instances before December first using Azure portal. For any reserved instances expiring after *December 1 2023*, will be converted to Pay As You Go billing model. After migrating your workload to Azure Database for MySQL Flexible server, you can [purchase reserved instances](../mysql/single-server/concept-reserved-pricing.md) for MySQL Flexible Server.
 
 **Q. After the Azure Database for MariaDB retirement announcement, what if I still need to create a new MariaDB server to meet my business needs?**
 

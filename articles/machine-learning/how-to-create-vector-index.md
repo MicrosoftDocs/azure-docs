@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/30/2023
 ms.topic: how-to
-ms.custom: prompt-flow
+ms.custom:
+  - prompt-flow
+  - ignite-2023
 ---
 
 # Create a vector index in an Azure Machine Learning prompt flow (preview)
 
-You can use Azure Machine Learning to create a vector index from files or folders on your machine, a location in cloud storage, an Azure Machine Learning data asset, a Git repository, or a SQL database. Azure Machine Learning can currently process .txt, .md, .pdf, .xls, and .docx files. You can also reuse an existing Azure Cognitive Search index instead of creating a new index.
+You can use Azure Machine Learning to create a vector index from files or folders on your machine, a location in cloud storage, an Azure Machine Learning data asset, a Git repository, or a SQL database. Azure Machine Learning can currently process .txt, .md, .pdf, .xls, and .docx files. You can also reuse an existing Azure AI Search (formerly Cognitive Search) index instead of creating a new index.
 
-When you create a vector index, Azure Machine Learning chunks the data, creates embeddings, and stores the embeddings in a Faiss index or Azure Cognitive Search index. In addition, Azure Machine Learning creates:
+When you create a vector index, Azure Machine Learning chunks the data, creates embeddings, and stores the embeddings in a Faiss index or Azure AI Search index. In addition, Azure Machine Learning creates:
 
 * Test data for your data source.
 

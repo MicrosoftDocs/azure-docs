@@ -2,12 +2,12 @@
 title: Security architecture in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: End to end guidance on how to secure your Azure AD B2C solution.
-services: active-directory-b2c
+
 author: rbinrais
 manager: RideMo
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 05/09/2023
 ms.author: rbinrais

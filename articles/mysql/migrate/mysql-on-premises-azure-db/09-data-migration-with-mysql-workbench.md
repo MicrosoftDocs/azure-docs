@@ -44,7 +44,7 @@ $serverName = "{SERVER\_NAME}";
 Get-AzMySqlConfiguration -ResourceGroupName $rgName -ServerName $serverName
 ```
 
-- To do the same with the mysql tool, download the [CA root certification](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to c:\\temp (make this directory).
+- To do the same with the mysql tool, download the [CA root certification](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to c:\\temp (make this directory).
 
     > [!NOTE]
     > The certificate is subject to change. Reference [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../../howto-configure-ssl.md) for the latest certificate information.

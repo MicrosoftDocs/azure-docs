@@ -5,7 +5,11 @@ description: 'Learn how to improve data security with Azure Machine Learning by 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022, ignite-2022, engagement-fy23
+ms.custom:
+  - event-tier1-build-2022
+  - ignite-2022
+  - engagement-fy23
+  - ignite-2023
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
@@ -43,7 +47,6 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 * The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace.
 * OS disk of machine learning compute can't be encrypted with customer-managed key, but can be encrypted with Microsoft-managed key if the workspace is created with `hbi_workspace` parameter set to `TRUE`. For more details, see [Data encryption](concept-data-encryption.md#machine-learning-compute).
-* Workspace with customer-managed key doesn't currently support v2 batch endpoint.
 
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because of the additional resources in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
@@ -118,7 +121,7 @@ For examples of creating the workspace with a customer-managed key, see the foll
 | Azure Resource Manager</br>template | [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
 | REST API | [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
 
-Once the workspace has been created, you'll notice that Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure Cognitive Search.
+Once the workspace has been created, you'll notice that Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure AI Search.
 
 > [!TIP]
 > * The [__Request Units__](../cosmos-db/request-units.md) for the Azure Cosmos DB instance automatically scale as needed.

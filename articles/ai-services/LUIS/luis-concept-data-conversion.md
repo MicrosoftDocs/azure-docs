@@ -2,7 +2,7 @@
 title: Data conversion - LUIS
 titleSuffix: Azure AI services
 description: Learn how utterances can be changed before predictions in Language Understanding (LUIS)
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme

@@ -37,15 +37,14 @@ The architecture of the authentication process across clouds is as follows:
 
 1. The Microsoft Entra token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
 
-1. Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
-
+1. Since the principal of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
     - audience validation
-    - signing of the token
+   - token digital signature validation 
     - certificate thumbprint
 
  1.  The Microsoft Defender for Cloud CSPM role is assumed only after the validation conditions defined at the trust relationship have been met. The conditions defined for the role level are used for validation within AWS and allows only the Microsoft Defender for Cloud CSPM application (validated audience) access to the specific role (and not any other Microsoft token).
 
-1. After the Microsoft Entra token validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
+1. After the Microsoft Entra token is validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which the CSPM service uses to scan the AWS account.
 
 ## Native connector plan requirements
 
@@ -127,3 +126,4 @@ You can check out the following blogs:
 Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud.
 
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md)
+

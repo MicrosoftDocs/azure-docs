@@ -2,7 +2,6 @@
 title: Install and run Speech containers with Docker - Speech service
 titleSuffix: Azure AI services
 description: Use the Speech containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

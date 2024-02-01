@@ -2,7 +2,7 @@
 title: 'Quickstart: Use GPT-35-Turbo via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -20,6 +20,9 @@ keywords:
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
+
+> [!TIP]
+> Try out the new unified [Azure AI Studio (preview)](../../../ai-studio/what-is-ai-studio.md) which brings together capabilities from across multiple Azure AI services.
 
 ## Go to Azure OpenAI Studio
 

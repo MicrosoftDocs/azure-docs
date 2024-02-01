@@ -69,6 +69,6 @@ This template defines 4 parameters:
 
 	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-7.png" alt-text="Screenshot of the results that return when the pipeline is triggered.":::
 
-## Next steps
+## Related content
 - [What's New in Azure Data Factory](whats-new.md)
 - [Introduction to Azure Data Factory](introduction.md)

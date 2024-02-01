@@ -138,8 +138,8 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [Create a tileset]: tutorial-creator-indoor-maps.md#create-a-tileset
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator resource]: how-to-manage-creator.md
-[Dataset Create API]: /rest/api/maps/2023-03-01-preview/dataset/create
-[Dataset Create]: /rest/api/maps/v2/dataset/create
+[Dataset Create API]: /rest/api/maps-creator/dataset/create?view=rest-maps-creator-2023-03-01-preview
+[Dataset Create]: /rest/api/maps-creator/dataset/create
 [dataset]: creator-indoor-maps.md#datasets
 [Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [facility]: creator-facility-ontology.md?pivots=facility-ontology-v2#facility

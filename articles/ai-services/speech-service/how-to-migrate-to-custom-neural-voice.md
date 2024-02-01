@@ -2,7 +2,6 @@
 title: Migrate from custom voice to custom neural voice - Speech service
 titleSuffix: Azure AI services
 description: This document helps users migrate from custom voice to custom neural voice.
-services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
@@ -36,7 +35,7 @@ Before you can migrate to custom neural voice, your [application](https://aka.ms
 
 1. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and then [apply here](https://aka.ms/customneural).  
 1. Once your application is approved, you will be provided with the access to the "neural" training feature. Make sure you log in to [Speech Studio](https://aka.ms/speechstudio/customvoice) using the same Azure subscription that you provide in your application. 
-1. Before you can [train](how-to-custom-voice-create-voice.md) and [deploy](how-to-deploy-and-use-endpoint.md) a custom voice model, you must [create a voice talent profile](how-to-custom-voice-talent.md). The profile requires an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. 
+1. Before you can [train](professional-voice-train-voice.md) and [deploy](professional-voice-deploy-endpoint.md) a custom voice model, you must [create a voice talent profile](professional-voice-create-consent.md). The profile requires an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. 
 1. Update your code in your apps if you have created a new endpoint with a new model. 
 
 ## Custom voice details (deprecated)

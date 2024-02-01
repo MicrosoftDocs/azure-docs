@@ -28,7 +28,7 @@ There are important topics you may want read before you proceed with creation:
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)
 
-If you prefer to try out things without provisioning a full environment yourself, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+If you prefer to try out things without provisioning a full environment yourself, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 
 ## Preliminary and temporary step for OpenShift users only
@@ -179,7 +179,7 @@ You can now connect either psql:
 psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 ```
 
-## Next steps
+## Related content
 
 - Connect to your Azure Arc-enabled PostgreSQL server: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgresql-server.md)
 

@@ -9,7 +9,7 @@ brand: azure
 metadata:
   title: Azure Active Directory B2C documentation
   description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
-  services: active-directory-b2c
+  
   ms.service: active-directory
   ms.subservice: B2C
   ms.topic: hub-page
@@ -26,7 +26,7 @@ highlightedContent:
     - title: What is Azure AD B2C?
       itemType: overview # controls the icon image and super-title text
       url: overview.md
-    - title: Microsoft Entra features supported in Azure AD B2C
+    - title: Microsoft Entra ID features supported in Azure AD B2C
       url: supported-azure-ad-features.md
       itemType: overview
     - title: Get started with Azure AD B2C

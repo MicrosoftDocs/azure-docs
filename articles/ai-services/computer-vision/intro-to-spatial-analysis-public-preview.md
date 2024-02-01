@@ -2,7 +2,7 @@
 title: What is Spatial Analysis?
 titleSuffix: Azure AI services
 description: This document explains the basic concepts and features of the Azure Spatial Analysis container.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.author: pafarley

@@ -2,7 +2,6 @@
 title: 'Update a command parameter from a client app'                             
 titleSuffix: Azure AI services
 description: Learn how to update a command from a client application.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

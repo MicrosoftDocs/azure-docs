@@ -275,7 +275,7 @@ This YAML example, `2-sai-deployment.yml`,
 
 # [System-assigned (Python)](#tab/system-identity-python)
 
-To deploy an online endpoint with the Python SDK (v2), objects may be used to define the configuration as below. Alternatively, YAML files may be loaded using the `.load` method. 
+To deploy an online endpoint with the Python SDK (v2), objects can be used to define the configuration as below. Alternatively, YAML files can be loaded using the `.load` method. 
 
 The following Python endpoint object: 
 
@@ -297,7 +297,7 @@ This deployment object:
 
 # [User-assigned (Python)](#tab/user-identity-python)
 
-To deploy an online endpoint with the Python SDK (v2), objects may be used to define the configuration as below. Alternatively, YAML files may be loaded using the `.load` method. 
+To deploy an online endpoint with the Python SDK (v2), objects can be used to define the configuration as below. Alternatively, YAML files can be loaded using the `.load` method. 
 
 For a user-assigned identity, we will define the endpoint configuration below once the User-Assigned Managed Identity has been created. 
 
@@ -779,5 +779,4 @@ Delete the User-assigned managed identity:
 * To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * For information on monitoring endpoints, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
-* For limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning-managed online endpoint](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
-* For limitations for Kubernetes endpoints, see [Manage and increase quotas for resources with Azure Machine Learning-kubernetes online endpoint](how-to-manage-quotas.md#azure-machine-learning-kubernetes-online-endpoints).
+* For limitations for managed online endpoint and Kubernetes online endpoint, see [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).

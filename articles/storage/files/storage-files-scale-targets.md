@@ -4,16 +4,18 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 11/2/2022
+ms.date: 01/11/2024
 ms.author: kendownie
 ---
 
 # Azure Files scalability and performance targets
+
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB and NFS file system protocols. This article discusses the scalability and performance targets for Azure Files and Azure File Sync.
 
-The targets listed here might be affected by other variables in your deployment. For example, the performance of I/O for a file might be impacted by your SMB client's behavior and by your available network bandwidth. You should test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements. You should also expect these limits will increase over time. 
+The targets listed here might be affected by other variables in your deployment. For example, the performance of I/O for a file might be impacted by your SMB client's behavior and by your available network bandwidth. You should test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -21,9 +23,11 @@ The targets listed here might be affected by other variables in your deployment.
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Azure Files scale targets
+
 Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and individual files.
 
 ### Storage account scale targets
+
 Storage account scale targets apply at the storage account level. There are two main types of storage accounts for Azure Files: 
 
 - **General purpose version 2 (GPv2) storage accounts**: GPv2 storage accounts allow you to deploy Azure file shares on standard/hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, or tables. File shares can be deployed into the transaction optimized (default), hot, or cool tiers.
@@ -49,6 +53,7 @@ Storage account scale targets apply at the storage account level. There are two 
 <sup>2</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ### Azure file share scale targets
+
 Azure file share scale targets apply at the file share level.
 
 | Attribute | Standard file shares<sup>1</sup> | Premium file shares |
@@ -73,6 +78,7 @@ Azure file share scale targets apply at the file share level.
 <sup>3</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
 
 ### File scale targets
+
 File scale targets apply to individual files stored in Azure file shares.
 
 | Attribute | Files in standard file shares  | Files in premium file shares  |
@@ -88,9 +94,10 @@ File scale targets apply to individual files stored in Azure file shares.
 
 <sup>2 Subject to machine network limits, available bandwidth, I/O sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./smb-performance.md).</sup>
 
-<sup>3 Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share. The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.</sup>
+<sup>3 Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share. The number of active users supported per share is dependent on the applications that are accessing the share. If you're using Azure Files to store disk images for large-scale virtual desktop workloads, you might run out of handles for the root directory or per file/directory. In this case, you might need to use two Azure file shares. If your applications aren't opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.</sup>
 
 ## Azure File Sync scale targets
+
 The following table indicates which targets are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:
 
 | Resource | Target | Hard limit |
@@ -111,6 +118,7 @@ The following table indicates which targets are soft, representing the Microsoft
 > An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync will not be able to operate.
 
 ## Azure File Sync performance metrics
+
 Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution should be measured by the number of objects (files and directories) processed per second.
 
 For Azure File Sync, performance is critical in two stages:
@@ -121,6 +129,7 @@ For Azure File Sync, performance is critical in two stages:
 > When many server endpoints in the same sync group are syncing at the same time, they are contending for cloud service resources. As a result, upload performance will be impacted. In extreme cases, some sync sessions will fail to access the resources, and will fail. However, those sync sessions will resume shortly and eventually succeed once the congestion is reduced. 
 
 ## Internal test results
+
 To help you plan your deployment for each of the stages (initial one-time provisioning and ongoing sync), below are the results observed during the internal testing on a system with the following configuration:
 
 | System configuration | Details |

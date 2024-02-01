@@ -116,8 +116,8 @@ The deployment status of the Arc data controller on the cluster can be monitored
 kubectl get datacontrollers --namespace arc
 ```
 
-## Next steps
+## Related content
 
 [Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 
-[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Create a SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)

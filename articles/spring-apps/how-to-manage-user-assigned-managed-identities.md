@@ -124,4 +124,4 @@ For user-assigned managed identity limitations, see [Quotas and service plans fo
 ## Next steps
 
 - [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
-- [How to use managed identities with Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+- [How to use managed identities with Java SDK](https://github.com/Azure-Samples/azure-spring-apps-samples)

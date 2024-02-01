@@ -3,7 +3,7 @@ title: Scale session hosts using Azure Automation and Azure Logic Apps for Azure
 description: Learn about scaling Azure Virtual Desktop session hosts with Azure Automation and Azure Logic Apps.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/29/2022
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ---
@@ -12,6 +12,9 @@ manager: femila
 You can reduce your total Azure Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
 In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic Apps that automatically scales session host VMs in your Azure Virtual Desktop environment. To learn how to use the scaling tool, see [Set up scaling of session hosts using Azure Automation and Azure Logic Apps](set-up-scaling-script.md).
+
+>[!NOTE]
+>Azure Virtual Desktop's native Autoscale solution is generally available for pooled and personal host pool(s) and will automatically scale in or out session host VMs based on scaling schedule. We recommend using Autoscale for easier configuration. For more information, see [Autoscale scaling plans](autoscale-scaling-plan.md).
 
 ## How the scaling tool works
 

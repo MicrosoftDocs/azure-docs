@@ -1,6 +1,6 @@
 ---
 title: Using Trial Matcher
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: This article describes how to use the Trial Matcher
 services: azure-health-insights
 author: iBoonZ
@@ -17,7 +17,7 @@ ms.author: behoorne
 This quickstart provides an overview on how to use the Trial Matcher.
 
 ## Prerequisites
-To use Trial Matcher, you must have an Azure AI services account created. If you haven't already created an Azure AI services account, see [Deploy Project Health Insights using the Azure portal.](../deploy-portal.md)
+To use Trial Matcher, you must have an Azure AI services account created. If you haven't already created an Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
 Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
 

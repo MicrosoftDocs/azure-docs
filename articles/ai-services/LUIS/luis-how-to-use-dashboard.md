@@ -2,7 +2,7 @@
 title: Dashboard - Language Understanding - LUIS
 titleSuffix: Azure AI services
 description: Fix intents and entities with your trained app's dashboard. The dashboard displays overall app information, with highlights of intents that should be fixed.
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme

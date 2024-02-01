@@ -5,10 +5,9 @@ summary: Text to speech from the Speech service enables your applications, tools
 metadata:
   title: Text to speech documentation - Tutorials, API Reference - Azure AI services | Microsoft Docs
   titleSuffix: Azure AI services
-  services: cognitive-services
   author: eric-urban
   manager: nitinme
-  ms.service: speech-service
+  ms.service: azure-ai-speech
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: eur
@@ -36,12 +35,12 @@ landingContent:
           url: batch-synthesis.md
     - linkListType: concept
       links:
-        - text: What is Custom Neural Voice?
+        - text: What is custom neural voice?
           url: custom-neural-voice.md
-        - text: Get started with Custom Voice
-          url: how-to-custom-voice.md
-        - text: Create and use Custom Voice models
-          url: how-to-custom-voice-create-voice.md
+        - text: Get started with custom voice
+          url: professional-voice-create-project.md
+        - text: Create and use custom voice models
+          url: professional-voice-train-voice.md
 - title: Reference
   linkLists:
     - linkListType: reference

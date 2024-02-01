@@ -1,17 +1,19 @@
 ---
 title: Performance benchmarks
-titleSuffix: Azure Cognitive Search
-description: Learn about the performance of Azure Cognitive Search through various performance benchmarks
+titleSuffix: Azure AI Search
+description: Learn about the performance of Azure AI Search through various performance benchmarks
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/31/2023
 ---
 
-# Azure Cognitive Search performance benchmarks
+# Azure AI Search performance benchmarks
 
-Azure Cognitive Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect.
+Azure AI Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect.
 
 To cover a range of different use cases, we ran benchmarks for two main scenarios:
 
@@ -22,7 +24,7 @@ While these scenarios reflect different use cases, every scenario is different s
 
 ## Testing methodology
 
-To benchmark Azure Cognitive Search's performance, we ran tests for two different scenarios at different tiers and replica/partition combinations.
+To benchmark Azure AI Search's performance, we ran tests for two different scenarios at different tiers and replica/partition combinations.
 
 To create these benchmarks, the following methodology was used:
 
@@ -62,7 +64,7 @@ If you have any questions or concerns, reach out to us at azuresearch_contact@mi
       ![CDON Logo](./media/performance-benchmarks/cdon-logo-160px2.png)
    :::column-end:::
    :::column span="3":::
-      This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway, and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers. You can learn more about CDON's use of Azure Cognitive Search in [this article](https://pulse.microsoft.com/transform/na/fa1-how-cdon-has-been-using-technology-to-become-the-leading-marketplace-in-the-nordics/).
+      This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway, and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers. You can learn more about CDON's use of Azure AI Search in [this article](https://pulse.microsoft.com/transform/na/fa1-how-cdon-has-been-using-technology-to-become-the-leading-marketplace-in-the-nordics/).
    :::column-end:::
 :::row-end:::
 
@@ -197,7 +199,7 @@ Query latency varies based on the load of the service and services under higher 
 
 ## Takeaways
 
-Through these benchmarks, you can get an idea of the performance Azure Cognitive Search offers. You can also see difference between services at different tiers.
+Through these benchmarks, you can get an idea of the performance Azure AI Search offers. You can also see difference between services at different tiers.
 
 Some key take ways from these benchmarks are:
 
@@ -210,7 +212,7 @@ You can also see that performance can vary drastically between scenarios. If you
 
 ## Next steps
 
-Now that you've seen the performance benchmarks, you can learn more about how to analyze Cognitive Search's performance and key factors that influence performance.
+Now that you've seen the performance benchmarks, you can learn more about how to analyze Azure AI Search's performance and key factors that influence performance.
 
 + [Analyze performance](search-performance-analysis.md)
 + [Tips for better performance](search-performance-tips.md)

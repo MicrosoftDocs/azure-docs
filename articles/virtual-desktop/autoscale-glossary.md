@@ -3,15 +3,11 @@ title: Azure Virtual Desktop autoscale glossary for Azure Virtual Desktop - Azur
 description: A glossary of terms and concepts for the Azure Virtual Desktop autoscale feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ---
 # Autoscale glossary for Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Autoscale for personal host pools is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article is a list of definitions for key terms and concepts related to the autoscale feature for Azure Virtual Desktop.
 
@@ -25,7 +21,7 @@ Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic App
 
 ## Scaling plan
 
-A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that defines the schedules for scaling session hosts in a host pool. You can assign one scaling plan to multiple host pools. Each scaling plan can only be assigned to either personal or pooled host pools, but not both types at the same time.
+A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that defines the schedules for scaling session hosts in a host pool. You can assign one scaling plan to multiple host pools. When creating a scaling plan, you have to choose between pooled or personal host pools. You can only assign the scaling plan to the host pools with the same type (pooled or personal). The scaling plan type can't be changed after it is created.
 
 ## Schedule
 

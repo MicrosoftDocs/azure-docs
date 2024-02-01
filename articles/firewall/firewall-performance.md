@@ -54,7 +54,7 @@ The following set of performance results demonstrates the maximal Azure Firewall
 
 ### Total throughput  for initial firewall deployment
 
-The following throughput numbers are for an Azure Firewall deployment before auto-scale (out of the box deployment). Azure Firewall gradually scales out when the average throughput or CPU consumption is at 60%. Scale out takes five to seven minutes. Azure Firewall gradually scales in when the average throughput or CPU consumption is below 20%.
+The following throughput numbers are for an Azure Firewall deployment before auto-scale (out of the box deployment). Azure Firewall gradually scales out when the average throughput and CPU consumption is at 60% or if the number of connections usage is at 80%. Scale out takes five to seven minutes. Azure Firewall gradually scales in when the average throughput, CPU consumption, or number of connections is below 20%.
 
 When performance testing, ensure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created firewall nodes.
 

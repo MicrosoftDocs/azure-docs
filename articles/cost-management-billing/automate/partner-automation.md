@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how Microsoft partners and their customers can use Cost Management APIs for common tasks.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 11/17/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Automation for partners

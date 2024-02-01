@@ -11,7 +11,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 ms.reviewer: bagovind 
 ms.custom: devx-track-azurepowershell
@@ -28,7 +28,7 @@ For a step-by-step tutorial on how to create a custom role, see [Tutorial: Creat
 
 To create custom roles, you need:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- Permissions to create custom roles, such as [User Access Administrator](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## List custom roles

@@ -76,6 +76,10 @@ items:
       href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/custom-vision-service/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
+- name: Concepts
+  items:
+  - name: Compare alternatives
+    href: ./concepts/compare-alternatives.md
 - name: Tutorials
   items:
   - name: Report visual states on IoT device

@@ -30,7 +30,7 @@ You can secure the data stored in your Azure Cosmos DB account by using IP firew
 
 ## <a id="configure-ip-policy"></a> Configure an IP firewall by using the Azure portal
 
-To set the IP access control policy in the Azure portal, go to the Azure Cosmos DB account page and select **Firewall and virtual networks** on the navigation menu. Change the **Allow access from** value to **Selected networks**, and then select **Save**.
+To set the IP access control policy in the Azure portal, go to the Azure Cosmos DB account page and select **Firewall and virtual networks** on the navigation menu. Change the **Allow access from** value to **Selected networks**, and then select **Save**. If you change the public access network settings, either by disabling it or allowing it for all networks, you will lose the firewall IP that you may have set up before. 
 
 :::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing how to open the Firewall page in the Azure portal" border="true":::
 

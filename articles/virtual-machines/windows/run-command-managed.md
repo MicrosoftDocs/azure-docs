@@ -5,10 +5,10 @@ services: automation
 ms.service: virtual-machines
 ms.collection: windows
 author: nikhilpatel909
-ms.author: erd
+ms.author: jushiman
 ms.date: 03/10/2023
-ms.topic: how-to  
-ms.reviewer: erd
+ms.topic: how-to
+ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Run scripts in your Windows VM by using managed Run Commands

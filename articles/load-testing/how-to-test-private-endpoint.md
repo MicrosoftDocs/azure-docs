@@ -34,7 +34,9 @@ When you start the load test, Azure Load Testing service injects the following A
 - A network security group (NSG). 
 - An Azure Load Balancer.
 
-These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
+These resources are ephemeral and exist only while the load test is running. If you have restrictions on the deployment of a public IP address, Azure load balancer, or network security group in your subnet, you can disable the deployment of these resources. For more information, see [Configure your load test](#configure-your-load-test).
+
+If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
 
 ## Prerequisites
 
@@ -143,6 +145,10 @@ You can specify the virtual network configuration settings in the load test crea
     > [!IMPORTANT]
     > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
 
+1. (Optional) Check **Disable Public IP deployment** if you don't want to deploy a public IP address, load balancer, and network security group in your subnet.
+
+    When you select this option, ensure that there is an alternative mechanism like [Azure NAT Gateway](/azure/nat-gateway/nat-overview#outbound-connectivity), [Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal), or a [network virtual appliance (NVA)](/azure/virtual-wan/scenario-route-through-nvas-custom) to enable outbound traffic routing from the subnet. 
+   
 1. Review or fill the load test information. Follow these steps to [create or manage a test](./how-to-create-manage-test.md).
 
 1. Select **Review + create** and then **Create** (or **Apply**, when updating an existing test).
@@ -176,9 +182,10 @@ To configure the load test with your virtual network settings, update the [YAML 
     description: 'Load test the website home page'
     engineInstances: 1
     subnetId: <your-subnet-id>
+    publicIPDisabled: False
     ```
 
-    For more information about the YAML configuration, see [test configuration YAML reference](./reference-test-config-yaml.md).
+    Optionally, you can set the `publicIPDisabled` property to `True`. For more information about the YAML configuration, see [test configuration YAML reference](./reference-test-config-yaml.md).
 
     > [!IMPORTANT]
     > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
@@ -292,7 +299,7 @@ The virtual network isn't in the same subscription and region as your Azure load
 
 ### Provisioning fails with `An azure policy is restricting engine deployment to your subscription (ALTVNET012)`
 
-An Azure policy is restricting load test engine deployment to your subscription. Check your policy restrictions and try again.
+An Azure policy is restricting load test engine deployment to your subscription. Check your policy restrictions and try again. If you have policy restrictions on the deployment of the public IP address, Azure load balancer, or network security group, you can disable the deployment of these resources. See [Configure your load test](#configure-your-load-test).
 
 ### Provisioning fails with `Engines could not be deployed due to an error in subnet configuration (ALTVNET013)`
 

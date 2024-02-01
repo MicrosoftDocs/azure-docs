@@ -26,9 +26,7 @@ AKS follows a strict supportability versioning window. With properly selected au
 
 You can specify cluster auto-upgrade specifics using the following guidance. The upgrades occur based on your specified cadence and are recommended to remain on supported Kubernetes versions.
 
-AKS also initiates auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS automatically upgrades the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default. Stopped nodepools will be upgraded during an auto-upgrade operation. The upgrade will apply to nodes when the node pool is started.
-
-For example, Kubernetes v1.25 will upgrade to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance].
+AKS also initiates auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS automatically upgrades the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default. Stopped nodepools will be upgraded during an auto-upgrade operation. The upgrade will apply to nodes when the node pool is started. To minimize disruptions, set up [maintenance windows][planned-maintenance].
 
 ## Cluster auto-upgrade limitations
 

@@ -4,10 +4,8 @@ description: Learn how to troubleshoot problems in Azure Monitor's Change Analys
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.contributor: cawa
-ms.date: 09/21/2022 
+ms.date: 11/17/2023 
 ms.subservice: change-analysis
-ms.reviewer: cawa
 ---
 
 # Troubleshoot Azure Monitor's Change Analysis
@@ -93,9 +91,9 @@ To troubleshoot virtual machine issues using the troubleshooting tool in the Azu
 1. Select **Diagnose and solve problems** from the side menu.
 1. Browse and select the troubleshooting tool that fits your issue.
 
-![Screenshot of the Diagnose and Solve Problems tool for a Virtual Machine with Troubleshooting tools selected.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
-
-![Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine.](./media/change-analysis/analyze-recent-changes.png)
+:::image type="content" source="./media/change-analysis/vm-dnsp-troubleshootingtools.png" lightbox="./media/change-analysis/vm-dnsp-troubleshootingtools.png" alt-text="Screenshot of the Diagnose and Solve Problems tool for a Virtual Machine with Troubleshooting tools selected.":::
+<!-- convertborder later -->
+:::image type="content" source="./media/change-analysis/analyze-recent-changes.png" lightbox="./media/change-analysis/analyze-recent-changes.png" alt-text="Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine." border="false":::
 
 ## Can't filter to your resource to view changes
 
@@ -106,7 +104,7 @@ When filtering down to a particular resource in the Change Analysis standalone p
 1. In that resource's left side menu, select **Diagnose and solve problems**.
 1. In the Change Analysis card, select **View change details**.
 
-   :::image type="content" source="./media/change-analysis/change-details-card.png" alt-text="Screenshot of viewing change details from the Change Analysis card in Diagnose and solve problems tool.":::
+   :::image type="content" source="./media/change-analysis/change-details-card.png" lightbox="./media/change-analysis/change-details-card.png" alt-text="Screenshot of viewing change details from the Change Analysis card in Diagnose and solve problems tool.":::
 
 From here, you'll be able to view all of the changes for that one resource.
 

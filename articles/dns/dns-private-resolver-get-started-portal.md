@@ -65,7 +65,7 @@ Next, add a virtual network to the resource group that you created, and configur
 5. Select the **default** subnet.
 6. Enter the following values on the **Edit subnet** page:
     - Name: snet-inbound
-    - IPv4 address range: 10.0.0.0.16
+    - IPv4 address range: 10.0.0.0/16
     - Starting address: 10.0.0.0
     - Size: /28 (16 IP addresses)
     - Select **Save**

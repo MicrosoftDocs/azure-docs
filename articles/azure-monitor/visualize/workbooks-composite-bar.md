@@ -187,4 +187,4 @@ The composite bar view for a graph with the preceding settings will look like th
 
 ## Next steps
 
-[Get started with Azure Workbooks](workbooks-getting-started.md)
+[Get started with Azure Workbooks](workbooks-overview.md)

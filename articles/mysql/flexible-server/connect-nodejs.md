@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Connect using Node.js - Azure Database for MySQL - Flexible Server"
+title: "Quickstart: Connect using Node.js"
 description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL - Flexible Server.
 author: shreyaaithal
 ms.author: shaithal
@@ -16,16 +16,16 @@ ms.devlang: javascript
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this quickstart, you connect to an Azure Database for MySQL - Flexible Server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms.
+In this quickstart, you connect to Azure Database for MySQL flexible server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms.
 
-This article assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL - Flexible Server.
+This article assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL flexible server.
 
 ## Prerequisites
 
 This quickstart uses the resources created in either of these guides as a starting point:
 
-- [Create an Azure Database for MySQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
-- [Create an Azure Database for MySQL - Flexible Server using Azure CLI](./quickstart-create-server-cli.md)
+- [Create an Azure Database for MySQL flexible server instance using Azure portal](./quickstart-create-server-portal.md)
+- [Create an Azure Database for MySQL flexible server instance using Azure CLI](./quickstart-create-server-cli.md)
 
 > [!IMPORTANT]  
 > Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./how-to-manage-firewall-portal.md) or [Azure CLI](./how-to-manage-firewall-cli.md)
@@ -140,7 +140,7 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 ## Get connection information
 
-Get the connection information needed to connect to the Azure Database for MySQL - Flexible Server. You need the fully qualified server name and sign in credentials.
+Get the connection information needed to connect to the Azure Database for MySQL flexible server instance. You need the fully qualified server name and sign in credentials.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
@@ -165,7 +165,7 @@ Save the certificate file to your preferred location.
 
 Use the following code to connect and load the data by using **CREATE TABLE** and  **INSERT INTO** SQL statements.
 
-The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) function is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) function is used to execute the SQL query against MySQL database.
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the Azure Database for MySQL flexible server instance. The [connect()](https://github.com/sidorares/node-mysql2#first-query) function is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) function is used to execute the SQL query against MySQL database.
 
 ```javascript
 const mysql = require('mysql2');
@@ -239,7 +239,7 @@ function queryDatabase()
 
 Use the following code to connect and read the data by using a **SELECT** SQL statement.
 
-The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database. The results array is used to hold the results of the query.
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the Azure Database for MySQL flexible server instance. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database. The results array is used to hold the results of the query.
 
 ```javascript
 const mysql = require('mysql2');
@@ -291,7 +291,7 @@ function readData(){
 
 Use the following code to connect and update the data by using an **UPDATE** SQL statement.
 
-The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database.
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the Azure Database for MySQL flexible server instance. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database.
 
 ```javascript
 const mysql = require('mysql2');
@@ -339,7 +339,7 @@ function updateData(){
 
 Use the following code to connect and delete data by using a **DELETE** SQL statement.
 
-The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database.
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the Azure Database for MySQL flexible server instance. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database.
 
 ```javascript
 const mysql = require('mysql2');
@@ -395,7 +395,7 @@ az group delete \
 
 ## Next steps
 
-- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
-- Learn more about [Networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md).
-- [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md). 
+- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL flexible server](./how-to-connect-tls-ssl.md).
+- Learn more about [Networking in Azure Database for MySQL flexible server](./concepts-networking.md).
+- [Create and manage Azure Database for MySQL flexible server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
+- [Create and manage an Azure Database for MySQL flexible server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md). 

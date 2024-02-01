@@ -1,11 +1,12 @@
 ---
-title: Subscribe to Azure Resource Notifications - Resources events
-description: This article explains how to subscribe to events published by Azure Resource Notifications - Resources. 
+title: Subscribe to Azure Resource Notifications - Resource Management events
+description: This article explains how to subscribe to Azure Resource Notifications - Azure Resource Management events.
 ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 10/08/2023
 ---
 
-# Subscribe to Azure Resource Manager events - Resources system topic (Preview)
+# Subscribe to Azure Resource Management events in Event Grid (Preview)
 This article explains the steps needed to subscribe to events published by Azure Resource Notifications - Resources. For detailed information about these events, see [Azure Resource Notifications - Resources events](event-schema-resources.md).
 
 ## Create Resources system topic

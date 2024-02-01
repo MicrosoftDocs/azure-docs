@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 12/12/2023
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
@@ -43,10 +43,10 @@ az account set --subscription <subscription id>
 
 ## Create a flexible server
 
-Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your PostgreSQL flexible server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your PostgreSQL flexible server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `eastus` location.
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location westus
+az group create --name myresourcegroup --location eastus
 ```
 
 Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server in the resource group you just created:
@@ -55,8 +55,8 @@ Create a flexible server with the `az postgres flexible-server create` command. 
 az postgres flexible-server create --name mydemoserver --resource-group myresourcegroup
 ```
 
-Since the default connectivity method is *Public access (allowed IP addresses)*, the command will prompt you for your own IP address to initialize the list of allowed addresses.
-
+Since the default connectivity method is *Public access (allowed IP addresses)*, the command will prompt you to confirm if you want to add your IP address, and/or all IPs (range covering 0.0.0.0 through 255.255.255.255) to the list of allowed addresses.
+        
 The server created has the following attributes: 
 - The same location as your resource group
 - Auto-generated admin username and admin password (which you should save in a secure place)
@@ -69,7 +69,7 @@ The server created has the following attributes:
 If you'd like to change any defaults, please refer to the Azure CLI reference for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create).
 
 > [!NOTE]
-> Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
+> Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432. Notice that if you enable [PgBouncer](./concepts-pgbouncer.md) on your instance of Flexible Server and want to connect through it, because it runs on port 6432, it is that port that your IT department must open for outbound traffic.
 
 ## Get the connection information
 
@@ -93,7 +93,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "earliestRestoreDate": null,
   "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/mydemoserver",
-  "location": "westus",
+  "location": "eastus",
   "name": "mydemoserver",
   "network": {
     "delegatedSubnetResourceId": null,

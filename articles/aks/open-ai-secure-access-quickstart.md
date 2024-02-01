@@ -227,7 +227,7 @@ To use Microsoft Entra Workload ID on AKS, you need to make a few changes to the
                 memory: 50Mi
               limits:
                 cpu: 30m
-                memory: 65Mi
+                memory: 85Mi
     EOF
     ```
 

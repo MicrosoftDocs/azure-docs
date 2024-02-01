@@ -24,7 +24,7 @@ PostgreSQL uses a process called autovacuum to automatically clean-up dead tuple
 
 ## Autovacuum internals
 
-Autovacuum reads pages looking for dead tuples, and if none are found, autovacuum discard the page.  When autovacuum finds dead tuples, it removes them.  The cost is based on:
+Autovacuum reads pages looking for dead tuples, and if none are found, autovacuum discards the page.  When autovacuum finds dead tuples, it removes them.  The cost is based on:
 
 - `vacuum_cost_page_hit`: Cost of reading a page that is already in shared buffers and doesn't need a disk read. The default value is set to 1.
 - `vacuum_cost_page_miss`: Cost of fetching a page that isn't in shared buffers. The default value is set to 10.
@@ -35,8 +35,9 @@ The amount of work autovacuum does depends on two parameters:
 - `autovacuum_vacuum_cost_limit` is the amount of work autovacuum does in one go.
 - `autovacuum_vacuum_cost_delay` number of milliseconds that autovacuum is asleep after it has reached the cost limit specified by the `autovacuum_vacuum_cost_limit` parameter.
 
-In Postgres versions 9.6, 10 and 11 the default for `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 20 milliseconds.
-In Postgres versions 12 and above the default `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 2 milliseconds.
+In all currently supported versions of Postgres the default for `autovacuum_vacuum_cost_limit` is 200 (actually, it is set to -1 which makes it equals to the value of the regular `vacuum_cost_limit` which, by default, is 200).
+
+As for `autovacuum_vacuum_cost_delay`, in Postgres version 11 it defaults to 20 milliseconds, while in Postgres versions 12 and above it defaults to 2 milliseconds.
 
 Autovacuum wakes up 50 times (50*20 ms=1000 ms) every second. Every time it wakes up, autovacuum reads 200 pages.
 
@@ -56,9 +57,9 @@ select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_t
 
 The following columns help determine if autovacuum is catching up to table activity:
 
-- **Dead_pct**: percentage of dead tuples when compared to live tuples.
-- **Last_autovacuum**: The date of the last time the table was autovacuumed.
-- **Last_autoanalyze**:  The date of the last time the table was automatically analyzed.
+- **dead_pct**: percentage of dead tuples when compared to live tuples.
+- **last_autovacuum**: The date of the last time the table was autovacuumed.
+- **last_autoanalyze**:  The date of the last time the table was automatically analyzed.
 
 ## When does PostgreSQL trigger autovacuum
 
@@ -112,11 +113,11 @@ Use the following query to list the tables in a database and identify the tables
 ```
 
 > [!NOTE]  
-> The query doesn't take into consideration that autovacuum can be configured on a per-table basis using the "alter table" DDL command.
+> The query doesn't take into consideration that autovacuum can be configured on a per-table basis using the "alter table" DDL command.
 
 ## Common autovacuum problems
 
-Review the possible common problems with the autovacuum process.
+Review the following list of possible common problems with the autovacuum process.
 
 ### Not keeping up with busy server
 
@@ -128,11 +129,11 @@ If `autovacuum_vacuum_cost_limit` is set to `-1` then autovacuum uses the `v
 
 In case the autovacuum isn't keeping up, the following parameters might be changed:
 
-| Parameter | Description |
-| --- | --- |
+| Parameter                        | Description                                                                                                                                                                                                                   |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `autovacuum_vacuum_scale_factor` | Default: `0.2`, range: `0.05 - 0.1`. The scale factor is workload-specific and should be set depending on the amount of data in the tables. Before changing the value, investigate the workload and individual table volumes. |
-| `autovacuum_vacuum_cost_limit` | Default: `200`. Cost limit might be increased. CPU and I/O utilization on the database should be monitored before and after making changes. |
-| `autovacuum_vacuum_cost_delay` | **Postgres Versions 9.6,10,11** - Default: `20 ms`. The parameter might be decreased to `2-10 ms`.<br />**Postgres Versions 12 and above** - Default: `2 ms`. |
+| `autovacuum_vacuum_cost_limit`   | Default: `200`. Cost limit might be increased. CPU and I/O utilization on the database should be monitored before and after making changes.                                                                                   |
+| `autovacuum_vacuum_cost_delay`   | **Postgres Version 11** - Default: `20 ms`. The parameter might be decreased to `2-10 ms`.<br />**Postgres Versions 12 and above** - Default: `2 ms`.                                                                         |
 
 > [!NOTE]  
 > The `autovacuum_vacuum_cost_limit` value is distributed proportionally among the running autovacuum workers, so that if there is more than one, the sum of the limits for each worker doesn't exceed the value of the `autovacuum_vacuum_cost_limit` parameter
@@ -256,7 +257,7 @@ To set autovacuum setting per table, change the server parameters as the follo
 ```postgresql
     ALTER TABLE <table name> SET (autovacuum_analyze_scale_factor = xx);
     ALTER TABLE <table name> SET (autovacuum_analyze_threshold = xx);
-    ALTER TABLE <table name> SET (autovacuum_vacuum_scale_factor =xx);
+    ALTER TABLE <table name> SET (autovacuum_vacuum_scale_factor = xx);
     ALTER TABLE <table name> SET (autovacuum_vacuum_threshold = xx);
     ALTER TABLE <table name> SET (autovacuum_vacuum_cost_delay = xx);
     ALTER TABLE <table name> SET (autovacuum_vacuum_cost_limit = xx);
@@ -264,7 +265,7 @@ To set autovacuum setting per table, change the server parameters as the follo
 
 ### Insert-only workloads
 
-In versions of PostgreSQL prior to 13, autovacuum won't run on tables with an insert-only workload, because if there are no updates or deletes, there are no dead tuples and no free space that needs to be reclaimed. However, autoanalyze will run for insert-only workloads since there's new data. The disadvantages of this are:
+In versions of PostgreSQL prior to 13, autovacuum won't run on tables with an insert-only workload, because if there are no updates or deletes, there are no dead tuples and no free space that needs to be reclaimed. However, autoanalyze will run for insert-only workloads since there's new data. The disadvantages of this are:
 
 - The visibility map of the tables isn't updated, and thus query performance, especially where there are Index Only Scans, starts to suffer over time.
 - The database can run into transaction ID wraparound protection.
@@ -280,7 +281,7 @@ For step-by-step guidance using pg_cron, review [Extensions](./concepts-extensio
 
 ##### Postgres 13 and higher versions
 
-Autovacuum will run on tables with an insert-only workload. Two new server parameters `autovacuum_vacuum_insert_threshold` and  `autovacuum_vacuum_insert_scale_factor` help control when autovacuum can be triggered on insert-only tables.
+Autovacuum will run on tables with an insert-only workload. Two new server parameters `autovacuum_vacuum_insert_threshold` and  `autovacuum_vacuum_insert_scale_factor` help control when autovacuum can be triggered on insert-only tables.
 
 ## Troubleshooting guides
 

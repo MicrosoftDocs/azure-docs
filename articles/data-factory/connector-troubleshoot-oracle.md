@@ -31,7 +31,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
 
     To learn the byte sequence in the result, see [How are dates stored in Oracle?](https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

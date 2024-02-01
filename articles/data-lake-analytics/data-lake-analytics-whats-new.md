@@ -4,7 +4,8 @@ description: This article provides an ongoing list of recent changes that are ma
 ms.service: data-lake-analytics
 ms.custom: devx-track-dotnet
 ms.topic: overview
-ms.date: 11/16/2022
+ms.date: 12/20/2023
+ROBOTS: NOINDEX
 ---
 
 # What's new in Data Lake Analytics?

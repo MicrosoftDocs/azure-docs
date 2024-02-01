@@ -4,12 +4,14 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 ms.reviewer: mmcc
 ---
 # Application Insights for ASP.NET Core applications
 
 This article describes how to enable and configure Application Insights for an [ASP.NET Core](/aspnet/core) application.
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 

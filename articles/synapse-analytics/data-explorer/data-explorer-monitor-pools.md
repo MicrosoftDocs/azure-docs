@@ -21,8 +21,6 @@ This article explains how to monitor your Data Explorer pools, allowing you to k
 
 To see the list of Data Explorer pools in your workspace, first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace.
 
-![Log in to workspace](../monitoring/media/common/login-workspace.png)
-
 Once you've opened your workspace, select the **Monitor** section on the left.
 
 ![Select Monitor hub](../monitoring/media/common/left-nav.png)

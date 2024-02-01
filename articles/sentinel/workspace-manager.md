@@ -124,7 +124,7 @@ Common reasons for failure include:
 ### API references
 - [Workspace Manager Assignment Jobs](/rest/api/securityinsights/preview/workspace-manager-assignment-jobs)
 - [Workspace Manager Assignments](/rest/api/securityinsights/preview/workspace-manager-assignments)
-- [Workspace Manager Configurations](/rest/api/securityinsights/preview/workspace-manager-configurations)
+- *Workspace Manager Configurations*
 - [Workspace Manager Groups](/rest/api/securityinsights/preview/workspace-manager-groups)
 - [Workspace Manager Members](/rest/api/securityinsights/preview/workspace-manager-members)
 

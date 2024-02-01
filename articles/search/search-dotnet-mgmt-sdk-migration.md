@@ -1,14 +1,16 @@
 ---
 title: Upgrade management SDKs
-titleSuffix: Azure Cognitive Search
-description: Learn about the management libraries and packages used for control plane operations in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Learn about the management libraries and packages used for control plane operations in Azure AI Search.
 
 manager: nitinme
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/15/2023
 ---

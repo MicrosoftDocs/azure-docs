@@ -13,6 +13,8 @@ ms.reviewer: mmcc
 
 The Application Insights .NET SDK consists of many NuGet packages. The [core package](https://www.nuget.org/packages/Microsoft.ApplicationInsights) provides the API for sending telemetry to the Application Insights. [More packages](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) provide telemetry *modules* and *initializers* for automatically tracking telemetry from your application and its context. By adjusting the configuration file, you can enable or disable telemetry modules and initializers. You can also set parameters for some of them.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`. The name depends on the type of your application. It's automatically added to your project when you [install most versions of the SDK][start]. By default, when you use the automated experience from the Visual Studio template projects that support **Add** > **Application Insights Telemetry**, the `ApplicationInsights.config` file is created in the project root folder. When it's compiled, it's copied to the bin folder. It's also added to a web app by [Application Insights Agent on an IIS server][redfield]. The configuration file is ignored if the [extension for Azure websites](azure-web-apps.md) or the [extension for Azure VMs and virtual machine scale sets](azure-vm-vmss-apps.md) is used.
 
 There isn't an equivalent file to control the [SDK in a webpage][client].
@@ -310,7 +312,7 @@ Configure a [snapshot collection for ASP.NET applications](snapshot-debugger-vm.
 
 [api]: ./api-custom-events-metrics.md
 [client]: ./javascript.md
-[diagnostic]: ./search-and-transaction-diagnostics.md?tabs=transaction-search
+[diagnostic]: ./transaction-search-and-diagnostics.md?tabs=transaction-search
 [exceptions]: ./asp-net-exceptions.md
 [netlogs]: ./asp-net-trace-logs.md
 [new]: ./create-workspace-resource.md
