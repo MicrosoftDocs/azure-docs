@@ -50,13 +50,13 @@ items:
 - name: Create and manage environments
   expanded: false
   items: 
-    - name: Create an environment with AZD
+    - name: With Azure Developer CLI (AZD)
       href: how-to-create-environment-with-azure-developer.md
-    - name: Manage environments in the developer portal
+    - name: In the developer portal
       href: how-to-manage-environments.md
-    - name: Create an environment from the CLI
+    - name: At the Azure CLI
       href: how-to-create-access-environments.md
-- name: Deploy environments in CI/CD with GitHub
+- name: Automate environments with GitHub Actions (CI/CD)
   href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Manage costs
   expanded: false
