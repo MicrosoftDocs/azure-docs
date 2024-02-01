@@ -32,13 +32,13 @@ ms.custom: "include file"
 
 1. In the **Networking** tab, select your connectivity method.
 
-1. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
+1. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page to see the **Advanced** tab.
 
-1. In the **Advanced** tab for a basic or standard cache instance, select the enable toggle if you want to enable a non-TLS port. You can also select which Redis version you would like use, either 4 or 6.
+   1. For Basic or Standard caches, toggle the selection for a non-TLS port. You can also select if you want to enable **Microsoft Entra Authentication**.
 
-    :::image type="content" source="media/redis-cache-create/cache-redis-version.png" alt-text="Redis version 4 or 6.":::
+     :::image type="content" source="media/redis-cache-create/cache-redis-version.png" alt-text="Redis version 4 or 6.":::
 
-1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. You can also select which Redis version you would like use, either 4 or 6.
+   1. For a Premium cache, configure the settings for non-TLS port, clustering, managed identity, and data persistence. You can also select if you want to enable **Microsoft Entra Authentication**.
 
 1. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
 
@@ -49,5 +49,3 @@ ms.custom: "include file"
 1. After the green Validation passed message appears, select **Create**.
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
-
-<!-- Comment to dirty file. -->
