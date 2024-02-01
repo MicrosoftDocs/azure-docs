@@ -31,7 +31,7 @@ The Azure Resource Manager (ARM) model that is used for lifecycle management is 
 > [!NOTE]
 > The CNFs are included for Public Preview while the VNFs are targeted for GA release.
 
-:::image type="content" source="media/overview-architecture/lifecycle-management-model.png" alt-text="Diagram showing the containerized network functions and virtualized network functions responsible for lifecycle management in Azure Operator 5G Core.":::
+:::image type="content" source="media/concept-centralized-lifecycle-management/lifecycle-management-model.png" alt-text="Diagram showing the containerized network functions and virtualized network functions responsible for lifecycle management in Azure Operator 5G Core.":::
 
 Network function federated deployments require fully deployed local Platform as a Service (PaaS) components (cluster). Any attempt to deploy a network function prior to PaaS deployment fails. ARM templates are serial in nature and don't proceed until dependent templates are complete. This process prevents network function templates from being deployed prior to PaaS completion.  Observability deployments also fail if local PaaS deployment is incomplete.
 
@@ -48,7 +48,7 @@ AO5GC network function images and Helm charts are Azure-managed and accessed by 
 
 Local Observability is provided by UnityCloud Observability components listed in the diagram. Because the Observability function is local, it also available in break-glass scenarios for Nexus where the interfaces can be accessed locally.
  
-:::image type="content" source="media/overview-architecture/local-observability.png" alt-text="Diagram showing how UnityCloud observability components are used in Azure Operator 5G Core. ":::
+:::image type="content" source="media/concept-centralized-lifecycle-management/local-observability.png" alt-text="Diagram showing how UnityCloud observability components are used in Azure Operator 5G Core. ":::
 
 
 
