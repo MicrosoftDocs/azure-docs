@@ -6,8 +6,6 @@ items:
   items:
   - name: What is Azure Operator 5G Core?
     href: overview-product.md
-  - name: Azure Operator 5G Core architecture
-    href: overview-architecture.md
 - name: Quickstarts
   expanded: false
   items:

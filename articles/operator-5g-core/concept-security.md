@@ -41,5 +41,4 @@ Security monitoring of the application occurs through a combination of native al
 
 ## Related content
 - [What is Azure Operator 5G Core?](overview-product.md)
-- [Azure Operator 5G Core architecture](overview-architecture.md)
 - [Observability analytics in Azure Operator 5G Core](concept-observability-analytics.md)
