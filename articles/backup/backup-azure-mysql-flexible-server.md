@@ -33,7 +33,7 @@ To create a backup policy, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/create-backup-policy.png" alt-text="Screenshot shows how to start creating the new backup policy." lightbox="./media/backup-azure-mysql-flexible-server/create-backup-policy.png":::
 
-4. On the **Create a Backup Policy** page, enter a name for the new policy, and then select **Azure Database for MySQL (Preview)** as the **Datasource type**.
+4. On the **Create Backup Policy** page, enter a name for the new policy, and then select **Azure Database for MySQL (Preview)** as the **Datasource type**.
 
 5. On the **Schedule + retention** tab, define the **Backup schedule**.
 
@@ -45,7 +45,7 @@ To create a backup policy, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/add-retention.png" alt-text="Screenshot shows how to configure the retention duration." lightbox="./media/backup-azure-mysql-flexible-server/add-retention.png":::
 
-   You can add one or more retention rules.
+   You can add one or more retention rules. To add more retention rules, select **Add**.
 
 6. To move the backups from *backup data store* to *archive data store* once they expire as per the backup policy, select **On-expiry**.
 
@@ -53,7 +53,7 @@ To create a backup policy, follow these steps:
    >- Retention duration ranges from *7 days* to *10 years* in the *Backup data store*.
    >- As per the pre-determined order of priority, the retention with the *yearly* rule selected has the highest priority, followed by the monthly, and then the weekly rule. By default, the retention rule is set to *3 months* if no retention rule is set. 
 
-7. Select **Create**.   
+7. Select **Review + create**.   
 
 ## Configure backup on Azure Database for MySQL - Flexible Server
 
@@ -83,18 +83,18 @@ To configure backup, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/datasources.png" alt-text="Screenshot shows the selection of the datasource type." lightbox="./media/backup-azure-mysql-flexible-server/datasources.png":::
 
-5. After the selection, the backup readiness check ensures the configuration is correct. 
+   After the selection, the backup readiness check validates to ensure the configuration is correct. 
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/datasources-readiness-check.png" alt-text="Screenshot shows the validation is successful." lightbox="./media/backup-azure-mysql-flexible-server/datasources-readiness-check.png":::
-   To resolve any access issues, select **Assign missing roles**.  
+
+5. To resolve any access issues, select **Assign missing roles**.  
  
  
 6. Review  the configuration details, and then select **Configure Backup**.
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/create-backup-policy-final.png" alt-text="Screenshot shows how to finish the backup configuration." lightbox="./media/backup-azure-mysql-flexible-server/create-backup-policy-final.png":::
 
-7. Track the progress under **Backup Instances**.
-
+   To track the progress under, go to **Backup Instances**.
 
 ## Run an on-demand backup
 
@@ -102,16 +102,16 @@ To trigger an on-demand backup (that's not in the schedule specified in the poli
 
 1. Go to **Backup Instances**, and then select the *backup instance* for which you want to take backup.
 
+2. Select **Backup Now**.
+
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/backup-instances.png" alt-text="Screenshot shows how to run an on-demand backup." lightbox="./media/backup-azure-mysql-flexible-server/backup-instances.png":::
 
-2. Select **Backup Now**.
 3. Choose a retention rule from the list.
 4. Select **Backup now**.
- 
 
 ## Monitor a backup job
 
-Azure Backup creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status, go to **Backup Jobs**.
+Azure Backup creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status, go to **Backup jobs**.
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server/track-backup-jobs.png" alt-text="Screenshot shows the list of backup jobs." lightbox="./media/backup-azure-mysql-flexible-server/track-backup-jobs.png":::
 
