@@ -59,19 +59,19 @@ Azure Storage insights offer a unified view of storage performance, capacity, an
 For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#metrics).
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
-<!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. -->
+<!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. 
 [!INCLUDE [horz-monitor-container-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-container-metrics.md)]
 <!-- Add service-specific information about your container/Prometheus metrics here.-->
 
-<!-- ## System metrics. Optional. If your service uses system-imported metrics, add the following include and information. -->
+<!-- ## System metrics. Optional. If your service uses system-imported metrics, add the following include and information. 
 [!INCLUDE [horz-monitor-system-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-system-metrics.md)]
 <!-- Add service-specific information about your system-imported metrics here.-->
 
-<!-- ## Custom metrics. Optional. If your service uses custom imported metrics, add the following include and information. -->
+<!-- ## Custom metrics. Optional. If your service uses custom imported metrics, add the following include and information. 
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-custom-metrics.md)]
 <!-- Custom imported service-specific information. Add service-specific information about your custom imported metrics here.-->
 
-<!-- ## Non-Azure Monitor metrics. Optional. If your service uses any non-Azure Monitor based metrics, add the following include and information. -->
+<!-- ## Non-Azure Monitor metrics. Optional. If your service uses any non-Azure Monitor based metrics, add the following include and information. 
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
 <!-- Non-Monitor metrics service-specific information. Add service-specific information about your non-Azure Monitor metrics here.-->
 
@@ -99,9 +99,9 @@ When you create the diagnostic setting, choose **blob** as the type of storage t
 The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system will decide which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs).
 
 > [!NOTE]
-> Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
+> Data Lake Storage Gen2 doesn't appear as a storage type because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
 
-### Destination limitations
+#### Destination limitations
 
 For general destination limitations, see [Destination limitations](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
 
@@ -118,7 +118,7 @@ For general destination limitations, see [Destination limitations](/azure/azure-
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 <!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
 
-<!-- ## Imported logs. Optional section. If your service uses imported logs, add the following include and information. -->
+<!-- ## Imported logs. Optional section. If your service uses imported logs, add the following include and information. 
 [!INCLUDE [horz-monitor-imported-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-imported-logs.md)]
 <!-- Add service-specific information about your imported logs here. -->
 
@@ -137,6 +137,13 @@ If your service has other logs that aren't resource logs or in the activity log,
 
 ## Analyze metrics for Azure Blob Storage
 
+Metrics for Azure Blob Storage are in these namespaces:
+
+- Microsoft.Storage/storageAccounts
+- Microsoft.Storage/storageAccounts/blobServices
+
+For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](monitor-blob-storage-reference.md#metrics-dimensions).
+
 ### [Azure portal](#tab/azure-portal)
 
 You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
@@ -148,13 +155,6 @@ This example shows how to view **Transactions** at the account level.
 For metrics that support dimensions, you can filter the metric with the desired dimension value. This example shows how to view **Transactions** at the account level on a specific operation by selecting values for the **API Name** dimension.
 
 ![Screenshot of accessing metrics with dimension in the Azure portal](./media/monitor-blob-storage/access-metrics-portal-with-dimension.png)
-
-For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](monitor-blob-storage-reference.md#metrics-dimensions).
-
-Metrics for Azure Blob Storage are in these namespaces:
-
-- Microsoft.Storage/storageAccounts
-- Microsoft.Storage/storageAccounts/blobServices
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -169,7 +169,7 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
    Get-AzMetricDefinition -ResourceId $resourceId
 ```
 
-#### Reading metric values
+#### Read metric values
 
 You can read account-level metric values of your storage account or the Blob storage service. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
 
@@ -178,7 +178,7 @@ You can read account-level metric values of your storage account or the Blob sto
    Get-AzMetric -ResourceId $resourceId -MetricName "UsedCapacity" -TimeGrain 01:00:00
 ```
 
-#### Reading metric values with dimensions
+#### Read metric values with dimensions
 
 When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
 
