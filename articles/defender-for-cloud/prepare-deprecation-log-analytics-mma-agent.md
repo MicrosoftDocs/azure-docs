@@ -27,10 +27,10 @@ The Defender for Servers plan uses the Log Analytics Agent in general availabili
 
 The following table summarizes how Defender for Servers features will be provided as part of the deprecation plan.
 
-| Feature	 | Current functionality | New functionality | New functionality status |
-|----|----|----|----| 	 	 	 
-| Endpoint protection for machines running Windows Server 2016, 2012 R2 |	Legacy Defender for Endpoint sensor, Log Analytics agent (GA) |	Defender for Endpoint agent |Functionality with the Defender for Endpoint agent is GA<br/>Functionality with the legacy Defender for Endpoint sensor and the Log Analytics agent will deprecate in August 2024. |
-| OS-level threat detection |	Log Analytics agent (GA) | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent is GA |
+| Feature | Current functionality | New functionality | New functionality status |
+|----|----|----|----|
+| Endpoint protection for machines running Windows Server 2016, 2012 R2 | Legacy Defender for Endpoint sensor, Log Analytics agent (GA) | Defender for Endpoint agent |Functionality with the Defender for Endpoint agent is GA<br/>Functionality with the legacy Defender for Endpoint sensor and the Log Analytics agent will deprecate in August 2024. |
+| OS-level threat detection | Log Analytics agent (GA) | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent is GA |
 | Adaptive application controls | Log Analytics agent (GA), AMA (Preview) | Not applicable | The adaptive application control feature will be deprecated in August 2024. |
 | Endpoint discovery and protection recommendations | Recommendations provided by foundational CSPM in Defender for Cloud using the Log Analytics agent (GA), AMA (Preview) | Agentless scanning | Functionality with agentless scanning will release to review around April 2024 as part of Defender for Servers plan 2 and the Defender CSPM plan. Azure Arc-connected machines and on-premises machines (with or without Arc) won’t be supported. |
 | Missing OS system update recommendation | Log Analytics agent (GA), Guest Configuration agent (Preview} | Integration with Update Manager, Microsoft Defender Vulnerability Management. | New recommendations based on Update Manager integration are GA, with no agent dependencies.<br/>The Guest Configuration agent functionality will deprecate when an alternative is provided with Microsoft Defender Vulnerability Management premium.<br/>Support for this feature in Docker Hub and VMMS will deprecated in August 2024. |
