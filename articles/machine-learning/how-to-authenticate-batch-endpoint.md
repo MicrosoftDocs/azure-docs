@@ -296,6 +296,7 @@ To successfully invoke a batch endpoint you need the following explicit actions 
     "Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action",
     "Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/read",
+    "Microsoft.MachineLearningServices/workspaces/batchEndpoints/write",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments/read",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/write",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments/write",
