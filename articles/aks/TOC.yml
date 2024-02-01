@@ -363,11 +363,11 @@
           items:
             - name: Cluster autoscaler overview
               href: cluster-autoscaler-overview.md
-            - name: Use the Cluster autoscaler on AKS
+            - name: Use the cluster autoscaler on AKS
               href: cluster-autoscaler.md
         - name: Node autoprovision
           href: node-autoprovision.md
-        - name: Availability Zones
+        - name: Availability zones
           href: availability-zones.md
     - name: Cluster management
       items:
@@ -421,7 +421,7 @@
               href: use-kms-etcd-encryption.md
         - name: Node security
           items:
-            - name: BYOK for disks
+            - name: BYOK for Azure managed disks
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
