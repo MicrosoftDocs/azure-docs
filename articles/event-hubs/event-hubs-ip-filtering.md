@@ -48,7 +48,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 1. To restrict access to **specific IP addresses**, select **Selected networks** option, and then follow these steps: 
     1. In the **Firewall** section, select **Add your client IP address** option to give your current client IP the access to the namespace. 
-    3. For **address range**, enter a specific IPv4 or IPv6 addresses or address ranges in CIDR notation.
+    3. For **address range**, enter specific IPv4 or IPv6 addresses or address ranges in CIDR notation.
     
         > [!IMPORTANT]
         > When the service starts supporting IPv6 connections in the future and clients automatically switch to using IPv6, your clients will break if you have only IPv4 addresses, not IPv6 addresses. Therefore, we recommend that you add IPv6 addresses to the list of allowed IP addresses now so that your clients don't break when the service eventually switches to supporting IPv6. 
