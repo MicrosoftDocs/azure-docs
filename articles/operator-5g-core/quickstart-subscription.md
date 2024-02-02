@@ -177,7 +177,7 @@ If there is a follow-on Quickstart that uses the same resources, make that optio
 <!-- Use this exact H2 -->
 ## Clean up resources
 
-If you're not going to continue to use this application, delete <resources> with the following steps:
+If you're not going to continue to use this application, delete with the following steps:
 
 1. From the left-hand menu...
 2. ...click Delete, type...and then click Delete
@@ -195,7 +195,7 @@ Optional: You have two options for manually curated links in this pattern: Next 
 TODO: Add your next step link(s)
 
 > [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
+>
 
 <!-- OR -->
 
@@ -203,7 +203,6 @@ TODO: Add your next step link(s)
 
 TODO: Add your next step link(s)
 
-- [Write concepts](article-concept.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
