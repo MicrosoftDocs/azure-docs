@@ -132,7 +132,7 @@ If you have a pre-existing resource group that you want to associate with, then 
     In this step, you create endpoints that point to the production and disaster recovery sites. Here, choose the **Type** as an external endpoint, but if the resource is hosted in Azure, then you can choose **Azure endpoint** as well. If you choose **Azure endpoint**, then select a **Target resource** that is either an **App Service** or a **Public IP** that is allocated by Azure. The priority is set as **1** since it's the primary service for Region 1.
     Similarly, create the disaster recovery endpoint within Traffic Manager as well.
     
-    ![Create disaster recovery endpoints](../netoorking/media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
+    ![Create disaster recovery endpoints](../networking/media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
     
     *Figure - Create disaster recovery endpoints*
 
