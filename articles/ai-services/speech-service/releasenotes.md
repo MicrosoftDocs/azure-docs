@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: release-notes
-ms.date: 09/15/2023
+ms.date: 1/21/2024
 ms.custom: ignite-fall-2021, references_regions
 ---
 
@@ -20,9 +20,8 @@ Azure AI Speech is updated on an ongoing basis. To stay up-to-date with recent d
 
 ## Recent highlights
 
-* Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](./batch-transcription-create.md#using-whisper-models) guide. 
+* Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](./batch-transcription-create.md#use-a-whisper-model) guide. 
 * [Speech to text REST API version 3.2](./migrate-v3-1-to-v3-2.md) is available in public preview.
-* Speech SDK 1.32.1 was released in September 2023.
 * [Real-time diarization](./get-started-stt-diarization.md) is in public preview.  
 
 ## Release notes

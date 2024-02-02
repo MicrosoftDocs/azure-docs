@@ -16,6 +16,8 @@
     href: quick-create-bicep.md
   - name: Create virtual network - ARM template
     href: quick-create-template.md
+  - name: Create virtual network - Terraform
+    href: quick-create-terraform.md
   expanded: true
 - name: Tutorials
   items:

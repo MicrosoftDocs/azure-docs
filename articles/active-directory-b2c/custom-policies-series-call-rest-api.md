@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements, devx-track-js
-ms.date: 11/20/2023
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating customer-facing apps with Azure Active Directory B2C custom policy, I want to learn how to call a REST API from my custom policy, so that I can send and receive data from external services.
+
 ---
 
 # Call a REST API by using Azure Active Directory B2C custom policy
@@ -31,7 +35,7 @@ In this article, you learn how to:
 
 ## Scenario overview 
 
-In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP `409 Conflict` response, and the user must reenter an access code. 
+In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 4xx response, and the user must reenter an access code. 
 
 :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
@@ -137,6 +141,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
             "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```
+Your REST service can return HTTP 4xx status code, but the value of `status` in the JSON response must be `409`.
 
 At this point, you're ready to deploy your Node.js app. 
 

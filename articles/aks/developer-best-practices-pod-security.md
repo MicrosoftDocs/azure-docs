@@ -2,7 +2,7 @@
 title: Developer best practices - Pod security in Azure Kubernetes Services (AKS)
 description: Learn the developer best practices for how to secure pods in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 01/12/2024
 ms.author: zarhoads
 ---
 
@@ -87,19 +87,28 @@ With Key Vault, you store and regularly rotate secrets such as credentials, stor
 
 This article focused on how to secure your pods. To implement some of these areas, see the following articles:
 
-* [Use Microsoft Entra Workload ID for Azure resources with AKS][workload-identity-overview] (preview)
+* [Use Microsoft Entra Workload ID for Azure resources with AKS][workload-identity-overview]
 * [Integrate Azure Key Vault with AKS][aks-keyvault-csi-driver]
 
 <!-- EXTERNAL LINKS -->
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
+
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#selinuxoptions-v1-core
+
 [aks-associated-projects]: https://awesomeopensource.com/projects/aks?categoryPage=11
+
 [azure-sdk-download]: https://azure.microsoft.com/downloads/
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
+
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
+
 [apparmor-seccomp]: operator-best-practices-cluster-security.md#secure-container-access-to-resources
+
 [microsoft-authentication-library]: ../active-directory/develop/msal-overview.md
+
 [workload-identity-overview]: workload-identity-overview.md
+
 [aks-keyvault-csi-driver]: csi-secrets-store-driver.md
+

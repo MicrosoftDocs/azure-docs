@@ -11,7 +11,8 @@ ms.subservice: azure-ai-face
 ms.topic: quickstart
 ms.date: 07/04/2023
 ms.author: pafarley
-ms.devlang: csharp, golang, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api, devx-track-dotnet, devx-track-extended-java, devx-track-js
 keywords: face search by image, facial recognition search, facial recognition, face recognition app
 ---

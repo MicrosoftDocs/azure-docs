@@ -123,7 +123,7 @@ Examples:
 
 * [Configure credential manager - Microsoft Graph API](credentials-how-to-azure-ad.md)
 * [Configure credential manager - GitHub API](credentials-how-to-github.md)
-* [Configure credential manager - user delegated access to backend APIs](credentials-how-to-github.md)
+* [Configure credential manager - user delegated access to backend APIs](credentials-how-to-user-delegated.md)
 
 ## Other options to secure APIs
 

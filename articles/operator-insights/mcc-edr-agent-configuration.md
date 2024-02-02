@@ -23,14 +23,14 @@ agent_id: mcc-edr-agent01
 # a unique name. 
 # The name can then be referenced for secrets later in the config. 
 secret_providers: 
-  - name: dp_keyvault 
-    provider: 
-      type: key_vault 
-      vault_name: contoso-dp-kv 
-      auth: 
-        tenant_id: ad5421f5-99e4-44a9-8a46-cc30f34e8dc7 
-        identity_name: 98f3263d-218e-4adf-b939-eacce6a590d2 
-        cert_path: /path/to/local/certkey.pkcs 
+  - name: dp_keyvault
+    provider:
+      type: key_vault
+      vault_name: contoso-dp-kv
+      auth:
+        tenant_id: ad5421f5-99e4-44a9-8a46-cc30f34e8dc7
+        identity_name: 98f3263d-218e-4adf-b939-eacce6a590d2
+        cert_path: /path/to/local/certkey.pkcs
 # Source configuration. This controls how EDRs are ingested from  
 # MCC. 
 source: 

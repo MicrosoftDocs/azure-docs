@@ -3,8 +3,9 @@ title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
 ms.date: 11/09/2023
-ms.devlang: csharp, python
-ms.custom: devx-track-python, devx-track-azurecli, devx-track-linux
+ms.devlang: csharp
+# ms.devlang: csharp, python
+ms.custom: devx-track-python, devx-track-azurecli, linux-related-content
 ---
 
 # Use the Azure Compute Gallery to create a custom image pool
@@ -33,8 +34,8 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 > [!NOTE]
 > Currently, Azure Batch does not support the ‘TrustedLaunch’ feature. You must use the standard security type to create a custom image instead.
-> 
-> You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.  
+>
+> You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.
 
 - **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
@@ -66,14 +67,14 @@ The following steps show how to prepare a VM, take a snapshot, and create an ima
 
 ### Prepare a VM
 
-If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. 
+If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image.
 
 To get a full list of current Azure Marketplace image references supported by Azure Batch, use one of the following APIs to return a list of Windows and Linux VM images including the node agent SKU IDs for each image:
 
 - PowerShell: [Azure Batch supported images](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI:  [Azure Batch pool supported images](/cli/azure/batch/pool/supported-images)
 - Batch service APIs: [Batch service APIs](batch-apis-tools.md#batch-service-apis) and [Azure Batch service supported images](/rest/api/batchservice/account/listsupportedimages)
-- List node agent SKUs: [Node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 
+- List node agent SKUs: [Node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus)
 
 > [!NOTE]
 > You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)VMs.
@@ -110,7 +111,7 @@ Once you have successfully created your managed image, you need to create an Azu
 To create a pool from your Shared Image using the Azure CLI, use the `az batch pool create` command. Specify the Shared Image ID in the `--image` field. Make sure the OS type and SKU matches the versions specified by `--node-agent-sku-id`
 
 > [!NOTE]
-> You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.  
+> You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.
 
 > [!IMPORTANT]
 > The node agent SKU id must align with the publisher/offer/SKU in order for the node to start.
@@ -159,7 +160,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 ## Create a pool from a Shared Image using Python
 
-You also can create a pool from a Shared Image by using the Python SDK: 
+You also can create a pool from a Shared Image by using the Python SDK:
 
 ```python
 # Import the required modules from the
@@ -235,7 +236,7 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 1. Once the node is allocated, use **Connect** to generate user and the RDP file for Windows OR use SSH to for Linux to login to the allocated node and verify.
 
 ![Create a pool with from a Shared image with the portal.](media/batch-sig-images/create-custom-pool.png)
-  
+
 
 ## Considerations for large pools
 

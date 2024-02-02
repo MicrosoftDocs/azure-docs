@@ -12,7 +12,7 @@ ms.custom:
   - devx-track-js
   - ignite-2023
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 01/25/2024
 ---
 
 # JavaScript samples for Azure AI Search
@@ -39,7 +39,7 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 | [indexers](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) |  Demonstrates how to create, update, get, list, reset, and delete [indexers](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) |   Demonstrates how to create, update, get, list, and delete [skillsets](cognitive-search-working-with-skillsets.md) that are attached indexers, and that perform AI-based enrichment during indexing. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/javascript) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
-| [VectorSearch](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v12-beta/javascript/vectorSearch.js) | Demonstrates how to generate vectors and send a [vector query](vector-search-how-to-query.md).  |
+| [VectorSearch](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v12-beta/javascript/vectorSearch.js) | Demonstrates how to index vectors and send a [vector query](vector-search-how-to-query.md).  |
 
 ### TypeScript samples
 
@@ -50,6 +50,7 @@ Code samples from the Azure SDK development team demonstrate API usage. You can 
 | [indexers](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v11/typescript/src) |  Demonstrates how to create, update, get, list, reset, and delete [indexers](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/typescript/src/skillSetOperations.ts) |   Demonstrates how to create, update, get, list, and delete [skillsets](cognitive-search-working-with-skillsets.md) that are attached indexers, and that perform AI-based enrichment during indexing. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/typescript/src/synonymMapOperations.ts) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
+| [VectorSearch](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v12/typescript/src/vectorSearch.ts) | Demonstrates how to index vectors and send a [vector query](vector-search-how-to-query.md).  |
 
 ## Doc samples
 
@@ -69,5 +70,5 @@ The following samples are also published by the Azure AI Search team, but aren't
 
 | Samples | Description |
 |---------|-------------|
-| [azure-search-vector-sample.js](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript)  | Vector search sample using the Azure SDK for JavaScript |
+| [azure-search-vector-sample.js](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript/JavaScriptVectorDemo)  | Vector search sample using the Azure SDK for JavaScript |
 | [azure-search-react-template](https://github.com/dereklegenzoff/azure-search-react-template) | React template for Azure AI Search (github.com) |

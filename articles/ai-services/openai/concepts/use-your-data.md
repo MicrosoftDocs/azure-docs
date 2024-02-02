@@ -29,7 +29,7 @@ You can access Azure OpenAI on your data using a REST API or the web-based inter
 To get started, [connect your data source](../use-your-data-quickstart.md) using Azure OpenAI Studio and start asking questions and chatting on your data.
 
 > [!NOTE]
-> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) with either the gpt-35-turbo or the gpt-4 models deployed.
+> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) deployed in a [supported region](#azure-openai-on-your-data-regional-availability) with either the gpt-35-turbo or the gpt-4 models.
 
 ## Azure Role-based access controls (Azure RBAC) for adding data sources
 
@@ -524,6 +524,27 @@ Resolution:
 This means the storage account is not accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account is not hidden behind a private endpoint (if a private endpoint is not configured for this resource). 
 
 
+## Azure OpenAI on your data regional availability
+
+You can use Azure OpenAI on your data with an Azure OpenAI resource in the following regions:
+* Australia East
+* Brazil South
+* Canada East
+* East US
+* East US 2
+* France Central
+* Japan East
+* North Central US
+* Norway East
+* South Central US
+* South India
+* Sweden Central
+* Switzerland North
+* UK South
+* West Europe
+* West US
+
+If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI on your data.
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)

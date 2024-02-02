@@ -1,5 +1,5 @@
 ---
-title: Use cloud-init to configure a swap partition on a Linux VM 
+title: Use cloud-init to configure a swap partition on a Linux VM
 description: How to use cloud-init to configure a swap partition in a Linux VM during creation with the Azure CLI
 author: mattmcinnes
 ms.service: virtual-machines
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 03/29/2023
 ms.author: mattmcinnes
 ms.subservice: cloud-init
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # Use cloud-init to configure a swap partition on a Linux VM
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure the swap partition on various Linux distributions. The swap partition was traditionally configured by the Linux Agent (WALA) based on which distributions required one.  This document outlines the process for building the swap partition on demand during provisioning time using cloud-init.  For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
@@ -22,7 +22,7 @@ By default on Azure, Ubuntu gallery images do not create swap partitions. To ena
 
 ## Create swap partition for Red Hat and CentOS based images
 
-Create a file in your current shell named *cloud_init_swappart.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+Create a file in your current shell named *cloud_init_swappart.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.
 
 ```yaml
 #cloud-config
@@ -57,7 +57,7 @@ az vm create \
   --name vmName \
   --image imageCIURN \
   --custom-data cloud_init_swappart.txt \
-  --generate-ssh-keys 
+  --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -128,5 +128,5 @@ For more cloud-init examples of configuration changes, see the following:
 
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
-- [Change VM local hostname](cloudinit-update-vm-hostname.md) 
+- [Change VM local hostname](cloudinit-update-vm-hostname.md)
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)

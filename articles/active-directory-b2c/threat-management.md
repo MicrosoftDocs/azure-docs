@@ -12,6 +12,9 @@ ms.topic: reference
 ms.date: 09/20/2021
 ms.author: godonnell
 ms.subservice: B2C
+
+#Customer Intent: As an Azure AD B2C administrator, I want to mitigate credential attacks by using smart lockout, so that I can protect user accounts from unauthorized access.
+
 ---
 
 # Mitigate credential attacks in Azure AD B2C with smart lockout

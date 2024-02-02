@@ -8,7 +8,7 @@ author: jcodella
 ms.service: azure-ai-personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
-ms.date: 02/02/2023
+ms.date: 01/19/2024
 ---
 
 [Reference documentation](/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [.NET code sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
