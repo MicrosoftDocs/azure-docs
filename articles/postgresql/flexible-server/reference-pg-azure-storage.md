@@ -26,6 +26,19 @@ Then you can install the extension, by connecting to your target database and ru
 CREATE EXTENSION azure_storage;
 ```
 
+## Permissions
+
+Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is accessible only by the superuser.
+
+Users granted the `azure_storage_admin` role can interact with this table using the following functions:
+* account_add
+* account_list
+* account_remove
+* account_user_add
+* account_user_remove
+
+The `azure_storage_admin` role is by default granted to the `azure_pg_admin` role.
+
 ## azure_storage.account_add
 
 Function allows adding access to a storage account.
@@ -44,7 +57,7 @@ An Azure blob storage (ABS) account contains all of your ABS objects: blobs, fil
 
 #### account_key_p
 
-Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is accessible by the postgres superuser, azure_storage_admin and all roles granted those admin permissions. To see which storage accounts exist, use the function account_list.
+Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is accessible only by the superuser. Users granted the `azure_storage_admin` role can interact with this table via functions. To see which storage accounts exist, use the function account_list.
 
 ## azure_storage.account_remove
 
