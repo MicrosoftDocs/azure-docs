@@ -113,8 +113,14 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 
 1. Go to Prompt flow in your workspace, then go to **connections** tab.
 2. Select **Create** and select **Custom**.
-1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
+3. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
+4. Besides your key value pairs, please also add following extra meta data to the connection:
+    - azureml.flow.connection_type: Custom
+    - azureml.flow.module: promptflow.connections
+    
+    :::image type="content" source="./media/python-tool/custom-connection-meta.png" alt-text="Screenshot that shows add extra meta to custom connection in AI studio." lightbox = "./media/python-tool/custom-connection-meta.png"::: 
 
+    
 > [!NOTE]
 > - You can set one Key-Value pair as secret by **is secret** checked, which will be encrypted and stored in your key value.
 > - Make sure at least one key-value pair is set as secret, otherwise the connection will not be created successfully.
