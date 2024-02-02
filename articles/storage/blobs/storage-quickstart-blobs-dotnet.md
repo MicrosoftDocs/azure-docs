@@ -225,7 +225,7 @@ dotnet build
 dotnet run
 ```
 
-To learn more about the different parts of the sample code, see [Code examples](#code-examples).
+To learn more about how the sample code works, see [Code examples](#code-examples).
 
 When you're finished testing the code, see the [Clean up resources](#clean-up-resources) section to delete the resources created by the `azd up` command.
 
@@ -260,8 +260,19 @@ The sample code snippets in the following sections demonstrate how to perform th
 - [Download a blob](#download-a-blob)
 - [Delete a container](#delete-a-container)
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
+> [!NOTE]
+> The Azure Developer CLI template includes a project with sample code already in place. The following examples provide detail for each part of the sample code. The template implements the recommended passwordless authentication method, as described in the [Authenticate to Azure](#authenticate-to-azure-and-authorize-access-to-blob-data) section. The connection string method is shown as an alternative, but isn't used in the template and isn't recommended for production code.
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
 > [!IMPORTANT]
 > Make sure you've installed the correct NuGet packages and added the necessary using statements in order for the code samples to work, as described in the [setting up](#setting-up) section.
+
+::: zone-end
 
 [!INCLUDE [storage-quickstart-credential-free-include](../../../includes/storage-quickstart-credential-free-include.md)]
 
@@ -269,7 +280,11 @@ The sample code snippets in the following sections demonstrate how to perform th
 
 Create a new container in your storage account by calling the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) method on the `blobServiceClient` object. In this example, the code appends a GUID value to the container name to ensure that it's unique.
 
-Add this code to the end of the `Program.cs` file:
+::: zone pivot="blob-storage-quickstart-scratch"
+
+Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 // TODO: Replace <storage-account-name> with your actual storage account name
@@ -293,7 +308,11 @@ To learn more about creating a container, and to explore more code samples, see 
 
 Upload a blob to a container using [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync). The example code creates a text file in the local *data* directory to upload to the container.
 
-Add the following code to the end of the `Program.cs` class:
+::: zone pivot="blob-storage-quickstart-scratch"
+
+Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 // Create a local file in the ./data/ directory for uploading and downloading
@@ -320,7 +339,11 @@ To learn more about uploading blobs, and to explore more code samples, see [Uplo
 
 List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 Console.WriteLine("Listing blobs...");
@@ -338,7 +361,11 @@ To learn more about listing blobs, and to explore more code samples, see [List b
 
 Download the blob we created earlier by calling the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method. The example code appends the string "DOWNLOADED" to the file name so that you can see both files in local file system.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 // Download the blob to a local file
@@ -360,7 +387,11 @@ The following code cleans up the resources the app created by deleting the conta
 
 The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were created correctly, before they're deleted.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 // Clean up
