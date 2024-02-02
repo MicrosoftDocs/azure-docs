@@ -8,7 +8,7 @@ ms.date: 02/02/2024
 
 # Configure your Bicep environment
 
-Bicep supports an optional configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. This file is merged with the [default configuration file](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json). To customize configuration, create a configuration file in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration from the nearest one. For more information on how Bicep picking and merging configuration files, see [Bicep configuration](#bicep-compilation).
+Bicep supports an optional configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. This file is merged with the [default configuration file](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json). For more information, see [Merge with the default configuration](#merge-with-the-default-configuration). To customize configuration, create a configuration file in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration from the nearest one. For more information, see [Resolve configuration files](#resolve-configuration-files).
 
 To configure Bicep extension settings, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
@@ -49,9 +49,9 @@ Here is an example of enabling features 'compileTimeImports' and 'userDefinedFun
 
 For information on the current set of experimental features, see [Experimental Features](https://aka.ms/bicep/experimental-features).
 
-## Bicep compilation
+## Merge with the default configuration
 
-The user-defined configuration files undergo a recursive bottom-up merging process with the default configuration file. The merging algorithm inspects elements with matching paths in both configurations. If a property is absent in the default configuration, it is included in the final result. Conversely, if the same property exists in the default configuration, the value from the user-defined configuration takes precedence over the default value.
+The `bicepconfig.json` file undergoes a recursive bottom-up merging process with the default configuration file. During the merging process, the algorithm examines each path in both configurations. If a path is not present in the default configuration, the path and its associated value are included in the final result. Conversely, if a path exists in the default configuration with a different value, the value from `bicepconfig.json` takes precedence in the merged result.
 
 Consider a scenario where the default configuration is defined as follows:
 
@@ -70,7 +70,7 @@ Consider a scenario where the default configuration is defined as follows:
 }
 ```
 
-And the bicepconfig.json is fdefined as follows:
+And the `bicepconfig.json` is fdefined as follows:
 
 ```json
 {
@@ -102,19 +102,21 @@ The resulting merged configuration would be:
 }
 ```
 
-It's important to note the recursive bottom-up merge-replace behavior, where the value of `providers.az` is replaced, while the value of `providers.kubernetes` is appended in the merged configuration.
+In the preceding example, the value of `providers.az` is merged, while the value of `providers.kubernetes` is appended in the merged configuration.
 
-The user-defined configuration file is in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration from the nearest one. For instance, in the given folder structure where each folder has a `bicepconfig.json` file:
+## Resolve configuration files
 
-:::image type="content" source="./media/bicep-config/bicep-config-file-resolve.png" alt-text="A diagram showing resolving bicepconfig.json found in multiple parent folders.":::
+The `bicepconfig.json` file can be placed in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration file from the nearest one. For instance, in the given folder structure where each folder has a `bicepconfig.json` file:
 
-If you compile a Bicep file in the `child` folder, the configuration file in the `child` folder is used. The configuration files in the `parent` folder and the `root` folder are ignored. If the `child` folder doesn't contain a configuration file, Bicep searches for a configuration in the `parent` folder and then the `root` folder. If no configuration file is found in any of the folders, Bicep defaults to using [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
+:::image type="content" source="./media/bicep-config/bicep-config-file-resolve.png" alt-text="A diagram showing resolving `bicepconfig.json` found in multiple parent folders.":::
 
-In the context of a main.bicep file invoking multiple modules, each module undergoes compilation using the nearest bicepconfig.json, resulting in individual ARM templates with nested structures. Subsequently, the main.bicep file is compiled with its corresponding bicepconfig.json. In the given scenario, modA.bicep is compiled using the bicepconfig.json located in the A folder, modB.bicep is compiled with the bicepconfig.json in the B folder, and finally, main.bicep is compiled using the bicepconfig.json in the root folder.
+If you compile `main.bicep` in the `child` folder, the `bicepconfig.json` file in the `child` folder is used. The configuration files in the `parent` folder and the `root` folder are ignored. If the `child` folder doesn't contain a configuration file, Bicep searches for a configuration in the `parent` folder and then the `root` folder. If no configuration file is found in any of the folders, Bicep defaults to using [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
 
-:::image type="content" source="./media/bicep-config/bicep-config-file-resolve-module.png" alt-text="A diagram showing resolving bicepconfig.json found in multiple parent folders with the module scenario.":::
+In the context of a Bicep file invoking multiple modules, each module undergoes compilation using the nearest `bicepconfig.json`. Subsequently, the main Bicep file is compiled with its corresponding `bicepconfig.json`. In the given scenario, `modA.bicep` is compiled using the `bicepconfig.json` located in the `A` folder, `modB.bicep` is compiled with the `bicepconfig.json` in the `B` folder, and finally, `main.bicep` is compiled using the `bicepconfig.json` in the `root` folder.
 
-In the absence of a bicep.config file in the A and B folders, all three Bicep files are compiled using the bicepconfig.json found in the root folder. If bicep.config is not present in any of the folders, the compilation process defaults to using the default configuration file.
+:::image type="content" source="./media/bicep-config/bicep-config-file-resolve-module.png" alt-text="A diagram showing resolving `bicepconfig.json` found in multiple parent folders with the module scenario.":::
+
+In the absence of a `bicepconfig.json` file in the `A` and `B` folders, all three Bicep files are compiled using the `bicepconfig.json` found in the `root` folder. If `bicepconfig.json` is not present in any of the folders, the compilation process defaults to using the default configuration file.
 
 ## Next steps
 
