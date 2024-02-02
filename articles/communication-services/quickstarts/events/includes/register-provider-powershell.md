@@ -7,7 +7,7 @@ ms.date: 01/27/2024
 ms.author: pgrandhi
 ---
 
-## Enable Event Grid resource provider
+## Register Event Grid resource provider
 
 If you haven't previously used Event Grid in your Azure subscription, you may need to register the Event Grid resource provider. Run the following command:
 

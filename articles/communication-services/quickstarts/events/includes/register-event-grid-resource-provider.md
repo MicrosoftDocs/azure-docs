@@ -6,10 +6,6 @@ ms.date: 01/26/2024
 ms.author: pgrandhi
 ---
 
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-
 ## Register the Event Grid Resource Provider
 
 This article describes how to register Event Grid Resource Provider. If you have used Event Grid before in the same subscription, skip to the next section.

@@ -9,11 +9,12 @@ ms.author: pgrandhi
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Register the [Event Grid Resource Provider](./register-event-grid-resource-provider.md).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Get the latest version of the [.NET Microsoft Azure EventGrid Management SDK](/azure/event-grid/sdk-overview).
 - Setup a way to authenticate to Azure with [Azure Identity](/dotnet/api/overview/azure/identity-readme) library as described below.
 - An [Azure Communication Services resource](../../create-communication-resource.md).
+
+[!INCLUDE [register-event-grid-resource-provider.md](register-event-grid-resource-provider.md)]
 
 ## Installing the SDK
 
