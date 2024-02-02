@@ -33,7 +33,7 @@ You can terminate the replication connection between the source and the destinat
 
     4.	Type **Yes** when prompted and click **Break**. 
 
-        ![Break replication peering](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
+        ![Break replication peering](./media/shared/cross-region-replication-break-replication-peering.png)
 
 
 1. To delete volume replication, select **Replication** from the source or the destination volume.  
@@ -42,7 +42,7 @@ You can terminate the replication connection between the source and the destinat
 
 3. Confirm deletion by typing **Yes** and clicking **Delete**.   
 
-    ![Delete replication](../media/azure-netapp-files/cross-region-replication-delete-replication.png)
+    ![Delete replication](./media/cross-region-replication-delete/cross-region-replication-delete-replication.png)
 
 ## Delete source or destination volumes
 
@@ -52,7 +52,7 @@ If you want to delete the source or destination volume, you must perform the fol
 
 2. Delete the destination or source volume as needed by right-clicking the volume name and select **Delete**.   
 
-    ![Screenshot that shows right-click menu of a volume.](../media/azure-netapp-files/cross-region-replication-delete-volume.png)
+    ![Screenshot that shows right-click menu of a volume.](./media/cross-region-replication-delete/cross-region-replication-delete-volume.png)
 
 ## Next steps  
 
