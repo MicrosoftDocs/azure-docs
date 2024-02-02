@@ -34,6 +34,10 @@ Depending on the triggers and bindings your app uses, your app might need to ref
 
 See [Supported bindings](../articles/azure-functions/functions-triggers-bindings.md#supported-bindings) for a complete list of extensions to consider, and consult each extension's documentation for full installation instructions for the isolated process model. Be sure to install the latest stable version of any packages you are targeting.
 
+> [!TIP]
+> The binding packages might require you to update your `host.json` file, be sure to read the documentation of each binding package used.
+> For example, the service bus bindings have breaking changes in the structure as described [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus?tabs=isolated-process%2Cfunctionsv2%2Cextensionv3&pivots=programming-language-csharp#hostjson-settings).
+
 **Your isolated worker model application should not reference any packages in the `Microsoft.Azure.WebJobs.*` namespaces or `Microsoft.Azure.Functions.Extensions`.** If you have any remaining references to these, they should be removed.
 
 > [!TIP]
