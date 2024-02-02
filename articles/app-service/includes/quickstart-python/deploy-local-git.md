@@ -27,7 +27,7 @@ You can now push code from your local Git repository to Azure using the Git remo
 git push azure main:master
 ```
 
-The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in the previous step. Git will then cache these credentials so you will not have to reenter them on subsequent deployments.
+The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in the previous step. Git will then cache these credentials so you won't have to reenter them on subsequent deployments.
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
@@ -51,4 +51,4 @@ You can now push code from your local Git repository to Azure using the Git remo
 git push azure main:master
 ```
 
-The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you will not have to reenter them on subsequent deployments.
+The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you won't have to reenter them on subsequent deployments.
