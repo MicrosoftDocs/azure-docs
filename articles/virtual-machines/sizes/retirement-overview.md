@@ -12,31 +12,31 @@ ms.reviewer: iamwilliew
 
 # Previous-gen and retired VM sizes
 
-Azure virtual machine sizes are the amount of resources allocated to a virtual machine in the cloud. These resources are a portion of the physical server’s hardware capabilities. A *size series* is a collection of all sizes that are available within a single physical server’s hardware capabilities. As a size series' physical hardware ages and newer components are released, Microsoft will stop deploying more of previously established series' hardware. Once users have migrated off of said hardware or the hardware becomes sufficiently outdated, it is retired to make room for new infrastructure.
+Azure virtual machine sizes are the amount of resources allocated to a virtual machine in the cloud. These resources are a portion of the physical server’s hardware capabilities. A *size series* is a collection of all sizes that are available within a single physical server’s hardware capabilities. As a size series' physical hardware ages and newer components are released, Microsoft stops deploying more of previously established series' hardware. Once users migrate off of said hardware or the hardware becomes sufficiently outdated, it's retired to make room for new infrastructure.
 
 ![A diagram showing a greyed out Azure VM icon with an arrow pointing to a new sparkling Azure VM icon.](./media/size-retirement-new-vm.png "Moving from old to new VM sizes")
 
-When hardware becomes previous-gen or begins the retirement process, it's recommended to migrate workloads to newer generation hardware that provides better performance and future scalability. This helps you to avoid any potential issues that may arise from using outdated hardware. By keeping your hardware up-to-date, you can ensure that your workloads are running smoothly and efficiently.
+When hardware becomes previous-gen or begins the retirement process, we recommend migrating workloads to newer generation hardware. Newer hardware provides better performance and future scalability. Migrating also helps you to avoid any potential issues that may arise from using outdated hardware. By keeping your hardware up-to-date, you can ensure that your workloads are running smoothly and efficiently.
 
 This article describes the states of older hardware and the processes behind these states.
 
 ## Previous-gen sizes
 
-Previous generation size series **are not currently retired** and can still be used. These sizes are still fully supported, but they aren't guaranteed to receive more capacity. It's recommended to migrate to the latest generation replacements as soon as possible, especially when trying to scale up your installations. 
+Previous generation size series **are not currently retired** and can still be used. These sizes are still fully supported, but they aren't guaranteed to receive more capacity. We recommend migrating to the latest generation replacements as soon as possible, especially when trying to scale up your installations.
 
-There are two types of previous-gen sizes; *next-gen available* and *capacity constrained*.
+There are two types of previous-gen sizes; *available* and *capacity limited*.
 
-### Next-gen available 
+### Available
 
-Size series listed as *next-gen available* means that while no retirement or capacity constraint plans have been made, there are sufficient deployments of newer alternative sizes to justify considering these series "previous-gen". *Next-gen available* series have no formal announcement of retirement timelines, but they will eventually be retired. 
+Size series listed as *Available* means that while no retirement or capacity constraint plans have been made, there are sufficient deployments of newer alternative sizes to justify considering these series "previous-gen". Previous-gen *available* series have no formal announcement of retirement timelines, but they'll eventually be retired. 
 
-For a list of series that are considered *next-gen available*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md).
+For a list of series that are considered *available*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md).
 
-### Capacity constrained
+### Capacity limited
 
-Size series listed as *capacity constrained* means that while no retirement plans have been made, no additional capacity for this series will be deployed. If you had one VM running on a size in this series and wanted to spin up another, there is no guarantee that capacity would be available to fufill this request. Any new VMs should be created using sizes in newer series which are not considered "previous-gen".
+Similar to *available* previous-gen series, there are sufficient deployments of newer alternative sizes available to replace *capacity limited* size deployments. Size series listed as *capacity limited* means that while no retirement plans have been made, no extra capacity for this series will be deployed. If you had one VM running on a capacity contrained size and require another VM of the same size, there is no guarantee that capacity will be able to fulfill this request Any new VMs should be created using sizes in newer series that aren't considered *previous-gen*.
 
-For a list of sizes that are considered *capacity constrained*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md). 
+For a list of sizes that are considered *capacity limited*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md). 
 
 ## Retired sizes
 

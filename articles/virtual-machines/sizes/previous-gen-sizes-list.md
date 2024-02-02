@@ -12,20 +12,21 @@ ms.reviewer: iamwilliew
 
 # Previous generation Azure VM sizes 
 
-This article provides a list of all sizes that are considered *previous-gen* or *capacity limited*. For sizes that require it there are *migration guides* to help move to replacement sizes.
+This article provides a list of all size series that are considered *previous-gen*. Status is listed as *available* or *capacity limited* based on capacity. For sizes that require it there are *migration guides* to help move to replacement sizes.
 
 To learn more about size series retirement, see the [size series retirement overview](./retirement-overview.md).
 
 > [!NOTE]
-> *Previous generation* and *capacity limited* sizes **are not currently retired** and can still be used.
+> Series listed as *previous-gen* are **not currently retired** and can still be used.
 
 ## What are previous-gen sizes?
-Previous generations virtual machine sizes can still be used, but there are newer generations available. Capacity increases are not guaranteed for previous-gen sizes. It's recommended to migrate to the latest generation replacements.
+Previous generations virtual machine size series are running on older hardware. While they can still be used and are fully supported, there are newer generations available. It's recommended to migrate to the latest generation replacements.
 
-## What are capacity limited previous-gen sizes?
-Capacity limited virtual machine sizes are older sizes which are still fully supported, but they won't receive more capacity. Unlike other size series which will be deployed based on demand, capacity limited sizes are limited to what is currently deployed and decreases as hardware is phased out. There are newer or alternative sizes that are generally available.
+### What does status mean?
+To see information on the status of a previous-gen size series, see the [size series retirement overview](./retirement-overview.md).
 
-
+### What's the difference between retired and previous-gen sizes?
+To see information on retired versus previous-gen size series, see the [size series retirement overview](./retirement-overview.md).
 
 ## General purpose previous-gen sizes
 
@@ -44,8 +45,8 @@ For a list of general purpose sizes listed as "retired" and "announced for retir
 
 |Series name                | Status                  | Migration guide   |
 |---------------------------|-------------------------|-------------------|
-| F-series                  | Previous-gen            |                   |
-| Fs-series                 | Previous-gen            |                   |
+| F-series                  | Available               |                   |
+| Fs-series                 | Available               |                   |
 
 For a list of compute optimized sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired compute optimized sizes](./retired-sizes-list.md#compute-optimized-retired-sizes).
 
@@ -72,7 +73,7 @@ For a list of storage optimized sizes listed as "retired" and "announced for ret
 
 |Series name                 | Status                 | Migration guide   |
 |----------------------------|------------------------|-------------------|
-| NVv2-series                | Previous-gen           |                   |
+| NVv2-series                | Available              |                   |
 
 For a list of GPU accelerated sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired GPU accelerated sizes](./retired-sizes-list.md#gpu-accelerated-retired-sizes).
 
