@@ -21,7 +21,7 @@ Common deployment scenarios include:
 
 ## Deployment token
 
-The SWA CLI supports deploying using a deployment token to help you set up a CI/CD environment.
+The SWA CLI supports deploying using a deployment token to enable setups in CI/CD environments.
 
 You can get a deployment token from:
 
@@ -111,7 +111,7 @@ You can deploy a Blazor app using the following steps.
   swa deploy ./bin/publish/wwwroot --api-location ./Api
   ```
 
-## Deploy via a configuration file
+## Deploy using a configuration file
 
 > [!NOTE]
 > The path for `outputLocation` must be relative to the `appLocation`.
