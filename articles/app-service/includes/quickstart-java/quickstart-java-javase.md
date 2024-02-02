@@ -14,7 +14,19 @@ The quickstart deploys either a Spring Boot app, embedded Tomcat, or Quarkus app
 > [!NOTE]
 > App Service can host Spring apps. For Spring apps that require all the Spring services, try [Azure Spring Apps](../../../spring-apps/quickstart.md) instead.
 
-:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Maven Hello World web app running in Azure App Service in introduction.":::
+### [Spring Boot](#tab/springboot)
+
+:::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service in introduction.":::
+
+### [Embedded Tomcat](#tab/embeddedtomcat)
+
+:::image type="content" source="../../media/quickstart-java/embeddedtomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat Hello World web app running in Azure App Service in introduction.":::
+
+### [Quarkus](#tab/quarkus)
+
+:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Quarkus Hello World web app running in Azure App Service in introduction.":::
+
+-----
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)
@@ -59,7 +71,6 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
     ```
 
     The application is run using the standard [Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html) class (see [Main.java](https://github.com/Azure-Samples/java-docs-embedded-tomcat/blob/main/src/main/java/com/microsoft/azure/appservice/examples/embeddedtomcat/Main.java) in the sample). 
-
 
 ### [Quarkus](#tab/quarkus)
 
@@ -179,7 +190,8 @@ With all the configuration ready in your [pom.xml](https://github.com/Azure-Samp
     - Create an [executable JAR](https://en.wikipedia.org/wiki/JAR_(file_format)#Executable_JAR_files) by specifying the Tomcat class as the start-up class.
     - Replace the original artifact with the uber JAR to ensure that the deploy step deploys the right file.
 
-    > [!TIP] Quarkus and Spring Boot both produce two JAR files with `mvn clean package`, but `azure-webapp-maven-plugin` picks the right JAR file to deploy automatically.
+    > [!TIP]
+    > Quarkus and Spring Boot both produce two JAR files with `mvn clean package`, but `azure-webapp-maven-plugin` picks the right JAR file to deploy automatically.
     
     ### [Quarkus](#tab/quarkus)
 
@@ -216,24 +228,19 @@ With all the configuration ready in your [pom.xml](https://github.com/Azure-Samp
 
 ### [Spring Boot](#tab/springboot)
 
-Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the URL `http://<appName>.azurewebsites.net/greeting` with your local web browser (note the `/greeting` path), and you should see the following JSON:
+Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the URL `http://<appName>.azurewebsites.net/greeting` with your local web browser (note the `/greeting` path), and you should see:
 
-```output
-{
-    "id": 1,
-    "content": "Hello, World!"
-}
-```
+:::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service.":::
 
 ### [Embedded Tomcat](#tab/embeddedtomcat)
 
-Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the url with your local web browser, and you should see
+Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the url with your local web browser, and you should see:
 
 :::image type="content" source="../../media/quickstart-java/embeddedtomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat web app running in Azure App Service.":::
 
 ### [Quarkus](#tab/quarkus)
 
-Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the url with your local web browser, and you should see
+Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the url with your local web browser, and you should see:
 
 :::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Quarkus web app running in Azure App Service.":::
 
