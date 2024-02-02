@@ -440,37 +440,39 @@ Every response includes a `"finish_details"` field. It has the following possibl
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. The **video prompt** integration uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. It enables the AI model to give summaries and answers about video content.
 
 > [!IMPORTANT]
-> Vision enhancement is exposed both from an Azure OpenAI resource or an Azure AIServices resource. If using an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> Vision enhancement is exposed both from an Azure OpenAI resource and an Azure AIServices resource. When using an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 >[!IMPORTANT]
->Vision enhancement for Video requires access to an Azure Blob storage container containing the video files to analyze. Access to the Videos can be provided either by providing a SAS Url to the API, or by configuring a Managed Identity on the Azure AIServices resource and granting read access to the blob storage.
+>Vision enhancement for Video requires access to an Azure Blob storage container containing the video files to analyze. Access to the Videos can be provided either by a SAS Url, or by configuring a Managed Identity on the Azure AIServices resource and granting read access to the blob storage.
 
 ### Configure Managed Identity on Azure AIService resource and grant access to Azure Blob storage
 #### using System Assigned Identities
-> Enable System Assigned Identities on your Azure AIServices resource: From your AIServices resource in Azure Portal select Resource Management ==> Identity and toggling the status to ON
-> Assign Storage Blob Data Read access to the AIServices resource: From the Identity page, select 'Azure role assignments', and then 'Add role assignment' with the following settings:
+Enable System Assigned Identities on your Azure AIServices resource following these steps:
+1. From your AIServices resource in Azure Portal select Resource Management ==> Identity and toggle the status to ON
+2. Assign Storage Blob Data Read access to the AIServices resource: From the Identity page, select 'Azure role assignments', and then 'Add role assignment' with the following settings:
 - scope: storage
 - subscription: your subscription
 - Resource: the Azure Blob Storage resource
 - Role: Storage Blob Data Reader
-> Save your settings.
+3. Save your settings.
 
 #### using User Assigned Identities
-> Create a new Managed Identity resource in Azure Portal
-> Navigate to the new resource, then to 'Azure Role Assignments'
-> Add a 'New Role Assignment' with the following settings:
+To use a User Assigned Identity follow these steps:
+1. Create a new Managed Identity resource in Azure Portal
+2. Navigate to the new resource, then to 'Azure Role Assignments'
+3. Add a 'New Role Assignment' with the following settings:
 - scope: storage
 - subscription: your subscription
 - Resource: the Azure Blob Storage resource
 - Role: Storage Blob Data Reader
 
-> Save your new configuration
-> Navigate to your AIServices resurcce "Identity" page,
-> Select the User Assigned Tab, then click "+Add" to select the newly created Managed Identity.
-> Save your configuration.
+4. Save your new configuration
+5. Navigate to your AIServices resurcce "Identity" page,
+6. Select the User Assigned Tab, then click "+Add" to select the newly created Managed Identity.
+7. Save your configuration.
 
 ### Set up video retrieval
 
@@ -536,6 +538,45 @@ Follow these steps to set up a video retrieval system to integrate with your AI 
 1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
 1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
 
+> [!IMPORTANT]
+> the "dataSources" object content varies depending on what Azure resource and what authentication mechanism you are using. Please use the following reference:
+
+> #### Azure OpenAI resource
+#### [REST](#tab/rest)
+         "dataSources": [
+        {
+            "type": "AzureComputerVisionVideoIndex",
+            "parameters": {
+                "endpoint": "<your_computer_vision_endpoint>",
+                "computerVisionApiKey": "<your_computer_vision_key>",
+                "indexName": "<name_of_your_index>",
+                "videoUrls": ["<your_video_SAS_URL>"]
+            }
+        }],
+	
+> #### Azure AIServices + SAS authentication
+#### [REST](#tab/rest)
+         "dataSources": [
+        {
+            "type": "AzureComputerVisionVideoIndex",
+            "parameters": {
+                "indexName": "<name_of_your_index>",
+                "videoUrls": ["<your_video_SAS_URL>"]
+            }
+        }],
+
+> #### Azure AIServices + Managed Identities
+#### [REST](#tab/rest)
+         "dataSources": [
+        {
+            "type": "AzureComputerVisionVideoIndex",
+            "parameters": {
+                "indexName": "<name_of_your_index>",
+                "documentAuthenticationKind": "managedidentity",
+            }
+        }],
+
+
 #### [Python](#tab/python)
 
 Call the client's **create** method as in the previous sections, but include the *extra_body* parameter. Here, it contains the `enhancements` and `dataSources` fields. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `video` field, which has a boolean `enabled` property. Use this to request the video retrieval service. 
@@ -586,6 +627,44 @@ response = client.chat.completions.create(
 print(response)
 ```
 ---
+
+> [!IMPORTANT]
+> the "dataSources" object content varies depending on what Azure resource and what authentication mechanism you are using. Please use the following reference:
+
+> #### Azure OpenAI resource
+#### [Python](#tab/python)
+         "dataSources": [
+        {
+            "type": "AzureComputerVisionVideoIndex",
+            "parameters": {
+                "endpoint": "<your_computer_vision_endpoint>",
+                "computerVisionApiKey": "<your_computer_vision_key>",
+                "indexName": "<name_of_your_index>",
+                "videoUrls": ["<your_video_SAS_URL>"]
+            }
+        }],
+	
+> #### Azure AIServices + SAS authentication
+#### [Python](#tab/python)
+         "dataSources": [
+        {
+            "type": "AzureComputerVisionVideoIndex",
+            "parameters": {
+                "indexName": "<name_of_your_index>",
+                "videoUrls": ["<your_video_SAS_URL>"]
+            }
+        }],
+
+> #### Azure AIServices + Managed Identities
+#### [Python](#tab/python)
+         "dataSources": [
+        {
+            "type": "AzureComputerVisionVideoIndex",
+            "parameters": {
+                "indexName": "<name_of_your_index>",
+                "documentAuthenticationKind": "managedidentity",
+            }
+        }],
 
 ### Output
 
