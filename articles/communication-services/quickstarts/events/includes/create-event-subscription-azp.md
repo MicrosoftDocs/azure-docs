@@ -94,7 +94,7 @@ To delete an Event subscription for Azure Communication Services resource, first
 
 1. On the Event Subscription page, Select on **Delete** button at the top. 
 
-    :::image type="content" source="../media/subscribe-through-portal/delete-subscription.png" alt-text="Screenshot highlighting the delete event subscription button in the Azure portal." lightbox="../media/subscribe-through-portal/delete-subscription.png":::
+    :::image type="content" source="../media/subscribe-through-portal/delete-subscription.png" alt-text="Screenshot highlighting the delete button in the Azure portal." lightbox="../media/subscribe-through-portal/delete-subscription.png":::
 
 ## Next steps
 * For a list of Communication Services events, see [Communication Services Events](/azure/event-grid/event-schema-communication-services).

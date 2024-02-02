@@ -6,9 +6,9 @@ ms.date: 01/26/2024
 ms.author: pgrandhi
 ---
 
-## Register the event grid resource provider
+## Register the Event Grid resource provider
 
-This article describes how to register Event Grid Resource Provider. If you have used Event Grid before in the same subscription, skip to the next section.
+This article describes how to register the Event Grid resource provider. If you used Event Grid before in the same subscription, skip to the next section.
 
 In the Azure portal, do the following steps:
 
