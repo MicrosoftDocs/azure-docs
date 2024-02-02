@@ -45,11 +45,11 @@ The 12-volume scenario demonstrates a general decrease in latency over the six-v
 
 The following graph illustrates the latency and operations rate for the EDA workload on Azure NetApp Files.  
 
-![Latency and operations rate for the EDA workload on Azure NetApp Files](../media/azure-netapp-files/solutions-electronic-design-automation-workload-latency-operation-rate.png)   
+![Latency and operations rate for the EDA workload on Azure NetApp Files](./media/solutions-benefits-azure-netapp-files-electronic-design-automation/solutions-electronic-design-automation-workload-latency-operation-rate.png)   
 
 The following graph illustrates the latency and throughput for the EDA workload on Azure NetApp Files.  
 
-![Latency and throughput for the EDA workload on Azure NetApp Files](../media/azure-netapp-files/solutions-electronic-design-automation-workload-latency-throughput.png) 
+![Latency and throughput for the EDA workload on Azure NetApp Files](./media/solutions-benefits-azure-netapp-files-electronic-design-automation/solutions-electronic-design-automation-workload-latency-throughput.png) 
 
 ## Layout of test scenarios 
 

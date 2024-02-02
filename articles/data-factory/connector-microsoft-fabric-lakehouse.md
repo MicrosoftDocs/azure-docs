@@ -524,6 +524,8 @@ Microsoft Fabric Lakehouse connector supports the following file formats. Refer 
 - [JSON format](format-json.md)
 - [ORC format](format-orc.md)
 - [Parquet format](format-parquet.md)
+  
+To use Fabric Lakehouse file-based connector in inline dataset type, you need to choose the right Inline dataset type for your data. You can use DelimitedText, Avro, JSON, ORC, or Parquet depending on your data format.
 
 ### Microsoft Fabric Lakehouse Table in mapping data flow
 
@@ -579,6 +581,7 @@ sink(allowSchemaDrift: true,
     skipDuplicateMapOutputs: true) ~> CustomerTable
 
 ```
+For Fabric Lakehouse table-based connector in inline dataset type, you only need to use Delta as dataset type. This will allow you to read and write data from Fabric Lakehouse tables.
 
 ## Related content
 

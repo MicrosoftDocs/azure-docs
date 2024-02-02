@@ -21,14 +21,7 @@ The following are known limitations in Chaos Studio.
     - Regional endpoints to allowlist are listed in [Permissions and security in Azure Chaos Studio](chaos-studio-permissions-security.md#network-security).
     - If you're sending telemetry data to Application Insights, the IPs in [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md) are also required.
 
-- **Supported VM operating systems** - If you run an experiment that makes use of the Chaos Studio agent, the virtual machine must run one of the following operating systems:
-
-    - Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2
-    - Red Hat Enterprise Linux 8, Red Hat Enterprise Linux 8.2, openSUSE Leap 15.2, CentOS 8, Debian 10 Buster (with unzip installation required), Oracle Linux 8.3, and Ubuntu Server 18.04 LTS
-- **Hardened Linux untested** -  The Chaos Studio agent isn't currently tested against custom Linux distributions or hardened Linux distributions (for example, FIPS or SELinux).
-- **Supported browsers** - The Chaos Studio portal experience has only been tested on the following browsers:
-    * **Windows:** Microsoft Edge, Google Chrome, and Firefox
-    * **MacOS:** Safari, Google Chrome, and Firefox
+- **Version support** - Review the [Azure Chaos Studio version compatibility](chaos-studio-versions.md) page for more information on operating system, browser, and integration version compatibility.
 - **Terraform** - Chaos Studio doesn't support Terraform at this time.
 - **PowerShell modules** - Chaos Studio doesn't have dedicated PowerShell modules at this time. For PowerShell, use our REST API
 - **Azure CLI** - Chaos Studio doesn't have dedicated AzCLI modules at this time. Use our REST API from AzCLI

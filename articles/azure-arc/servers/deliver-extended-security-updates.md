@@ -118,6 +118,9 @@ To enroll Azure Arc-enabled servers eligible for ESUs at no additional cost, fol
 
 This linking will not trigger a compliance violation or enforcement block, allowing you to extend the application of a license beyond its provisioned cores. The expectation is that the license only includes cores for production and billed servers. Any additional cores will be charged and result in over-billing.
 
+> [!IMPORTANT]
+> Adding these tags to your license will NOT make the license free or reduce the number of license cores that are chargeable. These tags allow you to link your Azure machines to existing licenses that are already configured with payable cores without needing to create any new licenses or add additional cores to your free machines.
+
 **Example:**
 
 You have 8 Windows Server 2012 R2 Standard instances, each with 8 physical cores. 6 of these Windows Server 2012 R2 Standard machines are for production, and 2 of these Windows Server 2012 R2 Standard machines are eligible for free ESUs through the Visual Studio Dev Test subscription. You should first provision and activate a regular ESU License for Windows Server 2012/R2 that's Standard edition and has 48 physical cores. You should link this regular, production ESU license to your 6 production servers. Next, you should use this existing license, not add any more cores or provision a separate license, and link this license to your 2 non-production Windows Server 2012 R2 standard machines. You should tag the license and the 2 non-production Windows Server 2012 R2 Standard machines with Name: “ESU Usage” and Value: “WS2012 VISUAL STUDIO DEV TEST”.

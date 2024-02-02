@@ -35,7 +35,7 @@ Your server admin user is a member of the azure_pg_admin role. However, the serv
 
 The PostgreSQL engine uses privileges to control access to database objects, as discussed in the [PostgreSQL product documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL flexible server, the server admin user is granted these privileges:
 
-- Sign in, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, REPLICATION
+- Sign in, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE
 
 The server admin user account can be used to create more users and grant those users into the azure_pg_admin role. Also, the server admin account can be used to create less privileged users and roles that have access to individual databases and schemas.
 
