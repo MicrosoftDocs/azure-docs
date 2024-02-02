@@ -39,6 +39,7 @@ At a minimum your service should have the following two articles:
 See [Monitor Azure Blob Storage](monitor-blob-storage.md) for details on the data you can collect for Azure Blob Storage and how to use it.
 
 <!-- ## Metrics. Required section. -->
+<a name="metrics-dimensions"></a>
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 ### Supported metrics for Microsoft.Storage/storageAccounts
@@ -69,6 +70,7 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. If you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
 
 <!-- ## Resource logs. Required section. -->
+<a name="resource-logs-preview"></a>
 [!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices

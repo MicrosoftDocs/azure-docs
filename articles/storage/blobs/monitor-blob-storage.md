@@ -137,7 +137,7 @@ If your service has other logs that aren't resource logs or in the activity log,
 <!-- ### External tools. Required section. -->
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-## Analyze metrics for Azure Blob Storage
+### Analyze metrics for Azure Blob Storage
 
 Metrics for Azure Blob Storage are in these namespaces:
 
@@ -359,7 +359,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 ---
 
-## Analyze logs for Azure Blob Storage
+### Analyze logs for Azure Blob Storage
 
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytics queries. For information about how to find those logs, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
 
@@ -369,7 +369,7 @@ Log entries are created only if there are requests made against the service endp
 
 When you view a storage account in the Azure portal, the operations called by the portal are also logged. For this reason, you may see operations logged in a storage account even though you haven't written any data to the account.
 
-### Log authenticated requests
+#### Log authenticated requests
 
  The following types of authenticated requests are logged:
 
@@ -383,7 +383,7 @@ Requests made by the Blob storage service itself, such as log creation or deleti
 > [!NOTE]
 > Azure Monitor currently filters out logs that describe activity in the "insights-logs-" container.
 
-### Log anonymous requests
+#### Log anonymous requests
 
  The following types of anonymous requests are logged:
 
@@ -466,6 +466,16 @@ Add short information or links to specific articles that outline how to analyze 
 **MUST HAVE** service-specific alert rules. Include useful alerts on metrics, logs, log conditions, or activity log.
 Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
 Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
+
+<!-- The following section will become an include -->
+### Advisor recommendations
+
+If critical conditions or imminent changes occur during resource operations, an alert displays on the **Overview** page in the portal.
+
+You can find more information and recommended fixes for the alert in **Advisor recommendations** under **Monitoring**. During normal operations, no advisor recommendations display.
+
+For more information on Azure Advisor, see [Azure Advisor overview](/azure/advisor/advisor-overview).
+<!-- end include -->
 
 ### Azure Blob Storage alert rules
 The following table lists common and recommended alert rules for Azure Blob Storage and the proper metric to use for the alert:
