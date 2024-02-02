@@ -12,7 +12,7 @@ ms.date: 01/18/2024
 
 # Quickstart: Get Access to Azure Operator 5G Core
 
-Access is currently limited.For now, we are working with customers that have an existing technical partnership with Microsoft and that have targeted specific use cases.. In addition to applying for initial access, all requests for Azure Operator 5G Core are required to go through a use case review. Apply here for initial access. 
+Access is currently limited For now, we're working with customers that have an existing technical partnership with Microsoft and that have targeted specific use cases. In addition to applying for initial access, all requests for Azure Operator 5G Core are required to go through a use case review. Apply here for initial access. 
 
 ## Next step
 
