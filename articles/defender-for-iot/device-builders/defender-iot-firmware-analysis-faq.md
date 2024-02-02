@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions about Defender for IoT Firmware Analysis
+title: Frequently asked questions about Defender for IoT Firmware analysis
 description: Find answers to some of the common questions about Defender for IoT Firmware Analysis.
 ms.topic: conceptual
 ms.date: 01/10/2024
