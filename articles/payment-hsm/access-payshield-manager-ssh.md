@@ -11,9 +11,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/31/2024
 ---
 
-# Tutorial: Use SSH to acess the payShield manager for your payment HSM
+# Tutorial: Use SSH to access the payShield manager for your payment HSM
 
-After you have [Created an Azure Payment HSM](create-payment-hsm.md), you can create a virtual machine on the same virtual network and use it to access the Thales payShield manager.
+After you [Create an Azure Payment HSM](create-payment-hsm.md), you can create a virtual machine on the same virtual network and use it to access the Thales payShield manager.
 
 In this tutorial, you learn how to:
 
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Test Connectivity to your VM, and from the VM to your payment HSM
 > * Log into the VM to access the payShield manager
 
-To complete this tutorial, you will need:
+To complete this tutorial you need:
 
 - The name of your payment HSM's virtual network. This tutorial assumes the name used in the previous tutorial: "myVNet".
 - The address space of your virtual network. This tutorial assumes the address space used in the previous tutorial: "10.0.0.0/16".
@@ -38,7 +38,7 @@ Create a subnet for your virtual machine, on the same virtual network as your pa
 az network vnet subnet create -g "myResourceGroup" --vnet-name "myVNet" -n "myVMSubnet" --address-prefixes "10.0.1.0/24"
 ```
 
-The Azure CLI [az network vnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command will list two subnets associated with your VNet: the subnet with your payment HSM ("mySubnet"), and the newly created "myVMSubnet" subnet.
+The Azure CLI [az network vnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command lists two subnets associated with your VNet: the subnet with your payment HSM ("mySubnet"), and the newly created "myVMSubnet" subnet.
 
 ```azurecli-interactive
 az network vnet show -n "myVNet" -g "myResourceGroup"
@@ -66,7 +66,7 @@ $vnet.Subnets.Add($vmSubnet)
 Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
-The Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet will now list two subnets associated with your VNet: the subnet with your payment HSM ("mySubnet"), and the newly created "myVMSubnet" subnet.
+The Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet lists two subnets associated with your VNet: the subnet with your payment HSM ("mySubnet"), and the newly created "myVMSubnet" subnet.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
@@ -80,7 +80,7 @@ Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a VM on your new subnet, using the Azure CLI [az vm create](/cli/azure/vm#az-vm-create) command. (In this example we will create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure CLI](../virtual-machines/windows/quick-create-cli.md) with the details below.)  
+Create a VM on your new subnet, using the Azure CLI [az vm create](/cli/azure/vm#az-vm-create) command. (In this example we create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure CLI](../virtual-machines/windows/quick-create-cli.md) with the details below.)  
 
 ```azurecli-interactive
 az vm create \
@@ -103,7 +103,7 @@ To create a VM on your new subnet, first set your credentials with the [Get-Cred
 $cred = Get-Credential
 ```
 
-Now create your VM using the Azure PowerShell [New-AzVm](/powershell/module/az.compute/new-azvm) command. (In this example we will create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md) with the details below.)  
+Now create your VM using the Azure PowerShell [New-AzVm](/powershell/module/az.compute/new-azvm) command. (In this example we create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md) with the details below.)  
 
 ```azurepowershell-interactive
 New-AzVm `
