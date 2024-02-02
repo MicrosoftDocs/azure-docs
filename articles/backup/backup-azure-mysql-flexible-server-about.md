@@ -35,9 +35,9 @@ Once the configuration is complete:
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server-about/mysql-flexible-server-backup-architecture.png" alt-text="Diagram shows the backup flow for Azure Database for MySQL Flexible Server." lightbox="./media/backup-azure-mysql-flexible-server-about/mysql-flexible-server-backup-architecture.png":::
 
-## Azure Backup authentication with the MySQL - Flexible server
+## Azure Backup authentication with MySQL - Flexible server
 
-The Azure Backup needs to connect to the Azure MySQL - Flexible server while taking each backup. 
+Azure Backup needs to connect to Azure MySQL - Flexible server while taking each backup. 
 
 ## Permissions for an Azure Database for MySQL - Flexible Server backup
 
