@@ -46,6 +46,9 @@ Create and assign persistent environment variables for your key and endpoint.
 
 ### Create an assistant
 
+> [!NOTE]
+> With Azure OpenAI the `model` parameter requires model deployment name. If your model deployment name is different than the underlying model name than you would adjust your code to ` "model": "{your-custom-model-deployment-name}"`.
+
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
   -H "api-key: YOUR_API_KEY" \

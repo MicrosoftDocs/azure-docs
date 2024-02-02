@@ -85,6 +85,9 @@ assistant = client.beta.assistants.create(
 
 # [REST](#tab/rest)
 
+> [!NOTE]
+> With Azure OpenAI the `model` parameter requires model deployment name. If your model deployment name is different than the underlying model name than you would adjust your code to ` "model": "{your-custom-model-deployment-name}"`.
+
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
   -H "api-key: YOUR_API_KEY" \
@@ -97,6 +100,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2
     "model": "gpt-4-1106-preview"
   }'
 ```
+
 ---
 
 ## Upload file for Code Interpreter
@@ -183,7 +187,7 @@ thread = client.beta.threads.create(
 
 # [REST](#tab/rest)
 
-```
+```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/<YOUR-THREAD-ID>/messages?api-version=2024-02-15-preview \
   -H "api-key: YOUR_API_KEY" \
   -H 'Content-Type: application/json' \
