@@ -1,12 +1,12 @@
 ---
-title: How to configure Azure Functions with a virtual network
-description: Article that shows you how to perform certain virtual networking tasks for Azure Functions.
+title: How to use a secured storage account with Azure Functions
+description: Article that shows you how to use a secured storage account in a virtual network as the default storage account for a function app in Azure Functions.
 ms.topic: how-to
 ms.date: 01/31/2024
 ms.custom: template-how-to
 ---
 
-# How to configure Azure Functions with a virtual network
+# How to use a secured storage account with Azure Functions
 
 This article shows you how to connect your function app to a secured storage account. For an in-depth tutorial on how to create your function app with inbound and outbound access restrictions, refer to the [Integrate with a virtual network](functions-create-vnet.md) tutorial. To learn more about Azure Functions and networking, see [Azure Functions networking options](functions-networking-options.md).
 
