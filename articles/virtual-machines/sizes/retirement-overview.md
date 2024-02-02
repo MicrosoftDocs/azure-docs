@@ -26,11 +26,11 @@ Previous generation size series **are not currently retired** and can still be u
 
 There are two types of previous-gen sizes; *available* and *capacity limited*.
 
-### Available
+### Next-gen available
 
-Size series listed as *Available* means that while no retirement or capacity limitation plans have been made, there are sufficient deployments of newer alternative sizes to justify considering these series "previous-gen". Previous-gen *available* series have no formal announcement of retirement timelines, but they'll eventually be retired. 
+Size series listed as *next-gen available* means that while no capacity limitation plans have been made, there are sufficient deployments of newer alternative sizes to justify considering these series "previous-gen". *Next-gen available* series have no formal announcement of retirement timelines, but they'll eventually be retired. 
 
-For a list of previous-gen size series that are considered *available*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md).
+For a list of previous-gen size series that are considered *next-gen available*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md).
 
 ### Capacity limited
 
@@ -43,6 +43,8 @@ For a list of previous-gen size sizes that are considered *capacity limited*, se
 Retired size series are **no longer available** and can't be used. If you have VMs running on sizes that are considered *retired*, migrate to a newer next-gen size as soon as possible. 
 
 Retiring hardware is necessary over time to ensure that the latest and greatest technology is available on Azure. Retirement ensures that the hardware is reliable, secure, and efficient. It also allows for the latest features and capabilities that may not be present on previous generations of hardware.
+
+Hardware which is currently listed as *Previous-gen* are often preparing for retirement which will be announced formally prior to the retirement date.
 
 For information on size series that have been retired or are scheduled for retirement, see the [list of retired sizes](./retired-sizes-list.md).
 
