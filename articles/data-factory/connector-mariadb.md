@@ -31,8 +31,7 @@ For a list of data stores that are supported as sources/sinks by the copy activi
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
-This connector currently supports MariaDB of version 10.x, 11.x.
-This connector currently supports MariaDB of version 10.0 to 10.5 for the legacy driver version.
+This connector currently supports MariaDB of version 10.x, 11.x under the recommended new driver version v2 and 10.0 to 10.5 for the legacy driver version.
 
 ## Prerequisites
 
@@ -70,12 +69,12 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for MariaDB linked service:
+If you use the recommend driver version, the following properties are supported for MariaDB linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MariaDB** | Yes |
-| driverVersion | The driver version that you use. The value is v2. | Yes |
+| driverVersion | The driver version when you select the recommended driver version. The value is v2. | Yes |
 | server | The name of your MariaDB Server. | Yes |
 | port | The port number to connect to the MariaDB server. | No |
 | database | Your MariaDB database name. | Yes |
@@ -244,7 +243,7 @@ When copying data from MariaDB, the following mappings are used from MariaDB dat
 | `bit(1)` |`UInt64` |`Boolean` |
 | `bit(M), M>1`|`UInt64`|`Byte[]`|
 | `blob` |`Byte[]` |`Byte[]` |
-| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by defult ) |`Int16` |
+| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by default ) |`Int16` |
 | `char` |`String` |`String` |
 | `date` |`Datetime` |`Datetime` |
 | `datetime` |`Datetime` |`Datetime` |
