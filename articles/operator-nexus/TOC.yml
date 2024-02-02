@@ -118,6 +118,8 @@
           href: howto-kubernetes-cluster-action-restart.md
         - name: Customize cluster DNS
           href: how-to-customize-kubernetes-cluster-dns.md
+        - name: Customize Worker Nodes
+          href: howto-kubernetes-cluster-customize-workers.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
