@@ -14,10 +14,10 @@ This article demonstrates how to:
 
 - Run your Java, Java EE, or Jakarta EE on Oracle WebLogic Server (WLS).
 - Stand up a WLS cluster using the Azure Marketplace offer.
-- Build the application Docker image to serve as auxiliary image to provide WDT models and applications.
+- Build the application Docker image to serve as auxiliary image to provide WebLogic Deploy Tooling (WDT) models and applications.
 - Deploy the containerized application to the existing WLS cluster on AKS.
 
-This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
+This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
 
 For full automation, you can select your appliation and configure datasource connetion from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks). 
 
@@ -119,7 +119,8 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin console for this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **clusterExternalUrl**  value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **shellCmdtoOutputWlsImageModelYaml** value is the base64 string of WDT model that built in the container image. Save this value aside for later.
-2. The **shellCmdtoOutputWlsImageProperties** value is base64 string of WDT model properties that built in the container image. Save this value aside for later. 
+1. The **shellCmdtoOutputWlsImageProperties** value is base64 string of WDT model properties that built in the container image. Save this value aside for later. 
+1. The **shellCmdtoConnectAks** value is the Azure CLI command to connect to this specific AKS cluster. This lets you use `kubectl` to administer the cluster.
 
 The other values in the outputs are beyond the scope of this article, but are explained in detail in the [WebLogic on AKS user guide](https://aka.ms/wls-aks-docs).
 
@@ -205,7 +206,9 @@ The package should be successfully generated and located at `$BASE_DIR/weblogic-
 
 ### Use Docker to create an auxiliary image
 
-The steps in this section show you how to build an auxiliary image, including Model in Image model files, your application, the JDBC driver archive file, and the WebLogic Deploy Tooling installation. To learn more about auxiliary images, see [Auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/) in the Oracle documentation.
+The steps in this section show you how to build an auxiliary image, including Model in Image model files, your application, the JDBC driver archive file, and the WebLogic Deploy Tooling installation.
+
+An auxiliary image is a Docker container image containing your app and configuration. The WebLogic Kubernetes Operator combines your auxiliary image with the `domain.spec.image` in the AKS cluster which contains the WebLogic Server, JDK, and operating system. To learn more about auxiliary images, see [Auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/) in the Oracle documentation.
 
 This section requires a Linux terminal with Azure CLI and kubectl installed.
 
@@ -320,73 +323,73 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 
 1. Download and install Microsoft SQL Server JDBC driver to `wlsdeploy/externalJDBCLibraries`.
 
-    ```bash
-    export DRIVER_VERSION="10.2.1.jre8"
-    export MSSQL_DRIVER_URL="https://repo.maven.apache.org/maven2/com/microsoft/sqlserver/mssql-jdbc/${DRIVER_VERSION}/mssql-jdbc-${DRIVER_VERSION}.jar"
+   ```bash
+   export DRIVER_VERSION="10.2.1.jre8"
+   export MSSQL_DRIVER_URL="https://repo.maven.apache.org/maven2/com/microsoft/sqlserver/mssql-jdbc/${DRIVER_VERSION}/mssql-jdbc-${DRIVER_VERSION}.jar"
 
-    mkdir /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries
-    curl -m 120 -fL ${MSSQL_DRIVER_URL} -o /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries/mssql-jdbc-${DRIVER_VERSION}.jar
-    ```
+   mkdir /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries
+   curl -m 120 -fL ${MSSQL_DRIVER_URL} -o /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries/mssql-jdbc-${DRIVER_VERSION}.jar
+   ```
 
-    Next, create the database connection model with the following content. Save the model file to `/tmp/mystaging/models/dbmodel.yaml`. The model uses placeholder (secret `sqlserver-secret`) for database username, password, and Url. Make sure the following fields are set correcly. The following model names the resource with **jdbc/WebLogicCafeDB**.
+   Next, create the database connection model with the following content. Save the model file to `/tmp/mystaging/models/dbmodel.yaml`. The model uses placeholder (secret `sqlserver-secret`) for database username, password, and Url. Make sure the following fields are set correcly. The following model names the resource with **jdbc/WebLogicCafeDB**.
 
-    | Item Name | Field | Value |
-    |--------------------|----------------------------|----------------|
-    | JNDI name | `resources.JDBCSystemResource.<resource-name>.JdbcResource.JDBCDataSourceParams.JNDIName`  | `jdbc/WebLogicCafeDB` |
-    | Driver name | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.DriverName` | `com.microsoft.sqlserver.jdbc.SQLServerDriver` |
-    | Database Url | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.URL`  | `@@SECRET:sqlserver-secret:url@@` |
-    | Database password | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.PasswordEncrypted` | `@@SECRET:sqlserver-secret:password@@` |
-    | Database username | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.Properties.user.Value`  |  `'@@SECRET:sqlserver-secret:user@@'` |
+   | Item Name | Field | Value |
+   |--------------------|----------------------------|----------------|
+   | JNDI name | `resources.JDBCSystemResource.<resource-name>.JdbcResource.JDBCDataSourceParams.JNDIName`  | `jdbc/WebLogicCafeDB` |
+   | Driver name | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.DriverName` | `com.microsoft.sqlserver.jdbc.SQLServerDriver` |
+   | Database Url | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.URL`  | `@@SECRET:sqlserver-secret:url@@` |
+   | Database password | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.PasswordEncrypted` | `@@SECRET:sqlserver-secret:password@@` |
+   | Database username | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.Properties.user.Value`  |  `'@@SECRET:sqlserver-secret:user@@'` |
 
-    ```bash
-    cat <<EOF >dbmodel.yaml
-    resources:
-      JDBCSystemResource:
-        jdbc/WebLogicCafeDB:
-          Target: 'cluster-1'
-          JdbcResource:
-            JDBCDataSourceParams:
-              JNDIName: [
-                jdbc/WebLogicCafeDB
-              ]
-              GlobalTransactionsProtocol: None
-            JDBCDriverParams:
-              DriverName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-              URL: '@@SECRET:sqlserver-secret:url@@'
-              PasswordEncrypted: '@@SECRET:sqlserver-secret:password@@'
-              Properties:
-                user:
-                  Value: '@@SECRET:sqlserver-secret:user@@'
-            JDBCConnectionPoolParams:
-              TestTableName: SQL SELECT 1
-              TestConnectionsOnReserve: true
-    EOF
-    ```
+   ```bash
+   cat <<EOF >dbmodel.yaml
+   resources:
+     JDBCSystemResource:
+       jdbc/WebLogicCafeDB:
+         Target: 'cluster-1'
+         JdbcResource:
+           JDBCDataSourceParams:
+             JNDIName: [
+               jdbc/WebLogicCafeDB
+             ]
+             GlobalTransactionsProtocol: None
+           JDBCDriverParams:
+             DriverName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+             URL: '@@SECRET:sqlserver-secret:url@@'
+             PasswordEncrypted: '@@SECRET:sqlserver-secret:password@@'
+             Properties:
+               user:
+                 Value: '@@SECRET:sqlserver-secret:user@@'
+           JDBCConnectionPoolParams:
+             TestTableName: SQL SELECT 1
+             TestConnectionsOnReserve: true
+   EOF
+   ```
 
 1. Create application archive file using `zip` command. Remove `wlsdeploy` folder as you'll not use it anymore.
 
-    ```bash
-    cd /tmp/mystaging/models
-    zip -r archive.zip wlsdeploy
+   ```bash
+   cd /tmp/mystaging/models
+   zip -r archive.zip wlsdeploy
 
-    rm -f -r wlsdeploy
-    ```
+   rm -f -r wlsdeploy
+   ```
 
 1. Download and install [WebLogic Deploy Tooling](https://oracle.github.io/weblogic-deploy-tooling/)(WDT) in the staging directory and remove its weblogic-deploy/bin/*.cmd files, which are not used in UNIX environments:
 
-    ```bash
-    cd /tmp/mystaging
-    curl -m 120 -fL https://github.com/oracle/weblogic-deploy-tooling/releases/latest/download/weblogic-deploy.zip -o weblogic-deploy.zip
-    
-    unzip weblogic-deploy.zip -d .
-    rm ./weblogic-deploy/bin/*.cmd
-    ```
+   ```bash
+   cd /tmp/mystaging
+   curl -m 120 -fL https://github.com/oracle/weblogic-deploy-tooling/releases/latest/download/weblogic-deploy.zip -o weblogic-deploy.zip
 
-    Remove the WDT installer.
+   unzip weblogic-deploy.zip -d .
+   rm ./weblogic-deploy/bin/*.cmd
+   ```
 
-    ```bash
-    rm weblogic-deploy.zip
-    ```
+   Remove the WDT installer.
+
+   ```bash
+   rm weblogic-deploy.zip
+   ```
 
 1. Build an auxiliary image using docker.
 
@@ -455,48 +458,50 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
    /auxiliary/Dockerfile
    ```
 
-1. Push the auxiliary image to ACR. 
+1. Push the auxiliary image to Azure Container Registry. 
 
-    * Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
-    * Select the ACR from resource list. Write down the resource name.
-    * Run the following command to tag and push the image. Replace value of **ACR_NAME** with yours.
+   - Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
+   - Select the resource of type **Container Registry** from resource list.
+   - Hover the mouse over the **Login server** and select the copy icon to the right of the text. Set this as the value of the `ACR_LOGIN_SERVER` environment variable.
+   
+      ```bash
+      export ACR_LOGIN_SERVER=<value-from-clipboard>
+      ```
 
-        ```bash
-        # replace the ACR name with yours.
-        export ACR_NAME=wlsaksacrafvzeyyswhxek
-        export ACR_LOGIN_SERVER=$(az acr show -n $ACR_NAME --query "loginServer" -o tsv)
-        ```
+   - Run the following command to tag and push the image. Make sure Docker is running before executing these commands.
 
-        ```bash
-        az acr login -n $ACR_NAME
-        docker tag model-in-image:WLS-v1 $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
-        docker push $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
-        ```
+      ```bash
+      # replace the Azure Container Registry name with yours.
+      export ACR_NAME=$(echo ${ACR_LOGIN_SERVER} | cut -d '.' -f 1)
+      az acr login -n $ACR_NAME
+      docker tag model-in-image:WLS-v1 $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
+      docker push $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
+      ```
 
-    You can run `az acr repository show` to test if the image is push to remote repository successfully.
+      You can run `az acr repository show` to test if the image is push to remote repository successfully.
 
-    ```bash
-    az acr repository show --name ${ACR_NAME} --image wlsaks-auxiliary-image:1.0
-    ```
+      ```bash
+      az acr repository show --name ${ACR_NAME} --image wlsaks-auxiliary-image:1.0
+      ```
 
-    You'll find the output is similar to the following content.
+      You'll find the output is similar to the following content.
 
-    ```text
-    {
-      "changeableAttributes": {
-        "deleteEnabled": true,
-        "listEnabled": true,
-        "readEnabled": true,
-        "writeEnabled": true
-      },
-      "createdTime": "2024-01-24T06:14:19.4546321Z",
-      "digest": "sha256:a1befbefd0181a06c6fe00848e76f1743c1fecba2b42a975e9504ba2aaae51ea",
-      "lastUpdateTime": "2024-01-24T06:14:19.4546321Z",
-      "name": "1.0",
-      "quarantineState": "Passed",
-      "signed": false
-    }
-    ```
+      ```text
+      {
+        "changeableAttributes": {
+          "deleteEnabled": true,
+          "listEnabled": true,
+          "readEnabled": true,
+          "writeEnabled": true
+        },
+        "createdTime": "2024-01-24T06:14:19.4546321Z",
+        "digest": "sha256:a1befbefd0181a06c6fe00848e76f1743c1fecba2b42a975e9504ba2aaae51ea",
+        "lastUpdateTime": "2024-01-24T06:14:19.4546321Z",
+        "name": "1.0",
+        "quarantineState": "Passed",
+        "signed": false
+      }
+      ```
 
 ### Apply the auxiliary image
 
@@ -504,97 +509,132 @@ Now you have the auxiliary image including models and WDT. Before you apply the 
 
 1. Connect to the AKS cluster.
 
-   * Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
-   * Select the AKS cluster from resource list. Select button **Connect**, you find the guidance of how to connect the AKS cluster.
-   * Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal.
-
+   - In your shell, paste the value of the **shellCmdtoConnectAks** you saved aside previously. Execute the command. This will look similar to the following.
+   
+      ```bash
+      az account set --subscription <redacted>; az aks get-credentials --resource-group ejb010201wls --name wlsonaks2mkgvjqpy4cl4
+      ```
+      
+      You should see output similar to the following. If you don't see this output, troubleshoot and resolve the problem before continuing.
+      
+      ```bash
+      Merged "wlsonaks2mkgvjqpy4cl4" as current context in /Users/<username>/.kube/config
+      ```
+   
 1. Create secret for datasource connection.
 
-    This article uses secret name `sqlserver-secret` for secret of datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*. Make sure variable **DB_CONNECTION_STRING**, **DB_USER** and **DB_PASSWORD**  for database connection are set correctly.
+    This article uses secret name `sqlserver-secret` for the secret of the datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*. Make sure variable **DB_CONNECTION_STRING**, **DB_USER** and **DB_PASSWORD**  for database connection are set correctly.
 
-    | Variable | Value | Example |
-    |----------|-------|---------|
-    |`DB_CONNECTION_STRING` |  The connection string of SQL server. You can obtain it from portal. | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125`
-    | `DB_USER` | The username to login the SQL server. | `welogic@sqlserverforwlsaks` |
-    | `DB_PASSWORD` | The password to login the sQL server. | `Secret123456` |
+   | Variable | Value | Example |
+   |----------|-------|---------|
+   |`DB_CONNECTION_STRING` |  The connection string of SQL server. You can obtain it from portal. | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125`
+   | `DB_USER` | The username to login the SQL server. | `welogic@sqlserverforwlsaks` |
+   | `DB_PASSWORD` | The password to login the sQL server. | `Secret123456` |
 
-    ```bash
-    # replace with your values
-    export DB_CONNECTION_STRING=<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>
-    # replace with your values
-    export DB_USER=<example-welogic@sqlserverforwlsaks>
-    # replace with your values
-    export DB_PASSWORD=<example-Secret123456>
-    ```
-    
-    ```bash
-    export WLS_DOMAIN_NS=sample-domain1-ns
-    export WLS_DOMAIN_UID=sample-domain1
-    export SECRET_NAME=sqlserver-secret
 
-    kubectl -n ${WLS_DOMAIN_NS} create secret generic \
-      ${SECRET_NAME} \
-      --from-literal=password="${DB_PASSWORD}" \
-      --from-literal=url="${DB_CONNECTION_STRING}" \
-      --from-literal=user="${DB_USER}"
+   Follow these steps to get the values for the variables.
+   
+   1. Visit the SQL database resource in the portal.
+   
+   1. In the left navigation panel, under **Settings**, select **Connection strings**.
+   
+   1. Select the **JDBC** tab.
+   
+   1. Select the copy icon.
+   
+   1. The `DB_CONNECTION_STRING` value is the portion of the string from `jdbc:` up to but not including `;user=azureuser`.
+   
+   1. The `DB_USER` value is the portion of the string from `user=azureuser` up to but not including `;password={your_password_here}`.
+   
+   1. The `DB_PASSWORD` value is the value you entered when you created the database.
 
-    kubectl -n ${WLS_DOMAIN_NS} label secret \
-      ${SECRET_NAME} \
-      weblogic.domainUID=${WLS_DOMAIN_UID}
-    ```
+   ```bash
+   export DB_CONNECTION_STRING=<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>
+   export DB_USER=<example-welogic@sqlserverforwlsaks>
+   export DB_PASSWORD=<example-Secret123456>
+   export WLS_DOMAIN_NS=sample-domain1-ns
+   export WLS_DOMAIN_UID=sample-domain1
+   export SECRET_NAME=sqlserver-secret
 
-2. Apply the auxiliary image by patching the domain CRD.
+   kubectl -n ${WLS_DOMAIN_NS} create secret generic \
+     ${SECRET_NAME} \
+     --from-literal=password="${DB_PASSWORD}" \
+     --from-literal=url="${DB_CONNECTION_STRING}" \
+     --from-literal=user="${DB_USER}"
 
-    The auxiliary image is defined in `spec.configuration.model.auxiliaryImages`, as the following snippet shows. For more information, see [auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/).
+   kubectl -n ${WLS_DOMAIN_NS} label secret \
+     ${SECRET_NAME} \
+     weblogic.domainUID=${WLS_DOMAIN_UID}
+   ```
+   
+   You must see the following output before continuing. If you do not see this output, troubleshoot and resolve the problem before continuing.
+   
+   ```bash
+   secret/sqlserver-secret created
+   secret/sqlserver-secret labeled
+   ```
 
-    ```yaml
-    spec:
-      clusters:
-      - name: sample-domain1-cluster-1
-      configuration:
-        model:
-          auxiliaryImages:
-          - image: wlsaksacrafvzeyyswhxek.azurecr.io/wlsaks-auxiliary-image:1.0
-            imagePullPolicy: IfNotPresent
-            sourceModelHome: /auxiliary/models
-            sourceWDTInstallHome: /auxiliary/weblogic-deploy
-    ```
+2. Apply the auxiliary image by patching the domain custom resource definition (CRD).
 
-    Run `kubectl patch` command increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
+   The auxiliary image is defined in `spec.configuration.model.auxiliaryImages`, as the following snippet shows. For more information, see [auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/).
 
-    ```bash
-    export VERSION=$(kubectl -n ${WLS_DOMAIN_NS} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
-    ```
-    
-    ```bash
-    VERSION=$((VERSION+1))
+   ```yaml
+   spec:
+     clusters:
+     - name: sample-domain1-cluster-1
+     configuration:
+       model:
+         auxiliaryImages:
+         - image: wlsaksacrafvzeyyswhxek.azurecr.io/wlsaks-auxiliary-image:1.0
+           imagePullPolicy: IfNotPresent
+           sourceModelHome: /auxiliary/models
+           sourceWDTInstallHome: /auxiliary/weblogic-deploy
+   ```
 
-    cat <<EOF >patch-file.json
-    [
-      {
-        "op": "replace",
-        "path": "/spec/restartVersion",
-        "value": "${VERSION}"
-      },
-      {
-        "op": "add",
-        "path": "/spec/configuration/model/auxiliaryImages",
-        "value": [{"image": "$ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0", "imagePullPolicy": "IfNotPresent", "sourceModelHome": "/auxiliary/models", "sourceWDTInstallHome": "/auxiliary/weblogic-deploy"}]
-      },
-      {
-        "op": "add",
-        "path": "/spec/configuration/secrets",
-        "value": ["${SECRET_NAME}"]
-      }
-    ]
-    EOF
+   Run `kubectl patch` command increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
 
-    kubectl -n ${WLS_DOMAIN_NS} patch domain ${WLS_DOMAIN_UID} \
-      --type=json \
-      --patch-file patch-file.json
+   ```bash
+   export VERSION=$(kubectl -n ${WLS_DOMAIN_NS} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
+   ```
 
-    kubectl get pod -n ${WLS_DOMAIN_NS} -w
-    ```
+   ```bash
+   export VERSION=$((VERSION+1))
+
+   cat <<EOF >patch-file.json
+   [
+     {
+       "op": "replace",
+       "path": "/spec/restartVersion",
+       "value": "${VERSION}"
+     },
+     {
+       "op": "add",
+       "path": "/spec/configuration/model/auxiliaryImages",
+       "value": [{"image": "$ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0", "imagePullPolicy": "IfNotPresent", "sourceModelHome": "/auxiliary/models", "sourceWDTInstallHome": "/auxiliary/weblogic-deploy"}]
+     },
+     {
+       "op": "add",
+       "path": "/spec/configuration/secrets",
+       "value": ["${SECRET_NAME}"]
+     }
+   ]
+   EOF
+
+   kubectl -n ${WLS_DOMAIN_NS} patch domain ${WLS_DOMAIN_UID} \
+     --type=json \
+     --patch-file patch-file.json
+
+   kubectl get pod -n ${WLS_DOMAIN_NS} -w
+   ```
+   
+   Wait until the admin server and managed servers show the following values before proceeding. It may take a five - ten minutes for the system to reach this state.
+   
+   ```bash
+   NAME                             READY   STATUS    RESTARTS   AGE
+   sample-domain1-admin-server      1/1     Running   0          20m
+   sample-domain1-managed-server1   1/1     Running   0          19m
+   sample-domain1-managed-server2   1/1     Running   0          18m
+   ```
 
 ## Verify the functionality of the deployment
 
