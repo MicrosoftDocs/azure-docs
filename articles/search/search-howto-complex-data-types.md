@@ -333,7 +333,14 @@ For example, a user searches for Canada and product code 1234. The user search w
 
 This will not match any of the entries in the delimited array in our search index.
 
+Only the above design choice requires this wild card entry; if it had been saved as a complex object, we could have simply performed an explicit search as shown below.
 
+```csharp
+           var countryFilter = $"searchScope/any(ss: search.in(countryCode ,'FRA'))";
+            var catgFilter = $"searchScope/any(ss: search.in(categoryCode ,'C100'))";
+            var combinedCountryCategoryFilter = "(" + countryFilter + " and " + catgFilter + ")";
+
+```
 We can thus satisfy requirements where we need to search for a combination of values by storing it as a delimited string instead of a complex collection if our complex collections exceed the Azure Search limit. This is one of the workarounds, and the customer needs to validate if this would meet their scenario requirements.
 
 ## Next steps
