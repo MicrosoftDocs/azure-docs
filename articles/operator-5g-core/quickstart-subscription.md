@@ -198,12 +198,3 @@ TODO: Add your next step link(s)
 >
 
 <!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
