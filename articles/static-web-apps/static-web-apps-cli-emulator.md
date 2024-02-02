@@ -30,7 +30,7 @@ As you develop your app's front-end, you might want to use the framework's defau
 
 For example, Angular developers often use `ng serve` or `npm start` to run the development server.
 
-You can set up the Static Web Apps SWA CLI to capture requests to the dev server, which gives you the benefits of both your framework's CLI while simultaneously working with Static Web Apps CLI.
+You can set up the Static Web Apps SWA CLI to proxy requests to the dev server, which gives you the benefits of both your framework's CLI while simultaneously working with Static Web Apps CLI.
 
 There are two steps to using a framework's dev server along with the SWA CLI:
 
@@ -38,9 +38,9 @@ There are two steps to using a framework's dev server along with the SWA CLI:
 
 1. Start the SWA CLI in a new terminal, passing in the dev server URL.
 
-```bash
-swa start <DEV_SERVER_URL>
-```
+    ```bash
+    swa start <DEV_SERVER_URL>
+    ```
 
 > [!NOTE]
 > Make sure to replace the `<DEV_SERVER_URL>` placeholder with your own value.

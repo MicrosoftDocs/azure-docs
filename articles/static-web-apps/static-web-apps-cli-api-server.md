@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 12/15/2023
+ms.date: 02/02/2024
 ms.author: cshoe
 ---
 
@@ -21,19 +21,19 @@ To use the SWA CLI emulator alongside the API server:
 
 1. Start API server using the Azure Functions core tools CLI or the [Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
-  Copy the URL of the local API server, once the core tools are running.
-
-  ```bash
-  func host start
-  ```
+    Copy the URL of the local API server, once the core tools are running.
+  
+    ```bash
+    func host start
+    ```
 
 1. In a separate terminal, start the SWA CLI using the `--api-devserver-url` option to pass it the local API Server URI.
 
-  For example:
-
-  ```bash
-  swa start ./my-dist --api-devserver-url http://localhost:7071
-  ```
+    For example:
+  
+    ```bash
+    swa start ./my-dist --api-devserver-url http://localhost:7071
+    ```
 
 ## Automatic start
 
@@ -41,15 +41,15 @@ To set up an automatic start, you first need to have an Azure Functions applicat
 
 1. Launch the API server alongside the SWA emulator
 
-  ```bash
-  swa start ./my-dist --api-location ./api
-  ```
+    ```bash
+    swa start ./my-dist --api-location ./api
+    ```
 
 1. Combine the launch with usage of a running dev server
 
-  ```bash
-  swa start http://localhost:3000 --api-location ./api
-  ```
+    ```bash
+    swa start http://localhost:3000 --api-location ./api
+    ```
   
 ## Next steps
 
