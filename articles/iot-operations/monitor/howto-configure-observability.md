@@ -79,7 +79,7 @@ The following deployment types are available:
 - [Shared Resource Deployment](#shared-resource-deployment). Creates only the shared observability resources. Useful for setting up shared resources independently from connecting clusters to those resources.
 - [Cluster Resource Deployment](#cluster-resource-deployment). Connects a cluster to an existing set of shared observability resources created in one of the other deployment types. Useful for adding more clusters to a single set of shared resources. 
 
-### All-in-one Deployment
+### All-in-one deployment
 
 The all-in-one deployment sets up shared monitoring resources (that is, Azure Managed Grafana, Azure Monitor, Azure Log Analytics) and connects the specified cluster to those resources.
 
@@ -113,11 +113,11 @@ az deployment group create \
     --query=properties.outputs
 ```
 
-To set up permissions manually, [add a role assignment](https://learn.microsoft.com/en-us/azure/managed-grafana/how-to-share-grafana-workspace?tabs=azure-portal#add-a-grafana-role-assignment) to the Grafana instance for any users who should have access. Assign one of the Grafana roles (Grafana Admin, Grafana Editor, Grafana Viewer) depending on the level of access desired.
+To set up permissions manually, [add a role assignment](../../managed-grafana/how-to-share-grafana-workspace.md#add-a-grafana-role-assignment) to the Grafana instance for any users who should have access. Assign one of the Grafana roles (Grafana Admin, Grafana Editor, Grafana Viewer) depending on the level of access desired.
 
-If the deployment succeeds, a few pieces of information are printed at the end of the command output. The information includes the Grafana URL and the resource IDs for both the Log Analytics and Azure Monitor resources that were created. The Grafana URL allows you to navigate to the Grafana instance that you configure in [Step 3](#step-3-access-grafana-dashboards). You need the other two pieces of information if you want to set up more clusters by using [Cluster Resource Deployment](#cluster-resource-deployment).
+If the deployment succeeds, a few pieces of information are printed at the end of the command output. The information includes the Grafana URL and the resource IDs for both the Log Analytics and Azure Monitor resources that were created. The Grafana URL allows you to navigate to the Grafana instance that you configure in [Access Grafana dashboards](#access-grafana-dashboards). You need the other two pieces of information if you want to set up more clusters by using [Cluster Resource Deployment](#cluster-resource-deployment).
 
-### Shared Resource Deployment
+### Shared resource deployment
 
 This deployment sets up the shared monitoring resources (that is, Azure Managed Grafana, Azure Monitor, Azure Log Analytics), but doesn't connect it to any clusters. After you run this deployment, use the [Cluster Resource Deployment](#cluster-resource-deployment) to set up monitoring that uses the shared resources.
 
@@ -145,11 +145,11 @@ az deployment group create \
     --query=properties.outputs
 ```
 
-To set up permissions manually, [add a role assignment](https://learn.microsoft.com/en-us/azure/managed-grafana/how-to-share-grafana-workspace?tabs=azure-portal#add-a-grafana-role-assignment) to the Grafana instance for any users who should have access. Assign one of the Grafana roles (Grafana Admin, Grafana Editor, Grafana Viewer) depending on the level of access desired.
+To set up permissions manually, [add a role assignment](../../managed-grafana/how-to-share-grafana-workspace.md#add-a-grafana-role-assignment) to the Grafana instance for any users who should have access. Assign one of the Grafana roles (Grafana Admin, Grafana Editor, Grafana Viewer) depending on the level of access desired.
 
-If the deployment succeeds, a few pieces of information are printed at the end of the command output. This information includes the Grafana URL and the resource IDs for both the Log Analytics and Azure Monitor resources that were created. The Grafana URL allows you to navigate to the Grafana instance that you configure in [Step 3](#step-3-access-grafana-dashboards). You need the other two pieces of information if you want to set up more clusters by using [Cluster Resource Deployment](#cluster-resource-deployment).
+If the deployment succeeds, a few pieces of information are printed at the end of the command output. This information includes the Grafana URL and the resource IDs for both the Log Analytics and Azure Monitor resources that were created. The Grafana URL allows you to navigate to the Grafana instance that you configure in [Access Grafana dashboards](#access-grafana-dashboards). You need the other two pieces of information if you want to set up more clusters by using [Cluster Resource Deployment](#cluster-resource-deployment).
 
-### Cluster Resource Deployment
+### Cluster resource deployment
 
 This deployment configures observability for our individual cluster. The deployment enables telemetry to be sent to the shared resources deployed either in an [All-in-one Deployment](#all-in-one-deployment) or in a [Shared Resource Deployment](#shared-resource-deployment).
 
@@ -179,7 +179,7 @@ az deployment group create \
                   logAnalyticsLocation=<log-analytics-location>
 ```
 
-## Access Grafana Dashboards
+## Access Grafana dashboards
 
 Navigate to the endpoint for the Grafana instance that you created previously by using the URL from the deployment outputs. If you didn't already do so, create the relevant dashboards by going to the [dashboard list](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboards). For each dashboard in the list that you want, use the add (+) button in the upper right of the Grafana UI to import it into the Grafana workspace. 
 
