@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 01/10/2024
 ---
 
 # Create a Private Endpoint for a secure connection to Azure AI Search
 
-In this article, you'll learn how to secure an Azure AI Search service so that it can't be accessed over the internet:
+In this article, learn how to secure an Azure AI Search service so that it can't be accessed over a public internet connection:
 
 + [Create an Azure virtual network](#create-the-virtual-network) (or use an existing one)
-+ [Create a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
++ [Configure a search service to use a private endpoint](#create-a-search-service-with-a-private-endpoint)
 + [Create an Azure virtual machine in the same virtual network](#create-a-virtual-machine)
-+ [Connect to search using a browser session on the virtual machine](#connect-to-the-vm)
++ [Test using a browser session on the virtual machine](#connect-to-the-vm)
 
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate billable service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 
-You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
+You can create a private endpoint for a search service in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 > [!NOTE]
 > Once a search service has a private endpoint, portal access to that service must be initiated from a browser session on a virtual machine inside the virtual network. See [this step](#portal-access-private-search-service) for details.

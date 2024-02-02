@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 11/29/2022
+ms.date: 01/16/2024
 ms.author: aahi
 ---
 
@@ -33,8 +33,7 @@ Preview models used for preview features do not maintain a minimum retirement pe
 By default, API and SDK requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used (not recommended).
 
 > [!NOTE]
-> * If you are using a model version that is not listed in the table, then it was subjected to the expiration policy.
-> * Abstractive document and conversation summarization do not provide model versions other than the latest available.
+> If you are using a model version that is not listed in the table, then it was subjected to the expiration policy.
 
 Use the table below to find which model versions are supported by each feature:
 
@@ -49,7 +48,7 @@ Use the table below to find which model versions are supported by each feature:
 | Question answering                                  | `latest*`                                      |                                             |
 | Text Analytics for health                           | `latest*`                                      | `2022-08-15-preview`, `2023-01-01-preview**`|
 | Key phrase extraction                               | `latest*`                                      |                                             | 
-| Document summarization - extractive only (preview)  |                                                |`2022-08-31-preview**`                       |
+| Summarization                              |  `latest*`                                      |                       |
 
 
 \* Latest Generally Available (GA) model version

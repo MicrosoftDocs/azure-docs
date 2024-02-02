@@ -17,7 +17,7 @@ When a vulnerability is identified in a container image stored in a container re
 - For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.md) installed on the Azure DevOps organization.
 - For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories.
 - [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.
-- The container images must be built using [Docker](https://www.docker.com/).
+- The container images must be built using [Docker](https://www.docker.com/) and the Docker client must be able to access the Docker server during the build.
 
 ## Map your container image from Azure DevOps pipelines to the container registry
 
@@ -33,16 +33,16 @@ After building a container image in an Azure DevOps CI/CD pipeline and pushing i
 
 1. (Optional) Select + by **Container Images** to add other filters to your query, such as **Has vulnerabilities** to filter only container images with CVEs.
 
-1. After running your query, you will see the mapping between container registry and Azure DevOps pipeline. Click **...** next to the edge to see additional details on where the Azure DevOps pipeline was run.
+1. After running your query, you will see the mapping between container registry and Azure DevOps pipeline. Select **...** next to the edge to see additional details on where the Azure DevOps pipeline was run.
 
     :::image type="content" source="media/container-image-mapping/mapping-results.png" alt-text="Screenshot that shows an advanced query for container mapping results." lightbox="media/container-image-mapping/mapping-results.png":::
 
-Below is an example of an advanced query that utilizes container image mapping. Starting with a Kubernetes workload that is exposed to the internet, you can trace all container images with high severity CVEs back to the Azure DevOps pipeline where the container image was built, empowering a security practitioner to kick off a developer remediation workflow.
+The following is an example of an advanced query that utilizes container image mapping. Starting with a Kubernetes workload that is exposed to the internet, you can trace all container images with high severity CVEs back to the Azure DevOps pipeline where the container image was built, empowering a security practitioner to kick off a developer remediation workflow.
 
   :::image type="content" source="media/container-image-mapping/advanced-mapping-query.png" alt-text="Screenshot that shows basic container mapping results." lightbox="media/container-image-mapping/advanced-mapping-query.png":::
 
 > [!NOTE]
-> If your Azure DevOps organization had the MSDO extension installed prior to November 15, 2023, please navigate to **Organization settings** > **Extensions** and install the container image mapping decorator. If you do not see the extension shared with your organization, fill out the following [form](https://aka.ms/ContainerImageMappingForm).
+> If your Azure DevOps organization had the Azure DevOps connector created prior to November 15, 2023, please navigate to **Organization settings** > **Extensions > Shared** and install the container image mapping decorator. If you do not see the extension shared with your organization, fill out the following [form](https://aka.ms/ContainerImageMappingForm).
 
 ## Map your container image from GitHub workflows to the container registry
 
@@ -69,12 +69,13 @@ After building a container image in a GitHub workflow and pushing it to a regist
 
 1. (Optional) Select + by **Container Images** to add other filters to your query, such as **Has vulnerabilities** to filter only container images with CVEs.
 
-1. After running your query, you will see the mapping between container registry and GitHub workflow. Click **...** next to the edge to see additional details on where the GitHub workflow was run.
+1. After running your query, you will see the mapping between container registry and GitHub workflow. Select **...** next to the edge to see additional details on where the GitHub workflow was run.
 
-Below is an example of an advanced query that utilizes container image mapping. Starting with a Kubernetes workload that is exposed to the internet, you can trace all container images with high severity CVEs back to the GitHub repository where the container image was built, empowering a security practitioner to kick off a developer remediation workflow.
+The following is an example of an advanced query that utilizes container image mapping. Starting with a Kubernetes workload that is exposed to the internet, you can trace all container images with high severity CVEs back to the GitHub repository where the container image was built, empowering a security practitioner to kick off a developer remediation workflow.
 
   :::image type="content" source="media/container-image-mapping/advanced-mapping-query.png" alt-text="Screenshot that shows basic container mapping results." lightbox="media/container-image-mapping/advanced-mapping-query.png":::
 
 ## Next steps
 
 - Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
+

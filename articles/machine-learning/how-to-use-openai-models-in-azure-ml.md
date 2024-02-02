@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI models in Azure Machine Learning.
 ms.author: marouzba
 author: MahsaRouzbahman
 ms.reviewer: ssalgado
-ms.date: 10/12/2023
+ms.date: 12/12/2023
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: how-to
@@ -27,8 +27,6 @@ In this article, you learn how to discover, fine-tune, and deploy Azure OpenAI m
 
 ## What are OpenAI models in Azure Machine Learning?
 
-In recent years, advancements in AI have led to the rise of large foundation models that are trained on a vast quantity of data. These models can be easily adapted to many applications across various industries. This emerging trend gives rise to a unique opportunity for enterprises to build and use these foundation models in their deep learning workloads.
-
 OpenAI models in Machine Learning provide Machine Learning native capabilities that enable customers to build and use Azure OpenAI models at scale by:
 
 - Accessing [Azure OpenAI](../ai-services/openai/overview.md) in Machine Learning, which is made available in the Machine Learning model catalog.
@@ -38,7 +36,7 @@ OpenAI models in Machine Learning provide Machine Learning native capabilities t
 
 ## Access Azure OpenAI models in Machine Learning
 
-The model catalog (preview) in Azure Machine Learning studio is your starting point to explore various collections of foundation models. The Azure OpenAI models collection consists of models that are exclusively available on Azure. These models enable customers to access prompt engineering, fine-tuning, evaluation, and deployment capabilities for large language models that are available in Azure OpenAI. You can view the complete list of supported Azure OpenAI models in the [model catalog](https://ml.azure.com/model/catalog) under the **Azure OpenAI Service** collection.
+The model catalog in Azure Machine Learning studio is your starting point to explore various collections of foundation models. The Azure OpenAI models collection consists of models that are exclusively available on Azure. These models enable customers to access prompt engineering, fine-tuning, evaluation, and deployment capabilities for large language models that are available in Azure OpenAI. You can view the complete list of supported Azure OpenAI models in the [model catalog](https://ml.azure.com/model/catalog) under the **Azure OpenAI Service** collection.
 
 > [!TIP]
 >Supported Azure OpenAI models are published to the Machine Learning model catalog. You can view a complete list of [Azure OpenAI models](../ai-services/openai/concepts/models.md).
@@ -140,6 +138,7 @@ You might receive any of the following errors when you try to deploy an Azure Op
 - **Fine-tuning job failed**
     - **Fix:** Currently, only a maximum of 10 workspaces can be designated for a particular subscription for new fine-tunable models. If a user creates more workspaces, they get access to the models, but their jobs fail. Try to limit the number of workspaces per subscription to 10.
 
-## Next steps
+## Learn more
 
-[Use foundation models](how-to-use-foundation-models.md)
+* Explore the [Model Catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
+* [Evaluate, fine-tune and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.

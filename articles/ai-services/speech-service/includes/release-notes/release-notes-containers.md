@@ -6,6 +6,14 @@ ms.date: 10/2/2023
 ms.author: eur
 ---
 
+### 2023-November release
+
+Add support for the latest model versions:
+- Custom speech to text 4.5.0
+- Speech to text 4.5.0
+- Neural text to speech 2.19.0
+
+
 ### 2023-October release
 
 Add support for the latest model versions:
@@ -130,7 +138,7 @@ Fix Hypothesis mode issue
 
 Fix HTTP Proxy issue
 
-Custom Speech to text container disconnected mode
+Custom speech to text container disconnected mode
 
 Add CNV Disconnected container support to TTS Frontend
 
@@ -201,7 +209,7 @@ Add support for these locales:
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 
-#### Custom Speech to text 3.6.0-amd64
+#### Custom speech to text 3.6.0-amd64
 
 Regular monthly updates including security upgrades and vulnerability fixes.
 

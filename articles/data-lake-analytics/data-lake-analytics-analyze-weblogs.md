@@ -4,9 +4,11 @@ description: Learn how to analyze website logs using Azure Data Lake Analytics t
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
+
 # Analyze Website logs using Azure Data Lake Analytics
+
 Learn how to analyze website logs using Data Lake Analytics, especially on finding out which referrers ran into errors when they tried to visit the website.
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]

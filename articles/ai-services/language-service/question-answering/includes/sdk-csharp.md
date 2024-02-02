@@ -4,7 +4,7 @@ description: This quickstart shows how to get started with the question answerin
 author: jboback
 ms.author: jboback
 ms.topic: include
-ms.date: 07/12/2022
+ms.date: 12/19/2023
 ---
 
 Use this quickstart for the question answering client library for .NET to:

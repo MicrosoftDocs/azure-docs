@@ -5,8 +5,8 @@ services: azure-monitor
 ms.topic: conceptual
 author: guywild
 ms.author: guywild
-ms.reviewer: noakuper
-ms.date: 06/27/2022
+ms.reviewer: osalzberg
+ms.date: 12/28/2023
 
 ---
 

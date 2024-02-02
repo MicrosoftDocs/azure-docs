@@ -1,12 +1,11 @@
 ---
 title: IoT Plug and Play conventions | Microsoft Docs
 description: Description of the conventions IoT Plug and Play expects devices to use when they send telemetry and properties, and handle commands and property updates.
-author: rido-min
-ms.author: rmpablos
-ms.date: 11/17/2022
+author: timlt
+ms.author: timlt
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.service: iot-develop
-services: iot-develop
 ---
 
 # IoT Plug and Play conventions

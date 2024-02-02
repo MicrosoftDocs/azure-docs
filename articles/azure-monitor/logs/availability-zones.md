@@ -8,7 +8,7 @@ ms.author: guywild
 ms.date: 06/05/2023
 ms.custom: references_regions
 
-#customer-intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide to ensure my data and services are sufficiently protected in the event of datacenter failure.
+# Customer intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide to ensure my data and services are sufficiently protected in the event of datacenter failure.
 ---
 # Enhance data and service resilience in Azure Monitor Logs with availability zones
 
@@ -37,13 +37,14 @@ Azure Monitor currently supports data resilience for availability-zone-enabled d
   |---|---|---|---|---|
   | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
   | Canada Central | Germany West Central | UAE North | | Central India | 
-  | Central US | North Europe | | | Japan East |
+  | Central US | North Europe | Israel Central | | Japan East |
   | East US | Norway East | | | Korea Central |
   | East US 2 | UK South | | | Southeast Asia |
   | South Central US | West Europe | | | East Asia |
   | West US 2 | Sweden Central | | |  |
   | West US 3 | Switzerland North | | |  |
-  |  | Poland Central | | | |
+  | | Poland Central | | | |
+  | | Italy North | | | |
 
 > [!NOTE]
 > Moving to a dedicated cluster in a region that supports availablility zones protects data ingested after the move, not historical data.

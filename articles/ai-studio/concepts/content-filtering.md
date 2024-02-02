@@ -2,14 +2,15 @@
 title: Azure AI Studio content filtering
 titleSuffix: Azure AI Studio
 description: Learn about the content filtering capabilities of Azure OpenAI in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Content filtering in Azure AI Studio

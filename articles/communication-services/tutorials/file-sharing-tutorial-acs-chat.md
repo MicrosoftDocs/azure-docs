@@ -21,9 +21,8 @@ In an Azure Communication Services Chat, we can enable file sharing between comm
 
 In this tutorial, we're configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We're using Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
 
->[!IMPORTANT]
->Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the pupose of this tutorial, we're using Azure Blob Storage.**
-
+> [!IMPORTANT]
+> Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the pupose of this tutorial, we're using Azure Blob Storage.\*\*
 
 ## Download code
 
@@ -43,7 +42,7 @@ This tutorial assumes that you already know how to set up and run a Chat Composi
 The UI Library Chat Composite supports file sharing by enabling developers to pass the URL to a hosted file that is sent through the Azure Communication Services chat service. The UI Library renders the attached file and supports multiple extensions to configure the look and feel of the file sent. More specifically, it supports the following features:
 
 1. Attach file button for picking files through the OS File Picker
-2. Configure allowed file extensions. 
+2. Configure allowed file extensions.
 3. Enable/disable multiple uploads.
 4. File Icons for a wide variety of file types.
 5. File upload/download cards with progress indicators.
@@ -67,7 +66,7 @@ This tutorial assumes that your Azure blob storage container allows public acces
 
 For downloading the files, you upload to Azure blob storage, you can use shared access signatures (SAS). A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data.
 
-The downloadable [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite) showcases the use of SAS for creating SAS URLs to Azure Storage contents. Additionally, you can [read more about SAS](../../storage/common/storage-sas-overview.md). 
+The downloadable [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite) showcases the use of SAS for creating SAS URLs to Azure Storage contents. Additionally, you can [read more about SAS](../../storage/common/storage-sas-overview.md).
 
 UI Library requires a React environment to be set up. Next we do that. If you already have a React App, you can skip this section.
 
@@ -92,7 +91,7 @@ Use the `npm install` command to install the beta Azure Communication Services U
 
 ```bash
 
-npm install @azure/communication-react@1.5.1-beta.5
+npm install @azure/communication-react@1.11.0-beta.1
 
 ```
 
@@ -101,8 +100,8 @@ you can most consistently use the API from the core libraries in your applicatio
 
 ```bash
 
-npm install @azure/communication-calling@1.4.4
-npm install @azure/communication-chat@1.2.0
+npm install @azure/communication-calling@1.19.1-beta.2
+npm install @azure/communication-chat@1.4.0-beta.2
 
 ```
 
@@ -124,7 +123,7 @@ You need to replace the variable values for both common variable required to ini
 
 ```javascript
 import { FileUploadHandler, FileUploadManager } from '@azure/communication-react';
-import { initializeFileTypeIcons } from '@fluentui/react-file-type-icons'; 
+import { initializeFileTypeIcons } from '@fluentui/react-file-type-icons';
 import {
   ChatComposite,
   fromFlatCommunicationIdentifier,
@@ -214,7 +213,7 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
     url: 'https://sample.com/sample.jpg', // Download URL of the file.
     extension: 'jpeg' // File extension used for file icon during download.
   };
-  
+
 const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
       return new URL(fileData.url);
     }
@@ -230,30 +229,29 @@ To enable Azure Blob Storage upload, we modify the `uploadFileToAzureBlob` metho
 `App.tsx`
 
 ```javascript
-
 const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   const file = fileUpload.file;
   if (!file) {
-    throw new Error('fileUpload.file is undefined');
+    throw new Error("fileUpload.file is undefined");
   }
 
   const filename = file.name;
-  const fileExtension = file.name.split('.').pop();
+  const fileExtension = file.name.split(".").pop();
 
   // Following is an example of calling an Azure Function to handle file upload
   // The https://learn.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
   // tutorial uses 'username' parameter to specify the storage container name.
   // the container in the tutorial is private by default. To get default downloads working in
   // this sample, you need to change the container's access level to Public via Azure Portal.
-  const username = 'ui-library';
-  
+  const username = "ui-library";
+
   // You can get function url from the Azure Portal:
-  const azFunctionBaseUri='<YOUR_AZURE_FUNCTION_URL>';
+  const azFunctionBaseUri = "<YOUR_AZURE_FUNCTION_URL>";
   const uri = `${azFunctionBaseUri}&username=${username}&filename=${filename}`;
-  
+
   const formData = new FormData();
   formData.append(file.name, file);
-  
+
   const response = await axios.request({
     method: "post",
     url: uri,
@@ -263,21 +261,20 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
       fileUpload.notifyUploadProgressChanged(p.loaded / p.total);
     },
   });
-  
-  const storageBaseUrl = 'https://<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net';
+
+  const storageBaseUrl = "https://<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net";
 
   return {
     name: filename,
     url: `${storageBaseUrl}/${username}/${filename}`,
-    extension: fileExtension
+    extension: fileExtension,
   };
-}
-
+};
 ```
 
 ## Error handling
-    
-When an upload fails, the UI Library Chat Composite displays an error message. 
+
+When an upload fails, the UI Library Chat Composite displays an error message.
 
 ![File Upload Error Bar](./media/file-too-big.png "Screenshot that shows the File Upload Error Bar.")
 
@@ -291,7 +288,7 @@ import { FileUploadHandler } from from '@azure/communication-react';
 const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
   for (const fileUpload of fileUploads) {
     if (fileUpload.file && fileUpload.file.size > 99 * 1024 * 1024) {
-      // Notify ChatComposite about upload failure. 
+      // Notify ChatComposite about upload failure.
       // Allows you to provide a custom error message.
       fileUpload.notifyUploadFailed('File too big. Select a file under 99 MB.');
     }
@@ -310,24 +307,23 @@ import { FileDownloadHandler } from "communication-react";
 
 const isUnauthorizedUser = (userId: string): boolean => {
   // You need to write your own logic here for this example.
-}
+};
 
 const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
   if (isUnauthorizedUser(userId)) {
     // Error message is displayed to the user.
-    return { errorMessage: 'You don’t have permission to download this file.' };
+    return { errorMessage: "You don’t have permission to download this file." };
   } else {
-    // If this function returns a Promise that resolves a URL string, 
-    // the URL is opened in a new tab. 
+    // If this function returns a Promise that resolves a URL string,
+    // the URL is opened in a new tab.
     return new URL(fileData.url);
   }
-}
+};
 ```
 
 Download errors are displayed to users in an error bar on top of the Chat Composite.
 
 ![File Download Error](./media/download-error.png "Screenshot that shows the File Download Error.")
-
 
 ## Clean up resources
 

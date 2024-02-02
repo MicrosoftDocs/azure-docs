@@ -104,8 +104,10 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Add and remove video stream from spotlight                                                                          | ✔️ |
 |                   | Allow video stream to be selected for spotlight                                                                     | ✔️ |
 |                   | Apply Teams background effects                                                                                      | ❌ |
-| Recording & transcription | Manage Teams convenient recording                                                                           | ❌ |
-|                   | Receive information of call being recorded                                                                          |   ✔️      |
+| Recording & transcription | Manage Teams cloud recording                                                                                | ❌ |
+|                   | Receive information of call being cloud recorded                                                                    | ✔️ |
+|                   | Manage Teams local recording                                                                                        | ❌ |
+|                   | Receive information of call being locally recorded                                                                  | ✔️ |
 |                   | Manage Teams transcription                                                                                          | ❌ |
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
 |                   | Manage Teams closed captions                                                                                        | ❌ |

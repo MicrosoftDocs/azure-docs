@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -38,5 +38,5 @@ Use the following steps to set the required roles for your Language resource and
 5. Select **Select members**
 6. Select your subscription, and **Language** as the managed identity. You can search for user names in the **Select** field. 
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > If you have a virtual network or private endpoint, be sure to select **Allow Azure services on the trusted services list to access this storage account** in the Azure portal.

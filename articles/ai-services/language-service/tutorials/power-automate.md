@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: tutorial
-ms.date: 03/02/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: cogserv-non-critical-language
 ---

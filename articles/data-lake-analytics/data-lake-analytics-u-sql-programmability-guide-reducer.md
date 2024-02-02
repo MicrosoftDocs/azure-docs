@@ -4,7 +4,7 @@ description: Learn about the U-SQL UDO programmability guide - user defined redu
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
 
 # Use user-defined reducer

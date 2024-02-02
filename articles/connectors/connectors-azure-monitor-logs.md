@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 01/10/2024
 tags: connectors
-# As a developer, I want to get log data from my Log Analytics workspace or telemetry from my Application Insights resource to use with my workflow in Azure Logic Apps.
+# Customer intent: As a developer, I want to get log data from my Log Analytics workspace or telemetry from my Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
 
 # Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps

@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-ms.custom: GGAL-freshness822, devx-track-azurecli, devx-track-linux
+ms.custom: GGAL-freshness822, devx-track-azurecli, linux-related-content
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 03/31/2023
@@ -94,7 +94,7 @@ You can store sensitive data in a protected configuration, which is encrypted an
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":123456789          
+      "timestamp":123456789
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",
@@ -283,7 +283,7 @@ You can deploy Azure VM extensions by using Azure Resource Manager templates. Th
     "protectedSettings": {
       "commandToExecute": "sh hello.sh <param2>",
       "fileUris": ["https://github.com/MyProject/Archive/hello.sh"
-      ]  
+      ]
     }
   }
 }
@@ -434,7 +434,7 @@ sudo ls -l /var/lib/waagent/custom-script/download/0/
 To troubleshoot, first check the Linux Agent log and ensure that the extension ran:
 
 ```bash
-sudo cat /var/log/waagent.log 
+sudo cat /var/log/waagent.log
 ```
 
 Look for the extension execution. It looks something like:

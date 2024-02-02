@@ -2,6 +2,7 @@
 title: Add and manage MSIX app attach and app attach applications - Azure Virtual Desktop
 description: Learn how to add and manage applications with MSIX app attach and app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell, where you can dynamically attach applications from an application package to a user session.
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
 ms.author: daknappe
@@ -70,10 +71,14 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 - User accounts need to be hybrid accounts (created in AD DS and synchronized to Microsoft Entra ID). Groups can be hybrid or Microsoft Entra ID groups.
 ::: zone-end
 
+::: zone pivot="app-attach"
 - An SMB file share in the same Azure region as your session hosts. All session hosts in the host pool must have *read* access with their computer account. This file share is used to store your application images. For more information on the requirements for the file share, see [File share](app-attach-overview.md#file-share).
 
-::: zone pivot="app-attach"
    To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to both the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md). In a future update of the preview, you won't need to assign the **Azure Virtual Desktop ARM Provider** service principal.
+::: zone-end
+
+::: zone pivot="msix-app-attach"
+- An SMB file share in the same Azure region as your session hosts. All session hosts in the host pool must have *read* access with their computer account. This file share is used to store your application images. For more information on the requirements for the file share, see [File share](app-attach-overview.md#file-share).
 ::: zone-end
 
 ::: zone pivot="app-attach"
@@ -84,19 +89,12 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 - An MSIX image that you created from an application package and stored on the file share. For more information, see [Create an image](app-attach-create-msix-image.md), where you can also download a prebuilt MSIX package for testing.
 ::: zone-end
 
-- To add MSIX images, you need the following Azure role-based access control (RBAC) role assigned on the resource group as a minimum.
-
-   | Task | RBAC role(s) |
-   |--|--|
-   | Add MSIX images | Desktop Virtualization Contributor |
-   | Assign apps to users | User Access Administrator |
-
-- To assign users to the application group, you also need `Microsoft.Authorization/roleAssignments/write` permissions on the application group. Built-in RBAC roles that include this permission are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Owner](../role-based-access-control/built-in-roles.md#owner). 
+- To add MSIX images, you need the [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) Azure role-based access control (RBAC) role assigned on the resource group as a minimum. To assign users to the application group, you also need `Microsoft.Authorization/roleAssignments/write` permissions on the application group. Built-in RBAC roles that include this permission are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Owner](../role-based-access-control/built-in-roles.md#owner). 
 
 - If you want to use Azure PowerShell locally, see [Use Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) and [Microsoft Graph](/powershell/microsoftgraph/installation) PowerShell modules installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ::: zone pivot="app-attach"
-- You need to use version 4.2.0 or later of the *Az.DesktopVirtualization* PowerShell module, which contains the cmdlets that support app attach. You can download and install the Az.DesktopVirtualization PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/).
+- You need to use version 4.2.1 of the *Az.DesktopVirtualization* PowerShell module, which contains the cmdlets that support app attach. You can download and install the Az.DesktopVirtualization PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/).
 ::: zone-end
 
 ::: zone pivot="app-attach"
@@ -104,7 +102,7 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 >
 > - All MSIX and Appx application packages include a certificate. You're responsible for making sure the certificates are trusted in your environment. Self-signed certificates are supported with the appropriate chain of trust.
 >
-> - You have to choose whether you want to use MSIX app attach or app attach with a host pool. You can't use both versions with the same host pool.
+> - You have to choose whether you want to use MSIX app attach or app attach with a host pool. You can't use both versions with the same package in the same host pool.
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
@@ -194,12 +192,13 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
    Your output should be similar to the following output:
 
    ```output
-   CommandType     Name                                            Version    Source
-   -----------     ----                                            -------    ------
-   Function        Get-AzWvdAppAttachPackage                       4.2.0      Az.DesktopVirtualization
-   Function        New-AzWvdAppAttachPackage                       4.2.0      Az.DesktopVirtualization
-   Function        Remove-AzWvdAppAttachPackage                    4.2.0      Az.DesktopVirtualization
-   Function        Update-AzWvdAppAttachPackage                    4.2.0      Az.DesktopVirtualization
+   CommandType     Name                                               Version    Source
+   -----------     ----                                               -------    ------
+   Function        Get-AzWvdAppAttachPackage                          4.2.1      Az.DesktopVirtualization
+   Function        Import-AzWvdAppAttachPackageInfo                   4.2.1      Az.DesktopVirtualization
+   Function        New-AzWvdAppAttachPackage                          4.2.1      Az.DesktopVirtualization
+   Function        Remove-AzWvdAppAttachPackage                       4.2.1      Az.DesktopVirtualization
+   Function        Update-AzWvdAppAttachPackage                       4.2.1      Az.DesktopVirtualization
    ```
 
 3. Get the properties of the image you want to add and store them in a variable by running the following command. You need to specify a host pool, but it can be any host pool where session hosts have access to the file share.
@@ -209,10 +208,10 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       Uri = '<UNCPathToImageFile>'
+       Path = '<UNCPathToImageFile>'
    }
 
-   $app = Expand-AzWvdMsixImage @parameters
+   $app = Import-AzWvdAppAttachPackageInfo @parameters
    ```
 
 4. Check you only have one object in the application properties by running the following command:
@@ -231,10 +230,10 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       Uri = '<UNCPathToImageFile>'
+       Path = '<UNCPathToImageFile>'
    }
 
-   $app = Expand-AzWvdMsixImage @parameters | ? PackageFullName -like *$packageFullName*
+   $app = Import-AzWvdAppAttachPackageInfo @parameters | ? ImagePackageFullName -like *$packageFullName*
    ```
 
 5. Add the image as an app attach package by running the following command. In this example, the [application state](app-attach-overview.md#application-state) is marked as *active*, the [application registration](app-attach-overview.md#application-registration) is set to **on-demand**, and [session host health check status](troubleshoot-statuses-checks.md) on failure is set to **NeedsAssistance**:
@@ -245,12 +244,12 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
        ResourceGroupName = '<ResourceGroupName>'
        Location = '<AzureRegion>'
        FailHealthCheckOnStagingFailure = 'NeedsAssistance'
-       IsLogonBlocking = $false
-       DisplayName = '<AppDisplayName>'
-       IsActive = $true
+       ImageIsRegularRegistration = $false
+       ImageDisplayName = '<AppDisplayName>'
+       ImageIsActive = $true
    }
 
-   New-AzWvdAppAttachPackage -ImageObject $app @parameters
+   New-AzWvdAppAttachPackage -AppAttachPackage $app @parameters
    ```
 
    There's no output when the package is added successfully.
@@ -595,14 +594,15 @@ Here's how to update an existing package using the [Az.DesktopVirtualization](/p
 1. In the same PowerShell session, get the properties of the updated application and store them in a variable by running the following command:
 
    ```azurepowershell
+
    # Get the properties of the application
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       Uri = '<UNCPathToImageFile>'
+       Path = '<UNCPathToImageFile>'
    }
 
-   $app = Expand-AzWvdMsixImage @parameters
+   $app = Import-AzWvdAppAttachPackageInfo @parameters
    ```
 
 1. Check you only have one object in the application properties by running the following command:
@@ -621,10 +621,10 @@ Here's how to update an existing package using the [Az.DesktopVirtualization](/p
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       Uri = '<UNCPathToImageFile>'
+       Path = '<UNCPathToImageFile>'
    }
 
-   $app = Expand-AzWvdMsixImage @parameters | ? PackageFullName -like *$packageFullName*
+   $app = Import-AzWvdAppAttachPackageInfo @parameters | ? ImagePackageFullName -like *$packageFullName*
    ```
 
 1. Update an existing package by running the following command. The new disk image supersedes the existing one, but existing assignments are kept. Don't delete the existing image until users have stopped using it.
@@ -633,10 +633,9 @@ Here's how to update an existing package using the [Az.DesktopVirtualization](/p
    $parameters = @{
        Name = '<PackageName>'
        ResourceGroupName = '<ResourceGroupName>'
-       Location = '<AzureRegion>'
    }
 
-   Update-AzWvdAppAttachPackage -ImageObject $app @parameters
+   Update-AzWvdAppAttachPackage -AppAttachPackage $app @parameters
    ```
 
 ---
@@ -716,7 +715,7 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Get the properties of the application in the MSI image you want to add and store them in a variable by running the following command:
+2. Get the properties of the application in the MSIX image you want to add and store them in a variable by running the following command:
 
    ```azurepowershell
    # Get the properties of the MSIX image

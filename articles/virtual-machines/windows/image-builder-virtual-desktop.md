@@ -3,12 +3,12 @@ title: Create an Azure Virtual Desktop image by using Azure VM Image Builder
 description: Create an Azure VM image of Azure Virtual Desktop by using VM Image Builder and PowerShell.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/10/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.collection: windows
-ms.subservice: image-builder 
+ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -307,4 +307,3 @@ If you no longer need the resources that were created during this process, you c
 ## Next steps
 
 To try more VM Image Builder examples, go to [GitHub](https://github.com/azure/azvmimagebuilder/tree/main/quickquickstarts).
-

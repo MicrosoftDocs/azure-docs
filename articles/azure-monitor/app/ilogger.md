@@ -2,7 +2,7 @@
 title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 01/31/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.reviewer: mmcc
@@ -274,7 +274,20 @@ If any other type is used as a scope, it's stored under the property `Scope` in 
 
 `ApplicationInsightsLoggerProvider` captures `ILogger` logs and creates `TraceTelemetry` from them. If an `Exception` object is passed to the `Log` method on `ILogger`, `ExceptionTelemetry` is created instead of `TraceTelemetry`. 
 
-These telemetry items can be found in the same places as any other `TraceTelemetry` or `ExceptionTelemetry` items for Application Insights, including the Azure portal, analytics, or the Visual Studio local debugger.
+**Viewing ILogger Telemetry**
+
+In the Azure Portal:
+1. Go to the Azure Portal and access your Application Insights resource.
+2. Click on the "Logs" section inside Application Insights.
+3. Use Kusto Query Language (KQL) to query ILogger messages, usually stored in the `traces` table.
+   - Example Query: `traces | where message contains "YourSearchTerm"`.
+4. Refine your queries to filter ILogger data by severity, time range, or specific message content.
+
+In Visual Studio (Local Debugger):
+1. Start your application in debug mode within Visual Studio.
+2. Open the "Diagnostic Tools" window while the application runs.
+3. In the "Events" tab, ILogger logs appear along with other telemetry data.
+4. Utilize the search and filter features in the "Diagnostic Tools" window to locate specific ILogger messages.
 
 If you prefer to always send `TraceTelemetry`, use this snippet:
 

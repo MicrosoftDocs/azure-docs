@@ -37,7 +37,7 @@ Open a command prompt where you want the new project, and create a new file name
 const { OpenAIClient } = require("@azure/openai");
 const { DefaultAzureCredential } = require("@azure/identity")
 
-// Set the Azure and Cognitive Search values from environment variables
+// Set the Azure and AI Search values from environment variables
 const endpoint = process.env["AOAIEndpoint"];
 const azureApiKey = process.env["AOAIKey"];
 const searchEndpoint = process.env["SearchEndpoint"];
