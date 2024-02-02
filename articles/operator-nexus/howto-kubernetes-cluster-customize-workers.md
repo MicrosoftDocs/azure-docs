@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: Customize Kubernetes Worker Nodes with a DaemonSet"
-description: How-to guide for customizing Kubernetes Worker Nodes with a DaemonSet
+description: How-to guide for customizing Kubernetes Worker Nodes with a DaemonSet.
 author: joknight
 ms.author: joknight
 ms.service: azure-operator-nexus
@@ -9,7 +9,7 @@ ms.date: 01/29/2024
 ms.custom: template-how-to
 ---
 
-# Customize Worker Nodes with a DaemonSet
+# Customize worker nodes with a DaemonSet
 
 To meet application requirements, you may need to modify operating system settings, enable a Linux kernel module or install a host-level application package. Use a `DaemonSet` with host privileges to customize worker nodes.
 
