@@ -72,7 +72,7 @@ And the `bicepconfig.json` is defined as follows:
         "modulePath": "bicep/modules/core"
       }
     }
-  },
+  }
 }
 ```
 
