@@ -51,7 +51,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 
 2. From the backup list, select the backup to restore. Select the three dots (`…`) to the right of the backup, then select **Restore to new volume** from the Action menu.   
 
-    :::image type="content" source="../media/azure-netapp-files/backup-restore-new-volume.png" alt-text="Screenshot of selecting restore backup to new volume." lightbox="../media/azure-netapp-files/backup-restore-new-volume.png":::
+    :::image type="content" source="./media/backup-restore-new-volume/backup-restore-new-volume.png" alt-text="Screenshot of selecting restore backup to new volume." lightbox="./media/backup-restore-new-volume/backup-restore-new-volume.png":::
 
 3. In the Create a Volume page that appears, provide information for the fields in the page as applicable, and select **Review + Create** to begin restoring the backup to a new volume.   
 
@@ -63,7 +63,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 
     * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.   
 
-    ![Screenshot that shows the Create a Volume page.](../media/azure-netapp-files/backup-restore-create-volume.png)
+    ![Screenshot that shows the Create a Volume page.](./media/backup-restore-new-volume/backup-restore-create-volume.png)
 
 4. The Volumes page displays the new volume. In the Volumes page, the **Originated from** field identifies the name of the snapshot used to create the volume.
 

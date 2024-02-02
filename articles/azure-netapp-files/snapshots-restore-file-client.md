@@ -50,19 +50,19 @@ NFSv4.1 does not show the `.snapshot` directory (`ls -la`). However, when the Hi
 
 1. If the `~snapshot` directory of the volume is hidden, [show hidden items](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) in the parent directory to display `~snapshot`.
 
-    ![Screenshot that shows hidden items of a directory.](../media/azure-netapp-files/snapshot-show-hidden.png) 
+    ![Screenshot that shows hidden items of a directory.](./media/snapshots-restore-file-client/snapshot-show-hidden.png) 
 
 2. Navigate to the subdirectory within `~snapshot` to find the file you want to restore.  Right-click the file. Select **Copy**.  
 
-    ![Screenshot that shows how to copy a file to restore.](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+    ![Screenshot that shows how to copy a file to restore.](./media/snapshots-restore-file-client/snapshot-copy-file-restore.png) 
 
 3. Return to the parent directory. Right-click in the parent directory and select `Paste` to paste the file to the directory.
 
-    ![Screenshot that shows how to paste a file to restore.](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+    ![Screenshot that shows how to paste a file to restore.](./media/snapshots-restore-file-client/snapshot-paste-file-restore.png) 
 
 4. You can also right-click the parent directory, select **Properties**, click the **Previous Versions** tab to see the list of snapshots, and select **Restore** to restore a file.  
 
-    ![Screenshot that shows the properties previous versions.](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+    ![Screenshot that shows the properties previous versions.](./media/snapshots-restore-file-client/snapshot-properties-previous-version.png) 
 
 ## Next steps
 
