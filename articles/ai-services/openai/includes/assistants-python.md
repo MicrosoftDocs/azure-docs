@@ -67,8 +67,7 @@ In our code we are going to specify the following values:
 
 ### Tools
 
-An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](./assistant-functions.md).
-
+An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](../how-to/assistant-functions.md).
 
 Create and run an assistant with the following:
 
