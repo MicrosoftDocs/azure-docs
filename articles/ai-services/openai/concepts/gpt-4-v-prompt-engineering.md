@@ -15,18 +15,18 @@ manager: nitinme
 To unlock the full potential of GPT-4 Turbo with Vision, it's essential to tailor the system prompt to your specific needs. Here are some guidelines to enhance the accuracy and efficiency of your prompts.
 
 ## Fundamentals of crafting your prompt
-1.	**Contextual specificity:** Adding context to the scenario at hand gives the model a better understanding of an appropriate output. This level of specificity aids in focusing on relevant aspects and avoiding extraneous details.
-2.	**Task-oriented prompts:** Focusing on a specific task helps the model to develop the output while taking that perspective into consideration.  
-3.	**Handling refusals:** When the model indicates an inability to perform a task, refining the prompt can be an effective solution. More specific prompts can guide the model towards a clearer understanding and better execution of the task. Some tips to keep in mind: <br>
+- **Contextual specificity:** Adding context to the scenario at hand gives the model a better understanding of an appropriate output. This level of specificity aids in focusing on relevant aspects and avoiding extraneous details.
+- **Task-oriented prompts:** Focusing on a specific task helps the model to develop the output while taking that perspective into consideration.  
+- **Handling refusals:** When the model indicates an inability to perform a task, refining the prompt can be an effective solution. More specific prompts can guide the model towards a clearer understanding and better execution of the task. Some tips to keep in mind: <br>
 
-> - Request explanations for generated responses to enhance transparency in the model's output <br>
-> -	If using a single-image prompt, place the image before the text <br>
-> -	Ask the model to describe the image in details first and complete your specific task from the description
+  - Request explanations for generated responses to enhance transparency in the model's output <br>
+  - If using a single-image prompt, place the image before the text <br>
+  - Ask the model to describe the image in details first and complete your specific task from the description
 
-4.	**Adding examples:** Add examples that represent the type of responses you're looking for
-5.	**Try prompt tuning:** Try prompt tuning techniques such as Chain of Thought, a technique where you describe a sequence of steps leading to an outcome, therefore communicating a sort of “chain of thought” or thought process for the model to replicate.
-6.	**Break down requests:** Try breaking down complex requests step-by-step to create manageable sub-goals
-7.	**Define output format:** Clearly mention the desired format for the output, such as markdown, JSON, HTML, etc. You can also suggest a specific structure, length, or specific attributes about the response.
+- **Adding examples:** Add examples that represent the type of responses you're looking for
+- **Try prompt tuning:** Try prompt tuning techniques such as Chain of Thought, a technique where you describe a sequence of steps leading to an outcome, therefore communicating a sort of “chain of thought” or thought process for the model to replicate.
+- **Break down requests:** Try breaking down complex requests step-by-step to create manageable sub-goals
+- **Define output format:** Clearly mention the desired format for the output, such as markdown, JSON, HTML, etc. You can also suggest a specific structure, length, or specific attributes about the response.
 
 ## Example prompt inputs & outputs
 There are many ways to craft system prompts to tailor the output specifically to your needs. The following sample inputs and outputs showcase how adjusting your prompts can give you different results. Try the model out for yourself using these images and adjusting the system prompt in the [Azure AI Studio playground](https://ai.azure.com/).
@@ -73,7 +73,7 @@ When you receive a refusal output from a model, there are several ways you can t
 
 |Updated prompt|Model output|
 |--------|-----------|
-| Q: What is this dog breed and what is its average weight & height? :::image type="content" source="../media/concepts/gpt-v/pomeranian.jpg" lightbox="../media/concepts/gpt-v/pomeranian.jpg" alt-text="Photograph of a pomeranian dog sitting on a pool diving board above the water."::: <br> A: Breed: pomeranian; average weight: 3-7 lbs; average height: 8-14 inches <br> :::image type="content" source="../media/concepts/gpt-v/bulldog.jpg" lightbox="../media/concepts/gpt-v/bulldog.jpg" alt-text="Image of a bulldog laying in a grass field."::: A: Breed: English bulldog; average weight: 50-55 lbs; average height: 14-16 inches :::image type="content" source="../media/concepts/gpt-v/border-collie.jpg" lightbox="../media/concepts/gpt-v/border-collie.jpg" alt-text="Image of a border collie dog laying in a grass field."::: | A: Breed: Border Collie; average weight: 30-45 lbs; average height: 18-22 inches |
+| Q: What is this dog breed and what is its average weight & height? :::image type="content" source="../media/concepts/gpt-v/pomeranian.jpg" lightbox="../media/concepts/gpt-v/pomeranian.jpg" alt-text="Photograph of a pomeranian dog sitting on a pool diving board above the water."::: <br> A: Breed: pomeranian; average weight: 3-7 lbs; average height: 8-14 inches <br> :::image type="content" source="../media/concepts/gpt-v/bulldog.jpg" lightbox="../media/concepts/gpt-v/bulldog.jpg" alt-text="Photograph of a bulldog laying in a grass field."::: A: Breed: English bulldog; average weight: 50-55 lbs; average height: 14-16 inches :::image type="content" source="../media/concepts/gpt-v/border-collie.jpg" lightbox="../media/concepts/gpt-v/border-collie.jpg" alt-text="Photograph of a border collie dog laying in a grass field."::: | A: Breed: Border Collie; average weight: 30-45 lbs; average height: 18-22 inches |
 
 ### Try prompt tuning
 Using the chain of thought prompt technique below, you can guide the model to follow a thought process to achieve the correct answer.
