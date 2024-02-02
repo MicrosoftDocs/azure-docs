@@ -23,15 +23,15 @@ Data Product operators can choose which data types to use and the data retention
 
 Each data type contains data from a specific source. The primary source for a data type might be a network element within the subject domain. Some data types are derived by aggregating or enriching information from other data types.
 
-- The **Quality of Experience – Affirmed MCC** Data Product includes following datatypes:
-  - *edr* : This datatype handles Event Data Records (EDRs) from the MCC.
-  -	*edr-sanitized* : This data type contains the same information as edr but with personal data suppressed to support operators' compliance with privacy legislation.
-  -	*edr-validation* : This contains a subset of performance management statistics and provides operator an ability to optionally ingest a minimum number of PMstats tables for a data quality check.
-  -	*device* : This optional datatype holds the device reference table and provides operator an ability to ingest device reference data to further enrich the MCC Event Data Records. To implement this datatype, operators need to upload the device reference data in CSV format to the input ADLS. The device reference schema should conform to the schema outlined in the [Device Reference Schema](device-reference-schema.md).
-  - *enrichment*: This datatype holds the enriched Event Data Records and covers multiple sub data types for pre-computed aggregations targeted to accelerate specific dashboards, granularities and queries. These multiple sub data types includes:
+- The **Quality of Experience – Affirmed MCC** Data Product includes following data types:
+  - *edr*: This data type handles Event Data Records (EDRs) from the MCC.
+  - *edr-sanitized*: This data type contains the same information as edr but with personal data suppressed to support operators' compliance with privacy legislation.
+  - *edr-validation*: This data type contains a subset of performance management statistics and provides operator an ability to optionally ingest a minimum number of PMstats tables for a data quality check.
+  - *device*: This optional data type contains device data (for example, model and capabilities) that the Data Product can use to enrich the MCC Event Data Records. To use this data type, you must upload the device reference data in CSV format to the input ADLS. The CSVs must conform to the [Device reference schema for the Quality of Experience Affirmed MCC Data Product](device-reference-schema.md).
+  - *enrichment*: This data type holds the enriched Event Data Records and covers multiple sub data types for precomputed aggregations targeted to accelerate specific dashboards, granularities and queries. These multiple sub data types include:
       - *agg-enrichment-5m*: contains 5m aggregated enriched Event Data Records.
       - *agg-enrichment-1h*: contains 1h aggregated enriched Event Data Records.
-      - *enriched-flow-dcount*: contains pre-computed counts used to report the unique IMSIs, MCCs, and Applications over time.
+      - *enriched-flow-dcount*: contains precomputed counts used to report the unique IMSIs, MCCs, and Applications over time.
  
 - The **Monitoring – Affirmed MCC** Data Product includes the *pmstats* data type that contains performance management statistics from the MCC EMS.
 

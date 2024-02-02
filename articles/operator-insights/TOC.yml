@@ -68,3 +68,5 @@
   items:
     - name: Monitoring data
       href: monitor-operator-insights-data-reference.md
+    - name: Device reference schema for the Quality of Experience Affirmed MCC Data Product
+      href: device-reference-schema.md
