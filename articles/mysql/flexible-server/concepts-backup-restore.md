@@ -85,7 +85,7 @@ The Backup and Restore blade in the Azure portal provides a complete list of the
 In Azure Database for MySQL flexible server, performing a restore creates a new server from the original server's backups. There are two types of restore available: 
 
 - Point-in-time restore: is available with either backup redundancy option and creates a new server in the same region as your original server.
-- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other Azure supported region where flexible server is available. Currently, Geo-restore isn't supported for regions like  `Brazil South`, `USGov Virginia`, and `West US 3`.
+- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other Azure supported region where flexible server is available. 
 
 The estimated time for the recovery of the server depends on several factors: 
 

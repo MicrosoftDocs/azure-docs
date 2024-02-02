@@ -82,7 +82,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 1. From your NetApp account, select **Active Directory connections**, then select **Join**.  
 
-    ![Screenshot showing the Active Directory connections menu. The join button is highlighted.](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
+    ![Screenshot showing the Active Directory connections menu. The join button is highlighted.](./media/create-active-directory-connections/azure-netapp-files-active-directory-connections.png)
 
     >[!NOTE]
     >Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. 
@@ -126,12 +126,12 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         If you're using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is `OU=AADDC Computers`
 
-        :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-join-active-directory.png" alt-text="Screenshot of the Join Active Directory input fields.":::
+        :::image type="content" source="./media/create-active-directory-connections/azure-netapp-files-join-active-directory.png" alt-text="Screenshot of the Join Active Directory input fields.":::
 
     * <a name="aes-encryption"></a>**AES Encryption**    
         This option enables AES encryption authentication support for the admin account of the AD connection. 
 
-        ![Screenshot of the AES description field. The field is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
+        ![Screenshot of the AES description field. The field is a checkbox.](./media/create-active-directory-connections/active-directory-aes-encryption.png) 
         
         See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.
 
@@ -144,7 +144,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
         >[!NOTE]
         >DNS PTR records for the AD DS computer account(s) must be created in the AD DS **Organizational Unit** specified in the Azure NetApp Files AD connection for LDAP Signing to work.
 
-        ![Screenshot of the LDAP signing checkbox.](../media/azure-netapp-files/active-directory-ldap-signing.png) 
+        ![Screenshot of the LDAP signing checkbox.](./media/create-active-directory-connections/active-directory-ldap-signing.png) 
 
     * **Allow local NFS users with LDAP**
         This option enables local NFS client users to access to NFS volumes. Setting this option disables extended groups for NFS volumes. It also limits the number of groups to 16. For more information, see [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). 
@@ -172,7 +172,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
          
         The **Group Membership Filter** option allows you to create a custom search filter for users who are members of specific AD DS groups. 
 
-        ![Screenshot of the LDAP search scope field, showing a checked box.](../media/azure-netapp-files/ldap-search-scope-checked.png)
+        ![Screenshot of the LDAP search scope field, showing a checked box.](./media/create-active-directory-connections/ldap-search-scope-checked.png)
 
         See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
@@ -203,7 +203,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * <a name="backup-policy-users"></a> **Backup policy users**
         This option grants addition security privileges to AD DS domain users or groups that require elevated backup privileges to support backup, restore, and migration workflows in Azure NetApp Files. The specified AD DS user accounts or groups will have elevated NTFS permissions at the file or folder level.
 
-        ![Screenshot of the Backup policy users field showing an empty text input field.](../media/azure-netapp-files/active-directory-backup-policy-users.png) 
+        ![Screenshot of the Backup policy users field showing an empty text input field.](./media/create-active-directory-connections/active-directory-backup-policy-users.png) 
 
         The following privileges apply when you use the **Backup policy users**  setting:
 
@@ -216,7 +216,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
      * **Security privilege users**   <!-- SMB CA share feature -->   
         This option grants security privilege (`SeSecurityPrivilege`) to AD DS domain users or groups that require elevated privileges to access Azure NetApp Files volumes. The specified AD DS users or groups will be allowed to perform certain actions on SMB shares that require security privilege not assigned by default to domain users.
 
-        ![Screenshot showing the Security privilege users box of Active Directory connections window.](../media/azure-netapp-files/security-privilege-users.png) 
+        ![Screenshot showing the Security privilege users box of Active Directory connections window.](./media/create-active-directory-connections/security-privilege-users.png) 
 
         The following privilege applies when you use the **Security privilege users** setting:
 
@@ -242,7 +242,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
       >[!NOTE]
       >The domain admins are automatically added to the Administrators privilege users group.
 
-        ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
+        ![Screenshot that shows the Administrators box of Active Directory connections window.](./media/create-active-directory-connections/active-directory-administrators.png) 
 
         The following privileges apply when you use the **Administrators privilege users** setting:
 
@@ -257,7 +257,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     * Credentials, including your **username** and **password**
 
-        ![Screenshot that shows Active Directory credentials fields showing username, password and confirm password fields.](../media/azure-netapp-files/active-directory-credentials.png)
+        ![Screenshot that shows Active Directory credentials fields showing username, password and confirm password fields.](./media/create-active-directory-connections/active-directory-credentials.png)
 
         >[!IMPORTANT]
         >Although Active Directory supports 256-character passwords, Active Directory passwords with Azure NetApp Files **cannot** exceed 64 characters. 
@@ -266,7 +266,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     The Active Directory connection you created appears.
 
-    ![Screenshot of the Active Directory connections menu showing a successfully created connection.](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+    ![Screenshot of the Active Directory connections menu showing a successfully created connection.](./media/create-active-directory-connections/azure-netapp-files-active-directory-connections-created.png)
 
 ## <a name="shared_ad"></a>Map multiple NetApp accounts in the same subscription and region to an AD connection  
 
@@ -311,11 +311,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ### Steps
 
 1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-overview.png" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-overview.png":::
+:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-overview.png" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="./media/create-active-directory-connections/active-directory-reset-overview.png":::
 Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the three dots (`...`) at the end of the row. Select **Reset Active Directory Account**.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-list.png":::
+:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="./media/create-active-directory-connections/active-directory-reset-list.png":::
 2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
+:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="./media/create-active-directory-connections/active-directory-reset-confirm.png":::
 
 ## Next steps  
 

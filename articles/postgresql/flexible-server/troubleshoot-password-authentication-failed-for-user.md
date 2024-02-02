@@ -20,7 +20,7 @@ When attempting to connect to Azure Database for PostgreSQL - Flexible Server, y
 
 This error indicates that the password provided for the user `<user-name>` is incorrect.
 
-Following the initial password authentication error, you might see another error message indicating that the client is trying to reconnect to the server, this time without SSL encryption. The failure here's due to the server's `pg_hba.conf` configuration not permitting unencrypted connections.
+Following the initial password authentication error, you might see another error message indicating that the client is trying to reconnect to the server, this time without SSL encryption. The failure here is due to the server's `pg_hba.conf` configuration not permitting unencrypted connections.
 
 
 > connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "\<user-name\>", database "postgres", no encryption
@@ -34,7 +34,7 @@ The combined error message you receive in this scenario looks like this:
 connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "\<user-name\>", database "postgres", no encryption
 
 
-To avoid this dual attempt and specify the desired SSL mode, you can use the `sslmode` connection option in your client configuration. For instance, if you're using `libpq` variables in the bash shell, you can set the SSL mode by using the following command:
+To avoid this dual attempt and specify the desired SSL mode, use the `sslmode` connection option in your client configuration. For instance, if you're using `libpq` variables in the bash shell, you can set the SSL mode by using the following command:
 
 ```bash
 export PGSSLMODE=require
@@ -48,7 +48,7 @@ The error encountered when connecting to Azure Database for PostgreSQL - Flexibl
 The password authentication failed for user `<user-name>` error occurs when the password for the user is incorrect. This could happen due to a mistyped password, a recent password change that hasn't been updated in the connection settings, or other similar issues.
 
 * **User or role created without a password**
-Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like `CREATE USER <user-name>` or `CREATE ROLE <role-name>` without an accompanying password statement results in a user or role with no password set. Attempting to connect with such a user or role without setting a password will lead to authentication failure with password authentication failed error.
+Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like `CREATE USER <user-name>` or `CREATE ROLE <role-name>` without an accompanying password statement results in a user or role with no password set. Attempting to connect with these kinds of users or roles without setting a password will lead to authentication failure with password authentication failed error.
 
 * **Potential security breach**
 If the authentication failure is unexpected, particularly if there are multiple failed attempts recorded, it could indicate a potential security breach. Unauthorized access attempts might trigger such errors. 
@@ -77,12 +77,12 @@ If you're encountering the "password authentication failed for user `<user-name>
   ALTER ROLE <role-name> PASSWORD '<new-password>';
   ```
   
-* **Identify the Attacker's IP Address and Secure Your Database**
+* **If you suspect a potential security breach**
 
   If you suspect a potential security breach is causing unauthorized access to your Azure Database for PostgreSQL - Flexible Server, follow these steps to address the issue:
 
     1. **Enable log capturing**
-    If log capturing isn't already on, get it set up now. It's key for keeping an eye on database activities and catching any odd access patterns. There are several ways to do this, including Azure Monitor Log Analytics and server logs, which help store and analyze database event logs.
+    If log capturing isn't already on, get it set up now. Log capturing key for keeping an eye on database activities and catching any odd access patterns. There are several ways to do this, including Azure Monitor Log Analytics and server logs, which help store and analyze database event logs.
        * **Log Analytics**, Check out the setup instructions for Azure Monitor Log Analytics here: [Configure and access logs in Azure Database for PostgreSQL - Flexible Server](how-to-configure-and-access-logs.md).
        * **Server logs**, For hands-on log management, head over to the Azure portal's server logs section here: [Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server](how-to-server-logs-portal.md).
 
@@ -119,7 +119,7 @@ If you're encountering the "password authentication failed for user `<user-name>
   
 
 
-By following these steps, you should be able to resolve the authentication issues and successfully connect to your Azure Database for PostgreSQL - Flexible Server.
+By following these steps, you should be able to resolve the authentication issues and successfully connect to your Azure Database for PostgreSQL - Flexible Server. If you're still facing issues after following the guidance provided, please don't hesitate to [file a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 
 
