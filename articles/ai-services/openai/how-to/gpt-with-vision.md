@@ -440,10 +440,37 @@ Every response includes a `"finish_details"` field. It has the following possibl
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. The **video prompt** integration uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. It enables the AI model to give summaries and answers about video content.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+> Vision enhancement is exposed both from an Azure OpenAI resource or an Azure AIServices resource. If using an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
+
+>[!IMPORTANT]
+>Vision enhancement for Video requires access to an Azure Blob storage container containing the video files to analyze. Access to the Videos can be provided either by providing a SAS Url to the API, or by configuring a Managed Identity on the Azure AIServices resource and granting read access to the blob storage.
+
+### Configure Managed Identity on Azure AIService resource and grant access to Azure Blob storage
+#### using System Assigned Identities
+> Enable System Assigned Identities on your Azure AIServices resource: From your AIServices resource in Azure Portal select Resource Management ==> Identity and toggling the status to ON
+> Assign Storage Blob Data Read access to the AIServices resource: From the Identity page, select 'Azure role assignments', and then 'Add role assignment' with the following settings:
+- scope: storage
+- subscription: your subscription
+- Resource: the Azure Blob Storage resource
+- Role: Storage Blob Data Reader
+> Save your settings.
+
+#### using User Assigned Identities
+> Create a new Managed Identity resource in Azure Portal
+> Navigate to the new resource, then to 'Azure Role Assignments'
+> Add a 'New Role Assignment' with the following settings:
+- scope: storage
+- subscription: your subscription
+- Resource: the Azure Blob Storage resource
+- Role: Storage Blob Data Reader
+
+> Save your new configuration
+> Navigate to your AIServices resurcce "Identity" page,
+> Select the User Assigned Tab, then click "+Add" to select the newly created Managed Identity.
+> Save your configuration.
 
 ### Set up video retrieval
 
