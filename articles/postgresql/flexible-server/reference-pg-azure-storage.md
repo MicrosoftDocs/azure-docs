@@ -17,10 +17,13 @@ ms.topic: reference
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 The [pg_azure_storage extension](./concepts-storage-extension.md) allows you to import  or export data in multiple file formats directly between Azure blob storage and your Azure Database for PostgreSQL flexible server instance. Containers with access level "Private" or "Blob" requires adding private access key.  
-You can create the extension by running:
+
+Before you can enable `azure_storage` on your Azure Database for PostgreSQL flexible server instance, you need to add the extension to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
+
+Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
 
 ```sql
-SELECT create_extension('azure_storage');
+CREATE EXTENSION azure_storage;
 ```
 
 ## azure_storage.account_add
@@ -175,7 +178,7 @@ Size of file object in bytes.
 
 #### last_modified
 
-When was the file content last modified.
+Describes when the file content was last modified.
 
 #### etag
 
@@ -191,7 +194,7 @@ Azure Storage allows you to define Content-Encoding property on a blob. For comp
 
 #### content_hash
 
-This hash is used to verify the integrity of the blob during transport. When this header is specified, the storage service checks the hash that has arrived with the one that was sent. If the two hashes don't match, the operation fails with error code 400 (Bad Request).
+This hash is used to verify the integrity of the blob during transport. When this header is specified, the storage service checks the provided hash with one computed from content. If the two hashes don't match, the operation fails with error code 400 (Bad Request).
 
 ### Return type
 
@@ -271,7 +274,7 @@ For handling custom headers, custom separators, escape characters etc., `options
 
 ### Return type
 
-SETOF Record / anyelement
+SETOF Record / `anyelement`
 
 > [!NOTE]  
 > There are four utility functions, called as a parameter within blob_get that help building values for it. Each utility function is designated for the decoder matching its name.
@@ -298,7 +301,7 @@ Returns jsonb;
 
 #### delimiter
 
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single 1-byte character.
 
 #### null_string
 
@@ -306,15 +309,15 @@ Specifies the string that represents a null value. The default is \N (backslash-
 
 #### header
 
-Specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
+Specifies that the file contains a header line with the names of each column in the file. On output, the initial line contains the column names from the table.
 
 #### quote
 
-Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single one-byte character.
+Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single 1-byte character.
 
 #### escape
 
-Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
+Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single 1-byte character.
 
 #### force_not_null
 
@@ -322,7 +325,7 @@ Don't match the specified columns' values against the null string. In the defaul
 
 #### force_null
 
-Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
+Match the specified columns' values against the null string, even if quoted, and if a match is found, set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
 
 #### content_encoding
 
@@ -355,7 +358,7 @@ Returns jsonb;
 
 #### delimiter
 
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single 1-byte character.
 
 #### null_string
 
@@ -363,15 +366,15 @@ Specifies the string that represents a null value. The default is \N (backslash-
 
 #### header
 
-Specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
+Specifies that the file contains a header line with the names of each column in the file. On output, the initial line contains the column names from the table.
 
 #### quote
 
-Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single one-byte character.
+Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single 1-byte character.
 
 #### escape
 
-Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
+Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single 1-byte character.
 
 #### force_quote
 
@@ -383,7 +386,7 @@ Don't match the specified columns' values against the null string. In the defaul
 
 #### force_null
 
-Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
+Match the specified columns' values against the null string, even if quoted, and if a match is found, set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
 
 #### content_encoding
 
@@ -410,7 +413,7 @@ Returns jsonb;
 
 #### delimiter
 
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single 1-byte character.
 
 #### null_string
 
@@ -446,7 +449,7 @@ jsonb
 
 > [!NOTE]  
 **Permissions**
-Now you can list containers set to Private and Blob access levels for that storage but only as the `citus user`, which has the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
+Now you can list containers set to Private and Blob access levels for a storage but only as a user with the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
 
 ## Examples
 
