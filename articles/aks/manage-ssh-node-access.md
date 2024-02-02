@@ -3,6 +3,7 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 12/15/2023
 ---
 
@@ -18,8 +19,6 @@ This article describes how to configure the SSH key (preview) on your AKS cluste
 * This feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
 
 ## Install the `aks-preview` Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
 
@@ -40,7 +39,7 @@ Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an 
 |SSH parameter |Description |Default value |
 |-----|-----|-----|
 |--generate-ssh-key |If you don't have your own SSH key, specify `--generate-ssh-key`. The Azure CLI first looks for the key in the `~/.ssh/` directory. If the key exists, it's used. If the key doesn't exist, the Azure CLI automatically generates a set of SSH keys and saves them in the specified or default directory.||
-|--ssh-key-vaule |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~.ssh\id_rsa.pub` |
+|--ssh-key-value |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~/.ssh/id_rsa.pub` |
 |--no-ssh-key | If you don't require an SSH key, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn’t support an empty SSH key file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. ||
 
 >[!NOTE]
@@ -67,10 +66,6 @@ Use the [az aks update][az-aks-update] command to update the SSH public key on y
 > [!NOTE]
 > Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
 
-|SSH parameter |Description |Default value |
-|-----|-----|-----|
-|--ssh-key-vaule |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~.ssh\id_rsa.pub` |
-
 The following are examples of this command:
 
 * To specify a new SSH public key value, include the `--ssh-key-value` argument:
@@ -96,8 +91,15 @@ To help troubleshoot any issues with SSH connectivity to your clusters nodes, yo
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: monitor-aks-reference.md#resource-logs
 [node-image-upgrade]: node-image-upgrade.md
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
+[network-security-group-rules-overview]: concepts-security.md#azure-network-security-groups

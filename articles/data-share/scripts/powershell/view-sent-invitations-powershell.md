@@ -5,7 +5,7 @@ author: sidontha
 ms.author: sidontha
 ms.service: data-share
 ms.topic: article
-ms.date: 10/31/2022 
+ms.date: 12/19/2023 
 ms.custom:
 ---
 
@@ -14,6 +14,7 @@ ms.custom:
 This PowerShell script gets invitations sent to a consumer.
 
 ## Sample script
+
 ```powershell
 # Set variables with your own values
 $invitationId = "<invitationId>"
@@ -40,4 +41,4 @@ This script uses the following commands:
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
-Additional Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).
+Other Azure Data Share PowerShell script samples can be found in the [Azure Data Share PowerShell samples](../../samples-powershell.md).

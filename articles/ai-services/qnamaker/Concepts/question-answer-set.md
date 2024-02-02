@@ -7,7 +7,7 @@ ms.topic: conceptual
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.date: 01/27/2020
+ms.date: 01/19/2024
 ---
 
 # Question and answer pair concepts

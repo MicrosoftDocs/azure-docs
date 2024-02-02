@@ -17,7 +17,10 @@ This article describes how to enable VM insights on Azure virtual machines by us
 This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and, if necessary, the Dependency Agent to enable VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the virtual machines and virtual machine scale sets.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
+  
 
+> [!NOTE]
+> Azure Monitor Agent is supported from version 1.10.1.
 ## Prerequisites
 
 You need to:
@@ -80,7 +83,7 @@ Optional Arguments:
 + `-Confirm [<SwitchParameter>]` Confirm each action in the script. 
 + `-Approve [<SwitchParameter>]` Provide the approval for the installation to start with no confirmation prompt for the listed VM's/Virtual Machine Scale Sets. 
  
-The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_wildcards). 
+The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](/powershell/module/microsoft.powershell.core/about/about_wildcards). 
 
 Example:
 ```azurepowershell
@@ -149,7 +152,7 @@ Optional Arguments:
 + `-Confirm [<SwitchParameter>]` Confirm each action in the script. 
 + `-Approve [<SwitchParameter>]` Provide the approval for the installation to start with no confirmation prompt for the listed VM's/Virtual Machine Scale Sets. 
  
-The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_wildcards). 
+The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](/powershell/module/microsoft.powershell.core/about/about_wildcards). 
 
 
 Example:

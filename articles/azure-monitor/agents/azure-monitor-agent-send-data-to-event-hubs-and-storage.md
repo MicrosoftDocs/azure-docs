@@ -34,7 +34,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 - Linux:
    - Syslog – to eventhub and storage
    - Perf counters – to eventhub and storage
-   - Custom Logs / Log files – to eventhub and storage
+   - Custom Logs / Log files – to storage
 
 ### Operating systems
 
@@ -603,6 +603,7 @@ Use custom template deployment to create the DCR association and AMA deployment.
             "authentication": {
                 "managedIdentity": {
                 "identifier-type": "mi_res_id",
+                "identifier-name": "mi_res_id",
                 "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
                 }
             }
@@ -680,6 +681,7 @@ Use custom template deployment to create the DCR association and AMA deployment.
             "authentication": {
                 "managedIdentity": {
                 "identifier-type": "mi_res_id",
+                "identifier-name": "mi_res_id",
                 "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
                 }
             }

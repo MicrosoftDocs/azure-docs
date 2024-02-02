@@ -6,7 +6,7 @@ ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 12/01/2023
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ---
@@ -68,15 +68,16 @@ __Azure MySQL 5.7 Deprecation Timelines__
 
 |Timelines|	Azure MySQL 5.7 Flexible end at	|Azure MySQL 5.7 Single end at|
 |---|---|---|
-|Creation of new servers using the Azure portal.| 	Jan 2024|	Already ended as part of [Single Server deprecation](single-server/whats-happening-to-mysql-single-server.md)|
-|Creation of new servers using the Command Line Interface (CLI). |	April 2024| 	September 2024| 
+|Creation of new servers using the Azure portal.| 	To Be Decided|	Already ended as part of [Single Server deprecation](single-server/whats-happening-to-mysql-single-server.md)|
+|Creation of new servers using the Command Line Interface (CLI). |	To Be Decided| 	September 2024| 
 |Creation of replica servers for existing servers. |	September 2025|	September 2024|
 |Creation of servers using restore workflow for the existing servers| September 2025|September 2024|
 |Creation of new servers for migrating from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server.|	NA|	September 2024|
 |Creation of new servers for migrating from Azure Database for MariaDB to Azure Database for MySQL - Flexible Server.|	September 2025|	NA|
 |Extended support for Azure Database for MySQL v5.7|	September 2025|	September 2024|
 
-To summarize, creating Azure Database for MySQL flexible server based on v5.7 won't be available after __April 2024__. However, it's important to note that certain scenarios such as replica creation, point in time recovery, and migration from Azure Database for MySQL - Single Server or Azure Database for MariaDB to Azure Database for MySQL - Flexible Server, will allow you to create MySQL version 5.7 until the end of the extended support period.
+> [!NOTE]  
+> We initially planned to stop the creation of new Azure Database for MySQL version 5.7 instances via CLI and Portal after April 2024. However, after further review and customer feedback, we have decided to delay this action. The specific date for discontinuing the creation of new MySQL 5.7 instances is currently under review and remains 'To Be Decided'. This change reflects our commitment to accommodating customer needs and providing flexibility during the transition. We value your feedback and encourage ongoing communication as we navigate these changes.
 
 ### FAQs
 

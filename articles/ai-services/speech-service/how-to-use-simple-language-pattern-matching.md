@@ -6,7 +6,7 @@ author: chschrae
 manager: travisw
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 04/19/2022
+ms.date: 1/21/2024
 ms.author: chschrae
 zone_pivot_groups: programming-languages-set-thirteen
 ms.custom: devx-track-cpp, devx-track-csharp, mode-other, devx-track-extended-java
@@ -16,7 +16,7 @@ ms.custom: devx-track-cpp, devx-track-csharp, mode-other, devx-track-extended-ja
 
 The Azure AI services [Speech SDK](speech-sdk.md) has a built-in feature to provide **intent recognition** with **simple language pattern matching**. An intent is something the user wants to do: close a window, mark a checkbox, insert some text, etc.
 
-In this guide, you use the Speech SDK to develop a C++ console application that derives intents from user utterances through your device's microphone. You'll learn how to:
+In this guide, you use the Speech SDK to develop a C++ console application that derives intents from user utterances through your device's microphone. You learn how to:
 
 > [!div class="checklist"]
 >
@@ -51,9 +51,9 @@ A pattern is a phrase that includes an Entity somewhere within it. An Entity is 
     Take me to the {floorName}
 ```
 
-All other special characters and punctuation will be ignored.
+All other special characters and punctuation are ignored.
 
-Intents will be added using calls to the IntentRecognizer->AddIntent() API.
+Intents are added using calls to the IntentRecognizer->AddIntent() API.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [csharp](includes/how-to/intent-recognition/csharp/simple-pattern-matching.md)]

@@ -53,15 +53,15 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - create resources](<./includes/azure-cli-create-resource-group-and-resource.md>)]
+[!INCLUDE [Azure CLI - create resources](./includes/azure-cli-create-resource-group-and-resource.md)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - create resource group and resources](<./includes/powershell-create-resource-group-and-resource.md>)]
+[!INCLUDE [Powershell - create resource group and resources](./includes/powershell-create-resource-group-and-resource.md)]
 
 #### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - create resource](<./includes/portal-create-resource.md>)]
+[!INCLUDE [Portal - create resource](./includes/portal-create-resource.md)]
 
 ---
 
@@ -69,15 +69,15 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+[!INCLUDE [Azure CLI - get connection string](./includes/azure-cli-get-connection-string.md)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+[!INCLUDE [Powershell - get connection string](./includes/powershell-get-connection-string.md)]
 
 #### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-resource.md>)]
+[!INCLUDE [Portal - get connection string](./includes/portal-get-connection-string-from-resource.md)]
 
 ---
 
@@ -119,14 +119,14 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 ### Configure environment variables
 
-[!INCLUDE [Multi-tab](<./includes/environment-variables-connection-string.md>)]
+[!INCLUDE [Multi-tab](./includes/environment-variables-connection-string.md)]
 
 ## Object model
 
 Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and documents.
 
 :::image type="complex" source="media/quickstart-nodejs/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, collections, and docs.":::
-    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database shards. One of the database shards includes two child collection shards. The other database shard includes a single child collection shard. That single collection shard has three child doc shards.
 :::image-end:::
 
 Each type of resource is represented by a Python class. Here are the most common classes:

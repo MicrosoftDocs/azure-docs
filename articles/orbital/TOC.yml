@@ -7,7 +7,6 @@ items:
     href: overview.md
   - name: About Microsoft and partner ground stations
     href: about-ground-stations.md
-    
 - name: Quickstart
   items:
   - name: Get started with Azure Orbital Ground Station
@@ -59,3 +58,5 @@ items:
     href: organize-stac-data.md
   - name: Process Synthetic Aperture Radar (SAR) data
     href: sar-reference-architecture.md  
+  - name: Process Aqua satellite data using NASA-provided tools
+    href: satellite-imagery-with-orbital-ground-station.md

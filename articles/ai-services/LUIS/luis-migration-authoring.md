@@ -10,7 +10,7 @@ ms.custom: seodec18, contperf-fy21q2
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 01/19/2024
 
 ---
 # Migrate to an Azure resource authoring key

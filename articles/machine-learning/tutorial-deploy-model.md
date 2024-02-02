@@ -35,6 +35,10 @@ The steps you'll take are:
 > * Get details of the second deployment
 > * Roll out the new deployment and delete the first one
 
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial.  The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=7d0e09a5-c319-4e6a-85e2-c9601a0fba68]
+
 ## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
@@ -494,5 +498,5 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 - [Test the deployment with mirrored traffic](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic)
 - [Monitor online endpoints](how-to-monitor-online-endpoints.md)
 - [Autoscale an online endpoint](how-to-autoscale-endpoints.md)
-- [Customize MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments)
+- [Customize MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customize-mlflow-model-deployments)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)

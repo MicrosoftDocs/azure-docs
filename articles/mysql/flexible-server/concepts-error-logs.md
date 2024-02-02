@@ -62,7 +62,7 @@ To download the mentioned server logs to your current directory, use the followi
 az mysql flexible-server server-logs download --resource-group <myresourcegroup> --server-name <server_name>  --name <mysql-error-<server_name>-<timestamp>.log>
 ```
 
-For more information, see [how to download the server logs files](./how-to-server-logs-portal.md#download-server-logs) via the Azure portal or via the [Azure CLI](./how-to-server-logs-cli.md#downloading-server-logs-using-azure-cli).
+For more information, see [how to download the server logs files](./how-to-server-logs-portal.md#download-server-logs) via the Azure portal or via the [Azure CLI](./how-to-server-logs-cli.md#download-server-logs-using-azure-cli).
 
 
 ### Error logs under server logs retention

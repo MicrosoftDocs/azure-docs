@@ -34,6 +34,10 @@ The steps are:
 > * Deploy the newly-trained model as an endpoint
 > * Call the Azure Machine Learning endpoint for inferencing
 
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial. The video shows how to create a notebook, create a compute instance, and clone the notebook. The steps are also described in the following sections.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=de35c980-0aeb-4391-a609-8017d15c4e72]
+
 ## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]

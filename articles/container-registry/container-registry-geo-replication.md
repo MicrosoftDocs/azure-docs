@@ -5,7 +5,7 @@ author: tejaswikolli-web
 ms.topic: article
 ms.author: tejaswikolli
 ms.service: container-registry
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 
 ---
 # Geo-replication in Azure Container Registry

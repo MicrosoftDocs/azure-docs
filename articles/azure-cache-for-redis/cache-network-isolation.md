@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 12/14/2023
+ms.date: 12/15/2023
 
 
 ---
@@ -75,7 +75,7 @@ Azure Cache for Redis allows configuring Firewall rules for specifying IP addres
 
 ### Limitations of firewall rules
 
-- Firewall rules can be used with VNet injected caches, but not private endpoints.
+- Firewall rules can be applied to a private endpoint cache only if the public network access is enabled. If public network access is enabled on the private endpoint cache with no firewall rules are configured, the cache accepts all public network traffic.  
 - Firewall rules configuration is available for all Basic, Standard, and Premium tiers.
 - Firewall rules configuration isn't available for Enterprise nor Enterprise Flash tiers.
 

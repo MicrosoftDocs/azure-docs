@@ -1,10 +1,10 @@
 ---
 title: Azure Kubernetes Service as Event Grid source
 description: This article describes how to use Azure Kubernetes Service as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
-author: zr-msft
+author: spelluru
+ms.author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2022
-ms.author: zarhoads
 ---
 
 # Azure Kubernetes Service (AKS) as an Event Grid source

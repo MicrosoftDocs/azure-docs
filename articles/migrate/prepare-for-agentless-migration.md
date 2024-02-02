@@ -6,7 +6,7 @@ ms.author: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 09/01/2023
-ms.custom: engagement-fy23, devx-track-linux
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Prepare for VMware agentless migration
@@ -24,7 +24,7 @@ Azure Migrate automatically handles these configuration changes for the followin
 - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
 - Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)
-- Debian 11, 10, 9, 8, 7 
+- Debian 11, 10, 9, 8, 7
 - Oracle Linux 9, 8, 7.7-CI, 7.7, 6
 
 You can also use this article to manually prepare the VMs for migration to Azure for operating systems versions not listed above. At a high level, these changes include:
@@ -74,7 +74,7 @@ The preparation script executes the following changes based on the OS type of th
    After the source OS volume files are detected, the preparation script will load the SYSTEM registry hive into the registry editor of the temporary Azure VM and perform the following changes to ensure VM boot up and connectivity. You need to configure these settings manually if the OS version isn't supported for hydration.
 
    1. **Validate the presence of the required drivers**
-      
+
       Ensure if the required drivers are installed and are set to load at **boot start**. These Windows drivers allow the server to communicate with the hardware and other connected devices.
 
       - IntelIde.sys
@@ -117,7 +117,7 @@ The preparation script executes the following changes based on the OS type of th
 
    Make “VMware Tools” service start-type to disabled if it exists as they aren't required for the VM in Azure.
 
-   >[!NOTE]                        
+   >[!NOTE]
    >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](./prepare-windows-server-2003-migration.md) to install and prepare for migration.
 
 1. **Install the Windows Azure Guest Agent**
@@ -135,7 +135,7 @@ The preparation script executes the following changes based on the OS type of th
 
 ### Changes performed on Linux servers
 
-1. **Discover and mount Linux OS partitions**  
+1. **Discover and mount Linux OS partitions**
 
    Before performing relevant configuration changes, the preparation script will validate if the correct OS disk was selected for migration. The script will collect information on all partitions, their UUIDs, and mount points. The script will look through all these visible partitions to locate the /boot and /root partitions.
 
@@ -159,7 +159,7 @@ The preparation script executes the following changes based on the OS type of th
    - Ubuntu: etc/lsb-release
    - Debian: etc/debian_version
 
-1. **Install Hyper-V Linux Integration Services and regenerate kernel image**  
+1. **Install Hyper-V Linux Integration Services and regenerate kernel image**
 
    The next step is to inspect the kernel image and rebuild the Linux init image so, that it contains the necessary Hyper-V drivers (**hv_vmbus, hv_storvsc, hv_netvsc**) on the initial ramdisk. Rebuilding the init image ensures that the VM will boot in Azure.
 
@@ -175,7 +175,7 @@ The preparation script executes the following changes based on the OS type of th
       An illustrative example for rebuilding initrd
 
       - Back up the existing initrd image
-      
+
        ```bash
         cd /boot
         sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
@@ -221,7 +221,7 @@ The preparation script executes the following changes based on the OS type of th
    1. Remove Network Manager if necessary. Network Manager can interfere with the Azure Linux agent for a few OS versions. It's recommended to make these changes for servers running RedHat and Ubuntu distributions.
 
    1. Uninstall this package by running the following command:
-    
+
       An illustrative example for RedHat servers
 
       ```bash
@@ -281,7 +281,7 @@ The preparation script executes the following changes based on the OS type of th
 
 ### Clean up the temporary VM
 
-After the necessary changes are performed, Azure Migrate will spin down the temporary VM and free the attached OS disks (and data disks). This marks the end of the *hydration process*.     
+After the necessary changes are performed, Azure Migrate will spin down the temporary VM and free the attached OS disks (and data disks). This marks the end of the *hydration process*.
 
 After this, the modified OS disk and the data disks that contain the replicated data are cloned. A new virtual machine is created in the target region, virtual network, and subnet, and the cloned disks are attached to the virtual machine. This marks the completion of the migration process.
 

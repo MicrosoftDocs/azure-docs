@@ -1,17 +1,17 @@
 ---
-title: HBv2-series VM size performance 
-description: Learn about performance testing results for HBv2-series VM sizes in Azure.  
-services: virtual-machines  
+title: HBv2-series VM size performance
+description: Learn about performance testing results for HBv2-series VM sizes in Azure.
+services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
-ms.custom: devx-track-linux
-ms.topic: article 
-ms.date: 03/04/2023 
+ms.workload: infrastructure-services
+ms.custom: linux-related-content
+ms.topic: article
+ms.date: 03/04/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
---- 
+ms.author: jushiman
+author: ju-shim
+---
 
 # HBv2-series virtual machine sizes
 
@@ -51,7 +51,7 @@ MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are 
 
 ## Mellanox Perftest
 
-The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below. 
+The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below.
 
 
 ```bash

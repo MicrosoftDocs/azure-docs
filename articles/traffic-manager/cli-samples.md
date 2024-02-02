@@ -3,7 +3,6 @@ title: Azure CLI Samples for Traffic Manager
 description: Learn about an Azure CLI script you can use to direct traffic across multiple regions for high application availability.
 services: traffic-manager
 author: greg-lindsay
-manager: twooley
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure

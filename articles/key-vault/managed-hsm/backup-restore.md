@@ -9,7 +9,7 @@ ms.custom: devx-track-azurecli
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 12/11/2023
+ms.date: 01/09/2024
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
@@ -26,20 +26,21 @@ Only following built-in roles have permission to perform full backup:
 - Managed HSM Administrator
 - Managed HSM Backup
 
-There are 2 ways to execute a full backup. You must provide the following information to execute a full backup:
+There are 2 ways to execute a full backup/restore:
+1. Assigning an User-Assigned Managed Identity (UAMI) to the Managed HSM service. You can backup and restore your MHSM using a user assigned managed identity regardless of whether your storage account has public network access or private network access enabled. If storage account is behind a private endpoint, the UAMI method works with trusted service bypass to allow for backup and restore.
+2. Using storage container SAS token with permissions 'crdw'. Backing up and restoring using storage container SAS token requires your storage account to have public network access enabled.
+
+You must provide the following information to execute a full backup:
 - HSM name or URL
 - Storage account name
 - Storage account blob storage container
 - User assigned managed identity OR storage container SAS token with permissions 'crdw'
 
-> [!NOTE]
-> Backing up and restoring using storage container SAS token requires your storage account to have public network access enabled. You can backup and restore your MHSM using a user assigned managed identity regardless of whether your storage account has public network access or private network access enabled, including if the storage account is behind a private endpoint.
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-#### Prerequisites if backing up and restoring using user assigned managed identity (preview):
+#### Prerequisites if backing up and restoring using user assigned managed identity:
 
-1. Ensure you have the Azure CLI version 2.54.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+1. Ensure you have the Azure CLI version 2.56.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 2. Create a user assigned managed identity.
 3. Create a storage account (or use an existing storage account).
 4. If public network access is diabled on your storage account, enable trusted service bypass on the storage account in the “Networking” tab, under “Exceptions.”
@@ -59,7 +60,7 @@ Backup is a long running operation but will immediately return a Job ID. You can
 
 While the backup is in progress, the HSM might not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
-### Backup HSM using user assigned managed identity (preview)
+### Backup HSM using user assigned managed identity
 ```azurecli-interactive
 az keyvault backup start --use-managed-identity true --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer
   ```
@@ -106,7 +107,7 @@ There are 2 ways to execute a full restore. You must provide the following infor
 
 Restore is a long running operation but will immediately return a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 
-### Restore HSM using user assigned managed identity (preview)
+### Restore HSM using user assigned managed identity
 ```azurecli-interactive
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --backup-folder mhsm-backup-foldername --use-managed-identity true
   ```
@@ -134,7 +135,7 @@ az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemoba
 
 Selective key restore allows you to restore one individual key with all its key versions from a previous backup to an HSM.
 
-### Selective key restore using user assigned managed identity (preview)
+### Selective key restore using user assigned managed identity
 ```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --backup-folder mhsm-backup-foldername --use-managed-identity true --key-name rsa-key2
   ```

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 01/04/2024
 ---
 
 # Set up Azure Monitor logs and collect diagnostics data for B2B messages in Azure Logic Apps

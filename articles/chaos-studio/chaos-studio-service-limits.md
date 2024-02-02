@@ -6,7 +6,6 @@ ms.author: prashabora
 ms.service: chaos-studio
 ms.date: 11/01/2021
 ms.topic: reference
-ms.custom: 
 ---
 
 # Azure Chaos Studio service limits

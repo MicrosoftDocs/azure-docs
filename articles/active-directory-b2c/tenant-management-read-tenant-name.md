@@ -9,13 +9,17 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: tutorial
-ms.date: 12/13/2023
+ms.date: 01/11/2024
 ms.custom: b2c-docs-improvements
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
 
 #Customer intent: As a developer or IT administrator, I want to find my Azure AD B2C tenant details
+
+
+#Customer intent: "As an Azure AD B2C administrator, I want to find and copy the tenant name and tenant ID, so that I can use them for configuration and management purposes in my organization's Azure AD B2C tenant."
+
 ---
 
 # Find tenant name and tenant ID in Azure Active Directory B2C

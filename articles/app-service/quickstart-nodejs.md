@@ -5,16 +5,23 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: quickstart
-ms.custom: mvc, devcenter, seodec18, devdivchpfy22, ignite-2022, devx-track-js
 ms.date: 07/17/2023
 ms.devlang: javascript
 zone_pivot_groups: app-service-vscode-cli-portal
+ms.custom: mvc, devcenter, seodec18, devdivchpfy22, ignite-2022, devx-track-js, ai-video-demo
+ai-usage: ai-assisted
 ---
+
 # Deploy a Node.js web app in Azure
 
 In this quickstart, you'll learn how to create and deploy your first Node.js ([Express](https://www.expressjs.com)) web app to [Azure App Service](overview.md). App Service supports various versions of Node.js on both Linux and Windows. 
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
+
+This video shows you how to deploy a Node.js web app in Azure.
+> [!VIDEO c66346dd-9fde-4cef-b135-47d3051d5db5]
+
+The steps in the video are also described in the following sections.
 
 ## Set up your initial environment
 

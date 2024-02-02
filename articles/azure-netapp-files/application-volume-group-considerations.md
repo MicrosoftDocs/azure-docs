@@ -2,15 +2,9 @@
 title: Requirements and considerations for Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
 description: Describes the requirements and considerations you need to be aware of before using Azure NetApp Files application volume group for SAP HANA.  
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/08/2023
 ms.author: anfdocs
@@ -79,6 +73,9 @@ This situation leads to two possible scenarios:
 
 > [!NOTE]
 > When you use application volume group to deploy your HANA volumes, at least one VM in the availability set must be started. Without a running VM, the PPG cannot be used to find the optimal Azure NetApp files hardware, and provisioning will fail.
+
+> [!NOTE]
+> Do not delete your PPG. Deleting a PPG will remove the pinning and can cause subsequent volume groups to be created in sub-optimal locations which could lead to increased latency.
 
 ## Next steps
 

@@ -52,7 +52,7 @@ In the **AzureVPN** folder, go to the ***azurevpnconfig.xml*** file and open it 
 ```
 <audience>          </audience>
 <issuer>            </issuer>
-<tennant>           </tennant>
+<tenant>            </tenant>
 <fqdn>              </fqdn>
 <serversecret>      </serversecret>
 ```

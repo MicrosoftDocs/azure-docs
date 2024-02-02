@@ -4,7 +4,6 @@ description: Use a mainframe emulator and other services from Microsoft partners
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-documentationcenter:
 author: njray
 manager: edprice
 editor: edprice
@@ -21,7 +20,7 @@ For more help with mainframe emulation and services, refer to the [Azure Mainfra
 
 ## Migrate mainframe closer to Azure
 
-- [ASNA Visual RPG for .NET](https://asna.com/us/products/visual-rpg) compiler for the .NET Framework via Visual Studio plug-in.
+- [ASNA Visual RPG for .NET](https://docs.asna.com/documentation/Help170/AVR/_HTML/AvrInstallationandsetup.htm) compiler for the .NET Framework via Visual Studio plug-in.
 - Asysco AMT COBOL development environment (Unisys, IBM mainframes, and other COBOL dialects such as Micro Focus COBOL).
 - Asysco AMT GO cloud-based deployment architecture for high-end workloads.
 - Asysco AMT Transform for converting data, code, scripting, security, interfaces and other mainframe artifacts.

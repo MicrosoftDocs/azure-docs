@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms-author: edbaynash
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/28/2022
+ms.date: 11/09/2023
 ---
 
 # Azure Monitor managed service for Prometheus rule groups

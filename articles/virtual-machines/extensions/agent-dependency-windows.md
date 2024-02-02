@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.subservice: agents
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.collection: windows
 ms.date: 08/29/2023
 ---

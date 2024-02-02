@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom:
-ms.date: 03/31/2023
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in Azure Cosmos DB analytical store by using Azure Data Factory

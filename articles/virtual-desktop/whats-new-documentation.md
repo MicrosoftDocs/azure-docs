@@ -4,12 +4,32 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/15/2023
+ms.date: 01/31/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article we highlight articles for new features and where there have been important updates to existing articles.
+
+## January 2024
+
+In January 2024, we published the following changes:
+
+- Consolidated articles to [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-scaling-plan.md) into a single article.
+
+- Added PowerShell commands to [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-scaling-plan.md).
+
+- Removed the separate documentation section for RemoteApp streaming and combined it with the main Azure Virtual Desktop documentation. Some articles that were previously only in the RemoteApp section are now discoverable in the main Azure Virtual Desktop documentation, such as [Understand and estimate costs for Azure Virtual Desktop](understand-estimate-costs.md) and [Licensing Azure Virtual Desktop](licensing.md).
+
+## December 2023
+
+In December 2023, we published the following changes:
+
+- Published new content for the preview of *app attach*, which is now available alongside MSIX app attach. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+- Updated the article [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include support for [new Teams desktop client](/microsoftteams/new-teams-desktop-admin) on your session hosts.
+
+- Updated the article [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication](configure-single-sign-on.md) to include example PowerShell commands to help configure single sign-on using Microsoft Entra ID authentication.
 
 ## November 2023
 

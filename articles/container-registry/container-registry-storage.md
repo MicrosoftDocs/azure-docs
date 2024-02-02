@@ -4,7 +4,7 @@ description: Details on how your container images and other artifacts are stored
 ms.topic: conceptual
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.custom: references_regions
 ms.service: container-registry
 ---

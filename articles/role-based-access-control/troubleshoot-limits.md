@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/01/2023
+ms.date: 01/12/2024
 ms.author: rolyon
 ---
 
@@ -66,7 +66,17 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
+
+    # [Default](#tab/default)
+
     [!INCLUDE [resource-graph-query-authorization-same-role-scope](../governance/includes/resource-graph/query/authorization-same-role-scope.md)]
+
+    # [Conditions](#tab/conditions)
+
+    [!INCLUDE [resource-graph-query-authorization-same-role-scope-condition](../governance/includes/resource-graph/query/authorization-same-role-scope-condition.md)]
+
+    ---
 
     The following shows an example of the results. The **count_** column is the number of principals assigned the same role and at the same scope. The count is sorted in descending order.
 
@@ -140,7 +150,17 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
+
+    # [Default](#tab/default)
+
     [!INCLUDE [resource-graph-query-authorization-same-role-principal](../governance/includes/resource-graph/query/authorization-same-role-principal.md)]
+
+    # [Conditions](#tab/conditions)
+
+    [!INCLUDE [resource-graph-query-authorization-same-role-principal-condition](../governance/includes/resource-graph/query/authorization-same-role-principal-condition.md)]
+
+    ---
 
     The following shows an example of the results. The **count_** column is the number of different scopes for role assignments with the same role and same principal. The count is sorted in descending order.
 
@@ -200,7 +220,17 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
     This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
+    If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
+
+    # [Default](#tab/default)
+
     [!INCLUDE [resource-graph-query-authorization-same-principal-scope](../governance/includes/resource-graph/query/authorization-same-principal-scope.md)]
+
+    # [Condition](#tab/conditions)
+
+    [!INCLUDE [resource-graph-query-authorization-same-principal-scope-condition](../governance/includes/resource-graph/query/authorization-same-principal-scope-condition.md)]
+
+    ---
 
     The following shows an example of the results. The **count_** column is the number of different built-in role assignments with the same principal and same scope. The count is sorted in descending order.
 
