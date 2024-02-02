@@ -33,7 +33,7 @@ This MySQL connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this MySQL connector supports MySQL **version 5.5, 5.6, 5.7, 8.0, 8.1 and 8.2**.
+This connector supports MySQL version 5.5, 5.6, 5.7, 8.0, 8.1 and 8.2 under the recommended new driver version v2 and 5.6, 5.7 and 8.0 for the legacy driver version.
 
 ## Prerequisites
 
