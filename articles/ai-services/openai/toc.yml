@@ -53,10 +53,12 @@ items:
       href: ./concepts/content-credentials.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
-    - name: Model versions
-      href: ./concepts/model-versions.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
+    - name: Prompt engineering for GPT-4 Turbo with Vision
+      href: ./concepts/gpt-4-v-prompt-engineering.md
+    - name: Model versions
+      href: ./concepts/model-versions.md
     - name: Provisioned throughput units (PTU)
       href: ./concepts/provisioned-throughput.md
       displayName: PTU, provisioned, provisioned throughput units
