@@ -448,6 +448,10 @@ See the recommendation for [High availability and failover with Azure ExpressRou
 
 Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on the Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
+### Can I have ExpressRoute Private Peering in an Azure Goverment environment with Virtual Network Gateways in Azure commercial cloud? 
+
+No, it's not possible to establish ExpressRoute Private peering in an Azure Goverment environment with a virtual network gateway in Azure commercial cloud environments. Furthermore, the scope of the ExpressRoute Government Microsoft Peering is limited to only public IPs within Azure government regions and doesn't extend to the broader ranges of commercial public IPs. 
+
 ## Route filters for Microsoft peering
 
 ### Are Azure service routes advertised when I first configure Microsoft peering?

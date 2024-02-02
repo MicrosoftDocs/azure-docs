@@ -10,7 +10,7 @@
       href: release-tracker.md
     - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
-    - name: Long Term Support
+    - name: Long-term support
       href: long-term-support.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
@@ -238,7 +238,7 @@
           href: cluster-configuration.md 
         - name: Manually scale nodes in an AKS cluster
           href: scale-cluster.md
-        - name: Stop an AKS cluster
+        - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
         - name: Configure private clusters
           items:
@@ -266,7 +266,7 @@
                        href: istio-deploy-addon.md
                      - name: Deploy external or internal Istio Ingress
                        href: istio-deploy-ingress.md
-                     - name: Plug in CA certificates for Istio
+                     - name: Plug-in CA certificates for Istio
                        href: istio-plugin-ca.md
                      - name: Upgrade Istio service mesh add-on
                        href: istio-upgrade.md
@@ -359,15 +359,15 @@
           href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Proximity placement groups
           href: reduce-latency-ppg.md
-        - name: Cluster Autoscaler
+        - name: Cluster autoscaler
           items:
-            - name: Cluster Autoscaler overview
+            - name: Cluster autoscaler overview
               href: cluster-autoscaler-overview.md
-            - name: Use the Cluster Autoscaler on AKS
+            - name: Use the cluster autoscaler on AKS
               href: cluster-autoscaler.md
         - name: Node autoprovision
           href: node-autoprovision.md
-        - name: Availability Zones
+        - name: Availability zones
           href: availability-zones.md
     - name: Cluster management
       items:
@@ -393,7 +393,7 @@
               href: image-cleaner.md
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-            - name: Scanning images in ACR registries
+            - name: Scan images in ACR registries
               href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Cluster security
           items:
@@ -421,7 +421,7 @@
               href: use-kms-etcd-encryption.md
         - name: Node security
           items:
-            - name: BYOK for disks
+            - name: BYOK for Azure managed disks
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
