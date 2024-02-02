@@ -3003,6 +3003,6 @@ groups:
   prompt: Choose how you'd like to interact with the quickstart
   pivots:
   - id: blob-storage-quickstart-scratch
-    title: Start from scratch
+    title: Build from scratch
   - id: blob-storage-quickstart-template
-    title: Start from a template
+    title: Start with a template
