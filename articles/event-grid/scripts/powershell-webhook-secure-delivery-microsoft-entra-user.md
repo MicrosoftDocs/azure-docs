@@ -4,7 +4,7 @@ description: Describes how to deliver events to HTTPS endpoints protected by Mic
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: sample
-ms.date: 09/29/2021
+ms.date: 02/02/2024
 ---
 
 # Secure WebHook delivery with Microsoft Entra user in Azure Event Grid
