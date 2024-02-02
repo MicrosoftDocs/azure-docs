@@ -16,7 +16,4 @@ Access is currently limited.For now, we are working with customers that have an 
 
 ## Next step
 
-TODO: Add your next step link(s)
-
-> [!div class="nextstepaction"]
-> 
+[Quickstart: Configure a network function in Azure Operator 5G Core](quickstart-configure-network-function.md) 
