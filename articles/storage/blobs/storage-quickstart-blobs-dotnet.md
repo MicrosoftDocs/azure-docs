@@ -178,7 +178,7 @@ With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) ins
 
 From an empty directory, follow these steps to initialize the `azd` template, provision Azure resources, and get started with the code:
 
-- Download the quickstart repository assets from GitHub and initialize Azure Developer CLI locally:
+- Clone the quickstart repository assets from GitHub and initialize the template locally:
 
     ```console
     azd init --template blob-storage-quickstart-dotnet
