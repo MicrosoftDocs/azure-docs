@@ -262,15 +262,15 @@ The sample code snippets in the following sections demonstrate how to perform th
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
-> [!NOTE]
-> The Azure Developer CLI template includes a project with sample code already in place. The following examples provide detail for each part of the sample code. The template implements the recommended passwordless authentication method, as described in the [Authenticate to Azure](#authenticate-to-azure-and-authorize-access-to-blob-data) section. The connection string method is shown as an alternative, but isn't used in the template and isn't recommended for production code.
+> [!IMPORTANT]
+> Make sure you've installed the correct NuGet packages and added the necessary using statements in order for the code samples to work, as described in the [setting up](#setting-up) section.
 
 ::: zone-end
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-> [!IMPORTANT]
-> Make sure you've installed the correct NuGet packages and added the necessary using statements in order for the code samples to work, as described in the [setting up](#setting-up) section.
+> [!NOTE]
+> The Azure Developer CLI template includes a project with sample code already in place. The following examples provide detail for each part of the sample code. The template implements the recommended passwordless authentication method, as described in the [Authenticate to Azure](#authenticate-to-azure-and-authorize-access-to-blob-data) section. The connection string method is shown as an alternative, but isn't used in the template and isn't recommended for production code.
 
 ::: zone-end
 
