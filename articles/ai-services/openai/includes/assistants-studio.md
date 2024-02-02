@@ -47,6 +47,10 @@ Use the **Assistant setup** pane to create a new AI assistant or to select an ex
 | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
 | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. |
 
+### Tools
+
+An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](../how-to/assistant-functions.md).
+
 ### Chat session
 
 Chat session also known as a *thread* within the Assistant's API is where the conversation between the user and assistant occurs. Unlike traditional chat completion calls there is no limit to the number of messages in a thread. The assistant will automatically compress requests to fit the input token limit of the model.

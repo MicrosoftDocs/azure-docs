@@ -182,10 +182,12 @@ These models can only be used with Embedding API requests.
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
 
-| Supported models | Supported Regions |
-|---|---|
-| gpt-35-turbo (all versions except instruct) | Sweden Central, East US 2, Australia East |
-| gpt-4 (all versions except GPT-4 Vision Preview) |  Sweden Central, East US 2, Australia East |
+| Region | `gpt-35-turbo (1106)` | `gpt-4 (1106-preview)` | `gpt-4 (0613)` | `gpt-4 (0314)` | `gpt-35-turbo (0301)` | `gpt-35-turbo (0613)` | `gpt-35-turbo-16k (0613)` | `gpt-4-32k (0314)` | `gpt-4-32k (0613)` |
+|---|---|---|---|---|---|---|---|---|---|
+| Sweden Central | ✅|✅|✅|✅|✅|✅|✅|||
+| East US 2 ||✅||||✅||||
+| Australia East |✅|✅|✅|||✅||||
+
 
 ## Next steps
 
