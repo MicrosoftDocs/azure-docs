@@ -823,4 +823,4 @@ deployment_client.delete_endpoint(endpoint_name)
 
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
-- [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)- [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
+- [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)
