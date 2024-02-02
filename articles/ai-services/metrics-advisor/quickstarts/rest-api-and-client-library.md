@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-metrics-advisor
 ms.topic: quickstart
-ms.date: 11/07/2022
+ms.date: 01/19/2024
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
 ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python

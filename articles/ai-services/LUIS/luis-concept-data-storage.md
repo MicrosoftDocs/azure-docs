@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/19/2024
 ---
 
 # Data storage and removal in Language Understanding (LUIS) Azure AI services

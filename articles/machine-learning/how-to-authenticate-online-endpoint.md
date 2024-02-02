@@ -48,7 +48,7 @@ In this section, you assign permissions to the user identity that you use for in
 
 ### Use a built-in role
 
-The `AzureML Data Scientist` [built-in role](../role-based-access-control/built-in-roles.md#azureml-data-scientist) uses wildcards to include the following _control plane_ RBAC actions:
+The `AzureML Data Scientist` [built-in role](../role-based-access-control/built-in-roles.md#azureml-data-scientist) can be used to manage and use endpoints and deployments and it uses wildcards to include the following _control plane_ RBAC actions:
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write`
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete`
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read`
@@ -59,7 +59,11 @@ The `AzureML Data Scientist` [built-in role](../role-based-access-control/built-
 and to include the following _data plane_ RBAC action:
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`
 
-If you use this built-in role, there's no action needed at this step.
+Optionally, the `Azure Machine Learning Workspace Connection Secrets Reader` built-in role can be used to access secrets from workspace connections and it include the following _control plane_ RBAC actions:
+- `Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action`
+- `Microsoft.MachineLearningServices/workspaces/metadata/secrets/read`
+
+If you use these built-in roles, there's no action needed at this step.
 
 ### (Optional) Create a custom role
 
@@ -146,6 +150,12 @@ You can skip this step if you're using built-in roles or other pre-made custom r
 
     ```bash
     az role assignment create --assignee <identityId> --role "AzureML Data Scientist" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
+    ```
+
+1. Optionally, if you're using the `Azure Machine Learning Workspace Connection Secrets Reader` built-in role, use the following code to assign the role to your user identity.
+
+    ```bash
+    az role assignment create --assignee <identityId> --role "Azure Machine Learning Workspace Connection Secrets Reader" --scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>
     ```
 
 1. If you're using a custom role, use the following code to assign the role to your user identity.
@@ -261,7 +271,6 @@ After you retrieve the Microsoft Entra token, you can verify that the token is f
     "oid": "<your-object-id>"
 }
 ```
-
 
 
 ## Create an endpoint
@@ -487,7 +496,6 @@ You can find the scoring URI on the __Details__ tab of the endpoint's page.
 
 ## Get the key or token for data plane operations
 
-
 A key or token can be used for data plane operations, even though the process of getting the key or token is a control plane operation. In other words, you use a control plane token to get the key or token that you later use to perform your data plane operations.
 
 Getting the _key_ or _Azure Machine Learning token_ requires that the correct role is assigned to the user identity that is requesting it, as described in [authorization for control plane operations](concept-endpoints-online-auth.md#control-plane-operations). 
@@ -629,7 +637,6 @@ Microsoft Entra token isn't exposed in the studio.
 ---
 
 ### Verify the resource endpoint and client ID for the Microsoft Entra token
-
 
 After getting the Entra token, you can verify that the token is for the right Azure resource endpoint `ml.azure.com` and the right client ID by decoding the token via [jwt.ms](https://jwt.ms/), which will return a json response with the following information:
 

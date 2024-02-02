@@ -453,6 +453,27 @@ param aadClientSecret string
 @description('The ObjectID of the Resource Provider Service Principal')
 param rpObjectId string
 
+@description('Specify if FIPS validated crypto modules are used')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param fips string = 'Disabled'
+
+@description('Specify if master VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param masterEncryptionAtHost string = 'Disabled'
+
+@description('Specify if worker VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param workerEncryptionAtHost string = 'Disabled'
+
 var contributorRoleDefinitionId = resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
 var resourceGroupId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
 var masterSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
@@ -525,6 +546,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
       domain: domain
       resourceGroupId: resourceGroupId
       pullSecret: pullSecret
+      fipsValidatedModules: fips
     }
     networkProfile: {
       podCidr: podCidr
@@ -537,6 +559,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
     masterProfile: {
       vmSize: masterVmSize
       subnetId: masterSubnetId
+      encryptionAtHost: masterEncryptionAtHost
     }
     workerProfiles: [
       {
@@ -545,6 +568,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
         diskSizeGB: workerVmDiskSize
         subnetId: workerSubnetId
         count: workerCount
+        encryptionAtHost: workerEncryptionAtHost
       }
     ]
     apiserverProfile: {

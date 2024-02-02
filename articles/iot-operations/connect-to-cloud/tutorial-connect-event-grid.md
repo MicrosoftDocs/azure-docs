@@ -63,8 +63,16 @@ d84481ae-9181-xxxx-xxxx-xxxxxxxxxxxx
 
 Then, use Azure CLI to assign publisher and subscriber roles to IoT MQ for the topic space you created. Replace `<MQ_ID>` with the principal ID you found in the previous step, and replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, `<EG_NAME>` with your values matching the Event Grid namespace you created.
 
+Assigning the publisher role:
+
 ```azurecli
-az role assignment create --assignee <MQ_ID> --role "EventGrid TopicSpaces Publisher" --role "EventGrid TopicSpaces Subscriber" --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.EventGrid/namespaces/<EG_NAME>/topicSpaces/tutorial
+az role assignment create --assignee <MQ_ID> --role "EventGrid TopicSpaces Publisher" --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.EventGrid/namespaces/<EG_NAME>/topicSpaces/tutorial
+```
+
+Assigning the subscriber role:
+
+```azurecli
+az role assignment create --assignee <MQ_ID> --role "EventGrid TopicSpaces Subscriber" --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.EventGrid/namespaces/<EG_NAME>/topicSpaces/tutorial
 ```
 
 > [!TIP]

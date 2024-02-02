@@ -53,12 +53,15 @@ items:
       href: ./concepts/content-credentials.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
-    - name: Model versions
-      href: ./concepts/model-versions.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
+    - name: Prompt engineering for GPT-4 Turbo with Vision
+      href: ./concepts/gpt-4-v-prompt-engineering.md
+    - name: Model versions
+      href: ./concepts/model-versions.md
     - name: Provisioned throughput units (PTU)
       href: ./concepts/provisioned-throughput.md
+      displayName: PTU, provisioned, provisioned throughput units
     - name: System message templates
       href: ./concepts/system-message.md
     - name: Using your data - text (preview)
@@ -126,8 +129,16 @@ items:
         href: ./how-to/switching-endpoints.md
       - name: Manage quota
         href: ./how-to/quota.md
+      - name: Dynamic quota
+        href: ./how-to/dynamic-quota.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
+      - name: Onboarding to Provisioned Throughput Units (PTU)
+        href: ./how-to/provisioned-throughput-onboarding.md
+        displayName: PTU, provisioned, provisioned throughput units
+      - name: Get started with Provisioned Deployments
+        href: ./how-to/provisioned-get-started.md
+        displayName: PTU, provisioned, provisioned throughput units
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
       - name: Performance & latency

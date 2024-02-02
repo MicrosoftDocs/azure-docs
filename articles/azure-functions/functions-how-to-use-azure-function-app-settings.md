@@ -307,7 +307,7 @@ You must consider these limitations when developing your functions in the [Azure
 + Python in-portal editing is only supported when running in the Consumption plan.   
 + In-portal editing is currently only supported for functions that were created or last modified in the portal.
 + When you deploy code to a function app from outside the portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md). 
-+ For compiled C# functions, Java functions, and some Python functions, you can create the function app in the portal. However, you must create the functions code project locally and then publish it to Azure.
++ For compiled C# functions, Java functions, and some Python functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, you should develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 

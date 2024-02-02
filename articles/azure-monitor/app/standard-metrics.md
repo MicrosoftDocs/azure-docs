@@ -3,7 +3,7 @@ title: Azure Application Insights standard metrics | Microsoft Docs
 description: This article lists Azure Application Insights metrics with supported aggregations and dimensions. 
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/05/2023
+ms.date: 01/31/2024
 ms.reviewer: vitalyg
 ---
 

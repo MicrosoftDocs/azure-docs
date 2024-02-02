@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/14/2022
 ms.author: srijangupta
@@ -76,7 +76,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     ```
 
     ```shell
-    /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg 
+    /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 3. Register your SUSE Linux Enterprise system to allow it to download updates and install packages.
@@ -99,7 +99,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 6. Enable `waagent` and cloud-init to start on boot:
 
     ```bash
-    sudo systemctl enable  waagent 
+    sudo systemctl enable  waagent
     sudo systemctl enable cloud-init-local.service
     sudo systemctl enable cloud-init.service
     sudo systemctl enable cloud-config.service
@@ -111,7 +111,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 7. Update the cloud-init configuration:
 
     ```bash
-    cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg 
+    cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg
     datasource_list: [ Azure ]
     datasource:
         Azure:
@@ -143,7 +143,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     ```bash
     cat  <<EOF | sudo tee -a /etc/systemd/system.conf
     'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"'
-    EOF 
+    EOF
 
     cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/00-azure-swap.cfg
     #cloud-config
@@ -183,7 +183,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
     ```bash
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     sudo rm -f /etc/udev/rules.d/85-persistent-net-cloud-init.rules
-    sudo rm -f /etc/sysconfig/network/ifcfg-eth* 
+    sudo rm -f /etc/sysconfig/network/ifcfg-eth*
     ```
 
 12. We recommend that you edit the */etc/sysconfig/network/dhcp* file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
@@ -269,7 +269,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (bring your
 6. Modify the kernel boot line in your GRUB configuration to include other kernel parameters for Azure. To do this, open */boot/grub/menu.lst* in a text editor and ensure that the default kernel includes the following parameters:
 
     ```config-grub
-     console=ttyS0 earlyprintk=ttyS0 
+     console=ttyS0 earlyprintk=ttyS0
     ```
 
    This option ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:

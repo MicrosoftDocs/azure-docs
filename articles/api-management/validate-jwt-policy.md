@@ -2,7 +2,6 @@
 title: Azure API Management policy reference - validate-jwt | Microsoft Docs
 description: Reference for the validate-jwt policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -121,7 +120,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 * The policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 * To configure the policy with one or more OpenID configuration endpoints for use with a self-hosted gateway, the OpenID configuration endpoints URLs must also be reachable by the cloud gateway.
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Microsoft Entra authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
-
+* When using a custom header (`header-name`), the configured required scheme (`require-scheme`) will be ignored. To use a required scheme, JWT tokens must be provided in the `Authorization` header.
 
 ## Examples
 

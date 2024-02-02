@@ -7,7 +7,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 12/15/2023
+ms.date: 01/12/2024
 
 ---
 
@@ -30,9 +30,9 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 ## Scope of availability
 
-|Tier     | Basic, Standard, Premium  |Enterprise, Enterprise Flash  |
-|---------|---------|---------|
-|Available  | Yes    |  Yes  |
+|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  |
+|--------- |:------------------:|:---------:|
+|Available | Yes          |  Yes  |
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 > [!IMPORTANT]
 > When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using [managed identity to autenticate to the storage account](cache-managed-identity.md).
-> For more information, see [How to export if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account) 
+> For more information, see [How to export if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
 >
 
 ## Create a private endpoint with a new Azure Cache for Redis instance
@@ -349,23 +349,27 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 
 ### How do I connect to my cache with private endpoint?
 
-For **Basic, Standard, and Premium tier** caches, your application should connect to `<cachename>.redis.cache.windows.net` on port `6380`. A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.  We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in configuration or connection string. 
+For **Basic, Standard, and Premium tier** caches, your application should connect to `<cachename>.redis.cache.windows.net` on port `6380`. A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.  We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in configuration or connection string.
 
-For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`. 
+For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`.
 
 For more information, see [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
 
 ### Why can't I connect to a private endpoint?
 
-- Private endpoints can't be used with your cache instance if your cache is already using the VNet injection network connection method.
-- You have a limit of one private link for clustered caches. For all other caches, your limit is 100 private links.
-- You try to [persist data to a storage account](cache-how-to-premium-persistence.md) with firewall rules and you're not using managed identity to connect to the storage account.
+- Private endpoints can't be used with your cache instance if your cache is already a VNet injected cache.
+
+- On Premium tier caches, you have a limit of one private link for clustered caches. Enterprise and Enterprise Flash tier caches do not have this limitation for clustered caches. For all other caches, your limit is 100 private links.
+
+- You try to [persist data to storage account](cache-how-to-premium-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
+
 - You might not connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
 
 ### What features aren't supported with private endpoints?
 
 - Trying to connect from the Azure portal console is an unsupported scenario where you see a connection failure.
-- Private links can't be added to Premium tier caches that are already geo-replicated. To add a private link to a cache using [passive geo-replication](cache-how-to-geo-replication.md): 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
+
+- Private links can't be added to caches that are already using [passive geo-replication](cache-how-to-geo-replication.md) in the Premium tier. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication. (Enterprise tier caches using [active geo-replication](cache-how-to-active-geo-replication.md) do not have this restriction.)
 
 ### How do I verify if my private endpoint is configured correctly?
 
@@ -398,6 +402,7 @@ You can also change the value through a RESTful API PATCH request. For example, 
   }
   
   ```
+
   For more information, see [Redis - Update](/rest/api/redis/Redis/Update?tabs=HTTP).
 
 ### How can I migrate my VNet injected cache to a Private Link cache?
