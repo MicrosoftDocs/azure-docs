@@ -29,7 +29,12 @@ Create a Serp connection:
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
 1. Go to **Settings** > **Connections**.
 1. Select **+ New connection**.
-1. Complete all steps in the **Create a new connection** dialog box. 
+1. Create a custom connection with the following details:
+    - azureml.flow.connection_type: Serp
+    - azureml.flow.module: promptflow.connections
+    - api_key: <Your Serp API key>, please mark it as a secret.
+    
+    :::image type="content" source="./media/serp_api_tool/serp_connection_meta.png" alt-text="Screenshot that shows add extra meta to custom connection in AI studio" lightbox = "./media/python_tool/serp_connection_meta.png"::: 
 
 The connection is the model used to establish connections with Serp API. Get your API key from the SerpAPI account dashboard. 
 
