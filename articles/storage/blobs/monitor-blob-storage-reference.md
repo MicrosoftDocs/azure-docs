@@ -12,9 +12,11 @@ ms.author: normesta
 ms.custom: subject-monitoring
 ---
 
-# Azure Blob Storage monitoring data reference
+# Azure Blob Storage monitoring data reference old
 
 See [Monitoring Azure Storage](monitor-blob-storage.md) for details on collecting and analyzing monitoring data for Azure Storage.
+
+## Metrics dimensions
 
 ## Metrics
 
@@ -25,12 +27,6 @@ The following tables list the platform metrics collected for Azure Storage.
 Capacity metrics values are refreshed daily (up to 24 Hours). The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
-
-(includes:)(
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
-[!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-operation.md)]
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-authentication.md)]
 
 #### Blob storage
 
@@ -153,4 +149,10 @@ The following table lists the properties for Azure Storage resource logs when th
 
 }
 ```
+
+(includes:)(
+[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
+[!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
+[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-operation.md)]
+[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-authentication.md)]
 

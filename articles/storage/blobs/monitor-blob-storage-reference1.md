@@ -48,10 +48,16 @@ See [Monitor Azure Blob Storage](monitor-blob-storage.md) for details on the dat
 3. Either link to the listed metrics page(s) for your resource type, OR #include the metrics table(s).
 3. Add any further information after each metric #include or link. -->
 
-### Supported metrics for Microsoft.Storage/storageAccounts/blobServices
+### Supported metrics for Microsoft.Storage/storageAccounts
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-metrics-include.md)]
+
+### Supported metrics for Microsoft.Storage/storageAccounts/blobServices
+The following table lists the metrics available for the Microsoft.Storage/storageAccounts/blobServices resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-blobservices-metrics-include.md)]
+
 <!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
@@ -87,7 +93,9 @@ For the metrics supporting dimensions, you need to specify the dimension value t
      NOTE: Refer to https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#azure-diagnostics-mode to see whether your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics. 
  Link to the service-specific tables. If your service uses the AzureDiagnostics table, list the fields you use and what they're for. If your service uses both tables, list both types of information. Add any further information after each table link, such as descriptions and usage, or information not found in the tables.-->
 
-[Storage Accounts](/azure/azure-monitor/reference/tables/tables-resourcetype#storage-accounts)
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
+- [Microsoft.Storage/storageAccounts/StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs)
 
 <!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
