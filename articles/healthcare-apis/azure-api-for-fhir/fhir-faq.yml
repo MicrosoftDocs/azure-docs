@@ -164,7 +164,7 @@ sections:
       - question: |
           How does $export work?
         answer: |
-          $export is part of the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account, you can call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, see the article [$export](../data-transformation/export-data.md).
+          $export is part of the [FHIR specification](https://www.hl7.org/fhir/uv/bulkdata/). If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account, you can call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, see the article [$export](../data-transformation/export-data.md).
           
       - question: |
           Is there an out of the box solution for de-identifying EHR data?
