@@ -39,11 +39,9 @@ items:
     href: concept-security.md
   - name: Centralized lifecycle management
     href: concept-centralized-lifecycle-management.md
-  - name: Deployment order for clusters, network functions and observability on Azure Kubernetes Services
+  - name: Deployment order for clusters, network functions and observability
     href: concept-deployment-order.md
   - name: Observability and analytics
-  - name: Deployment order for clusters, network functions and observability on Nexus Azure Kubernetes Services
-    href: concept-nexus-deployment-order.md
   - name: Observability and analytics
     href: concept-observability-analytics.md
 - name: How-to guides
