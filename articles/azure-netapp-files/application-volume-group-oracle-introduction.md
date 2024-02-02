@@ -60,15 +60,15 @@ High availability deployments will include volumes in 2 availability zones for w
 
 High availability deployments include volumes in two availability zones, for which you can deploy volumes using application volume group for Oracle in both zones. You can use application-based data replication such as Data Guard. Example dual-zone volume layout:
 
-:::image type="content" source="../media/azure-netapp-files/oracle-dual-zone-layout.png" alt-text="Diagram of dual-zone volume layout." lightbox="../media/azure-netapp-files/oracle-dual-zone-layout.png":::
+:::image type="content" source="./media/volume-hard-quota-guidelines/oracle-dual-zone-layout.png" alt-text="Diagram of dual-zone volume layout." lightbox="./media/volume-hard-quota-guidelines/oracle-dual-zone-layout.png":::
 
 A fully built deployment with eight data volumes and all optional volumes in a zone with ample resource availability can resemble:
 
-:::image type="content" source="../media/azure-netapp-files/eight-volume-deployment.png" alt-text="Diagram of eight data volume layout." lightbox="../media/azure-netapp-files/eight-volume-deployment.png":::
+:::image type="content" source="./media/volume-hard-quota-guidelines/eight-volume-deployment.png" alt-text="Diagram of eight data volume layout." lightbox="./media/volume-hard-quota-guidelines/eight-volume-deployment.png":::
 
 In resource-constrained zones, volumes might be deployed on shared storage endpoints due to the aforementioned anti-affinity and no-grouping algorithms. This diagram depicts an example volume layout in a resource-constrained zone: 
 
-:::image type="content" source="../media/azure-netapp-files/resource-constrained-layout.png" alt-text="Diagram of resource-constrained volume layout." lightbox="../media/azure-netapp-files/resource-constrained-layout.png":::
+:::image type="content" source="./media/volume-hard-quota-guidelines/resource-constrained-layout.png" alt-text="Diagram of resource-constrained volume layout." lightbox="d./media/volume-hard-quota-guidelines/resource-constrained-layout.png":::
 
 In resource-constrained zones, the volumes are deployed on shared storage endpoints while maintaining the anti-affinity and no-grouping rules. The resulting layout shows the log and log-mirror volumes on private storage endpoints while the data volumes share storage-endpoints. The log and log-mirror volumes do not share storage-endpoints.
 

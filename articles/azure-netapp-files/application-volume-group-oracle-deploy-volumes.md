@@ -47,7 +47,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 1. From your NetApp account, select **Application volume groups**, and click **+Add Group**.
 
-    [ ![Screenshot that shows how to add a group for Oracle.](../media/volume-hard-quota-guidelines/application-volume-group-oracle-add-group.png) ](../media/volume-hard-quota-guidelines/application-volume-group-oracle-add-group.png#lightbox)
+    [ ![Screenshot that shows how to add a group for Oracle.](./media/volume-hard-quota-guidelines/application-volume-group-oracle-add-group.png) ](./media/volume-hard-quota-guidelines/application-volume-group-oracle-add-group.png#lightbox)
 
 2. In Deployment Type, select **ORACLE** then **Next**. 
 
@@ -119,7 +119,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     Select **Next: Volumes**. 
 
-    [ ![Screenshot that shows the protocols tags for Oracle.](../media/volume-hard-quota-guidelines/application-protocols-tag-oracle.png) ](./media/volume-hard-quota-guidelines/application-protocols-tag-oracle.png#lightbox)
+    [ ![Screenshot that shows the protocols tags for Oracle.](./media/volume-hard-quota-guidelines/application-protocols-tag-oracle.png) ](./media/volume-hard-quota-guidelines/application-protocols-tag-oracle.png#lightbox)
 
 8. The **Volumes** tab summarizes the volumes that are being created with proposed volume name, quota, and throughput. 
 
@@ -183,11 +183,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 14. The **Volume Groups** deployment workflow starts, and the progress is displayed. This process can take a few minutes to complete.
 
-    [ ![Screenshot that shows the Deployment in Progress window for Oracle.](../media/volume-hard-quota-guidelines/application-deployment-in-progress-oracle.png) ](./media/volume-hard-quota-guidelines/application-deployment-in-progress-oracle.png#lightbox)
+    [ ![Screenshot that shows the Deployment in Progress window for Oracle.](./media/volume-hard-quota-guidelines/application-deployment-in-progress-oracle.png) ](./media/volume-hard-quota-guidelines/application-deployment-in-progress-oracle.png#lightbox)
 
     Creating a volume group is an "all-or-none" operation. If one volume can't be created, the operation is cancelled, and all remaining volumes will be removed also.
 
-    [ ![Screenshot that shows the new volume group for Oracle.](../media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png) ](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png#lightbox)
+    [ ![Screenshot that shows the new volume group for Oracle.](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png) ](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png#lightbox)
 
 
 15. You can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
