@@ -58,7 +58,7 @@ Customers that are still using the API version **2022-09-01-preview** to query M
 
 Customers currently using MDC DevOps security from Azure portal will not be impacted.  Migration to the new version has been completed or will be automatic upon any connector changes.
 
-For details on the new API version, see [Microsoft Defender for Cloud REST APIs](https://learn.microsoft.com/rest/api/defenderforcloud/?view=rest-defenderforcloud).
+For details on the new API version, see [Microsoft Defender for Cloud REST APIs](https://learn.microsoft.com/rest/api/defenderforcloud/).
 
 
 ## Changes in endpoint protection recommendations
