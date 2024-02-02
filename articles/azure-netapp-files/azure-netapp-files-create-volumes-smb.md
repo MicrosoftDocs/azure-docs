@@ -47,7 +47,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
 1. Select the **Volumes** blade from the Capacity Pools blade. 
 
-    ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+    ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png)
 
 2. Select **+ Add volume** to create a volume.  
     The Create a Volume window appears.
@@ -89,7 +89,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
         
         If you haven't delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
     
-        ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
@@ -104,7 +104,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
-        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
+        ![Show advanced selection](./media/shared/volume-create-advanced-selection.png)
 
 4. Select **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume.  
@@ -139,7 +139,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         **Custom applications are not supported with SMB Continuous Availability.**
 
-    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png":::
+    :::image type="content" source="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png":::
 
 5. Select **Review + Create** to review the volume details. Then select **Create** to create the SMB volume.
 
@@ -155,7 +155,7 @@ Access to an SMB volume is managed through permissions.
 
 You can set permissions for a file or folder by using the **Security** tab of the object's properties in the Windows SMB client.
  
-![Set file and folder permissions](../media/azure-netapp-files/set-file-folder-permissions.png) 
+![Set file and folder permissions](./media/azure-netapp-files-create-volumes-smb/set-file-folder-permissions.png) 
 
 ### Modify SMB share permissions
 

@@ -72,7 +72,6 @@ Azure is extending its support for PostgreSQL 11 within both the Azure Database 
 - Users can create and operate PostgreSQL 11 servers on Azure Database for PostgreSQL Flexible Server until November 9, 2025. 
 - Similar to the Single Server, updates with PostgreSQL community provided minor versions will be available for PostgreSQL 11 servers until November 9, 2023.
 - From November 9, 2023, to November 9, 2025, while users can continue using and creating new instances of PostgreSQL 11 on the Flexible Server, they will be subject to the [restrictions](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql-flexible-server) of other retired PostgreSQL engines.
-- Post November 9, 2025, PostgreSQL 11 servers on Flexible Server will fully adhere to the restrictions applicable to retired PostgreSQL engines.
 
 This extension of Postgres 11 support is part of Azure's commitment to providing a seamless migration path and ensuring continued functionality for users.
 
