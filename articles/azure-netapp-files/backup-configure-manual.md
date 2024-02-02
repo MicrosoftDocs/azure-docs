@@ -44,7 +44,7 @@ If you haven’t done so, enable the backup functionality for the volume before 
 3. In the Configure Backup page, toggle the **Enabled** setting to **On**.   
 4. Select **OK**.   
 
-![Screenshot that shows the Enabled setting of Configure Backups window.](../media/azure-netapp-files/backup-configure-enabled.png)
+![Screenshot that shows the Enabled setting of Configure Backups window.](./media/shared/backup-configure-enabled.png)
 
 ## Create a manual backup for a volume
 
@@ -71,7 +71,7 @@ If you haven’t done so, enable the backup functionality for the volume before 
 
     When you create a manual backup, a snapshot is also created on the volume using the same name you specified for the backup. This snapshot represents the current state of the active file system. It is transferred to Azure storage. Once the backup completes, the manual backup entry appears in the list of backups for the volume.
 
-![Screenshot that shows the New Backup window.](../media/azure-netapp-files/backup-new.png)
+![Screenshot that shows the New Backup window.](./media/backup-configure-manual/backup-new.png)
 
 
 ## Next steps  
