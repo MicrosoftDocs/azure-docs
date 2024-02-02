@@ -1,5 +1,5 @@
 ---
-title: Deploy a network function on Azure Kubernetes Services
+title: Deploy a network function on Azure Kubernetes Services or Nexus Advanced Kubernetes Services
 description: Learn the high-level process to deploy a network function on Advanced Kubernetes services.
 author: HollyCl
 ms.author: HollyCl
@@ -10,7 +10,7 @@ ms.date: 01/31/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Deploy a network function on Advanced Kubernetes Services (AKS)
+# Quickstart: Deploy a network function on Advanced Kubernetes Services (AKS) or Nexus Advanced Kubernetes Services (NAKS)
 
 This quickstart shows you how to deploy various network functions, including SMF, UPF, NRF, NSSF, AMF, MME, and a VNF_Agent in Azure Operator 5G Core.
 
