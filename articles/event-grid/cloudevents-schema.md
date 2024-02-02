@@ -115,7 +115,7 @@ If you're already familiar with Event Grid, you might be aware of the endpoint v
 
 If you're using Visual Studio or Visual Studio Code, and C# programming language to develop functions, make sure that you're using the latest [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/) NuGet package (version **3.3.1** or above).
 
-In Visual Studio, use the **Tools** -> **NuGet Package Manager** -> **Package Manager Console**, and run the `Install-Package` command (`Install-Package Microsoft.Azure.WebJobs.Extensions.EventGrid -Version 3.2.1`). Alternatively, right-click the project in the Solution Explorer window, and select **Manage NuGet Packages** menu to browse for the NuGet package, and install or update it to the latest version.
+In Visual Studio, use the **Tools** -> **NuGet Package Manager** -> **Package Manager Console**, and run the `Install-Package` command (`Install-Package Microsoft.Azure.WebJobs.Extensions.EventGrid -Version 3.3.1`). Alternatively, right-click the project in the Solution Explorer window, and select **Manage NuGet Packages** menu to browse for the NuGet package, and install or update it to the latest version.
 
 In VS Code, update the version number for the **Microsoft.Azure.WebJobs.Extensions.EventGrid** package in the **csproj** file for your Azure Functions project. 
 
@@ -126,7 +126,7 @@ In VS Code, update the version number for the **Microsoft.Azure.WebJobs.Extensio
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.EventGrid" Version="3.2.1" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.EventGrid" Version="3.3.1" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
   </ItemGroup>
   <ItemGroup>
