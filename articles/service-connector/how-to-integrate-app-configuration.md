@@ -12,7 +12,7 @@ ms.date: 02/02/2024
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure App Configuration to other cloud services using Service Connector. You might still be able to connect to App Configuration using other methods. This page also shows default environment variable names and values you get when you create the service connection. 
 
-## Supported combinations
+## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure App Configuration:
 
