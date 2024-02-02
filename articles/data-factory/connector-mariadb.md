@@ -69,7 +69,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-If you use the recommend driver version, the following properties are supported for MariaDB linked service:
+If you use the recommended driver version, the following properties are supported for MariaDB linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
