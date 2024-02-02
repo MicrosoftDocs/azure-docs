@@ -5,7 +5,7 @@ description: Learn how to categorize, manage, and query for blob objects with Ty
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/21/2023
+ms.date: 02/02/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript

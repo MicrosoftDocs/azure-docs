@@ -5,7 +5,7 @@ description: Learn how to categorize, manage, and query for blob objects by usin
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 11/30/2022
+ms.date: 02/02/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
