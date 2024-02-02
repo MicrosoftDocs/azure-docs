@@ -86,7 +86,7 @@ assistant = client.beta.assistants.create(
 # [REST](#tab/rest)
 
 > [!NOTE]
-> With Azure OpenAI the `model` parameter requires model deployment name. If your model deployment name is different than the underlying model name than you would adjust your code to ` "model": "{your-custom-model-deployment-name}"`.
+> With Azure OpenAI the `model` parameter requires model deployment name. If your model deployment name is different than the underlying model name then you would adjust your code to ` "model": "{your-custom-model-deployment-name}"`.
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
