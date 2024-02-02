@@ -20,9 +20,8 @@ Azure region relocation documentation (Preview) contains service-specific reloca
 - [Adopt safe deployment practices](/azure/well-architected/operational-excellence/principles#adopt-safe-deployment-practices)  
 
 
-Each service specific guide can contain service-specific information such as:
+Each service specific guide can contain service-specific information on topics such as:
 
-- [Relocation methods, such as Cold, Hot or Warm relocation](/azure/cloud-adoption-framework/relocate/select)
 - [Service-relocation automation tools](/azure/cloud-adoption-framework/relocate/select#select-service-relocation-automation).
 - [Data relocation automation](/azure/cloud-adoption-framework/relocate/select#select-data-relocation-automation).
 - [Cutover approaches](/azure/cloud-adoption-framework/relocate/select#select-cutover-approach).
