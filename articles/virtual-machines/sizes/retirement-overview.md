@@ -38,7 +38,7 @@ Size series listed as *capacity limited* means that while no retirement plans ha
 
 If you had one VM running on a *capacity limited* size and require another VM of a similar size in the same series, there is no guarantee that capacity will be able to fulfill this request. Any new VMs should be created using sizes in [series that aren't considered previous-gen](../sizes.md). Migrating to sizes considered *next-gen available* is not recommended since these sizes are also similarly outdated.
 
-For a list of previous-gen size sizes that are considered *capacity limited*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md). 
+For a list of previous-gen size series that are considered *capacity limited*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md). 
 
 ## Retired sizes
 
