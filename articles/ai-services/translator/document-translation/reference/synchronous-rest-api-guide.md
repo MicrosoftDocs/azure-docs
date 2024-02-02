@@ -30,7 +30,7 @@ Synchronously translate a single document.
 `POST`:
 
 ```bash
-{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview
+{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview
 
 ```
 

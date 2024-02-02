@@ -84,13 +84,13 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 
     ```bash
 
-    curl -i -X POST "{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  --form "document={path-to-your-document-with-file-extension};type=text/{file-extension}" -form "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
+    curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  --form "document={path-to-your-document-with-file-extension};type=text/{file-extension}" -form "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
     ```
 
     ***PowerShell***
 
     ```powershell
-    cmd /c curl "{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" --form "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
+    cmd /c curl "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" --form "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
     ```
 
 ***Upon successful completion***:
