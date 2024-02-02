@@ -445,9 +445,14 @@
         href: enable-nvme-interface.md  
       - name: Enable NVMe FAQ
         href: enable-nvme-faqs.yml
-    - name: Previous generations
-      displayName: older, retired, expired, deprecated
-      href: sizes-previous-gen.md
+    - name: Previous generation and retired sizes
+      items:
+      - name: Overview
+        href: ./sizes/retirement-overview.md
+      - name: Previous-gen sizes
+        href: ./sizes/previous-gen-sizes-list.md
+      - name: Retired sizes
+        href: ./sizes/retired-sizes-list.md
     - name: Generation 2 VMs
       displayName: Gen2, generation, gen1
       href: generation-2.md

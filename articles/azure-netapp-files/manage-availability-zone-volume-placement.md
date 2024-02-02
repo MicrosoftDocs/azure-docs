@@ -47,16 +47,16 @@ You can deploy new volumes in the logical availability zone of your choice. You 
     > [!IMPORTANT]
     > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
 
-    [ ![Screenshot that shows the Availability Zone menu.](../media/azure-netapp-files/availability-zone-menu-drop-down.png) ](../media/azure-netapp-files/availability-zone-menu-drop-down.png#lightbox)
+    [ ![Screenshot that shows the Availability Zone menu.](./media/manage-availability-zone-volume-placement/availability-zone-menu-drop-down.png) ](./media/manage-availability-zone-volume-placement/availability-zone-menu-drop-down.png#lightbox)
 
  
 3.	Follow the UI to create the volume. The **Review + Create** page shows the selected availability zone you specified.
 
-    [ ![Screenshot that shows the Availability Zone review.](../media/azure-netapp-files/availability-zone-display-down.png) ](../media/azure-netapp-files/availability-zone-display-down.png#lightbox)
+    [ ![Screenshot that shows the Availability Zone review.](./media/manage-availability-zone-volume-placement/availability-zone-display-down.png) ](./media/manage-availability-zone-volume-placement/availability-zone-display-down.png#lightbox)
  
 4. Navigate to **Properties** to confirm your availability zone configuration.
 
-    :::image type="content" source="../media/azure-netapp-files/availability-zone-volume-overview.png" alt-text="Screenshot of volume properties interface." lightbox="../media/azure-netapp-files/availability-zone-volume-overview.png":::
+    :::image type="content" source="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png" alt-text="Screenshot of volume properties interface." lightbox="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png":::
 
 ## Populate an existing volume with availability zone information
 
@@ -86,7 +86,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
     > [!IMPORTANT]
     > Availability zone information can only be populated as provided. You can't select an availability zone or move the volume to another availability zone by using this feature. If you want to move this volume to another availability zone, consider using [cross-zone replication](create-cross-zone-replication.md) (after populating the volume with the availability zone information). 
     >
-    > :::image type="content" source="../media/azure-netapp-files/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone window." lightbox="../media/azure-netapp-files/populate-availability-zone.png":::
+    > :::image type="content" source="./media/manage-availability-zone-volume-placement/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone window." lightbox="./media/manage-availability-zone-volume-placement/populate-availability-zone.png":::
 
 ## Populate availability zone for Terraform-managed volumes
 
@@ -104,7 +104,7 @@ The populate availability zone features requires a `zone` property on the volume
     ```
 1. In the Azure portal, locate the Terraform module. In the volume **Overview**, select **Populate availability zone** and make note of the availability zone. Do _not_ select save. 
 
-    :::image type="content" source="../media/azure-netapp-files/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone menu." lightbox="../media/azure-netapp-files/populate-availability-zone.png":::
+    :::image type="content" source="./media/manage-availability-zone-volume-placement/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone menu." lightbox="./media/manage-availability-zone-volume-placement/populate-availability-zone.png":::
     
 1. In the volume's configuration file (`main.tf`), add a value for `zone`, entering the numerical value you retrieved in the previous step. For example, if the volume's availability zone is 2, enter `zone = 2`. Save the file. 
 1. Return to the Azure portal. Select **Save** to populate the availability zone. 

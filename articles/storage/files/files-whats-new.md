@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 02/01/2024
 ms.author: kendownie
 ---
 
@@ -15,6 +15,10 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 ## What's new in 2024
 
 ### 2024 quarter 1 (January, February, March)
+
+#### Metadata caching for premium SMB file shares is in public preview
+
+Metadata caching is an enhancement for SMB Azure premium file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
 
 #### Snapshot support for NFS Azure premium file shares is generally available
 
