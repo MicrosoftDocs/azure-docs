@@ -34,7 +34,8 @@ Azure Resource Manager templates are JSON files that define the infrastructure a
 >
 > If you don't have an SSH key pair, [create and use an SSH key pair for Linux VMs in Azure](mac-create-ssh-keys.md). 
 
-Click **Copy** to add the quickstart template to your clipboard.:
+Click **Copy** to add the quickstart template to your clipboard:
+
 
 [!code-json[create-linux-vm](~/quickstart-templates/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json)]
 
