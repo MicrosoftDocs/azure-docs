@@ -102,7 +102,7 @@ Migration is only supported between `loadBalancer`, `managedNATGateway` (if usin
 ### Update cluster to use a new outbound type
 
 > [!NOTE]
-> You must have use >= 2.56 of Azure CLI to migrate outbound type. Use `az upgrade` to update to the latest version of Azure CLI. 
+> You must use a version >= 2.56 of Azure CLI to migrate outbound type. Use `az upgrade` to update to the latest version of Azure CLI. 
 
 * Update the outbound configuration of your cluster using the [`az aks update`][az-aks-update] command.
 
