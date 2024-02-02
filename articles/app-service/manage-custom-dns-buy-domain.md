@@ -210,7 +210,7 @@ Privacy protection hides your domain registration contact information from the W
 
 1. From the left navigation of the domain, select **Advance domain management (preview)**. To disable privacy protection, click on **Disable** in the **Domain Privacy** section.
 
-    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disable-privacy.png" alt-text="Screenshot showing where to disable privacy for a puchased domain." border="true":::
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disable-privacy.png" alt-text="Screenshot showing where to disable privacy for a purchased domain." border="true":::
 
 ## Cancel purchase (delete domain)
 
