@@ -125,9 +125,6 @@ The following GPT-4 models are available with [Azure Government](htt/azure-gover
 | `gpt-4` (1106-preview) | US Gov Virginia<br>US Gov Arizona |
 
 
- 
-2 regions: US Gov Virginia and US Gov Arizona will have the same setup
-
 ### GPT-3.5 models
 
 GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 can also be used with the Completions API.  GPT-3.5 Turbo versions 0613 and 1106 only support the Chat Completions API.
