@@ -73,12 +73,12 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for MySQL linked service:
+If you use the recommended driver version，the following properties are supported for MySQL linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MySql** | Yes |
-| driverVersion | The driver version that you use. The value is v2. | Yes |
+| driverVersion | The driver version when you select the recommended driver version. The value is v2. | Yes |
 | server | The name of your MySQL Server. | Yes |
 | port | The port number to connect to the MySQL server. |No|
 | database | Your MySQL database name. |Yes|
@@ -272,7 +272,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `bit(1)` |`UInt64` |`Boolean` |
 | `bit(M), M>1`|`UInt64`|`Byte[]`|
 | `blob` |`Byte[]` |`Byte[]` |
-| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by defult ) |`Int16` |
+| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by default ) |`Int16` |
 | `char` |`String` |`String` |
 | `date` |`Datetime` |`Datetime` |
 | `datetime` |`Datetime` |`Datetime` |
