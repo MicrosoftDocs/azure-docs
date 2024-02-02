@@ -24,7 +24,7 @@ Before you begin, ensure that you have reviewed the [requirements and considerat
 You need to obtain the resource ID of the source volume that you want to replicate. 
 
 1. Go to the source volume, and select **Properties** under Settings to display the source volume resource ID.   
-    ![Locate source volume resource ID](../media/azure-netapp-files/cross-region-replication-source-volume-resource-id.png)
+    ![Locate source volume resource ID](./media/cross-region-replication-create-peering/cross-region-replication-source-volume-resource-id.png)
  
 2. Copy the resource ID to the clipboard.  You will need it later.
 
@@ -45,7 +45,7 @@ You can also select an existing NetApp account in a different region.
 
 4. Create the data replication volume by selecting **Volumes** under Storage Service in the destination NetApp account. Then select the **+ Add data replication** button.  
 
-    ![Add data replication](../media/azure-netapp-files/cross-region-replication-add-data-replication.png)
+    ![Add data replication](./media/cross-region-replication-create-peering/cross-region-replication-add-data-replication.png)
  
 5. In the Create a Volume page that appears, complete the following fields under the **Basics** tab:
     * Volume name
@@ -65,11 +65,11 @@ For the NFS protocol, ensure that the export policy rules satisfy the requiremen
 
 8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. There are three options for the replication schedule: every 10 minutes, hourly, and daily.
 
-    ![Create volume replication](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
+    ![Create volume replication](./media/cross-region-replication-create-peering/cross-region-replication-create-volume-replication.png)
 
 9. Select **Review + Create**, then select **Create** to create the data replication volume.   
 
-    ![Review and create replication](../media/azure-netapp-files/cross-region-replication-review-create-replication.png)
+    ![Review and create replication](./media/cross-region-replication-create-peering/cross-region-replication-review-create-replication.png)
 
 ## Authorize replication from the source volume  
 
@@ -81,13 +81,13 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 
 3. Select the replication destination volume, go to **Properties** under Settings, and locate the **Resource ID** of the destination volume. Copy the destination volume resource ID to the clipboard.
 
-    ![Properties resource ID](../media/azure-netapp-files/cross-region-replication-properties-resource-id.png) 
+    ![Properties resource ID](./media/cross-region-replication-create-peering/cross-region-replication-properties-resource-id.png) 
  
 4. In Azure NetApp Files, go to the replication source account and source capacity pool. 
 
 5. Locate the replication source volume and select it. Navigate to **Replication** under Storage Service then select **Authorize**.
 
-    ![Authorize replication](../media/azure-netapp-files/cross-region-replication-authorize.png) 
+    ![Authorize replication](./media/cross-region-replication-create-peering/cross-region-replication-authorize.png) 
 
 6. In the Authorize field, paste the destination replication volume resource ID that you obtained in Step 3, then select **OK**.
 
