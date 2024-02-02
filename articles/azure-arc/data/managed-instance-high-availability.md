@@ -19,7 +19,7 @@ SQL Managed Instance enabled by Azure Arc is deployed on Kubernetes as a contain
 
 - Health monitoring
 - Failure detection
-- Failover mechanisms to maintain service health. 
+- Automatic failover to maintain service health. 
 
 For increased reliability, you can also configure SQL Managed Instance enabled by Azure Arc to deploy with extra replicas in a high availability configuration. The Arc data services data controller manages:
 
