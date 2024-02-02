@@ -15,8 +15,6 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Managed identity
-    href: managed-identity.md
   - name: Business continuity disaster recovery
     href: business-continuity-disaster-recovery.md
   - name: Data quality and data monitoring
@@ -29,6 +27,8 @@
     href: concept-mcc-data-product.md
   - name: Monitoring - Affirmed MCC Data Product
     href: concept-monitoring-mcc-data-product.md
+  - name: Managed identity
+    href: managed-identity.md
 - name: How-to guides
   expanded: false
   items:

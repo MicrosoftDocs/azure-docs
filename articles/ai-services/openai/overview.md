@@ -22,7 +22,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 | --- | --- |
 | Models available | **GPT-4 series (including GPT-4 Turbo with Vision)** <br>**GPT-3.5-Turbo series**<br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
 | Fine-tuning (preview) | `GPT-3.5-Turbo` (0613) <br> `babbage-002` <br> `davinci-002`.|
-| Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
+| Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) <br> For details on GPT-4 Turbo with Vision, see the [special pricing information](../openai/concepts/gpt-with-vision.md#special-pricing-information).|
 | Virtual network support & private link support | Yes, unless using [Azure OpenAI on your data](./concepts/use-your-data.md).  |
 | Managed Identity| Yes, via Microsoft Entra ID | 
 | UI experience | **Azure portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine-tuning |

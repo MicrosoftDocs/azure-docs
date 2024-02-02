@@ -15,7 +15,7 @@ You can use Microsoft Entra ID with the Hybrid Authentication Management module 
 >[!NOTE]
 >Using Microsoft Entra ID for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Microsoft Entra users to access Azure NetApp Files SMB shares. This means your end users can access Azure NetApp Files SMB shares without requiring a line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined VMs. Cloud-only identities aren't currently supported. For more information, see [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md).
 
-:::image type="content" source="../media/azure-netapp-files/diagram-windows-joined-active-directory.png" alt-text="Diagram of SMB volume joined to Microsoft Entra ID." lightbox="../media/azure-netapp-files/diagram-windows-joined-active-directory.png":::
+:::image type="content" source="./media/access-smb-volume-from-windows-client/diagram-windows-joined-active-directory.png" alt-text="Diagram of SMB volume joined to Microsoft Entra ID." lightbox="./media/access-smb-volume-from-windows-client/diagram-windows-joined-active-directory.png":::
 
 ## Requirements and considerations 
 
@@ -48,7 +48,7 @@ The configuration process takes you through five process:
 1. Under **Computers**, right-click on the computer account created as part of the Azure NetApp Files volume then select **Properties**.  
 1. Under **Attribute Editor,** locate `servicePrincipalName`. In the Multi-valued string editor, add the CIFS SPN value using the CIFS/FQDN format. 
 
-:::image type="content" source="../media/azure-netapp-files/multi-value-string-editor.png" alt-text="Screenshot of multi-value string editor window." lightbox="../media/azure-netapp-files/multi-value-string-editor.png":::
+:::image type="content" source="./media/access-smb-volume-from-windows-client/multi-value-string-editor.png" alt-text="Screenshot of multi-value string editor window." lightbox="./media/access-smb-volume-from-windows-client/multi-value-string-editor.png":::
 
 <a name='register-a-new-azure-ad-application'></a>
 
@@ -59,21 +59,21 @@ The configuration process takes you through five process:
 1. Assign a **Name**. Under select the **Supported account type**, choose **Accounts in this organizational directory only (Single tenant)**.
 1. Select **Register**.
 
-:::image type="content" source="../media/azure-netapp-files/register-application-active-directory.png" alt-text="Screenshot to register application." lightbox="../media/azure-netapp-files/register-application-active-directory.png":::
+:::image type="content" source="./media/access-smb-volume-from-windows-client/register-application-active-directory.png" alt-text="Screenshot to register application." lightbox="./media/access-smb-volume-from-windows-client/register-application-active-directory.png":::
         
 1. Configure the permissions for the application. From your **App Registrations**, select **API Permissions** then **Add a permission**. 
 1. Select **Microsoft Graph** then **Delegated Permissions**. Under **Select Permissions**, select **openid** and **profile** under **OpenId permissions**.
 
-    :::image type="content" source="../media/azure-netapp-files/api-permissions.png" alt-text="Screenshot to register API permissions." lightbox="../media/azure-netapp-files/api-permissions.png":::
+    :::image type="content" source="./media/access-smb-volume-from-windows-client/api-permissions.png" alt-text="Screenshot to register API permissions." lightbox="./media/access-smb-volume-from-windows-client/api-permissions.png":::
 
 1. Select **Add permission**. 
 1. From **API Permissions**, select **Grant admin consent for...**.
 
-    :::image type="content" source="../media/azure-netapp-files/grant-admin-consent.png" alt-text="Screenshot to grant API permissions." lightbox="../media/azure-netapp-files/grant-admin-consent.png ":::
+    :::image type="content" source="./media/access-smb-volume-from-windows-client/grant-admin-consent.png" alt-text="Screenshot to grant API permissions." lightbox="./media/access-smb-volume-from-windows-client/grant-admin-consent.png ":::
 
 1. From **Authentication**, under **App instance property lock**, select **Configure** then deselect the checkbox labeled **Enable property lock**.
 
-    :::image type="content" source="../media/azure-netapp-files/authentication-registration.png" alt-text="Screenshot of app registrations." lightbox="../media/azure-netapp-files/authentication-registration.png":::
+    :::image type="content" source="./media/access-smb-volume-from-windows-client/authentication-registration.png" alt-text="Screenshot of app registrations." lightbox="./media/access-smb-volume-from-windows-client/authentication-registration.png":::
 
 1. From **Overview**, make note of the **Application (client) ID**, which is required later. 
 
@@ -121,7 +121,7 @@ The configuration process takes you through five process:
         * Value name: KERBEROS.MICROSOFTONLINE.COM
         * Value: .contoso.com
 
-    :::image type="content" source="../media/azure-netapp-files/define-host-name-to-kerberos.png" alt-text="Screenshot to define how-name-to-Kerberos real mappings." lightbox="../media/azure-netapp-files/define-host-name-to-kerberos.png":::
+    :::image type="content" source="./media/access-smb-volume-from-windows-client/define-host-name-to-kerberos.png" alt-text="Screenshot to define how-name-to-Kerberos real mappings." lightbox="./media/access-smb-volume-from-windows-client/define-host-name-to-kerberos.png":::
 
 ### Mount the Azure NetApp Files SMB volumes 
 
@@ -129,7 +129,7 @@ The configuration process takes you through five process:
 2. Mount the Azure NetApp Files SMB volume using the info provided in the Azure portal. For more information, see [Mount SMB volumes for Windows VMs](mount-volumes-vms-smb.md).
 3. Confirm the mounted volume is using Kerberos authentication and not NTLM authentication. Open a command prompt, issue the `klist` command; observe the output in the cloud TGT (krbtgt) and CIFS server ticket information.
 
-    :::image type="content" source="../media/azure-netapp-files/klist-output.png" alt-text="Screenshot of CLI output." lightbox="../media/azure-netapp-files/klist-output.png":::
+    :::image type="content" source="./media/access-smb-volume-from-windows-client/klist-output.png" alt-text="Screenshot of CLI output." lightbox="./media/access-smb-volume-from-windows-client/klist-output.png":::
 
 ## Further information 
 

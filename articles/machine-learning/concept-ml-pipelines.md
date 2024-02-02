@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
 ms.reviewer: lagayhar
-ms.date: 05/10/2022
+ms.date: 01/31/2024
 ms.custom: event-tier1-build-2022
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -43,16 +43,16 @@ Besides being the tool to put MLOps into practice, the machine learning pipeline
 
 ## Getting started best practices
 
-Depending on what a machine learning project already has, the starting point of building a machine learning pipeline may vary. There are a few typical approaches to building a pipeline.
+Depending on what a machine learning project already has, the starting point of building a machine learning pipeline might vary. There are a few typical approaches to building a pipeline.
 
 The first approach usually applies to the team that hasn't used pipeline before and wants to take some advantage of pipeline like MLOps. In this situation, data scientists typically have developed some machine learning models on their local environment using their favorite tools. Machine learning engineers need to take data scientists' output into production. The work involves cleaning up some unnecessary code from original notebook or Python code, changes the training input from local data to parameterized values, split the training code into multiple steps as needed, perform unit test of each step, and finally wraps all steps into a pipeline.
 
-Once the teams get familiar with pipelines and want to do more machine learning projects using pipelines, they'll find the first approach is hard to scale. The second approach is set up a few pipeline templates, each try to solve one specific machine learning problem. The template predefines the pipeline structure including how many steps, each step's inputs and outputs, and their connectivity. To start a new machine learning project, the team first forks one template repo. The team leader then assigns members which step they need to work on. The data scientists and data engineers do their regular work. When they're happy with their result, they structure their code to fit in the pre-defined steps. Once the structured codes are checked-in, the pipeline can be executed or automated. If there's any change, each member only needs to work on their piece of code without touching the rest of the pipeline code. 
+Once the teams get familiar with pipelines and want to do more machine learning projects using pipelines, they'll find the first approach is hard to scale. The second approach is set up a few pipeline templates, each try to solve one specific machine learning problem. The template predefines the pipeline structure including how many steps, each step's inputs and outputs, and their connectivity. To start a new machine learning project, the team first forks one template repo. The team leader then assigns members which step they need to work on. The data scientists and data engineers do their regular work. When they're happy with their result, they structure their code to fit in the pre-defined steps. Once the structured codes are checked-in, the pipeline can be executed or automated. If there's any change, each member only needs to work on their piece of code without touching the rest of the pipeline code.
 
 Once a team has built a collection of machine learnings pipelines and reusable components, they could start to build the machine learning pipeline from cloning previous pipeline or tie existing reusable component together. At this stage, the team's overall productivity will be improved significantly.  
 
 :::moniker range="azureml-api-2"
-Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipeline using the [Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md). For users who prefer to use UI, they could use the [designer to build pipeline by using registered components](how-to-create-component-pipelines-ui.md).
+Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipelines using the [Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md). For users who prefer to use the UI, they could use the [designer to build pipelines by using registered components](how-to-create-component-pipelines-ui.md).
 
 
 :::moniker-end
