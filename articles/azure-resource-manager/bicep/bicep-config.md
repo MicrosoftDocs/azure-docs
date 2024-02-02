@@ -8,7 +8,7 @@ ms.date: 02/02/2024
 
 # Configure your Bicep environment
 
-Bicep supports an optional configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. This file is merged with the [default configuration file](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json). For more information, see [Merge with the default configuration](#merge-with-the-default-configuration). To customize configuration, create a configuration file in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration from the nearest one. For more information, see [Resolve configuration files](#resolve-configuration-files).
+Bicep supports an optional configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. This file is merged with the [default configuration file](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json). For more information, see [Understand the merge process](#understand-the-merge-process). To customize configuration, create a configuration file in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration from the nearest one. For more information, see [Understand the file resolution process](#understand-the-file-resolution-process).
 
 To configure Bicep extension settings, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
@@ -24,34 +24,9 @@ The Bicep extension for Visual Studio Code supports intellisense for your `bicep
 
 :::image type="content" source="./media/bicep-config/bicep-linter-configure-intellisense.png" alt-text="Screenshot of the intellisense support in configuring bicepconfig.json.":::
 
-## Configure Bicep modules
+## Understand the merge process
 
-When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. You can also configure cloud profile and  credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
-
-## Configure Linter rules
-
-The [Bicep linter](linter.md) checks Bicep files for syntax errors and best practice violations. You can override the default settings for the Bicep file validation by modifying `bicepconfig.json`. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
-
-## Enable experimental features
-
-You can enable experimental features by adding the following section to your `bicepconfig.json` file.
-
-Here is an example of enabling features 'compileTimeImports' and 'userDefinedFunctions`. 
-
-```json
-{
-  "experimentalFeaturesEnabled": {
-    "compileTimeImports": true,
-    "userDefinedFunctions": true
-  }
-}
-```
-
-For information on the current set of experimental features, see [Experimental Features](https://aka.ms/bicep/experimental-features).
-
-## Merge with the default configuration
-
-The `bicepconfig.json` file undergoes a recursive bottom-up merging process with the default configuration file. During the merging process, the algorithm examines each path in both configurations. If a path is not present in the default configuration, the path and its associated value are included in the final result. Conversely, if a path exists in the default configuration with a different value, the value from `bicepconfig.json` takes precedence in the merged result.
+The `bicepconfig.json` file undergoes a recursive bottom-up merging process with the default configuration file. During the merging process, Bicep examines each path in both configurations. If a path isn't present in the default configuration, the path and its associated value are added in the final result. Conversely, if a path exists in the default configuration with a different value, the value from `bicepconfig.json` takes precedence in the merged result.
 
 Consider a scenario where the default configuration is defined as follows:
 
@@ -70,7 +45,7 @@ Consider a scenario where the default configuration is defined as follows:
 }
 ```
 
-And the `bicepconfig.json` is fdefined as follows:
+And the `bicepconfig.json` is defined as follows:
 
 ```json
 {
@@ -102,21 +77,46 @@ The resulting merged configuration would be:
 }
 ```
 
-In the preceding example, the value of `providers.az` is merged, while the value of `providers.kubernetes` is appended in the merged configuration.
+In the preceding example, the value of `providers.az` is merged and replaced, while the value of `providers.kubernetes` is appended in the merged configuration.
 
-## Resolve configuration files
+## Understand the file resolution process
 
 The `bicepconfig.json` file can be placed in the same directory or a parent directory of your Bicep files. If there are multiple parent directories containing `bicepconfig.json` files, Bicep uses the configuration file from the nearest one. For instance, in the given folder structure where each folder has a `bicepconfig.json` file:
 
 :::image type="content" source="./media/bicep-config/bicep-config-file-resolve.png" alt-text="A diagram showing resolving `bicepconfig.json` found in multiple parent folders.":::
 
-If you compile `main.bicep` in the `child` folder, the `bicepconfig.json` file in the `child` folder is used. The configuration files in the `parent` folder and the `root` folder are ignored. If the `child` folder doesn't contain a configuration file, Bicep searches for a configuration in the `parent` folder and then the `root` folder. If no configuration file is found in any of the folders, Bicep defaults to using [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
+If you compile `main.bicep` in the `child` folder, the `bicepconfig.json` file in the `child` folder is used. The configuration files in the `parent` folder and the `root` folder are ignored. If the `child` folder doesn't contain a configuration file, Bicep searches for a configuration in the `parent` folder and then the `root` folder. If no configuration file is found in any of the folders, Bicep defaults to using the [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
 
-In the context of a Bicep file invoking multiple modules, each module undergoes compilation using the nearest `bicepconfig.json`. Subsequently, the main Bicep file is compiled with its corresponding `bicepconfig.json`. In the given scenario, `modA.bicep` is compiled using the `bicepconfig.json` located in the `A` folder, `modB.bicep` is compiled with the `bicepconfig.json` in the `B` folder, and finally, `main.bicep` is compiled using the `bicepconfig.json` in the `root` folder.
+In the context of a Bicep file invoking multiple modules, each module undergoes compilation using the nearest `bicepconfig.json`. Then, the main Bicep file is compiled with its corresponding `bicepconfig.json`. In the following scenario, `modA.bicep` is compiled using the `bicepconfig.json` located in the `A` folder, `modB.bicep` is compiled with the `bicepconfig.json` in the `B` folder, and finally, `main.bicep` is compiled using the `bicepconfig.json` in the `root` folder.
 
 :::image type="content" source="./media/bicep-config/bicep-config-file-resolve-module.png" alt-text="A diagram showing resolving `bicepconfig.json` found in multiple parent folders with the module scenario.":::
 
-In the absence of a `bicepconfig.json` file in the `A` and `B` folders, all three Bicep files are compiled using the `bicepconfig.json` found in the `root` folder. If `bicepconfig.json` is not present in any of the folders, the compilation process defaults to using the default configuration file.
+In the absence of a `bicepconfig.json` file in the `A` and `B` folders, all three Bicep files are compiled using the `bicepconfig.json` found in the `root` folder. If `bicepconfig.json` isn't present in any of the folders, the compilation process defaults to using the [default values](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
+
+## Configure Bicep modules
+
+When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. You can also configure cloud profile and  credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
+
+## Configure Linter rules
+
+The [Bicep linter](linter.md) checks Bicep files for syntax errors and best practice violations. You can override the default settings for the Bicep file validation by modifying `bicepconfig.json`. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
+
+## Enable experimental features
+
+You can enable experimental features by adding the following section to your `bicepconfig.json` file.
+
+Here's an example of enabling features 'compileTimeImports' and 'userDefinedFunctions`. 
+
+```json
+{
+  "experimentalFeaturesEnabled": {
+    "compileTimeImports": true,
+    "userDefinedFunctions": true
+  }
+}
+```
+
+For information on the current set of experimental features, see [Experimental Features](https://aka.ms/bicep/experimental-features).
 
 ## Next steps
 
