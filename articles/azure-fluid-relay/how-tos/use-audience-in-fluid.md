@@ -50,7 +50,7 @@ The next image shows multiple users connected to a container represented by boxe
 
 ### Set up state variables and component view
 
-1. Open the file `\src\App.js` in the code editor. Delete all the default `import` statements. Then delete all the markup from the `return` statement. Then add import statements for components and React hooks. Note that we will be implementing the imported **AudienceDisplay** and **UserIdSelection** components in the later steps. The file should look like the following:
+1. Open the file `\src\App.js` in the code editor. Delete all the default `import` statements. Then delete all the markup from the `return` statement. Then add import statements for components and React hooks. Note that we'll be implementing the imported **AudienceDisplay** and **UserIdSelection** components in the later steps. The file should look like the following:
 
     ```js
         import { useState, useCallback } from "react";
@@ -131,7 +131,7 @@ The next image shows multiple users connected to a container represented by boxe
 
 You can use a helper function to get the Fluid data, from the Audience object, into the view layer (the React state). The `tryGetAudienceObject` method is called when the view component loads after a user ID is selected. The returned value is assigned to a React state property.
 
-1. Replace `TODO 1` with the following code. Note that the values for `userId` `userName` `containerId` will be passed in from the **App** component. If there is no `containerId`, a new container is created. Also, note that the `containerId` is stored on the URL hash. A user entering a session from a new browser may copy the URL from an existing session browser or navigate to `localhost:3000` and manually input the container ID. With this implementation, we want to wrap the `getContainer` call in a try catch in the case that the user inputs a container ID which does not exist. Visit the [Containers](../concepts/architecture.md#container) documentation for more information.
+1. Replace `TODO 1` with the following code. Note that the values for `userId` `userName` `containerId` will be passed in from the **App** component. If there's no `containerId`, a new container is created. Also, note that the `containerId` is stored on the URL hash. A user entering a session from a new browser may copy the URL from an existing session browser or navigate to `localhost:3000` and manually input the container ID. With this implementation, we want to wrap the `getContainer` call in a try catch in the case that the user inputs a container ID which doesn't exist. Visit the [Containers](../concepts/architecture.md#container) documentation for more information.
 
     ```js
         const userConfig = {
@@ -192,7 +192,7 @@ Now that we've defined how to get the Fluid audience, we need to tell React to c
         const [currentMember, setCurrentMember] = useState();
     ```
 
-1. Replace `TODO 3` with the following code. This will call the `tryGetAudienceObject` when the component is mounted and set the returned audience members to `fluidMembers` and `currentMember`. Note, we check if an audience object is returned in case  a user inputs a containerId which does not exist and we need to return them to the **UserIdSelection** view (`props.onContainerNotFound()` will handle switching the view). Also, it is good practice to deregister event handlers when the React component dismounts by returning `audience.off`.
+1. Replace `TODO 3` with the following code. This will call the `tryGetAudienceObject` when the component is mounted and set the returned audience members to `fluidMembers` and `currentMember`. Note, we check if an audience object is returned in case  a user inputs a containerId which doesn't exist and we need to return them to the **UserIdSelection** view (`props.onContainerNotFound()` will handle switching the view). Also, it is good practice to deregister event handlers when the React component dismounts by returning `audience.off`.
 
     ```js
         useEffect(() => {
