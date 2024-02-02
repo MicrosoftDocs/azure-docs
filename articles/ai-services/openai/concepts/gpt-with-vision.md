@@ -62,13 +62,32 @@ Base Pricing for GPT-4 Turbo with Vision is:
 
 See the [Tokens section of the overview](/azure/ai-services/openai/overview#tokens) for information on how text and images translate to tokens.
 
+If you turn on Enhancements to employ Azure Computer Vision foundational models to enhance the capabilities with GPT-4 Turbo with Vision, this does incur additional costs. 
+- Any image with text will incur usage for the **Enhanced add on features for Optical Character Recognition**: $1.50 per 1000 transactions
+- Any image with objects detected will incur usage for the **Enhanced add-on features for Object Grounding**: $1.50 per 1000 transactions
+
 Additionally, if you use video prompt integration with the Video Retrieval add-on, it accrues other costs:
 - Ingestion: $0.05 per minute of video
 - Transactions: $0.25 per 1000 queries of the Video Retrieval index
 
 Processing videos involves the use of extra tokens to identify key frames for analysis. The number of these additional tokens will be roughly equivalent to the sum of the tokens in the text input, plus 700 tokens.
 
-### Example price calculation
+### Example image price calculation
+> [!IMPORTANT]
+> The following content is an example only, and prices are subject to change in the future.
+
+For a typical use case, take an image with both visible objects and text and a 100-token prompt input. When the service processes the prompt, it generates 100 tokens of output. In the image, both text and objects can be detected. The price of this transaction would be:
+
+| Item        | Detail        | Total Cost   |
+|-----------------|-----------------|--------------|
+| GPT-4 Turbo with Vision input tokens | 100 text tokens | $0.001 |
+| Enhanced add-on features for OCR | $1.50 / 1000 transactions | $0.0015 |
+| Enhanced add-on features for Object Grounding | $1.50 / 1000 transactions | $0.0015 | 
+| Output Tokens      | 100 tokens (assumed)    | $0.003       |
+| **Total Cost** |  | $0.007 |
+
+
+### Example video price calculation
 
 > [!IMPORTANT]
 > The following content is an example only, and prices are subject to change in the future.
