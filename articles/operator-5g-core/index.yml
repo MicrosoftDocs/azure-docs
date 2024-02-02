@@ -71,7 +71,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Complete the prerequisite tasks
+          - text: Complete the prerequisite tasks for Azure Kubernetes Services deployment
             url: how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md
       - linkListType: concept
         links:

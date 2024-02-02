@@ -13,7 +13,7 @@ ms.date: 01/18/2024
 
 # Centralized Lifecycle Management in Azure Operator 5G Core
  
-The Azure Operator 5G Core Resource Provider (RP) is responsible for the lifecycle management (LCM) of the following UnityCloud network functions:
+The Azure Operator 5G Core Resource Provider (RP) is responsible for the lifecycle management (LCM) of the following Azure Operator 5G Core network functions:
 - Access and Mobility Management Function (AMF)
 - Session Management Function (SMF)
 - User Plane Function (UPF)
@@ -46,9 +46,9 @@ The deployments for cMME and AnyG are variations on the existing helm charts. Cr
 
 AO5GC network function images and Helm charts are Azure-managed and accessed by the AO5GC Resource Provider for lifecycle management operations.  
 
-Local Observability is provided by UnityCloud Observability components listed in the diagram. Because the Observability function is local, it also available in break-glass scenarios for Nexus where the interfaces can be accessed locally.
+Local Observability is provided by Azure Operator 5G Core Observability components listed in the diagram. Because the Observability function is local, it also available in break-glass scenarios for Nexus where the interfaces can be accessed locally.
  
-:::image type="content" source="media/concept-centralized-lifecycle-management/local-observability.png" alt-text="Diagram showing how UnityCloud observability components are used in Azure Operator 5G Core." lightbox="media/concept-centralized-lifecycle-management/local-observability.png":::
+:::image type="content" source="media/concept-centralized-lifecycle-management/local-observability.png" alt-text="Diagram showing how Azure Operator 5G Core observability components are used in Azure Operator 5G Core." lightbox="media/concept-centralized-lifecycle-management/local-observability.png":::
 
 
 
