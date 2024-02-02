@@ -460,13 +460,12 @@ Specifies that the file is encoded in the encoding_name. If this option is omitt
 
 jsonb
 
-> [!NOTE]  
-**Permissions**
-Now you can list containers set to Private and Blob access levels for a storage but only as a user with the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
-
 ## Examples
 
 The examples used make use of sample Azure storage account `(pgquickstart)` with custom files uploaded for adding to coverage of different use cases. We can start by creating table used across the set of example used.
+
+> [!NOTE]  
+> You can list containers set to Private and Blob access levels for a storage but only as a user with the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.events
