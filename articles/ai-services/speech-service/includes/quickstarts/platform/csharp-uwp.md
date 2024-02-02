@@ -35,13 +35,13 @@ Make sure you're set up correctly in Visual Studio for UWP development:
 
 1. Select **Continue without code** to go to the Visual Studio IDE.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-start-window.png" alt-text="Screenshot that shows the start window with the action for continuing without code highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-start-window.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-start-window-inline.png" alt-text="Screenshot that shows the start window with the action for continuing without code highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-start-window.png":::
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog box.
 
 1. On the **Workloads** tab, find the **Universal Windows Platform development** workload. If that workload is already selected, close the **Modifying** dialog box and close Visual Studio Installer. Skip the rest of this procedure.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png" alt-text="Screenshot that shows the Workloads tab of the Modifying dialog box, with the workload for Universal Windows Platform development highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload-inline.png" alt-text="Screenshot that shows the Workloads tab of the Modifying dialog box, with the workload for Universal Windows Platform development highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-workload.png":::
 
 1. Select **Universal Windows Platform development**, and then select **Modify**.
 
@@ -59,7 +59,7 @@ Next, create your project and select the target architecture:
 
 1. Select **Next**.  
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-create-new-project.png" alt-text="Screenshot that shows the window for creating a new project, with Blank App (Universal Windows) selected and the Next button highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-create-new-project.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-create-new-project-inline.png" alt-text="Screenshot that shows the window for creating a new project, with Blank App (Universal Windows) selected and the Next button highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-create-new-project.png":::
 
 1. In the **Configure your new project** dialog box, in **Project name**, enter *helloworld*.
 
@@ -67,7 +67,7 @@ Next, create your project and select the target architecture:
 
 1. Select **Create**.  
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-configure-your-new-project.png" alt-text="Screenshot that shows the dialog box for configuring a new project, with boxes for project name and location and the Create button highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-configure-your-new-project.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-configure-your-new-project-inline.png" alt-text="Screenshot that shows the dialog box for configuring a new project, with boxes for project name and location and the Create button highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-configure-your-new-project.png":::
 
 1. In the **New Universal Windows Platform Project** window, in **Minimum version** (the second dropdown box), select **Windows 10 Fall Creators Update (10.0; Build 16299)**. That requirement is the minimum for the Speech SDK.
 
@@ -77,7 +77,7 @@ Next, create your project and select the target architecture:
 
 1. Select **OK**. You return to the Visual Studio IDE, with the new project created and visible on the **Solution Explorer** pane.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-helloworld.png" alt-text="Screenshot that shows the helloworld project visible in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-helloworld.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-helloworld-inline.png" alt-text="Screenshot that shows the helloworld project visible in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-uwp-helloworld.png":::
 
 1. Select your target platform architecture. On the Visual Studio toolbar, find the **Solution Platforms** dropdown box. If you don't see it, select **View** > **Toolbars** > **Standard** to display the toolbar that contains **Solution Platforms**.
 
@@ -114,7 +114,7 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), 
 
 1. Select **Install**.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png" alt-text="Screenshot that shows the Microsoft.CognitiveServices.Speech package selected, with the project and the Install button highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0-inline.png" alt-text="Screenshot that shows the Microsoft.CognitiveServices.Speech package selected, with the project and the Install button highlighted." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png":::
 
 1. In the **Preview Changes** dialog box, select **Apply**.
 

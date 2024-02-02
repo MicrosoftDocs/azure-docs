@@ -43,7 +43,7 @@ Make sure you're set up correctly in Visual Studio for cross-platform mobile dev
 
 1. On the **Workloads** tab, find the **Mobile development with .NET** workload. If that workload is already selected, close the **Modifying** dialog box and close Visual Studio Installer. Skip the rest of this procedure.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-workload.png" alt-text="Screenshot that shows the Workloads tab, the Modifying dialog box, and Visual Studio Installer." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-workload.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-workload-inline.png" alt-text="Screenshot that shows the Workloads tab, the Modifying dialog box, and Visual Studio Installer." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-workload.png":::
 
 1. Select **Mobile development with .NET**, and then select **Modify**.
 
@@ -61,7 +61,7 @@ Next, create your project and select the target architecture:
 
 1. Select **Next**.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-create-new-project.png" alt-text="Screenshot that shows how to create a new project in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-create-new-project.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-create-new-project-inline.png" alt-text="Screenshot that shows how to create a new project in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-create-new-project.png":::
 
 1. In the **Configure your new project** dialog box, in **Project name**, enter *helloworld*.
 
@@ -69,7 +69,7 @@ Next, create your project and select the target architecture:
 
 1. Select **Create**.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-configure-your-new-project.png" alt-text="Screenshot that shows how to configure your new project in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-configure-your-new-project.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-configure-your-new-project-inline.png" alt-text="Screenshot that shows how to configure your new project in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-configure-your-new-project.png":::
 
 1. In the **New Cross Platform App** window, select the **Blank** template, and then select **Android**, **iOS**, and **Windows (UWP)**. Select **Create**.
 
@@ -77,7 +77,7 @@ Next, create your project and select the target architecture:
 
 1. Select **OK**. You return to the Visual Studio IDE, with the new project created and visible in the **Solution Explorer** pane.
 
-   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-helloworld.png" alt-text="Screenshot that shows the helloworld project visible in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-helloworld.png":::
+   :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-helloworld-inline.png" alt-text="Screenshot that shows the helloworld project visible in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-helloworld.png":::
 
 1. Select your target platform architecture and startup project. On the Visual Studio toolbar, find the **Solution Platforms** dropdown box. If you don't see it, select **View** > **Toolbars** > **Standard** to display the toolbar that contains **Solution Platforms**.
 
