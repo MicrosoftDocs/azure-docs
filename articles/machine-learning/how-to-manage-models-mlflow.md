@@ -21,8 +21,7 @@ Azure Machine Learning supports MLflow for model management when connected to a 
 
 [!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
-    > [!NOTE]
-    > Organizational registries are not supported for model management with MLflow as they are a native capability of Azure Machine Learning.
+* Notice that organizational registries are not supported for model management with MLflow as they are a native capability of Azure Machine Learning.
 
 * Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial uses the object `client` to refer to such MLflow client.
 
