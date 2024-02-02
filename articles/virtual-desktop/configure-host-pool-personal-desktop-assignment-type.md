@@ -250,23 +250,6 @@ You can give personal desktops you create *friendly names* to help users disting
 
 [!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
 
-The Azure portal doesn't currently have a way to give session host friendly names.
-
-### Get the session host friendly name
-
-To get the session host friendly name, run the following command in PowerShell:
-
-```powershell
-$sessionHostParams = @{
-  HostPoolName = 'HostPoolName'
-  Name = 'SessionHostName'
-  ResourceGroupName = 'ResourceGroupName'
-}
-
-Get-AzWvdSessionHost @sessionHostParams | FL Name, AssignedUser, FriendlyName
-```
-
-There isn't currently a way to get the session host friendly name in the Azure portal.
 
 ## Next steps
 

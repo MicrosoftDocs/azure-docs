@@ -3,7 +3,7 @@ title: Customize feed for Azure Virtual Desktop users - Azure
 description: How to customize feed for Azure Virtual Desktop users with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/16/2020
+ms.date: 02/01/2024
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 ---
@@ -27,19 +27,6 @@ You can change the display name for a remote desktop for your users by setting i
 
 [!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
 
-### Get the session host friendly name
-
-To get the session host friendly name, run the following command in PowerShell:
-
-```powershell
-$sessionHostParams = @{
-  HostPoolName = 'HostPoolName'
-  Name = 'SessionHostName'
-  ResourceGroupName = 'ResourceGroupName'
-}
-
-Get-AzWvdSessionHost @sessionHostParams | FL Name, AssignedUser, FriendlyName
-```
 
 ## Customize the display name for a RemoteApp
 
