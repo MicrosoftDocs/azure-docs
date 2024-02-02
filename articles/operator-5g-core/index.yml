@@ -32,7 +32,7 @@ landingContent:
            url: concept-security.md
       - linkListType: quickstart
         links:
-          - text: Getting an Azure Operator 5G Core subscription
+          - text: Get an Azure Operator 5G Core subscription
             url: quickstart-subscription.md
       - linkListType: how-to-guide
         links:
@@ -59,13 +59,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Deployment order for clusters, network functions, and observability components
-            url: concept-nexus-deployment-order.md
+            url: concept-deployment-order.md
       - linkListType: quickstart
         links:
           - text: Deploy observability
-            url:  quickstart-deploy-observability-nexus.md
+            url:  quickstart-deploy-observability.md
           - text: Deploy a network function
-            url: quickstart-deploy-network-functions-nexus.md
+            url: quickstart-deploy-network-functions.md
   # Card
   - title: Deploy Azure Kubernetes Service
     linkLists:
@@ -82,7 +82,7 @@ landingContent:
           - text: Deploy observability
             url:  quickstart-deploy-observability.md
           - text: Deploy a network function
-            url:  quickstart-deploy-network-functions-nexus.md
+            url:  quickstart-deploy-network-functions.md
   # Card
   - title: Manage deployments
     linkLists:
