@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Logs
-description: Learn the basics of Azure Monitor Logs, which is used for advanced analysis of monitoring data.
+description: Learn the basics of Azure Monitor Logs, which are used for advanced analysis of monitoring data.
 ms.topic: conceptual
 ms.date: 09/14/2023
 ms.author: bwren
