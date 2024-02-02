@@ -51,7 +51,7 @@ az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=vali
 
 If there are no errors, your migration is supported, and you can continue to the next step.
 
-## 3. Generate IP addresses for your new App Service Environment v3 instance
+## 3. Generate IP addresses for your new App Service Environment v3 resource
 
 Run the following command to create new IP addresses. This step takes about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time.
 
@@ -107,11 +107,11 @@ For related commands to check if your subscription or resource group has locks, 
 
 ## 7. Prepare your configurations
 
-You can make your new App Service Environment v3 instance zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). You can configure zone redundancy by setting the `zoneRedundant` property to `true`.
+You can make your new App Service Environment v3 resource zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). You can configure zone redundancy by setting the `zoneRedundant` property to `true`.
 
-Zone redundancy is an optional configuration. You can set it only during the creation of your new App Service Environment v3 instance. You can't remove it at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). If you don't want to configure zone redundancy, don't include the `zoneRedundant` parameter.
+Zone redundancy is an optional configuration. You can set it only during the creation of your new App Service Environment v3 resource. You can't remove it at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations). If you don't want to configure zone redundancy, don't include the `zoneRedundant` parameter.
 
-If your existing App Service Environment uses a custom domain suffix, you need to [configure one for your new App Service Environment v3 instance during the migration process](./migrate.md#choose-your-app-service-environment-v3-configurations). Migration fails if you don't configure a custom domain suffix and are using one currently. Migration also fails if you try to add a custom domain suffix during migration to an environment that doesn't have one configured. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
+If your existing App Service Environment uses a custom domain suffix, you need to [configure one for your new App Service Environment v3 resource during the migration process](./migrate.md#choose-your-app-service-environment-v3-configurations). Migration fails if you don't configure a custom domain suffix and are using one currently. Migration also fails if you try to add a custom domain suffix during migration to an environment that doesn't have one configured. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
 > [!NOTE]
 > If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated in step 3.
@@ -197,7 +197,7 @@ Replace the placeholder for the operation ID in the following command with the v
 az rest --method get --uri "${ASE_ID}/operations/<operation-id>/details/default?api-version=2022-09-01"
 ```
 
-After you get a status of `Ready`, migration is done, and you have an App Service Environment v3 instance. Your apps are now running in your new environment.
+After you get a status of `Ready`, migration is done, and you have an App Service Environment v3 resource. Your apps are now running in your new environment.
 
 Get the details of your new environment by running the following command or by going to the [Azure portal](https://portal.azure.com).
 
@@ -229,13 +229,13 @@ If migration is supported for your App Service Environment, proceed to the next 
 
 :::image type="content" source="./media/migration/migration-ux-pre.png" alt-text="Screenshot that shows a sample migration page with unfinished steps in the process.":::
 
-## 2. Generate IP addresses for your new App Service Environment v3 instance
+## 2. Generate IP addresses for your new App Service Environment v3 resource
 
 Under **Get new IP addresses**, confirm that you understand the implications and select the **Start** button. This step takes about 15 minutes to complete. You can't scale or make changes to your existing App Service Environment during this time.
 
 ## 3. Update dependent resources with new IPs
 
-When the previous step finishes, the IP addresses for your new App Service Environment v3 instance appear. Use the new IPs to update any resources and networking components so that your new environment functions as intended after migration is complete. It's your responsibility to make any necessary updates.
+When the previous step finishes, the IP addresses for your new App Service Environment v3 resource appear. Use the new IPs to update any resources and networking components so that your new environment functions as intended after migration is complete. It's your responsibility to make any necessary updates.
 
 This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes in moving to App Service Environment v3. These changes include the port change for Azure Load Balancer, which now uses port 80. Don't move to the next step until you confirm that you made these updates.
 
@@ -265,15 +265,15 @@ For details on how to check if your subscription or resource group has locks, se
 
 ## 7. Choose your configurations
 
-You can make your new App Service Environment v3 instance zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy is an optional configuration. You can set it only during the creation of your new App Service Environment v3 instance. You can't remove it at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations).
+You can make your new App Service Environment v3 resource zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy is an optional configuration. You can set it only during the creation of your new App Service Environment v3 resource. You can't remove it at a later time. For more information, see [Choose your App Service Environment v3 configurations](./migrate.md#choose-your-app-service-environment-v3-configurations).
 
 Select the **Enabled** checkbox if you want to configure zone redundancy.
 
 :::image type="content" source="./media/migration/zone-redundancy-supported.png" alt-text="Screenshot that shows the checkbox for enabling zone redundancy for an App Service Environment in a supported region.":::
 
-If your environment is in a region that doesn't support zone redundancy, the checkbox is unavailable. If you need a zone-redundant App Service Environment v3 instance, use one of the manual migration options and create the instance in one of the regions that supports zone redundancy.
+If your environment is in a region that doesn't support zone redundancy, the checkbox is unavailable. If you need a zone-redundant App Service Environment v3 resource, use one of the manual migration options and create the resource in one of the regions that supports zone redundancy.
 
-If your existing App Service Environment uses a [custom domain suffix](./migrate.md#choose-your-app-service-environment-v3-configurations), you must configure one for your new App Service Environment v3 instance. The configuration options for a custom domain suffix appear if this situation applies to you. You can't migrate until you provide the required information.
+If your existing App Service Environment uses a [custom domain suffix](./migrate.md#choose-your-app-service-environment-v3-configurations), you must configure one for your new App Service Environment v3 resource. The configuration options for a custom domain suffix appear if this situation applies to you. You can't migrate until you provide the required information.
 
 If you want to use a custom domain suffix but don't currently have one configured, you can configure one after migration is complete. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
@@ -299,7 +299,7 @@ This step takes three to six hours for v2 to v3 migrations and up to six hours f
 
 At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the [Azure CLI section for migrating to App Service Environment v3](#8-migrate-to-app-service-environment-v3-and-check-status).
 
-When migration is complete, you have an App Service Environment v3 instance, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
+When migration is complete, you have an App Service Environment v3 resource, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
 If your migration included a custom domain suffix, the domain appeared in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it no longer appears there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page to confirm that your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously.
 
@@ -310,7 +310,7 @@ If your migration included a custom domain suffix, the domain appeared in the **
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use an App Service Environment v3 instance](using.md)
+> [Use an App Service Environment v3 resource](using.md)
 
 > [!div class="nextstepaction"]
 > [App Service Environment v3 networking](networking.md)
