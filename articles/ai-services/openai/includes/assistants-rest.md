@@ -59,6 +59,11 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2
   }'
 ```
 
+### Tools
+
+An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](./assistant-functions.md).
+
+
 ### Create a thread
 
 ```console

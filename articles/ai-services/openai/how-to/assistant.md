@@ -39,35 +39,35 @@ If you aren't using a tool that requires the latest models you can use any of th
 
 ### Supported file types
 
-|File format|MIME Type|
-|---|---|
-|.c| text/x-c |
-|.cpp|text/x-c++ |
-|.csv|application/csv|
-|.docx|application/vnd.openxmlformats-officedocument.wordprocessingml.document|
-|.html|text/html|
-|.java|text/x-java|
-|.json|application/json|
-|.md|text/markdown|
-|.pdf|application/pdf|
-|.php|text/x-php|
-|.pptx|application/vnd.openxmlformats-officedocument.presentationml.presentation|
-|.py|text/x-python|
-|.py|text/x-script.python|
-|.rb|text/x-ruby|
-|.tex|text/x-tex|
-|.txt|text/plain|
-|.css|text/css|
-|.jpeg|image/jpeg|
-|.jpg|image/jpeg|
-|.js|text/javascript|
-|.gif|image/gif|
-|.png|image/png|
-|.tar|application/x-tar|
-|.ts|application/typescript|
-|.xlsx|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|
-|.xml|application/xml or "text/xml"|
-|.zip|application/zip|
+|File format|MIME Type|Code Interpreter |
+|---|---|---|
+|.c| text/x-c |✅|
+|.cpp|text/x-c++ |✅|
+|.csv|application/csv|✅|
+|.docx|application/vnd.openxmlformats-officedocument.wordprocessingml.document|✅|
+|.html|text/html|✅|
+|.java|text/x-java|✅|
+|.json|application/json|✅|
+|.md|text/markdown| ✅ |
+|.pdf|application/pdf|✅|
+|.php|text/x-php|✅|
+|.pptx|application/vnd.openxmlformats-officedocument.presentationml.presentation|✅|
+|.py|text/x-python|✅|
+|.py|text/x-script.python|✅|
+|.rb|text/x-ruby|✅|
+|.tex|text/x-tex|✅|
+|.txt|text/plain|✅|
+|.css|text/css|✅|
+|.jpeg|image/jpeg|✅|
+|.jpg|image/jpeg|✅|
+|.js|text/javascript|✅|
+|.gif|image/gif|✅|
+|.png|image/png|✅|
+|.tar|application/x-tar|✅|
+|.ts|application/typescript|✅|
+|.xlsx|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|✅|
+|.xml|application/xml or "text/xml"|✅|
+|.zip|application/zip|✅|
 
 ### Tools
 
