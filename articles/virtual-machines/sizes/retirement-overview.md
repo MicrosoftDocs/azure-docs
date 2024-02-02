@@ -28,21 +28,21 @@ There are two types of previous-gen sizes; *available* and *capacity limited*.
 
 ### Available
 
-Size series listed as *Available* means that while no retirement or capacity constraint plans have been made, there are sufficient deployments of newer alternative sizes to justify considering these series "previous-gen". Previous-gen *available* series have no formal announcement of retirement timelines, but they'll eventually be retired. 
+Size series listed as *Available* means that while no retirement or capacity limitation plans have been made, there are sufficient deployments of newer alternative sizes to justify considering these series "previous-gen". Previous-gen *available* series have no formal announcement of retirement timelines, but they'll eventually be retired. 
 
 For a list of series that are considered *available*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md).
 
 ### Capacity limited
 
-Similar to *available* previous-gen series, there are sufficient deployments of newer alternative sizes available to replace *capacity limited* size deployments. Size series listed as *capacity limited* means that while no retirement plans have been made, no extra capacity for this series will be deployed. If you had one VM running on a capacity contrained size and require another VM of the same size, there is no guarantee that capacity will be able to fulfill this request Any new VMs should be created using sizes in newer series that aren't considered *previous-gen*.
+Similar to *available* previous-gen series, there are sufficient deployments of newer alternative sizes available to replace *capacity limited* size deployments. Size series listed as *capacity limited* means that while no retirement plans have been made, no extra capacity for this series will be deployed. If you had one VM running on a capacity limited size and require another VM of the same size, there is no guarantee that capacity will be able to fulfill this request Any new VMs should be created using sizes in newer series that aren't considered *previous-gen*.
 
 For a list of sizes that are considered *capacity limited*, see the [list of previous-gen sizes](./previous-gen-sizes-list.md). 
 
 ## Retired sizes
 
-Retired size series are **no longer available** and can't be used. If you have VMs running on sizes which are considered *retired*, migrate to a newer next-gen size as soon as possible. 
+Retired size series are **no longer available** and can't be used. If you have VMs running on sizes that are considered *retired*, migrate to a newer next-gen size as soon as possible. 
 
-Retiring hardware is necessary over time to ensure that the latest and greatest technology is available on Azure. This ensures that the hardware is reliable, secure, and efficient. It also allows for the latest features and capabilities that may not be present on previous generations of hardware.
+Retiring hardware is necessary over time to ensure that the latest and greatest technology is available on Azure. Retirement ensures that the hardware is reliable, secure, and efficient. It also allows for the latest features and capabilities that may not be present on previous generations of hardware.
 
 For a list of retired sizes, see the [list of retired sizes](./retired-sizes-list.md).
 
