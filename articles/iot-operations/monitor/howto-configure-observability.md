@@ -181,8 +181,7 @@ az deployment group create \
 
 ## Access Grafana Dashboards
 
-Navigate to the endpoint for the Grafana instance that you created previously by using the URL from the deployment outputs. If you didn't already do so, create the relevant dashboards by going to the [dashboard list](../../samples/grafana-dashboards).
-For each dashboard in the list that you want, use the add (+) button in the upper right of the Grafana UI to import it into the Grafana workspace. 
+Navigate to the endpoint for the Grafana instance that you created previously by using the URL from the deployment outputs. If you didn't already do so, create the relevant dashboards by going to the [dashboard list](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboards). For each dashboard in the list that you want, use the add (+) button in the upper right of the Grafana UI to import it into the Grafana workspace. 
 
 ## Cleanup
 
