@@ -97,5 +97,5 @@ Command                | Keyboard shortcut
 Toggle Developer Tools | **F12**
 Reload                 | **Alt+Control+R**
 
-[0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
-[1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png
+[0]: ../../media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
+[1]: ../../media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

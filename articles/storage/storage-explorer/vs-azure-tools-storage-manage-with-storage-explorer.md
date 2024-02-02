@@ -17,7 +17,7 @@ Microsoft Azure Storage Explorer is a standalone app that makes it easy to work 
 
 In this article, you'll learn several ways of connecting to and managing your Azure storage accounts.
 
-:::image type="content" alt-text="Microsoft Azure Storage Explorer" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-overview.png":::
+:::image type="content" alt-text="Microsoft Azure Storage Explorer" source="../../media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-overview.png":::
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Installing the Storage Explorer snap is recommended, but Storage Explorer is also available as a *.tar.gz* download. If you use the *.tar.gz*, you must install all of Storage Explorer's dependencies manually.
 
-For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
+For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](../common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
 # [Red Hat Enterprise Linux](#tab/linux-rhel)
 
@@ -68,7 +68,7 @@ Storage Explorer requires the use of a password manager. You can connect Storage
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-For more help installing Storage Explorer on RHEL, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
+For more help installing Storage Explorer on RHEL, see [Storage Explorer dependencies](../common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
 # [SUSE Linux Enterprise Server](#tab/linux-sles)
 
@@ -85,7 +85,7 @@ Storage Explorer requires the use of a password manager. You can connect Storage
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](./storage/common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
+For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](../common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
 ---
 
@@ -103,21 +103,21 @@ Storage Explorer provides several ways to connect to Azure resources:
 ### Sign in to Azure
 
 > [!NOTE]
-> To fully access resources after you sign in, Storage Explorer requires both management (Azure Resource Manager) and data layer permissions. This means that you need Microsoft Entra permissions to access your storage account, the containers in the account, and the data in the containers. If you have permissions only at the data layer, consider choosing the **Sign in using Microsoft Entra ID** option when attaching to a resource. For more information about the specific permissions Storage Explorer requires, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
+> To fully access resources after you sign in, Storage Explorer requires both management (Azure Resource Manager) and data layer permissions. This means that you need Microsoft Entra permissions to access your storage account, the containers in the account, and the data in the containers. If you have permissions only at the data layer, consider choosing the **Sign in using Microsoft Entra ID** option when attaching to a resource. For more information about the specific permissions Storage Explorer requires, see the [Azure Storage Explorer troubleshooting guide](../common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
 
 1. In Storage Explorer, select **View** > **Account Management** or select the **Manage Accounts** button.
 
-    :::image type="content" alt-text="Manage Accounts" source ="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-manage-accounts.png":::
+    :::image type="content" alt-text="Manage Accounts" source ="../../media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-manage-accounts.png":::
 
 1. **ACCOUNT MANAGEMENT** now displays all the Azure accounts you're signed in to. To connect to another account, select **Add an account...**.
 
 1. The **Connect to Azure Storage** dialog opens. In the **Select Resource** panel, select **Subscription**.
 
-    :::image type="content" alt-text="Connect dialog" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-dialog.png":::
+    :::image type="content" alt-text="Connect dialog" source="../../media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-dialog.png":::
 
 1. In the **Select Azure Environment** panel, select an Azure environment to sign in to. You can sign in to global Azure, a national cloud or an Azure Stack instance. Then select **Next**.
 
-    :::image type="content" alt-text="Option to sign in" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-environment.png":::
+    :::image type="content" alt-text="Option to sign in" source="../../media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-environment.png":::
 
     > [!TIP]
     > For more information about Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription or storage account](/azure-stack/user/azure-stack-storage-connect-se).
@@ -126,11 +126,11 @@ Storage Explorer provides several ways to connect to Azure resources:
 
 1. After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Apply**.
 
-    :::image type="content" alt-text="Select Azure subscriptions" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-account-panel.png":::
+    :::image type="content" alt-text="Select Azure subscriptions" source="../../media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-account-panel.png":::
 
 1. **EXPLORER** displays the storage accounts associated with the selected Azure subscriptions.
 
-    :::image type="content" alt-text="Selected Azure subscriptions" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-subscription-node.png":::
+    :::image type="content" alt-text="Selected Azure subscriptions" source="../../media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-subscription-node.png":::
 
 ### Attach to an individual resource
 
@@ -150,13 +150,13 @@ Storage Explorer can also connect to a [local storage emulator](#local-storage-e
 
 To connect to an individual resource, select the **Connect** button in the left-hand toolbar. Then follow the instructions for the resource type you want to connect to.
 
-:::image type="content" alt-text="Connect to Azure storage option" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-button.png":::
+:::image type="content" alt-text="Connect to Azure storage option" source="../../media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-button.png":::
 
 When a connection to a storage account is successfully added, a new tree node will appear under **Local & Attached** > **Storage Accounts**.
 
 For other resource types, a new node is added under **Local & Attached** > **Storage Accounts** > **(Attached Containers)**. The node will appear under a group node matching its type. For example, a new connection to an Azure Data Lake Storage Gen2 container will appear under **Blob Containers**.
 
-If Storage Explorer couldn't add your connection, or if you can't access your data after successfully adding the connection, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md).
+If Storage Explorer couldn't add your connection, or if you can't access your data after successfully adding the connection, see the [Azure Storage Explorer troubleshooting guide](../common/storage-explorer-troubleshooting.md).
 
 The following sections describe the different authentication methods you can use to connect to individual resources.
 
@@ -231,7 +231,7 @@ https://contoso.blob.core.windows.net/container01?sv=2020-04-08&st=2021-03-02T00
 
 Storage Explorer can connect to an Azure Storage emulator. Currently, there are two supported emulators:
 
-* [Azure Storage Emulator](storage/common/storage-use-emulator.md) (Windows only)
+* [Azure Storage Emulator](../common/storage-use-emulator.md) (Windows only)
 * [Azurite](https://github.com/azure/azurite) (Windows, macOS, or Linux)
 
 If your emulator is listening on the default ports, you can use the **Local & Attached** > **Storage Accounts** > **Emulator - Default Ports** node to access your emulator.
@@ -255,11 +255,11 @@ You can access a resource that's not in your subscription. You need someone who 
 
 1. Right-click **Data Lake Storage Gen1**, and select **Connect to Data Lake Storage Gen1**.
 
-    ![Connect to Data Lake Store context menu](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-connect-data-lake-storage.png)
+    ![Connect to Data Lake Store context menu](../../media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-connect-data-lake-storage.png)
 
 1. Enter the URI, and then select **OK**. Your Data Lake Store appears under **Data Lake Storage**.
 
-    ![Connect to Data Lake Store result](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-attach-data-lake-finished.png)
+    ![Connect to Data Lake Store result](../../media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-attach-data-lake-finished.png)
 
 This example uses Data Lake Storage Gen1. Azure Data Lake Storage Gen2 is now available. For more information, see [What is Azure Data Lake Storage Gen1](./data-lake-store/data-lake-store-overview.md).
 
@@ -297,6 +297,6 @@ As you enter text in the search box, Storage Explorer displays all resources tha
 * [Manage Azure Blob storage resources with Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
 * [Manage Azure Data Lake Store resources with Storage Explorer](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
-[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-shared-access-signature-for-storage-explorer.png
-[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/create-shared-access-signature-for-storage-explorer.png
-[23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-search-for-resource.png
+[14]: ../../media/vs-azure-tools-storage-manage-with-storage-explorer/get-shared-access-signature-for-storage-explorer.png
+[15]: ../../media/vs-azure-tools-storage-manage-with-storage-explorer/create-shared-access-signature-for-storage-explorer.png
+[23]: ../../media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-search-for-resource.png

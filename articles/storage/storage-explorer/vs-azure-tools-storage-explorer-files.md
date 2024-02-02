@@ -36,7 +36,7 @@ The following steps illustrate how to create a file share within Storage Explore
 
     ![Create file share](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](./storage/blobs/storage-quickstart-blobs-dotnet.md) section for a list of rules and restrictions on naming file shares.
+1. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](../blobs/storage-quickstart-blobs-dotnet.md) section for a list of rules and restrictions on naming file shares.
 
     ![Naming the share](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -106,7 +106,7 @@ The following steps illustrate how to copy a file share from one storage account
 
 ## Get the SAS for a file share
 
-A [shared access signature (SAS)](./storage/common/storage-sas-overview.md) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.
+A [shared access signature (SAS)](../common/storage-sas-overview.md) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.
 
 The following steps illustrate how to create a SAS for a file share:+
 
@@ -250,4 +250,4 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 - View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com/).
 
-- Learn how to [create applications using Azure blobs, tables, queues, and files](./storage/index.yml).
+- Learn how to [create applications using Azure blobs, tables, queues, and files](../index.yml).
