@@ -90,7 +90,7 @@ assistant = client.beta.assistants.create(
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
     "instructions": "You are an AI assistant that can write code to help answer math questions.",
@@ -138,14 +138,14 @@ assistant = client.beta.assistants.create(
 # Upload a file with an "assistants" purpose
 
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/files?api-version=2024-02-15-preview \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -F purpose="assistants" \
   -F file="@c:\\path_to_file\\file.csv"
 
 # Create an assistant using the file ID
 
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
     "instructions": "You are an AI assistant that can write code to help answer math questions.",
@@ -189,7 +189,7 @@ thread = client.beta.threads.create(
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/<YOUR-THREAD-ID>/messages?api-version=2024-02-15-preview \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
     "role": "user",
@@ -243,7 +243,7 @@ with open("./my-image.png", "wb") as file:
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/files/<YOUR-FILE-ID>/content?api-version=2024-02-15-preview \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   --output image.png
 ```
 
