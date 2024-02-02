@@ -39,7 +39,7 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
   - [Azure CLI](/cli/azure); use `az --version` to test if az works. This document was tested with version 2.55.1.
   - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7. Use `docker info` to test if Docker Daemon is running.
   - [kubectl](https://kubernetes-io-vnext-staging.netlify.com/docs/tasks/tools/install-kubectl/); use `kubectl version` to test if kubectl works. This document was tested with version v1.21.2.
-  - A Java JDK, Version 11 or later. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
+  - A Java JDK compatible with the version of WLS you intend to run. The article directs you to install a version of WLS that uses JDK 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Ensure that you have the zip/unzip utility installed; use `zip/unzip -v` to test if `zip/unzip` works.
 
@@ -94,7 +94,7 @@ The following steps make it so the WLS admin console and the sample app are expo
     :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal showing Application Gateway Ingress Controllor configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png":::
 
 1. Leave default values for other fields.
-1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If it doesn't, fix any validation problems, then select **Review + create** again.
+1. Select **Review + create**. Ensure the validation does not fail. If it fails, fix any validation problems, then select **Review + create** again.
 1. Select **Create**.
 1. Track the progress of the deployment on the **Deployment is in progress** page.
 
@@ -215,12 +215,11 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 1. Create a directory to stage the models and application.
 
    ```bash
-   mkdir -p /tmp/mystaging/models
-
-   cd /tmp/mystaging/models
+   mkdir -p ${BASE_DIR}/mystaging/models
+   cd ${BASE_DIR}/mystaging/models
    ```
 
-   Paste the value of **shellCmdtoOutputWlsImageModelYaml** you saved from the deployment outputs. You get a file `/tmp/mystaging/models/model.yaml`. The command will look similar to the following.
+   Paste the value of **shellCmdtoOutputWlsImageModelYaml** you saved from the deployment outputs. You get a file `${BASE_DIR}/mystaging/models/model.yaml`. The command will look similar to the following.
     
    ```bash
    echo -e IyBDb3B5cmlna...Cgo= | base64 -d > model.yaml
@@ -281,7 +280,7 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
            MaxThreadsConstraint: "SampleMaxThreads"
    ```
 
-1. In a similar way, paste the value of **shellCmdtoOutputWlsImageProperties**. You get a file `/tmp/mystaging/models/model.properties`. The command will look similar to the following.
+1. In a similar way, paste the value of **shellCmdtoOutputWlsImageProperties**. You get a file `${BASE_DIR}/mystaging/models/model.properties`. The command will look similar to the following.
 
    ```bash
    echo -e IyBDb3B5cml...pFPTUK | base64 -d > model.properties
@@ -301,25 +300,25 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 
 1. Create the application model file.
 
-    Copy `weblogic-cafe.war` and save it to `wlsdeploy/applications`.
+   Copy `weblogic-cafe.war` and save it to `wlsdeploy/applications`.
 
-    ```bash
-    mkdir -p /tmp/mystaging/models/wlsdeploy/applications
-    cp $BASE_DIR/weblogic-on-azure/javaee/weblogic-cafe/target/weblogic-cafe.war /tmp/mystaging/models/wlsdeploy/applications/weblogic-cafe.war
-    ```
+   ```bash
+   mkdir -p ${BASE_DIR}/mystaging/models/wlsdeploy/applications
+   cp $BASE_DIR/weblogic-on-azure/javaee/weblogic-cafe/target/weblogic-cafe.war ${BASE_DIR}/mystaging/models/wlsdeploy/applications/weblogic-cafe.war
+   ```
 
-    Create the application model file with the following content. Save the model file to `/tmp/mystaging/models/appmodel.yaml`.
+   Create the application model file with the following content. Save the model file to `${BASE_DIR}/mystaging/models/appmodel.yaml`.
 
-    ```bash
-    cat <<EOF >appmodel.yaml
-    appDeployments:
-      Application:
-        myapp:
-          SourcePath: 'wlsdeploy/applications/weblogic-cafe.war'
-          ModuleType: ear
-          Target: 'cluster-1'
-    EOF
-    ```
+   ```bash
+   cat <<EOF >appmodel.yaml
+   appDeployments:
+     Application:
+       weblogic-cafe:
+         SourcePath: 'wlsdeploy/applications/weblogic-cafe.war'
+         ModuleType: ear
+         Target: 'cluster-1'
+   EOF
+   ```
 
 1. Download and install Microsoft SQL Server JDBC driver to `wlsdeploy/externalJDBCLibraries`.
 
@@ -327,11 +326,11 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
    export DRIVER_VERSION="10.2.1.jre8"
    export MSSQL_DRIVER_URL="https://repo.maven.apache.org/maven2/com/microsoft/sqlserver/mssql-jdbc/${DRIVER_VERSION}/mssql-jdbc-${DRIVER_VERSION}.jar"
 
-   mkdir /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries
-   curl -m 120 -fL ${MSSQL_DRIVER_URL} -o /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries/mssql-jdbc-${DRIVER_VERSION}.jar
+   mkdir ${BASE_DIR}/mystaging/models/wlsdeploy/externalJDBCLibraries
+   curl -m 120 -fL ${MSSQL_DRIVER_URL} -o ${BASE_DIR}/mystaging/models/wlsdeploy/externalJDBCLibraries/mssql-jdbc-${DRIVER_VERSION}.jar
    ```
 
-   Next, create the database connection model with the following content. Save the model file to `/tmp/mystaging/models/dbmodel.yaml`. The model uses placeholder (secret `sqlserver-secret`) for database username, password, and Url. Make sure the following fields are set correcly. The following model names the resource with **jdbc/WebLogicCafeDB**.
+   Next, create the database connection model with the following content. Save the model file to `${BASE_DIR}/mystaging/models/dbmodel.yaml`. The model uses placeholder (secret `sqlserver-secret`) for database username, password, and Url. Make sure the following fields are set correcly. The following model names the resource with **jdbc/WebLogicCafeDB**.
 
    | Item Name | Field | Value |
    |--------------------|----------------------------|----------------|
@@ -369,7 +368,7 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 1. Create application archive file using `zip` command. Remove `wlsdeploy` folder as you'll not use it anymore.
 
    ```bash
-   cd /tmp/mystaging/models
+   cd ${BASE_DIR}/mystaging/models
    zip -r archive.zip wlsdeploy
 
    rm -f -r wlsdeploy
@@ -378,7 +377,7 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 1. Download and install [WebLogic Deploy Tooling](https://oracle.github.io/weblogic-deploy-tooling/)(WDT) in the staging directory and remove its weblogic-deploy/bin/*.cmd files, which are not used in UNIX environments:
 
    ```bash
-   cd /tmp/mystaging
+   cd ${BASE_DIR}/mystaging
    curl -m 120 -fL https://github.com/oracle/weblogic-deploy-tooling/releases/latest/download/weblogic-deploy.zip -o weblogic-deploy.zip
 
    unzip weblogic-deploy.zip -d .
@@ -394,7 +393,7 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 1. Build an auxiliary image using docker.
 
    ```bash
-   cd /tmp/mystaging
+   cd ${BASE_DIR}/mystaging
    cat <<EOF >Dockerfile
    FROM busybox
    ARG AUXILIARY_IMAGE_PATH=/auxiliary
@@ -410,10 +409,10 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
    EOF
    ```
 
-   Run the `docker buildx build` command using `/tmp/mystaging/Dockerfile`.
+   Run the `docker buildx build` command using `${BASE_DIR}/mystaging/Dockerfile`.
 
    ```bash
-   cd /tmp/mystaging
+   cd ${BASE_DIR}/mystaging
    docker buildx build --platform linux/amd64 --build-arg AUXILIARY_IMAGE_PATH=/auxiliary --tag model-in-image:WLS-v1 .
    ```
 
@@ -461,17 +460,16 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 1. Push the auxiliary image to Azure Container Registry. 
 
    - Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
-   - Select the resource of type **Container Registry** from resource list.
-   - Hover the mouse over the **Login server** and select the copy icon to the right of the text. Set this as the value of the `ACR_LOGIN_SERVER` environment variable.
+   - Select the resource of type **Container registry** from resource list.
+   - Hover the mouse over the value next to **Login server** and select the copy icon to the right of the text. Set this as the value of the `ACR_LOGIN_SERVER` environment variable.
    
       ```bash
       export ACR_LOGIN_SERVER=<value-from-clipboard>
       ```
 
-   - Run the following command to tag and push the image. Make sure Docker is running before executing these commands.
+   - Run the following commands to tag and push the image. Make sure Docker is running before executing these commands.
 
       ```bash
-      # replace the Azure Container Registry name with yours.
       export ACR_NAME=$(echo ${ACR_LOGIN_SERVER} | cut -d '.' -f 1)
       az acr login -n $ACR_NAME
       docker tag model-in-image:WLS-v1 $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
@@ -505,7 +503,7 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 
 ### Apply the auxiliary image
 
-Now you have the auxiliary image including models and WDT. Before you apply the auxiliary image to the WLS cluster, you have to create the secret for datasource Url, username and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
+In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WLS cluster, create the secret for datasource Url, username and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
 
 1. Connect to the AKS cluster.
 
@@ -544,7 +542,7 @@ Now you have the auxiliary image including models and WDT. Before you apply the 
    
    1. The `DB_CONNECTION_STRING` value is the portion of the string from `jdbc:` up to but not including `;user=azureuser`.
    
-   1. The `DB_USER` value is the portion of the string from `user=azureuser` up to but not including `;password={your_password_here}`.
+   1. The `DB_USER` value is the portion of the string from `azureuser` up to but not including `;password={your_password_here}`.
    
    1. The `DB_PASSWORD` value is the value you entered when you created the database.
 
@@ -627,7 +625,13 @@ Now you have the auxiliary image including models and WDT. Before you apply the 
    kubectl get pod -n ${WLS_DOMAIN_NS} -w
    ```
    
-   Wait until the admin server and managed servers show the following values before proceeding. It may take a five - ten minutes for the system to reach this state.
+   Wait until the admin server and managed servers show the following values before proceeding. It may take a five - ten minutes for the system to reach this state. Here is a high level overview of what is happening while you wait.
+   
+   - You'll see the `sample-domain1-introspector-zbtbz` running first. This software looks for changes to the domain custom resource so it can take the necessary actions on the Kubernetes cluster.
+   - When changes are detected, the domain introspector kills and starts new pods to roll out the changes.
+   - Next, you'll see the `sample-domain1-admin-server` pod terminate and restart.
+   - Then, you'll see the two managed servers terminate and restart.
+   - Only when all three pods show the `1/1 Running` state, is it ok to proceed.
    
    ```bash
    NAME                             READY   STATUS    RESTARTS   AGE
@@ -640,12 +644,26 @@ Now you have the auxiliary image including models and WDT. Before you apply the 
 
 The following steps show you how to verify the functionality of the deployment by viewing the WLS admin console and the sample app.
 
-1. Paste the value for **adminConsoleExternalUrl** in an Internet-connected web browser. You should see the familiar WLS admin console login screen as shown in the following screenshot.
+1. Paste the value for **adminConsoleExternalUrl** in an Internet-connected web browser. You should see the familiar WLS admin console login screen.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/wls-admin-login.png" alt-text="Screenshot of WLS admin login screen." border="false":::
+1. Sign in with the username `weblogic` and the password you entered when deploying WLS from the portal. Recall this was `wlsAksCluster2022`.
+
+1. In the **Domain Structure** box, select **Deployments**.
+
+1. In the **Deployments** table, there should be one row. The name should be the same value as the `Application` in your `appmodel.yaml` file. Select the name.
+
+1. In the **Settings** panel, select the **Testing** tab.
+
+1. Select **weblogic-cafe**.
+
+1. In the **Settings for weblogic-cafe** panel, select the **Testing** tab.
+
+1. Expand the `+` icon next to **weblogic-cafe**.  You should see values similar to these.
+
+   :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-deployment.png" alt-text="Screenshot of WLS admin login screen." border="false":::
 
    > [!NOTE]
-   > This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
+   > The hyperlinks in the **Test Point** column are not selectable because we did notconfigure the admin console with the external URL on which it is running. This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
 
 1. Understand the `context-path` of the sample app you deployed. If you deployed the recommended sample app, the `context-path` is `weblogic-cafe`.
 1. Construct a fully qualified URL for the sample app by appending the `context-path` to the value of **clusterExternalUrl**. If you deployed the recommended sample app, the fully qualified URL will be something like `http://wlsgw202401-wls-aks-domain1.eastus.cloudapp.azure.com/weblogic-cafe/`.
@@ -659,6 +677,7 @@ To avoid Azure charges, you should clean up unnecessary resources. When you no l
 
 ```azurecli
 az group delete --name <resource-group-name> --yes --no-wait
+az group delete --name <db-resource-group-name> --yes --no-wait
 ```
 
 ## Next steps
