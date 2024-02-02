@@ -66,7 +66,7 @@ Insights provide a specialized monitoring experience for a particular service. T
 
 There's no cost for insights, but you might be charged for any data they collect.
 
-See [What is monitored by Azure Monitor?](monitor-reference.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information.
+See [Azure Monitor Insights overview](insights/insights-overview.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information.
 
 > [!IMPORTANT]
 > The following insights are much more complex than others and have more guidance for their configuration:
