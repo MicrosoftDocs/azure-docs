@@ -51,8 +51,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 2. In Deployment Type, select **ORACLE** then **Next**. 
 
-    [ ![Screenshot that shows the Create Volume Group window for Oracle.](./media/azure-netapp-files/volume-hard-quota-guidelines.png) ](./media/volume-hard-quota-guidelines/application-volume-group-oracle-create-group.png#lightbox)
-
 3. In the **ORACLE** tab, provide Oracle-specific information:   
 
     * **Unique System ID (SID)**:    

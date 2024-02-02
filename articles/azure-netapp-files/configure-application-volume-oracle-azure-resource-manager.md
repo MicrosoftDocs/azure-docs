@@ -33,20 +33,20 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 
 1.	Log in to the [Azure portal](https://portal.azure.com/).
 
-    [ ![Screenshot that shows the Resources list of Azure services.](./media/volume-hard-quota-guidelines./oracle-resources.png) ](./media/volume-hard-quota-guidelines./oracle-resources.png#lightbox) 
+    [ ![Screenshot that shows the Resources list of Azure services.](./media/volume-hard-quota-guidelines/oracle-resources.png) ](./media/volume-hard-quota-guidelines/oracle-resources.png#lightbox) 
 
 2.	Search for service **Deploy a custom template**.
 
-    [ ![Screenshot that shows the search box for deploying a custom template.](./media/volume-hard-quota-guidelines./resources-search-template.png) ](./media/volume-hard-quota-guidelines./resources-search-template.png#lightbox) 
+    [ ![Screenshot that shows the search box for deploying a custom template.](./media/volume-hard-quota-guidelines/resources-search-template.png) ](./media/volume-hard-quota-guidelines/resources-search-template.png#lightbox) 
 
     
 3.	Type `oracle` in the **Quickstart template** the search dropdown.
 
-    [ ![Screenshot that shows the Template Source search box.](./media/volume-hard-quota-guidelines./template-search.png) ](./media/volume-hard-quota-guidelines./template-search.png#lightbox) 
+    [ ![Screenshot that shows the Template Source search box.](./media/volume-hard-quota-guidelines/template-search.png) ](./media/volume-hard-quota-guidelines/template-search.png#lightbox) 
  
 
 4.	Select template `quickstart/microsoft.netapp/anf-oracle/anf-oracle-storage` from the dropdown menu. 
-    [ ![Screenshot that shows the quick template field of the custom deployment page.](./media/volume-hard-quota-guidelines./quick-template-deployment.png) ](./media/volume-hard-quota-guidelines./quick-template-deployment.png#lightbox) 
+    [ ![Screenshot that shows the quick template field of the custom deployment page.](./media/volume-hard-quota-guidelines/quick-template-deployment.png) ](./media/volume-hard-quota-guidelines/quick-template-deployment.png#lightbox) 
  
 5. Choose **Select template** to deploy. 
 
@@ -63,31 +63,31 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
     > [!NOTE]
     > All volumes can be adapted in size and throughput to meet the database requirements after deployment.
 
-    [ ![Screenshot that shows the required fields on the custom deployment page.](./media/volume-hard-quota-guidelines./custom-deploy-oracle-required.png) ](./media/volume-hard-quota-guidelines./custom-deploy-oracle-required.png#lightbox)   
+    [ ![Screenshot that shows the required fields on the custom deployment page.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-required.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-required.png#lightbox)   
 
 8.	Click **Review + Create** to continue.
 
-    [ ![Screenshot that shows the completed fields on the custom deployment page.](./media/volume-hard-quota-guidelines./custom-deploy-oracle-completed.png) ](./media/volume-hard-quota-guidelines./custom-deploy-oracle-completed.png#lightbox)    
+    [ ![Screenshot that shows the completed fields on the custom deployment page.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-completed.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-completed.png#lightbox)    
 
 9.	The **Create** button is enabled if there are no validation errors. Click **Create** to continue. 
 
-    [ ![Screenshot that shows the Create button on the custom deployment page.](./media/volume-hard-quota-guidelines./custom-deploy-oracle-create.png) ](./media/volume-hard-quota-guidelines./custom-deploy-oracle-create.png#lightbox) 
+    [ ![Screenshot that shows the Create button on the custom deployment page.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-create.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-create.png#lightbox) 
 
 10.	The deployment is in progress:
 
-     [ ![Screenshot that shows the deployment is in progress.](./media/volume-hard-quota-guidelines./custom-deploy-oracle-deploy-progress.png) ](./media/volume-hard-quota-guidelines./custom-deploy-oracle-deploy-progress.png#lightbox)    
+     [ ![Screenshot that shows the deployment is in progress.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-deploy-progress.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-deploy-progress.png#lightbox)    
 
 11.	The deployment is complete:
           
-     [ ![Screenshot that shows the deployment is complete.](./media/volume-hard-quota-guidelines./custom-deploy-oracle-deploy-complete.png) ](./media/volume-hard-quota-guidelines./custom-deploy-oracle-deploy-complete.png#lightbox)    
+     [ ![Screenshot that shows the deployment is complete.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-deploy-complete.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-deploy-complete.png#lightbox)    
 
 12.	You can display a summary for the volume group.
 
-     [ ![Screenshot that shows the group volume summary.](./media/volume-hard-quota-guidelines./custom-deploy-oracle-group-volume-summary.png) ](./media/volume-hard-quota-guidelines./custom-deploy-oracle-group-volume-summary.png#lightbox)  
+     [ ![Screenshot that shows the group volume summary.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-group-volume-summary.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-group-volume-summary.png#lightbox)  
  
 13.	You can display the volumes in the volume group under the NetApp account.
 
-     [ ![Screenshot that shows the volume list in the volume group.](./media/volume-hard-quota-guidelines./custom-deploy-oracle-volume-list.png) ](./media/volume-hard-quota-guidelines./custom-deploy-oracle-volume-list.png#lightbox)  
+     [ ![Screenshot that shows the volume list in the volume group.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-volume-list.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-volume-list.png#lightbox)  
 
 ## Next steps
 
