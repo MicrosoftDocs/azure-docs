@@ -11803,6 +11803,13 @@
             "source_path_from_root": "/articles/azure-health-insights/response-info.md",
             "redirect_url": "/azure/azure-health-insights/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
+            "redirect_url": "/azure/reliability/reliability-traffic-manager.md",
+            "redirect_document_id": false
         }
+
+        
     ]
 }

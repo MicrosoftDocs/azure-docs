@@ -22,7 +22,7 @@ This article contains detailed information on [cross-region disaster recovery an
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
 
-The Azure DNS failover solution for disaster recovery uses the standard DNS mechanism to fail over to the backup site. The manual option via Azure DNS works best when used in conjunction with the cold standby or the pilot light approach.
+The Azure DNS failover solution for disaster recovery uses the standard DNS mechanism to fail over to the backup site. The manual option via Azure DNS works best when used in conjunction with the [cold standby or the pilot light approach](/azure/well-architected/reliability/highly-available-multi-region-design#active-passive).
 
 Since the DNS server is outside the failover or disaster zone, it's insulated against any downtime. You can architect a simple failover scenario as long as the operator has network connectivity during disaster and can make the flip. If the solution is scripted, then you must ensure that the server or service running the script is also insulated against the problem affecting the production environment. Also, a low TTL for the zone prevents resolver caching over long periods of time, allowing the customer to access the site within the RTO. For a cold standby and pilot light, since some prewarming and other administrative activity may be required, you should also give enough time before making the flip.
 
