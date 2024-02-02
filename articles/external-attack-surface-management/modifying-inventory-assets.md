@@ -1,4 +1,4 @@
- ---
+---
 title: Modify inventory assets 
 description: This article outlines how to update assets with customized text labels to categorize and make use of inventory data.
 ms.author: dandennis
