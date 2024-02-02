@@ -4,7 +4,7 @@ description: Describes how to deliver events to HTTPS endpoints protected by Mic
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: sample
-ms.date: 10/14/2021
+ms.date: 02/02/2024
 ---
 
 # Secure WebHook delivery with Microsoft Entra Application in Azure Event Grid
@@ -54,18 +54,18 @@ try {
     $eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7" # Azure Public Cloud
     # $eventGridAppId = "54316b56-3481-47f9-8f30-0300f5542a7b" # Azure Government Cloud
     $eventGridRoleName = "AzureEventGridSecureWebhookSubscriber" # You don't need to modify this role name
-    $eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
+    $eventGridSP = Get-MgServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
     if ($eventGridSP -match "Microsoft.EventGrid")
     {
         Write-Host "The Azure AD Application is already defined.`n"
     } else {
         Write-Host "Creating the Azure Event Grid Azure AD Application"
-        $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
+        $eventGridSP = New-MgServicePrincipal -AppId $eventGridAppId
     }
 
     # Creates the Azure app role for the webhook Azure AD application
 
-    $app = Get-AzureADApplication -ObjectId $webhookAppObjectId
+    $app = Get-MgApplication -ObjectId $webhookAppObjectId
     $appRoles = $app.AppRoles
 
     Write-Host "Azure AD App roles before addition of the new role..."
@@ -78,7 +78,7 @@ try {
         Write-Host "Creating the Azure Event Grid role in Azure AD Application: " $webhookAppObjectId
         $newRole = CreateAppRole -Name $eventGridRoleName -Description "Azure Event Grid Role"
         $appRoles.Add($newRole)
-        Set-AzureADApplication -ObjectId $app.ObjectId -AppRoles $appRoles
+        Update-MgApplication -ObjectId $app.ObjectId -AppRoles $appRoles
     }
 
     Write-Host "Azure AD App roles after addition of the new role..."
@@ -86,20 +86,20 @@ try {
 
     # Creates the user role assignment for the app that will create event subscription
 
-    $servicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $app.AppId + "'")
-    $eventSubscriptionWriterSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventSubscriptionWriterAppId + "'")
+    $servicePrincipal = Get-MgServicePrincipal -Filter ("appId eq '" + $app.AppId + "'")
+    $eventSubscriptionWriterSP = Get-MgServicePrincipal -Filter ("appId eq '" + $eventSubscriptionWriterAppId + "'")
 
     if ($null -eq $eventSubscriptionWriterSP)
     {
         Write-Host "Create new Azure AD Application"
-        $eventSubscriptionWriterSP = New-AzureADServicePrincipal -AppId $eventSubscriptionWriterAppId
+        $eventSubscriptionWriterSP = New-MgServicePrincipal -AppId $eventSubscriptionWriterAppId
     }
 
     try
     {
         Write-Host "Creating the Azure AD Application role assignment: " $eventSubscriptionWriterAppId
         $eventGridAppRole = $app.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-        New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterSP.ObjectId -PrincipalId $eventSubscriptionWriterSP.ObjectId
+        New-MgServicePrincipalAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterSP.ObjectId -PrincipalId $eventSubscriptionWriterSP.ObjectId
     }
     catch
     {
@@ -117,7 +117,7 @@ try {
     # Creates the service app role assignment for Event Grid Azure AD Application
 
     $eventGridAppRole = $app.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-    New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
+    New-MgServicePrincipalAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
     
     # Print output references for backup
 

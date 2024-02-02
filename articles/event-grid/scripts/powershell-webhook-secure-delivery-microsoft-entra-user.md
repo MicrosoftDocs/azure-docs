@@ -53,18 +53,18 @@ try {
     $eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7" # Azure Public Cloud
     # $eventGridAppId = "54316b56-3481-47f9-8f30-0300f5542a7b" # Azure Government Cloud
     $eventGridRoleName = "AzureEventGridSecureWebhookSubscriber" # You don't need to modify this role name
-    $eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
+    $eventGridSP = Get-MgServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
     if ($eventGridSP -match "Microsoft.EventGrid")
     {
         Write-Host "The Azure AD Application is already defined.`n"
     } else {
         Write-Host "Creating the Azure Event Grid Azure AD Application"
-        $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
+        $eventGridSP = New-MgServicePrincipal -AppId $eventGridAppId
     }
 
     # Creates the Azure app role for the webhook Azure AD application
 
-    $app = Get-AzureADApplication -ObjectId $webhookAppObjectId
+    $app = Get-MgApplication -ObjectId $webhookAppObjectId
     $appRoles = $app.AppRoles
 
     Write-Host "Azure AD App roles before addition of the new role..."
@@ -77,7 +77,7 @@ try {
         Write-Host "Creating the Azure Event Grid role in Azure AD Application: " $webhookAppObjectId
         $newRole = CreateAppRole -Name $eventGridRoleName -Description "Azure Event Grid Role"
         $appRoles.Add($newRole)
-        Set-AzureADApplication -ObjectId $app.ObjectId -AppRoles $appRoles
+        Update-MgApplication -ObjectId $app.ObjectId -AppRoles $appRoles
     }
 
     Write-Host "Azure AD App roles after addition of the new role..."
@@ -85,14 +85,14 @@ try {
 
     # Creates the user role assignment for the user who will create event subscription
 
-    $servicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $app.AppId + "'")
+    $servicePrincipal = Get-MgServicePrincipal -Filter ("appId eq '" + $app.AppId + "'")
 
     try
     {
         Write-Host "Creating the Azure Ad App Role assignment for user: " $eventSubscriptionWriterUserPrincipalName
-        $eventSubscriptionWriterUser = Get-AzureAdUser -ObjectId $eventSubscriptionWriterUserPrincipalName
+        $eventSubscriptionWriterUser = Get-MgUser -ObjectId $eventSubscriptionWriterUserPrincipalName
         $eventGridAppRole = $app.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-        New-AzureADUserAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterUser.ObjectId -PrincipalId $eventSubscriptionWriterUser.ObjectId        
+        New-MgUserAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterUser.ObjectId -PrincipalId $eventSubscriptionWriterUser.ObjectId        
     }
     catch
     {
@@ -110,7 +110,7 @@ try {
     # Creates the service app role assignment for Event Grid Azure AD Application
 
     $eventGridAppRole = $app.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-    New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
+    New-MgServicePrincipalAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
     
     # Print output references for backup
 

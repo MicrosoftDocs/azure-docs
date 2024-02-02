@@ -3,7 +3,7 @@ title: Secure WebHook delivery with Microsoft Entra ID in Azure Event Grid
 description: Describes how to deliver events to HTTPS endpoints protected by Microsoft Entra ID using Azure Event Grid
 ms.topic: how-to
 ms.custom: has-azure-ad-ps-ref
-ms.date: 10/12/2022
+ms.date: 02/02/2024
 ---
 
 # Deliver events to Microsoft Entra protected endpoints
@@ -50,8 +50,8 @@ This section shows how to configure the event subscription by using a Microsoft 
         - **$webhookAadTenantId**: Azure tenant ID
 
     ```Shell
-    PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
-    PS /home/user>Connect-MgGraph -TenantId $webhookAadTenantId
+    $webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
+    Connect-MgGraph -TenantId $webhookAadTenantId
     ```
 
 4. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-user.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterUserPrincipalName** with your identifiers, then continue to run the script.
@@ -106,8 +106,8 @@ This section shows how to configure the event subscription by using a Microsoft 
         - **$webhookAadTenantId**: Azure tenant ID
 
     ```Shell
-    PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
-    PS /home/user>Connect-MgGraph -TenantId $webhookAadTenantId
+    $webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
+    Connect-MgGraph -TenantId $webhookAadTenantId
     ```
 
 7. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
@@ -122,13 +122,13 @@ This section shows how to configure the event subscription by using a Microsoft 
 8. Sign-in as the Event Grid subscription writer Microsoft Entra Application by running the command.
 
     ```azurecli
-    PS /home/user>az login --service-principal -u [REPLACE_WITH_EVENT_GRID_SUBSCRIPTION_WRITER_APP_ID] -p [REPLACE_WITH_EVENT_GRID_SUBSCRIPTION_WRITER_APP_SECRET_VALUE] --tenant [REPLACE_WITH_TENANT_ID]
+    az login --service-principal -u [REPLACE_WITH_EVENT_GRID_SUBSCRIPTION_WRITER_APP_ID] -p [REPLACE_WITH_EVENT_GRID_SUBSCRIPTION_WRITER_APP_SECRET_VALUE] --tenant [REPLACE_WITH_TENANT_ID]
     ```
 
 9. Create your subscription by running the command.
 
     ```azurecli
-    PS /home/user>az eventgrid system-topic event-subscription create --name [REPLACE_WITH_SUBSCRIPTION_NAME] -g [REPLACE_WITH_RESOURCE_GROUP] --system-topic-name [REPLACE_WITH_SYSTEM_TOPIC] --endpoint [REPLACE_WITH_WEBHOOK_ENDPOINT] --event-delivery-schema [REPLACE_WITH_WEBHOOK_EVENT_SCHEMA] --azure-active-directory-tenant-id [REPLACE_WITH_TENANT_ID] --azure-active-directory-application-id-or-uri [REPLACE_WITH_APPLICATION_ID_FROM_SCRIPT] --endpoint-type webhook
+    az eventgrid system-topic event-subscription create --name [REPLACE_WITH_SUBSCRIPTION_NAME] -g [REPLACE_WITH_RESOURCE_GROUP] --system-topic-name [REPLACE_WITH_SYSTEM_TOPIC] --endpoint [REPLACE_WITH_WEBHOOK_ENDPOINT] --event-delivery-schema [REPLACE_WITH_WEBHOOK_EVENT_SCHEMA] --azure-active-directory-tenant-id [REPLACE_WITH_TENANT_ID] --azure-active-directory-application-id-or-uri [REPLACE_WITH_APPLICATION_ID_FROM_SCRIPT] --endpoint-type webhook
     ```
 
     > [!NOTE]
@@ -170,8 +170,8 @@ Do the following steps in **Tenant B**:
         - **$webhookAadTenantId**: Azure Tenant ID for the **Tenant B**
 
         ```Shell
-        PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
-        PS /home/user>Connect-MgGraph -TenantId $webhookAadTenantId
+        $webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
+        Connect-MgGraph -TenantId $webhookAadTenantId
         ```
 7. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md), and update values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
 
@@ -197,12 +197,12 @@ Back in **Tenant A**, do the following steps:
 1. Open the [Azure Shell](https://portal.azure.com/#cloudshell/), and sign in as the Event Grid subscription writer Microsoft Entra Application by running the command.
 
     ```azurecli
-    PS /home/user>az login --service-principal -u [REPLACE_WITH_APP_ID] -p [REPLACE_WITH_SECRET_VALUE] --tenant [REPLACE_WITH_TENANT_ID]
+    az login --service-principal -u [REPLACE_WITH_APP_ID] -p [REPLACE_WITH_SECRET_VALUE] --tenant [REPLACE_WITH_TENANT_ID]
     ```
 2. Create your subscription by running the command.
 
     ```azurecli
-    PS /home/user>az eventgrid system-topic event-subscription create --name [REPLACE_WITH_SUBSCRIPTION_NAME] -g [REPLACE_WITH_RESOURCE_GROUP] --system-topic-name [REPLACE_WITH_SYSTEM_TOPIC] --endpoint [REPLACE_WITH_WEBHOOK_ENDPOINT] --event-delivery-schema [REPLACE_WITH_WEBHOOK_EVENT_SCHEMA] --azure-active-directory-tenant-id [REPLACE_WITH_TENANT_B_ID] --azure-active-directory-application-id-or-uri [REPLACE_WITH_APPLICATION_ID_FROM_SCRIPT] --endpoint-type webhook
+    az eventgrid system-topic event-subscription create --name [REPLACE_WITH_SUBSCRIPTION_NAME] -g [REPLACE_WITH_RESOURCE_GROUP] --system-topic-name [REPLACE_WITH_SYSTEM_TOPIC] --endpoint [REPLACE_WITH_WEBHOOK_ENDPOINT] --event-delivery-schema [REPLACE_WITH_WEBHOOK_EVENT_SCHEMA] --azure-active-directory-tenant-id [REPLACE_WITH_TENANT_B_ID] --azure-active-directory-application-id-or-uri [REPLACE_WITH_APPLICATION_ID_FROM_SCRIPT] --endpoint-type webhook
     ```
 
     > [!NOTE]
