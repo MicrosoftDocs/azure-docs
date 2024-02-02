@@ -1,11 +1,11 @@
 ---
-title: Executing the import by invoking $import operation on FHIR service in Azure Health Data Services
-description: This article describes how to import FHIR data using $import.
+title: Import data to the FHIR service in Azure Health Data Services
+description: Learn how to import data in the FHIR service for Azure Health Data Services.
 author: expekesheth  
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/01/2024
+ms.date: 02/02/2024
 ms.author: kesheth
 ---
 
@@ -254,7 +254,7 @@ Here are the error messages that occur if the `$import` operation fails, and rec
 
 **Solution:** Verify the link to the Azure storage is correct. Check the network and firewall settings to make sure that the FHIR server is able to access the storage. If your service is in a virtual network, ensure that the storage is in the same virtual network or in a virtual network peered with the FHIR service virtual network.
 
-### 403 Forbidden
+#### 403 Forbidden
 
 **Behavior:** The `$import` operation failed and `403 Forbidden` is returned. The response body contains this content:
 
@@ -276,7 +276,7 @@ Here are the error messages that occur if the `$import` operation fails, and rec
 
 **Solution:** Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md?tabs=current).
 
-### 500 Internal Server Error
+#### 500 Internal Server Error
 
 **Behavior:** The `$import` operation failed and `500 Internal Server Error` is returned. The response body contains this content:
 
