@@ -57,7 +57,7 @@ To use the ACL integration, your client application must assume the identity of 
 
     :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the enable Microsoft Entra authentication checked.":::
 
-1. A dialog box displays a popup asking if you want to update your configuration, and informing you that it takes several minutes. Select **Yes.**
+1. A popup dialog box displays asking if you want to update your configuration, and informing you that it takes several minutes. Select **Yes.**
 
    > [!IMPORTANT]
    > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.

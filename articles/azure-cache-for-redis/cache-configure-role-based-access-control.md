@@ -116,18 +116,16 @@ The following list contains some examples of permission strings for various scen
 
 1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
 
-1. From the Resource menu, select **Advanced settings**.
+1. From the Resource menu, select **Authentication** and select **(PREVIEW) Enable Microsoft Entra Authorization** as the tab in the working pane.
 
-1. If not checked already, Check the box labeled **(PREVIEW) Enable Microsoft Entra Authorization** and select **OK**. Then, select **Save**.
+1. If not checked already, check the box labeled **(PREVIEW) Enable Microsoft Entra Authorization** and select **OK**. Then, select **Save**.
 
-   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-azure-ad-access-authorization.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
 
-1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
+1. A popup dialog box displays asking if you want to update your configuration, and informing you that it takes several minutes. Select **Yes.**
 
    > [!IMPORTANT]
    > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
-
-<a name='configure-your-redis-client-to-use-azure-active-directory'></a>
 
 ## Configure your Redis client to use Microsoft Entra ID
 
