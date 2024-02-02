@@ -19,9 +19,9 @@ To unlock the full potential of GPT-4 Turbo with Vision, it's essential to tailo
 - **Task-oriented prompts:** Focusing on a specific task helps the model to develop the output while taking that perspective into consideration.  
 - **Handling refusals:** When the model indicates an inability to perform a task, refining the prompt can be an effective solution. More specific prompts can guide the model towards a clearer understanding and better execution of the task. Some tips to keep in mind: <br>
 
-  - Request explanations for generated responses to enhance transparency in the model's output <br>
-  - If using a single-image prompt, place the image before the text <br>
-  - Ask the model to describe the image in details first and complete your specific task from the description
+   - Request explanations for generated responses to enhance transparency in the model's output <br>
+   - If using a single-image prompt, place the image before the text <br>
+   - Ask the model to describe the image in details first and complete your specific task from the description
 
 - **Adding examples:** Add examples that represent the type of responses you're looking for
 - **Try prompt tuning:** Try prompt tuning techniques such as Chain of Thought, a technique where you describe a sequence of steps leading to an outcome, therefore communicating a sort of “chain of thought” or thought process for the model to replicate.
