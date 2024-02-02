@@ -24,7 +24,7 @@ In this example, we create a layer 2 isolation domain with the following propert
 **Command**:
 
 ```azurecli
-az networkfabric l2domain create \--resource-group rg1 \--name l2domain1 \--location eastus \--network-fabric-id nf1 \--vlan-id 600
+az networkfabric l2domain create --resource-group rg1 --name l2domain1 --location eastus --network-fabric-id nf1 --vlan-id 600
 ```
 
 **Expected output:**
@@ -45,7 +45,7 @@ az networkfabric l2domain create \--resource-group rg1 \--name l2domain1 \--loca
 "lastModifiedBy": "email@address.com",
 "lastModifiedByType": "User"
 },
-"type": "microsoft.managednetworkfabric/l2isolationdomains",\[\^2\^\]\[2\]
+"type": "microsoft.managednetworkfabric/l2isolationdomains",[^2^][2]
 "vlanId": 600
 }
 ```
@@ -93,7 +93,7 @@ In this example, we create an L3 isolation domain with the following properties:
 **Command:**
 
 ```azurecli
-az networkfabric l3domain create \--resource-group "ResourceGroupName" \--resource-name "example-l3domain" \--location "eastus" \--nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"\[\^
+az networkfabric l3domain create --resource-group "ResourceGroupName" --resource-name "example-l3domain" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"[^
 ```
 
 ## Create an Internal Network
@@ -107,38 +107,38 @@ In this example, we create an internal network with the following properties:
 **Command:**
 
 ```azurecli
-az networkfabric internalnetwork create \\
-\--resource-group "ResourceGroupName" \\
-\--l3-isolation-domain-name "example-l3domain" \\
-\--resource-name "example-internalnetwork" \\
-\--vlan-id 1001 \\
-\--connected-ipv4-subnets \'\[{"prefix":"10.0.0.0/24"}\]\' \\
-\--mtu 1500
+az networkfabric internalnetwork create \
+--resource-group "ResourceGroupName" \
+--l3-isolation-domain-name "example-l3domain" \
+--resource-name "example-internalnetwork" \
+--vlan-id 1001 \
+--connected-ipv4-subnets \'\[{"prefix":"10.0.0.0/24"}\]\' \
+--mtu 1500
 ```
 
 This similar example uses an IPv6 address instead of IPv4:
 
 ```azurecli
-az networkfabric internalnetwork create \\
-\--resource-group "ResourceGroupName" \\
-\--l3-isolation-domain-name "example-l3domain" \\
-\--resource-name "example-internalnetwork" \\
-\--vlan-id 1002 \\
-\--connected-ipv6-subnets \'\[{"prefix":"10:101:1::0/64"}\]\' \\
-\--mtu 1500
+az networkfabric internalnetwork create \
+--resource-group "ResourceGroupName" \
+--l3-isolation-domain-name "example-l3domain" \
+--resource-name "example-internalnetwork" \
+--vlan-id 1002 \
+--connected-ipv6-subnets \'\[{"prefix":"10:101:1::0/64"}\]\' \
+--mtu 1500
 ```
 
 In this example, we add BGP configuration:
 
 ```azurecli
-az networkfabric internalnetwork create \\
-\--resource-group "ResourceGroupName" \\
-\--l3-isolation-domain-name "example-l3domain" \\
-\--resource-name "example-internalnetwork" \\
-\--vlan-id 1003 \\
-\--connected-ipv4-subnets \'\[{"prefix":"10.1.2.0/24"}\]\' \\
-\--mtu 1500 \\
-\--bgp-configuration \'{"defaultRouteOriginate": "True", "allowAS": 2, "allowASOverride": "Enable", "PeerASN": 65535, "ipv4ListenRangePrefixes": \["10.1.2.0/28"\]}\'
+az networkfabric internalnetwork create \
+--resource-group "ResourceGroupName" \
+--l3-isolation-domain-name "example-l3domain" \
+--resource-name "example-internalnetwork" \
+--vlan-id 1003 \
+--connected-ipv4-subnets \'\[{"prefix":"10.1.2.0/24"}\]\' \
+--mtu 1500 \
+--bgp-configuration \'{"defaultRouteOriginate": "True", "allowAS": 2, "allowASOverride": "Enable", "PeerASN": 65535, "ipv4ListenRangePrefixes": \["10.1.2.0/28"\]}\'
 ```
 
 ## Creating External Networks
@@ -148,7 +148,7 @@ This example creates an external network using Option B with IPv4 and IPv6 route
 **Command:**
 
 ```azurecli
-az networkfabric externalnetwork create \--resource-group "ResourceGroupName" \--l3domain "example-l3domain" \--resource-name "example-externalnetwork" \--peering-option "OptionB" \--option-b-properties "{routeTargets:{exportIpv4RouteTargets:\[\'65045:2001\'\],importIpv4RouteTargets:\[\'65045:2001\'\],exportIpv6RouteTargets:\[\'65045:2002\'\],importIpv6RouteTargets:\[\'65045:2002\'\]}}"
+az networkfabric externalnetwork create --resource-group "ResourceGroupName" --l3domain "example-l3domain" --resource-name "example-externalnetwork" --peering-option "OptionB" --option-b-properties "{routeTargets:{exportIpv4RouteTargets:['65045:2001'],importIpv4RouteTargets:['65045:2001'],exportIpv6RouteTargets:['65045:2002'],importIpv6RouteTargets:['65045:2002']}}"
 ```
 
 **Expected output:**
@@ -159,27 +159,27 @@ az networkfabric externalnetwork create \--resource-group "ResourceGroupName" \-
 "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain/externalNetworks/example-externalnetwork",
 "name": "example-externalnetwork",
 "optionBProperties": {
-"exportRouteTargets": \[
+"exportRouteTargets": [
 "65045:2001",
 "65045:2002"
-\],
-"importRouteTargets": \[
+],
+"importRouteTargets": [
 "65045:2001",
 "65045:2002"
-\],
+],
 "routeTargets": {
-"exportIpv4RouteTargets": \[
+"exportIpv4RouteTargets": [
 "65045:2001"
-\],
-"importIpv4RouteTargets": \[
+],
+"importIpv4RouteTargets": [
 "65045:2001"
-\],
-"exportIpv6RouteTargets": \[
+],
+"exportIpv6RouteTargets": [
 "65045:2002"
-\],
-"importIpv6RouteTargets": \[
+\,
+"importIpv6RouteTargets": [
 "65045:2002"
-\]
+]
 }
 },
 "peeringOption": "OptionB",
@@ -200,7 +200,7 @@ az networkfabric externalnetwork create \--resource-group "ResourceGroupName" \-
 This example creates an external network using Option A with IPv4 and IPv6 prefixes:
 
 ```azurecli
-az networkfabric externalnetwork create \--resource-group "ResourceGroupName" \--l3domain "example-l3domain" \--resource-name "example-externalnetwork" \--peering-option "OptionA" \--option-a-properties \'{"peerASN": 65026,"vlanId": 2423, "mtu": 1500, "primaryIpv4Prefix": "10.18.0.148/30", "secondaryIpv4Prefix": "10.18.0.152/30", "primaryIpv6Prefix": "fda0:d59c:da16::/127", "secondaryIpv6Prefix": "fda0:d59c:da17::/127"}\'
+az networkfabric externalnetwork create --resource-group "ResourceGroupName" --l3domain "example-l3domain" --resource-name "example-externalnetwork" --peering-option "OptionA" --option-a-properties '{"peerASN": 65026,"vlanId": 2423, "mtu": 1500, "primaryIpv4Prefix": "10.18.0.148/30", "secondaryIpv4Prefix": "10.18.0.152/30", "primaryIpv6Prefix": "fda0:d59c:da16::/127", "secondaryIpv6Prefix": "fda0:d59c:da17::/127"}'
 ```
 
 **Expected output:**
