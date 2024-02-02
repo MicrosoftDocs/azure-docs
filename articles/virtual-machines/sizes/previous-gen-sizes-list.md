@@ -26,12 +26,12 @@ To learn more about previous-gen sizes, retirement, and the status states of pre
 
 |Series name                 | Status                 | Migration guide   |
 |----------------------------|------------------------|-------------------|
-| Basic A-series             | [Capacity limited](./retirement-overview#capacity-limited) |
-| Standard A-series          | [Capacity limited](./retirement-overview#capacity-limited) |
-| Compute-intensive A-series | [Capacity limited](./retirement-overview#capacity-limited) |
-| Standard D-series          | [Capacity limited](./retirement-overview#capacity-limited) | 
-| Preview DC-series          | [Capacity limited](./retirement-overview#capacity-limited) |
-| DS-series                  | [Capacity limited](./retirement-overview#capacity-limited) |
+| Basic A-series             | [Capacity limited](./retirement-overview.md#capacity-limited) |
+| Standard A-series          | [Capacity limited](./retirement-overview.md#capacity-limited) |
+| Compute-intensive A-series | [Capacity limited](./retirement-overview.md#capacity-limited) |
+| Standard D-series          | [Capacity limited](./retirement-overview.md#capacity-limited) | 
+| Preview DC-series          | [Capacity limited](./retirement-overview.md#capacity-limited) |
+| DS-series                  | [Capacity limited](./retirement-overview.md#capacity-limited) |
 
 For a list of general purpose sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired general purpose sizes](./retired-sizes-list.md#general-purpose-retired-sizes).
 
@@ -39,8 +39,8 @@ For a list of general purpose sizes listed as "retired" and "announced for retir
 
 |Series name                | Status                  | Migration guide   |
 |---------------------------|-------------------------|-------------------|
-| F-series                  | [Next-gen available](./retirement-overview#next-gen-available) |                   |
-| Fs-series                 | [Next-gen available](./retirement-overview#next-gen-available) |                   |
+| F-series                  | [Next-gen available](./retirement-overview.md#next-gen-available) |                   |
+| Fs-series                 | [Next-gen available](./retirement-overview.md#next-gen-available) |                   |
 
 For a list of compute optimized sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired compute optimized sizes](./retired-sizes-list.md#compute-optimized-retired-sizes).
 
@@ -48,10 +48,10 @@ For a list of compute optimized sizes listed as "retired" and "announced for ret
 
 |Series name                | Replacement series      |Migration guide |
 |---------------------------|-------------------------|----------------|
-| GS-series                 | [Capacity limited](./retirement-overview#capacity-limited)  |                |
-| G-series                  | [Capacity limited](./retirement-overview#capacity-limited)  |                |
-| Memory-optimized D-series | [Capacity limited](./retirement-overview#capacity-limited)  |                |
-| Memory-optimized DS-series| [Capacity limited](./retirement-overview#capacity-limited)  |                |
+| GS-series                 | [Capacity limited](./retirement-overview.md#capacity-limited)  |                |
+| G-series                  | [Capacity limited](./retirement-overview.md#capacity-limited)  |                |
+| Memory-optimized D-series | [Capacity limited](./retirement-overview.md#capacity-limited)  |                |
+| Memory-optimized DS-series| [Capacity limited](./retirement-overview.md#capacity-limited)  |                |
 
 For a list of memory optimized sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired memory optimized sizes](./retired-sizes-list.md#memory-optimized-retired-sizes).
 
@@ -59,7 +59,7 @@ For a list of memory optimized sizes listed as "retired" and "announced for reti
 
 |Series name                | Replacement series   | Migration guide|
 |---------------------------|----------------------|----------------|
-| Ls-series                 | [Capacity limited](./retirement-overview#capacity-limited) |                |
+| Ls-series                 | [Capacity limited](./retirement-overview.md#capacity-limited) |                |
 
 For a list of storage optimized sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired storage optimized sizes](./retired-sizes-list.md#storage-optimized-retired-sizes).
 
@@ -67,7 +67,7 @@ For a list of storage optimized sizes listed as "retired" and "announced for ret
 
 |Series name                 | Status                 | Migration guide   |
 |----------------------------|------------------------|-------------------|
-| NVv2-series                | [Next-gen available](./retirement-overview#next-gen-available) |                   |
+| NVv2-series                | [Next-gen available](./retirement-overview.md#next-gen-available) |                   |
 
 For a list of GPU accelerated sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired GPU accelerated sizes](./retired-sizes-list.md#gpu-accelerated-retired-sizes).
 
