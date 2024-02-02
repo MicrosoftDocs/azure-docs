@@ -6,7 +6,7 @@ ms.date: 01/26/2024
 ms.author: pgrandhi
 ---
 
-## Register the Event Grid Resource Provider
+## Register the event grid resource provider
 
 This article describes how to register Event Grid Resource Provider. If you have used Event Grid before in the same subscription, skip to the next section.
 

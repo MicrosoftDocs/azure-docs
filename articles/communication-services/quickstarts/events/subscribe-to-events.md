@@ -14,24 +14,26 @@ zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
 ---
-# Quickstart: Subscribe to Azure Communication Services Events
+# Quickstart: Subscribe to Azure Communication Services events
 
-This article describes how to subscribe to Azure Communication Services events through the portal, Azure CLI, PowerShell and .NET SDK. Communication Services resources event subscritptions can be provisioned through the [Azure portal](https://portal.azure.com) or with the Azure [EventGrid Management SDK](https://www.nuget.org/packages/Azure.ResourceManager.EventGrid/). 
+In this quickstart, you'll learn how to subscribe to events from Azure Communication Services through the portal, Azure CLI, PowerShell and .NET SDK. 
 
-For this Quickstart, we will walk through the process of setting up webhook to subscribe to Azure Communication Services SMS events. For a full list of events, see this [page](/azure/event-grid/event-schema-communication-services). 
+You can set up event subscriptions for Communication Services resources through the [Azure portal](https://portal.azure.com) or Azure CLI, PowerShell or with the Azure [EventGrid Management SDK](https://www.nuget.org/packages/Azure.ResourceManager.EventGrid/). 
+
+For this Quickstart, we'll walk through the process of setting up webhook as a subscriber for SMS events from Azure Communication Services. For a full list of events, see this [page](/azure/event-grid/event-schema-communication-services). 
 
 ::: zone pivot="platform-azp"
-[!INCLUDE [Azure portal](./includes/create-eventsubscription-azp.md)]
+[!INCLUDE [Azure portal](./includes/create-event-subscription-azp.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/create-eventsubscription-az-cli.md)]
+[!INCLUDE [Azure CLI](./includes/create-event-subscription-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-net"
-[!INCLUDE [.NET](./includes/create-eventsubscription-net.md)]
+[!INCLUDE [.NET](./includes/create-event-subscription-net.md)]
 ::: zone-end
 
 ::: zone pivot="platform-powershell"
-[!INCLUDE [PowerShell](./includes/create-eventsubscription-powershell.md)]
+[!INCLUDE [PowerShell](./includes/create-event-subscription-powershell.md)]
 ::: zone-end

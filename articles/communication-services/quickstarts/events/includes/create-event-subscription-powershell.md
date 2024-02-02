@@ -17,7 +17,7 @@ ms.author: pgrandhi
 
 [!INCLUDE [register-provider-powershell.md](register-provider-powershell.md)]
 
-## Create Event Subscription
+## Create event subscription
 
 First, make sure to install the Azure Communication Services module ```Az.EventGrid``` using the following command.
 
@@ -51,7 +51,7 @@ New-AzEventGridSubscription
 
 For a list of Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md).
 
-## List Event Subscriptions
+## List event subscriptions
 
 To list all the existing event subscriptions set up for an Azure Communication Services resource, by using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`Get-AzEventGridSubscription`](/powershell/module/az.eventgrid/get-azeventgridsubscription) command. 
 
@@ -60,7 +60,7 @@ Get-AzEventGridSubscription
     -ResourceId "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>"
 ```
 
-## Update Event Subscription
+## Update event subscription
 
 To update an existing event subscription by using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`Update-AzEventGridSubscription `](/powershell/module/az.eventgrid/update-azeventgridsubscription) command. 
 
@@ -75,7 +75,7 @@ Update-AzEventGridSubscription
  
 ```
 
-## Delete Event Subscription
+## Delete event subscription
 
 To delete an existing event subscription by using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`Remove-AzEventGridSubscription`](/powershell/module/az.eventgrid/remove-azeventgridsubscription) command. 
 
@@ -86,4 +86,4 @@ Get-AzResource
 
 ## Next steps
 
-* For information on other commands, see [Az.EventGrid Powershell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).
+* For information on other commands, see [Az.EventGrid PowerShell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).

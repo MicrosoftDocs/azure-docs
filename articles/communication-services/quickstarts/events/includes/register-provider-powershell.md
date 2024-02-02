@@ -7,9 +7,9 @@ ms.date: 01/27/2024
 ms.author: pgrandhi
 ---
 
-## Register Event Grid resource provider
+## Register the event grid resource provider
 
-If you haven't previously used Event Grid in your Azure subscription, you may need to register the Event Grid resource provider. Run the following command:
+If you have not previously used Event Grid in your Azure subscription, you may need to register the Event Grid resource provider. Run the following command:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.EventGrid

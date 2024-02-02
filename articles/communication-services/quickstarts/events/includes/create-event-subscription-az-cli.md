@@ -17,7 +17,7 @@ ms.author: pgrandhi
 
 [!INCLUDE [register-provider-cli.md](register-provider-cli.md)]
 
-## Create Event Subscription
+## Create event subscription
 
 To create event subscriptions for Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials. Run the following command to create the event subscription for the resource:
 
@@ -34,7 +34,7 @@ az eventgrid event-subscription create
 
 For a list of Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md).
 
-## List Event Subscriptions
+## List event subscriptions
 
 To list all the existing event subscriptions set up for an Azure Communication Services resource, by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription list`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-list) command. 
 
@@ -47,7 +47,7 @@ az eventgrid event-subscription update
     --endpoint https://azureeventgridviewer.azurewebsites.net/api/updates
 ```
 
-## Update Event Subscription
+## Update event subscription
 
 To update an existing event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) command. 
 
@@ -56,7 +56,7 @@ az eventgrid event-subscription list
     --source-resource-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>    
 ```
 
-## Delete Event Subscription
+## Delete event subscription
 
 To delete an existing event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription delete`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-delete) command. 
 
