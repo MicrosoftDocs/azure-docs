@@ -1,5 +1,5 @@
 ---
-title: Retired Azure VM sizes 
+title: Retired Azure VM size series 
 description: A list containing all retired and soon to be retired VM size series and their replacement series.
 author: mattmcinnes
 ms.service: virtual-machines
@@ -49,8 +49,8 @@ Currently there are no retired storage optimized series retired or announced for
 |-------------------|-------------------|-----------------------------|-------------------------|-----------------|
 | NV-Series         | **Retired**       | -                           | 9/6/23                  | [NV-series Retirement](./migration-guides/nv-series-retirement.md)    |
 | NC-Series         | **Retired**       | -                           | 9/6/23                  | [NC-series Retirement](./migration-guides/nc-series-retirement.md)    |
-| NCv2-Series       | **Retired**       | -                           | 9/6/23                  | [NC-series Retirement](./migration-guides/ncv2-series-retirement.md)  |
-| ND-Series         | **Retired**       | -                           | 9/6/23                  | [NC-series Retirement](./migration-guides/nd-series-retirement.md)    |
+| NCv2-Series       | **Retired**       | -                           | 9/6/23                  | [NCv2-series Retirement](./migration-guides/ncv2-series-retirement.md)  |
+| ND-Series         | **Retired**       | -                           | 9/6/23                  | [ND-series Retirement](./migration-guides/nd-series-retirement.md)    |
 
 ## FPGA accelerated retired sizes
 

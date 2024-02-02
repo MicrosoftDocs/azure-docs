@@ -1,5 +1,5 @@
 ---
-title: Previous generation Azure VM sizes 
+title: Previous generation Azure VM size series
 description: A list containing all previous generation and capacity limited VM size series.
 author: mattmcinnes
 ms.service: virtual-machines
