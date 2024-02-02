@@ -7,14 +7,14 @@ ms.date: 02/10/2024
 ms.author: cephalin
 ---
 
-In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded server to [Azure App Service](/azure/app-service/). App Service provides a highly scalable, self-patching web app hosting service. Use the tabs to switch between Tomcat, JBoss, or embedded server (Java SE) instructions.
+In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded server to [Azure App Service](/azure/app-service/). App Service provides a highly scalable, self-patching web app hosting service. Use the tabs to switch between Tomcat, JBoss, or embedded server (Java SE) instructions.
 
 The quickstart deploys either a Spring Boot app, embedded Tomcat, or Quarkus app using the [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App) plugin.
 
 > [!NOTE]
 > App Service can host Spring apps. For Spring apps that require all the Spring services, try [Azure Spring Apps](../../../spring-apps/quickstart.md) instead.
 
-:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Maven Hellow World web app running in Azure App Service in introduction.":::
+:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Maven Hello World web app running in Azure App Service in introduction.":::
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)
@@ -63,7 +63,7 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 ### [Quarkus](#tab/quarkus)
 
-1. Generate a new Quarkus app named `quarkus-hello-azure` with the folowing Maven command:
+1. Generate a new Quarkus app named `quarkus-hello-azure` with the following Maven command:
 
     ```azurecli-interactive
     mvn io.quarkus.platform:quarkus-maven-plugin:3.2.2.Final:create \
@@ -116,7 +116,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
-After you've confirmed your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
+After you confirm your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
 
 The relevant portion of the `pom.xml` file should look similar to the following example.
 
@@ -239,7 +239,7 @@ Once deployment is completed, your application is ready at `http://<appName>.azu
 
 -----
 
-**Congratulations!** You've deployed your first Java app to App Service.
+**Congratulations!** You deployed your first Java app to App Service.
 
 ## 5 - Clean up resources
 
@@ -249,4 +249,4 @@ In the preceding steps, you created Azure resources in a resource group. If you 
 az group delete --name <your resource group name; for example: quarkus-hello-azure-1690375364238-rg> --yes
 ```
 
-This command may take a minute to run.
+This command might take a minute to run.
