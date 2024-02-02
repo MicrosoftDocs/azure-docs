@@ -17,7 +17,7 @@ To unlock the full potential of GPT-4 Turbo with Vision, it's essential to tailo
 ## Fundamentals of crafting your prompt
 - **Contextual specificity:** Adding context to the scenario at hand gives the model a better understanding of an appropriate output. This level of specificity aids in focusing on relevant aspects and avoiding extraneous details.
 - **Task-oriented prompts:** Focusing on a specific task helps the model to develop the output while taking that perspective into consideration.  
-- **Handling refusals:** When the model indicates an inability to perform a task, refining the prompt can be an effective solution. More specific prompts can guide the model towards a clearer understanding and better execution of the task. Some tips to keep in mind: <br>
+- **Handling refusals:** When the model indicates an inability to perform a task, refining the prompt can be an effective solution. More specific prompts can guide the model towards a clearer understanding and better execution of the task. Some tips to keep in mind: 
 
    - Request explanations for generated responses to enhance transparency in the model's output <br>
    - If using a single-image prompt, place the image before the text <br>
