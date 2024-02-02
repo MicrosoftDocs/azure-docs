@@ -40,7 +40,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
     ![SOAP to REST](./media/restify-soap-api/soap-to-rest.png)
 
-1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**.
+1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**. Operations are filled automatically with **Display name**, **URL**, and **Description**, and receive a system-generated **Name**.
 1. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. 
 
     For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.

@@ -40,7 +40,7 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 |Resource  |France Central   |Southeast Asia |Australia East |North Europe | West Europe | UK South | East US | East US 2 | South Central US| West US 2   | West US 3 | Sweden Central |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |5        |5        |5        |5        |5        |5        | 5 | 5|5|
-|Maximum total capacity units (TiB)     |100         |100         |600        |600|600|600|        |600        |600        |600        | 100 | 100 |
+|Maximum capacity units (TiB)     |100         |100         |600        |600|600|600|   600     |600        |600        |600        | 100 | 100 |
 |Maximum base capacity units (TiB)    |100         |100         |400        |400 | 400|400       |400        |400        |400        |400        | 100 |100 |
 |Minimum total SAN capacity (TiB)    |1         |1         |1        |1        |1        |1        |1        |1        | 1 | 1 | 1 |1|
 |Maximum total IOPS     |500,000         |500,000         |2,000,000        |2,000,000|2,000,000   |2,000,000        |2,000,000        |2,000,000        |2,000,000        |2,000,000        | 500,000 |500,000 |
@@ -54,7 +54,7 @@ ZRS is only available in France Central, North Europe, West Europe and West US 2
 |Resource  |France Central  |North Europe | West Europe |West US 2    |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5        |5        |5        |
-|Maximum total capacity units (TiB)     |200         |200        |200        |200        |
+|Maximum capacity units (TiB)     |200         |200        |200        |200        |
 |Maximum base capacity units (TiB)    |100         |100        |100        |100        |
 |Minimum total SAN capacity (TiB)    |1         |1        |1        |1        |
 |Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |
