@@ -32,15 +32,22 @@ Consider a scenario where the default configuration is defined as follows:
 
 ```json
 {
-  ...
-  "providers": {
-    "az": {
-      "builtIn": true
-    },
-    "kubernetes": {
-      "builtIn": true
+  "cloud": {
+    ...
+    "credentialPrecedence": [
+      "AzureCLI",
+      "AzurePowerShell"
+    ]
+  },
+  "moduleAliases": {
+    "ts": {},
+    "br": {
+      "public": {
+        "registry": "mcr.microsoft.com",
+        "modulePath": "bicep"
+      }
     }
-  }
+  },
   ...
 }
 ```
@@ -49,13 +56,23 @@ And the `bicepconfig.json` is defined as follows:
 
 ```json
 {
-  "providers": {
-    "az": {
-      "registry": "mcr.microsoft.com/bicep/providers/az",
-      "version": "2.3.4"
+  "cloud": {
+    "credentialPrecedence": [
+      "AzurePowerShell",
+      "AzureCLI"
+    ]
+  },
+  "moduleAliases": {
+    "br": {
+      "ContosoRegistry": {
+        "registry": "contosoregistry.azurecr.io"
+      },
+      "CoreModules": {
+        "registry": "contosoregistry.azurecr.io",
+        "modulePath": "bicep/modules/core"
+      }
     }
   },
-  "implicitProviders": ["az"]
 }
 ```
 
@@ -63,21 +80,34 @@ The resulting merged configuration would be:
 
 ```json
 {
-  "providers": {
-    "az": {
-      "registry": "mcr.microsoft.com/bicep/providers/az",
-      "version": "2.3.4",
-      "builtIn": true
-    },
-    "kubernetes": {
-      "builtIn": true
+  "cloud": {
+    ...
+    "credentialPrecedence": [
+      "AzurePowerShell",
+      "AzureCLI"
+    ]
+  },
+  "moduleAliases": {
+    "ts": {},
+    "br": {
+      "public": {
+        "registry": "mcr.microsoft.com",
+        "modulePath": "bicep"
+      },
+      "ContosoRegistry": {
+        "registry": "contosoregistry.azurecr.io"
+      },
+      "CoreModules": {
+        "registry": "contosoregistry.azurecr.io",
+        "modulePath": "bicep/modules/core"
+      }
     }
   },
-  "implicitProviders": ["az"]
+  ...
 }
 ```
 
-In the preceding example, the value of `providers.az` is merged and replaced, while the value of `providers.kubernetes` is appended in the merged configuration.
+In the preceding example, the value of `cloud.credentialPrecedence` is replaced, while the value of `cloud.moduleAliases.ContosoRegistry` and `cloud.moduleAliases.CoreModules` are appended in the merged configuration.
 
 ## Understand the file resolution process
 
