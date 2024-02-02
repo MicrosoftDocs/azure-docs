@@ -20,7 +20,7 @@ ms.author: eur
 
 ## Synthesize to a file
 
-At a command prompt, run the following cURL command. Optionally, you can rename *output.mp3* to another output filename.
+At a command prompt, run the following cURL command. Optionally, you can rename *output.mp3* to another output file name.
 
 # [Windows](#tab/windows)
 
@@ -66,7 +66,7 @@ curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.co
 * * *
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 The provided text should be output to an audio file named *output.mp3*.
 
