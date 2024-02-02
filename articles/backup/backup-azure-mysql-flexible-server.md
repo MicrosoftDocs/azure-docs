@@ -47,9 +47,9 @@ To create a backup policy, follow these steps:
 
    You can add one or more retention rules. To add more retention rules, select **Add**.
 
-6. You can move the backups from *backup data store* to *archive data store* once they expire as per the backup policy.
+6. You can move backups from *backup data store* to *archive data store* once they expire as per the backup policy.
 
-   To archive  the backups on expiry, select **On-expiry**.
+   To archive backups on expiry, select **On-expiry**.
 
       >[!Note]
    >- Retention duration ranges from *7 days* to *10 years* in the *Backup data store*.
@@ -102,7 +102,7 @@ To configure backup, follow these steps:
 
 To trigger an on-demand backup (that's not in the schedule specified in the policy), follow these steps:
 
-1. Go to *Backup vault* > **Backup Instances**, and then select the *backup instance* for which you want to take backup.
+1. Go to the *Backup vault* > **Backup Instances**, and then select the *backup instance* for which you want to take backup.
 
 2. Select **Backup Now**.
 
@@ -117,9 +117,9 @@ Azure Backup creates a job for scheduled backups or if you trigger on-demand bac
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server/track-backup-jobs.png" alt-text="Screenshot shows the list of backup jobs." lightbox="./media/backup-azure-mysql-flexible-server/track-backup-jobs.png":::
 
-It shows the jobs dashboard with the operations and status for the *past seven days*. You can select the time range and other filters to narrow down your selection.
+It shows the **Backup jobs** dashboard with the operations and status for the *past seven days*. You can select the time range and other filters to narrow down your selection.
  
-To view the status of all the backup jobs, select **All** as the **Status**. The ongoing and past jobs of this backup instance appear.
+To view the status of all backup jobs, select **All** as the **Status**. The ongoing and past jobs of the backup instance appear.
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server/review-track-backup-jobs.png" alt-text="Screenshot shows how to view all jobs." lightbox="./media/backup-azure-mysql-flexible-server/review-track-backup-jobs.png":::
 

@@ -23,7 +23,7 @@ You can recover this backup in your specified storage containers, which can be u
 
 To back up an Azure Database for MySQL - Flexible Server:
 
-1. Grant permissions to the backup vault MSI on the target ARM resource (MySQL-Flexible  server), establishing access and control.
+1. Grant permissions to the Backup vault MSI on the target ARM resource (MySQL-Flexible  server), establishing access and control.
 2. Configure backup policies, and specify the scheduling, retention, and other parameters.
 
 Once the configuration is complete:
