@@ -1,6 +1,6 @@
 ---
-title: Create a SQL Server Managed Instance enabled by Azure Arc
-description: Deploy SQL Server Managed Instance enabled by Azure Arc
+title: Create a SQL Managed Instance enabled by Azure Arc
+description: Deploy SQL Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -12,7 +12,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Deploy a SQL Server Managed Instance enabled by Azure Arc
+# Deploy a SQL Managed Instance enabled by Azure Arc
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 

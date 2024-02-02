@@ -1,7 +1,7 @@
 ---
 title: SQL Managed Instance enabled by Azure Arc high availability
-titleSuffix: Deploy SQL Server Managed Instance enabled by Azure Arc with high availability 
-description: Learn how to deploy SQL Server Managed Instance enabled by Azure Arc with high availability.
+titleSuffix: Deploy SQL Managed Instance enabled by Azure Arc with high availability 
+description: Learn how to deploy SQL Managed Instance enabled by Azure Arc with high availability.
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -13,7 +13,7 @@ ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 
-# High Availability with SQL Server Managed Instance enabled by Azure Arc
+# High Availability with SQL Managed Instance enabled by Azure Arc
 
 SQL Managed Instance enabled by Azure Arc is deployed on Kubernetes as a containerized application. It uses Kubernetes constructs such as stateful sets and persistent storage to provide built-in:
 
@@ -95,7 +95,7 @@ After all containers within the pod recover, you can connect to the managed inst
 
 ## High availability in Business Critical service tier
 
-In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, Azure SQL Managed Instance for Azure Arc provides a contained availability group. The contained availability group is built on SQL Server Always On technology. It provides higher levels of availability. SQL Managed Instance enabled by Azure Arc deployed with *Business Critical* service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. 
+In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, SQL Managed Instance for Azure Arc provides a contained availability group. The contained availability group is built on SQL Server Always On technology. It provides higher levels of availability. SQL Managed Instance enabled by Azure Arc deployed with *Business Critical* service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. 
 
 With contained availability groups, any pod crashes or node failures are transparent to the application. The contained availability group provides at least one other pod that has all the data from the primary and is ready to take on connections.  
 
@@ -113,7 +113,7 @@ Capabilities that contained availability groups enable:
 
 - An external endpoint is automatically provisioned for connecting to databases within the availability group. This endpoint `<managed_instance_name>-external-svc` plays the role of the availability group listener.
 
-### Deploy SQL Server Managed Instance enabled by Azure Arc with multiple replicas using Azure portal
+### Deploy SQL Managed Instance enabled by Azure Arc with multiple replicas using Azure portal
 
 From Azure portal, on the create SQL Managed Instance enabled by Azure Arc page:
 1. Select **Configure Compute + Storage** under Compute + Storage. The portal shows advanced settings.
