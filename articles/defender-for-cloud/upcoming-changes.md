@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Deprecation of Microsoft.SecurityDevOps resource provider](#deprecation-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
 | [Changes in endpoint protection recommendations](#changes-in-endpoint-protection-recommendations) | February 1, 2024 | February 28, 2024 |
 | [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
@@ -44,6 +45,21 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Deprecation of Microsoft.SecurityDevOps resource provider
+
+**Announcement date: February 5, 2024**
+
+**Estimated date of change: March 6, 2024**
+
+Microsoft Defender for Cloud is deprecating the old resource provider `Microsoft.SecurityDevOps` and migrated to `Microsoft.Security`. The reason for the change is to improve customer experiences now and in the future.
+
+Customers that are still using the API version **2022-09-01-preview** to query Microsoft Defender for Cloud (MDC) DevOps security data will be impacted. To avoid disruption to their service, customer will need to update to the new API version **2023-09-01-preview**.
+
+Customers currently using MDC DevOps security from Azure portal will not be impacted.  Migration to the new version has been completed or will be automatic upon any connector changes.
+
+For details on the new API version, see [Microsoft Defender for Cloud REST APIs](https://learn.microsoft.com/rest/api/defenderforcloud/?view=rest-defenderforcloud).
+
 
 ## Changes in endpoint protection recommendations
 
