@@ -28,7 +28,7 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 - Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
 - Build together as one team. Your Azure AI resource provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
-- Organize your way. Your project helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
+- Organize your way. Your Azure AI project helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 
 With Azure AI Studio, you can evaluate large language model (LLM) responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
 
