@@ -193,23 +193,23 @@ As your workload demands change, you can associate existing capacity reservation
 - The capacity reservation group should already exist and should contain minimum one capacity reservation, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated. For more information, see [capacity reservation groups][capacity-reservation-groups].
 - You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). 
 
- ```azurecli-interactive
+   ```azurecli-interactive
     az identity create -n MyID -g MyRG 
     ```
 - You need to assign Contributor role of your CRG resource to the user-assigned identity created above namely MyID. 
 - Create a managed cluster and assign the user assigned identity MyID. 
-```azurecli-interactive
-    az aks create --resource-group MyRG --name MyMC --location {location}
+     ```azurecli-interactive
+        az aks create --resource-group MyRG --name MyMC --location {location}
               --node-vm-size {vm_size} --node-count {number}
               --assign-identity /subscriptions/26fe00f8-9173-4872-9134-bb1d2e00343a/resourceGroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID --enable-managed-identity         
-    ```
+      ```
 - You can also assign the user-managed identity on an existing managed cluster with update command.
 
-```azurecli-interactive
-    az aks update --resource-group MyRG --name MyMC --location {location}
+   ```azurecli-interactive
+      az aks update --resource-group MyRG --name MyMC --location {location}
               --node-vm-size {vm_size} --node-count {number}
               --assign-identity /subscriptions/26fe00f8-9173-4872-9134-bb1d2e00343a/resourceGroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID --enable-managed-identity         
-    ```
+     ```
 
 ### Associate an existing capacity reservation group to a node pool
 
