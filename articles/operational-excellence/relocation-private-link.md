@@ -20,7 +20,7 @@ To learn how to to reconfigure [private endpoints](/azure/private-link/private-l
 
 ## Prepare
 
-- Identify all resources that are used by Private Link Service, such as Application Insights, log storage, [Log Analytics](./relocation-log-analytics.md), etc.
+Identify all resources that are used by Private Link Service, such as Standard load balancer, virtual machines, virtual network, etc.
 
 ## Redeploy
 
