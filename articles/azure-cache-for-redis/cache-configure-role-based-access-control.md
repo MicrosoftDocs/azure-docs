@@ -120,7 +120,7 @@ The following list contains some examples of permission strings for various scen
 
 1. If not checked already, check the box labeled **(PREVIEW) Enable Microsoft Entra Authorization** and select **OK**. Then, select **Save**.
 
-   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
 
 1. A popup dialog box displays asking if you want to update your configuration, and informing you that it takes several minutes. Select **Yes.**
 
