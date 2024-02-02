@@ -27,7 +27,7 @@ On each side, there are two replicas for one failover group. Check the value of 
 
 If one of `connectedState` isn't equal to `CONNECTED`, see the instructions under [Check parameters](#check-parameters).
 
-If one of `synchronizationState` isn't equal to `HEALTHY`, focus on the instance which `synchronizationState` isn't equal to `HEALTHY`". Refer to [Can't connect to SQL Managed Instance enabled by Azure Arc](#cant-connect-to-sql-server-managed-instance-enabled-by-azure-arc).
+If one of `synchronizationState` isn't equal to `HEALTHY`, focus on the instance which `synchronizationState` isn't equal to `HEALTHY`". Refer to [Can't connect to SQL Managed Instance enabled by Azure Arc](#cant-connect-to-sql-managed-instance-enabled-by-azure-arc).
 
 ### Check parameters
 
