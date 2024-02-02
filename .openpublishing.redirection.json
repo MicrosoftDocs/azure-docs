@@ -61,6 +61,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage-actions/index.yml",
+            "redirect_url": "/azure/storage-actions/storage-tasks/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storage/queues/storage-php-how-to-use-queues.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-php-how-to-use-queues",
             "redirect_document_id": false
@@ -11798,6 +11803,11 @@
             "redirect_url": "/azure/azure-health-insights/overview",
             "redirect_document_id": false
            
+        },
+        {
+            "source_path": "articles/external-attack-surface-management/labeling-inventory-assets.md",
+            "redirect_URL": "/azure/external-attack-surface-management/modifying-inventory-assets",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/azure-health-insights/response-info.md",
