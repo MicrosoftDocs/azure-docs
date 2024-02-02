@@ -404,6 +404,11 @@
             "source_path_from_root": "/articles/virtual-desktop/whats-new-client-microsoft-store.md",
             "redirect_url": "/azure/virtual-desktop/whats-new-client-windows",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/autoscale-scaling-plan.md",
+            "redirect_url": "/azure/virtual-desktop/autoscale-create-assign-scaling-plan",
+            "redirect_document_id": true
         }
     ]
 }
