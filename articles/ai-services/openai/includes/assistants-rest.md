@@ -50,7 +50,6 @@ Create and assign persistent environment variables for your key and endpoint.
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -H "OpenAI-Beta: assistants=v1" \
   -d '{
     "instructions": "You are an AI assistant that can write code to help answer math questions.",
     "name": "Math Assist",
@@ -65,7 +64,6 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
-  -H "OpenAI-Beta: assistants=v1" \
   -d ''
 
 ```
@@ -76,7 +74,6 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads \
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/messages \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
-  -H "OpenAI-Beta: assistants=v1" \
   -d '{
       "role": "user",
       "content": "I need to solve the equation `3x + 11 = 14`. Can you help me?"
@@ -89,7 +86,6 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/me
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/runs \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -H "OpenAI-Beta: assistants=v1" \
   -d '{
     "assistant_id": "asst_abc123",
   }'
@@ -100,7 +96,6 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/ru
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/runs/run_abc123 \
   -H "api-key: YOUR_API_KEY" \
-  -H "OpenAI-Beta: assistants=v1"
 ```
 
 ### Assistant response
@@ -109,7 +104,6 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/ru
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/messages \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
-  -H "OpenAI-Beta: assistants=v1"
 ```
 
 

@@ -89,7 +89,6 @@ assistant = client.beta.assistants.create(
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
   -H "api-key: YOUR_API_KEY" \
   -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' \
   -d '{
     "instructions": "You are an AI assistant that can write code to help answer math questions.",
     "tools": [
@@ -144,7 +143,6 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/files?api-version=2024-0
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
   -H "api-key: YOUR_API_KEY" \
   -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' \
   -d '{
     "instructions": "You are an AI assistant that can write code to help answer math questions.",
     "tools": [
@@ -189,7 +187,6 @@ thread = client.beta.threads.create(
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/<YOUR-THREAD-ID>/messages?api-version=2024-02-15-preview \
   -H "api-key: YOUR_API_KEY" \
   -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' \
   -d '{
     "role": "user",
     "content": "I need to solve the equation `3x + 11 = 14`. Can you help me?",
