@@ -32,7 +32,7 @@ Create a Serp connection:
 1. Create a custom connection with the following details:
     - azureml.flow.connection_type: Serp
     - azureml.flow.module: promptflow.connections
-    - api_key: <Your Serp API key>, please mark it as a secret.
+    - api_key: Your_Serp_API_key, please mark it as a secret.
     
     :::image type="content" source="./media/serp_api_tool/serp_connection_meta.png" alt-text="Screenshot that shows add extra meta to custom connection in AI studio" lightbox = "./media/python_tool/serp_connection_meta.png"::: 
 
