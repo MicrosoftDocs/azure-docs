@@ -4,7 +4,7 @@ description: Azure Storage Extension in Azure Database for PostgreSQL - Flexible
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 01/02/2024
+ms.date: 02/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -175,7 +175,7 @@ Size of file object in bytes.
 
 #### last_modified
 
-When was the file content last modified?
+When was the file content last modified.
 
 #### etag
 
@@ -185,7 +185,7 @@ An ETag property is used for optimistic concurrency during updates. It isn't a t
 
 The Blob object represents a blob, which is a file-like object of immutable, raw data. They can be read as text or binary data, or converted into a ReadableStream so its methods can be used for processing the data. Blobs can represent data that isn't necessarily in a JavaScript-native format.
 
-#### content_encode
+#### content_encoding
 
 Azure Storage allows you to define Content-Encoding property on a blob. For compressed content, you could set the property to be GZIP.  When the browser accesses the content, it automatically decompresses the content.
 
@@ -271,7 +271,7 @@ For handling custom headers, custom separators, escape characters etc., `options
 
 ### Return type
 
-SETOF Record / any element
+SETOF Record / anyelement
 
 > [!NOTE]  
 > There are four utility functions, called as a parameter within blob_get that help building values for it. Each utility function is designated for the decoder matching its name.
@@ -300,13 +300,13 @@ Returns jsonb;
 
 Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
 
-#### null_str
+#### null_string
 
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
 
 #### header
 
-Specifies that the file contains a header line with the names of each column in the file. On output, the frontline contains the column names from the table.
+Specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
 
 #### quote
 
@@ -324,7 +324,7 @@ Don't match the specified columns' values against the null string. In the defaul
 
 Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
 
-#### content_encode
+#### content_encoding
 
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
@@ -357,13 +357,13 @@ Returns jsonb;
 
 Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
 
-#### null_str
+#### null_string
 
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
 
 #### header
 
-Specifies that the file contains a header line with the names of each column in the file. On output, the frontline contains the column names from the table.
+Specifies that the file contains a header line with the names of each column in the file. On output, the first line contains the column names from the table.
 
 #### quote
 
@@ -385,7 +385,7 @@ Don't match the specified columns' values against the null string. In the defaul
 
 Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
 
-#### content_encode
+#### content_encoding
 
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
@@ -412,11 +412,11 @@ Returns jsonb;
 
 Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
 
-#### null_str
+#### null_string
 
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
 
-#### content_encode
+#### content_encoding
 
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
@@ -436,7 +436,7 @@ Returns jsonb;
 
 ### Arguments
 
-#### content_encode
+#### content_encoding
 
 Specifies that the file is encoded in the encoding_name. If this option is omitted, the current client encoding is used.
 
