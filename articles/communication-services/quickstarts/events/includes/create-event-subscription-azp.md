@@ -28,14 +28,14 @@ To create an Event subscription for Azure Communication Services resource, first
 1. Enter a name for the event subscription. 
 1. Enter a name for the System topic name.
 1. Select the event types that you want to receive on the event subscription.
-1. 
-    :::image type="content" source="../media/subscribe-through-portal/select-event-types.png" alt-text="Screenshot that shows the selection of event types." lightbox="../media/subscribe-through-portal/select-event-types.png":::
 
-For more information on Communication Services events, see [Communication Services Events](/azure/event-grid/event-schema-communication-services)
+   :::image type="content" source="../media/subscribe-through-portal/select-event-types.png" alt-text="Screenshot that shows the selection of event types." lightbox="../media/subscribe-through-portal/select-event-types.png":::
+
+   For more information on Communication Services events, see [Communication Services Events](/azure/event-grid/event-schema-communication-services)
 
 1. Select the Endpoint Type as Web Hook.
-1. 
-    :::image type="content" source="../media/subscribe-through-portal/select-endpoint-type.png" alt-text="Screenshot that shows the selection of endpoint type." lightbox="../media/subscribe-through-portal/select-endpoint-type.png":::
+ 
+   :::image type="content" source="../media/subscribe-through-portal/select-endpoint-type.png" alt-text="Screenshot that shows the selection of endpoint type." lightbox="../media/subscribe-through-portal/select-endpoint-type.png":::
 
 1. Select **Configure an Endpoint**
 
