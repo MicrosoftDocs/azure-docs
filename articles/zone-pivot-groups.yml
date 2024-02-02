@@ -2004,6 +2004,8 @@ groups:
     title: REST
   - id: programming-language-powershell
     title: PowerShell
+  - id: programming-language-python
+    title: Python
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
