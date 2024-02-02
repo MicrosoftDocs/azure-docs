@@ -1,6 +1,6 @@
 ---
 title: Discover, assess, and migrate Amazon Web Services (AWS) EC2 VMs to Azure
-description: This article describes how to migrate AWS VMs to Azure with Azure Migrate and Modernization.
+description: This article describes how to migrate AWS VMs to Azure with Azure Migrate and Modernize.
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
@@ -20,9 +20,9 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Verify prerequisites for migration.
-> * Prepare Azure resources with the Migration and modernization tool. Set up permissions for your Azure account and resources to work with Azure Migrate and Modernization.
+> * Prepare Azure resources with the Migration and modernization tool. Set up permissions for your Azure account and resources to work with Azure Migrate and Modernize.
 > * Prepare AWS Elastic Compute Cloud (EC2) instances for migration.
-> * Add the Migration and modernization tool in the Azure Migrate and Modernization hub.
+> * Add the Migration and modernization tool in the Azure Migrate and Modernize hub.
 > * Set up the replication appliance and deploy the configuration server.
 > * Install the Mobility service on the AWS VMs you want to migrate.
 > * Enable replication for VMs.
@@ -40,7 +40,7 @@ To set up an assessment:
 
 1. Follow the [tutorial](./tutorial-discover-physical.md) to set up Azure and prepare your AWS VMs for an assessment. Note that:
 
-    - Azure Migrate and Modernization uses password authentication to discover AWS instances. AWS instances don't support password authentication by default. Before you can discover an instance, you need to enable password authentication.
+    - Azure Migrate and Modernize uses password authentication to discover AWS instances. AWS instances don't support password authentication by default. Before you can discover an instance, you need to enable password authentication.
         - For Windows machines, allow WinRM port 5985 (HTTP). This port allows remote WMI calls.
         - For Linux machines:
             1. Sign in to each Linux machine.
@@ -63,7 +63,7 @@ Although we recommend that you try out an assessment, performing an assessment i
 - Make sure your AWS VMs comply with the [supported configurations](./migrate-support-matrix-physical-migration.md#physical-server-requirements) for migration to Azure.
 - Verify that the AWS VMs that you replicate to Azure comply with [Azure VM requirements](./migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 - Some changes are needed on the VMs before you migrate them to Azure:
-    - For some operating systems, Azure Migrate and Modernization makes these changes automatically.
+    - For some operating systems, Azure Migrate and Modernize makes these changes automatically.
     - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 Review the [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
@@ -225,7 +225,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
     ![Screenshot that shows Target settings.](./media/tutorial-migrate-vmware/target-settings.png)
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
-    - **VM size**: If you're using assessment recommendations, the VM size dropdown list shows the recommended size. Otherwise, Azure Migrate and Modernization picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown list shows the recommended size. Otherwise, Azure Migrate and Modernize picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use.
@@ -347,7 +347,7 @@ After you verify that the test migration works as expected, you can migrate the 
 **Question:** My replication status isn't progressing.<br>
 **Answer:** Check if your replication appliance meets the requirements. Make sure that you enabled the required ports on your replication appliance TCP port 9443 and HTTPS 443 for data transport. Ensure that no stale duplicate versions of the replication appliance are connected to the same project.
 
-**Question:** I'm unable to discover AWS instances by using Azure Migrate and Modernization because of the HTTP status code of 504 from the remote Windows management service.<br>
+**Question:** I'm unable to discover AWS instances by using Azure Migrate and Modernize because of the HTTP status code of 504 from the remote Windows management service.<br>
 **Answer:** Make sure to review the Azure Migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
 
 **Question:** Do I have to make any changes before I migrate my AWS VMs to Azure?<br>
