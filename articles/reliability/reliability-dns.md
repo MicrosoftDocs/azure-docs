@@ -41,7 +41,7 @@ There are two technical aspects towards setting up your disaster recovery archit
 
 -  Using a deployment mechanism to replicate instances, data, and configurations between primary and standby environments. This type of disaster recovery can be done natively viaAzure Site Recovery, see [Azure Site Recovery Documentation](../site-recovery/index.yml) via Microsoft Azure partner appliances/services like Veritas or NetApp. 
 
-- Developing a solution to divert network/web traffic from the primary site to the standby site. This type of disaster recovery can be achieved via Azure DNS, [Azure Traffic Manager(DNS)](reliability-traffice-manager.md), or third-party global load balancers. 
+- Developing a solution to divert network/web traffic from the primary site to the standby site. This type of disaster recovery can be achieved via Azure DNS, [Azure Traffic Manager(DNS)](reliability-traffic-manager.md), or third-party global load balancers. 
 
 This article focuses specifically on Azure DNS disaster recovery planning.
 
