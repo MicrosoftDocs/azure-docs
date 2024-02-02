@@ -62,7 +62,7 @@ If in-place major version upgrade pre-check operations fail, then the upgrade ab
  
 ## Next steps
 
-- Learn about [business continuity](./concepts-business-continuity.md).
+- Learn about [perform major version upgrade](./how-to-perform-major-version-upgrade-portal.md).
 - Learn about [zone-redundant high availability](./concepts-high-availability.md).
 - Learn about [backup and recovery](./concepts-backup-restore.md).
 
