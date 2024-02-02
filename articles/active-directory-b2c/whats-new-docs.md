@@ -23,8 +23,8 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### Updated articles
 
-- [Tutorial: Configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication](partner-nok-nok.md) - Updated partner-jumio
-- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md) - Updated partner-bindid
+- [Tutorial: Configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication](partner-nok-nok.md) - Updated Nok Nok instructions 
+- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md) - Updated Transmit Security instructions
 - [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md) - Updated claim resolvers and user journey
 
 ## December 2023
