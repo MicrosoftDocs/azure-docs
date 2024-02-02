@@ -53,7 +53,8 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 6. Select **Subscription**, **Resource Group** and **Availability Zone** from the dropdown menu. 
     **Proximity Placement Group Name**  and **Proximity Placement Group Resource Name** must be blank if the **Availability Zone** option selected.
 
-    [ ![Screenshot that shows the basic tab of the custom deployment page.](./media/volume-hard-quota-guidelines/custom-deploy-basic.png) ](./media/volume-hard-quota-guideliens/custom-deploy-basic.png#lightbox)  
+    [ ![Screenshot that shows the basic tab of the custom deployment page.](./media\/volume-hard-quota-guidelines/custom-deploy-basic.png
+    ) ](./media\/volume-hard-quota-guidelines/custom-deploy-basic.png#lightbox)  
 
 7. Enter values for **Number Of Oracle Data Volumes**, **Oracle Throughput**, **Capacity Pool**, **NetApp Account** and **Virtual Network**.
 
