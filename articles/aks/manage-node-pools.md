@@ -195,14 +195,14 @@ As your workload demands change, you can associate existing capacity reservation
 
    ```azurecli-interactive
     az identity create -n MyID -g MyRG 
-    ```
+   ```
 - You need to assign Contributor role of your CRG resource to the user-assigned identity created above namely MyID. 
 - Create a managed cluster and assign the user assigned identity MyID. 
-     ```azurecli-interactive
+    ```azurecli-interactive
         az aks create --resource-group MyRG --name MyMC --location {location}
               --node-vm-size {vm_size} --node-count {number}
               --assign-identity /subscriptions/26fe00f8-9173-4872-9134-bb1d2e00343a/resourceGroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID --enable-managed-identity         
-      ```
+    ```
 - You can also assign the user-managed identity on an existing managed cluster with update command.
 
    ```azurecli-interactive
