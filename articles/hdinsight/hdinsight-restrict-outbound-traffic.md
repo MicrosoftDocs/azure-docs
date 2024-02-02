@@ -37,7 +37,7 @@ Create a subnet named **AzureFirewallSubnet** in the virtual network where your 
 
 ### Create a new firewall for your cluster
 
-Create a firewall named **Test-FW01** using the steps in **Deploy the firewall** from [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
+Create a firewall named **Test-FW01** using the steps in **Deploy the firewall** from [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md#create-a-virtual-network).
 
 ### Configure the firewall with application rules
 

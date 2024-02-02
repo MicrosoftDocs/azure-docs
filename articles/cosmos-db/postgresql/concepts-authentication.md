@@ -1,12 +1,12 @@
 ---
-title: Active Directory authentication - Azure Cosmos DB for PostgreSQL
-description: Learn about the concepts of native PostgreSQL and Microsoft Entra authentication with Azure Cosmos DB for PostgreSQL
+title: PostgreSQL and Microsoft Entra ID authentication - Azure Cosmos DB for PostgreSQL
+description: Learn about the concepts of native PostgreSQL and Microsoft Entra ID authentication with Azure Cosmos DB for PostgreSQL
 author: niklarin
 ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 09/19/2023
+ms.date: 11/07/2023
 ---
 
 # Microsoft Entra ID and PostgreSQL authentication with Azure Cosmos DB for PostgreSQL
@@ -14,7 +14,7 @@ ms.date: 09/19/2023
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 > [!IMPORTANT]
-> Microsoft Entra authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
+> Microsoft Entra ID (formerly Azure Active Directory) authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended
 > for production workloads. Certain features might not be supported or might have constrained 
 > capabilities.
@@ -23,7 +23,7 @@ ms.date: 09/19/2023
 
 Azure Cosmos DB for PostgreSQL supports PostgreSQL authentication and integration with Microsoft Entra ID. Each Azure Cosmos DB for PostgreSQL cluster is created with native PostgreSQL authentication enabled and one built-in PostgreSQL role named `citus`. You can add more native PostgreSQL roles after cluster provisioning is completed.
 
-You can also enable Microsoft Entra authentication on a cluster in addition to the PostgreSQL authentication method or instead of it. You can configure authentication methods on each Azure Cosmos DB for PostgreSQL cluster independently. If you need to change authentication method, you can do it at any time after cluster provisioning is completed. Changing authentication methods doesn't require cluster restart.
+You can also enable Microsoft Entra ID (formerly Azure Active Directory) authentication on a cluster in addition to the PostgreSQL authentication method or instead of it. You can configure authentication methods on each Azure Cosmos DB for PostgreSQL cluster independently. If you need to change authentication method, you can do it at any time after cluster provisioning is completed. Changing authentication methods doesn't require cluster restart.
 
 ## PostgreSQL authentication
 
@@ -50,7 +50,7 @@ Permissions for the `citus` role:
   superusers.
 * Read all pg\_stat\_\* views and use various statistics-related
   extensions--even views or extensions normally visible only to superusers.
-* Execute monitoring functions that may take ACCESS SHARE locks on tables,
+* Execute monitoring functions that might take ACCESS SHARE locks on tables,
   potentially for a long time.
 * [Create PostgreSQL extensions](reference-extensions.md).
 
@@ -59,53 +59,53 @@ Notably, the `citus` role has some restrictions:
 * Can't create roles
 * Can't create databases
 
-`citus` role can't be deleted but would be disabled if 'Microsoft Entra authentication only' authentication method is selected on cluster.
+`citus` role can't be deleted but would be disabled if 'Microsoft Entra ID authentication only' authentication method is selected on cluster.
 
 <a name='azure-active-directory-authentication-preview'></a>
 
-## Microsoft Entra authentication (preview)
+## Microsoft Entra ID authentication (preview)
 
-[Microsoft Entra ID](./../../active-directory/fundamentals/active-directory-whatis.md) authentication is a mechanism of connecting to Azure Cosmos DB  for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+[Microsoft Entra ID](/entra/fundamentals/whatis) (formerly Azure Active Directory) authentication is a mechanism of connecting to Azure Cosmos DB  for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra ID authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 Benefits of using Microsoft Entra ID include:
 
 - Authentication of users across Azure Services in a uniform way
 - Management of password policies and password rotation in a single place
 - Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords
-- Microsoft Entra authentication uses PostgreSQL database roles to authenticate identities at the database level
+- Microsoft Entra ID authentication uses PostgreSQL database roles to authenticate identities at the database level
 - Support of token-based authentication for applications connecting to Azure Cosmos DB for PostgreSQL
 
 <a name='manage-postgresql-access-for-azure-ad-principals'></a>
 
-### Manage PostgreSQL access for Microsoft Entra principals
+### Manage PostgreSQL access for Microsoft Entra ID principals
 
-When Microsoft Entra authentication is enabled and Microsoft Entra principal is added as a Microsoft Entra administrator, the account gets the same privileges as [the `citus` role](#the-citus-role). The Microsoft Entra administrator sign-in can be a Microsoft Entra user, Service Principal or Managed Identity. Multiple Microsoft Entra administrators can be configured at any time and you can optionally disable PostgreSQL (password) authentication to the Azure Cosmos DB for PostgreSQL cluster for better auditing and compliance needs.
+When Microsoft Entra ID authentication is enabled and Microsoft Entra ID principal is added as a Microsoft Entra ID administrator, the account gets the same privileges as [the `citus` role](#the-citus-role). The Microsoft Entra ID administrator sign-in can be a Microsoft Entra ID user, Service Principal or Managed Identity. Multiple Microsoft Entra ID administrators can be configured at any time and you can optionally disable PostgreSQL (password) authentication to the Azure Cosmos DB for PostgreSQL cluster for better auditing and compliance needs.
 
-Additionally, any number of non-admin Microsoft Entra roles can be added to a cluster at any time once Microsoft Entra authentication is enabled. Database permissions for non-admin Microsoft Entra roles are managed similar to regular roles.
+Additionally, any number of non-admin Microsoft Entra ID roles can be added to a cluster at any time once Microsoft Entra ID authentication is enabled. Database permissions for non-admin Microsoft Entra ID roles are managed similar to regular roles.
 
 <a name='connect-using-azure-ad-identities'></a>
 
-### Connect using Microsoft Entra identities
+### Connect using Microsoft Entra ID identities
 
-Microsoft Entra authentication supports the following methods of connecting to a database using Microsoft Entra identities:
+Microsoft Entra ID authentication supports the following methods of connecting to a database using Microsoft Entra ID identities:
 
-- Microsoft Entra Password
-- Microsoft Entra integrated
-- Microsoft Entra Universal with MFA
-- Using Active Directory Application certificates or client secrets
+- Microsoft Entra ID Password
+- Microsoft Entra ID integrated
+- Microsoft Entra ID Universal with MFA
+- Using Microsoft Entra ID Application certificates or client secrets
 - Managed Identity
 
-Once you've authenticated against the Active Directory, you then retrieve a token. This token is your password for logging in.
+Once you've authenticated against the Microsoft Entra ID, you then retrieve a token. This token is your password for logging in.
 
 ### Other considerations
 
-- Multiple Microsoft Entra principals (a user, service principal, or managed identity) can be configured as Microsoft Entra administrator for an Azure Cosmos DB for PostgreSQL cluster at any time.
--  If a Microsoft Entra principal is deleted from Microsoft Entra service, it still remains as a PostgreSQL role on the cluster, but it's no longer able to acquire new access token. In this case, although the matching role still exists in the Postgres database it's unable to authenticate to the cluster nodes. Database administrators need to transfer ownership and drop such roles manually.
+- Multiple Microsoft Entra ID principals (a user, service principal, or managed identity) can be configured as Microsoft Entra ID administrator for an Azure Cosmos DB for PostgreSQL cluster at any time.
+-  If a Microsoft Entra ID principal is deleted from Microsoft Entra ID service, it still remains as a PostgreSQL role on the cluster, but it's no longer able to acquire new access token. In this case, although the matching role still exists in the Postgres database it's unable to authenticate to the cluster nodes. Database administrators need to transfer ownership and drop such roles manually.
 
 > [!NOTE]  
-> Login with the deleted Microsoft Entra user can still be done till the token expires (up to 90 minutes from token issuing).  If you also remove the user from Azure Cosmos DB for PostgreSQL cluster this access will be revoked immediately.
+> Login with the deleted Microsoft Entra ID user can still be done till the token expires (up to 90 minutes from token issuing).  If you also remove the user from Azure Cosmos DB for PostgreSQL cluster this access will be revoked immediately.
 
-- Azure Cosmos DB for PostgreSQL matches access tokens to the database role using the user’s unique Microsoft Entra user ID, as opposed to using the username. If a Microsoft Entra user is deleted and a new user is created with the same name, Azure Cosmos DB for PostgreSQL considers that a different user. Therefore, if a user is deleted from Microsoft Entra ID and a new user is added with the same name the new user would be unable to connect with the existing role.
+- Azure Cosmos DB for PostgreSQL matches access tokens to the database role using the user’s unique Microsoft Entra ID user ID, as opposed to using the username. If a Microsoft Entra ID user is deleted and a new user is created with the same name, Azure Cosmos DB for PostgreSQL considers that a different user. Therefore, if a user is deleted from Microsoft Entra ID and a new user is added with the same name the new user would be unable to connect with the existing role.
 
 ## Next steps
 

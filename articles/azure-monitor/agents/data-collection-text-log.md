@@ -12,6 +12,9 @@ ms.reviewer: jeffwo
 
 Many applications log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. This article explains how to collect log data from text and JSON files on monitored machines using [Azure Monitor Agent](azure-monitor-agent-overview.md) by creating a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md). 
 
+> [!Note]
+> The JSON ingestion is in Preview at this time.
+
 ## Prerequisites
 To complete this procedure, you need: 
 
@@ -20,9 +23,9 @@ To complete this procedure, you need:
 
     For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
 
-- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 
-- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that writes logs to a text or JSON file.
+- A Virtual Machine, Virtual Machine Scale Set, Arc-enabled server on-premises or Azure Monitoring Agent on a Windows on-premises client that writes logs to a text or JSON file.
     
     Text and JSON file requirements and best practices:    
     - Do store files on the local drive of the machine on which Azure Monitor Agent is running and in the directory that is being monitored.
@@ -373,7 +376,7 @@ To create the data collection rule in the Azure portal:
     - `filePatterns`: Specifies the location and file pattern of the log files to collect. This defines a separate pattern for Windows and Linux agents.
     - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace.
 
-    See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-structure.md#custom-logs) if you want to modify the  data collection rule.
+    See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-structure.md) if you want to modify the  data collection rule.
     
     > [!IMPORTANT]
     > Custom data collection rules have a prefix of *Custom-*; for example, *Custom-rulename*. The *Custom-rulename* in the stream declaration must match the *Custom-rulename* name in the Log Analytics workspace.

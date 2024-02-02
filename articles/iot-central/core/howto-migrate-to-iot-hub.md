@@ -36,7 +36,7 @@ You need the following prerequisites to complete the device migration steps:
 
 ## Device requirements
 
-The devices that you want to migrate must implement the **DeviceMove** command in a component called **migration**. The command payload contains the *ID scope* of the destination DPS instance. The migrator tool repository includes an example [DTDL component model](https://raw.githubusercontent.com/Azure/iotc-migrator/main/assets/deviceMigrationComponent.json) that that defines the **DeviceMove** command. You can add this component to your existing device templates.
+The devices that you want to migrate must implement the **DeviceMove** command in a component called **migration**. The command payload contains the *ID scope* of the destination DPS instance. The migrator tool repository includes an example [DTDL component model](https://raw.githubusercontent.com/Azure/iotc-migrator/main/assets/deviceMigrationComponent.json) that defines the **DeviceMove** command. You can add this component to your existing device templates.
 
 The tool assumes that the component name is `migration` and that the interface ID is `dtmi:azureiot:DeviceMigration;1`:
 

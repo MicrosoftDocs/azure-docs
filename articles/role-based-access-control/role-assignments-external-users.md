@@ -1,14 +1,10 @@
 ---
 title: Assign Azure roles to external guest users using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users external to an organization using the Azure portal and Azure role-based access control (Azure RBAC).
-services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
-ms.devlang:
 ms.topic: how-to
-ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 06/07/2023
 ms.author: rolyon

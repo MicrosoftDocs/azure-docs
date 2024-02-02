@@ -45,7 +45,7 @@ All data will be lost when deleting your deployment. Back up any information you
 The private mobile network resources represent your private 5G core network. If you followed the recommendations in this documentation when creating your resources, you should have a single resource group containing all private mobile network resources. You must ensure that you do not delete any unrelated resources.
 
 > [!IMPORTANT]
-> Deleting this resource group will delete the resources for all sites in your deployment. If you only want to delete a single site, see [Delete sites using the Azure portal](delete-a-site.md). You can can then return to this procedure to delete the custom location, delete the AKS cluster and reset ASE if required.
+> Deleting this resource group will delete the resources for all sites in your deployment. If you only want to delete a single site, see [Delete sites using the Azure portal](delete-a-site.md). You can then return to this procedure to delete the custom location, delete the AKS cluster and reset ASE if required.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the resource group containing the private mobile network resources.

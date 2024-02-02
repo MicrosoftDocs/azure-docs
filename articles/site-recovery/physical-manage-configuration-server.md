@@ -4,7 +4,7 @@ description: This article describes how to manage the Azure Site Recovery config
 services: site-recovery
 author: ankitaduttaMSFT
 ms.service: site-recovery
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/27/2022
 ms.author: ankitadutta
 ---

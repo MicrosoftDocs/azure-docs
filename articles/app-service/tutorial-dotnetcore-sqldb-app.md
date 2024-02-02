@@ -190,7 +190,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
     :::column span="2":::
         **Step 7:**
         1. Open *.github/workflows/main_msdocs-core-sql-XYZ* in the explorer. This file was created by the App Service create wizard.
-        1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef`.
+        1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef --version 7.0.14`.
         1. Under the new step, add another step to generate a database [migration bundle](/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles) in the deployment package: `dotnet ef migrations bundle --runtime linux-x64 -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate`.
         The migration bundle is a self-contained executable that you can run in the production environment without needing the .NET SDK. The App Service linux container only has the .NET runtime and not the .NET SDK.
     :::column-end:::
@@ -230,7 +230,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 ## 4. Generate database schema
 
-With the SQL Database protected by the virtual network, the easiest way to run Run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the App Service container. 
+With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the App Service container. 
 
 :::row:::
     :::column span="2":::

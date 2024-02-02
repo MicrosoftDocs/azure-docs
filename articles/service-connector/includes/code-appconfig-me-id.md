@@ -71,9 +71,9 @@ ms.author: wchi
 
     // for service principal
     // ClientSecretCredential defaultCredential = new ClientSecretCredentialBuilder()
-    //   .clientId(System.getenv("<AZURE_APPCONFIGURATION_CLIENTID>"))
-    //   .clientSecret(System.getenv("<AZURE_APPCONFIGURATION_CLIENTSECRET>"))
-    //   .tenantId(System.getenv("<AZURE_APPCONFIGURATION_TENANTID>"))
+    //   .clientId(System.getenv("AZURE_APPCONFIGURATION_CLIENTID"))
+    //   .clientSecret(System.getenv("AZURE_APPCONFIGURATION_CLIENTSECRET"))
+    //   .tenantId(System.getenv("AZURE_APPCONFIGURATION_TENANTID"))
     //   .build();
     
     String endpoint = System.getenv("AZURE_APPCONFIGURATION_ENDPOINT");
@@ -153,5 +153,5 @@ ms.author: wchi
     );
     ```
 
-### [Other](#tab/other)
-For other languages, you can use the connection information that Service Connector set to the environment variables to connect Azure App Configuration. For environment variable details, see [Integrate Azure App Configuration with Service Connector](../how-to-integrate-app-configuration.md).
+### [Other](#tab/none)
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure App Configuration. For environment variable details, see [Integrate Azure App Configuration with Service Connector](../how-to-integrate-app-configuration.md).

@@ -57,7 +57,7 @@ You can update the settings of an existing contact profile by
 
 You can verify both the presence and content of incoming telemetry data multiple ways.
 
-### Event Hubs Namespace
+### Event Hubs namespace dashboard
 
 To verify that events are being received in your Event Hubs, you can check the graphs present on the overview page of your Event Hubs namespace within your resource group. This view shows data across all Event Hubs instances within a namespace. You can navigate to the overview page of a specific Event Hub instance in your resource group to see the graphs for that instance.
 
@@ -68,7 +68,7 @@ Follow the [instructions to enable Capture](../../articles/event-hubs/event-hubs
 
 ## Understand telemetry points
 
-### Current Telemetry Schema Version: 4.0
+### Current telemetry schema version: 4.0
 The ground station provides telemetry using Avro as a schema. The schema is below:
 
 ```json
@@ -293,7 +293,7 @@ The following table provides the source device/point, possible values, and defin
 | modemLockStatus	| Modem: carrierLockState	| • NULL (Modem model other than QRadio or QRx; couldn’t parse lock status Enum) <br> • Empty string (if metric reading was null) <br> • String: Lock status | Confirmation that the modem was locked. |
 | commandsSent | Modem: commandsSent | • NULL (if not Uplink and QRadio) <br> • Double: # of commands sent | Confirmation that commands were sent during the contact. |
 
-## Event Consumers
+## Event consumers
 
 You can write simple consumer apps to receive events from your Event Hubs using [event consumers](../../articles/event-hubs/event-hubs-features.md#event-consumers). Refer to the following documentation to learn how to send and receive events Event Hubs in various languages: 
 - [Python](../event-hubs/event-hubs-python-get-started-send.md)

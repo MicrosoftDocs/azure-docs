@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 10/09/2023
+ms.date: 12/15/2023
 ---
 
 # Application Insights overview
@@ -19,7 +19,7 @@ Application Insights provides many experiences to enhance the performance, relia
 - [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
 - [Application map](app-map.md): A visual overview of application architecture and components' interactions.
 - [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
-- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
+- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
 - [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
 - Performance view: Review application performance metrics and potential bottlenecks.
 - Failures view: Identify and analyze failures in your application to minimize downtime.
@@ -49,7 +49,7 @@ The logic model diagram visualizes components of Application Insights and how th
 :::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
 
 > [!Note]
-> Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](./ip-addresses.md).
+> Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](../ip-addresses.md).
 
 ---------------------------
 ## Supported languages
@@ -65,11 +65,11 @@ For detailed information about instrumenting applications to enable Application 
 
 #### OpenTelemetry Distro
 
+* [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore)
 * [ASP.NET](opentelemetry-enable.md?tabs=net)
 * [Java](opentelemetry-enable.md?tabs=java)
 * [Node.js](opentelemetry-enable.md?tabs=nodejs)
 * [Python](opentelemetry-enable.md?tabs=python)
-* [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore) (preview)
 
 #### Application Insights SDK (Classic API)
 
@@ -94,7 +94,7 @@ This section lists all supported platforms and frameworks.
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
-* [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
+* [Azure Spring Apps](../../spring-apps/enterprise/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 #### Logging frameworks
@@ -245,6 +245,6 @@ Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/we
 - [Application dashboard](overview-dashboard.md)
 - [Application Map](app-map.md)
 - [Live metrics](live-stream.md)
-- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search)
+- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search)
 - [Availability overview](availability-overview.md)
 - [Users, sessions, and events](usage-segmentation.md)

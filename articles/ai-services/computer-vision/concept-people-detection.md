@@ -2,18 +2,18 @@
 title: People detection - Azure AI Vision
 titleSuffix: Azure AI services
 description: Learn concepts related to the people detection feature of the Azure AI Vision API - usage and limits.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
-# People detection (version 4.0 preview)
+# People detection (version 4.0)
 
 Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. 
 
@@ -28,7 +28,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 
 ```json
 {
-  "modelVersion": "2023-02-01-preview",
+  "modelVersion": "2023-10-01",
   "metadata": {
     "width": 300,
     "height": 231
@@ -78,7 +78,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 
 ## Use the API
 
-The people detection feature is part of the [Image Analysis 4.0 API](https://aka.ms/vision-4-0-ref). Include `People` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"people"` section.
+The people detection feature is part of the [Analyze Image 4.0 API](https://aka.ms/vision-4-0-ref). Include `People` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"people"` section.
 
 ## Next steps
 

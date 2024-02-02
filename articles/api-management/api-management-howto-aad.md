@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 04/18/2023
+ms.date: 12/08/2023
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurecli
 ---
@@ -191,6 +191,13 @@ Users from the configured Microsoft Entra instance can now:
 > [!NOTE]
 > Learn more about the difference between **Delegated** and **Application** permissions types in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
 
+### Synchronize Microsoft Entra groups with API Management
+
+Groups configured in Microsoft Entra must synchronize with API Management so that you can add them to your instance. If the groups don't synchronize automatically, do one of the following to synchronize group information manually:
+
+* Sign out and sign in to Microsoft Entra ID. This activity usually triggers synchronization of groups.
+* Ensure that the Microsoft Entra sign-in tenant is specified the same way (using one of tenant ID or domain name) in your configuration settings in API Management. You specify the sign-in tenant in the Microsoft Entra ID identity provider for the developer portal and when you add a Microsoft Entra group to API Management.
+
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Microsoft Entra account authentication
 
 In the developer portal, you can sign in with Microsoft Entra ID using the **Sign-in button: OAuth** widget included on the sign-in page of the default developer portal content.
@@ -203,39 +210,11 @@ Although a new account will automatically be created when a new user signs in wi
 > [!IMPORTANT]
 > You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the Microsoft Entra ID changes to take effect.
 
-<a name='legacy-developer-portal-how-to-sign-in-with-azure-ad'></a>
-
-## Legacy developer portal: How to sign in with Microsoft Entra ID
-
-[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
-
-To sign into the developer portal by using a Microsoft Entra account that you configured in the previous sections:
-
-1. Open a new browser window using the sign-in URL from the Active Directory application configuration. 
-2. Select **Microsoft Entra ID**.
-
-   ![Sign-in page][api-management-dev-portal-signin]
-
-1. Enter the credentials of one of the users in Microsoft Entra ID.
-2. Select **Sign in**.
-
-   ![Signing in with username and password][api-management-aad-signin]
-
-1. If prompted with a registration form, complete with any additional information required. 
-2. Select **Sign up**.
-
-   !["Sign up" button on registration form][api-management-complete-registration]
-
-Your user is now signed in to the developer portal for your API Management service instance.
-
-![Developer portal after registration is complete][api-management-registration-complete]
-
-## Next Steps
+## Related content
 
 - Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL](../active-directory/develop/msal-migration.md).
-- [Create an API Management service instance](./get-started-create-service-instance.md).
-- [Manage your first API](./import-and-publish.md).
+- [Troubleshoot network connectivity to Microsoft Graph from inside a VNet](api-management-using-with-vnet.md#troubleshoot-connection-to-microsoft-graph-from-inside-a-vnet). 
 
 [api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
 [api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png

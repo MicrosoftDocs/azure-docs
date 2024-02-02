@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template'
 description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge compute (MEC) by using an Azure Resource Manager template.
 author: kunaltelang
-ms.author: kutelang
+ms.author: monikama
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: quickstart
 ms.date: 11/22/2022

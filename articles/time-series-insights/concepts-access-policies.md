@@ -2,12 +2,10 @@
 title: 'Configure security to grant data access - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to configure security, permissions, and manage data access policies in your Azure Time Series Insights environment.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: seodec18
@@ -128,7 +126,7 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 
 Time Series Insights Data Access Policies are backed by Microsoft Entra ID, which are tied to an Azure Tenant where the Subscription lives in.
 
-The Microsoft Entra Objects that you grant Data Access Policies to and the the Time Series Insights Environment itself should live under the same Tenant. If not, these objects will not have access to the Environment.
+The Microsoft Entra Objects that you grant Data Access Policies to and the Time Series Insights Environment itself should live under the same Tenant. If not, these objects will not have access to the Environment.
 
 If you plan to move the Subscription the Environment lives in to a different Tenant, you must ensure that the Data Access Policies are updated to reflect the Microsoft Entra Objects under the new Tenant.
 

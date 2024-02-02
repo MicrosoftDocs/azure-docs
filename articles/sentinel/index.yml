@@ -55,7 +55,7 @@ landingContent:
             url: get-visibility.md
           - text: Investigate incidents
             url: investigate-cases.md
-          - text: Microsoft 365 Defender integration with Microsoft Sentinel
+          - text: Microsoft Defender XDR integration with Microsoft Sentinel
             url: microsoft-365-defender-sentinel-integration.md
       - linkListType: reference
         links:
@@ -79,7 +79,7 @@ landingContent:
         links:
           - text: Connect data to Microsoft Sentinel
             url: connect-data-sources.md
-          - text: Connect Microsoft 365 Defender
+          - text: Connect Microsoft Defender XDR
             url: connect-microsoft-365-defender.md
           - text: Create a custom connector
             url: create-custom-connector.md

@@ -2,15 +2,14 @@
 title: Tutorial - Editing Data Collection Rules
 description: This article describes how to make changes in Data Collection Rule definition using command line tools and simple API calls.
 ms.topic: tutorial
-ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh
-ms.date: 07/17/2023
+ms.date: 11/03/2023
 ---
 
-# Tutorial: Editing Data Collection Rules
-This tutorial describes how to edit the definition of Data Collection Rule (DCR) that has been already provisioned using command line tools. 
+# Tutorial: Edit a data collection rule (DCR)
+This tutorial describes how to edit the definition of Data Collection Rule (DCR) that has been already provisioned using command line tools.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -19,10 +18,13 @@ In this tutorial, you learn how to:
 > * Apply changes to a Data Collection Rule using ARM API call
 > * Automate the process of DCR update using PowerShell scripts
 
+> [!NOTE]
+> This tutorial walks through one method for editing an existing DCR. See [Create and edit data collection rules (DCRs) in Azure Monitor](data-collection-rule-create-edit.md) for other methods.
+
 ## Prerequisites
 To complete this tutorial you need the following:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Permissions to create Data Collection Rule objects](data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](data-collection-rule-create-edit.md#permissions) in the workspace.
 - Up to date version of PowerShell. Using Azure Cloud Shell is recommended.
 
 ## Overview of tutorial

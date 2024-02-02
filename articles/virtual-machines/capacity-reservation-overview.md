@@ -62,9 +62,13 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - E series, all versions; AMD and Intel 
     - F series, all versions 
     - Lsv3 (Intel) and Lasv3 (AMD)
-    - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation. 
-- Support for other VM Series isn't currently available: 
-    - Ls and Lsv2 series  
+    - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation.
+- Support for below VM Series for Capacity Reservation is in Public Preview: 
+    - Lsv2
+    - NC-series,v3 and newer
+    - NV-series,v2 and newer
+    - At VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
+- Support for other VM Series isn't currently available:  
     - M series, any version 
     - NC-series, v3 and newer 
     - NV-series, v2 and newer 
@@ -86,6 +90,7 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - UltraSSD storage
     - VMs resuming from hibernation 
     - VMs requiring vnet encryption
+- Pinned subscription cannot use the feature
 - Only the subscription that created the reservation can use it. 
 - Reservations are only available to paid Azure customers. Sponsored accounts such as Free Trial and Azure for Students aren't eligible to use this feature. 
 

@@ -179,8 +179,11 @@ $destinationResourceGroup = Get-AzResourceGroup -Name $destinationName
 $resources = Get-AzResource -ResourceGroupName $sourceName | Where-Object { $_.Name -in $resourcesToMove }
 
 Invoke-AzResourceAction -Action validateMoveResources `
--ResourceId $sourceResourceGroup.ResourceId `
--Parameters @{ resources= $resources.ResourceId;targetResourceGroup = $destinationResourceGroup.ResourceId }  
+   -ResourceId $sourceResourceGroup.ResourceId `
+   -Parameters @{
+      resources = $resources.ResourceId;  # Wrap in an @() array if providing a single resource ID string.
+      targetResourceGroup = $destinationResourceGroup.ResourceId
+   }
 ```
 
 If validation passes, you see no output.

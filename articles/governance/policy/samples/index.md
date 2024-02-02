@@ -1,11 +1,10 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 09/14/2023
+ms.date: 1/3/2024
 ms.topic: sample
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
+
 # Azure Policy Samples
 
 This page is an index of Azure Policy built-in policy definitions and language use patterns.
@@ -47,6 +46,8 @@ Azure:
 - [IRS 1075 September 2016](./irs-1075-sept2016.md)
 - [ISO 27001:2013](./iso-27001.md)
 - [Microsoft cloud security benchmark](./azure-security-benchmark.md)
+- [Microsoft Cloud for Sovereignty Confidential](./mcfs-baseline-confidential.md)
+- [Microsoft Cloud for Sovereignty Global](./mcfs-baseline-global.md)
 - [New Zealand ISM Restricted](./new-zealand-ism.md)
 - [New Zealand ISM Restricted 3.5](./nz-ism-restricted-3-5.md)
 - [NIST SP 800-53 Rev. 4](./nist-sp-800-53-r4.md)
@@ -59,6 +60,7 @@ Azure:
 - [RBI ITF NBFC v2017](./rbi-itf-nbfc-2017.md)
 - [RMIT Malaysia](./rmit-malaysia.md)
 - [SWIFT CSP-CSCF v2021](./swift-csp-cscf-2021.md)
+- [SWIFT CSP-CSCF v2022](./swift-csp-cscf-2022.md)
 - [UK OFFICIAL and UK NHS](./ukofficial-uknhs.md)
 
 The following are the [Regulatory Compliance](../concepts/regulatory-compliance.md) built-ins in

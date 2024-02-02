@@ -3,7 +3,8 @@ title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
 ms.date: 03/06/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -1058,11 +1059,36 @@ The authenticated user is available via [HTTP Headers](../app-service/configure-
 
 The authorization level is a string value that indicates the kind of [authorization key](#authorization-keys) that's required to access the function endpoint. For an HTTP triggered function, the authorization level can be one of the following values:
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+# [Model v4](#tab/nodejs-v4)
+
+| Level value | Description |
+| --- | --- |
+|**anonymous**| No API key is required. This is the default value when a level isn't specifically set.|
+|**function**| A function-specific API key is required.|
+|**admin**| The master key is required.|
+
+# [Model v3](#tab/nodejs-v3)
+
 | Level value | Description |
 | --- | --- |
 |**anonymous**| No API key is required.|
 |**function**| A function-specific API key is required. This is the default value when a level isn't specifically set.|
 |**admin**| The master key is required.|
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-powershell,programming-language-python"
+
+| Level value | Description |
+| --- | --- |
+|**anonymous**| No API key is required.|
+|**function**| A function-specific API key is required. This is the default value when a level isn't specifically set.|
+|**admin**| The master key is required.|
+
+::: zone-end
 
 ### <a name="authorization-keys"></a>Function access keys
 

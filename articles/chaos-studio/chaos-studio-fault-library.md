@@ -1,11 +1,11 @@
 ---
-title: Azure Chaos Studio  fault and action library
+title: Azure Chaos Studio fault and action library
 description: Understand the available actions you can use with Azure Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
-author: prasha-microsoft 
+author: rsgel 
 ms.topic: article
-ms.date: 06/16/2022
-ms.author: prashabora
+ms.date: 01/02/2024
+ms.author: carlsonr
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021, ignite-2022
 ---
@@ -1395,7 +1395,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 } 
 ```
 
-## Key Vault Deny Access
+## Key Vault: Deny Access
 
 | Property | Value |
 |-|-|
@@ -1424,7 +1424,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault Disable Certificate
+## Key Vault: Disable Certificate
 
 | Property  | Value |
 | ---- | --- |
@@ -1465,7 +1465,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault Increment Certificate Version
+## Key Vault: Increment Certificate Version
 	
 | Property  | Value |
 | ---- | --- |
@@ -1500,7 +1500,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## Key Vault Update Certificate Policy
+## Key Vault: Update Certificate Policy
 
 | Property  | Value |        
 | ---- | --- |  
@@ -1586,7 +1586,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 }
 ```
 
-## App Service Stop
+## App Service: Stop
 	
 | Property  | Value |
 | ---- | --- |
@@ -1614,3 +1614,205 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   ]
 }
 ```
+
+## Azure Load Testing: Start load test
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Start-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Starts a load test (from Azure Load Testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the [Azure Load Testing service](../load-testing/quickstart-create-and-run-load-test.md). |
+| Urn | urn:csci:microsoft:azureLoadTest:start/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure Load Testing service. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:start/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Azure Load Testing: Stop load test
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Stops a load test (from Azure Load Testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the [Azure Load Testing service](../load-testing/quickstart-create-and-run-load-test.md). |
+| Urn | urn:csci:microsoft:azureLoadTest:stop/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure Load Testing service. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:stop/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Service Bus: Change Queue State
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | ChangeQueueState-1.0 |
+| Target type | Microsoft-ServiceBus |
+| Description | Sets Queue entities within a Service Bus namespace to the desired state. You can affect specific entity names or use “*” to affect all. This can help test your messaging infrastructure for maintenance or failure scenarios. This is a discrete fault, so the entity will not be returned to the starting state automatically. |
+| Prerequisites | A Service Bus namespace with at least one [Queue entity](../service-bus-messaging/service-bus-quickstart-portal.md). |
+| Urn | urn:csci:microsoft:serviceBus:changeQueueState/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) | |
+| desiredState | The desired state for the targeted queues. The possible states are Active, Disabled, SendDisabled, and ReceiveDisabled. |
+| queues | A comma-separated list of the queue names within the targeted namespace. Use "*" to affect all queues within the namespace. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:serviceBus:changeQueueState/1.0",
+      "parameters":[
+          {
+            "key": "desiredState",
+            "value": "Disabled"
+          },
+          {
+            "key": "queues",
+            "value": "samplequeue1,samplequeue2"
+          }
+      ],
+      "selectorid": "myServiceBusSelector"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* A maximum of 1000 queue entities can be passed to this fault.
+
+## Service Bus: Change Subscription State
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | ChangeSubscriptionState-1.0 |
+| Target type | Microsoft-ServiceBus |
+| Description | Sets Subscription entities within a Service Bus namespace and Topic to the desired state. You can affect specific entity names or use “*” to affect all. This can help test your messaging infrastructure for maintenance or failure scenarios. This is a discrete fault, so the entity will not be returned to the starting state automatically. |
+| Prerequisites | A Service Bus namespace with at least one [Subscription entity](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md). |
+| Urn | urn:csci:microsoft:serviceBus:changeSubscriptionState/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) | |
+| desiredState | The desired state for the targeted subscriptions. The possible states are Active and Disabled. |
+| topic | The parent topic containing the subscription(s) to affect. |
+| subscriptions | A comma-separated list of the subscription names within the targeted namespace. Use "*" to affect all subscriptions within the namespace. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:serviceBus:changeSubscriptionState/1.0",
+      "parameters":[
+          {
+            "key": "desiredState",
+            "value": "Disabled"
+          },
+          {
+            "key": "topic",
+            "value": "topic01"
+          },
+          {
+            "key": "subscriptions",
+            "value": "*"
+          }
+      ],
+      "selectorid": "myServiceBusSelector"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* A maximum of 1000 subscription entities can be passed to this fault.
+
+## Service Bus: Change Topic State
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | ChangeTopicState-1.0 |
+| Target type | Microsoft-ServiceBus |
+| Description | Sets the specified Topic entities within a Service Bus namespace to the desired state. You can affect specific entity names or use “*” to affect all. This can help test your messaging infrastructure for maintenance or failure scenarios. This is a discrete fault, so the entity will not be returned to the starting state automatically. |
+| Prerequisites | A Service Bus namespace with at least one [Topic entity](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md). |
+| Urn | urn:csci:microsoft:serviceBus:changeTopicState/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) | |
+| desiredState | The desired state for the targeted topics. The possible states are Active and Disabled. |
+| topics | A comma-separated list of the topic names within the targeted namespace. Use "*" to affect all topics within the namespace. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:serviceBus:changeTopicState/1.0",
+      "parameters":[
+          {
+            "key": "desiredState",
+            "value": "Disabled"
+          },
+          {
+            "key": "topics",
+            "value": "*"
+          }
+      ],
+      "selectorid": "myServiceBusSelector"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* A maximum of 1000 topic entities can be passed to this fault.

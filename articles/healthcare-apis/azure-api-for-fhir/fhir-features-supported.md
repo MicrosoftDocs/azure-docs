@@ -85,6 +85,8 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 * **Subscription limit** - By default, each subscription is limited to a maximum of 10 FHIR server instances. If you need more instances per subscription, open a support ticket and provide details about your needs.
 
+* **Resource size** - Individual resource size including history should not exceed 20GB.
+
 ## Next steps
 
 In this article, you've read about the supported FHIR features in Azure API for FHIR. For information about deploying Azure API for FHIR, see

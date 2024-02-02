@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 10/27/2023
+ms.date: 01/22/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -16,6 +16,10 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-advisor](../../../../includes/resource-graph/samples/bycat/azure-advisor.md)]
 
+## Azure App Service
+
+[!INCLUDE [app-service-resources-tls-version](../../includes/resource-graph/query/app-service-resources-tls-version.md)]
+
 ## Azure Arc
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-arc](../../../../includes/resource-graph/samples/bycat/azure-arc.md)]
@@ -27,6 +31,12 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 ## Azure Arc-enabled servers
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-servers](../../../../includes/resource-graph/samples/bycat/azure-arc-enabled-servers.md)]
+
+## Azure Center for SAP solutions
+
+[!INCLUDE [virtual-instance-sap-solutions-vm-health](../../includes/resource-graph/query/virtual-instance-sap-solutions-vm-health.md)]
+
+[!INCLUDE [virtual-instance-sap-solutions-vm-health-changes](../../includes/resource-graph/query/virtual-instance-sap-solutions-vm-health-changes.md)]
 
 ## Azure Container Registry
 
@@ -47,6 +57,11 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 [!INCLUDE [azure-monitor-data-collection-rules-resources-table](../../includes/resource-graph/query/resources-monitor-data-collection-rules.md)]
 
 [!INCLUDE [azure-monitor-data-collection-rules-insight-resources-table](../../includes/resource-graph/query/insight-resources-monitor-data-collection-rules.md)]
+
+
+## Azure Orbital Ground Station
+
+[!INCLUDE [azure-orbitals-contacts-samples](../../includes/resource-graph/query/orbital-resources-contacts.md)]
 
 ## Azure Policy
 

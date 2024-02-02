@@ -128,9 +128,13 @@ If you're having trouble connecting, see the **Troubleshoot** section of the tab
 
 Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but aren't able to establish IPsec tunnels with the Azure VPN gateways. For steps, see [Reset a VPN gateway](./reset-gateway.md#resetclassic).
 
-## <a name="changesku"></a>How to change a gateway SKU
+## <a name="changesku"></a>How to resize a gateway SKU
 
-For steps to change a gateway SKU, see [Resize a gateway SKU](vpn-gateway-about-SKUS-legacy.md#classicresize).
+To resize a gateway for the [classic deployment model](../azure-resource-manager/management/deployment-models.md), you must use the Service Management PowerShell cmdlets. Use the following command:
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## Next steps
 

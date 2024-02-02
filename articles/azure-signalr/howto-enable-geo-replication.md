@@ -9,7 +9,7 @@ ms.service: signalr
 ms.topic: how-to
 ---
 
-#  Geo-replication (Preview) in Azure SignalR
+#  Geo-replication in Azure SignalR
 
 Companies seeking local presence or requiring a robust failover system often choose to deploy services across multiple Azure regions. With the integration of geo-replication in Azure SignalR, managing multi-region scenarios has become significantly easier.
 
@@ -124,6 +124,8 @@ Each replica has its **own** `unit` and `autoscale settings`.
 Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/details/signalr-service/) of Azure SignalR Service. Each replica is billed **separately** according to its own unit and outbound traffic. Free message quota is also calculated separately.
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
+
+There will be egress fees for cross region outbound traffic. If a message is transferred across replicas **and** successfully sent to a client or server after the transfer, it will be billed as an outbound message.
 
 ## Delete a replica
 After you've created a replica for your Azure SignalR Service, you can delete it at any time if it's no longer needed. 

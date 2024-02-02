@@ -2,7 +2,7 @@
 title: "Security Advisory: Update Role Assignment for Microsoft Entra authentication permissions"
 titleSuffix: Azure AI services
 description: This article will show you how to update the role assignment on existing Immersive Reader resources due to a security bug discovered in November 2021
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
 

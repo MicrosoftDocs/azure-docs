@@ -102,7 +102,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 11. Verify that the data is copied into your Data Lake Storage Gen2 account.
 
-## Next steps
+## Related content
 
 * [Copy activity overview](copy-activity-overview.md)
 * [Azure Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md)

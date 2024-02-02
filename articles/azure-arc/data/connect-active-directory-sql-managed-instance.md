@@ -1,6 +1,6 @@
 ---
-title: Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
-description: Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
+title: Connect to AD-integrated SQL Managed Instance enabled by Azure Arc
+description: Connect to AD-integrated SQL Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -11,11 +11,11 @@ ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
-# Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
+# Connect to AD-integrated SQL Managed Instance enabled by Azure Arc
 
-This article describes how to connect to SQL Managed Instance endpoint using Active Directory (AD) authentication. Before you proceed, make sure you have an AD-integrated Azure Arc-enabled SQL Managed Instance deployed already.
+This article describes how to connect to SQL Managed Instance endpoint using Active Directory (AD) authentication. Before you proceed, make sure you have an AD-integrated SQL Managed Instance enabled by Azure Arc deployed already.
 
-See [Tutorial – Deploy AD-integrated SQL Managed Instance](deploy-active-directory-sql-managed-instance.md) to deploy Azure Arc-enabled SQL Managed Instance with Active Directory authentication enabled.
+See [Tutorial – Deploy AD-integrated SQL Managed Instance](deploy-active-directory-sql-managed-instance.md) to deploy SQL Managed Instance enabled by Azure Arc with Active Directory authentication enabled.
 
 > [!NOTE]
 > Ensure that a DNS record for the SQL endpoint is created in Active Directory DNS servers before continuing on this page. 
@@ -38,9 +38,9 @@ CREATE LOGIN [CONTOSO\admin] FROM WINDOWS;
 GO
 ```
 
-## Connect to Azure Arc-enabled SQL Managed Instance
+## Connect to SQL Managed Instance enabled by Azure Arc
 
-From your domain joined Windows-based client machine or a Linux-based domain aware machine, you can use `sqlcmd` utility, or open [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio (ADS)](/azure-data-studio/download-azure-data-studio) to connect to the Azure Arc-enabled SQL Managed Instance using AD authentication.
+From your domain joined Windows-based client machine or a Linux-based domain aware machine, you can use `sqlcmd` utility, or open [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio (ADS)](/azure-data-studio/download-azure-data-studio) to connect to the instance with AD authentication.
 
 A domain-aware Linux-based machine is one where you are able to use Kerberos authentication using kinit. Such machine should have /etc/krb5.conf file set to point to the Active Directory domain (realm) being used. It should also have /etc/resolv.conf file set such that one can run DNS lookups against the Active Directory domain.
 

@@ -129,7 +129,7 @@ In this example, the pipeline has two activities: **Filter** and **ForEach**. Th
 }
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)

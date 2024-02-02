@@ -780,7 +780,7 @@ ml_client = MLClient(
 )
 
 # get the latest version of the data asset
-# Note: the variable VERSION is set in the previous code code
+# Note: the variable VERSION is set in the previous code
 data_asset = ml_client.data.get(name="pets-mltable-example", version=VERSION)
 
 # the table from the data asset id

@@ -10,7 +10,6 @@ manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-keywords: 
 ---
 
 # Introduction to prompt engineering

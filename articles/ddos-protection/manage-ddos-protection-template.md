@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.custom: subject-armqs, mode-arm, ignite-2022, devx-track-arm-template
 ms.author: abell
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ---
 
 # Quickstart: Create and configure Azure DDoS Network Protection using ARM template

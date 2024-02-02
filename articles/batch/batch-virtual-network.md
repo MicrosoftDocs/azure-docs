@@ -2,7 +2,7 @@
 title: Provision a pool in a virtual network
 description: Learn how to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 12/06/2023
 ms.custom: seodec18
 ---
 
@@ -25,6 +25,9 @@ To allow compute nodes to communicate securely with other virtual machines, or w
   - To create an Azure Resource Manager-based Virtual Network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). A Resource Manager-based Virtual Network is recommended for new deployments, and is supported only on pools that use Virtual Machine Configuration.
   - To create a classic Virtual Network, see [Create a virtual network (classic) with multiple subnets](/previous-versions/azure/virtual-network/create-virtual-network-classic). A classic Virtual Network is supported only on pools that use Cloud Services Configuration.
 
+    > [!IMPORTANT]
+    > Avoid using 172.17.0.0/16 for Azure Batch pool VNet. It is the default for Docker bridge network and may conflict with other networks that you want to connect to the VNet. Creating a virtual network for Azure Batch pool requires careful planning of your network infrastructure.
+
 ## General virtual network requirements
 
 * The Virtual Network must be in the same subscription and region as the Batch account you use to create your pool.
@@ -46,6 +49,11 @@ pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserv
 > where the Batch service initiates communication to the compute nodes.
 > [Simplified](simplified-compute-node-communication.md) node communication mode
 > is where the compute nodes initiate communication to the Batch Service.
+
+* Any virtual network or peered virtual network that will be used for Batch pools should not have overlapping IP address ranges with software defined networking
+or routing on compute nodes. A common source for conflicts is from the use of a [container runtime](batch-docker-container-workloads.md), such as docker. Docker
+will create a default network bridge with a defined subnet range of `172.17.0.0/16`. Any services running within a virtual network in that default IP address
+space will conflict with services on the compute node, such as remote access via SSH.
 
 ## Pools in Virtual Machine Configuration
 

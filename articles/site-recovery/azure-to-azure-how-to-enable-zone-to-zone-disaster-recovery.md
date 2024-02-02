@@ -4,7 +4,7 @@ description: This article describes when and how to use zone-to-zone disaster re
 author: ankitaduttaMSFT
 manager: aravindang
 ms.service: site-recovery
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/09/2023
 ms.author: ankitadutta
 ms.custom: references_regions

@@ -42,7 +42,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 * Create an Azure Cosmos DB API for NoSQL account by using the steps described in [create an account](create-sql-api-dotnet.md#create-account) section of the quickstart article.
 
-* [Create a database and a collection](nosql/quickstart-java.md#add-a-container) – You can use set the collection throughput value to 1000 RU/s. 
+* [Create a database and a collection](nosql/quickstart-java.md) – You can use set the collection throughput value to 1000 RU/s. 
 
 * Load the sample video game sales data to your Azure Cosmos DB account.
 

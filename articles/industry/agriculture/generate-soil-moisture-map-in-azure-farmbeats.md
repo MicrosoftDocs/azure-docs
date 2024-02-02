@@ -1,15 +1,20 @@
 ---
 title: Generate Soil Moisture Heatmap
 description: Describes how to generate Soil Moisture Heatmap in Azure FarmBeats
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Generate Soil Moisture Heatmap
 
 Soil moisture is the water that is held in the spaces between soil particles. Soil Moisture Heatmap helps you understand the moisture data at any depth, and at high resolution within your farms. To generate an accurate and usable soil moisture heatmap, a uniform deployment of sensors from the same provider is required. Different providers will have differences in the way soil moisture is measured along with differences in calibration. The Heatmap is generated for a particular depth using the sensors deployed at that depth.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 This article describes the process of generating a Soil Moisture Heatmap for your farm, using the Azure FarmBeats Accelerator. In this article, you will learn how to:
 

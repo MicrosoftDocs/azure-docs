@@ -3,8 +3,6 @@ title: "Pattern: Deploy resources with a policy definition"
 description: This Azure Policy pattern provides an example of how to deploy resources with a deployIfNotExists policy definition.
 ms.date: 05/16/2022
 ms.topic: sample
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 # Azure Policy pattern: deploy resources
 

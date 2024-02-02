@@ -2,12 +2,11 @@
 title: 'Quickstart: Use the OpenAI Service to make your first completions call with the REST API'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the REST API. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 02/02/2023
-keywords: 
 ---
 
 ## Prerequisites

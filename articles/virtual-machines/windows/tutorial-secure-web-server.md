@@ -1,16 +1,15 @@
 ---
 title: "Tutorial: Secure a Windows web server with TLS certificates in Azure"
 description: Learn how to use Azure PowerShell to secure a Windows virtual machine that runs the IIS web server with TLS certificates stored in Azure Key Vault.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: security
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 04/05/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc, devx-track-azurepowershell
-
 #Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with TLS certificates so that I can protect my customer data on web applications that I build and run.
 ---
 

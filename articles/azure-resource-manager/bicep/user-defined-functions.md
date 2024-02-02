@@ -3,14 +3,14 @@ title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/02/2023
+ms.date: 11/03/2023
 ---
 
 # User-defined functions in Bicep (Preview)
 
 Within your Bicep file, you can create your own functions. These functions are available for use in your Bicep files. User-defined functions are separate from the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
 
-[Bicep version 0.20 or newer](./install.md) is required to use this feature.
+[Bicep CLI version 0.20.X or higher](./install.md) is required to use this feature.
 
 ## Enable the preview feature
 
@@ -82,7 +82,7 @@ The outputs from the preceding examples are:
 | nameArray | Array | ["John"] |
 | addNameArray | Array | ["Mary","Bob","John"] |
 
-With [Bicep version 0.23 or newer](./install.md), you have the flexibility to invoke another user-defined function within a user-defined function. In the preceding example, with the function definition of `sayHelloString`, you can redefine the `sayHelloObject` function as:
+With [Bicep CLI version 0.23.X or higher](./install.md), you have the flexibility to invoke another user-defined function within a user-defined function. In the preceding example, with the function definition of `sayHelloString`, you can redefine the `sayHelloObject` function as:
 
 ```bicep
 func sayHelloObject(name string) object => {

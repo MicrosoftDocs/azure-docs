@@ -2,13 +2,13 @@
 title: Verify a COCO annotation file
 titleSuffix: Azure AI services
 description: Use a Python script to verify your COCO file for custom model training.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
@@ -17,9 +17,9 @@ ms.author: pafarley
 <!-- nbstart https://raw.githubusercontent.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/main/docs/check_coco_annotation.ipynb -->
 
 > [!TIP]
-> Contents of _check_coco_annotation.ipynb_. **[Open in GitHub](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/check_coco_annotation.ipynb)**.
+> This article is based on the Jupyter notebook _check_coco_annotation.ipynb_. **[Open in GitHub](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/check_coco_annotation.ipynb)**.
 
-This notebook demonstrates how to check if the format of your annotation file is correct. First, install the python samples package from the command line:
+This guide demonstrates how to check if the format of your annotation file is correct. First, install the python samples package from the command line:
 
 ```python
 pip install cognitive-service-vision-model-customization-python-samples

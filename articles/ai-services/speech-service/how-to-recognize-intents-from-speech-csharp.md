@@ -2,12 +2,11 @@
 title: How to recognize intents from speech using the Speech SDK C#
 titleSuffix: Azure AI services
 description: In this guide, you learn how to recognize intents from speech using the Speech SDK for C#.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 1/21/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -15,12 +14,12 @@ ms.custom: devx-track-csharp
 
 # How to recognize intents from speech using the Speech SDK for C#
 
-The Azure AI services [Speech SDK](speech-sdk.md) integrates with the [Language Understanding service (LUIS)](https://www.luis.ai/home) to provide **intent recognition**. An intent is something the user wants to do: book a flight, check the weather, or make a call. The user can use whatever terms feel natural. Using machine learning, LUIS maps user requests to the intents you've defined.
+The Azure AI services [Speech SDK](speech-sdk.md) integrates with the [Language Understanding service (LUIS)](https://www.luis.ai/home) to provide **intent recognition**. An intent is something the user wants to do: book a flight, check the weather, or make a call. The user can use whatever terms feel natural. LUIS maps user requests to the intents you defined.
 
 > [!NOTE]
 > A LUIS application defines the intents and entities you want to recognize. It's separate from the C# application that uses the Speech service. In this article, "app" means the LUIS app, while "application" means the C# code.
 
-In this guide, you use the Speech SDK to develop a C# console application that derives intents from user utterances through your device's microphone. You'll learn how to:
+In this guide, you use the Speech SDK to develop a C# console application that derives intents from user utterances through your device's microphone. You learn how to:
 
 > [!div class="checklist"]
 >
@@ -49,9 +48,9 @@ LUIS uses two kinds of keys:
 | Authoring | Lets you create and modify LUIS apps programmatically |
 | Prediction | Used to access the LUIS application in runtime       |
 
-For this guide, you need the prediction key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
+For this guide, you need the prediction key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, LUIS automatically generates an authoring key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
+When you create a LUIS app, LUIS automatically generates an authoring key so you can test the app using text queries. This key doesn't enable the Speech service integration and doesn't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
 
 After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Azure Resources** in the sidebar.
 
@@ -59,7 +58,7 @@ After you create the LUIS resource in the Azure dashboard, log into the [LUIS po
 
 On the **Azure Resources** page:
 
-Select the icon next to a key to copy it to the clipboard. (You may use either key.)
+Select the icon next to a key to copy it to the clipboard. (You can use either key.)
 
 ## Create the project and add the workload
 
@@ -77,7 +76,7 @@ To start, create the project in Visual Studio, and make sure that Visual Studio 
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features**, which opens Visual Studio Installer and displays the **Modifying** dialog box.
 
-1. Check whether the **.NET desktop development** workload is available. If the workload hasn't been installed, select the check box next to it, and then select **Modify** to start the installation. It may take a few minutes to download and install.
+1. Check whether the **.NET desktop development** workload is available. If the workload isn't installed, select the check box next to it, and then select **Modify** to start the installation. It might take a few minutes to download and install.
 
    If the check box next to **.NET desktop development** is already selected, select **Close** to exit the dialog box.
 
@@ -181,7 +180,7 @@ Next, create an intent recognizer using `new IntentRecognizer(config)`. Since th
 
 Now import the model from the LUIS app using `LanguageUnderstandingModel.FromAppId()` and add the LUIS intents that you wish to recognize via the recognizer's `AddIntent()` method. These two steps improve the accuracy of speech recognition by indicating words that the user is likely to use in their requests. You don't have to add all the app's intents if you don't need to recognize them all in your application.
 
-To add intents, you must provide three arguments: the LUIS model (which has been created and is named `model`), the intent name, and an intent ID. The difference between the ID and the name is as follows.
+To add intents, you must provide three arguments: the LUIS model (named `model`), the intent name, and an intent ID. The difference between the ID and the name is as follows.
 
 | `AddIntent()`&nbsp;argument | Purpose |
 | --------------------------- | ------- |
@@ -222,7 +221,7 @@ By default, LUIS recognizes intents in US English (`en-us`). By assigning a loca
 
 ## Continuous recognition from a file
 
-The following code illustrates two additional capabilities of intent recognition using the Speech SDK. The first, previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events can then be processed by event handlers that you provide. With continuous recognition, you call the recognizer's `StartContinuousRecognitionAsync()` method to start recognition instead of `RecognizeOnceAsync()`.
+The following code illustrates two more capabilities of intent recognition using the Speech SDK. The first, previously mentioned, is continuous recognition, where the recognizer emits events when results are available. These events are processed by event handlers that you provide. With continuous recognition, you call the recognizer's `StartContinuousRecognitionAsync()` method to start recognition instead of `RecognizeOnceAsync()`.
 
 The other capability is reading the audio containing the speech to be processed from a WAV file. Implementation involves creating an audio configuration that can be used when creating the intent recognizer. The file must be single-channel (mono) with a sampling rate of 16 kHz.
 
@@ -232,7 +231,7 @@ To try out these features, delete or comment out the body of the `RecognizeInten
 
 Revise the code to include your LUIS prediction key, region, and app ID and to add the Home Automation intents, as before. Change `whatstheweatherlike.wav` to the name of your recorded audio file. Then build, copy the audio file to the build directory, and run the application.
 
-For example, if you say "Turn off the lights", pause, and then say "Turn on the lights" in your recorded audio file, console output similar to the following may appear:
+For example, if you say "Turn off the lights", pause, and then say "Turn on the lights" in your recorded audio file, console output similar to the following might appear:
 
 ![Audio file LUIS recognition results](media/sdk/luis-results-2.png)
 

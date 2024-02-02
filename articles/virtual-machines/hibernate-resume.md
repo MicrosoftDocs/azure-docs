@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/31/2023
 ms.author: jainan
 ms.reviewer: mattmcinnes
-ms.custom: 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Hibernating virtual machines
@@ -144,7 +144,7 @@ In the Azure portal under 'Preview features', select 'Hibernation Preview'. The 
 
 ### [PowerShell](#tab/checkhiberPS)
 ```powershell
-Get-AzProviderFeature -FeatureName " VMHibernationPreview " -ProviderNamespace "Microsoft.Compute"
+Get-AzProviderFeature -FeatureName "VMHibernationPreview" -ProviderNamespace "Microsoft.Compute"
 ```
 ### [CLI](#tab/checkhiberCLI)
 ```azurecli
@@ -269,7 +269,12 @@ Once you've created a VM with hibernation enabled, you need to configure the gue
 There are many ways you can configure the guest OS for hibernation in Linux VMs.  
 
 #### Option 1: LinuxHibernateExtension
- You can install the [LinuxHibernateExtension](/cli/azure/azure-cli-extensions-overview) on your Linux VM to configure the guest OS for hibernation.  
+When you create a Hibernation-enabled VM via the Azure portal, the LinuxHibernationExtension is automatically installed on the VM. 
+
+If the extension is missing, you can [manually install the LinuxHibernateExtension](/cli/azure/azure-cli-extensions-overview) on your Linux VM to configure the guest OS for hibernation. 
+
+>[!NOTE]
+> Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the hibernation troubleshooting guide](hibernate-resume-troubleshooting.md#azure-extensions-disabled-on-debian-images).
 
 ##### [CLI](#tab/cliLHE)
     

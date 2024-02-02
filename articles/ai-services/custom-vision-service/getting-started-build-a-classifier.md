@@ -2,12 +2,12 @@
 title: "Quickstart: Build an image classification model with the Custom Vision portal"
 titleSuffix: Azure AI services
 description: In this quickstart, you'll learn how to use the Custom Vision web portal to create, train, and test an image classification model.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-custom-vision
 ms.topic: quickstart
-ms.date: 11/03/2022
+ms.date: 01/21/2024
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: image recognition, image recognition app, custom vision
@@ -36,11 +36,11 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 ![Image of the sign-in page](./media/browser-home.png)
 
 
-1. To create your first project, select **New Project**. The **Create new project** dialog box will appear.
+1. To create your first project, select **New Project**. The **Create new project** dialog box appears.
 
     ![The new project dialog box has fields for name, description, and domains.](./media/getting-started-build-a-classifier/new-project.png)
 
-1. Enter a name and a description for the project. Then select your Custom Vision Training Resource. If your signed-in account is associated with an Azure account, the Resource dropdown will display all of your compatible Azure resources. 
+1. Enter a name and a description for the project. Then select your Custom Vision Training Resource. If your signed-in account is associated with an Azure account, the Resource dropdown displays all of your compatible Azure resources. 
 
    > [!NOTE]
    > If no resource is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to sign in to the [Azure portal](https://portal.azure.com). Also, please confirm you have selected the same "Directory" in the Custom Vision website as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
@@ -65,18 +65,18 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 ## Upload and tag images
 
-In this section, you'll upload and manually tag images to help train the classifier. 
+In this section, you upload and manually tag images to help train the classifier. 
 
-1. To add images, select __Add images__ and then select __Browse local files__. Select __Open__ to move to tagging. Your tag selection will be applied to the entire group of images you've selected to upload, so it's easier to upload images in separate groups according to their applied tags. You can also change the tags for individual images after they've been uploaded.
+1. To add images, select __Add images__ and then select __Browse local files__. Select __Open__ to move to tagging. Your tag selection is applied to the entire group of images you've selected to upload, so it's easier to upload images in separate groups according to their applied tags. You can also change the tags for individual images after they're uploaded.
 
     ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
 
 
-1. To create a tag, enter text in the __My Tags__ field and press Enter. If the tag already exists, it will appear in a dropdown menu. In a multilabel project, you can add more than one tag to your images, but in a multiclass project you can add only one. To finish uploading the images, use the __Upload [number] files__ button. 
+1. To create a tag, enter text in the __My Tags__ field and press Enter. If the tag already exists, it appears in a dropdown menu. In a multilabel project, you can add more than one tag to your images, but in a multiclass project you can add only one. To finish uploading the images, use the __Upload [number] files__ button. 
 
     ![Image of the tag and upload page](./media/getting-started-build-a-classifier/add-images03.png)
 
-1. Select __Done__ once the images have been uploaded.
+1. Select __Done__ once the images are uploaded.
 
     ![The progress bar shows all tasks completed.](./media/getting-started-build-a-classifier/add-images04.png)
 

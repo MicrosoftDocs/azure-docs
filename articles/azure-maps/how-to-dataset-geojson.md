@@ -40,7 +40,7 @@ For more information on the GeoJSON package, see the [Geojson zip package requir
 Follow the steps outlined in the [How to create data registry] article to upload the GeoJSON package into your Azure storage account then register it in your Azure Maps account.
 
 > [!IMPORTANT]
-> Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the GeoJSON package you uploaded into your Azure storage account from your source code and HTTP requests.
+> Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the GeoJSON package you uploaded into your Azure storage account from your source code and HTTP requests.
 
 ### Create a dataset
 
@@ -138,8 +138,8 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [Create a tileset]: tutorial-creator-indoor-maps.md#create-a-tileset
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator resource]: how-to-manage-creator.md
-[Dataset Create API]: /rest/api/maps/2023-03-01-preview/dataset/create
-[Dataset Create]: /rest/api/maps/v2/dataset/create
+[Dataset Create API]: /rest/api/maps-creator/dataset/create?view=rest-maps-creator-2023-03-01-preview
+[Dataset Create]: /rest/api/maps-creator/dataset/create
 [dataset]: creator-indoor-maps.md#datasets
 [Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [facility]: creator-facility-ontology.md?pivots=facility-ontology-v2#facility

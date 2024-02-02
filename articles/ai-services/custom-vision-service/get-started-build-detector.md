@@ -2,12 +2,12 @@
 title: "Quickstart: Build an object detector with the Custom Vision website"
 titleSuffix: Azure AI services
 description: In this quickstart, you'll learn how to use the Custom Vision website to create, train, and test an object detector model.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-custom-vision
 ms.topic: quickstart
-ms.date: 12/27/2022
+ms.date: 01/21/2024
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: image recognition, image recognition app, custom vision
@@ -35,11 +35,11 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 ![Image of the sign-in page](./media/browser-home.png)
 
 
-1. To create your first project, select **New Project**. The **Create new project** dialog box will appear.
+1. To create your first project, select **New Project**. The **Create new project** dialog box appears.
 
     ![The new project dialog box has fields for name, description, and domains.](./media/get-started-build-detector/new-project.png)
 
-1. Enter a name and a description for the project. Then select your Custom Vision Training Resource. If your signed-in account is associated with an Azure account, the Resource dropdown will display all of your compatible Azure resources. 
+1. Enter a name and a description for the project. Then select your Custom Vision Training Resource. If your signed-in account is associated with an Azure account, the Resource dropdown displays all of your compatible Azure resources. 
 
    > [!NOTE]
    > If no resource is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to sign in to the [Azure portal](https://portal.azure.com). Also, please confirm you have selected the same "Directory" in the Custom Vision website as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
@@ -64,7 +64,7 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 ## Upload and tag images
 
-In this section, you'll upload and manually tag images to help train the detector. 
+In this section, you upload and manually tag images to help train the detector. 
 
 1. To add images, select __Add images__ and then select __Browse local files__. Select __Open__ to upload the images.
 
@@ -96,7 +96,7 @@ After training has completed, the model's performance is calculated and displaye
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
-- **Mean average precision** is the average value of the average precision (AP). AP is the area under the precision/recall curve (precision plotted against recall for each prediction made).
+- **Mean average precision** is the average value of the average precision (AP). The AP is the area under the precision/recall curve (precision plotted against recall for each prediction made).
 
 ![The training results show the overall precision and recall, and mean average precision.](./media/get-started-build-detector/trained-performance.png)
 

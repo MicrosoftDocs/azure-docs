@@ -1,18 +1,18 @@
 ---
-title: Creating Metric Alerts for Logs in Azure Monitor
+title: Creating Metric Alerts in Azure Monitor Logs
 description: Tutorial on creating near-real time metric alerts on popular log analytics data.
 ms.topic: conceptual
-ms.date: 7/24/2022
+ms.date: 11/16/2023
 ms.reviewer: harelbr
 ---
 
-# Create Metric Alerts for Logs in Azure Monitor
+# Create a metric alert in Azure Monitor Logs 
 
 ## Overview
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Metric Alerts for Logs** allows you to leverage metric alerts capabilities on a predefined set of Log Analytics logs. The monitored logs, which can be collected from Azure or on-premises computers, are converted to metrics, and then monitored with metric alert rules just like any other metric.
+**Metric Alerts for Logs** allows you to leverage metric alerts capabilities on a predefined set of logs in Azure Monitor Logs. The monitored logs, which can be collected from Azure or on-premises computers, are converted to metrics, and then monitored with metric alert rules just like any other metric.
 The supported Log Analytics logs are the following:
 
 - [Performance counters](./../agents/data-sources-performance-counters.md) for Windows & Linux machines (corresponding with the supported [Log Analytics workspace metrics](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces))
@@ -54,7 +54,7 @@ Before Metric for Logs gathered on Log Analytics data works, the following must 
 
  Metric alerts can be created and managed using the Azure portal, Resource Manager Templates, REST API, PowerShell, and Azure CLI. Since Metric Alerts for Logs, is a variant of metric alerts - once the prerequisites are done, metric alert for logs can be created for specified Log Analytics workspace. All characteristics and functionalities of [metric alerts](./alerts-metric-near-real-time.md) will be applicable to metric alerts for logs, as well; including payload schema, applicable quota limits, and billed price.
 
-For step-by-step details and samples - see [creating and managing metric alerts](./alerts-metric.md). Specifically, for Metric Alerts for Logs - follow the instructions for managing metric alerts and ensure the following:
+For step-by-step details and samples - see [creating and managing metric alerts](./alerts-create-metric-alert-rule.md). Specifically, for Metric Alerts for Logs - follow the instructions for managing metric alerts and ensure the following:
 
 - Target for metric alert is a valid *Log Analytics workspace*
 - Signal chosen for metric alert for selected *Log Analytics workspace* is of type **Metric**

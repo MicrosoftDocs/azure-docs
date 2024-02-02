@@ -2,12 +2,11 @@
 title: 'Set up web endpoints'                             
 titleSuffix: Azure AI services
 description: set up web endpoints for Custom Commands
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: cogserv-non-critical-speech
@@ -17,7 +16,7 @@ ms.custom: cogserv-non-critical-speech
 
 [!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
-In this article, you'll learn how to set up web endpoints in a Custom Commands application that allow you to make HTTP requests from a client application. You'll complete the following tasks:
+In this article, you learn how to set up web endpoints in a Custom Commands application that allow you to make HTTP requests from a client application. You complete the following tasks:
 
 - Set up web endpoints in Custom Commands application
 - Call web endpoints in Custom Commands application
@@ -36,12 +35,12 @@ In this article, you'll learn how to set up web endpoints in a Custom Commands a
 
 For this tutorial, you need an HTTP endpoint that maintains states for all the devices you set up in the **TurnOnOff** command of your Custom Commands application.
 
-If you already have a web endpoint you want to call, skip to the [next section](#setup-web-endpoints-in-custom-commands). 
+If you already have a web endpoint you want to call, skip to the [next section](#set-up-web-endpoints-in-custom-commands). 
 Alternatively, the next section provides details about a default hosted web endpoint you can use if you want to skip this section.
 
 ### Input format of Azure function
 
-Next, you'll deploy an endpoint using [Azure Functions](../../azure-functions/index.yml).
+Next, you deploy an endpoint using [Azure Functions](../../azure-functions/index.yml).
 The following is the format of a Custom Commands event that is passed to your Azure function. Use this information when you're writing your Azure Function app.
 
 ```json
@@ -72,7 +71,7 @@ The following table describes the key attributes of this input:
 | **currentGlobalParameters** | A map like `parameters`, but used for global parameters. |
 
 
-For the **DeviceState** Azure Function, an example Custom Commands event will look like following. This will act as an **input** to the function app.
+For the **DeviceState** Azure Function, an example Custom Commands event looks like following. This acts as an **input** to the function app.
     
 ```json
 {
@@ -119,7 +118,7 @@ For our **DeviceState** endpoint, output of your Azure function is consumed by a
 }
 ``` 
 
-This output should be written to an external storage, so that you can maintain the state of devices. The external storage state will be used in the [Integrate with client application](#integrate-with-client-application) section below.
+This output should be written to an external storage, so that you can maintain the state of devices. The external storage state is used in the [Integrate with client application](#integrate-with-client-application) section below.
 
 
 ### Deploy Azure function
@@ -127,7 +126,7 @@ This output should be written to an external storage, so that you can maintain t
 We provide a sample you can configure and deploy as an Azure Functions app. To create a storage account for our sample, follow these steps.
  
 1. Create table storage to save device state. In the Azure portal, create a new resource of type **Storage account** by name **devicestate**.
-1. Copy the **Connection string** value from **devicestate -> Access keys**. You'll need to add this string secret to the downloaded sample Function App code.
+1. Copy the **Connection string** value from **devicestate -> Access keys**. You need to add this string secret to the downloaded sample Function App code.
 1. Download sample [Function App code](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/main/custom-commands/quick-start).
 1. Open the downloaded solution in Visual Studio 2019. In **Connections.json**, replace **STORAGE_ACCOUNT_SECRET_CONNECTION_STRING** with the secret from Step 2.
 1.  Download the **DeviceStateAzureFunction** code.
@@ -139,10 +138,10 @@ To deploy the sample app to Azure Functions, follow these steps.
 1. Select **Functions** in the left pane, and then select **DeviceState**.
 1.  In the new window, select **Code + Test** and then select **Get function URL**.
  
-## Setup web endpoints in Custom Commands
+## Set up web endpoints in Custom Commands
 
 Let's hook up the Azure function with the existing Custom Commands application.
-In this section, you'll use an existing default **DeviceState** endpoint. If you created your own web endpoint using Azure Function or otherwise, use that instead of the default	`https://webendpointexample.azurewebsites.net/api/DeviceState`.
+In this section, you use an existing default **DeviceState** endpoint. If you created your own web endpoint using Azure Function or otherwise, use that instead of the default	`https://webendpointexample.azurewebsites.net/api/DeviceState`.
 
 1. Open the Custom Commands application you previously created.
 1. Go to **Web endpoints**, select **New web endpoint**.
@@ -155,7 +154,7 @@ In this section, you'll use an existing default **DeviceState** endpoint. If you
    | Name | UpdateDeviceState | Name for the web endpoint. |
    | URL | ```https://webendpointexample.azurewebsites.net/api/DeviceState``` | The URL of the endpoint you wish your custom command app to talk to. |
    | Method | POST | The allowed interactions (such as GET, POST) with your endpoint.|
-   | Headers | Key: app, Value: take the first 8 digits of your applicationId | The header parameters to include in the request header.|
+   | Headers | Key: app, Value: take the first eight digits of your applicationId | The header parameters to include in the request header.|
 
     > [!NOTE]
     > - The example web endpoint created using [Azure Functions](../../azure-functions/index.yml), which hooks up with the database that saves the device state of the tv and fan.

@@ -1,18 +1,19 @@
 ---
 title: Connect through firewalls
-titleSuffix: Azure Cognitive Search
-description: Configure IP firewall rules to allow data access by an Azure Cognitive Search indexer.
+titleSuffix: Azure AI Search
+description: Configure IP firewall rules to allow data access by an Azure AI Search indexer.
 
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/19/2023
 ---
 
-# Configure IP firewall rules to allow indexer connections from Azure Cognitive Search
+# Configure IP firewall rules to allow indexer connections from Azure AI Search
 
 On behalf of an indexer, a search service issues outbound calls to an external Azure resource to pull in data during indexing. If your Azure resource uses IP firewall rules to filter incoming calls, you need to create an inbound rule in your firewall that admits indexer requests.
 
@@ -79,7 +80,7 @@ For ping, the request times out, but the IP address is visible in the response. 
 
 You'll also need to create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). This environment is managed by Microsoft and it's used to offload processing intensive jobs that could otherwise overwhelm your search service. This section explains how to get the range of IP addresses needed to create this inbound rule.
 
-An IP address range is defined for each region that supports Azure Cognitive Search. Specify the full range to ensure the success of requests originating from the multi-tenant execution environment. 
+An IP address range is defined for each region that supports Azure AI Search. Specify the full range to ensure the success of requests originating from the multi-tenant execution environment. 
 
 You can get this IP address range from the `AzureCognitiveSearch` service tag.
 
