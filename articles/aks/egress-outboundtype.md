@@ -6,7 +6,7 @@ ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.author: allensu
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 02/02/2024
 #Customer intent: As a cluster operator, I want to define my own egress paths with user-defined routes. Since I define this up front I do not want AKS provided load balancer configurations.
 ---
 
@@ -98,39 +98,6 @@ Migration is only supported between `loadBalancer`, `managedNATGateway` (if usin
 > Changing the outbound type on a cluster is disruptive to network connectivity and will result in a change of the cluster's egress IP address. If any firewall rules have been configured to restrict traffic from the cluster, you need to update them to match the new egress IP address.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-### Install the `aks-preview` Azure CLI extension
-
-`aks-preview` version 0.5.113 is required.
-
-* Install and update the `aks-preview` extension.
-
-```azurecli
-# Install aks-preview extension
-az extension add --name aks-preview
-# Update aks-preview extension
-az extension update --name aks-preview
-```
-
-### Register the `AKS-OutBoundTypeMigrationPreview` feature flag
-
-1. Register the `AKS-OutBoundTypeMigrationPreview` feature flag using the [`az feature register`][az-feature-register] command. It takes a few minutes for the status to show *Registered*.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
-```
-
-2. Verify the registration status using the [`az feature show`][az-feature-show] command.
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
-```
-
-3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Update cluster to use a new outbound type
 
