@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Subscribe to Azure Communication Services Events
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to subscribe to events from Azure Communication Services.
+description: In this quickstart, you learn how to subscribe to events from Azure Communication Services.
 author: pgrandhi
 manager: rasubram
 services: azure-communication-services
