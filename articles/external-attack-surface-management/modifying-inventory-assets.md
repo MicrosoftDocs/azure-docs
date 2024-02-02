@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Asset modification overview
 
-This article outlines how to modify inventory assets. You can change the state of an asset, assign an external ID or apply labels to help provide context and use inventory data. This article describes these modification options, and outlines how to update assets and track any updates with the Task Manager.
+This article outlines how to modify inventory assets. You can change the state of an asset, assign an external ID or apply labels to help provide context and use inventory data. Users can also remove assets from their inventory in bulk based on the method with which they were discovered; for instance, users can remove a seed from a discovery group and elect to remove any assets that were discovered through a connection to this seed. This article describes all modification options available in Defender EASM, and outlines how to update assets and track any updates with the Task Manager.
 
 ### Label assets
 
@@ -151,6 +151,49 @@ After you label assets in your inventory, you can use inventory filters to retri
 
 4. Select **Apply**. The inventory list page reloads and displays all assets that match your criteria.
 
+
+
+## Asset chain-based management 
+
+In some instances, you may wish to remove multiple assets at once based on the means with which they were discovered. For example, you may determine that a particular seed within a discovery group has pulled in assets that are not relevant to your organization, or you may need to remove assets that relate to a subsidiary that is no longer under your purview. For this reason, Defender EASM offers the ability to remove the source entity and any assets "downstream" in the discovery chain. You can delete linked assets with the following three methods: 
+
+- **Seed-based management:** users can delete a seed that was previously included in a discovery group, removing all assets that were introduced to inventory through an observed connection to the specified seed. This method is useful when you can determine that a specific manually inputted seed resulted in undesired assets being added to inventory. 
+- **Discovery chain management**: users can identify an asset within a discovery chain and delete it, simultaneously removing any assets discovered by that entity. Discovery is a recursive process; it scans seeds to identify new assets directly associated to these designated seeds, then continues to scan the newly discovered entities to unveil more connections. This deletion approach is useful when your discovery group is properly configured, but you need to remove a newly discovered asset and any asset(s) brought into inventory by association to that entity. Consider your discovery group settings and designated seeds to be the "top" of your discovery chain; this deletion approach allows you to remove assets from the middle.
+- **Discovery group management:** users can remove entire discovery group(s) and all assets that were introduced to inventory through this discovery group. This is useful when an entire discovery group is no longer applicable to your organization. For instance, you may have a discovery group that specifically searches for assets related to a subsidiary. If this subsidiary is no longer relevant to your organization, you can leverage asset chain-based management to delete all assets brought into inventory through that discovery group.
+
+ You can still view removed assets in Defender EASM; simply filter your inventory list for assets in the "Archived" state. 
+
+
+### Seed-based deletion 
+
+You may decide that one of your initially designated discovery seeds should no longer be included in a discovery group.  The seed may no longer be relevant to your organization, or it might be bringing in more false positives than legitimate owned assets. In this situation, you can remove the seed from your Discovery Group to prevent it from being used in future discovery runs while simultaneously removing any assets that have been brought to inventory through the designated seed in the past. 
+
+To perform a bulk removal based on a seed, route to the appropriate Discovery Group details page and click "Edit discovery group."  Follow the prompts to reach the Seeds page, and remove the problematic seed from the list. When you select "Review + Update", you will see a warning that indicates that all assets discovered through the designated seed will be removed as well. Select "Update" or "Update & Run" to complete the deletion. 
+
+![Screenshot that shows the Edit Discovery Group page with a warning indicating the removal of a seed and any assets discovered through that seed.](media/chain-1.png)
+
+
+
+### Discovery chain-based deletion 
+
+In the following example, imagine that you've discovered an insecure login form on your Attack Surface Summary dashboard. Your investigation routes you to a host that does not appear to be owned by your organization. You view the asset details page for more information; upon reviewing the Discovery chain, you learn that the host was brought into inventory because the corresponding domain was registered using an employee's corporate email address that was also used to register approved business entities. 
+
+![Screenshot that shows the Asset Details page with the Discovery Chain section highlighted.](media/chain-2.png)
+
+In this situation, the initial discovery seed (the corporate domain) is still legitimate so we need to instead remove a problematic asset from the discovery chain. While we could perform the chain deletion from the contact email, we'll instead elect to remove everything associated to the personal domain registered to this employee so that Defender EASM will alert us of any other domains registered to that email address in the future. From the discovery chain, select this personal domain to view the asset details page. From this view, select "Remove from discovery chain" to remove the asset from your inventory, as well as all assets brought into inventory due to an observed connection to the personal domain. You will be asked to confirm the removal of the asset and all downstream assets and will be presented with a summarized list of the other assets that will be removed with this action. Select "Remove discovery chain" to confirm the bulk removal. 
+
+![Screenshot that shows the box that prompts users to confirm the removal of the current asset and all downstream assets, with a summary of the other assets that will be removed with this action.](media/chain-3.png)
+
+
+### Discovery group deletion 
+
+You may need to delete and entire discovery group and all the assets discovered through the group.  For instance, your company may have sold a subsidiary that no longer needs to be monitored. Users can delete discovery groups from the Discovery management page. To remove a discovery group and all related assets, simply select the trash bin icon next to the appropriate group in the list. You will receive a warning that lists a summary of the assets that will be removed with this action. To confirm the deletion of the discovery group; and all related assets, select "Remove discovery group." 
+
+![Screenshot that shows the Discovery management page, with the warning box that appears after electing to delete a group highlighted.](media/chain-4.png)
+
+
+
+  
 ## Next steps
 
 - [Inventory filters overview](inventory-filters.md)

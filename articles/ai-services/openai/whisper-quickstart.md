@@ -89,6 +89,12 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [REST API quickstart](includes/whisper-python.md)]
+
+::: zone-end
+
 ## Clean up resources
 
 If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
