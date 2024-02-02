@@ -21,7 +21,7 @@ Azure Machine Learning supports MLflow for model management when connected to a 
 
 [!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
-* Notice that organizational registries are not supported for model management with MLflow as they are a native capability of Azure Machine Learning.
+* Notice that organizational registries are not supported for model management with MLflow.
 
 * Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial uses the object `client` to refer to such MLflow client.
 
@@ -231,13 +231,14 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 | Search registered models by name | **&check;** | **&check;** | **&check;** | **&check;**<sup>4</sup> |
 | Search registered models using string comparators `LIKE` and `ILIKE` | **&check;** |  |  | **&check;**<sup>4</sup> |
 | Search registered models by tag |  |  |  | **&check;**<sup>4</sup> |
+| [Organizational registries](how-to-manage-registries.md) support | | | **&check;** | **&check;** |
 
 > [!NOTE]
 > - <sup>1</sup> Use URIs with format `runs:/<ruin-id>/<path>`.
 > - <sup>2</sup> Use URIs with format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
 > - <sup>3</sup> Registered models are immutable objects in Azure ML.
 > - <sup>4</sup> Use search box in Azure ML Studio. Partial match supported.
-> - <sup>5</sup> Use [registries](how-to-manage-registries.md).
+> - <sup>5</sup> Use [registries](how-to-manage-registries.md) to move models across different workspaces while keeping lineage.
 
 ## Next steps
 
