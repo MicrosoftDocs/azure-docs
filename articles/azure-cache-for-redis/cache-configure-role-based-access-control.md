@@ -94,7 +94,7 @@ The following list contains some examples of permission strings for various scen
 
 - Allow application to execute only _read_ commands
 
-    Permissions string: `+@read *`
+    Permissions string: `+@read ~*`
 
 - Allow application to execute _read_ command category and set command on keys with prefix `Az`.
 
@@ -116,7 +116,9 @@ The following list contains some examples of permission strings for various scen
 
 1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
 
-1. From the Resource menu, select **Authentication** and select **(PREVIEW) Enable Microsoft Entra Authorization** as the tab in the working pane.
+1. To add a user to the new the access policy using Microsoft Entra ID, you must first enable Microsoft Entra ID by select **Authentication** from the Resource Menu.
+
+1. Select **(PREVIEW) Enable Microsoft Entra Authorization** as the tab in the working pane.
 
 1. If not checked already, check the box labeled **(PREVIEW) Enable Microsoft Entra Authorization** and select **OK**. Then, select **Save**.
 
