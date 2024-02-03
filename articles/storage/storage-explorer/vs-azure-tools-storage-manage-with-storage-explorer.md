@@ -261,7 +261,7 @@ You can access a resource that's not in your subscription. You need someone who 
 
     ![Connect to Data Lake Store result](../../media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-attach-data-lake-finished.png)
 
-This example uses Data Lake Storage Gen1. Azure Data Lake Storage Gen2 is now available. For more information, see [What is Azure Data Lake Storage Gen1](./data-lake-store/data-lake-store-overview.md).
+This example uses Data Lake Storage Gen1. Azure Data Lake Storage Gen2 is now available. For more information, see [What is Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md).
 
 ## Generate a shared access signature in Storage Explorer<a name="generate-a-sas-in-storage-explorer"></a>
 
@@ -295,7 +295,7 @@ As you enter text in the search box, Storage Explorer displays all resources tha
 ## Next steps
 
 * [Manage Azure Blob storage resources with Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
-* [Manage Azure Data Lake Store resources with Storage Explorer](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Manage Azure Data Lake Store resources with Storage Explorer](../../data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [14]: ../../media/vs-azure-tools-storage-manage-with-storage-explorer/get-shared-access-signature-for-storage-explorer.png
 [15]: ../../media/vs-azure-tools-storage-manage-with-storage-explorer/create-shared-access-signature-for-storage-explorer.png
