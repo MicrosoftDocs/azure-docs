@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: sgilley
 ms.date: 01/19/2024
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
+ms.custom: fasttrack-edit, sdkv2, devx-track-python
 ---
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)

@@ -5,9 +5,9 @@ description: Image data preparation for Azure Machine Learning automated ML to t
 author: vadthyavath
 ms.author: rvadthyavath
 ms.service: machine-learning
-ms.subservice: automl 
+ms.subservice: automl
 ms.topic: how-to
-ms.custom: template-how-to, sdkv2, event-tier1-build-2022, ignite-2022, update-code
+ms.custom: template-how-to, sdkv2, update-code
 ms.reviewer: ssalgado
 ms.date: 05/26/2022
 ---
