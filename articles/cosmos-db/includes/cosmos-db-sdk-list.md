@@ -2,7 +2,6 @@
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 09/28/2022
 ---
