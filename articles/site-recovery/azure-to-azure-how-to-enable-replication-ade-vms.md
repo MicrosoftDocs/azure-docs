@@ -190,7 +190,7 @@ For this example, we assume that you create a new empty key vault `KV2` with the
 ### Update target VM encryption settings using REST API
 
 1. You must copy the keys to target vault using the [Copy-Keys](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) script.
-2. Use the [`Replication Protected Items - Update`](/rest/api/site-recovery/replication-protected-items/update?view=rest-site-recovery-2023-02-01&tabs=HTTP&tryIt=true&source=docs#diskencryptioninfo) Rest API to update the Azure Site Recovery metadata.
+2. Use the [`Replication Protected Items - Update`](/rest/api/site-recovery/replication-protected-items/update?view=rest-site-recovery-2023-02-01&preserve-view=true&tabs=HTTP&tryIt=true&source=docs#diskencryptioninfo) Rest API to update the Azure Site Recovery metadata.
 
 ### Update target VM encryption settings using PowerShell
 
