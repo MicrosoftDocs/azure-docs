@@ -23,6 +23,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
 | [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
 | [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
+| [Text to speech](#text-to-speech-models-preview) (Preview) | A series of models in preview that can synthesize text to speech. |
 
 ## GPT-4 and GPT-4 Turbo Preview
 
@@ -64,6 +65,12 @@ The DALL-E models, currently in preview, generate images from text prompts that 
 The Whisper models, currently in preview, can be used for speech to text.
 
 You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
+## Text to speech (Preview)
+
+The OpenAI text to speech models, currently in preview, can be used to synthesize text to speech.
+
+You can also use the OpenAI text to speech voices via Azure AI Speech. To learn more, see [OpenAI text to speech voices via Azure OpenAI Service or via Azure AI Speech](../../speech-service/openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech) guide. 
 
 ## Model summary table and region availability
 
@@ -177,6 +184,13 @@ These models can only be used with Embedding API requests.
 |  Model ID  | Model Availability | Max Request (audio file size) |
 |  --- |  --- | :---: |
 | `whisper` | North Central US <br> West Europe | 25 MB |
+
+### Text to speech models (Preview)
+
+|  Model ID  | Model Availability |
+|  --- |  --- | :---: |
+| `tts-1` | North Central US <br> Sweden Central |
+| `tts-1-hd` | North Central US <br> Sweden Central |
 
 ## Next steps
 
