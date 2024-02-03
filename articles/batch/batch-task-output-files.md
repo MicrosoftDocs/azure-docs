@@ -4,8 +4,7 @@ description: Learn how to use the Batch service API to persist Batch task and jo
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.devlang: csharp
-ms.custom: "seodec18, devx-track-csharp"
-
+ms.custom: devx-track-csharp
 ---
 
 # Persist task data to Azure Storage with the Batch service API
