@@ -241,8 +241,6 @@
     href: files-reserve-capacity.md
 - name: Monitor metrics and logs
   href: monitor.files.md
-  - name: Monitor Azure Files
-    href: storage-files-monitoring.md
 - name: Application development
   items:
   - name: Configure connection strings
