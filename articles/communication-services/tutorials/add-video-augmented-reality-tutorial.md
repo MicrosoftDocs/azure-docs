@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Add Argumented Reality filter to your app
+title: Tutorial - Add Augmented Reality filter to your app
 titleSuffix: An Azure Communication Services tutorial
 description: In this tutorial, you learn how to add Augmented Reality filter to your app using Azure Communication Services and other effects SDKs.
 author: sloanster
@@ -41,7 +41,7 @@ DeepAR offers the option to use a canvas as an output. ACS Web SDK can consume t
 
 Here is the data flow:
 
-:::image type="content" source="./media/ar/videoflow.png" alt-text="The data flow between ACS SDK and DeepAR SDK":::
+:::image type="content" source="./media/ar/videoflow.png" alt-text="The diagram of data flow between ACS SDK and DeepAR SDK.":::
 
 
 ## Initialize DeepAR SDK
@@ -109,7 +109,7 @@ await deepAR.switchEffect('https://cdn.jsdelivr.net/npm/deepar/effects/lion');
 await deepAR.backgroundBlur(true, 8);
 
 ```
-:::image type="content" source="./media/ar/screenshot.png" alt-text="Screenshot of the video effect":::
+:::image type="content" source="./media/ar/screenshot.png" alt-text="Screenshot of the video effect.":::
 
 ## Stop the effect
 
