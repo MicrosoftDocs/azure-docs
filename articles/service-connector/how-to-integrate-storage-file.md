@@ -6,7 +6,6 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 11/02/2023
-ms.custom: event-tier1-build-2022
 ---
 # Integrate Azure Files with Service Connector
 

@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 12/05/2023
-ms.custom: event-tier1-build-2022, engagement-fy23
+ms.custom: engagement-fy23
 ---
 # Integrate Azure Database for PostgreSQL with Service Connector
 

@@ -6,7 +6,6 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 10/31/2023
-ms.custom: event-tier1-build-2022
 ---
 # Integrate Azure Cache for Redis with Service Connector
 
