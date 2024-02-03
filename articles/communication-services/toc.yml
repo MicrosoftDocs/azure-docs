@@ -20,6 +20,8 @@ items:
       href: quickstarts/identity/access-tokens.md
     - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
     - name: SDKs and APIs
       href: concepts/sdk-options.md
     - name: Designing your architecture
@@ -379,9 +381,9 @@ items:
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Migrating to Azure Communication Services
       items:
-        - name: How to migrate to Azure Communication Services calling from Twilio
+        - name: How to migrate from Twilio video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
-          displayName: migration, migrate, Twilio
+          displayName: migration, migrate, Twilio, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS

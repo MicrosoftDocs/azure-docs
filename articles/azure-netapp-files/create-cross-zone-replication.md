@@ -56,15 +56,15 @@ This process requires that your account is subscribed to the [availability zone 
     > [!IMPORTANT]
     > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
 
-    :::image type="content" source="../media/azure-netapp-files/create-volume-availability-zone.png" alt-text="Screenshot of the 'Create a Zone' menu requires you to select an availability zone." lightbox="../media/azure-netapp-files/create-volume-availability-zone.png":::
+    :::image type="content" source="./media/create-cross-zone-replication/create-volume-availability-zone.png" alt-text="Screenshot of the 'Create a Zone' menu requires you to select an availability zone." lightbox="./media/create-cross-zone-replication/create-volume-availability-zone.png":::
 
 1. Follow the steps indicated in the interface to create the volume. The **Review + Create** page shows the selected availability zone you specified.
     
-    :::image type="content" source="../media/azure-netapp-files/zone-replication-review-create.png" alt-text="Screenshot showing the need to confirm selection of correct availability zone in the Review and Create page." lightbox="../media/azure-netapp-files/zone-replication-review-create.png":::
+    :::image type="content" source="./media/create-cross-zone-replication/zone-replication-review-create.png" alt-text="Screenshot showing the need to confirm selection of correct availability zone in the Review and Create page." lightbox="./media/create-cross-zone-replication/zone-replication-review-create.png":::
 
 1. After you create the volume, the **Volume Overview** page includes availability zone information for the volume.
 
-    :::image type="content" source="../media/azure-netapp-files/zone-replication-volume-overview.png" alt-text="The selected availability zone will display when you create the volume." lightbox="../media/azure-netapp-files/zone-replication-volume-overview.png":::
+    :::image type="content" source="./media/create-cross-zone-replication/zone-replication-volume-overview.png" alt-text="The selected availability zone will display when you create the volume." lightbox="./media/create-cross-zone-replication/zone-replication-volume-overview.png":::
 
 ## Create the data replication volume in another availability zone of the same region
 
@@ -73,7 +73,7 @@ This process requires that your account is subscribed to the [availability zone 
 1. Create the data replication volume (the destination volume) _in another availability zone, but in the same region as the source volume_. In the **Basics** tab of the **Create a new protection volume** page, select an available availability zone.
 > [!IMPORTANT]
 > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
-    :::image type="content" source="../media/azure-netapp-files/zone-replication-create-new-volume.png" alt-text="Select an availability zone for the cross-zone replication volume." lightbox="../media/azure-netapp-files/zone-replication-create-new-volume.png":::
+    :::image type="content" source="./media/create-cross-zone-replication/zone-replication-create-new-volume.png" alt-text="Select an availability zone for the cross-zone replication volume." lightbox="./media/create-cross-zone-replication/zone-replication-create-new-volume.png":::
 
 ## Complete cross-zone replication configuration
 

@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 01/29/2024
+ms.date: 01/30/2024
 ms.custom: generated
 ---
 
@@ -41,6 +41,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Virtual Machine Administrator Login](#virtual-machine-administrator-login) | View Virtual Machines in the portal and login as administrator | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | [Virtual Machine Contributor](#virtual-machine-contributor) | Create and manage virtual machines, manage disks, install and run software, reset password of the root user of the virtual machine using VM extensions, and manage local user accounts using VM extensions. This role does not grant you management access to the virtual network or storage account the virtual machines are connected to. This role does not allow you to assign roles in Azure RBAC. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | [Virtual Machine Data Access Administrator (preview)](#virtual-machine-data-access-administrator-preview) | Manage access to Virtual Machines by adding or removing role assignments for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments. | 66f75aeb-eabe-4b70-9f1e-c350c4c9ad04 |
+> | [Virtual Machine Local User Login](#virtual-machine-local-user-login) | View Virtual Machines in the portal and login as a local user configured on the arc server | 602da2ba-a5c2-41da-b01d-5360126ab525 |
 > | [Virtual Machine User Login](#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [Windows Admin Center Administrator Login](#windows-admin-center-administrator-login) | Let's you manage the OS of your resource via Windows Admin Center as an administrator. | a6333a3e-0164-44c3-b281-7a577aff287f |
 > | **Networking** |  |  |
@@ -213,6 +214,10 @@ The following table provides a brief description of each built-in role. Click th
 > | [Azure Service Bus Data Owner](#azure-service-bus-data-owner) | Allows for full access to Azure Service Bus resources. | 090c5cfd-751d-490a-894a-3ce6f1109419 |
 > | [Azure Service Bus Data Receiver](#azure-service-bus-data-receiver) | Allows for receive access to Azure Service Bus resources. | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
 > | [Azure Service Bus Data Sender](#azure-service-bus-data-sender) | Allows for send access to Azure Service Bus resources. | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | [Azure Stack HCI Administrator](#azure-stack-hci-administrator) | Grants full access to the cluster and its resources, including the ability to register Azure Stack HCI and assign others as Azure Arc HCI VM Contributor and/or Azure Arc HCI VM Reader | bda0d508-adf1-4af0-9c28-88919fc3ae06 |
+> | [Azure Stack HCI Device Management Role](#azure-stack-hci-device-management-role) | Microsoft.AzureStackHCI Device Management Role | 865ae368-6a45-4bd1-8fbf-0d5151f56fc1 |
+> | [Azure Stack HCI VM Contributor](#azure-stack-hci-vm-contributor) | Grants permissions to perform all VM actions | 874d1c73-6003-4e60-a13a-cb31ea190a85 |
+> | [Azure Stack HCI VM Reader](#azure-stack-hci-vm-reader) | Grants permissions to view VMs | 4b3fe76c-f777-4d24-a2d7-b027b0f7b273 |
 > | [Azure Stack Registration Owner](#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | [EventGrid Contributor](#eventgrid-contributor) | Lets you manage EventGrid operations. | 1e241071-0855-49ea-94dc-649edcd759de |
 > | [EventGrid Data Sender](#eventgrid-data-sender) | Allows send access to event grid events. | d5a91429-5739-47e2-a06b-3470a27159e7 |
@@ -226,12 +231,12 @@ The following table provides a brief description of each built-in role. Click th
 > | [Integration Service Environment Contributor](#integration-service-environment-contributor) | Lets you manage integration service environments, but not access to them. | a41e2c5b-bd99-4a07-88f4-9bf657a760b8 |
 > | [Integration Service Environment Developer](#integration-service-environment-developer) | Allows developers to create and update workflows, integration accounts and API connections in integration service environments. | c7aa55d3-1abb-444a-a5ca-5e51e485d6ec |
 > | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Lets you manage Intelligent Systems accounts, but not access to them. | 03a6d094-3444-4b3d-88af-7477090a9e5e |
-> | [Logic App Contributor](#logic-app-contributor) | Lets you manage Consumption logic apps, but not change access to them. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
-> | [Logic App Operator](#logic-app-operator) | Lets you read, enable, and disable Consumption logic apps, but not edit or update them. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
-> | [Logic Apps Standard Contributor (Preview)](#logic-apps-standard-contributor) | You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership. | ad710c24-b039-4e85-a019-deb4a06e8570 |
-> | [Logic Apps Standard Developer (Preview)](#logic-apps-standard-developer) | You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope. | 523776ba-4eb24-600a-3c8f-2dc93da4bdb |
-> | [Logic Apps Standard Operator (Preview)](#logic-apps-standard-operator) | You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings. | b70c96e9-66fe-4c09-b6e7-c98e69c98555 |
-> | [Logic Apps Standard Reader (Preview)](#logic-apps-standard-reader) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. | 4accf36b-2c05-432f-91c8-5c532dff4c73 |
+> | [Logic App Contributor](#logic-app-contributor) | Lets you manage logic apps, but not change access to them. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
+> | [Logic App Operator](#logic-app-operator) | Lets you read, enable, and disable logic apps, but not edit or update them. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [Logic Apps Standard Contributor (Preview)](#logic-apps-standard-contributor-preview) | You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership. | ad710c24-b039-4e85-a019-deb4a06e8570 |
+> | [Logic Apps Standard Developer (Preview)](#logic-apps-standard-developer-preview) | You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope. | 523776ba-4eb2-4600-a3c8-f2dc93da4bdb |
+> | [Logic Apps Standard Operator (Preview)](#logic-apps-standard-operator-preview) | You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings. | b70c96e9-66fe-4c09-b6e7-c98e69c98555 |
+> | [Logic Apps Standard Reader (Preview)](#logic-apps-standard-reader-preview) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. | 4accf36b-2c05-432f-91c8-5c532dff4c73 |
 > | **Identity** |  |  |
 > | [Domain Services Contributor](#domain-services-contributor) | Can manage Azure AD Domain Services and related network configurations | eeaeda52-9324-47f6-8069-5d5bade478b2 |
 > | [Domain Services Reader](#domain-services-reader) | Can view Azure AD Domain Services and related network configurations | 361898ef-9ed1-48c2-849c-a832951106bb |
@@ -291,6 +296,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
 > | [Azure Connected Machine Onboarding](#azure-connected-machine-onboarding) | Can onboard Azure Connected Machines. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | [Azure Connected Machine Resource Administrator](#azure-connected-machine-resource-administrator) | Can read, write, delete and re-onboard Azure Connected Machines. | cd570a14-e51a-42ad-bac8-bafd67325302 |
+> | [Azure Connected Machine Resource Manager](#azure-connected-machine-resource-manager) | Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid connectivity endpoints in a resource group | f5819b54-e033-4d82-ac66-4fec3cbf3f4c |
+> | [Azure Resource Bridge Deployment Role](#azure-resource-bridge-deployment-role) | Azure Resource Bridge Deployment Role | 7b1f81f9-4196-4058-8aae-762e593270df |
 > | [Billing Reader](#billing-reader) | Allows read access to billing data | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | [Blueprint Contributor](#blueprint-contributor) | Can manage blueprint definitions, but not assign them. | 41077137-e803-4205-871c-5a86e6a753b4 |
 > | [Blueprint Operator](#blueprint-operator) | Can assign existing published blueprints, but cannot create new blueprints. Note that this only works if the assignment is done with a user-assigned managed identity. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
@@ -1153,6 +1160,49 @@ Manage access to Virtual Machines by adding or removing role assignments for the
 }
 ```
 
+### Virtual Machine Local User Login
+
+View Virtual Machines in the portal and login as a local user configured on the arc server
+
+[Learn more](/azure/azure-arc/servers/ssh-arc-troubleshoot)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/*/read |  |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View Virtual Machines in the portal and login as a local user configured on the arc server",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/602da2ba-a5c2-41da-b01d-5360126ab525",
+  "name": "602da2ba-a5c2-41da-b01d-5360126ab525",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.HybridCompute/machines/*/read",
+        "Microsoft.HybridConnectivity/endpoints/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Virtual Machine Local User Login",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### Virtual Machine User Login
 
 View Virtual Machines in the portal and login as a regular user.
@@ -1234,6 +1284,8 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | Fetches the managed proxy details  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/read | Retrieves the summary of the latest patch assessment operation |
@@ -1294,6 +1346,8 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
         "Microsoft.Network/networkSecurityGroups/securityRules/write",
         "Microsoft.HybridConnectivity/endpoints/write",
         "Microsoft.HybridConnectivity/endpoints/read",
+        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write",
+        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read",
         "Microsoft.HybridConnectivity/endpoints/listManagedProxyDetails/action",
         "Microsoft.Compute/virtualMachines/read",
         "Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/read",
@@ -1448,6 +1502,10 @@ Can view AFD standard and premium profiles and their endpoints, but can't make c
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/querywafloganalyticsmetrics/action |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/querywafloganalyticsrankings/action |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/afdendpoints/CheckCustomDomainDNSMappingStatus/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/Usages/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/afdendpoints/Usages/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/origingroups/Usages/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/rulesets/Usages/action |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1478,7 +1536,11 @@ Can view AFD standard and premium profiles and their endpoints, but can't make c
         "Microsoft.Cdn/profiles/queryloganalyticsrankings/action",
         "Microsoft.Cdn/profiles/querywafloganalyticsmetrics/action",
         "Microsoft.Cdn/profiles/querywafloganalyticsrankings/action",
-        "Microsoft.Cdn/profiles/afdendpoints/CheckCustomDomainDNSMappingStatus/action"
+        "Microsoft.Cdn/profiles/afdendpoints/CheckCustomDomainDNSMappingStatus/action",
+        "Microsoft.Cdn/profiles/Usages/action",
+        "Microsoft.Cdn/profiles/afdendpoints/Usages/action",
+        "Microsoft.Cdn/profiles/origingroups/Usages/action",
+        "Microsoft.Cdn/profiles/rulesets/Usages/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1760,6 +1822,8 @@ Can view CDN profiles and their endpoints, but can't make changes.
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/afdendpoints/validateCustomDomain/action |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/CheckResourceUsage/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/endpoints/CheckResourceUsage/action |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1786,7 +1850,9 @@ Can view CDN profiles and their endpoints, but can't make changes.
         "Microsoft.Resources/deployments/*",
         "Microsoft.Cdn/profiles/afdendpoints/validateCustomDomain/action",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Support/*"
+        "Microsoft.Support/*",
+        "Microsoft.Cdn/profiles/CheckResourceUsage/action",
+        "Microsoft.Cdn/profiles/endpoints/CheckResourceUsage/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -4281,7 +4347,7 @@ Grants access to read map related data from an Azure maps account.
 
 Allow read, write and delete access to Azure Spring Cloud Config Server
 
-[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
+[Learn more](/azure/spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4326,7 +4392,7 @@ Allow read, write and delete access to Azure Spring Cloud Config Server
 
 Allow read access to Azure Spring Cloud Config Server
 
-[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
+[Learn more](/azure/spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4406,7 +4472,7 @@ Allow read access to Azure Spring Cloud Data
 
 Allow read, write and delete access to Azure Spring Cloud Service Registry
 
-[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
+[Learn more](/azure/spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4451,7 +4517,7 @@ Allow read, write and delete access to Azure Spring Cloud Service Registry
 
 Allow read access to Azure Spring Cloud Service Registry
 
-[Learn more](../spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac.md)
+[Learn more](/azure/spring-apps/basic-standard/how-to-access-data-plane-azure-ad-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -10529,6 +10595,554 @@ Allows for send access to Azure Service Bus resources.
 }
 ```
 
+### Azure Stack HCI Administrator
+
+Grants full access to the cluster and its resources, including the ability to register Azure Stack HCI and assign others as Azure Arc HCI VM Contributor and/or Azure Arc HCI VM Reader
+
+[Learn more](/azure-stack/hci/manage/assign-vm-rbac-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/register/action | Registers the subscription for the Azure Stack HCI resource provider and enables the creation of Azure Stack HCI resources. |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Unregister/Action | Unregisters the subscription for the Azure Stack HCI resource provider. |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/clusters/* |  |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/register/action | Registers the subscription for the Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/register/action | Registers the subscription for the Microsoft.GuestConfiguration resource provider. |
+> | [Microsoft.GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/write | Creates or updates a resource group. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/delete | Deletes a resource group and all its resources. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/register/action | Register the subscription for Microsoft.HybridConnectivity |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/assessPatches/action | Assesses any Azure Arc machines to get missing software patches |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/installPatches/action | Installs patches on any Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/operations/read | Read all Operations for Azure Arc for Servers |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/locations/operationresults/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/locations/operationstatus/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/patchAssessmentResults/read | Reads any Azure Arc patchAssessmentResults |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/patchAssessmentResults/softwarePatches/read | Reads any Azure Arc patchAssessmentResults/softwarePatches |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/patchInstallationResults/read | Reads any Azure Arc patchInstallationResults |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/patchInstallationResults/softwarePatches/read | Reads any Azure Arc patchInstallationResults/softwarePatches |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/locations/updateCenterOperationResults/read | Reads the status of an update center operation on machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/hybridIdentityMetadata/read | Read any Azure Arc machines's Hybrid Identity Metadata |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/osType/agentVersions/read | Read all Azure Connected Machine Agent versions available |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/osType/agentVersions/latest/read | Read the latest Azure Connected Machine Agent version |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/runcommands/read | Reads any Azure Arc runcommands |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/runcommands/write | Installs or Updates an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/runcommands/delete | Deletes an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/licenses/read | Reads any Azure Arc licenses |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/licenses/write | Installs or Updates an Azure Arc licenses |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/licenses/delete | Deletes an Azure Arc licenses |
+> | Microsoft.ResourceConnector/register/action | Registers the subscription for Appliances resource provider and enables the creation of Appliance. |
+> | Microsoft.ResourceConnector/appliances/read | Gets an Appliance resource |
+> | Microsoft.ResourceConnector/appliances/write | Creates or Updates Appliance resource |
+> | Microsoft.ResourceConnector/appliances/delete | Deletes Appliance resource |
+> | Microsoft.ResourceConnector/locations/operationresults/read | Get result of Appliance operation |
+> | Microsoft.ResourceConnector/locations/operationsstatus/read | Get result of Appliance operation |
+> | Microsoft.ResourceConnector/appliances/listClusterUserCredential/action | Get an appliance cluster user credential |
+> | Microsoft.ResourceConnector/appliances/listKeys/action | Get an appliance cluster customer user keys |
+> | Microsoft.ResourceConnector/operations/read | Gets list of Available Operations for Appliances |
+> | Microsoft.ExtendedLocation/register/action | Registers the subscription for Custom Location resource provider and enables the creation of Custom Location. |
+> | Microsoft.ExtendedLocation/customLocations/read | Gets an Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/write | Creates or Updates Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/delete | Deletes Custom Location resource |
+> | Microsoft.EdgeMarketplace/offers/read | Get a Offer |
+> | Microsoft.EdgeMarketplace/publishers/read | Get a Publisher |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/register/action | Registers Subscription with Microsoft.Kubernetes resource provider |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/register/action | Registers subscription to Microsoft.KubernetesConfiguration resource provider. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/namespaces/read | Get Namespace Resource |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/operations/read | Gets available operations of the Microsoft.KubernetesConfiguration resource provider. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
+> | Microsoft.HybridContainerService/register/action | Register the subscription for Microsoft.HybridContainerService |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6})) | Add or remove role assignments for the following roles:<br/>Azure Connected Machine Resource Manager<br/>Azure Connected Machine Resource Administrator<br/>Azure Connected Machine Onboarding<br/>Azure Stack HCI VM Reader<br/>Azure Stack HCI VM Contributor<br/>Azure Stack HCI Device Management Role<br/>Azure Resource Bridge Deployment Role<br/>Key Vault Secrets User |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants full access to the cluster and its resources, including the ability to register Azure Stack HCI and assign others as Azure Arc HCI VM Contributor and/or Azure Arc HCI VM Reader",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bda0d508-adf1-4af0-9c28-88919fc3ae06",
+  "name": "bda0d508-adf1-4af0-9c28-88919fc3ae06",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureStackHCI/register/action",
+        "Microsoft.AzureStackHCI/Unregister/Action",
+        "Microsoft.AzureStackHCI/clusters/*",
+        "Microsoft.HybridCompute/register/action",
+        "Microsoft.GuestConfiguration/register/action",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Resources/subscriptions/resourceGroups/delete",
+        "Microsoft.HybridConnectivity/register/action",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.AzureStackHCI/*",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/assessPatches/action",
+        "Microsoft.HybridCompute/machines/installPatches/action",
+        "Microsoft.HybridCompute/machines/extensions/read",
+        "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/extensions/delete",
+        "Microsoft.HybridCompute/operations/read",
+        "Microsoft.HybridCompute/locations/operationresults/read",
+        "Microsoft.HybridCompute/locations/operationstatus/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches/read",
+        "Microsoft.HybridCompute/locations/updateCenterOperationResults/read",
+        "Microsoft.HybridCompute/machines/hybridIdentityMetadata/read",
+        "Microsoft.HybridCompute/osType/agentVersions/read",
+        "Microsoft.HybridCompute/osType/agentVersions/latest/read",
+        "Microsoft.HybridCompute/machines/runcommands/read",
+        "Microsoft.HybridCompute/machines/runcommands/write",
+        "Microsoft.HybridCompute/machines/runcommands/delete",
+        "Microsoft.HybridCompute/machines/licenseProfiles/read",
+        "Microsoft.HybridCompute/machines/licenseProfiles/write",
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
+        "Microsoft.HybridCompute/licenses/read",
+        "Microsoft.HybridCompute/licenses/write",
+        "Microsoft.HybridCompute/licenses/delete",
+        "Microsoft.ResourceConnector/register/action",
+        "Microsoft.ResourceConnector/appliances/read",
+        "Microsoft.ResourceConnector/appliances/write",
+        "Microsoft.ResourceConnector/appliances/delete",
+        "Microsoft.ResourceConnector/locations/operationresults/read",
+        "Microsoft.ResourceConnector/locations/operationsstatus/read",
+        "Microsoft.ResourceConnector/appliances/listClusterUserCredential/action",
+        "Microsoft.ResourceConnector/appliances/listKeys/action",
+        "Microsoft.ResourceConnector/operations/read",
+        "Microsoft.ExtendedLocation/register/action",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.ExtendedLocation/customLocations/write",
+        "Microsoft.ExtendedLocation/customLocations/delete",
+        "Microsoft.EdgeMarketplace/offers/read",
+        "Microsoft.EdgeMarketplace/publishers/read",
+        "Microsoft.Kubernetes/register/action",
+        "Microsoft.KubernetesConfiguration/register/action",
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
+        "Microsoft.KubernetesConfiguration/namespaces/read",
+        "Microsoft.KubernetesConfiguration/operations/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.AzureStackHCI/StorageContainers/Write",
+        "Microsoft.AzureStackHCI/StorageContainers/Read",
+        "Microsoft.HybridContainerService/register/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{f5819b54-e033-4d82-ac66-4fec3cbf3f4c, cd570a14-e51a-42ad-bac8-bafd67325302, b64e21ea-ac4e-4cdf-9dc9-5b892992bee7, 4b3fe76c-f777-4d24-a2d7-b027b0f7b273, 874d1c73-6003-4e60-a13a-cb31ea190a85,865ae368-6a45-4bd1-8fbf-0d5151f56fc1,7b1f81f9-4196-4058-8aae-762e593270df,4633458b-17de-408a-b874-0445c86b69e6}))"
+    }
+  ],
+  "roleName": "Azure Stack HCI Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Stack HCI Device Management Role
+
+Microsoft.AzureStackHCI Device Management Role
+
+[Learn more](/azure-stack/hci/deploy/deployment-azure-resource-manager-template)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/* |  |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/EdgeDevices/* |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Microsoft.AzureStackHCI Device Management Role",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/865ae368-6a45-4bd1-8fbf-0d5151f56fc1",
+  "name": "865ae368-6a45-4bd1-8fbf-0d5151f56fc1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureStackHCI/Clusters/*",
+        "Microsoft.AzureStackHCI/EdgeDevices/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Stack HCI Device Management Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Stack HCI VM Contributor
+
+Grants permissions to perform all VM actions
+
+[Learn more](/azure-stack/hci/manage/assign-vm-rbac-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/VirtualMachines/* |  |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/virtualMachineInstances/* |  |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/NetworkInterfaces/* |  |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/VirtualHardDisks/* |  |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/VirtualNetworks/Read | Gets/Lists virtual networks resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/VirtualNetworks/join/action | Joins virtual networks resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/LogicalNetworks/Read | Gets/Lists logical networks resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/LogicalNetworks/join/action | Joins logical networks resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/GalleryImages/Read | Gets/Lists gallery images resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/GalleryImages/deploy/action | Deploys gallery images resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/StorageContainers/deploy/action | Deploys storage containers resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/MarketplaceGalleryImages/Read | Gets/Lists market place gallery images resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/MarketPlaceGalleryImages/deploy/action | Deploys market place gallery images resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/Read | Gets clusters |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/delete | Deletes a deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/assessPatches/action | Assesses any Azure Arc machines to get missing software patches |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/installPatches/action | Installs patches on any Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/operations/read | Read all Operations for Azure Arc for Servers |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/locations/operationresults/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/locations/operationstatus/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/patchAssessmentResults/read | Reads any Azure Arc patchAssessmentResults |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/patchAssessmentResults/softwarePatches/read | Reads any Azure Arc patchAssessmentResults/softwarePatches |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/patchInstallationResults/read | Reads any Azure Arc patchInstallationResults |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/patchInstallationResults/softwarePatches/read | Reads any Azure Arc patchInstallationResults/softwarePatches |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/locations/updateCenterOperationResults/read | Reads the status of an update center operation on machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/hybridIdentityMetadata/read | Read any Azure Arc machines's Hybrid Identity Metadata |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/osType/agentVersions/read | Read all Azure Connected Machine Agent versions available |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/osType/agentVersions/latest/read | Read the latest Azure Connected Machine Agent version |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/runcommands/read | Reads any Azure Arc runcommands |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/runcommands/write | Installs or Updates an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/runcommands/delete | Deletes an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/licenses/read | Reads any Azure Arc licenses |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/licenses/write | Installs or Updates an Azure Arc licenses |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/licenses/delete | Deletes an Azure Arc licenses |
+> | Microsoft.ExtendedLocation/customLocations/Read | Gets an Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants permissions to perform all VM actions",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/874d1c73-6003-4e60-a13a-cb31ea190a85",
+  "name": "874d1c73-6003-4e60-a13a-cb31ea190a85",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureStackHCI/VirtualMachines/*",
+        "Microsoft.AzureStackHCI/virtualMachineInstances/*",
+        "Microsoft.AzureStackHCI/NetworkInterfaces/*",
+        "Microsoft.AzureStackHCI/VirtualHardDisks/*",
+        "Microsoft.AzureStackHCI/VirtualNetworks/Read",
+        "Microsoft.AzureStackHCI/VirtualNetworks/join/action",
+        "Microsoft.AzureStackHCI/LogicalNetworks/Read",
+        "Microsoft.AzureStackHCI/LogicalNetworks/join/action",
+        "Microsoft.AzureStackHCI/GalleryImages/Read",
+        "Microsoft.AzureStackHCI/GalleryImages/deploy/action",
+        "Microsoft.AzureStackHCI/StorageContainers/Read",
+        "Microsoft.AzureStackHCI/StorageContainers/deploy/action",
+        "Microsoft.AzureStackHCI/MarketplaceGalleryImages/Read",
+        "Microsoft.AzureStackHCI/MarketPlaceGalleryImages/deploy/action",
+        "Microsoft.AzureStackHCI/Clusters/Read",
+        "Microsoft.AzureStackHCI/Clusters/ArcSettings/Read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/whatIf/action",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/assessPatches/action",
+        "Microsoft.HybridCompute/machines/installPatches/action",
+        "Microsoft.HybridCompute/machines/extensions/read",
+        "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/extensions/delete",
+        "Microsoft.HybridCompute/operations/read",
+        "Microsoft.HybridCompute/locations/operationresults/read",
+        "Microsoft.HybridCompute/locations/operationstatus/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches/read",
+        "Microsoft.HybridCompute/locations/updateCenterOperationResults/read",
+        "Microsoft.HybridCompute/machines/hybridIdentityMetadata/read",
+        "Microsoft.HybridCompute/osType/agentVersions/read",
+        "Microsoft.HybridCompute/osType/agentVersions/latest/read",
+        "Microsoft.HybridCompute/machines/runcommands/read",
+        "Microsoft.HybridCompute/machines/runcommands/write",
+        "Microsoft.HybridCompute/machines/runcommands/delete",
+        "Microsoft.HybridCompute/machines/licenseProfiles/read",
+        "Microsoft.HybridCompute/machines/licenseProfiles/write",
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
+        "Microsoft.HybridCompute/licenses/read",
+        "Microsoft.HybridCompute/licenses/write",
+        "Microsoft.HybridCompute/licenses/delete",
+        "Microsoft.ExtendedLocation/customLocations/Read",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.KubernetesConfiguration/extensions/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Stack HCI VM Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Stack HCI VM Reader
+
+Grants permissions to view VMs
+
+[Learn more](/azure-stack/hci/manage/assign-vm-rbac-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/VirtualMachines/Read | Gets/Lists virtual machine resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/virtualMachineInstances/Read | Gets/Lists virtual machine instance resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/VirtualMachines/Extensions/Read | Gets/Lists virtual machine extensions resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/VirtualNetworks/Read | Gets/Lists virtual networks resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/LogicalNetworks/Read | Gets/Lists logical networks resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/NetworkInterfaces/Read | Gets/Lists network interfaces resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/VirtualHardDisks/Read | Gets/Lists virtual hard disk resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/GalleryImages/Read | Gets/Lists gallery images resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/MarketplaceGalleryImages/Read | Gets/Lists market place gallery images resource |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourcegroups/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants permissions to view VMs",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4b3fe76c-f777-4d24-a2d7-b027b0f7b273",
+  "name": "4b3fe76c-f777-4d24-a2d7-b027b0f7b273",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureStackHCI/VirtualMachines/Read",
+        "Microsoft.AzureStackHCI/virtualMachineInstances/Read",
+        "Microsoft.AzureStackHCI/VirtualMachines/Extensions/Read",
+        "Microsoft.AzureStackHCI/VirtualNetworks/Read",
+        "Microsoft.AzureStackHCI/LogicalNetworks/Read",
+        "Microsoft.AzureStackHCI/NetworkInterfaces/Read",
+        "Microsoft.AzureStackHCI/VirtualHardDisks/Read",
+        "Microsoft.AzureStackHCI/StorageContainers/Read",
+        "Microsoft.AzureStackHCI/GalleryImages/Read",
+        "Microsoft.AzureStackHCI/MarketplaceGalleryImages/Read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/operationresults/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Stack HCI VM Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### Azure Stack Registration Owner
 
 Lets you manage Azure Stack registrations.
@@ -11263,28 +11877,30 @@ Lets you manage logic apps, but not change access to them.
 
 ### Logic App Operator
 
-Lets you read, enable, and disable Consumption logic apps, but not edit or update them. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+Lets you read, enable, and disable logic apps, but not edit or update them.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/*/read | Read Insights alert rules. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/*/read | Read Insights alert rules |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/*/read |  |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/*/read | Get diagnostic settings for Consumption logic apps. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/*/read | Get the available metrics for Consumption logic apps. |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/*/read | Read Consumption logic app resources. |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/disable/action | Disable the workflow. |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/enable/action | Enable the workflow. |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/validate/action | Validate the workflow. |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Get or list deployment operations. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/*/read | Gets diagnostic settings for Logic Apps |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricDefinitions/*/read | Gets the available metrics for Logic Apps. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/*/read | Reads Logic Apps resources. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/disable/action | Disables the workflow. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/enable/action | Enables the workflow. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/validate/action | Validates the workflow. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Get or list resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read connection gateways. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | Read connections. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | Read custom APIs. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties for an App Service Plan. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | Read Connections. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | Read Custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -11332,25 +11948,25 @@ Lets you read, enable, and disable Consumption logic apps, but not edit or updat
 }
 ```
 
-<a name="logic-apps-standard-contributor"></a>
-
 ### Logic Apps Standard Contributor (Preview)
 
-You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/certificates/* | Create and manage a certificate. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Create and manage a connection gateway. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manage a connection. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Create and manage a custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Create and manages a Connection Gateway. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manages a Connection. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Creates and manages a Custom API. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/listSitesAssignedToHostName/read | Get names of sites assigned to hostname. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/* | Create and manage an App Service Plan. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/* | Create and manage a web app. |
@@ -11363,21 +11979,15 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
 
 ```json
 {
-  "Description": "You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.",
-  "Metadata": {
-    "CreatedBy": null,
-    "CreatedOn": "2023-08-02T22:35:40.6977003Z",
-    "UpdatedBy": null,
-    "UpdatedOn": "2023-08-23T18:55:27.6632763Z"
-  },
-  "IsBuiltIn": true,
-  "AdminSecurityClaim": "Microsoft.Web",
-  "Id": "ad710c24b0394e85a019deb4a06e8570",
-  "Name": "Logic Apps Standard Contributor (Preview)",
-  "IsServiceRole": false,
-  "Permissions": [
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/ad710c24-b039-4e85-a019-deb4a06e8570",
+  "name": "ad710c24-b039-4e85-a019-deb4a06e8570",
+  "permissions": [
     {
-      "Actions": [
+      "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -11392,62 +12002,60 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
         "Microsoft.Web/serverFarms/*",
         "Microsoft.Web/sites/*"
       ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "Condition": null,
-      "ConditionVersion": null
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
     }
   ],
-  "Scopes": [
-    "/"
-  ]
+  "roleName": "Logic Apps Standard Contributor (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-<a name="logic-apps-standard-developer"></a>
-
 ### Logic Apps Standard Developer (Preview)
 
-You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Get a list of connection gateways. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manage a connection. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Create and manage a custom API. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties for an App Service Plan. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/appettings/read | Get the web app settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/list/Action | List the web app's security sensitive settings, such as publishing credentials, app settings, and connection strings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Read | Get the web app configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Write | Update the web app's configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/delete |	Delete the web app's configuration. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/read |	Get a single app setting for the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/write | Create or update a single app setting for the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/deployWorkflowArtifacts/action | Create the artifacts in a Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/listworkflowsconnections/actions | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/publish/Action | Publish the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/Read | Get the web app properties. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/appsettings/read | Get the web app slot's settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/appsettings/write | Create or update a single app setting for the web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/list/Action | List the web app slot's security sensitive settings, such as publishing credentials, app settings, and connection strings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/Read | Get the web app slot's configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/web/appsettings/delete | Delete the web app slot's app setting. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/deployWorkflowArtifacts/action | Create the artifacts in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/listworkflowsconnections/action | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/publish/Action | Publish a web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get the workflow's app configuration information based on its ID in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflows/* | Manage the workflows in the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/* | Get the workflow's app configuration information based on its ID for the Standard logic app. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manages a Connection. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Creates and manages a Custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/appsettings/read | Get Web App settings. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/list/Action | List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Read | Get Web App configuration settings |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/Write | Update Web App's configuration settings |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/delete | Delete Web Apps App Setting |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/read | Get Web App Single App setting. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/config/web/appsettings/write | Create or Update Web App Single App setting |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/deployWorkflowArtifacts/action | Create the artifacts in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/listworkflowsconnections/action | List logic app's connections by its ID in a Logic App. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/publish/Action | Publish a Web App |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/Read | Get the properties of a Web App |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/config/appsettings/read | Get Web App Slot's single App setting. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/config/appsettings/write | Create or Update Web App Slot's Single App setting |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/list/Action | List Web App Slot's security sensitive settings, such as publishing credentials, app settings and connection strings |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/Read | Get Web App Slot's configuration settings |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/config/web/appsettings/delete | Delete Web App Slot's App Setting |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/deployWorkflowArtifacts/action | Create the artifacts in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/listworkflowsconnections/action | List logic app's connections by its ID in a deployment slot in a Logic App. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/publish/Action | Publish a Web App Slot |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflows/* |  |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -11457,21 +12065,15 @@ You can create and edit workflows, connections, and settings for a Standard logi
 
 ```json
 {
-  "Description": "You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.",
-  "Metadata": {
-    "CreatedBy": null,
-    "CreatedOn": "2023-08-02T22:37:24.4551086Z",
-    "UpdatedBy": null,
-    "UpdatedOn": "2023-08-23T18:56:32.6015183Z"
-  },
-  "IsBuiltIn": true,
-  "AdminSecurityClaim": "Microsoft.Web",
-  "Id": "523776ba4eb24600a3c8f2dc93da4bdb",
-  "Name": "Logic Apps Standard Developer (Preview)",
-  "IsServiceRole": false,
-  "Permissions": [
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/523776ba-4eb2-4600-a3c8-f2dc93da4bdb",
+  "name": "523776ba-4eb2-4600-a3c8-f2dc93da4bdb",
+  "permissions": [
     {
-      "Actions": [
+      "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -11507,57 +12109,55 @@ You can create and edit workflows, connections, and settings for a Standard logi
         "microsoft.web/sites/workflows/*",
         "microsoft.web/sites/workflowsconfiguration/*"
       ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "Condition": null,
-      "ConditionVersion": null
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
     }
   ],
-  "Scopes": [
-    "/"
-  ]
+  "roleName": "Logic Apps Standard Developer (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-<a name="logic-apps-standard-operator"></a>
-
 ### Logic Apps Standard Operator (Preview)
 
-You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Get a list of connection gateways. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties for an App Service Plan. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/applySlotConfig/Action | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Read | Get the web app configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/Read | Get the web app properties. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/restart/Action | Restart the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/Read | Get the web app slot's configuration settings. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/restart/Action | Restart the web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/slotsswap/Action | Swap the web app deployment slots. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/start/Action | Start the web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/stop/Action | Stop the web app slot. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get the workflow's app configuration information based on its ID in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/slotsdiffs/Action | Get the differences in the configuration between the web app and slots. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slotsswap/Action | Swap the web app deployment slots. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/start/Action | Start the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/stop/Action | Stop the web app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflows/read | List the workflows in the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/read | Get the workflow's app configuration based on its ID for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/write | Create or update a web app. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | Read Connections. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | Read Custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/applySlotConfig/Action | Apply web app slot configuration from target slot to the current web app |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/config/Read | Get Web App configuration settings |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/Read | Get the properties of a Web App |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/restart/Action | Restart a Web App |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/config/Read | Get Web App Slot's configuration settings |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/restart/Action | Restart a Web App Slot |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/slotsswap/Action | Swap Web App deployment slots |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/start/Action | Start a Web App Slot |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/stop/Action | Stop a Web App Slot |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slotsdiffs/Action | Get differences in configuration between web app and slots |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slotsswap/Action | Swap Web App deployment slots |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/start/Action | Start a Web App |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/stop/Action | Stop a Web App |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflows/read | List the workflows in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/read | Get logic app's configuration information by its ID in a Logic App. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/write | Create a new Web App or update an existing one |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -11567,21 +12167,15 @@ You can enable, resubmit, and disable workflows as well as create connections. Y
 
 ```json
 {
-  "Description": "You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings.",
-  "Metadata": {
-    "CreatedBy": null,
-    "CreatedOn": "2023-08-02T22:38:47.4360166Z",
-    "UpdatedBy": null,
-    "UpdatedOn": "2023-08-23T19:03:50.1098085Z"
-  },
-  "IsBuiltIn": true,
-  "AdminSecurityClaim": "Microsoft.Web",
-  "Id": "b70c96e966fe4c09b6e7c98e69c98555",
-  "Name": "Logic Apps Standard Operator (Preview)",
-  "IsServiceRole": false,
-  "Permissions": [
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b70c96e9-66fe-4c09-b6e7-c98e69c98555",
+  "name": "b70c96e9-66fe-4c09-b6e7-c98e69c98555",
+  "permissions": [
     {
-      "Actions": [
+      "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -11612,44 +12206,42 @@ You can enable, resubmit, and disable workflows as well as create connections. Y
         "microsoft.web/sites/workflowsconfiguration/read",
         "Microsoft.Web/sites/write"
       ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "Condition": null,
-      "ConditionVersion": null
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
     }
   ],
-  "Scopes": [
-    "/"
-  ]
+  "roleName": "Logic Apps Standard Operator (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-<a name="logic-apps-standard-reader"></a>
-
 ### Logic Apps Standard Reader (Preview)
 
-You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.
+
+[Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Get a list of connection gateways. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | No information available. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties for an App Service Plan. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/triggers/read | List the web app's hostruntime workflow triggers. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/runs/read | List the web app's hostruntime workflow runs. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflows/read | List the workflows in the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/read | Get the workflow's app configuration based on its ID for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot for the Standard logic app. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get the workflow's app configuration information based on its ID in a deployment slot for the Standard logic app. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/*/read | Read Connections. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/*/read | Read Custom API. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/triggers/read | List Web Apps Hostruntime Workflow Triggers. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/runs/read | List Web Apps Hostruntime Workflow Runs. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflows/read | List the workflows in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/workflowsconfiguration/read | Get logic app's configuration information by its ID in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
+> | [microsoft.web](resource-provider-operations.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -11659,21 +12251,15 @@ You have read-only access to all resources in a Standard logic app and workflows
 
 ```json
 {
-  "Description": "You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.",
-  "Metadata": {
-    "CreatedBy": null,
-    "CreatedOn": "2023-08-02T22:33:56.2374571Z",
-    "UpdatedBy": null,
-    "UpdatedOn": "2023-08-23T19:05:11.7148533Z"
-  },
-  "IsBuiltIn": true,
-  "AdminSecurityClaim": "Microsoft.Web",
-  "Id": "4accf36b2c05432f91c85c532dff4c73",
-  "Name": "Logic Apps Standard Reader (Preview)",
-  "IsServiceRole": false,
-  "Permissions": [
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4accf36b-2c05-432f-91c8-5c532dff4c73",
+  "name": "4accf36b-2c05-432f-91c8-5c532dff4c73",
+  "permissions": [
     {
-      "Actions": [
+      "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -11691,16 +12277,14 @@ You have read-only access to all resources in a Standard logic app and workflows
         "microsoft.web/sites/slots/workflows/read",
         "microsoft.web/sites/slots/workflowsconfiguration/read"
       ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "Condition": null,
-      "ConditionVersion": null
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
     }
   ],
-  "Scopes": [
-    "/"
-  ]
+  "roleName": "Logic Apps Standard Reader (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -15300,6 +15884,8 @@ Can onboard Azure Connected Machines.
 
 Can read, write, delete and re-onboard Azure Connected Machines.
 
+[Learn more](/azure/azure-arc/servers/security-overview)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -15358,6 +15944,182 @@ Can read, write, delete and re-onboard Azure Connected Machines.
     }
   ],
   "roleName": "Azure Connected Machine Resource Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Connected Machine Resource Manager
+
+Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid connectivity endpoints in a resource group
+
+[Learn more](/azure-stack/hci/deploy/deployment-azure-resource-manager-template)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/*/read |  |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
+> | [Microsoft.GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | [Microsoft.GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/guestConfigurationAssignments/*/read |  |
+> | [Microsoft.GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/guestConfigurationAssignments/write | Create new guest configuration assignment. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid connectivity endpoints in a resource group",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f5819b54-e033-4d82-ac66-4fec3cbf3f4c",
+  "name": "f5819b54-e033-4d82-ac66-4fec3cbf3f4c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.HybridConnectivity/endpoints/read",
+        "Microsoft.HybridConnectivity/endpoints/write",
+        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read",
+        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/extensions/read",
+        "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/extensions/delete",
+        "Microsoft.HybridCompute/*/read",
+        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/licenseProfiles/read",
+        "Microsoft.HybridCompute/machines/licenseProfiles/write",
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/*/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Connected Machine Resource Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Resource Bridge Deployment Role
+
+Azure Resource Bridge Deployment Role
+
+[Learn more](/azure/azure-arc/resource-bridge/overview)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/Register/Action | Registers the subscription for the Azure Stack HCI resource provider and enables the creation of Azure Stack HCI resources. |
+> | Microsoft.ResourceConnector/register/action | Registers the subscription for Appliances resource provider and enables the creation of Appliance. |
+> | Microsoft.ResourceConnector/appliances/read | Gets an Appliance resource |
+> | Microsoft.ResourceConnector/appliances/write | Creates or Updates Appliance resource |
+> | Microsoft.ResourceConnector/appliances/delete | Deletes Appliance resource |
+> | Microsoft.ResourceConnector/locations/operationresults/read | Get result of Appliance operation |
+> | Microsoft.ResourceConnector/locations/operationsstatus/read | Get result of Appliance operation |
+> | Microsoft.ResourceConnector/appliances/listClusterUserCredential/action | Get an appliance cluster user credential |
+> | Microsoft.ResourceConnector/appliances/listKeys/action | Get an appliance cluster customer user keys |
+> | Microsoft.ResourceConnector/appliances/upgradeGraphs/read | Gets the upgrade graph of Appliance cluster |
+> | Microsoft.ResourceConnector/telemetryconfig/read | Get Appliances telemetry config utilized by Appliances CLI |
+> | Microsoft.ResourceConnector/operations/read | Gets list of Available Operations for Appliances |
+> | Microsoft.ExtendedLocation/register/action | Registers the subscription for Custom Location resource provider and enables the creation of Custom Location. |
+> | Microsoft.ExtendedLocation/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/read | Gets an Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/write | Creates or Updates Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/delete | Deletes Custom Location resource |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/register/action | Register the subscription for Microsoft.HybridConnectivity |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/register/action | Registers Subscription with Microsoft.Kubernetes resource provider |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/register/action | Registers subscription to Microsoft.KubernetesConfiguration resource provider. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/namespaces/read | Get Namespace Resource |
+> | [Microsoft.KubernetesConfiguration](resource-provider-operations.md#microsoftkubernetesconfiguration)/operations/read | Gets available operations of the Microsoft.KubernetesConfiguration resource provider. |
+> | [Microsoft.GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | Microsoft.HybridContainerService/register/action | Register the subscription for Microsoft.HybridContainerService |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
+> | [Microsoft.AzureStackHCI](resource-provider-operations.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Azure Resource Bridge Deployment Role",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7b1f81f9-4196-4058-8aae-762e593270df",
+  "name": "7b1f81f9-4196-4058-8aae-762e593270df",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureStackHCI/Register/Action",
+        "Microsoft.ResourceConnector/register/action",
+        "Microsoft.ResourceConnector/appliances/read",
+        "Microsoft.ResourceConnector/appliances/write",
+        "Microsoft.ResourceConnector/appliances/delete",
+        "Microsoft.ResourceConnector/locations/operationresults/read",
+        "Microsoft.ResourceConnector/locations/operationsstatus/read",
+        "Microsoft.ResourceConnector/appliances/listClusterUserCredential/action",
+        "Microsoft.ResourceConnector/appliances/listKeys/action",
+        "Microsoft.ResourceConnector/appliances/upgradeGraphs/read",
+        "Microsoft.ResourceConnector/telemetryconfig/read",
+        "Microsoft.ResourceConnector/operations/read",
+        "Microsoft.ExtendedLocation/register/action",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.ExtendedLocation/customLocations/write",
+        "Microsoft.ExtendedLocation/customLocations/delete",
+        "Microsoft.HybridConnectivity/register/action",
+        "Microsoft.Kubernetes/register/action",
+        "Microsoft.KubernetesConfiguration/register/action",
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
+        "Microsoft.KubernetesConfiguration/namespaces/read",
+        "Microsoft.KubernetesConfiguration/operations/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.HybridContainerService/register/action",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.AzureStackHCI/StorageContainers/Write",
+        "Microsoft.AzureStackHCI/StorageContainers/Read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Resource Bridge Deployment Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

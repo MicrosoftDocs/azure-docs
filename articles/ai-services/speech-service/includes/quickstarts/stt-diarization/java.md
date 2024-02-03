@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 7/27/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -16,10 +16,12 @@ ms.author: eur
 
 ## Set up the environment
 
-Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
+To set up your environment, [install the Speech SDK](~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre). The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
 1. Install [Apache Maven](https://maven.apache.org/install.html). Then run `mvn -v` to confirm successful installation.
+
 1. Create a new `pom.xml` file in the root of your project, and copy the following into it:
+
     ```xml
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <modelVersion>4.0.0</modelVersion>
@@ -48,7 +50,9 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
         </dependencies>
     </project>
     ```
+
 1. Install the Speech SDK and dependencies.
+
     ```console
     mvn clean dependency:copy-dependencies
     ```
@@ -57,11 +61,12 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Diarization from file with conversation transcription
+## Implement diarization from file with conversation transcription
 
-Follow these steps to create a new console application for conversation transcription.
+Follow these steps to create a console application for conversation transcription.
 
 1. Create a new file named `ConversationTranscription.java` in the same project root directory.
+
 1. Copy the following code into `ConversationTranscription.java`:
 
     ```java
@@ -139,24 +144,28 @@ Follow these steps to create a new console application for conversation transcri
     }
     ```
 
-1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/sampledata/audiofiles/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
-    > [!NOTE]
-    > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
+1. Get the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/sampledata/audiofiles/katiesteve.wav) or use your own `.wav` file. Replace `katiesteve.wav` with the path and name of your `.wav` file.
 
-Run your new console application to start conversation transcription:
+   The application recognizes speech from multiple participants in the conversation. Your audio file should contain multiple speakers.
 
-```console
-javac ConversationTranscription.java -cp ".;target\dependency\*"
-java -cp ".;target\dependency\*" ConversationTranscription
-```
+   > [!NOTE]
+   > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
+
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md).
+
+1. Run your new console application to start conversation transcription:
+
+   ```console
+   javac ConversationTranscription.java -cp ".;target\dependency\*"
+   java -cp ".;target\dependency\*" ConversationTranscription
+   ```
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-The transcribed conversation should be output as text: 
+The transcribed conversation should be output as text:
 
-```console 
+```output
 TRANSCRIBED: Text=Good morning, Steve. Speaker ID=Unknown
 TRANSCRIBED: Text=Good morning. Katie. Speaker ID=Unknown
 TRANSCRIBED: Text=Have you tried the latest real time diarization in Microsoft Speech Service which can tell you who said what in real time? Speaker ID=Guest-1
