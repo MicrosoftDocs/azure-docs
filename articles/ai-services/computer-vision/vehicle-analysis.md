@@ -6,7 +6,6 @@ description: Vehicle analysis is a set of capabilities that, when used with the 
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 01/20/2024
 ms.author: pafarley
