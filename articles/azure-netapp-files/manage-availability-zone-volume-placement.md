@@ -17,7 +17,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 ## Requirements and considerations 
 
 >[!IMPORTANT]
->If you're using availability zones and custom roles with role-based access control (RBAC), ensure you have the appropriate permissions set. Not having certain permissions can cause issues in the Azure portal. For configuration details, see [Configure custom RBAC roles](#configure-custom-rbac-roles).
+>If you're using availability zones with custom roles or the pre-defined Contributor RBAC role, ensure you have the appropriate permissions set. Not having certain permissions can cause issues in the Azure portal. For configuration details, see [Configure custom RBAC roles](#configure-custom-rbac-roles).
 
 * This feature doesn't guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation will fail.
 
@@ -118,7 +118,7 @@ If you need to delete and recreate the volume in a different availability zone, 
 
 ## Configure custom RBAC roles
 
-If you are using a custom RBAC role and managing availability zones _in the Azure portal_, you may not be able to access network features and Availability Zone options in the Azure portal. To ensure you have the appropriate access, add the `Microsoft.NetApp/locations/*` permission to custom RBAC roles. The wildcard encompasses the following permissions: 
+If you're using a custom RBAC role or the [built-in Contributor role](../role-based-access-control/built-in-roles.md#contributor) and managing availability zones _in the Azure portal_, you might not be able to access network features and Availability Zone options in the Azure portal. To ensure you have the appropriate access, add the `Microsoft.NetApp/locations/*` permission. The wildcard encompasses the following permissions: 
 
 * `Microsoft.NetApp/locations/{location}/checkNameAvailability`
 * `Microsoft.NetApp/locations/{location}/checkFilePathAvailability`
