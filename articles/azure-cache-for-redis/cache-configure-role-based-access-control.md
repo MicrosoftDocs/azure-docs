@@ -116,7 +116,7 @@ The following list contains some examples of permission strings for various scen
 
 1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
 
-1. To add a user to the new the access policy using Microsoft Entra ID, you must first enable Microsoft Entra ID by select **Authentication** from the Resource Menu.
+1. To add a user to the access policy using Microsoft Entra ID, you must first enable Microsoft Entra ID by selecting **Authentication** from the Resource menu.
 
 1. Select **(PREVIEW) Enable Microsoft Entra Authorization** as the tab in the working pane.
 
@@ -131,7 +131,7 @@ The following list contains some examples of permission strings for various scen
 
 ## Configure your Redis client to use Microsoft Entra ID
 
-Now that you have configured Redis User and Data access policy for configuring role based access control, you need to update your client workflow to support authenticating using a specific user/password. To learn how to configure you client application to connect to your cache instance as a specific Redis User, see [Configure your Redis client to use Microsoft Entra ID](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra-id).
+Now that you have configured Redis User and Data access policy for configuring role based access control, you need to update your client workflow to support authenticating using a specific user/password. To learn how to configure your client application to connect to your cache instance as a specific Redis User, see [Configure your Redis client to use Microsoft Entra ID](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra-id).
 
 ## Next steps
 

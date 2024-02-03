@@ -51,7 +51,7 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 
 1. In the working pane, select **(PREVIEW) Enable Microsoft Entra Authorization**.
 
-1. Select "**Enable Microsoft Entra Authorization**, and enter the name of a valid user. The, select **Save**. You could also enter a managed identity or service principal to connect to your cache instance.
+1. Select **Enable Microsoft Entra Authorization**, and enter the name of a valid user. Then, select **Save**. You could also enter a managed identity or service principal to connect to your cache instance.
 
     :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the enable Microsoft Entra authentication checked.":::
 
@@ -68,7 +68,7 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 
 1. Select **(PREVIEW) Data Access Configuration** from the Resource menu.
 
-1. Select "**Add**" and choose **New Redis User**.
+1. Select **Add** and choose **New Redis User**.
 
 1. On the **Access Policy** tab, select one the available policies in the table: **Data Owner**, **Data Contributor**, or **Data Reader**. Then, select the **Next:Redis Users**.
 
