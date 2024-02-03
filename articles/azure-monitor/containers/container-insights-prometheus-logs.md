@@ -2,7 +2,6 @@
 title: Collect Prometheus metrics with Container insights
 description: Describes different methods for configuring the Container insights agent to scrape Prometheus metrics from your Kubernetes cluster.
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 03/01/2023
 ms.reviewer: aul
 ---
