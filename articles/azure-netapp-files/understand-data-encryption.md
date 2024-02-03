@@ -19,22 +19,22 @@ Azure NetApp Files encrypts data through two different methods:
 ## Understand encryption at-rest 
 
 Data at-rest in Azure NetApp Files can be encrypted in two ways:
-* Single encryption leverages software-based encryption for Azure NetApp Files volumes.
-* [Double encryption](double-encryption-at-rest.md) adds an additional hardware-level encryption at the physical storage device layer. 
+* Single encryption uses software-based encryption for Azure NetApp Files volumes.
+* [Double encryption](double-encryption-at-rest.md) adds hardware-level encryption at the physical storage device layer. 
 
-Azure NetApp Files leverages standard CryptoMod to generate AES-256 encryption keys. [CryptoMod](https://public.cyber.mil/pki-pke/cryptographic-modernization/) is listed on the CMVP FIPS 140-2 validated modules list; for more information, see [FIPS 140-2 Cert #4144](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4144). Encryption keys are associated with the volumes and can be Microsoft [platform-managed keys](faq-security.md#how-are-encryption-keys-managed) or [customer-managed keys](configure-customer-managed-keys.md). 
+Azure NetApp Files uses standard CryptoMod to generate AES-256 encryption keys. [CryptoMod](https://public.cyber.mil/pki-pke/cryptographic-modernization/) is listed on the CMVP FIPS 140-2 validated modules list; for more information, see [FIPS 140-2 Cert #4144](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4144). Encryption keys are associated with the volumes and can be Microsoft [platform-managed keys](faq-security.md#how-are-encryption-keys-managed) or [customer-managed keys](configure-customer-managed-keys.md). 
 
 ## Understand data in-transit encryption  
 
 In addition to securing data at-rest, Azure NetApp Files can secure data when it's in-transit between endpoints. The encryption method used depends on the protocol or feature. 
 
-Most insecure in-transit protocols (such as telnet, NIS, NDMP) are disabled in Azure NetApp Files. DNS, however, is not encrypted by Azure NetApp Files (no DNS Sec support) thus should be encrypted by using external network encryption when possible. 
+Most insecure in-transit protocols (such as telnet, NIS, NDMP) are disabled in Azure NetApp Files. DNS, however, isn't encrypted by Azure NetApp Files (no DNS Sec support) thus should be encrypted by using external network encryption when possible. 
 
 ### SMB encryption 
 
 Windows SMB clients using the SMB3.x protocol version natively support [SMB encryption](/windows-server/storage/file-server/smb-security). [SMB encryption is conducted end-to-end](network-attached-storage-permissions.md) and encrypts the entirety of the SMB conversation using AES-256-GCM/AES-128-GCM and AES-256-CCM/AES-128-CCM cryptographic suites. 
 
-SMB encryption is not required for Azure NetApp Files volumes, but can be used for extra security. SMB encryption does add a performance overhead. To learn more about performance considerations with SMB encryption, see [SMB performance best practices for Azure NetApp Files](azure-netapp-files-smb-performance.md).
+SMB encryption isn't required for Azure NetApp Files volumes, but can be used for extra security. SMB encryption does add a performance overhead. To learn more about performance considerations with SMB encryption, see [SMB performance best practices for Azure NetApp Files](azure-netapp-files-smb-performance.md).
 
 #### Requiring encryption for SMB connections 
 
@@ -99,9 +99,9 @@ LDAP signing is specific to connections on Microsoft Active Directory servers th
 
 :::image type="content" source="./media/understand-data-encryption/packet-ldap-signing.png" alt-text="Screenshot of NFS packet with LDAP signing." lightbox="./media/understand-data-encryption/packet-ldap-signing.png":::
 
-LDAP signing can also be [configured from the Windows server side](/windows-server/identity/enable-ldap-signing-in-windows-server) via Group Policy to either be [opportunistic with LDAP signing (none – support if requested by client) or to enforce LDAP signing (require)](/windows/security/threat-protection/security-policy-settings/domain-controller-ldap-server-signing-requirements). LDAP signing can add some performance overhead to LDAP traffic that usually is not noticeable to end users.
+LDAP signing can also be [configured from the Windows server side](/windows-server/identity/enable-ldap-signing-in-windows-server) via Group Policy to either be [opportunistic with LDAP signing (none – support if requested by client) or to enforce LDAP signing (require)](/windows/security/threat-protection/security-policy-settings/domain-controller-ldap-server-signing-requirements). LDAP signing can add some performance overhead to LDAP traffic that usually isn't noticeable to end users.
 
-Windows Active Directory also provides the ability to use LDAP signing and sealing (end to end encryption of LDAP packets), but this functionality is not supported in Azure NetApp Files.
+Windows Active Directory also enables you to use LDAP signing and sealing (end-to-end encryption of LDAP packets). Azure NetApp Files doesn't support this feature. 
 
 ### LDAP channel binding
 
@@ -109,11 +109,11 @@ Because of a security vulnerability discovered in Windows Active Directory domai
 
 Essentially, Microsoft recommends that administrators enable LDAP signing along with channel binding. If the LDAP client supports channel binding tokens and LDAP signing, channel binding and signing are required, and registry options are set by the new Microsoft patch.
 
-Azure NetApp Files, by default, supports LDAP channel binding opportunistically. If the client supports/send channel binding, then it's used. If it doesn't support/send channel binding, communication is still allowed, and channel binding isn't enforced.
+Azure NetApp Files, by default, supports LDAP channel binding opportunistically, meaning LDAP channel binding is used when the client support it. If it doesn't support/send channel binding, communication is still allowed, and channel binding isn't enforced.
 
 ### LDAP over SSL (port 636)
 
-LDAP traffic in Azure NetApp Files passes over port 389 in all cases. This port cannot be modified. LDAP over SSL (LDAPS) is not supported and is considered legacy by most LDAP server vendors ([RFC 1777](https://www.ietf.org/rfc/rfc1777.txt) was published in 1995). If you want to use LDAP encryption with Azure NetApp Files, use LDAP over TLS. 
+LDAP traffic in Azure NetApp Files passes over port 389 in all cases. This port cannot be modified. LDAP over SSL (LDAPS) isn't supported and is considered legacy by most LDAP server vendors ([RFC 1777](https://www.ietf.org/rfc/rfc1777.txt) was published in 1995). If you want to use LDAP encryption with Azure NetApp Files, use LDAP over TLS. 
 
 ### LDAP over StartTLS
 
@@ -125,7 +125,7 @@ LDAP over StartTLS uses port 389 for the LDAP connection. After the initial LDAP
 
 There are two main differences between LDAPS and StartTLS:
 
-* StartTLS is part of the LDAP standard; LDAPS is not. As a result, LDAP library support on the LDAP servers or clients can vary, and functionality might or might not work in all cases.
+* StartTLS is part of the LDAP standard; LDAPS isn't. As a result, LDAP library support on the LDAP servers or clients can vary, and functionality might or might not work in all cases.
 * If encryption fails, StartTLS allows the configuration to fall back to regular LDAP. LDAPS does not. As a result, StartTLS offers some flexibility and resiliency, but it also presents security risks if it's misconfigured.
 
 #### Security considerations with LDAP over StartTLS
