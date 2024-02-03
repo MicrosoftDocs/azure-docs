@@ -22,7 +22,7 @@ Data at-rest in Azure NetApp Files can be encrypted in two ways:
 * Single encryption leverages software-based encryption for Azure NetApp Files volumes.
 * [Double encryption](double-encryption-at-rest.md) adds an additional hardware-level encryption at the physical storage device layer. 
 
-Azure NetApp Files leverages standard CryptoMod to generate AES-256 encryption keys. [CryptoMod](https://public.cyber.mil/pki-pke/cryptographic-modernization/) is listed on the CMVP FIPS 140-2 validated modules list; for more information, see [FIPS 140-2 Cert #4144](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4144). Encryption keys are associated with the volumes and can be Microsoft [platform-managed keys](faq-security.md#how-are-encryption-keys-managed.md) or [customer-managed keys](configure-customer-managed-keys.md). 
+Azure NetApp Files leverages standard CryptoMod to generate AES-256 encryption keys. [CryptoMod](https://public.cyber.mil/pki-pke/cryptographic-modernization/) is listed on the CMVP FIPS 140-2 validated modules list; for more information, see [FIPS 140-2 Cert #4144](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4144). Encryption keys are associated with the volumes and can be Microsoft [platform-managed keys](faq-security.md#how-are-encryption-keys-managed) or [customer-managed keys](configure-customer-managed-keys.md). 
 
 ## Understand data in-transit encryption  
 
@@ -34,7 +34,7 @@ Most insecure in-transit protocols (such as telnet, NIS, NDMP) are disabled in A
 
 Windows SMB clients using the SMB3.x protocol version natively support [SMB encryption](/windows-server/storage/file-server/smb-security). [SMB encryption is conducted end-to-end](network-attached-storage-permissions.md) and encrypts the entirety of the SMB conversation using AES-256-GCM/AES-128-GCM and AES-256-CCM/AES-128-CCM cryptographic suites. 
 
-SMB encryption is not required for Azure NetApp Files volumes, but can be used for additional security. SMB encryption does add a performance overhead. To learn more about performance considerations with SMB encryption, see [SMB performance best practices for Azure NetApp Files](azure-netapp-files-smb-performance.md).
+SMB encryption is not required for Azure NetApp Files volumes, but can be used for extra security. SMB encryption does add a performance overhead. To learn more about performance considerations with SMB encryption, see [SMB performance best practices for Azure NetApp Files](azure-netapp-files-smb-performance.md).
 
 #### Requiring encryption for SMB connections 
 
@@ -62,40 +62,40 @@ Azure NetApp Files also provides [the ability to encrypt NFSv4.1 conversations v
 
 With NFS Kerberos, Azure NetApp Files supports three different security flavors: 
 
-* Kerberos 5 (`krb5`) – Initial authentication only; requires a Kerberos ticket exchange/user login to access the NFS export. NFS packets are not encrypted. 
-* Kerberos 5i (`krb5i`) – Initial authentication and integrity checking; requires a Kerberos ticket exchange/user login to access the NFS export and adds integrity checks to each NFS packet to prevent man in the middle attacks (MITM). 
-* Kerberos 5p (`krb5p`) – Initial authentication, integrity checking and privacy; requires a Kerberos ticket exchange/user login to access the NFS export, performs integrity checks and applies a GSS wrapper to each NFS packet to encrypt its contents. 
+* Kerberos 5 (`krb5`) – Initial authentication only; requires a Kerberos ticket exchange/user sign-in to access the NFS export. NFS packets are not encrypted. 
+* Kerberos 5i (`krb5i`) – Initial authentication and integrity checking; requires a Kerberos ticket exchange/user sign-in to access the NFS export and adds integrity checks to each NFS packet to prevent man-in-the-middle attacks (MITM). 
+* Kerberos 5p (`krb5p`) – Initial authentication, integrity checking and privacy; requires a Kerberos ticket exchange/user sign-in to access the NFS export, performs integrity checks and applies a GSS wrapper to each NFS packet to encrypt its contents. 
 
-Each Kerberos encryption level has an effect on performance. As the encryption types and security flavors incorporate more secure methods, the performance effect increases. For instance, `krb5` performs better than `krb5i`, krb5i performs better than `krb5p`, AES-128 perform better than AES-256, and so on. For more details about the effect of NFS Kerberos on performance in Azure NetApp Files, see [Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes](performance-impact-kerberos.md). 
+Each Kerberos encryption level has an effect on performance. As the encryption types and security flavors incorporate more secure methods, the performance effect increases. For instance, `krb5` performs better than `krb5i`, krb5i performs better than `krb5p`, AES-128 perform better than AES-256, and so on. For more information about the performance effect of NFS Kerberos in Azure NetApp Files, see [Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes](performance-impact-kerberos.md). 
 
 >[!NOTE]
 >NFS Kerberos is only supported with NFSv4.1 in Azure NetApp Files. 
 
 In the following image, Kerberos 5 (`krb5`) is used; only the initial authentication request (the sign in/ticket acquisition) is encrypted. All other NFS traffic arrives in plain text. 
 
-:::image type="content" source="./media/understand-data-encryption/kerberos-5-ticket-screenshot.png" alt-text="Screenshot of NFS packet with krb5." lightbox="./media/understand-data-encryption/kerberos-5-ticket-screenshot.png"":::
+:::image type="content" source="./media/understand-data-encryption/kerberos-5-ticket-screenshot.png" alt-text="Screenshot of NFS packet with krb5." lightbox="./media/understand-data-encryption/kerberos-5-ticket-screenshot.png":::
 
-When using Kerberos 5i (`krb5i`; integrity checking), a trace show that the NFS packets aren't encrypted, but there is a GSS/Kerberos wrapper added to the packet that requires the client and server ensure the integrity of the data transferred using a checksum.
+When using Kerberos 5i (`krb5i`; integrity checking), a trace show that the NFS packets aren't encrypted, but there's a GSS/Kerberos wrapper added to the packet that requires the client and server ensure the integrity of the data transferred using a checksum.
 
 :::image type="content" source="./media/understand-data-encryption/kerberos-5i-packet.png" alt-text="Screenshot of NFS packet with krb5i enabled." lightbox="./media/understand-data-encryption/kerberos-5i-packet.png":::
 
-Kerberos 5p (privacy; `krb5p`) provides end-to-end encryption of all NFS traffic as shown in the trace below using a GSS/Kerberos wrapper. This method creates the most performance overhead due to the need to process every NFS packet’s encryption.
+Kerberos 5p (privacy; `krb5p`) provides end-to-end encryption of all NFS traffic as shown in the trace image using a GSS/Kerberos wrapper. This method creates the most performance overhead due to the need to process every NFS packet’s encryption.
 
-:::image type="content" source="./media/understand-data-encryption/kerberos-5p-packet.png" alt-text="Screenshot of NFS packet with krb5i enabled." lightbox="./media/understand-data-encryption/kerberos-5p-packet.png":::
+:::image type="content" source="./media/understand-data-encryption/kerberos-5p-packet.png" alt-text="Screenshot of NFS packet with krb5p enabled." lightbox="./media/understand-data-encryption/kerberos-5p-packet.png":::
 
 ## Data replication
 
-In Azure NetApp Files, you can replicate entire volumes [across zones or regions in Azure to provide data protection](data-protection-disaster-recovery-options.md). Since the replication traffic resides in the Azure cloud, the transfers take place in the secure Azure network infrastructure, which is limited in access to prevent packet sniffing and man-in-the-middle attacks (eavesdropping or impersonating in-between communication endpoints). In addition, the replication traffic is encrypted using FIPS 140-2 compliant TLS 1.2 standards. For details, see [Security FAQs](faq-security.md#is-azure-netapp-files-cross-region-replication-traffic-encrypted).
+In Azure NetApp Files, you can replicate entire volumes [across zones or regions in Azure to provide data protection](data-protection-disaster-recovery-options.md). Since the replication traffic resides in the Azure cloud, the transfers take place in the secure Azure network infrastructure, which is limited in access to prevent packet sniffing and man-in-the-middle attacks (eavesdropping or impersonating in-between communication endpoints). In addition, the replication traffic is encrypted using FIPS 140-2 compliant TLS 1.2 standards. For details, see [Security FAQs](faq-security.md#is-azure-netapp-files-cross-region-and-cross-zone-replication-traffic-encrypted).
 
 ## LDAP encryption
 
-LDAP search and bind traffic normally passes over the wire in plain text, meaning anyone with access to sniff network packets can gain information from the LDAP server such as usernames, numeric IDs, group memberships, etc. This information can then be used to spoof users, send emails for phishing attacks, etc.
+Normally, LDAP search and bind traffic passes over the wire in plain text, meaning anyone with access to sniff network packets can gain information from the LDAP server such as usernames, numeric IDs, group memberships, etc. This information can then be used to spoof users, send emails for phishing attacks, etc.
 
 To protect LDAP communications from being intercepted and read, LDAP traffic can leverage over-the-wire encryption leveraging AES and TLS 1.2 via LDAP signing and LDAP over TLS, respectively. For details on configuring these options, see [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-signing).
  
 ### LDAP signing
 
-LDAP signing is specific to connections on Microsoft Active Directory servers that are hosting UNIX identities for users and groups. This functionality enables integrity verification for Simple Authentication and Security Layer (SASL) LDAP binds to AD servers hosting LDAP connections. Signing does not require configuration of security certificates because it leverages GSS-API communication with Active Directory’s Kerberos Key Distribution Center (KDC) services. LDAP signing only checks the integrity of an LDAP packet; it does not encrypt the payload of the packet.
+LDAP signing is specific to connections on Microsoft Active Directory servers that are hosting UNIX identities for users and groups. This functionality enables integrity verification for Simple Authentication and Security Layer (SASL) LDAP binds to AD servers hosting LDAP connections. Signing does not require configuration of security certificates because it uses GSS-API communication with Active Directory’s Kerberos Key Distribution Center (KDC) services. LDAP signing only checks the integrity of an LDAP packet; it does not encrypt the payload of the packet.
 
 :::image type="content" source="./media/understand-data-encryption/packet-ldap-signing.png" alt-text="Screenshot of NFS packet with LDAP signing." lightbox="./media/understand-data-encryption/packet-ldap-signing.png":::
 
@@ -109,7 +109,7 @@ Because of a security vulnerability discovered in Windows Active Directory domai
 
 Essentially, Microsoft recommends that administrators enable LDAP signing along with channel binding. If the LDAP client supports channel binding tokens and LDAP signing, channel binding and signing are required, and registry options are set by the new Microsoft patch.
 
-Azure NetApp Files, by default, supports LDAP channel binding opportunistically, meaning that if the client supports/send channel binding, then it will be used. If it does not support/send channel binding, communication will still be allowed, and channel binding will not be enforced.
+Azure NetApp Files, by default, supports LDAP channel binding opportunistically. If the client supports/send channel binding, then it's used. If it doesn't support/send channel binding, communication is still allowed, and channel binding isn't enforced.
 
 ### LDAP over SSL (port 636)
 
