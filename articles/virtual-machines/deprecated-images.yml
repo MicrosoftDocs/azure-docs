@@ -49,7 +49,7 @@ sections:
           
       - question: How can I identify the Virtual machines and Virtual Machine scale sets in my subscription that are running on images that are scheduled for deprecation?
         answer: |
-          You can search for the Virtual machine or Virtual Machine scale sets that are pinned to an image by running the following queries in [Azure Resource graph](https://docs.microsoft.com/en-us/azure/governance/resource-graph/overview): 
+          You can search for the Virtual machine or Virtual Machine scale sets that are pinned to an image by running the following queries in [Azure Resource graph](/azure/governance/resource-graph/overview): 
           
           
           - To find the VMs running on any retired image, specify the retired image as follows and run the query in Azure Resource Graph replacing the values below with your image details as follows:         
@@ -256,9 +256,9 @@ sections:
           
           We recommend the following options:
          - Upgrade your Virtual Machine or Virtual Machine Scale Set workloads that are using any of the images that will be retired to the latest version or a newer version of the image before 8 September 2024:
-         - You can do this by specifying “latest” in the version section of the Image URN in CLI or ARM template. In the Publisher:Offer:Sku:Version, you can replace the version number in the URN with “latest” to use the latest version of the image. See more information on how to specify the latest image [here](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage#terminology).
-         - You can also update the [image reference](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set) in your scale set by specifying the newer version to update to.
-         - You can create a custom image from the impacted retired image and migrate to your workload to the custom image. If you want to keep using an image that is scheduled for retirement, generalize the VM, deallocate the VM, then create a custom image for your VM or scale set. Then change the VM or scale set deployment to point to the custom image. For more information, see [Capture an image of a VM in the portal](https://learn.microsoft.com/en-us/azure/virtual-machines/capture-image-portal).
+         - You can do this by specifying “latest” in the version section of the Image URN in CLI or ARM template. In the Publisher:Offer:Sku:Version, you can replace the version number in the URN with “latest” to use the latest version of the image. See more information on how to specify the latest image [here](linux/cli-ps-findimage.md#terminology).
+         - You can also update the [image reference](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) in your scale set by specifying the newer version to update to.
+         - You can create a custom image from the impacted retired image and migrate to your workload to the custom image. If you want to keep using an image that is scheduled for retirement, generalize the VM, deallocate the VM, then create a custom image for your VM or scale set. Then change the VM or scale set deployment to point to the custom image. For more information, see [Capture an image of a VM in the portal](/azure/virtual-machines/capture-image-portal).
        
       - question: How can you check which VM or scale set workloads in your subscription is running on any of the retired images?
         answer: |

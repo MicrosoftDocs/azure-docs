@@ -35,7 +35,7 @@ Use the following command to create an Azure Monitor workspace using Azure CLI.
 az monitor account create --name <azure-monitor-workspace-name> --resource-group <resource-group-name> --location <location>
 ```
 
-For more details, visit [Azure CLI for Azure Monitor Workspace](https://learn.microsoft.com/cli/azure/monitor/account?view=azure-cli-latest)
+For more details, visit [Azure CLI for Azure Monitor Workspace](/cli/azure/monitor/account?view=azure-cli-latest)
 
 ### [Resource Manager](#tab/resource-manager)
 Use one of the following Resource Manager templates with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
@@ -104,7 +104,7 @@ For example:
   az monitor account delete --name <azure-monitor-workspace-name> --resource-group <resource-group-name>
 ```
 
-For more details, visit [Azure CLI for Azure Monitor Workspace](https://learn.microsoft.com/cli/azure/monitor/account?view=azure-cli-latest)
+For more details, visit [Azure CLI for Azure Monitor Workspace](/cli/azure/monitor/account?view=azure-cli-latest)
 
 ### [Resource Manager](#tab/resource-manager)
 For information on deleting resources and Azure Resource Manager, see [Azure Resource Manager resource group and resource deletion](../../azure-resource-manager/management/delete-resource-group.md)
