@@ -36,7 +36,7 @@ At a minimum your service should have the following two articles:
 <!-- Intro -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Azure Files](monitor-blob-storage.md) for details on the data you can collect for Azure Files and how to use it.
+See [Monitor Azure Files](monitor-files.md) for details on the data you can collect for Azure Files and how to use it.
 
 ## Applies to
 | File share type | SMB | NFS |

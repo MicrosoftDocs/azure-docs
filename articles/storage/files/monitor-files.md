@@ -104,7 +104,7 @@ When you create the diagnostic setting, choose **file** as the type of storage t
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
 
-The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system will decide which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs).
+The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system decides which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs).
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
@@ -113,11 +113,11 @@ To get the list of SMB and REST operations that are logged, see [Storage logged 
 For general destination limitations, see [Destination limitations](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
 
 - You can't send logs to the same storage account that you're monitoring with this setting. 
-  This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
+  This situation would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
 - You can't set a retention policy. 
 
-  If you archive logs to a storage account, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automating Azure Blob Storage access tiers](lifecycle-management-overview.md).
+  If you archive logs to a storage account, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automatically managing the data lifecycle](../blobs/lifecycle-management-overview.md).
 
   If you send logs to Log Analytics, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](/azure/azure-monitor/logs/data-retention-archive).
 
@@ -230,7 +230,7 @@ In these examples, replace the `<resource-ID>` placeholder with the resource ID 
 
 Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
-### List the account-level metric definition
+#### List the account-level metric definition
 
 The following example shows how to list a metric definition at the account level:
 
@@ -263,7 +263,7 @@ The following example shows how to list a metric definition at the account level
 
 ```
 
-### Read account-level metric values
+#### Read account-level metric values
 
 The following example shows how to read `UsedCapacity` data at the account level:
 
@@ -309,7 +309,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
 ```
 
-### Read multidimensional metric values
+#### Read multidimensional metric values
 
 For multidimensional metrics, you need to define metadata filters if you want to read metric data on specific dimension values.
 
@@ -380,25 +380,25 @@ You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow 
 
 In Azure Monitor, the **Availability** metric can be useful when something is visibly wrong from either an application or user perspective, or when troubleshooting alerts.
 
-When using this metric with Azure Files, it’s important to always view the aggregation as **Average** as opposed to **Max** or **Min**. Using **Average** will help you understand what percentage of your requests are experiencing errors, and if they are within the [SLA for Azure Files](https://azure.microsoft.com/support/legal/sla/storage/).
+When using this metric with Azure Files, it’s important to always view the aggregation as **Average** as opposed to **Max** or **Min**. Using **Average** helps you understand what percentage of your requests are experiencing errors, and if they are within the [SLA for Azure Files](https://azure.microsoft.com/support/legal/sla/storage/).
 
 :::image type="content" source="media/analyze-files-metrics/transaction-metrics-menu.png" alt-text="Screenshot showing the available transaction metrics in Azure Monitor." lightbox="media/analyze-files-metrics/transaction-metrics-menu.png":::
 
 ### Monitor latency
 
-The two most important latency metrics are **Success E2E Latency** and **Success Server Latency**. These are ideal metrics to select when starting any performance investigation. **Average** is the recommended aggregation. As previously mentioned, Max and Min can sometimes be misleading.
+The two most important latency metrics are **Success E2E Latency** and **Success Server Latency**. These metrics are ideal to select when starting any performance investigation. **Average** is the recommended aggregation. As previously mentioned, Max and Min can sometimes be misleading.
 
 In the following charts, the blue line indicates how much time is spent in total latency (Success E2E Latency), and the pink line indicates time spent only in the Azure Files service (Success Server Latency).
 
-This chart is an example of a client machine that has mounted an Azure file share from an on-premises environment. This will likely represent a typical user connecting from either an office, home, or other remote location. You'll see that the physical distance between the client and Azure region is closely correlated to the corresponding client-side latency, which represents the difference between the E2E and Server latency.
+This chart is an example of a client machine that mounts an Azure file share from an on-premises environment. This configuration likely represents a typical user connecting from either an office, home, or other remote location. You'll see that the physical distance between the client and Azure region closely correlates to the corresponding client-side latency, which represents the difference between the E2E and Server latency.
 
 :::image type="content" source="media/analyze-files-metrics/latency-remote.png" alt-text="Screenshot showing latency metrics with a remote user connecting to an Azure file share." lightbox="media/analyze-files-metrics/latency-remote.png" border="false":::
 
-In comparison, the following chart shows a situation where both the client and the Azure file share are located within the same region. Note that the client-side latency is only 0.17ms compared to 43.9ms in the first chart. This illustrates why minimizing client-side latency is imperative in order to achieve optimal performance.
+In comparison, the following chart shows a situation where both the client and the Azure file share are located within the same region. Note that the client-side latency is only 0.17ms compared to 43.9ms in the first chart. This example illustrates why minimizing client-side latency is imperative in order to achieve optimal performance.
 
 :::image type="content" source="media/analyze-files-metrics/latency-same-region.png" alt-text="Screenshot showing latency metrics when the client and Azure file share are located in the same region." lightbox="media/analyze-files-metrics/latency-same-region.png" border="false":::
 
-Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the Azure Files [scale limits](storage-files-scale-targets.md) for standard file shares, or an under-provisioned [Azure Files Premium Share](understanding-billing.md#provisioning-method).
+Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This situation is commonly due to throttling due to exceeding the Azure Files [scale limits](storage-files-scale-targets.md) for standard file shares, or an under-provisioned [Azure Files Premium Share](understanding-billing.md#provisioning-method).
 
 For more information, see [Troubleshoot high latency, low throughput, or low IOPS](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json&tabs=windows#high-latency-low-throughput-or-low-iops).
 
@@ -406,9 +406,9 @@ For more information, see [Troubleshoot high latency, low throughput, or low IOP
 
 Utilization metrics that measure the amount of data being transmitted (throughput) or operations being serviced (IOPS) are commonly used to determine how much work is being performed by the application or workload. Transaction metrics can determine the number of operations or requests against the Azure Files service over various time granularity. 
 
-If you're using the **Egress** or **Ingress** metrics to determine the volume of inbound or outbound data, use the **Sum** aggregation to determine the total amount of data being transmitted to and from the file share over a 1 minute to 1 day time granularity. Other aggregations such as **Average**, **Max**, and **Min** only display the value of the individual I/O size. This is why most customers will typically see 1 MiB when using the **Max** aggregation.  While it can be useful to understand the size of your largest, smallest, or even average I/O size, it isn't possible to display the distribution of I/O size generated by the workload's usage pattern.
+If you're using the **Egress** or **Ingress** metrics to determine the volume of inbound or outbound data, use the **Sum** aggregation to determine the total amount of data being transmitted to and from the file share over a 1 minute to 1 day time granularity. Other aggregations such as **Average**, **Max**, and **Min** only display the value of the individual I/O size, which is why most customers typically see 1 MiB when using the **Max** aggregation.  While it can be useful to understand the size of your largest, smallest, or even average I/O size, it isn't possible to display the distribution of I/O size generated by the workload's usage pattern.
 
-You can also select **Apply splitting** on response types (success, failures, errors) or API operations (read, write, create, close) to display additional details as shown in the following chart.
+You can also select **Apply splitting** on response types (success, failures, errors) or API operations (read, write, create, close) to display more details as shown in the following chart.
 
 :::image type="content" source="media/analyze-files-metrics/utilization-apply-splitting.png" alt-text="Screenshot showing utilization metrics split by API name." lightbox="media/analyze-files-metrics/utilization-apply-splitting.png" border="false":::
 
@@ -420,7 +420,7 @@ To determine the average throughput for your workload, take the total amount of 
 
 Because Azure Premium file shares are billed on a provisioned model in which each GiB of storage capacity that you provision entitles you to more IOPS and throughput, it's often useful to determine maximum IOPS and bandwidth. Whereas throughput measures the actual amount of data successfully transmitted, bandwidth refers to the maximum data transfer rate.
 
-With Azure Premium file shares, you can use **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload will help you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure Premium file share.
+With Azure Premium file shares, you can use **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload helps you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure Premium file share.
 
 The following chart shows a workload that generated 2.63 million transactions over 1 hour. When 2.63 million transactions is divided by 3,600 seconds, we get an average of 730 IOPS.
 
@@ -430,7 +430,7 @@ Now when we compare the average IOPS against the **Transactions by Max IOPS**, w
 
 :::image type="content" source="media/analyze-files-metrics/transactions-by-max-iops.png" alt-text="Screenshot showing transactions by max IOPS." lightbox="media/analyze-files-metrics/transactions-by-max-iops.png" border="false":::
 
-Select **Add metric** to combine the **Ingress** and **Egress metrics** on a single graph. This displays that 76.2 GiB (78,028 MiB) was transferred over one hour, which gives us an average throughput of 21.67 MiB over that same hour.
+Select **Add metric** to combine the **Ingress** and **Egress metrics** on a single graph. The result shows that 76.2 GiB (78,028 MiB) were transferred over one hour, which produces an average throughput of 21.67 MiB over that same hour.
 
 :::image type="content" source="media/analyze-files-metrics/ingress-egress-sum.png" alt-text="Screenshot showing how to combine ingress and egress metrics into a single graph." lightbox="media/analyze-files-metrics/ingress-egress-sum.png" border="false":::
 
@@ -524,7 +524,7 @@ The following table lists common and recommended alert rules for Azure Files and
 |-|-|-|
 |Metric | File share is throttled. | Transactions<br>Dimension name: Response type <br>Dimension name: FileShare (premium file share only) |
 |Metric | File share size is 80% of capacity. | File Capacity<br>Dimension name: FileShare (premium file share only) |
-|Metric | File share egress has exceeded 500 GiB in one day. | Egress<br>Dimension name: FileShare (premium file share only) |
+|Metric | File share egress exceeds 500 GiB in one day. | Egress<br>Dimension name: FileShare (premium file share only) |
 |Metric | High server latency. | Success Server Latency<br>Dimension name: API Name, for example Read and Write API|
 
 ### Create common alert rules
@@ -533,7 +533,7 @@ The following sections describe how to create alert rules for common Azure Files
 
 #### Create an alert if a file share is throttled
 
-To create an alert that will notify you if a file share is being throttled, follow these steps.
+To create an alert that notifies you if a file share is being throttled, follow these steps.
 
 1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 2. In the **Condition** tab, select the **Transactions** metric.
@@ -560,13 +560,13 @@ To create an alert that will notify you if a file share is being throttled, foll
 5. For **premium file shares**, select the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to step 7.
 
    > [!NOTE]
-   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled, and the alert won't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, the recommendation is to have one file share per storage account.
+   > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares are triggered if any file share within the storage account is throttled, and the alert won't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, the recommendation is to have one file share per storage account.
 
 6. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 7. Define the alert parameters (threshold value, operator, lookback period, and frequency of evaluation). 
 
     > [!TIP]
-    > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+    > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart displays the calculated thresholds based on recent data.
 
 8. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
 9. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
@@ -588,7 +588,7 @@ To create an alert that will notify you if a file share is being throttled, foll
 8. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity. 
 9. Select **Review + create** to create the alert.
 
-#### Create an alert if the Azure file share egress has exceeded 500 GiB in a day
+#### Create an alert if the Azure file share egress exceeds 500 GiB in a day
 
 1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 2. In the **Condition** tab of the **Create an alert rule** dialog box, select the **Egress** metric.
@@ -613,12 +613,12 @@ To create an alert for high server latency (average), follow these steps.
 3. Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
    > [!NOTE]
-   > To alert on the overall latency experience, leave **Dimension values** unchecked. To alert on the latency of specific transactions, select the API Name in the drop-down list. For example, selecting the Read and Write API names with the equal operator will only display latency for data transactions. Selecting the Read and Write API name with the not equal operator will only display latency for metadata transactions.
+   > To alert on the overall latency experience, leave **Dimension values** unchecked. To alert on the latency of specific transactions, select the API Name in the drop-down list. For example, selecting the Read and Write API names with the equal operator will only display latency for data transactions. Selecting the Read and Write API name with the not equal operator only displays latency for metadata transactions.
 
 4. Define the **Alert Logic** by selecting either Static or Dynamic. For Static, select **Average** Aggregation, **Greater than** Operator, and Threshold value. For Dynamic, select **Average** Aggregation, **Greater than** Operator, and Threshold Sensitivity.
 
    > [!TIP]
-   > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data. We recommend using the Dynamic logic with Medium threshold sensitivity and further adjust as needed. To learn more, see [Understanding dynamic thresholds](../../azure-monitor/alerts/alerts-dynamic-thresholds.md#understand-dynamic-thresholds-charts).
+   > If you're using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently experiencing high latency. If you're using a dynamic threshold, the metric chart displays the calculated thresholds based on recent data. We recommend using the Dynamic logic with Medium threshold sensitivity and further adjust as needed. To learn more, see [Understanding dynamic thresholds](../../azure-monitor/alerts/alerts-dynamic-thresholds.md#understand-dynamic-thresholds-charts).
 
 5. Define the lookback period and frequency of evaluation.
 6. Select the **Actions** tab to add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.

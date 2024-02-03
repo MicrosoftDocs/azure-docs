@@ -240,13 +240,9 @@
   - name: Optimize costs with storage reservations
     href: files-reserve-capacity.md
 - name: Monitor metrics and logs
-  items:
+  href: monitor.files.md
   - name: Monitor Azure Files
     href: storage-files-monitoring.md
-  - name: Analyze metrics and logs
-    href: analyze-files-metrics.md
-  - name: Create alerts
-    href: files-monitoring-alerts.md    
 - name: Application development
   items:
   - name: Configure connection strings
@@ -313,8 +309,8 @@
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/files/toc.json
   - name: Use Azure independent clouds
     href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
-  - name: Monitoring Azure Files reference
-    href: storage-files-monitoring-reference.md
+  - name: Monitoring data reference
+    href: monitor-files-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
