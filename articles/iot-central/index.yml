@@ -5,12 +5,10 @@ metadata:
   title: Azure IoT Central documentation
   description: Azure IoT Central application simplifies the creation of IoT solutions. Learn how to create, customize, administer, and use an Azure IoT Central application.
   ms.service: iot-central
-  ms.topic: landing-page 
-  author: dominicbetts 
-  ms.author: dobett 
+  ms.topic: landing-page
+  author: dominicbetts
+  ms.author: dobett
   ms.date: 05/18/2022
-  ms.custom: contperf-fy21q3
-
 landingContent:
   - title: Get started
     linkLists:
