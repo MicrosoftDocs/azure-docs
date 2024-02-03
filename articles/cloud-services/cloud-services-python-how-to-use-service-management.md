@@ -48,7 +48,7 @@ To create the `.cer` certificate, execute:
 openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 ```
 
-For more information about Azure certificates, see [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html).
+For more information about Azure certificates, see [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [https://www.openssl.org/docs/manmaster/man1/req.html](https://www.openssl.org/docs/manmaster/man1/req.html).
 
 After you create these files, upload the `.cer` file to Azure. In the [Azure portal], on the **Settings** tab, select **Upload**. Note where you saved the `.pem` file.
 
