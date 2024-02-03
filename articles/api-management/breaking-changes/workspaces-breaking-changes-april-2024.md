@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 01/24/2024
+ms.date: 02/02/2024
 ms.author: danlep
 ---
 
@@ -25,7 +25,9 @@ Review the following breaking changes to determine if you need to take action:
 
 ### Change to supported service tiers
 
-The following service tiers will no longer support workspaces: **Standard** and **Developer**. Workspaces will be available in the **Premium** tier. For availability in the v2 tiers, see [Azure API Management v2 tiers](../v2-service-tiers-overview.md).
+The following service tiers will no longer support workspaces: **Standard** and **Developer**. Workspaces will be available in the **Premium** tier. 
+
+For availability in the v2 tiers, see [Azure API Management v2 tiers](../v2-service-tiers-overview.md).
 
 ### Changes to support for assigning service-level entities in workspaces
 
@@ -34,7 +36,10 @@ The following assignments of workspace entities to service-level entities will n
 * Assign workspace APIs to service-level products
 * Assign workspace APIs to service-level tags
 * Assign workspace products to service-level tags
+* Assign service-level groups to workspace products for visibility controls
 
+    > [!NOTE]
+    > The built-in Guests and Developer groups will continue to be available in workspaces.
 
 ### Changes to supported context objects
 
@@ -47,7 +52,7 @@ The `context.Workspace` object can be used instead.
 
 
 > [!NOTE]
-> You can continue to reference users or subscriptions from the service level in the `context` object in workspace-level policies.
+> You can continue to reference users from the service level in the `context` object in workspace-level policies.
 
 ## What is the deadline for the change?
 
