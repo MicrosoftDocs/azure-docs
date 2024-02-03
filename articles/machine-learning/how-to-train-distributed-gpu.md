@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.date: 11/30/2022
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv2
 ---
 
 # Distributed GPU training guide (SDK v2)
@@ -182,4 +182,3 @@ If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-e
 * [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
 * [Troubleshooting environment issues](how-to-troubleshoot-environments.md)
-
