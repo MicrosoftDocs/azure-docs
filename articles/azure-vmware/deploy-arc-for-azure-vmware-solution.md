@@ -7,24 +7,6 @@ ms.date: 12/08/2023
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
----
-title: Deploy Arc-enabled Azure VMware Solution
-description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
-ms.topic: how-to 
-ms.service: azure-vmware
-ms.date: 12/08/2023
-ms.custom: references_regions, devx-track-azurecli, engagement-fy23
----
-
----
-title: Deploy Arc-enabled Azure VMware Solution
-description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
-ms.topic: how-to 
-ms.service: azure-vmware
-ms.date: 12/08/2023
-ms.custom: references_regions, devx-track-azurecli, engagement-fy23
----
-
 # Deploy Arc-enabled Azure VMware Solution
 
 In this article, learn how to deploy Arc for Azure VMware Solution. Once you set up the components needed, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the actions:
@@ -252,21 +234,15 @@ You need to enable guest management on the VMware VM before you can install an e
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** is now checked.
 
-From here additional extensions can be installed. See the [VM extensions](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
+From here additional extensions can be installed. See the [VM extensions](/azure/azure-arc/servers/manage-vm-extensions?branch=main) for a list of current extensions. 
 
 ### Install extensions
 Extensions can be added into VM following these steps:
-
-1. Within the **vCenter Server Inventory >** **Virtual Machines** view choose the virtual machine you wish to add an extension into.
-
-1. Locate **Settings >** **Extensions** from the left navigation and select **Add**. Alternatively, in the **Overview** page an **Extensions** click-through is listed under Properties.
-
-1. Select the extension you want to install. Some extensions may require additional details to be provided. 
-
-1. When you're done, select **Review + create**.
-
+1.    Within the **vCenter Server Inventory >** **Virtual Machines** view choose the virtual machine you wish to add an extension into. 
+2.    Locate **Settings >** **Extensions** from the left navigation and select **Add**. Alternatively, in the **Overview** page an **Extensions** click-through is listed under Properties.
+3.    Select the extension you want to install. Some extensions may require additional details to be provided.
+4.    When you're done, select **Review + create**.
 ### Next Steps
 
 To manage Arc-enabled Azure VMware Solution go to: [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
-
 To remove Arc-enabled  Azure VMWare Solution resources from Azure go to: [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)
