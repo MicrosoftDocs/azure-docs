@@ -113,7 +113,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | gpt-4 (0314) | | East US <br> France Central <br> South Central US <br> UK South |  
 | gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
 | gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
-| gpt-4 (vision-preview) |  Sweden Central <br> West US| Switzerland North <br> Australia East  |  
+| gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East| Switzerland North <br> Australia East  |  
 
 ### GPT-3.5 models
 
