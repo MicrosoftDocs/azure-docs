@@ -364,7 +364,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 ---
 
-### Analyze workload performance
+#### Analyze workload performance
 
 You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow these steps.
 
@@ -376,7 +376,7 @@ You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow 
 
 :::image type="content" source="media/analyze-files-metrics/add-metric-namespace-file.png" alt-text="Screenshot showing how to select the Files metric namespace." lightbox="media/analyze-files-metrics/add-metric-namespace-file.png":::
 
-### Monitor availability
+#### Monitor availability
 
 In Azure Monitor, the **Availability** metric can be useful when something is visibly wrong from either an application or user perspective, or when troubleshooting alerts.
 
@@ -384,7 +384,7 @@ When using this metric with Azure Files, it’s important to always view the agg
 
 :::image type="content" source="media/analyze-files-metrics/transaction-metrics-menu.png" alt-text="Screenshot showing the available transaction metrics in Azure Monitor." lightbox="media/analyze-files-metrics/transaction-metrics-menu.png":::
 
-### Monitor latency
+#### Monitor latency
 
 The two most important latency metrics are **Success E2E Latency** and **Success Server Latency**. These metrics are ideal to select when starting any performance investigation. **Average** is the recommended aggregation. As previously mentioned, Max and Min can sometimes be misleading.
 
@@ -402,7 +402,7 @@ Another latency indicator to look that for might suggest a problem is an increas
 
 For more information, see [Troubleshoot high latency, low throughput, or low IOPS](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json&tabs=windows#high-latency-low-throughput-or-low-iops).
 
-### Monitor utilization
+#### Monitor utilization
 
 Utilization metrics that measure the amount of data being transmitted (throughput) or operations being serviced (IOPS) are commonly used to determine how much work is being performed by the application or workload. Transaction metrics can determine the number of operations or requests against the Azure Files service over various time granularity. 
 
@@ -416,7 +416,7 @@ To determine the average I/O per second (IOPS) for your workload, first determin
 
 To determine the average throughput for your workload, take the total amount of transmitted data by combining the **Ingress** and **Egress** metrics (total throughput) and divide that by 60 seconds. For example, 1 GiB total throughput over 1 minute / 60 seconds = 17 MiB average throughput.
 
-### Monitor utilization by maximum IOPS and bandwidth (premium only)
+#### Monitor utilization by maximum IOPS and bandwidth (premium only)
 
 Because Azure Premium file shares are billed on a provisioned model in which each GiB of storage capacity that you provision entitles you to more IOPS and throughput, it's often useful to determine maximum IOPS and bandwidth. Whereas throughput measures the actual amount of data successfully transmitted, bandwidth refers to the maximum data transfer rate.
 
