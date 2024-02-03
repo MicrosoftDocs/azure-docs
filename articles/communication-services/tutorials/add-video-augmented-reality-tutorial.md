@@ -20,7 +20,7 @@ ms.custom: mode-other
 
 In some usage scenarios, you may want to apply some video processing to the original camera video, such as background blur or background replacement.
 This can provide a better user experience.
-The Azure Communication Calling video effects package provides several video processing functions. However, this is not the only choice.
+The Azure Communication Calling video effects package provides several video processing functions. However, this isn't the only choice.
 You can also integrate other video effects library with ACS raw media access API.
 
 We'll use DeepAR SDK(https://www.deepar.ai/) as an example to show how to integrate other effects libraries with ACS Calling SDK. 
@@ -39,7 +39,7 @@ We want to provide consistency in the app, and DeepAR SDK provides a way for us 
 Similarly, ACS Web SDK needs the processed video stream output from DeepAR SDK and sends this video stream to the remote endpoint.
 DeepAR offers the option to use a canvas as an output. ACS Web SDK can consume the raw video stream captured from the canvas.
 
-Here is the data flow:
+Here's the data flow:
 
 :::image type="content" source="./media/ar/videoflow.png" alt-text="The diagram of data flow between ACS SDK and DeepAR SDK.":::
 
@@ -72,7 +72,7 @@ const camera = cameras[0]
 const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
-By doing this, ACS SDK directly sends out the video from camera without being processed by DeepAR.
+By doing this, ACS SDK directly sends out the video from camera without processed by DeepAR.
 We need to create a path to forward the video acquired from ACS SDK to DeepAR SDK.
 
 ```javascript
