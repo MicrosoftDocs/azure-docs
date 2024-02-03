@@ -4,6 +4,7 @@ ms.service: azure-ai-speech
 ms.date: 10/4/2023
 ms.topic: include
 ms.author: eur
+ms.custom: references_regions
 ---
 
 | Locale (BCP-47) | Language | Text to speech voices |

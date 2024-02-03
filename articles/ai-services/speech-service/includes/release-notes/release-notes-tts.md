@@ -4,6 +4,7 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 1/18/2024
 ms.author: eur
+ms.custom: references_regions
 ---
 
 ### February 2024 release

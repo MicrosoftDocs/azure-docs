@@ -8,6 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 1/22/2024
 ms.author: eur
+ms.custom: references_regions
 ---
 
 # Customize voice and sound with SSML
