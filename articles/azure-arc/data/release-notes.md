@@ -846,7 +846,7 @@ This preview release is published July 13, 2021.
 
 - Kubernetes native deployment templates have been modified for data controller, bootstrapper, & SQL Managed Instance. Update your .yaml templates. [Sample yaml files](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml)
 
-#### New Azure CLI extension for data controller and SQL Server Managed Instance enabled by Azure Arc
+#### New Azure CLI extension for data controller and SQL Managed Instance enabled by Azure Arc
 
 This release introduces the `arcdata` extension to the Azure CLI. To add the extension, run the following command:
 

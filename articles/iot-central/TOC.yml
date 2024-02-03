@@ -107,8 +107,6 @@
     - name: FAQ
       href: core/howto-faq.yml
       items:
-      - name: How do I extend IoT Central?
-        href: core/concepts-faq-extend.md
       - name: How does IoT Central scale and enable HADR?
         href: core/concepts-faq-scalability-availability.md
       - name: What are IoT Central's scale limits?

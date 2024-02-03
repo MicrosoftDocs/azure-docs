@@ -4,8 +4,8 @@ description: Describes disaster recovery for SQL Managed Instance enabled by Azu
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 08/02/2023
 ms.topic: conceptual

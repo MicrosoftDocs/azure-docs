@@ -7,7 +7,7 @@ ms.reviewer: kabharati
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 01/16/2024
+ms.date: 2/1/2024
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -80,10 +80,6 @@ When using Azure Database for PostgreSQL flexible server for a busy database wit
 - At this time, scaling up the server storage requires a server restart.
 - Server storage can only be scaled in 2x increments, see [Compute and Storage](concepts-compute-storage.md) for details.
 - Decreasing server storage size is currently not supported. The only way to do is [dump and restore](../howto-migrate-using-dump-and-restore.md) it to a new Azure Database for PostgreSQL flexible server instance.
-   
-### Server version upgrades
-
-- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](../howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
    
 ### Storage
 

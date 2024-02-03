@@ -38,6 +38,7 @@ The **Access control (IAM)** pane in the Azure portal is used to configure Azure
 
 :::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Access control (IAM) in the Azure portal - demonstrating database security.":::
 
+
 ## Custom roles
 
 In addition to the built-in roles, users may also create [custom roles](../role-based-access-control/custom-roles.md) in Azure and apply these roles to service principals across all subscriptions within their Active Directory tenant. Custom roles provide users a way to create Azure role definitions with a custom set of resource provider operations. To learn which operations are available for building custom roles for Azure Cosmos DB see, [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
@@ -47,6 +48,9 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 
 > [!NOTE]
 > Custom role assignments may not always be visible in the Azure portal.
+
+> [!WARNING]
+> Account keys are not automatically rotated or revoked after management RBAC changes. These keys give access to data plane operations. When removing access to the keys from an user, it is recommended to rotate the keys as well. For RBAC Data Plane, the Cosmos DB backend will reject requests once the roles/claims no longer match. If an user requires temporary access to data plane operations, it's recommended to use [Azure Cosmos DB RBAC](how-to-setup-rbac.md) Data Plane. 
 
 ## <a id="prevent-sdk-changes"></a>Preventing changes from the Azure Cosmos DB SDKs
 
