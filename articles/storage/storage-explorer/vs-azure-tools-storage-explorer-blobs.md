@@ -235,23 +235,23 @@ The following steps illustrate how to manage the blobs (and virtual directories)
 * View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com).
 * Learn how to [create applications using Azure blobs, tables, queues, and files](../index.yml).
 
-[0]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
-[1]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png
-[2]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-create-done.png
-[3]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-editor.png
-[4]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-delete-context-menu.png
-[5]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-delete-confirmation.png
-[6]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-copy-context-menu.png
-[7]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-containers-paste-context-menu.png
-[8]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-get-sas-context-menu.png
-[9]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-get-sas-options.png
-[10]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-get-sas-urls.png
-[11]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-manage-access-policies-context-menu.png
-[12]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-manage-access-policies-options.png
-[13]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-set-public-access-level-context-menu.png
-[14]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-set-public-access-level-options.png
-[15]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-upload-files-menu.png
-[16]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-upload-files-options.png
-[17]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-menu.png
-[18]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
-[19]: ../../media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
+[0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
+[1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png
+[2]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create-done.png
+[3]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-editor.png
+[4]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-delete-context-menu.png
+[5]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-delete-confirmation.png
+[6]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-copy-context-menu.png
+[7]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-paste-context-menu.png
+[8]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-get-sas-context-menu.png
+[9]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-get-sas-options.png
+[10]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-get-sas-urls.png
+[11]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-manage-access-policies-context-menu.png
+[12]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-manage-access-policies-options.png
+[13]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-set-public-access-level-context-menu.png
+[14]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-set-public-access-level-options.png
+[15]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-files-menu.png
+[16]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-files-options.png
+[17]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-menu.png
+[18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
+[19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
