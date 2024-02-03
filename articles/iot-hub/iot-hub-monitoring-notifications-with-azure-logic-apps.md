@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 07/18/2019
+ms.date: 02/02/2024
 ---
 
 # Tutorial: Monitor IoT devices and send notifications with Azure Logic Apps
@@ -25,7 +25,7 @@ In this tutorial, you perform the following tasks:
 > Create a route in your IoT hub that sends messages to the Service Bus queue if the messages contain anomalous temperature readings.
 > Create a logic app that watches for messaging arriving in the queue and sends an email alert.
 
-The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
+The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above a given threshold, it sets this property to `true`; otherwise, it sets the property to `false`.
 
 Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the body and the `temperatureAlert` property contained in the application properties (system properties aren't shown):
 
@@ -47,53 +47,67 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-Before you begin this tutorial, complete one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). These articles cover the following requirements:
+Prepare the following prerequisites before beginning this tutorial.
 
 * An active Azure subscription.
-* An Azure IoT hub in your subscription.
-* A client app that sends temperature data to your Azure IoT hub.
+* An IoT hub in your subscription.
+* A client app that sends temperature data to your Azure IoT hub. This tutorial filters device-to-cloud messages based on a message property called `temperatureAlert`. Some samples that generate messages with this property include:
+
+  * .NET SDK: [SimulatedDevice](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/SimulatedDevice/Program.cs)
+  * Java SDK: [send-event](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-event/README.md)
+  * Node.js SDK: [simple_sample_device](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js)
+  * C SDK: [iothub_II_client_shared_sample](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/samples/iothub_ll_client_shared_sample/iothub_ll_client_shared_sample.c)
+  * Codeless: [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## Create Service Bus namespace and queue
 
-Create a Service Bus namespace and queue. Later in this article, you create a routing rule in your IoT hub to direct messages that contain a temperature alert to the Service Bus queue, where they're picked up by a logic app and trigger it to send a notification email.
+Create a Service Bus namespace and queue. Later in this article, you create a routing rule in your IoT hub to direct messages that contain a temperature alert to the Service Bus queue. A logic app monitors the queue for incoming messages and sends a notification for each alert.
 
 ### Create a Service Bus namespace
 
-1. On the [Azure portal](https://portal.azure.com/), select **+ Create a resource** > **Integration** > **Service Bus**.
+1. On the [Azure portal](https://portal.azure.com/), use the search bar to search for and select **Service Bus**.
+
+1. Select **Create** to create a service bus namespace.
 
 1. On the **Create namespace** pane, provide the following information:
 
-   **Name**: The name of the service bus namespace. The namespace must be unique across Azure.
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Subscription** | Choose the same subscription that contains your IoT hub. |
+   | **Resource group** | Choose the same resource group that contains your IoT hub. |
+   | **Namespace name** | Provide a name for your service bus namespace. The namespace must be unique across Azure. |
+   | **Location** | Choose the same location that your IoT hub uses. |
+   | **Pricing tier** | Select **Basic** from the drop-down list. The Basic tier is sufficient for this tutorial. |
 
-   **Pricing tier**: Select **Basic** from the drop-down list. The Basic tier is sufficient for this tutorial.
+1. Select **Review + create**.
 
-   **Resource group**: Use the same resource group that your IoT hub uses.
+1. Select **Create**.
 
-   **Location**: Use the same location that your IoT hub uses.
-
-   ![Create a service bus namespace in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
-
-1. Select **Create**. Wait for the deployment to complete before moving on to the next step.
+1. Wait for the deployment to complete, then select **Go to resource**.
 
 ### Add a Service Bus queue to the namespace
 
-1. Open the Service Bus namespace. The easiest way to get to the Service Bus namespace is to select **Resource groups** from the resource pane, select your resource group, then select the Service Bus namespace from the list of resources.
+1. On the **Overview** page of your Service Bus namespace, select **Queue**.
 
-1. On the **Service Bus Namespace** pane, select **+ Queue**.
+   :::image type="content" source="./media/iot-hub-monitoring-notifications-with-azure-logic-apps/namespace-add-queue.png" alt-text="Screenshot of the namespace overview page to add a queue.":::
 
-1. Enter a name for the queue and then select **Create**. When the queue has been successfully created, the **Create queue** pane closes.
+1. In the **Name** field, provide a name for the queue. Accept the default values for the other fields and select **Create**.
 
-   ![Add a service bus queue in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
+1. Back on the **Service Bus Namespace** pane, select **Queues** from the **Entities** section of the resource menu. Then, select the queue that you just created from the list
 
-1. Back on the **Service Bus Namespace** pane, under **Entities**, select **Queues**. Open the Service Bus queue from the list, and then select **Shared access policies** > **+ Add**.
+   :::image type="content" source="./media/iot-hub-monitoring-notifications-with-azure-logic-apps/queues-select-queue.png" alt-text="Screenshot that shows the list of queues in your namespace.":::
 
-1. Enter a name for the policy, check **Manage**, and then select **Create**.
+1. On the **Service Bus Queue** pane, select **Shared access policies** from the **Settings** section of the resource menu. Then, select **Add** to add a policy.
 
-   ![Add a service bus queue policy in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
+   :::image type="content" source="./media/iot-hub-monitoring-notifications-with-azure-logic-apps/queue-shared-access-policies-add.png" alt-text="Screenshot that shows adding a shared access policy to a Service Bus queue.":::
+
+1. In the **Policy name** field, provide a name for the policy. Check **Manage**, and then select **Create**.
+
+   :::image type="content" source="./media/iot-hub-monitoring-notifications-with-azure-logic-apps/add-sas-policy.png" alt-text="Screenshot that shows creating a shared access policy.":::
 
 ## Add a custom endpoint and routing rule to your IoT hub
 
-Add a custom endpoint for the Service Bus queue to your IoT hub and create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties).
+Add a custom endpoint for the Service Bus queue to your IoT hub. Then, create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties).
 
 ### Add a custom endpoint and route
 
@@ -108,11 +122,11 @@ Add a custom endpoint for the Service Bus queue to your IoT hub and create a mes
    | Parameter | Value |
    | --------- | ----- |
    | **Endpoint type** | Select **Service Bus queue**. |
-   | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Service Bus queue endpoint. |
-   | **Service Bus namespace** | Use the drop-down menu to select an existing Service Bus namespace in your subscription. |
-   | **Service Bus queue** | Use the drop-down menu to select an existing queue in your namespace. |
+   | **Endpoint name** | Provide a name for the new endpoint that maps to your Service Bus queue. |
+   | **Service Bus namespace** | Use the drop-down menu to select the Service Bus namespace that you created in the previous section. |
+   | **Service Bus queue** | Use the drop-down menu to select the Service Bus queue that you created in your namespace. |
 
-   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png" alt-text="Screenshot that shows the Add a service bus queue endpoint pane.":::
+   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/add-a-route-endpoint.png" alt-text="Screenshot that shows how to create a service bus queue endpoint for your route.":::
 
 1. Select **Create + next**.
 
@@ -124,7 +138,7 @@ Add a custom endpoint for the Service Bus queue to your IoT hub and create a mes
    | **Data source** | Keep the default **Device Telemetry Message** data source. |
    | **Routing query** | Enter `temperatureAlert = "true"` as the query string. |
 
-   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png" alt-text="Screenshot that shows adding a route with a query.":::
+   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/add-a-route-route.png" alt-text="Screenshot that shows adding a route with a query.":::
 
 1. Select **Create + skip enrichments**.
 
