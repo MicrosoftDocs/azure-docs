@@ -195,7 +195,7 @@ For this example, we assume that you create a new empty key vault `KV2` with the
 ### Update target VM encryption settings using PowerShell
 
 1. Copy the keys to target vault using the [Copy-Keys](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) script.
-1. Use the [`Set-AzRecoveryServicesAsrReplicationProtectedItem`](/powershell/module/az.recoveryservices/set-azrecoveryservicesasrreplicationprotecteditem?view=azps-11.1.0) command to update the Azure Site Recovery metadata.
+1. Use the [`Set-AzRecoveryServicesAsrReplicationProtectedItem`](/powershell/module/az.recoveryservices/set-azrecoveryservicesasrreplicationprotecteditem) command to update the Azure Site Recovery metadata.
     
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Troubleshoot key vault permission issues during  Azure-to-Azure VM replication
