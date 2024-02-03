@@ -229,7 +229,7 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**:
   1) Make sure to migrate the Schema to target Azure SQL Database using Database Migration Service. Refer [blog](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/public-preview-schema-migration-for-target-azure-sql-db/ba-p/3990463).
-  2) Follow this [article](https://learn.microsoft.com/sql/relational-databases/collations/set-or-change-the-column-collation?) to manually change collation. 
+  2) Follow this [article](/sql/relational-databases/collations/set-or-change-the-column-collation) to manually change collation. 
   For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
 
 - **Message**: `DatabaseSizeMoreThanMax: No tables were found in the target Azure SQL Database. Check if schema migration was completed beforehand.`
