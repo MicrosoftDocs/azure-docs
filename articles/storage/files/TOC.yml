@@ -240,7 +240,7 @@
   - name: Optimize costs with storage reservations
     href: files-reserve-capacity.md
 - name: Monitor metrics and logs
-  href: monitor.files.md
+  href: monitor-files.md
 - name: Application development
   items:
   - name: Configure connection strings
