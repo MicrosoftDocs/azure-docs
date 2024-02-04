@@ -28,27 +28,27 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## Changes in endpoint protection recommendations
 
-As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), existing endpoint recommendations which rely on those agents, will be replaced with new recommendations. The new recommendations rely on [agentless machine scanning](concept-agentless-data-collection.md) which allows the recommendations to discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), existing endpoint recommendations which rely on those agents, are now replaced with new recommendations. The new recommendations rely on [agentless machine scanning](concept-agentless-data-collection.md) and allow the recommendations to discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
 
-These public preview recommendations will be deprecated.
+These public preview recommendations are deprecated.
 
-| Recommendation | Agent | Deprecation date | Replacement recommendation |
-|--|--|--|--|
-| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | February 2024 | New agentless recommendations. |
-| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | February 2024 | New agentless recommendations. |
+| Recommendation | Agent |
+|--|--|
+| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA |
+| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA |
 
-The current generally available recommendations will remain supported until August 2024.
+The current generally available recommendations are still supported and will be until August 2024.
 
-As part of that deprecation, we’ll be introducing new agentless endpoint protection recommendations. These recommendations will be available in Defender for Servers Plan 2 and the Defender CSPM plan. They will support Azure and multicloud machines. On-premises machines are not supported.
+As part of that deprecation, the following new agentless endpoint protection recommendations are now available. These recommendations are available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription. The recommendations support Azure and multicloud machines. On-premises machines are not supported.
 
-| Preliminary recommendation name | Estimated release date |
-|--|--|--|
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on EC2s | February 2024 |
-| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | February 2024 |
-| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | February 2024 |
+| Recommendation name |
+|--|
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines |
+| Endpoint Detection and Response (EDR) solution should be installed on EC2s |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines |
 
 ## January 2024
 
