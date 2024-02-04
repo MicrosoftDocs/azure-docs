@@ -30,7 +30,7 @@ Once the above steps are complete, you may access the container insights visuali
 
 3.) Select the Insights menu item from the menu, which should display the following experience
 
-    :::image type="content" source="media/container-insights-cost-config/monitor-settings-button.png" alt-text="Screenshot of AKS cluster with Prometheus based container insights." lightbox="media/container-insights-cost-config/monitor-settings-button.png" :::
+    :::image type="content" source="media/container-insights-experience-v2/container-insights-prometheus-based.png" alt-text="Screenshot of AKS cluster with Prometheus based container insights." lightbox="media/container-insights-experience-v2/container-insights-prometheus-based.png" :::
 
 ## Optional steps
 
