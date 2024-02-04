@@ -48,7 +48,7 @@ On the **Monitor** menu, select **Data Collection Rules** > **Create** to open t
 
 Configure the settings in each step of the wizard, as detailed below.
  
-### Basics step 
+### Basics 
 
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics step of the Data Collection Rule screen.":::
 
@@ -61,7 +61,7 @@ Configure the settings in each step of the wizard, as detailed below.
 | **Platform Type** | Select **Windows** or **Linux**, or **All**, which allows for both Windows and Linux platforms. |
 | **Data Collection Endpoint** | To collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**, select an existing data collection endpoint or create a new endpoint.<br>You don't need an endpoint to collect performance counters and Windows event logs.<br>On this tab, you can only select a data collection endpoint in the same region as the data collection rule. The agent sends collected data to this data collection endpoint. For more information, see [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). |
 
-### Resources step
+### Resources
 
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::
 
@@ -71,7 +71,7 @@ Configure the settings in each step of the wizard, as detailed below.
 |**Enable Data Collection Endpoints**| If the machine you're monitoring is not in the same region as your destination Log Analytics workspace, enable data collection endpoints and select an endpoint in the region of the monitored machine to collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**.<br>If the monitored machine is in the same region as your destination Log Analytics workspace, or if you're collecting performance counters and Windows event logs, don't select a data collection endpoint on the **Resources** tab.<br>The data collection endpoint on the **Resources** tab is the configuration access endpoint, as described in [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).<br>If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).|
 |**Agent extension identity**| Use a system-assigned managed identity, or select an existing user-assigned identity assigned to the virtual machine. For more information, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types).|
 
-### Collect and deliver step
+### Collect and deliver
 
 On the **Collect and deliver** tab, select **Add data source** and configure the settings on the **Source** and **Destination** tabs, as detailed below.
 
@@ -81,10 +81,10 @@ For detailed information about the various data sources you can collect, see [Da
 
 | Screen element | Description |
 |:---|:---|
-| **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the various data source types, see [Performance Counters and Windows Even Logs](../agents/azure-monitor-agent-performance.md), [Linux Syslog](../agents/data-collection-syslog.md), [IIS logs](../agents/data-collection-iis.md),or [Custom Text and JSON Logs](../agents/data-collection-text-log.md).|
+| **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the various data source types, see [Performance Counters and Windows Even Logs](../agents/azure-monitor-agent-performance.md), [Linux Syslog](../agents/data-collection-syslog.md), [IIS logs](../agents/data-collection-iis.md), [Custom Text and JSON Logs](../agents/data-collection-text-log.md), or [Prometheus Metrics](../containers/prometheus-metrics-multiple-workspaces.md).|
 | **Destination** | Add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.<br>You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. At this time, hybrid compute (Arc for Server) resources **do not** support the Azure Monitor Metrics (Preview) destination. |
 
-### Review + create step
+### Review + create
 
 Review the data collection rule details and select **Create** to create the data collection rule.
 
