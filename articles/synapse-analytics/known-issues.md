@@ -119,6 +119,18 @@ In the context of updating tag values within an Azure Synapse workspace, the inc
 
 **Workaround**: The current workaround is to abstain from using the square brackets (`[]`) in Azure Synapse workspace tag values.
 
+### Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates
+
+The failure occurs during the deployment to production and is related to a trigger that contains a host name with a double backslash. 
+The error message displayed is "Action failed - Error: Orchestrate failed - SyntaxError: Unexpected token in JSON at position 2057".
+
+**Workaround**: Following actions can be taken as quick mitigations:
+
+1) Remove Escape Characters: Manually remove any escape characters (\) from the parameters file before deployment. This means editing the file to eliminate these characters that could be causing issues during the parsing or processing stage of the deployment.
+2) Replace Escape Characters with Forward Slashes: Replace the escape characters (\) with forward slashes (/). This can be particularly useful in file paths, where many systems accept forward slashes as valid path separators. This replacement might help in bypassing the problem with escape characters, allowing the deployment process to succeed.
+
+After applying either of these workarounds and successfully deploying, the customer should manually update the necessary configurations within the workspace to ensure everything is set up correctly. This might involve editing configuration files, adjusting settings, or performing other tasks relevant to the specific environment or application being deployed.
+
 ## Recently Closed Known issues
 
 |Synapse Component|Issue|Status|Date Resolved
