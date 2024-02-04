@@ -1,5 +1,5 @@
 ---
-title: Prepare for deprecation of the Log Analytics MMA agent 
+title: Prepare for retirement of the Log Analytics agent 
 description: Learn how to prepare for the deprecation of the Log Analytics MMA agent in Microsoft Defender for Cloud
 author: AlizaBernstein
 ms.author: v-bernsteina
@@ -9,103 +9,107 @@ ms.date: 02/04/2024
 
 # Prepare for retirement of the Log Analytics agent
 
-The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA), [will retire in August 2024](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341). As a result, features in the two Defender for CLoud plans that rely on the Log Analytics agent are impacted and plan features will change.
+The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA), [will retire in August 2024](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341). As a result, the Defender for Servers and Defender for SQL on Machines plans in Microsoft Defender for Cloud will change, and features that rely on the Log Analytics agent will be redesigned.
 
 This article summarizes plans for agent retirement.
 
 ## Preparing Defender for Servers
 
-The Defender for Servers plan uses the Log Analytics agent in general availability (GA) and AMA (in preview) for [several capabilities](plan-defender-for-servers-agents.md). Here's what's happening going forward:
+The Defender for Servers plan uses the Log Analytics agent in general availability (GA) and AMA (in preview) for [some features](plan-defender-for-servers-agents.md). Here's what's happening with these features going forward:
 
-- In a goal to simplify the onboarding, all Defender for Servers security features and capabilities will be provided via a single agent ([Microsoft Defender for Endpoint (MDE))](integration-defender-for-endpoint.md), complemented by [agentless machine scanning](concept-agentless-data-collection.md), without dependency on Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA).
-- Using AMA for Defender for Servers features is currently in preview and won’t be released in GA.
-- Defender for Servers features provided over AMA in preview will remain supported until an alternative version is provided, based on Defender for Endpoint integration or agentless disk scanning.
+To simplify onboarding, all Defender for Servers security features and capabilities will be provided with a single agent ([Microsoft Defender for Endpoint (MDE))](integration-defender-for-endpoint.md), complemented by [agentless machine scanning](concept-agentless-data-collection.md), without any dependency on Log Analytics Agent or AMA. Note that:  
+
+- Defender for Servers features which are based on AMA is currently in preview and won’t be released in GA.  
+- Features in preview which rely on AMA will remain supported until an alternative version of the feature is provided, based on Defender for Endpoint integration or agentless machine scanning.
 - By enabling Defender for Endpoint integration and agentless machine scanning early, your Defender for Servers deployment stays up to date and supported.
 
 ### Feature functionality
 
-The following table summarizes how Defender for Servers features will be provided as part of the deprecation plan.
-
-  > [!NOTE]
-  > Most of the features are already available in GA through the alternative platforms (MDE/Agentless machine scanning). The rest will be provided in GA by MMA deprecation, or deprecated.
+The following table summarizes how Defender for Servers features will be provided. Most features are already generally available using Defender for Endpoint integration or agentless machine scanning. The rest of the features will either be available in GA by the time that the MMA is retired, or will be deprecated.
 
 | Feature | Current support | New support | New experience status |
 |----|----|----|----|
-| Microsoft Defender for Endpoint (MDE) integration for Down level machines (Windows servers 2012 R2, 2016) | Legacy Defender for Endpoint sensor, based on the Log Analytics agent | Unified agent integration | Functionality with the new unified agent is GA.<br/>Functionality with the legacy Defender for Endpoint sensor via the Log Analytics agent will deprecate in August 2024. |
-| OS-level threat detection | Log Analytics agent | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent is GA |
-| Adaptive application controls | Log Analytics agent (GA), AMA (Preview) | --- | The adaptive application control feature will deprecate in August 2024. New capabilities in the application control space will be considered as part of the future Defender for Servers roadmap. |
-| Endpoint protection discovery recommendations | Recommendations available in foundational CSPM and Defender for Servers in Defender for Cloud using the Log Analytics agent (GA), AMA (Preview) | Agentless machine scanning | Functionality with agentless machine scanning will be released to preview in February 2024 as part of Defender for Servers plan 2 and the Defender CSPM plan. Azure VMs, GCP instances, and AWS instances will be supported. On-premises machines won't be supported. |
-| Missing OS system update recommendation | Recommendations available in foundational and Defender for Servers using the Log Analytics agent (GA) | Integration with Update Manager, Microsoft Defender Vulnerability Management. | New recommendations based on Update Manager integration are GA, with no agent dependencies. |
-| OS misconfigurations (Microsoft Cloud Security Benchmark) | Recommendations available in foundational CSPM and Defender for Servers using the Log Analytics agent (GA), Guest Configuration agent (Preview). | Microsoft Defender Vulnerability Management premium, a.s part of Defender for Servers plan 2. | Functionality based on integration with Microsoft Defender Vulnerability Management premium will be available in Public in April 2024.<br/>- Functionality with the Log Analytics agent will deprecate in August 2024<br/>- Functionality with Guest Configuration agent (Preview) will deprecate when the Microsoft Defender Vulnerability Management is available.<br/>- Support of this feature for Docker-hub and VMMS will be deprecated in Aug 2024 and will be considered as part of future Defender for Servers roadmap.
-| File integrity monitoring | Log Analytics agent (GA), AMA (Preview) | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent will be available around April 2024.<br/>- Functionality with the Log Analytics agent will deprecate in August 2024.<br/>- Functionality with AMA will deprecate when the Defender for Endpoint integration is released. |
+| Microsoft Defender for Endpoint (MDE) integration for down-level Windows machines (Windows Server 2016/2012 R2)  | egacy Defender for Endpoint sensor, based on the Log Analytics agent | [Unified agent integration](https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-server-endpoints) | - Functionality with the  unified agent is GA.<br/>- Functionality with the legacy Defender for Endpoint sensor using the Log Analytics agent will be deprecated in August 2024. |
+| OS-level threat detection | Log Analytics agent | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent is GA.  |
+| Adaptive application controls | Log Analytics agent (GA), AMA (Preview) | --- | The adaptive application control feature will be deprecated in August 2024. |
+| Endpoint protection discovery recommendations | Recommendations available in foundational CSPM and Defender for Servers, using the Log Analytics agent (GA), AMA (Preview) | Agentless machine scanning | - Functionality with agentless machine scanning will be released to preview in February 2024 as part of Defender for Servers plan 2 and the Defender CSPM plan.<Br/>- Azure VMs, GCP instances, and AWS instances will be supported. On-premises machines won’t be supported. |
+| Missing OS system update recommendation | Recommendations available in foundational CSPM and Defender for Servers using the Log Analytics agent.  | Integration with Update Manager, Microsoft | New recommendations based on Azure Update Manager integration [are GA](/release-notes-archive.md#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga), with no agent dependencies. |
+| OS misconfigurations (Microsoft Cloud Security Benchmark) | Recommendations available in foundational CSPM and Defender for Servers using the Log Analytics agent, Guest Configuration agent (Preview). | Microsoft Defender Vulnerability Management premium, as part of Defender for Servers plan 2. | - Functionality based on integration with Microsoft Defender Vulnerability Management premium will be available in preview around April 2024.<br/>- Functionality with the Log Analytics agent will deprecate in August 2024<br/>- Functionality with Guest Configuration agent (Preview) will deprecate when the Microsoft Defender Vulnerability Management is available.<br/>- Support of this feature for Docker-hub and VMMS will be deprecated in Aug 2024. |
+| File integrity monitoring | Log Analytics agent, AMA (Preview) | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent will be available around April 2024.<br/>- Functionality with the Log Analytics agent will deprecate in August 2024.<br/>- Functionality with AMA will deprecate when the Defender for Endpoint integration is released. |
 
-### Endpoint recommendations experience
+## Migration Planning
 
-Endpoint discovery and recommendations are currently provided by Defender for Cloud foundational CSPM using the Log Analytics agent in GA, or the AMA in preview. This experience will be replaced by security recommendations that are gathered using agentless machine scanning.
+We recommend you plan agent migration plan in accordance with your business requirements. The table summarizes our guidance.
 
-Endpoint recommendations fall into two stages. The first stage is [discovery](#discovery-stage) of an EDR solution. The second is [assessment](#assessment-stage) of the solution configuration. The following tables provide details of the current and new experiences for each stage.
-
-#### Discovery stage
-
-| Aspect | Current experience | New experience |
+| **AMA required for Defender for SQL on Machines or any other scenario?** | **Defender for Servers required with these features in GA: File integrity monitoring, endpoint protection recommendations, security baseline recommendations?** | **Migration plan** |  
 |----|----|----|
-|**What do we recommend to have on the resource to be fully secured (healthy vs. not healthy)?** | Anti-virus | - Endpoint Detection and Response (EDR)<br/>- Microsoft + non-Microsoft |
-| **Prerequisites to get the recommendation** | Log Analytics agent (MMA) | Agentless machine scanning |
-| **Supported Defender plans** | - CSPM (free)<br/>- Defender CSPM<br/>- Servers Plan 1 and Plan 2 |- Defender CSPM<br/>- Servers Plan 2 |
-|**Available fix** | Install Microsoft anti-malware. | Install MDE on selected machines/subscriptions. |
+| No | Yes | - Wait for GA of all features with Defender for Endpoint integration or agentless machine scanning (you can use preview version earlier).<br/>- Remove the Log Analytics agent after feature is GA. |
+| No | No | You can remove the Log Analytics agent now. |
+| Yes | No | Migrate from the Log Analytics agent to AMA autoprovisioning.|
+| Yes | Yes | You can use the Log Analytics agent and AMA side-by-side to to get all features in GA. [Learn more](auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) about running side-by-side.<br/>- Alternatively, start migration from Log Analytics agent to AMA in April 2024. |
 
-#### Assessment stage
+You can run both the Log Analytics agent and the AMA on the same machine. Each machine is billed once in Defender for Cloud. If both agents are running on a machine, to avoid collecting duplicate data we recommend: 
 
-| Aspect | Current experience | New experience |
+Either send the data to different workspaces. 
+
+Alternatvily, turn off security event data collection in the Log Analytics agent. Learn more about the [impact of running both agents](auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents), in Azure Monitor documentation.
+
+### Endpoint protection recommendations experience
+
+Endpoint discovery and recommendations are currently provided by Defender for Cloud foundational CSPM and the Defender for Servers plan using the Log Analytics agent in GA, or the AMA in preview. This experience will be replaced by security recommendations that are gathered using agentless machine scanning.  
+
+Endpoint protection recommendations are constructed in two stages. The first stage is [discovery](#discovery) of an endpoint detection and response solution. The second is [assessment](#edr-configuration-assessment) of the solution’s configuration. The following tables provide details of the current and new experiences for each stage.
+
+#### Discovery
+
+| Area | Current experience | New experience |
 |----|----|----|
-|**Unhealthy resources - one of the findings is not healthy.** | 2 security checks:<br/>- Real time protection is off<br/>- Signatures are out of date. | 3 security checks:<br/>- Anti-malware/anti-virus is off or partially configured<br/>- Signatures are out of date<br/>- Both quick scan and full scan haven't run for seven days. |
-| **Prerequisites to get the recommendation [not applicable]** | Have anti-malware | Have EDR |
-| **Available fix** | No fix available | North Star, potential fixes:<br/>- Turn on AV Active mode / turn on AV.<br/>- Initiate agentless malware scanning. |
+|**What's needed to classify a resource as healthy?** | An anti-virus is in place. | An endpoint Detection and Response solution is in place. |
+| **What's needed to get the recommendation?** | Log Analytics agent | Agentless machine scanning |
+| **What plans are supported?** | - Foundational CSPM (free)<br/>- Defender for Servers Plan 1 and Plan 2 |- Defender CSPM<br/>- Defender for Servers Plan 2 |
+|**What fix is available?** | Install Microsoft anti-malware. | Install Defender for Endpoint unified agent on selected machines/subscriptions. |
 
-#### What’s the different experience between the current and upcoming recommendations?
+#### EDR configuration Assessment
 
-The following table compares the recommendations experience across agents.
-
-| Area | Current experience | Upcoming experience |
+| Aread | Current experience | New experience |
 |----|----|----|
-| What keeps a resource healthy? | You have antivirus/antimalware | You have an endpoint detection and response solution (Microsoft/Third-Party) |
-| What health checks are done? | - Real time protection is off<br/>- Signatures are out-of-date | - Antimalware/antivirus is off or partially configured<br/>- Signatures are out-of-date<br/>- Quick and full scans haven’t run for seven days |
-| What agent is needed? | Log Analytics agent/AMA | Agentless machine scanning |
-| What plan is needed? | No plan is required. Recommendations are provided as part of the Defender for Cloud foundational CSPM recommendations | Defender for Servers plan 2 or the Defender CSPM plan |
-| What machines are supported? | Azure VMs, AWS and GCP instances onboarded as Azure Arc VMs, on-premises machines onboarded as Azure Arc VMs, on-premises machines running the agent (not onboarded as Azure Arc machines) | Azure VMs, AWS and GCP instances onboarded as Azure Arc VMs, on-premises machines onboarded as Azure Arc VMs.|
-| How do I fix a recommendation to install endpoint protection? | Install Microsoft antimalware | Enable Microsoft Defender for Endpoint integration with Defender for Cloud in your subscription, or connect to a third-party endpoint detection and response solution. |
+| Resources are classified as unhealthy if one or more of the security checks aren’t healthy. | Two security checks:<br/>- Real time protection is off<br/>- Signatures are out of date. | Three security checks:<br/>- Anti-malware/anti-virus is off or partially configured<br/>- Signatures are out of date<br/>- Both quick scan and full scan haven't run for seven days. |
+| Prerequisites to get the recommendation | An anti-malware solution in place | An endpoint detection and response solution in place. |
+| Supported machines | Azure VMs, AWS and GCP instances, and on-premises machines. | Azure VMs, AWS and GCP instances. On-premises machines are not supported. |
+| How do I fix a recommendation to install endpoint protection? | Install Microsoft antimalware | Enable Microsoft Defender for Endpoint integration with Defender for Cloud in your subscription, or connect to a third-party endpoint detection and response solution. |
 
-#### Which recommendations are being deprecated and replaced?
+#### Which recommendations are being deprecated?
 
 The following table summarizes the timetable for recommendations being deprecated and replaced.
 
 | Recommendation | Agent | Deprecation date | Replacement recommendation |
-|--|--|--|--|
-| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | February 2024 | [New agentless recommendations](upcoming-changes.md#changes-in-endpoint-protection-recommendations). |
-| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | February 2024 | [New agentless recommendations](upcoming-changes.md#changes-in-endpoint-protection-recommendations). |
-| Endpoint protection health failures should be remediated on virtual machine scale sets | MMA | August 2024 | No replacement. |
-| Endpoint protection solution should be installed on virtual machine scale sets | MMA | August 2024 | No replacement. |
-| Install endpoint protection solution on your machines (for non-Azure resources)  | MMA | August 2024 | No replacement. |
-| Install endpoint protection solution on your machines | MMA | August 2024 | [New agentless recommendations](upcoming-changes.md#changes-in-endpoint-protection-recommendations). |
-| Install endpoint protection solution on virtual machines | MMA | August 2024 | [New agentless recommendations](upcoming-changes.md#changes-in-endpoint-protection-recommendations). |
+|----|----|----|----|----|
+| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | --- | February 2024 | New agentless recommendations. |
+| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | ---|  February 2024 | New agentless recommendations. |
+| [Endpoint protection health failures on virtual machine scale sets should be resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/e71020c2-860c-3235-cd39-04f3f8c936d2) | MMA | VMSS |  August 2024 | No replacement. |
+| [Endpoint protection solution should be installed on virtual machine scale sets](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/21300918-b2e3-0346-785f-c77ff57d243b) | MMA | VMSS |  August 2024 | No replacement. |
+| [Endpoint protection solution should be on machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee) (for non-Azure resources)  | MMA | Non-Azure resoucres | August 2024 | No replacement. |
+| [Install endpoint protection solution on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df) | MMA | Azure resoucres | August 2024 | New agentless recommendations |
+| [Endpoint protection health issues on machines should be resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a)  | MMA | Azure resources | August 2024 | New agentless recommendations. |
 
 #### How will the replacement work?
 
-- Current recommendations provided by the Log Analytics Agent or the AMA will deprecate over time. Some of these existing recommendations will be replaced by new recommendations based on machine assessment with agentless machine scanning.
-- Recommendations currently GA will remain until the Log Analytics agent retires.
+- Current recommendations provided by the Log Analytics Agent or the AMA will deprecate over time.  
+- Some of these existing recommendations will be replaced by new recommendations based on machine assessment with agentless machine scanning.  
+- Recommendations currently in GA will remain in place until the Log Analytics agent retires.  .
 - Recommendations that are currently in preview will be replaced when the new recommendation is available in preview.
 
 #### What's happening with secure score?
 
-- Recommendations that are currently in GA will continue to impact secure score.
-- Current and upcoming new recommendations are located under the same Microsoft Cloud Security Benchmark control. This ensures that there’s no duplicate impact on secure score.
+- Recommendations that are currently in GA will continue to impact secure score.  
+- Current and upcoming new recommendations are located under the same Microsoft Cloud Security Benchmark control. This ensures that there’s no duplicate impact on secure score.  .
 
 #### How do I prepare for the new recommendations?
 
 - Ensure that [agentless machine scanning is enabled](enable-agentless-scanning-vms.md).
-- If suitable for your environment, for the best experience, we recommend that you remove deprecated recommendations once the replacement GA recommendation is available. You can do that by disabling the recommendation in the [built-in Defender for Cloud initiative in Azure Policy](policy-reference.md).
+- If suitable for your environment, for best experience we recommend that you remove deprecated recommendations when the replacement GA recommendation becomes available. To do that, disable the recommendation in the [built-in Defender for Cloud initiative in Azure Policy](policy-reference.md).
 
-## Preparing Defender for SQL on machines
+## Preparing Defender for SQL on Machines
 
 The use of the Log Analytics agent in Defender for SQL on Machines will be replaced by new SQL-targeted autoprovisioning process for the AMA. Migration to AMA autoprovisioning is seamless and ensures continuous machine protection.
 
@@ -121,32 +125,21 @@ Dates are summarized in the following table.
 
 ## Scheduling migration
 
-Many of the Defender for Servers features supported by the Log Analytics agent/AMA are already generally available with Microsoft Defender for Endpoint integration or agentless machine scanning.  
+Many of the Defender for Servers features supported by the Log Analytics agent/AMA are already generally available with Microsoft Defender for Endpoint integration or agentless machine scanning.  
 
 All of the Defender for SQL servers on machines features are already generally available with the autoprovisioned AMA.  
 
-Depending on your scenario, the table summarizes our scheduling recommendations.
-
-We recommend plan your agents’ migration plan according to your organization’s requirements.
-
-| AMA required (for Defender for SQL scenario or other scenarios [e.g: Microsoft Sentinel])  | The Defender for Servers features are required in GA; file integrity monitoring,  Endpoint protection recommendations, security baseline recommendations  | Recommended action |
-| --- | --- | --- |
-| No | Yes | Wait for GA of all features with Defender for Endpoint integration or agentless machine scanning. You can use preview earlier.<br/>Remove Log Analytics agent after they are GA. |
-| No | No | Remove the Log Analytics agent now.|
-| Yes | No | Migrate from the Log Analytics agent to AMA autoprovisioning. |
-| Yes | Yes | Yo can use the Log Analytics agent and AMA side-by-side to receive all capabilities in GA. [Learn more](auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) about running side-by-side.<br/>Alternatively, start migration from Log Analytics agent to AMA in April 2024. |
-
-## Migration steps
+ ## Migration steps
 
 The following table summarizes the migration steps for each scenario.
 
 | Which scenario are you using? | Recommended action |
 | --- | --- |
 | Defender for SQL on Machines only | Migrate to [SQL autoprovisioning for AMA](defender-for-sql-autoprovisioning.md). |
-| - Defender for Servers only.<br/>- Using one or more of these features: free security recommendations, file integrity monitoring, endpoint protection with integrated Defender for Endpoint, adaptive application control. | 1. Enable [Defender for Endpoint integration](enable-defender-for-endpoint.md).<br/>2. Enable [agentless machine scanning](enable-agentless-scanning-vms.md).<br/>3. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>4. Uninstall the Log Analytics agent on all machines protected by Defender for Cloud. |
-| Defender for Servers only.<br/>Not using any of the features mentioned in the previous row. | 1. Enable [Defender for Endpoint integration](enable-defender-for-endpoint.md).<br/>2. Enable [agentless machine scanning](enable-agentless-scanning-vms.md).<br/>3. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/> 4. Uninstall the Log Analytics agent and the AMA on all machines protected by Defender for Cloud. |
-| Defender for SQL on Machines and Defender for Servers.<br/>Using one or more of these Defender for Servers features: free security recommendations, file integrity monitoring, endpoint protection with integrated Defender for Endpoint, adaptive application control. | 1. Enable [Defender for Endpoint integration](enable-defender-for-endpoint.md).<br/>2. Enable [agentless machine scanning](enable-agentless-scanning-vms.md).<br/>3. Migrate to [SQL autoprovisioning for AMA](defender-for-sql-autoprovisioning.md) in Defender for SQL on machines.<br/>4. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>5. Uninstall the Log Analytics agent on all machines protected by Defender for Cloud. |
-| Defender for SQL on machines and Defender for Servers.<br/>You don't need any Defender for Servers features described in the previous row. | 1. Enable [Defender for Endpoint integration in Defender for Servers](enable-defender-for-endpoint.md).<br/>2. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>3. Uninstall the Log Analytics agent on all machines protected by Defender for Cloud. |
+| Defender for Servers only.<br/>- Using one or more of these features: file integrity monitoring (FIM),  End point protection recommendations, security baseline recommendations. | 1. Enable [Defender for Endpoint (MDE) integration](enable-defender-for-endpoint.md) and [agentless machine scanning](enable-agentless-scanning-vms.md).<br/>2. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>3. Uninstall the Log Analytics agent on all machines protected by Defender for Cloud. |
+| Defender for Servers only.<br/>Not using any of the features mentioned in the previous row. | 1. Enable [Defender for Endpoint (MDE) integration](enable-defender-for-endpoint.md) and [agentless machine scanning](enable-agentless-scanning-vms.md).<br/>2. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/> 3. Uninstall the Log Analytics agent and the AMA on all machines protected by Defender for Cloud. |
+| Defender for SQL on Machines and Defender for Servers.<br/>Using one or more of these Defender for Servers features: free security recommendations, file integrity monitoring, endpoint protection with integrated Defender for Endpoint, adaptive application control. | 1. Enable [Defender for Endpoint integration](enable-defender-for-endpoint.md) and [agentless machine scanning](enable-agentless-scanning-vms.md).<br/>2. Migrate to [SQL autoprovisioning for AMA](defender-for-sql-autoprovisioning.md) in Defender for SQL on machines.<br/>3. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>4. Uninstall the Log Analytics agent on all machines protected by Defender for Cloud. |
+| Defender for SQL on machines and Defender for Servers.<br/>You don't need any Defender for Servers features described in the previous row. | 1. Enable [Defender for Endpoint (MDE)integration](enable-defender-for-endpoint.md) and [agentless scanning](enable-agentless-scanning-vms.md).<br/>2. [Migrate](defender-for-sql-autoprovisioning.md) to the new SQL autoprovisioning process.<br/>3. [Disable](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent) the Log Analytics/Azure Monitor Agent.<br/>4. Uninstall MMA across all servers. |
 
 ## Next steps
 
