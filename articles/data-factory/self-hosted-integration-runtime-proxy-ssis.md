@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.custom: seo-lt-2019
-ms.date: 02/28/2023
+ms.date: 01/05/2024
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR

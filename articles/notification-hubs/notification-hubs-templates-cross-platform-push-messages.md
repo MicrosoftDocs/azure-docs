@@ -2,7 +2,6 @@
 title: Azure Notification Hubs templates
 description: Learn about using templates for Azure Notification Hubs.
 services: notification-hubs
-documentationcenter: .net
 author: sethmanheim
 manager: femila
 

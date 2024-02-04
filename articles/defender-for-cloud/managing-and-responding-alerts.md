@@ -4,7 +4,7 @@ description: This document helps you to use Microsoft Defender for Cloud capabil
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 12/24/2023
+ms.date: 01/16/2024
 ---
 # Manage and respond to security alerts
 
@@ -125,6 +125,15 @@ After investigating a security alert, you can respond to the alert from within M
 To learn about the different types of alerts, see [Security alerts - a reference guide](alerts-reference.md).
 
 For an overview of how Defender for Cloud generates alerts, see [How Microsoft Defender for Cloud detects and responds to threats](alerts-overview.md).
+
+## Review the agentless scan's results
+
+Results for both the agent-based and agentless scanner appear on the Security alerts page.
+
+:::image type="content" source="media/managing-and-responding-alerts/agent-and-agentless-results.png" alt-text="Screenshot of the security alerts page that shows the results of both the agent-based and agentless scan results." lightbox="media/managing-and-responding-alerts/agent-and-agentless-results.png":::
+
+> [!NOTE]
+> Remediating one of these alerts will not remediate the other alert until the next scan is completed.
 
 ## See also
 

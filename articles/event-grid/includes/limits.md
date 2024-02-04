@@ -26,6 +26,7 @@ The following limits apply to namespace resources in Azure Event Grid.
 |----------------------------------------|-------|
 | Namespaces per Azure subscription      | 50    |
 | Maximum throughput units per namespace | 40    |
+| IP Firewall rules per Namespace        | 16    |
 
 ## MQTT limits in namespace
 

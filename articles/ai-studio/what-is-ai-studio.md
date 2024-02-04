@@ -2,7 +2,6 @@
 title: What is AI Studio?
 titleSuffix: Azure AI Studio
 description: Azure AI Studio brings together capabilities from across multiple Azure AI services. You can build generative AI applications on an enterprise-grade platform.
-author: eric-urban
 manager: nitinme
 keywords: Azure AI services, cognitive
 ms.service: azure-ai-studio
@@ -10,6 +9,7 @@ ms.topic: overview
 ms.date: 11/15/2023
 ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ms.custom: ignite-2023
 ---
 
@@ -88,7 +88,7 @@ Using Azure AI Studio also incurs cost associated with the underlying services, 
 
 Azure AI Studio is currently available in the following regions: Australia East, Brazil South, Canada Central, East US, East US 2, France Central, Germany West Central, India South, Japan East, North Central US, Norway East, Poland Central, South Africa North, South Central US, Sweden Central, Switzerland North, UK South, West Europe, and West US. 
 
-To learn more, see [Azure global infrastructure - Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services).
+To learn more, see [Azure AI Studio regions](./reference/region-support.md).
 
 ## How to get access
 

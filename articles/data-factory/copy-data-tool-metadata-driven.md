@@ -5,7 +5,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ms.author: yexu
 ---
 # Build large-scale data copy pipelines with metadata-driven approach in copy data tool

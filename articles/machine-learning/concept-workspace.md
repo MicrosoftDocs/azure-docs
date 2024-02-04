@@ -22,8 +22,6 @@ Workspaces are places to collaborate with colleagues to create machine learning 
 
 Ready to get started? [Create a workspace](#create-a-workspace).
 
-:::image type="content" source="./media/concept-workspace/workspace.png" alt-text="Screenshot of the Azure Machine Learning workspace.":::
-
 ## Tasks performed within a workspace 
 
 For machine learning teams, the workspace is a place to organize their work. Below are some of the tasks you can start from a workspace:
@@ -102,7 +100,7 @@ To automate workspace creation using your preferred security settings:
 :::moniker range="azureml-api-1"
 * Use the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment.md).
 :::moniker-end
-* Use [REST APIs](how-to-manage-rest.md) directly in scripting environment, for platform integration or in MLOps workfows.
+* Use [REST APIs](how-to-manage-rest.md) directly in scripting environment, for platform integration or in MLOps workflows.
 
 ## Tools for workspace interaction and management
 

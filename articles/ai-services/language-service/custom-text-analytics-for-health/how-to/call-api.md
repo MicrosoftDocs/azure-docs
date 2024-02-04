@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: aahi
-ms.devlang: REST API
+ms.devlang: http
 ms.custom: language-service-custom-ta4h
 ---
 

@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 01/05/2024
 ms.author: abnarain 
 ms.custom: subject-rbac-steps
 ---

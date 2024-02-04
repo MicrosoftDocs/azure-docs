@@ -1,7 +1,7 @@
 ---
-title: CallKit for the UI Library
+title: Integrate CallKit into the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI Library for Mobile native to integrate CallKit.
+description: Use the Azure Communication Services UI Library to integrate CallKit.
 author: iaulakh
 ms.author: iaulakh
 ms.service: azure-communication-services
@@ -11,11 +11,11 @@ ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios
 ---
 
-# CallKit integration
+# Integrate CallKit into the UI Library
 
-UI Library will provide out of the box support for CallKit. Developers can provide their own configuration for CallKit to be used for the UI Library.
+The Azure Communication Services UI Library provides out-of-the-box support for CallKit. Developers can provide their own configuration for CallKit to be used for the UI Library.
 
-Learn how to set up the CallKit correctly using the UI Library in your application.
+In this article, you learn how to set up CallKit correctly by using the UI Library in your application.
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -23,22 +23,22 @@ Learn how to set up the CallKit correctly using the UI Library in your applicati
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
-- Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
+- A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
+- Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
+For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
-### CallKit Integration 
+### Set up CallKit integration
 
-CallKit Integration, supported by Azure Communication Service native iOS calling native SDK can be enabled in UI Libraries by configuring instance of `CallCompositeCallKitOption`. [more info](https://learn.microsoft.com/azure/communication-services/how-tos/calling-sdk/callkit-integration#callkit-integration-within-sdk)
+The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](/azure/communication-services/how-tos/calling-sdk/callkit-integration#callkit-integration-within-sdk).
 
-### Specify call recipient info for incoming/outgoing calls
+### Specify call recipient info for incoming and outgoing calls
 
 To specify call recipient info, create an instance of `CallCompositeCallKitRemoteInfo`.
 
-Assign value for `displayName` to customize display name for call recipients and configure `CXHandle` value. This value specified in `displayName` is exactly how it shows up in the last dialed call log in the last dialed call log. 
+Assign a value for `displayName` to customize the display name for call recipients. The value specified in `displayName` is exactly how it appears in the last-dialed call log.
 
-Assign the cxHandle value is what the application receives when, user calls back on that contact.
+Also assign the `cxHandle` value. It's what the application receives when the user calls back on that contact.
 
 ```swift
 let cxHandle = CXHandle(type: .generic, value: "VALUE_TO_CXHANDLE")
@@ -46,19 +46,19 @@ var displayName = "DISPLAY_NAME"
 let callKitRemoteInfo = CallCompositeCallKitRemoteInfo(displayName: displayName, cxHandle: cxHandle)
 ```
 
-If `CallCompositeCallKitRemoteInfo` isn't provided, by default participant identifier raw value is displayed.
+If you don't provide `CallCompositeCallKitRemoteInfo`, the participant identifier's raw value is displayed by default.
 
-### CXProviderConfiguration
+### Configure providers
 
-A provider `CallCompositeCallKitRemoteInfo` instance should be provided to `CallCompositeCallKitOption` as per requirements. UI Library also provides a default provider `CallCompositeCallKitOption.getDefaultCXProviderConfiguration()`. [more info](https://developer.apple.com/documentation/callkit/cxproviderconfiguration)
+As required, provide a `CallCompositeCallKitRemoteInfo` instance to `CallCompositeCallKitOption`. The UI Library also provides a default provider: `CallCompositeCallKitOption.getDefaultCXProviderConfiguration()`. For more information, see the [Apple developer documentation about CXProviderConfiguration](https://developer.apple.com/documentation/callkit/cxproviderconfiguration).
 
 ```swift
 let cxProvider = CallCompositeCallKitOption.getDefaultCXProviderConfiguration()
 ```
 
-### Configure audio session
+### Configure an audio session
 
-Configure audio session will be called before placing or accepting incoming call and before resuming the call after call put on hold. [more info](https://developer.apple.com/documentation/avfaudio/avaudiosession)
+Configure an audio session to be called before placing or accepting incoming call and before resuming a call that's on hold. For more information, see the [Apple developer documentation about AVAudioSession](https://developer.apple.com/documentation/avfaudio/avaudiosession).
 
 ```swift
 public func configureAudioSession() -> Error? {
@@ -75,7 +75,7 @@ public func configureAudioSession() -> Error? {
 
 ### Enable CallKit
 
-To enable CallKit, create instance of `CallCompositeCallKitOption` and provide to `RemoteOptions`
+To enable CallKit, create an instance of `CallCompositeCallKitOption` and provide it to `RemoteOptions`.
 
 ```swift
 let isCallHoldSupported = true // enable call hold (default is true)
@@ -94,4 +94,4 @@ let remoteOptions = RemoteOptions(
 
 ## Next steps
 
-- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
+- [Learn more about the UI Library](../../concepts/ui-library/ui-library-overview.md)

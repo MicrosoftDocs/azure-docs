@@ -22,11 +22,15 @@ Availability zone support for Azure Functions is available on both Premium (Elas
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Functions supports both [zone-redundant and zonal instances](availability-zones-service-support.md#azure-services-with-availability-zone-support). 
+Azure Functions supports a [zone-redundant deployment](availability-zones-service-support.md#azure-services-with-availability-zone-support).  
 
-- **Zonal**. Function app instances are placed in a single zone that's selected by the platform in the selected region. A zonal function app is isolated from any outages that occur in other zones. However, if an outage impacts the specific zone chosen for the function app, the function app won't be available. 
+When you configure Functions as zone redundant, the platform automatically spreads the function app instances across three zones in the selected region.  
 
-- **Zone-redundant**.  The function app platform automatically spreads the instances in the plan across all zones of the selected region. For example, in a region with three zones, if an instance count is larger than three and the number of instances is divisible by three, the instances are distributed evenly. Otherwise, instance counts beyond 3 * N are distributed across the remaining one or two zones. A zone redundant function app automatically distributes the instances your app runs on between the availability zones in the region. For apps running in a zone-redundant Premium plan, even as the app scales in and out, the instances the app is running on are still evenly distributed between availability zones.
+Instance spreading with a zone-redundant deployment is determined inside the following rules, even as the app scales in and out:
+
+- The minimum function app instance count is three. 
+- When you specify a capacity larger than three, the instances are spread evenly only when the capacity is a multiple of 3. 
+- For a capacity value more than 3*N, extra instances are spread across the remaining one or two zones.
 
 >[!IMPORTANT]
 >Azure Functions can run on the Azure App Service platform. In the App Service platform, plans that host Premium plan function apps are referred to as Elastic Premium plans, with SKU names like EP1. If you choose to run your function app on a Premium plan, make sure to create a plan with an SKU name that starts with "E", such as EP1. App Service plan SKU names that start with "P", such as P1V2 (Premium V2 Small plan), are actually [Dedicated hosting plans](../azure-functions/dedicated-plan.md). Because they are Dedicated and not Elastic Premium, plans with SKU names starting with "P" won't scale dynamically and may increase your costs.

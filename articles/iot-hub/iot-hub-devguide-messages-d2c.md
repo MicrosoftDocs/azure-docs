@@ -135,7 +135,7 @@ For more information, see [IoT Hub message routing query syntax](./iot-hub-devgu
 
 Use the following articles to learn how to read messages from an endpoint.
 
-* Read from a [built-in endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
+* Read from a [built-in endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
 
 * Read from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
 

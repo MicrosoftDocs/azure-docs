@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 07/21/2023
+ms.date: 01/03/2024
 ms.author: danlep
 ---
 ## Import OData metadata
@@ -18,9 +18,9 @@ ms.author: danlep
     1. Enter remaining settings to configure your API. These settings are explained in the [Import and publish your first API](../articles/api-management/import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 1. Select **Create**.
 
-    The API is added to the **APIs** list. The entity sets and functions that are exposed in the OData metadata description appear on the API's **Schema** tab. 
+    The API is added to the **APIs** list. The entity sets and functions that are exposed in the OData metadata description appear on the API's **Entity sets and functions** tab. 
 
-    :::image type="content" source="media/api-management-import-odata-from-metadata/odata-schema.png" alt-text="Screenshot of schema of OData API in the portal." :::    
+    :::image type="content" source="media/api-management-import-odata-from-metadata/odata-schema.png" alt-text="Screenshot of OData entity sets and functions in the portal." lightbox="media/api-management-import-odata-from-metadata/odata-schema.png" :::    
 
 ## Update the OData schema
 
@@ -28,10 +28,23 @@ You can access an editor in the portal to view your API's OData schema. If the A
 
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, select **APIs** > your OData API.
-1. On the **Schema** tab, select the edit (**\</>**) icon.
+1. On the **Entity sets and functions** tab, select the context menu (**...**) next to an entity set or function, and select **Edit**.
+
+    :::image type="content" source="media/api-management-import-odata-from-metadata/edit-schema.png" alt-text="Screenshot of context menu for an OData entity set in the portal." lightbox="media/api-management-import-odata-from-metadata/edit-schema.png":::
+
 1. Review the schema. If you want to update it, select **Update from file** or **Update schema from endpoint**.
 
-    :::image type="content" source="media/api-management-import-odata-from-metadata/odata-schema-update.png" alt-text="Screenshot of schema editor for OData API in the portal." :::    
+    :::image type="content" source="media/api-management-import-odata-from-metadata/odata-schema-update.png" alt-text="Screenshot of schema editor for OData API in the portal." lightbox="media/api-management-import-odata-from-metadata/odata-schema-update.png":::    
+
+## Test your OData API
+
+1. In the left menu, select **APIs** > your OData API.
+1. On the **Entity sets and functions** tab, select the context menu (**...**) next to an entity set or function, and select **Test**.
+
+    :::image type="content" source="media/api-management-import-odata-from-metadata/test-entity.png" alt-text="Screenshot of Test option on context menu for an OData entity set in the portal." lightbox="media/api-management-import-odata-from-metadata/test-entity.png":::
+
+1. In the test console, enter template parameters, query parameters, and headers for your test, and select **Test**. [Learn more](../articles/api-management/import-api-from-oas.md#test-the-new-api-in-the-portal) about testing an API in the portal.
+
 
 ## Secure your OData API
 

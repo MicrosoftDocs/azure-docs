@@ -37,7 +37,7 @@ Previously, packet capture could only be performed from edge sites, requiring lo
 
 **Date available:** December 22, 2023
 
-The new Edge Log Backhaul feature provides Microsoft support personnel with easy access to customer network function logs to help them troubleshoot and find root cause for customer issues. 
+The new Edge Log Backhaul feature provides Microsoft support personnel with easy access to customer network function logs to help them troubleshoot and find root cause for customer issues. This is enabled by default. To disable this feature, [modify the packet core configuration](modify-packet-core.md).
 
 ## October 2023
 ### Packet core 2310

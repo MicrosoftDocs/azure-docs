@@ -5,12 +5,13 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 
 # Customer intent: As a developer who is building a web app, I want to learn more about the OAuth 2.0 authorization code flow in Azure AD B2C, so that I can add sign-up, sign-in, and other identity management tasks to my app.
+
 
 ---
 

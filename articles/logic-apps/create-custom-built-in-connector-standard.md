@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps

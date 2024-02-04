@@ -72,6 +72,8 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 Take a note your own `publicIpAddress` in the output when you create your VM. This IP address is used to access the VM later in this article.
 
+Cost information isn't presented during the virtual machine creation process for CLI like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+
 ## Install web server
 
 To see your VM in action, install the IIS web server.

@@ -29,10 +29,9 @@ This feature enables customers to perform in-place upgrades of their MySQL 5.7 s
 
 ## Prerequisites
 
--	Read Replicas with MySQL version 5.7 should be upgraded before Primary Server for replication to be compatible between different MySQL versions, read more on [Replication Compatibility between MySQL versions](https://dev.mysql.com/doc/mysql-replication-excerpt/8.0/en/replication-compatibility.html).
-- Before you upgrade your production servers, we **strongly recommend** you use the official Oracle [MySQL Upgrade checker tool](https://go.microsoft.com/fwlink/?linkid=2230525) to test your database schema compatibility and perform necessary regression test to verify application compatibility with features [removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals)/[deprecated](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-deprecations) in the new MySQL version.
+- Read Replicas with MySQL version 5.7 should be upgraded before Primary Server for replication to be compatible between different MySQL versions, read more on [Replication Compatibility between MySQL versions](https://dev.mysql.com/doc/mysql-replication-excerpt/8.0/en/replication-compatibility.html).
+- Before upgrading your production servers, it's now easier and more efficient with our built-in **Validate** feature in the Azure portal. This tool pre-checks your database schema's compatibility with MySQL 8.0, highlighting potential issues. While we offer this convenient option, we also **strongly recommend** you use the official Oracle [MySQL Upgrade checker tool](https://go.microsoft.com/fwlink/?linkid=2230525) to test your database schema compatibility and perform necessary regression test to verify application compatibility with features [removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals)/[deprecated](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-deprecations) in the new MySQL version.
 - Trigger [on-demand backup](./how-to-trigger-on-demand-backup.md) before you perform a major version upgrade on your production server, which can be used to [rollback to version 5.7](./how-to-restore-server-portal.md) from the full on-demand backup taken.
-
 
 ## Perform a planned major version upgrade from MySQL 5.7 to MySQL 8.0 using the Azure portal
 
@@ -50,16 +49,25 @@ To perform a major version upgrade of an Azure Database for MySQL flexible serve
     > [sql_mode](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) with values NO_AUTO_CREATE_USER, NO_FIELD_OPTIONS, NO_KEY_OPTIONS and NO_TABLE_OPTIONS are no longer supported in MySQL 8.0.
 
     :::image type="content" source="./media/how-to-upgrade/1-how-to-upgrade.png" alt-text="Screenshot showing Azure Database for MySQL flexible server Upgrade.":::
+3.  Perform Pre-Upgrade Validation
 
-3.	In the **Upgrade** sidebar, in the **MySQL version to upgrade** text box, verify the major MySQL version you want to upgrade to, i.e., 8.0.
+    Before proceeding with the upgrade, Click the **Validate** button to check the compatibility of your server with MySQL 8.0.
+    
+    :::image type="content" source="./media/how-to-upgrade/how-to-validate.png" alt-text="Screenshot showing validate.":::
+   
+    >[!Important]
+    > When you use the 'Validate' feature to check your database schema for compatibility with MySQL 8.0, be aware that it involves locking the tables to accurately assess the entire schema. This process may lead to query timeouts. 
+    > Therefore, it is advisable not to perform validation during peak business hours or when your database is experiencing high traffic. Choosing a period of low activity for validation can help minimize impact on your operations.
+
+5.	In the **Upgrade** sidebar, in the **MySQL version to upgrade** text box, verify the major MySQL version you want to upgrade to, i.e., 8.0.
 
     :::image type="content" source="./media/how-to-upgrade/2-how-to-upgrade.png" alt-text="Screenshot showing Upgrade.":::
 
     Before you can upgrade your primary server, you first need to have upgraded any associated read replica servers. Until this is completed, **Upgrade** will be disabled.
 
-4.	On the primary server, select the confirmation message to verify that all replica servers have been upgraded, and then select **Upgrade**. 
+6.	On the primary server, select the confirmation message to verify that all replica servers have been upgraded, and then select **Upgrade**. 
 
-    :::image type="content" source="./media/how-to-upgrade/4-how-to-upgrade.png" alt-text="Screenshot showing upgrade.":::
+    :::image type="content" source="./media/how-to-upgrade/how-to-upgrade.png" alt-text="Screenshot showing upgrade.":::
 
     On read replica and standalone servers, **Upgrade** is enabled by default.
 
@@ -113,7 +121,7 @@ To perform a major version upgrade of an Azure Database for MySQL flexible serve
 
 5.	Check replication status to ensure that the replica has caught up with the primary so that all data is in sync and that no new operations are being performed on the primary.
 
-6.	Confirm with the show slave status command on the replica server to view the replication status.
+6.	Confirm with the show replica status command on the replica server to view the replication status.
 
     ```azurecli
      SHOW SLAVE STATUS\G

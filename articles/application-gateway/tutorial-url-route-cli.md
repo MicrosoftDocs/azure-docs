@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli, devx-track-linux
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
 ---
 
@@ -189,7 +189,7 @@ for i in `seq 1 3`; do
 
   if [ $i -eq 1 ]
   then
-    poolName="appGatewayBackendPool" 
+    poolName="appGatewayBackendPool"
   fi
 
   if [ $i -eq 2 ]
