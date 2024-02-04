@@ -19,7 +19,7 @@ ms.date: 01/18/2024
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google Ads. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!Important]
-> Please kindly [upgrade your Google Ads driver version](#upgrade-the-google-ads-driver-version) before **February 18, 2024**. If not, connection will start to fail with [error](connector-troubleshoot-google-ads.md#error-code-deprecatedgoogleadslegacydriverversion) because of the deprecation of the legacy driver.
+> Please kindly [upgrade your Google Ads driver version](#upgrade-the-google-ads-driver-version) before **February 18, 2024**. If not, connection will start to fail with an [error](connector-troubleshoot-google-ads.md#error-code-deprecatedgoogleadslegacydriverversion) because of the deprecation of the legacy driver.
 
 ## Supported capabilities
 
