@@ -23,7 +23,7 @@ This article helps you understand this new feature, how to implement it, and how
 - [Private link](../azure-monitor/logs/private-link-security.md) isn't supported.
 - Only the default [ama-metrics-settings-config-map](../azure-monitor/containers/prometheus-metrics-scrape-configuration.md#configmaps) can be customized. All other customizations are not supported.
 - The cluster must use [managed identity authentication](use-managed-identity.md).
-- This feature is currently available in the following regions: West US 2, East Asia, UK South, East US, Australia Central, Australia East, Brazil South, Canada Central, Central India, East US 2, France Central, and Germany West Central.
+- This feature is currently available in the following regions:  West Central US, East Asia, UK South, East US, Australia Central, Australia East, Brazil South, Canada Central, Central India, East US 2, France Central, and Germany West Central, Israel Central, Italy North, Japan East, JioIndia West, Korea Central, Malaysia South, Mexico Central, North Central US, North Europe, Norway East, Qatar Central, South Africa North, Sweden Central, Switzerland North, Taiwan North, UAE North, UK West, West US 2.
 
 ### Install or update the `aks-preview` Azure CLI extension
 

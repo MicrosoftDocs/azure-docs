@@ -160,6 +160,18 @@ conceptualContent:
             - text: Secure communications for Spring Boot apps
               url: enterprise/access-app-virtual-network.md
               itemType: how-to-guide
+            - text: Deploy in a virtual network
+              url: enterprise/how-to-deploy-in-azure-virtual-network.md
+              itemType: how-to-guide
+            - text: Set up SSO using Microsoft Entra ID for Spring Cloud Gateway and API Portal
+              url: enterprise/how-to-set-up-sso-with-azure-ad.md
+              itemType: how-to-guide
+            - text: Use permissions
+              url: enterprise/how-to-permissions.md
+              itemType: how-to-guide
+            - text: Load application secrets using Key Vault
+              url: enterprise/quickstart-key-vault-enterprise.md
+              itemType: quickstart
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
             text: See more
