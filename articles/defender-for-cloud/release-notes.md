@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 01/25/2024
+ms.date: 02/04/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,6 +19,36 @@ This page is updated frequently with the latest updates in Defender for Cloud.
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## February 2024
+
+|Date | Update |
+|----------|----------|
+| February 28th | [Changes in endpoint protection recommendations](#changes-in-endpoint-protection-recommendations)  |
+
+## Changes in endpoint protection recommendations
+
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), existing endpoint recommendations which rely on those agents, will be replaced with new recommendations. The new recommendations rely on [agentless machine scanning](concept-agentless-data-collection.md) which allows the recommendations to discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
+
+These public preview recommendations will be deprecated.
+
+| Recommendation | Agent | Deprecation date | Replacement recommendation |
+|--|--|--|--|
+| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | February 2024 | New agentless recommendations. |
+| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | February 2024 | New agentless recommendations. |
+
+The current generally available recommendations will remain supported until August 2024.
+
+As part of that deprecation, we’ll be introducing new agentless endpoint protection recommendations. These recommendations will be available in Defender for Servers Plan 2 and the Defender CSPM plan. They will support Azure and multicloud machines. On-premises machines are not supported.
+
+| Preliminary recommendation name | Estimated release date |
+|--|--|--|
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on EC2s | February 2024 |
+| Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP) | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | February 2024 |
+| Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | February 2024 |
 
 ## January 2024
 
