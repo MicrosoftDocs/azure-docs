@@ -85,7 +85,7 @@ The Backup and Restore blade in the Azure portal provides a complete list of the
 In Azure Database for MySQL flexible server, performing a restore creates a new server from the original server's backups. There are two types of restore available: 
 
 - Point-in-time restore: is available with either backup redundancy option and creates a new server in the same region as your original server.
-- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other Azure supported region where flexible server is available. Currently, Geo-restore isn't supported for regions like  `Brazil South`, `USGov Virginia`, and `West US 3`.
+- Geo-restore: is available only if you configured your server for geo-redundant storage and it allows you to restore your server to either a geo-paired region or any other Azure supported region where flexible server is available. 
 
 The estimated time for the recovery of the server depends on several factors: 
 
@@ -123,7 +123,7 @@ You can choose between latest restore point, custom restore point and fastest re
 The estimated time of recovery depends on several factors including the database sizes, the transaction log backup size, the compute size of the SKU, and the time of the restore as well. The transaction log recovery is the most time consuming part of the restore process. If the restore time is chosen closer to the snapshot backup schedule, the restore operations are faster since transaction log application is minimal. To estimate the accurate recovery time for your server, we highly recommend testing it in your environment as it has too many environment-specific variables.
 
 > [!IMPORTANT]
-> If you are restoring a Azure Database for MySQL flexible server instance configured with zone redundant high availability, the restored server is configured in the same region and zone as your primary server, and deployed as a single server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
+> If you are restoring an Azure Database for MySQL flexible server instance configured with zone redundant high availability, the restored server is configured in the same region and zone as your primary server, and deployed as a single server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
 
 > [!IMPORTANT]
 > You can recover a deleted Azure Database for MySQL flexible server resource within 5 days from the time of server deletion. For a detailed guide on how to restore a deleted server, [refer documented steps](../flexible-server/how-to-restore-dropped-server.md). To protect server resources post deployment from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
