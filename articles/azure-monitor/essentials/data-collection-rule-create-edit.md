@@ -35,12 +35,10 @@ The following table lists methods to create data collection scenarios using the 
 
 ## Create a DCR
 
-The Azure portal provides a data collection rule wizard for collection data from virtual machines. To create a DCR using the Azure CLI, PowerShell, API, or ARM templates, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md). Use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
+The Azure portal provides a data collection rule wizard for collecting data from virtual machines. To create a data collection rule using the Azure CLI, PowerShell, API, or ARM templates, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md). Use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
 
 > [!NOTE]
 > It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule wizard.
-
-Once you have the JSON file created, you can use any of the following methods to create the DCR:
 
 ## [Portal](#tab/portal)
 
@@ -48,11 +46,11 @@ On the **Monitor** menu, select **Data Collection Rules** > **Create** to open t
    
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rules-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
 
-Configure the settings on each of the tabs in the wizard, as detailed below.
+Configure the settings in each step of the wizard, as detailed below.
  
-### Basics tab 
+### Basics step 
 
-:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
+:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics step of the Data Collection Rule screen.":::
 
 | Screen element | Description |
 |:---|:---|
@@ -63,30 +61,30 @@ Configure the settings on each of the tabs in the wizard, as detailed below.
 | **Platform Type** | Select **Windows** or **Linux**, or **All**, which allows for both Windows and Linux platforms. |
 | **Data Collection Endpoint** | To collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**, select an existing data collection endpoint or create a new endpoint.<br>You don't need an endpoint to collect performance counters and Windows event logs.<br>On this tab, you can only select a data collection endpoint in the same region as the data collection rule. The agent sends collected data to this data collection endpoint. For more information, see [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). |
 
-### Resources tab
+### Resources step
 
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::
 
 | Screen element | Description |
 |:---|:---|
-| **+ Add resources** | Associate virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers to the data collection rule. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed.|
+| **+ Add resources** | Associate virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers to the data collection rule. The Azure portal installs Azure Monitor Agent on resources that don't already have the agent installed.|
 |**Enable Data Collection Endpoints**| If the machine you're monitoring is not in the same region as your destination Log Analytics workspace, enable data collection endpoints and select an endpoint in the region of the monitored machine to collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**.<br>If the monitored machine is in the same region as your destination Log Analytics workspace, or if you're collecting performance counters and Windows event logs, don't select a data collection endpoint on the **Resources** tab.<br>The data collection endpoint on the **Resources** tab is the configuration access endpoint, as described in [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).<br>If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).|
 |**Agent extension identity**| Use a system-assigned managed identity, or select an existing user-assigned identity assigned to the virtual machine. For more information, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types).|
 
-### Collect and deliver tab
+### Collect and deliver step
 
 On the **Collect and deliver** tab, select **Add data source** and configure the settings on the **Source** and **Destination** tabs, as detailed below.
 
 For detailed information about the various data sources you can collect, see [Data sources and destinations](../agents/azure-monitor-agent-overview.md#data-sources-and-destinations).
 
-:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
+:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-destination.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-destination.png" alt-text="Screenshot that shows the Collect and deliver tab of the Data Collection Rule wizard. On this tab, you define which data source Azure Monitor Agent collects data from and where the agent sends the data." border="false":::
 
 | Screen element | Description |
 |:---|:---|
-| **Data source type** | |
+| **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the various data source types, see [Performance Counters and Windows Even Logs](../agents/azure-monitor-agent-performance.md), [Linux Syslog](../agents/data-collection-syslog.md), [IIS logs](../agents/data-collection-iis.md),or [Custom Text and JSON Logs](../agents/data-collection-text-log.md).|
 | **Destination** | Add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.<br>You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. At this time, hybrid compute (Arc for Server) resources **do not** support the Azure Monitor Metrics (Preview) destination. |
 
-### Review + create
+### Review + create step
 
 Review the data collection rule details and select **Create** to create the data collection rule.
 
