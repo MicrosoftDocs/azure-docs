@@ -66,9 +66,9 @@ page to onboard onto the Azure Monitor OpenTelemetry Distro.
 
 The following changes and limitations may be encountered when migrating from OpenCensus to OpenTelemetry.
 
-### Python < 3.8 support
+### Python < 3.7 support
 
-OpenTelemetry's Python-based monitoring solutions only support Python 3.8 and greater, excluding the previously supported Python versions 2.7, 3.4, 3.5, 3.6, and 3.7 from OpenCensus. We suggest upgrading for users who are on the older versions of Python since, as of writing this document, those versions have already reached [end of life](https://devguide.python.org/versions/). Users who are adamant about not upgrading may still use the OpenTelemetry solutions, but may find unexpected or breaking behavior that is unsupported. In any case, the last supported version of [opencensus-ext-azure](https://pypi.org/project/opencensus-ext-azure/) always exists, and stills work for those versions, but no new releases are made for that project.
+OpenTelemetry's Python-based monitoring solutions only support Python 3.7 and greater, excluding the previously supported Python versions 2.7, 3.4, 3.5, and 3.6 from OpenCensus. We suggest upgrading for users who are on the older versions of Python since, as of writing this document, those versions have already reached [end of life](https://devguide.python.org/versions/). Users who are adamant about not upgrading may still use the OpenTelemetry solutions, but may find unexpected or breaking behavior that is unsupported. In any case, the last supported version of [opencensus-ext-azure](https://pypi.org/project/opencensus-ext-azure/) always exists, and stills work for those versions, but no new releases are made for that project.
 
 ### Configurations
 

@@ -21,6 +21,9 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 - An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 - For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource, in the paid (S0) tier.
 
+> [!NOTE]
+> It is currently not supported to turn off content filtering for the GPT-4 Turbo with Vision model.
+
 ## Retrieve key and endpoint
 
 To successfully call the Azure OpenAI APIs, you need the following information about your Azure OpenAI resource:
@@ -88,6 +91,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 1. Make the following changes:
     1. Enter your endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
+
     1. Change the value of the `"image"` field to the URL of your image.
         > [!TIP]
         > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
@@ -106,7 +110,7 @@ The **Optical Character Recognition (OCR)** integration allows the model to prod
 The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
 
 > [!CAUTION]
-> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 1. Replace the contents of _quickstart.py_ with the following code. 
     

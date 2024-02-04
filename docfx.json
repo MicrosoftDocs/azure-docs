@@ -16,7 +16,6 @@
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle",
-          "healthcare-apis/**",
           "machine-learning/**"
         ]
       },
@@ -52,20 +51,6 @@
         "group": "azure-large-instances",
         "src": "articles/azure-large-instances",
         "dest": "./azure-large-instances/",
-        "files": [
-          "**/*.md",
-          "**/*.yml"
-        ],
-        "exclude": [
-            "**/_themes/**",
-            "**/includes/**",
-            "**/obj/**"
-        ]
-      },
-      {
-        "group": "healthcare-apis",
-        "src": "articles/healthcare-apis",
-        "dest": "./healthcare-apis/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -150,7 +135,6 @@
           "ai-services/document-intelligence/**",
           "**/_themes/**",
           "**/obj/**",
-          "healthcare-apis/**",
           "machine-learning/**"
         ]
       },
@@ -174,22 +158,6 @@
         "group": "grp-document-intelligence",
         "src": "articles/ai-services/document-intelligence",
         "dest": "./ai-services/document-intelligence/",
-        "files": [
-          "**/*.gif",
-          "**/*.jpeg",
-          "**/*.jpg",
-          "**/*.png",
-          "**/*.svg"
-        ],
-        "exclude": [
-          "**/_themes/**",
-          "**/obj/**"
-        ]
-      },
-      {
-        "group": "healthcare-apis",
-        "src": "articles/healthcare-apis",
-        "dest": "./healthcare-apis/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -568,6 +536,7 @@
         "articles/blockchain/**/*.md": "https://feedback.azure.com/d365community/forum/1117d1aa-0c25-ec11-b6e6-000d3a4f07b8",
         "articles/cdn/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=78a5490b-8326-ec11-b6e6-000d3a4f0789",
         "articles/center-sap-solutions/*.md": "https://feedback.azure.com/d365community/forum/9ed90375-d5e0-ec11-bb3d-000d3a57bc26",
+        "articles/chaos-studio/**/*.md": "https://feedback.azure.com/d365community/forum/18f8dc01-dc37-ec11-b6e6-000d3a9c7101",
         "articles/chef/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/cloudfoundry/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/cloud-partner-portal/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",

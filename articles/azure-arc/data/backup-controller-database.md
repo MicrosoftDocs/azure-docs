@@ -4,8 +4,8 @@ description: Explains how to back up the controller database for Azure Arc-enabl
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 04/26/2023
 ms.topic: how-to

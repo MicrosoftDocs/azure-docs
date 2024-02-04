@@ -216,7 +216,7 @@ sections:
 
             | Supported Language Azure SDK reference|Supported API versions|
             | ----- | -----|
-            | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[**2023-10-31-preview**](https://learn.microsoft.com/rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP&branch=main)<br>[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+            | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[**2023-10-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP&branch=main)<br>[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
 
           For more information, *see* [Supported clients](sdk-overview-v4-0.md#supported-clients)
 
@@ -460,11 +460,32 @@ sections:
 
           - You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a **Reader** role to access Document Intelligence Studio.
 
-          - For **document analysis and prebuilt models**, you need full access—**Cognitive Services User** role—to at least one [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
+          - For document analysis and prebuilt models, here are the role requirements for user scenarios.
 
-          - For **custom models**, you can either use a **Cognitive Services User** role, or use the endpoint and key of a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Storage Blob Data Contributor** role to access to at least one blob storage account.
+            - Basic
 
-          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md).
+              - **Cognitive Services User**: you need this role to [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page.
+
+            - Advanced
+
+              - **Contributor**: you need this role to create resource group or Document Intelligence resource.
+
+          - For custom model projects, here are the role requirements for user scenarios.
+
+            - Basic
+
+              - **Cognitive Services User**: you need this role to [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to train custom model or analyze with trained models.
+
+              - **Storage Blob Data Contributor**: you need this role to storage account to create project and label data.
+
+            - Advanced
+
+              - **Storage Account Contributor**: you need this role to the storage account to setup CORS settings (this is one time effort if the same storage account is reused).
+
+              - **Contributor**: you need this role to create resource group and resources.
+
+
+          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and **Azure role assignments** sections in [Document Intelligence Studio](quickstarts/try-document-intelligence-studio.md) page.
 
       - question: |
           I have multiple pages in a document. Why are there only two pages analyzed in Document Intelligence Studio?

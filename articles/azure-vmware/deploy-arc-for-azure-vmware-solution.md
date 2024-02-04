@@ -183,9 +183,9 @@ When Arc appliance is successfully deployed on your private cloud, you can do th
 - Discover your VMware vSphere infrastructure resources and project them to Azure by navigating, **Private cloud > Arc vCenter resources > Virtual Machines**.
 - Similar to VMs, customers can enable networks, templates, resource pools, and data-stores in Azure.
 
-## Enable resource pools, clusters, hosts, datastores, networks, and VM templates in Azure
+## Enable virtual machines, resource pools, clusters, hosts, datastores, networks, and VM templates in Azure
 
-Once you connected your Azure VMware Solution private cloud to Azure, you can browse your vCenter inventory from the Azure portal. This section shows you how to enable resource pools, networks, and other non-VM resources in Azure.
+Once you connected your Azure VMware Solution private cloud to Azure, you can browse your vCenter inventory from the Azure portal. This section shows you how to make these resources Azure enabled.
 
 > [!NOTE]
 > Enabling Azure Arc on a VMware vSphere resource is a read-only operation on vCenter. It doesn't make changes to your resource in vCenter.
@@ -194,9 +194,19 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 2. Select the resource(s) you want to enable, then select **Enable in Azure**.
 3. Select your Azure **Subscription** and **Resource Group**, then select **Enable**.
 
-  The enable action starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly. 
+  The enable action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly. 
 
-4. Repeat the previous steps for one or more network, resource pool, and VM template resources.
+1. Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
+
+Additionally, for virtual machines there is an additional section to configure **VM extensions**.  This will enable guest management to facilitate additional Azure extensions to be installed on the VM. The steps to enable this would be:
+
+1. Select **Enable guest management**.
+
+1. Choose a __Connectivity Method__ for the Arc agent.
+
+1. Provide an Administrator/Root access username and password for the VM.
+
+If you choose to enable the guest management as a separate step or have issues with the VM extension install steps please review the prerequisites and steps discussed in the section below. 
 
 ## Enable guest management and extension installation
 
@@ -224,17 +234,9 @@ You need to enable guest management on the VMware VM before you can install an e
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** is now checked.
 
-### Install the LogAnalytics extension
+From here additional extensions can be installed. See the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
 
-1. Go to Azure portal. 
-1. Find the Arc-enabled Azure VMware Solution VM that you want to install an extension on and select the VM name. 
-1. Locate **Extensions** from the left navigation and select **Add**.
-1. Select the extension you want to install. 
-    1. Based on the extension, you need to provide details. For example, `workspace Id` and `key` for LogAnalytics extension. 
-1. When you're done, select **Review + create**. 
+### Next Steps
 
-When the extension installation steps are completed, they trigger deployment and install the selected extension on the VM. 
-
-## Supported extensions and management services
-
-Perform VM operations on VMware VMs through Azure using [supported extensions and management services](/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#supported-extensions-and-management-services)
+To manage Arc-enabled Azure VMware Solution go to: [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
+To remove Arc-enabled  Azure VMWare Solution resources from Azure go to: [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)
