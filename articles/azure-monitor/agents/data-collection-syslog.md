@@ -38,72 +38,29 @@ The following facilities are supported with the Syslog collector:
 
 For some device types that don't allow local installation of Azure Monitor Agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. For more information, see the [Sentinel tutorial](../../sentinel/forward-syslog-monitor-agent.md).
 
-## Configure Syslog
+## Prerequisites
+You need:
+
+- A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+- A [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
+- [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
+
+## Configure collection of Syslog data
 
 The Azure Monitor Agent for Linux only collects events with the facilities and severities that are specified in its configuration. You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
 ### Configure Syslog in the Azure portal
-Configure Syslog from the **Data Collection Rules** menu of Azure Monitor. This configuration is delivered to the configuration file on each Linux agent.
 
-1. Select **Add data source**.
-1. For **Data source type**, select **Linux syslog**.
+1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md#create-a-data-collection-rule).
+1. In the **Collect and deliver** step, select **Linux syslog** from the **Data source type** dropdown. 
 
-You can collect Syslog events with a different log level for each facility. By default, all Syslog facility types are collected. If you don't want to collect, for example, events of `auth` type, select **NONE** in the **Minimum log level** list box for `auth` facility and save the changes. If you need to change the default log level for Syslog events and collect only events with a log level starting at **NOTICE** or a higher priority, select **LOG_NOTICE** in the **Minimum log level** list box.
-
-By default, all configuration changes are automatically pushed to all agents that are configured in the DCR.
-
-### Create a data collection rule
-
-Create a *data collection rule* in the same region as your Log Analytics workspace. A DCR is an Azure resource that allows you to define the way data should be handled as it's ingested into the workspace.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and open **Monitor**.
-1. Under **Settings**, select **Data Collection Rules**.
-1. Select **Create**.
-
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-data-collection-rule.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-data-collection-rule.png" alt-text="Screenshot that shows the Data Collection Rules pane with the Create option selected.":::
-
-#### Add resources
-
-1. Select **Add resources**.
-1. Use the filters to find the virtual machine you want to use to collect logs.
-
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-scope.png" alt-text="Screenshot that shows the page to select the scope for the data collection rule. ":::
-1. Select the virtual machine.
-1. Select **Apply**.
-1. Select **Next: Collect and deliver**.
-
-#### Add a data source
-
-1. Select **Add data source**.
-1. For **Data source type**, select **Linux syslog**.
 
    :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot that shows the page to select the data source type and minimum log level.":::
+
+    You can collect Syslog events with a different log level for each facility. By default, all Syslog facility types are collected. If you don't want to collect, for example, events of `auth` type, select **NONE** in the **Minimum log level** list box for `auth` facility and save the changes. If you need to change the default log level for Syslog events and collect only events with a log level starting at **NOTICE** or a higher priority, select **LOG_NOTICE** in the **Minimum log level** list box.
+
 1. For **Minimum log level**, leave the default values **LOG_DEBUG**.
-1. Select **Next: Destination**.
 
-#### Add a destination
-
-1. Select **Add destination**.
-
-   :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-add-destination.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-add-destination.png" alt-text="Screenshot that shows the Destination tab with the Add destination option selected.":::
-1. Enter the following values:
-
-   |Field   |Value |
-   |---------|---------|
-   |Destination type     | Azure Monitor Logs    |
-   |Subscription     | Select the appropriate subscription        |
-   |Account or namespace    |Select the appropriate Log Analytics workspace|
-
-1. Select **Add data source**.
-1. Select **Next: Review + create**.
-
-### Create a rule
-
-1. Select **Create**.
-1. Wait 20 minutes before you move on to the next section.
-
-If your VM doesn't have Azure Monitor Agent installed, the DCR deployment triggers the installation of the agent on the VM.
 
 ## Configure Syslog on the Linux agent
 When Azure Monitor Agent is installed on a Linux machine, it installs a default Syslog configuration file that defines the facility and severity of the messages that are collected if Syslog is enabled in a DCR. The configuration file is different depending on the Syslog daemon that the client has installed.
@@ -174,12 +131,6 @@ log {
 
 If you edit the Syslog configuration, you must restart the Syslog daemon for the changes to take effect.
 
-## Prerequisites
-You need:
-
-- A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- A [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-- [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 
 ## Syslog record properties
 
