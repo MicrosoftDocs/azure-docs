@@ -73,6 +73,8 @@ As part of that deprecation, we’ll be introducing new agentless endpoint prote
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | February 2024 |
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | February 2024 |
 
+Learn more about the [Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+
 ## Change in pricing for multicloud container threat detection
 
 **Announcement date: January 30, 2024**

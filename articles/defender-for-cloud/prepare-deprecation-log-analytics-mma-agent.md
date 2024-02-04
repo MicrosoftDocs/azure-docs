@@ -90,7 +90,9 @@ The following table summarizes the timetable for recommendations being deprecate
 | [Endpoint protection solution should be installed on virtual machine scale sets](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/21300918-b2e3-0346-785f-c77ff57d243b) | MMA | VMSS |  August 2024 | No replacement. |
 | [Endpoint protection solution should be on machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee) (for non-Azure resources)  | MMA | Non-Azure resources | August 2024 | No replacement. |
 | [Install endpoint protection solution on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df) | MMA | Azure resources | August 2024 | New agentless recommendations |
-| [Endpoint protection health issues on machines should be resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a)  | MMA | Azure resources | August 2024 | New agentless recommendations. |
+| [Endpoint protection health issues on machines should be resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a)  | MMA | Azure resources | August 2024 | [New agentless recommendations](upcoming-changes.md#changes-in-endpoint-protection-recommendations). |
+
+The [500-MB benefit](faq-defender-for-servers.md#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine) for data ingestion over the defined tables will remain supported via the AMA agent for the machines under subscriptions covered by Defender for Servers P2. Every machine is eligible for the benefit only once, even if both Log Analytics agent and Azure Monitor agent are installed on it. Learn more about how to [deploy AMA](azure-monitor/vm/monitor-virtual-machine-agent.md#agent-deployment-options). For SQL servers on machines, We recommend to [migrate to SQL server-targeted Azure Monitoring Agent's (AMA) auto-provisioning process](defender-for-sql-autoprovisioning.md).
 
 #### How will the replacement work?
 
@@ -111,9 +113,43 @@ The following table summarizes the timetable for recommendations being deprecate
 
 ## Preparing Defender for SQL on Machines
 
-The use of the Log Analytics agent in Defender for SQL on Machines will be replaced by new SQL-targeted autoprovisioning process for the AMA. Migration to AMA autoprovisioning is seamless and ensures continuous machine protection.
+You can learn more about the [Defender for SQL Server on machines Log Analytics Agent's deprecation plan](upcoming-changes.md#defender-for-sql-server-on-machines).
 
-## Support dates
+If you are using the current Log Analytics agent/Azure Monitor agent autoprovisioning process, you should migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process. The migration process is seamless and provides continuous protection for all machines.
+
+### Migrate to the SQL server-targeted AMA autoprovisioning process 
+
+1. Sign in to the Azure portal.
+1. Search for and select **Microsoft Defender for Cloud**.
+1. In the Defender for Cloud menu, select **Environment settings**.
+1. Select the relevant subscription.
+1. Under the Databases plan, select **Action required**.
+
+    :::image type="content" source="media/prepare-deprecation-log-analytics-mma-agent/select-action-required.png" alt-text="Screenshot that shows selecting Action required." lightbox="media/prepare-deprecation-log-analytics-mma-agent/select-action-required.png":::
+
+1. In the pop-up window, select **Enable**.
+
+    :::image type="content" source="media/prepare-deprecation-log-analytics-mma-agent/select-enable-sql.png" alt-text="Screenshot that shows selecting enable from popup window." lightbox="media/prepare-deprecation-log-analytics-mma-agent/select-enable-sql.png":::
+
+1. Select **Save**.
+
+Once the SQL server-targeted AMA autoprovisioning process has been enabled, you should disable the Log Analytics agent/Azure Monitor agent autoprovisioning process and uninstall the MMA on all SQL servers:
+
+To disable the Log Analytics agent:
+
+1. Sign in to the Azure portal.
+1. Search for and select **Microsoft Defender for Cloud**.
+1. In the Defender for Cloud menu, select **Environment settings**.
+1. Select the relevant subscription.
+1. Under the Database plan, select **Settings**.
+1. Toggle the Log Analytics agent to **Off**.
+
+    :::image type="content" source="media/prepare-deprecation-log-analytics-mma-agent/toggle-log-analytics-off.png" alt-text="Screenshot that shows toggling Log Analytics to Off." lightbox="media/prepare-deprecation-log-analytics-mma-agent/toggle-log-analytics-off.png":::
+
+1. Select **Continue**.
+1. Select **Save**.
+
+### Support dates
 
 Dates are summarized in the following table.
 
@@ -123,13 +159,7 @@ Dates are summarized in the following table.
 | AMA | Defender for SQL on Machines | The AMA is available with a new autoprovisioning process. |
 | AMA | Defender for Servers | The AMA is available in preview until August 2024. |
 
-## Scheduling migration
-
-Many of the Defender for Servers features supported by the Log Analytics agent/AMA are already generally available with Microsoft Defender for Endpoint integration or agentless machine scanning.  
-
-All of the Defender for SQL Servers on Machines features are already generally available with the autoprovisioned AMA.  
-
-## Migration steps
+### Migration steps
 
 The following table summarizes the migration steps for each scenario.
 
@@ -140,6 +170,8 @@ The following table summarizes the migration steps for each scenario.
 | Defender for Servers only.<br/>- Not using any of the features mentioned in the previous row. | 1. Enable [Defender for Endpoint (MDE) integration](enable-defender-for-endpoint.md) and [agentless machine scanning](enable-agentless-scanning-vms.md).<br/>2. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/> 3. Uninstall the Log Analytics agent and the AMA on all machines protected by Defender for Cloud. |
 | Defender for SQL on Machines and Defender for Servers.- <br/>Using one or more of the following Defender for Servers features: free security recommendations, file integrity monitoring, endpoint protection with integrated Defender for Endpoint, adaptive application control. | 1. Enable [Defender for Endpoint integration](enable-defender-for-endpoint.md) and [agentless machine scanning](enable-agentless-scanning-vms.md).<br/>2. Migrate to [SQL autoprovisioning for AMA](defender-for-sql-autoprovisioning.md) in Defender for SQL on machines.<br/>3. Disable the [Log Analytics agent and the AMA](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>4. Uninstall the Log Analytics agent on all machines protected by Defender for Cloud. |
 | Defender for SQL on machines and Defender for Servers.<br/>- You don't need any Defender for Servers features described in the previous row. | 1. Enable [Defender for Endpoint (MDE)integration](enable-defender-for-endpoint.md) and [agentless scanning](enable-agentless-scanning-vms.md).<br/>2. [Migrate](defender-for-sql-autoprovisioning.md) to the new SQL autoprovisioning process.<br/>3. [Disable](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent) the Log Analytics/Azure Monitor Agent.<br/>4. Uninstall MMA across all servers. |
+
+### 
 
 ## Next steps
 
