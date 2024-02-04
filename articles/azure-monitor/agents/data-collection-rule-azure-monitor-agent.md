@@ -11,9 +11,9 @@ ms.reviewer: jeffwo
 
 # Collect data from virtual machines using Azure Monitor Agent
 
-To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent, [create a data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md) and associate it with your machines. When you create a data collection rule in the Azure portal, the portal automatically installs Azure Monitor Agent on the selected machines.      
+To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using [Azure Monitor Agent](azure-monitor-agent-overview.md), [create a data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md) and associate it with your machines. When you create a data collection rule in the Azure portal, the portal automatically installs Azure Monitor Agent on the selected machines.      
 
-This article describes how to collect events and performance counters from virtual machines by using [Azure Monitor Agent](azure-monitor-agent-overview.md).
+This article provides guidance for collecting data from each data source type that Azure Monitor Agent supports.
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
