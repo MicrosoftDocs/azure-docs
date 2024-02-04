@@ -3,7 +3,6 @@ metadata:
   title: Azure Notification Hubs Frequently Asked Questions (FAQs) | Microsoft Docs
   description: FAQs about designing and implementing solutions on Azure Notification Hubs.
   services: notification-hubs
-  documentationcenter: mobile
   author: sethmanheim
   manager: femila
   keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
