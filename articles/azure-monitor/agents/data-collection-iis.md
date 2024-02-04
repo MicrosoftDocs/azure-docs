@@ -15,6 +15,9 @@ To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc
 
 This article explains how to configure data collection of Internet Information Service (IIS) logs data from Windows virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
 
+> [!NOTE]
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
+
 ## Prerequisites
 To complete this procedure, you need: 
 
@@ -29,22 +32,10 @@ To complete this procedure, you need:
     - Each entry in the log file must be delineated with an end of line. 
     - The log file must not allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
 
-## Create data collection rule to collect IIS logs
-The [data collection rule](../essentials/data-collection-rule-overview.md) defines: 
+## Configure collection of IIS logs
 
-- Which source log files Azure Monitor Agent scans for new events.
-- How Azure Monitor transforms events during ingestion.
-- The destination Log Analytics workspace and table to which Azure Monitor sends the data.
-
-You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Analytics workspace.
-
-> [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
-
-To create the data collection rule in the Azure portal:
-
-1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
-1. Select **IIS Logs**.
+1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md#create-a-data-collection-rule).
+1. In the **Collect and deliver** step, select **IIS Logs** from the **Data source type** dropdown.
 
     :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
 
@@ -52,12 +43,6 @@ To create the data collection rule in the Azure portal:
 1. On the **Destination** tab, add a destination for the data source.
     <!-- convertborder later -->
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
-
-1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
-1. Select **Create** to create the data collection rule.
-
-> [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 
 
 ### Sample IIS log queries

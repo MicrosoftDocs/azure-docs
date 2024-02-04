@@ -10,10 +10,12 @@ ms.reviewer: jeffwo
 
 # Collect logs from a text or JSON file with Azure Monitor Agent 
 
-Many applications log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. This article explains how to collect log data from text and JSON files on monitored machines using [Azure Monitor Agent](azure-monitor-agent-overview.md) by creating a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md). 
+To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using [Azure Monitor Agent](azure-monitor-agent-overview.md), [create a data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md) and associate it with your machines. The data collection rule defines which data Azure Monitor Agent collects from which machines, and where you want to store the collected data. When you create a data collection rule in the Azure portal, the portal automatically installs Azure Monitor Agent on the selected machines.         
+
+This article explains how to configure data collection from applications that log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. 
 
 > [!Note]
-> The JSON ingestion is in Preview at this time.
+> JSON ingestion is currently in Preview.
 
 ## Prerequisites
 To complete this procedure, you need: 
@@ -83,49 +85,8 @@ You should receive a 200 response and details about the table you just created.
 
 ## Create a data collection rule to collect data from a text or JSON file
 
-The data collection rule defines: 
-
-- Which source log files Azure Monitor Agent scans for new events.
-- How Azure Monitor transforms events during ingestion.
-- The destination Log Analytics workspace and table to which Azure Monitor sends the data.
-
-You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
-
-> [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
-
-### [Portal](#tab/portal)
-
-To create the data collection rule in the Azure portal:
-
-1. On the **Monitor** menu, select **Data Collection Rules**.
-1. Select **Create** to create a new data collection rule and associations.
-    <!-- convertborder later -->
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
-
-1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, **Platform Type**, and **Data collection endpoint**:
-
-    - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
-    - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
-    - **Data Collection Endpoint** specifies the data collection endpoint to which Azure Monitor Agent sends collected data. This data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).   
-
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
-
-1. On the **Resources** tab: 
-    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
-
-        > [!IMPORTANT]
-        > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
-    
-    1. Select **Enable Data Collection Endpoints**.
-    1. Select a data collection endpoint for each of the virtual machines associate to the data collection rule. 
-    
-        This data collection endpoint sends configuration files to the virtual machine and must be in the same region as the virtual machine. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).     
-
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::
-
-1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
-1. From the **Data source type** dropdown, select **Custom Text Logs** or **JSON Logs**.
+1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md#create-a-data-collection-rule).
+1. In the **Collect and deliver** step, select **Custom Text Logs** or **JSON Logs** from the **Data source type** dropdown.
 1. Specify the following information:
  
     - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns).
@@ -147,8 +108,7 @@ To create the data collection rule in the Azure portal:
     <!-- convertborder later -->
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the destination tab of the Add data source screen for a data collection rule in Azure portal." border="false":::
 
-1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
-1. Select **Create** to create the data collection rule.
+
 
 ### [Resource Manager template](#tab/arm)
 
@@ -417,8 +377,6 @@ To create the data collection rule in the Azure portal:
 
 ---
 
-> [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 
 ### Sample log queries
 The column names used here are for example only. The column names for your log will most likely be different.
