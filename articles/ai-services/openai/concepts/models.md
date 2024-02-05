@@ -118,7 +118,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 #### Azure Government regions
 
-The following GPT-4 models are available with [Azure Government](/azure-government/documentation-government-welcome):
+The following GPT-4 models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
 
 |Model ID | Model Availability |
 |--|--|
@@ -152,7 +152,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 #### Azure Government regions
 
-The following GPT-3 models are available with [Azure Government](/azure-government/documentation-government-welcome):
+The following GPT-3 models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
 
 |Model ID | Model Availability |
 |--|--|
@@ -175,7 +175,7 @@ These models can only be used with Embedding API requests.
 
 #### Azure Government regions
 
-The following Embeddings models are available with [Azure Government](/azure-government/documentation-government-welcome):
+The following Embeddings models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
 
 |Model ID | Model Availability |
 |--|--|
