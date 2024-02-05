@@ -60,7 +60,7 @@ To run these connector operations in stateful mode, you must enable this capabil
 
 After you enable virtual network integration for your logic app, you must update your logic app's underlying website configuration (**<*logic-app-name*>.azurewebsites.net**) by using one the following methods:
 
-- [Azure Portal](#azure-portal) (bearer token not required)
+- [Azure portal](#azure-portal) (bearer token not required)
 - [Azure Resource Management API](#azure-resource-management-api) (bearer token required)
 - [Azure PowerShell](#azure-powershell) (bearer token *not* required)
 
