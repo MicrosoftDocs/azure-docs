@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 03/30/2022
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java
 ---
 
 # App status in Azure Spring Apps
