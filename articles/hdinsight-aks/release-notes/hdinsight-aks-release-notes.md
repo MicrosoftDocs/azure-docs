@@ -32,11 +32,11 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 ### New Features
 
 - Workload Identity support by default from 1.1 release.
-- Trino clusters will support Trino 426 from 1.1.x release
+- Trino clusters support Trino 426 from 1.1.x release
 - Trino cluster shape adds simplified hive metastore and catalogs configuration
 - Trino cluster shape now supports load-based autoscale
 - Trino cluster shape adds sharded sql connector
-- Flink clusters will now support Flink 1.17 from 1.1.x release
+- Flink clusters now support Flink 1.17 from 1.1.x release
 - Flink SQL Gateway is now supported from 1.1.x release of Flink on session clusters.
 
 ### Bug Fixes
@@ -46,7 +46,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ### Known issues
 
-- Cluster clean up via resource group
+- Clusters clean up via resource group
 
 ### Coming soon
 
@@ -55,11 +55,11 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 - Spark 3.4 Upgrade – HDInsight on AKS
   - The new version of Apache Spark ™ comes with a host of new features Spark connect, timestamp without timezone etc.
 - Lib Management –Improvements
-  - Library management users can now will add libraries from public maven repositories.
+  - Library management users can add libraries from public maven repositories.
 - MSI based SQL authentication
   - Users can  leverage Managed Identity instead of plain-text credentials to authenticate to metastore.
 - Flink App Mode  
-  - Flink Application mode clusters are designed to support dedicated resources for big and long-running jobs. When you have resource-intensive or extensive data processing tasks, you can use the Application Mode Cluster. This mode allows you to allocate dedicated resources for specific Flink applications, ensuring that they have the necessary computing power and memory to handle large workloads effectively.
+  - Flink Application mode clusters are designed to support dedicated resources for large and long-running jobs. When you have resource-intensive or extensive data processing tasks, you can use the Application Mode Cluster. This mode allows you to allocate dedicated resources for specific Flink applications, ensuring that they have the necessary computing power and memory to handle large workloads effectively.
 
 ### New regions
 - East Asia
@@ -87,7 +87,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 The preview is available in the following [regions](../overview.md#region-availability-public-preview).
 
-If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) or refer to the [Support options](../hdinsight-aks-support-help.md) page. If you have product specific feedback, please write to us on [aka.ms/askhdinsight](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR6HHTBN7UDpEhLm8BJmDhGJURDhLWEhBVE5QN0FQRUpHWDg4ODlZSDA4RCQlQCN0PWcu).
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) or refer to the [Support options](../hdinsight-aks-support-help.md) page. If you have product specific feedback, write us on [aka.ms/askhdinsight](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR6HHTBN7UDpEhLm8BJmDhGJURDhLWEhBVE5QN0FQRUpHWDg4ODlZSDA4RCQlQCN0PWcu).
 
 ### Next steps
 
