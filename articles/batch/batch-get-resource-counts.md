@@ -4,7 +4,6 @@ description: Count the state of Azure Batch tasks and compute nodes to help mana
 ms.date: 12/13/2021
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: seodec18
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
 
