@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: payment-hsm
 ms.workload: security
 ms.topic: article
-ms.date: 07/28/2022
+ms.date: 01/31/2024
 ms.author: mbaldwin
 ms.custom: references_regions metadata
 
@@ -27,11 +27,11 @@ Microsoft works with Thales to ensure that customers meet the prerequisites befo
 
 - Customers must have access to the [Thales CPL Customer Support Portal](https://supportportal.thalesgroup.com/csm) (Customer ID).
 - Customers must have Thales smart cards and card readers for payShield Manager. If a customer need to purchase smart cards or card readers they should contact their Thales representatives, or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us):
-    - **Item**:  971-000135-001-000 
-    - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and above    
+    - **Item**:  971-000135-001-000
+    - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and higher
     - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
     
-    Compatible smart cards have a blue band and are labeled "payShield Manager Card". These are the only smart cards compatible with the ciphers used to enable over-network use.
+    The only smart cards compatible with the ciphers used to enable over-network use smart cards have a blue band and are labeled "payShield Manager Card".
 - If a customer need to purchase a payShield Trusted Management Device (TMD), they should contact their Thales representatives or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
 - Customers must download and review the "Hosted HSM End User Guide", which is available through the Thales CPL Customer Support Portal. The Hosted HSM End User Guide provides more details on the changes to payShield to this service.
 - Customers must review the "Azure Payment HSM - Get Ready for payShield 10K" guide that they received from Microsoft. (Customers who do not have the guide may request it from [Microsoft Support](#microsoft-support).)
@@ -71,6 +71,25 @@ Azure Payment HSM is currently available in the following regions:
 - Central US
 - North Europe
 - West Europe
+
+## Pricing
+
+[Azure Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm/#pricing) includes:
+- The Thales payShield premium package licenses and optional licenses listed in [Firmware and license support](#firmware-and-license-support).
+- A Thales enhanced support plan for payShield software, application, and firmware support.
+
+Firmware customization is not included. Customers who desire firmware customization must work with Thales to get an exact quote.
+
+## Supported SKUs
+
+Azure Payment HSM supports the following SKUs:
+
+- payShield10K_LMK1_CPS60
+- payShield10K_LMK1_CPS250
+- payShield10K_LMK1_CPS2500
+- payShield10K_LMK2_CPS60
+- payShield10K_LMK2_CPS250
+- payShield10K_LMK2_CPS2500
 
 ## Microsoft support
 

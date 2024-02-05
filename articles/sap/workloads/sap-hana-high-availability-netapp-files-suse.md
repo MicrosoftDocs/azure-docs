@@ -2,7 +2,6 @@
 title: High availability of SAP HANA Scale-up with ANF on SLES | Microsoft Docs
 description: Establish high availability of SAP HANA with ANF on SLES Azure virtual machines (VMs).
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: apmsft
 manager: juergent
 tags: azure-resource-manager

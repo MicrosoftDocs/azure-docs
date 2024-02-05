@@ -9,7 +9,6 @@ metadata:
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
   ms.service: azure
   ms.custom:
-    - ignite-2022
     - ignite-2023
   ms.topic: hub-page
   author: kcpitt

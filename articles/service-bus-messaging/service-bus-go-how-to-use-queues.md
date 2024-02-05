@@ -1,7 +1,6 @@
 ---
 title: Get started with Azure Service Bus queues (Go)
 description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Go programming language.
-documentationcenter: go 
 author: Duffney 
 ms.author: jduffney 
 ms.date: 04/19/2022

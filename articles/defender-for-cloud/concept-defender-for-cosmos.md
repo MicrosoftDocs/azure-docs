@@ -2,7 +2,6 @@
 title: Overview of Defender for Azure Cosmos DB
 description: Learn about the benefits and features of Microsoft Defender for Azure Cosmos DB.
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
 ms.date: 11/27/2022

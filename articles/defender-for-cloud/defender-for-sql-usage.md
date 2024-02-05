@@ -2,7 +2,6 @@
 title: How to enable Microsoft Defender for SQL servers on machines
 description: Learn how to protect your Microsoft SQL servers on Azure VMs, on-premises, and in hybrid and multicloud environments with Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
 ms.date: 09/21/2023
@@ -126,4 +125,3 @@ For related information, see these resources:
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
 - Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.
-
