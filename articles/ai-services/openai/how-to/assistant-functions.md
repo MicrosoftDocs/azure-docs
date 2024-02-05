@@ -21,10 +21,9 @@ The Assistants API supports function calling, which allows you to describe the s
 
 ### Supported models
 
-To use all features of function calling including parallel functions, you need to use the latest models:
+The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are supported.
 
-- `gpt-4-1106-preview`
-- `gpt-35-turbo-1106`
+To use all features of function calling including parallel functions, you need to use the latest models.
 
 ### API Version
 
@@ -214,6 +213,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/ru
 
 After you submit tool outputs, the **Run** will enter the `queued` state before it continues execution.
 
-## Next steps
+## See also
 
 * Learn more about how to use Assistants with our [How-to guide on Assistants](../how-to/assistant.md).
+* [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)

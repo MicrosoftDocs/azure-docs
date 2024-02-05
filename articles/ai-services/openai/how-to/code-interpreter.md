@@ -13,17 +13,18 @@ recommendations: false
 
 ---
 
-# Azure OpenAI Assistants Code Interpreter
+# Azure OpenAI Assistants Code Interpreter (Preview)
 
 Code Interpreter allows the Assistants API to write and run Python code in a sandboxed execution environment.  With Code Interpreter enabled, your Assistant can run code iteratively to solve more challenging code, math, and data analysis problems. When your Assistant writes code that fails to run, it can iterate on this code by modifying and running different code until the code execution succeeds.
 
-Use of Code Interpreter has [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) beyond the token based fees for Azure OpenAI usage. If your Assistant calls Code Interpreter simultaneously in two different threads, two code interpreter sessions are created. Each session is active by default for one hour.
+> [!IMPORTANT]
+> Code Interpreter has [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) beyond the token based fees for Azure OpenAI usage. If your Assistant calls Code Interpreter simultaneously in two different threads, two code interpreter sessions are created. Each session is active by default for one hour.
 
 ## Code interpreter support
 
 ### Supported models
 
-You can use any of the `gpt-35-turbo` or `gpt-4` models in [regions where Assistants is supported](../concepts/models.md) with code interpreter.
+The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants and code interpreter are supported.
 
 We recommend using assistants with the latest models to take advantage of the new features, as well as the larger context windows, and more up-to-date training data.
 
@@ -249,6 +250,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/files/<YOUR-FILE-ID>/con
 
 ---
 
-## Next steps
+## See also
 
 * Learn more about how to use Assistants with our [How-to guide on Assistants](../how-to/assistant.md).
+* [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)

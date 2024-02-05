@@ -144,10 +144,8 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-## Next steps
+## See also
 
-* Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
+* Learn more about how to use Assistants with our [How-to guide on Assistants](../how-to/assistant.md).
+* [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
 
-<!--
-* Learn more about how to use assistants with our in-depth [How-to guide on Azure OpenAI Assistants](../how-to/assistant.md).
--->
