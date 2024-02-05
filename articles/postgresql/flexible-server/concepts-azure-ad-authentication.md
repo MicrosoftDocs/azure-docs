@@ -121,19 +121,19 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
   
     When Microsoft Entra Authentication is set at the server level, PGAadAuth extension gets enabled and results in a server restart.
 
-* **How do i log in using Microsoft Entra Authentication?**
+* **How do I log in using Microsoft Entra Authentication?**
   
-    You can use client tools such as psql,pgadmin etc to login to your flexible server. Please use the Microsoft Entra ID as **User name** and use your **Entra token**as your password which is generated using azlogin.
+    You can use client tools such as psql, pgadmin etc. to login to your flexible server. Please use the Microsoft Entra ID as **User name** and use your **Entra token** as your password which is generated using azlogin.
 
-* **How do I generate my token**
-Please use the below steps to generate your token.
-[Generate Token](how-to-configure-sign-in-azure-ad-authentication.md)
+* **How do I generate my token?**
+  
+   Please use the below steps to generate your token. [Generate Token](how-to-configure-sign-in-azure-ad-authentication.md).
 
 * **What is the difference between group login and individual login?**
   
-   The only difference between logging in as **Microsoft Entra group member** and an individual **Entra user** lies in the **Username**, while logging in as an individual user you provide your individual Entra ID where whereas you'll utilize the group name while logging in as a group member. Regardless, in both scenarios, you'll employ the same individual Entra token as the password.
+   The only difference between logging in as **Microsoft Entra group member** and an individual **Entra user** lies in the **Username**, while logging in as an individual user you provide your individual Microsoft Entra ID where whereas you'll utilize the group name while logging in as a group member. Regardless, in both scenarios, you'll employ the same individual Entra token as the password.
 
-* **What is the token lifetime**
+* **What is the token lifetime?**
 
      User tokens are valid for up to 1 hour whereas System Assigned Managed Identity tokens are valid for up to 24 hours.
 
