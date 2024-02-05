@@ -478,7 +478,7 @@ The following table lists common and recommended alert rules for Azure Blob Stor
 | Metric | Blob Storage egress has exceeded 500 GiB in one day. | Egress<br>Dimension names: Geo type, API name, Authentication |
 
 <!-- ### Advisor recommendations -->
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/azure-monitor/horizontals/advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 <!-- ALERTS SECTION END -------------------------------------->
 
