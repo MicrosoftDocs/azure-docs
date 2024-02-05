@@ -72,8 +72,6 @@ The Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-az
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
 ```
 
-# [Portal](#tab/azure-portal)
-
 ---
 
 ## Create a VM

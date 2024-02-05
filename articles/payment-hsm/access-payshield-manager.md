@@ -25,11 +25,11 @@ Here are two sample scenarios for connecting to payShield manager for your payme
 
 Sample deployment 1:
 
-:::image type="content" source="./media/access-payshield-sample-deployment-1.png" lightbox="./media/access-payshield-sample-deployment-1.png" alt-text="A sample deployment, allowing you to access the payShield manager for your payment HSM.":::
+:::image type="content" source="./media/access-payshield-sample-deployment-1.png" lightbox="./media/access-payshield-sample-deployment-1.png" alt-text="An architecture diagram of a sample deployment, allowing you to access the payShield manager for your payment HSM.":::
 
 Sample deployment 2:
 
-:::image type="content" source="./media/access-payshield-sample-deployment-2.png" lightbox="./media/access-payshield-sample-deployment-2.png" alt-text="Another sample deployment, allowing you to access the payShield manager for your payment HSM.":::
+:::image type="content" source="./media/access-payshield-sample-deployment-2.png" lightbox="./media/access-payshield-sample-deployment-2.png" alt-text="An architecture diagram of an alternative, sample deployment, allowing you to access the payShield manager for your payment HSM.":::
 
 To access payShield manager  from your on-premises PC, directly connect to HSMMgmtNic private IP address (10.1.0.4)
 

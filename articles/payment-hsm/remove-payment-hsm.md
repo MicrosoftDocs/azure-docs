@@ -30,7 +30,7 @@ Navigate to the payShield manager, following the steps in [Access the payShield 
 
 ## Delete the payment HSM
 
-Once the payment HSM has is released, you can delete it using Azure CLI or Azure PowerShell.
+Once the payment HSM is released, you can delete it using Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azure-cli)
 
