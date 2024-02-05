@@ -6,7 +6,6 @@ ms.author: noelleli
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
 ms.date: 01/05/2024
 ---
 
@@ -79,5 +78,3 @@ To apply changes, select a **Regional format** and make sure to hit the **Apply*
 - [Introduction to Azure Data Factory](introduction.md)
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)
 - [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)
-
-

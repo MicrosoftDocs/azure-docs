@@ -5,9 +5,11 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 02/02/2024
 ms.custom: event-tier1-build-2022, engagement-fy23
+
 ---
+
 # Integrate Azure Database for MySQL with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Database for MySQL - Flexible Server to other cloud services using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
@@ -16,14 +18,16 @@ This page shows supported authentication methods and clients, and shows sample c
 
 ## Supported compute services
 
-- Azure App Service. You can get the configurations from Azure App Service configurations.
-- Azure Functions. You can get the configurations from Azure Functions configurations.
-- Azure Container Apps. You can get the configurations from Azure Container Apps environment variables.
-- Azure Spring Apps. You can get the configurations from Azure Spring Apps runtime.
+Service Connector can be used to connect the following compute services to Azure Database for MySQL:
+
+- Azure App Service
+- Azure Functions
+- Azure Container Apps
+- Azure Spring Apps
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps, and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Database for MySQL using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 | Client type                     | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
 |---------------------------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
@@ -37,6 +41,8 @@ Supported authentication and clients for App Service, Azure Functions, Container
 | PHP (MySQLi)                    |                Yes               |               Yes              |            Yes           |        Yes        |
 | Ruby (mysql2)                   |                Yes               |               Yes              |            Yes           |        Yes        |
 | None                            |                Yes               |               Yes              |            Yes           |        Yes        |
+
+This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Database for MySQL using Service Connector.
 
 > [!NOTE]
 > System-assigned managed identity, User-assigned managed identity and Service principal are only supported on Azure CLI.

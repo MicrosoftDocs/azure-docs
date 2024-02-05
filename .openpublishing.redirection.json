@@ -1,5 +1,10 @@
 {
     "redirections": [
+    	{
+           "source_path": "articles/cosmos-db/nosql/sdk-java-spark-v2.md",
+           "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-spark-v2",
+    	   "redirect_document_id": false
+    	},
         {
             "source_path": "articles/storage/common/storage-analytics-metrics.md",
             "redirect_url": "/previous-versions/azure/storage/common/storage-analytics-metrics",

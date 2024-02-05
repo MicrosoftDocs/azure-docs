@@ -5,8 +5,7 @@ ms.service: postgresql
 ms.subservice: single-server
 ms.author: sunila
 author: sunilagarwal
-ms.reviewer: ""
-ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
+ms.custom: mvc, devcenter, devx-track-js, mode-api
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 06/24/2022

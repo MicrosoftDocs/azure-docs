@@ -5,17 +5,20 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 02/02/2024
 ms.custom:
 - ignite-fall-2021
 - kr2b-contr-experiment
 - event-tier1-build-2022
 ---
+
 # Integrate Azure SignalR Service with Service Connector
 
-This article supported authentication methods and clients, and shows sample code you can use to connect Azure SignalR Service to other cloud services using Service Connector. This article also shows default environment variable name and value (or Spring Boot configuration) that you get when you create the service connection. 
+This article shows supported authentication methods and clients, and shows sample code you can use to connect Azure SignalR Service to other cloud services using Service Connector. This article also shows default environment variable name and value (or Spring Boot configuration) that you get when you create the service connection.
 
-## Supported compute service
+## Supported compute services
+
+Service Connector can be used to connect the following compute services to Azure SignalR Service:
 
 - Azure App Service
 - Azure Functions
@@ -23,14 +26,15 @@ This article supported authentication methods and clients, and shows sample code
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Azure Functions and Container Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure SignalR Service using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |-------------|----------------------------------|--------------------------------|----------------------------|-------------------|
 | .NET        | Yes                              | Yes                            | Yes                        | Yes               |
 | None        | Yes                              | Yes                            | Yes                        | Yes               |
 
----
+This table indicates that all combinations of client types and authentication methods in the table are supported. Other client types are not supported to connect to Azure SignalR Service using Service Connector.
 
 ## Default environment variable names or application properties
 
