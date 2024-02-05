@@ -212,9 +212,9 @@ For Assistants you need a combination of a supported model, and a supported regi
 
 | Region | `gpt-35-turbo (1106)` | `gpt-4 (1106-preview)` | `gpt-4 (0613)` | `gpt-4 (0314)` | `gpt-35-turbo (0301)` | `gpt-35-turbo (0613)` | `gpt-35-turbo-16k (0613)` | `gpt-4-32k (0314)` | `gpt-4-32k (0613)` |
 |---|---|---|---|---|---|---|---|---|---|
-| Sweden Central | ✅|✅|✅|✅|✅|✅|✅|||
-| East US 2 ||✅||||✅||||
-| Australia East |✅|✅|✅|||✅||||
+| Sweden Central | ✅|✅|✅|✅|✅|✅|✅||✅|
+| East US 2 ||✅|✅|||✅|||✅|
+| Australia East |✅|✅|✅|||✅|||✅|
 
 
 ## Next steps
