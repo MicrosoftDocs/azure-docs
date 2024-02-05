@@ -139,7 +139,7 @@ The following sections outline methods and services that consume monitoring data
 
 All areas in the *consumption* section of the diagram have a user interface that appears in the Azure portal.
 
-The top part of the consumption section applies to Azure Monitor core only. SCOM MI uses the traditional Ops Console running in the cloud. It can also can send monitoring data to Power BI for visualization.
+The top part of the consumption section applies to Azure Monitor core only. SCOM MI uses the traditional Ops Console running in the cloud. It can also send monitoring data to Power BI for visualization.
 
 ### The Azure portal
 
