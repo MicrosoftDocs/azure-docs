@@ -314,7 +314,6 @@
               href: custom-node-configuration.md
             - name: Abort long running operations
               href: manage-abort-operations.md
-            
             - name: Stop/deallocate nodes with Scale-down Mode
               href: scale-down-mode.md
             - name: Connect securely to cluster nodes
@@ -331,8 +330,6 @@
               href: artifact-streaming.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
-            - name: Multi-instance GPU node pool
-              href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md
             - name: Use system node pools
@@ -348,7 +345,15 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:       
+      items:    
+        -name: GPU Workloads
+         items:
+            - name: Use GPUs
+             href: gpu-cluster.md
+            - name: Use Windows GPUs
+             href: use-windows-gpu.md
+            - name: Multi-instance GPU node pool
+              href: gpu-multi-instance.md
         - name: Vertical Pod Autoscaler
           items:
             - name: About Vertical Pod Autoscaler 
@@ -725,8 +730,6 @@
           href: /visualstudio/bridge/bridge-to-kubernetes-vs?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Use OpenFaaS
           href: openfaas.md
-        - name: Use GPUs
-          href: gpu-cluster.md
         - name: Create containerized app with Draft
           href: draft.md
         - name: Build Django app with PostgreSQL
