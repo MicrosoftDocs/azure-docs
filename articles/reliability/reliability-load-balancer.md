@@ -204,6 +204,7 @@ In the case where a region is augmented to have availability zones, any existing
 
 Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant high availability scenarios such as:
 
+
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
 * Load distribution across regions to the closest Azure region with [ultra-low latency](#ultra-low-latency).

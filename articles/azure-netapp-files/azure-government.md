@@ -32,7 +32,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 Azure Government users can access Azure NetApp Files by pointing their browsers to **portal.azure.us**. The portal site name is **Microsoft Azure Government**. For more information, see [Connect to Azure Government using portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
-![Screenshot that shows the Azure Government portal highlighting portal.azure.us as the URL.](../media/azure-netapp-files/azure-government.jpg)
+![Screenshot that shows the Azure Government portal highlighting portal.azure.us as the URL.](./media/azure-government/azure-government.jpg)
 
 From the Azure Government portal, you can access Azure NetApp Files the same way you would in the Azure portal. For example, you can enter **Azure NetApp Files** in the portal's **Search resources** box, and then select **Azure NetApp Files** from the list that appears.
 

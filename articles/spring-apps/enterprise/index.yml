@@ -8,7 +8,7 @@ metadata:
   description: The Enterprise plan provides commercially supported Tanzu components, unlocking Spring's full potential while including feature parity with the Standard plan.
   services: spring-cloud
   ms.service: spring-apps
-  ms.custom: event-tier1-build-2022, devx-track-java
+  ms.custom: devx-track-java
   ms.topic: landing-page
   ms.collection: collection
   author: KarlErickson
@@ -71,8 +71,10 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-      - text: Use Application Configuration service
-        url: how-to-enterprise-application-configuration-service.md
+      - text: Deploy apps using IntelliJ
+        url: how-to-intellij-deploy-apps.md
+      - text: Deploy apps using VS Code
+        url: https://code.visualstudio.com/docs/java/java-spring-apps
       - text: CI/CD with Azure DevOps
         url: how-to-cicd.md?pivots=programming-language-java
       - text: CI/CD with GitHub Actions
