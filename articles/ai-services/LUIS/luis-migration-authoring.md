@@ -6,12 +6,10 @@ description: This article describes how to migrate Language Understanding (LUIS)
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.custom: seodec18, contperf-fy21q2
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 01/19/2024
-
 ---
 # Migrate to an Azure resource authoring key
 
