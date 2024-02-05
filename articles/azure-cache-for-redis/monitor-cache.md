@@ -171,16 +171,16 @@ The following table lists common and recommended alert rules for Azure Cache for
 |Metric |High `Server Load` usage or spikes |High server load means the Redis server is unable to keep up with requests, leading to timeouts or slow responses. Create alerts on metrics on server load metrics to be notified early about potential impacts.|
 |Metric |High network bandwidth usage |If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough. Set up alerts for server-side network bandwidth limits by using the `Cache Read` and `Cache Write` counters. |
 
-<!-- ALERTS SECTION END -------------------------------------->
-
 <!-- ### Advisor recommendations include -->
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/azure-monitor/horizontals/advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 The following screenshot shows an advisor recommendation for an Azure Cache for Redis alert:
 
 :::image type="content" source="./media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations.":::
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](cache-configure.md#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
+
+<!-- ALERTS SECTION END -------------------------------------->
 
 ## Related content
 
