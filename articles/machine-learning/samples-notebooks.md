@@ -35,7 +35,7 @@ To view example notebooks:
 1. Sign in to [studio](https://ml.azure.com) and select your workspace if necessary.
 1. Select **Notebooks**.
 1. Select the **Samples** tab. Use the **SDK v2** folder for examples using Python SDK v2.
-
+1. Open the notebook you want to run.  Select **Clone this notebook** to create a copy in your workspace file share.  This action will copy the notebook along with any dependent resources.
 
 ## Option 2: Access on your own notebook server
 
@@ -65,7 +65,7 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
 
 ## Connect to a workspace
 
-Some of the samples use `MLClient.from_config()` to connect to a workspace.  For these samples to work, you need a configuration file in the directory where you run the notebook, or a parent directory.
+Some of the samples use `MLClient.from_config()` to connect to a workspace.  For these samples to work, you need a configuration file in directory on the path to the sample.  
 
 The configuration file is created for you on the Azure Machine Learning compute instance.  To use the code on your own notebook server or DSVM, create the configuration file manually.  Use either of the following methods:
 
