@@ -62,15 +62,16 @@ Base Pricing for GPT-4 Turbo with Vision is:
 
 See the [Tokens section of the overview](/azure/ai-services/openai/overview#tokens) for information on how text and images translate to tokens.
 
-If you turn on Enhancements to employ Azure Computer Vision foundational models to enhance the capabilities with GPT-4 Turbo with Vision, this does incur additional costs. 
-- Any image with text will incur usage for the **Enhanced add on features for Optical Character Recognition**: $1.50 per 1000 transactions
-- Any image with objects detected will incur usage for the **Enhanced add-on features for Object Grounding**: $1.50 per 1000 transactions
+If you turn on Enhancements, additional usage applies for using GPT-4 Turbo with Vision with Azure AI Vision functionality.
 
-Additionally, if you use video prompt integration with the Video Retrieval add-on, it accrues other costs:
-- Ingestion: $0.05 per minute of video
-- Transactions: $0.25 per 1000 queries of the Video Retrieval index
+| Model        | Price        |
+|-----------------|-----------------|
+| + Enhanced add-on features for OCR | $1.5 per 1000 transactions |
+| + Enhanced add-on features for Object Detection | $1.5 per 1000 transactions |
+| + Enhanced add-on feature for “Add your Image” Image Embeddings | $1.5 per 1000 transactions |
+| + Enhanced add-on feature for “Video Retrieval” integration **<sup>1</sup>** | Ingestion: $0.05 per minute of video <br>Transactions: $0.25 per 1000 queries of the Video Retrieval index |
 
-Processing videos involves the use of extra tokens to identify key frames for analysis. The number of these additional tokens will be roughly equivalent to the sum of the tokens in the text input, plus 700 tokens.
+**<sup>1</sup>** Processing videos involves the use of extra tokens to identify key frames for analysis. The number of these additional tokens will be roughly equivalent to the sum of the tokens in the text input, plus 700 tokens.
 
 ### Example image price calculation
 > [!IMPORTANT]
