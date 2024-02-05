@@ -17,6 +17,7 @@ In Standard logic app workflows, the following built-in, service provider-based 
 
 - Azure Service Bus
 - SAP
+- IBM MQ
 
 To run these connector operations in stateful mode, you must enable this capability. This how-to guide shows how to enable stateful mode for these connectors.
 
@@ -191,3 +192,4 @@ Resource scale-in events might cause the loss of context for built-in connectors
 
 - [Connect to Azure Service Bus](connectors-create-api-servicebus.md)
 - [Connect to SAP](../logic-apps/logic-apps-using-sap-connector.md)
+- [Connect to IBM MQ](connectors-create-api-mq.md)

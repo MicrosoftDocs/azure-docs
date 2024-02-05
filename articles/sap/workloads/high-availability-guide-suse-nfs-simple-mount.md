@@ -2,13 +2,13 @@
 title: Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS| Microsoft Docs
 description: Install high-availability SAP NetWeaver on SUSE Linux Enterprise Server with simple mount and NFS for SAP applications.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/17/2024
 ms.author: radeltch
 ---

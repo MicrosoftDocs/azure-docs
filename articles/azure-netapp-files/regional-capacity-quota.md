@@ -19,7 +19,7 @@ You can click **Quota** under Settings of Azure NetApp Files to display the curr
 
 For example: 
 
-![Screenshot that shows how to display quota information.](../media/azure-netapp-files/quota-display.png) 
+![Screenshot that shows how to display quota information.](./media/regional-capacity-quota/quota-display.png) 
 
 ## Request regional capacity quota increase
 
