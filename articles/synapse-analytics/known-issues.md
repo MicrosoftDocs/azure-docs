@@ -167,7 +167,7 @@ After applying either of these workarounds and successfully deploying, manually 
 
 ## Recently closed known issues
 
-|Synapse Component|Issue|Status|Date Resolved
+|Synapse Component|Issue|Status|Date Resolved|
 |---------|---------|---------|---------|
 |Azure Synapse serverless SQL pool|[Queries using Microsoft Entra authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023|
 |Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023|
