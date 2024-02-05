@@ -69,7 +69,7 @@ Some of the samples use `MLClient.from_config()` to connect to a workspace.  For
 
 The configuration file is created for you on the Azure Machine Learning compute instance.  To use the code on your own notebook server or DSVM, create the configuration file manually.  Use either of the following methods:
 
-* Write a [configuration file](../how-to-configure-environment.md#) file (**aml_config/config.json**) in the root of your cloned repository.
+* Write a [configuration file](how-to-configure-environment.md#) file (**aml_config/config.json**) in the root of your cloned repository.
 
 * Download the workspace configuration file:
 
