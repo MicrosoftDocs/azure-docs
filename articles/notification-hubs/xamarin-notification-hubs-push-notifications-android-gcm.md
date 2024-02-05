@@ -5,7 +5,6 @@ author: sethmanheim
 manager: femila
 editor: jwargo
 services: notification-hubs
-documentationcenter: xamarin
 
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
 ms.service: notification-hubs

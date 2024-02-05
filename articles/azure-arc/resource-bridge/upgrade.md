@@ -80,7 +80,7 @@ For example, to upgrade a resource bridge on VMware, run: `az arcappliance upgra
 
 To upgrade a resource bridge on System Center Virtual Machine Manager (SCVMM), run: `az arcappliance upgrade scvmm --config-file c:\contosoARB01-appliance.yaml`
 
-To upgrade a resource bridge on Azure Stack HCI, please transition to 23H2 and use the built-in upgrade management tool. More info available [here](/azure-stack/hci/update/whats-the-lifecycle-manager-23h2).
+To upgrade a resource bridge on Azure Stack HCI, please transition to 23H2 and use the built-in upgrade management tool. More info available [here](/azure-stack/hci/update/about-updates-23h2).
 
 ## Version releases
 

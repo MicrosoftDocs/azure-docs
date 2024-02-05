@@ -2,7 +2,6 @@
 title: Securing Azure CDN assets with token authentication| Microsoft Docs
 description: Learn how to use token authentication to secure access to your Azure CDN assets.
 services: cdn
-documentationcenter: .net
 author: duongau
 manager: kumudd
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
