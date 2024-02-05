@@ -61,6 +61,18 @@ Here's how to configure a host pool to automatically assign users to VMs using t
    Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Automatic
    ```
 
+#### [Azure CLI](#tab/cli)
+
+Here's how to configure a host pool to automatically assign users to VMs using the [az-desktopvirtualization-hostpool-update](/cli/azure/desktopvirtualization/hostpool?view=azure-cli-latest#az-desktopvirtualization-hostpool-update) command.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   ```azurecli
+  az desktopvirtualization hostpool update --resource-group $resourceGroupName --name $hostPoolName --personal-desktop-assignment-type Automatic
+   ```
+
 ---
 
 ## Configure direct assignment
@@ -91,6 +103,18 @@ Here's how to configure a host pool to require direct assignment of users to ses
 
    ```powershell
    Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Direct
+   ```
+
+#### [Azure CLI](#tab/cli)
+
+Here's how to configure a host pool to automatically assign users to VMs using the [az-desktopvirtualization-hostpool-update](/cli/azure/desktopvirtualization/hostpool?view=azure-cli-latest#az-desktopvirtualization-hostpool-update) command.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   ```azurecli
+  az desktopvirtualization hostpool update --resource-group $resourceGroupName --name $hostPoolName --personal-desktop-assignment-type Direct
    ```
 
 ---
@@ -136,6 +160,19 @@ Here's how to configure a host pool to assign a user to a specific session host 
    ```powershell
    Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser <userupn>
    ```
+
+#### [Azure CLI](#tab/cli)
+
+Here's how to configure a host pool to assign a user to a specific session host using the az-desktopvirtualization-sessionhost-update command.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   ```azurecli
+  az desktopvirtualization sessionhost update --host-pool-name $hostPoolName --name $sessionHostName --resource-group $resourceGroupName --assigned-user <userupn>
+   ```
+
 ---
 
 ## Unassign a personal desktop
@@ -172,7 +209,7 @@ Here's how to configure a host pool to unassign a personal desktop using the [Az
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-2. Run the `Invoke-AzRestMethod` command in the following example to unassign a personal desktop. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Run the `Invoke-AzRestMethod` command in the following example to unassign a personal desktop. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    ```powershell
    $unassignDesktopParams = @{
@@ -185,6 +222,24 @@ Here's how to configure a host pool to unassign a personal desktop using the [Az
    }
    Invoke-AzRestMethod @unassignDesktopParams
    ```
+
+
+#### [Azure CLI](#tab/cli)
+
+Here's how to configure a host pool to unassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+  ```azurecli
+  az rest --method PATCH --uri "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$sessionHostName?api-version=2022-02-10-preview&force=true" --body '{
+    "properties": {
+      "assignedUser": ""
+    }
+  }'
+  ```
+
 ---
 
 ## Reassign a personal desktop
@@ -242,6 +297,31 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
    Invoke-AzRestMethod @reassignDesktopParams
    ```
 
+#### [Azure CLI](#tab/cli)
+
+Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Run the following command to define the `$reassignUserUpn` variable by running the following command:
+
+   ```powershell
+   $reassignUserUpn = <UPN of user you are reassigning the desktop to>
+   ```
+
+3. Run the `Invoke-AzRestMethod` command in the following example to reassign a personal desktop. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   ```powershell
+   $reassignDesktopParams = @{
+     Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+     Payload = @{
+       properties = @{
+         assigneduser = $reassignUserUpn
+       }} | ConvertTo-Json
+     Method = 'PATCH'
+   }
+   Invoke-AzRestMethod @reassignDesktopParams
+   ```
 ---
 
 ## Give session hosts in a personal host pool a friendly name
