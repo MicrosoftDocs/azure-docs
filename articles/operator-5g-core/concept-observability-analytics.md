@@ -60,9 +60,9 @@ The EFK logging framework provides the following features:
 
 - **Log collection and streaming** - Fluentd collects and streams the logs to Elasticsearch. 
 
-- **Audit logs support** - Fluentd reads Kube-Apiserver audit logs from the Kubernetes master node and write those logs to Elasticsearch. The auditlogEnabled flag provided in fed-paas-helpers is used to to enable/disable reading of audit logs. If the auditlogEnabled flag is set to true, then Fluentd is also deployed on the master node along with the worker nodes. 
+- **Audit logs support** - Fluentd reads Kube-Apiserver audit logs from the Kubernetes master node and write those logs to Elasticsearch. The `auditlogEnabled` flag provided in fed-paas-helpers is used to enable/disable reading of audit logs. If the auditlogEnabled flag is set to true, then Fluentd is also deployed on the master node along with the worker nodes. 
 
-- **Event logging** - Fluentd creates a separate Elasticsearch index for all the event logs for a particular namespace. This helps to apply rules and search the event logs in a better way. The index starts with the prefix "fluentd-event". All other regular debug logs go into a separate Elasticsearch index, prefixed with the string "fluentd-*". 
+- **Event logging** - Fluentd creates a separate Elasticsearch index for all the event logs for a particular namespace. This helps to apply rules and search the event logs in a better way. The index starts with the prefix `fluentd-event`. All other regular debug logs go into a separate Elasticsearch index, prefixed with the string `fluentd-*`. 
 
 - **Log storage and analysis** - Elasticsearch securely stores the logs and offers a query language to search for and analyze the logs. 
 
@@ -80,7 +80,7 @@ This section describes the observability features (dashboards, statistics, logs,
 
 #### Dashboards
 
-EFK supports a variety of dashboard options, including:
+EFK supports various dashboard options, including:
 
 - Grafana dashboards (see [Logging framework dashboards](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/EFK_Dashboards.htm))
 - Kibana dashboards (see [Kibana dashboard overview](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Kibana_Dashboards.htm))
@@ -93,7 +93,7 @@ EFK supports a variety of dashboard options, including:
 For information about supported statistics for EFK components, see:
 
 - [Elasticsearch statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/stats_ElasticSearch.htm)
-- [Elasticsearch additional statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/cna-elastic-elastic-prom.md.html)
+- [Other Elasticsearch statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/cna-elastic-elastic-prom.md.html)
 - [Fluentd operator statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/cna-fluentd_operator-fluentd-prom.md.html)
 
 For information about metrics-based alerts, see:
@@ -113,7 +113,7 @@ The EFK framework aggregates logs from nodes and applications running inside you
 
 The metrics framework consists of Prometheus, Grafana, and AlertManager. 
 
-Prometheus (the main component) is an open-source, metrics-based monitoring system. It provides a data model and a query language to analyze how the applications and infrastructure are performing. Prometheus collects metrics from instrumented jobs directly. It stores all scraped samples in local/external storage and runs rules over this data to either aggregate and record new time series from existing data or generate alerts. The AlertManager handles the alerts sent by client applications by deduplicating, grouping, and routing them to the correct receiver integrations. 
+Prometheus (the main component) is an open-source, metrics-based monitoring system. It provides a data model and a query language to analyze how the applications and infrastructure are performing. Prometheus collects metrics from instrumented jobs directly and stores all scraped samples in local external storage. Based on defined rules, Prometheus either aggregates and records a new time series from existing data or generates alerts. The AlertManager handles the alerts sent by client applications by deduplicating, grouping, and routing them to the correct receiver integrations. 
 
 Grafana provides dashboards to visualize the collected data. 
 
@@ -125,7 +125,7 @@ The following diagram shows how the different components of the metrics framewor
 
 The core components of the metrics framework are: 
 
-- **Prometheus server** - The Prometheus server collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and triggers alerts if certain condition is are true. AO5GC supports integration with the Prometheus server out of the box, with minimal required configuration.
+- **Prometheus server** - The Prometheus server collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and triggers alerts if certain conditions are true. AO5GC supports integration with the Prometheus server out of the box, with minimal required configuration.
 - **Client libraries** - Client libraries instrument the application code. 
 - **Alertmanager** - Alertmanager handles alerts sent by client applications such as the Prometheus server. It handles deduplicating, grouping, and routing alerts to the correct receiver integrations (email, slack, etc.). Alertmanager  also supports silencing and inhibition of alerts. 
 - **Grafana** - Grafana provides an out of the box set of dashboards rich with 3GPP and other KPIs to query, visualize, and understand the collected data. 
@@ -136,7 +136,7 @@ The Grafana audit feature provides a mechanism to restore or recreate dashboards
 The metrics framework supports the following features:
 
 - Multi-dimensional data model with time series data identified by metric name and key/value pairs. 
-- PromQL, a flexible query language to leverage this dimensionality. 
+- PromQL, a flexible query language that uses the multi-dimensional data. 
 - No reliance on distributed storage: single server nodes are autonomous. 
 - Time series collection using a pull model over HTTP. 
 - Targets are discovered via service discovery or static configuration. 
@@ -193,14 +193,14 @@ IstioHTTPRequestLatencyTooHigh: Requests are taking more than the <configured va
 
 #### Jaeger tracing with OpenTelemetry Protocol
 
-AO5GC uses the OpenTelemetry Protocol (OTLP) in Jaeger tracing. OTLP replaces the Jaeger agent in fed-paas-helpers. AO5GC deploys the fed-otel_collector federation. The OpenTelemetry (OTEL) Collector runs as part of the fed-otel_collector namespace, as shown below:
+AO5GC uses the OpenTelemetry Protocol (OTLP) in Jaeger tracing. OTLP replaces the Jaeger agent in fed-paas-helpers. AO5GC deploys the fed-otel_collector federation. The OpenTelemetry (OTEL) Collector runs as part of the fed-otel_collector namespace:
 
  :::image type="content" source="media/concept-observability-analytics/jaeger_design_uc.png" alt-text="Diagram of text boxes showing Jaeger tracing and OpenTelemetry Protocol components in  Azure Operator 5G Core.":::
 
 Jaeger tracing uses the following workflow:
 
 1. The application with the OTLP client library sends traces to the OTEL Collector on the OTLP GRPC protocol. The OTEL Collector has three components:  receivers, processors and exporters.  
-1. The OTLP GRPC receiver in the OTEL Collector receives traces and send the to the Jaeger exporter.  
+1. The OTLP GRPC receiver in the OTEL Collector receives traces and sends them to the Jaeger exporter.  
 1. The Jaeger exporter sends traces to the Jaeger collector running as part of fed-jaeger.  
 1. The Jaeger collector stores the traces in Elastic backend storage (fed-elastic). 
 
