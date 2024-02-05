@@ -16,7 +16,7 @@ Access is currently limited. For now, we're working with customers that have an 
 
 ## Apply for access to Azure Operator 5G Core
 
-[Apply here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9zWBbelaQlPkzHROur9qIJUQzRFNlNEU1lUOElWRlo3WVBWRzdSRlhCTS4u) for initial access. 
+[Apply here](https://aka.ms/AO5GC-Activation-Request) for initial access. 
 
  
 
