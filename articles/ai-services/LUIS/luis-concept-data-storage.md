@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/05/2024
 ---
 
 # Data storage and removal in Language Understanding (LUIS) Azure AI services
@@ -59,7 +59,7 @@ If you are not migrated, you can delete your account and all your apps will be d
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
 
 ## Delete an authoring resource
-If you have [migrated to an authoring resource](./luis-migration-authoring.md), deleting the resource itself from the Azure portal will delete all your applications associated with that resource, along with their example utterances and logs. The data is retained for 90 days before it is deleted permanently.    
+If you have migrated to an authoring resource, deleting the resource itself from the Azure portal will delete all your applications associated with that resource, along with their example utterances and logs. The data is retained for 90 days before it is deleted permanently.    
 
 To delete your resource, go to the [Azure portal](https://portal.azure.com/#home) and select your LUIS authoring resource. Go to the **Overview** tab and select the **Delete** button on the top of the page. Then confirm your resource was deleted. 
 

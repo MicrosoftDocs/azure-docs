@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/05/2024
 ms.author: egeaney
 #Customer intent: As a user of the Language Understanding (LUIS) service, I want to learn how encryption at rest works.
 ---
@@ -40,7 +40,7 @@ You must use Azure Key Vault to store your customer-managed keys. You can either
 
 There are some limitations when using the E0 tier with existing/previously created applications:
 
-* Migration to an E0 resource will be blocked. Users will only be able to migrate their apps to F0 resources. After you've migrated an existing resource to F0, you can create a new resource in the E0 tier. Learn more about [migration here](./luis-migration-authoring.md).  
+* Migration to an E0 resource will be blocked. Users will only be able to migrate their apps to F0 resources. After you've migrated an existing resource to F0, you can create a new resource in the E0 tier.
 * Moving applications to or from an E0 resource will be blocked. A work around for this limitation is to export your existing application, and import it as an E0 resource.
 * The Bing Spell check feature isn't supported.
 * Logging end-user traffic is disabled if your application is E0.

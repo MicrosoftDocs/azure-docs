@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 02/05/2024
 ---
 
 # Add contributors to your app
@@ -17,7 +17,7 @@ ms.date: 01/19/2024
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 
-An app owner can add contributors to apps. These contributors can modify the model, train, and publish the app. Once you have [migrated](luis-migration-authoring.md) your account, _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role.
+An app owner can add contributors to apps. These contributors can modify the model, train, and publish the app. _Contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role.
 
 ## Add contributor to Azure authoring resource
 
@@ -72,4 +72,3 @@ Learn more about Microsoft Entra users and consent:
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
 * Understand the about [authoring resources](luis-how-to-azure-subscription.md) and [adding contributors](luis-how-to-collaborate.md) on that resource.
 * Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
-* Migrate to the new [authoring resource](luis-migration-authoring.md)
