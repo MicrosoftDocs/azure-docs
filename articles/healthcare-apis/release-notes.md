@@ -59,11 +59,16 @@ Learn more:
 - [SMART on FHIR](fhir/smart-on-fhir.md)
 - [Sample: Azure ONC (g)(10) SMART on FHIR](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/patientandpopulationservices-smartonfhir-oncg10)
 
-**Storage size support in FHIR service beyond 4TB** 
+**Request up to 100 TB of storage for the FHIR service**
 
-By default each FHIR instance is limited to storage capacity of 4TB. To provision a FHIR instance with storage capacity beyond 4TB, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with the Issue type 'Service and Subscription limit (quotas)'.
+The FHIR service can store and exchange large amounts of health data, and each FHIR service instance has a 4 TB storage limit by default. If you have more data, you can ask Microsoft to increase storage up to 100 TB for your FHIR service.
+ 
+By adding more storage, organizations can handle large data sets to enable analytics scenarios. For example, you can use more storage to manage population health, conduct research, and gain new insights from health data. Plus, more storage enables Azure API for FHIR customers with high-volume data (greater than 4 TB) to migrate to the FHIR service in Azure Health Data Services.
+ 
+To request storage greater than 4 TB, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) on the Azure portal and use the issue type **Service and Subscription limit (quotas)**.
+
 > [!NOTE]
-> Due to an issue with billing metrics for storage, customers opting for more than 4TB storage capacity won't be billed for storage until the issue is addressed.
+> Due to an issue with billing metrics for storage, customers who opt for more than 4 TB of storage capacity won't be billed for storage until the issue is resolved.
 
 ## December 2023
 
@@ -82,7 +87,7 @@ Learn more:
 
 **Store and manage medical imaging data with Azure Data Lake Storage (Preview)**
 
-With the integration of Azure Data Lake Storage available for preview, organizations can now enjoy full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
+With the integration of Azure Data Lake Storage available for preview, organizations have full control over their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
 
 - Enable direct access to medical imaging data stored by the DICOM service using Azure storage APIs and DICOMweb APIs, providing more flexibility to access and work with the data.
 - Open medical imaging data up to the entire ecosystem of tools for working with Azure storage, including AzCopy, Azure Storage Explorer, and the Data Movement library.
@@ -291,10 +296,10 @@ General availability (GA) of Azure Health Data services in Japan East region.
 **Introduction of _till parameters and throughput improvement by 50x**
 
 _till parameter is introduced as optional parameter and allows you to export resources that have been modified until the specified time. 
-This feature improvement is applicable to System export, for more information on export, see [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html)
+
+This feature improvement is applicable to System export, for more information on export, see [FHIR specification](https://hl7.org/fhir/uv/bulkdata/)
 
 Also see [Export your FHIR data by invoking the $export command on the FHIR service](./../healthcare-apis/fhir/export-data.md)
-
 
 **Fixed issue for Chained search with :contains modifier results with no resources are returned**
 
