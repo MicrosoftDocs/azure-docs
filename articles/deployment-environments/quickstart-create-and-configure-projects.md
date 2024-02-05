@@ -5,7 +5,7 @@ description: Learn how to create a project in Azure Deployment Environments and 
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ms.topic: quickstart
 ms.date: 12/01/2023
 ---

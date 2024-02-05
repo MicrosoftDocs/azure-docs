@@ -11,7 +11,7 @@ ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 12/02/2022
 ms.devlang: csharp
-ms.custom: devx-track-dotnet, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet-path
+ms.custom: devx-track-dotnet, cosmos-dev-refresh, cosmos-dev-dotnet-path
 ---
 
 # Tutorial: Develop an ASP.NET web application with Azure Cosmos DB for NoSQL

@@ -4,7 +4,6 @@ description:  Learn how to configure and change the default indexing policy for 
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: sidandrews

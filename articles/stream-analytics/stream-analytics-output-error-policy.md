@@ -6,7 +6,6 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2021
-ms.custom: seodec18
 ---
 # Azure Stream Analytics output error policy
 This article describes the output data error handling policies that can be configured in Azure Stream Analytics.

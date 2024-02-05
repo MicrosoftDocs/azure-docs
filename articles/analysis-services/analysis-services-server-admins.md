@@ -1,11 +1,11 @@
 ---
 title: Manage server admins in Azure Analysis Services | Microsoft Docs
 description: This article describes how to manage server administrators for an Azure Analysis Services server by using the Azure portal, PowerShell, or REST APIs.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan 
 ---
 # Manage server administrators
