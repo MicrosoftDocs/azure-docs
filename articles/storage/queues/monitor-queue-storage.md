@@ -2,14 +2,13 @@
 title: Monitor Azure Queue Storage
 description: Start here to learn how to monitor Azure Queue Storage.
 ms.date: 02/05/2024
-ms.custom: horz-monitor
+ms.custom: horz-monitor, devx-track-csharp, devx-track-azurepowershell
 ms.topic: conceptual
 author: normesta
 ms.author: normesta
 ms.service: azure-queue-storage
 ms.devlang: csharp
 # ms.devlang: csharp, powershell, azurecli
-ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 
 <!-- 
@@ -493,6 +492,7 @@ Overall Azure Storage monitoring content:
 - [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=/azure/storage/blobs/toc.json). See common performance issues and guidance about how to troubleshoot them.
 - [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=/azure/storage/blobs/toc.json). See common availability issues and guidance about how to troubleshoot them.
 - [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/blobs/toc.json). See common issues with connecting clients and how to troubleshoot them.
+- [Monitor, diagnose, and troubleshoot your Azure Storage (training module)](/training/modules/monitor-diagnose-and-troubleshoot-azure-storage/). Troubleshoot storage account issues, with step-by-step guidance.
 
 Azure Monitor content:
 - [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource). General details on monitoring Azure resources.
@@ -500,8 +500,4 @@ Azure Monitor content:
 - [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs). The basics of logs and how to collect and analyze them.
 - [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics). A tour of Metrics Explorer.
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview). A tour of Log Analytics.
-
-Training modules:
-- [Gather metrics from your Azure Queue Storage containers](/training/modules/gather-metrics-queue-storage/). Create charts that show metrics, with step-by-step guidance.
-- [Monitor, diagnose, and troubleshoot your Azure Storage](/training/modules/monitor-diagnose-and-troubleshoot-azure-storage/). Troubleshoot storage account issues, with step-by-step guidance.
 
