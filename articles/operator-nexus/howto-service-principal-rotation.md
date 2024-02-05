@@ -1,6 +1,6 @@
 ---
 title: Azure Operator Nexus service principal rotation
-description: Instructions on Service Principal Rotation Lifecycle Management.
+description: Instructions on service principal rotation lifecycle management.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
 ms.topic: how-to
@@ -23,7 +23,7 @@ This document provides an overview on the process of performing service principa
 6. Service Principal rotation should be performed prior to the configured credentials expiring.
 7. Service Principal should have owner privilege on the subscription of the target cluster.
 
-## Appending secondary credential to the existing service principal
+## Append secondary credential to the existing service principal
 
 List existing credentials info for the service principal
 
@@ -36,7 +36,7 @@ Append secondary credential to the service principal. Please copy the resulting 
 ```azurecli
 az ad app credential reset --id "<SP Application (client) ID>" --append --display-name "<human-readable description>"
 ```
-## Creating new service principal
+## Create a new service principal
 
 New service principal should have owner privilege scope on the target cluster subscription.
 
@@ -44,7 +44,7 @@ New service principal should have owner privilege scope on the target cluster su
 az ad sp create-for-rbac -n "<service principal display name>" --role owner --scopes /subscriptions/<subscription-id>
 ```
 
-## Rotating service principal on the target cluster
+## Rotate service principal on the target cluster
 
 Service principal can be rotated on the target cluster by supplying the new information, which can either be only secondary credential update or it could be the new service principal for the target cluster.
 
