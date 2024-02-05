@@ -90,7 +90,7 @@ The score shows 28 points out of a possible 60. The remaining 32 points are refl
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub.png" alt-text="Screenshot of a single-subscription secure score with all controls enabled." lightbox="media/secure-score-security-controls/secure-score-example-single-sub.png":::
 
-:::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub-recs.png" alt-text="Screenshot that shows a list of controls and the potential score increase."lightbox="media/secure-score-security-controls/secure-score-example-single-sub-recs.png:::
+:::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub-recs.png" alt-text="Screenshot that shows a list of controls and the potential score increase."lightbox="media/secure-score-security-controls/secure-score-example-single-sub-recs.png":::
 
 This equation is the same equation for a connector, with just the word *subscription* replaced by the word *connector*.
 
@@ -98,7 +98,7 @@ This equation is the same equation for a connector, with just the word *subscrip
 
 The equation for determining the secure score for multiple subscriptions and connectors is:
 
-:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-multiple-subs.png" alt-text="Screenshot that shows the equation for calculating the secure score for multiple subscriptions."lightbox="media/secure-score-security-controls/secure-score-equation-multiple-subs.png:::
+:::image type="content" source="./media/secure-score-security-controls/secure-score-equation-multiple-subs.png" alt-text="Screenshot that shows the equation for calculating the secure score for multiple subscriptions."lightbox="media/secure-score-security-controls/secure-score-equation-multiple-subs.png":::
 
 The combined score for multiple subscriptions and connectors includes a *weight* for each subscription and connector. Defender for Cloud determines the relative weights for your subscriptions and connectors based on factors such as the number of resources. The current score for each subscription and connector is calculated in the same way as for a single subscription or connector, but then the weight is applied as shown in the equation.
 
