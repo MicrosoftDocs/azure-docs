@@ -45,8 +45,8 @@ We provide a walkthrough of the Assistants playground in our [quickstart guide](
 
 ## See also
 
-* Learn more about Assistants and [Code Interpreter](./code-interpreter.md)
-* Learn more about Assistants and [function calling](./assistant-functions.md)
+* Learn more about Assistants and [Code Interpreter](../how-to/code-interpreter.md)
+* Learn more about Assistants and [function calling](../how-to/assistant-functions.md)
 * [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
 
 
