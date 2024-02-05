@@ -91,7 +91,7 @@ When you enable Defender for Servers on your subscription, the coverage provided
 
 1. Toggle the servers plan to **On**.
 
-     :::image type="content" source="media/tutorial-enable-servers-plan/enable-workspace-servers.png" alt-text="Screenshot that shows the plan enablement page at the Log Analytics workspace level.":::
+    :::image type="content" source="media/tutorial-enable-servers-plan/enable-workspace-servers.png" alt-text="Screenshot that shows the plan enablement page at the Log Analytics workspace level." lightbox="media/tutorial-enable-servers-plan/enable-workspace-servers.png":::
 
 1. Select **Save**.
 
@@ -115,6 +115,8 @@ The supported resource types include:
 ### Enable Defender for Servers at the resource level with REST API
 
 The ability to enable or disable Defender for Servers at the resource level is available exclusively via REST API. Learn how to [interact with the API](/rest/api/defenderforcloud/pricings) to manage your Defender for Servers at the resource or subscription level.
+
+After enabling the plan, you have the ability to [configure the features of the plan](configure-servers-coverage.md) to suit your needs.
 
 ### Enable Defender for Servers at the resource level at scale
 
