@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 08/01/2023
 ms.topic: how-to
-ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, automl, sdkv2
 show_latex: true
 ---
 
