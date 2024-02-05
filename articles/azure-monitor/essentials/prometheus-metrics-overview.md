@@ -5,7 +5,6 @@ author: EdB-MSFT
 ms.service: azure-monitor
 ms-author: edbaynash
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 05/10/2023
 ---
 

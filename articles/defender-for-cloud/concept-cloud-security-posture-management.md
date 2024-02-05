@@ -2,7 +2,7 @@
 title: Cloud Security Posture Management (CSPM)
 description: Learn more about CSPM in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ms.date: 01/02/2024
 ---
 

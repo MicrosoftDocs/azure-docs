@@ -1,9 +1,8 @@
 ---
-title: Global distribution with Azure Cosmos DB- under the hood 
+title: Global distribution with Azure Cosmos DB- under the hood
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sidandrews

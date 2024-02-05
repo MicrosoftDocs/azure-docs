@@ -28,11 +28,11 @@ To modify the backup policy settings:
 
 2. Select **Backup Policies** then select the three dots (`…`) to the right of a backup policy. Select **Edit**.
 
-    :::image type="content" source="../media/azure-netapp-files/backup-policies-edit.png" alt-text="Screenshot that shows context sensitive menu of Backup Policies." lightbox="../media/azure-netapp-files/backup-policies-edit.png":::
+    :::image type="content" source="./media/backup-manage-policies/backup-policies-edit.png" alt-text="Screenshot that shows context sensitive menu of Backup Policies." lightbox="./media/backup-manage-policies/backup-policies-edit.png":::
 
 3. In the Modify Backup Policy window, update the number of backups you want to keep for daily, weekly, and monthly backups. Enter the backup policy name to confirm the action. Click **Save**.  
 
-    :::image type="content" source="../media/azure-netapp-files/backup-modify-policy.png" alt-text="Screenshot showing the Modify Backup Policy window." lightbox="../media/azure-netapp-files/backup-modify-policy.png":::
+    :::image type="content" source="./media/backup-manage-policies/backup-modify-policy.png" alt-text="Screenshot showing the Modify Backup Policy window." lightbox="./media/backup-manage-policies/backup-modify-policy.png":::
     
     > [!NOTE] 
     > After backups are enabled and have taken effect for the scheduled frequency, you cannot change the backup retention count to `0`. A minimum number of `1` retention is required for the backup policy. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) for details.  
@@ -51,7 +51,7 @@ A backup policy can be suspended so that it does not perform any new backup oper
 
 1. Toggle **Policy State** to **Disabled**, enter the policy name to confirm, and click **Save**. 
 
-    ![Screenshot that shows the Modify Backup Policy window with Policy State disabled.](../media/azure-netapp-files/backup-modify-policy-disabled.png)
+    ![Screenshot that shows the Modify Backup Policy window with Policy State disabled.](./media/backup-manage-policies/backup-modify-policy-disabled.png)
 
 ### Suspend a backup policy for a specific volume 
 
@@ -60,7 +60,7 @@ A backup policy can be suspended so that it does not perform any new backup oper
 3. Select **Configure**.
 4. In the Configure Backups page, toggle **Policy State** to **Suspend**, enter the volume name to confirm, and click **OK**.   
 
-    ![Screenshot that shows the Configure Backups window with the Suspend Policy State.](../media/azure-netapp-files/backup-modify-policy-suspend.png)
+    ![Screenshot that shows the Configure Backups window with the Suspend Policy State.](./media/backup-manage-policies/backup-modify-policy-suspend.png)
 
 ## Next steps  
 

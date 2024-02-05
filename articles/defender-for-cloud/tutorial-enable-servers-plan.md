@@ -2,7 +2,7 @@
 title: Deploy Defender for Servers
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 01/23/2024
+ms.date: 02/05/2024
 ---
 
 # Deploy Defender for Servers
@@ -23,7 +23,7 @@ Defender for Servers offers two plan options with different levels of protection
 
 ## Enable the Defender for Servers plan
 
-You can [enable the Defender for Servers plan on an Azure subscription, AWS account, or GCP project](#enable-on-an-azure-subscription-aws-account-or-gcp-project), or [enable the plan at the resource level](#enable-the-plan-at-the-resource-level).
+You can [enable the Defender for Servers plan on an Azure subscription, AWS account, or GCP project](#enable-on-an-azure-subscription-aws-account-or-gcp-project), [the Log Analytics workspace level](#enable-the-plan-at-the-log-analytics-workspace-level), or [enable the plan at the resource level](#enable-defender-for-servers-at-the-resource-level).
 
 ## Enable on an Azure subscription, AWS account, or GCP project
 
@@ -43,13 +43,13 @@ You can enable the Defender for Servers plan from the Environment settings page 
 
     :::image type="content" source="media/tutorial-enable-servers-plan/enable-servers-plan.png" alt-text="Screenshot that shows you how to toggle the Defender for Servers plan to on." lightbox="media/tutorial-enable-servers-plan/enable-servers-plan.png":::
 
-Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
+After enabling the plan, you have the ability to [configure the features of the plan](configure-servers-coverage.md) to suit your needs. When you enable Defender for Servers on a subscription, it doesn't extend that coverage to an attached workspace. You need to [enable Defender for Servers on the Log Analytics workspace level](#enable-the-plan-at-the-log-analytics-workspace-level).
 
 ### Select a Defender for Servers plan
 
 When you enable the Defender for Servers plan, you're then given the option to select which plan - Plan 1 or Plan 2 - to enable. There are two plans you can choose from that offer different levels of protections for your resources.
 
-[Review what's included each plan](plan-defender-for-servers-select-plan.md#plan-features).
+Compare the [available features](plan-defender-for-servers-select-plan.md#plan-features) provided by each plan.
 
 **To select a Defender for Servers plan**:
 
@@ -73,66 +73,66 @@ When you enable the Defender for Servers plan, you're then given the option to s
 
 1. Select **Save**.
 
-Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
+After enabling the plan, you have the ability to [configure the features of the plan](configure-servers-coverage.md) to suit your needs.
 
-## Enable the plan at the resource level
+## Enable the plan at the Log Analytics workspace level
 
-While our recommendation is to enable Defender for Servers on the entire Azure subscription, to protect all existing and future resources in it, there are some cases where more flexibility is required to exclude specific resources or to manage security configurations at a lower hierarchy level than subscription. Resource level enablement is available for **Azure machines** and on-premises with **Azure Arc** as part of Defender for Servers plans:
+When you enable Defender for Servers on your subscription, the coverage provided by Defender for Servers isn't automatically extended to your Log Analytics workspaces. You need to enable Defender for Servers on each workspace. Defender for Servers on workspaces only supports Plan 2.
 
-- **Defender for Servers Plan 1**: you can enable / disable the plan at the resource level.
-- **Defender for Servers Plan 2**: you can only disable the plan at the resource level. For example, it’s possible to enable the plan at the subscription level and disable specific resources, however it’s not possible to enable the plan only for specific resources.
+**To enable Defender for Servers on the Log Analytics workspace**:
 
-### Supported resource types
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-Supported resource types include:
+1. Search for and select **Microsoft Defender for Cloud**.
 
-- Azure VMs
-- On-premises with Azure Arc
-- Azure Virtual Machine Scale Sets Flex
+1. In the Defender for Cloud menu, select **Environment settings**.
 
-Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
+1. Select the relevant workspace.
 
-### Enablement via REST API
+1. Toggle the servers plan to **On**.
+
+    :::image type="content" source="media/tutorial-enable-servers-plan/enable-workspace-servers.png" alt-text="Screenshot that shows the plan enablement page at the Log Analytics workspace level." lightbox="media/tutorial-enable-servers-plan/enable-workspace-servers.png":::
+
+1. Select **Save**.
+
+By enabling Defender for Servers on a Log Analytics workspace, you aren't enabling all of the security protections available. You can also protect your Log Analytics workspaces with [Foundational CSPM](tutorial-enable-cspm-plan.md) and [SQL servers on machines](defender-for-sql-usage.md).
+
+> [!IMPORTANT]
+> When you enable Defender for Servers on a workspace, all connected machines will automatically have Plan 2 enabled regardless of their connected subscription's settings.
+
+## Enable Defender for Servers at the resource level
+
+To protect all of your existing and future resources, we recommend you enable Defender for Servers on your entire Azure subscription.
+
+You can exclude specific resources or manage security configurations at a lower hierarchy level by enabling the Defender for Servers plan at the resource level with REST API or at scale.
+
+The supported resource types include:
+
+- Azure VMs.
+- On-premises with Azure Arc.
+- Azure Virtual Machine Scale Sets Flex.
+
+### Enable Defender for Servers at the resource level with REST API
 
 The ability to enable or disable Defender for Servers at the resource level is available exclusively via REST API. Learn how to [interact with the API](/rest/api/defenderforcloud/pricings) to manage your Defender for Servers at the resource or subscription level.
 
-### The effect on Microsoft Defender for Endpoint deployment
+After enabling the plan, you have the ability to [configure the features of the plan](configure-servers-coverage.md) to suit your needs.
 
- Automatic deployment of Microsoft Defender for Endpoint will be supported and aligned with the VM pricing state.
-
-- Including VMs in Servers Plan 1 will trigger automatic deployment of Microsoft Defender for Endpoint (if not already deployed).
-- Excluding VMs from Servers Plan 1/Plan 2 will also exclude from deployment of Microsoft Defender for Endpoint (if not already deployed).
-
-> [!NOTE]
-> In general, Defender for Servers does not uninstall Microsoft Defender for Endpoint deployments after Servers Plan 1/Plan 2 is deactivated (at the subscription or resource level). To manually remove Microsoft Defender for Endpoint (MDE) on your machine, follow the steps to [offboard devices](/microsoft-365/security/defender-endpoint/offboard-machines).
-
-Since Microsoft Defender for Endpoint deployment for eligible machines is a near real-time service, certain configurations require attention to avoid unintentional agent deployments. For example:
-
-- If you plan to roll out and enable Servers Plan 1/Plan 2 at the subscription level and exclude individual existing VMs, make sure you exclude the VMs before (or at the same time) you enable the plan at the subscription level.
-- When you plan to exclude new VMs created under a subscription already enabled for P1/P2, make sure you exclude them during or shortly after creation time, to avoid unintentional deployment of Microsoft Defender for Endpoint.
-
-Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
-
-### Enablement at scale
+### Enable Defender for Servers at the resource level at scale
 
 Use the following base script file to customize it for your specific needs.
 
-1. [Download this file](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Defender%20for%20Servers%20on%20resource%20level), save it as a PowerShell file, and run it.
-1. Select whether to set pricing by **tag** or by **resource group**.
-1. Follow the onscreen instructions.
+1. [Download and save this file](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Defender%20for%20Servers%20on%20resource%20level) as a PowerShell file.
 
-Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
+1. Run the downloaded file.
 
-### Monitoring coverage status
+1. Set pricing by **tag** or by **resource group**.
 
-To monitor your coverage status, you can use the inventory. In the main menu, select **Inventory** and then check the **plan status** in the “Defender for cloud” column:
+1. Follow the rest of the onscreen instructions.
 
-:::image type="content" source="media/tutorial-enable-servers-plan/select-inventory.png" alt-text="Screenshot that shows you where to select Inventory from the main menu." lightbox="media/tutorial-enable-servers-plan/select-inventory.png":::
-
-> [!NOTE]
-> Defender for Servers settings on each resource are inherited by the subscription-level settings by default. Once you change settings at the resource level, the resource will no longer inherit settings from its parent subscription unless you delete the settings you configured.
+After enabling the plan, you have the ability to [configure the features of the plan](configure-servers-coverage.md) to suit your needs.
 
 ## Next steps
 
-[Configure monitoring coverage](configure-servers-coverage.md)
+[Configure Defender for Servers features](configure-servers-coverage.md).
 [Overview of Microsoft Defender for Servers](defender-for-servers-introduction.md)
