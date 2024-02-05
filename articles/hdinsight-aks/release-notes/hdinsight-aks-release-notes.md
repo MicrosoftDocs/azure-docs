@@ -53,7 +53,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 - Script action Phase-2
   - Phase-2 of Script action provides a more robust framework for cluster customization
 - Spark 3.4 Upgrade – HDInsight on AKS
-  - The new version of Apache Spark ™ comes with a host of new features Spark connect, timestamp without timezone etc.
+  - The new version of Apache Spark™ comes with a host of new features Spark connect, timestamp without timezone etc.
 - Lib Management –Improvements
   - Library management users can add libraries from public maven repositories.
 - MSI based SQL authentication
