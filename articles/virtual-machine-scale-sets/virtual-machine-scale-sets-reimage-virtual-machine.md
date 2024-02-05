@@ -18,7 +18,7 @@ When updating a instance in a Virtual Machine Scale Set, there are some changes 
 > [!NOTE]
 > Reimaging an instance will restore it to it's initial state. The instance will be restarted, and any local data will be lost.
 
-## [Portal](#tab/portal4)
+## [Portal](#tab/portal)
 
 In the menu under **Settings**, navigate to **Instances** and select the instances you want to reimage. Once selected, click the **Reimage** option.
 
@@ -26,21 +26,21 @@ In the menu under **Settings**, navigate to **Instances** and select the instanc
 :::image type="content" source="../virtual-machine-scale-sets/media/maxsurge/reimage-upgrade-1.png" alt-text="Screenshot showing reimaging scale set instances using the Azure portal.":::
 
 
-## [CLI](#tab/cli4)
+## [CLI](#tab/cli)
 To reimage a specific instance using Azure CLI, use the [az vmss reimage](/cli/azure/vmss#az-vmss-reimage) command. The `instance-id` parameter refers to the ID of the instance if using Uniform Orchestration mode and the Instance name if using Flexible Orchestration mode. 
 
 ```azurecli-interactive
 az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 ```
 
-## [PowerShell](#tab/powershell4)
+## [PowerShell](#tab/powershell)
 To reimage a specific instance using Azure PowerShell, use the [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm) command.  The `instanceid` parameter refers to the ID of the instance if using Uniform Orchestration mode and the Instance name if using Flexible Orchestration mode. 
 
 ```azurepowershell-interactive
 Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
 ```
 
-## [REST API](#tab/rest4)
+## [REST API](#tab/rest)
 To reimage scale set instances using REST, use the [reimage](/rest/api/compute/virtualmachinescalesets/reimage) command. You can specify multiple instances to be reimaged in the request body. 
 
 ```rest

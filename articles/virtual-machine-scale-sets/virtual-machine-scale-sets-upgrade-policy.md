@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.date: 01/19/2024
+ms.date: 02/05/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
@@ -15,7 +15,7 @@ The Upgrade Policy of a Virtual Machine Scale Set determines how virtual machine
 
 ## Upgrade Policy modes
 
-Each Virtual Machine Scale Set has an Upgrade Policy that determines how virtual machines are brought up-to-date with the latest scale set model. The Upgrade Policies available are  **Automatic**, **Manual**, and **Rolling**. The Upgrade Policy you choose can impact the overall service uptime of your Virtual Machine Scale Set. 
+The Upgrade Policy determines how virtual machines are brought up-to-date with the latest scale set model. The Upgrade Policies available are  **Automatic**, **Manual**, and **Rolling**. The Upgrade Policy you choose can impact the overall service uptime of your Virtual Machine Scale Set. 
 
 Additionally, there can be situations where you might want specific instances in your scale set to be treated differently from the rest. For example, certain instances in the scale set could be needed to perform different tasks than the other members of the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the controls needed to protect these instances from being upgraded along side the other instances in when an upgrade occurs. 
 
@@ -38,7 +38,7 @@ If your scale set is part of a Service Fabric cluster, *Automatic* mode is the o
 >
 > Manual Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration is generally available. 
 
-With a Manual Upgrade Policy, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing virtual machines when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available. 
+With a Manual Upgrade Policy, you choose when to update the scale set instances. Nothing happens automatically to the existing virtual machines when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available. 
 
 Manual Upgrade Policy is best suited for workloads where the instances in the scale set are composed of different configurations and each configuration might require different updates and changes.
 
@@ -52,7 +52,7 @@ Manual Upgrade Policy is best suited for workloads where the instances in the sc
 
 With a Rolling Upgrade Policy, the scale set performs updates in batches with an optional pause time in between. You also get more control over the upgrades with settings like batch size, max healthy percentage, prioritizing unhealthy instances and enabling upgrades across multiple availability zones at the same time. 
 
-Rolling Upgrade Policy is best suited for Production workloads that require a set number of instances always be available. Rolling Upgrades is safest way to upgrade instances to the latest model without compromising availability and uptime. 
+Rolling Upgrade Policy is best suited for production workloads that require a set number of instances always be available. Rolling Upgrades is safest way to upgrade instances to the latest model without compromising availability and uptime. 
 
 When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
 
@@ -60,7 +60,7 @@ When using a Rolling Upgrade Policy, the scale set must also have a [health prob
 
 Depending on the type of change you make to your scale set can impact the availability of the instances. Any changes that impact the Virtual Machine Scale Set model can trigger an upgrade and those upgrades are applied to the instances within the scale set based on the Upgrade Policy you're using. The exception to this would be if you enable [Instance Protection](virtual-machine-scale-sets-instance-protection.md) on specific instances. 
 
-Some upgrades require a virtual machine restart while others can be complete without disrupting scale set instances. Updates that require restarting, reimaging or redeploying the virtual machine instance include: 
+Some upgrades require a virtual machine restart while others can be completed without disrupting scale set instances. Updates that require restarting, reimaging or redeploying the virtual machine instance include: 
 
 - Password or SSH keys updates
 - Custom Data changes
@@ -74,16 +74,9 @@ Some upgrades require a virtual machine restart while others can be complete wit
 > [!NOTE]
 > While Password and Custom Data changes can be made without a restart, in order for the upgrades to be applied to the virtual machine instances, you must reimage the virtual machine. For more information, see [Reimage a virtual machine](virtual-machine-scale-sets-reimage-virtual-machine.md)
 
-Upgrades that do not require a restart, reimage, or redeploy and can be completed in place without disrupting the virtual machine instance include: 
-
-- NIC updates
-- Data Disk updates
-- Extension upgrades
-- Enabling boot diagnostics
-
 If you're using Rolling Upgrade Policy with MaxSurge, any of the changes to the scale set model triggers a rolling upgrade and result in replacing the virtual machine. This results in the capacity of your scale set remaining constant throughout the upgrade process. 
 
-MaxSurge is the suggested way of deploying all scale set upgrades to ensure your application remains available and healthy during the entire upgrade process. For more information on MaxSurge, see [Configure Rolling Upgrades](virtual-machine-scale-sets-configure-rolling-upgrades.md)
+MaxSurge is the suggested way of deploying all scale set upgrades to ensure your application remains available and healthy during the entire upgrade process. For more information on MaxSurge, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)
 
 
 ## Next steps

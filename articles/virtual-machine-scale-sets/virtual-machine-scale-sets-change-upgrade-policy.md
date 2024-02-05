@@ -18,9 +18,9 @@ ms.custom: upgradepolicy
 >
 >Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration are generally available (GA). 
 
-The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. Depending on your scenario, you may want to use a particular Upgrade Policy, like Manual or Automatic, when setting up and developing your workload. Once you're ready to move to Production, you then might want to change it to Rolling. 
+The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. Depending on your scenario, you may want to use a particular Upgrade Policy, like Manual or Automatic, when setting up and developing your workload. Once you're ready to move to Production, you then want to change it to Rolling. 
 
-### [Portal](#tab/portal2)
+### [Portal](#tab/portal)
 
 Select the Virtual Machine Scale Set you want to change the Upgrade Policy for. In the menu under **Settings**, select **Upgrade Policy** and from the drop-down menu, select the Upgrade Policy you want to enable. 
 
@@ -29,7 +29,7 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/change-upgrade-policy.png" alt-text="Screenshot showing changing the Upgrade Policy and enabling MaxSurge in the Azure portal.":::
 
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli)
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for more configuration options and suggestions.
@@ -41,7 +41,7 @@ az vmss update \
     --set upgradePolicy.automatic
 ```
 
-### [PowerShell](#tab/powershell2)
+### [PowerShell](#tab/powershell)
 Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for more configuration options and suggestions.
@@ -52,7 +52,7 @@ $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -UpgradePolicyMode "Manual" -VirtualMachineScaleSet $vmss
 ```
 
-### [ARM Template](#tab/template2)
+### [ARM Template](#tab/template)
 
 Update the properties section of your ARM template with the Upgrade Policy you wish to use. 
 
@@ -70,4 +70,4 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 
 
 ## Next steps
-Learn how to [configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) on Virtual Machine Scale Sets. 
+Learn how to [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) on Virtual Machine Scale Sets. 

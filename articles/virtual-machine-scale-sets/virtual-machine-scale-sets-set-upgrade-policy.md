@@ -18,7 +18,7 @@ ms.custom: upgradepolicy
 >
 >Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration are generally available (GA). 
 
-The Upgrade Policy can be set during the scale set creation process or changed post deployment. If you don't explicitly set the Upgrade Policy, it defaults to Manual. To change the Upgrade Policy of an existing scale set deployment, see [Changing the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md).
+The Upgrade Policy can be set during scale set creation or changed post deployment. If you don't explicitly set the Upgrade Policy, it defaults to Manual. To change the Upgrade Policy of an existing scale set deployment, see [Changing the Upgrade Policy](virtual-machine-scale-sets-change-upgrade-policy.md).
 
 ### [Portal](#tab/portal)
 
