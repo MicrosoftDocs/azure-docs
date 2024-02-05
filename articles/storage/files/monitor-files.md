@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Files
 description: Start here to learn how to monitor Azure Files.
-ms.date: 02/02/2024
+ms.date: 02/05/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: khdownie
@@ -625,17 +625,10 @@ To create an alert for high server latency (average), follow these steps.
 7. Select the **Details** tab to fill in the details of the alert such as the alert name, description, and severity.
 8. Select **Review + create** to create the alert.
 
+<!-- ### Advisor recommendations -->
+[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+
 <!-- ALERTS SECTION END -------------------------------------->
-
-<!-- The following section will become an include -->
-### Advisor recommendations
-
-If critical conditions or imminent changes occur during resource operations, an alert displays on the **Overview** page in the portal.
-
-You can find more information and recommended fixes for the alert in **Advisor recommendations** under **Monitoring**. During normal operations, no advisor recommendations display.
-
-For more information on Azure Advisor, see [Azure Advisor overview](/azure/advisor/advisor-overview).
-<!-- end include -->
 
 ## Related content
 <!-- You can change the wording and add more links if useful. -->
