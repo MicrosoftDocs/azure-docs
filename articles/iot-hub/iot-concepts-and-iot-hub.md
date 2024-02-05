@@ -7,7 +7,6 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: overview
 ms.date: 02/23/2022
-ms.custom: contperf-fy22q3
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts.
 ---
 
@@ -126,4 +125,3 @@ To learn more about the ways you can build and deploy IoT solutions with Azure I
 
 - [What is Azure IoT device and application development](../iot-develop/about-iot-develop.md)
 - [Fundamentals: Azure IoT technologies and solutions](../iot/iot-services-and-technologies.md)
-
