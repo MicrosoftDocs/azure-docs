@@ -31,10 +31,10 @@ Your staff might need different user roles, depending on the tasks they need to 
 
 |Task  | Minimum required user role or access |
 |---------|---------|
-| Deploying Azure Communications Gateway or changing its configuration |**Contributor** access to the resource group|
-| Raising support requests |**Owner**, **Contributor** or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level|
-|Monitoring logs and metrics | **Reader** access to the Azure Communications Gateway resource|
-| Using the Number Management Portal for Operator Connect or Teams Phone Mobile | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br> - To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**<br>- To configure your relationship to an enterprise (a _Request for information_) and numbers:  **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**|
+| Deploy Azure Communications Gateway or change its configuration. |**Contributor** access to the resource group.|
+| Raise support requests. |**Owner**, **Contributor**, or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level. |
+| Monitor logs and metrics. | **Reader** access to the Azure Communications Gateway resource. |
+| Use the Number Management Portal for Operator Connect or Teams Phone Mobile. | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br>- To view configuration: **ProvisioningAPI.ReadUser**.<br>- To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.<br>- To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.<br>- To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**. |
 
 > [!TIP]
 > To allow staff to  manage Requests for information in the Number Management Portal without managing numbers, assign the **NumberManagement.Read**, **TrunkManagement.Read**, and **PartnerSettings.Write** roles.
@@ -57,8 +57,10 @@ You need to use the Azure portal to configure user roles.
 1. If you're managing access to the Number Management Portal, also follow [Assign users and groups to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal?pivots=portal) to assign suitable roles for each user in the Project Synergy application.
 
     <!-- Must be kept in sync with step 1 and with manage-enterprise-operator-connect.md  -->
-    - To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**.
-    - To make changes to consents and numbers: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**.
+    - To view configuration: **ProvisioningAPI.ReadUser**.
+    - To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.
+    - To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.
+    - To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**.
 
 ## Next steps
 
