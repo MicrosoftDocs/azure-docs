@@ -16,7 +16,7 @@ The following table describes the maximum limits for Azure Data Explorer cluster
 | Number of follower clusters (data share consumers) per leader cluster (data share producer) | 100 |
 
 > [!NOTE]
-> You can request higher limits for *Number of databases in a cluster* and *Clusters per region per subscription*. To request an increase, contact [Azure Support](https://azure.microsoft.com/en-us/support/legal/faq/).
+> You can request higher limits for *Number of databases in a cluster* and *Clusters per region per subscription*. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/legal/faq/).
 
 The following table describes the limits on management operations performed on Azure Data Explorer clusters.
 
