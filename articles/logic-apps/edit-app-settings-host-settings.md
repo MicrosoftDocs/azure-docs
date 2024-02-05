@@ -188,10 +188,7 @@ The following example shows the syntax for these settings where each workflow ID
 
 ### Target-based scaling
 
-Single-tenant Azure Logic Apps gives you the option to select your preferred compute resources and set up your logic app resources to dynamically scale based on varying workload demands. The target-based scaling model used by Azure Logic Apps includes settings that you can use to fine-tune the model's underlying dynamic scaling mechanism, which can result in faster scale-out and scale-in times. For more information about the target-based scaling model, see the following articles:
-
-- [Target-based scaling support in single-tenant Azure Logic Apps](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-target-based-scaling-support-in-azure-logic-apps/ba-p/3998712)
-- [Single-tenant Azure Logic Apps target-based scaling performance benchmark - Burst workloads](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/logic-apps-standard-target-based-scaling-performance-benchmark/ba-p/3998807)
+Single-tenant Azure Logic Apps gives you the option to select your preferred compute resources and set up your logic app resources to dynamically scale based on varying workload demands. The target-based scaling model used by Azure Logic Apps includes settings that you can use to fine-tune the model's underlying dynamic scaling mechanism, which can result in faster scale-out and scale-in times. For more information about the target-based scaling model, see [Target-based scaling for Standard workflows in single-tenant Azure Logic Apps](target-based-scaling-standard.md).
 
 #### Considerations
 

@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-arm-template, linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 02/02/2024
 ms.author: greglin
 ---
 
@@ -130,7 +130,7 @@ looks like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/appli
     ```
 
 >[!NOTE]
-> If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in **Network Contributor** role, which contains the **Microsoft.Network/virtualNetworks/subnets/join/action** permission.
+> Please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet where Application Gateway is deployed. If a custom role is not defined with this permission, you can use the built-in **Network Contributor** role, which contains the **Microsoft.Network/virtualNetworks/subnets/join/action** permission.
 
 ## Using a Service Principal
 
