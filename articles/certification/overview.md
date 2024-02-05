@@ -17,6 +17,18 @@ ms.service: certification
 
 Thank you for your interest in the Azure Certified Device program! Azure Certified Device is a free program that enables you to differentiate, certify, and promote your IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
 
+
+### Program purpose ###
+Edge Secured-core is a security certification for devices running a full operating system. Edge Secured-core currently supports Windows IoT and Azure Sphere OS. Linux support is coming in the future. This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
+
+1. Hardware-based device identity 
+2. Capable of enforcing system integrity 
+3. Stays up to date and is remotely manageable
+4. Provides data at-rest protection
+5. Provides data in-transit protection
+6. Built in security agent and hardening
+
+
 ## Our certification promise
 
 The Azure Certified Device program ensures customer solutions work great on Azure. It is a program that utilizes tools, services, and a catalog to share industry knowledge with our community of builders within the IoT ecosystem to help builders and customers alike.
