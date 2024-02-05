@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18, engagement-fy23
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Deploy an Internet-facing load-balancer solution with IPv6 using a template

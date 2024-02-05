@@ -10,7 +10,6 @@ ms.author: lagayhar
 author: lgayhardt
 ms.reviewer: lagayhar
 ms.date: 01/31/2024
-ms.custom: event-tier1-build-2022
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 

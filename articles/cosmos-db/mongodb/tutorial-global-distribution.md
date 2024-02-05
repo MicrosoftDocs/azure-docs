@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 08/26/2021
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 # Set up global distributed database using Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

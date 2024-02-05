@@ -2,14 +2,13 @@
 title: Azure Cosmos DB performance tips for .NET SDK v2
 description: Learn client configuration options to improve Azure Cosmos DB .NET v2 SDK performance.
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.devlang: csharp
-ms.custom: devx-track-dotnet, contperf-fy21q2
-
+ms.custom: devx-track-dotnet
 ---
 
 # Performance tips for Azure Cosmos DB and .NET SDK v2

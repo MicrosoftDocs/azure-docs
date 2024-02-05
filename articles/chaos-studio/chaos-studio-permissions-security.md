@@ -6,7 +6,7 @@ ms.author: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 06/30/2023
-ms.custom: template-concept, ignite-fall-2021, devx-track-arm-template
+ms.custom: template-concept, devx-track-arm-template
 ---
 
 # Permissions and security in Azure Chaos Studio

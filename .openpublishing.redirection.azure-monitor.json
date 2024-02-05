@@ -5146,7 +5146,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/partners.md",
-            "redirect_url": "/azure/azure-monitor//partners",
+            "redirect_url": "/azure/azure-monitor/overview#integrate",
             "redirect_document_id": false
         },
         {
@@ -6598,6 +6598,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
             "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/partners.md",
+            "redirect_url": "/azure/azure-monitor/overview#integrate",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/monitor-reference.md",

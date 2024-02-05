@@ -8,7 +8,6 @@ ms.author: sidandrews
 ms.reviewer: dech
 ms.service: cosmos-db
 ms.date: 04/28/2023
-ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
 # Merge partitions in Azure Cosmos DB (preview)
@@ -374,4 +373,3 @@ If you enroll in the preview, the following connectors fail.
 - Learn more about [using Azure CLI with Azure Cosmos DB.](/cli/azure/azure-cli-reference-for-cosmos-db)
 - Learn more about [using Azure PowerShell with Azure Cosmos DB.](/powershell/module/az.cosmosdb/)
 - Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)
-

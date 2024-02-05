@@ -5,7 +5,6 @@ ms.service: data-factory
 ms.topic: conceptual
 author: jianleishen
 ms.author: jianleishen
-ms.custom: seo-lt-2019
 ms.date: 07/17/2023
 ---
 

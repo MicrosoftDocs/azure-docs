@@ -3,7 +3,7 @@ title: Kernels for Jupyter Notebook on Spark clusters in Azure HDInsight
 description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter Notebook available with Spark clusters on Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.custom: hdinsightactive
 ms.date: 05/23/2023
 ---
 

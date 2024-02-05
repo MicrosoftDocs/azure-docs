@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to parameterize linked services in Azure Data Factory and Azure Synapse Analytics pipelines, and pass dynamic values at run time.
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/29/2024
 author: chez-charlie
@@ -126,5 +126,3 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 	}
 }
 ```
-
-
