@@ -106,7 +106,7 @@ The following table shows the language versions supported for Python functions. 
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
-| Python 3.8 | GA | October 2024 |.
+| Python 3.8 | GA | October 2024 |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end
