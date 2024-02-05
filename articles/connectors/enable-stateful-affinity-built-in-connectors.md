@@ -66,7 +66,7 @@ After you enable virtual network integration for your logic app, you must update
 
 ### Azure Portal
 
-This method involves using the Azure portal to configure VNet private ports. Here are the steps:
+To configure virtual network private ports using the Azure portal, follow these steps:
 
 1. **Log in** to your Azure portal.
 1. Navigate to your **Logic App**.
