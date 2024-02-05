@@ -45,6 +45,10 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 All code used in the quickstart is available at [Azure-Samples/aks-store-demo](https://github.com/Azure-Samples/aks-store-demo). You can clone the repository either through git onto your local machine, or use the azd init --template flag.
 
+> [!NOTE]
+? This sample application is for demo purposes and doesn't represent all the best practices for Kubernetes applications. 
+> For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+
 ### AZD Template
 
 You can quickly clone the application with the AZD command `azd init --template aks-store-demo`.
@@ -159,22 +163,21 @@ When your application is created, a Kubernetes service exposes the application's
 
     :::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
+### Visit the store-front
+
+Once on the store page, you can add new items to your cart and check them out. This uses the Azure Service and if you view your portal it will show the records of the transactions for your store app.
+
+<!-- Image of Storefront Checkout -->
+
 ## Delete the cluster
 
-If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Call the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+Once you are completed, remember to clean up all your resources to avoid Azure charges. 
 
-  ```azurecli
-  az group delete --name myResourceGroup --yes --no-wait
-  ```
-
-  > [!NOTE]
-  > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
+Run `azd down` to delete all your resources used in the quickstart, which includes your resource group, cluster, and related Azure Services. This can take up to 10-20 minutes.
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
-
-To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it.  You've sucessfully host your store app. But there's still more to learn. If you'd like to learn more about the store in depth and create an admin panel to add new products with Open AI, visit the [AKS tutorial][aks-tutorial].
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
