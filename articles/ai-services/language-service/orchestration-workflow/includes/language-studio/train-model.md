@@ -6,7 +6,6 @@ ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 To start training your model from within the [Language Studio](https://aka.ms/languageStudio):

@@ -2,12 +2,11 @@
 title: Understand chaos engineering and resilience with Chaos Studio
 description: Understand the concepts of chaos engineering and resilience.
 services: chaos-studio
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.topic: article
 ms.date: 11/01/2021
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021
 ---
 
 # Understand chaos engineering and resilience

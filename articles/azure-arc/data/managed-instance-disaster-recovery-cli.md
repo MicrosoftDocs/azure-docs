@@ -4,7 +4,7 @@ description: Describes how to configure disaster recovery with a failover group 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 author: AbdullahMSFT
 ms.author: amamun
 ms.reviewer: mikeray

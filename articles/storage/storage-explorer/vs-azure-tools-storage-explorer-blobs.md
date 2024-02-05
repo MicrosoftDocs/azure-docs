@@ -15,7 +15,7 @@ ms.author: cawa
 
 ## Overview
 
-[Azure Blob Storage](./storage/blobs/storage-quickstart-blobs-dotnet.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
+[Azure Blob Storage](../blobs/storage-quickstart-blobs-dotnet.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
 You can use Blob storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer
 to work with blob containers and blobs.
 
@@ -37,7 +37,7 @@ The following steps illustrate how to create a blob container within Storage Exp
 3. Right-click **Blob Containers**, and - from the context menu - select **Create Blob Container**.
 
    ![Create blob containers context menu][0]
-4. A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See [Create a container](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for information on rules and restrictions on naming blob containers.
+4. A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See [Create a container](../blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for information on rules and restrictions on naming blob containers.
 
    ![Create Blob Containers text box][1]
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container has been successfully created, it will be displayed under the **Blob Containers** folder for the selected storage account.
@@ -98,7 +98,7 @@ The following steps illustrate how to copy a blob container from one storage acc
 
 ## Get the SAS for a blob container
 
-A [shared access signature (SAS)](./storage/common/storage-sas-overview.md) provides delegated access to resources in your storage account.
+A [shared access signature (SAS)](../common/storage-sas-overview.md) provides delegated access to resources in your storage account.
 This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to
 share your account access keys.
 
@@ -184,7 +184,7 @@ The following steps illustrate how to manage the blobs (and virtual directories)
      2. In the **Upload files** dialog, select the ellipsis (**…**) button on the right side of the **Files** text box to select the file(s) you wish to upload.
 
         ![Upload files options][16]
-     3. Specify the type of **Blob type**. See [Create a container](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for more information.
+     3. Specify the type of **Blob type**. See [Create a container](../blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for more information.
      4. Optionally, specify a target virtual directory into which the selected file(s) will be uploaded. If the target virtual directory doesn’t exist, it will be created.
      5. Select **Upload**.
    * **Upload a folder to a blob container**
@@ -195,7 +195,7 @@ The following steps illustrate how to manage the blobs (and virtual directories)
      2. In the **Upload folder** dialog, select the ellipsis (**…**) button on the right side of the **Folder** text box to select the folder whose contents you wish to upload.
 
         ![Upload folder options][18]
-     3. Specify the type of **Blob type**. See [Create a container](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for more information.
+     3. Specify the type of **Blob type**. See [Create a container](../blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for more information.
      4. Optionally, specify a target virtual directory into which the selected folder's contents will be uploaded. If the target virtual directory doesn’t exist, it will be created.
      5. Select **Upload**.
    * **Download a blob to your local computer**
@@ -233,7 +233,7 @@ The following steps illustrate how to manage the blobs (and virtual directories)
 ## Next steps
 
 * View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com).
-* Learn how to [create applications using Azure blobs, tables, queues, and files](./storage/index.yml).
+* Learn how to [create applications using Azure blobs, tables, queues, and files](../index.yml).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png

@@ -9,9 +9,7 @@ ms.date: 02/08/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
   - fasttrack-edit
-  - ignite-2022
   - sql-migration-content
 ---
 

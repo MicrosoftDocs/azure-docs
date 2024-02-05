@@ -9,7 +9,6 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/20/2021
 ms.author: jushiman
-ms.custom: ignite-fall-2021
 ---
 
 # Attestation for SGX Enclaves

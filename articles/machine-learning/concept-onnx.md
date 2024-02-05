@@ -10,7 +10,6 @@ ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
-ms.custom: seodec18
 ---
 
 # ONNX and Azure Machine Learning: Create and accelerate ML models
