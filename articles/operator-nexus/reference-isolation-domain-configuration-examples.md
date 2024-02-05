@@ -59,7 +59,7 @@ az networkfabric l2domain create \
 
 To create an L3 isolation domain, you can follow these steps:
 
--   Use the `az networkfabric l3domain` create command to create an L3 isolation domain. You must specify the required parameters:
+-   Use the `az networkfabric l3domain create` command to create an L3 isolation domain. You must specify the required parameters:
 
     - Resource group
     - Resource name
@@ -74,7 +74,7 @@ To create an L3 isolation domain, you can follow these steps:
 
 -   Use the `az networkfabric internalnetwork create` command to create one or more internal networks for the L3 isolation domain. You need to provide:
 
-    -  the VLAN ID
+    - The VLAN ID
     - Connected IPv4 or IPv6 subnets
     - BGP configuration for each internal network.
 
