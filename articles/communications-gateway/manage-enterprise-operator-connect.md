@@ -20,8 +20,10 @@ The Operator Connect and Teams Phone Mobile programs don't allow you to use the 
 Confirm that you have **Reader** access to the Azure Communications Gateway resource and appropriate permissions for the Project Synergy enterprise application:
 
 <!-- Must be kept in sync with provision-user-roles.md - steps for understanding and configuring -->
-* To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**.
-* To make changes to consents (which represent your relationships with enterprises) and numbers: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**.
+* To view configuration: **ProvisioningAPI.ReadUser**.
+* To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.
+* To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.
+* To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**.
 
 If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
 
@@ -45,20 +47,19 @@ If you're uploading new numbers for an enterprise customer:
 |Country | The country for the number. Only required if you're uploading a North American Toll-Free number, otherwise optional.|
 |Ticket number (optional) |The ID of any ticket or other request that you want to associate with this number. Up to 64 characters. |
 
-
 ## Go to your Communications Gateway resource
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
 1. In the search bar at the top of the page, search for your Communications Gateway resource.
 1. Select your Communications Gateway resource.
 
-## Select an enterprise customer to manage
+## Manage your agreement with an enterprise customer
 
 When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a *consent*. The consent represents the relationship between you and the enterprise.
 
 The Number Management Portal displays a consent as a *Request for Information* and allows you to update the status. Finding the Request for Information for an enterprise is also the easiest way to manage numbers for an enterprise.
 
-1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. 
+1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar.
 1. Select **Requests for Information**.
 1. Find the enterprise that you want to manage. You can use the **Add filter** options to search for the enterprise.
 1. If you need to change the status of the relationship, select the enterprise **Tenant ID** then select **Update relationship status**. Use the drop-down to select the new status. For example, if you're agreeing to provide service to a customer, set the status to **Agreement signed**. If you set the status to **Consent declined** or **Contract terminated**, you must provide a reason.
@@ -67,7 +68,7 @@ The Number Management Portal displays a consent as a *Request for Information* a
 
 You must create an Account for each enterprise that you manage using the Number Management Portal.
 
-1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. 
+1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar.
 1. Select **Accounts**.
 1. Select **Create account**.
 1. Fill in the enterprise **Account name**.
