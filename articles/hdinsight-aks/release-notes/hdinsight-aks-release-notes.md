@@ -27,7 +27,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 - Cluster Pool Version: 1.0
 - Cluster Version: 1.1,0
-- AKS version – 1.27
+- AKS version: 1.27
 
 ### New Features
 
