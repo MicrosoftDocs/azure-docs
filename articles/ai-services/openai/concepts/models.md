@@ -1,11 +1,11 @@
 ---
 title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
-description: Learn about the different model capabilities that are available with Azure OpenAI. 
+description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 01/05/2024
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai, refefences_regions
+ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -107,13 +107,23 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 ### GPT-4 and GPT-4 Turbo Preview model availability
 
-   
+#### Public cloud regions
+
 | Model | Regions where model is available to all subscriptions with Azure OpenAI access | Regions where model is available only to subscriptions with previous access to that model/region |  
 |---|:---|:---|  
 | gpt-4 (0314) | | East US <br> France Central <br> South Central US <br> UK South |  
 | gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
 | gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
 | gpt-4 (vision-preview) |  Sweden Central <br> West US <br> Japan East| Switzerland North <br> Australia East  |  
+
+#### Azure Government regions
+
+The following GPT-4 models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
+
+|Model ID | Model Availability |
+|--|--|
+| `gpt-4` (1106-preview) | US Gov Virginia<br>US Gov Arizona |
+
 
 ### GPT-3.5 models
 
@@ -128,6 +138,8 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 ### GPT-3.5-Turbo model availability
 
+#### Public cloud regions
+
 |  Model ID  |   Model Availability  | Max Request (tokens) | Training Data (up to) |
 |  --------- |  -------------------- |:------:|:----:|
 | `gpt-35-turbo`**<sup>1</sup>** (0301) | East US <br> France Central <br> South Central US <br> UK South <br> West Europe | 4,096 | Sep 2021 |
@@ -137,6 +149,14 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-35-turbo` (1106) | Australia East <br> Canada East <br> France Central <br> South India <br> Sweden Central<br> UK South <br> West US | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 
 **<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
+
+#### Azure Government regions
+
+The following GPT-3 models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
+
+|Model ID | Model Availability |
+|--|--|
+|`gpt-35-turbo` (1106) |US Gov Virginia<br>US Gov Arizona |
 
 ### Embeddings models
 
@@ -152,6 +172,14 @@ These models can only be used with Embedding API requests.
 
 > [!NOTE]
 > When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
+
+#### Azure Government regions
+
+The following Embeddings models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
+
+|Model ID | Model Availability |
+|--|--|
+|`text-embedding-ada-002` (version 2) |US Gov Virginia<br>US Gov Arizona |
 
 ### DALL-E models (Preview)
 

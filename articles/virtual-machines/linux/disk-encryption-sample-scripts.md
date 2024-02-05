@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/29/2023
-ms.custom: seodec18, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurepowershell, linux-related-content
 ---
 
 # Azure Disk Encryption sample scripts for Linux VMs
