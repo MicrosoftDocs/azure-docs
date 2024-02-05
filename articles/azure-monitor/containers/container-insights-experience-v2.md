@@ -10,7 +10,7 @@ ms.reviewer: aul
 
 Container insights currently uses data from Log Analytics to power the visualizations in the Azure portal. However, with the release of managed Prometheus, this new format of metrics collection is cheaper and more efficient. Container insights now offers the ability to visualize using only managed Prometheus data. This article helps you with the setup to start using managed Prometheus as your primary container insights visualization tool.
 
-> [!IMPORTANT]
+> [!Note]
 > This feature is currently in private preview. We recommend only testing on dev and non-production environments. For additional information, please read the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## Prerequisites
