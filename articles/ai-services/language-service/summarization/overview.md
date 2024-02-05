@@ -49,18 +49,18 @@ For more information, *see* [**Use native documents for language processing**](.
 
 There are the aspects of document summarization this API provides:
 
-* **Extractive summarization**: Produces a summary by extracting salient sentences within the document.
+* [**Extractive summarization**](how-to/document-summarization#try-document-extractive-summarization): Produces a summary by extracting salient sentences within the document.
 
   * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They're original sentences extracted from the input document's content.
   * Rank score: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
   * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization returns the three highest scored sentences.
   * Positional information: The start position and length of extracted sentences.
 
-* **Abstractive summarization**: Generates a summary that doesn't use the same words as in the document, but captures the main idea.
+* [**Abstractive summarization**](how-to/document-summarization#try-document-abstractive-summarization): Generates a summary that doesn't use the same words as in the document, but captures the main idea.
   * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document can be segmented so multiple groups of summary texts can be returned with their contextual input range.
   * Contextual input range: The range within the input document that was used to generate the summary text.
 
-* **Query-focused summarization**: Generates a summary based on a query
+* [**Query-focused summarization**](how-to/document-summarization#query-based-summarization): Generates a summary based on a query
 
 As an example, consider the following paragraph of text:
 
@@ -92,11 +92,11 @@ This documentation contains the following article types:
 
 Conversation summarization supports the following features:
 
-* **Issue/resolution summarization**: A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
-* **Chapter title summarization**: Segments a conversation into chapters based on the topics discussed in the conversation, and gives suggested chapter titles of the input conversation.
-* **Recap**: Summarizes a conversation into a brief paragraph.
-* **Narrative summarization**: Generates detail call notes, meeting notes or chat summaries of the input conversation.
-* **Follow-up tasks**: Gives a list of follow-up tasks discussed in the input conversation.
+* [**Issue/resolution summarization**](how-to/conversation-summarization#get-summaries-from-text-chats): A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
+* [**Chapter title summarization**](how-to/conversation-summarization#get-chapter-titles): Segments a conversation into chapters based on the topics discussed in the conversation, and gives suggested chapter titles of the input conversation.
+* [**Recap**](how-to/conversation-summarization#get-narrative-summarization): Summarizes a conversation into a brief paragraph.
+* [**Narrative summarization**](how-to/conversation-summarization#get-narrative-summarization): Generates detail call notes, meeting notes or chat summaries of the input conversation.
+* [**Follow-up tasks**](how-to/conversation-summarization#get-narrative-summarization): Gives a list of follow-up tasks discussed in the input conversation.
 
 ## When to use issue and resolution summarization
 
