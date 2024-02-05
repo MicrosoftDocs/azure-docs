@@ -19,9 +19,9 @@ The Hide Snapshot Path option controls whether the snapshot path of a volume is 
 ## Steps
 
 1. To view the Hide Snapshot Path option setting of a volume, select the volume. The **Hide snapshot path** field shows whether the option is enabled.   
-    ![Screenshot that describes the Hide Snapshot Path field.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+    ![Screenshot that describes the Hide Snapshot Path field.](./media/snapshots-edit-hide-path/hide-snapshot-path-field.png) 
 2. To edit the Hide Snapshot Path option, click **Edit** on the volume page and modify the **Hide snapshot path** option as needed.   
-    ![Screenshot that describes the Edit volume snapshot option.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+    ![Screenshot that describes the Edit volume snapshot option.](./media/snapshots-edit-hide-path/volume-edit-snapshot-options.png) 
 
 ## Next steps
 

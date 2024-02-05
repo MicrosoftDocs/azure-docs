@@ -2287,17 +2287,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/solutions-inventory.md",
-            "redirect_url": "/azure/azure-monitor/monitor-reference",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/monitoring/monitoring-solutions-inventory.md",
-            "redirect_url": "/azure/azure-monitor/monitor-reference",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/data-locations.md",
-            "redirect_url": "/azure/azure-monitor/monitor-reference/",
+            "redirect_url": "/azure/azure-monitor/overview/",
             "redirect_document_id": false
         },
         {
@@ -6598,6 +6598,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
             "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/monitor-reference.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
         }
     ]
 }
