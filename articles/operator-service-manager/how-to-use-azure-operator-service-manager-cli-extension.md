@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI extension to get started with Network Function Definitions (NFDs) and Network Service Designs (NSDs).
 
-The `az aosm` CLI extension is intended to provide support for publishing Azure Operator Service Manager designs and definitions. The CLI extension aids in the process of publishing Network Function Definitions (NFDs) and Network Service Designs (NSDs) to use with Azure Operator Service Manager.
+The `az aosm` CLI extension is intended to provide support for publishing Network Function Definitions (NFDs) and Network Service Designs (NSDs) to use with Azure Operator Service Manager.
 
 ## Prerequisites
 
