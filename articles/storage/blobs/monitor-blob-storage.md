@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Blob Storage
 description: Start here to learn how to monitor Azure Blob Storage.
-ms.date: 02/01/2024
+ms.date: 02/05/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: normesta
@@ -467,15 +467,6 @@ Add short information or links to specific articles that outline how to analyze 
 Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
 Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
-<!-- The following section will become an include -->
-### Advisor recommendations
-
-If critical conditions or imminent changes occur during resource operations, an alert displays on the **Overview** page in the portal.
-
-You can find more information and recommended fixes for the alert in **Advisor recommendations** under **Monitoring**. During normal operations, no advisor recommendations display.
-
-For more information on Azure Advisor, see [Azure Advisor overview](/azure/advisor/advisor-overview).
-<!-- end include -->
 
 ### Azure Blob Storage alert rules
 The following table lists common and recommended alert rules for Azure Blob Storage and the proper metric to use for the alert:
@@ -485,6 +476,9 @@ The following table lists common and recommended alert rules for Azure Blob Stor
 | Metric | Blob Storage service is throttled. | Transactions<br>Dimension name: Response type |
 | Metric | Blob Storage requests are successful 99% of the time. | Availability<br>Dimension names: Geo type, API name, Authentication |
 | Metric | Blob Storage egress has exceeded 500 GiB in one day. | Egress<br>Dimension names: Geo type, API name, Authentication |
+
+<!-- ### Advisor recommendations -->
+[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/azure-monitor/horizontals/advisor-recommendations.md)]
 
 <!-- ALERTS SECTION END -------------------------------------->
 
