@@ -64,7 +64,7 @@ After you enable virtual network integration for your logic app, you must update
 - [Azure Resource Management API](#azure-resource-management-api) (bearer token required)
 - [Azure PowerShell](#azure-powershell) (bearer token *not* required)
 
-### Azure Portal
+### Azure portal
 
 To configure virtual network private ports using the Azure portal, follow these steps:
 
