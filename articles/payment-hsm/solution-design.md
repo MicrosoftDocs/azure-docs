@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: payment-hsm
 ms.workload: security
 ms.topic: article
-ms.date: 12/01/2022
+ms.date: 01/31/2024
 ms.author: mbaldwin
 
 ---
@@ -23,14 +23,14 @@ The following table describes the network topologies supported by each network f
 
 |Topology |Basic network features |
 | :------------------- |:---------------:|
-|Connectivity to a payment HSM in a local VNet | Yes |
-|Connectivity to a payment HSM in a peered VNet (Same region) | Yes |
-|Connectivity to a payment HSM in a peered VNet (Cross region or global peering) | No |
+|Connectivity to a payment HSM in a local virtual network | Yes |
+|Connectivity to a payment HSM in a peered virtual network (Same region) | Yes |
+|Connectivity to a payment HSM in a peered virtual network (Cross region or global peering) | No |
 |Connectivity to a payment HSM over ExpressRoute gateway | Yes|
 |ExpressRoute (ER) FastPath | No |
-|Connectivity from on-premises to a payment HSM in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit | Yes |
-|Connectivity from on-premises to a payment HSM in a spoke VNet over VPN gateway | Yes |
-|Connectivity from on-premises to a payment HSM in a spoke VNet over VPN gateway and VNet peering with gateway transit | Yes |
+|Connectivity from on-premises to a payment HSM in a spoke virtual network over ExpressRoute gateway and virtual network peering with gateway transit | Yes |
+|Connectivity from on-premises to a payment HSM in a spoke virtual network over VPN gateway | Yes |
+|Connectivity from on-premises to a payment HSM in a spoke virtual network over VPN gateway and virtual network peering with gateway transit | Yes |
 |Connectivity over Active/Passive VPN gateways | Yes |
 |Connectivity over Active/Active VPN gateways | No |
 |Connectivity over Active/Active Zone Redundant gateways | No |
@@ -38,11 +38,11 @@ The following table describes the network topologies supported by each network f
 
 ## Constraints
 
-The following table describes what's supported for each network features configuration:
+The following table describes what is supported for each network features configuration:
 
 |Features |Basic network features |
 | :------------------- | -------------------: |
-|Delegated subnet per VNet | 1 |
+|Delegated subnet per virtual network | 1 |
 |[Network Security Groups](../virtual-network/network-security-groups-overview.md) on payment HSMs on Azure-delegated subnets | No |
 |[User-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) on payment HSMs on Azure-delegated subnets | No |
 |Connectivity to [private endpoints](../private-link/private-endpoint-overview.md) | No |

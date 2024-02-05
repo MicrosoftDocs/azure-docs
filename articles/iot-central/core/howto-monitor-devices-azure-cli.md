@@ -7,7 +7,7 @@ ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: iot-central
 ms.tool: azure-cli
-ms.custom: device-developer, contperf-fy23q1, devx-track-azurecli
+ms.custom: device-developer, devx-track-azurecli, engagement-fy23
 services: iot-central
 # This topic applies to device developers and solution builders.
 ---

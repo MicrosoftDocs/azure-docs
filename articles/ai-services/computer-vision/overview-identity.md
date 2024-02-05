@@ -11,7 +11,6 @@ ms.topic: overview
 ms.date: 07/04/2023
 ms.author: pafarley
 ms.custom:
-  - cog-serv-seo-aug-2020
   - ignite-2023
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
 #Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face service does so I can determine if I should use its features.
