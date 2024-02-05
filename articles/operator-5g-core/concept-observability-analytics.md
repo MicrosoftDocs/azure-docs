@@ -180,8 +180,8 @@ Prometheus alert rules generate alerts if HTTP/network failures are detected in 
 **Application level global alerts:** 
 
 - **IstioGlobalHTTP5xxRatePercentageHigh** -  An application that is part of the Istio service mesh is responding with 5xx error and the error rate percentage is more than the &lt;configured value &gt; % 
-- **IstioGlobalHTTP4xxRatePercentageHigh** - An application is responding with 4xx error and the error rate percentage is more than the <configured value> %. 
-IstioHTTPRequestLatencyTooHigh: Requests are taking more than the <configured value> seconds. 
+- **IstioGlobalHTTP4xxRatePercentageHigh** - An application is responding with 4xx error and the error rate percentage is more than the &lt;configured_value&gt; %. 
+IstioHTTPRequestLatencyTooHigh: Requests are taking more than the &lt;configured_value&gt; seconds. 
 
 **Pod and container level alerts:** 
 
@@ -207,4 +207,3 @@ Jaeger tracing uses the following workflow:
 ## Related content
 - [What is Azure Operator 5G Core?](overview-product.md)
 - [Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md)
-- [Quickstart: Deploy Azure Operator 5G Core observability on Nexus Advanced Kubernetes Services (NAKS)](quickstart-deploy-observability-nexus.md)
