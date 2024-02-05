@@ -47,16 +47,18 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 ### Known issues
 
 - **Workload identity limitation:**
-  - There is a limitaion when transitioning to workload identity. This is due to the permission-sensitive nature of FICs operations.
-    Two availableoptions to address this limitaton:
+  - There is a limitation when transitioning to workload identity. This is due to the permission-sensitive nature of FIC operations.
+    
+    Two available options to address this limitation:
+    
     1. **Option 1:**
        - Cannot support the deletion of a cluster by deleting the resource group.
        - Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions.
        - If FIC deletion fails, the high-level cluster deletion will also fail.
     1.  **Option 2:**
-       - On the Resource Provider side, ignore FIC deletion errors to unblock the cluster deletion workflow.
-       - Clusters can be deleted by deleting the resource group.
-       - However, FICs will be leaked in the user's Managed Service Identity (MSI).
+         - On the Resource Provider side, ignore FIC deletion errors to unblock the cluster deletion workflow.
+         - Clusters can be deleted by deleting the resource group.
+         - However, FICs will be leaked in the user's Managed Service Identity (MSI).
 
 
 ### New regions
