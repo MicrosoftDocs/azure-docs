@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 This page lists the known issues in [Azure Synapse Analytics](overview-what-is.md), and their resolution date or possible workaround. Before submitting [an Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), review this list to see if the issue that you're experiencing is already known and being addressed.
 
-To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Overview](index.yml), and [What's new in Azure Synapse Analytics?](whats-new.md). 
+To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Overview](index.yml), and [What's new in Azure Synapse Analytics?](whats-new.md)
 
 ## Active known issues
 
