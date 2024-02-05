@@ -42,7 +42,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 ### Bug Fixes
 - [Trino] Create failed due to an internalservererror Http2ConnectionException
 - Trino cluster shape  improves system catalogs caching
-- Trino cluster shape improves PowerBI timestamp timezones handling
+- Trino cluster shape improves Power BI timestamp timezones handling
 
 ### Known issues
 
