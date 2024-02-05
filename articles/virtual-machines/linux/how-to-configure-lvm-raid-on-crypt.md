@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jofrance
 ms.reviewer: mattmcinnes
 ms.date: 04/06/2023
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # Configure LVM and RAID on encrypted devices

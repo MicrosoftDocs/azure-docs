@@ -650,7 +650,7 @@ Approval for modified content filtering is required for access to the asynchrono
 
 ### Comparison of content filtering modes
 
-| | Streaming - Default | Streaming - Asynchronous Modified Filter |
+| Compare | Streaming - Default | Streaming - Asynchronous Modified Filter |
 |---|---|---|
 |Status |GA |Public Preview |
 | Eligibility |All customers |Customers approved for modified content filtering |

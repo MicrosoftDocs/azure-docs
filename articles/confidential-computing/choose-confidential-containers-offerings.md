@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: ananyagarg
 ms.custom:
-  - ignite-fall-2021
   - ignite-2023
 ---
 

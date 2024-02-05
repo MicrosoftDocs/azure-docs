@@ -27,7 +27,7 @@ sections:
 
           1. **Software inventory:** The MDVM scanner detects applications installed on virtual machines and establishes a correlation between the software and its associated known vulnerabilities.
 
-          1. **MDVM premium capabilities:** Customers of Defender for Servers P2 have the added benefit of access to premium capabilities of Microsoft Defender’s vulnerability management. These include Certificate Assessment, Baseline Assessment, Block vulnerable applications, and more. You can learn more about [MDVM's premium capabilities](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide)
+          1. **MDVM premium capabilities:** Customers of Defender for Servers P2 have the added benefit of access to premium capabilities of Microsoft Defender’s vulnerability management. These include Certificate Assessment, Baseline Assessment, Block vulnerable applications, and more. You can learn more about [MDVM's premium capabilities](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide)
 
 
       - question: |
@@ -45,7 +45,7 @@ sections:
       - question: |
           What are the operating systems (OS) that are compatible with the MDVM scanner? 
         answer: |
-          Refer to the [list of compatible operating systems](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/tvm-supported-os?view=o365-worldwide) that are compatible with the MDVM scanner.
+          Refer to the [list of compatible operating systems](/microsoft-365/security/defender-vulnerability-management/tvm-supported-os?view=o365-worldwide) that are compatible with the MDVM scanner.
 
           If your machine’s operating system isn't on the list of compatible OS, an upgrade is necessary to allow MDVM to perform a scan.
 
@@ -61,7 +61,7 @@ sections:
         answer: |
           For cloud VMs, we recommend enabling agentless scanning under the Defender for Servers P2 plan, to provide a more comprehensive coverage while ensuring minimal effect on your machine’s performance. 
 
-          If you're utilizing an on-premises machine, the [installation of the MDE agent is mandatory](https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide). The MDVM solution requires the agent in order to conduct vulnerability scans.
+          If you're utilizing an on-premises machine, the [installation of the MDE agent is mandatory](/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide). The MDVM solution requires the agent in order to conduct vulnerability scans.
 
 
       - question: |
@@ -71,4 +71,4 @@ sections:
 
           :::image type="content" source="media/faq-scanner-detection/dashboard.png" alt-text="Screenshot of the MDVM dashboard.":::
 
-          Learn more about [MDVM's premium capabilities](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide).
+          Learn more about [MDVM's premium capabilities](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities?view=o365-worldwide).

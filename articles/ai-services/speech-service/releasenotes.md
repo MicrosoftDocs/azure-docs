@@ -8,7 +8,7 @@ ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: release-notes
 ms.date: 1/21/2024
-ms.custom: ignite-fall-2021, references_regions
+ms.custom: references_regions
 ---
 
 # What's new in Azure AI Speech?

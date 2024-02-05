@@ -5,7 +5,6 @@ author: yelevin
 ms.author: yelevin
 ms.topic: reference
 ms.date: 10/15/2023
-ms.custom: ignite-fall-2021
 ---
 
 # Microsoft Sentinel entity types reference

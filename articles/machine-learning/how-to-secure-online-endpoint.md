@@ -10,7 +10,7 @@ ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
 ms.date: 09/28/2023
-ms.custom: event-tier1-build-2022, devx-track-azurecli, moe-wsvnet
+ms.custom: devx-track-azurecli, moe-wsvnet
 ---
 
 # Secure your managed online endpoints with network isolation

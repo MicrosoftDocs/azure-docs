@@ -7,8 +7,7 @@ ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: [contperf-fy21q1, device-developer]
-
+ms.custom: device-developer
 # This article applies to solution builders and device developers.
 ---
 

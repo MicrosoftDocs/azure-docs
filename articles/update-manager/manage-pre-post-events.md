@@ -2,7 +2,7 @@
 title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 12/09/2023
+ms.date: 02/03/2024
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -125,6 +125,15 @@ To view the cancelation status, follow these steps:
     :::image type="content" source="./media/manage-pre-post-events/view-cancelation-status-inline.png" alt-text="Screenshot that shows how to view the cancelation status." lightbox="./media/manage-pre-post-events/view-cancelation-status-expanded.png":::
 
 You can view the cancelation status from the error message in the JSON. The JSON can be obtained from the Azure Resource Graph (ARG). The corresponding maintenance configuration would be canceled using the Cancelation API.
+
+The following query allows you to view the list of VMs for a given schedule or a maintenance configuration:
+
+```kusto
+maintenanceresources  
+| where type =~ "microsoft.maintenance/maintenanceconfigurations/applyupdates"  
+| where properties.correlationId has "/subscriptions/<your-s-id> /resourcegroups/<your-rg-id> /providers/microsoft.maintenance/maintenanceconfigurations/<mc-name> /providers/microsoft.maintenance/applyupdates/"  
+| order by name desc
+```
 
    :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot for cancelation done by the user." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png" :::
 
