@@ -2,14 +2,13 @@
 title: Azure Cosmos DB performance tips for .NET SDK v2
 description: Learn client configuration options to improve Azure Cosmos DB .NET v2 SDK performance.
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.devlang: csharp
-ms.custom: devx-track-dotnet, contperf-fy21q2
-
+ms.custom: devx-track-dotnet
 ---
 
 # Performance tips for Azure Cosmos DB and .NET SDK v2
@@ -247,7 +246,7 @@ while (queryable.HasMoreResults)
     }
 ```             
 
-The request charge returned in this header is a fraction of your provisioned throughput (that is, 2,000 RUs / second). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before rate limiting later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
+The request charge returned in this header is a fraction of your provisioned throughput (that is, 2,000 RUs / second). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before rate limiting later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://cosmos.azure.com/capacitycalculator).
 <a id="429"></a>
 
 **Handle rate limiting/request rate too large**

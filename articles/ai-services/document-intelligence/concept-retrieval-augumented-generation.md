@@ -45,7 +45,7 @@ Markdown is a structured and formatted markup language and a popular input for e
 
 * **Scalability and AI quality**. The Layout model is highly scalable in Optical Character Recognition (OCR), table extraction, and [document structure analysis](concept-layout.md#document-layout-analysis). It supports [309 printed and 12 handwritten languages](language-support-ocr.md#model-id-prebuilt-layout), further ensuring high-quality results driven by AI capabilities.
 
-* **Large learning model (LLM) compatibility**. The Layout model Markdown formatted output is LLM friendly and facilitates seamless integration into your workflows. You can turn any table in a document into Markdown format and avoid extensive effort parsing the documents for greater LLM understanding.
+* **Large language model (LLM) compatibility**. The Layout model Markdown formatted output is LLM friendly and facilitates seamless integration into your workflows. You can turn any table in a document into Markdown format and avoid extensive effort parsing the documents for greater LLM understanding.
 
 **Text image processed with Document Intelligence Studio and output to MarkDown using Layout model**
 
@@ -119,7 +119,7 @@ If you're looking for a specific section in a document, you can use semantic chu
 
 ```python
 
-# Using SDK targeting 2023-10-31-preview
+# Using SDK targeting 2023-10-31-preview, make sure your resource is in one of these regions: East US, West US2, West Europe
 # pip install azure-ai-documentintelligence==1.0.0b1
 # pip install langchain langchain-community azure-ai-documentintelligence
 
@@ -154,4 +154,4 @@ splits
 
 * [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.

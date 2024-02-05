@@ -3,11 +3,9 @@ title: Managing Azure Data Factory studio preview experience
 description: Learn more about the Azure Data Factory studio preview experience.
 author: n0elleli
 ms.author: noelleli
-ms.reviewer: 
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
 ms.date: 01/05/2024
 ---
 

@@ -4,7 +4,6 @@ description: Learn how to use the no code editor to easily create a Stream Analy
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
-ms.custom: 
 ms.topic: how-to
 ms.date: 2/17/2023
 ---

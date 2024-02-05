@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.date: 06/09/2022
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 

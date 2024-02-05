@@ -63,7 +63,7 @@ JSON Web Signature is a widely used [proposed IETF standard](https://tools.ietf.
 
 Every Device Update device must contain a set of root keys. These keys are the root of trust for all of Device Update's signatures. Any signature must be chained up through one of these root keys to be considered legitimate.
 
-The set of root keys will change over time as it is proper to periodically rotate signing keys for security purposes. As a result, the Device Update agent software will need to be updated with the latest set of root keys at intervals specified by the Device Update team.
+The set of root keys will change over time as it is proper to periodically rotate signing keys for security purposes. As a result, the Device Update agent software will need to be updated with the latest set of root keys at intervals specified by the Device Update team. **The next planned root key rotation will occur in May 2025**.
 
 Starting with version 1.1.0 of the Device Update agent, the agent will automatically check for any changes to root keys each time a deployment of an update to that device occurs. Possible changes:
 

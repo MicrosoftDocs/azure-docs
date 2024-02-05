@@ -9,7 +9,7 @@ ms.date: 10/27/2023
 
 # Best practices for Windows containers on Azure Kubernetes Service (AKS)
 
-In AKS, you can create node pools that run Linux or Windows Server as the operating system (OS) on the nodes. Windows Server nodes can run native Windows container applications, such as .NET Framework. The Linux OS and Windows OS have different container support and configuration considerations. For more information, see [Windows container considerations in Kubernetes][windows-vs-linux].
+In AKS, you can create node pools that run Linux or Windows Server as the operating system (OS) on the nodes. Windows Server nodes can run native Windows container applications, such as .NET Framework. The Linux OS and Windows OS have different container support and configuration considerations. For more information, see [Windows container considerations in Kubernetes][windows-vs-linux]. To learn more about how various industries are using Windows containers on AKS, see [Windows AKS customer stories](./windows-aks-customer-stories.md).
 
 This article outlines best practices for running Windows containers on AKS.
 
@@ -34,7 +34,7 @@ You might want to containerize existing applications and run them using Windows 
 
 AKS uses Windows Server 2019 and Windows Server 2022 as the host OS versions and only supports process isolation. AKS doesn't support container images built by other versions of Windows Server. For more information, see [Windows container version compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information, see the [AKS release notes][aks-release-notes].
+Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of service and won't be supported in future releases. For more information, see the [AKS release notes][aks-release-notes].
 
 ## Networking
 

@@ -4,7 +4,7 @@ description: Configure the container protections of Microsoft Defender for Conta
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 zone_pivot_groups: k8s-host
 ms.date: 06/29/2023
 ---

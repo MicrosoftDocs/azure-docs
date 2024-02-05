@@ -11,14 +11,14 @@ ms.date: 12/06/2023
 
 # Create and configure SFTP Ingestion Agents for Azure Operator Insights
 
-An SFTP Ingestion Agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent pulls files from an SFTP server, and forwards them to Azure Operator Insights.
+An SFTP Ingestion Agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent pulls files from an SFTP server, and forwards them to Azure Operator Insights Data Products.
 
 For more background, see [SFTP Ingestion Agent overview](sftp-agent-overview.md).
 
 ## Prerequisites
 
-- You must have an SFTP server containing the files to be uploaded to Azure Operator Insights. This SFTP server must be accessible from the VM where you install the agent.
-- You must have an Azure Operator Insights Data Product deployment.
+- You must deploy an Azure Operator Insights Data Product.
+- You must have an SFTP server containing the files to be uploaded to the Azure Operator Insights Data Product. This SFTP server must be accessible from the VM where you install the agent.
 - You must choose the number of agents and VMs on which to install the agents, using the guidance in the following section.
 
 ### Choosing agents and VMs
@@ -175,7 +175,10 @@ Steps:
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-
+5. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+    ```
+    <Public IP>   login.microsoftonline.com
+    ````
 ## Install and configure agent software
 
 Repeat these steps for each VM onto which you want to install the agent:

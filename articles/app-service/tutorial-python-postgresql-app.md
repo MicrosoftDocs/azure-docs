@@ -108,7 +108,7 @@ SECRET_KEY=<secret-key>
 
 Create a virtual environment for the app:
 
-[!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
+[!INCLUDE [Virtual environment setup](./includes/quickstart-python/virtual-environment-setup.md)]
 
 Install the dependencies:
 

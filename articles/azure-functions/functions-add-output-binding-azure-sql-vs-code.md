@@ -7,7 +7,8 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ---
 

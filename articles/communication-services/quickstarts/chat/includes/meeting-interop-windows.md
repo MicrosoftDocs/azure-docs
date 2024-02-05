@@ -116,7 +116,7 @@ private const string connectionString_ = "";
                     {
                         await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                         {
-                            _ = new MessageDialog($"An error ocurred while fetching messages in PollingChatMessagesAsync(). The application will shutdown. Details : {e.Message}").ShowAsync();
+                            _ = new MessageDialog($"An error occurred while fetching messages in PollingChatMessagesAsync(). The application will shutdown. Details : {e.Message}").ShowAsync();
                             throw e;
                         });
                         await SetInCallState(false);

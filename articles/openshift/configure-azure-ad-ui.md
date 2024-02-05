@@ -118,3 +118,7 @@ Scroll down to the **Claims** section and update the **Preferred Username** to u
 If you now logout of the OpenShift Web Console and try to login again, you'll be presented with a new option to login with **Microsoft Entra ID**. You may need to wait for a few minutes.
 
 ![Login screen with Microsoft Entra option](media/aro4-login-2.png)
+
+
+> [!NOTE]
+> If you encounter the error like "AADSTS50011: The redirect URI https\://oauth-openshift.apps.xxxxxxxxxx.xxxxxxx.aroapp.io/oauth2callback/xxxx specified in the request does not match the redirect URIs configured", you can follow the troubleshooting guide [Azure AD (OIDC) login failed when Redirect URI is not set correctly](https://access.redhat.com/solutions/7016893) to solve the issue.  

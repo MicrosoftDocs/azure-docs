@@ -3,7 +3,7 @@ title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
 ms.date: 11/17/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Azure Resource Manager template specs
@@ -353,7 +353,7 @@ az deployment group create \
 
 ## Versioning
 
-When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.
+When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.  You can have an unlimit number of versions. 
 
 ## Use tags
 

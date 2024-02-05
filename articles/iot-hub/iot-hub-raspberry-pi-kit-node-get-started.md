@@ -170,7 +170,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
    **Windows Users**
 
-   a. Download and install [PuTTY](https://www.putty.org/) for Windows.
+   a. Download and install [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
    b. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
 

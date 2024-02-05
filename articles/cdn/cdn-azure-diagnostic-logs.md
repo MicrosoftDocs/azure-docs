@@ -6,8 +6,6 @@ services: cdn
 author: duongau
 manager: KumudD
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 02/27/2023
 ms.author: duau 

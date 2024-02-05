@@ -8,9 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an API developer, I want to secure my Azure API Management API with Azure AD B2C, so that I can restrict access to only authenticated clients and ensure that only valid access tokens are accepted.
+
 ---
 
 # Secure an Azure API Management API with Azure AD B2C

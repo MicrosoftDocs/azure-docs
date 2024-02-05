@@ -3,7 +3,7 @@ title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: how-to
 ms.date: 06/30/2023
-ms.custom: references_regions, devx-track-linux
+ms.custom: references_regions, linux-related-content
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -60,7 +60,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine that meets the requirements**.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine that meets the requirements**.
 
 ### Dynamic disks
 
@@ -75,13 +75,13 @@ You can't run the downloaded executable on the same backed-up VM if the backed-u
 
 ### Virtual machine backups having large disks
 
-If the backed-up machine has large number of disks (>16) or large disks (> 4 TB each) it's not recommended to execute the script on the same machine for restore, since it will have a significant impact on the VM. Instead it's recommended to have a separate VM only for file recovery (Azure VM D2v3 VMs) and then shut it down when not required. 
+If the backed-up machine has large number of disks (>16) or large disks (> 4 TB each) it's not recommended to execute the script on the same machine for restore, since it will have a significant impact on the VM. Instead it's recommended to have a separate VM only for file recovery (Azure VM D2v3 VMs) and then shut it down when not required.
 
 See requirements to restore files from backed-up VMs with large disk:<br>
 [Windows OS](#for-backed-up-vms-with-large-disks-windows)<br>
 [Linux OS](#for-backed-up-vms-with-large-disks-linux)
 
-After you choose the correct machine to run the ILR script, ensure that it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script) and [access requirements](#step-4-access-requirements-to-successfully-run-the-script). 
+After you choose the correct machine to run the ILR script, ensure that it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script) and [access requirements](#step-4-access-requirements-to-successfully-run-the-script).
 
 ## Step 3: OS requirements to successfully run the script
 
@@ -164,7 +164,7 @@ Also, ensure that you have the [right machine to execute the ILR script](#step-2
 > [!NOTE]
 >
 > The script is generated in English language only and is not localized. Hence it might require that the system locale is in English for the script to execute properly
-> 
+>
 
 
 ### For Windows
@@ -174,14 +174,14 @@ After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machin
   :::image type="content" source="./media/backup-azure-restore-files-from-vm/executable-output.png" alt-text="Screenshot shows the executable output for file restore from VM." lightbox="./media/backup-azure-restore-files-from-vm/executable-output.png":::
 
 
-When you run the executable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine. However, the volume name is preserved. For example, if the volume on the original virtual machine was "Data Disk (E:`\`)", that volume can be attached on the local computer as "Data Disk ('Any letter':`\`). Browse through all volumes mentioned in the script output until you find your files or folder.  
+When you run the executable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine. However, the volume name is preserved. For example, if the volume on the original virtual machine was "Data Disk (E:`\`)", that volume can be attached on the local computer as "Data Disk ('Any letter':`\`). Browse through all volumes mentioned in the script output until you find your files or folder.
 
    ![Recovery volumes attached](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### For backed-up VMs with large disks (Windows)
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
-  
+
 1. Ensure that the OS is WS 2012 or higher.
 2. Ensure the registry keys are set as suggested below in the restore server and make sure to reboot the server. The number beside the GUID can range from 0001-0005. In the following example, it's 0004. Navigate through the registry key path until the parameters section.
 
@@ -295,7 +295,7 @@ Make sure that the Volume groups corresponding to script's volumes are active. T
 
 ```bash
 sudo vgdisplay -a
-```  
+```
 
 Otherwise, activate the volume group by using the following command.
 

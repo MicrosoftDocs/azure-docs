@@ -99,7 +99,6 @@ The following snippet is a sample deployment that creates a cluster with KEDA en
                         "enableAutoScaling": false,
                         "vmSize": "Standard_D2S_v5",
                         "osType": "Linux",
-                        "storageProfile": "ManagedDisks",
                         "type": "VirtualMachineScaleSets",
                         "mode": "System",
                         "maxPods": 110,

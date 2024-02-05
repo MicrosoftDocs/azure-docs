@@ -51,6 +51,7 @@ To force the model to call a specific function set the `tool_choice` parameter w
 > The default behavior (`tool_choice: "auto"`) is for the model to decide on its own whether to call a function and if so which function to call.
 
 ```python
+import os
 from openai import AzureOpenAI
 import json
 
@@ -60,8 +61,6 @@ client = AzureOpenAI(
   api_version="2023-12-01-preview"
 )
 
-from openai import OpenAI
-import json
 
 # Example function hard coded to return the same weather
 # In production, this could be your backend API or an external API
