@@ -75,13 +75,11 @@ Configure the settings in each step of the wizard, as detailed below.
 
 On the **Collect and deliver** tab, select **Add data source** and configure the settings on the **Source** and **Destination** tabs, as detailed below.
 
-For detailed information about the various data sources you can collect, see [Data sources and destinations](../agents/azure-monitor-agent-overview.md#data-sources-and-destinations).
-
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-destination.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-destination.png" alt-text="Screenshot that shows the Collect and deliver tab of the Data Collection Rule wizard. On this tab, you define which data source Azure Monitor Agent collects data from and where the agent sends the data." border="false":::
 
 | Screen element | Description |
 |:---|:---|
-| **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the various data source types, see [Performance Counters and Windows Even Logs](../agents/azure-monitor-agent-performance.md), [Linux Syslog](../agents/data-collection-syslog.md), [IIS logs](../agents/data-collection-iis.md), [Custom Text and JSON Logs](../agents/data-collection-text-log.md), or [Prometheus Metrics](../containers/prometheus-metrics-multiple-workspaces.md).|
+| **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the various data source types, see [Performance Counters and Windows Even Logs](../agents/data-collection-rule-azure-monitor-agent.md), [Linux Syslog](../agents/data-collection-syslog.md), [IIS logs](../agents/data-collection-iis.md), [Custom Text and JSON Logs](../agents/data-collection-text-log.md), or [Prometheus Metrics](../containers/prometheus-metrics-multiple-workspaces.md).|
 | **Destination** | Add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.<br>You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. At this time, hybrid compute (Arc for Server) resources **do not** support the Azure Monitor Metrics (Preview) destination. |
 
 ### Review + create

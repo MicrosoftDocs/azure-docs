@@ -85,6 +85,8 @@ You should receive a 200 response and details about the table you just created.
 
 ## Create a data collection rule to collect data from a text or JSON file
 
+### [Portal](#tab/portal)
+
 1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md#create-a-data-collection-rule).
 1. In the **Collect and deliver** step, select **Custom Text Logs** or **JSON Logs** from the **Data source type** dropdown.
 1. Specify the following information:
@@ -107,8 +109,6 @@ You should receive a 200 response and details about the table you just created.
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
     <!-- convertborder later -->
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the destination tab of the Add data source screen for a data collection rule in Azure portal." border="false":::
-
-
 
 ### [Resource Manager template](#tab/arm)
 
