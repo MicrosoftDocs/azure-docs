@@ -13,7 +13,7 @@ ms.date: 11/01/2023
 # CustomerIntent: As a security administrator, I want to use Azure Private Link so that I can ensure that database connections occur over privately-managed virtual network endpoints.
 ---
 
-# Use Azure Private Link in Azure Cosmos DB for MongoDB vCore
+# Enable Private access in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
@@ -76,7 +76,7 @@ To create a private endpoint to a node in an existing cluster, open the
 
 1. Select **Add private endpoint**.
 
-   :::image type="content" source="media/howto-private-access/networking.png" alt-text="Screenshot of selecting Add private endpoint on the Networking screen.":::
+   :::image type="content" source="media/howto-private-access/networking.jpg" alt-text="Screenshot of selecting Add private endpoint on the Networking screen.":::
 
 2. On the **Basics** tab of the **Create a private endpoint** screen, confirm the **Subscription**, **Resource group**, and
    **Region**. Enter a **Name** for the endpoint, such as *my-cluster-1*, and a **Network interface name**, such as *my-cluster-1-nic*.
