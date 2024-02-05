@@ -41,7 +41,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), GPU driver installation, and more.
 
-When using GPUs with a Windows node pool, GPU driver installation and NVIDIA device plugin installation occurs by default.
+When you use GPUs with a Windows node pool, GPU driver installation and NVIDIA device plugin installation occurs by default.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -81,7 +81,7 @@ When using GPUs with a Windows node pool, GPU driver installation and NVIDIA dev
 
 ### Create a Windows GPU-enabled node pool (preview)
 
-Creating a Windows GPU-enabled node pool requires that you use a supported GPU VM SKU, and specify `os-type`. The default Windows `os-sku` is `Windows2022`, but all Windows SKUs are supported.
+To create a Windows GPU-enabled node pool, you need to use a supported GPU VM SKU and specify `os-type`. The default Windows `os-sku` is `Windows2022`, but all Windows SKUs are supported.
 
 1. Create a Windows GPU-enabled node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
@@ -299,7 +299,7 @@ After creating your cluster, confirm that GPUs are schedulable in Kubernetes.
 
 ## Run a GPU-enabled workload
 
-To see the GPU in action, you can schedule a GPU-enabled workload with the appropriate resource request. In this example, we'll run a [Tensorflow](https://www.tensorflow.org/) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
+To see the GPU in action, you can schedule a GPU-enabled workload with the appropriate resource request. In this example, you run a [Tensorflow](https://www.tensorflow.org/) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
 1. Create a file named *samples-tf-mnist-demo.yaml* and paste the following YAML manifest, which includes a resource limit of `nvidia.com/gpu: 1`:
 
@@ -423,11 +423,11 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 | Metric name | Metric dimension (tags) | Description |
 |-------------|-------------------------|-------------|
 | containerGpuDutyCycle | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName`, `gpuId`, `gpuModel`, `gpuVendor`| Percentage of time over the past sample period (60 seconds) during which GPU was busy/actively processing for a container. Duty cycle is a number between 1 and 100. |
-| containerGpuLimits | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName` | Each container can specify limits as one or more GPUs. It is not possible to request or limit a fraction of a GPU. |
-| containerGpuRequests | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName` | Each container can request one or more GPUs. It is not possible to request or limit a fraction of a GPU. |
+| containerGpuLimits | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName` | Each container can specify limits as one or more GPUs. It's not possible to request or limit a fraction of a GPU. |
+| containerGpuRequests | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName` | Each container can request one or more GPUs. It's not possible to request or limit a fraction of a GPU. |
 | containerGpumemoryTotalBytes | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName`, `gpuId`, `gpuModel`, `gpuVendor` | Amount of GPU Memory in bytes available to use for a specific container. |
 | containerGpumemoryUsedBytes | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName`, `gpuId`, `gpuModel`, `gpuVendor` | Amount of GPU Memory in bytes used by a specific container. |
-| nodeGpuAllocatable | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `gpuVendor` | Number of GPUs in a node that can be used by Kubernetes. |
+| nodeGpuAllocatable | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `gpuVendor` | Number of GPUs in a node that Kubernetes can use.|
 | nodeGpuCapacity | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `gpuVendor` | Total Number of GPUs in a node. |
 
 ## Clean up resources
