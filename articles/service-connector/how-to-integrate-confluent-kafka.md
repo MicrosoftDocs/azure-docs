@@ -1,18 +1,21 @@
 ---
-title: Integrate Apache kafka on Confluent Cloud with Service Connector
-description: Integrate Apache kafka on Confluent Cloud into your application with Service Connector
+title: Integrate Apache Kafka on Confluent Cloud with Service Connector
+description: In this document, learn how to integrate Apache Kafka on Confluent Cloud into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 02/02/2024
 ms.custom: event-tier1-build-2022
 ---
+
 # Integrate Apache Kafka on Confluent Cloud with Service Connector
 
 This page shows supported authentication methods and clients to connect Apache Kafka on Confluent Cloud to other cloud services using Service Connector. You might still be able to connect to Apache Kafka on Confluent Cloud in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
 ## Supported compute services
+
+Service Connector can be used to connect the following compute services to Apache Kafka on Confluent Cloud:
 
 - Azure App Service
 - Azure Functions
@@ -21,7 +24,7 @@ This page shows supported authentication methods and clients to connect Apache K
 
 ## Supported Authentication types and client types
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
+The table below shows which combinations of client types and authentication methods are supported for connecting your compute service to Apache Kafka on Confluent Cloud using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -31,6 +34,8 @@ Supported authentication and clients for App Service, Azure Functions, Container
 | Node.js            | No                               | No                             | Yes                        | No                |
 | Python             | No                               | No                             | Yes                        | No                |
 | None               | No                               | No                             | Yes                        | No                |
+
+This table indicates that the only supported authentication method for all client types in the table is the Secret / connection string method. Other authentication methods are not supported for any of the client types.
 
 ## Default environment variable names or application properties
 

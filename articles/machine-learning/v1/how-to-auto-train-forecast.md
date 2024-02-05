@@ -3,13 +3,13 @@ title: Set up AutoML for time-series forecasting (SDKv1)
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train time-series forecasting models with the Azure Machine Learning Python SDKv1.
 services: machine-learning
-author: manashgoswami 
+author: manashgoswami
 ms.author: magoswam
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, automl, sdkv1, devx-track-python
 ms.date: 01/28/2024
 show_latex: true
 ---

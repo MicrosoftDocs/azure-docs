@@ -3,14 +3,12 @@ title: Label an entity using the LUIS portal
 description: include file
 #services: cognitive-services
 manager: nitinme
-ms.custom: seodec18
 ms.author: aahi
 author: aahill
 ms.service: azure-ai-language
 ms.date: 01/19/2024
 ms.subservice: azure-ai-luis
 ms.topic: include
-
 ---
 
 To label your utterances, you have two options: Entity palette labeling and inline labeling. 

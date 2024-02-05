@@ -2,12 +2,12 @@
 title: Azure Synapse Runtime for Apache Spark 3.2
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.2.
 author: ekote
-ms.author: eskot 
+ms.author: eskot
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/28/2022
-ms.custom: has-adal-ref, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python
+ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.2 (EOLA)
@@ -2421,4 +2421,3 @@ widgetsnbextension==3.5.2
 ## Migration between Apache Spark versions - support
 
 For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
-

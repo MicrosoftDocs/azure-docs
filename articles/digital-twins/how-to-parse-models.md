@@ -7,7 +7,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy21q3, devx-track-dotnet
+ms.custom: devx-track-dotnet
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
