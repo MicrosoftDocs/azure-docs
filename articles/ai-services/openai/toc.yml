@@ -39,6 +39,8 @@ items:
       href: whisper-quickstart.md
 - name: Concepts
   items:
+    - name: Assistants
+      href: ./concepts/assistants.md
     - name: Abuse monitoring
       href: ./concepts/abuse-monitoring.md
     - name: Content filtering
