@@ -191,7 +191,7 @@ As your workload demands change, you can associate existing capacity reservation
 
 - Use CLI version 2.56 or above and API version 2023-10-01 or higher. 
 - The capacity reservation group should already exist and should contain minimum one capacity reservation, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated. For more information, see [capacity reservation groups][capacity-reservation-groups].
-- You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). 
+- You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). System assigned managed identities wont work for   this. 
 
    ```azurecli-interactive
     az identity create -n MyID -g MyRG 
