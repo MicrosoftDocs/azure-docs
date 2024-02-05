@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/30/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18, devx-track-azurepowershell
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Get started creating an Internet facing load balancer with IPv6 using PowerShell for Resource Manager

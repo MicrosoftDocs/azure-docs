@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 01/10/2024
 ms.author: cshoe
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 

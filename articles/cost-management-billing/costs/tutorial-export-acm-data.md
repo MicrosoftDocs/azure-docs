@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
-ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Tutorial: Create and manage exported data

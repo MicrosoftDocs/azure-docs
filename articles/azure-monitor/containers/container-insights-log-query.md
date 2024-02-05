@@ -2,7 +2,6 @@
 title: Query logs from Container insights
 description: Container insights collects metrics and log data, and this article describes the records and includes sample queries.
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 06/06/2023
 ms.reviewer: viviandiec
 ---
@@ -706,4 +705,3 @@ The agent uses the [Docker JSON file logging driver](https://docs.docker.com/con
 ## Next steps
 
 Container insights doesn't include a predefined set of alerts. To learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures, see [Create performance alerts with Container insights](./container-insights-log-alerts.md).
-

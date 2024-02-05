@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2022
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 02/05/2024
 ms.author: duau
 ---
 
@@ -86,6 +86,7 @@ ExpressRoute Direct supports large data ingestion scenarios into services such a
 * Microsoft Enterprise Edge Router (MSEE) Interfaces:
     * Dual 10 Gigabit or 100-Gigabit Ethernet ports only across router pair
     * Single Mode LR Fiber connectivity
+      * MSEE supports QSFP-100G-LR-4 for 100Gbps (Use compatible optics on your devices) 
     * IPv4 and IPv6
     * IP MTU 1500 bytes
 

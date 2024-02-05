@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.topic: how-to
 ms.author: jushiman
 ms.date: 04/11/2023
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # Verify encryption status for Linux
