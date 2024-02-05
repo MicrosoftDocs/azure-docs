@@ -24,9 +24,9 @@ items:
     expanded: false
     items:
       - name: Deploy a network function on Nexus Azure Kubernetes Services
-        href: quickstart-deploy-network-functions-nexus.md
+        href: quickstart-deploy-network-functions.md
       - name: Deploy observability for Nexus Azure Kubernetes services
-    href: quickstart-deploy-observability-nexus.md
+    href: quickstart-deploy-observability.md
   - name: Delete a network function/cluster
     href: quickstart-delete-network-function-cluster.md
 - name: Tutorials
@@ -39,11 +39,9 @@ items:
     href: concept-security.md
   - name: Centralized lifecycle management
     href: concept-centralized-lifecycle-management.md
-  - name: Deployment order for clusters, network functions and observability on Azure Kubernetes Services
+  - name: Deployment order for clusters, network functions and observability
     href: concept-deployment-order.md
   - name: Observability and analytics
-  - name: Deployment order for clusters, network functions and observability on Nexus Azure Kubernetes Services
-    href: concept-nexus-deployment-order.md
   - name: Observability and analytics
     href: concept-observability-analytics.md
 - name: How-to guides

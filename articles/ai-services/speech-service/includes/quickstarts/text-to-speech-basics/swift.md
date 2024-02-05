@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 01/29/2024
 ms.author: eur
 ---
 
@@ -30,7 +30,7 @@ Follow these steps to synthesize speech in a macOS application.
 
 1. Clone the [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository to get the [Synthesize audio in Swift on macOS using the Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/text-to-speech) sample project. The repository also has iOS samples.
 1. Navigate to the directory of the downloaded sample app (`helloworld`) in a terminal.
-1. Run the command `pod install`. This command generates a `helloworld.xcworkspace` Xcode workspace containing both the sample app and the Speech SDK as a dependency.
+1. Run the command `pod install`. This command generates a `helloworld.xcworkspace` Xcode workspace that contains both the sample app and the Speech SDK as a dependency.
 1. Open the `helloworld.xcworkspace` workspace in Xcode.
 1. Open the file named *AppDelegate.swift* and locate the `applicationDidFinishLaunching` and `synthesize` methods as shown here.
 
@@ -126,10 +126,10 @@ Follow these steps to synthesize speech in a macOS application.
    All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 1. To make the debug output visible, select **View** > **Debug Area** > **Activate Console**.
-1. Build and run the example code by selecting **Product** > **Run** from the menu or selecting the **Play** button.
+1. To build and run the example code, select **Product** > **Run** from the menu or select the **Play** button.
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 After you input some text and select the button in the app, you should hear the synthesized audio played.
 

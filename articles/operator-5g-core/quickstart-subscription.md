@@ -1,6 +1,6 @@
 ---
-title: Create a Mobile Packet Core in your Azure Operator 5G Core subscription
-description: Learn the high-level process to create a Mobile Packet Core in your Azure Operator 5G Core subscription.
+title: Get access to Azure Operator 5G Core
+description: See the criteria to gain access to Azure Operator 5G Core subscription, and apply for access.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure
@@ -10,32 +10,7 @@ ms.date: 01/18/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a Quickstart - General article pattern. See the [instructions - Quickstart - General](../level4/article-quickstart.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-Quickstart is an article pattern that shows how a product or service solves a customer problem. These articles focus on what the product or service "can do" rather than "how to use" it. The goal is to help new customers evaluate whether the product or service will meet their needs.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "Quickstart: <verb> * <capability> * <product or service> * <scenario>" format for you H1. Pick an H1 that clearly conveys the product capability that's covered and how the capability will be demonstrated.
-
-For example: "Quickstart: Demonstrate the incident response capabilities of Microsoft 365 Defender by simulating an attack".
-
-* Include only a single H1 in the article.
-* If the Quickstart is part of a numbered series, don't include the number in the H1.
-* Don't start with a gerund.
-* Don't add "Quickstart:" to the H1 of any article that's not a Quickstart.
-* Don't include "Tutorial" in the H1.
-
--->
-
-# Quickstart: Create a Mobile Packet Core (MPC) in your Azure Operator 5G Core subscription
+# Quickstart: Get Access to Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
@@ -202,7 +177,7 @@ If there is a follow-on Quickstart that uses the same resources, make that optio
 <!-- Use this exact H2 -->
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resources with the following steps:
+If you're not going to continue to use this application, delete with the following steps:
 
 1. From the left-hand menu...
 2. ...click Delete, type...and then click Delete
@@ -220,15 +195,6 @@ Optional: You have two options for manually curated links in this pattern: Next 
 TODO: Add your next step link(s)
 
 > [!div class="nextstepaction"]
-> 
+>
 
 <!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->

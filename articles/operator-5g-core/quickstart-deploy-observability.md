@@ -10,7 +10,7 @@ ms.date: 02/01/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)
+# Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS) or Nexus Advanced Kubernetes Services (NAKS)
 
 Use the following Azure CLI commands to deploy observability resources for Azure Operator 5G Core
 
