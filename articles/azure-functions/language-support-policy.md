@@ -15,7 +15,7 @@ Azure Functions runtime is built around various components, including operating 
 
 ### Notification phase
 
-The Functions team sends notification emails to function app users about upcoming language version retirements. The notifications are sent at least one year before the date of retirement. When you receive the notification, you should prepare to upgrade functions apps to use to a supported version.
+The Functions team sends notification emails to function app users about upcoming language version retirements. When you receive the notification, you should prepare to upgrade functions apps to use to a supported version.
 
 ### Retirement phase
 
