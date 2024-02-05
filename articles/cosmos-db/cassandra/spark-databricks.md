@@ -9,7 +9,6 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.devlang: spark-scala
-ms.custom: ignite-2022
 ---
 
 # Access Azure Cosmos DB for Apache Cassandra data from Azure Databricks

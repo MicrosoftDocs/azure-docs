@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 06/27/2023
 ms.author: mbender
-ms.custom: seodoc18, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure Load Balancer backend traffic responses

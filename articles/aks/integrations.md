@@ -2,7 +2,6 @@
 title: Add-ons, extensions, and other integrations with Azure Kubernetes Service (AKS)
 description: Learn about the add-ons, extensions, and open-source integrations you can use with Azure Kubernetes Service (AKS).
 ms.topic: overview
-ms.custom: event-tier1-build-2022
 ms.date: 05/22/2023
 ---
 

@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/14/2023
-ms.custom: seodec18, linux-related-content
+ms.custom: linux-related-content
 ---
 
 # Azure Disk Encryption for Linux VMs

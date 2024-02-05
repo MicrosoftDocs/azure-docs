@@ -7,7 +7,6 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/17/2023
 ms.author: turao
-ms.custom: ignite-2022
 ms.devlang: azurecli
 ---
 

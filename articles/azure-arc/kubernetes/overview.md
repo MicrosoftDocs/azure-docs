@@ -1,6 +1,5 @@
 ---
 title: "Overview of Azure Arc-enabled Kubernetes"
-ms.custom: event-tier1-build-2022
 ms.date: 08/08/2023
 ms.topic: overview
 description: "Azure Arc-enabled Kubernetes allows you to attach Kubernetes clusters running anywhere so that you can manage and configure them in Azure."
@@ -53,4 +52,3 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
 * Learn about best practices and design patterns through the [Cloud Adoption Framework for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-identity-access-management).
 * Try out Arc-enabled Kubernetes without provisioning a full environment by using the [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s).
 * [Connect an existing Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md).
-

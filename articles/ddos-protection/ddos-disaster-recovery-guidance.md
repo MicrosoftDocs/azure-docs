@@ -4,7 +4,6 @@ description: Learn what to do in the event of an Azure service disruption impact
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 11/06/2023
 ms.author: abell

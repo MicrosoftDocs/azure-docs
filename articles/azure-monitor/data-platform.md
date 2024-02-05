@@ -3,7 +3,6 @@ title: Azure Monitor data platform
 description: Overview of the Azure Monitor data platform and collection of observability data.
 author: bwren
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 08/09/2023
 ms.reviewer: bwren
