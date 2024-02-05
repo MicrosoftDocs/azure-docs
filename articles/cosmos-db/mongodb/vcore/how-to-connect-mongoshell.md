@@ -8,7 +8,7 @@ ms.reviewer: yongl
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 02/05/2024
 # CustomerIntent: As a database owner, I want to use Mongo Shell to connect and query my database & collections.
 ---
 
@@ -31,6 +31,58 @@ MongoDB Shell mongosh, is a JavaScript and Node.js REPL environment for interact
 - Ensure you have set the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure CosmosDB](../../../cosmos-db/how-to-configure-firewall#ip-access-control-overview.md)
     - You can choose to allow requests from your current IP, requests from cloud services or requests from virtual machines - specific IP Ranges
     
-![alt text](media/connect-using-mongoshell/FirewallSettings.gif)
-  :::image type="content" source="./media/connect-using-robomongo/connection-string.png" alt-text="GIF of Firewall Settings update for MongoDB Vcore":::
+![GIF of Firewall Settings update for MongoDB Vcore](media/connect-using-mongoshell/FirewallSettings.gif)
+
 If you accidentally open all the ports you will be warned before saving the changes as follows
+
+![PNG Image for Firewall Warning](./media/connect-using-mongoshell/Firewall%20Warning.PNG)
+
+## Connect using Mongo Shell 
+
+To add your Azure Cosmos DB cluster to the Studio 3T connection manager, perform the following steps:
+1. Retrieve the connection information for your Azure Cosmos DB for MongoDB vCore using the instructions [here](quickstart-portal.md#get-cluster-credentials).
+
+![GIF for getting connection string](./media/connect-using-mongoshell/GettingConnectionStringfromPortal.gif)
+Once you have the connection string you can either 
+- Have the shell prompt you to enter the password or
+- Provide the password as a part of the connection string 
+
+2. Connect using Mongo Shell
+
+#### A. By entering the password in the MongoShell Prompt
+
+![PNG Prompt image for password for MongoShell](./media/connect-using-mongoshell/PasswordPromptinShell.PNG)
+
+Your connection string would look like this
+```
+"mongodb+srv://<username>@<servername>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000"
+```
+Here is an example of how the command looks like : 
+```
+mongosh "mongodb+srv://testuser@mongodbvcoretesting.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
+```
+![GIF for connecting by entering password](./media/connect-using-mongoshell/MongoShellConnect.gif)
+
+Once you provide the password and are successfully authenticated you will notice the following warning.
+
+![PNG Warning image for Shell](./media/connect-using-mongoshell/ShellWarning.PNG)
+
+This can be ignored. Its just shell way of notifying that you are not connection to an emulation of MongoDB. Since it is an Azure as a platform as a service offering this is expected. 
+
+#### B. By providing the password as a part of the connection string
+
+Alternately you can also use a connection string with the password in which case the format looks something like this
+```
+mongosh "mongodb+srv://<SERVERNAME>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" --username "<USER>" -password "<PASSWORD>"
+```
+
+Here is an example of how the command looks like : 
+```
+ mongosh "mongodb+srv://mongodbvcoretesting.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" --username "testuser" -password "******"
+```
+![PNG Image for password as a part of connection string ](./media/connect-using-mongoshell/ConnectionStringwithPassword.PNG)
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Migration options](migration-options.md)
