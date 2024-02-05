@@ -18,7 +18,7 @@ Observability has three pillars: metrics, tracing, and logs.  Metrics show whe
 
 The following components provide observability for AO5GC:
 
- :::image type="content" source="media/concept-observability-analytics/observability-overview.png" alt-text="Diagram of text boxes showing the components that support observability functions for Azure Operator 5G Core." lightbox="media/concept-observability-analytics/observability-overview-expanded.png"::: 
+ [:::image type="content" source="media/concept-observability-analytics/observability-overview.png" alt-text="Diagram of text boxes showing the components that support observability functions for Azure Operator 5G Core.":::](media/concept-observability-analytics/observability-overview.png)
 
 ### Observability open source components
 
