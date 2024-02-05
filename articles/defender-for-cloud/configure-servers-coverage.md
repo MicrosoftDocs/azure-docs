@@ -153,7 +153,7 @@ Defender for Cloud provides you with the ability to check if your resources have
 
 1. Locate the Defender for Cloud column:
 
-    :::image type="content" source="media/configure-servers-coverage/select-inventory.png" alt-text="Screenshot that shows you where to select Inventory from the main menu." lightbox="media/tutorial-enable-servers-plan/select-inventory.png":::
+    :::image type="content" source="media/configure-servers-coverage/select-inventory.png" alt-text="Screenshot that shows you where to select Inventory from the main menu." lightbox="media/configure-servers-coverage/select-inventory.png":::
 
 > [!NOTE]
 > Defender for Server's settings for each resource are inherited by the subscription-level settings by default. Once you change settings at the resource level, the resource will no longer inherit settings from its parent subscription unless you delete the settings you configured.
