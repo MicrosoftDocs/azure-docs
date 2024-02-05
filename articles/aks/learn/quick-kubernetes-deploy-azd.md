@@ -97,240 +97,12 @@ azd up runs the commands for the 2 hooks for pre-provision and post-provision. D
 
 ## Deploy the application
 
-1. Create a file named `aks-store-quickstart.yaml` and copy in the following manifest:
+In the AZD Template, there are files ready for deployment to start your service. In our AKS Quickstart, we'll use the 
+`aks-store-quickstart.yaml`.
 
-    ```yaml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: rabbitmq
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: rabbitmq
-      template:
-        metadata:
-          labels:
-            app: rabbitmq
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: rabbitmq
-            image: mcr.microsoft.com/mirror/docker/library/rabbitmq:3.10-management-alpine
-            ports:
-            - containerPort: 5672
-              name: rabbitmq-amqp
-            - containerPort: 15672
-              name: rabbitmq-http
-            env:
-            - name: RABBITMQ_DEFAULT_USER
-              value: "username"
-            - name: RABBITMQ_DEFAULT_PASS
-              value: "password"
-            resources:
-              requests:
-                cpu: 10m
-                memory: 128Mi
-              limits:
-                cpu: 250m
-                memory: 256Mi
-            volumeMounts:
-            - name: rabbitmq-enabled-plugins
-              mountPath: /etc/rabbitmq/enabled_plugins
-              subPath: enabled_plugins
-          volumes:
-          - name: rabbitmq-enabled-plugins
-            configMap:
-              name: rabbitmq-enabled-plugins
-              items:
-              - key: rabbitmq_enabled_plugins
-                path: enabled_plugins
-    ---
-    apiVersion: v1
-    data:
-      rabbitmq_enabled_plugins: |
-        [rabbitmq_management,rabbitmq_prometheus,rabbitmq_amqp1_0].
-    kind: ConfigMap
-    metadata:
-      name: rabbitmq-enabled-plugins
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: rabbitmq
-    spec:
-      selector:
-        app: rabbitmq
-      ports:
-        - name: rabbitmq-amqp
-          port: 5672
-          targetPort: 5672
-        - name: rabbitmq-http
-          port: 15672
-          targetPort: 15672
-      type: ClusterIP
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: order-service
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: order-service
-      template:
-        metadata:
-          labels:
-            app: order-service
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: order-service
-            image: ghcr.io/azure-samples/aks-store-demo/order-service:latest
-            ports:
-            - containerPort: 3000
-            env:
-            - name: ORDER_QUEUE_HOSTNAME
-              value: "rabbitmq"
-            - name: ORDER_QUEUE_PORT
-              value: "5672"
-            - name: ORDER_QUEUE_USERNAME
-              value: "username"
-            - name: ORDER_QUEUE_PASSWORD
-              value: "password"
-            - name: ORDER_QUEUE_NAME
-              value: "orders"
-            - name: FASTIFY_ADDRESS
-              value: "0.0.0.0"
-            resources:
-              requests:
-                cpu: 1m
-                memory: 50Mi
-              limits:
-                cpu: 75m
-                memory: 128Mi
-          initContainers:
-          - name: wait-for-rabbitmq
-            image: busybox
-            command: ['sh', '-c', 'until nc -zv rabbitmq 5672; do echo waiting for rabbitmq; sleep 2; done;']
-            resources:
-              requests:
-                cpu: 1m
-                memory: 50Mi
-              limits:
-                cpu: 75m
-                memory: 128Mi
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: order-service
-    spec:
-      type: ClusterIP
-      ports:
-      - name: http
-        port: 3000
-        targetPort: 3000
-      selector:
-        app: order-service
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: product-service
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: product-service
-      template:
-        metadata:
-          labels:
-            app: product-service
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: product-service
-            image: ghcr.io/azure-samples/aks-store-demo/product-service:latest
-            ports:
-            - containerPort: 3002
-            resources:
-              requests:
-                cpu: 1m
-                memory: 1Mi
-              limits:
-                cpu: 1m
-                memory: 7Mi
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: product-service
-    spec:
-      type: ClusterIP
-      ports:
-      - name: http
-        port: 3002
-        targetPort: 3002
-      selector:
-        app: product-service
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: store-front
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: store-front
-      template:
-        metadata:
-          labels:
-            app: store-front
-        spec:
-          nodeSelector:
-            "kubernetes.io/os": linux
-          containers:
-          - name: store-front
-            image: ghcr.io/azure-samples/aks-store-demo/store-front:latest
-            ports:
-            - containerPort: 8080
-              name: store-front
-            env:
-            - name: VUE_APP_ORDER_SERVICE_URL
-              value: "http://order-service:3000/"
-            - name: VUE_APP_PRODUCT_SERVICE_URL
-              value: "http://product-service:3002/"
-            resources:
-              requests:
-                cpu: 1m
-                memory: 200Mi
-              limits:
-                cpu: 1000m
-                memory: 512Mi
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: store-front
-    spec:
-      ports:
-      - port: 80
-        targetPort: 8080
-      selector:
-        app: store-front
-      type: LoadBalancer
-    ```
+  For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
-
-    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+  If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
 
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
@@ -338,7 +110,7 @@ azd up runs the commands for the 2 hooks for pre-provision and post-provision. D
     kubectl apply -f aks-store-quickstart.yaml
     ```
 
-    The following sample output shows the deployments and services:
+    Your output shows the newly created deployments and services:
 
     ```output
     deployment.apps/rabbitmq created
@@ -353,7 +125,7 @@ azd up runs the commands for the 2 hooks for pre-provision and post-provision. D
 
 ## Test the application
 
-When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+When your application is created, a Kubernetes service exposes the application's front end service to the internet. This process can take a few minutes to complete. Once completed, follow these steps verify and test the application by opening up the store-front page.
 
 1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make sure all pods are `Running` before proceeding.
 
@@ -361,7 +133,7 @@ When the application runs, a Kubernetes service exposes the application front en
     kubectl get pods
     ```
 
-1. Check for a public IP address for the store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
+1. Check for a public IP address for the front end store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```azurecli
     kubectl get service store-front --watch
