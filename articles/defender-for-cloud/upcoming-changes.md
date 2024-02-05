@@ -52,7 +52,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date of change: March 6, 2024**
 
-Microsoft Defender for Cloud (MDC) is decommissioning the resource provider `Microsoft.SecurityDevOps` that was used during public preview of DevOps security, having migrated to the existing `Microsoft.Security` provider. The reason for the change is to improve customer experiences by reducing the number of resource providers associated with DevOps connectors.
+Microsoft Defender for Cloud is decommissioning the resource provider `Microsoft.SecurityDevOps` that was used during public preview of DevOps security, having migrated to the existing `Microsoft.Security` provider. The reason for the change is to improve customer experiences by reducing the number of resource providers associated with DevOps connectors.
 
 Customers that are still using the API version **2022-09-01-preview** under `Microsoft.SecurityDevOps` to query MDC DevOps security data will be impacted. To avoid disruption to their service, customer will need to update to the new API version **2023-09-01-preview** under the `Microsoft.Security` provider.
 
