@@ -167,10 +167,10 @@ In this example, the name of your key vault is expanded to the key vault URI, in
 
 ### Save a secret
 
-Now that the console app is authenticated, add a secret to the key vault. For this task, use the [SetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync) method. The method's first parameter accepts a name for the secret&mdash;"mySecret" in this sample.
+Now that the console app is authenticated, add a secret to the key vault. For this task, use the [SetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync) method. The method's first parameter accepts a name for the secret&mdash;"mySecret" in this sample. And the method's second parameter accepts a value for the secret—"mySecretPassword" in this sample.
 
 ```csharp
-await client.SetSecretAsync(secretName, secretValue);
+await client.SetSecretAsync("mySecret", "mySecretPassword");
 ```
 
 > [!NOTE]
@@ -182,14 +182,14 @@ await client.SetSecretAsync(secretName, secretValue);
 You can now retrieve the previously set value with the [GetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.getsecretasync) method.
 
 ```csharp
-var secret = await client.GetSecretAsync(secretName);
+var secret = await client.GetSecretAsync("mySecret");
 ```
 
 Your secret is now saved as `secret.Value`.
 
 ### Delete a secret
 
-Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) and [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient) methods.
+Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) and [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.purgedeletedsecretasync) methods.
 
 ```csharp
 var operation = await client.StartDeleteSecretAsync("mySecret");
