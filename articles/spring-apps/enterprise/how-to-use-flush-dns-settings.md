@@ -7,7 +7,7 @@ ms.author: hanren
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/22/2024
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Flush DNS settings changes in Azure Spring Apps

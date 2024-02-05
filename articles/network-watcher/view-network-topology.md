@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 07/20/2023
-ms.custom: template-how-to, devx-track-azurecli, ignite-2022, engagement-fy23
+ms.custom: template-how-to, devx-track-azurecli, engagement-fy23
 ---
 
 # View the topology of an Azure virtual network

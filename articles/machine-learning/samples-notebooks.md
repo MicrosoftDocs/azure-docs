@@ -11,7 +11,6 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 08/30/2022
-ms.custom: seodec18, ignite-2022
 #Customer intent: As a professional data scientist, I find and run example Jupyter Notebooks for Azure Machine Learning.
 ---
 
