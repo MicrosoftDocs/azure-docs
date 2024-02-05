@@ -6,7 +6,7 @@ ms.author: mbender
 ms.topic: conceptual
 ms.custom: references_regions, subject-reliability
 ms.service: load-balancer
-ms.date: 01/30/2024
+ms.date: 02/05/2024
 ---
 
 # Reliability in Load Balancer
@@ -123,7 +123,12 @@ The frontend's IP address is served simultaneously by multiple independent infra
 
 :::image type="content" source="../load-balancer/media/az-zonal/zone-redundant-lb-1.svg" alt-text="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration.":::
 
+>[!NOTE]
+>VMs 1,2, and 3 can be belong to the same subnet and don't necessarily have to be in separate zones as the diagram suggestions.
+
 Members in the backend pool of a load balancer are normally associated with a single zone such as with zonal virtual machines. A common design for production workloads would be to have multiple zonal resources. For example, placing virtual machines from zone 1, 2, and 3 in the backend of a load balancer with a zone-redundant frontend meets this design principle.
+
+
 
 
 ### Zonal load balancer
