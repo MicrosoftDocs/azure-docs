@@ -23,7 +23,7 @@ Defender for Servers offers two plan options with different levels of protection
 
 ## Enable the Defender for Servers plan
 
-You can [enable the Defender for Servers plan on an Azure subscription, AWS account, or GCP project](#enable-on-an-azure-subscription-aws-account-or-gcp-project), or [enable the plan at the resource level](#enable-the-plan-at-the-resource-level).
+You can [enable the Defender for Servers plan on an Azure subscription, AWS account, or GCP project](#enable-on-an-azure-subscription-aws-account-or-gcp-project), [the Log Analytics workspace level](#enable-the-plan-ate-the-workspace-level), or [enable the plan at the resource level](#enable-the-plan-at-the-resource-level).
 
 ## Enable on an Azure subscription, AWS account, or GCP project
 
@@ -75,7 +75,7 @@ When you enable the Defender for Servers plan, you're then given the option to s
 
 Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
 
-## Enable the plan ate the workspace level
+## Enable the plan at the workspace level
 
 When you enable Defender for Servers on your subscription, the coverage provided by Defender for Servers is not automatically extended to your workspaces. You need to enable Defender for Servers on each workspace. Defender for Servers on workspaces only supports Plan 2.
 
