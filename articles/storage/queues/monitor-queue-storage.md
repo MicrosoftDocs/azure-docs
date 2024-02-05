@@ -62,6 +62,10 @@ For a list of available metrics for Azure Queue Storage, see [Azure Queue Storag
 
 > [!IMPORTANT]
 > - On **January 9, 2024** Storage Analytics metrics, also referred to as *classic metrics*, retired. If you used classic metrics, see [Move from Storage Analytics metrics to Azure Monitor metrics](../common/storage-metrics-migration.md) to transition to metrics in Azure Monitor.
+
+> [!NOTE]
+> Azure Compute, not Azure Storage, supports metrics for managed disks or unmanaged disks. For more information, see [Per disk metrics for Managed and Unmanaged Disks](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
 <!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. 
