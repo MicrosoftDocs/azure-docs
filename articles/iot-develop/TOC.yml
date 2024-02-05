@@ -39,14 +39,6 @@
         href: quickstart-devkit-espressif-esp32-freertos-iot-hub.md
 - name: Tutorials
   items:
-    - name: Build a device solution with IoT Hub
-      items:
-      - name: Set up your environment
-        href: set-up-environment.md
-      - name: Connect a device to IoT Hub
-        href: tutorial-connect-device.md
-      - name: Interact with a device from your solution
-        href: tutorial-service.md
     - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
 - name: Concepts

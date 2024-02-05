@@ -549,6 +549,21 @@
       "source_path_from_root": "/articles/iot-develop/howto-convert-to-pnp.md",
       "redirect_url": "/azure/iot/howto-convert-to-pnp",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/set-up-environment.md",
+      "redirect_url": "/azure/iot/set-up-environment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/tutorial-connect-device.md",
+      "redirect_url": "/azure/iot/tutorial-connect-device",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/tutorial-service.md",
+      "redirect_url": "/azure/iot/tutorial-service",
+      "redirect_document_id": true
     }
   ]
 }

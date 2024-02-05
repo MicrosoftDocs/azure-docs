@@ -49,8 +49,6 @@ landingContent:
       links:
         - text: Use MQTT to connect without a device SDK
           url: tutorial-use-mqtt.md
-        - text: Connect a sample device to IoT Hub
-          url: tutorial-connect-device.md
     - linkListType: concept
       links:
         - text: Manage device reconnections
