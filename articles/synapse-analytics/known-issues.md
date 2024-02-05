@@ -152,26 +152,27 @@ In the context of updating tag values within an Azure Synapse workspace, the inc
 
 **Workaround**: The current workaround is to abstain from using the square brackets (`[]`) in Azure Synapse workspace tag values.
 
-### Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates
+### Deployment failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates
 
 The failure occurs during the deployment to production and is related to a trigger that contains a host name with a double backslash. 
+
 The error message displayed is "Action failed - Error: Orchestrate failed - SyntaxError: Unexpected token in JSON at position 2057".
 
-**Workaround**: Following actions can be taken as quick mitigations:
+**Workaround**: Following actions can be taken as quick mitigation:
 
-1) Remove Escape Characters: Manually remove any escape characters (\) from the parameters file before deployment. This means editing the file to eliminate these characters that could be causing issues during the parsing or processing stage of the deployment.
-2) Replace Escape Characters with Forward Slashes: Replace the escape characters (\) with forward slashes (/). This can be particularly useful in file paths, where many systems accept forward slashes as valid path separators. This replacement might help in bypassing the problem with escape characters, allowing the deployment process to succeed.
+- **Remove escape characters:** Manually remove any escape characters (`\`) from the parameters file before deployment. This means editing the file to eliminate these characters that could be causing issues during the parsing or processing stage of the deployment.
+- **Replace escape characters with Forward Slashes:** Replace the escape characters (`\`) with forward slashes (`/`). This can be particularly useful in file paths, where many systems accept forward slashes as valid path separators. This replacement might help in bypassing the problem with escape characters, allowing the deployment process to succeed.
 
-After applying either of these workarounds and successfully deploying, the customer should manually update the necessary configurations within the workspace to ensure everything is set up correctly. This might involve editing configuration files, adjusting settings, or performing other tasks relevant to the specific environment or application being deployed.
+After applying either of these workarounds and successfully deploying, manually update the necessary configurations within the workspace to ensure everything is set up correctly. This might involve editing configuration files, adjusting settings, or performing other tasks relevant to the specific environment or application being deployed.
 
-## Recently Closed Known issues
+## Recently closed known issues
 
 |Synapse Component|Issue|Status|Date Resolved
 |---------|---------|---------|---------|
-|Azure Synapse serverless SQL pool|[Queries using Microsoft Entra authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023
-|Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023
-|Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023
-|Azure Synapse Apache Spark pool|[Certain spark job or task fails too early with Error Code 503 due to storage account throttling](#certain-spark-job-or-task-fails-too-early-with-error-code-503-due-to-storage-account-throttling)|Resolved|November 2023
+|Azure Synapse serverless SQL pool|[Queries using Microsoft Entra authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023|
+|Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023|
+|Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023|
+|Azure Synapse Apache Spark pool|[Certain spark job or task fails too early with Error Code 503 due to storage account throttling](#certain-spark-job-or-task-fails-too-early-with-error-code-503-due-to-storage-account-throttling)|Resolved|November 2023|
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
 
@@ -207,7 +208,7 @@ Between October 3, 2023 and November 16, 2023, few Azure Synapse Analytics Apach
 
 **Status**: Resolved
 
-## Next steps
+## Related content
 
 - [Synapse Studio troubleshooting](troubleshoot/troubleshoot-synapse-studio.md)
 - [Troubleshoot serverless SQL pool in Azure Synapse Analytics](sql/resources-self-help-sql-on-demand.md)
