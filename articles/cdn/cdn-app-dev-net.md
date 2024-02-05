@@ -2,7 +2,6 @@
 title: Get started with the Azure CDN Library for .NET | Microsoft Docs
 description: Learn how to write .NET applications to manage Azure CDN using Visual Studio.
 services: cdn
-documentationcenter: .net
 author: duongau
 manager: kumudd
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca

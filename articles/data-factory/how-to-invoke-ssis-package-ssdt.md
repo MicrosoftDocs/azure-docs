@@ -1,12 +1,11 @@
 ---
-title: Execute SSIS packages from SSDT 
-description: Learn how to execute SSIS packages in Azure from SSDT. 
+title: Execute SSIS packages from SSDT
+description: Learn how to execute SSIS packages in Azure from SSDT.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
-ms.custom: seo-lt-2019
 ms.date: 07/17/2023
 ---
 

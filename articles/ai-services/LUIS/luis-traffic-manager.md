@@ -6,7 +6,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.devlang: javascript
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 #services: cognitive-services
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis

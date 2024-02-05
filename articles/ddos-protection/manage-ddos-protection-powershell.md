@@ -7,8 +7,8 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 05/23/2023
-ms.author: abell 
-ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
+ms.author: abell
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 # QuickStart: Create and configure Azure DDoS Network Protection using Azure PowerShell
 

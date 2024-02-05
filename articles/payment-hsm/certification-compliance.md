@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: payment-hsm
 ms.workload: security
 ms.topic: article
-ms.date: 03/25/2023
+ms.date: 01/31/2024
 ms.author: mbaldwin
 ---
 
@@ -33,7 +33,7 @@ Azure payment HSM meets following compliance standards:
 - SOC 1, 2, 3
 - Germany C5
 
-To download latest certification and attestation reports, please go to [Service Trust Portal Home Page (microsoft.com)](https://servicetrust.microsoft.com/ViewPage/HomePageVNext)
+To download latest certification and attestation reports, go to [Service Trust Portal Home Page (microsoft.com)](https://servicetrust.microsoft.com/ViewPage/HomePageVNext)
 
 For example, the latest PCI certification reports and shared responsibility matrices are:
 - [Azure - PCI PIN 3.1 Package (September 2023)](https://servicetrust.microsoft.com/DocumentPage/8265dc10-540f-4178-b167-b333775ddc6b) (2023-09-14)
