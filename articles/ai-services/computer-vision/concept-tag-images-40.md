@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
 ---
 
 # Image tagging (version 4.0)
@@ -148,4 +147,3 @@ The tagging feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref
 
 * Learn the related concept of [describing images](concept-describe-images-40.md).
 * [Call the Analyze Image API](./how-to/call-analyze-image-40.md)
-

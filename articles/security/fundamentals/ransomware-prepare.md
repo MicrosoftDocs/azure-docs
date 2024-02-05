@@ -4,7 +4,6 @@ description: Prepare for a ransomware attack
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
-ms.custom: ignite-2022
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 01/10/2022

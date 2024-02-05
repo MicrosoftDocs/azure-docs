@@ -686,13 +686,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/deploy-content-sync.md",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-web/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -1240,6 +1245,11 @@
             "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/app-service/quickstart-golang.md",
+            "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
+            "redirect_document_id": false
+        },        
         {
             "source_path_from_root": "/articles/app-service/app-service-web-get-started-dotnet.md",
             "redirect_url": "/azure/app-service/quickstart-dotnetcore",
@@ -2638,6 +2648,11 @@
         {
             "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
             "redirect_url": "/aspnet/core/security/authorization/secure-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/quickstart-dotnet-framework.md",
+            "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48",
             "redirect_document_id": false
         }
     ]

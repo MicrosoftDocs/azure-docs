@@ -209,7 +209,7 @@
               - name: Train with MLflow Projects
                 displayName: log, monitor, metrics, model registry, register
                 href: how-to-train-mlflow-projects.md
-              - name: Log metrics, parameters and files
+              - name: Log metrics, parameters, and files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
               - name: Log MLflow models
@@ -347,10 +347,13 @@
         href: how-to-create-image-labeling-projects.md
       - name: Create text labeling projects
         displayName: data, dataset
-        href: how-to-create-text-labeling-projects.md
+        href: how-to-create-text-labeling-projects.md 
       - name: Add users
         displayName: data, dataset, labeling
         href: how-to-add-users.md
+    - name: Manage labeling projects
+      displayName: data, dataset
+      href: how-to-manage-labeling-projects.md      
     - name: Label images and text
       displayName: data, dataset, labeling
       href: how-to-label-data.md

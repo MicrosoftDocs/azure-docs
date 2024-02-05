@@ -30,6 +30,7 @@ Unlike earlier versions, the FTPS endpoints for your App Services on your App Se
 ## Prerequisites
 
 - ILB variation of App Service Environment v3.
+- The Azure Key Vault that has the certificate must be publicly accessible to fetch the certificate. 
 - Valid SSL/TLS certificate must be stored in an Azure Key Vault in .PFX format. For more information on using certificates with App Service, see [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).
 
 ### Managed identity

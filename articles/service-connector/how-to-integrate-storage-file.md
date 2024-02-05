@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 02/02/2024
 ms.custom: event-tier1-build-2022
 ---
 # Integrate Azure Files with Service Connector
@@ -14,6 +14,8 @@ This page shows supported authentication methods and clients, and shows sample c
 
 ## Supported compute services
 
+Service Connector can be used to connect the following compute services to Azure Files:
+
 - Azure App Service
 - Azure Functions
 - Azure Container Apps
@@ -21,7 +23,7 @@ This page shows supported authentication methods and clients, and shows sample c
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Files using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 | Client Type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -33,6 +35,8 @@ Supported authentication and clients for App Service, Azure Functions, Container
 | PHP                | No                               | No                             | Yes                        | No                |
 | Ruby               | No                               | No                             | Yes                        | No                |
 | None               | No                               | No                             | Yes                        | No                |
+
+This table indicates that the only supported authentication method for all client types is the Secret / connection string method. The System-assigned managed identity, User-assigned managed identity, and Service principal methods are not supported for any of the client types to connect to Azure Files.
 
 ## Default environment variable names or application properties and sample code
 

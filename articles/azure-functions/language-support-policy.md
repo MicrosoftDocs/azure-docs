@@ -50,8 +50,9 @@ To learn more about specific language version support policy timeline, visit the
 
 |Language                         | Configuration guides         |
 |-----------------------------------------|-----------------|
-|C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
 |C# (isolated worker model) |[link](./dotnet-isolated-process-guide.md#supported-versions)|
+|C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
+|Java |[link](./update-language-versions.md#update-the-stack-configuration)|
 |Node |[link](./functions-reference-node.md#setting-the-node-version)|
 |PowerShell |[link](./functions-reference-powershell.md#changing-the-powershell-version)|
 |Python |[link](./functions-reference-python.md#python-version)|

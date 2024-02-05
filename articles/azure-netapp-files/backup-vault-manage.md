@@ -24,7 +24,7 @@ Although it's possible to create multiple backup vaults in your Azure NetApp Fil
 
 1. Select **+ Add Backup Vault**. Assign a name to your backup vault then select **Create**.
 
-  :::image type="content" source="../media/azure-netapp-files/backup-vault-create.png" alt-text="Screenshot of backup vault creation." lightbox="../media/azure-netapp-files/backup-vault-create.png":::
+  :::image type="content" source="./media/backup-vault-manage/backup-vault-create.png" alt-text="Screenshot of backup vault creation." lightbox="./media/backup-vault-manage/backup-vault-create.png":::
 
 ## Migrate backups to a backup vault
 
@@ -36,7 +36,7 @@ If you have existing backups, you must migrate them to a backup vault before you
 
     If there are backups from volumes that have been deleted that you want to migrate, select **Include backups from Deleted Volumes**. This option will only be enabled if backups from deleted volumes are present. 
 
-   :::image type="content" source="../media/azure-netapp-files/backup-vault-assign.png" alt-text="Screenshot of backup vault assignment." lightbox="../media/azure-netapp-files/backup-vault-assign.png":::
+   :::image type="content" source="./media/backup-vault-manage/backup-vault-assign.png" alt-text="Screenshot of backup vault assignment." lightbox="./media/backup-vault-manage/backup-vault-assign.png":::
 
 1. Navigate to the **Backup Vault** menu to view and manage your backups.
 
@@ -45,7 +45,7 @@ If you have existing backups, you must migrate them to a backup vault before you
 1. Navigate to the **Backup Vault** menu.
 1. Identify the backup vault you want to delete and select the three dots `...` next to the backup's name. Select **Delete**. 
 
-    :::image type="content" source="../media/azure-netapp-files/backup-vault-delete.png" alt-text="Screenshot of deleting a backup vault." lightbox="../media/azure-netapp-files/backup-vault-delete.png":::
+    :::image type="content" source="./media/backup-vault-manage/backup-vault-delete.png" alt-text="Screenshot of deleting a backup vault." lightbox="./media/backup-vault-manage/backup-vault-delete.png":::
 
 ## Next steps
 
