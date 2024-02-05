@@ -93,13 +93,11 @@ callClient.createCallAgent(userCredential: userCredential) { callAgent, error in
 ```
 
 
-|Class Name | Description          |
+| Class Name | Description          |
 |-----------|----------------------|
 |[CallClient](/objectivec/communication-services/calling/acscallclient) | The main class representing the entry point for the Calling SDK.|
 |[CommunicationTokenCredential](https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/Classes/CommunicationTokenCredential.html)| The Azure Communication Services User token credential|
 |[CallAgent](/objectivec/communication-services/calling/acscallagent)|The class responsible of managing calls on behalf of the authenticated user |
----------------------------
-
 
 ## Initiating an outgoing call 
 

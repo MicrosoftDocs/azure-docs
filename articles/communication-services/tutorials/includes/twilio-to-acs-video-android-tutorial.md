@@ -107,7 +107,7 @@ val callAgent: CallAgent = CallClient().createCallAgent(
 
 #### Class reference
 
-|Class Name | Description          |
+| Class Name | Description          |
 |-----------|----------------------|
 |[CallClient](/java/api/com.azure.android.communication.calling.callclient?view=communication-services-java-android) | The class serving as the entry point for the Calling SDK.|
 | CommunicationTokenCredential | The Azure Communication Services User token credential|
@@ -823,7 +823,7 @@ call.hangUp(HangUpOptions().apply { isForEveryone = true }).get()
 | Class Name  | Description          |
 |-----------|----------------------|
 |[Call](/java/api/com.azure.android.communication.calling.call?view=communication-services-java-android) | Describes a call |
-|[HangUpOptions](/java/api/com.azure.android.communication.calling.hangupoptions?view=communication-services-java-android)| Property bag class for hanging up a call |
+|[HangUp Options](/java/api/com.azure.android.communication.calling.hangupoptions?view=communication-services-java-android)| Property bag class for hanging up a call |
 
-# Cleaning Up
-If you want to [clean up and remove a Communication Services subscription](../../quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources), you can delete the resource or resource group.
+## Cleaning Up
+If you want to [clean up and remove a Communication Services subscription](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp#clean-up-resources), you can delete the resource or resource group.
