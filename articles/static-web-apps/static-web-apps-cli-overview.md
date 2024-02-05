@@ -1,11 +1,11 @@
 ---
-title: Install Azure Static Web Apps CLI
-description: Learn how to install Azure Static Web Apps CLI
+title: About the Azure Static Web Apps CLI
+description: Learn how to use the Azure Static Web Apps CLI
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 02/02/2024
+ms.date: 02/05/2024
 ms.author: cshoe
 ---
 
