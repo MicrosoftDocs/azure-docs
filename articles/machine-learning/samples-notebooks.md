@@ -10,7 +10,7 @@ ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 08/30/2022
+ms.date: 02/05/2024
 ms.custom: seodec18, ignite-2022
 #Customer intent: As a professional data scientist, I find and run example Jupyter Notebooks for Azure Machine Learning.
 ---
@@ -47,32 +47,40 @@ If you'd like to bring your own notebook server for local development, follow th
 
 These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
-
 ## Option 3: Access on a DSVM
 
 The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
 1. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-1. Download a workspace configuration file:
-
-    * Sign in to [Azure Machine Learning studio](https://ml.azure.com)
-    * Select your workspace settings in the upper right
-    * Select **Download config file**
-
-    ![Screenshot of download config.json.](./media/aml-dsvm-server/download-config.png)
-
-1. From the directory where you added the configuration file, clone the [the AzureML-Examples repository](https://aka.ms/aml-notebooks).
+1. Clone the [the AzureML-Examples repository](https://aka.ms/aml-notebooks).
 
     ```bash
     git clone https://github.com/Azure/azureml-examples.git --depth 1
     ```
 
-1. Start the notebook server from the directory, which now contains the clone and the config file.
+1. Start the notebook server from the directory which contains the clone.
 
     ```bash
     jupyter notebook
     ```
+
+## Connect to a workspace
+
+Some of the sample use `MLClient.from_config()` to connect to a workspace.  For these samples to work, you'll need to a configuration file in the directory where you run the notebook, or a parent directory.
+
+The configuration file is created for you on the Azure Machine Learning compute instance.  To use the code on your own notebook server or DSVM, create the configuration file manually.  Use either of the following methods:
+
+* Write a [configuration file](../how-to-configure-environment.md#) file (**aml_config/config.json**) in the root of your cloned repository.
+
+* Download the workspace configuration file:
+
+    * Sign in to [Azure Machine Learning studio](https://ml.azure.com)
+    * Select your workspace settings in the upper right
+    * Select **Download config file**
+    * Place the file in the root of your cloned repository.
+
+    ![Screenshot of download config.json.](./media/aml-dsvm-server/download-config.png)
 
 ## Next steps
 
@@ -82,6 +90,6 @@ For more examples of MLOps, see [https://github.com/Azure/mlops-v2](https://gith
 
 Try these tutorials:
 
-- [Train and deploy an image classification model with MNIST](tutorial-train-deploy-notebook.md)
+- [Quickstart: Get started with Azure Machine Learning](tutorial-azure-ml-in-a-day.md)
 
 - [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md)
