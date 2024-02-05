@@ -20,6 +20,27 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## February 2024
+
+|Date | Update |
+|----------|----------|
+| February 5, 2024 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
+
+### Recommendations released for preview: four recommendations for Azure Stack HCI resource type
+
+February 5, 2024
+
+We have added four new recommendations for Azure Stack HCI as a new resource type that can be managed through Microsoft Defender for Cloud. These new recommendations are currently in public preview.
+
+| Recommendation | Description  | Severity |
+|----------|----------|----------|
+| Azure Stack HCI servers should meet Secured-core requirements | Ensure that all Azure Stack HCI servers meet the Secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
+| Azure Stack HCI servers should have consistently enforced application control policies | At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) policies must be consistent across servers in the same cluster. | High |
+| Azure Stack HCI systems should have encrypted volumes | Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems | High |
+| Host and VM networking should be protected on Azure Stack HCI systems | Protect data on the Azure Stack HCI host’s network and on virtual machine network connections. | Low |
+
+See the [list of security recommendations](recommendations-reference.md).
+
 ## January 2024
 
 |Date | Update |
