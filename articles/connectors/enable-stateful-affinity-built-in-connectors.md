@@ -60,8 +60,20 @@ To run these connector operations in stateful mode, you must enable this capabil
 
 After you enable virtual network integration for your logic app, you must update your logic app's underlying website configuration (**<*logic-app-name*>.azurewebsites.net**) by using one the following methods:
 
+- [Azure Portal](#azure-portal) (bearer token not required)
 - [Azure Resource Management API](#azure-resource-management-api) (bearer token required)
 - [Azure PowerShell](#azure-powershell) (bearer token *not* required)
+
+### Azure Portal
+
+This method involves using the Azure portal to configure VNet private ports. Here are the steps:
+
+1. **Log in** to your Azure portal.
+1. Navigate to your **Logic App**.
+1. In the Logic App page, go to **Settings**.
+1. Under Settings, select **Configuration**.
+1. In the Configuration page, go to **General Settings**.
+1. Finally, in the Platform Settings section, you can configure your **VNet Private Ports**.
 
 ### Azure Resource Management API
 
