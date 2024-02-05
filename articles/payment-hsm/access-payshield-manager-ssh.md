@@ -72,6 +72,10 @@ The Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-az
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
 ```
 
+# [Portal](#tab/azure-portal)
+
+Create your VM subnet using either Azure CLI or Azure PowerShell. You can use the portal to [Create a VM](#create-a-vm).
+
 ---
 
 ## Create a VM
