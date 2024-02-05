@@ -28,14 +28,6 @@ With Microsoft Entra authentication, you can manage database user identities and
 - Support of token-based authentication for applications connecting to Azure Database for PostgreSQL flexible server
 
 
- **To configure and use Microsoft Entra authentication, use the following process:**
-
-1. Create and populate Microsoft Entra ID with user identities as needed.
-2. Optionally associate or change the Active Directory currently associated with your Azure subscription.
-3. Create a Microsoft Entra administrator for the Azure Database for PostgreSQL server.
-4. Create database users in your database mapped to Microsoft Entra identities.
-5. Connect to your database by retrieving a token for a Microsoft Entra identity and logging in.
-
 <a name='azure-active-directory-authentication-single-server-vs-flexible-server'></a>
 
 ## Microsoft Entra authentication (Azure Database for PostgreSQL single Server vs Azure Database for PostgreSQL flexible server)
@@ -111,7 +103,10 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 * **What are different authentication modes available in Azure Database for PostgreSQL Flexible Server?**
  
-   Azure Database for PostgreSQL flexible server supports three modes of authentication namely **PostgreSQL authentication only** , **Microsoft Entra authentication only** and **PostgreSQL and Microsoft Entra authentication**
+   Azure Database for PostgreSQL flexible server supports three modes of authentication namely 
+**PostgreSQL authentication only**  
+**Microsoft Entra authentication only** and 
+**PostgreSQL and Microsoft Entra authentication**.
 
 * **Can I configure multiple Microsoft Entra administrators on my Flexible Server?**
   
@@ -124,6 +119,9 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 * **Can Microsoft Entra administrator create local password based users?**
   
    Unlike the PostgreSQL administrator, who can only create local password-based users, the Microsoft Entra administrator has the authority to manage both Entra users and local password-based users.
+
+* **how can i differentiate a postgresql administrator from a Microsoft Entra administrator from PostgreSQL roles?**
+Microsoft
 
 * **What happens when i enable Microsoft Entra Authentication on my flexible server?**
   
