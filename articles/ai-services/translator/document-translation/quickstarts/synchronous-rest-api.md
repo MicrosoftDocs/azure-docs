@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 01/31/2024
+ms.date: 02/05/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -59,17 +59,23 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
 To call the synchronous translation feature via the [REST API](../reference/synchronous-rest-api-guide.md), you need to include the following headers with each request. Don't worry, we include the headers for you in the sample code.
 
+> [!NOTE]
+> All cURL flags and command line options are **case-sensitive**.
+
 |Query parameter&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|Description| Condition|
 |---------|---------|----|
-|`-X POST`|The -X flag specifies the request method to access the API.|***Required*** |
+|`-X` or `--request` `POST`|The -X flag specifies the request method to access the API.|***Required*** |
 |`{endpoint}`  |The URL for your Document Translation resource endpoint|***Required*** |
 |`targetLanguage`|Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|***Required*** |
-|`sourceLanguage`|Specifies the language of the input document. If the from parameter isn't specified, automatic language detection is applied to determine the source language. |***Optional***|
-|`--header "Ocp-Apim-Subscription-Key:{KEY}`    | Specifies the Document Translation resource key authorizing access to the API.|***Required***|
-|&bull; `document=`<br> &bull; `type=`|&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|***Required***|
-|`--form` |The filepath to the document that you want to include with your request. Only one source document is allowed.|***Required***|
-|`--form` |The filepath to an optional glossary to include with your request. The glossary requires a separate `--form` flag.|***Optional***|
-|`--output`|The filepath to the response results.|***Required***|
+|`sourceLanguage`|Specifies the language of the input document. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language. |***Optional***|
+|`-H` or `--header` `"Ocp-Apim-Subscription-Key:{KEY}`    | Request header that specifies the Document Translation resource key authorizing access to the API.|***Required***|
+|`-F` or `--form` |The filepath to the document that you want to include with your request. Only one source document is allowed.|***Required***|
+|&bull; `document=`<br> &bull; `type={contentType}/fileExtension` [^1] |&bull; Path to the file location for your source document.</br> &bull; Content type and file extension.</br></br>  Ex: **"document=@C:\Test\test-file.md;type=text/markdown**|***Required***|
+|`-o` or `--output`|The filepath to the response results.|***Required***|
+|`-F` or `--form` |The filepath to an optional glossary to include with your request. The glossary requires a separate `--form` flag.|***Optional***|
+| &bull; `glossary=`<br> &bull; `type={contentType}/fileExtension` [^1]|&bull; Path to the file location for your optional glossary file.</br> &bull; Content type and file extension.</br></br>  Ex: **"glossary=@C:\Test\glossary-file.txt;type=text/plain**|***Optional***|
+
+[^1]: For more information about **`ContentType`**, see [Synchronous translation: support doucment formats](../overview.md#synchronous-supported-document-formats)
 
 ## Build and run the POST request
 
@@ -80,18 +86,21 @@ To call the synchronous translation feature via the [REST API](../reference/sync
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
 
-   ***command prompt / terminal***
+   ***command prompt / terminal [^2]***
 
     ```bash
 
-    curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  --form "document={path-to-your-document-with-file-extension};type=text/{file-extension}" -form "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
+    curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type=text/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" -o "{path-to-output-file}"
     ```
 
-    ***PowerShell***
+    ***PowerShell [^2]***
 
     ```powershell
-    cmd /c curl "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" --form "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
+    cmd /c curl "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  -H "Ocp-Apim-Subscription-Key: {your-key}" -F "{path-to-your-document-with-file-extension};type=text/{file-extension}" -o "{path-to-output-file}
+
     ```
+
+  [^2]: For more information [Query parameters](#headers-and-parameters).
 
 ***Upon successful completion***:
 

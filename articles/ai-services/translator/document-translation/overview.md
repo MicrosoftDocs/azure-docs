@@ -112,19 +112,19 @@ Document Translation supports the following glossary file types:
 
 ### Synchronous supported document formats
 
-|File type| File extension|Description|
-|---|---|--|
-|HTML|`html`, `htm`|Hyper Text Markup Language.|
-|Plain Text|`txt`| An unformatted text document.|
-|M&#8203;HTML|`mthml`, `mht`| A web page archive format used to combine HTML code and its companion resources.|
-|Microsoft Excel|`xls`, `xlsx`|A spreadsheet file for data analysis and documentation.|
-|Microsoft Outlook|`msg`|An email message created or saved within Microsoft Outlook.|
-|Microsoft PowerPoint|`ppt`, `pptx`| A presentation file used to display content in a slideshow format.|
-|Microsoft Word|`doc`, `docx`| A text document file.|
-|OpenDocument Text|`odt`|An open-source text document file.|
-|OpenDocument Presentation|`odp`|An open-source presentation file.|
-|OpenDocument Spreadsheet|`ods`|An open-source spreadsheet file.|
-|OneNoteJson|`json`|
+|File type| Content type|File extension|Description|
+|---|---|--|---|
+|**PlainText**|`text/plain`|`.txt`| An unformatted text document.|
+|**TabSeparatedValues**|`text/tab-separated-values`|`.txv`, `.tab`|A text file format that uses tabs to separate values and newlines to separate records.|
+|**CommaSeparatedValues**|`text/csv`|`.csv`|A text file format that uses commas as a delimiter between values.|
+|**HyperText Markup Language**|`text/html`|`.html`, `.htm`|HTML is a standard markup language used to structure web pages and content .|
+|**M&#8203;HTML**|`message/rfc822`, @`application/x-mimearchive`, @`multipart/related` |`.mthml`, `.mht`| A web page archive file format.|
+|**OfficeOpenXml**|`application/vnd.openxmlformats-officedocument`|`.xml`, `.ooxml`|An XML-based file format used for Microsoft Word, Microsoft Excel, and Microsoft PowerPoint documents.|
+|**OpenXmlPresentation**|`application/vnd.openxmlformats-officedocument.presentationml.presentation` |`.pptx`|An XML-based file format used for Microsoft PowerPoint slideshow presentations.|
+|**OpenXmlSpreadsheet**|`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`| `.xlsx`| An XML-based file format used for Microsoft Excel spreadsheets.|
+|**OpenXmlWord**|`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`|`.docx`| An XML-based file format used for Microsoft Word documents.|
+|**OutlookMailMessage**|`application/vnd.ms-outlook`|`.msg`|A file format used for stored Outlook mail message objects.|
+|**XmlLocalizationInterchange**|`application/xliff+xml` |`.xlf`, `xliff`|A standardized XML-based file format widely used in translation and localization software processing.|
 
 ### Synchronous supported glossary formats
 
@@ -132,9 +132,9 @@ Document Translation supports the following glossary file types:
 
 | File type| File extension|Description|
 |---|---|--|
-|Comma-Separated Values| `csv` |A comma-delimited raw-data file used by spreadsheet programs.|
-|Localization Interchange File Format| `xlf` , `xliff`| An XML-based format designed to standardize how data is passed during the localization process. |
-|Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
+|**Comma-Separated Values**| `csv` |A comma-delimited raw-data file used by spreadsheet programs.|
+|**XmlLocalizationInterchange**| `xlf` , `xliff`| An XML-based format designed to standardize how data is passed during the localization process. |
+|**TabSeparatedValues**|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 
 ## Document Translation Request limits
 
