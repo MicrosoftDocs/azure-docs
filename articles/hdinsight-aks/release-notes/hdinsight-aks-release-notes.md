@@ -3,7 +3,7 @@ title: Release notes for Azure HDInsight on AKS
 description: Latest release notes for Azure HDInsight on AKS. Get development tips and details for Trino, Flink, Spark, and more.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 12/20/2023
+ms.date: 02/05/2024
 ---
 
 # Azure HDInsight on AKS release notes
@@ -21,21 +21,49 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ## Release Information
 
-### Release date: December 13, 2023
+### Release date: February 05, 2024
 
-**This hotfix release applies to the following**
+**This release applies to the following**
 
 - Cluster Pool Version: 1.0
-- Cluster Version: 1.0.6
+- Cluster Version: 1.1,0
+- AKS version – 1.27
 
-#### Known Issues
+### New Features
 
-- **Secure Tenants User Interface Support**
-  -   This release addresses an issue where the open source component web URLs for HDInsight on AKS Clusters were inaccessible. For applying this fix, please reach out to Azure support to enable this on your subscription/tenant.
- 
-  **How to apply the Hotfix**
-  -  Recreate Your Cluster
-      -  To apply this hotfix, existing users are required to recreate their [cluster](../quickstart-create-cluster.md) on an existing cluster pool. 
+- Workload Identity support by default from 1.1 release.
+- Trino clusters will support Trino 426 from 1.1.x release
+- Trino cluster shape adds simplified hive metastore and catalogs configuration
+- Trino cluster shape now supports load-based autoscale
+- Trino cluster shape adds sharded sql connector
+- Flink clusters will now support Flink 1.17 from 1.1.x release
+- Flink SQL Gateway is now supported from 1.1.x release of Flink on session clusters.
+
+### Bug Fixes
+- [Trino] Create failed due to an internalservererror Http2ConnectionException
+- Trino cluster shape  improves system catalogs caching
+- Trino cluster shape improves PowerBI timestamp timezones handling
+
+### Known issues
+
+- Cluster clean up via resource group
+
+### Coming soon
+
+- Script action Phase-2
+  - Phase-2 of Script action provides a more robust framework for cluster customization
+- Spark 3.4 Upgrade – HDInsight on AKS
+  - The new version of Apache Spark ™ comes with a host of new features Spark connect, timestamp without timezone etc.
+- Lib Management –Improvements
+  - Library management users can now will add libraries from public maven repositories.
+- MSI based SQL authentication
+  - Users can  leverage Managed Identity instead of plain-text credentials to authenticate to metastore.
+- Flink App Mode  
+  - Flink Application mode clusters are designed to support dedicated resources for big and long-running jobs. When you have resource-intensive or extensive data processing tasks, you can use the Application Mode Cluster. This mode allows you to allocate dedicated resources for specific Flink applications, ensuring that they have the necessary computing power and memory to handle large workloads effectively.
+
+### New regions
+- East Asia
+
  
 ### Operating System version
 
@@ -45,8 +73,8 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 |Workload|Version|
 | -------- | -------- |
-|Trino | 410 |
-|Flink | 1.16 |
+|Trino | 426 |
+|Flink | 1.17 |
 |Apache Spark | 3.3.1 |
 
 **Supported Java and Scala versions**
@@ -59,7 +87,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 The preview is available in the following [regions](../overview.md#region-availability-public-preview).
 
-If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) or refer to the [Support options](../hdinsight-aks-support-help.md) page.
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) or refer to the [Support options](../hdinsight-aks-support-help.md) page. If you have product specific feedback, please write to us on [aka.ms/askhdinsight](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR6HHTBN7UDpEhLm8BJmDhGJURDhLWEhBVE5QN0FQRUpHWDg4ODlZSDA4RCQlQCN0PWcu).
 
 ### Next steps
 
