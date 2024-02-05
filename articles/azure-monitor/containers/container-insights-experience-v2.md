@@ -30,7 +30,7 @@ Once the above steps are complete, you may access the container insights visuali
 
 3.) Select the Insights menu item from the menu, which should display the following experience
 
-    :::image type="content" source="media/container-insights-experience-v2/container-insights-prometheus-based.png" alt-text="Screenshot of AKS cluster with Prometheus based container insights." lightbox="media/container-insights-experience-v2/container-insights-prometheus-based.png" :::
+:::image type="content" source="media/container-insights-experience-v2/container-insights-prometheus-based.png" alt-text="Screenshot of AKS cluster with Prometheus based container insights." lightbox="media/container-insights-experience-v2/container-insights-prometheus-based.png" :::
 
 ## Optional steps
 
@@ -42,15 +42,15 @@ By default the labels for nodes and pods are not available, but can be collected
 
 1.) If the managed Prometheus addon is currently deployed, we must first disable it
 
-    ```azurecli
-    az aks update --disable-azure-monitor-metrics -n <clusterName> -g <resourceGroup>
-    ```
+```azurecli
+az aks update --disable-azure-monitor-metrics -n <clusterName> -g <resourceGroup>
+```
 
 2.) Then, re-enable the addon with the additional flag `--ksm-metric-labels-allow-list`
     
-    ```azurecli
-    az aks update -n <clusterName> -g <resourceGroup> --enable-azure-monitor-metrics --ksm-metric-labels-allow-list "nodes=[*], pods=[*]" --azure-monitor-workspace-resource-id <amw-id
-    ```
+```azurecli
+az aks update -n <clusterName> -g <resourceGroup> --enable-azure-monitor-metrics --ksm-metric-labels-allow-list "nodes=[*], pods=[*]" --azure-monitor-workspace-resource-id <amw-id
+```
 
 ### Disable Log Analytics data collection
 
