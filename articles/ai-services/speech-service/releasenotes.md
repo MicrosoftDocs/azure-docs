@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: release-notes
-ms.date: 2/1/2024
+ms.date: 1/21/2024
 ms.custom: references_regions
 ---
 
