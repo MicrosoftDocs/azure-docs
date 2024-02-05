@@ -5,7 +5,7 @@ author: sshiba
 ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/15/2023
+ms.date: 02/05/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -41,9 +41,9 @@ export MANAGED_RESOURCE_GROUP="contoso-cluster-managed-rg"
 export CLUSTER_NAME="contoso-cluster"
 ```
 
-## Defaults for Runtime Protection
-The runtime protection sets to following default values when you deploy an Undercloud cluster
-- Enforcement Level: `OnDemand`
+## Defaults for MDE Runtime Protection
+The runtime protection sets to following default values when you deploy a cluster
+- Enforcement Level: `OnDemand` if not specified when creating the cluster
 - MDE Service: `Enabled`
 
 > [!NOTE]
@@ -64,7 +64,16 @@ az networkcloud cluster update \
 --runtime-protection enforcement-level="<enforcement level>"
 ```
 
-Allowed values for `<enforcement level>`: `Audit`, `Disabled`, `OnDemand`, `Passive`, `RealTime`. 
+Allowed values for `<enforcement level>`: `Disabled`, `RealTime`, `OnDemand`, `Passive`.
+- `Disabled`: Real-time protection is turned off and no scans are performed.
+- `RealTime`: Real-time protection (scan files as they're modified) is enabled.
+- `OnDemand`: Files are scanned only on demand. In this:
+  - Real-time protection is turned off.
+- `Passive`: Runs the antivirus engine in passive mode. In this:
+  - Real-time protection is turned off: Threats are not remediated by Microsoft Defender Antivirus.
+  - On-demand scanning is turned on: Still use the scan capabilities on the endpoint.
+  - Automatic threat remediation is turned off: No files will be moved and security admin is expected to take required action.
+  - Security intelligence updates are turned on: Alerts will be available on security admins tenant.
 
 You can confirm that enforcement level was updated by inspecting the output for the following json snippet:
 
@@ -75,7 +84,7 @@ You can confirm that enforcement level was updated by inspecting the output for 
 ```
 
 ## Triggering MDE scan on all nodes
-To trigger an MDE scan on all nodes of an Undercloud cluster, use the following command:
+To trigger an MDE scan on all nodes of a cluster, use the following command:
 
 ```bash
 az networkcloud cluster scan-runtime \
