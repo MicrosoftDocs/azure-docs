@@ -74,7 +74,7 @@ The following table lists the different tools available for performing the migra
 | pg_dump and pg_restore | Offline | - Tried and tested tool that is in use for a long time<br />- Suited for databases of size less than 10 GB<br />| - Need prior knowledge of setting up and using this tool<br />- Slow when compared to other tools<br />Significant downtime to your application. |
 
 > [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in Central US, France Central, Germany West Central, North Central US, South Central US, North Europe, all West US regions, UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in France Central, Germany West Central, North Europe, South Africa North, UAE North, all regions across Asia, Australia, UK and public US regions. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
 
 :::image type="content" source="media\concepts-single-to-flexible\online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="media\concepts-single-to-flexible\online-migration-feature-switch.png":::
 
@@ -131,7 +131,7 @@ Along with data migration, the tool automatically provides the following built-i
 - Migration of permissions of database objects on your source server such as GRANTS/REVOKES to the target server.
 
 > [!NOTE]  
-> This functionality is enabled by default for flexible servers in all Azure public regions. It will be enabled for flexible servers in gov clouds and China regions soon.
+> This functionality is enabled by default for flexible servers in all Azure public regions. It will be enabled for flexible servers in gov clouds and China regions soon. Also, please note that this feature is currently disabled for PostgreSQL version 16 servers, and support for it will be introduced in the near future.
 
 ## Limitations
 

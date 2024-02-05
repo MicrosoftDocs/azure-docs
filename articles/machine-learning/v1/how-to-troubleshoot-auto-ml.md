@@ -2,15 +2,15 @@
 title: Troubleshoot automated ML experiments
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and resolve issues in your automated machine learning experiments.
-author: manashgoswami 
+author: manashgoswami
 ms.author: magoswam
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, devx-track-python, automl, references_regions, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, automl, references_regions, sdkv1
 monikerRange: 'azureml-api-1'
 ---
 

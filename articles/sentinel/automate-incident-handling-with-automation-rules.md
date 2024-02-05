@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 06/27/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Automate threat response in Microsoft Sentinel with automation rules

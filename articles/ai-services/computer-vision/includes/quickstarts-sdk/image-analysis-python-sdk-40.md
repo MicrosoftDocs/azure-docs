@@ -5,7 +5,6 @@ description: Get started with the Image Analysis 4.0 client SDK for Python with 
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 01/24/2023
 ms.author: pafarley

@@ -5,21 +5,24 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 02/02/2024
 ms.custom: event-tier1-build-2022
 ---
+
 # Integrate Azure Table Storage with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Table Storage to other cloud services using Service Connector. You might still be able to connect to Azure Table Storage in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection.
 
 ## Supported compute services
 
+Service Connector can be used to connect the following compute services to Azure Table Storage:
+
 - Azure App Service
 - Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Table Storage using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |-------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -27,6 +30,8 @@ Supported authentication and clients for App Service, Azure Functions, Container
 | Java        | Yes                              | Yes                            | Yes                        | Yes               |
 | Node.js     | Yes                              | Yes                            | Yes                        | Yes               |
 | Python      | Yes                              | Yes                            | Yes                        | Yes               |
+
+This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Table Storage using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 

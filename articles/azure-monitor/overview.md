@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: rboucher
 ms.author: robb
-ms.date: 02/01/2024
+ms.date: 02/05/2024
 ms.reviewer: robb
 ---
 # Azure Monitor overview
@@ -36,7 +36,7 @@ You can also export monitoring data from Azure Monitor into other systems so you
 - Integrate with other third-party and open-source monitoring and visualization tools
 - Integrate with ticketing and other ITSM systems
 
-If you're a System Center Operations Manager (SCOM) user, Azure Monitor now includes a preview of Azure Monitor [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md). Operations Manager MI is a cloud-hosted version of Operations Manager and allows you to move your on-premises Operations Manager installation to Azure.
+If you're a System Center Operations Manager (SCOM) user, Azure Monitor now includes Azure Monitor [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md). Operations Manager MI is a cloud-hosted version of Operations Manager and allows you to move your on-premises Operations Manager installation to Azure.
 
 The following diagram shows a high-level architecture view of Azure Monitor.
 
@@ -139,7 +139,7 @@ The following sections outline methods and services that consume monitoring data
 
 All areas in the *consumption* section of the diagram have a user interface that appears in the Azure portal.
 
-The top part of the consumption section applies to Azure Monitor core only. SCOM MI uses the traditional Ops Console running in the cloud. It can also can send monitoring data to Power BI for visualization.
+The top part of the consumption section applies to Azure Monitor core only. SCOM MI uses the traditional Ops Console running in the cloud. It can also send monitoring data to Power BI for visualization.
 
 ### The Azure portal
 

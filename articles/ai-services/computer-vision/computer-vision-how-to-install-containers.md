@@ -9,7 +9,6 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 08/29/2023
 ms.author: pafarley
-ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
 

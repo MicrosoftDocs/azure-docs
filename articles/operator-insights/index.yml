@@ -29,8 +29,6 @@ landingContent:
             url: operator-insights-faq.yml
       - linkListType: concept
         links:
-          - text: Managed identity
-            url: managed-identity.md
           - text: Business continuity and disaster recovery
             url: business-continuity-disaster-recovery.md
           - text: Data quality and data monitoring 
@@ -43,6 +41,8 @@ landingContent:
             url: concept-mcc-data-product.md
           - text: Monitoring - Affirmed MCC Data Product
             url: concept-monitoring-mcc-data-product.md
+          - text: Managed identity
+            url: managed-identity.md
 
   # Card 
   - title: Get started with Azure Operator Insights
