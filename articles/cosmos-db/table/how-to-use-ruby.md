@@ -15,6 +15,10 @@ ms.reviewer: mjbrown
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
+
+> [!WARNING]
+> This project is in the [community support](https://azure.github.io/azure-sdk/policies_support.html#package-lifecycle) stage of it's lifecycle. Eventually, all associated client libraries will be retired permanently. For more details on the retirement and alternatives to using this project, see [Retirement notice: Azure Storage PHP client libraries](https://azure.microsoft.com/updates/retirement-notice-the-azure-storage-ruby-client-libraries-will-be-retired-on-13-september-2024/).
+
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB for Table. The samples described in this article are written in Ruby and uses the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include create a table, delete a table, insert entities, and query entities from the table.
