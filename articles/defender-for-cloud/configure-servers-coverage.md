@@ -37,9 +37,7 @@ After enabling the Log Analytics agent, you'll be presented with the option to s
 
 1. Locate the Defenders for Servers plan and select **Settings**.
 
-1. Locate the Log Analytics agent row.
-
-1. Select **Edit configuration**.
+1. On the Log Analytics agent row, select **Edit configuration**.
 
     :::image type="content" source="media/configure-servers-coverage/edit-configuration-log.png" alt-text="Screenshot that shows you where on the screen you need to select edit configuration, to edit the log analytics agent/azure monitor agent." lightbox="media/configure-servers-coverage/edit-configuration-log.png":::
 
@@ -70,9 +68,7 @@ Vulnerability assessment for machines allows you to select between two vulnerabi
 
 1. Locate the Defenders for Servers plan and select **Settings**.
 
-1. Locate the vulnerability assessment for machines row.
-
-1. Select **Edit configuration**.
+1. On the vulnerability assessment for machines row, select **Edit configuration**.
 
     :::image type="content" source="media/configure-servers-coverage/vulnerability-edit.png" alt-text="Screenshot that shows you where to select edit for vulnerabilities assessment for machines." lightbox="media/configure-servers-coverage/vulnerability-edit.png":::
 
@@ -98,9 +94,7 @@ To configure endpoint protection:
 
 1. Locate the Defenders for Servers plan and select **Settings**.
 
-1. Locate the Endpoint protection row.
-
-1. Toggle the switch to **On**.
+1. On the Endpoint protection row, toggle the switch to **On**.
 
 1. Select **Continue**.
 
