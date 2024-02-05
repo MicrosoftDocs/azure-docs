@@ -4,7 +4,6 @@ description: Learn about how to choose the right real-time analytics and streami
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 01/29/2024
 ---

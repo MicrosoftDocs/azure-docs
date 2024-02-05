@@ -1,12 +1,12 @@
 ---
 title: Create an experiment using an agent-based fault with the portal
 description: Create an experiment that uses an agent-based fault and configure the chaos agent with the portal.
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.topic: how-to
 ms.date: 11/01/2021
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to
 ---
 
 # Create a chaos experiment that uses an agent-based fault with the Azure portal

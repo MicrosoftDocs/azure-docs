@@ -8,7 +8,7 @@ ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Regional endpoints for Azure Cosmos DB Graph account

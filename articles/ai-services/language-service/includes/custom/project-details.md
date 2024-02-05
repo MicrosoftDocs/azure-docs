@@ -4,7 +4,6 @@ titleSuffix: Azure AI services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 12/19/2023
 ms.author: aahi
@@ -21,5 +20,3 @@ ms.author: aahi
 5. You can also retrieve your primary resource key from this page.
 
     :::image type="content" source="../../media/project-details.png" alt-text="A screenshot of the project settings page in Language Studio." lightbox="../../media/project-details.png":::
-
-

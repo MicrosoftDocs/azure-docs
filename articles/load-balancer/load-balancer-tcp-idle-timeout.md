@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/05/2022
 ms.author: mbender
-ms.custom: template-how-to, seodec18
+ms.custom: template-how-to
 ---
 
 # Configure TCP reset and idle timeout for Azure Load Balancer

@@ -3,7 +3,6 @@ title: Overview of Event Hubs Premium
 description: This article provides an overview of Azure Event Hubs Premium, which offers multi-tenant deployments of Event Hubs for high-end streaming needs.
 ms.topic: article
 ms.date: 09/20/2022
-ms.custom: ignite-fall-2021
 ---
 
 # Overview of Event Hubs Premium
