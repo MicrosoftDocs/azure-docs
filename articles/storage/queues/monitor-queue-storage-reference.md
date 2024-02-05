@@ -45,7 +45,7 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
-- [Microsoft.Storage/storageAccounts/StorageQueueLogs](/azure/azure-monitor/reference/tables/storagequeuelogs)
+- [StorageQueueLogs](/azure/azure-monitor/reference/tables/storagequeuelogs)
 
 <!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
