@@ -21,8 +21,8 @@ Previously, building custom AI assistants needed heavy lifting even for experien
 The Assistants API, as the stateful evolution of the chat completion API, provides a solution for these challenges.
 Assistants API supports persistent automatically managed threads. This means that as a developer you no longer need to develop conversation state management systems and work around a model’s context window constraints. The Assistants API will automatically handle the optimizations to keep the thread below the max context window of your chosen model. Once you create a Thread, you can simply append new messages to it as users respond. Assistants can also access multiple tools in parallel, if needed. These tools include:
 
-[Code Interpreter](../how-to/code-interpreter.md)
-[Function calling](../how-to/assistant-functions.md)
+- [Code Interpreter](../how-to/code-interpreter.md)
+- [Function calling](../how-to/assistant-functions.md)
 
 Assistant API is built on the same capabilities that power OpenAI’s GPT product. Some possible use cases range from AI-powered product recommender, sales analyst app, coding assistant, employee Q&A chatbot, and more. Start building on the no-code Assistants playground on the Azure OpenAI Studio or start building with the API.
 
