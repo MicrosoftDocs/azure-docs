@@ -167,11 +167,11 @@ In this example, the name of your key vault is expanded to the key vault URI, in
 
 ### Save a secret
 
-Now that the console app is authenticated, add a secret to the key vault. For this task, use the [SetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync) method. 
+Now that the console app is authenticated, add a secret to the key vault. For this task, use the [SetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync) method.
 
-The method's first parameter accepts a name for the secret. In this sample, the variable "SecretName" stores the string "mySecret". 
+The method's first parameter accepts a name for the secret. In this sample, the variable `secretName` stores the string "mySecret".
 
-And the method's second parameter accepts a value for the secret. In this sample, the secret is input by the user via the commandline and stored in the variable "secretValue".
+The method's second parameter accepts a value for the secret. In this sample, the secret is input by the user via the commandline and stored in the variable `secretValue`.
 
 ```csharp
 await client.SetSecretAsync(secretName, secretValue);
