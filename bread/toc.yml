@@ -175,8 +175,8 @@ items:
     tocHref: /azure/lighthouse/
     topicHref: /azure/lighthouse/
   - name: Azure Managed Grafana
-    tocHref: /azure/azure-managed-grafana/
-    topicHref: /azure/azure-managed-grafana/
+    tocHref: /azure/managed-grafana/
+    topicHref: /azure/managed-grafana/
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
