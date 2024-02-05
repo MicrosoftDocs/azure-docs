@@ -51,16 +51,9 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 1. **Destination details**: Select the checkbox for each destination. Options appear so that you can add more information.
 
-   :::image type="content" source="media/diagnostic-settings/send-to-log-analytics-event-hubs.png" alt-text="Screenshot that shows Send to Log Analytics and Stream to an event hub." border="false":::
+   :::image type="content" source="media/diagnostic-settings/send-to-log-analytics-event-hubs.png" alt-text="Screenshot that shows the available options under the Destination details section." border="false":::
 
-   1. **Log Analytics**: Enter the subscription and workspace. If you don't have a workspace, you must [create one before you proceed](../logs/quick-create-workspace.md).
-
-   1. **Event Hubs**: Specify the following criteria:
-
-      - **Subscription**: The subscription that the event hub is part of.
-      - **Event hub namespace**: If you don't have one, you must [create one](../../event-hubs/event-hubs-create.md).
-      - **Event hub name (optional)**: The name to send all data to. If you don't specify a name, an event hub is created for each log category. If you're sending to multiple categories, you might want to specify a name to limit the number of event hubs created. For more information, see [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md).
-      - **Event hub policy name** (also optional): A policy defines the permissions that the streaming mechanism has. For more information, see [Event Hubs features](../../event-hubs/event-hubs-features.md#publisher-policy).
+   1. **Send to Log Analytics workspace**: Select your **Subscription** and the **Log Analytics workspace** where you want to send the data. If you don't have a workspace, you must [create one before you proceed](../logs/quick-create-workspace.md).
 
    1. **Archive to a storage account**: Select your **Subscription** and the **Storage account** where you want to store the data.
 
@@ -69,7 +62,14 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
       > [!TIP]
       > Use the [Azure Storage Lifecycle Policy](../../storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal) to manage the length of time that your logs are retained. The Retention Policy as set in the Diagnostic Setting settings is now deprecated.
 
-   1. **Partner integration**: You must first install partner integration into your subscription. Configuration options vary by partner. For more information, see [Azure Monitor partner integrations](../../partner-solutions/overview.md).
+   1. **Stream to an event hub**: Specify the following criteria:
+
+      - **Subscription**: The subscription that the event hub is part of.
+      - **Event hub namespace**: If you don't have one, you must [create one](../../event-hubs/event-hubs-create.md).
+      - **Event hub name (optional)**: The name to send all data to. If you don't specify a name, an event hub is created for each log category. If you're sending to multiple categories, you might want to specify a name to limit the number of event hubs created. For more information, see [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md).
+      - **Event hub policy name** (also optional): A policy defines the permissions that the streaming mechanism has. For more information, see [Event Hubs features](../../event-hubs/event-hubs-features.md#publisher-policy).
+
+   1. **Send to partner solution**: You must first install Azure Native ISV Services into your subscription. Configuration options vary by partner. For more information, see [Azure Native ISV Services overview](../../partner-solutions/overview.md).
 
 1. If the service supports both [resource-specific](resource-logs.md#resource-specific) and [Azure diagnostics](resource-logs.md#azure-diagnostics-mode) mode, then an option to select the [destination table](resource-logs.md#select-the-collection-mode) displays when you select **Log Analytics workspace** as a destination. You should usually select **Resource specific** since the table structure allows for more flexibility and more efficient queries.
 
