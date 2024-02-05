@@ -165,6 +165,8 @@ items:
       items:
       - name: Configure observability
         href: monitor/howto-configure-observability.md
+      - name: Configure observability manually
+        href: monitor/howto-configure-observability-manual.md
       - name: Configure MQ diagnostic service settings
         href: monitor/howto-configure-diagnostics.md
     - name: Manage layered network
