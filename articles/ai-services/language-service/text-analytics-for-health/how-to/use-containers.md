@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
+ms.custom: language-service-health, devx-track-azurecli
 ms.devlang: azurecli
 ---
 

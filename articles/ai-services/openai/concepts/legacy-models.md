@@ -1,11 +1,11 @@
 ---
 title: Azure OpenAI Service legacy models
 titleSuffix: Azure OpenAI
-description: Learn about the legacy models in Azure OpenAI. 
+description: Learn about the legacy models in Azure OpenAI.
 ms.service: azure-ai-openai
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 07/06/2023
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
+ms.custom: references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder

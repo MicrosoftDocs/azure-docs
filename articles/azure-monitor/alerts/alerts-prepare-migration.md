@@ -145,7 +145,7 @@ For a full example of a runbook that stops a virtual machine when an alert is tr
 
 ## Partner integration via webhooks
 
-Most of [our partners that integrate with classic alerts](../partners.md) already support newer metric alerts through their integrations. Known integrations that already work with new metric alerts are:
+Most of our partners that integrate with classic alerts already support newer metric alerts through their integrations. Known integrations that already work with new metric alerts include:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

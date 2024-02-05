@@ -6,7 +6,7 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: "mvc, seodec18, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli
 ms.date: 03/25/2021
 ms.author: keithp
 ---

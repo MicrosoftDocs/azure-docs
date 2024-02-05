@@ -1,11 +1,11 @@
 ---
 title: Types of Azure Monitor alerts
-description: This article explains the different types of Azure Monitor alerts and when to use each type. 
+description: This article explains the different types of Azure Monitor alerts and when to use each type.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 01/22/2024
-ms.custom: template-concept, ignite-2022
+ms.custom: template-concept
 ms.reviewer: harelbr
 ---
 
@@ -220,7 +220,3 @@ Prometheus alerts are used to monitor metrics stored in [Azure Monitor managed s
 - Get an [overview of alerts](alerts-overview.md).
 - [Create an alert rule](alerts-log.md).
 - Learn more about [smart detection](proactive-failure-diagnostics.md).
-
-
-
-
