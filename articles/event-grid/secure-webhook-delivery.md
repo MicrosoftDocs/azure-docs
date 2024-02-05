@@ -2,7 +2,7 @@
 title: Secure WebHook delivery with Microsoft Entra ID in Azure Event Grid
 description: Describes how to deliver events to HTTPS endpoints protected by Microsoft Entra ID using Azure Event Grid
 ms.topic: how-to
-ms.custom: has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.date: 02/02/2024
 ---
 
