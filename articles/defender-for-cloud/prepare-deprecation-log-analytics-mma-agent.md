@@ -127,6 +127,8 @@ If you are using the current Log Analytics agent/Azure Monitor agent autoprovisi
 
     :::image type="content" source="media/prepare-deprecation-log-analytics-mma-agent/select-action-required.png" alt-text="Screenshot that shows selecting Action required." lightbox="media/prepare-deprecation-log-analytics-mma-agent/select-action-required.png":::
 
+    :::image type="content" source="media/prepare-deprecation-log-analytics-mma-agent/select-action-required.png" alt-text="Screenshot that shows where to select Action required." lightbox="media/prepare-deprecation-log-analytics-mma-agent/select-action-required.png":::
+
 1. In the pop-up window, select **Enable**.
 
     :::image type="content" source="media/prepare-deprecation-log-analytics-mma-agent/select-enable-sql.png" alt-text="Screenshot that shows selecting enable from popup window." lightbox="media/prepare-deprecation-log-analytics-mma-agent/select-enable-sql.png":::
