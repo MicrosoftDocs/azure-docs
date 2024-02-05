@@ -2,12 +2,11 @@
 title: Azure Chaos Studio fault and action library
 description: Understand the available actions you can use with Azure Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
-author: rsgel 
+author: rsgel
 ms.topic: article
 ms.date: 01/02/2024
 ms.author: carlsonr
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Azure Chaos Studio fault and action library
