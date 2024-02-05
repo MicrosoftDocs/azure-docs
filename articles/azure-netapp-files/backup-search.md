@@ -25,7 +25,7 @@ If a volume is deleted, its backups are still retained. The backups are listed i
 
     A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
 
-    :::image type="content" source="../media/azure-netapp-files/backup-search-vault.png" alt-text="Screenshot that shows a list of backups in a vault." lightbox="../media/azure-netapp-files/backup-search-vault.png":::
+    :::image type="content" source="./media/backup-search/backup-search-vault.png" alt-text="Screenshot that shows a list of backups in a vault." lightbox="./media/backup-search/backup-search-vault.png":::
 
 ## Search backups at volume level 
 
@@ -41,7 +41,7 @@ You can display and search backups at the volume level:
 
     A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
 
-    :::image type="content" source="../media/azure-netapp-files/backup-search-volume-level.png" alt-text="Screenshot that shows a list of backup for a volume." lightbox="../media/azure-netapp-files/backup-search-volume-level.png":::
+    :::image type="content" source="./media/backup-search/backup-search-volume-level.png" alt-text="Screenshot that shows a list of backup for a volume." lightbox="./media/backup-search/backup-search-volume-level.png":::
     
 ## Next steps  
 

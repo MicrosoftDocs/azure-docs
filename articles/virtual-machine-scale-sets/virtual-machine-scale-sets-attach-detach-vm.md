@@ -182,7 +182,7 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm -VirtualMachin
 - The scale set must use Flexible orchestration mode.
 - The scale set must have a `platformFaultDomainCount` of **1**.
 - VMs created by the scale set must be `Stopped` prior to being detached.
-- Detach of VMs created by the scale set is currently not supported in West Central US, East Asia, UK South, and North Europe.
+- Detach of VMs created by the scale set is currently not supported in UK South and North Europe.
 
 ## Moving VMs between scale sets (Preview)
 

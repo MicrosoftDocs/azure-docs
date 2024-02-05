@@ -2,7 +2,6 @@
 title: Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure | Microsoft Docs
 description: This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server in Azure.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
@@ -550,11 +549,11 @@ This section applies only if you want to use a fencing device with an Azure fenc
 
 This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure.
 
-#### Using managed identity
+#### [Managed identity](#tab/msi)
 
 To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
 
-#### Using service principal
+#### [Service principal](#tab/spn)
 
 To create a service principal, do the following:
 
@@ -568,6 +567,8 @@ To create a service principal, do the following:
 7. Enter a description for a new key, select **Two years**, and then select **Add**.
 8. Write down the value, which you'll use as the password for the service principal.
 9. Select **Overview**, and then write down the application ID, which you'll use as the username of the service principal.
+
+---
 
 ### **[1]** Create a custom role for the fence agent
 

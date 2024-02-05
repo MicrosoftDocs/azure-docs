@@ -4,7 +4,7 @@ description: Learn how to detect anomalies in real time in your manufacturing pr
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
-ms.date: 12/18/2023
+ms.date: 02/01/2024
 
 #CustomerIntent: As an OT, I want to configure my Azure IoT Operations deployment to detect anomalies in real time in my manufacturing process.
 ---
@@ -193,8 +193,6 @@ By default, the anomaly detection service uses preset estimated control limits. 
 
 ## Transform and enrich the measurement data
 
-<!-- TODO: Clarify here where the anomaly detection takes place -->
-
 To transform the measurement data from your production lines into a structure that the anomaly detector can use, you use Data Processor pipelines.
 
 In this tutorial, you create three pipelines:
@@ -243,7 +241,7 @@ To create the ERP reference data pipeline that ingests the data from the HTTP en
 
     | Field                      | Value                                   |
     |----------------------------|-----------------------------------------|
-    | Name                       | `erp-input`                             |
+    | Name                       | `HTTP Endpoint - ERP data`              |
     | Method                     | `GET`                                   |
     | URL                        | `http://callout-svc-http:3333/ref_data` |
     | Authentication             | `None`                                  |
@@ -258,6 +256,8 @@ To create the ERP reference data pipeline that ingests the data from the HTTP en
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
 1. Select **Add destination** and then select **Reference datasets**.
+
+1. Name the stage _Reference dataset - erp-data_.
 
 1. Select **erp-data** in the **Dataset** field, and select **Apply**.
 
@@ -282,13 +282,14 @@ To create the _opcua-anomaly-pipeline_ pipeline:
   
     | Field           | Value                              |
     |-----------------|------------------------------------|
+    | Name            | `MQ - ContosoLLC/#`                |
     | Broker          | `tls://aio-mq-dmqtt-frontend:8883` |
     | Topic           | `ContosoLLC/#`                     |
     | Data format     | `JSON`                             |
 
     Select **Apply**. The simulated production line assets send measurements to the MQ broker in the cluster. This input stage configuration subscribes to all the topics under the `ContosoLLC` topic in the MQ broker. This topic receives measurement data from the Redmond, Seattle, and Tacoma sites.
 
-1. Add a **Transform** stage after the source stage with the following JQ expressions. This transform reorganizes the data and makes it easier to read:
+1. Add a **Transform** stage after the source stage. Name the stage _Transform - Reorganize message_ and add the following JQ expressions. This transform reorganizes the data and makes it easier to read:
 
     ```jq
     .payload[0].Payload |= with_entries(.value |= .Value) |
@@ -311,7 +312,7 @@ To create the _opcua-anomaly-pipeline_ pipeline:
 
     Select **Apply**.
 
-1. Use the **Stages** list on the left to add an **Enrich** stage after the transform stage, and select it from the pipeline diagram. This stage enriches the measurements from the simulated production line assets with reference data from the `erp-data` dataset. This stage uses a condition to determine when to add the ERP data. Open the **Add condition** options and add the following information:
+1. Use the **Stages** list on the left to add an **Enrich** stage after the transform stage, and select it from the pipeline diagram. Name the stage _Enrich - Add ERP data_. This stage enriches the measurements from the simulated production line assets with reference data from the `erp-data` dataset. This stage uses a condition to determine when to add the ERP data. Open the **Add condition** options and add the following information:
 
     | Field       | Value                      |
     |-------------|----------------------------|
@@ -323,7 +324,7 @@ To create the _opcua-anomaly-pipeline_ pipeline:
 
     Select **Apply**.
 
-1. Add a **Transform** stage after the enrich stage with the following JQ expressions. This transform stage reorganizes the data and makes it easier to read. These JQ expressions move the enrichment data to the same flat path as the real-time data to make it easier to export to Azure Data Explorer:
+1. Add a **Transform** stage after the enrich stage with the following JQ expressions. Name the stage _Transform - Flatten ERP data_. This transform stage reorganizes the data and makes it easier to read. These JQ expressions move the enrichment data to the same flat path as the real-time data to make it easier to export to Azure Data Explorer:
 
     ```jq
     .payload.Payload |= . + .enrich |
@@ -336,7 +337,7 @@ To create the _opcua-anomaly-pipeline_ pipeline:
 
     | Field           | Value                                    |
     |-----------------|------------------------------------------|
-    | Name            | `Call out HTTP - Anomaly`                |
+    | Name            | `Call out HTTP - Anomaly detection`      |
     | Method          | `POST`                                   |
     | URL             | `http://anomaly-svc:3333/anomaly`        |
     | Authentication  | None                                     |
@@ -353,6 +354,7 @@ To create the _opcua-anomaly-pipeline_ pipeline:
 
     | Field       | Value                              |
     |-------------|------------------------------------|
+    | Name        | `MQ - processed-output`            |
     | Broker      | `tls://aio-mq-dmqtt-frontend:8883` |
     | Topic       | `processed-output`                 |
     | Data format | `JSON`                             |
@@ -412,12 +414,12 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
 1. In the pipeline diagram, select **Configure source** and then select **MQ**. Enter the information from the following table:
 
-    | Field       | Value                            |
-    |-------------|----------------------------------|
-    | Name        | processed-mq-data                |
-    | Broker      | tls://aio-mq-dmqtt-frontend:8883 |
-    | Topic       | processed-output                 |
-    | Data Format | JSON                             |
+    | Field       | Value                              |
+    |-------------|------------------------------------|
+    | Name        | `MQ - processed-output`            |
+    | Broker      | `tls://aio-mq-dmqtt-frontend:8883` |
+    | Topic       | `processed-output`                 |
+    | Data Format | `JSON`                             |
 
     Select **Apply**.
 
@@ -425,57 +427,114 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
-1. Select **Add destination** and then select Azure Data Explorer.
+1. Select **Add destination** and then select **Azure Data Explorer**. Select the **Advanced** tab and then paste in the following configuration:
 
-1. Use the information in the following table to configure the destination stage:
+    ```json
+    {
+        "displayName": "Azure Data Explorer - bakery_ops",
+        "type": "output/dataexplorer@v1",
+        "viewOptions": {
+            "position": {
+                "x": 0,
+                "y": 432
+            }
+        },
+        "clusterUrl": "https://your-cluster.northeurope.kusto.windows.net/",
+        "database": "bakery_ops",
+        "table": "edge_data",
+        "authentication": {
+            "type": "servicePrincipal",
+            "tenantId": "your tenant ID",
+            "clientId": "your client ID",
+            "clientSecret": "AIOFabricSecret"
+        },
+        "batch": {
+            "time": "5s",
+            "path": ".payload.payload"
+        },
+        "columns": [
+            {
+                "name": "AssetID",
+                "path": ".assetId"
+            },
+            {
+                "name": "Timestamp",
+                "path": ".sourceTimestamp"
+            },
+            {
+                "name": "Name",
+                "path": ".assetName"
+            },
+            {
+                "name": "SerialNumber",
+                "path": ".serialNumber"
+            },
+            {
+                "name": "Status",
+                "path": ".machineStatus"
+            },
+            {
+                "name": "Maintenance",
+                "path": ".maintenanceStatus"
+            },
+            {
+                "name": "Location",
+                "path": ".site"
+            },
+            {
+                "name": "OperatingTime",
+                "path": ".operatingTime"
+            },
+            {
+                "name": "Humidity",
+                "path": ".humidity"
+            },
+            {
+                "name": "HumidityAnomalyFactor",
+                "path": ".humidityAnomalyFactor"
+            },
+            {
+                "name": "HumidityAnomaly",
+                "path": ".humidityAnomaly"
+            },
+            {
+                "name": "Temperature",
+                "path": ".temperature"
+            },
+            {
+                "name": "TemperatureAnomalyFactor",
+                "path": ".temperatureAnomalyFactor"
+            },
+            {
+                "name": "TemperatureAnomaly",
+                "path": ".temperatureAnomaly"
+            },
+            {
+                "name": "Vibration",
+                "path": ".vibration"
+            },
+            {
+                "name": "VibrationAnomalyFactor",
+                "path": ".vibrationAnomalyFactor"
+            },
+            {
+                "name": "VibrationAnomaly",
+                "path": ".vibrationAnomaly"
+            }
+        ]
+    }
+    ```
 
-    | Field       | Value                            |
-    |-------------|----------------------------------|
-    | Cluster URL | To find this value, navigate to your cluster at [Azure Data Explorer](https://dataexplorer.azure.com) and select the **Edit connection** icon next to your cluster name in the left pane. |
-    | Database    | `bakery_ops` |
-    | Table       | `edge_data` |
-    | Authentication | Service principal |
-    | Tenant ID   | The tenant ID you made a note of when you created the service principal. |
-    | Client ID   | The app ID you made a note of when you created the service principal. |
-    | Secret      | `AIOFabricSecret` |
-    | Batching > Batch time | `5s` |
-    | Batching > Batch path | `.payload.payload` |
-    | Column > Name | `AssetID` |
-    | Column > Path | `.assetId` |
-    | Column > Name | `Timestamp` |
-    | Column > Path | `.sourceTimestamp` |
-    | Column > Name | `Name` |
-    | Column > Path | `.assetName` |
-    | Column > Name | `SerialNumber` |
-    | Column > Path | `.serialNumber` |
-    | Column > Name | `Status` |
-    | Column > Path | `.machineStatus` |
-    | Column > Name | `Maintenance` |
-    | Column > Path | `.maintenanceStatus` |
-    | Column > Name | `Location` |
-    | Column > Path | `.site` |
-    | Column > Name | `OperatingTime` |
-    | Column > Path | `.operatingTime` |
-    | Column > Name | `Humidity` |
-    | Column > Path | `.humidity` |
-    | Column > Name | `HumidityAnomalyFactor` |
-    | Column > Path | `.humidityAnomalyFactor` |
-    | Column > Name | `HumidityAnomaly` |
-    | Column > Path | `.humidityAnomaly` |
-    | Column > Name | `Temperature` |
-    | Column > Path | `.temperature` |
-    | Column > Name | `TemperatureAnomalyFactor` |
-    | Column > Path | `.temperatureAnomalyFactor` |
-    | Column > Name | `TemperatureAnomaly` |
-    | Column > Path | `.temperatureAnomaly` |
-    | Column > Name | `Vibration` |
-    | Column > Path | `.vibration` |
-    | Column > Name | `VibrationAnomalyFactor` |
-    | Column > Path | `.vibrationAnomalyFactor` |
-    | Column > Name | `VibrationAnomaly` |
-    | Column > Path | `.vibrationAnomaly` |
+1. Then navigate to the **Basic** tag and fill in the following fields by using the information you made a note of previously:
 
-    Select **Apply**.
+    | Field        | Value |
+    |--------------|-------|
+    | Cluster URL  | To find this value, navigate to your cluster at [Azure Data Explorer](https://dataexplorer.azure.com) and select the **Edit connection** icon next to your cluster name in the left pane. |
+    | Tenant ID    | The tenant ID you made a note of when you created the service principal. |
+    | Client ID    | The app ID you made a note of when you created the service principal. |
+    | Secret       | `AIOFabricSecret` |
+
+    Select **Apply**.
 
 1. Select **Save** to save the pipeline.
 
@@ -511,9 +570,9 @@ To visualize anomalies and process data, you can use Azure Managed Grafana. Use 
 1. On the **Add data source** page, search for and select **Azure Data Explorer Datasource**.
 
     1. In the **Connection Details** section, add your Azure Data Explorer cluster URI.
-    
+
     1. In the **Authentication** section, select **App Registration** and enter your service principal details. You made a note of these values when you created your service principal.
-    
+
     1. To test the connection to the Azure Data Explorer database, select **Save & test**. You should see a **Success** indicator.
 
 Now that your Grafana instance is connected to your Azure Data Explorer database, you can build a dashboard:

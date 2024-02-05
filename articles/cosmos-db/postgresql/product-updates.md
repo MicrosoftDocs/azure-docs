@@ -23,6 +23,8 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### January 2024
+* General availability: [32 TiB storage per node for multi-node configurations](./resources-compute.md#multi-node-cluster) in all supported regions.
+    * See [how to get the most out of storage](./resources-compute.md#maximum-iops-for-your-compute--storage-configuration)
 * General availability: Geo-redundant backup and restore
     * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md#backup-redundancy)
 
@@ -174,7 +176,6 @@ might have capabilities with limitations. For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-* [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
 * [Microsoft Entra ID authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 
 ## Contact us

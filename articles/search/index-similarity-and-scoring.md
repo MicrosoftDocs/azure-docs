@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/27/2023
 ---
 
-# Relevance scoring for full text search (BM25)
+# Relevance in keyword search (BM25 scoring)
 
 This article explains the BM25 relevance scoring algorithm used to compute search scores for [full text search](search-lucene-query-architecture.md). BM25 relevance is exclusive to full text search. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries aren't scored or ranked for relevance.
 
