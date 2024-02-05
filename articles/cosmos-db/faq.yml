@@ -1,46 +1,41 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Frequently asked questions on different APIs in Azure Cosmos DB"
-  description: "Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling."
+  title: Frequently asked questions
+  titleSuffix: Azure Cosmos DB
+  description: Get answers to frequently asked questions about Azure Cosmos DB. Learn about capacity, performance levels, and scaling, and service features.
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: mjbrown
   ms.service: cosmos-db
   ms.topic: faq
-  ms.date: 09/01/2019
-  ms.custom: seodec18, ignite-2022
-title: Frequently asked questions about different APIs in Azure Cosmos DB
+  ms.date: 01/23/2024
+title: Frequently asked questions about Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
-  
 sections:
-  - name: General FAQ
+  - name: General
     questions:
       - question: |
           What are the typical use cases for Azure Cosmos DB?
         answer: |
-          Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applications where automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. Azure Cosmos DB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user-generated content and data are [common use cases for Azure Cosmos DB](use-cases.md).
-          
+          Azure Cosmos DB is well suited for web, mobile, gaming, and IoT use cases. In these use cases; automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. Azure Cosmos DB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user-generated content and data often map to [common use cases for Azure Cosmos DB](use-cases.md).
+
       - question: |
           How does Azure Cosmos DB offer predictable performance?
         answer: |
-          A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
+          A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1 request unit throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB; including reads, writes, queries, and stored procedure executions; has a deterministic request unit value that's based on the throughput required to complete the operation. Instead of being forced to consider CPU, IO, and memory in relation to your application throughput, you can think in terms of request units.
           
-          You can configure each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help with determining your container needs, try the [throughput calculator](https://cosmos.azure.com/capacitycalculator).
-          
+          You can configure each Azure Cosmos DB container with provisioned throughput in terms of request units per second (RU/s). You can benchmark individual requests to measure in request units, and create a container to handle the sum of request units across all requests for that contianer in a second. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information on how to measure request units, see the [throughput calculator](https://cosmos.azure.com/capacitycalculator).
+
       - question: |
           How does Azure Cosmos DB support various data models such as key/value, columnar, document, and graph?
         answer: |
-          Key/value (table), columnar, document, and graph data models are all natively supported because of the ARS (atoms, records, and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (NoSQL, MongoDB, Table, and Gremlin) and others specific to additional data models will be available in the future.
-          
-          Azure Cosmos DB has a schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, tree) which decouple the storage layout from the index and query processing subsystems. Azure Cosmos DB also has the ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2) making it uniquely capable of supporting more than one data model natively.
+          Key/value (table), columnar, document, and graph data models are all natively supported because of the ARS (atoms, records, and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available using the ARS design (NoSQL, MongoDB RU, Table, Apache Cassandra and Apache Gremlin). Azure Cosmos DB also supports other APIs such as MongoDB vCore or PostgreSQL.
           
       - question: |
           Can I use multiple APIs to access my data?
         answer: |
-          Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a result, we recommend using the same API for all access to the data in a given account.
-          
-          Each API operates independently, except the API for Gremlin and NoSQL, which are interoperable.
+          Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, NoSQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a  result, we recommend using the same API for all access to the data in a given account.
           
       - question: |
           Is Azure Cosmos DB HIPAA compliant?
@@ -65,7 +60,7 @@ sections:
       - question: |
           How much does Azure Cosmos DB cost?
         answer: |
-          For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container.
+          For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page.  The number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container determines Azure Cosmos DB usage charges.
           
       - question: |
           Is a free account available?
@@ -77,7 +72,7 @@ sections:
           You can also use the [Azure Cosmos DB Emulator](emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
           
       - question: |
-          How can I get additional help with Azure Cosmos DB?
+          How can I get extra help with Azure Cosmos DB?
         answer: |
           To ask a technical question, you can post to one of these two question and answer forums:
           
@@ -115,7 +110,7 @@ sections:
       - question: |
           What is a primary key?
         answer: |
-          A primary key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute primary keys. The primary primary key and secondary primary key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](sql/manage-with-cli.md#list-account-keys).
+          A primary key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute primary keys. Multiple keys are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](sql/manage-with-cli.md#list-account-keys).
           
       - question: |
           What are the regions that PreferredLocations can be set to?
@@ -137,19 +132,19 @@ sections:
       - question: |
           Does Azure Cosmos DB support time series analysis?
         answer: |
-          Yes Azure Cosmos DB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
+          Yes Azure Cosmos DB supports time series analysis, here's a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
 
       - question: |
           What are the Azure Cosmos DB service quotas and throughput limits
         answer: |
-          See the Azure Cosmos DB [service quotas](concepts-limits.md) and [throughout limits per container and database](set-throughput.md#comparison-of-models) articles for more information.
+          For more information, see [service quotas](concepts-limits.md) and [throughout limits](set-throughput.md#comparison-of-models).
 
   - name: Frequently asked questions about API for NoSQL
     questions:
       - question: |
           How do I start developing against the API for NoSQL?
         answer: |
-          First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add a API for NoSQL container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](create-sql-api-dotnet.md#create-account).
+          First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add an API for NoSQL container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](create-sql-api-dotnet.md#create-account).
           
           [SDKs](nosql/sdk-dotnet-v2.md) are available for .NET, Python, Node.js, JavaScript, and Java. Developers can also use the [RESTful HTTP APIs](/rest/api/cosmos-db/) to interact with Azure Cosmos DB resources from various platforms and languages.
           
@@ -233,7 +228,7 @@ sections:
       - question: |
           Why are long floating-point values in a document rounded when viewed from data explorer in the portal.
         answer: |
-          This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely hold numbers between -(2<sup>53</sup> - 1) and 2<sup>53</sup>-1 (i.e., 9007199254740991) only.
+          This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely hold numbers between -(2<sup>53</sup> - 1) and 2<sup>53</sup>-1 (that is, 9007199254740991) only.
 
       - question: |
           Where are permissions allowed in the object hierarchy?
@@ -244,12 +239,9 @@ sections:
           [query]: query/getting-started.md
           
 additionalContent: |
+  ## Related content
 
-  ## Next steps
-  
-  To learn about frequently asked questions in other APIs, see:
-
-  * Frequently asked questions about [Azure Cosmos DB for MongoDB](mongodb/mongodb-faq.yml)
-  * Frequently asked questions about [Azure Cosmos DB for Apache Gremlin](gremlin-api-faq.yml)
-  * Frequently asked questions about [Azure Cosmos DB for Apache Cassandra](cassandra/cassandra-faq.yml)
-  * Frequently asked questions about [Azure Cosmos DB for Table](table/table-api-faq.yml)
+  - Frequently asked questions about [Azure Cosmos DB for MongoDB](mongodb/mongodb-faq.yml)
+  - Frequently asked questions about [Azure Cosmos DB for Apache Gremlin](gremlin-api-faq.yml)
+  - Frequently asked questions about [Azure Cosmos DB for Apache Cassandra](cassandra/cassandra-faq.yml)
+  - Frequently asked questions about [Azure Cosmos DB for Table](table/table-api-faq.yml)
