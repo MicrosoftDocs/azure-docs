@@ -43,7 +43,44 @@ Using NVIDIA GPUs involves the installation of various NVIDIA software component
 
 When using GPUs with a Windows nodepool, GPU driver installation and NVIDIA device plugin installation occurs by default. 
 
-1. Create a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command with a supported GPU VM SKU, and specify OS Type and OS SKU.
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+### Install the `aks-preview` Azure CLI extension
+
+1. Register or update the aks-preview extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
+
+    ```azurecli-interactive
+    # Register the aks-preview extension
+    az extension add --name aks-preview
+
+    # Update the aks-preview extension
+    az extension update --name aks-preview
+    ```
+### Register the `WindowsGPUPreview` feature flag
+
+1. Register the `WindowsGPUPreview` feature flag using the [`az feature register`][az-feature-register] command.
+
+    ```azurecli
+    az feature register --namespace "Microsoft.ContainerService" --name "WindowsGPUPreview"
+    ```
+
+    It takes a few minutes for the status to show *Registered*.
+
+2. Verify the registration status using the [`az feature show`][az-feature-show] command.
+
+    ```azurecli
+    az feature show --namespace "Microsoft.ContainerService" --name "WindowsGPUPreview"
+    ```
+
+3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli
+    az provider register --namespace Microsoft.ContainerService
+
+### Create a Windows GPU-enabled node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command (preview)
+
+Creating a Windows GPU-enabled nodepool requires that you use a supported GPU VM SKU, and specify `os-type`. The default Windows `os-sku` will be `Windows2022`, however all Windows skus are supported.
+
 - `os-type` set to `Windows`
 
     ```azurecli-interactive
@@ -71,7 +108,7 @@ This command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGrou
  > [!NOTE]
  > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time. 
 
- 2. Check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
+ ### Check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
 
 
 ## Using Windows GPU with manual driver installation
