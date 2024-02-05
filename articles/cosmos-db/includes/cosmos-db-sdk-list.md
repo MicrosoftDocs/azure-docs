@@ -19,8 +19,6 @@ ms.date: 09/28/2022
 > * [Spring Data v2](../nosql/sdk-java-spring-data-v2.md)
 > * [Spring Data v3](../nosql/sdk-java-spring-data-v3.md)
 > * [Spring Data v5](../nosql/sdk-java-spring-data-v5.md)
-> * [Spark 3 OLTP Connector](../nosql/sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](../nosql/sdk-java-spark-v2.md)
 > * [Python](../nosql/sdk-python.md)
 > * [Go](../nosql/sdk-go.md)
 > * [REST](/rest/api/cosmos-db/)
