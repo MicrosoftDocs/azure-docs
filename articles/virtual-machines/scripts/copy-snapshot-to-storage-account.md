@@ -9,7 +9,7 @@ ms.topic: sample
 ms.workload: infrastructure
 ms.date: 02/23/2022
 ms.author: ramankum
-ms.custom: mvc, seodec18, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Export/Copy a snapshot to a storage account in different region with CLI
