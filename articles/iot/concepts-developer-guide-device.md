@@ -19,7 +19,7 @@ IoT Plug and Play lets you build IoT devices that advertise their capabilities t
 
 You can implement an IoT device directly by using [modules](../iot-hub/iot-hub-devguide-module-twins.md), or by using [IoT Edge modules](../iot-edge/about-iot-edge.md).
 
-This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot-develop/concepts-convention.md).
+This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot/concepts-convention.md).
 
 To build an IoT Plug and Play device, module, or IoT Edge module, follow these steps:
 

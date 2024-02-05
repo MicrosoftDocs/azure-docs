@@ -42,7 +42,7 @@ In Azure IoT, *command and control* refers to the processes that let you send co
 Azure IoT solutions can use the following primitives for both device management and command and control:
 
 - *Device twins* to share and synchronize state data with the cloud. For example, a device can use the device twin to report the current state of a valve it controls to the cloud and to receive a desired target temperature from the cloud.
-- *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices. To learn more about the differences between device twins and digital twins, see [Understand IoT Plug and Play digital twins](../iot-pnp/concepts-digital-twin.md).
+- *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices. To learn more about the differences between device twins and digital twins, see [Understand IoT Plug and Play digital twins](concepts-digital-twin.md).
 - *Direct methods* to receive commands from the cloud. A direct method can have parameters and return a response. For example, the cloud can call a direct method to request the device to reboot in 30 seconds.
 - *Cloud-to-device* messages to receive one-way notifications from the cloud. For example, a notification that an update is ready to download.
 
