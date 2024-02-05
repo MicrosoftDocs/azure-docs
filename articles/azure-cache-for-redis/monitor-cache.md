@@ -161,22 +161,6 @@ Add short information or links to specific articles that outline how to analyze 
 Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
 Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
-<!-- ### Advisor recommendations will become an include or part of the Alert include -->
-### Advisor recommendations
-
-If critical conditions or imminent changes occur during resource operations, an alert displays on the **Overview** page in the portal.
-
-:::image type="content" source="./media/monitor-cache/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed when Overview is selected in the Resource menu.":::
-
-You can find more information and recommended fixes for the alert in **Advisor recommendations** under **Monitoring**. During normal operations, no advisor recommendations display.
-
-<!-- end of Advisor recommendations include -->
-The following screenshot shows an advisor recommendation for an Azure Cache for Redis alert:
-
-:::image type="content" source="./media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations.":::
-
-To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](cache-configure.md#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
-
 ### Azure Cache for Redis common alert rules
 
 The following table lists common and recommended alert rules for Azure Cache for Redis.
@@ -188,6 +172,15 @@ The following table lists common and recommended alert rules for Azure Cache for
 |Metric |High network bandwidth usage |If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough. Set up alerts for server-side network bandwidth limits by using the `Cache Read` and `Cache Write` counters. |
 
 <!-- ALERTS SECTION END -------------------------------------->
+
+<!-- ### Advisor recommendations include -->
+[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/azure-monitor/horizontals/advisor-recommendations.md)]
+
+The following screenshot shows an advisor recommendation for an Azure Cache for Redis alert:
+
+:::image type="content" source="./media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations.":::
+
+To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](cache-configure.md#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
 
 ## Related content
 
