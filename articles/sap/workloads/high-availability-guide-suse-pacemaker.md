@@ -581,7 +581,7 @@ To create a service principal, do the following:
 2. Select **App registrations**.
 3. Select **New registration**.
 4. Enter a name for the registration, and then select **Accounts in this organization directory only**.
-5. For **Application type**, select **Web**, enter a sign-on URL (for example, *<http://localhost>*), and then select **Add**.  
+5. For **Application type**, select **Web**, enter a sign-on URL (for example, `http://localhost`), and then select **Add**.  
    The sign-on URL isn't used and can be any valid URL.
 6. Select **Certificates and secrets**, and then select **New client secret**.
 7. Enter a description for a new key, select **Two years**, and then select **Add**.
@@ -956,39 +956,39 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 #### [Managed identity](#tab/msi)
 
-    ```bash
-    # replace the bold strings with your subscription ID and resource group of the VM
+   ```bash
+   # replace the bold strings with your subscription ID and resource group of the VM
+
+   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+   params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
+   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+   op monitor interval=3600 timeout=120
    
-    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-    params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
-    pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-    op monitor interval=3600 timeout=120
-   
-    sudo crm configure property stonith-timeout=900
-    ```
+   sudo crm configure property stonith-timeout=900
+   ```
 
 #### [Service principal](#tab/spn)
 
-    ```bash
-    # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
+   ```bash
+   # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
    
-    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-    params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
-    pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-    op monitor interval=3600 timeout=120
+   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+   params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
+   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+   op monitor interval=3600 timeout=120
    
-    sudo crm configure property stonith-timeout=900
-    ```
+   sudo crm configure property stonith-timeout=900
+   ```
 
-    ---
+   ---
 
-    If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
+   If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
-    > [!IMPORTANT]
-    > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
+   > [!IMPORTANT]
+   > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
 
-    > [!TIP]
-    >The Azure fence agent requires outbound connectivity to the public endpoints, as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+   > [!TIP]
+   >The Azure fence agent requires outbound connectivity to the public endpoints, as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## Configure Pacemaker for Azure scheduled events
 
