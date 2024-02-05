@@ -211,6 +211,8 @@
     href: /rest/api/appservice/static-sites
   - name: SWA CLI
     items:
+      - name: Overview
+        href: static-web-apps-cli-overview.md
       - name: Install
         href: static-web-apps-cli-install.md
       - name: Start the emulator
