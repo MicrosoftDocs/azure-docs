@@ -103,11 +103,7 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 * **What are different authentication modes available in Azure Database for PostgreSQL Flexible Server?**
  
-   Azure Database for PostgreSQL flexible server supports three modes of authentication namely
-  
-**PostgreSQL authentication only**  
-**Microsoft Entra authentication only** and 
-**PostgreSQL and Microsoft Entra authentication**.
+   Azure Database for PostgreSQL flexible server supports three modes of authentication namely  **PostgreSQL authentication only**, **Microsoft Entra authentication only**, and  **PostgreSQL and Microsoft Entra authentication**.
 
 * **Can I configure multiple Microsoft Entra administrators on my Flexible Server?**
   
@@ -139,7 +135,7 @@ Please use the below steps to generate your token.
 
 * **What is the token lifetime**
 
-User tokens are valid for up to 1 hour whereas System Assigned Managed Identity tokens are valid for up to 24 hours.
+     User tokens are valid for up to 1 hour whereas System Assigned Managed Identity tokens are valid for up to 24 hours.
 
 
 ## Next steps
