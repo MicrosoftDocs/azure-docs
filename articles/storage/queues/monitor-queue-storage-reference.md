@@ -1,22 +1,23 @@
 ---
-title: Azure Queue Storage monitoring data reference
-description: Log and metrics reference for monitoring data from Azure Queue Storage.
-author: normesta
-services: storage
-ms.author: normesta
-ms.date: 04/20/2021
+title: Monitoring data reference for Azure Queue Storage
+description: This article contains important reference material you need when you monitor Azure Queue Storage.
+ms.date: 02/02/2024
+ms.custom: horz-monitor
 ms.topic: reference
 ms.service: azure-queue-storage
-ms.custom: subject-monitoring
+author: normesta
+ms.author: normesta
 ---
 
 # Azure Queue Storage monitoring data reference
 
-See [Monitoring Azure Storage](monitor-queue-storage.md) for details on collecting and analyzing monitoring data for Azure Storage.
+<!-- Intro -->
+[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-## Metrics
+See [Monitor Azure Files](monitor-files.md) for details on the data you can collect for Azure Files and how to use it.
 
-The following tables list the platform metrics collected for Azure Storage.
+<!-- ## Metrics. Required section. -->
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 ### Capacity metrics
 
@@ -30,7 +31,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Queue Storage metrics
 
-This table shows [Queue Storage metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
+This table shows [Queue Storage metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -44,33 +45,35 @@ Transaction metrics are emitted on every request to a storage account from Azure
 
 [!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
 
+### All metrics
+
+- [Microsoft.Storage/storageAccounts](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-metrics)
+- [Microsoft.Storage/storageAccounts/queueServices](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-queueservices-metrics)
+
 <a id="metrics-dimensions"></a>
-
-## Metrics dimensions
-
-Azure Storage supports following dimensions for metrics in Azure Monitor.
-
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 [!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
 
 <a id="resource-logs-preview"></a>
+[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-## Resource logs
+### Supported resource logs for Microsoft.Storage/storageAccounts/queueServices
+[!INCLUDE [Microsoft.Storage/storageAccounts/queueServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-storage-storageaccounts-queueservices-logs-include.md)]
 
-The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
+<!-- ## Azure Monitor Logs tables. Required section. -->
+[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-### Fields that describe the operation
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
+- [Microsoft.Storage/storageAccounts/StorageQueueLogs](/azure/azure-monitor/reference/tables/storagequeuelogs)
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-operation.md)]
+<!-- ## Activity log. Required section. -->
+[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+- [Microsoft.Storage resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftstorage)
 
-### Fields that describe how the operation was authenticated
+## Related content
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-authentication.md)]
+- See [Monitor Azure Queue Storage](monitor-queue-storage.md) for a description of monitoring Azure Queue Storage.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
 
-### Fields that describe the service
-
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
-
-## See also
-
-- See [Monitoring Azure Queue Storage](monitor-queue-storage.md) for a description of monitoring Azure Queue Storage.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
