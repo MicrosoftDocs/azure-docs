@@ -9,7 +9,7 @@ author: sbatchu0108
 ms.author: sbatchu
 ---
 
-# Credential rotation management for on-premises devices
+# Service principal rotation on the target cluster
 
 This document provides an overview on the process of performing service principal rotation on the target cluster.
 
