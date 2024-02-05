@@ -169,6 +169,8 @@ Make note of the subnet's ID, which is used in the next step.  The ID of the sub
 
 ## Create a payment HSM
 
+[!INCLUDE [High-availability deployment](./includes/high-availability-deployment.md)]
+
 ### Create with dynamic hosts
 
 # [Azure CLI](#tab/azure-cli)

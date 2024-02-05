@@ -8,7 +8,6 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/05/2023
 ms.author: eur
-ms.custom: ignite-fall-2021
 ---
 
 This guide shows how to create a Universal Windows Platform (UWP) project and install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for C#. The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.

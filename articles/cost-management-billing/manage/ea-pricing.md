@@ -9,7 +9,6 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 12/08/2023
 ms.author: banders
-ms.custom: seodec18
 ---
 
 # View and download your organization's Azure pricing
