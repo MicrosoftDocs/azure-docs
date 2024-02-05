@@ -17,7 +17,7 @@ This page provides latest news and updates regarding the Azure Database for Post
 
 ## Azure CLI Releases
 
-### January 09, 2024 - version 2.56.0
+### January 09 2024 - version 2.56.0
 
 | Additions and Changes |Comments|
 | --- | --- | 
@@ -27,9 +27,9 @@ This page provides latest news and updates regarding the Azure Database for Post
 |az postgres flexible-server server-logs download|Download server log files for PostgreSQL flexible server|
 |az postgres flexible-server create|  Add capability to set storage type to PremiumV2_LRS and provide values for IOPS and Throughput during creation|
 |az postgres flexible-server update|Add capability to update the values of IOPS and Throughput during update}
-|az postgres flexible-server migration create|Add migration option like Migrate, Validate and ValidateAndMigrate using parameter --migration-option and json file for Migration configuration to support additional properties like sourceType and sslMode|
+|az postgres flexible-server migration create|Add migration option like Migrate, Validate and ValidateAndMigrate using parameter--migration-option and json file for Migration configuration to support another properties like sourceType and sslMode|
 
-### November 14 , 2023 - version 2.54.0
+### November 14  2023 - version 2.54.0
 
 | Additions and Changes |Comments|
 | --- | --- | 
@@ -37,14 +37,14 @@ This page provides latest news and updates regarding the Azure Database for Post
 |az postgres flexible-server restore|  Add cross subscription restore support for PostgreSQL flexible server |
 |az postgres flexible-server upgrade| Add MVU support for PG version 15|
 
-### September 26,2023 - version 2.53.0
+### September 26 2023 - version 2.53.0
 | Additions and Changes |Comments|
 | --- | --- | 
-|az postgres flexible-server create/update|Add capability to enable/disable storage auto-grow during creation and update|
+|az postgres flexible-server create/update|Add capability to enable/disable storage autogrow during creation and update|
 
 ## Contacts
 
-For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL flexible server Team ([@Ask Azure Database for PostgreSQL flexible server](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Please note that this email address isn't a technical support alias.
+For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL flexible server Team ([@Ask Azure Database for PostgreSQL flexible server](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). This email address isn't a technical support alias.
 
 In addition, consider the following points of contact as appropriate:
 
