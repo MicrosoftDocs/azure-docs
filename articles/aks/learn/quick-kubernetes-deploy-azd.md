@@ -39,14 +39,14 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
-- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 ## Clone the repository
 
 All code used in the quickstart is available at [Azure-Samples/aks-store-demo](https://github.com/Azure-Samples/aks-store-demo). You can clone the repository either through git onto your local machine, or use the azd init --template flag.
 
 > [!NOTE]
-? This sample application is for demo purposes and doesn't represent all the best practices for Kubernetes applications. 
+> This sample application is for demo purposes and doesn't represent all the best practices for Kubernetes applications. 
 > For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 ### AZD Template
@@ -67,11 +67,11 @@ The quickstart application includes the following Kubernetes deployments and ser
 
 ### Git
 
-Clone the repository directly through GitHub, then you need to Run `azd init` from inside the directory to create configurations for the AZD CLI. You'll be prompted for an environment name, this article uses `aksqs`.
+Clone the repository directly through GitHub, then you need to Run `azd init` from inside the directory to create configurations for the AZD CLI. You're prompted for an environment name, this article uses `aksqs`.
 
-## Login to your Azure Cloud account
+## Sign in to your Azure Cloud account
 
-The Azure Development Template contains all the code needed to create the services, but you need to login to host them on Azure Kubernetes Service.
+The Azure Development Template contains all the code needed to create the services, but you need to sign in to host them on Azure Kubernetes Service.
 
 Run `azd auth login` 
 
@@ -79,29 +79,29 @@ Type in your Microsoft Credentials in the new page. If you encounter any issues,
 
 ### Troubleshooting: Cannot Connect to Localhost
 
-Certain Azure security policies cause conflicts when trying to login. This is due to your local machine being a different IP from the virtual machine. To get around this, you need to perform a curl request to the url you were redirected to after you logged in.
+Certain Azure security policies cause conflicts when trying to sign in. Your local machine is a different IP from the virtual machine and needs to be whitelisted. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
 
-In this case, you can only login through the Azure CLI instead of AZD. GitHub Codespaces come preconfigured with the Azure CLI. Otherwise, if you don't have it already installed, you need to download it.
+The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI](#).
 
 1. Run `--az login --scope https://graph.microsoft.com/.default` 
-2. Copy the "localhost" URL from the failed redirect.
-3. In a new terminal window within your VSCode Codespace, type `curl <url>`
-4. If it works, you will see code for a webpage saying ""You have logged into Microsoft Azure!"
+2. Copy the "localhost" URL from the failed redirect
+3. In a new terminal window within your VS Code Codespace, type `curl <url>`
+4. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears
 5. Close the terminal and go back to the old terminal
 6. Copy and note down which subscription_id you want to use
-7. Paste in the id to the command `az account set -n {sub}`
+7. Paste in the subscription_ID to the command `az account set -n {sub}`
 
 - If you have multiple Azure subscriptions, select the appropriate subscription for billing using the [az account set](/cli/azure/account#az-account-set) command.
 
 ## Create resources for your cluster
 
-Quickly create all your resources with the `azd up` command. This may take up to 15-20 minutes.
+Quickly create all your resources with the `azd up` command. The demo app can take longer depending on your internet speed.
 
-azd up runs the commands for the 2 hooks for pre-provision and post-provision. During this process, you'll be prompted to select which Azure Subscription and Region you'd like to use for your AKS Cluster.
+azd up runs the commands for the two hooks for pre-provision and post-provision. During this process, you're prompted to select which Azure Subscription and Region you'd like to use for your AKS Cluster.
 
 ## Deploy the application
 
-In the AZD Template, there are files ready for deployment to start your service. In our AKS Quickstart, we'll use the 
+In the AZD Template, there are files ready for deployment to start your service. In our AKS Quickstart, we use the 
 `aks-store-quickstart.yaml`.
 
   For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
@@ -165,19 +165,19 @@ When your application is created, a Kubernetes service exposes the application's
 
 ### Visit the store-front
 
-Once on the store page, you can add new items to your cart and check them out. This uses the Azure Service and if you view your portal it will show the records of the transactions for your store app.
+Once on the store page, you can add new items to your cart and check them out. To verify, visit the Azure Service in your portal to view the records of the transactions for your store app.
 
 <!-- Image of Storefront Checkout -->
 
 ## Delete the cluster
 
-Once you are completed, remember to clean up all your resources to avoid Azure charges. 
+Once you're finished with the quickstart, remember to clean up all your resources to avoid Azure charges. 
 
-Run `azd down` to delete all your resources used in the quickstart, which includes your resource group, cluster, and related Azure Services. This can take up to 10-20 minutes.
+Run `azd down` to delete all your resources used in the quickstart, which includes your resource group, cluster, and related Azure Services.
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it.  You've sucessfully host your store app. But there's still more to learn. If you'd like to learn more about the store in depth and create an admin panel to add new products with Open AI, visit the [AKS tutorial][aks-tutorial].
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. You hosted a store app, but there's still more to learn. If you'd like continue to learn more about AKS in-depth or create an admin panel to add new store products with Open AI, visit the [AKS tutorial][aks-tutorial].
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
