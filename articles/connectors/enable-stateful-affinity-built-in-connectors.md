@@ -70,7 +70,6 @@ To configure virtual network private ports using the Azure portal, follow these 
 
 1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource.
 1. On the logic app menu, under **Settings**, select **Configuration**.
-1. Under Settings, select **Configuration**.
 1. In the Configuration page, go to **General Settings**.
 1. Finally, in the Platform Settings section, you can configure your **VNet Private Ports**.
 
