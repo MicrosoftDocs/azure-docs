@@ -22,6 +22,12 @@
     href: resource-propagation.md
   - name: Multi-cluster Layer 4 Load Balancing
     href: l4-load-balancing.md
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/kubernetes-fleet-manager/#pricing
+  - name: Fleet manager roadmap
+    href: https://github.com/Azure/AKS/projects/3
 - name: Reference
   items:
     - name: Azure CLI
