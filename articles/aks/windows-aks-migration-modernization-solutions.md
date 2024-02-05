@@ -20,23 +20,17 @@ Our partners featured below have published guides on how to migrate and moderniz
 
 ### Azure Migrate 
 
-![Logo of Azure Migrate.](./media/windows-aks-migration-modernization-solutions/azure-migrate.png)
-
 Azure Migrate's latest blog walks you through the process of migrating ASP.NET web apps to Windows containers on Azure Kubernetes Service, detailing a straightforward approach from initial discovery and TCO comparison to cloud readiness assessment and containerization.  
 
 You can [follow their article](https://techcommunity.microsoft.com/t5/containers/azure-migrate-modernizing-your-net-apps-to-windows-containers-on/ba-p/4037551) for details on their end-to-end walkthrough.  
 
 ### CAST
 
-![Logo of CAST.](./media/windows-aks-migration-modernization-solutions/cast.png) 
-
 CAST offers a detailed guide using CAST Highlight to identify containerization blockers and provides remediation strategies. This enhances the migration process with insights into application code, architecture, and third-party compliance.  
 
 For more information on their Windows container migration guidance, case studies and PaaS integrations you can [follow their article](https://techcommunity.microsoft.com/t5/containers/cast-modernizing-your-net-apps-to-windows-containers-on-azure/ba-p/4037740). 
 
 ### UnifyCloud
-
-![Logo of UnifyCloud.](./media/windows-aks-migration-modernization-solutions/unifycloud.png)
 
 UnifyCloud introduces its CloudAtlas platform, an end-to-end migration tool, for streamlining the modernization of .NET applications to Windows containers on Azure Kubernetes Services.
 
