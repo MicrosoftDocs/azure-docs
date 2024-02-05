@@ -10,7 +10,7 @@ ms.author:  ericadebarge
 ms.reviewer: larryfr
 ms.date: 06/09/2023
 ms.topic: troubleshooting
-ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 

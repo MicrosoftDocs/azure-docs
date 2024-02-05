@@ -4,7 +4,6 @@ description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes d
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022
 ms.date: 09/04/2023
 ---
 

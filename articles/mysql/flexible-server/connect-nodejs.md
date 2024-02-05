@@ -8,7 +8,7 @@ ms.date: 06/19/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, linux-related-content
+ms.custom: mvc, devx-track-js, mode-api, linux-related-content
 ms.devlang: javascript
 ---
 

@@ -3,7 +3,7 @@ title: Troubleshoot Azure NAT Gateway connectivity
 description: Troubleshoot connectivity issues with a NAT gateway.
 author: asudbring
 ms.service: nat-gateway
-ms.custom: ignite-2022, linux-related-content
+ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 04/24/2023
 ms.author: allensu

@@ -3,7 +3,6 @@ title: Configure outbound network traffic restriction - Azure HDInsight
 description: Learn how to configure outbound network traffic restriction for Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
 ms.date: 04/24/2023
 ---
 
