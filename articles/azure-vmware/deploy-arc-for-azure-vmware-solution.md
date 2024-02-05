@@ -24,7 +24,7 @@ Running software in Azure VMware Solution, as a private cloud in Azure, offers s
 
 To take advantage of these benefits if you are running in an Azure VMware Solution it is important to enable Arc through this document to fully integrate the experience with the AVS private cloud. Alternatively, Arc-enabling VMs through the following mechanisms will not create the necessary attributes to register the VM and software as part of Azure VMware Solution and therefore result in billing for SQL Server ESUs for:
 
-- Arc-enabled servers,
+- Arc-enabled servers
 
 - Arc-enabled VMware vSphere
 
@@ -196,15 +196,12 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 
   The enable action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly. 
 
-1. Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
+Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
 
 Additionally, for virtual machines there is an additional section to configure **VM extensions**.  This will enable guest management to facilitate additional Azure extensions to be installed on the VM. The steps to enable this would be:
-
 1. Select **Enable guest management**.
-
-1. Choose a __Connectivity Method__ for the Arc agent.
-
-1. Provide an Administrator/Root access username and password for the VM.
+2. Choose a __Connectivity Method__ for the Arc agent.
+3. Provide an Administrator/Root access username and password for the VM.
 
 If you choose to enable the guest management as a separate step or have issues with the VM extension install steps please review the prerequisites and steps discussed in the section below. 
 
@@ -238,11 +235,13 @@ From here additional extensions can be installed. See the [VM extensions](/azur
 
 ### Install extensions
 Extensions can be added into VM following these steps:
-1.    Within the **vCenter Server Inventory >** **Virtual Machines** view choose the virtual machine you wish to add an extension into. 
-2.    Locate **Settings >** **Extensions** from the left navigation and select **Add**. Alternatively, in the **Overview** page an **Extensions** click-through is listed under Properties.
-3.    Select the extension you want to install. Some extensions may require additional details to be provided.
-4.    When you're done, select **Review + create**.
+1.  Within the **vCenter Server Inventory >** **Virtual Machines** view choose the virtual machine you wish to add an extension into.
+2.  Locate **Settings >** **Extensions** from the left navigation and select **Add**. Alternatively, in the **Overview** page an **Extensions** click-through is listed under Properties.
+3.  Select the extension you want to install. Some extensions may require additional details to be provided.
+4.  When you're done, select **Review + create**.
+
 ### Next Steps
 
 To manage Arc-enabled Azure VMware Solution go to: [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
+
 To remove Arc-enabled  Azure VMWare Solution resources from Azure go to: [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)
