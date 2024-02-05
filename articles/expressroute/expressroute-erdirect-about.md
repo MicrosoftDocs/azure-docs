@@ -5,7 +5,6 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.custom:
-  - ignite-2022
   - ignite-2023
 ms.topic: conceptual
 ms.date: 02/05/2024

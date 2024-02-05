@@ -22,17 +22,27 @@
     href: resource-propagation.md
   - name: Multi-cluster Layer 4 Load Balancing
     href: l4-load-balancing.md
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/kubernetes-fleet-manager/#pricing
+  - name: Fleet manager roadmap
+    href: https://github.com/Azure/AKS/projects/3
 - name: Reference
   items:
     - name: Azure CLI
       href: /cli/azure/fleet
+    - name: REST
+      href: /rest/api/fleet
+    - name: PowerShell
+      href: /powershell/module/az.fleet
     - name: .NET
-      href: /dotnet/api/overview/azure/container-service
+      href: /dotnet/api/overview/azure/container-service-fleet
     - name: Python
-      href: /python/api/overview/azure/container-service
+      href: /python/api/overview/azure/container-service-fleet
     - name: Java
-      href: /java/api/overview/azure/containerservice
+      href: /java/api/overview/azure/container-service-fleet
     - name: Node.js
-      href: /javascript/api/overview/azure/container-service
+      href: /javascript/api/overview/azure/container-service-fleet
     - name: Resource Manager template
       href: /azure/templates/microsoft.containerservice/fleets
