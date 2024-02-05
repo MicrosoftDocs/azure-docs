@@ -7,7 +7,6 @@ ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: article
 ms.date: 10/12/2021
 ms.author: madsd
-ms.custom: seodec18
 ---
 # Integrate your ILB App Service Environment with the Azure Application Gateway
 

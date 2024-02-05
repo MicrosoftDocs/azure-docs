@@ -16,13 +16,13 @@ ms.custom:
   - ignite-2023
 ---
 
-# Workspace managed virtual network isolation
+# Workspace Managed Virtual Network Isolation
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet.
 
-## managed virtual network architecture
+## Managed Virtual Network Architecture
 
 When you enable managed virtual network isolation, a managed VNet is created for the workspace. Managed compute resources you create for the workspace automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
