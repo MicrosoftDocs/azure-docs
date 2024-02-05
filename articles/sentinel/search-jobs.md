@@ -15,10 +15,10 @@ For more information on search job concepts and limitations, see [Start an inves
 
 ## Start a search job
 
-Go to **Search** in Microsoft Sentinel from the [Azure portal](https://portal.microsoft.com) or the [Microsoft Defender portal](https://security.microsoft.com/) to enter your search criteria.
+Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft Defender portal to enter your search criteria.
 
 
-1. For Microsoft Sentinel in the Azure portal, under **General**, select **Search**. <br>For Microsoft Sentinel in the Defender portal, select **Microsoft Sentinel** > **Search**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **General**, select **Search**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Search**.
 1. Select the **Table** menu and choose a table for your search.
 1. In the **Search** box, enter a search term.
 
