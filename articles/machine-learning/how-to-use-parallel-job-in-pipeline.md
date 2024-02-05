@@ -1,5 +1,5 @@
 ---
-title: How to use parallel job in pipeline 
+title: How to use parallel job in pipeline
 titleSuffix: Azure Machine Learning
 description: How to use parallel job in Azure Machine Learning pipeline using CLI v2 and Python SDK
 services: machine-learning
@@ -10,7 +10,7 @@ author: alainli
 ms.author: alainli
 ms.reviewer: lagayhar
 ms.date: 03/13/2023
-ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv2, cliv2
 ---
 
 # How to use parallel job in pipeline (V2)

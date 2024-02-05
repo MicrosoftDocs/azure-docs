@@ -2,7 +2,6 @@
 title: SAP ASCS/SCS multi-SID HA with WSFC&shared disk on Azure | Microsoft Docs
 description:  Multi-SID high availability for an SAP ASCS/SCS instance with Windows Server Failover Clustering and shared disk on Azure
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager

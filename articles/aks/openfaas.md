@@ -5,7 +5,7 @@ author: justindavies
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: juda
-ms.custom: mvc, devx-track-azurecli, ignite-2022
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Use OpenFaaS on Azure Kubernetes Service (AKS)

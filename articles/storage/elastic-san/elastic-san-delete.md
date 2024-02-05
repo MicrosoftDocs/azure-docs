@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Delete an Elastic SAN Preview
