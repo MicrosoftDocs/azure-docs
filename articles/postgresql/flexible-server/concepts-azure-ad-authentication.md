@@ -103,45 +103,43 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 * **What are different authentication modes available in Azure Database for PostgreSQL Flexible Server?**
  
-   Azure Database for PostgreSQL flexible server supports three modes of authentication namely 
+   Azure Database for PostgreSQL flexible server supports three modes of authentication namely
+  
 **PostgreSQL authentication only**  
 **Microsoft Entra authentication only** and 
 **PostgreSQL and Microsoft Entra authentication**.
 
 * **Can I configure multiple Microsoft Entra administrators on my Flexible Server?**
   
-    Yes. You can configure multiple Entra administrators on your flexible server. During provisioning you can only set a single Microsoft Entra admin but once the server is created you can set as many Microsoft Entra administrators as you want by going to **Authentication** blade. 
+    Yes. You can configure multiple Entra administrators on your flexible server. During provisioning, you can only set a single Microsoft Entra admin but once the server is created you can set as many Microsoft Entra administrators as you want by going to **Authentication** blade. 
 
 * **Is Microsoft Entra administrators only a Microsoft Entra user?****
   
     No. Microsoft Entra administrator can be a user, group, service principal or managed identity.
 
-* **Can Microsoft Entra administrator create local password based users?**
+* **Can Microsoft Entra administrator create local password-based users?**
   
    Unlike the PostgreSQL administrator, who can only create local password-based users, the Microsoft Entra administrator has the authority to manage both Entra users and local password-based users.
 
-* **how can i differentiate a postgresql administrator from a Microsoft Entra administrator from PostgreSQL roles?**
-Microsoft
-
-* **What happens when i enable Microsoft Entra Authentication on my flexible server?**
+* **What happens when I enable Microsoft Entra Authentication on my flexible server?**
   
     When Microsoft Entra Authentication is set at the server level, PGAadAuth extension gets enabled and results in a server restart.
 
-* **how do i login using Microsoft Entra Authentication?**
+* **How do i log in using Microsoft Entra Authentication?**
   
     You can use client tools such as psql,pgadmin etc to login to your flexible server. Please use the Microsoft Entra ID as **User name** and use your **Entra token**as your password which is generated using azlogin.
 
-* **How do i generate my token**
-Please use below steps to generate your token.
+* **How do I generate my token**
+Please use the below steps to generate your token.
 [Generate Token](how-to-configure-sign-in-azure-ad-authentication.md)
 
 * **What is the difference between group login and individual login?**
   
-   The only difference between logging in as **Microsoft Entra group member** and individual **Entra user** lies in the **Username**, while logging in as individual user you provide your individual Entra ID where as you'll utilize the group name while logging as group member.Regardless, in both scenarios, you'll employ the same individual Entra token as the password.
+   The only difference between logging in as **Microsoft Entra group member** and an individual **Entra user** lies in the **Username**, while logging in as an individual user you provide your individual Entra ID where whereas you'll utilize the group name while logging in as a group member. Regardless, in both scenarios, you'll employ the same individual Entra token as the password.
 
 * **What is the token lifetime**
 
-User tokens are valid upto 1 hour where as System Assigned Managed Identity tokens are valid upto 24 hours.
+User tokens are valid for up to 1 hour whereas System Assigned Managed Identity tokens are valid for up to 24 hours.
 
 
 ## Next steps
