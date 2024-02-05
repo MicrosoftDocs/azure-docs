@@ -173,15 +173,25 @@ This error occurs because when a device receives a cloud-to-device message from 
 
 If IoT Hub doesn't get the notification within the one-minute lock timeout duration, it sets the message back to *Enqueued* state. The device can attempt to receive the message again. To prevent the error from happening in the future, implement device side logic to complete the message within one minute of receiving the message. This one-minute time-out can't be changed.
 
-## 429001 Throttling exception
+## 429001 Throttling exceptions
 
-You may see that your requests to IoT Hub fail with the error **429001 ThrottlingException**.
+You may see that your requests to IoT Hub fail with an error that begins with 429. Some possibilities are:
 
-This error occurs when IoT Hub [throttling limits](iot-hub-devguide-quotas-throttling.md) have been exceeded for the requested operation.
+* **429000 GenericTooManyRequests and 429001 ThrottlingException**: Generic throttling exceptions
 
-To resolve this error, check if you're hitting the throttling limit by comparing your *Telemetry message send attempts* metric against the limits specified above. You can also check the *Number of throttling errors* metric. For information about these metrics, see [Device telemetry metrics](monitor-iot-hub-reference.md#device-telemetry-metrics). For information about how use metrics to help you monitor your IoT hub, see [Monitor IoT Hub](monitor-iot-hub.md).
+* **429002 ThrottleBacklogLimitExceeded**: The number of requests that are in the backlog due to throttling has exceeded the backlog limit.
 
-IoT Hub returns 429 ThrottlingException only after the limit has been violated for too long a period. This is done so that your messages aren't dropped if your IoT hub gets burst traffic. In the meantime, IoT Hub processes the messages at the operation throttle rate, which might be slow if there's too much traffic in the backlog. To learn more, see [IoT Hub traffic shaping](iot-hub-devguide-quotas-throttling.md#traffic-shaping).
+* **429003 ThrottlingBacklogTimeout**: Requests that were backlogged due to throttling have timed out while waiting in the backlog queue.
+
+* **429004 ThrottlingMaxActiveJobCountExceeded**: The maximum amount of active jobs has been exceeded.
+
+* **429005 DeviceThrottlingLimitExceeded**: Throttling has been applied at the device level.
+
+These errors occurs when IoT Hub [throttling limits](iot-hub-devguide-quotas-throttling.md) have been exceeded for the requested operation.
+
+To resolve these errors, check if you're hitting the throttling limit by comparing your *Telemetry message send attempts* metric against the limits specified above. You can also check the *Number of throttling errors* metric. For information about these metrics, see [Device telemetry metrics](monitor-iot-hub-reference.md#device-telemetry-metrics). For information about how use metrics to help you monitor your IoT hub, see [Monitor IoT Hub](monitor-iot-hub.md).
+
+These different throttling mechanisms allow us to retain your excess messages for as long as possible if your IoT hub gets a burst of traffic. IoT Hub processes the messages at the operation throttle rate, which might be slow if there's too much traffic in the backlog. Your messages will only by dropped when the limit has been violated for too long. To learn more, see [IoT Hub traffic shaping](iot-hub-devguide-quotas-throttling.md#traffic-shaping).
 
 Consider [scaling up your IoT Hub](iot-hub-scaling.md) if you're running into quota or throttling limits.
 
