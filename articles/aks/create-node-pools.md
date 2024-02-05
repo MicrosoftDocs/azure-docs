@@ -155,21 +155,10 @@ The Azure Linux container host for AKS is an open-source Linux distribution avai
 
 ### Migrate Ubuntu nodes to Azure Linux nodes
 
-1. [Add an Azure Linux node pool into your existing cluster](#add-an-azure-linux-node-pool).
+You can migrate your existing Ubuntu nodes to Azure Linux using one of the following methods:
 
-    > [!NOTE]
-    > When adding a new Azure Linux node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
-
-2. [Cordon the existing Ubuntu nodes](resize-node-pool.md#cordon-the-existing-nodes).
-3. [Drain the existing Ubuntu nodes](resize-node-pool.md#drain-the-existing-nodes).
-4. Remove the existing Ubuntu nodes using the [`az aks delete`][az-aks-delete] command.
-
-    ```azurecli-interactive
-    az aks nodepool delete \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name mynodepool
-    ```
+* [Remove existing node pools and add new Azure Linux node pools](../azure-linux/tutorial-azure-linux-migration.md#add-azure-linux-node-pools-and-remove-existing-node-pools).
+* [In-place OS SKU migration (preview)](../azure-linux/tutorial-azure-linux-migration.md#in-place-os-sku-migration-preview).
 
 ## Node pools with unique subnets
 
