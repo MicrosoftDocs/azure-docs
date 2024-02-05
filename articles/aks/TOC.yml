@@ -346,12 +346,12 @@
               href: virtual-nodes-portal.md
     - name: Workloads
       items:    
-        -name: GPU Workloads
-         items:
+        - name: GPU workloads
+          items:
             - name: Use GPUs
-             href: gpu-cluster.md
+              href: gpu-cluster.md
             - name: Use Windows GPUs
-             href: use-windows-gpu.md
+              href: use-windows-gpu.md
             - name: Multi-instance GPU node pool
               href: gpu-multi-instance.md
         - name: Vertical Pod Autoscaler

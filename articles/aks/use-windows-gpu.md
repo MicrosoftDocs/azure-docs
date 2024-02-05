@@ -8,7 +8,7 @@ ms.date: 02/05/2024
 
 # Use Windows GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
 
-Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Windows and [Linux](https://learn.microsoft.com/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool) node pools to run compute-intensive Kubernetes workloads. 
+Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Windows and [Linux](https://learn.microsoft.com/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool) node pools to run compute-intensive Kubernetes workloads.
 
 This article helps you provision nodes with schedulable GPUs on new and existing AKS clusters.
 
@@ -22,12 +22,12 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 ## Limitations
 
 * Updating an existing node pool to add GPU isn't supported.
-* Not supported on kubernetes version 1.28 and below.
+* Not supported on Kubernetes version 1.28 and below.
 
 ## Before you begin
 
 * This article assumes you have an existing AKS cluster. If you don't have a cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
-* You need the Azure CLI version 1.0.0b2 or later installed and configured to use the --skip-gpu-driver-install field. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need the Azure CLI version 1.0.0b2 or later installed and configured to use the `--skip-gpu-driver-install` field. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Get the credentials for your cluster
 
@@ -41,13 +41,13 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), GPU driver installation, and more.
 
-When using GPUs with a Windows nodepool, GPU driver installation and NVIDIA device plugin installation occurs by default. 
+When using GPUs with a Windows node pool, GPU driver installation and NVIDIA device plugin installation occurs by default.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 ### Install the `aks-preview` Azure CLI extension
 
-1. Register or update the aks-preview extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
+* Register or update the aks-preview extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 
     ```azurecli-interactive
     # Register the aks-preview extension
@@ -56,11 +56,12 @@ When using GPUs with a Windows nodepool, GPU driver installation and NVIDIA devi
     # Update the aks-preview extension
     az extension update --name aks-preview
     ```
+
 ### Register the `WindowsGPUPreview` feature flag
 
 1. Register the `WindowsGPUPreview` feature flag using the [`az feature register`][az-feature-register] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az feature register --namespace "Microsoft.ContainerService" --name "WindowsGPUPreview"
     ```
 
@@ -68,23 +69,23 @@ When using GPUs with a Windows nodepool, GPU driver installation and NVIDIA devi
 
 2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az feature show --namespace "Microsoft.ContainerService" --name "WindowsGPUPreview"
     ```
 
 3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
+    ```
 
-### Create a Windows GPU-enabled node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command (preview)
+### Create a Windows GPU-enabled node pool (preview)
 
-Creating a Windows GPU-enabled nodepool requires that you use a supported GPU VM SKU, and specify `os-type`. The default Windows `os-sku` will be `Windows2022`, however all Windows skus are supported.
+Creating a Windows GPU-enabled node pool requires that you use a supported GPU VM SKU, and specify `os-type`. The default Windows `os-sku` is `Windows2022`, but all Windows SKUs are supported.
 
-- `os-type` set to `Windows`
+1. Create a Windows GPU-enabled node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
- ```azurecli-interactive
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -97,25 +98,27 @@ Creating a Windows GPU-enabled nodepool requires that you use a supported GPU VM
         --min-count 1 \
         --max-count 3
     ```
-``` 
-This command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
- * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
- * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
- * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
- * `--min-count`: Configures the cluster autoscaler to maintain a minimum of one node in the node pool.
- * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
 
- > [!NOTE]
- > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time. 
+      This command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
 
- ### Check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
+     * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
+     * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
+     * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
+     * `--min-count`: Configures the cluster autoscaler to maintain a minimum of one node in the node pool.
+     * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
 
+      > [!NOTE]
+      > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
+
+2. Check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable).
+3. [Run a GPU workload](#run-a-gpu-enabled-workload).
 
 ## Using Windows GPU with manual driver installation
 
-AKS uses automatic GPU driver and NVIDIA device plugin installation when using GPUs with Windows node pools. Installing your own drivers requires two main steps: 
-1) [skip GPU driver installation (preview)](#skip-gpu-driver-installation-preview) using `--skip-gpu-driver-install`
-2) [Manual installation of the NVIDIA Device plugin](#manually-install-the-nvidia-device-plugin)
+AKS uses automatic GPU driver and NVIDIA device plugin installation when using GPUs with Windows node pools. Installing your own drivers requires two main steps:
+
+1) [Skip GPU driver installation (preview)](#skip-gpu-driver-installation-preview) using `--skip-gpu-driver-install`, and
+2) [Manual installation of the NVIDIA device plugin](#manually-install-the-nvidia-device-plugin).
 
 ### Skip GPU driver installation (preview)
 
@@ -154,7 +157,7 @@ AKS has automatic GPU driver installation enabled by default. In some cases, suc
     Adding the `--skip-gpu-driver-install` flag during node pool creation skips the automatic GPU driver installation. Any existing nodes aren't changed. You can scale the node pool to zero and then back up to make the change take effect.
 
  > [!NOTE]
- > If the `--node-vm-size` that you're using is not yet onboarded on AKS, you will not be able to use GPUs and `--skip-gpu-driver-install` will not work.
+ > If the `--node-vm-size` that you're using isn't yet onboarded on AKS, you can't use GPUs and `--skip-gpu-driver-install` doesn't work.
 
 ### Manually install the NVIDIA device plugin
 
@@ -186,9 +189,9 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
     * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
 
     > [!NOTE]
-    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time. 
+    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
 
----
+## Create a namespace and deploy the NVIDIA device plugin
 
 1. Create a namespace using the [`kubectl create namespace`][kubectl-create] command.
 
