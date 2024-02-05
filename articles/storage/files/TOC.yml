@@ -240,7 +240,13 @@
   - name: Optimize costs with storage reservations
     href: files-reserve-capacity.md
 - name: Monitor metrics and logs
-  href: monitor-files.md
+  items:
+  - name: Monitor Azure Files
+    href: monitor-files.md
+  - name: Analyze metrics
+    href: monitor-files.md#analyze-metrics-for-azure-files
+  - name: Create alerts
+    href: monitor-files.md#create-common-alert-rules
 - name: Application development
   items:
   - name: Configure connection strings
