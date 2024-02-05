@@ -1,126 +1,210 @@
 ---
-title: Observability analytics in Azure Operator 5G Core
-description: Learn how observability analytics are used in Azure Operator 5G Core
-author: HollyCl
-ms.author: HollyCl
+title: Observability and analytics in Azure Operator 5G Core
+description: Learn how observability and analytics are used in Azure Operator 5G Core
+author: SarahBoris
+ms.author: sboris
 ms.service: azure
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 01/18/2024
+ms.date: 02/05/2024
 
-#CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the  main branch.
+# Observability and analytics in Azure Operator 5G Core
 
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
+Observability has three pillars: metrics, tracing, and logs.  Metrics show when you have a problem, tracing points you to the problem, and logs help find the root cause.  Alerts are notifications based on the metrics and logs.
 
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
+## Observability overview
 
-Concept is an article pattern that defines what something is or explains an abstract idea.
+The following components provide observability for AO5GC:
 
-There are several situations that might call for writing a Concept article, including:
+ :::image type="content" source="media/concept-observability-analytics/obs_overview.png" alt-text="Diagram of text boxes showing the components that support observability functions for Azure Operator 5G Core.":::
 
-* If there's a new idea that's central to a service or product, that idea must be explained so that customers understand the value of the service or product as it relates to their circumstances. A good recent example is the concept of containerization or the concept of scalability.
-* If there's optional information or explanations that are common to several Tutorials or How-to guides, this information can be consolidated and single-sourced in a full-bodied Concept article for you to reference.
-* If a service or product is extensible, advanced users might modify it to better suit their application. It's better that advanced users fully understand the reasoning behind the design choices and everything else "under the hood" so that their variants are more robust, thereby improving their experience.
+### Observability open source components
 
--->
+AO5GC uses the following open source components for observability functions.
 
-<!-- 1. H1
------------------------------------------------------------------------------
+|Observability parameters    |Open source components |
+|----------------------------|-----------------------|
+|Metrics |Prometheus, AlertManager, Grafana |
+|Logs    |Elasticsearch, Fluentd, and Kibana (EFK);  Elastalert |
+|Tracing  |Jaeger, OpenTelemetry Collector |
 
-Required. Set expectations for what the content covers, so customers know the content meets their needs. The H1 should NOT begin with a verb.
+## EFK logging framework
+Elasticsearch, Fluentd, and Kibana (EFK) provide a distributed logging system used for collecting and visualizing the logs to troubleshoot microservices.
 
-Reflect the concept that undergirds an action, not the action itself. The H1 must start with:
+### Architecture
+The following diagram shows EFK architecture:
 
-* "\<noun phrase\> concept(s)", or
-* "What is \<noun\>?", or
-* "\<noun\> overview"
+ :::image type="content" source="media/concept-observability-analytics/efk_arch.png" alt-text="Diagram of text boxes showing the Elasticsearch, Fluentd, and Kibana (EFK) distributed logging system used to troubleshoot microservices in  Azure Operator 5G Core.":::
 
-Concept articles are primarily distinguished by what they aren't:
+> [!NOTE]
+> The linked content is available only to customers with a current Affirmed Networks' support agreement. To access the content, you must have  Affirmed Networks login credentials. If you need assistance, please speak to the Affirmed Networks Support Team.
 
-* They aren't procedural articles. They don't show how to complete a task.
-* They don't have specific end states, other than conveying an underlying idea, and don't have concrete, sequential actions for the user to take.
+The EFK logging framework includes the following components:
 
-One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
+- **Fluentd** - Fluentd is an open-source log collector. Fluentd allows you to unify data collection and consumption for better use and understanding of the data. Fluentd is deployed as a DaemonSet in the Kubernetes cluster. It collects the logs in each K8s node and streams the logs to Elasticsearch. See [Logs supported by Fluentd](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Fluentd-logs-supported.htm).
+- **Elasticsearch** - Elasticsearch is an open source, distributed, real-time search back-end. Elasticsearch stores the logs securely and offers an HTTP web interface for log analysis.
 
--->
+- **Kibana** - Kibana is used to visualize the logs stored in Elasticsearch. Kibana pulls the logs from Elasticsearch.
 
-# Observability analytics in Azure Operator 5G Core
-TODO: Add your heading
+  For more information about Elasticsearch and Kibana, see [Elastic documentation](https://www.elastic.co/guide/index.html).
 
-<!-- 2. Introductory paragraph
-----------------------------------------------------------
+- **ElastAlert** - ElastAlert is a simple framework for alerting on anomalies, spikes, or other patterns of interest from data in Elasticsearch. It works by combining Elasticsearch with two types of components: rule types and alerts. Elasticsearch is periodically queried and the data is passed to the rule type, which determines when a match is found. When a match occurs, one or more alerts are triggered based on the match. 
 
-Required. Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short.
+  For more information about ElastAlert, see [ElastAlert documentation](https://elastalert.readthedocs.io/en/latest/).
 
-* Answer the fundamental "Why do I want this knowledge?" question.
-* Don't start the article with a bunch of notes or caveats.
-* Don’t link away from the article in the introduction.
-* For definitive concepts, it's better to lead with a sentence in the form, "X is a (type of) Y that does Z."
+### Features
 
--->
+The EFK logging framework provides the following features:
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+- **Log collection and streaming** - Fluentd collects and streams the logs to Elasticsearch. 
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+- **Audit logs support** - Fluentd reads Kube-Apiserver audit logs from the Kubernetes master node and write those logs to Elasticsearch. The auditlogEnabled flag provided in fed-paas-helpers is used to to enable/disable reading of audit logs. If the auditlogEnabled flag is set to true, then Fluentd is also deployed on the master node along with the worker nodes. 
 
-Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
+- **Event logging** - Fluentd creates a separate Elasticsearch index for all the event logs for a particular namespace. This helps to apply rules and search the event logs in a better way. The index starts with the prefix "fluentd-event". All other regular debug logs go into a separate Elasticsearch index, prefixed with the string "fluentd-*". 
 
--->
+- **Log storage and analysis** - Elasticsearch securely stores the logs and offers a query language to search for and analyze the logs. 
 
-## Prerequisites
-TODO: [List the prerequisites if appropriate]
+- **Log visualization** - Kibana pulls the logs from Elasticsearch and visualizes the logs. Kibana allows creating dashboards to visualize the logs. 
 
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
+- **Alerting mechanism** - ElastAlert provides rules to query Elasticsearch for the logs. When a match occurs, alerts are triggered.
 
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
+### Helm customization
 
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
+AO5GC provides a default set of Helm values that you can use to deploy the EFK logging framework. You can customize these values to improve scalability and performance if needed.
 
--->
+### Observability
 
-## [Section 1 heading]
-TODO: add your content
+This section describes the observability features (dashboards, statistics, logs, and alarms) of the EFK logging framework
 
-## [Section 2 heading]
-TODO: add your content
+#### Dashboards
 
-## [Section n heading]
-TODO: add your content
+EFK supports a variety of dashboard options, including:
 
+- Grafana dashboards (see [Logging framework dashboards](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/EFK_Dashboards.htm))
+- Kibana dashboards (see [Kibana dashboard overview](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/Kibana_Dashboards.htm))
+- Grafana Kibana dashboards (see [Kibana Grafana dashboards](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/kibana_grafana_dashboards.md.html))
+- Fluentd Operator dashboard (see [Fluentd operator Grafana dashboard](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/fluentd_operator_grafana_dashboards.md.html))
+- Elasticsearch Grafana dashboard (see [Elasticsearch dashboard](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/elastic_grafana_dashboards.md.html))
 
-<!-- 6. Next step/Related content ------------------------------------------------------------------------
+#### Statistics
 
-Optional: You have two options for manually curated links in this pattern: Next step and Related
-content. You don't have to use either, but don't use both. For Next step, provide one link to the
-next step in a sequence. Use the blue box format For Related content provide 1-3 links. Include some
-context so the customer can determine why they would click the link. Add a context sentence for the
-following links.
+For information about supported statistics for EFK components, see:
 
--->
+- [Elasticsearch statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/stats_ElasticSearch.htm)
+- [Elasticsearch additional statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/cna-elastic-elastic-prom.md.html)
+- [Fluentd operator statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/cna-fluentd_operator-fluentd-prom.md.html)
 
-## Next step
-TODO: Add your next step link(s)
-> [!div class="nextstepaction"]
-> 
-<!-- OR -->
+For information about metrics-based alerts, see:
+
+- [Fluentd operator metrics-based alerts](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/pod-fluentd_operator-metric_alert_rules.md.html)
+- [Elastic metric-based alerts](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/pod-elastic-metric_alert_rules.md.html)
+
+#### Events
+
+For information about Elastic events, see [Elastic events](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/EFK_logging_FrameWork/elastic_events.md.html).
+
+#### Log visualization
+
+The EFK framework aggregates logs from nodes and applications running inside your AO5GC installation. When logging is enabled, the EFK framework uses Fluentd to aggregate event logs from all applications and nodes into Elasticsearch. The EFK framework also provides a centralized Kibana web UI where users can view the logs or create rich visualizations and dashboards with the aggregated data. 
+
+## Metrics framework
+
+The metrics framework consists of Prometheus, Grafana, and AlertManager. 
+
+Prometheus (the main component) is an open-source, metrics-based monitoring system. It provides a data model and a query language to analyze how the applications and infrastructure are performing. Prometheus collects metrics from instrumented jobs directly. It stores all scraped samples in local/external storage and runs rules over this data to either aggregate and record new time series from existing data or generate alerts. The AlertManager handles the alerts sent by client applications by deduplicating, grouping, and routing them to the correct receiver integrations. 
+
+Grafana provides dashboards to visualize the collected data. 
+
+### Architecture
+
+The following diagram shows how the different components of the metrics framework interact with each other. 
+
+ :::image type="content" source="media/concept-observability-analytics/affirmed_nfs.png" alt-text="Diagram of text boxes showing interaction between metrics frameworks components in  Azure Operator 5G Core.":::
+
+The core components of the metrics framework are: 
+
+- **Prometheus server** - The Prometheus server collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and triggers alerts if certain condition is are true. AO5GC supports integration with the Prometheus server out of the box, with minimal required configuration.
+- **Client libraries** - Client libraries instrument the application code. 
+- **Alertmanager** - Alertmanager handles alerts sent by client applications such as the Prometheus server. It handles deduplicating, grouping, and routing alerts to the correct receiver integrations (email, slack, etc.). Alertmanager  also supports silencing and inhibition of alerts. 
+- **Grafana** - Grafana provides an out of the box set of dashboards rich with 3GPP and other KPIs to query, visualize, and understand the collected data. 
+The Grafana audit feature provides a mechanism to restore or recreate dashboards in the Grafana server when Grafana server pod restarts. The audit feature also helps to delete any stale dashboards from the Grafana server. 
+
+### Features
+
+The metrics framework supports the following features:
+
+- Multi-dimensional data model with time series data identified by metric name and key/value pairs. 
+- PromQL, a flexible query language to leverage this dimensionality. 
+- No reliance on distributed storage: single server nodes are autonomous. 
+- Time series collection using a pull model over HTTP. 
+- Targets are discovered via service discovery or static configuration. 
+- Multiple modes of graphing and dashboarding support. 
+
+For more information about Prometheus, see [Prometheus documentation](https://prometheus.io/docs/introduction/overview/).
+For ore information about Grafana, see [Grafana open source documentation](https://grafana.com/docs/grafana/latest/)
+
+### Observability
+
+This section describes observability features (dashboards, statistics, logs, and alarms) provided by the metrics framework. 
+
+#### Dashboards
+
+The metrics framework supports the following dashboards:
+
+- Grafana dashboards (see [Grafana dashboard](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/MetricsFrameWork/grafana_grafana_dashboards.md.html))
+- Prometheus Grafana dashboards (see [Prometheus Grafana dashboard](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/MetricsFrameWork/prometheus_grafana_dashboards.md.html))
+
+#### Statistics
+
+For information about supported statistics for metrics framework components, see:
+
+- [Grafana statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/MetricsFrameWork/stats_Grafana.htm)
+- [Prometheus statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/MetricsFrameWork/stats_Prometheus.htm)
+- [Prometheus server error statistics](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/MetricsFrameWork/cna-prometheus-prometheus-prom.md.html)
+
+For information about Prometheus metrics-based alerts, see [Prometheus metrics-based alerts.](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/MetricsFrameWork/pod-prometheus-metric_alert_rules.md.html)
+
+#### Events/Logs
+
+For information about metrics framework events, see:
+
+- [Prometheus events](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/PaaS_Components/MetricsFrameWork/prometheus_events.md.html)
+-  [Infrastructure events](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/Microservices/Shared/Events/infra_events.htm)
+
+#### Metrics-based alerts for network/HTTP failures
+
+Prometheus alert rules generate alerts if HTTP/network failures are detected in the system. The following alerts are generated for network failures. 
+
+**Application level global alerts:** 
+
+- **IstioGlobalHTTP5xxRatePercentageHigh** -  An application that is part of the Istio service mesh is responding with 5xx error and the error rate percentage is more than the &lt;configured value &gt; % 
+- **IstioGlobalHTTP4xxRatePercentageHigh** - An application is responding with 4xx error and the error rate percentage is more than the <configured value> %. 
+IstioHTTPRequestLatencyTooHigh: Requests are taking more than the <configured value> seconds. 
+
+**Pod and container level alerts:** 
+
+- **HTTPServerError5xxPercentageTooHigh** - HTTP server responds with 5xx error and the error percentage is more than the &lt;configured_value&gt; %. 
+- **HTTPServerError4xxPercentageTooHigh** - HTTP server responds with 4xx error and the error percentage is more than the &lt;configured_value&gt; %. 
+- **HTTPServerRequestRateTooHigh** - The total request received at the HTTP server is more than the &lt;configured_value&gt;. 
+- **HTTPClientRespRcvd5xxPercentageTooHigh** - HTTP client response received with 5xx error and the received error percentage is more than the &lt;configured_value&gt; %. 
+- **HTTPClientRespRcvd4xxPercentageTooHigh** - HTTP client response received with 4xx error and the received error percentage is more than the &lt;configured_value&gt; %. 
+
+#### Jaeger tracing with OpenTelemetry Protocol
+
+AO5GC uses the OpenTelemetry Protocol (OTLP) in Jaeger tracing. OTLP replaces the Jaeger agent in fed-paas-helpers. AO5GC deploys the fed-otel_collector federation. The OpenTelemetry (OTEL) Collector runs as part of the fed-otel_collector namespace, as shown below:
+
+ :::image type="content" source="media/concept-observability-analytics/jaeger_design_uc.png" alt-text="Diagram of text boxes showing Jaeger tracing and OpenTelemetry Protocol components in  Azure Operator 5G Core.":::
+
+Jaeger tracing uses the following workflow:
+
+1. The application with the OTLP client library sends traces to the OTEL Collector on the OTLP GRPC protocol. The OTEL Collector has three components:  receivers, processors and exporters.  
+1. The OTLP GRPC receiver in the OTEL Collector receives traces and send the to the Jaeger exporter.  
+1. The Jaeger exporter sends traces to the Jaeger collector running as part of fed-jaeger.  
+1. The Jaeger collector stores the traces in Elastic backend storage (fed-elastic). 
 
 ## Related content
-TODO: Add your next step link(s)
-- 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
--->
+- [What is Azure Operator 5G Core?](overview-product.md)
+- [Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md)
+- [Quickstart: Deploy Azure Operator 5G Core observability on Nexus Advanced Kubernetes Services (NAKS)](quickstart-deploy-observability-nexus.md)
