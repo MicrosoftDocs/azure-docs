@@ -40,7 +40,7 @@ There are two subsections in this section. Read through both the scenarios or th
 
 This section shows how to configure the event subscription by using a Microsoft Entra user. 
 
-1. Create a Microsoft Entra application for the webhook configured to work with the Microsoft directory (single tenant).
+1. Create a Microsoft Entra application for the webhook configured to work with the Microsoft Entra (single tenant).
 
 2. Open the [Azure Shell](https://portal.azure.com/#cloudshell/) in the tenant and select the PowerShell environment.
 
@@ -90,13 +90,13 @@ This section shows how to configure the event subscription by using a Microsoft 
 
 This section shows how to configure the event subscription by using a Microsoft Entra application. 
 
-1. Create a Microsoft Entra application for the Event Grid subscription writer configured to work with the Microsoft directory (Single tenant).
+1. Create a Microsoft Entra application for the Event Grid subscription writer configured to work with the Microsoft Entra (Single tenant).
 
 2. Create a secret for the Microsoft Entra application and save the value (you need this value later).
 
 3. Go to the **Access control (IAM)** page for the Event Grid topic and assign **Event Grid Contributor** role to the Event Grid subscription writer app. This step allows you to have access to the Event Grid resource when you logged-in into Azure with the Microsoft Entra application by using Azure CLI.
 
-4. Create a Microsoft Entra application for the webhook configured to work with the Microsoft directory (Single tenant).
+4. Create a Microsoft Entra application for the webhook configured to work with the Microsoft Entra (Single tenant).
 
 5. Open the [Azure Shell](https://portal.azure.com/#cloudshell/) in the tenant and select the PowerShell environment.
 
@@ -153,7 +153,7 @@ Based on the diagram, follow next steps to configure both tenants.
 
 Do the following steps in **Tenant A**: 
 
-1. Create a Microsoft Entra application for the Event Grid subscription writer configured to work with any Microsoft Entra directory (multitenant).
+1. Create a Microsoft Entra application for the Event Grid subscription writer configured to work with any Microsoft Entra (multitenant).
 
 2. Create a secret for the Microsoft Entra application, and save the value (you need this value later).
 
@@ -163,7 +163,7 @@ Do the following steps in **Tenant A**:
 
 Do the following steps in **Tenant B**:
 
-1. Create a Microsoft Entra Application for the webhook configured to work with the Microsoft directory (single tenant).
+1. Create a Microsoft Entra Application for the webhook configured to work with the Microsoft Entra (single tenant).
 5. Open the [Azure Shell](https://portal.azure.com/#cloudshell/), and select the PowerShell environment.
 6. Modify the **$webhookAadTenantId** value to connect to the **Tenant B**.
     - Variables:
