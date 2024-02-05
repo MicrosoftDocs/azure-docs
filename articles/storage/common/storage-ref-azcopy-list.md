@@ -12,7 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy list
 
-Lists the entities in a given resource.
+List the entities in a given resource. Blob, Files, and ADLS Gen 2 containers, folders, and accounts are supported. OAuth for Files is currently not supported, please use SAS to authenticate for Files.
 
 ## Synopsis
 
