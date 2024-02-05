@@ -265,9 +265,9 @@ Here are the concrete examples of the field name conversion:
 | Metrics | `VideoViews` | `metrics.video_views` | 
 
 
-## Migrate Google AdWords connector to Google Ads connector 
+## Upgrade Google AdWords connector to Google Ads connector 
 
-Migrate your Google AdWords linked service to the latest Google Ads linked service following the steps below:
+Upgrade your Google AdWords linked service to the latest Google Ads linked service following the steps below:
 
 1. Select **Recommended** as driver version to create a new Google Ads linked service and configure it by referring to [Linked service properties](connector-google-adwords.md#linked-service-properties). 
 1. Update your pipelines that refer to the legacy Google AdWords linked service. Considering that the Google Ads linked service only supports using query to copy data, so:
