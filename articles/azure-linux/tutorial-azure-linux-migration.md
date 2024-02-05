@@ -259,7 +259,8 @@ Once the migration is complete on your test clusters, you should verify the foll
 * Run the `kubectl get pods -o wide -A` command to verify that all of your pods and daemonsets are running on the new node pool.
 * Run the `kubectl get nodes --show-labels` command to verify that all of the node labels in your upgraded node pool are what you expect.
 
-***We recommend monitoring the health of your service for a couple weeks before migrating your production clusters***.
+> [!TIP]
+> We recommend monitoring the health of your service for a couple weeks before migrating your production clusters.
 
 ### Run the OS SKU migration on your production clusters
 
