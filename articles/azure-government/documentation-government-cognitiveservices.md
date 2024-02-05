@@ -50,6 +50,7 @@ In order to access any of the Azure AI services APIs, you must first provision a
    - Face
    - TextAnalytics
    - TextTranslation
+   - OpenAI
 
    ```powershell
    New-AzCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
@@ -103,8 +104,6 @@ The Quickstarts below will help you to get started with the APIs available throu
     
     >[!NOTE] 
     > After you install or upgrade to Visual Studio 2019, you might also need to manually update the Visual Studio 2019 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
-    >
-    >
     
 ### Variations
 
