@@ -92,7 +92,6 @@ callClient.createCallAgent(userCredential: userCredential) { callAgent, error in
 } 
 ```
 
-Class reference
 
 |Class Name | Description          |
 |-----------|----------------------|
@@ -443,8 +442,7 @@ public class DominantSpeakersDelegate : DominantSpeakersCallFeatureDelegate {
 ```
 
 #### Class reference
-
-Class Name | Description          |
+| Class Name | Description          |
 |-----------|----------------------|
 |[Call](/objectivec/communication-services/calling/acscall) | Describes a call|
 |DominantSpeakersDelegate | Documentation isn't available yet |
@@ -524,7 +522,7 @@ Azure Communication Services calling has a CallAgent delegate that allows client
 * When an incoming call is received
 
 #### Class reference
-Class Name | Description          |
+| Class Name | Description          |
 |-----------|----------------------|
 |[CallDelegate](/objectivec/communication-services/calling/acscalldelegate) | A set of methods that are called by calling SDK in response to important events.|
 |[CallAgentDelegate](/objectivec/communication-services/calling/acscallagentdelegate) | A set of methods that are called by ACSCallAgent in response to important events. |
@@ -553,7 +551,7 @@ call.hangUp(options: HangUpOptions()) { error in
 
 #### Class reference
 
-Class Name | Description          |
+| Class Name | Description          |
 |-----------|----------------------|
 |[Call](/objectivec/communication-services/calling/acscall) | A set of methods that are called by ACSCall in response to important events.|
 |[HangUp Options](/objectivec/communication-services/calling/acscallagentdelegate) | A Property bag class for hanging up a call |

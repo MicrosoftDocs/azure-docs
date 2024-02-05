@@ -777,7 +777,7 @@ The CallAgent receives updates regarding calls through two listeners: `CallsUpda
 *  an incoming call is received
 
 #### Class reference
-Class Name  | Description          |
+| Class Name  | Description          |
 |-----------|----------------------|
 |[PropertyChangedListener](/java/api/com.azure.android.communication.calling.propertychangedlistener?view=communication-services-java-android) | Informs the library that the call state has changed|
 |[CallsUpdatedListener](/java/api/com.azure.android.communication.calling.callsupdatedlistener?view=communication-services-java-android) | Informs the library when the calls have been updated |
@@ -821,7 +821,7 @@ call.hangUp(HangUpOptions().apply { isForEveryone = true }).get()
 ```
 
 #### Class reference
-Class Name  | Description          |
+| Class Name  | Description          |
 |-----------|----------------------|
 |[Call](/java/api/com.azure.android.communication.calling.call?view=communication-services-java-android) | Describes a call |
 |[HangUpOptions](/java/api/com.azure.android.communication.calling.hangupoptions?view=communication-services-java-android)| Property bag class for hanging up a call |
