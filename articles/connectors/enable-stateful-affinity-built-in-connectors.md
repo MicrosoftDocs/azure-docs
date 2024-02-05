@@ -68,7 +68,7 @@ After you enable virtual network integration for your logic app, you must update
 
 To configure virtual network private ports using the Azure portal, follow these steps:
 
-1. **Log in** to your Azure portal.
+1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource.
 1. Navigate to your **Logic App**.
 1. In the Logic App page, go to **Settings**.
 1. Under Settings, select **Configuration**.
