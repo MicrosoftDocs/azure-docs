@@ -23,7 +23,7 @@ Defender for Servers offers two plan options with different levels of protection
 
 ## Enable the Defender for Servers plan
 
-You can [enable the Defender for Servers plan on an Azure subscription, AWS account, or GCP project](#enable-on-an-azure-subscription-aws-account-or-gcp-project), [the Log Analytics workspace level](#enable-the-plan-at-the-log-analytics-workspace-level), or [enable the plan at the resource level](#enable-the-plan-at-the-resource-level).
+You can [enable the Defender for Servers plan on an Azure subscription, AWS account, or GCP project](#enable-on-an-azure-subscription-aws-account-or-gcp-project), [the Log Analytics workspace level](#enable-the-plan-at-the-log-analytics-workspace-level), or [enable the plan at the resource level](#enable-defender-for-servers-at-the-resource-level).
 
 ## Enable on an Azure subscription, AWS account, or GCP project
 
@@ -43,7 +43,7 @@ You can enable the Defender for Servers plan from the Environment settings page 
 
     :::image type="content" source="media/tutorial-enable-servers-plan/enable-servers-plan.png" alt-text="Screenshot that shows you how to toggle the Defender for Servers plan to on." lightbox="media/tutorial-enable-servers-plan/enable-servers-plan.png":::
 
-After enabling the plan, you have the ability to [configure the features of the plan](configure-servers-coverage.md) to suit your needs. When you enable Defender for Servers on a subscription, it doesn't extend that coverage to an attached workspace. You need to [enable Defender for Servers on the Log Analytics workspace level](#enable-the-plan-ate-the-log-analytics-workspace-level).
+After enabling the plan, you have the ability to [configure the features of the plan](configure-servers-coverage.md) to suit your needs. When you enable Defender for Servers on a subscription, it doesn't extend that coverage to an attached workspace. You need to [enable Defender for Servers on the Log Analytics workspace level](#enable-the-plan-at-the-log-analytics-workspace-level).
 
 ### Select a Defender for Servers plan
 
