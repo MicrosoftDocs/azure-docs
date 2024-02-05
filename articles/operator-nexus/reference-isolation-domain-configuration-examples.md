@@ -55,7 +55,7 @@ az networkfabric l2domain create \
 }
 ```
 
-# Create an L3 isolation domain.
+## Create an L3 isolation domain.
 
 To create an L3 isolation domain, you can follow these steps:
 
