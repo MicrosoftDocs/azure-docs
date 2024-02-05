@@ -15,18 +15,18 @@ ms.custom: mode-other
 
 1.  **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/free/).
 2.  **Node.js 18:** Ensure Node.js 18 is installed on your system. Download from [Node.js](https://nodejs.org/en).
-3.  **Communication Services Resource:** Set up a [Communication Services Resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
-4.  **Azure CLI:** Follow the instructions at [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
+3.  **Communication Services Resource:** Set up a [Communication Services Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
+4.  **Azure CLI:** Follow the instructions to [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
 5.  **User Access Token:** Generate a user access token to instantiate the call client. You can create one using the Azure CLI as follows:
 ```console
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
 
-For more information, see [Use Azure CLI to Create and Manage Access Tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
+For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
 For Video Calling as a Teams user:
 
--   You can also use Teams identity. To generate an access token for a Teams User, see [Manage teams identity](../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
+-   You can also use Teams identity. To generate an access token for a Teams User, see [Manage teams identity](../../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
 -   Obtain the Teams thread ID for call operations using the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). For information about creating a thread ID, see [Create chat - Microsoft Graph v1.0 > Example2: Create a group chat](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
 
 ## UI library
@@ -205,7 +205,7 @@ callAgent.on('incomingCall', async (call) =\>{
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
-When starting, joining, or accepting a call with *video on*, if the specified video camera device is being used by another process or if it's disabled in the system, the call starts with *video off*, and returns a `cameraStartFailed: true` call diagnostic.
+When starting, joining, or accepting a call with *video on*, if the specified video camera device is being used by another process or if the camera is disabled in the system, the call starts with *video off*, and returns a `cameraStartFailed: true` call diagnostic.
 
 ```javascript
 const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {  
@@ -387,7 +387,7 @@ localVideoStream.switchSource(camera);
 
 If the specified video device is being used by another process, or if it's disabled in the system:
 
--   While in a call, if your video is off and you start video using `call.startVideo()`, this method returns a `SourceUnavailableError` and `cameraStartFailed` will be set to true.
+-   While in a call, if your video is off and you start video using `call.startVideo()`, this method returns a `SourceUnavailableError` and `cameraStartFailed` are set to true.
 -   A call to the `localVideoStream.switchSource()` method causes `cameraStartFailed` to be set to true. See the [Call Diagnostics guide](../../concepts/voice-video-calling/call-diagnostics.md) for more information about how to diagnose call-related issues.
 
 To verify whether the local video is *on* or *off* you can use the `isLocalVideoStarted` API, which returns true or false:
@@ -601,7 +601,7 @@ if (backgroundBlurSupported) {
 }
 ```
 
-For background replacement with an image you need to provide the URL of the image you want as the background to this effect. Supported image formats are: PNG, JPG, JPEG, TIFF, and BMP. The supported aspect ratio is 16:9.
+To use a custom background replacement with an image you need to provide the URL of the image you want as the background to this effect. Supported image formats are: PNG, JPG, JPEG, TIFF, and BMP. The supported aspect ratio is 16:9.
 
 ```javascript
 const backgroundImage = 'https://linkToImageFile'; 
@@ -757,7 +757,7 @@ twilioRoom.on('dominantSpeakerChanged', (participant) => {
 
 #### Azure Communication Services
 
-Dominant speakers for a call are an extended feature of the core Call API. It enables you to obtain a list of the active speakers in the call. This is a ranked list, where the first element in the list represents the last active speaker on the call and so on.
+Dominant speakers for a call are an extended feature of the core Call API. It enables you to obtain a list of the active speakers in the call. Thhe list of dominant speakers is a ranked list, where the first element in the list represents the last active speaker on the call and so on.
 
 In order to obtain the dominant speakers in a call, you first need to obtain the call dominant speakers feature API object:
 ```javascript

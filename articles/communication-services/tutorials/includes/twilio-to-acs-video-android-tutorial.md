@@ -11,21 +11,21 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-# Prerequisites
+## Prerequisites
 
 1.  **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/free/).
-2.  **Communication Services Resource:** Set up a [Communication Services Resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
-3.  **Azure CLI:** Follow the instructions at [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
+2.  **Communication Services Resource:** Set up a [Communication Services Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
+3.  **Azure CLI:** Follow the instructions to [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
 4.  **User Access Token:** Generate a user access token to instantiate the call client. You can create one using the Azure CLI as follows:
 ```console
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
 
-For more information, see [Use Azure CLI to Create and Manage Access Tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
+For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
 For Video Calling as a Teams user:
 
--   You can also use Teams identity. To generate an access token for a Teams User, see [Manage teams identity](../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
+-   You can also use Teams identity. To generate an access token for a Teams User, see [Manage teams identity](../../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
 -   Obtain the Teams thread ID for call operations using the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). For information about creating a thread ID, see [Create chat - Microsoft Graph v1.0 > Example2: Create a group chat](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
 
 ## Installation
@@ -116,10 +116,9 @@ val callAgent: CallAgent = CallClient().createCallAgent(
 
 
 ## Initiating an outgoing call 
-This step requires a valid access token.
 
 ### Twilio
-Twilio Video Android SDK does not have a concept of Call. Twilio Video SDK uses the concept of Room. 
+Twilio Video Android SDK doesn't have a concept of Call. Twilio Video SDK uses the concept of Room. 
 In scenarios where client A wishes to establish communication with client B, client A can create a room; B needs to connect to it. Developers can emulate a call-like experience with Twilio by incorporating features such as push notifications. 
 In this setup, client A notifies client B about the desire to initiate communication by joining a room. 
 Twilio Video Android SDK doesn't support this particular concept directly.
@@ -144,7 +143,7 @@ room = Video.connect(context, connectOptions, roomListener);
 
 ### Azure Communication Services Calling 
 
-Initiating a call with the ASCCalling SDK involves: 
+Initiating a call with the calling SDK involves: 
 
 1. Creating a StartCallOption object 
 2. Creating an Array of Communication Identifiers 
@@ -191,7 +190,7 @@ val call: Call = callAgent.join(getApplicationContext(), teamsMeetingLinkLocator
 ## Accepting / Joining a call
 
 ### Twilio 
-As mentioned previously, Twilio Video Android SDK does not have a concept of Call. Twilio uses the concept of a room. Different clients can establish communication by joining the same room.
+As mentioned previously, Twilio Video Android SDK doesn't have a concept of Call. Twilio uses the concept of a room. Different clients can establish communication by joining the same room.
 
 ### Azure Communication Services Calling
 
@@ -199,11 +198,11 @@ As mentioned previously, Twilio Video Android SDK does not have a concept of Cal
 To accept calls, the application must first be configured to receive incoming calls.
 
 #### Register for push notifications and handle incoming push notification 
-An ACS client can opt-in to receive push notifications to receive incoming calls. This [guide](../../how-tos/calling-sdk/push-notifications?pivots=platform-android) describes how to set up push notifications for the Azure Communication Services Calling framework.
+An ACS client can opt-in to receive push notifications to receive incoming calls. This [guide](../../how-tos/calling-sdk/push-notifications.md?pivots=platform-android) describes how to set up push notifications for the Azure Communication Services Calling framework.
 
 #### Setting up the CallAgentListener
 
-The Azure Communication Services Calling SDK includes an `IncomingCallListener`. An `IncomingCallListener` is set on the CallAgent instance. This listener defines an `onIncomingCall(IncomingCall incomingCall)` method which is triggered upon the arrival of an incoming call.
+The Azure Communication Services Calling SDK includes an `IncomingCallListener`. An `IncomingCallListener` is set on the CallAgent instance. This listener defines an `onIncomingCall(IncomingCall incomingCall)` method, which is triggered upon the arrival of an incoming call.
 
 **Java**
 ```java
@@ -251,7 +250,7 @@ incomingCall.accept(context)
 
 |Class Name | Description          |
 |-----------|----------------------|
-|[IncomingCallListener](java/api/com.azure.android.communication.calling.incomingcalllistener?view=communication-services-java-android) | Functional interface for incoming calls. |
+|[IncomingCallListener](/java/api/com.azure.android.communication.calling.incomingcalllistener?view=communication-services-java-android) | Functional interface for incoming calls. |
 |[IncomingCall](/java/api/com.azure.android.communication.calling.incomingcall?view=communication-services-java-android)| Describes an incoming call |
 
 
@@ -599,7 +598,7 @@ mediaStatsCallFeature.apply {
 }
 ```
 
-For more information, see the [Media quality statistics](../../concepts/voice-video-calling/media-quality-sdk?pivots=platform-android) guide.
+For more information, see the [Media quality statistics](../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-android) guide.
 
 
 ## Diagnostics
@@ -698,7 +697,7 @@ localUserDiagnosticsCallFeature.getMediaDiagnostics();
 localUserDiagnosticsCallFeature.networkDiagnostics
 localUserDiagnosticsCallFeature.mediaDiagnostics
 ```
-To learn more about User Facing Diagnostics, see the [User Facing Diagnostics](../../concepts/voice-video-calling/user-facing-diagnostics?pivots=platform-android)
+To learn more about User Facing Diagnostics, see the [User Facing Diagnostics](../../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-android)
 
 
 ## Event Listeners
@@ -771,7 +770,7 @@ Twilio has a `LocalParticipant.Listener` that allows clients to receive updates 
 * The network quality level for the local participant changed
 
 #### Azure Communication Services Calling
-The CallAgent receives updates regarding calls through two listeners: `CallsUpdatedListener` and the `IncomingCallListener`. These listeners will be triggered respectively for the following events:
+The CallAgent receives updates regarding calls through two listeners: `CallsUpdatedListener` and the `IncomingCallListener`. These listeners are triggered respectively for the following events:
 
 *  calls are updated, a new call is created, an existing call is disconnected
 *  an incoming call is received
@@ -780,7 +779,7 @@ The CallAgent receives updates regarding calls through two listeners: `CallsUpda
 | Class Name  | Description          |
 |-----------|----------------------|
 |[PropertyChangedListener](/java/api/com.azure.android.communication.calling.propertychangedlistener?view=communication-services-java-android) | Informs the library that the call state has changed|
-|[CallsUpdatedListener](/java/api/com.azure.android.communication.calling.callsupdatedlistener?view=communication-services-java-android) | Informs the library when the calls have been updated |
+|[CallsUpdatedListener](/java/api/com.azure.android.communication.calling.callsupdatedlistener?view=communication-services-java-android) | Informs the library when the calls are updated |
 |[IncomingCallListener](/java/api/com.azure.android.communication.calling.incomingcalllistener?view=communication-services-java-android) | Informs the library about incoming call |
 |[VideoDevicesUpdatedListener](/java/api/com.azure.android.communication.calling.videodevicesupdatedlistener?view=communication-services-java-android) | Informs the library that new video devices were added or removed to the current library|
 
@@ -828,23 +827,3 @@ call.hangUp(HangUpOptions().apply { isForEveryone = true }).get()
 
 # Cleaning Up
 If you want to [clean up and remove a Communication Services subscription](../../quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources), you can delete the resource or resource group.
-
-# More information
-
-### Add 1:1 video quickstart
-https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-android
-
-### Calling SDK overview
-https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features
-
-### Video constraints
-https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/video-constraints
-
-# Additional features from the ACS SDK
-Some features of the Azure Communication Services Calling SDK described in the list below don’t have an equivalent in the Twilio Android SDK.
-### Raise Hand
-[RaiseHand](../../how-tos/calling-sdk/raise-hand?pivots=platform-android) feature allows participants of a call to raise or lower hands.
-### Video Background
-[Adding VideoBackground](../../quickstarts/voice-video-calling/get-started-video-effects?pivots=platform-android) Allow users to blur the background in the video stream. 
-### Video spotlights
-[Spotlights](../../how-tos/calling-sdk/spotlight?pivots=platform-android) Allow users to pin and unpin videos.

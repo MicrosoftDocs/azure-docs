@@ -14,22 +14,22 @@ ms.custom: mode-other
 ## Prerequisites
 
 1.  **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/free/).
-2.  **Communication Services Resource:** Set up a [Communication Services Resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
-3.  **Azure CLI:** Follow the instructions at [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
+2.  **Communication Services Resource:** Set up a [Communication Services Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
+3.  **Azure CLI:** Follow the instructions to [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
 4.  **User Access Token:** Generate a user access token to instantiate the call client. You can create one using the Azure CLI as follows:
 ```console
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
 
-For more information, see [Use Azure CLI to Create and Manage Access Tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
+For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
 For Video Calling as a Teams user:
 
--   You can also use Teams identity. To generate an access token for a Teams User, see [Manage teams identity](../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
+-   You can also use Teams identity. To generate an access token for a Teams User, see [Manage teams identity](../../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
 -   Obtain the Teams thread ID for call operations using the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). For information about creating a thread ID, see [Create chat - Microsoft Graph v1.0 > Example2: Create a group chat](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
 
 ## Installation
-To start the migration from Twilio iOS Video SDK, the first step is to install the Azure Communication Services calling iOS SDK to your project. You can configure this in `Cocoapods`.
+To start the migration from Twilio iOS Video SDK, the first step is to install the Azure Communication Services calling iOS SDK to your project. You can configure these parameters using`Cocoapods`.
 
 1. To create a Podfile for your application, open the terminal and navigate to the project folder and run: 
 
@@ -58,7 +58,7 @@ To be able to use the Azure Communication Services calling SDK, you need to auth
 
 ### Twilio
 
-From witin the Twilio Video framework, the access token is used to connect to a room. By passing it to ConnectOptions and then using the connect option to create or connect a room.
+From witin the Twilio Video framework, the access token is used to connect to a room. By passing the token to ConnectOptions you can create the option to create or connect a room.
 
 ```swift
 let connectOptions = ConnectOptions(token: accessToken) { 
@@ -248,7 +248,7 @@ localVideoTrack = LocalVideoTrack(source: camera!, enabled: true, name: "Camera"
 
 **At connect time**
 
-When a call connects you can add the local video track to the call can be achieved by passing the local video track to the localVideo track list that can be set with ConnectOptions.
+When a call connects, you can add the local video track to the call can be achieved by passing the local video track to the localVideo track list that can be set with ConnectOptions.
 
 ```swift
 let connectOptions = ConnectOptions(token: accessToken) { builder in
