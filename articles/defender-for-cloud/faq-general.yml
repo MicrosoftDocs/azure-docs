@@ -342,9 +342,9 @@ sections:
           Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
 
       - question: |
-          Can I update multiple plans on a single subscription simultaneously with API?
+          Can I programmatically update multiple plans on a single subscription simultaneously?
         answer: |
-          We don't recommend updating multiple plans on a single subscription simultaneously with API. When using the [Microsoft.Security/pricings API](/rest/api/defenderforcloud/pricings), you should insert a delay of 10-15 seconds between each request.
+          We don't recommend programmatically updating multiple plans on a single subscription simultaneously (via REST API, ARM templates, scripts, etc.). When using the [Microsoft.Security/pricings API](/rest/api/defenderforcloud/pricings), you should insert a delay of 10-15 seconds between each request.
 
 additionalContent: |
 
