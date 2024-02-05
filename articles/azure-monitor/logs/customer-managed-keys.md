@@ -3,7 +3,7 @@ title: Azure Monitor customer-managed key
 description: Information and steps to configure Customer-managed key to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 06/01/2023 
+ms.date: 01/04/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -187,7 +187,7 @@ Content-type: application/json
   },
   "sku": {
     "name": "CapacityReservation",
-    "capacity": 500
+    "capacity": 100
   }
 }
 ```
@@ -207,7 +207,7 @@ Response to GET request when key update is completed:
   },
   "sku": {
     "name": "capacityreservation",
-    "capacity": 500
+    "capacity": 100
   },
   "properties": {
     "keyVaultProperties": {
@@ -224,7 +224,7 @@ Response to GET request when key update is completed:
     "isAvailabilityZonesEnabled": false,
     "capacityReservationProperties": {
       "lastSkuUpdate": "last-sku-modified-date",
-      "minCapacity": 500
+      "minCapacity": 100
     }
   },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",

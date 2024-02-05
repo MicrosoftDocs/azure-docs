@@ -5,7 +5,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions]
+ms.custom: references_regions
 ms.date: 08/07/2023
 ---
 

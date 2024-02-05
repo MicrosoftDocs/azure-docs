@@ -6,7 +6,6 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2023
 ms.author: rosouz
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Custom partitioning in Azure Synapse Link for Azure Cosmos DB

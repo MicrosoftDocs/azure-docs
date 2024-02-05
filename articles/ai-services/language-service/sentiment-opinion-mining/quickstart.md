@@ -11,7 +11,7 @@ ms.date: 01/25/2024
 ms.author: aahi
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: language-service-sentiment-opinion-mining, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 keywords: text mining, key phrase
 zone_pivot_groups: programming-languages-text-analytics
 ---
