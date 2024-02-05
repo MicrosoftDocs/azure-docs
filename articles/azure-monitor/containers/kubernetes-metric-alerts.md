@@ -49,7 +49,7 @@ Download the required files for the template you're working with and deploy usin
 
 ### ARM
 
-- Template file: [https://aka.ms/azureprometheus-communityalerts](https://aka.ms/azureprometheus-communityalerts)
+- Template file: [https://aka.ms/azureprometheus-recommendedmetricalerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
 
 - Parameters:
 
@@ -63,7 +63,7 @@ Download the required files for the template you're working with and deploy usin
 ### Bicep
 See the [README](https://github.com/Azure/prometheus-collector/blob/main/AddonBicepTemplate/README.md) for further details.
 
-- Template file: [https://aka.ms/azureprometheus-alerts-bicep)](https://aka.ms/azureprometheus-alerts-bicep)
+- Template file: [https://aka.ms/azureprometheus-recommendedmetricalertsbicep](https://aka.ms/azureprometheus-recommendedmetricalertsbicep)
 - Parameters:
 
     | Parameter | Description |
