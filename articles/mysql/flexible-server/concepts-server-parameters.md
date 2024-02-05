@@ -15,6 +15,10 @@ ms.date: 04/26/2023
 
 This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL flexible server.
 
+> [!NOTE]  
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
+
 ## What are server variables?
 
 The MySQL engine provides many different [server variables/parameters](https://dev.mysql.com/doc/refman/5.7/en/server-option-variable-reference.html) that can be used to configure and tune engine behavior. Some parameters can be set dynamically during runtime while others are "static", requiring a server restart in order to apply.
@@ -37,9 +41,17 @@ Refer to the following sections to learn more about the limits of the several co
 
 ### lower_case_table_names
 
-For MySQL version 5.7, default value is 1 in Azure Database for MySQL flexible server. It is important to note that while it is possible to change the supported value to 2, reverting from 2 back to 1 is not allowed.  Please contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value. 
-For [MySQl version 8.0+](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html) lower_case_table_names can only be configured when initializing the server. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html). Changing the lower_case_table_names setting after the server is initialized is prohibited. For MySQL version 8.0, default value is 1 in Azure Database for MySQL flexible server. Supported value for MySQL version 8.0 are 1 and 2 in Azure Database for MySQL flexible server. Please contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value during server creation.
+For MySQL version 5.7, default value is 1 in Azure Database for MySQL flexible server. It's important to note that while it is possible to change the supported value to 2, reverting from 2 back to 1 isn't allowed.  Contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value. 
+For [MySQL version 8.0+](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html) lower_case_table_names can only be configured when initializing the server. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html). Changing the lower_case_table_names setting after the server is initialized is prohibited. For MySQL version 8.0, default value is 1 in Azure Database for MySQL flexible server. Supported value for MySQL version 8.0 are 1 and 2 in Azure Database for MySQL flexible server. Contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value during server creation.
 
+
+### innodb_tmpdir
+
+The [innodb_tmpdir](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_tmpdir) parameter in Azure Database for MySQL Flexible Server is used to define directory for temporary sort files created during online ALTER TABLE operations that rebuild. The default value of innodb_tmpdir is `/mnt/temp`. This location corresponds to the [temporary storage SSD](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types), available in GiB with each server compute size. This location is ideal for operations that don’t require a large amount of space. 
+If more space is needed, you can set innodb_tmpdir to `/app/work/tmpdir`. This utilizes your storage, capacity available on your Azure Database for MySQL Flexible Server. This can be useful for larger operations that require more temporary storage.
+It's important to note that utilizing  `/app/work/tmpdir`  results in slower performance compared to the [default temp storage (SSD)](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types) `/mnt/temp`. The choice should be made based on the specific requirements of the operations.
+
+The information provided for the `innodb_tmpdir` is applicable to the parameters [innodb_temp_tablespaces_dir](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_temp_tablespaces_dir), [tmpdir](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmpdir), and [slave_load_tmpdir](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_load_tmpdir) where the default value `/mnt/temp` is common, and the alternative directory `/app/work/tmpdir` is available for configuring increased temporary storage, with a trade-off in performance based on specific operational requirements.
 
 ### log_bin_trust_function_creators
 
@@ -47,7 +59,7 @@ In Azure Database for MySQL flexible server, binary logs are always enabled (tha
 
 The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues don't exist and binary logging can't break, so you can safely allow [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to remain **ON**.
 
-If [`log_bin_trust_function_creators`] is set to OFF, if you try to create triggers you may get errors similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*.
+If [`log_bin_trust_function_creators`] is set to OFF, if you try to create triggers you may get errors similar to *you don't have the SUPER privilege, and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*.
 
 ### innodb_buffer_pool_size
 
@@ -142,7 +154,7 @@ The binary log contains "events" that describe database changes such as table cr
 
 ### event_scheduler
 
-In Azure Database for MySQL flexible server, the `event_schedule` server parameter manages creating, scheduling, and running events, i.e., tasks that run according to a schedule, and they're run by a special event scheduler thread. When the `event_scheduler` parameter is set to ON, the event scheduler thread is listed as a daemon process in the output of SHOW PROCESSLIST. You can create and schedule events using the following SQL syntax:
+In Azure Database for MySQL flexible server, the `event_schedule` server parameter manages creating, scheduling, and running events, that is, tasks that run according to a schedule, and they're run by a special event scheduler thread. When the `event_scheduler` parameter is set to ON, the event scheduler thread is listed as a daemon process in the output of SHOW PROCESSLIST. You can create and schedule events using the following SQL syntax:
 
 ```sql
 CREATE EVENT <event name>

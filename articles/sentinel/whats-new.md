@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 01/11/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -20,6 +20,38 @@ The listed features were released in the last three months. For information abou
 > `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## February 2024
+
+- [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
+- [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### AWS and GCP data connectors now support Azure Government clouds
+
+Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
+
+The configurations for these connectors for Azure Government customers differs slightly from the public cloud configuration. See the relevant documentation for details:
+
+- [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
+- [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)
+
+### Windows DNS Events via AMA connector now generally available (GA)
+
+Windows DNS events can now be ingested to Microsoft Sentinel using the Azure Monitor Agent with the now generally available data connector. This connector allows you to define Data Collection Rules (DCRs) and powerful, complex filters so that you ingest only the specific DNS records and fields you need.
+
+- For more information, see [Stream and filter data from Windows DNS servers with the AMA connector](connect-dns-ama.md).
+
+## January 2024
+
+### Reduce false positives for SAP systems with analytics rules
+
+Use analytics rules together with the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP® systems. The Microsoft Sentinel solution for SAP® applications now includes the following enhancements:
+
+- The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
+
+- The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
+
+For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
 
 ## November 2023
 

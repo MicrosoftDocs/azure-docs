@@ -1353,6 +1353,11 @@
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-business-continuity.md",
+        "redirect_url": "/azure/reliability/reliability-hdinsight",
+        "redirect_document_id": false
     }
   ]
 }

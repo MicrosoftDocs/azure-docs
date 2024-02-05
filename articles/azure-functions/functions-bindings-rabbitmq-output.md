@@ -2,7 +2,6 @@
 title: RabbitMQ output bindings for Azure Functions
 description: Learn to send RabbitMQ messages from Azure Functions.
 author: cachai2
-ms.assetid: 
 ms.topic: reference
 ms.date: 01/21/2022
 ms.author: cachai

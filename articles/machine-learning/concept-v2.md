@@ -92,7 +92,7 @@ SDK v2 is useful in the following scenarios:
 
 ## Should I use v1 or v2?
 
-Support for CLI v2 will end on September 30, 2025.  
+Support for CLI v1 will end on September 30, 2025.  
 
 We encourage you to migrate your code for both CLI and SDK v1 to CLI and SDK v2. For more information, see [Upgrade to v2](how-to-migrate-from-v1.md).
 
