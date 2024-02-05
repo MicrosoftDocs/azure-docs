@@ -21,7 +21,7 @@ For more information about individual commands, see the [CLI reference](/azure/s
 
 ## Serve static files from your filesystem
 
-The SWA CLI provides the ability to directly serve your static content from your filesystem with no additional tools required. You can either serve the static content from your current directory or a specific folder.
+The SWA CLI allows you to directly serve your static content from your filesystem with no other required tools. You can either serve the static content from your current directory or a specific folder.
 
 | Serve from... | Command | Notes |
 |---|---|---|
