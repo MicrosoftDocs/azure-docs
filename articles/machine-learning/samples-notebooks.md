@@ -1,12 +1,11 @@
 ---
 title: Example Jupyter Notebooks (v2)
 titleSuffix: Azure Machine Learning
-description: Learn how to find and use the Juypter Notebooks designed to help you explore the SDK (v2) and serve as models for your own machine learning projects.
+description: Learn how to find and use the Jupyter Notebooks designed to help you explore the SDK (v2) and serve as models for your own machine learning projects.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
@@ -29,7 +28,7 @@ This article shows you how to access the repository from the following environme
 
 ## Option 1: Access on Azure Machine Learning compute instance (recommended)
 
-The easiest way to get started with the samples is to complete the [Create resources to get started](quickstart-create-resources.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the Azure Machine Learning Notebooks repository. No downloads or installation necessary.
+The easiest way to get started with the samples is to complete the [Create resources to get started](quickstart-create-resources.md). Once completed, you'll have a dedicated notebook server preloaded with the SDK and the Azure Machine Learning Notebooks repository. No downloads or installation necessary.
 
 To view example notebooks:
 
@@ -44,7 +43,7 @@ If you'd like to bring your own notebook server for local development, follow th
 
 [!INCLUDE [aml-your-server](includes/aml-your-server-v2.md)]
 
-These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
+These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks might require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 
 ## Option 3: Access on a DSVM
 
@@ -58,7 +57,7 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
     git clone https://github.com/Azure/azureml-examples.git --depth 1
     ```
 
-1. Start the notebook server from the directory which contains the clone.
+1. Start the notebook server from the directory that contains the clone.
 
     ```bash
     jupyter notebook
@@ -66,7 +65,7 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
 
 ## Connect to a workspace
 
-Some of the sample use `MLClient.from_config()` to connect to a workspace.  For these samples to work, you'll need to a configuration file in the directory where you run the notebook, or a parent directory.
+Some of the samples use `MLClient.from_config()` to connect to a workspace.  For these samples to work, you need a configuration file in the directory where you run the notebook, or a parent directory.
 
 The configuration file is created for you on the Azure Machine Learning compute instance.  To use the code on your own notebook server or DSVM, create the configuration file manually.  Use either of the following methods:
 
