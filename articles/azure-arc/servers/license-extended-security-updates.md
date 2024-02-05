@@ -104,7 +104,7 @@ There are several limitations in the management scenarios for provisioned WS2012
 
 - Licenses can be linked to servers in another subscription within the same tenant, but licenses can't be linked to servers within subscriptions of other tenants.
 
-- Tagging a license under evaluation scenarios such as Dev Test or Disaster Recovery doesn't impact or whitelist from billing. Billing is strictly tied to the number of cores associated with the license regardless of tags. The cores used for evaluation or free scenarios shouldn't be provisioned for the Azure Arc ESU license. 
+- Tagging a license under evaluation scenarios such as Dev Test or Disaster Recovery doesn't impact billing. Billing is strictly tied to the number of cores associated with the license regardless of tags. The cores used for evaluation or free scenarios shouldn't be provisioned for the Azure Arc ESU license. 
 
 ## Next steps
 
