@@ -46,20 +46,18 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ### Known issues
 
-- Clusters clean up via resource group
+- **Workload identity limitation:**
+  - There is a limitaion when transitioning to workload identity. This is due to the permission-sensitive nature of FICs operations.
+    Two availableoptions to address this limitaton:
+    1. **Option 1:**
+       - Cannot support the deletion of a cluster by deleting the resource group.
+       - Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions.
+       - If FIC deletion fails, the high-level cluster deletion will also fail.
+    1.  **Option 2:**
+       - On the Resource Provider side, ignore FIC deletion errors to unblock the cluster deletion workflow.
+       - Clusters can be deleted by deleting the resource group.
+       - However, FICs will be leaked in the user's Managed Service Identity (MSI).
 
-### Coming soon
-
-- Script action Phase-2
-  - Phase-2 of Script action provides a more robust framework for cluster customization
-- Spark 3.4 Upgrade – HDInsight on AKS
-  - The new version of Apache Spark™ comes with a host of new features Spark connect, timestamp without timezone etc.
-- Lib Management –Improvements
-  - Library management users can add libraries from public maven repositories.
-- MSI based SQL authentication
-  - Users can  leverage Managed Identity instead of plain-text credentials to authenticate to metastore.
-- Flink App Mode  
-  - Flink Application mode clusters are designed to support dedicated resources for large and long-running jobs. When you have resource-intensive or extensive data processing tasks, you can use the Application Mode Cluster. This mode allows you to allocate dedicated resources for specific Flink applications, ensuring that they have the necessary computing power and memory to handle large workloads effectively.
 
 ### New regions
 - East Asia
