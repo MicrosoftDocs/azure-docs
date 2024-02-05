@@ -24,6 +24,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |---------|---------|---------|
 |Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has Workaround|
 |Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has Workaround|
+|Azure Synapse serverless SQL pool|[Query failures in Synapse Serverless ](#query-failures-in-synapse-serverless)|Has Workaround|
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|
 |Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has Workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
@@ -65,6 +66,36 @@ While using views in Azure Synapse serverless pool over Cosmos DB analytical sto
 Sometimes you may not be able to execute the ALTER DATABASE SCOPED CREDENTIAL query. The root cause of this issue is the credential was cached after its first use making it inaccessible for alteration. The error returned in such case is following "Failed to modify the identity field of the credential '{credential_name}' because the credential is used by an active database file.".
 
 **Workaround**: The engineering team is currently aware of this behavior and is working on a fix. As a workaround you can DROP and CREATE the credentials, which would also mean recreating external tables using the credentials. Alternatively, you can engage Microsoft Support Team for assistance.
+
+### Query failures in Synapse Serverless 
+
+The customer has encountered errors during their query execution, despite having provided the necessary permissions for the user over the storage. It should be noted that such error messages can also occur due to common user errors, such as when Role-Based Access Control (RBAC) roles are not assigned to the storage account.
+
+Error Messages:
+
+- WaitIOCompletion call failed. HRESULT = 0x80070005'. File/External table name: {path}
+
+- Unable to resolve path '%' Error number 13807, Level 16, State 1, Message "Content of directory on path '%' cannot be listed.
+
+- Error 16561: "External table '<table_name>' is not accessible because content of directory cannot be listed.
+
+- Error number 13822: File {path} cannot be opened because it does not exist or it is used by another process.
+
+- Error number 16536:  Cannot bulk load because the file "%ls" could not be opened.
+
+**Workaround**: 
+
+The resolution is different depending on which scenario (AAD or MSI) the customer is experiencing:
+
+For AAD token expiration:
+
+1- It is recommended switching to Service Principal, Managed identity or Shared access signature instead of using user identity for long running queries please check https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=service-principal#supported-storage-authorization-types  .
+
+2- Restarting client (SSMS/ADS) acquires new token to establish the connection.
+
+For MSI token expiration:
+
+The mitigation is to Deactivate and Activate the pool in order to clear the token cache. Please engage Synapse support team for further assistance. 
 
 ## Azure Synapse Analytics Dedicated SQL pool active known issues summary
 
