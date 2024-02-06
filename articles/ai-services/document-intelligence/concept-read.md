@@ -143,7 +143,7 @@ The pages collection is the first object you see in the service response. The pa
 For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
 > [!NOTE]
-> For the Microsoft Word, Excel, PowerPoint, and HTML file support, the API ignores the pages parameter and extracts all pages by default.
+> For the Microsoft Word and HTML file support, the API ignores the pages parameter and extracts all pages by default.
 
 ### Paragraphs
 
