@@ -18,6 +18,8 @@ The following tables show overviews of the services that Azure Maps offers:
 
 ## Latest release
 
+The most recent stable release of the Azure Maps services.
+
 | API | Description |
 |-----|-------------|
 | [Data] | The Azure Maps Data v2 service has been deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data registry] service by 9/16/24. For more information, see [How to create data registry]. |
@@ -33,6 +35,8 @@ The following tables show overviews of the services that Azure Maps offers:
 
 ## Previous release
 
+A previous stable release of an Azure Maps service that is still in use. The services in this list will generally have a more recent version available, and will be slated for retirement. If you are using a previous release, update to the latest version before it is retired to avoid disruption of service.
+
 | API | Description |
 |-----|-------------|
 | [Data][Data-v1] | The Azure Maps Data v1 service has been deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data registry] service by 9/16/24. For more information, see [How to create data registry]. |
@@ -40,6 +44,8 @@ The following tables show overviews of the services that Azure Maps offers:
 | [Search][Search-v1] | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. This is version 1.0 of the Search service. For the latest version, see [Search]. |
 
 ## Latest preview
+
+Pre-release version of an Azure Maps service. Preview releases contain new functionality or updates to existing functionality that will be included in a future release.
 
 | API | Description |
 |-----|-------------|

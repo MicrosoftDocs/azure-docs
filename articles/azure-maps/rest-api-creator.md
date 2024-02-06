@@ -18,6 +18,8 @@ The following tables offer high-level overviews of the services that Azure Maps 
 
 ## Latest release
 
+The most recent stable release of the Creator services.
+
 | API | Description |
 |-----|-------------|
 | [Alias] | This API allows the caller to assign an alias to reference a resource. |
@@ -28,6 +30,8 @@ The following tables offer high-level overviews of the services that Azure Maps 
 | [WFS] | Use the Web Feature Service (WFS) API to query for all feature collections or a specific collection within a dataset. For example, you can use WFS to find all mid-size meeting rooms in a specific building and floor level. |
 
 ## Latest preview
+
+Pre-release version of a Creator service. Preview releases contain new functionality or updates to existing functionality that will be included in a future release.
 
 | API | Description |
 |-----|-------------|
