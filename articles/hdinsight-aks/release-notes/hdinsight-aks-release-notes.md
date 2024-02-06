@@ -31,16 +31,19 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ### New Features
 
-- Workload Identity support by default from 1.1 release.
-- Trino clusters support Trino 426 from 1.1.x release.
-- Trino cluster shape now supports load-based autoscale from 1.1.x release.
-- Trino cluster shape adds simplified hive metastore and catalogs configuration.
-- Trino cluster shape adds sharded sql connector.
-- Flink clusters now support Flink 1.17 from 1.1.x release.
-- Flink SQL Gateway is now supported from 1.1.x release of Flink on session clusters.
+- Workload Identity support by default from 1.1 release
+- Trino clusters support Trino 426 from 1.1.x release
+  - HDInsight on AKS Trino now includes all changes up to version 426 with several notable improvements provided by the community, learn more about Trino [here](https://trino.io/docs/current/release/release-426.html).
+- Trino cluster shape now supports load-based autoscale from 1.1.x release
+  - Trino now supports load-based autoscale making cluster more cost efficient. Learn more about it [here](/azure/hdinsight-aks/hdinsight-on-aks-autoscale-clusters).
+- Trino cluster shape adds simplified hive metastore and catalogs configuration
+  - We have simplified external Hive metastore configuration for Trino cluster, specify external metastore in config.properties and enable it for each catalog with single parameter, learn more about enhancements [here](/azure/hdinsight-aks/trino/trino-connect-to-metastore).
+- Trino cluster shape adds sharded sql connector
+- Flink clusters now support Flink 1.17 from 1.1.x release
+- Flink SQL Gateway is now supported from 1.1.x release of Flink on session clusters
 
 ### Bug Fixes
-- [Trino] Create failed due to an internalservererror Http2ConnectionException
+
 - Trino cluster shape excludes system tables from caching automatically
 - Trino cluster shape improves Power BI timestamp timezones handling
 
@@ -57,8 +60,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
        - If FIC deletion fails, the high-level cluster deletion will also fail.
     1.  **Option 2:**
          - On the Resource Provider side, ignore FIC deletion errors to unblock the cluster deletion workflow.
-         - Clusters can be deleted by deleting the resource group.
-         - However, FICs will be leaked in the user's Managed Service Identity (MSI).
+         - Clusters can be deleted by deleting the resource group. However, FICs will be leaked in the user's Managed Service Identity (MSI).
 
 
 ### New regions
