@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 01/17/2024
+ms.date: 02/05/2024
 ms.author: radeltch
 ---
 
@@ -267,7 +267,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ```bash
     # mount temporarily the volume
     sudo mkdir -p /saptmp
-    sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4,minorversion=1,sec=sys
+    sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o noresvport,vers=4,minorversion=1,sec=sys
     # create the SAP directories
     sudo cd /saptmp
     sudo mkdir -p sapmntNW1
@@ -303,9 +303,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ```bash
     vi /etc/fstab
     # Add the following lines to fstab, save and exit
-    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1sys/ /usr/sap/NW1/SYS  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1sys/ /usr/sap/NW1/SYS  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
     
     # Mount the file systems
     mount -a 
@@ -347,7 +347,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
     ```bash
     sudo crm node standby sap-cl2
-    sudo crm configure primitive fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' directory='/usr/sap/NW1/ASCS00' fstype='nfs' options='sec=sys,vers=4.1' \
+    sudo crm configure primitive fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' directory='/usr/sap/NW1/ASCS00' fstype='nfs' options='noresvport,vers=4,minorversion=1,sec=sys' \
       op start timeout=60s interval=0 \
       op stop timeout=60s interval=0 \
       op monitor interval=20s timeout=40s
@@ -402,7 +402,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ```bash
     sudo crm node online sap-cl2
     sudo crm node standby sap-cl1
-    sudo crm configure primitive fs_NW1_ERS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ers' directory='/usr/sap/NW1/ERS01' fstype='nfs' options='sec=sys,vers=4.1' \
+    sudo crm configure primitive fs_NW1_ERS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ers' directory='/usr/sap/NW1/ERS01' fstype='nfs' options='noresvport,vers=4,minorversion=1,sec=sys' \
       op start timeout=60s interval=0 \
       op stop timeout=60s interval=0 \
       op monitor interval=20s timeout=40s
@@ -669,8 +669,8 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
     ```bash
     vi /etc/fstab
     # Add the following lines to fstab, save and exit
-    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
     
     # Mount the file systems
     mount -a 

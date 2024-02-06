@@ -3,7 +3,7 @@ title: Use the extended features in the Apache Spark History Server to debug app
 description: Use the extended features in the Apache Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive
 ms.date: 09/13/2023
 ---
 

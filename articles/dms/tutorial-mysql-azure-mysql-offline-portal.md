@@ -9,8 +9,6 @@ ms.date: 04/11/2021
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
-  - ignite-2022
   - sql-migration-content
 ---
 

@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel

@@ -4,7 +4,6 @@ description: Learn how to use Kafka Connect to synchronize data from PostgreSQL 
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/02/2022
 ms.author: sidandrews
