@@ -1,5 +1,5 @@
 ---
-title: How to assign a configuration using Terraform
+title: How to create a machine configuration assignment using Terraform
 description: >-
   Learn how to deploy configurations to machines using Terraform
 ms.date: 02/01/2024
@@ -7,7 +7,7 @@ ms.topic:  how-to
 ms.custom: devx-track-terraform
 ---
 
-# How to assign a configuration using Terraform
+# How to create a machine configuration assignment using Terraform
 
 You can use [Terraform][01] to [deploy][02] machine configuration assignments.
 

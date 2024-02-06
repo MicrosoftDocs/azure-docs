@@ -53,7 +53,7 @@ items:
         - name: Overview
           href: ./how-to/assign-configuration/overview.md
         - name: Using an ARM template
-          href: ./how-to/assign-configuration/arm.md
+          href: ./how-to/assign-configuration/azure-resource-manager.md
         - name: Using Bicep
           href: ./how-to/assign-configuration/bicep.md
         - name: Using Terraform

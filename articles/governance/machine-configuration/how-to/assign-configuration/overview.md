@@ -37,7 +37,7 @@ See the following articles for examples of assigning configurations using differ
 [02]: ../create-policy-definition.md
 [03]: ../develop-custom-package/4-publish-package.md
 [04]: /azure/governance/policy/samples/built-in-packages
-[05]: ./arm.md
+[05]: ./azure-resource-manager.md
 [06]: ./bicep.md
 [07]: ./terraform.md
 [08]: ../develop-custom-package/overview.md
