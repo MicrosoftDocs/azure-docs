@@ -1,3 +1,4 @@
+
 ---
 title: Azure Managed HSM logging
 description: Use this tutorial to help you get started with Managed HSM logging.
@@ -79,6 +80,7 @@ What's logged:
   * Creating, modifying, or deleting the keys.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, listing keys.
   * Key backup, restore, purge
+  * Key release
 * Invalid paths that result in a 404 response. 
 
 ## Access your logs
