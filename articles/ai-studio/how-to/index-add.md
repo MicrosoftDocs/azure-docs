@@ -88,9 +88,9 @@ This can happen if you are trying to create an index using an **Owner**, **Contr
 > [!NOTE]
 > You need to be assigned the **Owner** role of the resource group or higher scope (like Subscription) to perform the operation in the next steps. This is because only the Owner role can assign roles to others. See details [here](/azure/role-based-access-control/built-in-roles).
 
-#### Method 1: Assign more permissions to the user on the Azure AI resource
+#### Method 1: Assign more permissions to the user on the Azure AI hub resource
 
-If the Azure AI resource the project uses was created through Azure AI Studio:
+If the Azure AI hub resource the project uses was created through Azure AI Studio:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
 1. Select **Settings** from the collapsible left menu.
 1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.
@@ -106,7 +106,7 @@ If the Azure AI resource the project uses was created through Azure AI Studio:
 
 #### Method 2: Assign more permissions on the resource group
 
-If the Azure AI resource the project uses was created through Azure portal:
+If the Azure AI hub resource the project uses was created through Azure portal:
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. 
 1. Select **Settings** from the collapsible left menu.
 1. From the **Resource Configuration** section, select the link for your resource group name that takes you to the Azure portal.

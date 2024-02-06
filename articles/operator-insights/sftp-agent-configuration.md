@@ -85,7 +85,7 @@ file_sources:
         # The name of a secret in the corresponding provider.
         # This will be the name of a secret in the Key Vault.
         # This is created by the Data Product and should not be changed.
-        secret_name: adls-sas-token
+        secret_name: input-storage-sas
       # The container within the ingestion account. This *must* be exactly the name of the container that Azure Operator Insights expects.
       container_name: example-container
       # Optional. A string giving an optional base path to use in Azure Blob Storage. Reserved URL characters must be percent-encoded. It may be required depending on the Data Product.
@@ -97,5 +97,5 @@ file_sources:
       maximum_parallel_uploads: 10
       # Optional. The maximum size of each block that is uploaded to Azure.
       # Each blob is composed of one or more blocks. Defaults to 32MiB (=33554432 Bytes).
-      block_size_in_bytes  : 33554432
+      block_size_in_bytes: 33554432
   ```

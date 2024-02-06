@@ -36,7 +36,7 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An [Azure AI resource](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio.
+- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio.
 
 - You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure/aistudio-copilot-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 
@@ -140,16 +140,16 @@ Once you're satisfied with the experience in Azure AI Studio, you can deploy the
 
 ### Find your resource group in the Azure portal
 
-In this tutorial, your web app is deployed to the same resource group as your Azure AI resource. Later you configure authentication for the web app in the Azure portal.
+In this tutorial, your web app is deployed to the same resource group as your Azure AI hub resource. Later you configure authentication for the web app in the Azure portal.
 
 Follow these steps to navigate from Azure AI Studio to your resource group in the Azure portal:
 
-1. In Azure AI Studio, select **Manage** from the top menu and then select **Details**. If you have multiple Azure AI resources, select the one you want to use in order to see its details.
+1. In Azure AI Studio, select **Manage** from the top menu and then select **Details**. If you have multiple Azure AI hub resources, select the one you want to use in order to see its details.
 1. In the **Resource configuration** pane, select the resource group name to open the resource group in the Azure portal. In this example, the resource group is named `rg-docsazureairesource`.
 
     :::image type="content" source="../media/tutorials/chat-web-app/resource-group-manage-page.png" alt-text="Screenshot of the resource group in the Azure AI Studio." lightbox="../media/tutorials/chat-web-app/resource-group-manage-page.png":::
 
-1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the Azure AI resource.
+1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the Azure AI hub resource.
 
     :::image type="content" source="../media/tutorials/chat-web-app/resource-group-azure-portal.png" alt-text="Screenshot of the resource group in the Azure portal." lightbox="../media/tutorials/chat-web-app/resource-group-azure-portal.png":::
 
@@ -174,8 +174,8 @@ To deploy the web app:
 1. On the **Deploy to a web app** page, enter the following details:
     - **Name**: A unique name for your web app.
     - **Subscription**: Your Azure subscription.
-    - **Resource group**: Select a resource group in which to deploy the web app. You can use the same resource group as the Azure AI resource.
-    - **Location**: Select a location in which to deploy the web app. You can use the same location as the Azure AI resource.
+    - **Resource group**: Select a resource group in which to deploy the web app. You can use the same resource group as the Azure AI hub resource.
+    - **Location**: Select a location in which to deploy the web app. You can use the same location as the Azure AI hub resource.
     - **Pricing plan**: Choose a pricing plan for the web app.
     - **Enable chat history in the web app**: For the tutorial, make sure this box isn't selected.
     - **I acknowledge that web apps will incur usage to my account**: Selected
@@ -190,7 +190,7 @@ To deploy the web app:
 
 By default, the web app will only be accessible to you. In this tutorial, you add authentication to restrict access to the app to members of your Azure tenant. Users are asked to sign in with their Microsoft Entra account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign in information in any other way other than verifying they're a member of your tenant.
 
-1. Return to the browser tab containing the Azure portal (or re-open the [Azure portal](https://portal.azure.com?azure-portal=true) in a new browser tab) and view the contents of the resource group where you deployed the Azure AI resource and web app (you might need to refresh the view the see the web app).
+1. Return to the browser tab containing the Azure portal (or re-open the [Azure portal](https://portal.azure.com?azure-portal=true) in a new browser tab) and view the contents of the resource group where you deployed the Azure AI hub resource and web app (you might need to refresh the view the see the web app).
 
 1. Select the **App Service** resource from the list of resources in the resource group.
 
