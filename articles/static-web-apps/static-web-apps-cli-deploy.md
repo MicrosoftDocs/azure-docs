@@ -78,22 +78,22 @@ Use the following steps to deploy an application that has API endpoints.
 
 1. Ensure the API language runtime version in the *staticwebapp.config.json* file is set correctly, for example:
 
-  ```json
-  {
-    "platform": {
-      "apiRuntime": "node:16"
+    ```json
+    {
+      "platform": {
+        "apiRuntime": "node:16"
+      }
     }
-  }
-  ```
-  
-  > [!NOTE]
-  > If your project doesn't have the *staticwebapp.config.json* file, add one under your `outputLocation` folder.
+    ```
+    
+    > [!NOTE]
+    > If your project doesn't have the *staticwebapp.config.json* file, add one under your `outputLocation` folder.
 
 1. Deploy your app:
 
-  ```azstatic-cli
-  swa deploy ./my-dist --api-location ./api
-  ```
+    ```azstatic-cli
+    swa deploy ./my-dist --api-location ./api
+    ```
 
 ### Deploy a Blazor app
 
@@ -101,15 +101,15 @@ You can deploy a Blazor app using the following steps.
 
 1. Build your Blazor app in **Release** mode:
 
-  ```azstatic-cli
-  dotnet publish -c Release -o bin/publish
-  ```
+    ```azstatic-cli
+    dotnet publish -c Release -o bin/publish
+    ```
 
 1. From the root of your project, run the deploy command:
 
-  ```azstatic-cli
-  swa deploy ./bin/publish/wwwroot --api-location ./Api
-  ```
+    ```azstatic-cli
+    swa deploy ./bin/publish/wwwroot --api-location ./Api
+    ```
 
 ## Deploy using a configuration file
 
