@@ -183,7 +183,7 @@ The `--assign-endpoint` argument grants a public IP for validation and enables a
 
 ### Connect to the Service Registry from the app
 
-You've now created a service with Spring Boot and created an application in Azure Spring Apps. The next task is to deploy the application and confirm the operation. Before that, however, you must bind your application to the Service Registry so that it can get connection information from the registry.
+After you created a service with Spring Boot and created an application in Azure Spring Apps, deploy the application and confirm the operation. Before that, however, you must bind your application to the Service Registry so that it can get connection information from the registry.
 
 Typically, a Eureka client needs to write the following connection information settings in the *application.properties* configuration file of a Spring Boot application so that you can connect to the server:
 
@@ -219,7 +219,7 @@ You can also set up the application bindings from the Azure portal, as shown in 
 >
 > If you change the binding/unbinding status, you need to restart or redeploy the application.
 
-Use the following command if you want to bind your app to the Service Registry directly when creating a new app:
+Use the following command if you want to bind your application to the Service Registry directly when creating the new app:
 
 ```azurecli
 az spring app create \ 
@@ -229,9 +229,9 @@ az spring app create \
     --bind-service-registry
 ```
 
-You can also bind your app to the Service Registry from the Azure portal, as shown in the following screenshot:
+You can also bind your application to the Service Registry from the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App screen with the Bind option highlighted.":::
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind options highlighted.":::
 
 ### Deploy an application to Azure Spring Apps
 
