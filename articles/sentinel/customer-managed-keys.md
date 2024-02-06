@@ -13,7 +13,7 @@ This article provides background information and steps to configure a [customer-
 
 ## Prerequisites
 
-1. Configure a Log Analytics dedicated cluster with at least a 500 GB/day commitment tier. When multiple workspaces are linked to the same dedicated cluster, they share the same customer-managed key. Learn about [Log Analytics Dedicated Cluster Pricing](../azure-monitor/logs/logs-dedicated-clusters.md#cluster-pricing-model).
+1. Configure a Log Analytics dedicated cluster with at least a 100 GB/day commitment tier. When multiple workspaces are linked to the same dedicated cluster, they share the same customer-managed key. Learn about [Log Analytics Dedicated Cluster Pricing](../azure-monitor/logs/logs-dedicated-clusters.md#cluster-pricing-model).
 1. Configure the CMK within Azure Monitor. Don't onboard the workspace to Sentinel yet. Learn about the [CMK provisioning steps](../azure-monitor/logs/customer-managed-keys.md?tabs=portal#customer-managed-key-provisioning-steps).
 1. Contact the [Microsoft Sentinel Product Group](mailto:onboardrecoeng@microsoft.com) - you must receive onboarding confirmation as part of completing the steps in this guide before you use the workspace.
 
