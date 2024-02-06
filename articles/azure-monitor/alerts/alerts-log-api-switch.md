@@ -1,9 +1,12 @@
 ---
 title: Upgrade legacy rules management to the current Azure Monitor Log Alerts API
 description: Learn how to switch to the log alerts management to ScheduledQueryRules API
+ms.author: abbyweisberg
+ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 07/09/2023
 ---
+
 # Upgrade to the Log Alerts API from the legacy Log Analytics alerts API
 
 > [!IMPORTANT]
