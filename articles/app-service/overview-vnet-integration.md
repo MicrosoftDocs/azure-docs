@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 07/21/2023
+ms.date: 02/06/2024
 ms.author: madsd
 ms.custom: UpdateFrequency3
 
@@ -146,6 +146,14 @@ App settings using Key Vault references attempt to get secrets over the public r
 > [!NOTE]
 > * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
 > * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
+
+## Routing app settings
+
+App Service has existing app settings to configure application and configuration routing. Site properties override the app settings if both exist. Site properties have the advantage of being auditable with Azure Policy and validated at the time of configuration. We recommend you to use site properties. 
+
+You can still use the existing `WEBSITE_VNET_ROUTE_ALL` app setting to configure application routing.
+
+App settings also exist for some configuration routing options. These app settings are named `WEBSITE_CONTENTOVERVNET` and `WEBSITE_PULL_IMAGE_OVER_VNET`.
 
 ### Network routing
 
