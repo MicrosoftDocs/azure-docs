@@ -76,7 +76,7 @@ This section shows you how to convert the NFSv3 volume to NFSv4.1.
     2. Select **Edit**.
     3. In the Edit window that appears, select **NSFv4.1** in the **Protocol type** pulldown.  
     
-    ![screenshot that shows the Edit menu with the Protocol Type field](../media/azure-netapp-files/edit-protocol-type.png)   
+    ![screenshot that shows the Edit menu with the Protocol Type field](./media/convert-nfsv3-nfsv41/edit-protocol-type.png)   
     
 3. Wait for the conversion operation to complete. 
 
@@ -115,7 +115,7 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
     2. Select **Edit**.
     3. In the Edit window that appears, select **NSFv3** in the **Protocol type** pulldown.  
     
-    ![screenshot that shows the Edit menu with the Protocol Type field](../media/azure-netapp-files/edit-protocol-type.png)   
+    ![screenshot that shows the Edit menu with the Protocol Type field](./media/convert-nfsv3-nfsv41/edit-protocol-type.png)   
     
 3. Wait for the conversion operation to complete. 
 

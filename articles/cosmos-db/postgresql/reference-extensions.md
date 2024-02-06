@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 01/22/2024
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -81,6 +81,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Integer aggregator and enumerator (obsolete). | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 | 1.5 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Functions for tracking last modification time. | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
+> | [orafce](https://github.com/orafce/orafce) | Functions and operators that emulate a subset of functions and packages from the Oracle RDBMS. |     |     |     | 4.9 | 4.9 | 4.9 |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.7.4 | 4.7.4 | 4.7.4 | 5.0.0 | 5.0.0 | 5.0.0 |
 > | [pg\_surgery](https://www.postgresql.org/docs/current/pgsurgery.html) | Functions to perform surgery on a damaged relation. |     |     |     | 1.0 | 1.0 | 1.0 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 |
@@ -166,3 +167,11 @@ extensions to loop back to the same server.  The **Allow Azure services and
 resources to access this cluster** setting can be found in the Azure portal
 page for the cluster under **Networking**.  Currently, outbound connections
 from Azure Cosmos DB for PostgreSQL aren't supported.
+
+## orafce extension
+
+utl_file functions are disabled in orafce extension.
+
+## Next steps
+
+* Learn about [supported PostgreSQL versions](./reference-versions.md#postgresql-versions).

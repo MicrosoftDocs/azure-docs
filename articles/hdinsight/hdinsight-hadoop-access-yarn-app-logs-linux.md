@@ -1,9 +1,9 @@
 ---
-title: Access Apache Hadoop YARN application logs - Azure HDInsight 
+title: Access Apache Hadoop YARN application logs - Azure HDInsight
 description: Learn how to access YARN application logs on a Linux-based HDInsight (Apache Hadoop) cluster using both the command-line and a web browser.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive
 ms.date: 12/7/2023
 ---
 

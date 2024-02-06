@@ -42,7 +42,7 @@ If you want to set up Teams Phone Mobile and you didn't select it when you deplo
 ## Enable Operator Connect or Teams Phone Mobile support
 
 > [!NOTE]
-> If you selected Operator Connect or Teams Phone Mobile when you [deployed Azure Communications Gateway](deploy.md), skip this step and go to [Add the Project Synergy application to your Azure tenancy](#add-the-project-synergy-application-to-your-azure-tenancy).
+> If you selected Operator Connect or Teams Phone Mobile when you [deployed Azure Communications Gateway](deploy.md), skip this step and go to [Add the Project Synergy application to your Azure tenant](#add-the-project-synergy-application-to-your-azure-tenant).
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
 1. In the search bar at the top of the page, search for your Communications Gateway resource and select it.
@@ -55,7 +55,7 @@ If you want to set up Teams Phone Mobile and you didn't select it when you deplo
     > Do not add the numbers for integration testing. You will configure numbers for integration testing when you [carry out integration testing and prepare for live traffic](prepare-for-live-traffic-operator-connect.md).
 1. Wait for your resource to be updated. When your resource is ready, the **Provisioning Status** field on the resource overview changes to "Complete." We recommend that you check in periodically to see if the Provisioning Status field is "Complete." This step might take up to two weeks.
 
-## Add the Project Synergy application to your Azure tenancy
+## Add the Project Synergy application to your Azure tenant
 
 Before starting this step, check that the **Provisioning Status** field for your resource is "Complete".
 
@@ -102,7 +102,9 @@ The user who sets up Azure Communications Gateway needs to have the Admin user r
 1. Select your **Project Synergy** application.
 1. Select **Users and groups** from the left hand side menu.
 1. Select **Add user/group**.
-1. Specify the user you want to use for setting up Azure Communications Gateway and give them the **Admin** role.
+1. Specify the user who should set up Azure Communications Gateway and give them the **Admin** role.
+
+[!INCLUDE [communications-gateway-oc-configuration-ownership](includes/communications-gateway-oc-configuration-ownership.md)]
 
 ## Find the Object ID and Application ID for your Azure Communication Gateway resource
 
@@ -121,7 +123,7 @@ Each Azure Communications Gateway resource automatically receives a [system-assi
 
 ## Set up application roles for Azure Communications Gateway
 
-Azure Communications Gateway contains services that need to access the Operator Connect API on your behalf. To enable this access, you must grant specific application roles to the system-assigned managed identity for Azure Communications Gateway under the Project Synergy Enterprise Application. You created the Project Synergy Enterprise Application in [Add the Project Synergy application to your Azure tenancy](#add-the-project-synergy-application-to-your-azure-tenancy).
+Azure Communications Gateway contains services that need to access the Operator Connect API on your behalf. To enable this access, you must grant specific application roles to the system-assigned managed identity for Azure Communications Gateway under the Project Synergy Enterprise Application. You created the Project Synergy Enterprise Application in [Add the Project Synergy application to your Azure tenant](#add-the-project-synergy-application-to-your-azure-tenant).
 
 > [!IMPORTANT]
 > Granting permissions has two parts: configuring the system-assigned managed identity for Azure Communications Gateway with the appropriate roles (this step) and adding the application ID of the managed identity to the Operator Connect or Teams Phone Mobile environment. You'll add the application ID to the Operator Connect or Teams Phone Mobile environment later, in [Add the Application IDs for Azure Communications Gateway to Operator Connect](#add-the-application-ids-for-azure-communications-gateway-to-operator-connect).

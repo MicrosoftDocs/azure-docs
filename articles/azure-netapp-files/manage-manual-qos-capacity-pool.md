@@ -40,7 +40,7 @@ You can change a capacity pool that currently uses the auto QoS type to use the 
 
 3.	Select **Change QoS type**. Then set **New QoS Type** to **Manual**. Select **OK**. 
 
-![Change QoS type](../media/azure-netapp-files/change-qos-type.png)
+![Change QoS type](./media/manage-manual-qos-capacity-pool/change-qos-type.png)
 
 ## Monitor the throughput of a manual QoS capacity pool  
 
@@ -54,7 +54,7 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 
 2. Select **Change throughput**. Specify the **Throughput (MiB/S)** that you want. Select **OK**. 
 
-    ![Change QoS throughput](../media/azure-netapp-files/change-qos-throughput.png)
+    ![Change QoS throughput](./media/manage-manual-qos-capacity-pool/change-qos-throughput.png)
 
 ## Next steps  
 

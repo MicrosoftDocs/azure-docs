@@ -2,16 +2,16 @@
 title: Trusona Authentication Cloud with Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn how to add Trusona Authentication Cloud as an identity provider on Azure AD B2C to enable a "tap-and-go" passwordless authentication
-
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+# Customer intent: I'm a developer integrating Azure AD B2C authentication with Trusona Authentication Cloud. I want to configure Trusona Authentication Cloud as an identity provider (IdP) in Azure AD B2C, so I can enable passwordless authentication and provide a better user experience for my web application users.
 ---
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C

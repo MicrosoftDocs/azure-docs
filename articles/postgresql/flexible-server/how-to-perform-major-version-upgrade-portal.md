@@ -6,7 +6,7 @@ author: rajsell
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 01/02/2024
 ---
 
 # Major version upgrade of Azure Database for PostgreSQL - Flexible Server

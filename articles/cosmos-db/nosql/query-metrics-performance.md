@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.date: 1/5/2023
 ms.author: girobins
-ms.custom: devx-track-csharp, ignite-2022, devx-track-dotnet
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Get SQL query execution metrics and analyze query performance using .NET SDK
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

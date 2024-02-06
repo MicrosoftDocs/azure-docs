@@ -158,7 +158,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       ```bash
       # mount temporarily the volume
       sudo mkdir -p /saptmp
-      sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4,minorversion=1,sec=sys
+      sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o noresvport,vers=4,minorversion=1,sec=sys
       
       # create the SAP directories
       sudo cd /saptmp
@@ -269,7 +269,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    # If using NFS on Azure files
    sudo pcs resource create fs_NW1_PAS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1D02' \
-     directory='/usr/sap/NW1/D02' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+     directory='/usr/sap/NW1/D02' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
      op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \
      op monitor interval=200 timeout=40 \
@@ -447,7 +447,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    # If using NFS on Azure files
    sudo pcs resource create fs_NW1_AAS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1D03' \
-     directory='/usr/sap/NW1/D03' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+     directory='/usr/sap/NW1/D03' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
      op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \
      op monitor interval=200 timeout=40 \

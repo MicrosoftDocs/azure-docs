@@ -43,6 +43,7 @@ The following requirements and considerations apply to large volumes. For perfor
     | Ultra | 100 to 500 | 10,240 | 
     
 * Large volumes aren't currently supported with standard storage with cool access.
+
 ## Supported regions
 
 Support for Azure NetApp Files large volumes is available in the following regions:
@@ -67,6 +68,7 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * UAE North
 * UK West
 * UK South
+* US Gov Virginia 
 * West Europe
 * West US
 * West US 2
