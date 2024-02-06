@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob Storage library - .NET"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 02/01/2024
+ms.date: 02/06/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: csharp
@@ -17,14 +17,14 @@ zone_pivot_groups: azure-blob-storage-quickstart-options
 ::: zone pivot="blob-storage-quickstart-scratch"
 
 > [!NOTE]
-> The **Build from scratch** option walks you step by step through the process of creating a new project, installing packages, writing the code, and running a basic console app. This approach is recommended if you want to understand all the details involved in creating an app that connects to Azure Blob Storage. If you prefer to automate deployment tasks and start with a completed project, choose **Start with a template**.
+> The **Build from scratch** option walks you step by step through the process of creating a new project, installing packages, writing the code, and running a basic console app. This approach is recommended if you want to understand all the details involved in creating an app that connects to Azure Blob Storage. If you prefer to automate deployment tasks and start with a completed project, choose [Start with a template](storage-quickstart-blobs-dotnet.md?pivots=blob-storage-quickstart-template).
 
 ::: zone-end
 
 ::: zone pivot="blob-storage-quickstart-template"
 
 > [!NOTE]
-> The **Start with a template** option uses the Azure Developer CLI to automate deployment tasks and starts you off with a completed project. This approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. If you prefer step by step instructions to build the app, choose **Build from scratch**.
+> The **Start with a template** option uses the Azure Developer CLI to automate deployment tasks and starts you off with a completed project. This approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. If you prefer step by step instructions to build the app, choose [Build from scratch](storage-quickstart-blobs-dotnet.md?pivots=blob-storage-quickstart-scratch).
 
 ::: zone-end
 
