@@ -152,7 +152,7 @@ For a list of all Azure Monitor supported metrics, which includes Azure Table St
 
 ### [Azure portal](#tab/azure-portal)
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 This example shows how to view **Transactions** at the account level.
 
@@ -170,7 +170,7 @@ For a complete list of the dimensions that Azure Storage supports, see [Metrics 
 
 You can list the metric definition of your storage account or the Table Storage service. Use the [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
 
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the table. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Table Storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -192,7 +192,7 @@ When a metric supports dimensions, you can read metric values and filter them by
 
 ```powershell
 $resourceId = "<resource-ID>"
-$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetMessages" 3> $null)
+$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "QueryEntities" 3> $null)
 Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
 ```
 
@@ -202,7 +202,7 @@ Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:0
 
 You can list the metric definition of your storage account or the Table Storage service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
 
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the table. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Table Storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
@@ -221,7 +221,7 @@ You can read the metric values of your storage account or the Table Storage serv
 When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
 
 ```azurecli
-az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetMessages' " --aggregation "Total" 
+az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'QueryEntities' " --aggregation "Total" 
 ```
 
 ### [.NET](#tab/dotnet)
@@ -381,7 +381,7 @@ When you view a storage account in the Azure portal, the operations called by th
  The following types of authenticated requests are logged:
 
 - Successful requests
-- Failed requests, including time-out, throttling, network, authorization, and other errors
+- Failed requests, including timeout, throttling, network, authorization, and other errors
 - Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 
