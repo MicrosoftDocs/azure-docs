@@ -1,7 +1,7 @@
 ---
 title: License provisioning guidelines for Extended Security Updates for Windows Server 2012
 description: Learn about license provisioning guidelines for Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 10/24/2023
+ms.date: 02/05/2024
 ms.topic: conceptual
 ---
 
@@ -91,6 +91,21 @@ In this scenario, you could either license the entire cluster with 1024 Windows 
 > [!IMPORTANT]
 > If you migrate the VMs to Azure VMware Solution (AVS), these servers become eligible for free WS2012 ESUs and should not enroll in ESUs enabled through Azure Arc.
 > 
+
+## License operations
+
+There are several limitations in the management scenarios for provisioned WS2012 Arc ESU license resources:
+
+- License cores are a mutable property, and customers are able to increment or decrement cores. This is subject to the mandatory minimums of both: (i) 16 cores for Physical core based licenses and (ii) 8 cores for Virtual core based licenses. 
+
+- License edition and type is not a mutable property. Standard licenses can't be changed to Datacenter licenses, and vice versa. Similarly, Physical core licenses can't be changed to Virtual core licenses, and vice versa. Note that there are three valid licensing combinations: Standard Virtual Core, Standard Physical Core, and Datacenter Physical Core. Datacenter Virtual cores aren't a viable licensing combination. Erroneously provisioned Datacenter Virtual core licenses have been translated to Datacenter Physical core licenses with core counts compliant with licensing guidelines.   
+
+- Licenses can be moved between resource groups and subscriptions. License are modeled in Azure Resource Manager and can be queried using Azure Resource Graph. 
+
+- Licenses can be linked to servers in another subscription within the same tenant, but licenses can't be linked to servers within subscriptions of other tenants.
+
+- Tagging a license under evaluation scenarios such as Dev Test or Disaster Recovery doesn't impact billing. Billing is strictly tied to the number of cores associated with the license regardless of tags. The cores used for evaluation or free scenarios shouldn't be provisioned for the Azure Arc ESU license. 
+
 ## Next steps
 
 * Find out more about [planning for Windows Server and SQL Server end of support](https://www.microsoft.com/en-us/windows-server/extended-security-updates) and [getting Extended Security Updates](/windows-server/get-started/extended-security-updates-deploy).

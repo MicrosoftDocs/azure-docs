@@ -3,7 +3,7 @@ title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
 ms.date: 10/05/2023
-ms.custom: seodec18, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 # Throttling Resource Manager requests
 
