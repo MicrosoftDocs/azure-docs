@@ -16,7 +16,7 @@ Indoor mapping is a technology that enables the creation of digital maps of the 
 
 The following tables offer high-level overviews of the services that Azure Maps Creator offers:
 
-## Latest released version
+## Latest release
 
 | API | Description |
 |-----|-------------|
@@ -27,7 +27,7 @@ The following tables offer high-level overviews of the services that Azure Maps 
 | [Tileset] | A `tileset` is a collection of vector tiles that render on the map, created from an existing dataset. |
 | [WFS] | Use the Web Feature Service (WFS) API to query for all feature collections or a specific collection within a dataset. For example, you can use WFS to find all mid-size meeting rooms in a specific building and floor level. |
 
-## Latest preview version
+## Latest preview
 
 | API | Description |
 |-----|-------------|

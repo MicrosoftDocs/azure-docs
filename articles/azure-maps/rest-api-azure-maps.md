@@ -16,7 +16,7 @@ Azure Maps is a set of mapping and geospatial services that enable developers an
 
 The following tables show overviews of the services that Azure Maps offers:
 
-## Latest released versions
+## Latest release
 
 | API | Description |
 |-----|-------------|
@@ -31,7 +31,7 @@ The following tables show overviews of the services that Azure Maps offers:
 | [Traffic] | Get current traffic information including traffic flow and traffic incident details. |
 | [Weather] | Get current, forecasted and historical weather conditions, air quality, tropical storm details and weather along a route. |
 
-## Previous release versions
+## Previous release
 
 | API | Description |
 |-----|-------------|
@@ -39,11 +39,11 @@ The following tables show overviews of the services that Azure Maps offers:
 | [Render][Render v1] | Get road, satellite/aerial, weather, traffic map tiles and static map images.<BR>The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use the latest version of the [Render] API by 9/17/26. |
 | [Search][Search-v1] | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. This is version 1.0 of the Search service. For the latest version, see [Search]. |
 
-## Latest preview version
+## Latest preview
 
 | API | Description |
 |-----|-------------|
-| [Route][Route-2023-10-01-preview] | Calculate optimized travel times and distances between locations for multiple modes of transportation and get localized travel instructions. |
+| [Route][Route-2023-10-01-preview] | Returns the ideal route in GeoJSON between locations for multiple modes of transportation.<BR><BR>Some of the updates in this version of the Route sevice include:<ul><li>Routes with “via” waypoints that the route must pass through.</li><li>Additional geographies</li><li>More languages available for localized travel instructions.</li></ul> |
 
 <!--- Links to latest versions of each service ---------------------------------->
 [Data]: /rest/api/maps/data
