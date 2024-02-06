@@ -757,7 +757,7 @@ twilioRoom.on('dominantSpeakerChanged', (participant) => {
 
 #### Azure Communication Services
 
-Dominant speakers for a call are an extended feature of the core Call API. It enables you to obtain a list of the active speakers in the call. Thhe list of dominant speakers is a ranked list, where the first element in the list represents the last active speaker on the call and so on.
+Dominant speakers for a call are an extended feature of the core Call API. It enables you to obtain a list of the active speakers in the call. The list of dominant speakers is a ranked list, where the first element in the list represents the last active speaker on the call and so on.
 
 In order to obtain the dominant speakers in a call, you first need to obtain the call dominant speakers feature API object:
 ```javascript
