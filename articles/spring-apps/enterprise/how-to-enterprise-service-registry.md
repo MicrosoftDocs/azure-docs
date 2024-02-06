@@ -210,16 +210,16 @@ az spring service-registry bind \
     --app serviceA
 ```
 
-You can also set up the application bindings from the Azure portal, as shown in the following screenshot.
+You can also set up the application bindings from the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app.png" alt-text="Azure portal screenshot of 'Service Registry' screen with 'App binding' section showing.":::
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app.png" alt-text="Screenshot of the Azure portal that shows the Service Registry page with the App binding dropdown highlighted.":::
 
 > [!NOTE]
 > These changes will take a few minutes to propagate to all applications when the service registry status changes.
 >
 > If you change the binding/unbinding status, you need to restart or redeploy the application.
 
-When creating a new app, use the following command if you want to bind your application to the Service Registry directly:
+You can now choose to bind your application to the Service Registry directly when creating a new app by using the following commands:
 
 ```azurecli
 az spring app create \ 
@@ -231,7 +231,7 @@ az spring app create \
 
 You can also bind your application to the Service Registry from the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind options highlighted.":::
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind dropdown highlighted.":::
 
 ### Deploy an application to Azure Spring Apps
 
