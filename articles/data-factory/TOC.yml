@@ -603,7 +603,7 @@ items:
       items:
       - name: Snowflake
         href: connector-snowflake.md
-      - name: snowflake (legacy)
+      - name: Snowflake (legacy)
         href: connector-snowflake-legacy.md
     - name: Spark
       href: connector-spark.md
