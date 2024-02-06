@@ -10,7 +10,6 @@ ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom:
   - devx-track-azurepowershell
-  - seo-lt-2019
   - azure-synapse
   - mode-api
 ---

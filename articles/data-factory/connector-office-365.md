@@ -5,7 +5,7 @@ description: Learn how to copy and transform data from Microsoft 365 (Office 365
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2023
 ms.author: jianleishen

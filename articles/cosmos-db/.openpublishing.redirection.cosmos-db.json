@@ -136,6 +136,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sdk-java-v2.md",
+      "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-v2",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-java.md",
       "redirect_url": "/azure/cosmos-db/nosql/sdk-java-v2",
       "redirect_document_id": true

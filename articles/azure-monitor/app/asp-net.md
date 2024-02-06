@@ -4,7 +4,6 @@ description: Configure performance, availability, and user behavior analytics to
 ms.topic: conceptual
 ms.date: 01/31/2024
 ms.devlang: csharp
-ms.custom: contperf-fy21q1
 ---
 
 # Configure Application Insights for your ASP.NET website

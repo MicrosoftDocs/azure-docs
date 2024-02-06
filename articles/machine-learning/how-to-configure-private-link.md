@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-azurecli, sdkv2
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr

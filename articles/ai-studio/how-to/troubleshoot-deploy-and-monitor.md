@@ -64,11 +64,11 @@ You might have come across an ImageBuildFailure error: This happens when the env
 
 Option 1: Find the build log for the Azure default blob storage.
 
-1. Go to your project and select the settings icon on the lower left corner.
-2. Select YourAIResourceName under AI Resource on the Settings page.
-3. On the AI resource page, select YourStorageName under Storage Account. This should be the name of storage account listed in the error message you received.
-4. On the storage account page, select Container under Data Storage on the left navigation UI
-5. Select the ContainerName listed in the error message you received.
+1. Go to your project in [Azure AI Studio](https://ai.azure.com) and select the settings icon on the lower left corner.
+2. Select your Azure AI hub resource name under **Resource configurations** on the **Settings** page.
+3. On the Azure AI hub overview page, select your storage account name. This should be the name of storage account listed in the error message you received. You'll be taken to the storage account page in the [Azure portal](https://portal.azure.com).
+4. On the storage account page, select **Containers** under **Data Storage** on the left menu.
+5. Select the container name listed in the error message you received.
 6. Select through folders to find the build logs.
 
 Option 2: Find the build log within Azure Machine Learning studio, which is a separate portal from Azure AI Studio.

@@ -1,12 +1,12 @@
 ---
 title: Create an experiment using an agent-based fault with Azure CLI
 description: Create an experiment that uses an agent-based fault and configure the chaos agent with the Azure CLI.
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
