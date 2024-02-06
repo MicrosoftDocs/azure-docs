@@ -28,9 +28,9 @@ Make sure your credentials are saved properly with the scene and you can connect
 
 ## Disable virtual reality support
 
-# [Unity 2020](#tab/Unity2020Settings)
-
 Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
+
+# [Unity 2020](#tab/Unity2020Settings)
 
 1. Open *Edit > Project Settings...*
 1. Select **Player** in the menu to the left.
@@ -44,8 +44,6 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 # [Unity 2021+](#tab/Unity2021PlusSettings)
 
-Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
-
 1. Open *Edit > Project Settings...*
 1. Select **Player** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
@@ -56,6 +54,8 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select the **Universal Windows Platform settings** tab.
 1. Disable **OpenXR**.\
     ![player settings enable OpenXR Unity 2021 and later](./media/unity-2021-disable-xr.png)
+
+---
 
 ## Build the sample project
 
@@ -81,8 +81,6 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
 ## Build the Visual Studio solution
-
-With the solution generated we can build and deploy it.
 
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
