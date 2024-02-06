@@ -43,7 +43,7 @@ Use the following links to download the packages:
 - [Ubuntu 18.04](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb)
 - [Windows](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.12.0)
 
-For newer versions of Ubuntu, e.g., Ubuntu 22.04, you have to use the [Intel QPL](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management).
+For newer versions of Ubuntu (for example, Ubuntu 22.04), you have to use the [Intel QPL](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management).
 
 ### Why do Trusted Hardware Identity Management and Intel have different baselines?
 
