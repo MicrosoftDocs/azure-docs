@@ -49,7 +49,7 @@ Application Insights monitors the availability, performance, and usage of your w
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-For more information about the resource types for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md.)
+For more information about the resource types for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md).
 
 <!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-data-storage.md)]

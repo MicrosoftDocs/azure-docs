@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: msangapu-msft
 ms.author: msangapu
-ms.service: your-service
+ms.service: app-service
 ---
 
 <!-- 
@@ -52,14 +52,12 @@ This table lists all the automatically collected platform metrics for App Servic
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-- [Microsoft.Storage/storageAccounts/blobServices](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-blobservices-metrics)
-
 | Container apps | [Microsoft.Web/containerapps](/azure/azure-monitor/reference/supported-metrics/microsoft-web-containerapps-metrics)
 | App Service Plans | [Microsoft.Web/serverfarms](/azure/azure-monitor/reference/supported-metrics/microsoftwebserverfarms-metrics)
 | Web apps | [Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoftwebsites-metrics) |
-| Staging slots | [Microsoft.Web/sites/slots](/azure/azure-monitor/reference/supported-metrics/microsoftwebsitesslots-metrics) 
-| Static sites | [Microsoft.Web/staticsites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-staticsites-metrics) 
-| App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/reference/supported-metrics/microsoftwebhostingenvironments-metrics)
+| Staging slots | [Microsoft.Web/sites/slots](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-slots-metrics)
+| Static sites | [Microsoft.Web/staticsites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-staticsites-metrics)
+| App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-metrics)
 | App Service Environment Front-end | [Microsoft.Web/hostingEnvironments/multiRolePools](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-multirolepools-metrics)
 | App Service Environment Worker Pools | [Microsoft.Web/hostingEnvironments/workerPools](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-workerpools-metrics)
 
@@ -150,7 +148,7 @@ Example: - [Microsoft.Storage resource provider operations](https://learn.micros
 If there are other operations not in the link, list them here in table form. -->
 ### Activity log
 
-[Microsoft.Web resource provider operations](https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftweb)
+[Microsoft.Web resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftweb)
 
 The following table lists common operations related to App Service that may be created in the Activity log. This isn't an exhaustive list.
 
