@@ -7,7 +7,6 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 11/02/2023
-ms.custom: ignite-2022
 adobe-target: true
 ---
 

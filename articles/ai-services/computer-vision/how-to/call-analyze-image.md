@@ -9,7 +9,6 @@ ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 01/19/2024
-ms.custom: "seodec18"
 ---
 
 # Call the Image Analysis 3.2 API

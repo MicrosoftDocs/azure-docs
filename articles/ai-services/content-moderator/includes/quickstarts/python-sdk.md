@@ -8,7 +8,6 @@ manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: include
 ms.date: 01/18/2024
-ms.custom: "cog-serv-seo-aug-2020"
 ms.author: pafarley
 ---
 

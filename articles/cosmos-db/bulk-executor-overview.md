@@ -3,7 +3,6 @@ title: Azure Cosmos DB bulk executor library overview
 description: Perform bulk operations in Azure Cosmos DB through bulk import and bulk update APIs offered by the bulk executor library.
 author: abinav2307
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 3/30/2023
 ms.author: abramees

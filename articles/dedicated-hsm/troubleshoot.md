@@ -9,12 +9,10 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.workload: identity
 ms.topic: how-to
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 ms.date: 05/12/2022
 ms.author: keithp
-
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
-
 ---
 # Troubleshooting the Azure Dedicated HSM service
 
