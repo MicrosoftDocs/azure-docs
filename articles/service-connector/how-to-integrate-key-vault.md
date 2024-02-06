@@ -6,9 +6,8 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 02/02/2024
-ms.custom: event-tier1-build-2022
-
 ---
+
 # Integrate Azure Key Vault with Service Connector
 
 > [!NOTE]
