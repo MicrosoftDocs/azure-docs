@@ -1,7 +1,7 @@
 ---
-title: Copy and transform data in Snowflake
+title: Copy and transform data in Snowflake using legacy
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy and transform data in Snowflake using Data Factory or Azure Synapse Analytics.
+description: Learn how to copy and transform data in Snowflake using legacy Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
@@ -11,14 +11,14 @@ ms.custom: synapse
 ms.date: 02/06/2024
 ---
 
-# Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics (legacy)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!IMPORTANT]
->The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, supported as-is for backward compatibility only, refer to [Snowflake connector (legacy)](connector-snowflake-legacy.md) article.
+>The service has released a new Snowflake connector which provides better native Snowflake support, refer to [Snowflake connector](connector-snowflake.md) article on details. This legacy Snowflake connector is kept supported as-is for backward compatibility, while for any new workload, please use the new connector.
 
 ## Supported capabilities
 
@@ -76,11 +76,11 @@ Use the following steps to create a linked service to Snowflake in the Azure por
 
 2. Search for Snowflake and select the Snowflake connector.
 
-    :::image type="content" source="media/connector-snowflake/snowflake-connector.png" alt-text="Screenshot of the Snowflake connector.":::    
+    :::image type="content" source="media/connector-snowflake-legacy/snowflake-legacy-connector.png" alt-text="Screenshot of the Snowflake connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-snowflake/configure-snowflake-linked-service.png" alt-text="Screenshot of linked service configuration for Snowflake.":::
+    :::image type="content" source="media/connector-snowflake-legacy/configure-snowflake-legacy-linked-service.png" alt-text="Screenshot of linked service configuration for Snowflake.":::
 
 ## Connector configuration details
 
@@ -88,51 +88,33 @@ The following sections provide details about properties that define entities spe
 
 ## Linked service properties
 
-These generic properties are supported for the Snowflake linked service:
+This Snowflake connector supports the following authentication types. See the corresponding sections for details. 
 
-| Property         | Description                                                  | Required |
-| :--------------- | :----------------------------------------------------------- | :------- |
-| type             | The type property must be set to **SnowflakeV2**.              | Yes      |
-| accountIdentifier | The name of the account along with its organization. For example, myorg-account123.   | Yes |
-| database | The default database uesd for the session after connecting. | Yes |
-| warehouse | The default virtual warehouse used for the session after connecting. |Yes|
-| authenticationType | Type of authentication used to connect to the Snowflake service. Allowed values are: **Basic** (Default), **KeyPair**, and **AADServicePrincipal**. Refer to corresponding sections below on more properties and examples respectively.  | No |
-| role | The default security role used for the session after connecting. | No |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No |
-
-This Snowflake connector supports the following authentication types. See the corresponding sections for details.
+ 
 
 - [Basic authentication](#basic-authentication)
-- [Key pair authentication](#key-pair-authentication)
-- [Service Principal authentication](#service-principal-authentication)
 
-### Basic authentication
+### Basic authentication 
 
-To use **Basic** authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+The following properties are supported for a Snowflake linked service when using **Basic** authentication. 
 
 | Property         | Description                                                  | Required |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| user | Login name for the Snowflake user. | Yes |
-| password | The password for the Snowflake user. Mark this field as a SecureString type to store it securely. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| type             | The type property must be set to **Snowflake**.              | Yes      |
+| connectionString | Specifies the information needed to connect to the Snowflake instance. You can choose to put password or entire connection string in Azure Key Vault. Refer to the examples below the table, and the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article, for more details.<br><br>Some typical settings:<br>- **Account name:** The  [full account name](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) of your Snowflake account (including additional segments that identify the region and cloud platform), e.g. xy12345.east-us-2.azure.<br/>- **User name:** The login name of the user for the connection.<br>- **Password:** The password for the user.<br>- **Database:** The default database to use once connected. It should be an existing database for which the specified role has privileges.<br>- **Warehouse:** The virtual warehouse to use once connected. It should be an existing warehouse for which the specified role has privileges.<br>- **Role:** The default access control role to use in the Snowflake session. The specified role should be an existing role that has already been assigned to the specified user. The default role is PUBLIC. | Yes      |
+| authenticationType  | Set this property to **Basic**. | Yes    | 
+| connectVia       | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
 
 **Example:**
 
 ```json
 {
-    "name": "SnowflakeV2LinkedService",
+    "name": "SnowflakeLinkedService",
     "properties": {
-        "type": "SnowflakeV2",
+        "type": "Snowflake",
         "typeProperties": {
-            "accountIdentifier": "<accountIdentifier>",
-            "database": "<database>",
-            "warehouse": "<warehouse>",
             "authenticationType": "Basic",
-            "user": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            },
-            "role": "<role>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -146,15 +128,12 @@ To use **Basic** authentication, in addition to the generic properties that are 
 
 ```json
 {
-    "name": "SnowflakeV2LinkedService",
+    "name": "SnowflakeLinkedService",
     "properties": {
-        "type": "SnowflakeV2",
+        "type": "Snowflake",
         "typeProperties": {
-            "accountIdentifier": "<accountIdentifier>",
-            "database": "<database>",
-            "warehouse": "<warehouse>",
             "authenticationType": "Basic",
-            "user": "<username>",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -172,106 +151,15 @@ To use **Basic** authentication, in addition to the generic properties that are 
 }
 ```
 
-### Key pair authentication
-
-To use **Key pair** authentication, you need to configure and create key pair authentication user in Snowflake by referring to [Key Pair Authentication & Key Pair Rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth). Afterwards, make a note of the private key and the passphrase, which you use to define the linked service.
-
-In addition to the generic properties that are described in the preceding section, specify the following properties:
-
-| Property         | Description                                                  | Required |
-| :--------------- | :----------------------------------------------------------- | :------- |
-| user | Login name for the Snowflake user. | Yes |
-| privateKey | The private key used for the key pair authentication. <br> To ensure the private key is valid when sent to Azure Data Factory, and considering that the privateKey file includes newline characters (\n), it's essential to correctly format the privateKey content in its string literal form. This process involves adding \n explicitly to each newline.   | Yes |
-| privateKeyPassphrase | The passphrase used for decrypting the private key, if it is encrypted.  | No |
-
-**Example:**
-
-```json
-{
-    "name": "SnowflakeV2LinkedService",
-    "properties": {
-        "type": "SnowflakeV2",
-        "typeProperties": {
-            "accountIdentifier": "<accountIdentifier>",
-            "database": "<database>",
-            "warehouse": "<warehouse>",
-            "authenticationType": "KeyPair",
-            "user": "<username>",
-            "privateKey": {
-                "type": "SecureString",
-                "value": "<privateKey>"
-            },
-            "privateKeyPassphrase": { 
-                "type": "SecureString",
-                "value": "<privateKeyPassphrase>"
-            },
-            "role": "<role>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-### Service Principal authentication
-
-To use Service Principal authentication, set up the Snowflake Service-to-Service (S2S) authentication environment referring to [How to configure Azure to issue OAuth tokens on behalf of a client to access Snowflake](https://community.snowflake.com/s/article/Create-External-OAuth-Token-Using-Azure-AD-For-The-OAuth-Client-Itself). Afterwards, make note of these values, which you use to define the linked service:
-
-- Application (client) ID, which is **Client ID** in the linked service.  
-
-- Client secret value, which is the **Client secret** in the linked service.
-
-- Tenant ID
-
-In addition to the generic properties that are described in the preceding section, specify the following properties:
-
-| Property         | Description                                                  | Required |
-| :--------------- | :----------------------------------------------------------- | :------- |
-| tenantId  | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal.  | Yes |
-| clientId | Specify the application's client ID. | Yes |
-| clientSecret | Specify the application's client secret value. | Yes |
-| scope | The scope of the access required. It describes what kind of access will be requested. | Yes |
-
-**Example:**
-
-```json
-{
-    "name": "SnowflakeV2LinkedService",
-    "properties": {
-        "type": "SnowflakeV2",
-        "typeProperties": {
-            "accountIdentifier": "<accountIdentifier>",
-            "database": "<database>",
-            "warehouse": "<warehouse>",
-            "authenticationType": "AADServicePrincipal",
-            "tenantId": <tenant ID>,
-            "clientId": "<client ID>",
-            "clientSecret": {
-                "type": "SecureString",
-                "value": "<client secret>"
-            },
-        "scope": <scope>,
-        "role": "<role>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article.
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
 The following properties are supported for the Snowflake dataset.
 
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | The type property of the dataset must be set to **SnowflakeV2Table**. | Yes                         |
+| type      | The type property of the dataset must be set to **SnowflakeTable**. | Yes                         |
 | schema | Name of the schema. Note the schema name is case-sensitive. |No for source, yes for sink  |
 | table | Name of the table/view. Note the table name is case-sensitive. |No for source, yes for sink  |
 
@@ -279,9 +167,9 @@ The following properties are supported for the Snowflake dataset.
 
 ```json
 {
-    "name": "SnowflakeV2Dataset",
+    "name": "SnowflakeDataset",
     "properties": {
-        "type": "SnowflakeV2Table",
+        "type": "SnowflakeTable",
         "typeProperties": {
             "schema": "<Schema name for your Snowflake database>",
             "table": "<Table name for your Snowflake database>"
@@ -301,7 +189,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Snowflake as the source
 
-Snowflake connector utilizes Snowflake's [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
+Snowflake connector utilizes Snowflake’s [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
 
 If sink data store and format are natively supported by the Snowflake COPY command, you can use the Copy activity to directly copy from Snowflake to sink. For details, see [Direct copy from Snowflake](#direct-copy-from-snowflake). Otherwise, use built-in [Staged copy from Snowflake](#staged-copy-from-snowflake).
 
@@ -309,7 +197,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 
 | Property                     | Description                                                  | Required |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| type                         | The type property of the Copy activity source must be set to **SnowflakeV2Source**. | Yes      |
+| type                         | The type property of the Copy activity source must be set to **SnowflakeSource**. | Yes      |
 | query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`.<br>Executing stored procedure is not supported. | No       |
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes       |
 | ***Under `exportSettings`:*** |  |  |
@@ -364,7 +252,7 @@ If your sink data store and format meet the criteria described in this section, 
         ],
         "typeProperties": {
             "source": {
-                "type": "SnowflakeV2Source",
+                "type": "SnowflakeSource",
                 "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
@@ -415,7 +303,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
         ],
         "typeProperties": {
             "source": {
-                "type": "SnowflakeV2Source",               
+                "type": "SnowflakeSource",               
                 "sqlReaderQuery": "SELECT * FROM MyTable",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand"
@@ -447,7 +335,7 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | The type property of the Copy activity sink, set to **SnowflakeV2Sink**. | Yes                                           |
+| type              | The type property of the Copy activity sink, set to **SnowflakeSink**. | Yes                                           |
 | preCopyScript     | Specify a SQL query for the Copy activity to run before writing data into Snowflake in each run. Use this property to clean up the preloaded data. | No                                            |
 | importSettings | Advanced settings used to write data into Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes |
 | ***Under `importSettings`:*** |                                                              |  |
@@ -514,7 +402,7 @@ If your source data store and format meet the criteria described in this section
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SnowflakeV2Sink",
+                "type": "SnowflakeSink",
                 "importSettings": {
                     "type": "SnowflakeImportCopyCommand",
                     "copyOptions": {
@@ -564,7 +452,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SnowflakeV2Sink",
+                "type": "SnowflakeSink",
                 "importSettings": {
                     "type": "SnowflakeImportCopyCommand"
                 }
@@ -609,7 +497,7 @@ When you use Snowflake dataset as source type, the associated data flow script i
 source(allowSchemaDrift: true,
 	validateSchema: false,
 	query: 'select * from MYTABLE',
-	format: 'query') ~> SnowflakeV2Source
+	format: 'query') ~> SnowflakeSource
 ```
 
 If you use inline dataset, the associated data flow script is:
@@ -619,7 +507,7 @@ source(allowSchemaDrift: true,
 	validateSchema: false,
 	format: 'query',
 	query: 'select * from MYTABLE',
-	store: 'snowflake') ~> SnowflakeV2Source
+	store: 'snowflake') ~> SnowflakeSource
 ```
 ### Native Change Tracking
 
@@ -650,7 +538,7 @@ IncomingStream sink(allowSchemaDrift: true,
 	keys:['movieId'],
 	format: 'table',
 	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> SnowflakeV2Sink
+	skipDuplicateMapOutputs: true) ~> SnowflakeSink
 ```
 
 If you use inline dataset, the associated data flow script is:
@@ -667,24 +555,18 @@ IncomingStream sink(allowSchemaDrift: true,
 	upsertable: false,
 	store: 'snowflake',
 	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> SnowflakeV2Sink
+	skipDuplicateMapOutputs: true) ~> SnowflakeSink
 ```
 #### Query Pushdown optimization
 By setting the pipeline Logging Level to None, we exclude the transmission of intermediate transformation metrics, preventing potential hindrances to Spark optimizations and enabling query pushdown optimization provided by Snowflake. This pushdown optimization allows substantial performance enhancements for large Snowflake tables with extensive datasets.
 
 
 > [!NOTE]
-> We don't support temporary tables in Snowflake, as they are local to the session or user who creates them, making them inaccessible to other sessions and prone to being overwritten as regular tables by Snowflake. While Snowflake offers transient tables as an alternative, which are accessible globally, they require manual deletion, contradicting our primary objective of using Temp tables which is to avoid any delete operations in source schema.
+> We don’t support temporary tables in Snowflake, as they are local to the session or user who creates them, making them inaccessible to other sessions and prone to being overwritten as regular tables by Snowflake. While Snowflake offers transient tables as an alternative, which are accessible globally, they require manual deletion, contradicting our primary objective of using Temp tables which is to avoid any delete operations in source schema.
 
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
-
-## Upgrade the Snowflake linked service
-
-Here is step that help you upgrade your Snowflake linked service:
-
-Create a new Snowflake linked service and configure it by referring to [Linked service properties](connector-snowflake.md#linked-service-properties).
 
 ## Related content
 
