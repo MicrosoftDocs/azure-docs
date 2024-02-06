@@ -105,11 +105,11 @@ If the virtual network is in a different subscription than the app, you must ens
 
 You can control what traffic goes through the virtual network integration. There are three types of routing to consider when you configure virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of your app. Examples are container image pull and [app settings with Key Vault reference](./app-service-key-vault-references.md). [Network routing](#network-routing) is the ability to handle how both app and configuration traffic are routed from your virtual network and out.
 
-Through application routing or configuration routing options, you can configure what traffic is sent through the virtual network integration. Traffic is only subject to [network routing](#network-routing) if it's sent through the virtual network integration.
+Through application routing or configuration routing options, you can configure what traffic is sent through the virtual network integration. Traffic is only subject to [network routing](#network-routing) if sent through the virtual network integration.
 
 ### Application routing
 
-Application routing applies to traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during startup. When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the outbound internet traffic setting. If outbound internet traffic routing is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that outbound internet traffic is enabled.
+Application routing applies to traffic that is sent from your app after it's started. See [configuration routing](#configuration-routing) for traffic during startup. When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the outbound internet traffic setting. If outbound internet traffic routing is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that outbound internet traffic is enabled.
 
 * Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
 * When outbound internet traffic routing is enabled, the source address for your outbound traffic from your app is still one of the IP addresses that are listed in your app properties. If you route your traffic through a firewall or a NAT gateway, the source IP address originates from this service.
@@ -147,7 +147,7 @@ App settings using Key Vault references attempt to get secrets over the public r
 > * Configure SSL/TLS certificates from private Key Vaults is currently not supported.
 > * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
 
-## Routing app settings
+### Routing app settings
 
 App Service has existing app settings to configure application and configuration routing. Site properties override the app settings if both exist. Site properties have the advantage of being auditable with Azure Policy and validated at the time of configuration. We recommend you to use site properties. 
 
