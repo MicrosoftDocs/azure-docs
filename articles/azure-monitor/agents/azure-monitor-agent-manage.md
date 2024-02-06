@@ -407,7 +407,7 @@ These initiatives above comprise individual policies that:
   - `User-Assigned Managed Identity Name`: If you use your own identity (selected `true`), specify the name of the identity that's assigned to the machines.
   - `User-Assigned Managed Identity Resource Group`: If you use your own identity (selected `true`), specify the resource group where the identity exists.
   - `Additional Virtual Machine Images`: Pass additional VM image names that you want to apply the policy to, if not already included.
-  - `Built-In-Identity-RG Location`: If you use built-in user-assigned managed identity, specify the location where the identity and the resource group should be created. This parameter is only used when 'Bring Your Own User-Assigned Managed Identity' parameter is false.
+  - `Built-In-Identity-RG Location`: If you use built-in user-assigned managed identity, specify the location where the identity and the resource group should be created. This parameter is only used when `Bring Your Own User-Assigned Managed Identity` parameter is set to `false`.
 - Create and deploy the association to link the machine to specified data collection rule.
    - `Data Collection Rule Resource Id`: The Azure Resource Manager resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
 
