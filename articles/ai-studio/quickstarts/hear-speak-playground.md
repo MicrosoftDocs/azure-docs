@@ -28,6 +28,8 @@ The speech to text and text to speech features can be used together or separatel
 
 ## Prerequisites
 
+[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
+
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 

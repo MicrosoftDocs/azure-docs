@@ -2999,3 +2999,12 @@ groups:
     title: TypeScript
   - id: programming-language-portal
     title: Azure Portal
+# Owner: pauljewell
+- id: azure-blob-storage-quickstart-options
+  title: Quickstart interaction type
+  prompt: Choose how you'd like to interact with the quickstart
+  pivots:
+  - id: blob-storage-quickstart-scratch
+    title: Build from scratch
+  - id: blob-storage-quickstart-template
+    title: Start with a template
