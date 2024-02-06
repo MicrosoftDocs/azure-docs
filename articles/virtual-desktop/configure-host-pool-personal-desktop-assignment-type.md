@@ -63,7 +63,7 @@ Here's how to configure a host pool to automatically assign users to VMs using t
 
 #### [Azure CLI](#tab/cli)
 
-Here's how to configure a host pool to automatically assign users to VMs using the [az-desktopvirtualization-hostpool-update](/cli/azure/desktopvirtualization/hostpool?view=azure-cli-latest#az-desktopvirtualization-hostpool-update) command.
+Here's how to configure a host pool to automatically assign users to VMs using the [az-desktopvirtualization-hostpool-update](/cli/azure/desktopvirtualization/hostpool#az-desktopvirtualization-hostpool-update) command.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
@@ -107,7 +107,7 @@ Here's how to configure a host pool to require direct assignment of users to ses
 
 #### [Azure CLI](#tab/cli)
 
-Here's how to configure a host pool to automatically assign users to VMs using the [az-desktopvirtualization-hostpool-update](/cli/azure/desktopvirtualization/hostpool?view=azure-cli-latest#az-desktopvirtualization-hostpool-update) command.
+Here's how to configure a host pool to automatically assign users to VMs using the [az-desktopvirtualization-hostpool-update](/cli/azure/desktopvirtualization/hostpool#az-desktopvirtualization-hostpool-update) command.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
@@ -158,7 +158,7 @@ Here's how to configure a host pool to assign a user to a specific session host 
 2. Run the `Update-AzWvdHostPool` command in the following example to assign a user to a session host. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    ```powershell
-   Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser <userupn>
+   Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser $userupn
    ```
 
 #### [Azure CLI](#tab/cli)
@@ -170,7 +170,7 @@ Here's how to configure a host pool to assign a user to a specific session host 
 2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    ```azurecli
-  az desktopvirtualization sessionhost update --host-pool-name $hostPoolName --name $sessionHostName --resource-group $resourceGroupName --assigned-user <userupn>
+  az desktopvirtualization sessionhost update --host-pool-name $hostPoolName --name $sessionHostName --resource-group $resourceGroupName --assigned-user $userupn
    ```
 
 ---
@@ -322,6 +322,7 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
    }
    Invoke-AzRestMethod @reassignDesktopParams
    ```
+
 ---
 
 ## Give session hosts in a personal host pool a friendly name
