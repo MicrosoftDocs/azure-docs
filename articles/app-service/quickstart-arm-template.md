@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 12/20/2023
+ms.date: 02/06/2024
 ms.custom: subject-armqs, mode-arm, devdivchpfy22, devx-track-arm-template
 zone_pivot_groups: app-service-platform-windows-linux-windows-container
 adobe-target: true
@@ -16,23 +16,35 @@ adobe-target-content: ./quickstart-arm-template-uiex
 
 # Quickstart: Create App Service app using an ARM template
 
-Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
-
- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
-
 ::: zone pivot="platform-windows"
+Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. You incur no costs to complete this quickstart because you use a free App Service tier.
+
+A resource manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
+
+If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button will open the ARM template in the Azure portal.
+
 Use the following button to deploy on **Windows**:
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json)
 ::: zone-end
 ::: zone pivot="platform-linux"
+Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. You incur no costs to complete this quickstart because you use a free App Service tier.
+
+A resource manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
+
+If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button will open the ARM template in the Azure portal.
+
 Use the following button to deploy on **Linux**:
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json)
 ::: zone-end
 ::: zone pivot="platform-windows-container"
+Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A premium plan is needed to deploy a Windows container app. See the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing) for pricing details.
+
+A resource manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
+
+If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button will open the ARM template in the Azure portal.
+
 Use the following button to deploy on **Windows container**:
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows-container%2Fazuredeploy.json)
@@ -106,9 +118,9 @@ This template contains several parameters that are predefined for your convenien
 | location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
 | skuTier        | string  | "P1v3"                         | Instance size ([View available SKUs](configure-custom-container.md?tabs=debian&pivots=container-windows#customize-container-memory)) |
 | appSettings | string  | "[{"name": "PORT","value": "8080"}]"                          | App Service listening port. Needs to be 8080. |
-| kind       | string  | "windows"                          | External Git repo (optional) |
-| hyperv     | string  | "true"                          | External Git repo (optional) |
-| windowsFxVersion | string  | "DOCKER&#124;mcr.microsoft.com/dotnet/samples:aspnetapp"                          | External Git repo (optional) |
+| kind       | string  | "windows"                          | Operating System |
+| hyperv     | string  | "true"                          |  |
+| windowsFxVersion | string  | "DOCKER&#124;mcr.microsoft.com/dotnet/samples:aspnetapp"                          | Container image |
 
 ::: zone-end
 ## Deploy the template
@@ -118,19 +130,21 @@ Azure CLI is used here to deploy the template. You can also use the Azure portal
 The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
-Run the code below to deploy a .NET framework app on Windows.
+Run the commands below to deploy a .NET framework app on Windows.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location "southcentralus" &&
+az group create --name myResourceGroup --location "southcentralus"
+
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
-Run the code below to create a Python app on Linux.
+Run the commands below to create a Python app on Linux.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location "southcentralus" &&
+az group create --name myResourceGroup --location "southcentralus"
+
 az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.9" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
@@ -148,10 +162,11 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 ---
 ::: zone-end
 ::: zone pivot="platform-windows-container"
-Run the code below to deploy a [.NET app](https://mcr.microsoft.com/product/dotnet/samples/tags) on a Windows container.
+Run the commands below to deploy a [.NET app](https://mcr.microsoft.com/product/dotnet/samples/tags) on a Windows container.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location "southcentralus" &&
+az group create --name myResourceGroup --location "southcentralus"
+
 az deployment group create --resource-group myResourceGroup \
 --parameters webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows-container/azuredeploy.json"

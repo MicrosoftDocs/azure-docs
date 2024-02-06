@@ -27,7 +27,7 @@
       href: quickstart-wordpress.md
     - name: Deploy a custom container
       href: quickstart-custom-container.md
-    - name: Use ARM template
+    - name: Deploy using ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md
 - name: Deployment and configuration
