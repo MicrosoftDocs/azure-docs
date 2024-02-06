@@ -198,7 +198,7 @@ As mentioned previously, Twilio Video Android SDK doesn't have a concept of Call
 To accept calls, the application must first be configured to receive incoming calls.
 
 #### Register for push notifications and handle incoming push notification 
-An ACS client can opt-in to receive push notifications to receive incoming calls. This [guide](../../how-tos/calling-sdk/push-notifications.md?pivots=platform-android) describes how to set up push notifications for the Azure Communication Services Calling framework.
+An ACS client can opt in to receive push notifications to receive incoming calls. This [guide](../../how-tos/calling-sdk/push-notifications.md?pivots=platform-android) describes how to set up push notifications for the Azure Communication Services Calling framework.
 
 #### Setting up the CallAgentListener
 
