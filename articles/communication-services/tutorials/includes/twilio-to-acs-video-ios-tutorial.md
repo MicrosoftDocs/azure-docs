@@ -46,7 +46,7 @@ target 'AzureCommunicationCallingSample' do
   pod 'AzureCommunicationCalling', '~> 2.6.0' 
 end 
 ```
-3. Set up the `.xcworkspace` project
+3. Set up the `.xcworkspace` projectcc
 ```shell
 pod install
 ```
@@ -58,7 +58,7 @@ To be able to use the Azure Communication Services calling SDK, you need to auth
 
 ### Twilio
 
-From witin the Twilio Video framework, the access token is used to connect to a room. By passing the token to ConnectOptions you can create the option to create or connect a room.
+From within the Twilio Video framework, the access token is used to connect to a room. By passing the token to ConnectOptions you can create the option to create or connect a room.
 
 ```swift
 let connectOptions = ConnectOptions(token: accessToken) { 
@@ -119,7 +119,7 @@ room = TwilioVideoSDK.connect(options: connectOptions, delegate: self)
 
 #### Connect to a call
 
-Initiating a call with the Azure Communication Service CCalling SDK consists of the following steps: 
+Initiating a call with the Azure Communication Service Calling SDK consists of the following steps: 
 
 1. Creating a call option object 
 2. Creating an Array of Communication Identifiers 
