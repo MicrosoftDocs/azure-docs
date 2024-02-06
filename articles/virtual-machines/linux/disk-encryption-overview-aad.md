@@ -8,8 +8,6 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 01/04/2023
-ms.custom: seodec18
-
 ---
 # Azure Disk Encryption with Microsoft Entra ID (previous release)
 

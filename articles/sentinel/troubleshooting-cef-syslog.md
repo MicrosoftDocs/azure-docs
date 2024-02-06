@@ -5,7 +5,6 @@ author: limwainstein
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: lwainstein
-ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot your CEF or Syslog data connector

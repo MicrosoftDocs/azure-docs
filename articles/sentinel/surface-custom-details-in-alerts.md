@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: how-to
 ms.date: 04/26/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Surface custom event details in alerts in Microsoft Sentinel 

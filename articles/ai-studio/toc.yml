@@ -53,9 +53,9 @@
       href: how-to/develop-in-vscode.md
   - name: Create Azure AI projects and resources
     items:
-    - name: Azure AI resources overview
+    - name: Azure AI hub resources overview
       href: concepts/ai-resources.md
-    - name: Create and manage an Azure AI resource
+    - name: Create and manage an Azure AI hub resource
       href: how-to/create-azure-ai-resource.md
     - name: Create an Azure AI project
       href: how-to/create-projects.md

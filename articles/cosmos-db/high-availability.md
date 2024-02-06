@@ -1,9 +1,8 @@
 ---
-title: High availability in Azure Cosmos DB 
+title: High availability in Azure Cosmos DB
 description: This article describes how to build a highly available solution by using Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 02/24/2022
 ms.author: sidandrews
@@ -242,6 +241,3 @@ Next, you can read the following articles:
 * [Configure multi-region writes in your applications that use Azure Cosmos DB](how-to-multi-master.md)
 
 * [Diagnose and troubleshoot the availability of Azure Cosmos DB SDKs in multiregional environments](troubleshoot-sdk-availability.md)
-
-
-
