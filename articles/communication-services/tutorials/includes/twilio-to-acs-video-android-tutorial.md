@@ -96,7 +96,7 @@ callAgent = callClient.createCallAgent(getApplicationContext(), tokenCredential)
 
 **Kotlin**
 ```kotlin
-val userToken = "<USER_ACCESS_TOKEN>"
+val userToken = "<USER_TOKEN>"
 val communicationCredential = CommunicationTokenCredential(accessToken)
 val callAgent: CallAgent = CallClient().createCallAgent(
      applicationContext,

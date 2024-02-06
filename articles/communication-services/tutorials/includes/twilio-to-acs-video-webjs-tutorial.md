@@ -31,7 +31,7 @@ For Video Calling as a Teams user:
 
 ## UI library
 
-The UI library simplifies the process of creating modern communication user interfaces using Azure Communication Services. It offers a collection of ready-to-use UI components that you can easily integrate into your application.
+The Azure Communication Services UI library simplifies the process of creating modern communication user interfaces using Azure Communication Services. It offers a collection of ready-to-use UI components that you can easily integrate into your application.
 
 This open source prebuilt set of controls enables you to create aesthetically pleasing designs using [Fluent UI SDK](https://developer.microsoft.com/en-us/fluentui#/) components and develop high quality audio/video communication experiences. For more information, check out the [Azure Communications Services UI Library overview](../../concepts/ui-library/ui-library-overview.md). The overview includes comprehensive information about both web and mobile platforms.
 

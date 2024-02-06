@@ -134,7 +134,7 @@ callAgent?.startCall(participants: callees, options: startCallOptions) { call, e
 }
 
 ```
-#### Connect to a team call
+#### Connect to a Team's call
 
 ##### With External Identity
 
@@ -386,7 +386,7 @@ Muting and unmuting can be done by calling the muteOutgoingAudio and unmuteoutgo
 
 **Muting the microphone**
 ```swift
-callBase.muteOutgoingAudio() { error in
+'call': call.muteOutgoingAudio() { error in
     if error == nil {
         isMuted = true
     } else {
