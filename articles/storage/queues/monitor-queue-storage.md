@@ -38,7 +38,7 @@ At a minimum your service should have the following two articles:
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 > [!IMPORTANT]
-> - Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
+> Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
 <!-- ## Insights. Optional section. If your service has insights, add the following include and information. -->
 [!INCLUDE [horz-monitor-insights](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-insights.md)]
@@ -61,7 +61,7 @@ Azure Storage insights offer a unified view of storage performance, capacity, an
 For a list of available metrics for Azure Queue Storage, see [Azure Queue Storage monitoring data reference](monitor-queue-storage-reference.md#metrics).
 
 > [!IMPORTANT]
-> - On **January 9, 2024** Storage Analytics metrics, also referred to as *classic metrics*, retired. If you used classic metrics, see [Move from Storage Analytics metrics to Azure Monitor metrics](../common/storage-metrics-migration.md) to transition to metrics in Azure Monitor.
+> On **January 9, 2024** Storage Analytics metrics, also referred to as *classic metrics*, retired. If you used classic metrics, see [Move from Storage Analytics metrics to Azure Monitor metrics](../common/storage-metrics-migration.md) to transition to metrics in Azure Monitor.
 
 > [!NOTE]
 > Azure Compute, not Azure Storage, supports metrics for managed disks or unmanaged disks. For more information, see [Per disk metrics for Managed and Unmanaged Disks](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
@@ -116,7 +116,7 @@ For general destination limitations, see [Destination limitations](/azure/azure-
 
 - You can't set a retention policy. 
 
-  If you archive logs to a storage account, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md).
+  If you archive logs to a storage account, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automatically managing the data lifecycle](../blobs/lifecycle-management-overview.md).
 
   If you send logs to Log Analytics, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](/azure/azure-monitor/logs/data-retention-archive).
 
@@ -152,7 +152,7 @@ For a list of all Azure Monitor supported metrics, which includes Azure Queue St
 
 ### [Azure portal](#tab/azure-portal)
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 This example shows how to view **Transactions** at the account level.
 

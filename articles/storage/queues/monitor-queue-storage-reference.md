@@ -14,7 +14,7 @@ ms.author: normesta
 <!-- Intro -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Azure Files](monitor-files.md) for details on the data you can collect for Azure Files and how to use it.
+See [Monitor Azure Queue Storage](monitor-queue-storage.md) for details on the data you can collect for Azure Queue Storage and how to use it.
 
 <!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
