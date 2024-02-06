@@ -4,7 +4,7 @@ description: An introduction to Azure HDInsight on AKS.
 ms.custom: references_regions
 ms.service: hdinsight-aks
 ms.topic: overview
-ms.date: 08/29/2023
+ms.date: 02/06/2024
 ---
 
 # What is HDInsight on AKS? (Preview)
