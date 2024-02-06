@@ -16,7 +16,7 @@ This article describes how to ingest GCP data into Microsoft Sentinel to get ful
 
 With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
 
-- Google's Cloud Audit Logs records an audit trail that analysts can use to monitor access and detect potential threats across GCP resources.
+- Google Cloud Platform (GCP) Audit Logs record audit trails of access to GCP resources that analysts can use to monitor access and detect potential threats across the GCP environment.
 - The Google Cloud Platform (GCP) Security Command Center is a robust security and risk management platform for Google Cloud. It provides features such as asset inventory and discovery, vulnerability, and threat detection, as well as risk mitigation and remediation to help you gain insights into your organization's security posture and data attack surface. Its integration with Microsoft Sentinel enhances your ability to efficiently handle tasks related to findings and assets.
 
 > [!IMPORTANT]
