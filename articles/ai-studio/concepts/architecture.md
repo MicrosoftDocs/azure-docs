@@ -15,7 +15,7 @@ author: Blackmist
     
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-AI Studio provides a unified experience for AI developers and data scientists to build, evaluate, and deploy AI models through a web portal, SDK, or CLI. It is built on capabilities and services provided by other Azure services.
+AI Studio provides a unified experience for AI developers and data scientists to build, evaluate, and deploy AI models through a web portal, SDK, or CLI. It's built on capabilities and services provided by other Azure services.
 
 The top level AI Studio resources (AI hub and AI projects) are based on Azure Machine Learning. Other resources, such as Azure OpenAI, Azure AI Services, and Azure AI Search, are used by the AI hub and AI project.
 
@@ -31,7 +31,7 @@ The top level AI Studio resources (AI hub and AI projects) are based on Azure Ma
     - Project-scoped connections. For example, a project may need access to data stored in a separate Azure Storage account.
     - Fine tuned model endpoints.
  
-An AI hub can have multiple child AI projects. Each AI project can have its own set of of project-scoped connections.
+An AI hub can have multiple child AI projects. Each AI project can have its own set of project-scoped connections.
 
 :::image type="content" source="../media/concepts/azureai-hub-project-resource-providers.svg" alt-text="Diagram of the relationship between AI Studio resources.":::
 
