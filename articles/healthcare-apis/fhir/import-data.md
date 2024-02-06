@@ -1,6 +1,6 @@
 ---
-title: Import data to the FHIR service in Azure Health Data Services
-description: Learn how to import data in the FHIR service for Azure Health Data Services.
+title: Import data into the FHIR service in Azure Health Data Services
+description: Learn how to import data into the FHIR service for Azure Health Data Services.
 author: expekesheth  
 ms.service: healthcare-apis
 ms.subservice: fhir
