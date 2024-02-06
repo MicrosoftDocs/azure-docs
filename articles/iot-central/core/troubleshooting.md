@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot device connections to Azure IoT Central
-description: Troubleshoot and resolve why you're not seeing data from your devices in your IoT Central application
+title: Troubleshooting in Azure IoT Central
+description: Troubleshoot and resolve issues with device connections and data export configurations in your IoT Central application
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/22/2023
+ms.date: 02/06/2024
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
@@ -12,19 +12,9 @@ ms.custom: device-developer, devx-track-azurecli
 #Customer intent: As a device developer, I want to understand why data from my devices isn't showing up in IoT Central, and the steps I can take to rectify the issue.
 ---
 
-# Troubleshoot why data from your devices isn't showing up in Azure IoT Central
+# Troubleshooting in Azure IoT Central
 
-This document helps you determine why the data your devices are sending to IoT Central isn't showing up in the application.
-
-There are two main areas to investigate:
-
-- Device connectivity issues
-  - Authentication issues such as the device has invalid credentials
-  - Network connectivity issues
-  - Device isn't approved, or blocked
-- Device payload shape issues
-
-This troubleshooting guide focuses on device connectivity issues and device payload shape issues.
+This article includes troubleshooting guidance for device connectivity issues and data export configuration issues in your IoT Central applications.
 
 ## Device connectivity issues
 
@@ -232,7 +222,7 @@ The validation commands also report an error if the same telemetry name is defin
 
 If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled.
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view" lightbox="media/troubleshoot-connection/raw-data-view.png":::
+:::image type="content" source="media/troubleshooting/raw-data-view.png" alt-text="Screenshot that shows the raw data view in an IoT Central application." lightbox="media/troubleshooting/raw-data-view.png":::
 
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
@@ -247,6 +237,42 @@ You can't use the validate commands or the **Raw data** view in the UI to detect
 ### IoT Edge version
 
 To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from components in IoT Edge modules displays as *_unmodeleddata*.
+
+## Data export managed identity issues
+
+You're using a managed identity to authorize the connection to an export destination. Data isn't arriving at the export destination.
+
+Before you configure or enable the export destination, make sure that you complete the following steps:
+
+- Enable the managed identity for the IoT Central application. To verify that the managed identity is enabled, go to the **Identity** page for your application in the Azure portal or use the following CLI command:
+
+    ```azurecli
+    az iot central app identity show --name {your app name} --resource-group {your resource group name}
+    ```
+
+- Configure the permissions for the managed identity. To view the assigned permissions, select **Azure role assignments** on the **Identity** page for your app in the Azure portal or use the `az role assignment list` CLI command. The required permissions are:
+
+    | Destination | Permission |
+    |-------------|------------|
+    | Azure Blob storage | Storage Blob Data Contributor |
+    | Azure Service Bus | Azure Service Bus Data Sender |
+    | Azure Event Hubs | Azure Event Hubs Data Sender |
+    | Azure Data Explorer | Admin |
+
+    If the permissions were not set correctly before you created the destination in your IoT Central application, try removing the destination and then adding it again.
+
+- Configure any virtual networks, private endpoints, and firewall policies.
+
+> [!NOTE]
+> If you're using a managed identity to authorize the connection to an export destination, IoT Central doesn't export data from simulated devices.
+
+To learn more, see [Export data](howto-export-data.md?tabs=managed-identity).
+
+## Data export destination connection issues
+
+The export definition page shows information about failed connections to the export destination:
+
+:::image type="content" source="media/troubleshooting/export-error.png" alt-text="Screenshot that shows an example export error.":::
 
 ## Next steps
 
