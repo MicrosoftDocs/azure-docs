@@ -37,7 +37,7 @@ These plans use monitoring components to collect data:
 
 - Defender for Servers
   - [Azure Arc agent](../azure-arc/servers/manage-vm-extensions.md) (For multicloud and on-premises servers)
-  - [Microsoft Defender for Endpoint](#microsoft-defender-for-endpoint)
+  - [Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)
   - Vulnerability assessment
   - [Azure Monitor Agent](#azure-monitor-agent-ama) or [Log Analytics agent](#log-analytics-agent)
 - [Defender for SQL servers on machines](defender-for-sql-on-machines-vulnerability-assessment.md)
