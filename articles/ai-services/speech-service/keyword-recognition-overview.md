@@ -8,7 +8,6 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 1/21/2024
 ms.author: hasshah
-ms.custom: ignite-fall-2021
 ---
 
 # What is keyword recognition?

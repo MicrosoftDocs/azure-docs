@@ -8,7 +8,6 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 04/13/2023
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Transfer Azure Enterprise enrollment accounts and subscriptions

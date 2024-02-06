@@ -1,5 +1,5 @@
 ---
-title: Query Azure Cosmos DB data using a serverless SQL pool in Azure Synapse Link 
+title: Query Azure Cosmos DB data using a serverless SQL pool in Azure Synapse Link
 description: In this article, you'll learn how to query Azure Cosmos DB by using a serverless SQL pool in Azure Synapse Link.
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 05/10/2022
 ms.author: jovanpop
 ms.reviewer: sidandrews, wiassaf
-ms.custom: cosmos-db, event-tier1-build-2022, ignite-2022
+ms.custom: cosmos-db
 ---
 
 # Query Azure Cosmos DB data with a serverless SQL pool in Azure Synapse Link

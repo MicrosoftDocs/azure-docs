@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: sample
 ms.date: 01/05/2024
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create multiple elastic SAN volumes in a batch

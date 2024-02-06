@@ -7,7 +7,6 @@ ms.topic: overview
 ms.date: 01/05/2024
 ms.author: rogarana
 ms.custom:
-  - ignite-2022
   - ignite-2023-elastic-SAN
 ---
 

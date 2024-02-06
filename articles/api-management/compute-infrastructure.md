@@ -19,7 +19,7 @@ Most new instances created in service tiers other than the Consumption tier are 
 
 ## What are the compute platforms for API Management?
 
-The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management.  
+The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management. This table doesn't apply to the [v2 pricing tiers (preview)](#what-about-the-v2-pricing-tiers).
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |

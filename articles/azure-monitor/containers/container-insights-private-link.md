@@ -3,7 +3,7 @@ title: Enable private link with Container insights
 description: Learn how to enable private link on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 10/18/2023
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.reviewer: aul
 ---
 
@@ -71,4 +71,3 @@ Use the following procedures to enable network isolation by connecting your clus
 
 * If you experience issues while you attempt to onboard the solution, review the [Troubleshooting guide](container-insights-troubleshoot.md).
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
-

@@ -11,7 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/19/2022
 ms.author: jushiman
-ms.custom: H1Hack27Feb2017, contperf-fy21q4
+ms.custom: H1Hack27Feb2017
 ---
 
 # Monitor SAP HANA (Large instances) on Azure
