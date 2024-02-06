@@ -409,8 +409,10 @@
       items:
       - name: Basics of pgvector
         href: flexible-server/how-to-use-pgvector.md
+        displayName: vector databases
       - name: Optimize performance when using pgvector
         href: flexible-server/how-to-optimize-performance-pgvector.md
+        displayName: vector databases
 - name: Migration
   items:
   - name: Migrate Single Server to Flexible Server
