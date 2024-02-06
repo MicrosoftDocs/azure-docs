@@ -5,13 +5,13 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 02/06/2024
 ms.author: kesheth
 ---
 
 # Import FHIR data
 
-The $import operation allows you to upload FHIR&reg; data to the FHIR server in a fast, reliable way. The `$import` operation supports importing new data or updating existing data on the FHIR server.
+The import operation allows you to ingest FHIR&reg; data into the FHIR server with high throughput.
 
 ## Import operation modes
 
