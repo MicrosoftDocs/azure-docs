@@ -1,7 +1,7 @@
 ---
 title: Customize your dev box with setup tasks
 titleSuffix: Microsoft Dev Box
-description: Customize your dv box by using a catalog of setup tasks to install software, configure settings, and more.
+description: Customize your dev box by using a catalog of setup tasks to install software, configure settings, and more.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
@@ -32,7 +32,7 @@ https://aka.ms/patterns-feedback
 
 In this article, you learn how to customize dev boxes by using a catalog of setup tasks to install software, configure settings, and more. These tasks are completed in the final stage of the dev box creation process.  
 
-Microsoft Dev Box customization is a config-as-code approach to performing post-creation configuration tasks for dev boxes. You can customize dev boxes by adding the additional settings and software they need without having to create a custom VM image. 
+Microsoft Dev Box customization is a config-as-code approach to performing post-creation configuration tasks for dev boxes. You can customize dev boxes by adding the other settings and software they need without having to create a custom VM image. 
 
 Customizations can automate common setup steps, saving time and reducing the chance of configuration errors. Some example setup tasks include: 
 
@@ -59,7 +59,7 @@ Customizations are useful wherever you need to configure settings, install softw
 
 #### Team-specific configurations 
 
-Development teams can use customizations to pre-configure the software required for their specific development project. Developer team leads can author devbox.yaml files that apply the setup tasks relevant for their teams. This gives developers a way to create dev boxes that best support their development, without having to request configuration changes from IT, or having the platform engineering team create a custom VM image.  
+Development teams can use customizations to preconfigure the software required for their specific development project. Developer team leads can author devbox.yaml files that apply the setup tasks relevant for their teams. This gives developers a way to create dev boxes that best support their development, without having to request configuration changes from IT, or having the platform engineering team create a custom VM image.  
 
 #### Security compliance 
 
@@ -67,7 +67,7 @@ Organizations can create tasks to define the types of installation and configura
 
 ### What are customization tasks? 
 
-Catalogs contain a collection of curated setup tasks to enable development teams to customize dev boxes. You can use a GitHub repository or an Azure DevOps Services repository as a catalog. You can combine tasks to create a development VM that’s unique to your team.  
+Catalogs contain a collection of curated setup tasks to enable development teams to customize dev boxes. You can use a GitHub repository or an Azure DevOps  repository as a catalog. You can combine tasks to create a development VM that’s unique to your team.  
 
 Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common setup tasks: 
 
@@ -86,7 +86,7 @@ The following example shows a catalog with choco, git-clone, install-vs-extensio
 
 ### What is a devbox.yaml file?
 
-Dev Box customizations use a devbox.yaml file, which you use to customize a dev box. A devbox.yaml file defines one or many setupTasks. This is where you’ll specify additional software to install, and settings to apply when creating a new dev box. The following example uses a choco task to install the Azure Developer CLI using the Chocolatey package manager and adds the GitHub Copilot extension to Visual Studio 2022.
+Dev Box customizations use a devbox.yaml file, which you use to customize a dev box. A devbox.yaml file defines one or many setupTasks. This is where you specify other software to install, and settings to apply when creating a new dev box. The following example uses a choco task to install the Azure Developer CLI using the Chocolatey package manager and adds the GitHub Copilot extension to Visual Studio 2022.
 
 :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-devboxyaml-setup-tasks.png" alt-text="Screenshot showing an example that uses a choco task to install the Azure Developer CLI using the Chocolatey package manager and adds the GitHub Copilot extension to Visual Studio 2022.":::
 
@@ -94,7 +94,7 @@ The devbox.yaml file can be checked into a Git repository in either GitHub or Az
 
 ### Permissions required to configure Microsoft Dev Box for customizations
 
-To perform the actions required to create and apply customizations to a dev box, you’ll need certain permissions. The following table describes the actions and permissions or roles you’ll need to configure customizations.
+To perform the actions required to create and apply customizations to a dev box, you need certain permissions. The following table describes the actions and permissions or roles you need to configure customizations.
 
 
 |Action  |Permission / Role  |
@@ -107,7 +107,7 @@ To perform the actions required to create and apply customizations to a dev box,
 
 ## Prerequisites
 
-To complete the steps in this article, you must have a dev center configured with a dev box defintion, dev box pool, and dev box project.
+To complete the steps in this article, you must have a dev center configured with a dev box definition, dev box pool, and dev box project.
 
 
 ## 1: Create a customized dev box
@@ -147,7 +147,7 @@ Now that you have a catalog that defines the tasks your developers can use, you 
 
 1.Select **Create**.
 
-When the creation process is complete, the dev box has nodejs and vscode pre-installed. For more examples, see the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples).
+When the creation process is complete, the dev box has nodejs and VS Code preinstalled. For more examples, see the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples).
 
 
 ## 2: Create your own setup tasks in devbox.yaml
@@ -160,7 +160,7 @@ In this stage, there must be a catalog that contains tasks attached to the dev c
 1. On the dev box, install VS Code and then install the [Dev Box v1.2.2 VS Code extension](https://aka.ms/devbox/preview/customizations/vsc-extension). 
 1. Download an [example yaml configuration file](https://azure.github.io/dev-box/reference/devbox.yaml) from the samples repository and open it in VS Code.
 1. Discover tasks available in the catalog by using the command palette.
-1. Test configuration in VS code by using f5/command palette.
+1. Test configuration in VS Code by using f5/command palette.
 1. Inspect your changes and check the VS Code terminal for any errors or warnings (your DevBox.yaml is run on your dev box immediately).
 1. Once satisfied, use the new devbox.yaml file with the file upload flow or commit it to your team’s shared repository.
  
@@ -170,11 +170,11 @@ In this stage, there must be a catalog that contains tasks attached to the dev c
 
 ### 3: Add your devbox.yaml to your codespace repository
 
-Make your devbox.yaml file seamlessly available to your developers by uploading it to a repository accessible to the developers, usually their coding repository.  When the you create a dev box, the devbox.yaml will be cloned along with the code repository, and the tasks listed in devbox.yaml will be performed. This configuration provides a seamless way to perform customizations on a dev box.
+Make your devbox.yaml file seamlessly available to your developers by uploading it to a repository accessible to the developers, usually their coding repository.  When you create a dev box, the devbox.yaml is cloned along with the code repository, and the tasks listed in devbox.yaml are performed. This configuration provides a seamless way to perform customizations on a dev box.
 1.	Create a DevBox.yaml file
 2.	Commit to Private AzDO repository with your code (add to root)
 3.	Developer on team opens dev portal to create a Dev Box
-4.	Dev picks a pool they have access to based on where they are
+4.	Dev picks a pool they have access to based on where they're
 5.	Dev pastes clone URL of AzDO repository during create
 6.	Developer gets customized Dev Box with AzDO repository cloned, and all instructions from devbox.yaml applied 
 
@@ -183,8 +183,8 @@ Make your devbox.yaml file seamlessly available to your developers by uploading 
 The final stage of a complete customizations architecture. In this stage, you create your own tasks in the catalog attached to the dev center, to support your dev box configuration. You might choose to add <some examples>.
 
 1.	Create a copy of the quick-start catalog (devcenter-catalog)
-2.	Learn how to write tasks by looking at Tasks using existing powershell scripts with help of reference docs
-3.	Attach your own repository as a catalog (AzDO and Github supported using managed identity), or sync if it is already an existing catalog
+2.	Learn how to write tasks by looking at Tasks using existing PowerShell scripts with help of reference docs
+3.	Attach your own repository as a catalog (AzDO and GitHub supported using managed identity), or sync if it's already an existing catalog
 4.	Try out your new tasks
 5.	Author a devbox.yaml file for those tasks
 
