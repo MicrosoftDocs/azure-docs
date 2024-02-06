@@ -53,11 +53,11 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
 
    Pick the plan to use, and select **Subscribe**.
 
-    :::image type="content" source="media/setup-subscribe.png" alt-text="Set up and subscribe.":::
+    :::image type="content" source="media/create/setup-subscribe.png" alt-text="Set up and subscribe.":::
 
 1. On the **Create a Confluent organization** basics page, provide the following values. When you've finished, select **Next: Tags**.
 
-    :::image type="content" source="media/setup-basics.png" alt-text="Form to set up Confluent Cloud resource.":::
+    :::image type="content" source="media/create/setup-basics.png" alt-text="Form to set up Confluent Cloud resource.":::
 
     | Property | Description |
     | ---- | ---- |
@@ -73,13 +73,13 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
 
 1. On **Tags**, provide the **name** and **value** pairs for tags you want to apply to resource. After you enter the tags, select **Review + Create**.
 
-    :::image type="content" source="media/setup-tags.png" alt-text="Add project tags.":::
+    :::image type="content" source="media/create/setup-tags.png" alt-text="Add project tags.":::
 
 1. Review the settings you provided. When ready, select **Create**.
 
 1. It takes a few minutes to create the resource. You can view the deployment status in **Notifications**. After the deployment is finished, select the resource to view the **Overview** page.
 
-    :::image type="content" source="media/deployment-status.png" alt-text="Deployment status.":::
+    :::image type="content" source="media/create/deployment-status.png" alt-text="Deployment status.":::
 
    If you get an error, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 
