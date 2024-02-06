@@ -38,7 +38,7 @@ At a minimum your service should have the following two articles:
 [!INCLUDE [horz-monitor-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 > [!IMPORTANT]
-> - Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
+> Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
 <!-- ## Insights. Optional section. If your service has insights, add the following include and information. -->
 [!INCLUDE [horz-monitor-insights](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-insights.md)]
@@ -61,7 +61,7 @@ Azure Storage insights offer a unified view of storage performance, capacity, an
 For a list of available metrics for Azure Table Storage, see [Azure Table Storage monitoring data reference](monitor-table-storage-reference.md#metrics).
 
 > [!IMPORTANT]
-> - On **January 9, 2024** Storage Analytics metrics, also referred to as *classic metrics*, retired. If you used classic metrics, see [Move from Storage Analytics metrics to Azure Monitor metrics](../common/storage-metrics-migration.md) to transition to metrics in Azure Monitor. You can continue using classic logs if you want to. However, we recommend that you transition to using Azure Storage logs in Azure Monitor instead of Storage Analytics logs.
+> On **January 9, 2024** Storage Analytics metrics, also referred to as *classic metrics*, retired. If you used classic metrics, see [Move from Storage Analytics metrics to Azure Monitor metrics](../common/storage-metrics-migration.md) to transition to metrics in Azure Monitor. You can continue using classic logs if you want to. However, we recommend that you transition to using Azure Storage logs in Azure Monitor instead of Storage Analytics logs.
 
 > [!NOTE]
 > Azure Compute, not Azure Storage, supports metrics for managed disks or unmanaged disks. For more information, see [Per disk metrics for Managed and Unmanaged Disks](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
