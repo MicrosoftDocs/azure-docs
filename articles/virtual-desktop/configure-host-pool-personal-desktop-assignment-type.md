@@ -99,7 +99,7 @@ Here's how to configure a host pool to require direct assignment of users to ses
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Run the `Update-AzWvdHostPool` command in the following example to configure a host pool to require direct assignment. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Run the `Update-AzWvdHostPool` command in the following example to configure a host pool to require direct assignment. For more information about the parameters, see the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) reference.
 
    ```powershell
    Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Direct
@@ -155,7 +155,7 @@ Here's how to configure a host pool to assign a user to a specific session host 
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Run the `Update-AzWvdHostPool` command in the following example to assign a user to a session host. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Run the `Update-AzWvdHostPool` command in the following example to assign a user to a session host. For more information about the parameters, see the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) reference.
 
    ```powershell
    Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser $userupn
@@ -163,7 +163,7 @@ Here's how to configure a host pool to assign a user to a specific session host 
 
 #### [Azure CLI](#tab/cli)
 
-Here's how to configure a host pool to assign a user to a specific session host using the az-desktopvirtualization-sessionhost-update command.
+Here's how to configure a host pool to assign a user to a specific session host.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
@@ -209,7 +209,7 @@ Here's how to configure a host pool to unassign a personal desktop using the [Az
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Run the `Invoke-AzRestMethod` command in the following example to unassign a personal desktop. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Run the `Invoke-AzRestMethod` command in the following example to unassign a personal desktop. For more information about the parameters, see the [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) reference.
 
    ```powershell
    $unassignDesktopParams = @{
@@ -226,7 +226,7 @@ Here's how to configure a host pool to unassign a personal desktop using the [Az
 
 #### [Azure CLI](#tab/cli)
 
-Here's how to configure a host pool to unassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to configure a host pool to unassign a personal desktop using [az-desktopvirtualization-hostpool](/cli/azure/desktopvirtualization/hostpool).
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
@@ -283,7 +283,7 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
    $reassignUserUpn = <UPN of user you are reassigning the desktop to>
    ```
 
-3. Run the `Invoke-AzRestMethod` command in the following example to reassign a personal desktop. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+3. Run the `Invoke-AzRestMethod` command in the following example to reassign a personal desktop. For more information about the parameters, see the [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) reference.
 
    ```powershell
    $reassignDesktopParams = @{
@@ -299,28 +299,24 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
 
 #### [Azure CLI](#tab/cli)
 
-Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to reassign a personal desktop using [az-desktopvirtualization-hostpool](/cli/azure/desktopvirtualization/hostpool).
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
 2. Run the following command to define the `$reassignUserUpn` variable by running the following command:
 
-   ```powershell
-   $reassignUserUpn = <UPN of user you are reassigning the desktop to>
+   ```azurecli
+   reassignUserUpn = <UPN of user you are reassigning the desktop to>
    ```
 
-3. Run the `Invoke-AzRestMethod` command in the following example to reassign a personal desktop. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+3. Run the `Invoke-AzRestMethod` command in the following example to reassign a personal desktop. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
-   ```powershell
-   $reassignDesktopParams = @{
-     Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
-     Payload = @{
-       properties = @{
-         assigneduser = $reassignUserUpn
-       }} | ConvertTo-Json
-     Method = 'PATCH'
-   }
-   Invoke-AzRestMethod @reassignDesktopParams
+   ```azurecli
+  az rest --method PATCH --uri "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$sessionHostName?api-version=2022-02-10-preview&force=true" --body '{
+    "properties": {
+      "assigneduser": "'"$reassignUserUpn"'"
+    }
+  }'
    ```
 
 ---
