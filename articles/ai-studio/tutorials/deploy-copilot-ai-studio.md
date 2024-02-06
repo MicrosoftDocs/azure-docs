@@ -35,9 +35,9 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- You need an Azure AI resource and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the Azure AI resource. For more information, see [Azure AI resources](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
-    - If your role is **Contributor** or **Owner**, you can [create an Azure AI resource in this tutorial](#create-an-azure-ai-project-in-azure-ai-studio). 
-    - If your role is **Azure AI Developer**, the Azure AI resource must already be created. 
+- You need an Azure AI hub resource and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the Azure AI hub resource. For more information, see [Azure AI hub resources](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
+    - If your role is **Contributor** or **Owner**, you can [create an Azure AI hub resource in this tutorial](#create-an-azure-ai-project-in-azure-ai-studio). 
+    - If your role is **Azure AI Developer**, the Azure AI hub resource must already be created. 
 
 - Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models-openai.md).
 
@@ -45,21 +45,21 @@ The steps in this tutorial are:
 
 ## Create an Azure AI project in Azure AI Studio
 
-Your Azure AI project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the Azure AI projects and resources model, see [Azure AI resources](../concepts/ai-resources.md).
+Your Azure AI project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the Azure AI projects and resources model, see [Azure AI hub resources](../concepts/ai-resources.md).
 
 To create an Azure AI project in Azure AI Studio, follow these steps:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and go to the **Build** page from the top menu. 
 1. Select **+ New project**.
 1. Enter a name for the project.
-1. Select an Azure AI resource from the dropdown to host your project. If you don't have access to an Azure AI resource yet, select **Create a new resource**. 
+1. Select an Azure AI hub resource from the dropdown to host your project. If you don't have access to an Azure AI hub resource yet, select **Create a new resource**. 
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/create-project-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/tutorials/copilot-deploy-flow/create-project-details.png":::
 
     > [!NOTE]
-    > To create an Azure AI resource, you must have **Owner** or **Contributor** permissions on the selected resource group. It's recommended to share an Azure AI resource with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend.
+    > To create an Azure AI hub resource, you must have **Owner** or **Contributor** permissions on the selected resource group. It's recommended to share an Azure AI hub resource with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend.
 
-1. If you're creating a new Azure AI resource, enter a name.
+1. If you're creating a new Azure AI hub resource, enter a name.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/create-project-resource.png" alt-text="Screenshot of the create resource page within the create project dialog." lightbox="../media/tutorials/copilot-deploy-flow/create-project-resource.png":::
 
@@ -68,12 +68,12 @@ To create an Azure AI project in Azure AI Studio, follow these steps:
 1. Leave the **Resource group** as the default to create a new resource group. Alternatively, you can select an existing resource group from the dropdown.
 
     > [!TIP]
-    > Especially for getting started it's recommended to create a new resource group for your project. This allows you to easily manage the project and all of its resources together. When you create a project, several resources are created in the resource group, including an Azure AI resource, a container registry, and a storage account.
+    > Especially for getting started it's recommended to create a new resource group for your project. This allows you to easily manage the project and all of its resources together. When you create a project, several resources are created in the resource group, including an Azure AI hub resource, a container registry, and a storage account.
 
-1. Enter the **Location** for the Azure AI resource and then select **Next**. The location is the region where the Azure AI resource is hosted. The location of the Azure AI resource is also the location of the project. 
+1. Enter the **Location** for the Azure AI hub resource and then select **Next**. The location is the region where the Azure AI hub resource is hosted. The location of the Azure AI hub resource is also the location of the project. 
 
     > [!NOTE]
-    > Azure AI resources and services availability differ per region. For example, certain models might not be available in certain regions. The resources in this tutorial are created in the **East US 2** region.
+    > Azure AI hub resources and services availability differ per region. For example, certain models might not be available in certain regions. The resources in this tutorial are created in the **East US 2** region.
 
 1. Review the project details and then select **Create a project**. 
 
