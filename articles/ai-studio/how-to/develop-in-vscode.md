@@ -55,7 +55,7 @@ This table summarizes the folder structure:
 | `shared` | Use for working with a project's shared files and assets such as prompt flows.<br/><br/>For example, `shared\Users\{user-name}\promptflow` is where you find the project's prompt flows. |
 
 > [!IMPORTANT]
-> It's recommended that you work within this project directory. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance). Files stored in the code and data folders will persist even when the compute instance is stopped or restarted, but will be lost if the compute is deleted. However, the shared files are saved in your Azure AI resource's storage account, and therefore aren't lost if the compute instance is deleted.
+> It's recommended that you work within this project directory. Files, folders, and repos you include in your project directory persist on your host machine (your compute instance). Files stored in the code and data folders will persist even when the compute instance is stopped or restarted, but will be lost if the compute is deleted. However, the shared files are saved in your Azure AI hub resource's storage account, and therefore aren't lost if the compute instance is deleted.
 
 ### The Azure AI SDK
 

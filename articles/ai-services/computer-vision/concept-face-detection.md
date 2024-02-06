@@ -19,6 +19,9 @@ ms.author: pafarley
 
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
+> [!IMPORTANT]
+> Face attributes are predicted through the use of statistical algorithms. They might not always be accurate. Use caution when you make decisions based on attribute data. Please refrain from using these attributes for anti-spoofing. Instead, we recommend using Face Liveness detection. For more information, please refer to [Tutorial: Detect liveness in faces](/azure/ai-services/computer-vision/tutorials/liveness). 
+
 This article explains the concepts of face detection and face attribute data. Face detection is the process of locating human faces in an image and optionally returning different kinds of face-related data.
 
 You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](./quickstarts-sdk/identity-client-library.md). Or, for a more in-depth guide, see [Call the detect API](./how-to/identity-detect-faces.md).
@@ -66,9 +69,6 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 * **QualityForRecognition** The overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on. The value is an informal rating of low, medium, or high. Only "high" quality images are recommended for person enrollment, and quality at or above "medium" is recommended for identification scenarios.
     >[!NOTE]
     > The availability of each attribute depends on the detection model specified. QualityForRecognition attribute also depends on the recognition model, as it is currently only available when using a combination of detection model detection_01 or detection_03, and recognition model recognition_03 or recognition_04.
-
-> [!IMPORTANT]
-> Face attributes are predicted through the use of statistical algorithms. They might not always be accurate. Use caution when you make decisions based on attribute data.
 
 ## Input data
 

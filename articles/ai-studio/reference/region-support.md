@@ -1,6 +1,6 @@
 ---
 title: Azure AI Studio feature availability across clouds regions
-titleSuffix: Azure AI studio
+titleSuffix: Azure AI Studio
 description: This article lists Azure AI Studio feature availability across clouds regions.
 manager: nitinme
 ms.service: azure-ai-studio
@@ -20,7 +20,7 @@ Azure AI Studio brings together various Azure AI capabilities that previously we
 
 ## Azure Public regions
 
-Azure AI Studio is currently available in preview in the following Azure regions. You can create [Azure AI resources](../how-to/create-azure-ai-resource.md) and projects in these regions.
+Azure AI Studio is currently available in preview in the following Azure regions. You can create [Azure AI hub resources](../how-to/create-azure-ai-resource.md) and projects in these regions.
 
 - Australia East
 - Brazil South

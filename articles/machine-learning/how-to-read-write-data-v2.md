@@ -14,8 +14,6 @@ ms.custom:
   - devplatv2
   - sdkv2
   - cliv2
-  - event-tier1-build-2022
-  - ignite-2022
   - build-2023
   - ignite-2023
 #Customer intent: As an experienced Python developer, I need to read my data, to make it available to a remote compute resource, to train my machine learning models.

@@ -40,9 +40,6 @@ Be careful to restrict assignment of these roles only to those who require the a
 
 When a client sends a request to an Event Grid topic or domain, the client establishes a connection with the Event Grid topic or domain endpoint first, before processing any requests. The minimum TLS version setting is checked after the TLS connection is established. If the request uses an earlier version of TLS than that specified by the setting, the connection continues to succeed, but the request will eventually fail.
 
-> [!NOTE]
-> Due to limitations in the confluent library, errors coming from an invalid TLS version will not surface when connecting through the Kafka protocol. Instead a general exception will be shown.
-
 Here are a few important points to consider:
 
 - A network trace would show the successful establishment of a TCP connection and successful TLS negotiation, before a 401 is returned if the TLS version used is less than the minimum TLS version configured.

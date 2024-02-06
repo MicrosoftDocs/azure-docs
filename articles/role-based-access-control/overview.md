@@ -9,8 +9,7 @@ ms.topic: overview
 ms.workload: identity
 ms.date: 01/12/2022
 ms.author: rolyon
-ms.custom: contperf-fy21q1, azuread-video-2020
-
+ms.custom: azuread-video-2020
 #Customer intent: As a dev, devops, or it admin, I want to learn how permissions and roles work in Azure, so that I can better understand how to grant access to resources.
 ---
 

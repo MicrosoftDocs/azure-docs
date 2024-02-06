@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2023
+ms.date: 01/29/2024
 ms.author: greglin 
 ---
 
@@ -67,8 +67,7 @@ Yes. To learn how to create an alias record for your domain name apex to referen
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
 
-Yes, in addition to the source IP address of the DNS query it receives (which usually is the IP address of the DNS resolver), when performing lookups for Geographic, Performance, and Subnet routing methods, traffic manager also considers the client subnet address if it's included in the query by the resolver making the request on behalf of the end user.  
-Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it.
+Yes. In addition to the source IP address of the DNS query (usually the DNS resolver's IP address), Traffic Manager also considers the client subnet address if it's included in the DNS query that is sent by the DNS resolver making the request on behalf of the end user. These IP addresses are used to optimize geographic, performance, and subnet routing methods. Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) can pass on the client subnet address from resolvers that support it.
 
 ### What is DNS TTL and how does it impact my users?
 
@@ -127,7 +126,7 @@ No, the location of the endpoint imposes no restrictions on which regions can be
 
 ### Can I assign geographic regions to endpoints in a profile that isn't configured to do geographic routing?
 
-Yes, if the routing method of a profile isn't geographic, you can use the [Azure Traffic Manager REST API](/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile. In the case of non-geographic routing type profiles, this configuration is ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager can use those mappings.
+Yes, if the routing method of a profile isn't geographic, you can use the [Azure Traffic Manager REST API](/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile. For non-geographic routing type profiles, this configuration is ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager can use those mappings.
 
 ### Why am I getting an error when I try to change the routing method of an existing profile to Geographic?
 
@@ -158,7 +157,7 @@ The IP addresses to associate with an endpoint can be specified in two ways. Fir
 
 -    You can't overlap address ranges since each IP address needs to be mapped to only a single endpoint
 -    The start address can't be more than the end address
--    In the case of the CIDR notation, the IP address before the '/' should be the start address of that range (for example, 1.2.3.0/24 is valid but 1.2.3.4.4/24 is NOT valid)
+-    For the CIDR notation, the IP address before the '/' should be the network address of that range (for example, 1.2.3.0/24 is valid but 1.2.3.4.4/24 is NOT valid)
 
 ### How can I specify a fallback endpoint when using Subnet routing?
 
@@ -415,7 +414,7 @@ For profiles with routing method set to MultiValue:
 
 ### Can I use a profile with IPv4 / IPv6 addressed endpoints in a nested profile?
 
-Yes, you can with the exception that a profile of type MultiValue can't be a parent profile in a nested profile set.
+Yes you can, with the exception that a profile of type *MultiValue* can't be a parent profile in a nested profile set.
 
 ### I stopped a web application endpoint in my Traffic Manager profile but I'm not receiving any traffic even after I restarted it. How can I fix this?
 
@@ -526,6 +525,9 @@ The following table describes the behavior of Traffic Manager health checks for 
 | Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state. |See above. | |
 | CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded' |Same as above. | |
 | Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints. |Stopped | |
+
+> [!NOTE]
+> When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you disable and then enable two child profiles simultaneously. If there is a brief period when both endpoints are disabled, this can result in the parent profile entering a compromised state. To avoid this problem, use caution when making simultaneous changes to child profiles. Consider staggering the changes slightly to prevent unintended disruptions to your traffic management configuration.
 
 ## Next steps:
 

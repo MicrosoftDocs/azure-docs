@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 10/31/2023
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ms.service: container-registry
 ---

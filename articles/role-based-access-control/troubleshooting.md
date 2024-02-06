@@ -8,7 +8,7 @@ ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/01/2023
+ms.date: 01/26/2024
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -611,7 +611,9 @@ If you're a Microsoft Entra Global Administrator and you don't have access to a 
 ## Classic subscription administrators
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 26, 2024, you won't be able to add new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+>
+> For more information, see [Azure classic subscription administrators](classic-administrators.md).
 
 ## Next steps
 

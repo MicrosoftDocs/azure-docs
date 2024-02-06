@@ -7,7 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 01/10/2024
 ms.custom: engagement-fy23
-# As a developer, I want to learn how connectors help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
+# Customer intent: As a developer, I want to learn how connectors help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
 ---
 
 # What are connectors in Azure Logic Apps
