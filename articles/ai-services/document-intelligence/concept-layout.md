@@ -47,14 +47,6 @@ The following illustration shows the typical components in an image of a sample 
 
   :::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
 
-::: moniker range=">=doc-intel-3.0.0"
-
-  ***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
-
-  :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
-
-::: moniker-end
-
 ## Development options
 
 ::: moniker range="doc-intel-4.0.0"
@@ -109,7 +101,7 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 ::: moniker-end
 
-### Layout model data extraction
+### Get started with Layout model
 
 See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Document Intelligence. You need the following resources:
 
@@ -120,8 +112,6 @@ See how data, including text, tables, table headers, selection marks, and struct
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ::: moniker range=">=doc-intel-3.0.0"
-
-## Document Intelligence Studio
 
 > [!NOTE]
 > Document Intelligence Studio is available with v3.0 APIs and later versions.
@@ -193,6 +183,39 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
+### Pages
+
+The pages collection is the first object you see in the service response. The page units in the model output are computed as shown:
+
+ **File format**   | **Computed page unit**   | **Total pages**  |
+| --- | --- | --- |
+|Images (JPEG/JPG, PNG, BMP, HEIF) | Each image = 1 page unit | Total images  |
+|PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
+|TIFF | Each image in the TIFF = 1 page unit | Total images in the PDF |
+|Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+|Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets | 
+|PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides | 
+|HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": [],
+        "kind": "document"
+    }
+]
+```
+### Extract selected page(s) from documents
+
+For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
+
 ### Paragraphs
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
@@ -239,26 +262,6 @@ The new machine-learning based page object detection extracts logical roles like
     ]
 }
 
-```
-
-### Pages
-
-The pages collection is the first object you see in the service response. For DOCX and HTML file, there's only 1 page. For PPTX file, a page equals to a slide. For XLSX, a page equals to a sheet.
-
-```json
-"pages": [
-    {
-        "pageNumber": 1,
-        "angle": 0,
-        "width": 915,
-        "height": 1190,
-        "unit": "pixel",
-        "words": [],
-        "lines": [],
-        "spans": [],
-        "kind": "document"
-    }
-]
 ```
 
 ### Text lines and words
@@ -350,10 +353,6 @@ The response includes classifying whether each text line is of handwriting style
     ]
 }
 ```
-
-### Extract selected page(s) from documents
-
-For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
 ::: moniker-end
 
