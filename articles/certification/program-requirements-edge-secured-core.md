@@ -396,9 +396,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the device identity is rooted in hardware.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of the requirement is to validate the device identity is rooted in hardware. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -406,10 +404,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
+|Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals. This is currently provided by Microsoft.|
 
 </br>
 
@@ -417,10 +412,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
+|Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -428,10 +420,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the boot integrity of the device.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
+|Description|The purpose of the requirement is to validate the boot integrity of the device. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -439,10 +428,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure the device can remotely attest to a Microsoft Azure Attestation service.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
+|Description|The purpose of the requirement is to ensure the device can remotely attest to a Microsoft Azure Attestation service. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -450,9 +436,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Hardware.SecureEnclave|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate hardware security that is accessible from a secure operating system.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of this requirement is to validate hardware security that is accessible from a secure operating system. This is currently provided by Microsoft.|
 
 ## Azure Sphere OS Configuration Requirements
 
@@ -460,10 +444,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate that sensitive data can be encrypted on nonvolatile storage.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-|Resources|[Data at rest protection on Azure Sphere](/azure-sphere/app-notes/app-notes-overview)|
+|Description|The purpose of this requirement is to validate that sensitive data can be encrypted on nonvolatile storage. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -471,9 +452,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites. This is currently provided by Microsoft.|
 |Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
 
 ---
@@ -482,9 +461,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate that authorized code runs with least privilege.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of this requirement is to validate that authorized code runs with least privilege. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -492,9 +469,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Protection.NetworkServices|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that applications accepting input from the network aren't running with elevated privileges.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of the requirement is to validate that applications accepting input from the network aren't running with elevated privileges. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -502,19 +477,14 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Protection.NetworkFirewall|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate that applications can't connect to endpoints that haven't been authorized.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
+|Description|The purpose of this requirement is to validate that applications can't connect to endpoints that haven't been authorized. This is currently provided by Microsoft.|
 
 ## Azure Sphere Software/Service Requirements
 ---
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to make sure devices can report security information and events by sending data to a Microsoft telemetry service.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of this requirement is to make sure devices can report security information and events by sending data to a Microsoft telemetry service. This is currently provided by Microsoft.|
 |Resources|[Collect and interpret error data - Azure Sphere](/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](/azure-sphere/deployment/configure-crash-dumps)|
 
 ---
@@ -523,9 +493,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate the device supports remote administration via service-based configuration control.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of this requirement is to validate the device supports remote administration via service-based configuration control. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -533,9 +501,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Update|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the device can receive and update its firmware and software.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of the requirement is to validate the device can receive and update its firmware and software. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -543,9 +509,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Protection.Baselines|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that the system conforms to a baseline security configuration|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of the requirement is to validate that the system conforms to a baseline security configuration. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -553,21 +517,14 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that updates must be signed.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
-
+|Description|The purpose of the requirement is to validate that updates must be signed. This is currently provided by Microsoft.|
 
 ## Azure Sphere Policy Requirements
 ---
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the policy requires that debug functionality on the device is disabled.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
+|Description|The purpose of the policy requires that debug functionality on the device is disabled. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -575,10 +532,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The policy requires that the device can execute two use cases: a) Ability to perform a reset (remove user data, remove user configurations), b) Restore device to last known good in the case of an update causing issues.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
+|Description|The policy requires that the device can execute two use cases: a) Ability to perform a reset (remove user data, remove user configurations), b) Restore device to last known good in the case of an update causing issues. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -586,10 +540,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Updates.Duration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that the device remains secure.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
-
+|Description|The purpose of this policy is to ensure that the device remains secure. This is currently provided by Microsoft.|
 
 ---
 </br>
@@ -597,9 +548,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Azure Sphere vulnerabilities are collected by Microsoft through MSRC and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.|
+|Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product. Azure Sphere vulnerabilities are collected by Microsoft through MSRC and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.|
 |Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](/azure-sphere/product-overview/whats-new)</li><li>[Azure Sphere CVEs](/azure-sphere/deployment/azure-sphere-cves)</li></ul>|
 
 ---
@@ -608,9 +557,8 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
-|Validation Type|Prevalidated, no additional validation is required|
-|Validation|Provided by Microsoft|
+|Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available. This is currently provided by Microsoft.|
+
 
 
 </br>
