@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 01/19/2024
+ms.date: 02/06/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
@@ -46,7 +46,7 @@ az vmss create \
 ```
 
 ### [PowerShell](#tab/powershell)
-When creating a new scale set using Azure PowerShell, use [New-AzVmss](/powershell/module/az.compute/new-azvmss) and the `UpgradePolicyMode` parameter. Choose `"Automatic"`, `"Manual"`" or `"Rolling"` 
+When creating a new scale set using Azure PowerShell, use [New-AzVmss](/powershell/module/az.compute/new-azvmss) and the `-UpgradePolicyMode` parameter. Choose `"Automatic"`, `"Manual"`" or `"Rolling"` 
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
