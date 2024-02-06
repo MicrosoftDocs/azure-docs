@@ -191,47 +191,66 @@ As your workload demands change, you can associate existing capacity reservation
 
 - Use CLI version 2.56 or above and API version 2023-10-01 or higher. 
 - The capacity reservation group should already exist and should contain minimum one capacity reservation, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated. For more information, see [capacity reservation groups][capacity-reservation-groups].
-- You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). System assigned managed identities wont work for this.
+- You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). System-assigned managed identities won't work for this feature. In the following example, replace the environment variables with your own values.
 
    ```azurecli-interactive
-    az identity create -n MyID -g MyRG 
+    IDENTITY_NAME=myID
+    RG_NAME=myResourceGroup
+    CLUSTER_NAME=myAKSCluster
+    VM_SKU=Standard_D4s_v3
+    NODE_COUNT=2
+    LOCATION=westus2
+    az identity create --name $IDENTITY_NAME --resource-group $RG_NAME  
+    IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
    ```
-- You need to assign Contributor role of your CRG resource to the user-assigned identity created above namely MyID. 
-- Create a managed cluster and assign the user assigned identity MyID. 
+- You need to assign the `Contributor` role to the user-assigned identity created above. For more details, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps#privileged-administrator-roles).
+- Create a new cluster and assign the newly created identity.
     ```azurecli-interactive
-        az aks create --resource-group MyRG --name MyMC --location {location}
-              --node-vm-size {vm_size} --node-count {number}
-              --assign-identity /subscriptions/26fe00f8-9173-4872-9134-bb1d2e00343a/resourceGroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID --enable-managed-identity         
+        az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
+              --node-vm-size $VM_SKU --node-count $NODE_COUNT \
+              --assign-identity $IDENTITY_ID --enable-managed-identity         
     ```
 - You can also assign the user-managed identity on an existing managed cluster with update command.
 
    ```azurecli-interactive
-      az aks update --resource-group MyRG --name MyMC --location {location}
-              --node-vm-size {vm_size} --node-count {number}
-              --assign-identity /subscriptions/26fe00f8-9173-4872-9134-bb1d2e00343a/resourceGroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID --enable-managed-identity         
+      az aks update --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
+              --node-vm-size $VM_SKU --node-count $NODE_COUNT \
+              --assign-identity $IDENTITY_ID --enable-managed-identity         
      ```
 
-### Associate an existing capacity reservation group to a node pool
+### Associate an existing capacity reservation group with a node pool
 
-* Associate an existing capacity reservation group to a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command and specify a capacity reservation group with the `--crg-id` flag. In below example we show a crg-id association, where crg1 is the name of the CRG.
+Associate an existing capacity reservation group with a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command and specify a capacity reservation group with the `--crg-id` flag. The following example assumes you have a CRG named "myCRG".
 
     ```azurecli-interactive
-    az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --crg-id /subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/MyRG/providers/Microsoft.Compute/capacityReservationGroups/crg1 
+    RG_NAME=myResourceGroup
+    CLUSTER_NAME=myAKSCluster
+    NODEPOOL_NAME=myNodepool
+    CRG_NAME=myCRG
+    CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
+    az aks nodepool add --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --crg-id $CRG_ID
     ```
 
-#### Associate an existing capacity reservation group to a system node pool on cluster create.
+### Associate an existing capacity reservation group with a system node pool
 
-* Associate an existing capacity reservation group to a system node pool using the [`az aks create`][az-aks-create] command and assigning identity.
+To associate an existing capacity reservation group with a system node pool, associate the cluster with the user-assigned identity with the Contributor role on your CRG and the CRG itself during cluster creation. Use the [`az aks create`][az-aks-create] command with the `--assign-identity` and `--crg-id` flags.
 
     ```azurecli-interactive
-    az aks create -g MyRG --cluster-name MyMC --crg-id /subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/MyRG/providers/Microsoft.Compute/capacityReservationGroups/crg1 --assign-identity /subscriptions/26fe00f8-9173-4872-9134-bb1d2e00343a/resourceGroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID --enable-managed-identity 
+    IDENTITY_NAME=myID
+    RG_NAME=myResourceGroup
+    CLUSTER_NAME=myAKSCluster
+    NODEPOOL_NAME=myNodepool
+    CRG_NAME=myCRG
+    CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
+    IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
+    az aks create --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --crg-id $CRG_ID --assign-identity $IDENTITY_ID --enable-managed-identity 
     ```
 
 > [!NOTE]
 > Deleting a node pool implicitly dissociates that node pool from any associated capacity reservation group before the node pool is deleted. Deleting a cluster implicitly dissociates all node pools in that cluster from their associated capacity reservation groups.
 
 > [!NOTE]
-> You cannot update an existing nodepool with a capacity reservation group. The recommended approach is to associate a capacity reservation group during the nodepool create/ add time.  
+> You cannot update an existing node pool with a capacity reservation group. The recommended approach is to associate a capacity reservation group during the node pool creation.  
 
 ## Specify a VM size for a node pool
 
