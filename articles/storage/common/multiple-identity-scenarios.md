@@ -230,6 +230,35 @@ public class ExampleService {
 
 #### [JavaScript](#tab/javascript)
 
+Inside of your project, add a reference to the `@azure/identity` npm package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `@azure/storage-blob` and `@azure/keyvault-keys` packages are added in order to connect to Blob Storage and Key Vault.
+
+```bash
+npm install @azure/identity
+npm install @azure/storage-blob
+npm install @azure/keyvault-keys
+```
+
+At the top of your `index.js` file, add the following using statements:
+
+```javascript
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+const { KeyClient  } = require("@azure/keyvault-keys");
+```
+
+In the `index.js` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
+
+```javascript
+
+const blobServiceClient = new BlobServiceClient(
+  "https://<your-storage-account>.blob.core.windows.net",
+  new DefaultAzureCredential()
+);
+
+const keyClient  = new KeyClient(`https://<YOUR KEYVAULT NAME>.vault.azure.net`, new DefaultAzureCredential());
+const result = await keyClient.createKey("<keyName>", "RSA");
+```
+
 ---
 
 When this application code runs locally, `DefaultAzureCredential` will search down a credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
@@ -478,6 +507,75 @@ public class ExampleService {
 ```
 
 #### [JavaScript](#tab/javascript)
+
+1. Install the npm packages:
+
+    ```bash
+    npm install @azure/identity
+    npm install @azure/storage-blob
+    npm install @azure/cosmos
+    npm install mssql
+    ```
+
+2. Use the following code to create instances of the necessary services your app will connect to. 
+
+    ```javascript
+    const { DefaultAzureCredential } = require("@azure/identity");
+    const { BlobServiceClient } = require("@azure/storage-blob");
+    const { CosmosClient  } = require("@azure/cosmos");
+    const sql = require("mssql");
+
+
+    // Get the first user-assigned managed identity ID to connect to shared storage
+    let clientIDstorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
+    
+    // First blob storage client that using a managed identity
+    let blobServiceClient = new BlobServiceClient(
+      "https://<receipt-storage-account>.blob.core.windows.net",
+      new DefaultAzureCredential({
+        managedIdentityClientId: clientIDstorage
+      })
+    );
+    
+    // Second blob storage client that using a managed identity
+    let blobServiceClient2 = new BlobServiceClient(
+      "https://<contract-storage-account>.blob.core.windows.net",
+      new DefaultAzureCredential({
+        managedIdentityClientId: clientIDstorage
+      })
+    );
+    
+    // Get the second user-assigned managed identity ID to connect to shared databases
+    let clientIDdatabases = process.env.MANAGED_IDENTITY_CLIENT_ID_DATABASES;
+    
+    // Create an Azure Cosmos DB client
+    let client = new CosmosClient({
+      endpoint: process.env["COSMOS_ENDPOINT"],
+      credential: new DefaultAzureCredential({
+        managedIdentityClientId: clientIDdatabases
+      })
+    });
+    
+    // Open a connection to Azure SQL using a managed identity with mssql package
+    const server = process.env.AZURE_SQL_SERVER;
+    const database = process.env.AZURE_SQL_DATABASE;
+    const port = parseInt(process.env.AZURE_SQL_PORT);
+    const type = process.env.AZURE_SQL_AUTHENTICATIONTYPE;
+
+    const config = {
+        server,
+        port,
+        database,
+        authentication: {
+            type                      // <---- Passwordless connection
+        },
+        options: {
+            encrypt: true
+        }
+    };
+
+    await sql.connect(sqlConfig)
+    ```
 
 ---
 
