@@ -208,22 +208,11 @@ From an empty directory, follow these steps to initialize the `azd` template, pr
 
 ## Run the sample code
 
-At this point, the resources are deployed to Azure and the project is almost ready to run. To run the project in your local development environment, follow these steps:
+At this point, the resources are deployed to Azure and the project is ready to run. Follow these steps to update the name of the storage account in the code and run the sample console app:
 
-- Navigate to the `src` directory and edit `Program.cs`. Find the `<storage-account-name>` placeholder and replace it with the actual name of the storage account created by the `azd up` command. Save the changes.
-- Run the project and observe the output as the console app performs basic operations, such as uploading, downloading, and listing blobs.
-
-If you're using Visual Studio, press F5 to build and run the code and interact with the console app. If you're using the .NET CLI, navigate to your application directory, then build and run the application using the following commands:
-
-```console
-dotnet build
-```
-
-```console
-dotnet run
-```
-
-This app creates a test file in your local *data* folder and uploads it to Blob Storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files. 
+- **Update the storage account name**: Navigate to the `src` directory and edit `Program.cs`. Find the `<storage-account-name>` placeholder and replace it with the actual name of the storage account created by the `azd up` command. Save the changes.
+- **Run the project**: If you're using Visual Studio, press F5 to build and run the code and interact with the console app. If you're using the .NET CLI, navigate to your application directory, build the project using `dotnet build`, and run the application using the `dotnet run`.
+- **Observe the output**: This app creates a test file in your local *data* folder and uploads it to a container in the storage account. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files. 
 
 To learn more about how the sample code works, see [Code examples](#code-examples).
 
