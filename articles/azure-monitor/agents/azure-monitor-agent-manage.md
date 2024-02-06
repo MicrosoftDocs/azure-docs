@@ -72,11 +72,9 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
 | Extension Logs | Windows (Azure VM) | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent | 100 MB |
 | Extension Logs | Windows (Azure Arc) | C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent | 100 MB |
 | Agent Cache | Linux | /etc/opt/microsoft/azuremonitoragent, /var/opt/microsoft/azuremonitoragent | 500 MB |
-| Agent Cache | Windows (Azure VM) | C:\WindowsAzure\Resources\AMADataStore.{DataStoreName} | 500 MB |
-| Agent Cache | Windows (Azure Arc) | C:\Resources\Directory\AMADataStore. {DataStoreName} | 500 MB |
+| Agent Cache | Windows (Azure VM) | C:\WindowsAzure\Resources\AMADataStore.{DataStoreName} | 10.5 GB |
+| Agent Cache | Windows (Azure Arc) | C:\Resources\Directory\AMADataStore. {DataStoreName} | 10.5 GB |
 | Event Cache | Linux | /var/opt/microsoft/azuremonitoragent/events | 10 GB |
-| Event Cache | Windows (Azure VM) | C:\WindowsAzure\Resources\AMADataStore.{DataStoreName}\Tables | 10 GB |
-| Event Cache | Windows (Azure Arc) | C:\Resources\Directory\AMADataStore. {DataStoreName}\Tables | 10 GB |
 
 > [!NOTE]
 > This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed. *Azure Monitor Agents can't function without being associated with data collection rules.*
