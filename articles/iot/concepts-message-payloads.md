@@ -30,7 +30,7 @@ Each example shows a snippet from the device model that defines the type and exa
 
 The example JSON snippets in this article use [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). There are also some [DTDL extensions that IoT Central](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) uses.
 
-For sample device code that shows some of these payloads in use, see the [Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub](tutorial-connect-device.md) tutorial or the [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md) tutorial.
+For sample device code that shows some of these payloads in use, see the [Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub tutorial](./tutorial-connect-device.md) or the [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md) tutorial.
 
 ## View raw data
 
@@ -540,7 +540,7 @@ If the property is defined in a component, wrap the property in the component na
 }
 ```
 
-To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
 
 ### Primitive types
 

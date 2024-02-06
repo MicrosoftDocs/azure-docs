@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: how-to
-ms.service: iot-develop
+ms.service: iot
 ---
 
 # How to convert an existing device to be an IoT Plug and Play device
