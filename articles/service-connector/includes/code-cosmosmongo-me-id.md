@@ -154,7 +154,6 @@ The authentication type is not supported for Spring Boot.
     import os
     import pymongo
     import requests
-    from azure.core.pipeline.policies import BearerTokenCredentialPolicy
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     endpoint = os.getenv('AZURE_COSMOS_RESOURCEENDPOINT')
@@ -177,8 +176,8 @@ The authentication type is not supported for Spring Boot.
 
     # Get the connection string
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
-    response = session.post(listConnectionStringUrl)
+    token = cred.get_token(scope)
+    response = session.post(listConnectionStringUrl, headers={"Authorization": "Bearer {}".format(token.token)})
     keys_dict = response.json()
     conn_str = keys_dict["connectionStrings"][0]["connectionString"]
 
