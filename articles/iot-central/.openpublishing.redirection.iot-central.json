@@ -1387,7 +1387,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/troubleshoot-connection.md",
-      "redirect_url": "/azure/iot-central/core/troubleshooting/",
+      "redirect_url": "/azure/iot-central/core/troubleshooting",
       "redirect_document_id": true
     }
   ]
