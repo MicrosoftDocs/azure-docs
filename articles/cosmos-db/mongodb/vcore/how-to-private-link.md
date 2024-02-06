@@ -71,7 +71,7 @@ Follow these steps to create a new Azure Cosmos DB for MongoDB vCore cluster wit
 
 ## Enable private access on an existing cluster
 
-To create a private endpoint to a node in an existing cluster, open the
+To create a private endpoint in an existing cluster, open the
 **Networking** page for the cluster.
 
 1. Select **Add private endpoint**.
