@@ -4,7 +4,7 @@ description: How the endpoint protection solutions are discovered and identified
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
-ms.date: 02/01/2024
+ms.date: 02/06/2024
 ---
 
 # Assessment checks for endpoint detection and response solutions
