@@ -42,26 +42,6 @@ This table indicates that all combinations of client types and authentication me
 
 Use the connection details below to connect compute services to Azure Cosmos DB. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection, as well as sample code. For each example below, replace the placeholder texts `<mongo-db-admin-user>`, `<password>`, `<Azure-Cosmos-DB-API-for-MongoDB-account>`, `<subscription-ID>`, `<resource-group-name>`, `<client-secret>`, and `<tenant-id>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### Secret / Connection string
-
-#### SpringBoot client type
-
-| Default environment variable name | Description       | Example value                                                                                                                                                                                |
-|-----------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| spring.data.mongodb.database      | Your database     | `<database-name>`                                                                                                                                                                            |
-| spring.data.mongodb.uri           | Your database URI | `mongodb://<mongo-db-admin-user>:<password>@<mongo-db-server>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<mongo-db-server>@` |
-
-#### Other client types
-
-| Default environment variable name | Description                   | Example value                                                                                                                                                                                |
-|-----------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AZURE_COSMOS_CONNECTIONSTRING     | MongoDB API connection string | `mongodb://<mongo-db-admin-user>:<password>@<mongo-db-server>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<mongo-db-server>@` |
-
-#### Sample code
-
-Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a connection string.
-[!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-secret.md)]
-
 ### System-assigned managed identity
 
 | Default environment variable name    | Description                          | Example value                                                                                                                                                                                                                                |
@@ -88,6 +68,26 @@ Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB usin
 
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a user-assigned managed identity.
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
+
+### Connection string
+
+#### SpringBoot client type
+
+| Default environment variable name | Description       | Example value                                                                                                                                                                                |
+|-----------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| spring.data.mongodb.database      | Your database     | `<database-name>`                                                                                                                                                                            |
+| spring.data.mongodb.uri           | Your database URI | `mongodb://<mongo-db-admin-user>:<password>@<mongo-db-server>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<mongo-db-server>@` |
+
+#### Other client types
+
+| Default environment variable name | Description                   | Example value                                                                                                                                                                                |
+|-----------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_COSMOS_CONNECTIONSTRING     | MongoDB API connection string | `mongodb://<mongo-db-admin-user>:<password>@<mongo-db-server>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<mongo-db-server>@` |
+
+#### Sample code
+
+Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a connection string.
+[!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-secret.md)]
 
 ### Service principal
 

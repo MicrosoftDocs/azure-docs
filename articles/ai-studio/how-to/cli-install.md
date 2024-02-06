@@ -111,13 +111,13 @@ You can run the Azure AI CLI in a Docker container using VS Code Dev Containers:
 ## Try the Azure AI CLI
 The AI CLI offers many capabilities, including an interactive chat experience, tools to work with prompt flows and search and speech services, and tools to manage AI services. 
 
-If you plan to use the AI CLI as part of your development, we recommend you start by running `ai init`, which guides you through setting up your AI resources and connections in your development environment.
+If you plan to use the AI CLI as part of your development, we recommend you start by running `ai init`, which guides you through setting up your Azure resources and connections in your development environment.
 
 Try `ai help` to learn more about these capabilities.
 
 ### ai init
 
-The `ai init` command allows interactive and non-interactive selection or creation of Azure AI resources. When an AI resource is selected or created, the associated resource keys and region are retrieved and automatically stored in the local AI configuration datastore.
+The `ai init` command allows interactive and non-interactive selection or creation of Azure AI hub resources. When an Azure AI hub resource is selected or created, the associated resource keys and region are retrieved and automatically stored in the local AI configuration datastore.
 
 You can initialize the Azure AI CLI by running the following command:
 
@@ -137,7 +137,7 @@ The following table describes the scenarios for each flow.
 | Initialize an existing AI project | Choose if you have an existing AI project you want to work with. The `ai init` command checks your existing linked resources, and ask you to set anything that hasn't been set before. |
 | Initialize standalone resources| Choose if you're building a simple solution connected to a single AI service, or if you want to attach more resources to your development environment |
 
-Working with an AI project is recommended when using the Azure AI Studio and/or connecting to multiple AI services. Projects come with an AI Resource that houses related projects and shareable resources like compute and connections to services. Projects also allow you to connect code to cloud resources (storage and model deployments), save evaluation results, and host code behind online endpoints. You're prompted to create and/or attach Azure AI Services to your project.
+Working with an AI project is recommended when using the Azure AI Studio and/or connecting to multiple AI services. Projects come with An Azure AI hub resource that houses related projects and shareable resources like compute and connections to services. Projects also allow you to connect code to cloud resources (storage and model deployments), save evaluation results, and host code behind online endpoints. You're prompted to create and/or attach Azure AI Services to your project.
 
 Initializing standalone resources is recommended when building simple solutions connected to a single AI service. You can also choose to initialize more standalone resources after initializing a project.
 
@@ -152,7 +152,7 @@ The following resources can be initialized standalone, or attached to projects:
 
 1. Run `ai init` and choose **Initialize new AI project**.
 1. Select your subscription. You might be prompted to sign in through an interactive flow.
-1. Select your Azure AI Resource, or create a new one. An AI Resource can have multiple projects that can share resources.
+1. Select your Azure AI hub resource, or create a new one. An Azure AI hub resource can have multiple projects that can share resources.
 1. Select the name of your new project. There are some suggested names, or you can enter a custom one. Once you submit, the project might take a minute to create.
 1. Select the resources you want to attach to the project. You can skip resource types you don't want to attach.
 1. `ai init` checks you have the connections you need for the attached resources, and your development environment is configured with your new project.
@@ -175,7 +175,7 @@ The following resources can be initialized standalone, or attached to projects:
 
 ## Project connections
 
-When working the Azure AI CLI, you want to use your project's connections. Connections are established to attached resources and allow you to integrate services with your project. You can have project-specific connections, or connections shared at the Azure AI resource level. For more information, see [Azure AI resources](../concepts/ai-resources.md) and [connections](../concepts/connections.md).
+When working the Azure AI CLI, you want to use your project's connections. Connections are established to attached resources and allow you to integrate services with your project. You can have project-specific connections, or connections shared at the Azure AI hub resource level. For more information, see [Azure AI hub resources](../concepts/ai-resources.md) and [connections](../concepts/connections.md).
 
 When you run `ai init` your project connections get set in your development environment, allowing seamless integration with AI services. You can view these connections by running `ai service connection list`, and further manage these connections with `ai service connection` subcommands.
 
@@ -195,8 +195,8 @@ ai dev new .env
 
 `ai service` helps you manage your connections to resources and services.
 
-- `ai service resource` lets you list, create or delete AI Resources.
-- `ai service project` lets you list, create, or delete AI Projects.
+- `ai service resource` lets you list, create or delete Azure AI hub resources.
+- `ai service project` lets you list, create, or delete Azure AI projects.
 - `ai service connection` lets you list, create, or delete connections. These are the connections to your attached services.
 
 ## ai flow

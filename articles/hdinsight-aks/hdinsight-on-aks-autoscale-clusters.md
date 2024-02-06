@@ -40,7 +40,7 @@ The following table describes the cluster types that are compatible with the Aut
 |Workload	|Load Based	|Schedule Based|
 |-|-|-|
 |Flink	|Planned	|Yes|
-|Trino	|Planned	|Yes**|
+|Trino	|Yes**	|Yes**|
 |Spark	|Yes**	|Yes**|
 
 **Graceful decommissioning is configurable.
