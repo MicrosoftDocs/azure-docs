@@ -33,11 +33,11 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 
 You can use the following script to create your connections. To execute it, you will require the following parameters:
 
-subscription: Subscription ID
-g: Resource Group Name
-e: Elastic SAN Name
-v: Volume Group Name
-n <vol1, vol2, ...>: Names of volumes 1 and 2 and other volume names that you might require, comma separated
+- subscription: Subscription ID
+- g: Resource Group Name
+- e: Elastic SAN Name
+- v: Volume Group Name
+- n <vol1, vol2, ...>: Names of volumes 1 and 2 and other volume names that you might require, comma separated
 
 Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/disconnect_for_documentation.py) and save it as a .py file, for example, disconnect.py. Then execute it with the required parameters. The following is an example of how you'd run the script:
 
