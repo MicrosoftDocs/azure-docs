@@ -31,14 +31,14 @@ Get started working with the Static Web Apps CLI with the following resources.
 
 | Resource | Description |
 |---|---|
-| [Install the Static Web Apps CLI (SWA CLI)](static-web-apps-cli-install.md)Install the CLI | Install the Azure Static Web Apps CLI to your machine. |
+| [Install the Static Web Apps CLI (SWA CLI)](static-web-apps-cli-install.md) | Install the Azure Static Web Apps CLI to your machine. |
 | [Configure your environment](static-web-apps-cli-configuration.md) | Set up how your application reads configuration information. |
 | [Start the website emulator](static-web-apps-cli-emulator.md) | Start the service to locally serve your website. |
 | [Start the local API server](static-web-apps-cli-api-server.md) | Start the service to locally serve your API endpoints. |
 | [Deploy to Azure](static-web-apps-cli-deploy.md) | Deploy your application to production on Azure. |
 
-
-Often sites built with a front-end framework require a proxy configuration setting to correctly handle requests under the `api` route. When using the Azure Static Web Apps CLI the proxy location value is `/api`, and without the CLI the value is `http://localhost:7071/api`.
+> [!NOTE]
+> Often sites built with a front-end framework require a proxy configuration setting to correctly handle requests under the `api` route. When using the Azure Static Web Apps CLI the proxy location value is `/api`, and without the CLI the value is `http://localhost:7071/api`.
 
 ## Next steps
 
