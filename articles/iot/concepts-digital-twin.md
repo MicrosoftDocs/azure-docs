@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: conceptual
-ms.service: iot-develop
+ms.service: iot
 ---
 
 # Understand IoT Plug and Play digital twins
@@ -372,6 +372,6 @@ content-encoding:utf-8
 Now that you've learned about digital twins, here are some more resources:
 
 - [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
-- [Interact with a device from your solution](tutorial-service.md)
+- [Interact with a device from your solution](./tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](../iot/howto-use-iot-explorer.md)

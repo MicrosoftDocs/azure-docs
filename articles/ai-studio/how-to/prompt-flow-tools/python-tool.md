@@ -118,7 +118,7 @@ Create a custom connection that stores all your LLM API KEY or other required cr
     - azureml.flow.connection_type: Custom
     - azureml.flow.module: promptflow.connections
     
-    :::image type="content" source="./media/python-tool/custom-connection-meta.png" alt-text="Screenshot that shows add extra meta to custom connection in AI studio." lightbox = "./media/python-tool/custom-connection-meta.png"::: 
+    :::image type="content" source="./media/python-tool/custom-connection-meta.png" alt-text="Screenshot that shows add extra meta to custom connection in AI Studio." lightbox = "./media/python-tool/custom-connection-meta.png"::: 
 
     
 > [!NOTE]
