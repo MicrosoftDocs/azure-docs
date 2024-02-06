@@ -1,6 +1,6 @@
 ---
 title: Migrate VMware VMs to Azure (agentless) - PowerShell
-description: Learn how to run an agentless migration of VMware VMs with Azure Migrate and Modernization through PowerShell.
+description: Learn how to run an agentless migration of VMware VMs with Azure Migrate and Modernize through PowerShell.
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
@@ -78,7 +78,7 @@ Write-Output $MigrateProject
 
 ## Retrieve discovered VMs in an Azure Migrate project
 
-Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance-architecture.md). As part of the prerequisites, you deployed the Azure Migrate appliance as a VMware VM.
+Azure Migrate and Modernize uses a lightweight [Azure Migrate appliance](migrate-appliance-architecture.md). As part of the prerequisites, you deployed the Azure Migrate appliance as a VMware VM.
 
 To retrieve a specific VMware VM in an Azure Migrate project, specify the name of the Azure Migrate project (`ProjectName`), the resource group of the Azure Migrate project (`ResourceGroupName`), and the VM name (`DisplayName`).
 
