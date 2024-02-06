@@ -1,5 +1,5 @@
 ---
-title: How to assign a configuration using an Azure Resource Manager template
+title: How to create a machine configuration assignment using an Azure Resource Manager template
 description: >-
   Learn how to deploy configurations to machines with Azure Resource Manager templates.
 ms.date: 02/01/2024
@@ -7,7 +7,7 @@ ms.topic:  how-to
 ms.custom: devx-track-arm-template
 ---
 
-# How to assign a configuration using an Azure Resource Manager template
+# How to create a machine configuration assignment using an Azure Resource Manager template
 
 You can deploy an [Azure Resource Manager template][01] containing machine configuration assignment
 resources. This article shows examples for deploying both custom and built-in configurations.

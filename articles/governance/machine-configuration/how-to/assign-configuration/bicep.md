@@ -1,5 +1,5 @@
 ---
-title: How to assign a configuration using Bicep
+title: How to create a machine configuration assignment using Bicep
 description: >-
   Learn how to deploy configurations to machines using Bicep
 ms.date: 02/01/2024
@@ -7,7 +7,7 @@ ms.topic:  how-to
 ms.custom: devx-track-bicep
 ---
 
-# How to assign a configuration using Bicep
+# How to create a machine configuration assignment using Bicep
 
 You can use [Azure Bicep][01] to deploy machine configuration assignments. This article shows
 examples for deploying both custom and built-in configurations.
