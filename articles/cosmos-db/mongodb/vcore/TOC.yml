@@ -48,6 +48,8 @@
       items:
         - name: Connect using Studio 3T
           href: how-to-connect-studio-3t.md
+        - name: Connect using MongoDB Shell
+          href: how-to-connect-mongoshell.md
     - name: Migrate data
       items:
         - name: Premigration assessment
