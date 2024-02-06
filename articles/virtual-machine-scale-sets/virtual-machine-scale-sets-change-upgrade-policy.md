@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 01/19/2024
+ms.date: 02/06/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
@@ -18,7 +18,7 @@ ms.custom: upgradepolicy
 >
 >Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration are generally available (GA). 
 
-The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. Depending on your scenario, you may want to use a particular Upgrade Policy, like Manual or Automatic, when setting up and developing your workload. Once you're ready to move to Production, you then want to change it to Rolling. 
+The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. Depending on your scenario, you may want to use a particular Upgrade Policy when setting up and developing your workload and once you're ready to move to production, change it to another Upgrade Policy mode. 
 
 ### [Portal](#tab/portal)
 
@@ -30,7 +30,7 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 
 
 ### [CLI](#tab/cli)
-Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update).
+Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and the `--set upgradePolicy` parameter.
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for more configuration options and suggestions.
 
@@ -42,7 +42,7 @@ az vmss update \
 ```
 
 ### [PowerShell](#tab/powershell)
-Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
+Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss) and the `-UpgradePolicyMode` parameter.
 
 If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for more configuration options and suggestions.
 

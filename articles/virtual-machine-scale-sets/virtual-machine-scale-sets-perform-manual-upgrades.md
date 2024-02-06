@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 01/19/2024
+ms.date: 02/06/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
@@ -16,7 +16,7 @@ ms.custom: upgradepolicy
 >
 >Upgrade Policies for Virtual Machine Scale Sets with Uniform Orchestration mode are generally available (GA). 
  
-If you have the Upgrade Policy set to manual, any changes made to the scale set model will not be applied automatically. You need to manually trigger upgrades of each individual virtual machine.
+If you have the Upgrade Policy set to manual, any changes made to the scale set model will not be applied automatically. You need to manually trigger upgrades on each individual virtual machine.
 
 ### [Portal](#tab/portal)
 
