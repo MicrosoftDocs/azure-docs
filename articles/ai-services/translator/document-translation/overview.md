@@ -117,7 +117,7 @@ Document Translation supports the following glossary file types:
 |**PlainText**|`text/plain`|`.txt`| An unformatted text document.|
 |**TabSeparatedValues**|`text/tab-separated-values`|`.txv`, `.tab`|A text file format that uses tabs to separate values and newlines to separate records.|
 |**CommaSeparatedValues**|`text/csv`|`.csv`|A text file format that uses commas as a delimiter between values.|
-|**HyperText Markup Language**|`text/html`|`.html`, `.htm`|HTML is a standard markup language used to structure web pages and content .|
+|**HyperText Markup Language**|`text/html`|`.html`, `.htm`|HTML is a standard markup language used to structure web pages and content.|
 |**M&#8203;HTML**|`message/rfc822`, @`application/x-mimearchive`, @`multipart/related` |`.mthml`, `.mht`| A web page archive file format.|
 |**OfficeOpenXml**|`application/vnd.openxmlformats-officedocument`|`.xml`, `.ooxml`|An XML-based file format used for Microsoft Word, Microsoft Excel, and Microsoft PowerPoint documents.|
 |**OpenXmlPresentation**|`application/vnd.openxmlformats-officedocument.presentationml.presentation` |`.pptx`|An XML-based file format used for Microsoft PowerPoint slideshow presentations.|

@@ -75,7 +75,7 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 |`-F` or `--form` |The filepath to an optional glossary to include with your request. The glossary requires a separate `--form` flag.|***Optional***|
 | &bull; `glossary=`<br> &bull; `type={contentType}/fileExtension`|&bull; Path to the file location for your optional glossary file.</br> &bull; Content type and file extension.</br></br>  Ex: **"glossary=@C:\Test\glossary-file.txt;type=text/plain**|***Optional***|
 
-✔️ For more information on **`ContentType`**, *see* [Synchronous translation: support doucment formats](../overview.md#synchronous-supported-document-formats)
+✔️ For more information on **`contentType`**, *see* [**Supported document formats**](../overview.md#synchronous-supported-document-formats).
 
 ## Build and run the POST request
 
@@ -90,7 +90,7 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 
     ```bash
 
-    curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type=text/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" -o "{path-to-output-file}"
+    curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"
     ```
 
     ***PowerShell***
@@ -100,7 +100,7 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 
     ```
 
-✔️ For more information, *see* [Query parameters](#headers-and-parameters).
+    ✔️ For more information on **`Query parameters`**, *see* [**Headers and parameters**](#headers-and-parameters).
 
 ***Upon successful completion***:
 
