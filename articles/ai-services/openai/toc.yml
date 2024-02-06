@@ -121,6 +121,10 @@ items:
     items:
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
+        displayName: finetuning 
+      - name: Function calling
+        href: ./how-to/fine-tuning-functions.md
+        displayName: fine-tuning, finetuning
   - name: Migrate to OpenAI Python v1.x
     href: ./how-to/migration.md
   - name: Models
