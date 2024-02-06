@@ -4,7 +4,6 @@ description: Switch your ContainerLog table to the ContainerLogV2 schema.
 author: aul
 ms.author: bwren
 ms.subservice: logs
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 08/28/2023
 ms.reviewer: aul
@@ -86,4 +85,3 @@ The following screenshots show multi-line logging for Go exception stack trace:
 ## Next steps
 * Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2.
 * Learn how [query data](./container-insights-log-query.md#container-logs) from ContainerLogV2
-

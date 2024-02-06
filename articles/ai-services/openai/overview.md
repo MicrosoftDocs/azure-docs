@@ -3,12 +3,12 @@ title: What is Azure OpenAI Service?
 titleSuffix: Azure AI services
 description: Apply advanced language models to variety of use cases with Azure OpenAI
 manager: nitinme
-author: mrbullwinkle    
+author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: overview
 ms.date: 10/16/2023
-ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai
+ms.custom: build-2023, build-2023-dataai
 recommendations: false
 ---
 

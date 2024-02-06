@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: tutorial
-ms.service: iot-develop
+ms.service: iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-twenty-six
 

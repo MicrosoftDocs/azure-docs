@@ -1,11 +1,11 @@
 ---
 title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
-description: Learn about the different model capabilities that are available with Azure OpenAI. 
+description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 01/05/2024
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai, refefences_regions
+ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder

@@ -5,7 +5,7 @@ description: Learn of the latest changes to the Translator Service API.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.custom: event-tier1-build-2022, build-2023
+ms.custom: build-2023
 ms.topic: overview
 ms.date: 09/12/2023
 ms.author: lajanuar

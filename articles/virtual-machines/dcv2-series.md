@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 12/12/2022
 ms.author: raginjup
 ms.reviewer: wwilliams, iamwilliew
-ms.custom: ignite-fall-2021
 ---
 
 # DCsv2-series

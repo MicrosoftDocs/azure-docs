@@ -3,7 +3,7 @@ title: Excel & Apache Hadoop with Open Database Connectivity (ODBC) Driver - Azu
 description: Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in HDInsight clusters from Microsoft Excel.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.custom: hdinsightactive
 ms.date: 05/23/2023
 ---
 
