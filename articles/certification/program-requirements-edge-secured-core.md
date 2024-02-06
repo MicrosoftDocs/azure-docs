@@ -74,7 +74,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
+|Description|The purpose of the requirement is to ensure that the device can remotely attest to Microsoft Azure Attestation Service with collected platform boot logs and measurements of boot activity.|
 |Requirements dependency|Azure Attestation Service|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
 
@@ -87,7 +87,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement to validate that sensitive data can be encrypted on nonvolatile storage.|
+|Description|The purpose of the requirement is to validate that sensitive data can be encrypted on nonvolatile storage.|
 
 ---
 </br>
@@ -193,7 +193,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 ## Linux OS Support
 >[!Note]
-> Linux is not yet supported. The below represent expected requirements. Please contact iotcert@microsoft.com if you are interested in certifying a Linux device, including device HW and OS specs, and whether or not it meets each of the draft requirements below.
+> Linux is not yet supported. The below represent expected requirements. Please contact esc-contacts@microsoft.com if you are interested in certifying a Linux device, including device HW and OS specs, and whether or not it meets each of the draft requirements below.
 
 ## Linux Hardware/Firmware Requirements
 
