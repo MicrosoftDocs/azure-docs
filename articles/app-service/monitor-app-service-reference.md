@@ -148,8 +148,6 @@ Microsoft.Web/sites
 Example: - [Microsoft.Storage resource provider operations](https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftstorage.
 If there are other operations not in the link, list them here in table form. -->
 
-- [All Microsoft.Web resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftweb)
-
 The following table lists common activity log operations related to App Service. This list isn't exhaustive. For all Microsoft.Web resource provider operations, see [Microsoft.Web resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftweb).
 
 | Operation | Description |

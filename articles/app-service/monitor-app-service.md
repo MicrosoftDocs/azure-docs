@@ -94,7 +94,7 @@ For the available resource log categories, their associated Log Analytics tables
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 <!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
 
-<!-- ## Imported logs. Optional section. If your service uses imported logs, add the following include and information. -->
+<!-- ## Imported logs. Optional section. If your service uses imported logs, add the following include and information. 
 [!INCLUDE [horz-monitor-imported-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-imported-logs.md)]
 <!-- Add service-specific information about your imported logs here. -->
 
@@ -162,7 +162,6 @@ Fill in the following table with metric and log alerts that would be valuable fo
 Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
 ### App Service alert rules
-If you're running an application on App Service, [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) offers more types of alerts.
 
 The following table lists common and recommended alert rules for App Service.
 
