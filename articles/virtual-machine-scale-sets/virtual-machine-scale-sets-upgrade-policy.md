@@ -50,7 +50,7 @@ Manual Upgrade Policy is best suited for workloads where the instances in the sc
 >
 > Rolling Upgrade Policy for Virtual Machine Scale Sets with Uniform Orchestration is generally available. 
 
-With a Rolling Upgrade Policy, the scale set performs updates in batches with an optional pause time in between. You also get more control over the upgrades with settings like batch size, max healthy percentage, prioritizing unhealthy instances and enabling upgrades across multiple availability zones at the same time. 
+With a Rolling Upgrade Policy, the scale set performs updates in batches. You also get more control over the upgrades with settings like batch size, max healthy percentage, prioritizing unhealthy instances and enabling upgrades across availability zones. 
 
 Rolling Upgrade Policy is best suited for production workloads that require a set number of instances always be available. Rolling Upgrades is safest way to upgrade instances to the latest model without compromising availability and uptime. 
 
@@ -58,7 +58,7 @@ When using a Rolling Upgrade Policy, the scale set must also have a [health prob
 
 ## What triggers an upgrade
 
-Depending on the type of change you make to your scale set can impact the availability of the instances. Any changes that impact the Virtual Machine Scale Set model can trigger an upgrade and those upgrades are applied to the instances within the scale set based on the Upgrade Policy you're using. The exception to this would be if you enable [Instance Protection](virtual-machine-scale-sets-instance-protection.md) on specific instances. 
+The changes made to a scale set may impact the availability of the instances. Any changes that impact the Virtual Machine Scale Set model can trigger an upgrade and those upgrades are applied to the instances within the scale set based on the Upgrade Policy you're using. The exception to this would be if you enable [Instance Protection](virtual-machine-scale-sets-instance-protection.md) on specific instances. 
 
 Some upgrades require a virtual machine restart while others can be completed without disrupting scale set instances. Updates that require restarting, reimaging or redeploying the virtual machine instance include: 
 
@@ -74,9 +74,7 @@ Some upgrades require a virtual machine restart while others can be completed wi
 > [!NOTE]
 > While Password and Custom Data changes can be made without a restart, in order for the upgrades to be applied to the virtual machine instances, you must reimage the virtual machine. For more information, see [Reimage a virtual machine](virtual-machine-scale-sets-reimage-virtual-machine.md)
 
-If you're using Rolling Upgrade Policy with MaxSurge, any of the changes to the scale set model triggers a rolling upgrade and result in replacing the virtual machine. This results in the capacity of your scale set remaining constant throughout the upgrade process. 
-
-MaxSurge is the suggested way of deploying all scale set upgrades to ensure your application remains available and healthy during the entire upgrade process. For more information on MaxSurge, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)
+If you're using a Rolling Upgrade Policy with MaxSurge, any changes to the scale set model result will trigger a Rolling Upgrade. MaxSurge is the suggested way of deploying all scale set upgrades to ensure your application remains available and healthy during the entire upgrade process. For more information on MaxSurge, see [Configure Rolling Upgrade Policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)
 
 
 ## Next steps
