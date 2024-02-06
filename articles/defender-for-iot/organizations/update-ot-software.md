@@ -75,7 +75,7 @@ This procedure describes how to send a software version update to OT sensors at 
 
 ### Send the software update to your OT sensor
 
-1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) <!-- can we remove this link, is it really needed? check with other docs to see what is normal -->in the Azure portal, select **Sites and sensors**.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) <!-- can we remove this link, is it really needed? check with other docs to see what is normal - both sometimes with the link, others without. Ask batami if there was a rule for this?-->in the Azure portal, select **Sites and sensors**.
 
     If you know your site and sensor name, you can browse or search for it directly, or apply a filter to help locate the site you need. <!-- Belle wants to add other images so I suggest removing this one, instead of ones that are more important --> For example:
 
