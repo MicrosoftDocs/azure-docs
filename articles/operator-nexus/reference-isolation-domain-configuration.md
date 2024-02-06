@@ -19,7 +19,7 @@ Creating a Layer-3 isolation domain with internal networks (so only on the ToR) 
 
 Creating a Layer-3 isolation domain with an external network enables inter-rack and intra-rack communication between workloads deployed across racks as well as the ability to exchange routes with the fabric and external networks via PE. North-bound peering with PE devices can be configured with either inter-AS option 10A or option 10B. When configured with inter-AS option 10B, route targets can be specified to segregate workload specific traffic. Multiple route-targets can be attached to each prefix.
 
-You can deploy workloads that advertise external service IP addresses to PE devices via BGP, and load-balancing traffic across multiple instances. You can also insert workload services (Firewalls, DNS, IPs) between north-south layers as explained in the next section.
+You can deploy workloads that advertise external service IP addresses to PE devices via BGP, and load-balance traffic across multiple instances. You can also insert workload services (Firewalls, DNS, IPs) between north-south layers as explained in the next section.
 
 ## Tenant Networking Use Cases
 
@@ -46,42 +46,44 @@ To ensure all traffic from the worker nodes 0/0 route is advertised in the green
 
 To advertise reachability of the workloads to external networks, north-bound peering is enabled in orange L3 isolation domain. The red line in the diagram represents peering via inter-AS Option A where BGP peering is enabled between the PE and CE explicitly in the L3 Isolation domain. The black line in the diagram represents peering via MPLS inter-AS Option B where MP-BGP peering is enabled between the PE and CE. you can use route targets to segregate traffic across L3 isolation domains. Route policy options enable operators to manipulate routes exchanged in north-south directions.
 
+## Configuration Options
+
 The following table gives detailed information about isolation domain configuration options.
 
 | **Feature** | **Details** |
 |---|---|
 | Layer 2 connectivity | <ul><li>Provides layer 2 networking capabilities within and across racks.</li> <li>Flat L2 network spanning racks (L2 BGP EVPN).</li><li>Supports multicast and broadcast.</li></ul> |
-| Layer 3 connectivity             | <ul><li>Layer 3 North--South and East--West connectivity (L3 BGP EVPN). </li><li>East-West Connectivity: Internal Network.</li>  <li>Multiple internal networks can be configured for each isolation domain.</li> <li>Workloads can communicate with external services via the provider network. Each layer 3 Isolation domain supports only one external network.</li> </ul>|
+| Layer 3 connectivity             | <ul><li>Layer 3 North-South and East-West connectivity (L3 BGP EVPN). </li><li>East-West Connectivity on an Internal Network.</li>  <li>Multiple internal networks can be configured for each isolation domain.</li> <li>Workloads can communicate with external services via the provider network. Each layer 3 Isolation domain supports only one external network.</li> </ul>|
 | Routing Configuration            | BGP with connected subnets, static routing and BFD |
-| IP Addressing Supported          | Dual Stack (IPv4 and IPv6) support |
+| IP Addressing Support            | Dual Stack (IPv4 and IPv6) support |
 | Configurable parameters          | VLANs, MTU, IPv4/IPv6 subnets, BGP. |
-| Dynamic scale up and down        | Workloads networks can be created dynamically. L3 Isolation domain provides ability advertise redistributed routes. |
+| Dynamic scale up and down        | Workloads networks can be created dynamically. An L3 Isolation domain provides the ability to advertise redistributed routes. |
 
-### Example scenarios and implementation- Isolation Domain Internal Networks
+### Example scenarios and implementation- Isolation Domain with Internal Networks
 
 This section provides examples of using  L3 isolation domains and internal networks using BGP and static routes with IPv4 and IPv6 addresses.
 
--   **Connected Subnet** Create an internal network for layer 3 communication. IPv4 and IPv6 are both supported. This option also enables the operator to specify a single neighbor, multiple neighbors, and a listen range for communication with the subnet.
+-   **Connected Subnet**: An internal network for layer 3 communication. IPv4 and IPv6 are both supported. This option also enables the operator to specify a single neighbor, multiple neighbors, and a listen range for communication with the subnet.
 
--   **Internal Network Multiple connected subnets IPv4** Create an internal network for layer 3 communication across multiple subnets. IPv4 and IPv6 are both supported. This option also enables the operator to specify either a single neighbor or multiple neighbors, and a listen range for communication with subnet.
+-   **Internal Network Multiple connected subnets IPv4**: An internal network for layer 3 communication across multiple subnets. IPv4 and IPv6 are both supported. This option also enables the operator to specify either a single neighbor or multiple neighbors, and a listen range for communication with subnet.
 
 The above options also give the operator the ability to send a default route to a neighbor or listen range. By default, no default route is advertised.
 
--   **Connected Subnet with Static Routes :** Create an internal network and define static routes for communication with a connected subnet. The operator can optionally configure an IPv4 or IPv6 route by defining an IP prefix and the next single or multi-hop ip address. IPv4 and IPv6 are both supported. There's also an option to enable Bidirectional Forwarding Detection (BFD).
+-   **Connected Subnet with Static Routes :**: An internal network with static routes for communication with a connected subnet. The operator can optionally configure an IPv4 or IPv6 route by defining an IP prefix and the next single or multi-hop ip address. IPv4 and IPv6 are both supported. There's also an option to enable Bidirectional Forwarding Detection (BFD).
 
 In all three cases, the internal network is associated with a Layer 3 isolation domain, allowing operators to apply route policy details, which can be referred to in a route policy guide.
 
-### Example scenarios and implementation- Isolation Domain with External Networks
+### Example scenarios and implementation - Isolation Domain with an External Network
 
 An external network enables a workload to communicate with external services via the provider network as described earlier. This section describes some scenarios where you might use an L3 isolation domain with an external network.
 
--   **External Network with MPLS OptionA** creates an external network between the CE and PE using peering OptionA. It uses the primary and secondary IP address prefixes of the CE-PE interconnect links.
+-   **External Network with MPLS OptionA**: An external network between the CE and PE using peering OptionA. It uses the primary and secondary IP address prefixes of the CE-PE interconnect links.
 
--   **External Network with MPLS OptionB** creates an external network between the CE and PE using peering OptionB with multiple route targets.
+-   **External Network with MPLS OptionB**: An external network between the CE and PE using peering OptionB with multiple route targets.
 
 Both options support both IPv4 and IPv6 addresses. The operator can apply route policy details to the layer 3 network, which can be referred to in the route policy guide.
 
-For more information on configurable parameters, see the How to Guides or, or consult the help option in azcli.
+For more information on configurable parameters, see the How to Guides, or consult the help option in `azcli`.
 
 ## BGP Configuration
 
