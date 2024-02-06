@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jinzhong
 author: zhongj
 ms.reviewer: lagayhar
-ms.date: 12/18/2023
+ms.date: 02/05/2024
 ---
 
 # Process images in prompt flow (preview)
@@ -43,7 +43,7 @@ To use image data in prompt flow authoring page:
     > [!IMPORTANT]
     > To process image using Python function, you need to use the `Image` class, import it from `promptflow.contracts.multimedia` package. The Image class is used to represent an Image type within prompt flow. It is designed to work with image data in byte format, which is convenient when you need to handle or manipulate the image data directly.
     >
-    > To return the processed image data, you need to use the `Image` class to wrap the image data. Create an `Image` object by providing the image data in bytes and the [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) `mime_type`. The MIME type lets the system understand the format of the image data, or it can be `*` for unknown type.
+    > To return the processed image data, you need to use the `Image` class to wrap the image data. Create an `Image` object by providing the image data in bytes and the [MIME type](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) `mime_type`. The MIME type lets the system understand the format of the image data, or it can be `*` for unknown type.
 
 4. Run the Python node and check the output. In this example, the Python function returns the processed Image object. Select the image output to preview the image.
    :::image type="content" source="../media/prompt-flow/how-to-process-image/python-node-image-output.png" alt-text="Screenshot of Python node's image output." lightbox = "../media/prompt-flow/how-to-process-image/python-node-image-output.png"::: 
@@ -99,7 +99,7 @@ A batch run allows you to test the flow with an extensive dataset. There are thr
 - **Public image URL:** You can also reference the image URL in the entry file using this format: `{"data:<mime type>;url": "<image URL>"}`. For example, `{"data:image/png;url": "https://www.example.com/images/1.png"}`.
 - **Base64 string:** A Base64 string can be referenced in the entry file using this format: `{"data:<mime type>;base64": "<base64 string>"}`. For example, `{"data:image/png;base64": "iVBORw0KGgoAAAANSUhEUgAAAGQAAABLAQMAAAC81rD0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAAP7////DYP5JAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+QIGBcKN7/nP/UAAAASSURBVDjLY2AYBaNgFIwCdAAABBoAAaNglfsAAAAZdEVYdGNvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVDnr0DLAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTA4LTI0VDIzOjEwOjU1KzAzOjAwkHdeuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0wOC0yNFQyMzoxMDo1NSswMzowMOEq5gUAAAAASUVORK5CYII="}`.
 
-In summary, prompt flow uses a unique dictionary format to represent an image, which is `{"data:<mime type>;<representation>": "<value>"}`. Here, `<mime type>` refers to HTML standard [MIME](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) image types, and `<representation>` refers to the supported image representations: `path`,`url` and `base64`.
+In summary, prompt flow uses a unique dictionary format to represent an image, which is `{"data:<mime type>;<representation>": "<value>"}`. Here, `<mime type>` refers to HTML standard [MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) image types, and `<representation>` refers to the supported image representations: `path`,`url` and `base64`.
 
 ### Create a batch run
 
@@ -120,7 +120,7 @@ If the batch run outputs contain images, you can check the **flow_outputs datase
 
 You can [deploy a flow to an online endpoint for real-time inference](./flow-deploy.md).
 
-Currently the **Test** tab in the deployment detail page does not support image inputs or outputs. It will be supported soon. 
+Currently the **Test** tab in the deployment detail page does not support image inputs or outputs.
 
 For now, you can test the endpoint by sending request including image inputs.
 
