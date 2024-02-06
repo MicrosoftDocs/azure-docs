@@ -98,7 +98,7 @@ try {
     {
         Write-Host "Creating the Microsoft Entra Application role assignment: " $eventSubscriptionWriterAppId
         $eventGridAppRole = $app.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-        New-MgServicePrincipalAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterSP.ObjectId -PrincipalId $eventSubscriptionWriterSP.ObjectId
+        New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $eventSubscriptionWriterSP.Id -PrincipalId $eventSubscriptionWriterSP.Id -ResourceId $servicePrincipal.Id -AppRoleId $eventGridAppRole.Id 
     }
     catch
     {
@@ -116,7 +116,7 @@ try {
     # Creates the service app role assignment for Event Grid Microsoft Entra Application
 
     $eventGridAppRole = $app.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-    New-MgServicePrincipalAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $servicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
+    New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $eventGridSP.Id -PrincipalId $eventGridSP.Id -ResourceId $servicePrincipal.Id -AppRoleId $eventGridAppRole.Id 
     
     # Print output references for backup
 
