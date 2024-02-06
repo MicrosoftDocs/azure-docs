@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
-ms.custom: mvc, ignite-2022
+ms.custom: mvc
 ms.date: 12/20/2023
 adobe-target: true
 ---
@@ -64,4 +64,3 @@ The Azure Database for PostgreSQL single server deployment option has three pric
 Azure Database for PostgreSQL single server instances are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom PostgreSQL configuration settings.
 
 For detailed overview of Azure Database for PostgreSQL single server deployment mode, see [Azure Database for PostgreSQL - Single Server](../single-server/overview-single-server.md).
-

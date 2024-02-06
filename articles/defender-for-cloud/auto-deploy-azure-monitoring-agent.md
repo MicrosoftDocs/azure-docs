@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/02/2023
-ms.custom: template-how-to, ignite-2022
+ms.custom: template-how-to
 ---
 
 # Azure Monitor Agent in Defender for Cloud

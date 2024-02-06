@@ -24,7 +24,9 @@ Before upgrading an Arc resource bridge, the following prerequisites must be met
 
 - The appliance VM must be online, its status is "Running" and the [credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm) must be valid.
 
-- There must be sufficient space on the management machine (~3.5 GB) and appliance VM (35 GB) to download required images. For VMware, a new template is created.
+- There must be sufficient space on the management machine (~3.5 GB) and appliance VM (35 GB) to download required images.
+  
+- For Arc-enabled VMware, upgrading the resource bridge requires 200GB of free space on the datastore. A new template is also created.
 
 - The outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443 must be enabled. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
 
@@ -78,7 +80,7 @@ For example, to upgrade a resource bridge on VMware, run: `az arcappliance upgra
 
 To upgrade a resource bridge on System Center Virtual Machine Manager (SCVMM), run: `az arcappliance upgrade scvmm --config-file c:\contosoARB01-appliance.yaml`
 
-To upgrade a resource bridge on Azure Stack HCI, please transition to 23H2 and use the built-in upgrade management tool. More info available [here](/azure-stack/hci/update/whats-the-lifecycle-manager-23h2).
+To upgrade a resource bridge on Azure Stack HCI, please transition to 23H2 and use the built-in upgrade management tool. More info available [here](/azure-stack/hci/update/about-updates-23h2).
 
 ## Version releases
 

@@ -4,7 +4,6 @@ description: This article describes an overview of FHIR search that is implement
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 9/27/2023
 ms.author: kesheth
