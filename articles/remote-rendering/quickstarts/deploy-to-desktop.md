@@ -12,7 +12,7 @@ ms.custom: mode-other
 
 This quickstart covers how to deploy and run the quickstart sample app for Unity to a desktop PC.
 
-In this quickstart you learn how to:
+In this quickstart, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -22,33 +22,66 @@ In this quickstart you learn how to:
 
 ## Prerequisites
 
-In this quickstart we deploy the sample project from [Quickstart: Render a model with Unity](render-model.md).
+In this quickstart, we deploy the sample project from [Quickstart: Render a model with Unity](render-model.md).
 
 Make sure your credentials are saved properly with the scene and you can connect to a session from within the Unity editor.
 
 ## Disable virtual reality support
 
+## [Unity 2020] (#tab/Unity2020Settings)
+
 Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
 
 1. Open *Edit > Project Settings...*
-1. Select **Player** on the left.
+1. Select **Player** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
+1. Expand **Publishing Settings**.
+1. In **Supported Device Families**, make sure **Desktop** is checked.
+    ![player settings](./media/unity-2020-enable-desktop-support.png)
 1. Expand the **XR Settings**.
 1. Disable **Virtual Reality Supported**.\
-    ![player settings](./media/unity-disable-xr.png)
-1. Above *XR Settings*, expand **Publishing Settings**.
+    ![player settings](./media/unity-2020-disable-xr.png)
+
+## [Unity 2021+] (#tab/Unity2021PlusSettings)
+
+Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
+
+1. Open *Edit > Project Settings...*
+1. Select **Player** in the menu to the left.
+1. Select the **Universal Windows Platform settings** tab.
+1. Expand the **Publishing Settings**.
 1. In **Supported Device Families**, make sure **Desktop** is checked.
+    ![player settings](./media/unity-2021-enable-desktop-support.png)
+1. Select **XR Plugin Management** in the menu to the left.
+1. Select the **Universal Windows Platform settings** tab.
+1. Disable **OpenXR**.\
+    ![player settings](./media/unity-2021-disable-xr.png)
 
 ## Build the sample project
+
+## [Unity 2020] (#tab/Unity2020Build)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform** (**PC Standalone** is also supported but not used here).
 1. Set *Target Device* to **PC**.
 1. Set *Architecture* to **x86**.
 1. Set *Build Type* to **D3D Project**.\
-  ![Build settings](./media/unity-build-settings-pc.png)
+  ![Build settings](./media/unity-2020-build-settings-pc.png)
 1. Select **Switch to Platform**.
-1. When pressing **Build** (or 'Build And Run'), you are asked to select some folder where the solution should be stored.
+1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
+
+## [Unity 2021+] (#tab/Unity2021PlusBuild)
+
+1. Open *File > Build Settings*.
+1. Change *Platform* to **Universal Windows Platform** (**PC Standalone** is also supported but not used here).
+1. Set *Architecture* to **Intel 32-bit**.
+1. Set *Build Type* to **D3D Project**.\
+  ![Build settings](./media/unity-2021-build-settings-pc.png)
+1. Select **Switch to Platform**.
+1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
+
+## Build the Visual Studio solution
+
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
 1. Switch the debugger mode to **Local Machine**.\
@@ -57,7 +90,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 ## Launch the sample project
 
-Start the Debugger in Visual Studio (F5). It will automatically deploy the app to the PC.
+Start the Debugger in Visual Studio (F5). It automatically deploys the app to the PC.
 
 The sample app should launch and then start a new session. After a while, the session is ready and the remotely rendered model will appear in front of you.
 If you want to launch the sample a second time later, you can also find it from the Start menu now.
