@@ -174,7 +174,7 @@ To use **Basic** authentication, in addition to the generic properties that are 
 
 ### Key pair authentication
 
-To use **Key pair** authentication, you need to configure and create key pair authentication user in Snowflake by referring to [Key Pair Authentication & Key Pair Rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth). Afterwards, make a note of the private key and the passphrase, which you use to define the linked service.
+To use **Key pair** authentication, you need to configure and create key pair authentication user in Snowflake by referring to [Key Pair Authentication & Key Pair Rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth). Afterwards, make a note of the private key and the passphrase (optional), which you use to define the linked service.
 
 In addition to the generic properties that are described in the preceding section, specify the following properties:
 
@@ -217,7 +217,7 @@ In addition to the generic properties that are described in the preceding sectio
 
 ### Service Principal authentication
 
-To use Service Principal authentication, set up the Snowflake Service-to-Service (S2S) authentication environment referring to [How to configure Azure to issue OAuth tokens on behalf of a client to access Snowflake](https://community.snowflake.com/s/article/Create-External-OAuth-Token-Using-Azure-AD-For-The-OAuth-Client-Itself). Afterwards, make note of these values, which you use to define the linked service:
+To use **Service Principal** authentication, set up the Snowflake Service-to-Service (S2S) authentication environment referring to [How to configure Azure to issue OAuth tokens on behalf of a client to access Snowflake](https://community.snowflake.com/s/article/Create-External-OAuth-Token-Using-Azure-AD-For-The-OAuth-Client-Itself). Afterwards, make note of these values, which you use to define the linked service:
 
 - Application (client) ID, which is **Client ID** in the linked service.  
 
@@ -246,13 +246,13 @@ In addition to the generic properties that are described in the preceding sectio
             "database": "<database>",
             "warehouse": "<warehouse>",
             "authenticationType": "AADServicePrincipal",
-            "tenantId": <tenant ID>,
+            "tenantId": "<tenant ID>",
             "clientId": "<client ID>",
             "clientSecret": {
                 "type": "SecureString",
                 "value": "<client secret>"
             },
-        "scope": <scope>,
+        "scope": "<scope>",
         "role": "<role>"
         },
         "connectVia": {

@@ -601,7 +601,7 @@ items:
       href: connector-smartsheet.md
     - name: Snowflake
       items:
-      - name: Salesforce
+      - name: Snowflake
         href: connector-snowflake.md
       - name: snowflake (legacy)
         href: connector-snowflake-legacy.md
