@@ -39,7 +39,7 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 
 ### New Fine-tuning capabilities and model support
 
-- [Continuous fine-tuning](/azure/ai-services/openai/how-to/fine-tuning&tabs=turbo%2Cpython&pivots=programming-language-python#continuous-fine-tuning)
+- [Continuous fine-tuning](https://aka.ms/oai/fine-tuning-continuous)
 - [Fine-tuning & function calling](./how-to/fine-tuning-functions.md)
 - [`gpt-35-turbo 1106` support](./concepts/models.md#fine-tuning-models)
 
