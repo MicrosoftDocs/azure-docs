@@ -3,12 +3,12 @@ title: Deployment and cluster reliability best practices for Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for deployment and cluster reliability for Azure Kubernetes Service (AKS) workloads.
 ms.topic: conceptual
-ms.date: 02/05/2024
+ms.date: 02/06/2024
 ---
 
 # Deployment and cluster reliability best practices for Azure Kubernetes Service (AKS)
 
-This article provides best practices for deployment and cluster reliability for Azure Kubernetes Service (AKS) workloads. The article is intended for cluster operators and developers who are responsible for deploying and managing applications in AKS.
+This article provides best practices for cluster reliability implemented both at a deployment and cluster level for your Azure kubernetes Service (AKS) workloads. The article is intended for cluster operators and developers who are responsible for deploying and managing applications in AKS.
 
 The best practices in this article are organized into the following categories:
 
@@ -22,7 +22,7 @@ The best practices in this article are organized into the following categories:
 The following deployment level best practices help ensure high availability and reliability for your AKS workloads. These best practices are local configurations that you can implement in the YAML files for your pods and deployments.
 
 > [!NOTE]
-> Make sure you implement these best practices every time you deploy an update to your application.
+> Make sure you implement these best practices every time you deploy an update to your application. If not, you might experience issues with your application's availability and reliability, such as unintentional application downtime.
 
 ### Pod Disruption Budgets (PDBs)
 
@@ -32,7 +32,7 @@ The following deployment level best practices help ensure high availability and 
 
 [Pod Disruption Budgets (PDBs)](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) allow you to define how deployments or replica sets respond during voluntary disruptions, such as upgrade operations or accidental pod deletions. Using PDBs, you can define a minimum or maximum unavailable resource count.
 
-For example, let's say you need to perform a cluster upgrade and already have a PDB defined. Before performing the cluster upgrade, the Kubernetes scheduler ensures that the minimum number of pods defined in the PDB are available. If the upgrade would cause the number of available pods to fall below the minimum defined in the PDS, the scheduler schedules extra pods on other nodes before allowing the upgrade to proceed. If you don't set a PDB, the scheduler doesn't have any constraints on the number of pods that can be unavailable during the upgrade, which can lead to a lack of resources and potential cluster outages.
+For example, let's say you need to perform a cluster upgrade and already have a PDB defined. Before performing the cluster upgrade, the Kubernetes scheduler ensures that the minimum number of pods defined in the PDB are available. If the upgrade would cause the number of available pods to fall below the minimum defined in the PDBs, the scheduler schedules extra pods on other nodes before allowing the upgrade to proceed. If you don't set a PDB, the scheduler doesn't have any constraints on the number of pods that can be unavailable during the upgrade, which can lead to a lack of resources and potential cluster outages.
 
 In the following example PDB definition file, the `minAvailable` field sets the minimum number of pods that must remain available during voluntary disruptions:
 
@@ -80,27 +80,28 @@ spec:
         memory: 256Mi
 ```
 
-You can use the `kubectl describe node` command to view the CPU and memory capacity of your nodes, as shown in the following example:
-
-```bash
-kubectl describe node <node-name>
-
-# Example output
-Capacity:
-  cpu:                8
-  ephemeral-storage:  129886128Ki
-  hugepages-1Gi:      0
-  hugepages-2Mi:      0
-  memory:             32863116Ki
-  pods:               110
-Allocatable:
-  cpu:                7820m
-  ephemeral-storage:  119703055367
-  hugepages-1Gi:      0
-  hugepages-2Mi:      0
-  memory:             28362636Ki
-  pods:               110
-```
+> [!TIP]
+> You can use the `kubectl describe node` command to view the CPU and memory capacity of your nodes, as shown in the following example:
+>
+> ```bash
+> kubectl describe node <node-name>
+>
+> # Example output
+> Capacity:
+>  cpu:                8
+>  ephemeral-storage:  129886128Ki
+>  hugepages-1Gi:      0
+>  hugepages-2Mi:      0
+>  memory:             32863116Ki
+>  pods:               110
+> Allocatable:
+>  cpu:                7820m
+>  ephemeral-storage:  119703055367
+>  hugepages-1Gi:      0
+>  hugepages-2Mi:      0
+>  memory:             28362636Ki
+>  pods:               110
+> ```
 
 For more information, see [Assign CPU Resources to Containers and Pods](https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/) and [Assign Memory Resources to Containers and Pods](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/).
 
