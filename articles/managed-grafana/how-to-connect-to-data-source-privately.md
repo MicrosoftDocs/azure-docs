@@ -25,14 +25,14 @@ While managed private endpoints are free, there may be charges associated with p
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
 
-1.	Azure Cosmos DB for Mongo DB
-1.	Azure Cosmos DB for PostgreSQL
-1.	Azure Data Explorer
-1.	Azure Monitor private link scope (for example, Log Analytics workspace)
-1.	Azure Monitor workspace, for Managed Service for Prometheus
-1.	Azure SQL managed instance
-1.	Azure SQL server
-1. Private link services
+-	Azure Cosmos DB for Mongo DB
+-	Azure Cosmos DB for PostgreSQL
+-	Azure Data Explorer
+-	Azure Monitor private link scope (for example, Log Analytics workspace)
+-	Azure Monitor workspace, for Managed Service for Prometheus
+-	Azure SQL managed instance
+-	Azure SQL server
+- Private link services
 
 ## Prerequisites
 
@@ -48,11 +48,11 @@ You can create a managed private endpoint in your Azure Managed Grafana workspac
 1. In the Azure portal, navigate to your Grafana workspace and then select **Networking (Preview)**.
 1. Select **Managed Private Endpoint**, and then select **Create**.
 
-   :::image type="content" source="media/managed-private-endpoint/create-mpe.png" alt-text="Screenshot of the Azure portal create managed private endpoint." lightbox="media/managed-private-endpoint/create-mpe.png":::
+   :::image type="content" source="media/managed-private-endpoint/create.png" alt-text="Screenshot of the Azure portal create managed private endpoint." lightbox="media/managed-private-endpoint/create.png":::
 
 1. In the *New managed private endpoint* pane, fill out required information for resource to connect to.
 
-   :::image type="content" source="media/managed-private-endpoint/new-mpe-details-azure-monitor.png" alt-text="Screenshot of the Azure portal new managed private endpoint details for Azure Monitor workspace.":::
+   :::image type="content" source="media/managed-private-endpoint/new-details-azure-monitor.png" alt-text="Screenshot of the Azure portal new managed private endpoint details for Azure Monitor workspace.":::
 
 1. Select an Azure *Resource type* (for example, **Microsoft.Monitor/accounts** for Azure Monitor Managed Service for Prometheus).
 1. Select **Create** to add the managed private endpoint resource.
@@ -70,11 +70,11 @@ Once you've set up the private link service, you can create a managed private en
 1. In the Azure portal, navigate to your Grafana resource and then select **Networking (Preview)**.
 1. Select **Managed Private Endpoint**, and then select **Create**.
 
-   :::image type="content" source="media/managed-private-endpoint/create-mpe.png" alt-text="Screenshot of the Azure portal create managed private endpoint." lightbox="media/managed-private-endpoint/create-mpe.png":::
+   :::image type="content" source="media/managed-private-endpoint/create.png" alt-text="Screenshot of the Azure portal create managed private endpoint." lightbox="media/managed-private-endpoint/create.png":::
 
 1. In the *New managed private endpoint* pane, fill out required information for resource to connect to.
 
-   :::image type="content" source="media/managed-private-endpoint/new-mpe-details-private-link.png" alt-text="Screenshot of the Azure portal new managed private endpoint details for Private link services.png":::
+   :::image type="content" source="media/managed-private-endpoint/new-details-private-link.png" alt-text="Screenshot of the Azure portal new managed private endpoint details for Private link services.":::
 
    > [!TIP]
    > The *Domain name* field is optional. If you specify a domain name, Azure Managed Grafana will ensure that this domain name will be resolved to the managed private endpoint's private IP inside this Grafana's service managed network. You can use this domain name in your Grafana data source's URL configuration instead of the private IP address. You will be required to use the domain name if you enabled TLS or Server Name Indication (SNI) for your self-hosted data store.
