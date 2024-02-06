@@ -429,8 +429,8 @@ The [scripted](#scripted-assessment-results) pronunciation assessment results fo
 - The phoneme [alphabet](#phoneme-alphabet-format) is IPA.
 - The [syllables](#syllable-groups) are returned alongside phonemes for the same word.
 - You can use the `Offset` and `Duration` values to align syllables with their corresponding phonemes. For example, the starting offset (11700000) of the second syllable `loʊ` aligns with the third phoneme, `l`. The offset represents the time at which the recognized speech begins in the audio stream. The value is measured in 100-nanosecond units. To learn more about `Offset` and `Duration`, see [response properties](rest-speech-to-text-short.md#response-properties).
-- There are five `NBestPhonemes` that correspond to the number of [spoken phonemes](#spoken-phoneme) requested.
-- Within `Phonemes`, the most likely [spoken phonemes](#spoken-phoneme) was `ə` instead of the expected phoneme `ɛ`. The expected phoneme `ɛ` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2.
+- There are five `NBestPhonemes` that correspond to the number of [spoken phonemes](#assess-spoken-phoneme) requested.
+- Within `Phonemes`, the most likely [spoken phonemes](#assess-spoken-phoneme) was `ə` instead of the expected phoneme `ɛ`. The expected phoneme `ɛ` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2.
 
 ```json
 {
@@ -640,7 +640,7 @@ The following table compares example phonemes with the corresponding syllables.
 | luck | lʌk |lʌk |
 | photosynthesis | foʊtəsɪnθəsɪs | foʊ·tə·sɪn·θə·sɪs |
 
-To request syllable-level results along with phonemes, set the granularity [configuration parameter](#configuration-parameters) to `Phoneme`.
+To request syllable-level results along with phonemes, set the granularity [set-configuration parameter](#configuration-parameters) to `Phoneme`.
 
 ### Phoneme alphabet format
 
