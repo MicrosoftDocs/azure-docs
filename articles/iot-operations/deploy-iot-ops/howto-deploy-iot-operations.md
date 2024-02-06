@@ -142,6 +142,8 @@ az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvau
 >[!TIP]
 >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
+If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in your Azure subscription, include the `--disable-rsync-rules` feature flag.
+
 Use optional flags to customize the `az iot ops init` command. To learn more, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
 #### [GitHub Actions](#tab/github)
@@ -222,6 +224,7 @@ Now, you can deploy Azure IoT Operations to your cluster.
    | `dataProcessorSecrets` | object | Pass a secret to an Azure IoT Data Processor resource. |
    | `mqSecrets` | object | Pass a secret to an Azure IoT MQ resource. |
    | `opcUaBrokerSecrets` | object | Pass a secret to an Azure OPC UA Broker resource. |
+   | `deployResourceSyncRules` | Set to `false` if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in your Azure subscription. |
 
 1. Save your changes to the parameters file.
 
