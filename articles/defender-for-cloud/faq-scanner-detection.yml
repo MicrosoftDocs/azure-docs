@@ -15,7 +15,7 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          What are the benefits of having one consolidate VA solution, powered by Microsoft Defender Vulnerability Management (MVDM) across Defender for Cloud?
+          What are the benefits of having one consolidate VA solution, powered by Microsoft Defender Vulnerability Management (MDVM) across Defender for Cloud?
         answer: |
           1. **Hybrid approach:** offers flexible deployments options, by utilizing a consistent vulnerability scanner across various use cases. It's applicable in multicloud environments and different host runtimes: 
           
