@@ -85,4 +85,4 @@ az iot central device twin show --app-id <app-id> --device-id <device-id>
 
 ## Next steps
 
-A suggested next step is to learn [Troubleshoot why data from your devices isn't showing up in Azure IoT Central](troubleshoot-connection.md).
+A suggested next step is to learn [Troubleshoot why data from your devices isn't showing up in Azure IoT Central](troubleshooting.md).

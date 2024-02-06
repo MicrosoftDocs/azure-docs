@@ -126,7 +126,7 @@ If the device gets any of the following errors when it connects, it should use a
 - Operator blocked device.
 - Internal error 500 from the service.
 
-To learn more about device error codes, see [Troubleshooting device connections](troubleshoot-connection.md).
+To learn more about device error codes, see [Troubleshooting device connections](troubleshooting.md).
 
 To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot-develop/concepts-manage-device-reconnections.md).
 

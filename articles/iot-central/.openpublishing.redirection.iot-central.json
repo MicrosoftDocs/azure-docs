@@ -1379,6 +1379,16 @@
       "source_path_from_root": "/articles/iot-central/core/howto-connect-eflow.md",
       "redirect_url": "/azure/iot-edge/iot-edge-for-linux-on-windows/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/troubleshoot-data-export.md",
+      "redirect_url": "/azure/iot-central/core/troubleshooting/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/troubleshoot-connection.md",
+      "redirect_url": "/azure/iot-central/core/troubleshooting/",
+      "redirect_document_id": true
     }
   ]
 }

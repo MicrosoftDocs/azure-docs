@@ -132,8 +132,6 @@
           href: core/howto-manage-deployment-manifests.md
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
-        - name: Prepare and connect an IoT Edge for Linux on Windows device 
-          href: core/howto-connect-eflow.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: /azure-sphere/app-development/setup-iot-central
         - name: Prepare and connect a RuuviTag device
@@ -142,8 +140,6 @@
           href: core/howto-connect-rigado-cascade-500.md
         - name: Monitor device connectivity using Azure CLI
           href: core/howto-monitor-devices-azure-cli.md
-        - name: Troubleshoot device connections
-          href: core/troubleshoot-connection.md
     - name: View and analyze device data
       items:
         - name: Build analytics queries
@@ -166,8 +162,6 @@
       items:
         - name: Configure rules
           href: core/howto-configure-rules.md
-        - name: Create custom rules
-          href: core/howto-create-custom-rules.md
         - name: Use rules and workflows to integrate with other services
           href: core/howto-configure-rules-advanced.md
         - name: Export data to cloud destinations
@@ -184,8 +178,6 @@
               href: core/howto-export-to-webhook.md
             - name: Transform data internally for export
               href: core/howto-transform-data-internally.md
-            - name: Troubleshoot data export
-              href: core/troubleshoot-data-export.md
         - name: Export data and visualize with Databricks
           href: core/howto-create-custom-analytics.md
         - name: Transform data internally on ingress
@@ -251,6 +243,8 @@
           href: core/howto-create-private-endpoint.md
         - name: Export to a secure VNET
           href: core/howto-connect-secure-vnet.md
+    - name: Troubleshooting
+      href: core/troubleshooting.md
 - name: Reference
   items:
   - name: Azure CLI

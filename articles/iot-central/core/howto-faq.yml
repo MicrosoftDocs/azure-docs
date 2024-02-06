@@ -107,7 +107,7 @@ sections:
       - question: |
           How do I check for credential issues if a device isn't connecting to my IoT Central application?
         answer: |
-          The [Troubleshoot why data from your devices isn't showing up in Azure IoT Central](troubleshoot-connection.md) includes steps to diagnose connectivity issues for devices.
+          The [Troubleshoot why data from your devices isn't showing up in Azure IoT Central](troubleshooting.md) includes steps to diagnose connectivity issues for devices.
 
       - question: |
           How do I unblock a device?
