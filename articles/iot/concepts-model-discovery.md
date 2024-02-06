@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: conceptual
-ms.service: iot-develop
+ms.service: iot
 ---
 
 # Use IoT Plug and Play models in an IoT solution
