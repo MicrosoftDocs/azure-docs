@@ -46,7 +46,7 @@ Follow these steps to create a new Azure AI hub resource in AI Studio.
 
 When the AI hub is created, you can see it on the **Manage** page in AI Studio. You can see that initially no projects are created in the AI hub. You can [create a new project](./create-projects.md).
 
-    :::image type="content" source="../media/how-to/hub-resource-overview.png" alt-text="Screenshot of the new AI hub overview." lightbox="../media/how-to/hub-resource-overview.png":::
+:::image type="content" source="../media/how-to/hub-resource-overview.png" alt-text="Screenshot of the new AI hub overview." lightbox="../media/how-to/hub-resource-overview.png":::
 
 ## Create a secure Azure AI hub resource in the Azure portal
 
