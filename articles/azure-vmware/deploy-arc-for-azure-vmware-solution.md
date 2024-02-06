@@ -20,14 +20,12 @@ In this article, learn how to deploy Arc for Azure VMware Solution. Once you set
 
 ## Deployment Considerations 
 
-Running software in Azure VMware Solution, as a private cloud in Azure, offers some benefits not realized by operating your environment outside of Azure. For software running in a VM, such as SQL Server and Windows Server, running in Azure VMware Solution provides additional value such as free Extended Security Updates (ESUs).
+When you run software in Azure VMware Solution, as a private cloud in Azure, there are benefits not realized by operating your environment outside of Azure. For software running in a virtual machine (VM) like, SQL Server and Windows Server, running in Azure VMware Solution provides more value such as free Extended Security Updates (ESUs).
 
-To take advantage of these benefits if you are running in an Azure VMware Solution it is important to enable Arc through this document to fully integrate the experience with the AVS private cloud. Alternatively, Arc-enabling VMs through the following mechanisms will not create the necessary attributes to register the VM and software as part of Azure VMware Solution and therefore result in billing for SQL Server ESUs for:
+To take advantage of the benefits when you're running in an Azure VMware Solution, use this article to enable Arc and fully integrate the experience with the Azure VMware Solution private cloud. Alternatively, Arc-enabling VMs through the following mechanisms won't create the necessary attributes to register the VM and software as part of Azure VMware Solution and will result in billing for SQL Server ESUs for:
 
-- Arc-enabled servers,
-
+- Arc-enabled servers
 - Arc-enabled VMware vSphere
-
 - SQL Server enabled by Azure Arc
 
 ## How to manually integrate an Arc-enabled VM into Azure VMware Solutions
@@ -198,7 +196,7 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 
 1. Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
 
-Additionally, for virtual machines there is an additional section to configure **VM extensions**.  This will enable guest management to facilitate additional Azure extensions to be installed on the VM. The steps to enable this would be:
+For virtual machines, there's another section to configure **VM extensions**.  This enables guest management to facilitate more Azure extensions to be installed on the VM. The steps to enable this are:
 
 1. Select **Enable guest management**.
 
@@ -206,11 +204,11 @@ Additionally, for virtual machines there is an additional section to configure *
 
 1. Provide an Administrator/Root access username and password for the VM.
 
-If you choose to enable the guest management as a separate step or have issues with the VM extension install steps please review the prerequisites and steps discussed in the section below. 
+If you choose to enable the guest management as a separate step or have issues with the VM extension install steps, review the prerequisites and steps discussed in the following section. 
 
 ## Enable guest management and extension installation
 
-Before you install an extension, you need to enable guest management on the VMware VM.
+Before you install an extension, you must enable guest management on the VMware VM.
 
 ### Prerequisite
 
@@ -238,5 +236,5 @@ From here additional extensions can be installed. See the [VM extensions Overvie
 
 ### Next Steps
 
-To manage Arc-enabled Azure VMware Solution go to: [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
-To remove Arc-enabled  Azure VMWare Solution resources from Azure go to: [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)
+To manage Arc-enabled Azure VMware Solution, see [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution).
+To remove Arc-enabled  Azure VMware Solution resources from Azure, see [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure).
