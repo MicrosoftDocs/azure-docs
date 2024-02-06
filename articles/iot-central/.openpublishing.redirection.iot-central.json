@@ -357,17 +357,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-create-custom-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-rules/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-solution-builder/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-create-custom-rules.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-rules/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-solution-builder/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-create-custom-rules.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-rules/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-solution-builder/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-create-custom-rules.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-solution-builder/",
       "redirect_document_id": false
     },
     {
