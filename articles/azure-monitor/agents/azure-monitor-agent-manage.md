@@ -400,12 +400,14 @@ There are built-in policy initiatives for Windows and Linux virtual machines, sc
 These initiatives above comprise individual policies that:
 
 - (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details).
-   - `Bring Your Own User-Assigned Identity`: If set to `true`, it creates the built-in user-assigned managed identity in the predefined resource group and assigns it to all machines that the policy is applied to. If set to `false`, you can instead use existing user-assigned identity that *you must assign* to the machines beforehand.
+   - `Bring Your Own User-Assigned Identity`: If set to `false`, it creates the built-in user-assigned managed identity in the predefined resource group and assigns it to all the machines that the policy is applied to. Location of the resource group can be configured in the `Built-In-Identity-RG Location` parameter.
+     If set to `true`, you can instead use an existing user-assigned identity that is automatically assigned to all the machines that the policy is applied to.
 - Install Azure Monitor Agent extension on the machine, and configure it to use user-assigned identity as specified by the following parameters.
-  - `Bring Your Own User-Assigned Managed Identity`: If set to `false`, it configures the agent to use the built-in user-assigned managed identity created by the preceding policy. If set to `true`, it configures the agent to use an existing user-assigned identity that *you must assign* to the machines in scope beforehand.
+  - `Bring Your Own User-Assigned Managed Identity`: If set to `false`, it configures the agent to use the built-in user-assigned managed identity created by the preceding policy. If set to `true`, it configures the agent to use an existing user-assigned identity.
   - `User-Assigned Managed Identity Name`: If you use your own identity (selected `true`), specify the name of the identity that's assigned to the machines.
   - `User-Assigned Managed Identity Resource Group`: If you use your own identity (selected `true`), specify the resource group where the identity exists.
   - `Additional Virtual Machine Images`: Pass additional VM image names that you want to apply the policy to, if not already included.
+  - `Built-In-Identity-RG Location`: If you use built-in user-assigned managed identity, specify the location where the identity and the resource group should be created. This parameter is only used when 'Bring Your Own User-Assigned Managed Identity' parameter is false.
 - Create and deploy the association to link the machine to specified data collection rule.
    - `Data Collection Rule Resource Id`: The Azure Resource Manager resourceId of the rule you want to associate via this policy to all machines the policy is applied to.
 
