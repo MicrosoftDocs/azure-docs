@@ -460,6 +460,7 @@ The following environment variables are related to [hybrid connections](app-serv
 | `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app when [integrated with a VNet](./overview-vnet-integration.md). For Regional VNet Integration, the value is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP is used by the app to connect to the resources through the VNet. Also, it can change within the described address range. |
 | `WEBSITE_PRIVATE_PORTS` | Read-only. In VNet integration, shows which ports are useable by the app to communicate with other nodes. |
 | `WEBSITE_CONTENTOVERVNET` | If you are mounting an Azure File Share on the App Service and the Storage account is restricted to a VNET, ensure to enable this setting with a value of `1`. |
+| `WEBSITE_ALWAYS_FALLBACK_TO_PUBLIC_DNS` | When set to a value of `1`, failed DNS queries will fall-back to the upstream Azure-provided DNS (168.63.129.16). | 
 
 <!-- | WEBSITE_SLOT_POLL_WORKER_FOR_CHANGE_NOTIFICATION | Poll worker before pinging the site to detect when change notification has been processed. |
 WEBSITE_SPECIAL_CACHE
