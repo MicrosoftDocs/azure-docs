@@ -213,14 +213,13 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |  --- |  --- | :---: |
 | `whisper` | North Central US <br> West Europe | 25 MB |
 
-<<<<<<< HEAD
 ### Text to speech models (Preview)
 
 |  Model ID  | Model Availability |
 |  --- |  --- | :---: |
 | `tts-1` | North Central US <br> Sweden Central |
 | `tts-1-hd` | North Central US <br> Sweden Central |
-=======
+
 ### Assistants (Preview)
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
@@ -231,7 +230,6 @@ For Assistants you need a combination of a supported model, and a supported regi
 | East US 2 ||✅|✅|||✅|||✅|
 | Australia East |✅|✅|✅|||✅|||✅|
 
->>>>>>> 8f753da8364f761f1b2e84569c41cdfa428e82f8
 
 ## Next steps
 
