@@ -11,7 +11,7 @@ ms.topic: reference
 
 # Technical Requirements for an Isolation Domain
 
--   To create an isolation domain, the network fabric must have been provisioned.
+-   To create an isolation domain, the network fabric must be provisioned first.
 
 -   The isolation domain is the parent resource of any internal or external networks. Therefore, the isolation domain must be created before any networks.
 
