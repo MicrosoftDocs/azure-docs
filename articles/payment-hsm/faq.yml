@@ -39,11 +39,11 @@ sections:
       - question: |
           How do I get started with the service? 
         answer: |
-          As Azure Payment HSM is a specialized service, customers should ask their Microsoft account manager and CSA to send a request [via email](mailto:paymentHSMRequest@microsoft.com).       
+          See [Getting started with Azure Payment HSM](getting-started.md).
       - question: |
           What HSM SKUs are supported for Azure Payment HSM?
         answer: |
-          See [Azure Payment HSM overview: supported SKUs](overview.md#supported-skus).
+          See [Azure Payment HSM overview: supported SKUs](support-guide.md#supported-skus).
 
       - question: |
           How do I change the performance level or SKU of my payment HSM?

@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/08/2023
 ms.author: yelevin
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Set up Microsoft Sentinel customer-managed key

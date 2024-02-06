@@ -8,7 +8,7 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 11/08/2023
 ms.author: abell
-ms.custom: ignite-2022, references_regions
+ms.custom: references_regions
 ---
 
 # What is Azure DDoS Protection?
@@ -100,4 +100,3 @@ For frequently asked questions, see the [DDoS Protection FAQ](ddos-faq.yml).
 * [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md)
 * [Learn module: Introduction to Azure DDoS Protection](/training/modules/introduction-azure-ddos-protection/)
 * [Learn more about Azure network security](../networking/security/index.yml)
-

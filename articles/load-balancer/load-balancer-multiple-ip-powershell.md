@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/27/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18, devx-track-azurepowershell, engagement-fy23
+ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Load balancing on multiple IP configurations using PowerShell

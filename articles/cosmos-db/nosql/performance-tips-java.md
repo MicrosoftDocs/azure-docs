@@ -26,7 +26,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 > [!IMPORTANT]  
 > This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [performance tips guide](performance-tips-java-sdk-v4.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide to upgrade. 
 > 
-> These performance tips are for Azure Cosmos DB Sync Java SDK v2 only. Please view the Azure Cosmos DB Sync Java SDK v2 [Release notes](sdk-java-v2.md) and [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) for more information.
+> These performance tips are for Azure Cosmos DB Sync Java SDK v2 only. Please view the [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) for more information.
 >
 
 > [!IMPORTANT]  
@@ -38,7 +38,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 > Azure Cosmos DB Java SDK v4.
 >
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using [Azure Cosmos DB Sync Java SDK v2](./sdk-java-v2.md).
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using Azure Cosmos DB Sync Java SDK v2.
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 
@@ -84,7 +84,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## SDK Usage
 1. **Install the most recent SDK**
 
-    The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](./sdk-java-v2.md) pages to determine the most recent SDK and review improvements.
+    The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](/java/api/overview/azure/cosmos-readme) pages to determine the most recent SDK and review improvements.
 2. **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
     Each [DocumentClient](/java/api/com.microsoft.azure.documentdb.documentclient) instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by DocumentClient, it is recommended to use a single instance of DocumentClient per AppDomain for the lifetime of the application.
@@ -110,7 +110,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 5. **Implement backoff at getRetryAfterInMilliseconds intervals**
 
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the [Azure Cosmos DB Sync Java SDK](./sdk-java-v2.md). For more information, see [getRetryAfterInMilliseconds](/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the [Azure Cosmos DB Sync Java SDK](/java/api/overview/azure/cosmos-readme). For more information, see [getRetryAfterInMilliseconds](/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
 6. **Scale out your client-workload**
 

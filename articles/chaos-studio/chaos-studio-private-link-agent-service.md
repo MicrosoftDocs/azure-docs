@@ -23,16 +23,6 @@ This guide explains the steps needed to configure Private Link for a Chaos Studi
 
 <br/>
 
-3. Ensure that the `Microsoft.Resources/EUAPParticipation` feature flag is enabled for your subscription. Previous Chaos Studio users may already have the feature flag enabled if you ran your first experiment via the Azure portal in the past. 
-
-<br/>
-
-The feature flag can be enabled using Azure CLI. Here's an example:
-
-```AzCLI
-az feature register --namespace Microsoft.Resources --name "EUAPParticipation" --subscription <subscription id>
-```
-
 ## Limitations
 
 - You'll need to use our **2023-10-27-preview REST API** to create and use private link for agent-based experiments ONLY. There's **no** support for private link for agent-based experiments in our GA-stable REST API until H1 2024. 
@@ -40,28 +30,8 @@ az feature register --namespace Microsoft.Resources --name "EUAPParticipation" -
 - The entire end-to-end for this flow requires some use of the CLI. The current end-to-end experience cannot be done from the Azure portal currently. 
 
 - The **Chaos Studio Private Accesses (CSPA)** resource type has a **strict 1:1 mapping of Chaos Target:CSPA Resource (abstraction for private endpoint).**.** We only allow **5 CSPA resources to be created per Subscription** to maintain the expected experience for all of our customers.  
-
-## Step 1: Make sure you allowlist Microsoft.Network/AllowPrivateEndpoints in your subscription
-
-The first step is to ensure that your desired subscription allows the Networking Resource Provider to operate. 
-
-Ensure that the `Microsoft.Network/AllowPrivateEndpoints` feature flag is enabled for your subscription. 
-
-<br/>
-
-The feature flag can be enabled using Azure CLI. Here's an example:
-
-```AzCLI
-az feature register --namespace Microsoft.Network --name "AllowPrivateEndpoints" --subscription <subscription id>
-```
-
-> [!NOTE]
-> If you are going to be using private endpoints using manual requests across multiple subscriptions, you'll need to ensure you register the Microsoft.Network Resource Provider (RP) in your respective tenants/subscriptions. See [Register RP](../azure-resource-manager/management/resource-providers-and-types.md) for more info about this.
->
-> 
-> This step is not needed if you are using the same subscription across both the Chaos and Networking Resource Providers.
  
-## Step 2: Create a Chaos Studio Private Access (CSPA) resource
+## Step 1: Create a Chaos Studio Private Access (CSPA) resource
 
 To use Private endpoints for agent-based chaos experiments, you need to create a new resource type called **Chaos Studio Private Accesses**. CSPA is the resource against which the private endpoints are created.
 
@@ -100,7 +70,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 |resourceLocation|True|String|Location you want the resource to be hosted (must be a support region by Chaos Studio)|
 
 
-## Step 3: Create your Virtual Network, Subnet, and Private Endpoint
+## Step 2: Create your Virtual Network, Subnet, and Private Endpoint
 
 [Set up your desired Virtual Network, Subnet, and Endpoint](../private-link/create-private-endpoint-portal.md) for the experiment if you haven't already.
 
@@ -111,7 +81,7 @@ Make sure you attach it to the same VM's VNET. Screenshots provide examples of c
 [![Screenshot of VNET tab of private endpoint creation.](images/resource-vnet-cspa.png)](images/resource-vnet-cspa.png#lightbox)
 
 
-## Step 4: Map the agent host VM to the CSPA resource
+## Step 3: Map the agent host VM to the CSPA resource
 
 Find the Target "Resource ID" by making a GetTarget call:
 
@@ -165,9 +135,9 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 ```
 
 > [!NOTE]
-> The PrivateAccessID should exactly match the "resourceID" used to create the CSPA resource in Step 2.
+> The PrivateAccessID should exactly match the "resourceID" used to create the CSPA resource in Step 1.
 
-## Step 5: Update host VM to map the communications endpoint to the private endpoint
+## Step 4: Update host VM to map the communications endpoint to the private endpoint
 
 During the Preview of this feature, customers need to update the Agent VM extensions settings to point to the communication endpoint that supports traffic over a private network. Customers need to update the host entry on the actual VM to map the communication endpoint to the private IP generated during the private endpoint creation. You can get the IP address from the "DNS Configuration" tab in the Private Endpoint resource seen in the following screenshot:
 
@@ -191,7 +161,7 @@ Example of what the "hosts" file should look like. The IP address and Azure regi
 
 Save and close the file.
 
-## Step 6: Update the communication endpoint in agentSettings and agentInstanceConfig JSON files
+## Step 5: Update the communication endpoint in agentSettings and agentInstanceConfig JSON files
 
 In this step, you need to continue to edit files on the host VM machine. You need to update the "agentSettings.json" and "agentInstanceConfig.json" files to include the communication endpoint based on the region in which the VM targets were created in the previous steps. 
 
@@ -232,7 +202,7 @@ Example of updated agentInstanceConfig.json:
 
 [![Screenshot of agentInstanceConfig JSON.](images/agent-instance-config-json.png)](images/agent-instance-config-json.png#lightbox)
 
-## Step 6.5: Disable CRL verification in agentSettings.JSON
+## Step 5.5: Disable CRL verification in agentSettings.JSON
 
 **IF** you blocked outbound access to Microsoft Certificate Revocation List (CRL) verification endpoints, then you need to update agentSettings.JSON to disable CRL verification check in the agent.
 
@@ -250,7 +220,7 @@ The final agentSettings.JSON should appear as shown:
 
 If outbound access to Microsoft CRL verification endpoints is not blocked, then you can ignore this step. 
 
-## Step 7: Restart the Azure Chaos Agent service in the VM
+## Step 6: Restart the Azure Chaos Agent service in the VM
 
 After making all the required changes to the host, restart the Azure Chaos Agent Service in the VM
 
@@ -268,7 +238,7 @@ Systemctl restart azure-chaos-agent
 
 [![Screenshot of restarting Linux VM.](images/restart-linux-vm.png)](images/restart-linux-vm.png#lightbox)
 
-## Step 8: Run your Agent-based experiment using private endpoints
+## Step 7: Run your Agent-based experiment using private endpoints
 
 After the restart, the Chaos agent should be able to communicate with the Agent Communication data plane service and the agent registration to the data plane should be successful. After successful registration, the agent will be able to heartbeat its status and you can go ahead and run the chaos agent-based experiments using private endpoints!
 

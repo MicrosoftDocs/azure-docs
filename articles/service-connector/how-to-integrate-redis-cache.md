@@ -5,14 +5,17 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 02/02/2024
 ms.custom: event-tier1-build-2022
+
 ---
 # Integrate Azure Cache for Redis with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cache for Redis to other cloud services using Service Connector. You might still be able to connect to Azure Cache for Redis in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
 ## Supported compute services
+
+Service Connector can be used to connect the following compute services to Azure Cache for Redis:
 
 - Azure App Service
 - Azure Functions
@@ -21,7 +24,7 @@ This page shows supported authentication methods and clients, and shows sample c
 
 ## Supported Authentication types and client types
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Cache for Redis using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -32,6 +35,8 @@ Supported authentication and clients for App Service, Azure Functions, Container
 | Node.js            | No                               | No                             | Yes                        | No                |
 | Python             | No                               | No                             | Yes                        | No                |
 | None               | No                               | No                             | Yes                        | No                |
+
+This table indicates that the only supported authentication method for all client types in the table is the Secret / connection string method. Other authentication methods are not supported for any of the client types to connect to Azure Cache for Redis using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 

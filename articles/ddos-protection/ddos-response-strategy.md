@@ -5,7 +5,6 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 06/01/2023
 ms.author: abell
