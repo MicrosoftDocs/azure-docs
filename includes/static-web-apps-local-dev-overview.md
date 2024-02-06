@@ -25,7 +25,7 @@ The following chart shows how requests are handled locally.
 
 - **Responses** from all services are returned to the browser as if they were all a single application.
 
-The following article details the steps for running a node-based application, but the process is the same for any language or environment. Once you start the UI and the Azure Functions API apps independently, then start the Static Web Apps CLI and point it to the running apps using the following command:
+Once you start the UI and the Azure Functions API apps independently, then start the Static Web Apps CLI and point it to the running apps using the following command:
 
 ```console
 swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071

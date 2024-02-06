@@ -36,6 +36,8 @@ To provide a similar experience as to what you get in Azure, the [Azure Static W
 
 [!INCLUDE [Local development overview](../../includes/static-web-apps-local-dev-overview.md)]
 
+The following article details the steps for running a node-based application, but the process is the same for any language or environment.
+
 ## Prerequisites
 
 - **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.

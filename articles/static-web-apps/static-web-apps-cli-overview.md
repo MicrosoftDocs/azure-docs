@@ -5,17 +5,17 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 02/05/2024
+ms.date: 02/06/2024
 ms.author: cshoe
 ---
 
 # Azure Static Web Apps CLI overview
 
-Azure Static Web Apps websites are hosted cloud in the cloud and often connect together a collection of cloud services. During development and any other time you need to run your app locally, you need special tools that mimic how your app runs in the cloud.
+Azure Static Web Apps websites are hosted in the cloud and often connect together a collection of cloud services. During development, and any time you need to run your app locally, you need tools to mimic how your app runs in the cloud.
 
-The Static Web Apps CLI (SWA CLI) includes a series of locally run services that approximate how your app would run on Azure, but instead running exclusively on your machine.
+The Static Web Apps CLI (SWA CLI) includes a series of local services that approximate how your app would run on Azure, but instead they run exclusively on your machine.
 
-Azure Static Web Apps CLI provides the following services:
+The Azure Static Web Apps CLI provides the following services:
 
 - A local static site server
 - A proxy to the front-end framework development server
