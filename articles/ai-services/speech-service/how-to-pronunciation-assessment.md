@@ -203,7 +203,7 @@ This table lists some of the optional methods you can set for the `Pronunciation
 | `EnableProsodyAssessment` | Enables prosody assessment for your pronunciation evaluation. This feature assesses aspects like stress, intonation, speaking speed, and rhythm. This feature provides insights into the naturalness and expressiveness of your speech.<br/><br/>Enabling prosody assessment is optional. If this method is called, the `ProsodyScore` result value is returned. |
 | `EnableContentAssessmentWithTopic` | Enables content assessment. A content assessment is part of the [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario. By providing a description, you can enhance the assessment's understanding of the specific topic being spoken about. For example, in C# call `pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");`. You can replace 'greeting' with your desired text to describe a topic. The description has no length limit and currently only supports the `en-US` locale. |
 
-## Get pronunciation assessment results 
+## Get pronunciation assessment results
 
 When speech is recognized, you can request the pronunciation assessment results as SDK objects or a JSON string.
 
@@ -404,7 +404,7 @@ This table lists some of the key pronunciation assessment results for the unscri
 | `GrammarScore`     | Correctness in using grammar and variety of sentence patterns. Lexical accuracy, grammatical accuracy, and diversity of sentence structures jointly elevate grammatical errors. | Full Text level|
 | `TopicScore`       | Level of understanding and engagement with the topic, which provides insights into the speaker’s ability to express their thoughts and ideas effectively and the ability to engage with the topic. | Full Text level|
 | `PronScore`        | Overall score of the pronunciation quality of the given speech. This value is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. | Full Text level |
-| `ErrorType`        | Whether a word is badly pronounced, improperly inserted with a break, or missing a break at punctuation. It also indicates whether a pronunciation is monotonically rising, falling, or flat on the utterance. Possible values are `None` for no error on this word, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. | Word level |
+| `ErrorType`        | A word is badly pronounced, improperly inserted with a break, or missing a break at punctuation. It also indicates whether a pronunciation is monotonically rising, falling, or flat on the utterance. Possible values are `None` for no error on this word, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. | Word level |
 
 The following table describes the prosody assessment results in more detail:
 
