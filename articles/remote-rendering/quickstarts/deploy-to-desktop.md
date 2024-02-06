@@ -82,6 +82,8 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 ## Build the Visual Studio solution
 
+With the solution generated we can build and deploy it.
+
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
 1. Switch the debugger mode to **Local Machine**.\
