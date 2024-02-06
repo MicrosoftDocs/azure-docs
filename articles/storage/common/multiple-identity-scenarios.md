@@ -228,6 +228,8 @@ public class ExampleService {
 }
 ```
 
+#### [JavaScript](#tab/javascript)
+
 ---
 
 When this application code runs locally, `DefaultAzureCredential` will search down a credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
@@ -474,6 +476,8 @@ public class ExampleService {
 
 }
 ```
+
+#### [JavaScript](#tab/javascript)
 
 ---
 
