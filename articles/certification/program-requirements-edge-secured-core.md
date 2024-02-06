@@ -203,9 +203,6 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Status|Required|
 |Description|The purpose of the requirement is to validate the device identify is rooted in hardware.|
 |Requirements dependency|TPM v2.0 </br><sup>or *other supported method</sup>|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that the device has a HWRoT present and that it can be provisioned through DPS using TPM or SE.|
-|Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|
 
 ---
 </br>
@@ -213,10 +210,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate ensure that memory integrity helps protect the device from vulnerable peripherals.|
-|Validation Type|Manual/Tools|
-|Validation|memory regions for peripherals must be gated with hardware/firmware such as memory region domain controllers or SMMU (System memory management Unit).|
-
+|Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals. Memory regions for peripherals must be gated with hardware/firmware such as memory region domain controllers or SMMU (System Memory Management Unit).|
 
 </br>
 
@@ -224,9 +218,9 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to confirm it's protected from firmware security threats through one of the following approaches: <ul><li>Approved FW that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul> |
+|Description|The purpose of the requirement is to ensure that the device has adequate mitigations from Firmware security threats through one of the following approaches: 
+- Approved firmware that does SRTM + runtime firmware hardening
+- Firmware scanning and evaluation by approved Microsoft third party
 |Resources| https://trustedcomputinggroup.org/ |
 
 ---
@@ -235,10 +229,9 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the boot integrity of the device.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
-
+|Description|The purpose of the requirement is to validate the boot integrity of the device. Firmware and kernel signatures need to be validated every time the device boots.
+- UEFI: Secure boot is enabled
+- Uboot: Verified boot is enabled|
 
 ---
 </br>
@@ -246,10 +239,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
+|Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service through collected platform boot logs and applicable runtime measurements.|
 |Dependency|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that platform boot logs and applicable runtime measurements can be collected and remotely attested to the Microsoft Azure Attestation service.|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml) </br> Certification portal test includes an attestation client that when combined with the TPM 2.0 can validate the Microsoft Azure Attestation service.|
 
 ---
@@ -259,9 +250,6 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement to validate the existence of a secure enclave and that the enclave can be used for security functions.|
-|Validation Type|Manual/Tools|
-|Validation||
-
 
 ## Linux Configuration Requirements
 
@@ -269,10 +257,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement to validate that sensitive data can be encrypted on nonvolatile storage.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
-
+|Description|The purpose of the requirement to validate that sensitive data can be encrypted on nonvolatile storage. Storage encryption needs to be enabled and default algorithm is XTS-AES with key length 128 bits or higher.|
 
 ---
 </br>
@@ -280,9 +265,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate support for required TLS versions and cipher suites.|
-|Validation Type|Manual/Tools|
-Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Description|The purpose of the requirement is to validate support for a minimum TLS version of 1.2 and the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
 |Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
 
 ---
@@ -291,10 +274,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate that authorized code runs with least privilege.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that code integrity is enabled by validating dm-verity and IMA|
-
+|Description|The purpose of this requirement is to validate that authorized code runs with least privilege. Code integrity is enabled by dm-verify and IMA.|
 
 ---
 </br>
@@ -302,21 +282,15 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.NetworkServices|
 |:---|:---|
 |Status|<sup>*</sup>Required|
-|Description|The purpose of the requirement is to validate that applications accepting input from the network aren't running with elevated privileges.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that services accepting network connections aren't running with SYSTEM or root privileges.|
-
-
+|Description|The purpose of the requirement is to validate that applications accepting input from the network aren't running with elevated privileges such as SYSTEM or root privileges.|
 
 ## Linux Software/Service Requirements
 ---
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to make sure devices can report security information and events by sending data to Microsoft Defender for IoT.|
-|Validation Type|Manual/Tools|
-|Validation	|<ol><li>Device must generate security logs and alerts.</li><li>Device logs and alerts messages to Azure Security Center.</li><li>Device must have the Azure Defender for IoT microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
-|Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
+|Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint.|
+|Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md) Link TBD|
 
 ---
 </br>
@@ -324,11 +298,9 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure.|
+|Description|The purpose of the requirement is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure.
+Note: Use of other system management toolchains (for example, Ansible, etc.) by operators are not prohibited, but the device must include the azure-osconfig agent such that it's ready to be managed from Azure.|
 |Dependency|azure-osconfig|
-|Validation Type|Manual/Tools|
-|Validation|<ol><li>Device must report, via IoT Hub, its firewall state, firewall fingerprint, ip addresses, network adapter state, host name, hosts file, TPM (absence, or presence with version) and package manager sources (see What can I manage) </li><li>Device must accept the creation, via IoT Hub, of a default firewall policy (accept vs drop), and at least one firewall rule, with positive remote acknowledgment (see configurationStatus)</li><li>Device must accept the replacement of /etc/hosts file contents via IoT Hub, with positive remote acknowledgment (see https://learn.microsoft.com/en-us/azure/osconfig/howto-hosts?tabs=portal#the-object-model )</li><li>Device must accept and implement, via IoT Hub, remote reboot</li></ol> Note: Use of other system management toolchains (for example, Ansible, etc.) by operators are not prohibited, but the device must include the azure-osconfig agent such that it's ready to be managed from Azure.|
-
 
 ---
 </br>
@@ -336,10 +308,16 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Update|
 |:---|:---|
 |Status|Audit|
-|Description|The purpose of the requirement is to validate the device can receive and update its firmware and software.|
-|Validation Type|Manual/Tools|
-|Validation|Partner confirmation that they were able to send an update to the device through Azure Device update and other approved services.|
-|Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
+|Description|The purpose of the requirement is to validate the device can receive and update its firmware and software through Azure Device update or other approved services.|
+|Resources|Link TBD|
+
+---
+</br>
+
+|Name|SecuredCore.UpdateResiliency|
+|:---|:---|
+|Status|Required|
+|Description|The purpose of the requirement is to validate the device can rbe restored to the last known good state in the case of an update causing issues.|
 
 ---
 </br>
@@ -359,11 +337,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that updates must be signed.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware won't be applied unless properly signed and validated.
-
-
+|Description|The purpose of the requirement is to validate that updates to the operating system, drivers, application software, libraries, packages and firmware must be signed.|
 
 
 ## Linux Policy Requirements
@@ -371,10 +345,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that debug functionality on the device is disabled.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
-
+|Description|The purpose of the requirement is to validate that debug functionality on the device is disabled or requires authorization to enable.|
 
 ---
 </br>
@@ -382,10 +353,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good if an update causing issues.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
-
+|Description|The purpose of this requirement is to validate the device against thea bility to perform a reset (remove user data, remove user configs).|
 
 ---
 </br>
@@ -393,10 +361,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Updates.Duration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that the device remains secure.|
-|Validation Type|Manual|
-|Validation|Commitment from submission that devices certified will be required to keep devices up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
-
+|Description|The purpose of this policy is to ensure that updates will be provided for at least 60 months from date of submission.|
 
 ---
 </br>
@@ -405,9 +370,6 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |:---|:---|
 |Status|Required|
 |Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
-|Validation Type|Manual|
-|Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-
 
 ---
 </br>
@@ -416,9 +378,6 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |:---|:---|
 |Status|Required|
 |Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
-|Validation Type|Manual|
-|Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-
 
 </br>
 ::: zone-end
