@@ -1,7 +1,8 @@
 items:
 - name: Azure Spring Apps Standard consumption and dedicated plan documentation
   href: index.yml
-  displayName: Azure Spring Apps Standard consumption and dedicated plan
+- name: Switch plans
+  href: ../index.yml
 - name: Overview
   expanded: true
   items:

@@ -8,7 +8,7 @@ ms.author: swatig
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: devx-track-azurecli, devx-track-python, update-code
+ms.custom: devx-track-azurecli, update-code, devx-track-python
 ms.topic: how-to
 ms.date: 11/07/2023
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model architecture, hyperparameters, and training and deployment environments.
