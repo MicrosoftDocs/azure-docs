@@ -21,11 +21,21 @@ The Video Constraints API is a powerful tool that enables developers to control 
 
 Another benefit of the Video Constraints API is that it enables developers to optimize the video call for different devices. For example, if a user is using an older device with limited processing power, developers can set constraints on the video resolution to ensure that the video call runs smoothly on that device
 
+## Send constraints
 Azure Communication Services Web Calling SDK supports setting the maximum video resolution, framerate, or bitrate that a client sends. The sender video constraints are supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser or Android Chrome mobile browser.
 
-The native Calling SDK (Android, iOS, Windows) supports setting the maximum values of video resolution and framerate for outgoing video streams and setting the maximum resolution for incoming video streams. These constraints can be set at the start of the call and during the call.
+Azure Communication Services Native Calling SDK (Android, iOS, Windows) supports setting the maximum values of video resolution and framerate for outgoing video streams.
+
+## Receive constraints
+Azure Communication Services Web Calling SDK does not have a dedicated API to control setting the maximum video resolution that client can receive for a given video.
+Instead to control resolution on the receiver side, application can adjust size of the renderer of that video, as SDK will automatically try to adjust received resolution based on the dimensions of the renderer, in practice - SDK will not request more stream (width/height) than it can fit into the renderer.
+
+Azure Communication Services Native Calling SDK (Android, iOS, Windows) supports setting the maximum resolution for incoming video streams. 
+
 
 ## Supported constraints
+
+These constraints can be set at the start of the call and during the call.
 
 | Platform | Supported Constraints | 
 | ----------- | ----------- |
