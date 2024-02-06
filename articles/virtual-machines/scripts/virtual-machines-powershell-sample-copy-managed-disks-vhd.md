@@ -2,7 +2,6 @@
 title: Export/Copy the VHD of a managed disk to another region's account (Windows) - PowerShell
 description: Azure PowerShell script sample -  Export/Copy the VHD of a managed disk to a storage account in same or different region
 services: virtual-machines-windows
-documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 tags: azure-service-management

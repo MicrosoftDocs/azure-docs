@@ -1,9 +1,8 @@
 ---
-title: Migrate data to Azure Cosmos DB for Apache Cassandra account using Striim 
-description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB for Apache Cassandra account. 
+title: Migrate data to Azure Cosmos DB for Apache Cassandra account using Striim
+description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB for Apache Cassandra account.
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/09/2021
 author: TheovanKraay

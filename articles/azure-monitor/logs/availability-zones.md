@@ -31,6 +31,20 @@ A subset of the availability zones that support data resilience currently also s
     
 ## Data resilience - supported regions
 
+Azure Monitor creates Log Analytics workspaces in a shared cluster, unless you [set up a dedicated cluster](../logs/logs-dedicated-clusters.md) for your workspaces.
+
+### Shared clusters (default)
+All shared clusters in the following regions use availability zones. If your workspace is in one of these regions, Azure Monitor replicates your logs across the region-specific zones, as of January 2024.
+
+* Canada Central
+* France Central
+* North Europe
+* South Central US
+* Southeast Asia
+* UK South
+* West US 3
+
+### Dedicated clusters
 Azure Monitor currently supports data resilience for availability-zone-enabled dedicated clusters in these regions:
 
   | Americas | Europe | Middle East | Africa | Asia Pacific |

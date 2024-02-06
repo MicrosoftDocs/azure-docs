@@ -354,7 +354,7 @@ Applies to: Iot Hub, IoT Central
 
 A description, that uses the [Digital Twins Definition Language](#digital-twins-definition-language), of the capabilities of a [device](#device). Capabilities include [telemetry](#telemetry), [properties](#properties), and [commands](#command).
 
-[Learn more](../iot-develop/concepts-modeling-guide.md)
+[Learn more](../iot/concepts-modeling-guide.md)
 
 Casing rules: Always lowercase.
 

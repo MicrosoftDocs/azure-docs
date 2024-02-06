@@ -2,7 +2,6 @@
 title: SAP BusinessObjects BI platform deployment on Azure for Windows | Microsoft Docs
 description: Deploy and configure the SAP BusinessObjects BI platform on Azure for Windows.
 services: virtual-machines-windows,virtual-network,storage,azure-netapp-files,azure-files,azure-sql
-documentationcenter: saponazure
 author: dennispadia
 manager: juergent
 ms.service: sap-on-azure
