@@ -47,7 +47,7 @@ To create a backup policy, follow these steps:
 
    You can add one or more retention rules. To add more retention rules, select **Add**.
 
-6. You can move backups from *backup data store* to *archive data store* once they expire as per the backup policy.
+6. You can move the backups from *backup data store* to *archive data store* once they expire as per the backup policy.
 
    To archive backups on expiry, select **On-expiry**.
 
