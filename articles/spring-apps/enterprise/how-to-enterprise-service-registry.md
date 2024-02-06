@@ -31,7 +31,7 @@ with the Azure Spring Apps Enterprise plan, you don't have to create or start th
 
 ## Create applications that use Service Registry
 
-In this article, you'll create two services and register them with Azure Spring Apps Service Registry. After registration, one service will be able to use Service Registry to discover and invoke the other service. The following diagram summarizes the required steps:
+In this article, you create two services and register them with Azure Spring Apps Service Registry. After registration, one service will be able to use Service Registry to discover and invoke the other service. The following diagram summarizes the required steps:
 
 :::image type="content" source="./media/how-to-enterprise-service-registry/how-to-guide-story.png" alt-text="Diagram showing the steps to create, deploy, and register Service A and Service B.":::
 
@@ -191,7 +191,7 @@ Typically, a Eureka client needs to write the following connection information s
 eureka.client.service-url.defaultZone=http://eureka:8761/eureka/
 ```
 
-However, if you write these settings directly in your application, you'll need to re-edit and rebuild the project again each time the Service Registry server changes. To avoid this effort, Azure Spring Apps enables your applications to get connection information from the service registry by binding to it. Specifically, after binding the application to the Service Registry, you can get the service registry connection information (`eureka.client.service-url.defaultZone`) from the Java environment variable. In this way, you can connect to the Service Registry by loading the contents of the environment variables when the application starts.
+However, if you write these settings directly in your application, you need to re-edit and rebuild the project again each time the Service Registry server changes. To avoid this effort, Azure Spring Apps enables your applications to get connection information from the service registry by binding to it. Specifically, after binding the application to the Service Registry, you can get the service registry connection information (`eureka.client.service-url.defaultZone`) from the Java environment variable. In this way, you can connect to the Service Registry by loading the contents of the environment variables when the application starts.
 
 In practice, the following environment variables are added to the `JAVA_TOOL_OPTIONS` variable:
 
@@ -217,9 +217,9 @@ You can also set up the application bindings from the Azure portal, as shown in 
 > [!NOTE]
 > These changes will take a few minutes to propagate to all applications when the service registry status changes.
 >
-> If you change the binding/unbinding status, you'll need to restart or redeploy the application.
+> If you change the binding/unbinding status, you need to restart or redeploy the application.
 
-You can also choose to bind to Service Registry directly when creating a new app, use the following command:
+Use the following command if you want to bind your app to the Service Registry directly when creating a new app:
 
 ```azurecli
 az spring app create \ 
@@ -229,13 +229,13 @@ az spring app create \
     --bind-service-registry
 ```
 
-You can also do this from the Azure portal, as shown in the following screenshot.
+You can also bind your app to the Service Registry from the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app-when-creation.png" alt-text="Azure portal screenshot of 'Create App' screen with 'Bind' dropdown showing.":::
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App screen with the Bind option highlighted.":::
 
 ### Deploy an application to Azure Spring Apps
 
-Now that you've bound your application, you'll deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Apps. To deploy, use the following command:
+Now that you bound your application, deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Apps. To deploy, use the following command:
 
 ```azurecli
 az spring app deploy \
@@ -289,7 +289,7 @@ This command produces the following output.
 "JAVA_TOOL_OPTIONS":"-Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_APPS_NAME.svc.azuremicroservices.io/eureka/default/eureka
 ```
 
-As you can see, `eureka.client.service-url.defaultZone` has been added to `JAVA_TOOL_OPTIONS`. In this way, the application can register the service to the Service Registry and make it available from other services.
+As you can see, `eureka.client.service-url.defaultZone` is added to `JAVA_TOOL_OPTIONS`. In this way, the application can register the service to the Service Registry and make it available from other services.
 
 You can now register the service to the Service Registry (Eureka Server) in Azure Spring Apps. Other services can now access the service by using service registry.
 
@@ -422,7 +422,7 @@ az spring app list \
     --output table
 ```
 
-If Service A and Service B are deployed correctly, this command will produce output similar to the following example.
+If Service A and Service B are deployed correctly, this command produces output similar to the following example.
 
 ```output
 Name      Location       ResourceGroup           Public Url                                                       Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
