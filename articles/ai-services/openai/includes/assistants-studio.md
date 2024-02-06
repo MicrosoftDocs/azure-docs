@@ -57,8 +57,6 @@ Chat session also known as a *thread* within the Assistant's API is where the co
 
 This also means that you are not controlling how many tokens are passed to the model during each turn of the conversation. Managing tokens is abstracted away and handled entirely by the Assistants API.
 
-At any time while using the Assistant's playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
-
 Select the **Clear chat** button to delete the current conversation history.
 
 Underneath the text input box there are two buttons:
