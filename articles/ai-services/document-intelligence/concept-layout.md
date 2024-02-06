@@ -216,6 +216,9 @@ The pages collection is the first object you see in the service response. The pa
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
+> [!NOTE]
+> For the Microsoft Word, Excel, PowerPoint, and HTML file support, the API ignores the pages parameter and extracts all pages by default.
+
 ### Paragraphs
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
