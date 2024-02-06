@@ -17,7 +17,7 @@ You can customize egress for an AKS cluster to fit specific scenarios. By defaul
 This article covers the various types of outbound connectivity that are available in AKS clusters.
  
 > [!NOTE]
-> You can now update the `outboundType` after cluster creation. This feature is in preview. See [Updating `outboundType after cluster creation (preview)](#updating-outboundtype-after-cluster-creation-preview).
+> You can now update the `outboundType` after cluster creation.
 
 ## Limitations
 
