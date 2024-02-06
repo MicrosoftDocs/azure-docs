@@ -250,6 +250,7 @@ The Key Vault Data Access Administrator role enables you to manage access to Key
 
 - [Key Vault Administrator](built-in-roles.md#key-vault-administrator)
 - [Key Vault Certificates Officer](built-in-roles.md#key-vault-certificates-officer)
+- [Key Vault Certificate User](built-in-roles.md#key-vault-certificate-user)
 - [Key Vault Crypto Officer](built-in-roles.md#key-vault-crypto-officer)
 - [Key Vault Crypto Service Encryption User](built-in-roles.md#key-vault-crypto-service-encryption-user)
 - [Key Vault Crypto User](built-in-roles.md#key-vault-crypto-user)
