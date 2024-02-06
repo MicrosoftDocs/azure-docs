@@ -83,6 +83,8 @@ A full list of supported alerts is available in the [reference table of all Defe
     The expected response is `No resource found`.
 
     Within 30 minutes, Defender for Cloud detects this activity and trigger a security alert.
+    > [!NOTE]
+    > To simulate agentless alerts for Defender for Containers, Azure Arc isn't a prerequisite.
 
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
