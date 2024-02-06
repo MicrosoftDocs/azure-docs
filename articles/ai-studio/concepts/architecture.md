@@ -1,0 +1,58 @@
+---
+title: Architecture
+titleSuffix: Azure AI Studio
+description: Learn about the architecture of Azure AI Studio.
+manager: scottpolly
+ms.service: azure-ai-studio
+ms.topic: conceptual
+ms.date: 02/06/2024
+ms.reviewer: deeikele
+ms.author: larryfr
+author: Blackmist
+---
+
+# Azure AI Studio architecture 
+    
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+
+AI Studio provides a unified experience for AI developers and data scientists to build, evaluate, and deploy AI models through a web portal, SDK, or CLI. It is built on capabilities and services provided by other Azure services.
+
+The top level AI Studio resources (AI hub and AI projects) are based on Azure Machine Learning. Other resources, such as Azure OpenAI, Azure AI Services, and Azure AI Search, are used by the AI hub and AI project.
+
+- **AI hub**: The AI hub is the top-level resource in AI Studio. The Azure resource provider for an AI hub is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Hub`. It provides the following features:
+    - Data upload and artifact storage.
+    - Hub-scoped connections to Azure services such as Azure OpenAI, Azure AI Services, and Azure AI Search.
+    - Base model endpoints.
+    - Compute resources.
+    - Security and governance.
+- **AI project**: An AI project is a child resource of the AI hub. The Azure resource provider for an AI project is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Project`. It inherits the AI hub's connections, and compute resources. When a new AI project is created from the AI hub, the security settings of the AI hub are applied to it. The AI project provides the following features:
+    - Groups of components such as datasets, models, and indexes.
+    - An isolated data container (within the storage inherited from the AI hub).
+    - Project-scoped connections. For example, a project may need access to data stored in a separate Azure Storage account.
+    - Fine tuned model endpoints.
+ 
+An AI hub can have multiple child AI projects. Each AI project can have its own set of of project-scoped connections.
+
+:::image type="content" source="../media/concepts/azureai-hub-project-resource-providers.svg" alt-text="Diagram of the relationship between AI Studio resources.":::
+
+## Azure resource providers
+
+Since Azure AI Studio is built from other Azure services, the resource providers for these services must be registered in your Azure subscription. The following table lists the resource providers used and, if applicable, the kind of the resource.
+
+| Service/Resource           | Type                                         | Kind      |
+|----------------------------|----------------------------------------------|-----------|
+| AI hub                     | `Microsoft.MachineLearningServices/workspaces` | `Hub`     |
+| AI project                 | `Microsoft.MachineLearningServices/workspaces` | `Project` |
+| Azure OpenAI               | `Microsoft.CognitiveServices/accounts`        | `OpenAI`  |
+| Azure AI Services          | `Microsoft.CognitiveServices/accounts`        | `AIServices` |
+| Azure AI Search            | `Microsoft.Search/searchServices`             |           |
+| Azure Storage              | `Microsoft.Storage/storageAccounts`           |           |
+| Azure Key Vault            | `Microsoft.KeyVault/vaults`                   |           |
+| Azure Container Registry   | `Microsoft.ContainerRegistry/registries`      |           |
+| Azure Application Insights | `Microsoft.Insights/components`               |           |
+| Azure Analytics Workspace  | `Microsoft.OperationalInsights/workspaces`    |           |
+
+
+
+
+
