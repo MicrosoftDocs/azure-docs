@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# REST API
+# Azure Maps Rest API
 
 Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone information and weather data into your web, mobile and server-side solutions.
 

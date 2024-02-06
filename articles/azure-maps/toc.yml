@@ -420,7 +420,7 @@ items:
   - name: REST
     items:
     - name: Azure Maps REST API
-      href: rest-api-maps.md
+      href: rest-api-azure-maps.md
     - name: Azure Maps Creator REST API
       href: rest-api-creator.md
     - name: Maps account management
