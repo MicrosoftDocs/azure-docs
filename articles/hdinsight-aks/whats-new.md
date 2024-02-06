@@ -3,7 +3,7 @@ title: What's new in HDInsight on AKS? (Preview)
 description: An introduction to new concepts in HDInsight on AKS that aren't in HDInsight.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 10/10/2023
+ms.date: 02/06/2024
 ---
 
 # What's new in HDInsight on AKS? (Preview)
@@ -44,22 +44,22 @@ The following table list shows the features of HDInsight on AKS that are current
 
 ## Coming soon
 
-|	Feature	|	Estimated release timeline	|
-| --- | --- |
-|	Autoscale - Load Based - Trino	|	Q1 2024	|
-|	Shuffle aware load based auto scale for Spark	|	Q2 2024	|
-|	In Place Upgrade	|	Q2 2024	|
-|	Reserved Instance Support 	|	Q2 2024	|
-|	MSI based authentication for Metastore (SQL)	|	Q1 2024	|
-|	Spark 3.4 Support	|	Q2 2024	|
-|	Trino 426 Support	|	Q1 2024	|
-|	Ranger for RBAC	|	Q2 2024	|
-|	App mode support for Flink	|	Q2 2024	|
-|	Flink 1.17 Support	|	Q1 2024	|
-|	Spark ACID Support	|	Q1 2024	|
-|	Configurable SKUs for Headnode, SSH	|	Q2 2024	|
-|	Flink SQL Gateway Support	|	Q2 2024	|
-|	Private Clusters for HDInsight on AKS	|	Q2 2024	|
-|	Ranger Support for Spark SQL	|	Q2 2024	|
-|	Ranger ACLs on Storage Layer	|	Q2 2024	|
-|	Support for One lake as primary container	|	Q2 2024	|
+|	Feature	|	Estimated release timeline	| Status |
+| --- | --- | --- |
+|	Autoscale - Load Based - Trino	|	Q1 2024	| Released |
+|	Shuffle aware load based auto scale for Spark	|	Q2 2024	| |
+|	In Place Upgrade	|	Q2 2024	| 
+|	Reserved Instance Support 	|	Q2 2024	| |
+|	MSI based authentication for Metastore (SQL)	|	Q1 2024	| |
+|	Spark 3.4 Support	|	Q2 2024	| |
+|	Trino 426 Support	|	Q1 2024	| |
+|	Ranger for RBAC	|	Q2 2024	| |
+|	App mode support for Flink	|	Q2 2024	| |
+|	Flink 1.17 Support	|	Q1 2024	| |
+|	Spark ACID Support	|	Q1 2024	| |
+|	Configurable SKUs for Headnode, SSH	|	Q2 2024	| |
+|	Flink SQL Gateway Support	|	Q2 2024	| |
+|	Private Clusters for HDInsight on AKS	|	Q2 2024	| |
+|	Ranger Support for Spark SQL	|	Q2 2024	| |
+|	Ranger ACLs on Storage Layer	|	Q2 2024	| |
+|	Support for One lake as primary container	|	Q2 2024	| 
