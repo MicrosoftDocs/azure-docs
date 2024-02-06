@@ -103,5 +103,5 @@ You can use location telemetry to create a geofencing rule that generates an ale
 
 Now that you've learned how to use properties in your Azure IoT Central application, see:
 
-* [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md)
+* [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md)
 * [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
