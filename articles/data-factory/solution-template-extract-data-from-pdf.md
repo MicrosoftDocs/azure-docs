@@ -42,9 +42,6 @@ This template defines 4 parameters:
 	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop down menu to Azure AI Document Intelligence in template set up.":::
 	
     In your connection to Azure AI Document Intelligence, make sure to add a **Linked service Parameter**. You will need to use this parameter as your dynamic **Base URL**. You will also need to add an 
-
-   :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-2.png" alt-text="Screenshot of where to add your Azure AI Document Intelligence linked service parameter.":::
-
     You will also need to add a new **Auth header** under **Auth headers**. The name should be **Ocp-Apim-Subscription-Key** and the value should be the key value you find from your Azure Resource. 
    
    :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-3.png" alt-text="Screenshot of the linked service base URL that references the linked service parameter and Auth headers to add.":::
