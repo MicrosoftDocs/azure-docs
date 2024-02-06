@@ -1,6 +1,6 @@
 ---
-title: Delete a SQL Server Managed Instance enabled by Azure Arc
-description: Learn how to delete a SQL Server Managed Instance enabled by Azure Arc and optionally, reclaim associated Kubernetes persistent volume claims (PVCs).
+title: Delete a SQL Managed Instance enabled by Azure Arc
+description: Learn how to delete a SQL Managed Instance enabled by Azure Arc and optionally, reclaim associated Kubernetes persistent volume claims (PVCs).
 ms.custom: kr2b-contr-experiment, devx-track-azurecli
 services: azure-arc
 ms.service: azure-arc
@@ -12,7 +12,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Delete a SQL Server Managed Instance enabled by Azure Arc
+# Delete a SQL Managed Instance enabled by Azure Arc
 
 In this how-to guide, you'll find and then delete a SQL Managed Instance enabled by Azure Arc. Optionally, after deleting managed instances, you can reclaim associated Kubernetes persistent volume claims (PVCs).
 

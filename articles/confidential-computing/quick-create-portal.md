@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
 ms.author: jushiman
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom: mode-ui
 ---
 
 

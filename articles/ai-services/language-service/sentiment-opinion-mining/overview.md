@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 01/25/2024
 ms.author: aahi
-ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
+ms.custom: language-service-sentiment-opinion-mining
 ---
 
 # What is sentiment analysis and opinion mining?

@@ -19,6 +19,8 @@ Start exploring GPT-4 Turbo with Vision capabilities with a no-code approach thr
 - An Azure OpenAI Service resource. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 - For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource, in the paid (S0) tier.
 
+> [!NOTE]
+> It is currently not supported to turn off content filtering for the GPT-4 Turbo with Vision model.
 
 ## Go to Azure OpenAI Studio
 
@@ -41,7 +43,11 @@ For general help with assistant setup, chat sessions, settings, and panels, refe
 
 In this chat session, you're instructing the assistant to aid in understanding images that you input. 
 1. To start, select your GPT-4 Turbo with Vision deployment from the dropdown.
-2. In the **Assistant setup** pane, provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the System Message to the image or scenario that you're uploading. 
+2. In the **Assistant setup** pane, provide a System Message to guide the assistant. The default System Message is: "You are an AI assistant that helps people find information." You can tailor the System Message to the image or scenario that you're uploading. 
+
+   > [!NOTE]
+    > It is recommended to update the System Message to be specific to the task in order to avoid unhelpful responses from the model.
+
 1. Save your changes, and when prompted to confirm updating the system message, select **Continue**.
 1. In the **Chat session** pane, enter a text prompt like "Describe this image," and upload an image with the attachment button. You can use a different text prompt for your use case. Then select **Send**. 
 1. Observe the output provided. Consider asking follow-up questions related to the analysis of your image to learn more.
@@ -57,13 +63,17 @@ The **Optical Character Recognition (OCR)** integration allows the model to prod
 The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
 
 > [!CAUTION]
-> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 In this chat session, you try out the capabilities of the enhanced Vision model.
 1. To start, select your GPT-4 Turbo with Vision deployment from the dropdown.
 1. In the **Configuration** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancements** section.
 1. You're required to select a Computer Vision resource to try the enhanced Vision API. Select your resource, and **Save**. 
-1. Provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you're uploading. 
+1. In the **Assistant setup** pane, provide a System Message to guide the assistant. The default System Message is: "You are an AI assistant that helps people find information." You can tailor the System Message to the image or scenario that you're uploading.  
+
+    > [!NOTE]
+    > It is recommended to update the System Message to be specific to the task in order to avoid unhelpful responses from the model.
+    
 1. Save your changes, and when prompted to confirm updating the system message, select **Continue**.
 1. In the **Chat session** pane, enter a text prompt like "Describe this image," and upload an image with the attachment button. You can use a different text prompt for your use case. Then select **Send**.  
 1. You should receive a response with more detailed information about visible text in the image and the locations of objects. Consider asking follow-up questions related to the analysis of your image to learn more.
@@ -75,12 +85,16 @@ In this chat session, you try out the capabilities of the enhanced Vision model.
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. The **video prompt** integration uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. It enables the AI model to give summaries and answers about video content.
 
 > [!CAUTION]
-> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 1. To start, select your GPT-4 Turbo with Vision deployment from the dropdown.
 1. In the **Configuration** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancements** section.
 1. You're required to select a Computer Vision resource to try the enhanced Vision API. Select your resource, and **Save**. 
-1. Provide this System Message to guide the assistant: "You are an AI assistant that summarizes video, paying attention to important events, people, and objects in the video." You can tailor the prompt the image or scenario that you're uploading. 
+1. In the **Assistant setup** pane, provide a System Message to guide the assistant. The default System Message is: "You are an AI assistant that helps people find information." You can tailor the System Message to the video or scenario that you're uploading.  
+
+    > [!NOTE]
+    > It is recommended to update the System Message to be specific to the task in order to avoid unhelpful responses from the model.
+    
 1. Save your changes, and when prompted to confirm updating the system message, select **Continue**.
 1. In the chat session pane, enter a question about the video like: "Describe this video in detail. Focus on brands, technology and people." You can use a different text prompt for your use case. Upload a video using the attachment button and then select **Send**. 
 

@@ -10,9 +10,8 @@ ms.workload: web
 ms.topic: article
 ms.date: 04/08/2022
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 
 # Azure NAT Gateway integration

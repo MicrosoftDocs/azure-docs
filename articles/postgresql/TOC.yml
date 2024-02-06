@@ -33,6 +33,8 @@
     href: flexible-server/release-notes.md
   - name: API release notes
     href: flexible-server/release-notes-api.md
+  - name: CLI release notes
+    href: flexible-server/release-notes-cli.md
   - name: Try for free
     href: flexible-server/how-to-deploy-on-azure-free-account.md
   - name: Quickstarts

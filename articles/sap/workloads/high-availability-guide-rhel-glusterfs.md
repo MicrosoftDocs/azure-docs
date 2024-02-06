@@ -2,7 +2,6 @@
 title: GlusterFS on Azure VMs on RHEL for SAP NetWeaver | Microsoft Docs
 description: GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure

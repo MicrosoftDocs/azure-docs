@@ -1,13 +1,13 @@
 ---
 title: Azure Monitor Logs
-description: Learn the basics of Azure Monitor Logs, which is used for advanced analysis of monitoring data.
+description: Learn the basics of Azure Monitor Logs, which are used for advanced analysis of monitoring data.
 ms.topic: conceptual
 ms.date: 09/14/2023
 ms.author: bwren
 ---
 
 # Azure Monitor Logs overview
-Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from [monitored resources](../monitor-reference.md). Several features of Azure Monitor store their data in Logs and present this data in various ways to assist you in monitoring the performance and availability of your cloud and hybrid applications and their supporting components.
+Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. Several features of Azure Monitor store their data in Logs and present this data in various ways to assist you in monitoring the performance and availability of your cloud and hybrid applications and their supporting components.
 
 Along with using existing Azure Monitor features, you can analyze Logs data by using a sophisticated query language that's capable of quickly analyzing millions of records. You might perform a simple query that retrieves a specific set of records or perform sophisticated data analysis to identify critical patterns in your monitoring data. Work with log queries and their results interactively by using Log Analytics, use them in alert rules to be proactively notified of issues, or visualize their results in a workbook or dashboard.
 
@@ -44,8 +44,6 @@ This configuration will be different depending on the data source. For example:
 > [!IMPORTANT]
 > Most data collection in Logs will incur ingestion and retention costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before you enable any data collection.
 
-For a complete list of data sources that you can configure to send data to Azure Monitor Logs, see [What is monitored by Azure Monitor?](../monitor-reference.md).
-
 ## Log Analytics workspaces
 Azure Monitor Logs stores the data that it collects in one or more [Log Analytics workspaces](./workspace-design.md). You must create at least one workspace to use Azure Monitor Logs. For a description of Log Analytics workspaces, see [Log Analytics workspace overview](log-analytics-workspace-overview.md).
 
@@ -78,7 +76,7 @@ The experience of using Log Analytics to work with Azure Monitor queries in the 
 
 [Security monitoring](../best-practices-plan.md#security-monitoring) in Azure is performed by [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md).
 
-These services store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor. For more information, see [Product integrations](../monitor-reference.md#product-integrations) and [Other services](../data-sources.md#other-services).
+These services store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
 
 ### Learn more
 
