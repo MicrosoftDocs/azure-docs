@@ -71,7 +71,7 @@
   - name: Microsoft Entra ID
     href: mobile-app/microsoft-entra-id.md
     displayName: mobile, app
-  - name: Find training on the Azure mobile app
+  - name: Learn about Azure
     href: mobile-app/learn-training.md
     displayName: mobile, app, training
 - name: Reference

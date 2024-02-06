@@ -1,11 +1,11 @@
 ---
-title: Find training on the Azure mobile app
-description: The Microsoft Learn features on the Azure mobile app are designed to help you learn Azure skills anytime, anywhere.
+title:Learn about Azure in the Azure mobile app
+description: The Microsoft Learn features in the Azure mobile app help you learn Azure skills anytime, anywhere.
 ms.date: 02/06/2024
 ms.topic: conceptual
 ---
 
-# Find training on the Azure mobile app
+# Learn about Azure in the Azure mobile app
 
 The Microsoft Learn features on the Azure mobile app are designed to help you learn Azure skills anytime, anywhere. Browse and view the most popular Azure modules, such as Azure fundamentals, Azure security, and Azure AI. Access the Azure certification page, Azure Learn landing page, Azure Q&A, and other useful pages.
 
@@ -15,15 +15,17 @@ You can access the **Learn** Page from [Azure mobile app **Home**](home.md).
 
 ## Most popular lessons
 
-When you arrive to the Learn page on the Azure mobile app, you'll see the current most popular lessons. These modules are the highest viewed Azure content that can be easily completed in a short amount of time.
+When you arrive to the Learn page on the Azure mobile app, the **Most popular lessons** section shows the most popular lessons. These modules are the highest-viewed Azure content that can be easily completed in a short amount of time.
 
 :::image type="content" source="media/learn-training/most-popular-lessons.png" alt-text="Screenshot of the Azure mobile app showing the most popular lessons from Microsoft Learn.":::
 
-Each lesson card shows information about the module, including the title, average time to complete, and user rating. To start a lesson, just select it to begin. Remember to sign in to your Microsoft account to save your progress!
+Each lesson card shows information about the module, including the title, average time to complete, and user rating.
 
-To see more of the most popular lessons, select **More** in the top right. The top 10 most popular lessons will be shown.
+To see more of the most popular lessons, select **More** in the top right. The current top 10 most popular lessons will be shown.
 
 :::image type="content" source="media/learn-training/most-popular-more.png" alt-text="Screenshot showing the top 10 most popular lessons in the Azure mobile app.":::
+
+To start a lesson, just select it to begin. Remember to sign in to your Microsoft account to save your progress!
 
 ## Learn Links
 
