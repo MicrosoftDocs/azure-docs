@@ -451,20 +451,20 @@ Define network settings and enable network isolation for Microsoft Sentinel Logs
 
 ##### Virtual network service tags
 
-Microsoft Sentinel output plugin supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureActiveDirectory* tags are required. 
+Microsoft Sentinel output plugin supports [Azure virtual network service tags](../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureActiveDirectory* tags are required. 
 
-Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags cannot be used, the Firewall requirements are given below.
+Azure Virtual network service tags can be used to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags cannot be used, the Firewall requirements are given below.
 
 ##### Firewall requirements
 
-| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection| Example |
-|------|------|------|---------|--------|--------|------|
-| Azure Commercial |https://login.microsoftonline.com |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes | - |
-| Azure Commercial |https://<data collection endpoint name>.<Azure cloud region>.ingest.monitor.azure.com| Data collection Endpoint|Port 443 |Outbound|Yes | - |
-| Azure Government |https://login.microsoftonline.us |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes | - |
-| Azure Government |Replace '.com' above with '.us'	| Data collection Endpoint|Port 443 |Outbound|Yes | - |443 |Outbound|Yes | - |
-| Microsoft Azure operated by 21Vianet |https://login.chinacloudapi.cn |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes | - |
-| Microsoft Azure operated by 21Vianet |Replace '.com' above with '.cn'	| Data collection Endpoint|Port 443 |Outbound|Yes | - |
+| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
+|------|------|------|---------|--------|--------|
+| Azure Commercial |https://login.microsoftonline.com |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes |
+| Azure Commercial |https://[data collection endpoint name].[Azure cloud region].ingest.monitor.azure.com| Data collection Endpoint|Port 443 |Outbound|Yes |
+| Azure Government |https://login.microsoftonline.us |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes |
+| Azure Government |Replace '.com' above with '.us'	| Data collection Endpoint|Port 443 |Outbound|Yes |
+| Microsoft Azure operated by 21Vianet |https://login.chinacloudapi.cn |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes |
+| Microsoft Azure operated by 21Vianet |Replace '.com' above with '.cn'	| Data collection Endpoint|Port 443 |Outbound|Yes |
 
 ## Limitations
 
