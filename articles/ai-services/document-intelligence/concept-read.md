@@ -73,7 +73,7 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-## Read model data extraction
+## Get started with Read model
 
 Try extracting text from forms and documents using the Document Intelligence Studio. You need the following assets:
 
@@ -101,22 +101,13 @@ Try extracting text from forms and documents using the Document Intelligence Stu
    > [!div class="nextstepaction"]
    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-## Supported extracted languages and locales
+## Supported languages and locales
 
 *See* our [Language Support—document analysis models](language-support-ocr.md) page for a complete list of supported languages.
 
-### Microsoft Office and HTML text extraction
+## Data extraction
 
-When analyzing Microsft Office and HTML files, the page units in the model output are computed as shown:
-
- **File format**   | **Computed page unit**   | **Total pages**  |
-| --- | --- | --- |
-|Word  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
-|Excel  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets
-|PowerPoint |  Each slide = 1 page unit, embedded or linked images not supported | Total slides
-|HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
-
-### Paragraphs extraction
+### Paragraphs
 
 The Read OCR model in Document Intelligence extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.
 
@@ -130,13 +121,20 @@ The Read OCR model in Document Intelligence extracts all identified blocks of te
 ]
 ```
 
-The page units in the model output are computed as shown:
+### Pages
+
+When analyzing Microsft Office and HTML files, the page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
-|Images | Each image = 1 page unit | Total images  |
+|Images (JPEG/JPG, PNG, BMP, HEIF) | Each image = 1 page unit | Total images  |
 |PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
 |TIFF | Each image in the TIFF = 1 page unit | Total images in the PDF |
+|Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+|Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets | 
+|PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides | 
+|HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+
 
 ```json
 "pages": [
@@ -154,11 +152,16 @@ The page units in the model output are computed as shown:
 ]
 ```
 
-### Text lines and words extraction
+### Select page(s) for text extraction
+
+For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
+
+> [!NOTE]
+> For the Microsoft Word, Excel, PowerPoint, and HTML file support, the API ignores the pages parameter and extracts all pages by default.
+
+### Text lines and words
 
 The Read OCR model extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
-
-For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Read extracts all embedded text as is. For any embedded images, it runs OCR on the images to extract text and append the text from each image as an added entry to the `pages` collection. These added entries include the extracted text lines and words, their bounding polygons, confidences, and the spans pointing to the associated text.
 
 ```json
 "words": [
@@ -177,13 +180,6 @@ For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Rea
     }
 ]
 ```
-
-### Select page(s) for text extraction
-
-For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
-
-> [!NOTE]
-> For the Microsoft Word, Excel, PowerPoint, and HTML file support, the Read API ignores the pages parameter and extracts all pages by default.
 
 ### Handwritten style for text lines
 
@@ -209,13 +205,13 @@ Complete a Document Intelligence quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)
-> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.1.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)
+> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-4.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 
 > [!div class="nextstepaction"]
-> [Document Intelligence API v3.1](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
+> [Document Intelligence API v4.0](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)
