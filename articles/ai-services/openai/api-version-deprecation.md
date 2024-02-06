@@ -22,6 +22,7 @@ Azure OpenAI API version 2023-12-01-preview is currently the latest preview rele
 
 This version contains support for all the latest Azure OpenAI features including:
 
+- [Text to speech](./text-to-speech-quickstart.md). [**Added in 2024-02-15-preview**]
 - [Fine-tuning](./how-to/fine-tuning.md) `gpt-35-turbo`, `babbage-002`, and `davinci-002` models.[**Added in 2023-10-01-preview**]
 - [Whisper](./whisper-quickstart.md). [**Added in 2023-09-01-preview**]
 - [Function calling](./how-to/function-calling.md)  [**Added in 2023-07-01-preview**]

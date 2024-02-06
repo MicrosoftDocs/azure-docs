@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-The Azure AI SDK is a family of packages that provide access to Azure AI services such as Azure OpenAI and Speech. 
+The Azure AI SDK is a family of packages that provide access to Azure AI services such as Azure OpenAI. 
 
 In this article, you'll learn how to get started with the Azure AI SDK for generative AI applications. You can either:
 - [Install the SDK into an existing development environment](#install-the-sdk-into-an-existing-development-environment) or

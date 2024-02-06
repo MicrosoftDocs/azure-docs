@@ -15,9 +15,6 @@ ms.custom: references_regions
 
 Azure AI Speech is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-> [!IMPORTANT]
-> You'll be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see  [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and the [Charge for adaptation section in the speech to text 3.2 migration guide](./migrate-v3-1-to-v3-2.md#charge-for-adaptation).
-
 ## Recent highlights
 
 * Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](./batch-transcription-create.md#use-a-whisper-model) guide. 

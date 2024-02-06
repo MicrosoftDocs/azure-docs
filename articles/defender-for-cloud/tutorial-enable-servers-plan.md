@@ -102,9 +102,9 @@ By enabling Defender for Servers on a Log Analytics workspace, you aren't enabli
 
 ## Enable Defender for Servers at the resource level
 
-To protect all of your existing and future resources, we recommend you enable Defender for Servers on your entire Azure subscription.
+To protect all of your existing and future resources, we recommend you [enable Defender for Servers on your entire Azure subscription](#enable-on-an-azure-subscription-aws-account-or-gcp-project).
 
-You can exclude specific resources or manage security configurations at a lower hierarchy level by enabling the Defender for Servers plan at the resource level with REST API or at scale.
+You can exclude specific resources or manage security configurations at a lower hierarchy level by enabling the Defender for Servers plan at the resource level. You can enable the plan on the resource level with REST API or at scale.
 
 The supported resource types include:
 
@@ -135,4 +135,5 @@ After enabling the plan, you have the ability to [configure the features of the 
 ## Next steps
 
 [Configure Defender for Servers features](configure-servers-coverage.md).
-[Overview of Microsoft Defender for Servers](defender-for-servers-introduction.md)
+
+[Overview of Microsoft Defender for Servers](defender-for-servers-introduction.md).
