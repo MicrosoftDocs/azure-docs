@@ -37,10 +37,10 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select the **Universal Windows Platform settings** tab.
 1. Expand **Publishing Settings**.
 1. In **Supported Device Families**, make sure **Desktop** is checked.
-    ![player settings](./media/unity-2020-enable-desktop-support.png)
+    ![player settings desktop support Unity 2020](./media/unity-2020-enable-desktop-support.png)
 1. Expand the **XR Settings**.
 1. Disable **Virtual Reality Supported**.\
-    ![player settings](./media/unity-2020-disable-xr.png)
+    ![player settings virtual reality support Unity 2020](./media/unity-2020-disable-xr.png)
 
 ## [Unity 2021+] (#tab/Unity2021PlusSettings)
 
@@ -51,11 +51,11 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select the **Universal Windows Platform settings** tab.
 1. Expand the **Publishing Settings**.
 1. In **Supported Device Families**, make sure **Desktop** is checked.
-    ![player settings](./media/unity-2021-enable-desktop-support.png)
+    ![player settings desktop support Unity 2021 and later](./media/unity-2021-enable-desktop-support.png)
 1. Select **XR Plugin Management** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
 1. Disable **OpenXR**.\
-    ![player settings](./media/unity-2021-disable-xr.png)
+    ![player settings enable OpenXR Unity 2021 and later](./media/unity-2021-disable-xr.png)
 
 ## Build the sample project
 
@@ -66,7 +66,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Set *Target Device* to **PC**.
 1. Set *Architecture* to **x86**.
 1. Set *Build Type* to **D3D Project**.\
-  ![Build settings](./media/unity-2020-build-settings-pc.png)
+  ![Build settings Unity 2020](./media/unity-2020-build-settings-pc.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
@@ -76,7 +76,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Change *Platform* to **Universal Windows Platform** (**PC Standalone** is also supported but not used here).
 1. Set *Architecture* to **Intel 32-bit**.
 1. Set *Build Type* to **D3D Project**.\
-  ![Build settings](./media/unity-2021-build-settings-pc.png)
+  ![Build settings Unity 2021 and later](./media/unity-2021-build-settings-pc.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
