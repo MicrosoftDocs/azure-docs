@@ -40,6 +40,7 @@ General troubleshooting guides for Python Functions include:
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 * [Sync triggers failed](#sync-triggers-failed)
+* [Issues developing in Azure Portal](#issues-developing-in-azure-portal)
 ::: zone-end
 
 
@@ -306,6 +307,13 @@ This error is a result of how extensions are loaded from the bundle locally. To 
 
 In the [Azure portal](https://portal.azure.com), select **Settings** > **Configuration**, and then ensure that the `AzureWebJobsFeatureFlags` application setting has a value of `EnableWorkerIndexing`. If it's not found, add this setting to the function app.
 ::: zone-end
+
+## Issues developing in Azure Portal
+
+When using the [Azure portal](https://portal.azure.com/), please note the following known issues and their workarounds.
+
+* To delete a function from a function app in the Portal, remove the function code from the file itself. The 'delete' button will not work to remove the function in the function app when developing with the v2 programming model.
+* When developing in the Azure portal, the platform may direct you to leveraging a different tool for development. This could happened for many different reasons, and a common reason is that a syntax error has been detected. In this scenario, use VS Code and Core Tools for editing Azure Functions.
 
 ## Next steps
 

@@ -64,6 +64,8 @@ Choose your preferred programming language at the top of the article.
 >+ [Terminal/command prompt](./create-first-function-cli-python.md)
 ::: zone-end 
 
+Please review the [known issues](./recover-python-functions.md#issues-developing-in-azure-portal) for development of Azure Functions using Python in the Azure portal.
+
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
