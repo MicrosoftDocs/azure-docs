@@ -84,6 +84,7 @@ For more information, see [HDInsight on AKS security](./concept-security.md).
 * West US 2
 * West US 3
 * East US
+* East Asia
 
 > [!Note]
 > - The Trino brand and trademarks are owned and managed by the [Trino Software Foundation](https://trino.io/foundation.html). No endorsement by The Trino Software Foundation is implied by the use of these marks.
