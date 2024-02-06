@@ -105,7 +105,7 @@ The ingestion agent only supports certificate-based authentication for service p
 > [!IMPORTANT]
 > The pkcs12 file must not be protected with a passphrase. When OpenSSL prompts you for an export password, press <kbd>Enter</kbd> to supply an empty passphrase.
 
-5. Validate your pkcs12 file, this will output information about the pkcs12 file including the certificate(s) and private key:
+5. Validate your pkcs12 file. This displays information about the pkcs12 file including the certificate and private key:
 
     `openssl pkcs12 -nodes -in <pkcs12-certificate-filename> -info`
 
