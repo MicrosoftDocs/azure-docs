@@ -12,7 +12,7 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 02/07/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-ai-services
 #Customer intent: As a developer, I want to implement pronunciation assessment on spoken language using a technology that works in my environment to gives feedback on accuracy and fluency.
