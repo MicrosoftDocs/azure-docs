@@ -104,9 +104,9 @@
       items:
         - name: Azure Monitor tutorial
           href: tutorial-troubleshoot-monitor.md
-        - name: About Azure Monitor logs
+        - name: Monitor
           href: monitor-app-service.md
-        - name: Azure Monitor logs reference
+        - name: Monitoring data reference
           href: monitor-app-service-reference.md
     - name: Monitor instance health
       href: monitor-instances-health-check.md
