@@ -778,7 +778,8 @@ All references to unsupported versions of .NET and .NET CORE are scrubbed from A
 |:---|:---|
 | [Configure ContainerLogv2 schema (preview) for Container insights](containers/container-insights-logs-schema.md) | New article: Describes new schema for container logs. |
 | [Enable Container insights](containers/container-insights-onboard.md) | Rewritten to improve clarity. |
-| [Resource Manager template samples for Container insights](containers/resource-manager-container-insights.md) | Added Bicep examples. |
+| [Resource Manager template samples for Container insights](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=arm#enable-container-insights) | Added Bicep examples. |
+
 ### Insights
 
 | Article | Description |

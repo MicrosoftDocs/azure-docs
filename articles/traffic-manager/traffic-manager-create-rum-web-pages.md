@@ -2,7 +2,6 @@
 title: Real User Measurements with web pages - Azure Traffic Manager
 description: In this article, learn how to set up your web pages to send Real User Measurements to Azure Traffic Manager.
 services: traffic-manager
-documentationcenter: traffic-manager
 author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager

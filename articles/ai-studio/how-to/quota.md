@@ -24,7 +24,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 In this article, you learn about: 
 
 - Default limits on Azure resources  
-- Creating Azure AI resource-level quotas. 
+- Creating Azure AI hub resource-level quotas. 
 - Viewing your quotas and limits 
 - Requesting quota and limit increases 
 
@@ -80,7 +80,7 @@ When opening the support request to increase the total compute limit, provide th
 
 Azure AI Studio provides a pool of shared quota that is available for different users across various regions to use concurrently. Depending upon availability, users can temporarily access quota from the shared pool, and use the quota to perform testing for a limited amount of time. The specific time duration depends on the use case. By temporarily using quota from the quota pool, you no longer need to file a support ticket for a short-term quota increase or wait for your quota request to be approved before you can proceed with your workload. 
 
-Use of the shared quota pool is available for testing inferencing for Llama models from the Model Catalog. You should use the shared quota only for creating temporary test endpoints, not production endpoints. For endpoints in production, you should [request dedicated quota](#view-and-request-quotas-in-the-studio). Billing for shared quota is usage-based, just like billing for dedicated virtual machine families. 
+Use of the shared quota pool is available for testing inferencing for Llama-2, Phi, Nemotron, Mistral, Dolly and Deci-DeciLM models from the Model Catalog. You should use the shared quota only for creating temporary test endpoints, not production endpoints. For endpoints in production, you should [request dedicated quota](#view-and-request-quotas-in-the-studio). Billing for shared quota is usage-based, just like billing for dedicated virtual machine families. 
 
 ## Container Instances 
 
@@ -92,9 +92,9 @@ Azure Storage has a limit of 250 storage accounts per region, per subscription. 
 
 ## View and request quotas in the studio 
 
-Use quotas to manage compute target allocation between multiple Azure AI resources in the same subscription. 
+Use quotas to manage compute target allocation between multiple Azure AI hub resources in the same subscription. 
 
-By default, all Azure AI resources share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on Azure AI resources in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
+By default, all Azure AI hub resources share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on Azure AI hub resources in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
 
 In Azure AI Studio, select **Manage** from the top menu. Select **Quota** to view your quota at the subscription level in a region for both Azure Machine Learning virtual machine families and for your Azure Open AI resources. 
 

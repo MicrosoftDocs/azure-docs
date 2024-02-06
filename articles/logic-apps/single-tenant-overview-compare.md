@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 10/30/2023
-ms.custom: ignite-fall-2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps

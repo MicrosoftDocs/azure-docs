@@ -9,7 +9,6 @@ ms.reviewer: orspodek
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: seodec18
 ---
 
 # Send events to an Azure Time Series Insights Gen1 environment by using an event hub

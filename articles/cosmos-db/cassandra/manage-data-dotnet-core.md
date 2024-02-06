@@ -8,7 +8,7 @@ ms.author: thvankra
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 05/02/2020
-ms.custom: devx-track-dotnet, mode-api, ignite-2022
+ms.custom: devx-track-dotnet, mode-api
 ---
 
 # Quickstart: Build a Cassandra app with .NET Core and Azure Cosmos DB

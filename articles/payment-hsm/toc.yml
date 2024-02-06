@@ -5,6 +5,8 @@
   items:
   - name: Payment HSM overview
     href: overview.md
+  - name: Getting started with Azure Payment HSM
+    href: getting-started.md
   - name: What's new
     href: whats-new.md
 
@@ -24,7 +26,11 @@
   - name: 2. View your payment HSMs
     href: view-payment-hsms.md
   - name: 3. Access the payShield manager for your payment HSM
-    href: access-payshield-manager.md
+    items:
+    - name: Using VPN
+      href: access-payshield-manager.md
+    - name: Using SSH
+      href: access-payshield-manager-ssh.md
   - name: 4. Delete a commissioned payment HSM
     href: remove-payment-hsm.md
 
@@ -36,12 +42,6 @@
     href: quickstart-powershell.md
   - name: ARM template
     href: quickstart-template.md
-
-- name: Get started
-  items:
-  - name: Getting started with Azure Payment HSM
-    href: getting-started.md
-
 - name: Compliance
   items:
   - name: Certification and compliance

@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 01/30/2024
 ms.author: pafarley
 ms.custom: references_regions
 ---
@@ -23,7 +23,7 @@ The Multi-modal embeddings APIs enable the _vectorization_ of images and text qu
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
    * After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 
 ## Try out Multi-modal embeddings
@@ -51,7 +51,7 @@ curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?
 }"
 ```
 
-To vectorize a local image, you'd put the binary image data in the HTTP request body.
+To vectorize a local image, you'd put the binary data in the HTTP request body.
 
 The API call returns a **vector** JSON object, which defines the image's coordinates in the high-dimensional vector space.
 
@@ -90,7 +90,9 @@ The API call returns a **vector** JSON object, which defines the text string's c
 
 Cosine similarity is a method for measuring the similarity of two vectors. In an image retrieval scenario, you'll compare the search query vector with each image's vector. Images that are above a certain threshold of similarity can then be returned as search results.
 
-The following example C# code calculates the cosine similarity between two vectors. It's up to you to decide what similarity threshold to use for returning images as search results.
+The following example code calculates the cosine similarity between two vectors. It's up to you to decide what similarity threshold to use for returning images as search results.
+
+#### [C#](#tab/csharp)
 
 ```csharp
 public static float GetCosineSimilarity(float[] vector1, float[] vector2)
@@ -107,6 +109,17 @@ public static float GetCosineSimilarity(float[] vector1, float[] vector2)
     return dotProduct / (magnitude1 * magnitude2);
 }
 ```
+
+#### [Python](#tab/python)
+
+```python
+import numpy as np
+
+def cosine_similarity(vector1, vector2):
+    return np.dot(vector1, vector2) / (np.linalg.norm(vector1) * np.linalg.norm(vector2))
+```
+
+---
 
 ## Next steps
 

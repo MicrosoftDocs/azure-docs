@@ -60,7 +60,7 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 
 ## Quotas
 
-Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#quotas).
+Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#throttling-limits-and-quotas).
 
 ## Next steps
 

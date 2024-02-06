@@ -4,6 +4,7 @@ description: This article describes Azure Virtual Machines high availability for
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

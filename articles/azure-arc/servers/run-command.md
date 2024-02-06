@@ -207,5 +207,5 @@ To disable the Run Command on Azure Arc-enabled servers, open an administrative 
 
 **Linux**
 
-sudo azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"
+`sudo azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"`
 

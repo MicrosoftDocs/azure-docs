@@ -2,7 +2,6 @@
 title: Use Windows DFS-N to support flexible SAPMNT share creation for SMB based file shares
 description: Using Windows DFS-N to overcome SAP-related SAPMNT naming limitations for Azure NetApp Files SMB or Azure Files Premium SMB
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: stmuelle
 manager: juergent
 tags: azure-resource-manager

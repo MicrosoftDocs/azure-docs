@@ -52,14 +52,14 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
               objectName: AIOFabricSecret  
               objectType: secret           
               objectVersion: ""            
-        tenantId: <this is your tenant id>
+        tenantId: <this is your tenant ID>
         usePodIdentity: "false"                       
       provider: azure
     ```
 
 1. Save the changes and exit from the editor.
 
-The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. For example, to restart Data Processor run the following commands:
+The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. To restart Data Processor, run the following commands:
 
 ```console
 kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
