@@ -4,13 +4,12 @@ description: Learn about basic considerations for Azure Dedicated HSM high avail
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-
 ---
 # Azure Dedicated HSM high availability
 
