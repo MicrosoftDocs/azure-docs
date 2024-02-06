@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 1/21/2024
+ms.date: 2/1/2024
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -60,7 +60,9 @@ More remarks for text to speech locales are included in the [voice styles and ro
 
 ### Multilingual voices
 
-Multilingual voices can support more languages. This expansion enhances your ability to express content in various languages, to overcome language barriers and foster a more inclusive global communication environment. Use this table to understand all supported speaking languages for each multilingual neural voice. If the voice doesn’t speak the language of the input text, the Speech service doesn’t output synthesized audio. The table is sorted by the number of supported languages in descending order. The primary locale for each voice is the prefix in its name, such as the voice `en-US-AndrewMultilingualNeural`, its primary locale is `en-US`.
+Multilingual voices can support more languages. This expansion enhances your ability to express content in various languages, to overcome language barriers and foster a more inclusive global communication environment. 
+
+Use this table to understand all supported speaking languages for each multilingual neural voice. If the voice doesn’t speak the language of the input text, the Speech service doesn’t output synthesized audio. The table is sorted by the number of supported languages in descending order. The primary locale for each voice is indicated by the prefix in its name, such as the voice `en-US-AndrewMultilingualNeural`, its primary locale is `en-US`.
 
 [!INCLUDE [Language support include](includes/language-support/multilingual-voices.md)]
 
@@ -73,6 +75,7 @@ To learn how you can configure and adjust neural voice styles and roles, see [Sp
 Use the following table to determine supported styles and roles for each neural voice.
 
 [!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
+
 
 ### Viseme
 
