@@ -10,7 +10,7 @@ ms.author: cshoe
 
 The following chart shows how requests are handled locally.
 
-:::image type="content" source="../articles/static-web-apps/media/local-development/cli-conceptual.png" alt-text="Azure Static Web App CLI request and response flow":::
+:::image type="content" source="../articles/static-web-apps/media/local-development/cli-conceptual.png" alt-text="Diagram showing the Azure Static Web App CLI request and response flow.":::
 
 > [!IMPORTANT]
 > Go to `http://localhost:4280` to access the application served by the CLI.
