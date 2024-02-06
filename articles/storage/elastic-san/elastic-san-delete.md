@@ -31,20 +31,18 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 
 ### Linux
 
-To delete iSCSI connections to volumes, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
+You can use the following script to create your connections. To execute it, you will require the following parameters:
 
-Run the following command to get these values:
+subscription: Subscription ID
+g: Resource Group Name
+e: Elastic SAN Name
+v: Volume Group Name
+n <vol1, vol2, ...>: Names of volumes 1 and 2 and other volume names that you might require, comma separated
 
-```azurecli
-az elastic-san volume-group list -e $sanName -g $resourceGroupName -v $searchedVolumeGroup -n $searchedVolume
-```
-
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
-
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
+Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/disconnect_for_documentation.py) and save it as a .py file, for example, disconnect.py. Then execute it with the required parameters. The following is an example of how you'd run the script:
 
 ```
-iscsiadm --mode node --target **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** --logout
+./disconnect.py --subscription <subid> -g <rgname> -e <esanname> -v <vgname> -n <vol1, vol2>
 ```
 
 ## Delete a SAN
