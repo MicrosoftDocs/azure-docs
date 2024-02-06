@@ -6,7 +6,7 @@ ms.author: rmpablos
 ms.date: 1/23/2024
 ms.topic: conceptual
 ms.custom: mvc
-ms.service: iot-develop
+ms.service: iot
 ---
 
 # IoT Plug and Play architecture
@@ -33,7 +33,7 @@ The model repository has built-in role-based access controls that let you manage
 
 ## Devices
 
-A device builder implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./about-iot-sdks.md). The device SDKs help the device builder to:
+A device builder implements the code to run on an IoT device using one of the [Azure IoT device SDKs](../iot-develop/about-iot-sdks.md). The device SDKs help the device builder to:
 
 - Connect securely to an IoT hub.
 - Register the device with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.

@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.date: 1/23/2024
 ms.topic: conceptual
-ms.service: iot-develop
+ms.service: iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-twenty-seven
 
@@ -19,7 +19,7 @@ IoT Plug and Play lets you build IoT devices that advertise their capabilities t
 
 You can implement an IoT device directly by using [modules](../iot-hub/iot-hub-devguide-module-twins.md), or by using [IoT Edge modules](../iot-edge/about-iot-edge.md).
 
-This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot-develop/concepts-convention.md).
+This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot/concepts-convention.md).
 
 To build an IoT Plug and Play device, module, or IoT Edge module, follow these steps:
 

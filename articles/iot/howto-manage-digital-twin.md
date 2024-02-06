@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: how-to
-ms.service: iot-develop
+ms.service: iot
 ---
 
 # Manage IoT Plug and Play digital twins
