@@ -9,7 +9,7 @@ ms.workload: web
 ms.topic: article
 ms.date: 09/29/2023
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 

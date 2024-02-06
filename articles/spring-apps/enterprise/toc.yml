@@ -1,7 +1,8 @@
 items:
 - name: Azure Spring Apps Enterprise plan documentation
   href: index.yml
-  displayName: Azure Spring Apps Enterprise plan
+- name: Switch plans
+  href: ../index.yml
 - name: Overview
   expanded: true
   items:
