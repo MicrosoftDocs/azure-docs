@@ -28,11 +28,11 @@ This article provides suggestions to troubleshoot common problems with the Googl
 
 ## Error code: DeprecatedGoogleAdWordsOdbcConnector 
 
-- **Message**: `The Google AdWords connector has been deprecated. To ensure your pipeline works, please create a new Google Ads linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/azure/data-factory/connector-google-adwords#migrate-google-adwords-connector-to-google-ads-connector`
+- **Message**: `The Google AdWords connector has been deprecated. To ensure your pipeline works, please create a new Google Ads linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/azure/data-factory/connector-google-adwords#upgrade-google-adwords-connector-to-google-ads-connector`
 
 - **Cause**: Your pipeline is still running on a deprecated Google AdWords connector. 
 
-- **Resolution**: Create a new Google Ads linked service. Refer to this [article](connector-google-adwords.md#migrate-google-adwords-connector-to-google-ads-connector). 
+- **Resolution**: Create a new Google Ads linked service. Refer to this [article](connector-google-adwords.md#upgrade-google-adwords-connector-to-google-ads-connector). 
 
 ## Related content
 
