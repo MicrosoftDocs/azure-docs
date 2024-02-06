@@ -212,14 +212,14 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
-| **Predicted role**   | **Description**   |
-| --- | --- |
-| `title`  | The main heading(s) in the page |
-| `sectionHeading`  | One or more subheading(s) on the page  |
-| `footnote`  | Text near the bottom of the page  |
-| `pageHeader`  | Text near the top edge of the page  |
-| `pageFooter`  | Text near the bottom edge of the page  |
-| `pageNumber`  | Page number  |
+| **Predicted role**   | **Description**   | **Supported file types** | 
+| --- | --- | --- |
+| `title`  | The main heading(s) in the page | pdf, image, docx, pptx, xlsx, html |
+| `sectionHeading`  | One or more subheading(s) on the page  | pdf, image, docx, xlsx, html |
+| `footnote`  | Text near the bottom of the page  | pdf, image |
+| `pageHeader`  | Text near the top edge of the page  | pdf, image, docx |
+| `pageFooter`  | Text near the bottom edge of the page  | pdf, image, docx, pptx, html |
+| `pageNumber`  | Page number  | pdf, image |
 
 ```json
 {
@@ -243,7 +243,7 @@ The new machine-learning based page object detection extracts logical roles like
 
 ### Pages
 
-The pages collection is the first object you see in the service response.
+The pages collection is the first object you see in the service response. For DOCX and HTML file, there's only 1 page. For PPTX file, a page equals to a slide. For XLSX, a page equals to a sheet.
 
 ```json
 "pages": [
@@ -285,7 +285,7 @@ The document layout model in Document Intelligence extracts print and handwritte
 
 ### Selection marks
 
-The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
+The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). The text representation (i.e., `:selected:` and `:unselected`) is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
 
 ```json
 {
@@ -306,6 +306,9 @@ The Layout model also extracts selection marks from documents. Extracted selecti
 ### Tables
 
 Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether the area is recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
+
+> [!NOTE]
+> Table is not supported if the input file is XLSX.
 
 ```json
 {
