@@ -295,29 +295,29 @@ az spring app deploy \
 
 ---
 
-## Bind to Application Configuration Service during application creation
+## Bind an app to the Application Configuration Service
 
-While you can always create an app and then do binding to Application Configuration Service in two steps, now when you create new apps, you can also choose to bind them to the Application Configuration Service directly as you create them.
+When creating a new app, you can bind your application to the Application Configuration Service.
 
 ### [Azure portal](#tab/Portal)
 
-Here's how to bind your new apps to the Application Configuration Service while creating them:
+Use the following steps to bind your new apps to the Application Configuration Service when creating the apps:
 
-1. First, go to the menu and pick **Apps** to see all your apps.
+1. In the navigation pane, select **Apps** to see all your apps.
 
-1. Press the **Create App** button to start creating new apps.
+1. Select **Create App** to create a new app.
 
-1. Enter the name for your new app.
+1. Enter a name for your new app.
 
-1. In the **Bind** dropdown, choose **Application Configuration Service**.
+1. Select the **Bind** tab and then select **Application Configuration Service** from the dropdown.
 
    :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind dropdown highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-bind-app-when-creation.png":::
 
-1. Click **Create** button to finish creating your app and bind it to Application Configuration Service.
+1. Select **Create** to finish creating your app and binding it to the Application Configuration Service.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to use create application and bind the new creating App to Application Configuration Service:
+Use the following command to create a new app and bind it to the Application Configuration Service:
 
 ```azurecli
 az spring app create \ 
