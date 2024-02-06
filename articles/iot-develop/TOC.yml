@@ -39,20 +39,8 @@
         href: quickstart-devkit-espressif-esp32-freertos-iot-hub.md
 - name: Tutorials
   items:
-    - name: Build a device solution with IoT Hub
-      items:
-      - name: Set up your environment
-        href: set-up-environment.md
-      - name: Connect a device to IoT Hub
-        href: tutorial-connect-device.md
-      - name: Interact with a device from your solution
-        href: tutorial-service.md
-    - name: Connect a multiple component device
-      href: tutorial-multiple-components.md
     - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
-    - name: Connect a device module
-      href: tutorial-migrate-device-to-module.md
 - name: Concepts
   items:
   - name: C SDK and Embedded C SDK usage scenarios
@@ -61,36 +49,8 @@
     href: concepts-iot-device-types.md
   - name: Manage device reconnections in IoT Hub and DPS
     href: concepts-manage-device-reconnections.md
-  - name: Device certification
-    href: ../certification/program-requirements-pnp.md
   - name: IoT device selection list
     href: iot-device-selection.md
-  - name: Device models
-    items:
-    - name: Modeling guide
-      href: concepts-modeling-guide.md
-    - name: Use models in a solution
-      href: concepts-model-discovery.md
-    - name: Model repository
-      href: concepts-model-repository.md
-    - name: Model parser
-      href: concepts-model-parser.md
-  - name: IoT Plug and Play
-    items:
-    - name: What is IoT Plug and Play?
-      href: overview-iot-plug-and-play.md
-    - name: Architecture
-      href: concepts-architecture.md
-    - name: IoT Plug and Play conventions
-      href: concepts-convention.md
-    - name: IoT Plug and Play message payloads
-      href: concepts-message-payloads.md
-    - name: Device developer guide
-      href: concepts-developer-guide-device.md
-    - name: Service developer guide
-      href: concepts-developer-guide-service.md
-    - name: Digital twins
-      href: concepts-digital-twin.md
   - name: Security
     items:
     - name: Guidelines for secured embedded development
@@ -99,10 +59,6 @@
   items:
   - name: Install and use IoT explorer
     href: ../iot/howto-use-iot-explorer.md?toc=/azure/iot-develop/toc.json&bc=/azure/iot-develop/breadcrumb/toc.json
-  - name: Manage digital twins
-    href: howto-manage-digital-twin.md
-  - name: Convert a device to IoT Plug and Play
-    href: howto-convert-to-pnp.md
   - name: Azure RTOS samples
     items:
     - name: Connect using IoT Central
