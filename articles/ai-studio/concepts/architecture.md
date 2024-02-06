@@ -52,7 +52,9 @@ Since Azure AI Studio is built from other Azure services, the resource providers
 | Azure Application Insights | `Microsoft.Insights/components`               |           |
 | Azure Analytics Workspace  | `Microsoft.OperationalInsights/workspaces`    |           |
 
+## Control plane proxy
 
+Azure AI Services and Azure OpenAI provide control plane endpoints for operations such as listing model deployments. These endpoints are secured using a separate Azure RBAC configuration that the one used for Azure AI hub. To reduce the complexity of Azure RBAC management, AI Studio provides a *control plane proxy* that allows you to perform operations on connected Azure AI Services and Azure OpenAI resources. Performing operations on these resources through the control plane proxy only requires Azure RBAC permissions on the AI hub. The Azure AI Studio service then performs the call to the Azure AI Services or Azure OpenAI control plane endpoint on the user's behalf.
 
 
 
