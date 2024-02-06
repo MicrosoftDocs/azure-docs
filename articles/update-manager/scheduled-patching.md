@@ -275,16 +275,16 @@ For example, if a maintenance window is for 3 hours, following are the details o
 
 #### [Windows](#tab/windows-maintenance)
 
-| Update Type  | Details       |
-|----------|----------------------------|	
-|  Service pack | If you are installing a Service Pack, you need be 20 mins left in the maintenance window for the updates to be successfully installed, else it is skipped. </br> **NOTE** A service pack usually takes a longer time to install and therefore there is a possibility of exceeding the maintenance window. We recommend that you re-evaluate the duration of your maintenance window.  |
+| **Update Type** | **Details** |
+| ---------- | ------------- |
+| Service pack | If you are installing a Service Pack, you need be 20 mins left in the maintenance window for the updates to be successfully installed, else it is skipped. </br> **Note** A service pack usually takes a longer time to install and therefore there is a possibility of exceeding the maintenance window. We recommend that you re-evaluate the duration of your maintenance window. |  
 | Other updates | If you are installing any other updates besides Service pack, you need to have 15 mins left in the maintenance window, else it is skipped. | 
-| Reboot | If the machine(s) needs a reboot, you need to have 10 minutes left in the maintenance window, else the reboot is skipped. </br> **NOTE** For Azure virtual machines and Arc-enabled servers, Azure Update Manager waits for a maximum of 15-25 minutes after a reboot to complete the reboot operation before marking reboot as failed. |
+| Reboot | If the machine(s) needs a reboot, you need to have 10 minutes left in the maintenance window, else the reboot is skipped. </br> **Note** For Azure virtual machines and Arc-enabled servers, Azure Update Manager waits for a maximum of 15-25 minutes after a reboot to complete the reboot operation before marking reboot as failed. |
 
 #### [Linux](#tab/linux-maintenance)
 
-| Update Type  | Details       |
-|----------|----------------------------|
+| **Update Type** | **Details** |
+| ---------- | ------------- |
 | Reboot | If the machine(s) needs a reboot, you need to have 15 minutes left in the maintenance window, else it is skipped.|
 | Updates installed in batches | If the batch size is X then, the minimum required time to update packages is calculated as follows </br></br> - If X is less than or equal to 3; the minimum required time  = 5 x X minutes. </br> - If X is greater than 3, the minimum required time = 15+2 x (X-3) minutes. </br> - X is controlled by the Azure Update Manager services. Customers can't control X. |
 
