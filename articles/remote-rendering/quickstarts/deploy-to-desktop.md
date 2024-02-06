@@ -28,7 +28,7 @@ Make sure your credentials are saved properly with the scene and you can connect
 
 ## Disable virtual reality support
 
-## [Unity 2020] (#tab/Unity2020Settings)
+# [Unity 2020](#tab/Unity2020Settings)
 
 Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
 
@@ -42,7 +42,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Disable **Virtual Reality Supported**.\
     ![player settings virtual reality support Unity 2020](./media/unity-2020-disable-xr.png)
 
-## [Unity 2021+] (#tab/Unity2021PlusSettings)
+# [Unity 2021+](#tab/Unity2021PlusSettings)
 
 Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
 
@@ -59,7 +59,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 
 ## Build the sample project
 
-## [Unity 2020] (#tab/Unity2020Build)
+# [Unity 2020](#tab/Unity2020Build)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform** (**PC Standalone** is also supported but not used here).
@@ -70,7 +70,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
-## [Unity 2021+] (#tab/Unity2021PlusBuild)
+# [Unity 2021+](#tab/Unity2021PlusBuild)
 
 1. Open *File > Build Settings*.
 1. Change *Platform* to **Universal Windows Platform** (**PC Standalone** is also supported but not used here).
