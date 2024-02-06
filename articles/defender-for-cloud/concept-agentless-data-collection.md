@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Agentless machine scanning
 
-Microsoft Defender for Cloud improves compute posture for Azure, AWS and GCP environments with machine scanning. For requirements and support, see the [compute support matrix in Defender for Cloud](support-matrix-defender-for-servers.md). 
+Microsoft Defender for Cloud improves compute posture for Azure, AWS and GCP environments with machine scanning. For requirements and support, see the [compute support matrix in Defender for Cloud](support-matrix-defender-for-servers.md).
 
 Agentless scanning for virtual machines (VM) provides:
 
