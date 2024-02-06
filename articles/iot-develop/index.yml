@@ -49,20 +49,10 @@ landingContent:
       links:
         - text: Use MQTT to connect without a device SDK
           url: tutorial-use-mqtt.md
-        - text: Connect a sample device to IoT Hub
-          url: tutorial-connect-device.md
     - linkListType: concept
       links:
         - text: Manage device reconnections
           url: concepts-manage-device-reconnections.md
-  - title: Device development framework
-    linkLists:
-    - linkListType: concept
-      links: 
-        - text: What is IoT Plug and Play?
-          url: overview-iot-plug-and-play.md
-        - text: Developer guide
-          url: concepts-developer-guide-device.md
   - title: Get started with FreeRTOS development
     linkLists:
     - linkListType: quickstart

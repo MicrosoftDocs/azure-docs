@@ -110,7 +110,7 @@ To view and manage the interfaces in your device model:
 
     :::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows root interface for a model":::
 
-1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot-pnp/concepts-modeling-guide.md#multiple-components) in the modeling guide.
+1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot/concepts-modeling-guide.md) in the modeling guide.
 
     :::image type="content" source="media/howto-set-up-template/add-interface.png" alt-text="Screenshot that shows how to add interface or component." lightbox="media/howto-set-up-template/add-interface.png":::
 
@@ -193,7 +193,7 @@ The following table shows the configuration settings for a command capability:
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 |Initial value | The default parameter value. This is an IoT Central extension to DTDL. |
 
-To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](../../iot-develop/concepts-message-payloads.md#commands).
+To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](../../iot/concepts-message-payloads.md#commands).
 
 #### Offline commands
 

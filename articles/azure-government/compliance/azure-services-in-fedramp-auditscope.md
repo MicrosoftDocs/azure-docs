@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 11/09/2023
+ms.date: 02/05/2023
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -50,7 +50,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: November 2023*
+*Last updated: January 2024*
 
 ### Terminology used
 
@@ -88,6 +88,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure for Education](https://azureforeducation.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Information Protection](/azure/information-protection/) | &#x2705; | &#x2705; |
 | [Azure Kubernetes Service (AKS)](../../aks/index.yml) | &#x2705; | &#x2705; |
+| [Azure Managed Grafana](../../managed-grafana/index.yml) | &#x2705; | &#x2705; |
 | [Azure Marketplace portal](https://azuremarketplace.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md), [Log Analytics](../../azure-monitor/logs/data-platform-logs.md), and [Application Change Analysis](../../azure-monitor/app/change-analysis.md)) | &#x2705; | &#x2705; |
@@ -117,7 +118,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Bot Service](/azure/bot-service/) | &#x2705; | &#x2705; |
 | [Cloud Services](../../cloud-services/index.yml) | &#x2705; | &#x2705; |
 | [Cloud Shell](../../cloud-shell/overview.md) | &#x2705; | &#x2705; |
-| [Cognitive Search](../../search/index.yml) (formerly Azure Search) | &#x2705; | &#x2705; |
+| [Azure AI Health Bot](/healthbot/) | &#x2705; | &#x2705; |
+| [Azure AI Search](../../search/index.yml) (formerly Azure Cognitive Search) | &#x2705; | &#x2705; |
 | [Azure AI services: Anomaly Detector](../../ai-services/anomaly-detector/index.yml) | &#x2705; | &#x2705; |
 | [Azure AI services: Computer Vision](../../ai-services/computer-vision/index.yml) | &#x2705; | &#x2705; |
 | [Azure AI services: Content Moderator](../../ai-services/content-moderator/index.yml) | &#x2705; | &#x2705; |
@@ -147,7 +149,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dedicated HSM](../../dedicated-hsm/index.yml) | &#x2705; | &#x2705; |
 | [DevTest Labs](../../devtest-labs/index.yml) | &#x2705; | &#x2705; |
 | [DNS](../../dns/index.yml) | &#x2705; | &#x2705; |
-| [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; |
+| [Omnichannel for Customer Service (Formerly Dynamics 365 Chat and Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; |
 | [Dynamics 365 Commerce](/dynamics365/commerce/)| &#x2705; | &#x2705; |
 | [Dynamics 365 Customer Service](/dynamics365/customer-service/overview)| &#x2705; | &#x2705; |
 | [Dynamics 365 Field Service](/dynamics365/field-service/overview)| &#x2705; | &#x2705; |
@@ -167,8 +169,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AI Document Intelligence](../../ai-services/document-intelligence/index.yml) | &#x2705; | &#x2705; |
 | [Front Door](../../frontdoor/index.yml) | &#x2705; | &#x2705; |
 | [Functions](../../azure-functions/index.yml) | &#x2705; | &#x2705; |
-| [GitHub AE](https://docs.github.com/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | &#x2705; |
-| [Health Bot](/healthbot/) | &#x2705; | &#x2705; |
 | [HDInsight](../../hdinsight/index.yml) | &#x2705; | &#x2705; |
 | [HPC Cache](../../hpc-cache/index.yml) | &#x2705; | &#x2705; |
 | [Immersive Reader](../../ai-services/immersive-reader/index.yml) | &#x2705; | &#x2705; |
@@ -194,7 +194,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Defender for Identity](/defender-for-identity/) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Microsoft Defender for IoT](../../defender-for-iot/index.yml) (formerly Azure Security for IoT) | &#x2705; | &#x2705; |
-| [Microsoft Defender Vulnerability Management](../../defender-for-iot/index.yml) | &#x2705; | &#x2705; |
+| [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/) | &#x2705; | &#x2705; |
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; |
 | [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | &#x2705; | &#x2705; |
@@ -229,7 +229,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; |
 | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; |
 | [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) | &#x2705; | &#x2705; |
-| [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; |
 | [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; |
@@ -312,7 +311,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Stack Bridge](/azure-stack/operator/azure-stack-usage-reporting) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Stack](/azure-stack/operator/azure-stack-usage-reporting) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Stack HCI](/azure-stack/hci/) | &#x2705; | &#x2705; | &#x2705; |  |  |
 | [Azure Video Indexer](/azure/azure-video-indexer/)  | &#x2705; | &#x2705; | &#x2705; | | |
@@ -413,7 +412,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Power BI](/power-bi/fundamentals/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Power BI Embedded](/power-bi/developer/embedded/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Data Integrator for Dataverse](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Power Query Online](/power-query/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Power Virtual Agents](/power-virtual-agents/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Private Link](../../private-link/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
