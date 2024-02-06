@@ -34,7 +34,7 @@ Create a Serp connection:
     - azureml.flow.module: promptflow.connections
     - api_key: Your_Serp_API_key, please mark it as a secret.
     
-    :::image type="content" source="./media/serp-api-tool/serp-connection-meta.png" alt-text="Screenshot that shows add extra meta to custom connection in AI studio." lightbox = "./media/serp-api-tool/serp-connection-meta.png"::: 
+    :::image type="content" source="./media/serp-api-tool/serp-connection-meta.png" alt-text="Screenshot that shows add extra meta to custom connection in AI Studio." lightbox = "./media/serp-api-tool/serp-connection-meta.png"::: 
 
 The connection is the model used to establish connections with Serp API. Get your API key from the SerpAPI account dashboard. 
 

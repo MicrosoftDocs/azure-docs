@@ -75,7 +75,7 @@ As a developer, you can manage settings such as connections and compute. Your ad
 
 ---
 
-## Azure AI studio enterprise chat solution demo
+## Azure AI Studio enterprise chat solution demo
 
 Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
 > [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]

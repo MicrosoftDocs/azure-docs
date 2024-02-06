@@ -32,22 +32,22 @@ The Azure AI hub resource provides the collaboration environment for a team to b
 
 ## Central setup and management concepts
 
-Various management concepts are available on Azure AI hub resources to support team leads and admins to centrally manage a team's environment. In [Azure AI studio](https://ai.azure.com/), you find these on the **Manage** page.
+Various management concepts are available on Azure AI hub resources to support team leads and admins to centrally manage a team's environment. In [Azure AI Studio](https://ai.azure.com/), you find these on the **Manage** page.
 
 * **Security configuration** including public network access, [virtual networking](#virtual-networking), customer-managed key encryption, and privileged access to whom can create projects for customization. Security settings configured on the Azure AI hub resource automatically pass down to each project. A managed virtual network is shared between all projects that share the same Azure AI hub resource.
 * **Connections** are named and authenticated references to Azure and non-Azure resources like data storage providers. Use a connection as a means for making an external resource available to a group of developers without having to expose its stored credential to an individual.
-* **Compute and quota allocation** is managed as shared capacity for all projects in AI studio that share the same Azure AI hub resource. This includes compute instance as managed cloud-based workstation for an individual. Compute instance can be used across projects by the same user.
+* **Compute and quota allocation** is managed as shared capacity for all projects in AI Studio that share the same Azure AI hub resource. This includes compute instance as managed cloud-based workstation for an individual. Compute instance can be used across projects by the same user.
 * **AI services access keys** to endpoints for prebuilt AI models are managed on the Azure AI hub resource scope. Use these endpoints to access foundation models from Azure OpenAI, Speech, Vision, and Content Safety with one [API key](#azure-ai-services-api-access-keys)
 * **Policy** enforced in Azure on the Azure AI hub resource scope applies to all projects managed under it.
-* **Dependent Azure resources** are set up once per Azure AI hub resource and associated projects and used to store artifacts you generate while working in AI studio such as logs or when uploading data. See [Azure AI dependencies](#azure-ai-dependencies) for more details.
+* **Dependent Azure resources** are set up once per Azure AI hub resource and associated projects and used to store artifacts you generate while working in AI Studio such as logs or when uploading data. See [Azure AI dependencies](#azure-ai-dependencies) for more details.
 
 ## Organize work in projects for customization
 
-An Azure AI hub resource provides the hosting environment for **projects** in AI studio. A project is an organizational container that has tools for AI customization and orchestration, lets you organize your work, save state across different tools like prompt flow, and collaborate with others. For example, you can share uploaded files and connections to data sources.
+An Azure AI hub resource provides the hosting environment for **projects** in AI Studio. A project is an organizational container that has tools for AI customization and orchestration, lets you organize your work, save state across different tools like prompt flow, and collaborate with others. For example, you can share uploaded files and connections to data sources.
 
 Multiple projects can use an Azure AI hub resource, and a project can be used by multiple users. A project also helps you keep track of billing, and manage access and provides data isolation. Every project has dedicated storage containers to let you upload files and share it with only other project members when using the 'data' experiences.
 
-Projects let you create and group reusable components that can be used across tools in AI studio:
+Projects let you create and group reusable components that can be used across tools in AI Studio:
 
 | Asset | Description |
 | --- | --- |
@@ -108,7 +108,7 @@ Connections can be set up as shared with all projects in the same Azure AI hub r
 
 ## Azure AI dependencies
 
-Azure AI studio layers on top of existing Azure services including Azure AI and Azure Machine Learning services. While this might not be visible on the display names in Azure portal, AI studio, or when using the SDK or CLI, some of these architectural details become apparent when you work with the Azure REST APIs, use Azure cost reporting, or use infrastructure-as-code templates such as Azure Bicep or Azure Resource Manager. From an Azure Resource Provider perspective, Azure AI studio resource types map to the following resource provider kinds:
+Azure AI Studio layers on top of existing Azure services including Azure AI and Azure Machine Learning services. While this might not be visible on the display names in Azure portal, AI Studio, or when using the SDK or CLI, some of these architectural details become apparent when you work with the Azure REST APIs, use Azure cost reporting, or use infrastructure-as-code templates such as Azure Bicep or Azure Resource Manager. From an Azure Resource Provider perspective, Azure AI Studio resource types map to the following resource provider kinds:
 
 |Resource type|Resource provider|Kind|
 |---|---|---|
@@ -117,7 +117,7 @@ Azure AI studio layers on top of existing Azure services including Azure AI and 
 |Azure AI services|Microsoft.CognitiveServices/account|AIServices|
 |Azure AI OpenAI Service|Microsoft.CognitiveServices/account|OpenAI|
 
-When you create a new Azure AI hub resource, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI studio. If not provided by you, these resources are automatically created.
+When you create a new Azure AI hub resource, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI Studio. If not provided by you, these resources are automatically created.
 
 |Dependent Azure resource|Note|
 |---|---|

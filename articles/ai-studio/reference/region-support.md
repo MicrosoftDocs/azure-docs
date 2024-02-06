@@ -1,6 +1,6 @@
 ---
 title: Azure AI Studio feature availability across clouds regions
-titleSuffix: Azure AI studio
+titleSuffix: Azure AI Studio
 description: This article lists Azure AI Studio feature availability across clouds regions.
 manager: nitinme
 ms.service: azure-ai-studio
