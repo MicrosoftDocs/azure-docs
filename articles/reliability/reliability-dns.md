@@ -4,7 +4,7 @@ description: Learn about reliability in Azure DNS.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
-ms.custom: subject-reliability, references.regions
+ms.custom: subject-reliability, references-regions
 ms.service: traffic-manager
 ms.date: 02/02/2024
 ---
@@ -50,7 +50,7 @@ This article focuses specifically on Azure DNS disaster recovery planning.
 
 The Azure DNS manual failover solution for disaster recovery uses the standard DNS mechanism to fail over to the backup site. The manual option via Azure DNS works best when used in conjunction with the cold standby or the pilot light approach.
 
-![Manual failover using Azure DNS](../networking/media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
+![Diagram of manual failover using Azure DNS](../networking/media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
 
 *Figure - Manual failover using Azure DNS*
 
@@ -65,13 +65,13 @@ The assumptions made for the solution are:
 
 1. Create a DNS zone (for example, www\.contoso.com) as shown below:
 
-    ![Create a DNS zone in Azure](../networking/media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
+    ![Screenshot of creating a DNS zone in Azure](../networking/media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
     *Figure - Create a DNS zone in Azure*
 
 1.  Within this zone, create three records (for example - www\.contoso.com, prod.contoso.com and dr.consoto.com) as show below.
 
-    ![Create DNS zone records](../networking/media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
+    ![Screenshot of creating DNS zone records](../networking/media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
     *Figure - Create DNS zone records in Azure*
 
@@ -80,7 +80,7 @@ The assumptions made for the solution are:
 
 1. Once failure is detected, change the record value to point to dr.contoso.com as shown below:
        
-    ![Update CNAME record](../networking/media/disaster-recovery-dns-traffic-manager/update-cname-record.png)
+    ![Screenshot of updating CNAME record](../networking/media/disaster-recovery-dns-traffic-manager/update-cname-record.png)
     
     *Figure - Update the CNAME record in Azure*
     
@@ -93,7 +93,7 @@ The assumptions made for the solution are:
        --record-set-name www \
        --cname dr.contoso.com
     ```
-    This step can be executed manually or via automation. It can be done manually via the console or by the Azure CLI. The Azure SDK and API can be used to automate the CNAME update so that no manual intervention is required. Automation can be built via Azure functions or within a third-party monitoring application or even from on- premises.
+    This step can be executed manually or via automation. It can be done manually via the console or by the Azure CLI. The Azure SDK and API can be used to automate the CNAME update so that no manual intervention is required. Automation can be built via Azure functions or within a third-party monitoring application or even from on-premises.
 
 
 ## Next steps

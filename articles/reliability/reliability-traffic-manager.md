@@ -4,7 +4,7 @@ description: Learn about reliability in Azure Traffic Manager.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
-ms.custom: subject-reliability, references.regions
+ms.custom: subject-reliability, references-regions
 ms.service: traffic-manager
 ms.date: 02/02/2024
 ---
@@ -26,7 +26,7 @@ This article contains  [specific reliability recommendations for Azure Traffic M
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
 | [**Availability**](#availability) |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Traffic Manager Monitor status should be Online](#-traffic-manager-monitor-status-should-be-online) |
-|  |:::image type="icon" source="media/icon-recommendation-high.svg":::| [TTraffic manager profiles should have more than one endpoint](#-traffic-manager-profiles-should-have-more-than-one-endpoint) |
+|  |:::image type="icon" source="media/icon-recommendation-high.svg":::| [Traffic manager profiles should have more than one endpoint](#-traffic-manager-profiles-should-have-more-than-one-endpoint) |
 |[**System efficiency**](#system-efficiency)|:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[TTL value of user profiles should be in 60 seconds](#-ttl-value-of-user-profiles-should-be-in-60-seconds) | 
 |[**Disaster recovery**](#disaster-recovery)|:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[Configure at least one endpoint within another region](#-configure-at-least-one-endpoint-within-another-region) | 
 ||:::image type="icon" source="media/icon-recommendation-medium.svg"::: |[Ensure endpoint configured to “(All World)” for geographic profiles](#-ensure-endpoint-configured-to-all-world-for-geographic-profiles) | 
@@ -44,7 +44,7 @@ To troubleshoot a degraded state on Azure Traffic Manager, see [Troubleshooting 
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Traffic manager profiles should have more than one endpoint** 
 
-When configuring the Azure traffic manager, you should provision minimum of two endpoints to fail-over the workload to a another instance. 
+When configuring the Azure traffic manager, you should provision minimum of two endpoints to fail-over the workload to another instance. 
 
 To learn about Traffic Manager endpoint types, see [Traffic Manager endpoints](/azure/traffic-manager/traffic-manager-endpoint-types).
 
@@ -103,7 +103,7 @@ When you have complex architectures and multiple sets of resources capable of pe
 
 In the following example, both the primary region and the secondary region have a full deployment. This deployment includes the cloud services and a synchronized database. 
 
-![Automatic failover using Azure Traffic Manager](../networking/media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
+![Diagram of automatic failover using Azure Traffic Manager](../networking/media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
 
 *Figure - Automatic failover using Azure Traffic Manager*
 
@@ -120,19 +120,19 @@ This scenario is ideal for the use of Azure Traffic Manager that has inbuilt pro
 **To configure the failover with Azure Traffic Manager:**
 
 1. Create a new Azure Traffic Manager profile
-Create a new Azure Traffic manager profile with the name contoso123 and select the Routing method as Priority. 
-If you have a pre-existing resource group that you want to associate with, then you can select an existing resource group, otherwise, create a new resource group.
-
-    ![Create Traffic Manager profile](../networking/media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+    Create a new Azure Traffic manager profile with the name contoso123 and select the Routing method as Priority. 
+    If you have a pre-existing resource group that you want to associate with, then you can select an existing resource group, otherwise, create a new resource group.
+    
+    ![Screenshot of creating Traffic Manager profile](../networking/media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
     
     *Figure - Create a Traffic Manager profile*
-
+    
 1. Create endpoints within the Traffic Manager profile
     
     In this step, you create endpoints that point to the production and disaster recovery sites. Here, choose the **Type** as an external endpoint, but if the resource is hosted in Azure, then you can choose **Azure endpoint** as well. If you choose **Azure endpoint**, then select a **Target resource** that is either an **App Service** or a **Public IP** that is allocated by Azure. The priority is set as **1** since it's the primary service for Region 1.
     Similarly, create the disaster recovery endpoint within Traffic Manager as well.
     
-    ![Create disaster recovery endpoints](../networking/media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
+    ![Screenshot of creating disaster recovery endpoints](../networking/media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
     
     *Figure - Create disaster recovery endpoints*
 
@@ -144,7 +144,7 @@ If you have a pre-existing resource group that you want to associate with, then 
     If the Retry is set to 1 and TTL is set to 10 secs, then the time for failover 10 + 1 * 10 = 20 seconds. Set the Retry to a value greater than **1** to eliminate chances of failovers due to false positives or any minor network blips. 
     
 
-    ![Set up health check](../networking/media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
+    ![Screenshot of setting up health check](../networking/media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
     
     *Figure - Set up health check and failover configuration*
 
