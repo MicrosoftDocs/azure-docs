@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 2/5/2024
 ms.reviewer: siarora
 ms.author: larryfr
 author: Blackmist 
@@ -125,7 +125,7 @@ Here's an example of how to monitor costs for an Azure AI Studio project. The co
 
     :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with Azure AI project expanded." lightbox="../media/cost-management/project-costs/costs-per-project-resource-details.png":::
 
-1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI](../concepts/ai-resources.md#azure-ai-resources) resource. You can also apply a filter to focus on other costs in your resource group. 
+1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI](../concepts/ai-resources.md#azure-ai-hub-resources) resource. You can also apply a filter to focus on other costs in your resource group. 
 
 You can also view resource group costs directly from the Azure portal. To do so:
 1. Sign in to [Azure portal](https://portal.azure.com).
