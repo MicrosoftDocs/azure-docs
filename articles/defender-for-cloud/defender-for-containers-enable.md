@@ -84,7 +84,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 
     Within 30 minutes, Defender for Cloud detects this activity and trigger a security alert.
 > [!NOTE]
-To simulate Defender for container agentless alerts the ARC isn't a pre-requisite.
+    > To simulate agentless alerts for Defender for Containers, Azure Arc isn't a prerequisite.
 
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
