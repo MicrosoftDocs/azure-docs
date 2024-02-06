@@ -1233,6 +1233,7 @@
   "articles/ai-services/.openpublishing.redirection.cognitive-services.json",
   "articles/ai-studio/.openpublishing.redirection.ai-studio.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
+  "articles/azure-functions/.openpublishing.redirection.azure-functions.json",
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
   "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
