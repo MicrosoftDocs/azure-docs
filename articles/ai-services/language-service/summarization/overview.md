@@ -49,7 +49,7 @@ For more information, *see* [**Use native documents for language processing**](.
 
 There are the aspects of document summarization this API provides:
 
-* [**Extractive summarization**](how-to/document-summarization#try-document-extractive-summarization): Produces a summary by extracting salient sentences within the document.
+* [**Extractive summarization**](how-to/document-summarization.md#try-document-extractive-summarization): Produces a summary by extracting salient sentences within the document.
 
   * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They're original sentences extracted from the input document's content.
   * Rank score: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
