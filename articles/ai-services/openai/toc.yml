@@ -22,6 +22,8 @@ items:
       href: faq.yml
 - name: Quickstarts
   items:
+    - name: Assistants (preview)
+      href: assistants-quickstart.md
     - name: Completions
       href: quickstart.md
     - name: Chat
@@ -35,8 +37,12 @@ items:
       href: use-your-data-quickstart.md
     - name: Whisper (preview)
       href: whisper-quickstart.md
+    - name: Text to speech (preview)
+      href: text-to-speech-quickstart.md
 - name: Concepts
   items:
+    - name: Assistants
+      href: ./concepts/assistants.md
     - name: Abuse monitoring
       href: ./concepts/abuse-monitoring.md
     - name: Content filtering
@@ -72,6 +78,16 @@ items:
   items:
   - name: API version lifecycle
     href: ./api-version-deprecation.md
+  - name: Assistants (preview)
+    items:
+    - name: Getting started with Assistants
+      href: ./how-to/assistant.md
+    - name: Tools
+      items:
+      - name: Code Interpreter
+        href: ./how-to/code-interpreter.md
+      - name: Function calling
+        href: ./how-to/assistant-functions.md
   - name: Completions & chat completions
     items:
     - name: GPT-35-Turbo & GPT-4 
@@ -105,6 +121,10 @@ items:
     items:
       - name: Fine-tuning your model
         href: ./how-to/fine-tuning.md
+        displayName: finetuning 
+      - name: Function calling
+        href: ./how-to/fine-tuning-functions.md
+        displayName: fine-tuning, finetuning
   - name: Migrate to OpenAI Python v1.x
     href: ./how-to/migration.md
   - name: Models
