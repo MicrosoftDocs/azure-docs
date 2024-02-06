@@ -283,7 +283,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| [prebuilt-read](concept-read.md#read-model-data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
+| [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
 | [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
