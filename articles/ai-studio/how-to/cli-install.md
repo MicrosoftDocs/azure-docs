@@ -143,7 +143,7 @@ Initializing standalone resources is recommended when building simple solutions 
 
 The following resources can be initialized standalone, or attached to projects:
 
-- Azure AI services: Includes Azure AI Speech, Azure AI Vision, and Azure OpenAI
+- Azure AI services: Includes Azure OpenAI, Azure AI Speech, and Azure AI Vision.
 - Azure OpenAI: Provides access to OpenAI's powerful language models.
 - Azure AI Search: Provides keyword, vector, and hybrid search capabilities.
 - Azure AI Speech: Provides speech recognition, synthesis, and translation.
