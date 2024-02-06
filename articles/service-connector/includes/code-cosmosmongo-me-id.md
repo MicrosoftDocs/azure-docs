@@ -132,7 +132,7 @@ ms.author: wchi
     JSONParser parser = new JSONParser();
     JSONObject responseBody = parser.parse(response.body());
     List<Map<String, String>> connectionStrings = responseBody.get("connectionStrings");
-    String connectionString = connectionStrings[0]["connectionString"];
+    String connectionString = connectionStrings.get(0).get("connectionString");
     
     // Connect to Azure Cosmos DB for MongoDB
     MongoClientURI uri = new MongoClientURI(connectionString);
