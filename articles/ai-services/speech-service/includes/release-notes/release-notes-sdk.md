@@ -13,6 +13,21 @@ ms.author: eur
 
 ### Speech SDK 1.34.1: January 2024 release
 
+#### New features
+
+* Change the default text-to-speech voice from en-US-JennyMultilingualNeural to en-US-AvaNeural.
+* Support word-level detail in embedded speech translation results using the detailed output format.
+
+#### Bug fixes
+
+*  Fix the AudioDataStream position getter API in Python.
+*  Fix speech translation using v2 endpoints without language detection.
+*  Fix a random crash and duplicate word boundary events in embedded text-to-speech.
+*  Return a correct cancellation error code for an internal server error on WebSocket connections.
+*  Fix the failure to load FPIEProcessor.dll library when MAS is used with C#.
+
+### Speech SDK 1.34.1: January 2024 release
+
 #### Breaking changes
 
 * Bug fixes only

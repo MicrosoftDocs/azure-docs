@@ -24,7 +24,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 - [SAP Partners with Microsoft for First-in-Market Cloud Migration Offerings](https://news.microsoft.com/2019/10/20/sap-partners-with-microsoft-for-first-in-market-cloud-migration-offerings/)
 - [SAP and Microsoft Expand Partnership and Integrate Microsoft Teams Across Solutions](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/)
 - [Come Explore the Future](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/), showing how Microsoft and SAP are partnering to meet the needs of every business.
-- [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://www.sap.com/documents/2021/01/ca0f4c25-c87d-0010-87a3-c30de2ffd8ff.html)
+- [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://discover.sap.com/microsoft/en-us/index.html)
 
 ## Integration resources
 

@@ -9,7 +9,7 @@ ms.custom: ignite-2023
 ms.topic: how-to
 ms.date: 01/26/2023
 
-#customer intent: As a developer, I want to be able to create an enviroment by using AZD so that I can create my coding environment.
+# Customer intent: As a developer, I want to be able to create an enviroment by using AZD so that I can create my coding environment.
 
 ---
 

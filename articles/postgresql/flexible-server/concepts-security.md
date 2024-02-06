@@ -161,6 +161,12 @@ Newly created databases in Azure Database for PostgreSQL - Flexible Server have 
   ```
 In this example, user *user1* can connect and has all privileges in our test database *Test_db*, but not any other db on the server. It would be recommended further, instead of giving this user\role *ALL PRIVILEGES* on that database and its objects, to provide more selective permissions, such as *SELECT*,*INSERT*,*EXECUTE*, etc.  For more information about privileges in PostgreSQL databases, see the [GRANT](https://www.postgresql.org/docs/current/sql-grant.html) and [REVOKE](https://www.postgresql.org/docs/current/sql-revoke.html) commands in the PostgreSQL docs.
 
+### PostgreSQL 16 changes with role based security
+
+In PostgreSQL database role can have a number of attributes that define its privileges.One such attribute is the [**CREATEROLE** attribute](https://www.postgresql.org/docs/current/role-attributes.html), which is important to PostgreSQL database management of users and roles. In PostgreSQL 16 significant changes were introduced to this attribute.
+In PostgreSQL 16,  users with **CREATEROLE** attribute no longer have the ability to hand out membership in any role to anyone; instead, like other users, without this attribute, they can only hand out memberships in roles for which they possess **ADMIN OPTION**. Also, in PostgreSQL 16,the **CREATEROLE** attribute still allows a non-superuser the ability to provision new users, however they can only drop users that they themselves created. Attempts to drop users , which is not create by user with **CREATEROLE** attribute, will result in an error.
+
+
 ## Row  level security
 
 [Row level security (RLS)](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) is an Azure Database for PostgreSQL - Flexible Server  security feature that allows database administrators to define policies to control how specific rows of data display and operate for one or more roles.  Row level security is an additional filter you can apply to an Azure Database for PostgreSQL - Flexible Server  database table. When a user tries to perform an action on a table, this filter is applied before the query criteria or other filtering, and the data is narrowed or rejected according to your security policy. You can create row level security policies for specific commands like *SELECT*, *INSERT*, *UPDATE*, and *DELETE*, specify it for ALL commands. Use cases for row level security include PCI compliant implementations, classified environments, as well as shared hosting / multitenant applications. 

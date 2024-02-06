@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli, contperf-fy21q2, mode-api
+ms.custom: mvc, devx-track-azurecli, mode-api
 ms.date: 01/04/2024
 ---
 

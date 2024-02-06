@@ -7,7 +7,7 @@ ms.author: greglin
 ms.date: 11/30/2023
 ms.topic: quickstart
 ms.service: dns
-ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
+ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
 

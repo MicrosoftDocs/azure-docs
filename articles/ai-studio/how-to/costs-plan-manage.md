@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 2/5/2024
 ms.reviewer: siarora
 ms.author: larryfr
 author: Blackmist 
@@ -44,7 +44,7 @@ As you add new resources to your project, return to this calculator and add the 
 
 ### Costs that typically accrue with Azure AI and Azure AI Studio
 
-When you create resources for an Azure AI resource, resources for other Azure services are also created. They are:
+When you create resources for an Azure AI hub resource, resources for other Azure services are also created. They are:
 
 | Service pricing page | Description with example use cases | 
 | --- | --- | 
@@ -59,7 +59,7 @@ When you create resources for an Azure AI resource, resources for other Azure se
 
 ### Costs might accrue before resource deletion
 
-Before you delete an Azure AI resource in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you aren't actively working in the workspace. If you're planning on returning to your Azure AI resource at a later time, these resources might continue to accrue costs: 
+Before you delete an Azure AI hub resource in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you aren't actively working in the workspace. If you're planning on returning to your Azure AI hub resource at a later time, these resources might continue to accrue costs: 
 - Azure AI Search (for the data)
 - Virtual machines
 - Load Balancer
@@ -72,25 +72,25 @@ Compute instances also incur P10 disk costs even in stopped state. This is becau
 
 ### Costs might accrue after resource deletion
 
-After you delete an Azure AI resource in the Azure portal or with Azure CLI, the following resources continue to exist. They continue to accrue costs until you delete them.
+After you delete an Azure AI hub resource in the Azure portal or with Azure CLI, the following resources continue to exist. They continue to accrue costs until you delete them.
 
 - Azure Container Registry
 - Azure Blob Storage
 - Key Vault
-- Application Insights (if you enabled it for your Azure AI resource)
+- Application Insights (if you enabled it for your Azure AI hub resource)
 
 ## Monitor costs
 
-As you use Azure AI Studio with Azure AI resources, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). You can see the incurred costs in [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+As you use Azure AI Studio with Azure AI hub resources, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). You can see the incurred costs in [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-When you use cost analysis, you view Azure AI resource costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
+When you use cost analysis, you view Azure AI hub resource costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
 ### Monitor Azure AI Studio project costs
 
 You can get to cost analysis from the [Azure portal](https://portal.azure.com). You can also get to cost analysis from the [Azure AI Studio portal](https://ai.azure.com).
 
 > [!IMPORTANT]
-> Your Azure AI project costs are only a subset of your overall application or solution costs. You need to monitor costs for all Azure resources used in your application or solution. See [Azure AI resources](../concepts/ai-resources.md) for more information.
+> Your Azure AI project costs are only a subset of your overall application or solution costs. You need to monitor costs for all Azure resources used in your application or solution. See [Azure AI hub resources](../concepts/ai-resources.md) for more information.
 
 For the examples in this section, assume that all Azure AI Studio resources are in the same resource group. But you can have resources in different resource groups. For example, your Azure AI Search resource might be in a different resource group than your Azure AI Studio project.
 
@@ -125,7 +125,7 @@ Here's an example of how to monitor costs for an Azure AI Studio project. The co
 
     :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with Azure AI project expanded." lightbox="../media/cost-management/project-costs/costs-per-project-resource-details.png":::
 
-1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI](../concepts/ai-resources.md#azure-ai-resources) resource. You can also apply a filter to focus on other costs in your resource group. 
+1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI](../concepts/ai-resources.md#azure-ai-hub-resources) resource. You can also apply a filter to focus on other costs in your resource group. 
 
 You can also view resource group costs directly from the Azure portal. To do so:
 1. Sign in to [Azure portal](https://portal.azure.com).

@@ -7,7 +7,6 @@ ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/14/2022
 ms.author: alkohli
-ms.custom: contperf-fy21q3
 ---
 # View the status of Azure Import/Export jobs
 

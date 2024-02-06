@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting guide for customer-managed keys 
+title: Troubleshooting guide for customer-managed keys
 titleSuffix: Azure Cosmos DB
 description: This document is meant to serve as a troubleshooting guide for Cosmos DB CMK accounts that have gone into revoked state
 author: dileepraotv-github
@@ -7,7 +7,6 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/07/2023
 ms.author: turao
-ms.custom: ignite-2022
 ms.devlang: azurecli
 ---
 

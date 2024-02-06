@@ -1,14 +1,14 @@
 ---
 title: High availability ports overview in Azure
 titleSuffix: Azure Load Balancer
-description: Learn about high availability ports load balancing on an internal load balancer. 
+description: Learn about high availability ports load balancing on an internal load balancer.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: mbender
-ms.custom: template-concept, seodec18, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # High availability ports overview

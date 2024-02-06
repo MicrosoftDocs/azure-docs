@@ -27,7 +27,7 @@ An IoT Central device template includes a _model_ that specifies the behaviors a
 
 Each model has a unique _digital twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then assign the correct device template to the device.
 
-[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a Digital Twin Definition Language (DTDL) model.
+[IoT Plug and Play](../../iot/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot/concepts-convention.md) that a device should follow when it implements a Digital Twin Definition Language (DTDL) model.
 
 The [Azure IoT device SDKs](#device-sdks) include support for the IoT Plug and Play conventions.
 
@@ -51,7 +51,7 @@ A DTDL model can be a _no-component_ or a _multi-component_ model:
 > [!TIP]
 > You can [import and export a complete device model or individual interface](howto-set-up-template.md#interfaces-and-components) from an IoT Central device template as a DTDL v2 file.
 
-To learn more about device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
+To learn more about device models, see the [IoT Plug and Play modeling guide](../../iot/concepts-modeling-guide.md)
 
 ### Conventions
 
@@ -65,9 +65,9 @@ A device should follow the IoT Plug and Play conventions when it exchanges data 
 > [!NOTE]
 > Currently, IoT Central does not fully support the DTDL **Array** and **Geospatial** data types.
 
-To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md).
+To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot/concepts-convention.md).
 
-To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
+To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 ### Device SDKs
 

@@ -12,6 +12,8 @@ ms.author: behoorne
 ---
 
 
+ 
+
 # Trial Matcher patient info
 
 Trial Matcher uses patient information to match relevant patient(s) with the clinical trial(s). You can provide the information in four different ways: 
@@ -21,6 +23,9 @@ Trial Matcher uses patient information to match relevant patient(s) with the cli
 - gradual Matching (question and answer)
 - JSON key/value
 
+> [!NOTE]
+> The examples below are based on API version: 2023-03-01-preview.
+
 ## Unstructured clinical note
 
 Patient data can be provided to the Trial Matcher as an unstructured clinical note.
@@ -28,6 +33,8 @@ The Trial Matcher performs a prior step of language understanding to analyze the
 
 When providing patient data in clinical notes, use ```note``` value for  ```Patient.PatientDocument.type```.
 Currently, Trial Matcher only supports one clinical note per patient.
+
+
 
 The following example shows how to provide patient information as an unstructured clinical note:
 
@@ -319,6 +326,7 @@ Example value sent to Trial Matcher for the above concept:
 Entity type concepts are concepts that are grouped by common entity types, such as medications, genomic and biomarker information.
 
 When entity type concepts are sent by customers to the Trial Matcher as part of the patient’s clinical info, customers are expected to concatenate the entity type string to the value, separated with a semicolon. 
+
 
 Example concept from neededClinicalInfo API response:
 ```json
