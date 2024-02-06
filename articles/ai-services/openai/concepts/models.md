@@ -213,12 +213,25 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 |  --- |  --- | :---: |
 | `whisper` | North Central US <br> West Europe | 25 MB |
 
+<<<<<<< HEAD
 ### Text to speech models (Preview)
 
 |  Model ID  | Model Availability |
 |  --- |  --- | :---: |
 | `tts-1` | North Central US <br> Sweden Central |
 | `tts-1-hd` | North Central US <br> Sweden Central |
+=======
+### Assistants (Preview)
+
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
+
+| Region | `gpt-35-turbo (1106)` | `gpt-4 (1106-preview)` | `gpt-4 (0613)` | `gpt-4 (0314)` | `gpt-35-turbo (0301)` | `gpt-35-turbo (0613)` | `gpt-35-turbo-16k (0613)` | `gpt-4-32k (0314)` | `gpt-4-32k (0613)` |
+|---|---|---|---|---|---|---|---|---|---|
+| Sweden Central | ✅|✅|✅|✅|✅|✅|✅||✅|
+| East US 2 ||✅|✅|||✅|||✅|
+| Australia East |✅|✅|✅|||✅|||✅|
+
+>>>>>>> 8f753da8364f761f1b2e84569c41cdfa428e82f8
 
 ## Next steps
 
