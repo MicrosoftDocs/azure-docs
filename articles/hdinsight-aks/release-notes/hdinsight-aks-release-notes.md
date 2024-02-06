@@ -25,23 +25,23 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 **This release applies to the following**
 
-- Cluster Pool Version: 1.0
+- Cluster Pool Version: 1.1
 - Cluster Version: 1.1.0
 - AKS version: 1.27
 
 ### New Features
 
 - Workload Identity support by default from 1.1 release.
-- Trino clusters support Trino 426 from 1.1.x release
-- Trino cluster shape adds simplified hive metastore and catalogs configuration
-- Trino cluster shape now supports load-based autoscale
-- Trino cluster shape adds sharded sql connector
-- Flink clusters now support Flink 1.17 from 1.1.x release
+- Trino clusters support Trino 426 from 1.1.x release.
+- Trino cluster shape now supports load-based autoscale from 1.1.x release.
+- Trino cluster shape adds simplified hive metastore and catalogs configuration.
+- Trino cluster shape adds sharded sql connector.
+- Flink clusters now support Flink 1.17 from 1.1.x release.
 - Flink SQL Gateway is now supported from 1.1.x release of Flink on session clusters.
 
 ### Bug Fixes
 - [Trino] Create failed due to an internalservererror Http2ConnectionException
-- Trino cluster shape  improves system catalogs caching
+- Trino cluster shape excludes system tables from caching automatically
 - Trino cluster shape improves Power BI timestamp timezones handling
 
 ### Known issues
