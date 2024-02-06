@@ -1,5 +1,5 @@
 ---
-title: Deploy Arc-enabled Azure VMware Solution
+title: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
@@ -7,9 +7,9 @@ ms.date: 12/08/2023
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
-# Deploy Arc-enabled Azure VMware Solution
+# Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
 
-In this article, learn how to deploy Arc for Azure VMware Solution. Once you set up the components needed, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the actions:
+In this article, learn how to deploy Arc for Azure VMware Solution. Once you set up the components needed, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the following actions:
 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
@@ -232,7 +232,7 @@ You need to enable guest management on the VMware VM before you can install an e
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** is now checked.
 
-From here additional extensions can be installed. See the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
+More extensions can be installed, see the [VM extensions Overview](/azure/azure-arc/servers/manage-vm-extensions) for a list of current extensions.   
 
 ### Next Steps
 
