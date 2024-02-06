@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/18/2024
+ms.date: 02/05/2024
 ms.author: radeltch
 ---
 
@@ -251,7 +251,7 @@ The following items are prefixed with:
     ```bash
     # mount temporarily the volume
     sudo mkdir -p /saptmp
-    sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4,minorversion=1,sec=sys
+    sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o noresvport,vers=4,minorversion=1,sec=sys
     # create the SAP directories
     sudo cd /saptmp
     sudo mkdir -p sapmntNW1
@@ -293,9 +293,9 @@ The following items are prefixed with:
     ```bash
     vi /etc/fstab
     # Add the following lines to fstab, save and exit
-    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1sys/ /usr/sap/NW1/SYS  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1sys/ /usr/sap/NW1/SYS  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
     
     # Mount the file systems
     mount -a 
@@ -345,7 +345,7 @@ The following items are prefixed with:
     sudo pcs node standby sap-cl2
    
     sudo pcs resource create fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' \
-      directory='/usr/sap/NW1/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+      directory='/usr/sap/NW1/ASCS00' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
       op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
       --group g-NW1_ASCS
    
@@ -401,7 +401,7 @@ The following items are prefixed with:
     sudo pcs node standby sap-cl1
     
     sudo pcs resource create fs_NW1_AERS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ers' \
-      directory='/usr/sap/NW1/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+      directory='/usr/sap/NW1/ERS01' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
       op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-NW1_AERS
    
@@ -687,8 +687,8 @@ The following items are prefixed with:
     ```bash
     vi /etc/fstab
     # Add the following lines to fstab, save and exit
-    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
     
     # Mount the file systems
     mount -a 
