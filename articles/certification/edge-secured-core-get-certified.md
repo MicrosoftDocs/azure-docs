@@ -1,6 +1,6 @@
 ---
 title: Get your device certified
-description: Instructions to acheive Edge Secured-core certifications
+description: Instructions to achieve Edge Secured-core certifications
 author: dimatokar
 ms.author: dimatokar
 ms.topic: conceptual 
