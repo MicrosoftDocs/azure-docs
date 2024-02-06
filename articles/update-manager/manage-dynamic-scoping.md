@@ -48,11 +48,10 @@ To view the list of Dynamic scopes associated to a given maintenance configurati
 1. Select **Machines** >  **Maintenance configurations**.
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to view the Dynamic scope.
 1. In the given maintenance configuration page, select **Dynamic scopes** to view all the Dynamic scopes that are associated with the maintenance configuration.
-1. The schedules associated to dynamic scopes are displayed in the following two areas by design:
+1. The schedules associated to dynamic scopes are displayed in the following two areas:
     - **Update manager** > **Machines** > **Associated schedules** column
     - In your virtual machine home page > **Updates** > **Scheduling** tab.
-
-To view the VMs that are associated to the schedule, go to the existing schedule and view under **Dynamic scopes** tab.
+1. To view the VMs that are associated to the schedule, go to the existing schedule and view under **Dynamic scopes** tab.
 
 ## Edit a Dynamic scope
 
