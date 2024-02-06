@@ -107,23 +107,9 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 ## Data extraction
 
-### Paragraphs
-
-The Read OCR model in Document Intelligence extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.
-
-```json
-"paragraphs": [
-    {
-        "spans": [],
-        "boundingRegions": [],
-        "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
-    }
-]
-```
-
 ### Pages
 
-When analyzing Microsft Office and HTML files, the page units in the model output are computed as shown:
+The pages collection is the first object you see in the service response. The page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
@@ -158,6 +144,20 @@ For large multi-page PDF documents, use the `pages` query parameter to indicate 
 
 > [!NOTE]
 > For the Microsoft Word, Excel, PowerPoint, and HTML file support, the API ignores the pages parameter and extracts all pages by default.
+
+### Paragraphs
+
+The Read OCR model in Document Intelligence extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.
+
+```json
+"paragraphs": [
+    {
+        "spans": [],
+        "boundingRegions": [],
+        "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+    }
+]
+```
 
 ### Text lines and words
 
