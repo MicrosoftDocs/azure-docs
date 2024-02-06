@@ -9,7 +9,7 @@ ms.topic: include
 
 After configuring traffic mirroring, make an attempt to receive a sample of recorded traffic (PCAP file) from the switch SPAN or mirror port. 
 
-A sample PCAP file sample will help you:
+A sample PCAP file will help you:
 
 - Validate the switch configuration
 - Confirm that the traffic going through your switch is relevant for monitoring
