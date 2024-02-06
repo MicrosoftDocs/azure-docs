@@ -28,7 +28,7 @@ To complete this procedure, you need:
 
 You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. 
 
-1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md#create-a-data-collection-rule).
+1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md).
 1. In the **Collect and deliver** step, select **Performance Counters** or **Windows Event Logs** from the **Data source type** dropdown. 
 1. For performance counters, select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels.
     <!-- convertborder later -->

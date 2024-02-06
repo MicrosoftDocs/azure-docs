@@ -88,5 +88,5 @@ For a sample DCE, see [Sample data collection endpoint](data-collection-endpoint
 - Data collection endpoints are where [Logs ingestion API ingestion limits](../service-limits.md#logs-ingestion-api) are applied.
 
 ## Next steps
-- [Associate endpoints to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
+
 - [Add an endpoint to an Azure Monitor Private Link Scope resource](../logs/private-link-configure.md#connect-azure-monitor-resources)

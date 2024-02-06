@@ -30,7 +30,7 @@ The Azure Monitor Agent for Linux only collects events with the facilities and s
 
 ### Configure Syslog in the Azure portal
 
-1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md#create-a-data-collection-rule).
+1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md).
 1. In the **Collect and deliver** step, select **Linux syslog** from the **Data source type** dropdown. 
 
 

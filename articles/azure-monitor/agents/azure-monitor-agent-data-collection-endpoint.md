@@ -297,5 +297,4 @@ Associate the data collection endpoints to the target resources by editing the d
 
 ## Next steps
 
-- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
 - [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources).

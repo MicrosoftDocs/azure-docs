@@ -34,7 +34,7 @@ To complete this procedure, you need:
 
 ## Configure collection of IIS logs
 
-1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md#create-a-data-collection-rule).
+1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md).
 1. In the **Collect and deliver** step, select **IIS Logs** from the **Data source type** dropdown.
 
     :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::

@@ -87,7 +87,7 @@ You should receive a 200 response and details about the table you just created.
 
 ### [Portal](#tab/portal)
 
-1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md#create-a-data-collection-rule).
+1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md).
 1. In the **Collect and deliver** step, select **Custom Text Logs** or **JSON Logs** from the **Data source type** dropdown.
 1. Specify the following information:
  
