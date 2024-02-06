@@ -35,6 +35,27 @@ items:
         href: iot-phone-app-how-to.md
       - name: Use IoT Explorer
         href: howto-use-iot-explorer.md
+      - name: Use IoT Plug and Play 
+        items:
+        - name: Manage digital twins
+          href: howto-manage-digital-twin.md
+        - name: Convert a device to IoT Plug and Play
+          href: howto-convert-to-pnp.md
+
+  - name: Tutorials
+    items:
+    - name: Build a device solution with IoT Hub
+      items:
+      - name: Set up your environment
+        href: set-up-environment.md
+      - name: Connect a device to IoT Hub
+        href: tutorial-connect-device.md
+      - name: Interact with a device from your solution
+        href: tutorial-service.md
+    - name: Connect a multiple component device
+      href: tutorial-multiple-components.md
+    - name: Connect a device module
+      href: tutorial-migrate-device-to-module.md
 
   - name: Concepts
     items:
@@ -51,7 +72,33 @@ items:
           - name: MQTT 5 overview
             href: iot-mqtt-5-preview.md
           - name: MQTT 5 API reference
-            href: iot-mqtt-5-preview-reference.md         
+            href: iot-mqtt-5-preview-reference.md
+      - name: IoT Plug and Play
+        items:
+        - name: What is IoT Plug and Play?
+          href: overview-iot-plug-and-play.md
+        - name: Architecture
+          href: concepts-architecture.md
+        - name: IoT Plug and Play conventions
+          href: concepts-convention.md
+        - name: IoT Plug and Play message payloads
+          href: concepts-message-payloads.md
+        - name: Device developer guide
+          href: concepts-developer-guide-device.md
+        - name: Service developer guide
+          href: concepts-developer-guide-service.md
+        - name: Digital twins
+          href: concepts-digital-twin.md   
+        - name: Device models
+          items:
+          - name: Modeling guide
+            href: concepts-modeling-guide.md
+          - name: Use models in a solution
+            href: concepts-model-discovery.md
+          - name: Model repository
+            href: concepts-model-repository.md
+          - name: Model parser
+            href: concepts-model-parser.md
 
   - name: Resources
     items:

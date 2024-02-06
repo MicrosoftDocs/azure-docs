@@ -23,6 +23,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
 | [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
 | [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
+| [Text to speech](#text-to-speech-models-preview) (Preview) | A series of models in preview that can synthesize text to speech. |
 
 ## GPT-4 and GPT-4 Turbo Preview
 
@@ -64,6 +65,12 @@ The DALL-E models, currently in preview, generate images from text prompts that 
 The Whisper models, currently in preview, can be used for speech to text.
 
 You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
+## Text to speech (Preview)
+
+The OpenAI text to speech models, currently in preview, can be used to synthesize text to speech.
+
+You can also use the OpenAI text to speech voices via Azure AI Speech. To learn more, see [OpenAI text to speech voices via Azure OpenAI Service or via Azure AI Speech](../../speech-service/openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech) guide. 
 
 ## Model summary table and region availability
 
@@ -199,12 +206,32 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 | `babbage-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `davinci-002` | North Central US <br> Sweden Central | 16,384 | Sep 2021 |
 | `gpt-35-turbo` (0613) | North Central US <br> Sweden Central | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (1106) | North Central US <br> Sweden Central | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+
 
 ### Whisper models (Preview)
 
 |  Model ID  | Model Availability | Max Request (audio file size) |
 |  --- |  --- | :---: |
 | `whisper` | North Central US <br> West Europe | 25 MB |
+
+### Text to speech models (Preview)
+
+|  Model ID  | Model Availability |
+|  --- |  --- | :---: |
+| `tts-1` | North Central US <br> Sweden Central |
+| `tts-1-hd` | North Central US <br> Sweden Central |
+
+### Assistants (Preview)
+
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. For example [parallel function](../how-to/assistant-functions.md) calling requires the latest 1106 models.
+
+| Region | `gpt-35-turbo (1106)` | `gpt-4 (1106-preview)` | `gpt-4 (0613)` | `gpt-4 (0314)` | `gpt-35-turbo (0301)` | `gpt-35-turbo (0613)` | `gpt-35-turbo-16k (0613)` | `gpt-4-32k (0314)` | `gpt-4-32k (0613)` |
+|---|---|---|---|---|---|---|---|---|---|
+| Sweden Central | ✅|✅|✅|✅|✅|✅|✅||✅|
+| East US 2 ||✅|✅|||✅|||✅|
+| Australia East |✅|✅|✅|||✅|||✅|
+
 
 ## Next steps
 
