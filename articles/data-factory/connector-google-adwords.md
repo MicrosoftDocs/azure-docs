@@ -315,7 +315,7 @@ Upgrade your Google AdWords linked service to the latest Google Ads linked servi
 
     1. If the pipeline is using query to retrieve data from Google AdWords, use [Query Migration tool](https://developers.google.com/google-ads/scripts/docs/reference/query-migration-tool) to translate the AWQL (AdWords Query Language) into GAQL (Google Ads Query Language). 
 
-1. Be aware that there are certain limitations with this migration: 
+1. Be aware that there are certain limitations with this upgrade: 
     1. Not all report types from AWQL are supported in GAQL. 
     1. Not all AWQL queries are cleanly translated to GAQL queries.  
 
