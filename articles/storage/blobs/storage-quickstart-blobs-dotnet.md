@@ -186,7 +186,7 @@ From an empty directory, follow these steps to initialize the `azd` template, pr
 
     You'll be prompted for the following information:
 
-    - **Enviroment name**: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions, and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
+    - **Environment name**: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
 
 - Log in to Azure:
 
