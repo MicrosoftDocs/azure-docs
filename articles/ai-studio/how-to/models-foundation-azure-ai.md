@@ -86,7 +86,7 @@ You can conveniently access these links from a menu at the top-right corner of A
 
 Prompt engineering is an important aspect of working with generative AI models as it allows users to have greater control, customization, and influence over the outputs. By skillfully designing prompts, users can harness the capabilities of generative AI models to generate desired content, address specific requirements, and cater to various application domains.   
 
-The prompt samples are designed to assist AI studio users in finding and utilizing prompts for common use-cases and quickly get started. Users can explore the catalog, view available prompts, and easily open them in a playground for further customization and fine-tuning. 
+The prompt samples are designed to assist AI Studio users in finding and utilizing prompts for common use-cases and quickly get started. Users can explore the catalog, view available prompts, and easily open them in a playground for further customization and fine-tuning. 
 
 > [!NOTE]
 > These prompts serve as starting points to help users get started and we recommend users to tune and evaluate before using in production. 

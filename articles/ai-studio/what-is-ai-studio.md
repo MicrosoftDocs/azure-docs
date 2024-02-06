@@ -27,7 +27,7 @@ Azure AI Studio brings together capabilities from across multiple Azure AI servi
 - Directly from the studio you can interact with a project code-first via the Azure AI SDK and Azure AI CLI. 
 - Azure AI Studio is a trusted and inclusive platform that empowers developers of all abilities and preferences to innovate with AI and shape the future. 
 - Seamlessly explore, build, test, and deploy using cutting-edge AI tools and ML models, grounded in responsible AI practices. 
-- Build together as one team. Your Azure AI resource provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
+- Build together as one team. Your Azure AI hub resource provides enterprise-grade security, and a collaborative environment with shared files and connections to pretrained models, data and compute.
 - Organize your way. Your project helps you save state, allowing you iterate from first idea, to first prototype, and then first production deployment. Also easily invite others to collaborate along this journey.
 
 With Azure AI Studio, you can evaluate large language model (LLM) responses and orchestrate prompt application components with prompt flow for better performance. The platform facilitates scalability for transforming proof of concepts into full-fledged production with ease. Continuous monitoring and refinement support long-term success.  
@@ -69,13 +69,13 @@ Build is an experience where AI Devs and ML Pros can build or customize AI solut
 As a developer, you can manage settings such as connections and compute. Your admin will mainly use this section to look at access control, usage, and billing.
 
 - Centralized backend infrastructure to reduce complexity for developers
-- A single Azure AI resource for enterprise configuration, unified data story, and built-in governance
+- A single Azure AI hub resource for enterprise configuration, unified data story, and built-in governance
 
 :::image type="content" source="./media/explore/ai-studio-tab-manage.png" alt-text="Screenshot of the signed-out Azure AI Studio manage page." lightbox="./media/explore/ai-studio-tab-manage.png":::
 
 ---
 
-## Azure AI studio enterprise chat solution demo
+## Azure AI Studio enterprise chat solution demo
 
 Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
 > [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]
