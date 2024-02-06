@@ -219,7 +219,7 @@ You can also set up the application bindings from the Azure portal, as shown in 
 >
 > If you change the binding/unbinding status, you need to restart or redeploy the application.
 
-Use the following command if you want to bind your application to the Service Registry directly when creating the new app:
+When creating a new app, use the following command if you want to bind your application to the Service Registry directly:
 
 ```azurecli
 az spring app create \ 
