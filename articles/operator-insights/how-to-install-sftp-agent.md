@@ -167,22 +167,18 @@ If your agent VMs don't have access to public DNS, then you need to add entries 
 
 This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing,  you **cannot** use this workaround and must use public DNS.
 
-Create the following resources from a virtual network that is peered to your ingestion agents:
-
-- A Service Endpoint to Azure Storage
-- A Private Link or Service Endpoint to the Key Vault created by your Data Product.  The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
-
-Steps:
-
+1. Create the following resources from a virtual network that is peered to your ingestion agents:
+    - A Service Endpoint to Azure Storage
+    - A Private Link or Service Endpoint to the Key Vault created by your Data Product.  The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
 1. Note the IP addresses of these two connections.
-2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
-3. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*.
-4. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
+1. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
+1. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*.
+1. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
     ```
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-5. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+1. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
     ```
     <Public IP>   login.microsoftonline.com
     ````
