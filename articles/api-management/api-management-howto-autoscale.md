@@ -57,7 +57,7 @@ Follow these steps to configure autoscale for an Azure API Management service:
 
 1. Define a new scale-out rule.
 
-   For example, a scale-out rule could trigger addition of 1 API Management unit, when the average capacity metric over the previous 30 minutes exceeds 80%. The following table provides an example configuration for such a rule. Review the preceding [limitations](#azure-api-management-autoscale-limitations) when defining a scale-out rule in your environment.
+   For example, a scale-out rule could trigger addition of 1 API Management unit, when the average capacity metric over the previous 30 minutes exceeds 70%. The following table provides an example configuration for such a rule. Review the preceding [limitations](#azure-api-management-autoscale-limitations) when defining a scale-out rule in your environment.
 
     | Parameter             | Value             | Notes                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
