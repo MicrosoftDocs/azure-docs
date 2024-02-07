@@ -169,9 +169,6 @@ Here's how to configure a host pool to assign a user to a specific session host.
 
 2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
-   ```azurecli
-  az desktopvirtualization sessionhost update --host-pool-name $hostPoolName --name $sessionHostName --resource-group $resourceGroupName --assigned-user $userupn
-   ```
 
 ---
 
@@ -232,13 +229,6 @@ Here's how to configure a host pool to unassign a personal desktop using [az-des
 
 2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
-  ```azurecli
-  az rest --method PATCH --uri "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$sessionHostName?api-version=2022-02-10-preview&force=true" --body '{
-    "properties": {
-      "assignedUser": ""
-    }
-  }'
-  ```
 
 ---
 
@@ -305,19 +295,6 @@ Here's how to reassign a personal desktop using [az-desktopvirtualization-hostpo
 
 2. Run the following command to define the `$reassignUserUpn` variable by running the following command:
 
-   ```azurecli
-   reassignUserUpn = <UPN of user you are reassigning the desktop to>
-   ```
-
-3. Run the `Invoke-AzRestMethod` command in the following example to reassign a personal desktop. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
-
-   ```azurecli
-  az rest --method PATCH --uri "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$sessionHostName?api-version=2022-02-10-preview&force=true" --body '{
-    "properties": {
-      "assigneduser": "'"$reassignUserUpn"'"
-    }
-  }'
-   ```
 
 ---
 
