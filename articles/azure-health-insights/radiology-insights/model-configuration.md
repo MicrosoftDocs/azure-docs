@@ -86,10 +86,12 @@ As a result, the model includes evidence for all inferences.
 - The model checks for follow-up recommendations with no specific radiologic modality.
 - The model provides a single focused sentence as evidence for the recommendation. 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-2-inference-follow-up-recommendation-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-2-inference-follow-up-recommendation-json-response.md)]
-</details>
+
 
 
 
@@ -105,10 +107,12 @@ As a result, the model includes evidence for all inferences.
 - The model provides a single focused sentence as evidence for the finding. 
 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-1-inference-follow-up-recommendation-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-1-inference-follow-up-recommendation-json-response.md)]
-</details>
+
 
 
 

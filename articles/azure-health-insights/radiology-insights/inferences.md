@@ -63,10 +63,12 @@ To interact with the Radiology-Insights model, you can provide several model con
 An age mismatch occurs when the document gives a certain age for the patient, which differs from the age that is calculated based on the patient’s info birthdate and the encounter period in the request.  
 - kind: RadiologyInsightsInferenceType.AgeMismatch;
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-age-mismatch-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-age-mismatch-json-response.md)]
-</details>
+
 
 
 
@@ -96,10 +98,12 @@ The meaning of this field is as follows:
 A mismatch with discrepancy type “textLaterityMissing” has no token extensions.
 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-laterality-discrepancy-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-laterality-discrepancy-json-response.md)]
-</details>
+
 
 
 
@@ -112,10 +116,12 @@ Field “sexIndication” contains one coding with a SNOMED concept for either M
 - 248152002: FEMALE (FINDING)
 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-sex-mismatch-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-sex-mismatch-json-response.md)]
-</details>
+
 
 
 
@@ -137,10 +143,12 @@ Fields “missingBodyParts” and/or “missingBodyPartsMeasurements” contain 
         
 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-complete-order-discrepancy-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-complete-order-discrepancy-json-response.md)]
-</details>
+
 
 
 
@@ -162,10 +170,12 @@ Field “ordertype” contains one Coding, with one of the following Loinc codes
 Fields “presentBodyParts” and/or “presentBodyPartsMeasurements” contain body parts (radlex codes) that are present or whose measurements are present. The token extensions refer to body parts or measurements that are present (or words that imply them).
 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-limited-order-discrepancy-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-limited-order-discrepancy-json-response.md)]
-</details>
+
 
 
 
@@ -278,10 +288,12 @@ If “valueQuantity” is set, then “valueQuantity.value” is always set. In 
 If “valueRange” is set, then “valueRange.low” and “valueRange.high” are set to quantities with the same data as described in the previous paragraph. This field contains, for example, “The tumor is between 2.5 cm and 2.6 cm in size".
 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-finding-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-finding-json-response.md)]
-</details>
+
 
 
 
@@ -296,10 +308,12 @@ Field “result.finding”, if set, contains the same information as the “find
 Next to token extensions, there can be an extension for a section. This field contains the most specific section that the first token of the critical result is in (or to be precise, the first token that is in a section). This section is in the same format as a section for a finding.
 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-critical-result-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-critical-result-json-response.md)]
-</details>
+
 
 
 
@@ -357,10 +371,12 @@ This type has the following fields, the first 2 of which are always filled:
 - “view”: not set.
 
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-1-inference-follow-up-recommendation-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-1-inference-follow-up-recommendation-json-response.md)]
-</details>
+
 
 
 
@@ -374,10 +390,12 @@ This inference is created when findings or test results were communicated to a m
         
 Field “wasAcknowledged” is set to true if the communication was verbal (nonverbal communication might not have reached the recipient yet and cannot be considered acknowledged). Field “dateTime” is set if the date-time of the communication is known. Field “recipient” is set if the recipient(s) are known. See the OpenAPI spec for its possible values.
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-follow-up-communication-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-follow-up-communication-json-response.md)]
-</details>
+
 
 
 
@@ -394,10 +412,12 @@ Field “procedureCodes”, if set, contains LOINC codes.
 Field “orderedProcedure” contains the description(s) and the code(s) of the ordered procedure(s) as given by the client. The descriptions are in field “orderedProcedure.description”, separated by “;;”. The codes are in “orderedProcedure.code.coding”. In every coding in the array, only field “coding” is set.
         
 
-<details><summary>Examples request/response json</summary>
+Examples request/response json:
+
 [!INCLUDE [Example input json](../includes/example-inference-radiology-procedure-json-request.md)]
+
 [!INCLUDE [Example output json](../includes/example-inference-radiology-procedure-json-response.md)]
-</details>
+
 
 
 
