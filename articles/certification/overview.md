@@ -1,10 +1,10 @@
 ---
 title: Overview of the Edge Secured-core program
 description: An overview of the Edge Secured-core program for our partners and customers. Use these resources to start the certification process. Find out how to certify your device, from IoT device requirements to the device being publishrf.
-author: nkuntjoro
-ms.author: nikuntjo
+author: sufon
+ms.author: sufon
 ms.topic: overview 
-ms.date: 04/09/2021
+ms.date: 02/07/2024
 ms.custom: template-overview
 ms.service: certification
 ---
@@ -12,8 +12,13 @@ ms.service: certification
 
 
 # What is the Edge Secured-core program?
-Thank you for your interest in the Edge Secured-core program! Edge Secured-core is a free program that enables you to differentiate, certify, and promote your Edge devices built to securely run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced security device certification program helps device builders increase their product visibility and saves customers time in building solutions.
+This program enables device partners to differentiate their devices by meeting an additional set of security criteria. It validates devices meet additional security requirements around device identity, secure boot, operating system hardening, device updates, data protection, and vulnerability disclosures.
 
+- **Giving customers confidence:** Customers can confidently purchase devices that meet an additional set of security criteria.
+
+- **Matchmaking customers with the right devices for them:** Device builders can set themselves apart with certification that highlights their unique capabilities, and customers can easily find qualified devices that fit their needs.
+
+- **Promoting certified devices:** Device builders get increased visibility, contact with customers, and usage of Microsoft’s Edge Secured-core brand.
 
 ### Program purpose ###
 Edge Secured-core is a security certification for devices running a full operating system. Edge Secured-core currently supports Windows IoT and Azure Sphere OS. Linux support is coming in the future. Devices meeting this criteria enable these promises:
@@ -24,17 +29,6 @@ Edge Secured-core is a security certification for devices running a full operati
 4. Provides data at-rest protection
 5. Provides data in-transit protection
 6. Built in security agent and hardening
-
-
-## Our certification promise
-
-This program enables device partners to differentiate their devices by meeting an additional set of security criteria. It validates devices meet additional security requirements around device identity, secure boot, operating system hardening, device updates, data protection, and vulnerability disclosures.
-
-- **Giving customers confidence:** Customers can confidently purchase devices that meet an additional set of security criteria.
-
-- **Matchmaking customers with the right devices for them:** Device builders can set themselves apart with certification that highlights their unique capabilities, and customers can easily find qualified devices that fit their needs.
-
-- **Promoting certified devices:** Device builders get increased visibility, contact with customers, and usage of Microsoft’s Edge Secured-core brand.
 
 ## User roles
 
