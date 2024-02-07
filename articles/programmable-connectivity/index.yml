@@ -29,3 +29,12 @@ landingContent:
         links:    
           - text: What are Network APIs?
             url: azure-programmable-connectivity-network-apis.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an APC Gateway
+            url: azure-programmable-connectivity-create-gateway.md
+          - text: Modify APIs
+            url: azure-programmable-connectivity-modify-apis.md
