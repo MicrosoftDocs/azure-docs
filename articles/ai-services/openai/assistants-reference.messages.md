@@ -24,6 +24,8 @@ POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 
 Create a message.
 
+**Path parameter**
+
 |Parameter| Type | Required | Description |
 |---|---|---|---|
 |`thread_id` | string | Required | The ID of the thread to create a message for. |
