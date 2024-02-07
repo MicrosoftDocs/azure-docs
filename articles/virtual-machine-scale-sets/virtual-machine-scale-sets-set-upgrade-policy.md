@@ -37,6 +37,7 @@ If using a Rolling Upgrade Policy, see [Configure Rolling Upgrade Policy](virtua
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
+    --orchestration-mode Flexible \
     --image Ubuntu2204 \
     --lb myLoadBalancer \
     --upgrade-policy-mode Manual \
@@ -55,6 +56,7 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Flexible" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
