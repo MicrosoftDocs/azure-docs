@@ -16,7 +16,7 @@ Workflow actions such as **Transform XML** and **Liquid** require a map to perfo
 
 For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can define and use a map that transforms the YYYYMMDD format to the MMDDYYYY format before storing the order or invoice details in your customer activity database.
 
-This how-to guide shows how to add a map to your integration account. If you're working with a Standard logic app workflow, you can also add a map directly to your logic app resource.
+This guide shows how to add a map for your workflow to use. You can add maps either to your linked integration account, or if you have a Standard logic app, you can add maps directly to your logic app resource.
 
 ## Prerequisites
 
