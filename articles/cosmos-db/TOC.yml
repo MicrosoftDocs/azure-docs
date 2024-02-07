@@ -5,6 +5,8 @@
   items:
     - name: Welcome to Azure Cosmos DB
       href: introduction.md
+    - name: FAQ
+      href: faq.yml
     - name: Try Azure Cosmos DB free
       href: try-free.md
     - name: Choose an API
