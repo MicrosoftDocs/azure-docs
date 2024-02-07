@@ -1,5 +1,5 @@
 ---
-title: Monitor quality and safety of deployed applications 
+title: Monitor quality and safety of deployed prompt flow applications 
 titleSuffix: Azure AI Studio
 description: Learn how to monitor quality and safety of deployed prompt flow applications with Azure AI Studio.
 manager: scottpolly
