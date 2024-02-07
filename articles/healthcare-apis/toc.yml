@@ -53,12 +53,16 @@
     - name: Enable diagnostic logging
       href: logging.md
 - name: Release notes
-  expanded: true
+  expanded: false
   items: 
-    - name: Release notes
-      href: release-notes.md
-    - name: Archived release notes
-      href: release-notes-archive.md
+    - name: 2024
+      href: release-notes-2024.md
+    - name: 2023
+      href: release-notes-2023.md
+    - name: 2022
+      href: release-notes-2022.md
+    - name: 2021
+      href: release-notes-2021.md
     - name: Known issues
       href: known-issues.md
 - name: Resources
