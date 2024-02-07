@@ -1,14 +1,14 @@
 ---
-title: "Troubleshoot connectivity issues with Azure Lab Services"
-description: "Learn how to troubleshoot common connectivity issues with Azure Lab Services."
+title: Troubleshoot connectivity issues with Azure Lab Services
+titleSuffix: Azure Lab Services
+description: Learn how to troubleshoot common connectivity issues with Azure Lab Services.
+services: lab-services
+ms.service: lab-services
 author: modularity
 ms.author: ladunlap
-ms.service: azure-lab-services
-ms.topic: troubleshooting-general
-ms.date: 02/01/2024
-
+ms.topic: troubleshooting
+ms.date: 02/07/2024
 #customer intent: As an Azure Lab Services user, I want to troubleshoot connectivity issues so that I can access my virtual machines.
-
 ---
 
 # Troubleshoot connectivity issues with Azure Lab Services
@@ -16,7 +16,7 @@ ms.date: 02/01/2024
 This article provides guidance on how to troubleshoot common connectivity issues with Azure Lab Services.
 
 > [!IMPORTANT]
-> Azure Lab Services is a managed offering where some of the backing resources for a Lab are not directly accessible. This impacts the ability to utilize other Azure VM troubleshooting guides like [Troubleshoot RDP connections on an Azure Virtual Machine](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
+> Azure Lab Services is a managed offering where some of the backing resources for a Lab are not directly accessible. This impacts the ability to utilize other Azure VM troubleshooting guides like [Troubleshoot RDP connections on an Azure Virtual Machine](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
 
 ## Connection speed
 
