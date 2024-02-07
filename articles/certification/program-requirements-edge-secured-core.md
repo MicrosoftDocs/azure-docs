@@ -224,14 +224,10 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 ---
 </br>
 
-
-
 |Name|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the boot integrity of the device. Firmware and kernel signatures need to be validated every time the device boots.
-- UEFI: Secure boot is enabled
-- Uboot: Verified boot is enabled|
+|Description|The purpose of the requirement is to validate the boot integrity of the device. Firmware and kernel signatures need to be validated every time the device boots.<ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
 
 ---
 </br>
@@ -281,7 +277,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 |Name|SecuredCore.Protection.NetworkServices|
 |:---|:---|
-|Status|<sup>*</sup>Required|
+|Status|Required|
 |Description|The purpose of the requirement is to validate that applications accepting input from the network aren't running with elevated privileges such as SYSTEM or root privileges.|
 
 ## Linux Software/Service Requirements
@@ -325,8 +321,6 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Status|Required|
 |Description|The purpose of the requirement is to validate the extent to which the device implements the Azure Security Baseline|
 |Dependency|azure-osconfig|
-|Validation Type|Manual/Tools|
-|Validation|OSConfig is present on the device and reporting to what extent it implements the Azure Security Baseline.|
 |Resources|<ul><li>https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines</li><li>https://www.cisecurity.org/cis-benchmarks/</li><li>https://learn.microsoft.com/en-us/azure/governance/policy/samples/guest-configuration-baseline-linux</li></ul>|
 
 ---
