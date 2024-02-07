@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 02/07/2024
 #CustomerIntent: As a network administrator, I want to inspect packets captured by Network Watcher to investigate network issues.
 ---
 
@@ -26,55 +26,55 @@ In this article, you learn how to open a packet capture file provided by Network
 
 ## Calculate network latency
 
-In this scenario, we show how to view the initial Round Trip Time (RTT) of a Transmission Control Protocol (TCP) conversation occurring between two endpoints.
+In this example, you learn how to view the initial Round Trip Time (RTT) of a Transmission Control Protocol (TCP) conversation between two endpoints.
 
-When a TCP connection is established, the first three packets sent in the connection follow a pattern commonly referred to as the three-way handshake. By examining the first two packets sent in this handshake, an initial request from the client and a response from the server, we can calculate the latency when this connection was established. This latency is referred to as the Round Trip Time (RTT). For more information on the TCP protocol and the three-way handshake, see the following resource. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
+When a TCP connection is established, the first three packets sent in the connection follow a pattern referred to as the three-way handshake. By examining the first two packets sent in this handshake, an initial request from the client and a response from the server, you can calculate the latency. This latency is referred to as the Round Trip Time (RTT). For more information on the TCP protocol and the three-way handshake, see [Explanation of the three-way handshake via TCP/IP](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip).
 
-### Step 1
+1. Launch WireShark.
 
-Launch WireShark
+1. Load the **.cap** file from your packet capture session.
 
-### Step 2
+1. Select a [SYN] packet in your capture. This packet is the first packet sent by the client to initiate a TCP connection.
 
-Load the **.cap** file from your packet capture. This file can be found in the blob it was saved in our locally on the virtual machine, depending on how you configured it.
+1. Right-click on the packet and select **Follow**, then select **TCP Stream**.
 
-### Step 3
+    :::image type="content" source="./media/network-watcher-deep-packet-inspection/follow-tcp-stream.png" alt-text="Screenshot shows how to filter TCP stream packets in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/follow-tcp-stream.png":::
 
-To view the initial Round Trip Time (RTT) in TCP conversations, we'll only be looking at the first two packets involved in the TCP handshake. We'll be using the first two packets in the three-way handshake, which are the [SYN], [SYN, ACK] packets. They're named for flags set in the TCP header. The last packet in the handshake, the [ACK] packet, won't be used in this scenario. The [SYN] packet is sent by the client. Once it's received, the server sends the [ACK] packet as an acknowledgment of receiving the SYN from the client. Leveraging the fact that the server’s response requires very little overhead, we calculate the RTT by subtracting the time the [SYN, ACK] packet was received by the client by the time [SYN] packet was sent by the client.
+1. Expand the **Transmission Control Protocol** section of the [SYN] packet, and then the **Flags** section.
 
-Using WireShark this value is calculated for us.
+1. Confirm that the **Syn** bit is set to 1, then right-click on it.
 
-To more easily view the first two packets in the TCP three-way handshake, we'll utilize the filtering capability provided by WireShark.
+1. Select **Apply as Filter**, and then select **... and selected** to show the packets with **Syn** bit set to 1 within the TCP stream.
 
-To apply the filter in WireShark, expand the “Transmission Control Protocol” Segment of a [SYN] packet in your capture and examine the flags set in the TCP header.
+    The first two packets involved in the TCP handshake are the [SYN], [SYN, ACK] packets. You don't need the last packet in the handshake, which is the [ACK] packet. The [SYN] packet is sent by the client. Once it's received, the server sends the [ACK] packet as an acknowledgment of receiving the [SYN] from the client.
 
-Since we're looking to filter on all [SYN] and [SYN, ACK] packets, under flags confirm that the Syn bit is set to 1, then right-select on the Syn bit -> Apply as Filter -> Selected.
+    :::image type="content" source="./media/network-watcher-deep-packet-inspection/syn-filter.png" alt-text="Screenshot shows how to apply a filter to see the [SYN] and and [SYN, ACK] packets in a TCP stream in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/syn-filter.png":::
 
-![figure 7][7]
+1. Select the [SCK] packet. 
 
-### Step 4
+1. Expand the **SEQ/ACK** section to see the iRTT in seconds.
 
-Now that you've filtered the window to only see packets with the [SYN] bit set, you can easily select conversations you're interested in to view the initial RTT. A simple way to view the RTT in WireShark is to select the dropdown marked “SEQ/ACK” analysis. You'll then see the RTT displayed. In this case, the RTT was 0.0022114 seconds, or 2.211 ms.
-
-![figure 8][8]
+    :::image type="content" source="./media/network-watcher-deep-packet-inspection/view-latency.png" alt-text="Screenshot shows how to see the latency represented as iRTT in seconds in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/view-latency.png":::
 
 ## Find unwanted protocols
 
-You can have many applications running on a virtual machine instance you've deployed in Azure. Many of these applications communicate over the network, perhaps without your explicit permission. Using packet capture to store network communication, we can investigate how applications are talking on the network and look for any issues.
+You can have many applications running on an Azure virtual machine. Many of these applications communicate over the network, sometimes without your explicit permission. Using packet capture to record network communication, you can investigate how applications communicate over the network, allowing you to identify and address any potential issues.
 
-In this example, we review a previous ran packet capture for unwanted protocols that might indicate unauthorized communication from an application running on your machine.
+In this example, you learn how to analyze a packet capture to find unwanted protocols that might indicate unauthorized communication from an application running on your virtual machine.
 
-### Step 1
+1. Launch WireShark.
 
-Using the same capture in the previous scenario, select **Statistics** > **Protocol Hierarchy**.
+1. Load the **.cap** file from your packet capture session.
 
-![protocol hierarchy menu][2]
+1. Select **Statistics**, then select **Protocol Hierarchy**.
 
-The protocol hierarchy window appears. This view provides a list of all the protocols that were in use during the capture session and the number of packets transmitted and received using the protocols. This view can be useful for finding unwanted network traffic on your virtual machines or network.
+    :::image type="content" source="./media/network-watcher-deep-packet-inspection/protocol-hierarchy.png" alt-text="Screenshot shows how to get to Protocol Hierarchy from the Statistics menu in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/protocol-hierarchy.png":::
 
-![protocol hierarchy opened][3]
+1. In the **Protocol Hierarchy Statistics** window, you can see a list of all the protocols that were in use during the capture session and the number of packets transmitted and received using each protocol. This view is useful for finding unwanted network traffic on your virtual machines or network.
 
-As you can see in the following screen capture, there was traffic using the BitTorrent protocol, which is used for peer to peer file sharing. As an administrator you don't expect to see BitTorrent traffic on this particular virtual machine. Now you aware of this traffic, you can remove the peer to peer software that installed on this virtual machine, or block the traffic using Network Security Groups or a Firewall. Additionally, you can elect to run packet captures on a schedule, so you can review the protocol use on your virtual machines regularly. For an example on how to automate network tasks in Azure, visit [Monitor network resources with Azure Automation](network-watcher-monitor-with-azure-automation.md).
+    :::image type="content" source="./media/network-watcher-deep-packet-inspection/protocol-hierarchy-statistics.png" alt-text="Screenshot shows the Protocol Hierarchy Statistics window in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/protocol-hierarchy-statistics.png":::
+
+    In the example, you can see that there was traffic using the BitTorrent protocol, which is used for peer-to-peer file sharing. As an administrator, if you don't expect to see BitTorrent traffic on this particular virtual machine, then you can remove the peer-to-peer software that's installed on this virtual machine, or block the traffic using a network security group or a firewall.
 
 ## Finding top destinations and ports
 
