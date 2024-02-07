@@ -1,6 +1,6 @@
 ---
 title: Prepare for retirement of the Log Analytics agent 
-description: Learn how to prepare for the deprecation of the Log Analytics MMA agent in Microsoft Defender for Cloud
+description: Learn how to prepare for the deprecation of the Log Analytics (MMA) agent in Microsoft Defender for Cloud
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 02/05/2024
 
 # Prepare for retirement of the Log Analytics agent
 
-The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA), [will retire in August 2024](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341). As a result, the Defender for Servers and Defender for SQL on Machines plans in Microsoft Defender for Cloud will change, and features that rely on the Log Analytics agent will be redesigned.
+The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA), [will retire in August 2024](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341). As a result, the Defender for Servers and Defender for SQL on machines plans in Microsoft Defender for Cloud will change, and features that rely on the Log Analytics agent will be redesigned.
 
 This article summarizes plans for agent retirement.
 
@@ -39,7 +39,7 @@ The following table summarizes how Defender for Servers features will be provide
 
 The [500-MB benefit](faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) for data ingestion over the defined tables will remain supported via the AMA agent for the machines under subscriptions covered by Defender for Servers Plan 2. Every machine is eligible for the benefit only once, even if both Log Analytics agent and Azure Monitor agent are installed on it. Learn more about how to [deploy AMA](/azure/azure-monitor/vm/monitor-virtual-machine-agent#agent-deployment-options). 
 
-For SQL servers on machines, we recommend to [migrate to SQL server-targeted Azure Monitoring Agent's (AMA) auto-provisioning process](defender-for-sql-autoprovisioning.md).
+For SQL servers on machines, we recommend to [migrate to SQL server-targeted Azure Monitoring Agent's (AMA) autoprovisioning process](defender-for-sql-autoprovisioning.md).
 
 ## Migration planning
 
@@ -63,7 +63,7 @@ Endpoint discovery and recommendations are currently provided by Defender for Cl
 
 Endpoint protection recommendations are constructed in two stages. The first stage is [EDR discovery](#edr-discovery) of an endpoint detection and response (EDR) solution. The second is [assessment](#edr-configuration-assessment) of the solution’s configuration. The following tables provide details of the current and new experiences for each stage.
 
-#### EDR Discovery
+#### EDR discovery
 
 | Area | Current experience | New experience |
 |----|----|----|
@@ -112,13 +112,13 @@ The following table summarizes the timetable for recommendations being deprecate
 
 ## Preparing Defender for SQL on Machines
 
-You can learn more about the [Defender for SQL Server on machines Log Analytics Agent's deprecation plan](upcoming-changes.md#defender-for-sql-server-on-machines).
+You can learn more about the [Defender for SQL Server on machines Log Analytics agent's deprecation plan](upcoming-changes.md#defender-for-sql-server-on-machines).
 
-If you are using the current Log Analytics agent/Azure Monitor agent autoprovisioning process, you should migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process. The migration process is seamless and provides continuous protection for all machines.
+If you're using the current Log Analytics agent/Azure Monitor agent autoprovisioning process, you should migrate to the new Azure Monitoring Agent for SQL Server on machines autoprovisioning process. The migration process is seamless and provides continuous protection for all machines.
 
-### Migrate to the SQL server-targeted AMA autoprovisioning process 
+### Migrate to the SQL server-targeted AMA autoprovisioning process
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Microsoft Defender for Cloud**.
 1. In the Defender for Cloud menu, select **Environment settings**.
 1. Select the relevant subscription.
@@ -136,7 +136,7 @@ Once the SQL server-targeted AMA autoprovisioning process has been enabled, you 
 
 To disable the Log Analytics agent:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Microsoft Defender for Cloud**.
 1. In the Defender for Cloud menu, select **Environment settings**.
 1. Select the relevant subscription.
@@ -156,7 +156,7 @@ Dates are summarized in the following table.
 | --- | --- | --- |
 | Log Analytics agent | Defender for Servers, Defender for SQL on Machines | The Log Analytics agent is supported in GA until August 2024.|
 | AMA | Defender for SQL on Machines | The AMA is available with a new autoprovisioning process. |
-| AMA | Defender for Servers | Features in preview that rely on AMA will remain supported until an alternative version of the feature is provided, based on Defender for Endpoint integration or agentless machine scanning. Learn more about [Defender for Servers feature functionality](#feature-functionality). |
+| AMA | Defender for Servers | Features in preview that rely on AMA remain supported until an alternative version of the feature is provided, based on Defender for Endpoint integration or agentless machine scanning. Learn more about [Defender for Servers feature functionality](#feature-functionality). |
 
 ### Migration steps
 
