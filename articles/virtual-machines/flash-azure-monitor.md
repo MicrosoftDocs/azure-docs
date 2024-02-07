@@ -29,7 +29,7 @@ Currently in public preview. It's well-suited for tracking trends, aggregating p
 - Easily interact with and chart metric data during any relevant time window on [Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md), for quick and easy debugging.
 - Route metrics to downstream tooling like [Grafana dashboards](../azure-monitor/visualize/grafana-plugin.md), for constructing custom visualizations and dashboards.
 
-### Getting started
+### Get started
 
 Users can either consume the metric programmatically via the [Azure Monitor REST API](/rest/api/monitor/metrics) or directly from the [Azure portal](https://portal.azure.com/). The following steps highlight metric consumption from the Azure portal.
 
@@ -39,7 +39,7 @@ Once on the Azure portal, navigate to the VM overview blade. The new metric is d
 
 Select (single click) the VM availability metric chart on the overview page, to navigate to [Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for further analysis.
 
-   :::image type="content" source="media/flash/metrics-explorer-virtual-machine-availability.png" alt-text="View of the newly added VM availability Metric on Metrics Explorer on Azure portal." lightbox="media/flash/metrics-explorer-virtual-machine-availability.png" :::
+   :::image type="content" source="media/flash/metrics-explorer-virtual-machine-availability.png" alt-text="Screenshot of the newly added VM availability Metric on Metrics Explorer on Azure portal." lightbox="media/flash/metrics-explorer-virtual-machine-availability.png" :::
 
 ### Metric description
 

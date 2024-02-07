@@ -26,7 +26,7 @@ To ensure seamless operation of business-critical applications, it's crucial to 
 
 This system topic provides in-depth VM [health data](../event-grid/event-schema-health-resources.md?tabs=event-grid-event-schema#event-types), giving you immediate insights into changes in VM availability states along with the necessary context. You can receive events on single-instance VMs and [Virtual Machine Scale Set](../virtual-machine-scale-sets/overview.md) VMs for the Azure subscription for which this topic was created. Data is published to this topic by [Azure Resource Notifications](../event-grid/event-schema-resource-notifications.md) (ARN), our state-of-the-art publisher-subscriber service, equipped with robust Role-Based Access Control (RBAC) and advanced filtering capabilities. This empowers you to effortlessly subscribe to an Event Grid system topic and seamlessly direct relevant events utilizing the [advanced filtering](../event-grid/event-filtering.md) capabilities provided by Event Grid, to downstream tools in real-time. This enables you to respond and mitigate issues instantly.
 
-### Getting started
+### Get started
 
 - Step 1: Users start by [creating a system](../event-grid/create-view-manage-system-topics.md#create-a-system-topic)topic within the Azure subscription for which they want to receive notifications.
 - Step 2: Users then proceed to [create an event subscription](../event-grid/subscribe-through-portal.md#create-event-subscriptions) within the system topic in Step 1. During this step, they specify the [endpoint](../event-grid/event-handlers.md) (such as, Event Hubs) to which the events are routed. Users can also configure event filters to narrow down the scope of delivered events.

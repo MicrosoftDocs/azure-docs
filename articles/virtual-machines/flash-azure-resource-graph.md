@@ -37,7 +37,7 @@ In addition to already flowing [VM availability states](../service-health/resour
 - [VM availability information in Azure Resource Graph - Azure Virtual Machines | Microsoft Learn](resource-graph-availability.md)
 - [List of sample Azure Resource Graph queries by table - Azure Resource Graph | Microsoft Learn](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources)
 
-### Getting started
+### Get started
 
 Users can query ARG via [PowerShell](../governance/resource-graph/first-query-powershell.md), [REST API](../governance/resource-graph/first-query-rest-api.md), [Azure CLI](../governance/resource-graph/first-query-azurecli.md), or even the [Azure portal](https://portal.azure.com/). The following steps detail how data can be accessed from Azure portal.
 

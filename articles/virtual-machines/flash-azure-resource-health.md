@@ -26,7 +26,7 @@ It offers immediate and user-friendly health checks for individual resources thr
 
 But we know that our customers and partners are interested in understanding what causes underlying technical issues, and in improving how they can receive communications about any issues—to feed into monitoring processes, to explain hiccups to other stakeholders, and ultimately to inform business decisions.
 
-### Introducing root causes for VM issues in Azure Resource Health
+### Root causes for VM issues in Azure Resource Health
 
 We recently shipped an improvement to the resource health experience that will enhance the information we share with customers about VM failures and provide further context on the root cause that led to the issue. Now, in addition to getting a fast notification when a VM's availability is impacted, customers can expect a root cause to be added at a later point once our automated Root Cause Analysis (RCA) system identifies the failing Azure platform component that led to the VM failure. Let's walk through an example to see how this works process in practice:
 
