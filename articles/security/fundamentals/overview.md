@@ -205,8 +205,8 @@ Azure networking supports various secure remote access scenarios. Some of these 
 | Rule Action | Description |
 |-------------|-------------|
 | **Allow**       | Allow the traffic trusted boundary by default unless denied by NSGs created by individual teams. |
-| Always Allow | Always allow monitoring agent's traffic.</br>Always allow domain controller traffic</br>Always allow management traffic.|
-| Deny          | Protect high-risk ports by default for all exiting and new VNets. |
+| **Always allow** | Always allow monitoring agent's traffic.</br>Always allow domain controller traffic</br>Always allow management traffic.|
+| **Deny**          | Protect high-risk ports by default for all exiting and new VNets. |
 
 To manage your virtual networks in Azure Virtual Network Manager, you use network groups. [Network groups](../../virtual-network-manager/concept-network-groups.md) allow you to group virtual networks together for centralized management and enforcement of security policies. Network groups are a logical grouping of virtual networks based on your needs from a topology and security perspective. You can manually create network groups or use dynamic network groups with Azure Policy.
 
