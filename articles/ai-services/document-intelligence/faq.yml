@@ -556,6 +556,20 @@ sections:
 
           FOTT has a version that uses local storage. The version needs to be installed on a Windows machine. You can install it from [this location](https://github.com/microsoft/OCR-Form-Tools/releases/download/v2.1-ga/oflt-2.1.3-win32.exe). On the project page, specify the Label folder URI as /shared or /shared/sub-dir if your labeling files are in a sub directory. All other Document Intelligence Sample Labeling Tool behavior is the same as the hosted service.
 
+      - question: |
+          What is the best practice for scaling up?
+        answer: |
+
+          - For asynchronous calls, you can run multiple containers with shared storages. The container processing the POST Analyze call stores the output in the storage. Then, any other container can fetch the results from the storage and serve the GET calls. Thus, the request ID is not tied to a container. 
+
+          - For synchronous calls, multiple containers can be run and only one container will serve a request. As it is a blocking call, any container from the pool can serve the request and send the response. Here, only one container will be tied to a request at a time and no polling is required.
+
+      - question: |
+          How can I set up containers with shared storage?
+        answer: |
+
+          The containers use ‘Mounts:Shared’ property while starting up for specifying the shared storage to store the processing files. You can refer the following [documentation](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/containers/install-run?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers) to see the use of this property.
+          
   - name: Security and Privacy
     questions:
       - question: |

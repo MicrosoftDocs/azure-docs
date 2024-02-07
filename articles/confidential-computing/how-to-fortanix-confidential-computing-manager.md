@@ -8,7 +8,6 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jushiman
-ms.custom: ignite-fall-2021
 ---
 
 # Fortanix Confidential Computing Manager in an Azure managed application
