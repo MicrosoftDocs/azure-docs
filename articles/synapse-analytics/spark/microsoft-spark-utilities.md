@@ -598,7 +598,7 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 ```
 
 > [!NOTE]
-> Notebook utilities are not applicable for Apache Spark job definitions(SJD).
+> Notebook utilities aren't applicable for Apache Spark job definitions (SJD).
 
 ### Reference a notebook
 Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.
