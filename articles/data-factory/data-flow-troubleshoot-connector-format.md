@@ -6,8 +6,7 @@ ms.author: jianleishen
 ms.reviewer: wiassaf
 ms.service: data-factory
 ms.subservice: data-flows
-ms.custom: ignite-2022
-ms.topic: troubleshooting 
+ms.topic: troubleshooting
 ms.date: 07/17/2023
 ---
 
@@ -814,7 +813,7 @@ For the Snowflake VARIANT, it can only accept the data flow value that is struct
         alter table tablename rename column newcolumnname to "details";
         ```
 
-## Next steps
+## Related content
 For more help with troubleshooting, see these resources:
 
 *  [Troubleshoot mapping data flows in Azure Data Factory](data-flow-troubleshoot-guide.md)

@@ -3,7 +3,7 @@ title: 'Tutorial: Access data with managed identity in Java'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Tomcat app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/14/2023
+ms.date: 10/11/2023
 author: KarlErickson
 ms.author: karler
 ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
@@ -16,7 +16,7 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 > [!div class="checklist"]
 > * Create a PostgreSQL database.
 > * Deploy the sample app to Azure App Service on Tomcat using WAR packaging.
-> * Configure a Spring Boot web application to use Azure AD authentication with PostgreSQL Database.
+> * Configure a Tomcat web application to use Microsoft Entra authentication with PostgreSQL Database.
 > * Connect to PostgreSQL Database with Managed Identity using Service Connector.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -39,7 +39,7 @@ cd Passwordless-Connections-for-Java-Apps/Tomcat/
 
 ## Create an Azure Database for PostgreSQL
 
-Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app connects to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Database for Postgres in your subscription. The Tomcat app connects to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
@@ -57,7 +57,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Create an Azure Database for PostgreSQL server. The server is created with an administrator account, but it isn't used because we're going to use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
+1. Create an Azure Database for PostgreSQL server. The server is created with an administrator account, but it isn't used because we're going to use the Microsoft Entra admin account to perform administrative tasks.
 
    ### [Flexible Server](#tab/flexible)
 

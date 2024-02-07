@@ -49,7 +49,7 @@ You can collect the below metric using SAP NetWeaver Provider
 To configure the NetWeaver provider for the current Azure Monitor for SAP solutions version, you'll need to:
 
 1. [Prerequisite - Unprotect methods for metrics](#prerequisite-unprotect-methods-for-metrics)
-1. [Prerequisite to enable RFC metrics ](#prerequisite-to-enable-rfc-metrics)
+1. [Prerequisite to enable RFC metrics](#prerequisite-to-enable-rfc-metrics)
 1. [Add the NetWeaver provider](#adding-netweaver-provider)
 
 Refer to troubleshooting section to resolve any issue faced while adding the SAP NetWeaver Provider.

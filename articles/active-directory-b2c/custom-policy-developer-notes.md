@@ -2,17 +2,20 @@
 title: Developer notes for user flows and custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with user flows and custom policies.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 09/06/2023
-ms.custom: project-no-code
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to understand the available features and their availability, so that I can make informed decisions about which features to use in my application development.
+
 ---
 
 # Developer notes for Azure Active Directory B2C
@@ -38,6 +41,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Force password reset](force-password-reset.md) | GA | NA | |
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
 | [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
+| [Smart lockout](threat-management.md) | GA | GA | |
 
 ## OAuth 2.0 application authorization flows
 
@@ -173,7 +177,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | ------- | :--: | ----- |
 | Azure portal | GA |   |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) | Preview | Used for troubleshooting during development.  |
-| [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows in production. |
+| [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows and custom policies in production. |
 
 ## Other features 
 

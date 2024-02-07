@@ -6,9 +6,11 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 01/19/2024
 ---
 # Personalizer terminology
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Personalizer uses terminology from reinforcement learning. These terms are used in the Azure portal and the APIs.
 

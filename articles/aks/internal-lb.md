@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 10/04/2023
 
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
@@ -66,7 +66,7 @@ You can create and use an internal load balancer to restrict access to your appl
 
 ## Specify an IP address
 
-When you specify an IP address for the load balancer, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
+When you specify an IP address for the load balancer, the specified IP address must reside in the same virtual network as the AKS cluster, but it can't already be assigned to another resource in the virtual network. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster. Using an IP address that's already assigned to another resource in the same virtual network can cause issues with the load balancer.
 
 You can use the [`az network vnet subnet list`][az-network-vnet-subnet-list] Azure CLI command or the [`Get-AzVirtualNetworkSubnetConfig`][get-azvirtualnetworksubnetconfig] PowerShell cmdlet to get the subnets in your virtual network.
 
@@ -222,6 +222,23 @@ A Private Endpoint allows you to privately connect to your Kubernetes service ob
         --connection-name connectToMyK8sService
     ```
 
+### PLS Customizations via Annotations
+
+The following are annotations that can be used to customize the PLS resource.
+
+| Annotation | Value | Description | Required | Default |
+| ------------------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |------|------|
+| `service.beta.kubernetes.io/azure-pls-create`                            | `"true"`                           | Boolean indicating whether a PLS needs to be created. | Required | |
+| `service.beta.kubernetes.io/azure-pls-name`                              | `<PLS name>`                       | String specifying the name of the PLS resource to be created. | Optional | `"pls-<LB frontend config name>"` |
+| `service.beta.kubernetes.io/azure-pls-resource-group`                    | `Resource Group name`              | String specifying the name of the Resource Group where the PLS resource will be created | Optional | `MC_ resource` |
+| `service.beta.kubernetes.io/azure-pls-ip-configuration-subnet`           |`<Subnet name>`                     | String indicating the subnet to which the PLS will be deployed. This subnet must exist in the same VNET as the backend pool. PLS NAT IPs are allocated within this subnet. | Optional | If `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`, this ILB subnet is used. Otherwise, the default subnet from config file is used. |
+| `service.beta.kubernetes.io/azure-pls-ip-configuration-ip-address-count` | `[1-8]`                            | Total number of private NAT IPs to allocate. | Optional | 1 |
+| `service.beta.kubernetes.io/azure-pls-ip-configuration-ip-address`       | `"10.0.0.7 ... 10.0.0.10"`         | A space separated list of static **IPv4** IPs to be allocated. (IPv6 is not supported right now.) Total number of IPs should not be greater than the ip count specified in `service.beta.kubernetes.io/azure-pls-ip-configuration-ip-address-count`. If there are fewer IPs specified, the rest are dynamically allocated. The first IP in the list is set as `Primary`. |  Optional | All IPs are dynamically allocated. |
+| `service.beta.kubernetes.io/azure-pls-fqdns`                             | `"fqdn1 fqdn2"`                    | A space separated list of fqdns associated with the PLS. | Optional | `[]` |
+| `service.beta.kubernetes.io/azure-pls-proxy-protocol`                    | `"true"` or `"false"`              | Boolean indicating whether the TCP PROXY protocol should be enabled on the PLS to pass through connection information, including the link ID and source IP address. Note that the backend service MUST support the PROXY protocol or the connections will fail. | Optional | `false` |
+| `service.beta.kubernetes.io/azure-pls-visibility`                        | `"sub1 sub2 sub3 … subN"` or `"*"` | A space separated list of Azure subscription ids for which the private link service is visible. Use `"*"` to expose the PLS to all subs (Least restrictive). | Optional | Empty list `[]` indicating role-based access control only: This private link service will only be available to individuals with role-based access control permissions within your directory. (Most restrictive) |
+| `service.beta.kubernetes.io/azure-pls-auto-approval`                     | `"sub1 sub2 sub3 … subN"`          | A space separated list of Azure subscription ids. This allows PE connection requests from the subscriptions listed to the PLS to be automatically approved. This only works when visibility is set to "*". |  Optional | `[]` |
+
 ## Use private networks
 
 When you create your AKS cluster, you can specify advanced networking settings. These settings allow you to deploy the cluster into an existing Azure virtual network and subnets. For example, you can deploy your AKS cluster into a private network connected to your on-premises environment and run services that are only accessible internally.
@@ -238,7 +255,15 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> You may need to assign a minimum of *Microsoft.Network/virtualNetworks/subnets/read* and *Microsoft.Network/virtualNetworks/subnets/join/action* permission to AKS MSI on the Azure Virtual Network resources. You can view the cluster identity with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"`. To create a role assignment, use the [`az role assignment create`][az-role-assignment-create] command.
+>
+> The cluster identity used by the AKS cluster must at least have the [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the virtual network resource. You can view the cluster identity using the [`az aks show`][az-aks-show] command, such as `az aks show --resource-group <resource-group-name> --name <cluster-name> --query "identity"`. You can assign the Network Contributor role using the [`az role assignment create`][az-role-assignment-create] command, such as `az role assignment create --assignee <identity-resource-id> --scope <virtual-network-resource-id> --role "Network Contributor"`.
+>
+> If you want to define a [custom role](../role-based-access-control/custom-roles-cli.md) instead, you need the following permissions:
+>
+> * `Microsoft.Network/virtualNetworks/subnets/join/action`
+> * `Microsoft.Network/virtualNetworks/subnets/read`
+>
+> For more information, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 ### Specify a different subnet
 

@@ -24,7 +24,10 @@ Azure NetApp Files might undergo occasional planned maintenance (for example, pl
 Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover for specific applications, Azure NetApp Files now supports the [SMB Continuous Availability shares option](azure-netapp-files-create-volumes-smb.md#continuous-availability). Using SMB Continuous Availability is only supported for workloads on:
 * Citrix App Layering
 * [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md)
+* FSLogix ODFC containers
 * Microsoft SQL Server (not Linux SQL Server)
+* [MSIX app attach](../virtual-desktop/create-netapp-files.md)
+
 
 >[!CAUTION]
 >Custom applications are not supported with SMB Continuous Availability and cannot be used with SMB Continuous Availability enabled volumes.

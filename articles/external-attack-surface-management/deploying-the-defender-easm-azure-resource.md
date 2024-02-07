@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Create a Defender EASM Azure resource
 
-This article explains how to create a Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource by using the Azure portal.
+This article explains how to create a Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource by using the Azure portal. Users can begin their usage of Defender EASM with a 30-day free trial. Once the trial is nearing expiration, you will be notified via banners and push notifications. 
 
 Creating the Defender EASM Azure resource involves two steps:
 

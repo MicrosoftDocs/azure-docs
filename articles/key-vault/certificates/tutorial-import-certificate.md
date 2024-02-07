@@ -43,6 +43,8 @@ Create a key vault using one of these three methods:
 - [Create a key vault using Azure PowerShell](../general/quick-create-powershell.md)
 
 ## Import a certificate to your key vault
+> [!NOTE]
+> By default, imported certificates have exportable private keys. You can use the SDK, Azure CLI, or PowerShell to define policies that prevent the private key from being exported.
 
 To import a certificate to the vault, you need to have a PEM or PFX certificate file to be on disk. If the certificate is in PEM format, the PEM file must contain the key as well as x509 certificates. This operation requires the certificates/import permission.
 

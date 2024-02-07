@@ -2,9 +2,8 @@
 title: 'Benefits: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
 ms.service: hdinsight
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 12/08/2023
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
@@ -33,7 +32,7 @@ Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight ma
 
 - **Global availability** - HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/) than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas.
 
-- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
+- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Microsoft Entra ID](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
 
 - **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up to date. Software updates are usually a complex process for on-premises deployments.
 
@@ -93,7 +92,7 @@ This section provides template questionnaires to help gather important informati
 |Edge Nodes configuration|m/y, cpu, disk, etc.|
 |HDFS Encryption?|Yes|
 |High Availability|HDFS HA, Metastore HA|
-|Disaster Recovery / Backup|Backup cluster?|  
+|Disaster Recovery / Back up|Backup cluster?|  
 |Systems that are dependent on Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Third-party integrations|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**Topic**: **Security**|||
@@ -102,9 +101,9 @@ This section provides template questionnaires to help gather important informati
 |HDFS Access Control|  Manual, ssh users|
 |Hive authentication & authorization|Sentry, LDAP, AD with Kerberos, Ranger|
 |Auditing|Ambari, Cloudera Navigator, Ranger|
-|Monitoring|Graphite, collectd, statsd, Telegraf, InfluxDB|
-|Alerting|Kapacitor, Prometheus, Datadog|
-|Data Retention duration| 3 years, 5 years|
+|Monitoring|Graphite, collectd, `statsd`, Telegraf, InfluxDB|
+|Alerting|`Kapacitor`, Prometheus, Datadog|
+|Data Retention duration| Three years, five years|
 |Cluster Administrators|Single Administrator, Multiple Administrators|
 
 ### Project details questionnaire
@@ -112,11 +111,11 @@ This section provides template questionnaires to help gather important informati
 |**Question**|**Example**|**Answer**|
 |---|---|---|
 |**Topic**: **Workloads and Frequency**|||
-|MapReduce jobs|10 jobs -- twice daily||
-|Hive jobs|100 jobs -- every hour||
-|Spark batch jobs|50 jobs -- every 15 minutes||
-|Spark Streaming jobs|5 jobs -- every 3 minutes||
-|Structured Streaming jobs|5 jobs -- every minute||
+|MapReduce jobs|10 jobs--twice daily||
+|Hive jobs|100 jobs--every hour||
+|Spark batch jobs|50 jobs--every 15 minutes||
+|Spark Streaming jobs|5 jobs--every 3 minutes||
+|Structured Streaming jobs|5 jobs--every minute||
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
 |**Topic**: **Data**|||
@@ -164,7 +163,7 @@ This section provides template questionnaires to help gather important informati
 |Data transfer delta|DistCp, AzCopy||
 |Ongoing incremental data transfer|DistCp, Sqoop||
 |**Topic**:   **Monitoring & Alerting** |||
-|Use Azure Monitoring & Alerting Vs Integrate third-party monitoring|Use Azure Monitoring & Alerting||
+|Use Azure Monitoring & Alerting vs Integrate third-party monitoring|Use Azure Monitoring & Alerting||
 |**Topic**:   **Security preferences** |||
 |Private and protected data pipeline?|Yes||
 |Domain Joined cluster (ESP)?|     Yes||

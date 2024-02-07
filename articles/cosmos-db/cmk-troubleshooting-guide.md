@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting guide for customer-managed keys 
+title: Troubleshooting guide for customer-managed keys
 titleSuffix: Azure Cosmos DB
 description: This document is meant to serve as a troubleshooting guide for Cosmos DB CMK accounts that have gone into revoked state
 author: dileepraotv-github
@@ -7,7 +7,6 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/07/2023
 ms.author: turao
-ms.custom: ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -35,11 +34,13 @@ Another option is to create a new identity with [the expected permission](./how-
 
 After assigning the permissions, wait upwards to one hour for the account to stop being in revoke state. If the issue isn't resolved after more than two hours, contact customer service. 
 
-## Azure Active Directory Token Acquisition error 
+<a name='azure-active-directory-token-acquisition-error'></a>
+
+## Microsoft Entra Token Acquisition error 
 
 ### Reason for error? 
 
-You see this error when Azure Cosmos DB is unable to obtain the default's identity Microsoft Azure Active Directory access token. The token is used for communicating with the Azure Key Vault in order to wrap and unwrap the data encryption key. 
+You see this error when Azure Cosmos DB is unable to obtain the default's identity Microsoft Entra access token. The token is used for communicating with the Azure Key Vault in order to wrap and unwrap the data encryption key. 
 
 ### Troubleshooting 
 

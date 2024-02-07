@@ -38,7 +38,7 @@ This article supports both programming models.
 
 The following example shows a [C# function](../articles/azure-functions/dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-31":::
 
 # [In-process model](#tab/in-process)
 

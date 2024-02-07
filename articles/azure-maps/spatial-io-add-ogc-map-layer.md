@@ -2,8 +2,8 @@
 title:  Add an Open Geospatial Consortium (OGC) map layer
 titleSuffix: Microsoft Azure Maps
 description: Learn how to overlay an OGC map layer on the map, and how to use the different options in the OgcMapLayer class.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/16/2023
 ms.topic: how-to
 ms.service: azure-maps

@@ -17,7 +17,7 @@ Azure Automation can also issue T-SQL (Transact SQL) commands against the SQL se
 To run the commands against the database, you need to do the following:
 - Ensure that Automation account has a system-assigned managed identity.
 - Provide the appropriate permissions to the Automation managed identity.
-- Configure the SQL server to utilize Azure Active Directory authentication.
+- Configure the SQL server to utilize Microsoft Entra authentication.
 - Create a user on the SQL server that maps to the Automation account managed identity.
 - Create a runbook to connect and execute the commands.
 - (Optional) If the SQL server is protected by a firewall, create a Hybrid Runbook Worker (HRW), install the SQL modules on that server, and add the HRW IP address to the allowlist on the firewall.
@@ -44,7 +44,7 @@ To allow access from the Automation system managed identity to the Azure SQL dat
 
 1. Configure the SQL server for Active Directory authentication by using these steps:
     1. Go to [Azure portal](https://portal.azure.com) home page and select **SQL servers**.
-    1. In the **SQL server** page, under **Settings**, select **Azure Active Directory**.
+    1. In the **SQL server** page, under **Settings**, select **Microsoft Entra ID**.
     1. Select **Set admin** to configure SQL server for AD authentication.
 
 1. Add authentication on the SQL side by using these steps:
@@ -52,7 +52,7 @@ To allow access from the Automation system managed identity to the Azure SQL dat
     1. In the **SQL server** page, under **Settings**, select **SQL Databases**.
     1. Select your database to go to the SQL database page and select **Query editor (preview)** and execute the following two queries:
        - CREATE USER "AutomationAccount" FROM EXTERNAL PROVIDER WITH OBJECT_ID= `ObjectID`
-       - EXEC sp_addrolemember `dbowner`, "AutomationAccount"
+       - EXEC sp_addrolemember `db_owner`, "AutomationAccount"
            - Automation account - replace with your Automation account's name
            - Object ID - replace with object (principal) ID for your system managed identity principal from step 1.
 

@@ -25,7 +25,7 @@ Your network traffic egressing from origin in Azure destined to CDN provider ben
 
 ## Configuring Routing Preference Unmetered
 
-To take advantage of routing preference unmetered, your CDN providers need to be part of this program. If your CDN provider isn't part of the program, contact your CDN provider.
+To take advantage of routing preference unmetered, your CDN provider needs to be part of this program. If your CDN provider isn't part of the program, contact your CDN provider. Also, contact your CDN provider for the CDN services they support using routing preference unmetered.  For a list of Azure services supported by routing preferences, see [What is routing preference - Supported services](routing-preference-overview.md#supported-services),
 
 Next, configure routing preference for your resources, and set the Routing Preference type to **Internet**. You can configure routing preference while creating a public IP address, and then associate the public IP to resources such as virtual machines, internet facing load balancers, and more. [Learn how to configure routing preference for a public IP address using the Azure portal](./routing-preference-portal.md)
 

@@ -45,11 +45,39 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Portugal phone numbers are available
 | Country/Region |
 | :---------- |
+|Australia|
+|Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
 |Portugal|
-|United States*|
+|Spain|
+|United Kingdom|
+|United States|
 
-\*Alphanumeric Sender ID only
 
+## Azure subscription billing locations where Portugal alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+| Australia |
+| Austria |
+| Denmark |
+| France |
+| Germany |
+| India |
+| Ireland |
+| Italy |
+| Netherlands |
+| Poland |
+| Portugal |
+| Puerto Rico |
+| Spain |
+| Sweden |
+| Switzerland |
+| United Kingdom |
+| United States |
 
 ## Find information about other countries/regions
 

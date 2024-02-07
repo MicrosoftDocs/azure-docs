@@ -8,14 +8,14 @@ ms.topic: article
 ---
 # Access the Azure Monitor Log Analytics API
 
-You can submit a query request to a workspace by using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.azure.com`. To access the endpoint, you must authenticate through Azure Active Directory (Azure AD).
+You can submit a query request to a workspace by using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.azure.com`. To access the endpoint, you must authenticate through Microsoft Entra ID.
 
 >[!Note]
 > The `api.loganalytics.io` endpoint is being replaced by `api.loganalytics.azure.com`. The `api.loganalytics.io` endpoint will continue to be supported for the forseeable future.
 
 ## Authenticate with a demo API key
 
-To quickly explore the API without Azure AD authentication, use the demonstration workspace with sample data, which supports API key authentication.
+To quickly explore the API without Microsoft Entra authentication, use the demonstration workspace with sample data, which supports API key authentication.
 
 To authenticate and run queries against the sample workspace, use `DEMO_WORKSPACE` as the {workspace-id} and pass in the API key `DEMO_KEY`.
 
@@ -64,9 +64,9 @@ For example:
 
 ## Set up authentication
 
-To access the API, you register a client app with Azure AD and request a token.
+To access the API, you register a client app with Microsoft Entra ID and request a token.
 
-1. [Register an app in Azure AD](./register-app-for-token.md).
+1. [Register an app in Microsoft Entra ID](./register-app-for-token.md).
 
 1. On the app's overview page, select **API permissions**.
 1. Select **Add a permission**.
@@ -106,19 +106,19 @@ Now that your app is registered and has permissions to use the API, grant your a
 ## Request an authorization token
 
 Before you begin, make sure you have all the values required to make the request successfully. All requests require:
-- Your Azure AD tenant ID.
+- Your Microsoft Entra tenant ID.
 - Your workspace ID.
-- Your Azure AD client ID for the app.
-- An Azure AD client secret for the app.
+- Your Microsoft Entra client ID for the app.
+- A Microsoft Entra client secret for the app.
 
-The Log Analytics API supports Azure AD authentication with three different [Azure AD OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
+The Log Analytics API supports Microsoft Entra authentication with three different [Microsoft Entra ID OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
 - Client credentials
 - Authorization code
 - Implicit
 
 ### Client credentials flow
 
-In the client credentials flow, the token is used with the Log Analytics endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Azure AD](./register-app-for-token.md).
+In the client credentials flow, the token is used with the Log Analytics endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Microsoft Entra ID](./register-app-for-token.md).
 
 Use the `https://api.loganalytics.azure.com` endpoint.
 
@@ -210,7 +210,7 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
     &resource=https://api.loganalytics.io
 ```
 
-When a request is made to the authorize URL, the client\_id is the application ID from your Azure AD app, copied from the app's properties menu. The redirect\_uri is the homepage/login URL from the same Azure AD app. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
+When a request is made to the authorize URL, the client\_id is the application ID from your Microsoft Entra app, copied from the app's properties menu. The redirect\_uri is the homepage/login URL from the same Microsoft Entra app. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
 
 ```http
     http://<app-client-id>/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
@@ -233,7 +233,7 @@ At this point, you've obtained an authorization code, which you need now to requ
     &client_secret=<app-client-secret>
 ```
 
-All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. The code is combined with the key obtained from the Azure AD app. If you didn't save the key, you can delete it and create a new one from the keys tab of the Azure AD app menu. The response is a JSON string that contains the token with the following schema. Types are indicated for the token values.
+All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. The code is combined with the key obtained from the Microsoft Entra app. If you didn't save the key, you can delete it and create a new one from the keys tab of the Microsoft Entra app menu. The response is a JSON string that contains the token with the following schema. Types are indicated for the token values.
 
 Response example:
 
@@ -302,10 +302,10 @@ This access\_token can be used as the `Authorization: Bearer` header value when 
 
 ## More information
 
-You can find documentation about OAuth2 with Azure AD here:
- - [Azure AD authorization code flow](/azure/active-directory/develop/active-directory-protocols-oauth-code)
- - [Azure AD implicit grant flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant)
- - [Azure AD S2S client credentials flow](/azure/active-directory/develop/active-directory-protocols-oauth-service-to-service)
+You can find documentation about OAuth2 with Microsoft Entra here:
+ - [Microsoft Entra authorization code flow](/azure/active-directory/develop/active-directory-protocols-oauth-code)
+ - [Microsoft Entra implicit grant flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant)
+ - [Microsoft Entra S2S client credentials flow](/azure/active-directory/develop/active-directory-protocols-oauth-service-to-service)
 
 ## Next steps
 

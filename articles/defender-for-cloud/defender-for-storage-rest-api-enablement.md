@@ -73,7 +73,7 @@ And add the following request body:
             "onUpload": {
                 "isEnabled": true,
                 "capGBPerMonth": 5000
-            }
+            },
 			"scanResultsEventGridTopicResourceId": "/subscriptions/<Subscription>/resourceGroups/<resourceGroup>/providers/Microsoft.EventGrid/topics/<topicName>"
         },
         "sensitiveDataDiscovery": {

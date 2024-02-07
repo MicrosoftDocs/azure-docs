@@ -3,21 +3,21 @@ title: Change how a storage account is replicated
 titleSuffix: Azure Storage
 description: Learn how to change how data in an existing storage account is replicated.
 services: storage
-author: akashdubey-ms
+author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/21/2023
-ms.author: akashdubey
+ms.date: 01/11/2024
+ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
 ---
 
 # Change how a storage account is replicated
 
-Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events. This including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures.
+Azure Storage always stores multiple copies of your data so that it's protected from planned and unplanned events. This including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures.
 
-In this article, you will learn how to change the replication setting(s) for an existing storage account.
+In this article, you'll learn how to change the replication setting(s) for an existing storage account.
 
 ## Options for changing the replication type
 
@@ -30,13 +30,13 @@ Four aspects of the redundancy configuration of a storage account determine how 
 
 For an overview of all of the redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
-You can change how your storage account is replicated from any redundancy configuration to any other with some limitations. Before making any changes, review those [limitations](#limitations-for-changing-replication-types) along with the [downtime requirements](#downtime-requirements) to ensure you have a plan that will produce the best end result within a time frame that suits your needs, and that satisfies your uptime requirements.
+You can change how your storage account is replicated from any redundancy configuration to any other with some limitations. Before making any changes, review those [limitations](#limitations-for-changing-replication-types) along with the [downtime requirements](#downtime-requirements) to ensure you have a plan that provides the best end result within a time frame that suits your needs, and that satisfies your uptime requirements.
 
 There are three ways to change the replication settings:
 
 - [Use the Azure portal, Azure PowerShell, or the Azure CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) to add or remove geo-replication or read access to the secondary region.
 - [Perform a conversion](#perform-a-conversion) to add or remove zone-redundancy.
-- [Perform a manual migration](#manual-migration) in scenarios where the first two options are not supported, or to ensure the change is completed by a specific time.
+- [Perform a manual migration](#manual-migration) in scenarios where the first two options aren't supported, or to ensure the change completes within a specific time.
 
 If you want to change both zone-redundancy and either geo-replication or read-access, a two-step process is required. Geo-redundancy and read-access can be changed at the same time, but the zone-redundancy conversion must be performed separately. These steps can be performed in any order.
 
@@ -45,7 +45,7 @@ If you want to change both zone-redundancy and either geo-replication or read-ac
 The following table provides an overview of how to switch from each type of replication to another.
 
 > [!NOTE]
-> Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types). The manual migration option has been omitted from the table below to simplify it.
+> Manual migration is an option for any scenario in which you want to change the replication setting within the [limitations for changing replication types](#limitations-for-changing-replication-types). The manual migration option has been omitted from the provided table to simplify it.
 
 | Switching | …to LRS | …to GRS/RA-GRS <sup>6</sup> | …to ZRS | …to GZRS/RA-GZRS <sup>2,6</sup> |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
@@ -57,19 +57,19 @@ The following table provides an overview of how to switch from each type of repl
 <sup>1</sup> [Adding geo-redundancy incurs a one-time egress charge](#costs-associated-with-changing-how-data-is-replicated).<br />
 <sup>2</sup> If your storage account contains blobs in the archive tier, review the [access tier limitations](#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
 <sup>3</sup> The type of conversion supported depends on the storage account type. See [the storage account table](#storage-account-type) for more details.<br />
-<sup>4</sup> Conversion to ZRS or GZRS for an LRS account resulting from a failover is not supported. For more details see [Failover and failback](#failover-and-failback).<br />
+<sup>4</sup> Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported. For more details, see [Failover and failback](#failover-and-failback).<br />
 <sup>5</sup> Converting from LRS to ZRS is [not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares](#protocol-support). <br />
 <sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region cannot be initiated until data synchronization between the two regions has completed.<br />
 
 ## Change the replication setting
 
-Depending on your scenario from the [replication change table](#replication-change-table), use one of the methods below to change your replication settings.
+Depending on your scenario from the [replication change table](#replication-change-table), use one of the following methods to change your replication settings.
 
 ### Change the replication setting using the portal, PowerShell, or the CLI
 
 In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you are initiating a zone redundancy conversion, you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
 
-Changing how your storage account is replicated in the Azure portal does not result in down time for your applications, including changes that require a conversion.
+Changing how your storage account is replicated in the Azure portal doesn't result in down time for your applications, including changes that require a conversion.
 
 # [Portal](#tab/portal)
 
@@ -231,8 +231,11 @@ Make sure the region where your storage account is located supports all of the d
 > [!IMPORTANT]
 > [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
 >
+> - (Europe) Italy North
+> - (Europe) Poland Central
 > - (Europe) West Europe
 > - (Europe) UK South
+> - (Middle East) Israel Central
 > - (North America) Canada Central
 > - (North America) East US
 > - (North America) East US 2

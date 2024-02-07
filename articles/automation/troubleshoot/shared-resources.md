@@ -109,30 +109,12 @@ $Body = @"
 "@
 ```
 
+
 ## Run As accounts
 
-### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account
-
-#### Issue
-
-When you try to create or update a Run As account, you receive an error similar to the following:
-
-```error
-You do not have permissions to create…
-```
-
-#### Cause
-
-You don't have the permissions that you need to create or update the Run As account, or the resource is locked at a resource group level.
-
-#### Resolution
-
-To create or update a Run As account, you must have appropriate [permissions](../automation-security-overview.md#permissions) to the various resources used by the Run As account.
-
-If the problem is because of a lock, verify that the lock can be removed. Then go to the resource that is locked in Azure portal, right-click the lock, and select **Delete**.
-
 > [!NOTE]
-> Azure Automation Run As account will retire on **September 30, 2023** and will be replaced with Managed Identities. Ensure that you start migrating your runbooks to use [managed identities](../automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](../migrate-run-as-accounts-managed-identity.md#sample-scripts) to start migrating the runbooks from Run As accounts to managed identities before **September 30, 2023**.
+> Azure Automation Run as accounts, including  Classic Run as accounts have retired on **30 September 2023** and replaced with [Managed Identities](../automation-security-overview.md#managed-identities)
+You would no longer be able to create or renew Run as accounts through the Azure portal. For more information, see [migrating from an existing Run As accounts to managed identity](../migrate-run-as-accounts-managed-identity.md#sample-scripts).
 
 
 ### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook

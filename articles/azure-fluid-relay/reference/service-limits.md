@@ -24,7 +24,7 @@ Operations are incremental updates sent over the websocket connection. The size 
 
 ## Fluid summaries
 
-Incremental summaries uploaded to Azure Fluid Relay can't exceed 28 MB in size. More info [here](https://fluidframework.com/docs/concepts/summarizer).
+Incremental summaries uploaded to Azure Fluid Relay can't exceed 28 MB in size. If the size of the document grows above 95 MB, subsequent client load or join requests will fail. For more information, see [Fluid Framework Summarizer](https://fluidframework.com/docs/concepts/summarizer).
 
 ## Signals
 

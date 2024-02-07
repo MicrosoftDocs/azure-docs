@@ -2,10 +2,10 @@
 title: Use Translator Docker containers in disconnected environments
 titleSuffix: Azure AI services
 description: Learn how to run Azure AI Translator containers in disconnected environments.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 07/28/2023
 ms.author: lajanuar

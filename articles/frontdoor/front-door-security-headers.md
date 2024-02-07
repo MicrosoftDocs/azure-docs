@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 10/28/2022
+ms.date: 10/05/2023
 ms.author: duau
 ms.custom: template-tutorial, engagement-fy23
 # Customer intent: As an IT admin, I want to learn about Front Door and how to configure a security header via Rules Engine. 
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
    > [!NOTE]
    > Header values are limited to 640 characters.
 
-5. Once you've added all of the rules you'd like to your configuration, don't forget to go to your preferred route and associate your Rules engine configuration to the Route Rule. This step is required to enable the rule to work.
+5. After you have completed adding the rules to your configuration, make sure to associate your Rules engine configuration with the Route Rule of your chosen route. This step is required to enable the rule to work.
 
     :::image type="content" source="./media/front-door-security-headers/front-door-associate-routing-rule.png" alt-text="Screenshot showing how to associate a routing rule.":::
 

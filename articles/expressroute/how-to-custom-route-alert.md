@@ -1,22 +1,22 @@
 ---
-title: 'ExpressRoute: How to configure custom alerts for advertised routes'
-description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 1000 routes limit.
+title: 'Configure custom alerts to monitor advertised routes - Azure ExpressRoute'
+description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 12/28/2023
 ms.author: duau
 ---
+
 # Configure custom alerts to monitor advertised routes
 
-This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 [routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-virtual-network-to-on-premises-on-expressroute-private-peering)
 
-**Azure Automation** allows you to automate execution of custom PowerShell script stored in a *runbook*. When using the configuration in this article, the runbook contains a PowerShell script that queries one or more ExpressRoute gateways. It collects a dataset containing the resource group, ExpressRoute gateway name, and number of network prefixes advertised on-premises.
+**Azure Automation** allows you to automate execution of custom PowerShell script stored in a *runbook*. This article describes a configuration that uses a runbook with a PowerShell script. The script queries one or more ExpressRoute gateways and collects a dataset. The dataset includes the resource group, the ExpressRoute gateway name, and the number of network prefixes advertised from on-premises networks.
 
-**Azure Logic Apps** schedules a custom workflow that calls the Azure Automation runbook. The execution of the runbook is done using a job. After data collection runs, the Azure Logic Apps workflow classifies the data and, based on match criteria on number of network prefixes above or below a predefine threshold, sends information to a destination email address.
+**Azure Logic Apps** schedules a custom workflow that calls the Azure Automation runbook. The execution of the runbook is done using a job. After data collection runs, the Azure Logic Apps workflow classifies the data and, based on match criteria on number of network prefixes greater or less than a predefine threshold, then sends information to a destination email address.
 
 ### <a name="workflow"></a>Workflow
 
@@ -26,35 +26,33 @@ Setting up a custom alert is based on three main steps:
 
 2. Create and configure runbooks.
 
-3. Create a logic app that will fire the Automation Account and send an alerts e-mail if the number is greater than a threshold (for example, 160).
+3. Create a logic app that fires the Automation Account and send an alerts e-mail if the number is greater than a threshold (for example, 160).
 
 ## <a name="before"></a>Before you begin
 
-Verify that you have met the following criteria before beginning your configuration:
+Verify that you meet the following criteria before beginning your configuration:
 
 * You have at least one ExpressRoute gateway in your deployment.
 
-* You have a basic understanding of [Run As accounts](../automation/manage-runas-account.md) in Azure Automation.
+* You're familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-* You are familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
-
-* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/).
+* You're familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/).
 
 ### <a name="limitations"></a>Notes and limitations
 
-* The custom alert discussed in this article is an add-on to achieve better operation and control. It is not a replacement for the native alerts in ExpressRoute.
+* The custom alert discussed in this article is an add-on to achieve better operation and control. It isn't a replacement for the native alerts in ExpressRoute.
 * Data collection for ExpressRoute gateways runs in the background. Runtime can be longer than expected. To avoid job queuing, the workflow recurrence must be set up properly.
 * Deployments by scripts or ARM templates could happen faster than the custom alarm trigger. This could result in increasing in number of network prefixes in ExpressRoute gateway above the limit of 1000 routes.
 
 ## <a name="accounts"></a>Create and configure accounts
 
-When you create an Automation account in the Azure portal, a [Run As](../automation/automation-security-overview.md#run-as-accounts) account is automatically created. This account takes following actions:
+When you create an Automation account in the Azure portal, a Run As account is automatically created. This account takes following actions:
 
-* Creates an Azure Active Directory (Azure AD) application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
+* Creates a Microsoft Entra application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
 
-* Creates a service principal account for the application in Azure AD.
+* Creates a service principal account for the application in Microsoft Entra ID.
 
-* Assigns itself the Contributor role (Azure RBAC) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
+* Assigns itself the Contributor role (Azure role-base access control) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
 
 In order to create an Automation account, you need privileges and permissions. For information, see [Permissions required to create an Automation account](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account).
 
@@ -80,7 +78,7 @@ By default, the **Contributor** role is assigned to the service principal that i
 
 ### <a name="install-modules"></a>1. Install modules
 
-In order to run PowerShell cmdlets in Azure Automation runbooks, you need to install a few additional Azure PowerShell Az modules. Use the following steps to install the modules:
+In order to run PowerShell cmdlets in Azure Automation runbooks, you need to install a few extra Az PowerShell module. Use the following steps to install the modules:
 
 1. Open your Azure Automation Account and navigate to **Modules**.
 
@@ -287,11 +285,11 @@ To regularly run a workflow that is based on a predefined time schedule, add the
 
 In the Recurrence trigger, you can set the time zone and a recurrence for repeating that workflow. Together, the interval and frequency define the schedule for your workflow's trigger. To establish a reasonable minimum recurrence frequency, consider the following factors:
 
-* The PowerShell script in the Automation runbook takes time to complete. The runtime depends on the number of ExpressRoute gateways to monitor. A too short recurrence frequency will cause job queuing.
+* The PowerShell script in the Automation runbook takes time to complete. The runtime depends on the number of ExpressRoute gateways to monitor. A too short recurrence frequency causes job queuing.
 
 * The PowerShell script runs as a job in background. It doesn’t start immediately; it runs after a variable delay.
 
-* A too short recurrence frequency will generate unneeded load on your Azure ExpressRoute gateways.
+* A too short recurrence frequency generates unneeded load on your Azure ExpressRoute gateways.
 
 At the end of the workflow configuration, you can check the consistency of the recurrence frequency by running the workflow a few times, and then verifying the outcome in the **Runs history**.
 
@@ -301,12 +299,12 @@ At the end of the workflow configuration, you can check the consistency of the r
 
 A logic app workflow accesses other apps, services, and the platform though connectors. The next step is to select a connector to access the Azure Automation account that was defined earlier.
 
-1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the the search box, select **All**.
-2. In the search box, type **Azure Automation** and search. Select **Create job**. **Create job** will be used to fire the automation runbook that was created earlier.
+1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the search box, select **All**.
+2. In the search box, type **Azure Automation** and search. Select **Create job**. **Create job** is used to fire the automation runbook that was created earlier.
 
    :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Create job":::
 
-3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create an Azure AD service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
+3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create a Microsoft Entra service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
 
    :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Screenshot that shows the 'Recurrence' section with the 'Connect with Service Principal' action highlighted.":::
 
@@ -314,17 +312,17 @@ A logic app workflow accesses other apps, services, and the platform though conn
 
    :::image type="content" source="./media/custom-route-alert-portal/connect-service-principal.png" alt-text="Connect with service principal":::
 
-5. On the **Create job** page, the service principal should have the "Reader" role on the **Resource Group** hosting the automation account, and "Automation Job Operator" on the **Automation Account**. Additionally, verify that you have added the **Runbook Name** as a new parameter.
+5. On the **Create job** page, the service principal should have the "Reader" role on the **Resource Group** hosting the automation account, and "Automation Job Operator" on the **Automation Account**. Additionally, verify that you added the **Runbook Name** as a new parameter.
 
    :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Screenshot shows Create job values in Recurrence, where you can verify the Runbook Name." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="output"></a>4. Get the job output
 
-1. Select **New step**. Search for "Azure Automation". From the **Actions** list, select **Get job output**.
+1. Select **New step**. Search for *Azure Automation*. From the **Actions** list, select **Get job output**.
 
    :::image type="content" source="./media/custom-route-alert-portal/get-output.png" alt-text="Get job output":::
 
-2. On the **Get job output** page, specify the required information to access to the automation account. Select the **Subscription, Resource Group**, and **Automation Account** that you want to use. Click inside the **Job ID** box. When the **Dynamic content** list appears, select **Job ID**.
+2. On the **Get job output** page, specify the required information to access to the automation account. Select the **Subscription, Resource Group**, and **Automation Account** that you want to use. Select inside the **Job ID** box. When the **Dynamic content** list appears, select **Job ID**.
 
    :::image type="content" source="./media/custom-route-alert-portal/job-id.png" alt-text="Job ID" lightbox="./media/custom-route-alert-portal/job-id-expand.png":::
 
@@ -337,7 +335,7 @@ The information contained in the output from the 'Azure Automation Create job ac
 
    :::image type="content" source="./media/custom-route-alert-portal/parse-json.png" alt-text="Parse JSON":::
 
-3. Click inside the **Content** box. When the Dynamic content list appears, select **Content**.
+3. Select inside the **Content** box. When the Dynamic content list appears, select **Content**.
 
    :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Screenshot shows the Parse JSON dialog box with Content selected." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
@@ -365,7 +363,7 @@ In this step of the workflow, we create a condition to send an alarm by email. F
 
    :::image type="content" source="./media/custom-route-alert-portal/initialize-variables.png" alt-text="Initialize variables":::
 
-3. Specify the name of the variable. For **Type**, select **String**. The **Value** of the variable will be assigned later in the workflow.
+3. Specify the name of the variable. For **Type**, select **String**. The **Value** of the variable gets assigned later in the workflow.
 
    :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Screenshot shows Parse JSON associated with Initialize variable, where you can enter a Name, Type, and Value." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
@@ -381,7 +379,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
    :::image type="content" source="./media/custom-route-alert-portal/for-each.png" alt-text="For each- Control":::
 
-3. Click in the **Select an output from previous steps** text box. When the **Dynamic content** list appears, select the **Body**, which is output from the parsed JSON.
+3. Select in the **Select an output from previous steps** text box. When the **Dynamic content** list appears, select the **Body**, which is output from the parsed JSON.
 
    :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Screenshot shows Initialized variable associated with For each, which contains the Select an output from previous steps text box.":::
 
@@ -437,7 +435,7 @@ Logic Apps provides many email connectors. In this example, we add an Outlook co
 
    :::image type="content" source="./media/custom-route-alert-portal/office-365.png" alt-text="Sign in":::
 
-4. In the **Body** field, click **Add dynamic content**. From the Dynamic content panel, add the the variable **Emailbody**. Fill out the **Subject** and **To** fields.
+4. In the **Body** field, select **Add dynamic content**. From the Dynamic content panel, add the variable **Emailbody**. Fill out the **Subject** and **To** fields.
 
    :::image type="content" source="./media/custom-route-alert-portal/emailbody.png" alt-text="Body":::
 

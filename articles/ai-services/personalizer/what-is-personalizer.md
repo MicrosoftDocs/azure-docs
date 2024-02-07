@@ -6,12 +6,13 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: overview
-ms.date: 11/17/2022
-ms.custom: cog-serv-seo-aug-2020
-keywords: personalizer, Azure AI Personalizer, machine learning 
+ms.date: 01/19/2024
+keywords: personalizer, Azure AI Personalizer, machine learning
 ---
 
 # What is Personalizer?
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 

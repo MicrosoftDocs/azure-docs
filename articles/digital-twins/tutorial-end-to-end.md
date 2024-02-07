@@ -40,7 +40,7 @@ The sample project used in this tutorial represents a real-world building scenar
 
 Below is a diagram representing the full scenario. 
 
-You'll first create the Azure Digital Twins instance (**section A** in the diagram), then set up the telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
+You'll first create the Azure Digital Twins instance (**section A** in the diagram), then set up the device telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagram of the full building scenario, which shows the data flowing from a device into and out of Azure Digital Twins through various Azure services.":::
 
@@ -51,7 +51,7 @@ Here are the components implemented by the building scenario AdtSampleApp sample
 * [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * SampleClientApp - A sample Azure Digital Twins solution
-* SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
+* SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on device telemetry from IoT Hub and Azure Digital Twins events
 
 ### Instantiate the pre-created twin graph
 
@@ -94,7 +94,7 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity.
+In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it a Microsoft Entra identity.
 
 The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder.
 
@@ -296,7 +296,7 @@ Save the file.
 Now, to see the results of the data simulation that you've set up, open a new local console window and navigate to *digital-twins-samples-main\DeviceSimulator\DeviceSimulator*.
 
 >[!NOTE]
-> You should now have two open console windows: one that's open to the the *DeviceSimulator\DeviceSimulator* folder, and one from earlier that's still open to the *AdtSampleApp\SampleClientApp* folder.
+> You should now have two open console windows: one that's open to the *DeviceSimulator\DeviceSimulator* folder, and one from earlier that's still open to the *AdtSampleApp\SampleClientApp* folder.
 
 Use the following dotnet command to run the device simulator project:
 

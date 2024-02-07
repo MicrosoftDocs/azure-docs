@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/peering-service/onboarding-model.md",
+            "redirect_url": "/azure/peering-service/about",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/peering-service/measure-connection-telemetry.md",
             "redirect_url": "/azure/peering-service/connection-telemetry",
             "redirect_document_id": false

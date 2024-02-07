@@ -10,21 +10,25 @@
       href: release-tracker.md
     - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
+    - name: Long-term support
+      href: long-term-support.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
-    - name: Getting started
-      items:
-        - name: Well-architected considerations
-          href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Plan your implementation
-          href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Optimize costs
-          href: best-practices-cost.md
+- name: Getting started
+  items:
+    - name: Well-architected considerations
+      href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Plan your implementation
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Windows container considerations
+      href: windows-vs-linux-containers.md
+    - name: Optimize costs
+      href: best-practices-cost.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy a Linux-based AKS Cluster
+    - name: Create a Linux-based AKS Cluster
       expanded: true
       items:
         - name: Use the Azure CLI
@@ -44,7 +48,7 @@
           href: learn/quick-kubernetes-deploy-rm-template.md
         - name: Use Terraform
           href: learn/quick-kubernetes-deploy-terraform.md
-    - name: Deploy a Windows-based AKS Cluster
+    - name: Create a Windows-based AKS Cluster
       items:
         - name: Use the Azure CLI
           href: learn/quick-windows-container-deploy-cli.md
@@ -52,7 +56,7 @@
           href: learn/quick-windows-container-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-windows-container-deploy-portal.md
-    - name: Develop applications
+    - name: Work with package managers
       expanded: true
       items:
         - name: Develop with Helm
@@ -73,10 +77,10 @@
       href: tutorial-kubernetes-deploy-cluster.md
     - name: 4 - Run application
       href: tutorial-kubernetes-deploy-application.md
-    - name: 5 - Scale application
-      href: tutorial-kubernetes-scale.md        
-    - name: 6 - Update application
-      href: tutorial-kubernetes-app-update.md
+    - name: 5 - Use PaaS services
+      href: tutorial-kubernetes-paas-services.md        
+    - name: 6 - Scale application
+      href: tutorial-kubernetes-scale.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
     - name: Security
@@ -101,14 +105,16 @@
           href: network-observability-overview.md
     - name: Security
       items:
+        - name: Security concepts
+          href: concepts-security.md
         - name: Access and identity
           href: concepts-identity.md
         - name: Security vulnerability management
           href: concepts-vulnerability-management.md
         - name: Security Baseline
           href: /security/benchmark/azure/baselines/aks-security-baseline?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Container Security
-          href: concepts-security.md
+        - name: Confidential Containers security policy
+          href: ../confidential-computing/confidential-containers-aks-security-policy.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -118,10 +124,10 @@
               href: /compliance/regulatory/offering-CIS-Benchmark?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: CIS Kubernetes benchmark
               href: cis-kubernetes.md
-            - name: CIS Ubuntu benchmark
-              href: cis-ubuntu.md
             - name: CIS Azure Linux benchmark
               href: cis-azure-linux.md
+            - name: CIS Windows Server benchmark
+              href: cis-windows.md
     - name: Networking
       items:
         - name: Concepts
@@ -152,6 +158,20 @@
       href: best-practices.md
     - name: Baseline architecture for an AKS cluster
       href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: High availability disaster recovery
+      items:
+        - name: Overview
+          href: ha-dr-overview.md
+          required: yes
+          limit: 1
+        - name: Solutions
+          items:
+            - name: Active-active
+              href: active-active-solution.md
+            - name: Active-passive
+              href: active-passive-solution.md
+            - name: Passive-cold
+              href: passive-cold-solution.md
     - name: Security
       items:
         - name: Authentication and authorization
@@ -174,8 +194,12 @@
           href: operator-best-practices-network.md
         - name: Storage
           href: operator-best-practices-storage.md
-        - name: Business continuity (BC) and disaster recovery (DR)
-          href: operator-best-practices-multi-region.md
+    - name: Performance and scaling
+      items:
+        - name: For small to medium workloads
+          href: best-practices-performance-scale.md
+        - name: For large workloads
+          href: best-practices-performance-scale-large.md
     - name: Application development
       items:
         - name: Resource management
@@ -184,14 +208,14 @@
           href: developer-best-practices-pod-security.md
     - name: Back up and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Windows containers
+      href: windows-best-practices.md
 - name: How-to guides
   items:
     - name: Migration
       items:
         - name: Plan and execute a migration
           href: aks-migration.md
-        - name: Spring Boot
-          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Wildfly
@@ -212,12 +236,10 @@
           href: edge-zones.md
         - name: Cluster configuration options
           href: cluster-configuration.md 
-        - name: Scale an AKS cluster
+        - name: Manually scale nodes in an AKS cluster
           href: scale-cluster.md
-        - name: Stop an AKS cluster
+        - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
-        - name: Cloud Controller Manager
-          href: out-of-tree.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
@@ -244,6 +266,8 @@
                        href: istio-deploy-addon.md
                      - name: Deploy external or internal Istio Ingress
                        href: istio-deploy-ingress.md
+                     - name: Plug-in CA certificates for Istio
+                       href: istio-plugin-ca.md
                      - name: Upgrade Istio service mesh add-on
                        href: istio-upgrade.md
                  - name: Open Service Mesh AKS add-on
@@ -276,6 +300,12 @@
                         href: keda-integrations.md
                       - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
                         href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Containers
+      items:
+        - name: Confidential Containers overview
+          href: confidential-containers-overview.md
+        - name: Deploy Confidential Containers with default policy
+          href: deploy-confidential-containers-default-policy.md
     - name: Nodes
       items:
         - name: Cluster nodes
@@ -287,22 +317,24 @@
             
             - name: Stop/deallocate nodes with Scale-down Mode
               href: scale-down-mode.md
-            - name: Connect to cluster nodes
+            - name: Connect securely to cluster nodes
               href: node-access.md
+            - name: Manage SSH key 
+              href: manage-ssh-node-access.md
         - name: Node pools
           items:
             - name: Create node pools
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Reduce image pull time with Artifact Streaming on AKS
+              href: artifact-streaming.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
             - name: Multi-instance GPU node pool
               href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use multiple node pools
-              href: use-multiple-node-pools.md
             - name: Use system node pools
               href: use-system-pools.md
             - name: Resize node pools
@@ -327,9 +359,15 @@
           href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Proximity placement groups
           href: reduce-latency-ppg.md
-        - name: Cluster Autoscaler
-          href: cluster-autoscaler.md
-        - name: Availability Zones
+        - name: Cluster autoscaler
+          items:
+            - name: Cluster autoscaler overview
+              href: cluster-autoscaler-overview.md
+            - name: Use the cluster autoscaler on AKS
+              href: cluster-autoscaler.md
+        - name: Node autoprovision
+          href: node-autoprovision.md
+        - name: Availability zones
           href: availability-zones.md
     - name: Cluster management
       items:
@@ -341,10 +379,12 @@
           href: use-labels.md
     - name: Security and authentication
       items:
-        - name: Defender for Containers overview
-          href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Enable Defender for Containers
-          href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Container security
+          items:
+            - name: Defender for Containers overview
+              href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+            - name: Enable Defender for Containers
+              href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Image security
           items:
             - name: Validate signed images with Image Integrity
@@ -353,18 +393,18 @@
               href: image-cleaner.md
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-            - name: Scanning images in ACR registries
-              href: ../defender-for-cloud/defender-for-containers-introduction.mdtoc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+            - name: Scan images in ACR registries
+              href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Cluster security
           items:
+            - name: Azure kubelogin
+              href: kubelogin-authentication.md
             - name: Create service principal
               href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
             - name: Enable access to AKS clusters using Trusted Access
               href: trusted-access-feature.md
-            - name: Remove vulnerable images with ImageCleaner
-              href: image-cleaner.md
             - name: Limit access to cluster configuration file
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
@@ -381,7 +421,7 @@
               href: use-kms-etcd-encryption.md
         - name: Node security
           items:
-            - name: BYOK for disks
+            - name: BYOK for Azure managed disks
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
@@ -397,23 +437,23 @@
               href: use-managed-identity.md
             - name: Create service principal
               href: kubernetes-service-principal.md
-            - name: Enable Azure Active Directory integration
+            - name: Enable Microsoft Entra integration
               items:
-                - name: AKS-managed Azure AD
+                - name: AKS-managed Microsoft Entra ID
                   items: 
-                    - name: Enable AKS-managed Azure AD integration
-                      href: managed-azure-ad.md
+                    - name: Enable AKS-managed Microsoft Entra integration
+                      href: enable-authentication-microsoft-entra-id.md
                     - name: Manage local accounts
                       href: manage-local-accounts-managed-azure-ad.md
                     - name: Cluster access control
                       href: access-control-managed-azure-ad.md
-                - name: Azure AD integration (legacy)
+                - name: Microsoft Entra integration (legacy)
                   href: azure-ad-integration-cli.md
                 - name: Enable GMSA integration
                   href: use-group-managed-service-accounts.md
             - name: Use Azure RBAC for Kubernetes authorization
               href: manage-azure-rbac.md
-            - name: Use Kubernetes RBAC with Azure AD integration
+            - name: Use Kubernetes RBAC with Microsoft Entra integration
               href: azure-ad-rbac.md
             - name: Update cluster credentials
               href: update-credentials.md
@@ -433,7 +473,7 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Azure AD pod identity
+            - name: Microsoft Entra pod identity
               href: use-azure-ad-pod-identity.md
             - name: Pod Sandboxing
               href: use-pod-sandboxing.md
@@ -445,30 +485,32 @@
               href: use-psa.md
             - name: Secrets Store CSI Driver
               items:
-                - name: Secrets Store CSI Driver configuration
-                  href: csi-secrets-store-driver.md
-                - name: Provide Azure Key Vault access
-                  href: csi-secrets-store-identity-access.md
-                - name: Configure TLS for NGINX ingress controller
+                - name: Configure TLS for NGINX Ingress controller
                   href: csi-secrets-store-nginx-tls.md
+                - name: Azure Key Vault provider with Secrets Store CSI Driver
+                  items:
+                    - name: 1 - Configure Secrets Store CSI Driver
+                      href: csi-secrets-store-driver.md
+                    - name: 2 - Provide Azure Key Vault access
+                      href: csi-secrets-store-identity-access.md
+                    - name: 3 - Apply extra configurations or perform troubleshooting
+                      href: csi-secrets-store-configuration-options.md
     - name: Configure networking
-      items:
-        - name: Create or use existing virtual network
+      items:     
+        - name: CNI
           items:
+            - name: Use Azure CNI Overlay
+              href: azure-cni-overlay.md
+            - name: Use Azure CNI for dynamic IP allocation
+              href: configure-azure-cni-dynamic-ip-allocation.md
+            - name: Use Azure CNI Powered by Cilium
+              href: azure-cni-powered-by-cilium.md
             - name: Use kubenet
               href: configure-kubenet.md
             - name: Use kubenet with dual-stack networking
               href: configure-kubenet-dual-stack.md
-        - name: CNI
-          items:
             - name: Use Azure CNI
               href: configure-azure-cni.md
-            - name: Use Azure CNI Overlay
-              href: azure-cni-overlay.md
-            - name: Use Azure CNI Powered by Cilium
-              href: azure-cni-powered-by-cilium.md
-            - name: Use Azure CNI for dynamic IP allocation and enhanced subnet support
-              href: configure-azure-cni-dynamic-ip-allocation.md
             - name: Bring your own CNI
               href: use-byo-cni.md
         - name: DNS
@@ -499,6 +541,10 @@
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
+                - name: Advanced application routing add-on configurations (NGINX)
+                  href: app-routing-nginx-configuration.md
+                - name: Custom domain name and SSL certificate configuration
+                  href: app-routing-dns-ssl.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on
@@ -509,12 +555,6 @@
               href: istio-deploy-ingress.md
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
-            - name: Use unmanaged ingress-nginx
-              items:
-                - name: Create an ingress controller
-                  href: ingress-basic.md
-                - name: Use TLS with an ingress controller
-                  href: ingress-tls.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
@@ -535,24 +575,25 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
-            - name: Azure Container Storage 
-              href: ../storage/container-storage/container-storage-introduction.md
+           
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
+        - name: Block storage
+          items:
+              - name: Provision Azure Disks storage
+                href: azure-csi-disk-storage-provision.md
+              - name: Azure Disks CSI driver
+                href: azure-disk-csi.md
+              - name: Use Azure Premium SSD v2 disks
+                href: use-premium-v2-disks.md
+              - name: Use Azure ultra disks
+                href: use-ultra-disks.md
+              - name: Bring your own keys for disks
+                href: azure-disk-customer-managed-keys.md
+              - name: Azure Container Storage 
+                href: ../storage/container-storage/container-storage-introduction.md
         - name: Shared file storage
           items:
-            - name: Block storage
-              items:
-                - name: Provision Azure Disks storage
-                  href: azure-csi-disk-storage-provision.md
-                - name: Azure Disks CSI driver
-                  href: azure-disk-csi.md
-                - name: Use Azure Premium SSD v2 disks
-                  href: use-premium-v2-disks.md
-                - name: Use Azure ultra disks
-                  href: use-ultra-disks.md
-                - name: Bring your own keys for disks
-                  href: azure-disk-customer-managed-keys.md
             - name: Azure Files storage
               items:
                 - name: Azure Files CSI driver
@@ -605,12 +646,20 @@
           href: events.md
         - name: Monitor kube-audit events
           href: monitor-apiserver.md
+        - name: Monitor control plane metrics
+          href: monitor-control-plane-metrics.md
         - name: Monitor reference
           href: monitor-aks-reference.md
+        - name: Control plane metrics reference
+          href: control-plane-metrics-default-list.md
         - name: View the kubelet logs
           href: kubelet-logs.md
         - name: View container data real-time
           href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Cost analysis
+          items:
+          - name: Enable cost analysis on your cluster
+            href: cost-analysis.md
         - name: Network Observability
           items:
             - name: BYO Prometheus and Grafana
@@ -619,22 +668,33 @@
               href: network-observability-managed-cli.md
     - name: Upgrade
       items:
-        - name: Upgrade an AKS cluster
-          href: upgrade-cluster.md
-        - name: Upgrade the node image
-          href: node-image-upgrade.md
-        - name: Automate and schedule upgrade events
+        - name: Upgrade options
           items:
-            - name: Automatically upgrade an AKS cluster
-              href: auto-upgrade-cluster.md
-            - name: Automatically upgrade AKS cluster node operating system images
-              href: auto-upgrade-node-image.md
-            - name: Upgrade the node image automatically with GitHub Actions
-              href: node-upgrade-github-actions.md
-            - name: Use planned maintenance to schedule and control upgrades
-              href: planned-maintenance.md
-        - name: Process node OS updates
-          href: node-updates-kured.md
+          - name: Upgrade options
+            href: upgrade-cluster.md
+          - name: Stop cluster upgrades automatically on API breaking changes
+            href: stop-cluster-upgrade-api-breaking-changes.md
+          - name: Perform manual upgrades
+            items:
+            - name: Upgrade an AKS cluster
+              href: upgrade-aks-cluster.md
+            - name: Upgrade node OS images
+              href: node-image-upgrade.md
+            - name: Customize node surge upgrade
+              href: upgrade-aks-cluster.md#customize-node-surge-upgrade
+            - name: Process node OS updates
+              href: node-updates-kured.md
+          - name: Configure automatic upgrades
+            items:
+              - name: Automatically upgrade an AKS cluster
+                href: auto-upgrade-cluster.md
+              - name: Use Planned Maintenance to schedule and control upgrades
+                href: planned-maintenance.md
+              - name: Automatically upgrade AKS cluster node OS images
+                href: auto-upgrade-node-os-image.md
+              - name: Upgrade node OS images automatically with GitHub Actions
+                href: node-upgrade-github-actions.md
+
     - name: Azure Linux container host for AKS
       href: use-azure-linux.md
     - name: Windows Server containers
@@ -653,6 +713,10 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Windows AKS partner solutions
           href: windows-aks-partner-solutions.md
+        - name: Windows AKS customer stories
+          href: windows-aks-customer-stories.md
+        - name: Migration and modernization solutions for Windows containers on AKS
+          href: windows-aks-migration-modernization-solutions.md
     - name: Develop and run applications
       items:
         - name: Install existing applications with Helm
@@ -679,6 +743,14 @@
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Deploy Kubernetes applications
+          items:
+            - name: Deploy Kubernetes applications from Azure Marketplace
+              href: deploy-marketplace.md
+            - name: Deploy Kubernetes applications with ARM template
+              href: deploy-application-template.md
+            - name: Deploy Kubernetes applications with Azure CLI
+              href: deploy-application-az-cli.md
         - name: Dapr
           items:
             - name: Create the Dapr extension

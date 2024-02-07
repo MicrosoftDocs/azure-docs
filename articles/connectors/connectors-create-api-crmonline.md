@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 01/04/2024
 tags: connectors
 ---
 

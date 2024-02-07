@@ -71,6 +71,9 @@ win11-22h2-pron      Windows-11 MicrosoftWindowsDesktop westus
 
 For more information on available images, see [Find and use Azure Marketplace VM images with Azure PowerShell](./cli-ps-findimage.md)
 
+> [!NOTE]
+> If you are upgrading to a newer version of Windows 11 with Trusted launch enabled and you are currently on a Windows 11 version without Trusted Launch enabled, the VM needs to be deallocated before proceeding with the upgrade. For more information, see [Enabling Trusted Launch on existing Azure VMs](../../virtual-machines/trusted-launch-existing-vm.md)
+
 ## Uploading Windows 11 VHD to Azure
 If you're uploading a generalized Windows 11 VHD,  note Windows 11 doesn't have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
 
@@ -140,8 +143,10 @@ Location                 : westus
 LicenseType              :
 ```
 
-## Additional Information about joining Azure Active Directory
-Azure provisions all Windows VMs with built-in administrator account, which can't be used to join Azure Active Directory. For example, *Settings > Account > Access Work or School > + Connect* won't work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
+<a name='additional-information-about-joining-azure-active-directory'></a>
+
+## Additional Information about joining Microsoft Entra ID
+Azure provisions all Windows VMs with built-in administrator account, which can't be used to join Microsoft Entra ID. For example, *Settings > Account > Access Work or School > + Connect* won't work. You must create and log on as a second administrator account to join Microsoft Entra ID manually. You can also configure Microsoft Entra ID using a provisioning package, use the link in the *Next Steps* section to learn more.
 
 ## Next Steps
 - Learn more about [Configuring VDA for Windows 11](/windows/deployment/vda-subscription-activation)

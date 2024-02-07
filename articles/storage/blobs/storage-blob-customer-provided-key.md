@@ -26,7 +26,7 @@ To learn more about how to authenticate with the Azure Identity client library, 
 
 ## Use a customer-provided key to write to a blob
 
-The following example provides an AES-256 key when uploading a blob with the v12 client library for Blob storage. The example uses the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) object to authorize the write request with Azure AD, but you can also authorize the request with Shared Key credentials. For more information about using the DefaultAzureCredential class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
+The following example provides an AES-256 key when uploading a blob with the v12 client library for Blob storage. The example uses the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) object to authorize the write request with Microsoft Entra ID, but you can also authorize the request with Shared Key credentials. For more information about using the DefaultAzureCredential class to authorize a managed identity to access Azure Storage, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
 ```csharp
 async static Task UploadBlobWithClientKey(Uri blobUri,

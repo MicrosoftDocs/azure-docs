@@ -1,12 +1,11 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 03/14/2023
+ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 ## Prerequisites
@@ -95,5 +94,3 @@ Once deployment succeeds, you can begin querying your deployed model for predict
 When you don't need your project anymore, you can delete your project using the APIs.
 
 [!INCLUDE [Delete project](../rest-api/delete-project.md)]
-
-

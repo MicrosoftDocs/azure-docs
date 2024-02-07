@@ -10,7 +10,7 @@ ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
 ms.date: 09/28/2023
-ms.custom: event-tier1-build-2022, devx-track-azurecli, moe-wsvnet
+ms.custom: devx-track-azurecli, moe-wsvnet
 ---
 
 # Secure your managed online endpoints with network isolation
@@ -96,6 +96,8 @@ Because the workspace is configured to have a managed virtual network, any deplo
 1. Create an endpoint with `public_network_access` disabled to block inbound traffic.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_endpoint_inbound_blocked" :::
+
+    If you disable public network access for the endpoint, the only way to invoke the endpoint is by using a private endpoint, which can access the workspace, in your virtual network. For more information, see [secure inbound scoring requests](concept-secure-online-endpoint.md#secure-inbound-scoring-requests) and [configure a private endpoint for an Azure Machine Learning workspace](how-to-configure-private-link.md).
 
     Alternatively, if you'd like to allow the endpoint to receive scoring requests from the internet, uncomment the following code and run it instead.
 

@@ -83,7 +83,7 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 -   **signature-value** - output of a signature algorithm, encoded using Base64URL  
 -   **base64URL** - a Base64URL [RFC4648] encoded binary value  
 -   **boolean** - either true or false  
--   **Identity** - an identity from Azure Active Directory (Azure AD).  
+-   **Identity** - an identity from Microsoft Entra ID.  
 -   **IntDate** - a JSON decimal value representing the number of seconds from 1970-01-01T0:0:0Z UTC until the specified UTC date/time. See RFC3339 for details regarding date/times, in general and UTC in particular.  
 
 ## Objects, identifiers, and versioning

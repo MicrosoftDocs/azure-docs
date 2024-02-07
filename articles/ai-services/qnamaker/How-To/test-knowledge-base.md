@@ -7,8 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 # Test your knowledge base in QnA Maker
 
@@ -92,7 +91,7 @@ Use the batch testing tool when you want to:
 
 1. Select **Create a knowledge base** from the tool bar.
 1. Skip **Step 1** because you should already have a QnA Maker resource, moving on to **Step 2** to select your existing resource information:
-    * Azure Active Directory ID
+    * Microsoft Entra ID
     * Azure Subscription Name
     * Azure QnA Service Name
     * Language - the English language

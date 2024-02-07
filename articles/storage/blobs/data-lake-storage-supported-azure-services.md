@@ -21,7 +21,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 > [!NOTE]
 > Support level refers only to how the service is supported with Data Lake Storage Gen 2.
 
-|Azure service |Support level |Azure AD |Shared Key| Related articles |
+|Azure service |Support level |Microsoft Entra ID |Shared Key| Related articles |
 |---------------|-------------------|---|---|---|
 |Azure Data Factory|Generally available|Yes|Yes|<ul><li>[Load data into Azure Data Lake Storage Gen2 with Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md?toc=/azure/storage/blobs/toc.json)</li></ul>|
 |Azure Databricks|Generally available|Yes|Yes|<ul><li>[Use with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)</li><br><li>[Tutorial: Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse)</li><br><li>[Tutorial: Access Data Lake Storage Gen2 data with Azure Databricks using Spark](data-lake-storage-use-databricks-spark.md)</li></ul>|
@@ -37,7 +37,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Azure Synapse Analytics (formerly SQL Data Warehouse)|Generally available|Yes|Yes|<ul><li>[Analyze data in a storage account](../../synapse-analytics/get-started-analyze-storage.md)</li></ul>|
 |SQL Server Integration Services (SSIS)|Generally available|Yes|Yes|<ul><li>[Azure Storage connection manager](/sql/integration-services/connection-manager/azure-storage-connection-manager)</li></ul>|
 |Azure Data Explorer|Generally available|Yes|Yes|<ul><li>[Query data in Azure Data Lake using Azure Data Explorer](/azure/data-explorer/data-lake-query-data)</li></ul>|
-|Azure Cognitive Search|Generally available|Yes|Yes|<ul><li>[Index and search Azure Data Lake Storage Gen2 documents](../../search/search-howto-index-azure-data-lake-storage.md)</li></ul>|
+|Azure AI Search|Generally available|Yes|Yes|<ul><li>[Index and search Azure Data Lake Storage Gen2 documents](../../search/search-howto-index-azure-data-lake-storage.md)</li></ul>|
 |Azure SQL Managed Instance|Preview|No|Yes|<ul><li>[Data virtualization with Azure SQL Managed Instance](/azure/azure-sql/managed-instance/data-virtualization-overview)</li></ul>|
 
 

@@ -59,7 +59,7 @@ To find which version of the extension you're currently using, go to `https://<y
 #### 2.8.42
 
 - JAVA extension: Upgraded to [Java Agent 3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) from 2.5.1.
-- Node.js extension: Updated AI SDK to [2.1.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.8) from 2.1.7. Added support for User and System assigned Azure AD Managed Identities.
+- Node.js extension: Updated AI SDK to [2.1.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.8) from 2.1.7. Added support for User and System assigned Microsoft Entra managed identities.
 - .NET Core: Added self-contained deployments and .NET 6.0 support using [.NET Startup Hook](https://github.com/dotnet/runtime/blob/main/docs/design/features/host-startup-hook.md).
 
 #### 2.8.41

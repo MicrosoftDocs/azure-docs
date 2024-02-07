@@ -24,7 +24,7 @@ Learn how to access Azure services, _such as Azure Storage_, from a web app (not
 
 You want to add secure access to Azure services (Azure Storage, Azure SQL Database, Azure Key Vault, or other services) from your web app. You could use a shared key, but then you have to worry about operational security of who can create, deploy, and manage the secret. It's also possible that the key could be checked into GitHub, which hackers know how to scan for. A safer way to give your web app access to data is to use [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-A managed identity from Azure Active Directory (Azure AD) allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. People don't have to worry about managing secrets or app credentials.
+A managed identity from Microsoft Entra ID allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. People don't have to worry about managing secrets or app credentials.
 
 In this tutorial, you learn how to:
 
@@ -137,7 +137,7 @@ To create a general-purpose v2 storage account and Blob Storage container, run t
 
 Specify the location for your storage account. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character.
 
-The following example uses your Azure AD account to authorize the operation to create the container. Before you create the container, assign the Storage Blob Data Contributor role to yourself. Even if you're the account owner, you need explicit permissions to perform data operations against the storage account.
+The following example uses your Microsoft Entra account to authorize the operation to create the container. Before you create the container, assign the Storage Blob Data Contributor role to yourself. Even if you're the account owner, you need explicit permissions to perform data operations against the storage account.
 
 Remember to replace placeholder values in angle brackets with your own values.
 

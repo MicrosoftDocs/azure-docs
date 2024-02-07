@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/29/2022
-ms.author: duau, hmb
+ms.author: duau
 ms.custom: mvc, mode-other
 ---
 # Quickstart: Integrate an Azure Storage account with Azure CDN

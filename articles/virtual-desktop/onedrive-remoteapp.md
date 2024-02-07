@@ -1,20 +1,24 @@
 ---
-title: Use Microsoft OneDrive with a RemoteApp - Azure Virtual Desktop
+title: Use Microsoft OneDrive with a RemoteApp (preview) - Azure Virtual Desktop
 description: Learn how to use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 09/27/2023
+ms.date: 10/11/2023
 ---
 
-# Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop
+# Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop (preview)
 
-You can use Microsoft OneDrive alongside a RemoteApp in Azure Virtual Desktop, allowing users to access and synchronize their files while using a RemoteApp. When a user connects to a RemoteApp, OneDrive can automatically launch as a companion to the RemoteApp. This article describes how to configure OneDrive to automatically launch alongside a RemoteApp in Azure Virtual Desktop.
+> [!IMPORTANT]
+> Using Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+You can use Microsoft OneDrive alongside a RemoteApp in Azure Virtual Desktop (preview), allowing users to access and synchronize their files while using a RemoteApp. When a user connects to a RemoteApp, OneDrive can automatically launch as a companion to the RemoteApp. This article describes how to configure OneDrive to automatically launch alongside a RemoteApp in Azure Virtual Desktop.
 
 > [!IMPORTANT]
 > - You should only use OneDrive with a RemoteApp for testing purposes as it requires an Insider Preview build of Windows 11 for your session hosts.
 >
-> - You can't use the OneDrive setting **Start OneDrive automatically when I sign in to Windows**.
+> - You can't use the setting **Start OneDrive automatically when I sign in to Windows** in the OneDrive preferences, which starts OneDrive when a user signs in. Instead, you need to configure OneDrive to launch by configuring a registry value, which is described in this article.
 
 ## User experience
 
@@ -34,7 +38,7 @@ Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop, you need:
 
 - Session hosts in the host pool that:
 
-   - Are running Windows 11 Insider Preview Enterprise multi-session, version 22H2, build 25905 or later. To get Insider Preview builds for multi-session, you need to start with a non-Insider build, join session hosts to the Windows Insider Program, then install the preview build. For more information on the Windows Insider Program, see [Getting started with the Windows Insider Program](https://www.microsoft.com/windowsinsider/getting-started).
+   - Are running Windows 11 Insider Preview Enterprise multi-session, version 22H2, build 25905 or later. To get Insider Preview builds for multi-session, you need to start with a non-Insider build, join session hosts to the Windows Insider Program, then install the preview build. For more information on the Windows Insider Program, see [Get started with the Windows Insider Program](/windows-insider/get-started) and [Manage Insider Preview builds across your organization](/windows-insider/business/manage-builds). Intune [doesn't support update rings with multi-session](/mem/intune/fundamentals/azure-virtual-desktop-multi-session#additional-configurations-that-arent-supported-on-windows-10-or-windows-11-enterprise-multi-session-vms). 
    
    - Have the latest version of FSLogix installed. For more information, see [Install FSLogix applications](/fslogix/how-to-install-fslogix).
 
@@ -56,7 +60,7 @@ To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, follo
    You can configure the registry using an enterprise deployment tool such as Intune, Configuration Manager, or Group Policy. Alternatively, to set this registry value using PowerShell, open PowerShell as an administrator and run the following command:
 
    ```powershell
-   New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name OneDrive -PropertyType String -Value '"C:\Program Files\Microsoft OneDrive\OneDrive.exe\" /background' -Force
+   New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name OneDrive -PropertyType String -Value '"C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background' -Force
    ```
 
 ## Test OneDrive with a RemoteApp

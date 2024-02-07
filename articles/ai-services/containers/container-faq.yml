@@ -3,10 +3,10 @@ metadata:
   title: Azure AI containers FAQ
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions.
-  services: cognitive-services
+  #services: cognitive-services
   author: aahill
   manager: nitinme
-  ms.service: cognitive-services
+  ms.service: azure-ai-services
   ms.topic: faq
   ms.date: 05/26/2023
   ms.author: aahi

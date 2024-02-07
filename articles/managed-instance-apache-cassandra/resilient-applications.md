@@ -14,9 +14,25 @@ keywords: azure high availability disaster recovery cassandra resiliency
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. Apache Cassandra is a great choice for building highly resilient applications due to it's distributed nature and masterless architecture – any node in the database can provide the exact same functionality as any other node – contributing to Cassandra’s robustness and resilience. This article provides tips on how to optimize high availability and how to approach disaster recover.
 
+
+## RPO and RTO
+
+RPO (recovery point objective) and RTO (recovery time objective), will both typically be very low (close to zero) for Apache Cassandra as long as you have:
+
+- A [multi-region deployment](create-multi-region-cluster.md) with cross region replication, and a [replication factor](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html#replication-strategy) of 3.
+- Enabled availability zones (select option when creating a cluster in the [portal](create-cluster-portal.md) or via [Azure CLI](create-cluster-cli.md)).
+- Configured application-level failover using load balancing policy in the [client driver](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html) and/or load balancing-level failover using traffic manager/Azure front door.
+
+RTO ("how long you are down in an outage") will be low because the cluster will be resilient across both zones and regions, and because Apache Cassandra itself is a highly fault tolerant, masterless system (all nodes can write) by default. RPO ("how much data can you lose in an outage") will be low because data will be sychronised between all nodes and data centers, so data loss in an outage would be minimal. 
+
+   > [!NOTE]
+   > It is not theoretically possible to achieve both RTO=0 *and* RPO=0 per [Cap Theorem](https://en.wikipedia.org/wiki/CAP_theorem). You will need to evaluate the trade off between consistency and availability/optimal performance - this will look different for each application. For example, if your application is read heavy, it might be better to cope with increased latency of cross-region writes to avoid data loss (favoring consistency). If the appplication is write heavy, and on a tight latency budget, the risk of losing some of the most recent writes in a major regional outage might be acceptable (favoring availability). 
+
+
 ## Availability zones
 
 Cassandra's masterless architecture brings fault tolerance from the ground up, and Azure Managed Instance for Apache Cassandra provides support for [availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) in selected regions to enhance resiliency at the infrastructure level. Given a replication factor of 3, availability zone support ensures that each replica is in a different availability zone, thus preventing a zonal outage from impacting your database/application. We recommend enabling availability zones where possible.
+
 
 ## Multi-region redundancy 
 

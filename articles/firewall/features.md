@@ -68,6 +68,10 @@ Azure Firewall can scale out as much as you need to accommodate changing network
 
 You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require TLS termination.
 
+The following video shows how to create an application rule: <br><br>
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d8dbf4b9-4f75-4c88-b717-c3664b667e8b]
+
 ## Network traffic filtering rules
 
 You can centrally create *allow* or *deny* network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful, so it can distinguish legitimate packets for different types of connections. Rules are enforced and logged across multiple subscriptions and virtual networks.

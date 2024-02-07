@@ -6,7 +6,6 @@ manager: rkarlin
 ms.author: terrylan
 ms.service: security
 ms.subservice: security-fundamentals
-ms.custom: ignite-2022
 ms.topic: feature-availability
 ms.date: 08/31/2023
 ---
@@ -33,9 +32,13 @@ Azure Government is a physically isolated cloud environment dedicated to US fede
 
 For more information about Azure Government, see [What is Azure Government?](../../azure-government/documentation-government-welcome.md)
 
+> [!NOTE]
+> These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
+> For more information about specific availability for air-gapped clouds, please contact your account team.
+
 ## Microsoft 365 integration
 
-Integrations between products rely on interoperability between Azure and Office platforms. Offerings hosted in the Azure environment are accessible from the Microsoft 365 Enterprise and Microsoft 365 Government platforms. Office 365 and Office 365 GCC are paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government.
+Integrations between products rely on interoperability between Azure and Office platforms. Offerings hosted in the Azure environment are accessible from the Microsoft 365 Enterprise and Microsoft 365 Government platforms. Office 365 and Office 365 GCC are paired with Microsoft Entra ID in Azure. Office 365 GCC High and Office 365 DoD are paired with Microsoft Entra ID in Azure Government.
 
 The following diagram displays the hierarchy of Microsoft clouds and how they relate to each other.
 
@@ -58,7 +61,7 @@ AIP is part of the Microsoft Purview Information Protection (MIP) solution, and 
 
 For more information, see the [Azure Information Protection product documentation](/azure/information-protection/).
 
-- Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government. Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration). In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant.
+- Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High and Office 365 DoD are paired with Microsoft Entra ID in Azure Government. Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration). In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant.
 
 - Extra configurations are required for GCC-High and DoD customers. For more information, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
@@ -214,7 +217,7 @@ For Microsoft Sentinel feature availability in Azure, Azure Government, and Azur
 
 ### Microsoft Purview Data Connectors
 
-Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government.
+Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High and Office 365 DoD are paired with Microsoft Entra ID in Azure Government.
 
 > [!TIP]
 > Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration). In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant.
@@ -230,7 +233,7 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Microsoft 365 Defender](../../sentinel/connect-microsoft-365-defender.md)** |  |  |
+| **[Microsoft Defender XDR](../../sentinel/connect-microsoft-365-defender.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |

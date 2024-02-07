@@ -1,8 +1,7 @@
 ---
 title: Overview of features - Azure Event Hubs | Microsoft Docs
-description: This article provides details about features and terminology of Azure Event Hubs. 
+description: This article provides details about features and terminology of Azure Event Hubs.
 ms.topic: overview
-ms.custom: event-tier1-build-2022
 ms.date: 02/09/2023
 ---
 
@@ -27,7 +26,7 @@ An Event Hubs namespace is a management container for event hubs (or topics, in 
 
 ## Event publishers
 
-Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token to gain publishing access.
+Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Microsoft Entra ID based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token to gain publishing access.
 
 ### Publishing an event
 
@@ -194,7 +193,7 @@ Event data:
 It's your responsibility to manage the offset.
 
 ## Application groups
-An application group is a collection of client applications that connect to an Event Hubs namespace sharing a unique identifying condition such as the security context - shared access policy or Azure Active Directory (Azure AD) application ID. 
+An application group is a collection of client applications that connect to an Event Hubs namespace sharing a unique identifying condition such as the security context - shared access policy or Microsoft Entra application ID. 
 
 Azure Event Hubs enables you to define resource access policies such as throttling policies for a given application group and controls event streaming (publishing or consuming) between client applications and Event Hubs. 
 

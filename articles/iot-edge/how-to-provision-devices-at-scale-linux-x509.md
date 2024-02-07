@@ -8,7 +8,6 @@ ms.date: 09/25/2023
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
-ms.custom: contperf-fy21q2
 ---
 
 # Create and provision IoT Edge devices at scale on Linux using X.509 certificates

@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 10/14/2021
 ms.author: helohr
-manager: femila
 ---
 # Troubleshooting overview, feedback, and support for Azure Virtual Desktop
 
@@ -23,6 +22,10 @@ This article provides an overview of the issues you may encounter when setting u
 To report issues or suggest features for Azure Virtual Desktop with Azure Resource Manager integration, visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum). You can use the Tech Community to discuss best practices or suggest and vote for new features.
 
 When you make a post asking for help or propose a new feature, make sure you describe your topic in as much detail as possible. Detailed information can help other users answer your question or understand the feature you're proposing a vote for.
+
+## Help with application issues
+
+If you encounter issues with your applications running in Azure Virtual Desktop, App Assure is a service from Microsoft designed to help you resolve them at no additional cost. For more information, go to [App Assure](/microsoft-365/fasttrack/windows-and-other-services#app-assure).
 
 ## Escalation tracks
 

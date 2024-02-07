@@ -2,7 +2,7 @@
 title: Translator V3.0 Reference
 titleSuffix: Azure AI services
 description: Reference documentation for the Translator V3.0. Version 3.0 of the Translator provides a modern JSON-based Web API.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
@@ -156,13 +156,15 @@ Authorization: Bearer <Base64-access_token>
 
 An authentication token is valid for 10 minutes. The token should be reused when making multiple calls to the Translator. However, if your program makes requests to the Translator over an extended period of time, then your program must request a new access token at regular intervals (for example, every 8 minutes).
 
-## Authentication with Azure Active Directory (Azure AD)
+<a name='authentication-with-azure-active-directory-azure-ad'></a>
 
- Translator v3.0 supports Azure AD authentication, Microsoft's cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate that the requesting client is authorized to use the resource and to complete the request.
+## Authentication with Microsoft Entra ID
+
+ Translator v3.0 supports Microsoft Entra authentication, Microsoft's cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate that the requesting client is authorized to use the resource and to complete the request.
 
 ### **Prerequisites**
 
-* A brief understanding of how to [**authenticate with Azure Active Directory**](../../authentication.md?tabs=powershell#authenticate-with-azure-active-directory).
+* A brief understanding of how to [**authenticate with Microsoft Entra ID**](../../authentication.md?tabs=powershell#authenticate-with-azure-active-directory).
 
 * A brief understanding of how to [**authorize access to managed identities**](../../authentication.md?tabs=powershell#authorize-access-to-managed-identities).
 

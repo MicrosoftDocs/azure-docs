@@ -6,7 +6,7 @@ ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 01/25/2023
-ms.custom: template-how-to-pattern, devx-track-azurecli
+ms.custom: template-how-to-pattern, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Prerequisites for deploying tenant workloads
@@ -246,7 +246,7 @@ In order to reach the desired endpoints, you need to add the required egress end
 
 ## Nexus Kubernetes cluster availability zone
 
-When you're creating a Nexus Kubernetes cluster, you can schedule the cluster onto specific racks or distribute it evenly across multiple racks. This technique can improve resource utilization and fault tolerance.
+When you're creating a Nexus Kubernetes cluster, you can schedule the cluster onto specific racks or distribute it across multiple racks. This technique can improve resource utilization and fault tolerance.
 
 If you don't specify a zone when you're creating a Nexus Kubernetes cluster, the Azure Operator Nexus platform automatically implements a default anti-affinity rule. This rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't make guarantees.
 

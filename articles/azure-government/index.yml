@@ -9,8 +9,8 @@ metadata:
   description: Azure Government provides a physically isolated instance of Azure that employs world-class security and compliance critical to US government.
   ms.service: azure-government
   ms.topic: landing-page
-  author: stevevi
-  ms.author: stevevi
+  author: anaharris-ms
+  ms.author: anaharris 
   ms.date: 05/07/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -93,7 +93,7 @@ landingContent:
             url: documentation-government-get-started-connect-to-storage.md
           - text: Develop with Azure AI services
             url: documentation-government-cognitiveservices.md
-          - text: Integrate Azure AD authentication
+          - text: Integrate Microsoft Entra authentication
             url: documentation-government-aad-auth-qs.md
           - text: Develop with SQL Server Management Studio
             url: documentation-government-connect-ssms.md

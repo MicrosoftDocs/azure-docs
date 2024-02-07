@@ -1,10 +1,10 @@
 ---
 title: Container Public Preview Prerequisites
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 description: The common prerequisite for public preview containers 
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include 
 ms.date: 04/01/2020
 ms.author: aahi

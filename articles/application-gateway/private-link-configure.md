@@ -48,7 +48,7 @@ The Private link configuration defines the infrastructure used by Application Ga
    - **Frontend IP Configuration**: The frontend IP address that private link should forward traffic to on Application Gateway.
    - **Private IP address settings**: specify at least one IP address
 1. Select **Add**.
-1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, this is required if you are setting up a Private Endpoint within a different Azure AD tenant.
+1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, this is required if you are setting up a Private Endpoint within a different Microsoft Entra tenant.
 
 **Configure Private Endpoint**
 

@@ -55,3 +55,4 @@ remain isolated to specific racks.
 ## Next steps
 
 * [Guide to deploy Nexus kubernetes cluster](./quickstarts-kubernetes-cluster-deployment-bicep.md)
+* [Supported Kubernetes versions](./reference-nexus-kubernetes-cluster-supported-versions.md)

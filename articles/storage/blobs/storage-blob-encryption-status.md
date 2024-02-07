@@ -3,12 +3,12 @@ title: Check the encryption status of a blob
 titleSuffix: Azure Storage
 description: Learn how to use Azure portal, PowerShell, or Azure CLI to check whether a given blob is encrypted.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/09/2023
-ms.author: akashdubey
+ms.author: normesta
 ms.reviewer: ozgun
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli

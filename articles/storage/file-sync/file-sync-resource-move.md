@@ -1,6 +1,6 @@
 ---
 title: Azure File Sync resource moves and topology changes
-description: Learn how to move sync resources across resource groups, subscriptions, and Azure Active Directory tenants.
+description: Learn how to move sync resources across resource groups, subscriptions, and Microsoft Entra tenants.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -8,9 +8,9 @@ ms.date: 09/21/2023
 ms.author: kendownie
 ---
 
-# Move Azure File Sync resources to a different resource group, subscription, or Azure AD tenant
+# Move Azure File Sync resources to a different resource group, subscription, or Microsoft Entra tenant
 
-This article describes how to make changes to resource group, subscription, or Azure Active Directory (Azure AD) tenant for your Azure File Sync cloud resources and Azure storage accounts.
+This article describes how to make changes to resource group, subscription, or Microsoft Entra tenant for your Azure File Sync cloud resources and Azure storage accounts.
 
 When planning to make changes to the Azure File Sync cloud resources, it's important to consider the storage resources at the same time. The following resources exist:
 
@@ -41,11 +41,13 @@ As a best practice, the Storage Sync Service and the storage accounts that have 
 * Storage Sync Service and storage accounts are located in **different subscriptions** (same Azure tenant)
 
 > [!IMPORTANT]
-> Through different combinations of moves, a Storage Sync Service and storage accounts can end up in different subscriptions, governed by different Azure AD tenants. Sync would even appear to be working, but this is not a supported configuration. Sync can stop in the future with no ability to get back into a working condition.
+> Through different combinations of moves, a Storage Sync Service and storage accounts can end up in different subscriptions, governed by different Microsoft Entra tenants. Sync would even appear to be working, but this is not a supported configuration. Sync can stop in the future with no ability to get back into a working condition.
 
-When planning your resource move, there are different considerations for [moving within the same Azure AD tenant](#move-within-the-same-azure-active-directory-tenant) and moving across [to a different Azure AD tenant](#move-to-a-new-azure-active-directory-tenant). When moving Azure AD tenants, always move sync and storage resources together.
+When planning your resource move, there are different considerations for [moving within the same Microsoft Entra tenant](#move-within-the-same-azure-active-directory-tenant) and moving across [to a different Microsoft Entra tenant](#move-to-a-new-azure-active-directory-tenant). When moving Microsoft Entra tenants, always move sync and storage resources together.
 
-### Move within the same Azure Active Directory tenant
+<a name='move-within-the-same-azure-active-directory-tenant'></a>
+
+### Move within the same Microsoft Entra tenant
 
 :::row:::
     :::column:::
@@ -59,15 +61,17 @@ When planning your resource move, there are different considerations for [moving
 > [!WARNING]
 > When you move a storage account resource, sync will stop immediately. You have to manually authorize sync to access the relevant storage accounts in the new subscription. The [Azure File Sync storage access authorization](#azure-file-sync-storage-access-authorization) section will provide the necessary steps.
 
-### Move to a new Azure Active Directory tenant
+<a name='move-to-a-new-azure-active-directory-tenant'></a>
 
-Individual resources like a Storage Sync Service or storage account can't move by themselves to a different Azure AD tenant. Only Azure subscriptions can move across Azure AD tenants. Think about your subscription structure in the new Azure AD tenant. You can use a dedicated subscription for Azure File Sync. 
+### Move to a new Microsoft Entra tenant
+
+Individual resources like a Storage Sync Service or storage account can't move by themselves to a different Microsoft Entra tenant. Only Azure subscriptions can move across Microsoft Entra tenants. Think about your subscription structure in the new Microsoft Entra tenant. You can use a dedicated subscription for Azure File Sync. 
 
 1. Create an Azure subscription (or determine an existing one in the old tenant that should move).
-1. [Perform a subscription move within the same Azure AD tenant](#move-within-the-same-azure-active-directory-tenant) of your Storage Sync Service and all associated storage accounts.
-1. Sync will stop. Complete your tenant move immediately or [restore sync's ability to access the storage accounts that moved](#azure-file-sync-storage-access-authorization). You can then move to the new Azure AD tenant later.
+1. [Perform a subscription move within the same Microsoft Entra tenant](#move-within-the-same-azure-active-directory-tenant) of your Storage Sync Service and all associated storage accounts.
+1. Sync will stop. Complete your tenant move immediately or [restore sync's ability to access the storage accounts that moved](#azure-file-sync-storage-access-authorization). You can then move to the new Microsoft Entra tenant later.
 
-Once all related Azure File Sync resources have been sequestered into their own subscription, you're ready to move the entire subscription to the target Azure AD tenant. The [transfer subscription guide](../../role-based-access-control/transfer-subscription.md) allows you to plan and execute such a transfer.
+Once all related Azure File Sync resources have been sequestered into their own subscription, you're ready to move the entire subscription to the target Microsoft Entra tenant. The [transfer subscription guide](../../role-based-access-control/transfer-subscription.md) allows you to plan and execute such a transfer.
 
 > [!WARNING]
 > When you transfer a subscription from one tenant to another, sync will stop immediately. You have to manually authorize sync to access the relevant storage accounts in the new subscription. The [Azure File Sync storage access authorization](#azure-file-sync-storage-access-authorization) section will provide the necessary steps.
@@ -80,13 +84,13 @@ Once all related Azure File Sync resources have been sequestered into their own 
         You're ready to start the migration once you have a plan and the required permissions:
         1. In the Azure portal, navigate to your subscription **Overview** blade.
         1. Select **Change directory**.
-        1. Follow the wizard steps to assign the new Azure AD tenant.
+        1. Follow the wizard steps to assign the new Microsoft Entra tenant.
     :::column-end:::
 :::row-end:::
 
 ## Azure File Sync storage access authorization
 
-When storage accounts are moved to either a new subscription or are moved within a subscription to a new Azure Active Directory tenant, sync will stop. Role-based access control (RBAC) is used to authorize Azure File Sync to access a storage account, and these role assignments aren't migrated with the resources.
+When storage accounts are moved to either a new subscription or are moved within a subscription to a new Microsoft Entra tenant, sync will stop. Role-based access control (RBAC) is used to authorize Azure File Sync to access a storage account, and these role assignments aren't migrated with the resources.
 
 ### Azure File Sync service principal
 
@@ -95,7 +99,7 @@ When storage accounts are moved to either a new subscription or are moved within
         :::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-afs-rp-registered-small.png" alt-text="An image showing the Azure portal, subscription management, registered resource providers." lightbox="media/storage-sync-resource-move/storage-sync-resource-move-afs-rp-registered.png":::
     :::column-end:::
     :::column:::
-        The Azure File Sync service principal must exist in your Azure AD tenant before you can authorize sync access to a storage account. </br></br> When you create a new Azure subscription today, the Azure File Sync resource provider *Microsoft.StorageSync* is automatically registered with your subscription. Resource provider registration will make a *service principal* for sync available in the Azure Active Directory tenant that governs the subscription. A service principal is similar to a user account in your Azure AD. You can use the Azure File Sync service principal to authorize access to resources via role-based access control (RBAC). The only resources sync needs access to are your storage accounts containing the file shares that are supposed to sync. *Microsoft.StorageSync* must be assigned to the built-in role **Reader and Data access** on the storage account. </br></br> This assignment is done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. When a storage account moves to a new subscription or Azure AD tenant, this role assignment is lost and [must be manually reestablished](#establish-sync-access-to-a-storage-account).
+        The Azure File Sync service principal must exist in your Microsoft Entra tenant before you can authorize sync access to a storage account. </br></br> When you create a new Azure subscription today, the Azure File Sync resource provider *Microsoft.StorageSync* is automatically registered with your subscription. Resource provider registration will make a *service principal* for sync available in the Microsoft Entra tenant that governs the subscription. A service principal is similar to a user account in your Microsoft Entra ID. You can use the Azure File Sync service principal to authorize access to resources via role-based access control (RBAC). The only resources sync needs access to are your storage accounts containing the file shares that are supposed to sync. *Microsoft.StorageSync* must be assigned to the built-in role **Reader and Data access** on the storage account. </br></br> This assignment is done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. When a storage account moves to a new subscription or Microsoft Entra tenant, this role assignment is lost and [must be manually reestablished](#establish-sync-access-to-a-storage-account).
     :::column-end:::
 :::row-end:::
 
@@ -106,7 +110,7 @@ When storage accounts are moved to either a new subscription or are moved within
 
 The [Azure File Sync service principal](#azure-file-sync-service-principal) must be used to authorize access to a storage account via role-based access control (RBAC). *Microsoft.StorageSync* must be assigned to the built-in role **Reader and Data access** on the storage account. 
 
-This assignment is typically done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. However, when a storage account moves to a new subscription or Azure AD tenant, this role assignment is lost and must be manually reestablished.
+This assignment is typically done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. However, when a storage account moves to a new subscription or Microsoft Entra tenant, this role assignment is lost and must be manually reestablished.
 
 :::row:::
     :::column:::

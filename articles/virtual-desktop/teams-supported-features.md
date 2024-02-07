@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/26/2023
 ms.author: helohr
-manager: femila
 ---
 
 # Supported features for Microsoft Teams on Azure Virtual Desktop
@@ -14,7 +13,7 @@ This article lists the features of Microsoft Teams that Azure Virtual Desktop cu
 
 ## Supported features
 
-The following table lists whether the Windows Desktop client, Azure Virtual Desktop Store app or macOS client supports specific features for Teams on Azure Virtual Desktop. Other clients are not supported.
+The following table lists whether the Windows Desktop client, Azure Virtual Desktop Store app or macOS client supports specific features for Teams on Azure Virtual Desktop. Other clients aren't supported.
 
 | Feature | Windows Desktop client and Azure Virtual Desktop app | macOS client |
 |--|--|--|
@@ -40,6 +39,9 @@ The following table lists whether the Windows Desktop client, Azure Virtual Desk
 | Secondary ringer | Yes | Yes |
 | Shared system audio | Yes | No |
 | Simulcast | Yes | Yes |
+
+> [!TIP]
+> You can find a more general list of Teams features that aren't supported on any VDI platform in the documentation for Microsoft Teams at [Features not supported in VDI](/microsoftteams/new-teams-vdi-requirements-deploy#features-not-supported-in-vdi).
 
 ## Version requirements
 
@@ -69,12 +71,14 @@ The following table lists the minimum required versions for each Teams feature. 
 | Manage breakout rooms | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Mirror my video | 1.2.3770 and later | Not supported | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Multiwindow | 1.2.1755 and later | 10.7.7 and later | 1.1.2110.16001 and later | Updates within 90 days of the current version |
-| Noise suppression | 1.2.3316 and later | 10.8.1 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
+| Noise suppression* | 1.2.3316 and later | 10.8.1 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Screen share and video together | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Screen share | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Secondary ringer | 1.2.3004 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Shared system audio | 1.2.4058 and later | Not supported | 1.0.2006.11001 and later  | Updates within 90 days of the current version |
 | Simulcast | 1.2.3667 and later | 10.8.1 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
+
+\* When using [Teams media optimizations](teams-on-avd.md#verify-media-optimizations-loaded), noise suppression is on by default, but confirmation isn't shown in Teams client. This is by design.
 
 ## Next steps
 

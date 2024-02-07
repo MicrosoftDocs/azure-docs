@@ -7,12 +7,14 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 01/19/2024
 ms.custom:
 #Customer intent: As a Python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
 
 # Tutorial: Use Personalizer in Azure Notebook
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 This tutorial runs a Personalizer loop in an Azure Notebook, demonstrating the end to end life cycle of a Personalizer loop.
 

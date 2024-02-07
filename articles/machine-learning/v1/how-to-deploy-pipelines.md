@@ -1,7 +1,7 @@
 ---
 title: Publish ML pipelines
 titleSuffix: Azure Machine Learning
-description: Run machine learning workflows with machine learning pipelines and the Azure Machine Learning SDK for Python. 
+description: Run machine learning workflows with machine learning pipelines and the Azure Machine Learning SDK for Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -10,7 +10,7 @@ ms.author: zhanxia
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, sdkv1, devx-track-python
 ---
 
 # Publish and track machine learning pipelines
@@ -75,7 +75,7 @@ All published pipelines have a REST endpoint. With the pipeline endpoint, you ca
 > [!IMPORTANT]
 > If you are using Azure role-based access control (Azure RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](../how-to-assign-roles.md#common-scenarios).
 
-To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
+To invoke the run of the preceding pipeline, you need a Microsoft Entra authentication header token. Getting such a token is described in the [AzureCliAuthentication class](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline

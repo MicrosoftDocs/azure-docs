@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the Immersive Reader resources
 
-Follow [these instructions](./how-to-create-immersive-reader.md) to create each Immersive Reader resource. The **Create-ImmersiveReaderResource** script has `ResourceName`, `ResourceSubdomain`, and `ResourceLocation` as parameters. These should be unique for each resource being created. The remaining parameters should be the same as what you used when setting up your first Immersive Reader resource. This way, each resource can be linked to the same Azure resource group and Azure AD application.
+Follow [these instructions](./how-to-create-immersive-reader.md) to create each Immersive Reader resource. The **Create-ImmersiveReaderResource** script has `ResourceName`, `ResourceSubdomain`, and `ResourceLocation` as parameters. These should be unique for each resource being created. The remaining parameters should be the same as what you used when setting up your first Immersive Reader resource. This way, each resource can be linked to the same Azure resource group and Microsoft Entra application.
 
 The example below shows how to create two resources, one in WestUS, and another in EastUS. Notice the unique values for `ResourceName`, `ResourceSubdomain`, and `ResourceLocation`.
 
@@ -61,7 +61,7 @@ Create-ImmersiveReaderResource
 
 ## Add resources to environment configuration
 
-In the quickstart, you created an environment configuration file that contains the `TenantId`, `ClientId`, `ClientSecret`, and `Subdomain` parameters. Since all of your resources use the same Azure AD application, we can use the same values for the `TenantId`, `ClientId`, and `ClientSecret`. The only change that needs to be made is to list each subdomain for each resource.
+In the quickstart, you created an environment configuration file that contains the `TenantId`, `ClientId`, `ClientSecret`, and `Subdomain` parameters. Since all of your resources use the same Microsoft Entra application, we can use the same values for the `TenantId`, `ClientId`, and `ClientSecret`. The only change that needs to be made is to list each subdomain for each resource.
 
 Your new __.env__ file should now look something like the following:
 
@@ -77,7 +77,7 @@ Be sure not to commit this file into source control, as it contains secrets that
 
 Next, we're going to modify the  _routes\index.js_ file that we created to support our multiple resources. Replace its content with the following code.
 
-As before, this code creates an API endpoint that acquires an Azure AD authentication token using your service principal password. This time, it allows the user to specify a resource location and pass it in as a query parameter. It then returns an object containing the token and the corresponding subdomain.
+As before, this code creates an API endpoint that acquires a Microsoft Entra authentication token using your service principal password. This time, it allows the user to specify a resource location and pass it in as a query parameter. It then returns an object containing the token and the corresponding subdomain.
 
 ```javascript
 var express = require('express');

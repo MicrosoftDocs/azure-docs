@@ -17,8 +17,8 @@ This article provides best practice guidelines that help you optimize performanc
 
 For general suggestions around structuring a data lake, see these articles:
 
-- [Overview of Azure Data Lake Storage for the data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-overview?toc=/azure/storage/blobs/toc.json)
-- [Provision three Azure Data Lake Storage Gen2 accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=/azure/storage/blobs/toc.json)
+- [Overview of Azure Data Lake Storage for the data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
+- [Provision three Azure Data Lake Storage Gen2 accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
 
 ## Find documentation
 
@@ -154,7 +154,7 @@ Again, the choice you make with the folder and file organization should optimize
 
 ## Set up security
 
-Start by reviewing the recommendations in the [Security recommendations for Blob storage](security-recommendations.md) article. You'll find best practice guidance about how to protect your data from accidental or malicious deletion, secure data behind a firewall, and use Azure Active Directory (Azure AD) as the basis of identity management.
+Start by reviewing the recommendations in the [Security recommendations for Blob storage](security-recommendations.md) article. You'll find best practice guidance about how to protect your data from accidental or malicious deletion, secure data behind a firewall, and use Microsoft Entra ID as the basis of identity management.
 
 Then, review the [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md) article for guidance that is specific to Data Lake Storage Gen2 enabled accounts. This article helps you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system.
 

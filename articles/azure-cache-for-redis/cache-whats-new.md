@@ -7,11 +7,17 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 01/23/2024
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## January 2024
+
+All tiers of Azure Cache for Redis now support TLS 1.3. 
+
+For more information, see [What are the configuration settings for the TLS protocol?](cache-tls-configuration.md).
 
 ## October 2023
 
@@ -42,21 +48,19 @@ For more information, see [Remove TLS 1.0 and 1.1 from use with Azure Cache for 
 
 ## June 2023
 
-Azure Active Directory for authentication and role-based access control is available across regions that support Azure Cache for Redis.
+Microsoft Entra ID for authentication and role-based access control is available across regions that support Azure Cache for Redis.
 
 ## May 2023
 
-### Azure Active Directory-based authentication and authorization (preview)
+### Microsoft Entra ID authentication and authorization (preview)
 
-Azure Active Directory (Azure AD) based [authentication and authorization](cache-azure-active-directory-for-authentication.md) is now available for public preview with Azure Cache for Redis. With this Azure AD integration, users can connect to their cache instance without an access key and use [role-based access control](cache-configure-role-based-access-control.md) to connect to their cache instance.
+Microsoft Entra ID based [authentication and authorization](cache-azure-active-directory-for-authentication.md) is now available for public preview with Azure Cache for Redis. With this Microsft Entra ID integration, users can connect to their cache instance without an access key and use [role-based access control](cache-configure-role-based-access-control.md) to connect to their cache instance.
 
 This feature is available for Azure Cache for Redis Basic, Standard, and Premium SKUs. With this update, customers can look forward to increased security and a simplified authentication process when using Azure Cache for Redis.
 
 ### Support for up to 30 shards for clustered Azure Cache for Redis instances
 
 Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, your applications can store more data and scale better with your workloads.
-
-For more information, see [Configure clustering for Azure Cache for Redis instance](cache-how-to-premium-clustering.md#azure-cache-for-redis-now-supports-up-to-30-shards-preview).
 
 ## April 2023
 
@@ -224,7 +228,7 @@ Active geo-replication is a powerful tool that enables Azure Cache for Redis clu
 
 ### Support for managed identity in Azure Cache for Redis in storage
 
-Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. Support for managed identity further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
+Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Microsoft Entra ID, and both system-assigned and user-assigned identities are supported. Support for managed identity further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
 
 For more information, see [Managed identity with Azure Cache for Redis](cache-managed-identity.md).
 
@@ -243,7 +247,7 @@ You can now use an append-only data structure, Redis Streams, to ingest, manage,
 
 Additionally, Azure Cache for Redis 6.0 introduces new commands: `STRALGO`, `ZPOPMIN`, `ZPOPMAX`, and `HELP` for performance and ease of use.
 
-Get started with Azure Cache for Redis 6.0, today, and select Redis 6.0 during cache creation. Also, you can upgrade your existing Redis 4.0 cache instances. For more information, see [Set Redis version for Azure Cache for Redis](cache-how-to-version.md).
+Get started with Azure Cache for Redis 6.0, today, and select Redis 6.0 during cache creation. Also, you can upgrade your existing Redis 4.0 cache instances.
 
 ### Diagnostics for connected clients
 

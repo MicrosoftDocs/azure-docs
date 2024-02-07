@@ -7,10 +7,12 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 08/28/2022
+ms.date: 01/19/2024
 ---
 
 # Exploration
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 With exploration, Personalizer is able to continuously deliver good results, even as user behavior changes.
 

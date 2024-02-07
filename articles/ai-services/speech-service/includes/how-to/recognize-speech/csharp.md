@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/01/2023
 ms.author: eur
@@ -277,7 +277,7 @@ For a complete code sample, see [Language identification](../../../language-iden
 
 ## Use a custom endpoint
 
-With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+With [custom speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");

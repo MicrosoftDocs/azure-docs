@@ -226,7 +226,7 @@ You'll likely need to deploy several Azure storage accounts. Each one will hold 
 
 #### Subscription
 
-You can use the same subscription you used for your StorSimple deployment or a different one. The only limitation is that your subscription must be in the same Azure Active Directory tenant as the StorSimple subscription. Consider moving the StorSimple subscription to the appropriate tenant before you start a migration. You can only move the entire subscription, individual StorSimple resources can't be moved to a different tenant or subscription.
+You can use the same subscription you used for your StorSimple deployment or a different one. The only limitation is that your subscription must be in the same Microsoft Entra tenant as the StorSimple subscription. Consider moving the StorSimple subscription to the appropriate tenant before you start a migration. You can only move the entire subscription, individual StorSimple resources can't be moved to a different tenant or subscription.
 
 #### Resource group
 

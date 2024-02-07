@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -27,8 +27,8 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
 > Application Gateway for Containers is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-1. If you follow the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If you follow the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If you follow the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+2. If you follow the ALB managed deployment strategy, ensure that you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy a sample HTTPS application:
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
   
@@ -38,9 +38,9 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
     
     This command creates the following on your cluster:
     - a namespace called `test-infra`
-    - 1 service called `echo` in the `test-infra` namespace
-    - 1 deployment called `echo` in the `test-infra` namespace
-    - 1 secret called `listener-tls-secret` in the `test-infra` namespace
+    - one service called `echo` in the `test-infra` namespace
+    - one deployment called `echo` in the `test-infra` namespace
+    - one secret called `listener-tls-secret` in the `test-infra` namespace
 
 ## Deploy the required Ingress API resources
 
@@ -124,12 +124,12 @@ EOF
 
 ---
 
-Once the ingress resource has been created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+When the ingress resource is created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
 
-Example output of successful gateway creation.
+Example output of successful Ingress creation.
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

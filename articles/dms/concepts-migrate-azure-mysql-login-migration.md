@@ -1,12 +1,14 @@
 ---
 title: MySQL to Azure Database for MySQL Data Migration - MySQL Login Migration
-description: Learn how to use the Azure Database for MySQL Data Migration - MySQL Login Migration 
+description: Learn how to use the Azure Database for MySQL Data Migration - MySQL Login Migration
 author: adig
 ms.author: adig
 ms.date: 07/24/2023
 ms.service: dms
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sql-migration-content
 ---
 
 # MySQL to Azure Database for MySQL Data Migration - MySQL Login Migration

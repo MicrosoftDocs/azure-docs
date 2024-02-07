@@ -132,7 +132,7 @@ The compliance percentage is determined by dividing **Compliant**, **Exempt**, a
 **Exempt**, **Conflicting**, and **Error** states. 
 
 ```text
-overall compliance % = (compliant + exempt + unknown)  / (compliant + exempt + unknown + non-compliant + conflicting + error)
+overall compliance % = (compliant + exempt + unknown + protected)  / (compliant + exempt + unknown + non-compliant + conflicting + error + protected)
 ```
 
 In the image shown, there are 20 distinct resources that are applicable and only one is **Non-compliant**.

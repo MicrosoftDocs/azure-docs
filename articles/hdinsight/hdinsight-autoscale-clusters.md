@@ -3,7 +3,6 @@ title: Automatically scale Azure HDInsight clusters
 description: Use the Autoscale feature to automatically scale Azure HDInsight clusters based on a schedule or performance metrics.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 04/13/2023
 ---
 
@@ -276,9 +275,11 @@ Custom Script Actions are mostly used for customizing the nodes (i.e HeadNode / 
 
 Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. For more information, see [getting stuck in safe mode](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
-### Azure Active Directory Domain Services (Azure AD DS) & Scaling Operations 
+<a name='azure-active-directory-domain-services-azure-ad-ds--scaling-operations'></a>
 
-If you use an HDInsight cluster with Enterprise Security Package (ESP) that is joined to an Azure Active Directory Domain Services (Azure AD DS) managed domain, we recommend throttling load on the Azure AD DS. In complex directory structures [scoped sync](../active-directory-domain-services/scoped-synchronization.md) we recommend avoiding impact to scaling operations.
+### Microsoft Entra Domain Services & Scaling Operations 
+
+If you use an HDInsight cluster with Enterprise Security Package (ESP) that is joined to a Microsoft Entra Domain Services managed domain, we recommend throttling load on the Microsoft Entra Domain Services. In complex directory structures [scoped sync](../active-directory-domain-services/scoped-synchronization.md) we recommend avoiding impact to scaling operations.
 
 ### Set the Hive configuration Maximum Total Concurrent Queries for the peak usage scenario
 

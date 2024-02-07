@@ -29,7 +29,7 @@ Some of these data sources use the [new data ingestion pipeline](essentials/data
 
 ## Application tiers
 
-Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](monitor-reference.md) for a description of each data location and how you can access its data.
+Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections.
 
 :::image type="content" source="media/overview/overview-simple-20230707-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-blowout-20230707-opt.svg":::
 
@@ -39,7 +39,7 @@ The following table briefly describes the application tiers that are specific to
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View Azure Active Directory data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
+| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Microsoft Entra ID. | View Microsoft Entra data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
 | [Azure subscription](#azure-subscription) | Data related to the health and management of cross-resource services in your Azure subscription such as Resource Manager and Service Health. | View in portal or configure collection to Azure Monitor using a log profile. |
 | [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
@@ -53,19 +53,21 @@ The following table briefly describes the application tiers that may be in Azure
 | [Custom sources](#custom-sources) | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
 
 ## Azure tenant
-Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
+Telemetry related to your Azure tenant is collected from tenant-wide services such as Microsoft Entra ID.
 
 :::image type="content" source="media/data-sources/tenant.png" lightbox="media/data-sources/tenant.png" alt-text="Diagram that shows Azure tenant collection." border="false":::
 
 
-### Azure Active Directory Audit Logs
-[Azure Active Directory reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
+<a name='azure-active-directory-audit-logs'></a>
+
+### Microsoft Entra audit logs
+[Microsoft Entra ID reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Azure AD logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hubs | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Azure Monitor Logs | Configure Microsoft Entra logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Microsoft Entra logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure Storage | Export Microsoft Entra logs to Azure Storage for archiving. | [Tutorial: Archive Microsoft Entra logs to an Azure storage account](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event Hubs | Stream Microsoft Entra logs to other locations using Event Hubs. | [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 ## Azure subscription
 Telemetry related to the health and operation of your Azure subscription.
@@ -110,7 +112,7 @@ Most Azure services will send [platform metrics](essentials/data-platform-metric
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md)<br>[Supported metrics with Azure Monitor](essentials/metrics-supported.md) |
+| Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Analyze metrics with Azure Monitor metrics explorer](essentials/analyze-metrics.md) <br>[Supported metrics with Azure Monitor](essentials/metrics-supported.md) |
 | Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](essentials/resource-logs.md#send-to-log-analytics-workspace) |
 | Azure Monitor Change Analysis | Change Analysis detects various types of changes, from the infrastructure layer through application deployment. | [Use Change Analysis in Azure Monitor](./change/change-analysis.md) |
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](essentials/stream-monitoring-data-event-hubs.md) |
@@ -191,7 +193,7 @@ When you enable Application Insights for an application by installing an instrum
 |            | Debug snapshot data that is captured for a subset of exceptions is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [How snapshots work](app/snapshot-debugger.md#how-snapshots-work) |
 
 ## Insights
-[Insights](monitor-reference.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
+[Insights](insights/insights-overview.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
 
 
 ### Container insights
@@ -232,4 +234,3 @@ Other services in Azure write data to the Azure Monitor data platform. This allo
 ## Next steps
 
 - Learn more about the [types of monitoring data collected by Azure Monitor](data-platform.md) and how to view and analyze this data.
-- List the [different locations where Azure resources store data](monitor-reference.md) and how you can access it.

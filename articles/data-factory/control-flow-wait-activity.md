@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 10/20/2023
 ---
 
 # Execute Wait activity in Azure Data Factory and Synapse Analytics
@@ -104,7 +104,7 @@ In this example, the pipeline has two activities: **Until** and **Wait**. The Wa
 
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)

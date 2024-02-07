@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 12/01/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -26,7 +26,7 @@ This article provides suggestions to troubleshoot common problems with the file 
 - **Recommendation**: Using command line from [Set up an existing self-hosted IR via local PowerShell](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) , you could allow or disallow local SHIR file system access.
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

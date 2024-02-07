@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot connectors
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics. 
+description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/05/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
@@ -255,7 +255,7 @@ The errors below are general to the copy activity and could occur with any conne
 
 - **Recommendation**: Remove the parameters in the referred linked service to eliminate the error. Otherwise, run the pipeline without testing connection or previewing data. 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

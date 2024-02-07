@@ -1,6 +1,6 @@
 ---
-title: Restart server - Azure portal - Azure Database for MySQL - Flexible Server
-description: This article describes how you can restart an Azure Database for MySQL - Flexible Server using the Azure portal.
+title: Restart server - Azure portal
+description: This article describes how you can restart an Azure Database for MySQL - Flexible Server instance by using the Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -9,11 +9,11 @@ ms.author: sisawant
 ms.date: 10/26/2020
 ---
 
-# Restart Azure Database for MySQL - Flexible Server using Azure portal
+# Restart an Azure Database for MySQL - Flexible Server instance by using the Azure portal
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This topic describes how you can restart an Azure Database for MySQL - Flexible Server. You may need to restart your server for maintenance reasons, which causes a short outage as the server performs the operation.
+This topic describes how you can restart an Azure Database for MySQL flexible server instance. You may need to restart your server for maintenance reasons, which causes a short outage as the server performs the operation.
 
 The server restart will be blocked if the service is busy. For example, the service may be processing a previously requested operation such as scaling vCores.
 
@@ -22,16 +22,14 @@ The time required to complete a restart depends on the MySQL recovery process. T
 ## Prerequisites
 
 To complete this how-to guide, you need:
-- An [Azure Database for MySQL - Flexible Server](quickstart-create-server-portal.md)
+- An [Azure Database for MySQL flexible server instance](quickstart-create-server-portal.md)
 
->[!Note]
->If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
 
 ## Perform server restart
 
-The following steps restart the MySQL server:
+The following steps restart the Azure Database for MySQL flexible server instance:
 
-1. In the Azure portal, select your Azure Database for MySQL - Flexible Server.
+1. In the Azure portal, select your Azure Database for MySQL flexible server instance.
 
 2. In the toolbar of the server's **Overview** page, click **Restart**.
 
@@ -51,4 +49,4 @@ The following steps restart the MySQL server:
 
 ## Next steps
 
-[Quickstart: Create Azure Database for MySQL - Flexible Server using Azure portal](quickstart-create-server-portal.md)
+[Quickstart: Create an Azure Database for MySQL flexible server instance using Azure portal](quickstart-create-server-portal.md)

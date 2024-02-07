@@ -3,11 +3,10 @@ title: Restore logs in Azure Monitor
 description: Restore a specific time range of data in a Log Analytics workspace for high-performance queries.
 ms.topic: conceptual
 ms.date: 10/01/2022
-
 ---
 
 # Restore logs in Azure Monitor
-The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
+The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done. 
 
 ## Permissions
 
@@ -87,6 +86,7 @@ For example:
 az monitor log-analytics workspace table restore create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name Heartbeat_RST --restore-source-table Heartbeat --start-restore-time "2022-01-01T00:00:00.000Z" --end-restore-time "2022-01-08T00:00:00.000Z" --no-wait
 ```
 
+
 ---
 
 ## Query restored data
@@ -127,17 +127,20 @@ You can:
 - Perform up to four restores per table per week. 
 
 ## Pricing model
-The charge for restored logs is based on the volume of data you restore, in GB, and the duration for which you keep the restored data. 
-- Charges are subject to a minimum restored data volume.
-- Charges are prorated hourly and subject to a minimum restore duration.
+
+The charge for restored logs is based on the volume of data you restore, and the duration for which you keep each restore.
+
+- Charges are subject to a minimum restored data volume of 2 TB per restore. If you restore less data, you will be charged for the 2 TB minimum.
+- Charges are prorated based on the duration of the restore. The minimum charge will be for a 12-hour restore duration, even if the restore is dismissed earlier.
 - For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you [dismiss the restored data](#dismiss-restored-data).
 
 > [!NOTE]
-> There is no charge for querying restored logs.
+> There is no charge for querying restored logs since they are Analytics logs. 
 
 ## Next steps
 
 - [Learn more about data retention and archiving data.](data-retention-archive.md)
 - [Learn about Search jobs, which is another method for retrieving archived data.](search-jobs.md)
+

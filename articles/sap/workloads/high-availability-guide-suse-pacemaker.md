@@ -2,7 +2,6 @@
 title: Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure | Microsoft Docs
 description: This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server in Azure.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
@@ -10,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
-ms.date: 09/15/2023
+ms.date: 01/22/2024
 ms.author: radeltch
 ---
 
@@ -385,6 +384,9 @@ Run the following commands on the nodes of the new cluster that you want to crea
     [...]
     ```
 
+    > [!NOTE]
+    > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuraton](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
+
 1. **[A]** Create the `softdog` configuration file.
 
     ```bash
@@ -410,39 +412,39 @@ This section applies only if you want to use an SBD device with an Azure shared 
    $Location = "MyAzureRegion"
    ```
 
-1. Define the size of the disk based on available disk size for Premium SSDs. In this example, P1 disk size of 4G is mentioned.
+2. Define the size of the disk based on available disk size for Premium SSDs. In this example, P1 disk size of 4G is mentioned.
 
    ```bash
    $DiskSizeInGB = 4
    $DiskName = "SBD-disk1"
    ```
 
-1. With parameter -MaxSharesCount, define the maximum number of cluster nodes to attach the shared disk for the SBD device.
+3. With parameter -MaxSharesCount, define the maximum number of cluster nodes to attach the shared disk for the SBD device.
 
    ```bash
    $ShareNodes = 2
    ```
 
-1. For an SBD device that uses LRS for an Azure premium shared disk, use the following storage SkuName:
+4. For an SBD device that uses LRS for an Azure premium shared disk, use the following storage SkuName:
 
    ```bash
    $SkuName = "Premium_LRS"
    ```
 
-1. For an SBD device that uses ZRS for an Azure premium shared disk, use the following storage SkuName:
+5. For an SBD device that uses ZRS for an Azure premium shared disk, use the following storage SkuName:
 
    ```bash
    $SkuName = "Premium_ZRS"
    ```
 
-1. Set up an Azure shared disk.
+6. Set up an Azure shared disk.
 
    ```bash
    $diskConfig = New-AzDiskConfig -Location $Location -SkuName $SkuName -CreateOption Empty -DiskSizeGB $DiskSizeInGB -MaxSharesCount $ShareNodes
    $dataDisk = New-AzDisk -ResourceGroupName $ResourceGroup -DiskName $DiskName -Disk $diskConfig
    ```
 
-1. Attach the disk to the cluster VMs.
+7. Attach the disk to the cluster VMs.
 
    ```bash
    $VM1 = "prod-cl1-0"
@@ -469,7 +471,21 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 
 ### Set up an Azure shared disk SBD device
 
-1. **[A]** Make sure that the attached disk is available.
+1. **[A]** Install iSCSI package.
+
+   ```bash
+   sudo zypper install open-iscsi
+   ```
+
+2. **[A]** Enable the iSCSI and SBD services.
+
+   ```bash
+   sudo systemctl enable iscsid
+   sudo systemctl enable iscsi
+   sudo systemctl enable sbd
+   ```
+
+3. **[A]** Make sure that the attached disk is available.
 
    ```bash
    # lsblk
@@ -492,7 +508,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
    ```
 
-1. **[A]** Retrieve the IDs of the attached disks.
+4. **[A]** Retrieve the IDs of the attached disks.
 
    ```bash
    # ls -l /dev/disk/by-id/scsi-* | grep sdc
@@ -502,7 +518,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 
    The commands list device IDs for the SBD device. We recommend using the ID that starts with scsi-3. In the preceding example, the ID is **/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19**.
 
-1. **[1]** Create the SBD device.
+5. **[1]** Create the SBD device.
 
    Use the device ID from step 2 to create the new SBD devices on the first cluster node.
 
@@ -510,7 +526,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    # sudo sbd -d /dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19 -1 60 -4 120 create
    ```
 
-1. **[A]** Adapt the SBD configuration.
+6. **[A]** Adapt the SBD configuration.
 
    a. Open the SBD config file.
 
@@ -530,13 +546,16 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    [...]
    ```
 
-1. Create the `softdog` configuration file.
+    > [!NOTE]
+    > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuraton](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
+
+7. Create the `softdog` configuration file.
 
    ```bash
    echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    ```
 
-1. Load the module.
+8. Load the module.
 
    ```bash
    sudo modprobe -v softdog
@@ -550,24 +569,26 @@ This section applies only if you want to use a fencing device with an Azure fenc
 
 This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure.
 
-#### Using managed identity
+#### [Managed identity](#tab/msi)
 
 To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
 
-#### Using service principal
+#### [Service principal](#tab/spn)
 
 To create a service principal, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
+1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
 2. Select **App registrations**.
 3. Select **New registration**.
 4. Enter a name for the registration, and then select **Accounts in this organization directory only**.
-5. For **Application type**, select **Web**, enter a sign-on URL (for example, *http://localhost*), and then select **Add**.  
+5. For **Application type**, select **Web**, enter a sign-on URL (for example, `http://localhost`), and then select **Add**.  
    The sign-on URL isn't used and can be any valid URL.
 6. Select **Certificates and secrets**, and then select **New client secret**.
 7. Enter a description for a new key, select **Two years**, and then select **Add**.
 8. Write down the value, which you'll use as the password for the service principal.
 9. Select **Overview**, and then write down the application ID, which you'll use as the username of the service principal.
+
+---
 
 ### **[1]** Create a custom role for the fence agent
 
@@ -596,18 +617,22 @@ Use the following content for the input file. You need to adapt the content to y
 
 ### **[A]** Assign the custom role
 
-#### Using Managed Identity
+Use managed identity or service principal.
+
+#### [Managed identity](#tab/msi)
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
 > Be aware assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
 
-#### Using Service Principal
+#### [Service principal](#tab/spn)
 
 Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.  
+Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.
+
+---
 
 ## Install the cluster
 
@@ -898,6 +923,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ### Create a fencing device on the Pacemaker cluster
 
+> [!TIP]
+>
+> - To avoid fence races within a two-node pacemaker cluster, you can configure additional "priority-fencing-delay" cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For additional details, see [SUSE Linux Enterprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+> - The instruction on setting "priority-fencing-delay" cluster property can be found in respective SAP ASCS/ERS (applicable only on ENSA2) and SAP HANA scale-up high availability document.
+
 1. **[1]** If you're using an SBD device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
 
    ```bash
@@ -924,11 +954,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
    > Refer to the bold section in the following command.
 
-   If using **managed identity** for your fence agent, run the following command
+#### [Managed identity](#tab/msi)
 
    ```bash
    # replace the bold strings with your subscription ID and resource group of the VM
-   
+
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
    pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
@@ -937,7 +967,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo crm configure property stonith-timeout=900
    ```
 
-   If using **service principal** for your fence agent, run the following command
+#### [Service principal](#tab/spn)
 
    ```bash
    # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
@@ -949,6 +979,8 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    
    sudo crm configure property stonith-timeout=900
    ```
+
+   ---
 
    If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
@@ -973,20 +1005,21 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    ```
 
    Minimum version requirements:
+
    - SLES 12 SP5: `resource-agents-4.3.018.a7fb5035-3.98.1`
    - SLES 15 SP1: `resource-agents-4.3.0184.6ee15eb2-150100.4.72.1`
    - SLES 15 SP2: `resource-agents-4.4.0+git57.70549516-150200.3.56.1`
    - SLES 15 SP3: `resource-agents-4.8.0+git30.d0077df0-150300.8.31.1`
    - SLES 15 SP4 and newer: `resource-agents-4.10.0+git40.0f4de473-150400.3.19.1`
 
-2. **[1]** Configure the resources in Pacemaker.
+1. **[1]** Configure the resources in Pacemaker.
 
    ```bash
    #Place the cluster in maintenance mode
    sudo crm configure property maintenance-mode=true
    ```
 
-3. **[1]** Set the pacemaker cluster health node strategy and constraint
+1. **[1]** Set the pacemaker cluster health node strategy and constraint
 
    ```bash
    sudo crm configure property node-health-strategy=custom
@@ -998,7 +1031,7 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    >
    > Don't define any other resources in the cluster starting with "health-", besides the resources described in the next steps of the documentation.
 
-4. **[1]** Set initial value of the cluster attributes.
+1. **[1]** Set initial value of the cluster attributes.
    Run for each cluster node. For scale-out environments including majority maker VM.
 
    ```bash
@@ -1006,22 +1039,29 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    sudo crm_attribute --node prod-cl1-1 --name '#health-azure' --update 0
    ```
 
-5. **[1]** Configure the resources in Pacemaker.
+1. **[1]** Configure the resources in Pacemaker.
    Important: The resources must start with 'health-azure'.
 
    ```bash
-   sudo crm configure primitive health-azure-events \
-   ocf:heartbeat:azure-events-az op monitor interval=10s
+   sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \ 
+   meta allow-unhealthy-nodes=true \ 
+   op monitor interval=10s
+
    sudo crm configure clone health-azure-events-cln health-azure-events
    ```
 
-6. Take the Pacemaker cluster out of maintenance mode
+   > [!NOTE]
+   > On configuring 'health-azure-events' resource, following warning message can be ignored.
+   >
+   > WARNING: health-azure-events: unknown attribute 'allow-unhealthy-nodes'.
+
+1. Take the Pacemaker cluster out of maintenance mode
 
    ```bash
    sudo crm configure property maintenance-mode=false
    ```
 
-7. Clear any errors during enablement and verify that the health-azure-events resources have started successfully on all cluster nodes.
+1. Clear any errors during enablement and verify that the health-azure-events resources have started successfully on all cluster nodes.
 
    ```bash
    sudo crm resource cleanup
@@ -1032,7 +1072,7 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    > [!NOTE]
    > After you've configured the Pacemaker resources for the azure-events agent, if you place the cluster in or out of maintenance mode, you might get warning messages such as:
    >
-   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_ **hostname**'  
+   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_**hostname**'  
    > WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'  
    > WARNING: cib-bootstrap-options: unknown attribute 'hostName_ **hostname**'  
    > These warning messages can be ignored.

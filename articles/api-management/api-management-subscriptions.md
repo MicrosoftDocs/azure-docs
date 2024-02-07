@@ -2,7 +2,6 @@
 title: Subscriptions in Azure API Management | Microsoft Docs
 description: Learn about the concept of subscriptions in Azure API Management. Consumers commonly get access to APIs by using subscriptions in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
  
 ms.service: api-management
@@ -77,8 +76,7 @@ Each API Management instance comes with a built in all-access subscription that 
 > [!WARNING]
 > The all-access subscription enables access to every API in the API Management instance and should only be used by authorized users. Never use this subscription for routine API access or embed the all-access subscription key in client apps.
 
-> [!NOTE]
-> If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to requests from that subscription.
+[!INCLUDE [api-management-product-policy-alert](../../includes/api-management-product-policy-alert.md)]
 
 ### Standalone subscriptions
 
@@ -104,6 +102,9 @@ A subscriber can use an API Management subscription key in one of two ways:
 
 > [!TIP]
 > **Ocp-Apim-Subscription-Key** is the default name of the subscription key header, and **subscription-key** is the default name of the query parameter. If desired, you may modify these names in the settings for each API. For example, in the portal, update these names on the **Settings** tab of an API.
+
+> [!NOTE]
+> When included in a request header or query parameter, the subscription key by default is passed to the backend and may be exposed in backend monitoring logs or other systems. If this is considered sensitive data, you can configure a policy at the end of the `inbound` section to remove the subscription key header ([`set-header`](set-header-policy.md)) or query parameter ([`set-query-parameter`](set-query-parameter-policy.md)).  
 
 ## Enable or disable subscription requirement for API or product access
 

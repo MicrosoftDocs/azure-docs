@@ -58,7 +58,7 @@ Azure data adds more time to become available at a data collection endpoint for 
 
 - **Azure platform metrics** are available in under a minute in the metrics database, but they take another 3 minutes to be exported to the data collection endpoint.
 - **Resource logs** typically add 30 to 90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5-minute intervals. Work is in progress to improve this time further. To examine this latency in your environment, see the [query that follows](#check-ingestion-time).
-- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them into Azure Monitor Logs. They might take 10 to 15 minutes if you instead use the legacy integration.
+- **Activity logs** are available for analysis in 3 to 10 minutes.
 
 ### Management solutions collection
 
@@ -149,6 +149,7 @@ Heartbeat
 
 Different data types originating from the agent might have different ingestion latency time, so the previous queries could be used with other types. Use the following query to examine the ingestion time of various Azure services:
 
+
 ``` Kusto
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
@@ -156,6 +157,40 @@ AzureDiagnostics
 | extend AgentLatency = _TimeReceived - TimeGenerated 
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
+
+Use the same query logic to diagnose latency conditions for Application Insights data: 
+
+
+```kusto
+// Classic Application Insights schema
+let start=datetime("2023-08-21 05:00:00");
+let end=datetime("2023-08-23 05:00:00");
+requests
+| where timestamp  > start and timestamp < end
+| extend TimeEventOccurred = timestamp
+| extend TimeRequiredtoGettoAzure = _TimeReceived - timestamp
+| extend TimeRequiredtoIngest = ingestion_time() - _TimeReceived
+| extend EndtoEndTime = ingestion_time() - timestamp
+| project timestamp, TimeEventOccurred, _TimeReceived, TimeRequiredtoGettoAzure ,  ingestion_time(), TimeRequiredtoIngest, EndtoEndTime 
+| sort by EndtoEndTime desc
+```
+
+
+```kusto
+// Workspace-based Application Insights schema
+let start=datetime("2023-08-21 05:00:00");
+let end=datetime("2023-08-23 05:00:00");
+AppRequests
+| where TimeGenerated  > start and TimeGenerated < end
+| extend TimeEventOccurred = TimeGenerated
+| extend TimeRequiredtoGettoAzure = _TimeReceived - TimeGenerated
+| extend TimeRequiredtoIngest = ingestion_time() - _TimeReceived
+| extend EndtoEndTime = ingestion_time() - TimeGenerated
+| project TimeGenerated, TimeEventOccurred, _TimeReceived, TimeRequiredtoGettoAzure ,  ingestion_time(), TimeRequiredtoIngest, EndtoEndTime 
+| sort by EndtoEndTime desc
+```
+
+The two queries above can be paired with any other Application Insights table other than "requests".
 
 ### Resources that stop responding
 In some cases, a resource could stop sending data. To understand if a resource is sending data or not, look at its most recent record, which can be identified by the standard `TimeGenerated` field.

@@ -7,12 +7,12 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit, subject-rbac-steps, devdivchpfy22
 ms.topic: conceptual
-ms.date: 07/11/2023
+ms.date: 02/06/2024
 zone_pivot_groups: appconfig-provider
 ---
 # Use managed identities to access App Configuration
 
-Azure Active Directory [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string.
+Microsoft Entra [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string.
 
 Azure App Configuration and its .NET, .NET Framework, and Java Spring client libraries have managed identity support built into them. Although you aren't required to use it, the managed identity eliminates the need for an access token that contains secrets. Your code can access the App Configuration store using only the service endpoint. You can embed this URL in your code directly without exposing any secret.
 
@@ -72,13 +72,13 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. When prompted, answer **Yes** to turn on the system-assigned managed identity.
 
-    :::image type="content" source="./media/add-managed-identity-app-service.png" alt-text="Screenshot of how to add a managed identity in App Service.":::
+    :::image type="content" source="./media/managed-identity/add-managed-identity-app-service.png" alt-text="Screenshot of how to add a managed identity in App Service.":::
 
 ## Grant access to App Configuration
 
 The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the App Configuration store that you created in the [quickstart](../azure-app-configuration/quickstart-azure-functions-csharp.md).
+1. In the [Azure portal](https://portal.azure.com), select the App Configuration store that you created in the [quickstart](../azure-app-configuration/quickstart-azure-functions-csharp.md).
 
 1. Select **Access control (IAM)**.
 

@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/05/2023
 ms.author: eur
@@ -8,7 +8,7 @@ ms.author: eur
 
 ## Platform requirements
 
-The Speech SDK for Python only supports the following distributions on the x64 architecture:
+The Speech SDK for Go only supports the following distributions on the x64 architecture:
 
 - Ubuntu 18.04/20.04/22.04
 - Debian 9/10/11

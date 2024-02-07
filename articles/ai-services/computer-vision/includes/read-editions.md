@@ -1,11 +1,10 @@
 ---
 title: "OCR (Read) editions"
 titleSuffix: "Azure AI services"
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 08/07/2023
 ms.author: pafarley

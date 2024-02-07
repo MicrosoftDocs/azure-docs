@@ -4,10 +4,10 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Digital Twins Explorer by following this demo, where you'll use models to instantiate twins and interact with the twin graph.
 author: baanders
 ms.author: baanders
-ms.date: 07/21/2022
+ms.date: 1/3/2024
 ms.topic: quickstart
 ms.service: digital-twins
-ms.custom: mode-other, event-tier1-build-2022
+ms.custom: mode-other
 ---
 
 # Quickstart - Get started with a sample scenario in Azure Digital Twins Explorer
@@ -66,7 +66,7 @@ Next, you'll use Azure Digital Twins Explorer to set up the sample models and tw
 
 The first step in creating an Azure Digital Twins graph is to define the vocabulary for your environment. *Models* are generic definitions for each type of entity that exists in your environment. This sample building scenario contains a building, floors, and rooms, so you'll need one model definition describing what a *Building* is, one model definition describing what a *Floor* is, and one model definition describing what a *Room* is. Later, you can create *digital twins* that are instances of these models, representing specific buildings, floors, and rooms. 
 
-Models for Azure Digital Twins are written in *Digital Twin Definition Language (DTDL)*, a data object language similar to [JSON-LD](https://json-ld.org/). Each model describes a single type of entity in terms of its properties, telemetry, relationships, and components.
+Models for Azure Digital Twins are written in *Digital Twin Definition Language (DTDL)*, a data object language similar to [JSON-LD](https://json-ld.org/). Each model describes a single type of entity in terms of its properties, relationships, and components.
  
 For this quickstart, the model files have already been written for you. You downloaded *Building.json*, *Floor.json*, and *Room.json* in the [Prerequisites](#prerequisites) section, and now you'll upload them to your Azure Digital Twins instance using Azure Digital Twins Explorer.
 
@@ -224,7 +224,7 @@ Then, you explored the graph, including...
 
 The intent of this exercise is to demonstrate how you can use the Azure Digital Twins graph to answer questions about your environment, especially as IoT environments continue to change.
 
-In this quickstart, you made the temperature update manually. It's common in Azure Digital Twins to connect digital twins to real IoT devices so that they receive updates automatically, based on telemetry data. You can also [connect other data sources](concepts-data-ingress-egress.md#data-ingress), integrating data from different systems and defining your own logic for how twins are updated. In this way, you can build a live graph that always reflects the real state of your environment. You can use queries to get information about what's happening in your environment in real time.
+In this quickstart, you made the temperature update manually. It's common in Azure Digital Twins to connect digital twins to real IoT devices so that they receive updates automatically, based on device telemetry data. You can also [connect other data sources](concepts-data-ingress-egress.md#data-ingress), integrating data from different systems and defining your own logic for how twins are updated. In this way, you can build a live graph that always reflects the real state of your environment. You can use queries to get information about what's happening in your environment in real time.
 
 You can also export Azure Digital Twins data to historical tracking, data analytics, and AI services to enable greater insights and perform environment simulations. Integrating Azure Digital Twins into your IoT solutions can help you more effectively track the past, control the present, and predict the future.
 

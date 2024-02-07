@@ -16,15 +16,15 @@ This guide shows how to create an ESP-enabled Azure HDInsight cluster. It also s
 
 The server you create will act as a replacement for your *actual* on-premises environment. You'll use it for the setup and configuration steps. Later you'll repeat the steps in your own environment.
 
-This guide will also help you create a hybrid identity environment by using password hash sync with Azure Active Directory (Azure AD). The guide complements [Use ESP in HDInsight](apache-domain-joined-architecture.md).
+This guide will also help you create a hybrid identity environment by using password hash sync with Microsoft Entra ID. The guide complements [Use ESP in HDInsight](apache-domain-joined-architecture.md).
 
 Before you use this process in your own environment:
 
 * Set up Active Directory and DNS.
-* Enable Azure AD.
-* Sync on-premises user accounts to Azure AD.
+* Enable Microsoft Entra ID.
+* Sync on-premises user accounts to Microsoft Entra ID.
 
-:::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png" alt-text="Azure AD architecture diagram" border="false":::
+:::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png" alt-text="Microsoft Entra architecture diagram" border="false":::
 
 ## Create an on-premises environment
 
@@ -48,7 +48,7 @@ In this section, you'll use an Azure Quickstart deployment template to create ne
 
     Leave the remaining default values.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-azure-vm-ad-forest.png" alt-text="Template for Create an Azure VM with a new Azure AD Forest" border="true":::
+    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-azure-vm-ad-forest.png" alt-text="Template for Create an Azure VM with a new Microsoft Entra Forest" border="true":::
 
 1. Review the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 1. Select **Purchase**, and monitor the deployment and wait for it to complete. The deployment takes about 30 minutes to complete.
@@ -107,21 +107,23 @@ In this section, you'll create the users that will have access to the HDInsight 
 
 You've now created your Active Directory environment. You've added two users and a user group that can access the HDInsight cluster.
 
-The users will be synchronized with Azure AD.
+The users will be synchronized with Microsoft Entra ID.
 
-### Create an Azure AD directory
+<a name='create-an-azure-ad-directory'></a>
+
+### Create a Microsoft Entra directory
 
 1. Sign in to the Azure portal.
-1. Select **Create a resource** and type `directory`. Select **Azure Active Directory** > **Create**.
+1. Select **Create a resource** and type `directory`. Select **Microsoft Entra ID** > **Create**.
 1. Under **Organization name**, enter `HDIFabrikam`.
 1. Under **Initial domain name**, enter `HDIFabrikamoutlook`.
 1. Select **Create**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png" alt-text="Create an Azure AD directory" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png" alt-text="Create a Microsoft Entra directory" border="true":::
 
 ### Create a custom domain
 
-1. From your new **Azure Active Directory**, under **Manage**, select **Custom domain names**.
+1. From your new **Microsoft Entra ID**, under **Manage**, select **Custom domain names**.
 1. Select **+ Add custom domain**.
 1. Under **Custom domain name**, enter `HDIFabrikam.com`, and then select **Add domain**.
 1. Then complete [Add your DNS information to the domain registrar](../../active-directory/fundamentals/add-custom-domain.md#add-your-dns-information-to-the-domain-registrar).
@@ -130,18 +132,20 @@ The users will be synchronized with Azure AD.
 
 ### Create a group
 
-1. From your new **Azure Active Directory**, under **Manage**, select **Groups**.
+1. From your new **Microsoft Entra ID**, under **Manage**, select **Groups**.
 1. Select **+ New group**.
 1. In the **group name** text box, enter `AAD DC Administrators`.
 1. Select **Create**.
 
-## Configure your Azure AD tenant
+<a name='configure-your-azure-ad-tenant'></a>
 
-Now you'll configure your Azure AD tenant so that you can synchronize users and groups from the on-premises Active Directory instance to the cloud.
+## Configure your Microsoft Entra tenant
+
+Now you'll configure your Microsoft Entra tenant so that you can synchronize users and groups from the on-premises Active Directory instance to the cloud.
 
 Create an Active Directory tenant administrator.
 
-1. Sign in to the Azure portal and select your Azure AD tenant, **HDIFabrikam**.
+1. Sign in to the Azure portal and select your Microsoft Entra tenant, **HDIFabrikam**.
 
 1. Navigate to **Manage** > **Users** > **New user**.
 
@@ -162,38 +166,42 @@ Create an Active Directory tenant administrator.
    1. Select **0 groups selected**.
    1. Select **AAD DC Administrators**, and then **Select**.
 
-      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-group-member.png" alt-text="The Azure AD Groups dialog box" border="true":::
+      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-group-member.png" alt-text="The Microsoft Entra groups dialog box" border="true":::
 
    1. Select **User**.
    1. Select **Global administrator**, and then **Select**.
 
-      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png" alt-text="The Azure AD role dialog box" border="true":::
+      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png" alt-text="The Microsoft Entra role dialog box" border="true":::
 
 1. Select **Create**.
 
-1. Then have the new user sign in to the Azure portal where it will be prompted to change the password. You'll need to do this before configuring Microsoft Azure Active Directory Connect.
+1. Then have the new user sign in to the Azure portal where it will be prompted to change the password. You'll need to do this before configuring Microsoft Entra Connect.
 
-## Sync on-premises users to Azure AD
+<a name='sync-on-premises-users-to-azure-ad'></a>
 
-### Configure Microsoft Azure Active Directory Connect
+## Sync on-premises users to Microsoft Entra ID
 
-1. From the domain controller, download [Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+<a name='configure-microsoft-azure-active-directory-connect'></a>
+
+### Configure Microsoft Entra Connect
+
+1. From the domain controller, download [Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
 1. Open the executable file that you downloaded, and agree to the license terms. Select **Continue**.
 
 1. Select **Use express settings**.
 
-1. On the **Connect to Azure AD** page, enter the username and password of the global administrator for Azure AD. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
+1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the global administrator for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png" alt-text="Connect to Azure A D" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png" alt-text="Connect to Microsoft Entra ID" border="true":::
 
 1. On the **Connect to Active Directory Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**.
 
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png" alt-text="Connect to A D D S page." border="true":::
 
-1. On the **Azure AD sign-in configuration** page, select **Next**.
+1. On the **Microsoft Entra sign-in configuration** page, select **Next**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png" alt-text="Azure AD sign-in configuration page" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png" alt-text="Microsoft Entra sign-in configuration page" border="true":::
 
 1. On the **Ready to configure** page, select **Install**.
 
@@ -202,13 +210,13 @@ Create an Active Directory tenant administrator.
 1. On the **Configuration complete** page, select **Exit**.
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png" alt-text="Configuration complete page" border="true":::
 
-1. After the sync completes, confirm that the users you created on the IaaS directory are synced to Azure AD.
+1. After the sync completes, confirm that the users you created on the IaaS directory are synced to Microsoft Entra ID.
    1. Sign in to the Azure portal.
-   1. Select **Azure Active Directory** > **HDIFabrikam** > **Users**.
+   1. Select **Microsoft Entra ID** > **HDIFabrikam** > **Users**.
 
 ### Create a user-assigned managed identity
 
-Create a user-assigned managed identity that you can use to configure Azure AD Domain Services (Azure AD DS). For more information, see [Create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+Create a user-assigned managed identity that you can use to configure Microsoft Entra Domain Services. For more information, see [Create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 1. Sign in to the Azure portal.
 1. Select **Create a resource** and type `managed identity`. Select **User Assigned Managed Identity** > **Create**.
@@ -220,11 +228,13 @@ Create a user-assigned managed identity that you can use to configure Azure AD D
 
 :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png" alt-text="Create a new user-assigned managed identity" border="true":::
 
-### Enable Azure AD DS
+<a name='enable-azure-ad-ds'></a>
 
-Follow these steps to enable Azure AD DS. For more information, see [Enable Azure AD DS by using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md).
+### Enable Microsoft Entra Domain Services
 
-1. Create a virtual network to host Azure AD DS. Run the following PowerShell code.
+Follow these steps to enable Microsoft Entra Domain Services. For more information, see [Enable Microsoft Entra Domain Services by using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md).
+
+1. Create a virtual network to host Microsoft Entra Domain Services. Run the following PowerShell code.
 
     ```powershell
     # Sign in to your Azure subscription
@@ -243,14 +253,14 @@ Follow these steps to enable Azure AD DS. For more information, see [Enable Azur
     ```
 
 1. Sign in to the Azure portal.
-1. Select **Create resource**, enter `Domain services`, and select **Azure AD Domain Services** > **Create**.
+1. Select **Create resource**, enter `Domain services`, and select **Microsoft Entra Domain Services** > **Create**.
 1. On the **Basics** page:
-   1. Under **Directory name**, select the Azure AD directory you created: **HDIFabrikam**.
+   1. Under **Directory name**, select the Microsoft Entra directory you created: **HDIFabrikam**.
    1. For **DNS domain name**, enter *HDIFabrikam.com*.
    1. Select your subscription.
    1. Specify the resource group **HDIFabrikam-CentralUS**. For **Location**, select **Central US**.
 
-      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png" alt-text="Azure AD DS basic details" border="true":::
+      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png" alt-text="Microsoft Entra Domain Services basic details" border="true":::
 
 1. On the **Network** page, select the network (**HDIFabrikam-VNET**) and the subnet (**AADDS-subnet**) that you created by using the PowerShell script. Or choose **Create new** to create a virtual network now.
 
@@ -258,28 +268,30 @@ Follow these steps to enable Azure AD DS. For more information, see [Enable Azur
 
 1. On the **Administrator group** page, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can modify the membership of this group if you want to, but in this case you don't need to change it. Select **OK**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png" alt-text="View the Azure AD administrator group" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png" alt-text="View the Microsoft Entra administrator group" border="true":::
 
 1. On the **Synchronization** page, enable complete synchronization by selecting **All** > **OK**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png" alt-text="Enable Azure AD DS synchronization" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png" alt-text="Enable Microsoft Entra Domain Services synchronization" border="true":::
 
-1. On the **Summary** page, verify the details for Azure AD DS and select **OK**.
+1. On the **Summary** page, verify the details for Microsoft Entra Domain Services and select **OK**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png" alt-text="Enable Azure AD Domain Services" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png" alt-text="Enable Microsoft Entra Domain Services" border="true":::
 
-After you enable Azure AD DS, a local DNS server runs on the Azure AD VMs.
+After you enable Microsoft Entra Domain Services, a local DNS server runs on the Microsoft Entra VMs.
 
-### Configure your Azure AD DS virtual network
+<a name='configure-your-azure-ad-ds-virtual-network'></a>
 
-Use the following steps to configure your Azure AD DS virtual network (**HDIFabrikam-AADDSVNET**) to use your custom DNS servers.
+### Configure your Microsoft Entra Domain Services virtual network
+
+Use the following steps to configure your Microsoft Entra Domain Services virtual network (**HDIFabrikam-AADDSVNET**) to use your custom DNS servers.
 
 1. Locate the IP addresses of your custom DNS servers.
-   1. Select the `HDIFabrikam.com` Azure AD DS resource.
+   1. Select the `HDIFabrikam.com` Microsoft Entra Domain Services resource.
    1. Under **Manage**, select **Properties**.
    1. Find the IP addresses under **IP address on virtual network**.
 
-   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png" alt-text="Locate custom DNS IP addresses for Azure AD DS" border="true":::
+   :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png" alt-text="Locate custom DNS IP addresses for Microsoft Entra Domain Services" border="true":::
 
 1. Configure **HDIFabrikam-AADDSVNET** to use custom IP addresses 10.0.0.4 and 10.0.0.5.
 
@@ -289,17 +301,17 @@ Use the following steps to configure your Azure AD DS virtual network (**HDIFabr
    1. Select **Save**.
    1. Repeat the steps to add the other IP address (*10.0.0.5*).
 
-In our scenario, we configured Azure AD DS to use IP addresses 10.0.0.4 and 10.0.0.5, setting the same IP address on the Azure AD DS virtual network:
+In our scenario, we configured Microsoft Entra Domain Services to use IP addresses 10.0.0.4 and 10.0.0.5, setting the same IP address on the Microsoft Entra Domain Services virtual network:
 
 :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0098.png" alt-text="The custom DNS servers page" border="true":::
 
 ## Securing LDAP traffic
 
-Lightweight Directory Access Protocol (LDAP) is used to read from and write to Azure Active Directory. You can make LDAP traffic confidential and secure by using Secure Sockets Layer (SSL) or Transport Layer Security (TLS) technology. You can enable LDAP over SSL (LDAPS) by installing a properly formatted certificate.
+Lightweight Directory Access Protocol (LDAP) is used to read from and write to Microsoft Entra ID. You can make LDAP traffic confidential and secure by using Secure Sockets Layer (SSL) or Transport Layer Security (TLS) technology. You can enable LDAP over SSL (LDAPS) by installing a properly formatted certificate.
 
-For more information about secure LDAP, see [Configure LDAPS for an Azure AD DS managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md).
+For more information about secure LDAP, see [Configure LDAPS for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
-In this section, you create a self-signed certificate, download the certificate, and configure LDAPS for the **HDIFabrikam** Azure AD DS managed domain.
+In this section, you create a self-signed certificate, download the certificate, and configure LDAPS for the **HDIFabrikam** Microsoft Entra Domain Services managed domain.
 
 The following script creates a certificate for **HDIFabrikam**. The certificate is saved in the *LocalMachine* path.
 
@@ -330,7 +342,7 @@ Verify that the certificate is installed in the computer's **Personal** store:
 1. On the **Export File Format** page, leave the default settings, and then select **Next**.
 1. On the **Password** page, type a password for the private key. For **Encryption**, select **TripleDES-SHA1**. Then select **Next**.
 1. On the **File to Export** page, type the path and the name for the exported certificate file, and then select **Next**. The file name has to have a .pfx extension. This file is configured in the Azure portal to establish a secure connection.
-1. Enable LDAPS for an Azure AD DS managed domain.
+1. Enable LDAPS for a Microsoft Entra Domain Services managed domain.
    1. From the Azure portal, select the domain `HDIFabrikam.com`.
    1. Under **Manage**, select **Secure LDAP**.
    1. On the **Secure LDAP** page, under **Secure LDAP**, select **Enable**.
@@ -374,7 +386,7 @@ This step requires the following prerequisites:
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Create a peer relationship between the virtual network that hosts Azure AD DS (`HDIFabrikam-AADDSVNET`) and the virtual network that will host the ESP-enabled HDInsight cluster (`HDIFabrikam-HDIVNet`). Use the following PowerShell code to peer the two virtual networks.
+1. Create a peer relationship between the virtual network that hosts Microsoft Entra Domain Services (`HDIFabrikam-AADDSVNET`) and the virtual network that will host the ESP-enabled HDInsight cluster (`HDIFabrikam-HDIVNet`). Use the following PowerShell code to peer the two virtual networks.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')

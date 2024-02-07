@@ -186,7 +186,7 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
 
    * In the **Logic app run details** pane, select the step that you want.
 
-     ![Screenshot showing the the "Logic app run details" pane with the example failed step selected.](./media/monitor-logic-apps/select-failed-step.png)
+     ![Screenshot showing the "Logic app run details" pane with the example failed step selected.](./media/monitor-logic-apps/select-failed-step.png)
 
    > [!NOTE]
    >

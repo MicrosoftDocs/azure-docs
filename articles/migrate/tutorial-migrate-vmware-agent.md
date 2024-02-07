@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 05/22/2023
+ms.date: 01/24/2024
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -64,12 +64,14 @@ Assign the Virtual Machine Contributor role to the account, so that you have per
 - Write to an Azure managed disk.
 
 
-### Assign permissions to register the Replication Appliance in Azure AD
+<a name='assign-permissions-to-register-the-replication-appliance-in-azure-ad'></a>
 
-If you are following the least privilege principle, assign the **Application Developer** Azure AD role to the user registering the Replication Appliance. Follow the [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) guide to do so.
+### Assign permissions to register the Replication Appliance in Microsoft Entra ID
+
+If you are following the least privilege principle, assign the **Application Developer** Microsoft Entra role to the user registering the Replication Appliance. Follow the [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) guide to do so.
 
 > [!IMPORTANT]
-> If the user registering the Replication Appliance is an Azure AD Global administrator, that user already has the required permissions.
+> If the user registering the Replication Appliance is a Microsoft Entra Global Administrator, that user already has the required permissions.
 
 ### Set up an Azure network
 
@@ -194,7 +196,7 @@ After downloading the OVF template, you import it into VMware vSphere to create 
 3. After the installation finishes, sign in to the VM as the administrator, using the admin password. The first time you sign in, the replication appliance setup tool (Azure Site Recovery Configuration Tool) starts within a few seconds.
 5. Enter a name to use for registering the appliance with the Migration and modernization tool. Select **Next**.
 6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription.
-7. Wait for the tool to finish registering an Azure AD app to identify the appliance. The appliance reboots.
+7. Wait for the tool to finish registering a Microsoft Entra app to identify the appliance. The appliance reboots.
 1. Sign in to the machine again. In a few seconds, the Configuration Server Management Wizard starts automatically.
 
 ### Register the replication appliance
@@ -407,6 +409,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).

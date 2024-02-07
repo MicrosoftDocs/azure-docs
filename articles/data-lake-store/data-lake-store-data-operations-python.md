@@ -81,7 +81,7 @@ pip install azure-datalake-store
 
 ## Authentication
 
-In this section, we talk about the different ways to authenticate with Azure AD. The options available are:
+In this section, we talk about the different ways to authenticate with Microsoft Entra ID. The options available are:
 
 * For end-user authentication for your application, see [End-user authentication with Data Lake Storage Gen1 using Python](data-lake-store-end-user-authenticate-python.md).
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Storage Gen1 using Python](data-lake-store-service-to-service-authenticate-python.md).

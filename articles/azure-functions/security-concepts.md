@@ -159,7 +159,7 @@ While application settings are sufficient for most many functions, you may want 
 
 Identities may be used in place of secrets for connecting to some resources. This has the advantage of not requiring the management of a secret, and it provides more fine-grained access control and auditing. 
 
-When you are writing code that creates the connection to [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), you can choose to use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
+When you are writing code that creates the connection to [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), you can choose to use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
 
 Some Azure Functions trigger and binding extensions may be configured using an identity-based connection. Today, this includes the [Azure Blob](./functions-bindings-storage-blob.md) and [Azure Queue](./functions-bindings-storage-queue.md) extensions. For information about how to configure these extensions to use an identity, see [How to use identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection).
 

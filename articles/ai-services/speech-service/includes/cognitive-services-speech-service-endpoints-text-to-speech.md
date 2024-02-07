@@ -1,6 +1,6 @@
 ---
 author: wolfma61
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma

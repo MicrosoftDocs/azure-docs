@@ -7,6 +7,7 @@ ms.author: mansha
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
+ms.custom: devx-track-azurecli, devx-track-dotnet
 ms.topic: quickstart-sdk
 ms.date: 09/27/2023
 # CustomerIntent: As a .NET developer, I want to use a library for my programming language so that I can create and traverse vertices and edges in code.

@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure using a deployment script
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers using the deployment script you create in the Azure portal.
-ms.date: 08/17/2021
+ms.date: 10/23/2023
 ms.topic: conceptual
 ---
 
@@ -15,26 +15,27 @@ Before you get started, be sure to review the [prerequisites](prerequisites.md) 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE]
+> Follow best security practices and avoid using an Azure account with Owner access to onboard servers. Instead, use an account that only has the Azure Connected Machine onboarding or Azure Connected Machine resource administrator role assignment. See [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices#use-role-based-access-control) for more information.
+> 
 ## Generate the installation script from the Azure portal
 
 The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, perform the following steps:
 
 1. From your browser, sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
+1. On the **Azure Arc - Machines** page, select **Add/Create** at the upper left, and then select **Add a machine** from the drop-down menu.
 
-1. On the **Select a method** page, under the **Add a single server** tile, and then select **Generate script**.
+1. On the **Add servers with Azure Arc** page, under the **Add a single server** tile, select **Generate script**.
 
-1. On the **Prerequisites** page, review the information and then select **Next** to Resource details page.
+1. On the **Basics** page, provide the following:
 
-1. On the **Resource details** page, provide the following:
-
-    1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
+    1. In the **Project Details** section, select the **Subscription** and **Resource group** the machine will be managed from.
     1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
     1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
     1. In the **Connectivity method** section, If the machine is communicating through a proxy server to connect to the internet, select **Proxy server** option and specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`. Else if the machine is communicating through a private endpoint then select **Private endpoint** option and appropriate private link scope in the drop-down list. Else if the machine is communicating through a public endpoint then select **Public endpoint** option.
     1. In the **Automanage machine best practices** section, you may enable automanage if you want to onboard and configure best practice services like Machine configuration and Insights, based on your server needs.
-    1. Select **Next** to Tags page.
+    1. Select **Next** to go to the Tags page.
 
 1. On the **Tags** page, review the default **Physical location tags** suggested and enter a value, or specify one or more **Custom tags** to support your standards.
 

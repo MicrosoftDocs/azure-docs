@@ -295,7 +295,7 @@ See the following articles to learn more about Azure-SSIS integration runtime:
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to start, stop, or delete your Azure-SSIS IR. It also shows you how to scale it out by adding more nodes. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). This article provides instructions on joining your Azure-SSIS IR to a virtual network.
 
-## Next steps
+## Related content
 See the following articles for monitoring pipelines in different ways: 
 
 - [Quickstart: create a data factory](quickstart-create-data-factory-dot-net.md).

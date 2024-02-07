@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure Elasti
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 11/06/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -27,7 +27,11 @@ ms.custom: references_regions
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. Follow these steps to create a storage pool with Azure Elastic SAN Preview.
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file. 
+
+If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
+
+Follow these steps to create a storage pool with Azure Elastic SAN Preview.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 

@@ -14,7 +14,7 @@ ms.custom: template-concept, references_regions
 
 # Cross-region (Global) Load Balancer
 
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
+Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant high availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
@@ -33,7 +33,7 @@ The frontend IP configuration of your cross-region load balancer is static and a
 
 ### Regional redundancy
 
-Configure regional redundancy by adding a global frontend public IP address to your existing load balancers. 
+Configure regional redundancy by seamlessly linking a cross-region load balancer to your existing regional load balancers. 
 
 If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 

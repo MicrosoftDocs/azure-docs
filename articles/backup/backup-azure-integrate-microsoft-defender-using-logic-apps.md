@@ -79,7 +79,7 @@ To authorize the API connection to Office 365, follow these steps:
 4. Select **Authorize**. 
 
    >[!Note]
-   >Ensure that you authenticate against Azure AD.
+   >Ensure that you authenticate against Microsoft Entra ID.
 
 5. Select **Save**.
 

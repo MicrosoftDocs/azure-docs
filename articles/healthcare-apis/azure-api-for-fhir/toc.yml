@@ -9,7 +9,7 @@
       href: fhir-rest-api-capabilities.md
     - name: Security controls by Azure policy
       href: ./security-controls-policy.md
-    - name: Azure AD and Azure API for FHIR 
+    - name: Microsoft Entra ID and Azure API for FHIR 
       href: azure-active-directory-identity-configuration.md
 - name: Quickstarts
   expanded: false
@@ -127,6 +127,8 @@
       href: patient-everything.md
     - name: $purge-history operation
       href: purge-history.md
+    - name: bulk-delete operation
+      href: bulk-delete-operation.md
     - name: $validate
       expanded: false
       items:  
@@ -147,7 +149,7 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Azure AD and Azure API for FHIR Overview
+  - name: Microsoft Entra ID and Azure API for FHIR Overview
     href: azure-active-directory-identity-configuration.md
   - name: Access token validation
     href: azure-api-fhir-access-token-validation.md

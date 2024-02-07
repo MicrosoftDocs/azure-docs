@@ -187,9 +187,9 @@ Cluster configurations are now behind granular role-based access control and req
 
 ### Why do I see "Insufficient privileges to complete the operation" when running the Azure CLI command to assign the HDInsight Cluster Operator role to another user or service principal?
 
-In addition to having the Owner role, the user or service principal executing the command needs to have sufficient Azure AD permissions to look up the object IDs of the assignee. This message indicates insufficient Azure AD permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](/cli/azure/role/assignment#az-role-assignment-create) for more info.
+In addition to having the Owner role, the user or service principal executing the command needs to have sufficient Microsoft Entra permissions to look up the object IDs of the assignee. This message indicates insufficient Microsoft Entra permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](/cli/azure/role/assignment#az-role-assignment-create) for more info.
 
-If it still does not work, contact your Azure AD admin to acquire the correct permissions.
+If it still does not work, contact your Microsoft Entra admin to acquire the correct permissions.
 
 ### What will happen if I take no action?
 

@@ -2,7 +2,7 @@
 title: Improving your model - Custom Vision Service
 titleSuffix: Azure AI services
 description: In this article you'll learn how the amount, quality and variety of data can improve the quality of your model in the Custom Vision service.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
@@ -10,7 +10,6 @@ ms.service: azure-ai-custom-vision
 ms.topic: how-to
 ms.date: 07/05/2022
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
 ---
 
 # How to improve your Custom Vision model

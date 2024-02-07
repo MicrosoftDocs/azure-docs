@@ -24,7 +24,7 @@ This topic explains how to create a custom image pool using only a managed image
   - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`.
   - The managed image resource should exist for the lifetime of the pool to allow scale-up and can be removed after the pool is deleted.
 
-- **Azure Active Directory (Azure AD) authentication**. The Batch client API must use Azure AD authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- **Microsoft Entra authentication**. The Batch client API must use Microsoft Entra authentication. Azure Batch support for Microsoft Entra ID is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 ## Prepare a managed image
 
@@ -63,7 +63,7 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 Once you have found the resource ID of your managed image, create a custom image pool from that image. The following steps show you how to create a custom image pool using either Batch Service or Batch Management.
 
 > [!NOTE]
-> Make sure that the identity you use for Azure AD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+> Make sure that the identity you use for Microsoft Entra authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 >
 > The resource for the managed image must exist for the lifetime of the pool. If the underlying resource is deleted, the pool cannot be scaled.
 

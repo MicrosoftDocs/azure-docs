@@ -1,6 +1,6 @@
 ---
-title: Azure API Management self-hosted gateway - Azure AD authentication
-description: Enable the Azure API Management self-hosted gateway to authenticate with its associated cloud-based API Management instance using Azure Active Directory authentication. 
+title: Azure API Management self-hosted gateway - Microsoft Entra authentication
+description: Enable the Azure API Management self-hosted gateway to authenticate with its associated cloud-based API Management instance using Microsoft Entra authentication. 
 services: api-management
 author: dlepow
 
@@ -10,22 +10,22 @@ ms.date: 05/22/2023
 ms.author: danlep
 ---
 
-# Use Azure AD authentication for the self-hosted gateway
+# Use Microsoft Entra authentication for the self-hosted gateway
 
 The Azure API Management [self-hosted gateway](self-hosted-gateway-overview.md) needs connectivity with its associated cloud-based API Management instance for reporting status, checking for and applying configuration updates, and sending metrics and events. 
 
-In addition to using a gateway access token (authentication key) to connect with its cloud-based API Management instance, you can enable the self-hosted gateway to authenticate to its associated cloud instance by using an [Azure AD app](../active-directory/develop/app-objects-and-service-principals.md). With Azure AD authentication, you can configure longer expiry times for secrets and use standard steps to manage and rotate secrets in Active Directory. 
+In addition to using a gateway access token (authentication key) to connect with its cloud-based API Management instance, you can enable the self-hosted gateway to authenticate to its associated cloud instance by using an [Microsoft Entra app](../active-directory/develop/app-objects-and-service-principals.md). With Microsoft Entra authentication, you can configure longer expiry times for secrets and use standard steps to manage and rotate secrets in Active Directory. 
 
 ## Scenario overview
 
-The self-hosted gateway configuration API can check Azure RBAC to determine who has permissions to read the gateway configuration. After you create an Azure AD app with those permissions, the self-hosted gateway can authenticate to the API Management instance using the app. 
+The self-hosted gateway configuration API can check Azure RBAC to determine who has permissions to read the gateway configuration. After you create a Microsoft Entra app with those permissions, the self-hosted gateway can authenticate to the API Management instance using the app. 
 
-To enable Azure AD authentication, complete the following steps:
+To enable Microsoft Entra authentication, complete the following steps:
 1. Create two custom roles to:
     * Let the configuration API get access to customer's RBAC information
     * Grant permissions to read self-hosted gateway configuration
 1. Grant RBAC access to the API Management instance's managed identity 
-1. Create an Azure AD app and grant it access to read the gateway configuration
+1. Create a Microsoft Entra app and grant it access to read the gateway configuration
 1. Deploy the gateway with new configuration options
 
 ## Prerequisites
@@ -107,9 +107,11 @@ Assign the API Management Configuration API Access Validator Service Role to the
 
 ### Assign API Management Gateway Configuration Reader Role
 
-#### Step 1: Register Azure AD app 
+<a name='step-1-register-azure-ad-app'></a>
 
-Create a new Azure AD app. For steps, see [Create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This app will be used by the self-hosted gateway to authenticate to the API Management instance.
+#### Step 1: Register Microsoft Entra app 
+
+Create a new Microsoft Entra app. For steps, see [Create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This app will be used by the self-hosted gateway to authenticate to the API Management instance.
 
 * Generate a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret) 
 * Take note of the following application values for use in the next section when deploying the self-hosted gateway: application (client) ID, directory (tenant) ID, and client secret
@@ -120,16 +122,16 @@ Create a new Azure AD app. For steps, see [Create an Azure Active Directory appl
 
 * Scope: The API Management instance (or resource group or subscription in which it's deployed)
 * Role: API Management Gateway Configuration Reader Role
-* Assign access to: Azure AD app
+* Assign access to: Microsoft Entra app
 
 ## Deploy the self-hosted gateway
 
-Deploy the self-hosted gateway to Kubernetes, adding Azure AD app registration settings to the `data` element of the gateways `ConfigMap`. In the following example YAML configuration file, the gateway is named *mygw* and the file is named `mygw.yaml`.
+Deploy the self-hosted gateway to Kubernetes, adding Microsoft Entra app registration settings to the `data` element of the gateways `ConfigMap`. In the following example YAML configuration file, the gateway is named *mygw* and the file is named `mygw.yaml`.
 
 > [!IMPORTANT]
 > If you're following the existing Kubernetes [deployment guidance](how-to-deploy-self-hosted-gateway-kubernetes.md):
 > * Make sure to omit the step to store the default authentication key using the `kubectl create secret generic` command. 
-> * Substitute the following basic configuration file for the default YAML file that's generated for you in the Azure portal. The following file adds Azure AD configuration in place of configuration to use an authentication key.
+> * Substitute the following basic configuration file for the default YAML file that's generated for you in the Azure portal. The following file adds Microsoft Entra configuration in place of configuration to use an authentication key.
   
 ```yml
 ---

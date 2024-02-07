@@ -1,6 +1,6 @@
 ---
-title: Azure App Configuration REST API - Azure Active Directory authorization
-description: Use Azure Active Directory for authorization against Azure App Configuration by using the REST API
+title: Azure App Configuration REST API - Microsoft Entra authorization
+description: Use Microsoft Entra ID for authorization against Azure App Configuration by using the REST API
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
@@ -8,9 +8,9 @@ ms.topic: reference
 ms.date: 08/17/2020
 ---
 
-# Azure Active Directory authorization - REST API reference
+# Microsoft Entra authorization - REST API reference
 
-When you use Azure Active Directory (Azure AD) authentication, authorization is handled by role-based access control (RBAC). RBAC requires users to be assigned to roles in order to grant access to resources. Each role contains a set of actions that users assigned to the role are able to perform.
+When you use Microsoft Entra authentication, authorization is handled by role-based access control (RBAC). RBAC requires users to be assigned to roles in order to grant access to resources. Each role contains a set of actions that users assigned to the role are able to perform.
 
 ## Roles
 

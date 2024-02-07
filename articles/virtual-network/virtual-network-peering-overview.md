@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2023
 ms.author: allensu
-#customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
+# Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
 ---
 
 # Virtual network peering
@@ -28,7 +28,7 @@ The benefits of using virtual network peering, whether local or global, include:
 
 * The ability for resources in one virtual network to communicate with resources in a different virtual network.
 
-* The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.
+* The ability to transfer data between virtual networks across Azure subscriptions, Microsoft Entra tenants, deployment models, and Azure regions.
 
 * The ability to peer virtual networks created through the Azure Resource Manager.
 

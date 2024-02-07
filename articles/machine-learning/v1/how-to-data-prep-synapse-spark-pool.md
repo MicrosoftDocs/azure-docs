@@ -10,7 +10,7 @@ author: ynpandey
 ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.date: 11/28/2022
-ms.custom: UpdateFrequency5, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, synapse-azureml, sdkv1
 #Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
 ---
 
@@ -60,7 +60,7 @@ To begin data preparation with the Apache Spark pool, specify the attached Spark
 ![get attached compute name](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
-> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. [Learn more about the %synapse magic command](/python/api/azureml-synapse/azureml.synapse.magics.remotesynapsemagics(class)).
+> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines.
 
 ```python
 %synapse start -c SynapseSparkPoolAlias

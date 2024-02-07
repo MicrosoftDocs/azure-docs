@@ -200,7 +200,7 @@ For more information, see [What are virtual machine scale sets?](../../virtual-m
 
     - For the upgrade mode, select **Automatic - instance will start upgrading**
     - Disable boot diagnostics
-    - Clear the settings for **Identity** and **Azure AD**
+    - Clear the settings for **Identity** and **Microsoft Entra ID**
     - Select **Overprovisioning**
     - Select **Enabled automatic OS upgrades**
 
@@ -423,4 +423,3 @@ If you don't configure these settings during deployment, you can also return and
 
 > [!div class="step-by-step"]
 > [Control the OT traffic monitored by Microsoft Defender for IoT »](how-to-control-what-traffic-is-monitored.md)
-

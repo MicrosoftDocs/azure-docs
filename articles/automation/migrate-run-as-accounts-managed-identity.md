@@ -3,7 +3,7 @@ title: Migrate from a Run As account to Managed identities
 description: This article describes how to migrate from a Run As account to managed identities in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/04/2023
+ms.date: 10/03/2023
 ms.topic: conceptual 
 ms.custom:
 ---
@@ -11,11 +11,11 @@ ms.custom:
 # Migrate from an existing Run As account to Managed identities
 
 > [!IMPORTANT]
-> Azure Automation Run As accounts will retire on *30 September 2023* and completely move to [Managed Identities](automation-security-overview.md#managed-identities). All runbook executions using RunAs accounts, including Classic Run As accounts wouldn't be supported after this date. Starting 01 April 2023, the creation of **new** Run As accounts in Azure Automation will not be possible.
+> Azure Automation Run as accounts, including  Classic Run as accounts have retired on **30 September 2023** and replaced with [Managed Identities](automation-security-overview.md#managed-identities). You would no longer be able to create or renew Run as accounts through the Azure portal. 
 
 For more information about migration cadence and the support timeline for Run As account creation and certificate renewal, see the [frequently asked questions](automation-managed-identity-faq.md).
 
-Run As accounts in Azure Automation provide authentication for managing resources deployed through Azure Resource Manager or the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate is generated. The certificate is valid for one month. Renewing the certificate every month before it expires keeps the Automation account working but adds overhead. 
+Run As accounts in Azure Automation provide authentication for managing resources deployed through Azure Resource Manager or the classic deployment model. Whenever a Run As account is created, a Microsoft Entra application is registered, and a self-signed certificate is generated. The certificate is valid for one month. Renewing the certificate every month before it expires keeps the Automation account working but adds overhead. 
 
 You can now configure Automation accounts to use a [managed identity](automation-security-overview.md#managed-identities), which is the default option when you create an Automation account. With this feature, an Automation account can authenticate to Azure resources without the need to exchange any credentials. A managed identity removes the overhead of renewing the certificate or managing the service principal.
 
@@ -32,11 +32,9 @@ Before you migrate from a Run As account or Classic Run As account to a managed 
     > - There are two ways to use managed identities in hybrid runbook worker scripts: either the system-assigned managed identity for the Automation account *or* the virtual machine (VM) managed identity for an Azure VM running as a hybrid runbook worker. 
     > - The VM's user-assigned managed identity and the VM's system-assigned managed identity will *not* work in an Automation account that's configured with an Automation account's managed identity. When you enable the Automation account's managed identity, you can use only the Automation account's system-assigned managed identity and not the VM managed identity. For more information, see [Use runbook authentication with managed identities](automation-hrw-run-runbooks.md).
 
-1. Assign the same role to the managed identity to access the Azure resources that match the Run As account. Follow the steps in [Check the role assignment for the Azure Automation Run As account](manage-run-as-account.md#check-role-assignment-for-azure-automation-run-as-account). Use this [script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/AssignMIRunAsRoles.ps1) to enable the System assigned identity in an Automation account and assign the same set of permissions present in Azure Automation Run as account to System Assigned identity of the Automation account.
+1. Assign the same role to the managed identity to access the Azure resources that match the Run As account.  Use this [script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/AssignMIRunAsRoles.ps1) to enable the System assigned identity in an Automation account and assign the same set of permissions present in Azure Automation Run as account to System Assigned identity of the Automation account.
 
-   Ensure that you don't assign high-privilege permissions like contributor or owner to the Run As account. Follow the role-based access control (RBAC) guidelines to limit the permissions from the default contributor permissions assigned to a Run As account by using [this script](manage-run-as-account.md#limit-run-as-account-permissions). 
-
-   For example, if the Automation account is required only to start or stop an Azure VM, then the permissions assigned to the Run As account need to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from Azure Blob Storage. For more information, see [Azure Automation security guidelines](../automation/automation-security-guidelines.md#authentication-certificate-and-identities). 
+    For example, if the Automation account is required only to start or stop an Azure VM, then the permissions assigned to the Run As account need to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from Azure Blob Storage. For more information, see [Azure Automation security guidelines](../automation/automation-security-guidelines.md#authentication-certificate-and-identities). 
 
 1. If you're using Classic Run As accounts, ensure that you have [migrated](../virtual-machines/classic-vm-deprecation.md) resources deployed through classic deployment model to Azure Resource Manager.
 1. Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/Check-AutomationRunAsAccountRoleAssignments.ps1) to find out which Automation accounts are using a Run As account. If your Azure Automation accounts contain a Run As account, it has the built-in contributor role assigned to it by default. You can use the script to check the Azure Automation Run As accounts and determine if their role assignment is the default one or if it has been changed to a different role definition.

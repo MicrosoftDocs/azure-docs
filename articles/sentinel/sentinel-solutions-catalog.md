@@ -21,7 +21,7 @@ To get the full list of all solutions available in Microsoft Sentinel, see the [
 
 ## Domain solutions
 
-The following table lists the the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace.
+The following table lists the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace.
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
@@ -50,6 +50,7 @@ The following table lists the the domain-specific out-of-the-box (built-in) and 
 |**[SOC Process Framework](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-socprocessframework?tab=Overview)**|Workbooks, watchlists, playbooks |Security - Cloud Security|Microsoft|
 |**[Threat Analysis Response](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-mitreattck?tab=Overview)**|Workbooks|Compliance, Security - Others, Security - Threat Protection|Microsoft|
 |**[UEBA Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-uebaessentials?tab=Overview)**|Hunting queries|Security - Insider Threat, User Behavior (UEBA)|Microsoft|
+|**[Web Session Essentials](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-websession-domain?tab=Overview)**|[Analytics rules, hunting query, playbook, workbook](domain-based-essential-solutions.md)|Security - Network | Microsoft|
 |**[Zero Trust (TIC 3.0)](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-zerotrust?tab=Overview)**  |[Analytics rules, playbook,  workbooks](/security/zero-trust/integrate/sentinel-solution) |Compliance, Identity, Security - Others |Microsoft  |
 |**[ZINC Open Source Threat Protection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-zincopensource?tab=Overview)**|[Analytic rules](https://www.microsoft.com/security/blog/2022/09/29/zinc-weaponizing-open-source-software/)|Security - Threat Intelligence|Microsoft|
 

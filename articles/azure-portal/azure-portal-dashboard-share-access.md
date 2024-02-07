@@ -63,7 +63,7 @@ For each dashboard that you have published, you can assign Azure RBAC built-in r
 
 1. Select the role you want to grant, such as [Contributor](/azure/role-based-access-control/built-in-roles#contributor) or [Reader](/azure/role-based-access-control/built-in-roles#reader), and then select **Next**.
 
-1. Select **Select members**, then select one or more Azure Active Directory (Azure AD) groups and/or users. If you don't see the user or group you're looking for in the list, use the search box. When you have finished, choose **Select**.
+1. Select **Select members**, then select one or more Microsoft Entra groups and/or users. If you don't see the user or group you're looking for in the list, use the search box. When you have finished, choose **Select**.
 
 1. Select **Review + assign** to complete the assignment.
 
@@ -73,6 +73,6 @@ For each dashboard that you have published, you can assign Azure RBAC built-in r
 ## Next steps
 
 * View the list of [Azure built-in roles](../role-based-access-control/built-in-roles.md).
-* Learn about [managing groups in Azure AD](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+* Learn about [managing groups in Microsoft Entra ID](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 * Learn more about [managing Azure resources by using the Azure portal](../azure-resource-manager/management/manage-resources-portal.md).
 * [Create a dashboard](azure-portal-dashboards.md) in the Azure portal.

@@ -1,13 +1,13 @@
 ---
 title: Azure portal how-to video series
 description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
-ms.date: 08/25/2022
+ms.date: 12/06/2023
 ms.topic: how-to
 ---
 
 # Azure portal how-to video series
 
-The [Azure portal how-to video series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
+The [Azure portal how-to video series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) showcases how to work with Azure services in the Azure portal. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
@@ -29,5 +29,5 @@ Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=P
 
 ## Next steps
 
-Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
-
+- Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
+- Get an [overview of the Azure portal](azure-portal-overview.md).

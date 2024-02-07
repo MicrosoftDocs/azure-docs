@@ -4,7 +4,7 @@ description: Disable able auto logout from Ambari Web UI.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2022
-ms.date: 10/30/2022
+ms.date: 11/21/2023
 ---
 
 # Disable auto logout from Ambari Web UI

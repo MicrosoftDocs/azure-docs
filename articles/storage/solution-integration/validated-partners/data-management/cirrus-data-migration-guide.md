@@ -77,7 +77,7 @@ Follow these implementation steps:
 
     :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-migration-4.jpg" alt-text="Screenshot that shows entering Azure credentials.":::
 
-    For details on creating Azure AD application, see the [step-by-step instructions](https://support.cirrusdata.cloud/en/article/creating-an-azure-service-account-for-cirrus-data-cloud-tw2c9n/). By creating and registering Azure AD application for CMC, you enable automatic creation of Azure Managed Disks on the target virtual machine.
+    For details on creating Microsoft Entra application, see the [step-by-step instructions](https://support.cirrusdata.cloud/en/article/creating-an-azure-service-account-for-cirrus-data-cloud-tw2c9n/). By creating and registering Microsoft Entra application for CMC, you enable automatic creation of Azure Managed Disks on the target virtual machine.
 
     >[!NOTE]
     >Since you selected **Auto allocate destination volumes** on the previous step, don't select it again for a new allocation. Instead, select **Continue**.

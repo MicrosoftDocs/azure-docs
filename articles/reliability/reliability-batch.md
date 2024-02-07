@@ -135,5 +135,4 @@ When a storage account is linked to a Batch account, think of it as the autostor
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](./overview.md)

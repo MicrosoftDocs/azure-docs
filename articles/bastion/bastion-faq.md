@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 08/16/2023
+ms.date: 01/18/2024
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -50,6 +50,10 @@ Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
 No, Azure Bastion doesn't currently support private link.
 
+### Why do I get a "Failed to add subnet" error when using "Deploy Bastion" in the portal?
+
+At this time, for most address spaces, you must add a subnet named **AzureBastionSubnet** to your virtual network before you select **Deploy Bastion**.
+
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
 For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work. However, we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
@@ -64,13 +68,17 @@ No. UDR isn't supported on an Azure Bastion subnet.
 
 For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
-### <a name="upgradesku"></a> Can I upgrade from a Basic SKU to a Standard SKU?
+### <a name="all-skus"></a> What SKU should I use?
+
+Azure Bastion has multiple SKUs. You should select a SKU based on your connection and feature requirements. For a full list of SKU tiers and supported connections and features, see the [Configuration settings](configuration-settings.md#skus) article.
+
+### <a name="upgradesku"></a> Can I upgrade a SKU?
 
 Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
-### <a name="downgradesku"></a> Can I downgrade from a Standard SKU to a Basic SKU?
+### <a name="downgradesku"></a> Can I downgrade a SKU?
 
-No. Downgrading from a Standard SKU to a Basic SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+No. Downgrading a SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
 ### <a name="virtual-desktop"></a>Does Bastion support connectivity to Azure Virtual Desktop?
 
@@ -92,9 +100,9 @@ Azure Bastion is deployed within VNets or peered VNets, and is associated to an 
 
 Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
-### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
+### <a name="azure-ad-guests"></a>Does Bastion support Microsoft Entra guest accounts?
 
-Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Azure AD guest users can't connect to Azure VMs via Azure AD authentication. Non-guest users are supported via Azure AD authentication. For more information about Azure AD authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+Yes, [Microsoft Entra guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines. However, Microsoft Entra guest users can't connect to Azure VMs via Microsoft Entra authentication. Non-guest users are supported via Microsoft Entra authentication. For more information about Microsoft Entra authentication for Azure VMs (for non-guest users), see [Log in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
 ### <a name="shareable-links-domains"></a>Are custom domains supported with Bastion shareable links?
 
@@ -151,11 +159,11 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Sign in to a Windows virtual machine in Azure by using Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+This feature doesn't work with AADJ VM extension-joined machines using Microsoft Entra users. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
-### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
+### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 
-No, access to Windows Server VMs by Azure Bastion doesn't require an [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+Bastion does not support connecting to a VM that is set up as an RDS session host.
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 
@@ -232,6 +240,10 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### I am connecting to a VM using a JIT policy, do I need additional permissions?
+
+If user is connecting to a VM using a JIT policy, there is no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.md)
 
 ### My privatelink.azure.com can't resolve to management.privatelink.azure.com
 

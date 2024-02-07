@@ -2,7 +2,7 @@
 title: Translator Translate Method
 titleSuffix: Azure AI services
 description: Understand the parameters, headers, and body messages for the Translate method of Azure AI Translator to translate text.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 
@@ -38,9 +38,6 @@ Request parameters passed on the query string are:
 | to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
 
 ### Optional parameters
-
-| Query parameter | Description |
-| --- | --- |
 
 | Query parameter | Description |
 | --- | --- |
@@ -87,7 +84,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-    The `detectedLanguage` property is only present in the result object when language autodetection is requested.
+  The `detectedLanguage` property is only present in the result object when language autodetection is requested.
 
 * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
@@ -95,21 +92,21 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `text`: A string giving the translated text.
 
-* `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
+  * `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
 
-  * `script`: A string specifying the target script.
+    * `script`: A string specifying the target script.
 
-  * `text`: A string giving the translated text in the target script.
+    * `text`: A string giving the translated text in the target script.
 
     The `transliteration` object isn't included if transliteration doesn't take place.
 
-    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
+  * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
 
-* `sentLen`: An object returning sentence boundaries in the input and output texts.
+  * `sentLen`: An object returning sentence boundaries in the input and output texts.
 
-  * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
+    * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
-  * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
+    * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
     Sentence boundaries are only included when the request parameter `includeSentenceLength` is `true`.
 

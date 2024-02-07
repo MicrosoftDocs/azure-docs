@@ -1,17 +1,19 @@
 ---
 title: Full-text query how-to
-titleSuffix: Azure Cognitive Search
-description: Learn how to construct a query request for full text search in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Learn how to construct a query request for full text search in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 11/16/2023
 ---
 
-# How to create a full-text query in Azure Cognitive Search
+# Create a full-text query in Azure AI Search
 
 If you're building a query for [full text search](search-lucene-query-architecture.md), this article provides steps for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
 
@@ -23,23 +25,44 @@ If you're building a query for [full text search](search-lucene-query-architectu
 
 ## Example of a full text query request
 
-In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index. 
+In Azure AI Search, a query is a read-only request against the docs collection of a single search index, with parameters that both inform query execution and shape the response coming back. 
 
-A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition to the request. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
+A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition to the request.
 
-The following [Search Documents REST API](/rest/api/searchservice/search-documents) call illustrates a query request using the aforementioned parameters.
+The following [Search POST REST API](/rest/api/searchservice/documents/search-post) call illustrates a query request using the aforementioned parameters.
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "NY +view",
     "queryType": "simple",
     "searchMode": "all",
     "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "top": "10",
     "count": "true"
 }
 ```
+
+**Key points:**
+
++ **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as "searchable" in the index schema is a candidate for this parameter.
+
++ **`queryType`** sets the parser: `simple`, `full`. The [default simple query parser](search-query-simple-examples.md) is optimal for full text search. The [full Lucene query parser](search-query-lucene-examples.md) is for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search. This parameter can also be set to `semantic` for [semantic ranking](semantic-search-overview.md) for advanced semantic modeling on the query response.
+
++ **`searchMode`** specifies whether matches are based on "all" criteria (favors precision) or "any" criteria (favors recall) in the expression. The default is "any". If you anticipate heavy use of Boolean operators, which is more likely in indexes that contain large text blocks (a content field or long descriptions), be sure to test queries with the **`searchMode=Any|All`** parameter to evaluate the impact of that setting on boolean search.
+
++ **`searchFields`** constrains query execution to specific searchable fields. During development, it's helpful to use the same field list for select and search. Otherwise a match might be based on field values that you can't see in the results, creating uncertainty as to why the document was returned.
+
+Parameters used to shape the response:
+
++ **`select`** specifies which fields to return in the response. Only fields marked as "retrievable" in the index can be used in a select statement.
+
++ **`top`** returns the specified number of best-matching documents. In this example, only 10 hits are returned. You can use top and skip (not shown) to page the results.
+
++ **`count`** tells you how many documents in the entire index match overall, which can be more than what are returned. 
+
++ **`orderby`** is used if you want to sort results by a value, such as a rating or location. Otherwise, the default is to use the relevance score to rank results. A  field must be attributed as "sortable" to be a candidate for this parameter.
 
 ## Choose a client
 
@@ -55,35 +78,43 @@ In the portal, when you open an index, you can work with Search Explorer alongsi
 
 1. Open **Indexes** and select an index.
 
-1. An index opens to the [**Search explorer**](search-explorer.md) tab so that you can query right away. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on). 
+1. An index opens to the [**Search explorer**](search-explorer.md) tab so that you can query right away. Switch to **JSON view** to specify query syntax. 
 
    Here's a full text search query expression that works for the Hotels sample index:
 
-   `search=pool spa +airport&$searchFields=Description,Tags&$select=HotelName,Description,Category&$count=true`
+   ```json
+      {
+          "search": "pool spa +airport",
+          "queryType": "simple",
+          "searchMode": "any",
+          "searchFields": "Description, Tags",
+          "select": "HotelName, Description, Tags",
+          "top": 10,
+          "count": true
+      }
+    ```
 
    The following screenshot illustrates the query and response:
 
    :::image type="content" source="media/search-explorer/search-explorer-full-text-query-hotels.png" alt-text="Screenshot of Search Explorer with a full text query.":::
 
-Notice that you can change the REST API version if you require search behaviors from a specific version, or switch to **JSON view** if you want to paste in the JSON definition of a query. For more information about what a JSON definition looks like, see [Search Documents (REST)](/rest/api/searchservice/search-documents).
-
 ### [**REST API**](#tab/rest-text-query)
 
-[Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/search-documents). 
+[Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/documents/search-post). 
 
 [Quickstart: Create a search index using REST and Postman](search-get-started-rest.md) has step-by-step instructions for setting up requests.
 
 The following example calls the REST API for full text search:
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "NY +view",
     "queryType": "simple",
     "searchMode": "all",
     "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
-    "count": "true"
+    "count": true
 }
 ```
 
@@ -102,7 +133,7 @@ The following Azure SDKs provide a **SearchClient** that has methods for formula
 
 ## Choose a query type: simple | full
 
-If your query is full text search, a query parser is used to process any text that's passed as search terms and phrases. Azure Cognitive Search offers two query parsers. 
+If your query is full text search, a query parser is used to process any text that's passed as search terms and phrases. Azure AI Search offers two query parsers. 
 
 + The simple parser understands the [simple query syntax](query-simple-syntax.md). This parser was selected as the default for its speed and effectiveness in free form text queries. The syntax supports common search operators (AND, OR, NOT) for term and phrase searches, and prefix (`*`) search (as in "sea*" for Seattle and Seaside). A general recommendation is to try the simple parser first, and then move on to full parser if application requirements call for more powerful queries.
 

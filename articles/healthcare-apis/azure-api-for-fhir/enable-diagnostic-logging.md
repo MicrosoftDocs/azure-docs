@@ -63,7 +63,7 @@ At this time, the Azure API for FHIR service returns the following fields in the
 |FhirResourceType|String|The resource type for which the operation was executed
 |LogCategory|String|The log category (we're currently returning ‘AuditLogs’ LogCategory)
 |Location|String|The location of the server that processed the request (for example, South Central US)
-|OperationDuration|Int|The time it took to complete this request in seconds
+|OperationDuration|Int|The time it took to complete this request in seconds. Note : This value is always set to 0, due to a known issue
 |OperationName|String| Describes the type of operation (for example, update, search-type)
 |RequestUri|String|The request URI 
 |ResultType|String|The available values currently are **Started**, **Succeeded**, or **Failed**

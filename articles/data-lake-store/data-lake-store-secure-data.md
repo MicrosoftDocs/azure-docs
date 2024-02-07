@@ -12,9 +12,9 @@ ms.author: normesta
 # Securing data stored in Azure Data Lake Storage Gen1
 Securing data in Azure Data Lake Storage Gen1 is a three-step approach.  Both Azure role-based access control (Azure RBAC) and access control lists (ACLs) must be set to fully enable access to data for users and security groups.
 
-1. Start by creating security groups in Azure Active Directory (Azure AD). These security groups are used to implement Azure role-based access control (Azure RBAC) in the Azure portal. For more information, see [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
-2. Assign the Azure AD security groups to the Data Lake Storage Gen1 account. This controls access to the Data Lake Storage Gen1 account from the portal and management operations from the portal or APIs.
-3. Assign the Azure AD security groups as access control lists (ACLs) on the Data Lake Storage Gen1 file system.
+1. Start by creating security groups in Microsoft Entra ID. These security groups are used to implement Azure role-based access control (Azure RBAC) in the Azure portal. For more information, see [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
+2. Assign the Microsoft Entra security groups to the Data Lake Storage Gen1 account. This controls access to the Data Lake Storage Gen1 account from the portal and management operations from the portal or APIs.
+3. Assign the Microsoft Entra security groups as access control lists (ACLs) on the Data Lake Storage Gen1 file system.
 4. Additionally, you can also set an IP address range for clients that can access the data in Data Lake Storage Gen1.
 
 This article provides instructions on how to use the Azure portal to perform the above tasks. For in-depth information on how Data Lake Storage Gen1 implements security at the account and data level, see [Security in Azure Data Lake Storage Gen1](data-lake-store-security-overview.md). For deep-dive information on how ACLs are implemented in Data Lake Storage Gen1, see [Overview of Access Control in Data Lake Storage Gen1](data-lake-store-access-control.md).
@@ -25,11 +25,13 @@ Before you begin this tutorial, you must have the following:
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **A Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
-## Create security groups in Azure Active Directory
-For instructions on how to create Azure AD security groups and how to add users to the group, see [Managing security groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+<a name='create-security-groups-in-azure-active-directory'></a>
+
+## Create security groups in Microsoft Entra ID
+For instructions on how to create Microsoft Entra security groups and how to add users to the group, see [Managing security groups in Microsoft Entra ID](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
-> You can add both users and other groups to a group in Azure AD using the Azure portal. However, in order to add a service principal to a group, use [Azure AD’s PowerShell module](../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
+> You can add both users and other groups to a group in Microsoft Entra ID using the Azure portal. However, in order to add a service principal to a group, use [Microsoft Entra ID’s PowerShell module](../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs
@@ -49,7 +51,7 @@ When you assign users or security groups to Data Lake Storage Gen1 accounts, you
    
 	![Assign security group to Azure Data Lake Storage Gen1 account](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Assign security group to Azure Data Lake Storage Gen1 account")
 
-3. In the **Access Control (IAM)** blade, click **Add** to open the **Add permissions** blade. In the **Add permissions** blade, select a **Role** for the user/group. Look for the security group you created earlier in Azure Active Directory and select it. If you have a lot of users and groups to search from, use the **Select** text box to filter on the group name. 
+3. In the **Access Control (IAM)** blade, click **Add** to open the **Add permissions** blade. In the **Add permissions** blade, select a **Role** for the user/group. Look for the security group you created earlier in Microsoft Entra ID and select it. If you have a lot of users and groups to search from, use the **Select** text box to filter on the group name. 
    
 	![Add a role for the user](./media/data-lake-store-secure-data/adl.add.user.1.png "Add a role for the user")
    
@@ -89,7 +91,7 @@ By assigning user/security groups to the Data Lake Storage Gen1 file system, you
    * **Assigned permissions** corresponds to the POSIX ACLs that enable you to set permissions for specific named users or groups beyond the file's owner or group. 
      
      For more information, see [HDFS ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). For more information on how ACLs are implemented in Data Lake Storage Gen1, see [Access Control in Data Lake Storage Gen1](data-lake-store-access-control.md).
-4. Click the **Add** icon to open the **Assign permissions** blade. In this blade, click **Select user or group**, and then in **Select user or group** blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
+4. Click the **Add** icon to open the **Assign permissions** blade. In this blade, click **Select user or group**, and then in **Select user or group** blade, look for the security group you created earlier in Microsoft Entra ID. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
    
     ![Add a group](./media/data-lake-store-secure-data/adl.acl.3.png "Add a group")
 5. Click **Select permissions**, select the permissions, whether the permissions should be applied to recursively, and whether you want to assign the permissions as an access ACL, default ACL, or both. Click **OK**.

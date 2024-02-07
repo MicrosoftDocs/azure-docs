@@ -3,15 +3,13 @@ title: Use API Management in a virtual network with Azure Application Gateway
 titleSuffix: Azure API Management
 description: Set up and configure Azure API Management in an internal virtual network with Azure Application Gateway (Web Application Firewall) as a front end.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
 ms.author: danlep
 ms.date: 04/17/2023
-ms.custom: engagement-fy23,devx-track-azurepowershell,contperf-fy21q4
-
+ms.custom: engagement-fy23, devx-track-azurepowershell
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
 
@@ -72,7 +70,7 @@ In the first setup example, all your APIs are managed only from within your virt
 
 In this article, we also expose the *developer portal* and the *management endpoint* to external audiences through the application gateway. Extra steps are needed to create a listener, probe, settings, and rules for each endpoint. All details are provided in their respective steps.
 
-If you use Azure Active Directory or third-party authentication, enable the [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
+If you use Microsoft Entra ID or third-party authentication, enable the [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
 
 > [!WARNING]
 > To prevent Application Gateway WAF from breaking the download of OpenAPI specifications in the developer portal, disable the firewall rule `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
@@ -84,13 +82,13 @@ If you use Azure Active Directory or third-party authentication, enable the [coo
 
 ## Setting Variables
 
-Throughout this guide, you will need to define several variables. 
+Throughout this guide, you will need to define several variables. Naming is based on the [Cloud Adoption Framework abbreviation](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) guidance.
 
 ```powershell
 # These variables must be changed.
 $subscriptionId = "00000000-0000-0000-0000-000000000000"      # GUID of your Azure subscription
 $domain = "contoso.net"                                       # The custom domain for your certificate
-$apimServiceName = "ContosoApi"                               # API Management service instance name, must be globally unique    
+$apimServiceName = "apim-contoso"                             # API Management service instance name, must be globally unique    
 $apimDomainNameLabel = $apimServiceName                       # Domain name label for API Management's public IP address, must be globally unique
 $apimAdminEmail = "admin@contoso.net"                         # Administrator's email address - use your email address
 
@@ -110,10 +108,10 @@ $managementCertPfxPassword = "certificatePassword123"         # Password for man
 
 
 # These variables may be changed.
-$resGroupName = "apim-appGw-RG"                               # Resource group name that will hold all assets
+$resGroupName = "rg-apim-agw"                                 # Resource group name that will hold all assets
 $location = "West US"                                         # Azure region that will hold all assets
 $apimOrganization = "Contoso"                                 # Organization name    
-$appgwName = "apim-app-gw"                                    # The name of the Application Gateway
+$appgwName = "agw-contoso"                                    # The name of the Application Gateway
 ```
 
 ## Create a resource group for Resource Manager
@@ -157,7 +155,7 @@ The following example shows how to create a virtual network by using Resource Ma
         Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
         
     $appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-        "NSG-APPGW" -SecurityRules $appGwRule1, $appGwRule2
+        "nsg-agw" -SecurityRules $appGwRule1, $appGwRule2
     ```
     
 1.  Create a network security group (NSG) and NSG rules for the API Management subnet. [API Management stv2 requires several specific NSG rules](api-management-using-with-internal-vnet.md#enable-vnet-connection).
@@ -177,7 +175,7 @@ The following example shows how to create a virtual network by using Resource Ma
         -SourcePortRange * -DestinationAddressPrefix AzureKeyVault -DestinationPortRange 443
     
     $apimNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-        "NSG-APIM" -SecurityRules $apimRule1, $apimRule2, $apimRule3, $apimRule4
+        "nsg-apim" -SecurityRules $apimRule1, $apimRule2, $apimRule3, $apimRule4
     ```
 
 1. Assign the address range 10.0.0.0/24 to the subnet variable to be used for Application Gateway while you create a virtual network.
@@ -192,10 +190,10 @@ The following example shows how to create a virtual network by using Resource Ma
     $apimSubnet = New-AzVirtualNetworkSubnetConfig -Name "apimSubnet" -NetworkSecurityGroup $apimNsg -AddressPrefix "10.0.1.0/24"
     ```
 
-1. Create a virtual network named **appgwvnet** in resource group **apim-appGw-RG** for the West US region. Use the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
+1. Create a virtual network named **vnet-contoso**. Use the prefix 10.0.0.0/16 with subnets 10.0.0.0/24 and 10.0.1.0/24.
 
     ```powershell
-    $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName `
+    $vnet = New-AzVirtualNetwork -Name "vnet-contoso" -ResourceGroupName $resGroupName `
       -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appGatewaySubnet,$apimSubnet
     ```
 
@@ -260,9 +258,6 @@ To set up custom domain names in API Management:
     
     Set-AzApiManagement -InputObject $apimService
     ```
-
-> [!NOTE]
-> To configure connectivity to the legacy developer portal, you need to replace `-HostnameType DeveloperPortal` with `-HostnameType Portal`.
 
 ## Configure a private zone for DNS resolution in the virtual network
 

@@ -1,15 +1,15 @@
 ---
-title: How to enable Microsoft Defender for Containers components
-description: Enable the container protections of Microsoft Defender for Containers
+title: Configure Microsoft Defender for Containers components
+description: Configure the container protections of Microsoft Defender for Containers
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 zone_pivot_groups: k8s-host
 ms.date: 06/29/2023
 ---
 
-# How to enable Microsoft Defender for Containers components
+# Configure Microsoft Defender for Containers components
 
 Microsoft Defender for Containers is the cloud-native solution for securing your containers.
 
@@ -83,6 +83,8 @@ A full list of supported alerts is available in the [reference table of all Defe
     The expected response is `No resource found`.
 
     Within 30 minutes, Defender for Cloud detects this activity and trigger a security alert.
+    > [!NOTE]
+    > To simulate agentless alerts for Defender for Containers, Azure Arc isn't a prerequisite.
 
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 

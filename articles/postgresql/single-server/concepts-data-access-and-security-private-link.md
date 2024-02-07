@@ -96,7 +96,7 @@ Configure [VNet peering](../../virtual-network/tutorial-connect-virtual-networks
 
 ### Connecting from an Azure VM in VNet-to-VNet environment
 
-Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to a Azure Database for PostgreSQL - Single server from an Azure VM in a different region or subscription.
+Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to an Azure Database for PostgreSQL - Single server from an Azure VM in a different region or subscription.
 
 ### Connecting from an on-premises environment over VPN
 

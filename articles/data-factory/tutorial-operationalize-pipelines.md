@@ -40,7 +40,7 @@ We understand some pipelines will naturally take more time to finish than others
 
 Follow the steps to set up [Data Factory Alerts](monitor-metrics-alerts.md#data-factory-alerts) on the metric. Your engineers will get notified to intervene and take steps to meet the SLAs, through emails or SMSs.
 
-## Next steps
+## Related content
 
 [Data Factory metrics and alerts](monitor-metrics-alerts.md)
 

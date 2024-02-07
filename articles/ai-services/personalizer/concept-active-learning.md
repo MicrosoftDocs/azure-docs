@@ -6,10 +6,12 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 01/19/2024
 ---
 
 # Learning policy and settings
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Learning settings determine the *hyperparameters* of the model training. Two models of the same data that are trained on different learning settings will end up different.
 

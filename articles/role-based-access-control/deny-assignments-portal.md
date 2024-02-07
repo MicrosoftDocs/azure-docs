@@ -2,14 +2,12 @@
 title: List Azure deny assignments using the Azure portal - Azure RBAC
 description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: amycolannino
 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2022
 ms.author: rolyon
@@ -79,7 +77,7 @@ Follow these steps to list additional details about a deny assignment.
     | **Deny assignment applies to**  | Security principals that the deny assignment applies to. |
     | **Deny assignment excludes** | Security principals that are excluded from the deny assignment. |
 
-    **System-Defined Principal** represents all users, groups, service principals, and managed identities in an Azure AD directory.
+    **System-Defined Principal** represents all users, groups, service principals, and managed identities in a Microsoft Entra directory.
 
 1. To see a list of the permissions that are denied, click **Denied Permissions**.
 

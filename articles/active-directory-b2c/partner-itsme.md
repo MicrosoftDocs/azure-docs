@@ -2,16 +2,20 @@
 title: itsme OpenID Connect with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with itsme OIDC using client_secret user flow policy. itsme is a digital ID app. It allows you to log in securely without card-readers, passwords, two-factor authentication, and multiple PIN codes.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C authentication with itsme OpenID Connect (OIDC), I want to configure the itsme Identity Provider in Azure AD B2C, so that users can sign in securely using their itsme digital ID app without the need for passwords or multiple PIN codes.
+
 ---
 
 # Configure itsme OpenID Connect (OIDC) with Azure Active Directory B2C
@@ -68,8 +72,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 > [!NOTE]
 > If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C** (or select **More services** and use the **All services** search box to search for *Azure AD B2C*).
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Fill in the form with the following information:

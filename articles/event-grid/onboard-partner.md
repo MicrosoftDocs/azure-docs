@@ -37,7 +37,7 @@ Contact the Event Grid team at [askgrid@microsoft.com](mailto:askgrid@microsoft.
 To complete the remaining steps, make sure you have:
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- An Azure [tenant](../active-directory/develop/quickstart-create-new-tenant.md).
+- An Azure [tenant](/entra/identity-platform/quickstart-create-new-tenant).
 
 
 [!INCLUDE [register-provider](./includes/register-provider.md)]
