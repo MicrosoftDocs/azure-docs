@@ -46,8 +46,8 @@ introduction: |
     [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 prerequisites:
-  summary: |
-    You need a [generalized](generalize.md) VM in order to create an image.
+  dependencies:
+    - You need a [generalized](generalize.md) VM in order to create an image.
 
 procedureSection:
   - title: | 
