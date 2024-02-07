@@ -8,8 +8,8 @@ ms.date: 02/06/2024
 # Calculate total cost savings
 
 You can calculate aggregated potential yearly savings by following these steps: 
-1. Visit the Azure Portal, then search for Azure Advisor.
-1. Once there, navigate to the ‘Cost’ tab on the left navigation menu and choose the option to “Download as CSV” to export cost recommendations. 
+1. Visit the Azure portal, then search for **Azure Advisor**.
+1. Once there, navigate to the **Cost** tab on the left navigation menu and choose the option to **Download as CSV** to export cost recommendations. 
 1. Leverage the cost savings amount for each recommendation to calculate aggregated potential yearly savings.
 
 However, note that recommendations show savings individually, and may overlap with the savings shown in other recommendations, for example – you can only benefit from savings plans or reservations for virtual machines, but not from both.
