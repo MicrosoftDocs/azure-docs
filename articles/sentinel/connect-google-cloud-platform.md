@@ -280,8 +280,6 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 
 1. When asked to select a Pub/Sub topic where you want to export your findings, follow the instructions above to [create a new topic](#create-a-publishing-topic).
 
-1. 
-
 ## Set up the GCP Pub/Sub connector in Microsoft Sentinel
 
 # [GCP Audit Logs](#tab/auditlogs)
@@ -338,21 +336,21 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 
 1. To ensure that the GCP logs were successfully ingested into Microsoft Sentinel, run the following query 30 minutes after you finish to [set up the connector](#set-up-the-gcp-pubsub-connector-in-microsoft-sentinel). 
 
-# [GCP Audit Logs](#tab/auditlogs)
+    # [GCP Audit Logs](#tab/auditlogs)
 
     ```kusto
     GCPAuditLogs 
     | take 10 
     ```
 
-# [Google Security Command Center](#tab/scc)
+    # [Google Security Command Center](#tab/scc)
 
     ```kusto
     GoogleSCC 
     | take 10 
     ```
 
----
+    ---
 
 1. Enable the [health feature](enable-monitoring.md) for data connectors. 
 
