@@ -188,7 +188,7 @@ As the conversion request is evaluated and processed, the status should progress
 >
 > Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
-# [Portal](#tab/powershell)
+# [Portal](#tab/portal)
 
 The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
 
