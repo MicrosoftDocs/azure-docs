@@ -479,7 +479,7 @@ client = AzureOpenAI(
 
 deleted_assistant_file = client.beta.assistants.files.delete(
     assistant_id="asst_abc123",
-    file_id="file-abc123"
+    file_id="assistant-abc123"
 )
 print(deleted_assistant_file)
 
