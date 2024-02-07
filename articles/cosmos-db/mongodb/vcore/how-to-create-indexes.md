@@ -1,5 +1,5 @@
 ---
-title:  CreateIndexes Command in Azure Cosmos DB for MongoDB (vCore)
+title:  Optimize index creation in Azure Cosmos DB for MongoDB vCore
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use create Indexing for empty collections in Azure Cosmos DB for MongoDB vCore.
 author: khelanmodi
@@ -11,11 +11,17 @@ ms.topic: conceptual
 ms.date: 1/24/2024
 ---
 
-# CreateIndexes Command in Azure Cosmos DB for MongoDB (vCore)
+# Optimize index creation in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-The `CreateIndexes` Command in Azure Cosmos DB for MongoDB vCore has been enhanced with a new option to optimize index creation, especially beneficial for scenarios involving empty collections. This document outlines the usage and expected behavior of this new option while ensuring that the existing method remains effective for standard operations.
+The `CreateIndexes` Command in Azure Cosmos DB for MongoDB vCore has an option to optimize index creation, especially beneficial for scenarios involving empty collections. This document outlines the usage and expected behavior of this new option.
+
+## Advantages in Specific Scenarios
+
+- **Efficiency in Migration Utilities**: This option is ideal in migration contexts, reducing the time for index creation by preventing delays caused by waiting for transactions with pre-existing snapshots.
+- **Streamlined Index Creation Process**: In Cosmos DB for MongoDB vCore, this translates to a simpler process with a single collection scan, enhancing efficiency.
+- **Enhanced Control**: Users gain more control over the indexing process, crucial in environments balancing read and write operations during index creation.
 
 ## Prerequisites
 
@@ -23,19 +29,17 @@ The `CreateIndexes` Command in Azure Cosmos DB for MongoDB vCore has been enhanc
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md).
 
-## Blocking Option
-
-The `CreateIndexes` Command now includes a `{ "blocking": true }` option, designed to provide more control over the indexing process in an empty collection.
-
 ## Default Setting
 
-The default value of this option is `false`, ensuring backward compatibility and maintaining the existing behavior for users who do not opt-in for the new feature.
+The default value of this option is `false`, ensuring backward compatibility and maintaining the existing non-blocking behavior.
 
-## Expected Behavior
+## Blocking Option
+
+The `CreateIndexes` Command includes a `{ "blocking": true }` option, designed to provide more control over the indexing process in an empty collection.
 
 Setting `{ "blocking": true }` blocks all write operations (delete, update, insert) to the collection until index creation is completed. This feature is particularly useful in scenarios such as migration utilities where indexes are created on empty collections before data writes commence.
 
-## Define a Create Index
+## Create an index using the blocking option
 
 For simplicity, let us consider an example of a blog application with the following setup:
 
@@ -54,15 +58,9 @@ db.runCommand({
 
 ```
 
-## Advantages in Specific Scenarios
-
-- **Efficiency in Migration Utilities**: This option is ideal in migration contexts, reducing the time for index creation by preventing delays caused by waiting for transactions with pre-existing snapshots.
-- **Streamlined Index Creation Process**: In Cosmos DB for MongoDB vCore, this translates to a simpler process with a single collection scan, enhancing efficiency.
-- **Enhanced Control**: Users gain more control over the indexing process, crucial in environments balancing read and write operations during index creation.
-
 ## Summary
 
-The introduction of the blocking option in the `CreateIndexes` Command of Azure Cosmos DB for MongoDB (vCore) is a strategic enhancement for optimizing index creation for an empty collection. This feature complements the existing method, providing an additional tool for scenarios requiring efficient index creation on empty collections.
+The introduction of the blocking option in the `CreateIndexes` Command of Azure Cosmos DB for MongoDB (vCore) is a strategic enhancement for optimizing index creation for an empty collection. This feature complements the existing non-blocking method, providing an additional tool for scenarios requiring efficient index creation on empty collections.
 
 ## Related content
 
