@@ -1,6 +1,6 @@
 ---
-title: Release notes for Azure Health Data Services monthly releases 2023-2024
-description: Stay updated with the latest features and improvements of Azure Health Data Services. Read the monthly release notes and learn how to get the most out of healthcare data.
+title: Release notes for Azure Health Data Services monthly releases 2023
+description: Find out about features and improvements introduces in 2023 for Azure Health Data Services. Read the monthly release notes and learn how to get the most out of healthcare data.
 services: healthcare-apis
 author: kgaddam10
 ms.service: healthcare-apis
@@ -11,64 +11,12 @@ ms.author: kavitagaddam
 ms.custom: references_regions
 ---
 
-# Release notes: Azure Health Data Services 2023-2024
+# Release notes: Azure Health Data Services 2023
 
-Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
-
-This article describes new features and enhancements introduced in Azure Health Data Services in 2023 and 2024, including these services:
-
-- FHIR&reg; service
-- DICOM&reg; service
-- MedTech service
+This article describes features and enhancements introduced in 2023 for the FHIR&reg; service, DICOM&reg; service, or MedTech service in Azure Health Data Services.
 
 > [!NOTE]
 > Azure Health Data Services is generally available. For more information, see the [Service Level Agreement (SLA) for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
-
-## January 2024
-
-### Bulk update of files in the DICOM service
-
-The bulk update operation allows you to change imaging metadata for multiple files stored in the DICOM service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use an API to perform updates to patient demographics and avoid the cost of repeating time-consuming uploads.
-
-Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the change feed and persists the original, unmodified instances for future retrieval.
-
-Learn more:
-
-- [Bulk update DICOM files](dicom/update-files.md)
-
-### Selectable search parameters for the FHIR service (preview)
-
-The selectable search parameter capability available for preview allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries.
-
-Learn more: 
-
-- [Selectable search parameters for the FHIR service](fhir/selectable-search-parameters.md)
-
-### Integration of the FHIR service with Azure Active Directory B2C
-
-Healthcare organizations can use the FHIR service in Azure Health Data Services with Azure Active Directory B2C (Azure AD B2C). This capability gives organizations a secure and convenient way to grant access to the FHIR service in Azure Health Data Services with fine-grained access control for different users or groups, without creating or comingling user accounts in their organization’s Microsoft Entra ID tenant. With this integration, organizations can:
-
-- Use additional identity providers to authenticate and access FHIR resources with SMART on FHIR scopes. 
-- Manage and customize user access rights or permissions with SMART on FHIR scopes that support fine-grained access control, FHIR resource types and interactions, and a user’s underlying privileges.
-
-Related content:
-
-- [Use Azure Active Directory B2C to grant access to the FHIR service](fhir/azure-ad-b2c-setup.md)
-- [Configure multiple service identity providers for the FHIR service](fhir/configure-identity-providers.md)
-- [Troubleshoot identity provider configuration for the FHIR service](fhir/troubleshoot-identity-provider-configuration.md)
-- [SMART on FHIR](fhir/smart-on-fhir.md)
-- [Sample: Azure ONC (g)(10) SMART on FHIR](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/patientandpopulationservices-smartonfhir-oncg10)
-
-### Request up to 100 TB of storage for the FHIR service
-
-The FHIR service can store and exchange large amounts of health data, and each FHIR service instance has a storage limit of 4 TB by default. If you have more data, you can ask Microsoft to increase storage up to 100 TB for your FHIR service.
- 
-With more storage, organizations can handle large data sets to enable analytics scenarios. For example, you can use more storage to manage population health, conduct research, and gain new insights from health data. Plus, more storage enables Azure API for FHIR customers with high-volume data (greater than 4 TB) to migrate to the FHIR service in Azure Health Data Services.
- 
-To request storage greater than 4 TB, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) on the Azure portal and use the issue type **Service and Subscription limit (quotas)**.
-
-> [!NOTE]
-> Due to an issue with billing metrics for storage, customers who opt for more than 4 TB of storage capacity won't be billed for storage until the issue is resolved.
 
 ## December 2023
 
@@ -411,7 +359,13 @@ Two new attributes for returning the count of Instances in a Study or Series are
 One new sample app is released in the [Health Data Services samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples)
 
 ## Related content
-[Release notes archive 2022-2021](release-notes-archive.md)
+
+[Release notes 2021](release-notes-2021.md)
+
+[Release notes 2022](release-notes-2022.md)
+
+[Release notes 2024](release-notes-2024.md)
+
 [Known issues](known-issues.md)
 
 [!INCLUDE [FHIR and DICOM trademark statement](includes/healthcare-apis-fhir-dicom-trademark.md)]
