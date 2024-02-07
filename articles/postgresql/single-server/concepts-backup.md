@@ -126,7 +126,7 @@ Using pg_dump allows greater flexibility in restoring data across different data
 Azure backup vaults support immutability and soft delete (preview) features, protecting your data.
 
 For more information about performing a long term backup, visit the [how-to guide](../../backup/backup-azure-database-postgresql.md).
-Known [LTR issues](../../backup/backup-azure-database-postgresql-troubleshoot#usererrormissingdbpermissions.md)
+Known [LTR issues](../../backup/backup-azure-database-postgresql-troubleshoot#usererrormissingdbpermissions.md).
 
 ## Next steps
 
