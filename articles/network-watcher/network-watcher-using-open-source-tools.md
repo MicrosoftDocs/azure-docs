@@ -33,7 +33,7 @@ In order access CapAnalysis remotely, you need to open port 9877 on your VM by a
 
 ### Use Azure Network Watcher to start a packet capture session
 
-Network Watcher allows you to capture packets to track traffic in and out of a virtual machine. You can refer to the instructions at [Manage packet captures with Network Watcher](network-watcher-packet-capture-manage-portal.md) to start a packet capture session. A packet capture can be stored in a storage blob to be accessed by CapAnalysis.
+Network Watcher allows you to capture packets to track traffic in and out of a virtual machine. You can refer to the instructions at [Manage packet captures with Network Watcher](packet-capture-vm-portal.md) to start a packet capture session. A packet capture can be stored in a storage blob to be accessed by CapAnalysis.
 
 ### Upload a packet capture to CapAnalysis
 You can directly upload a packet capture taken by network watcher using the “Import from URL” tab and providing a link to the storage blob where the packet capture is stored.
