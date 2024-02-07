@@ -127,7 +127,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint. |
-|Resources|[Azure Docs IoT Defender for IoT]( https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/configure-endpoints-script?view=o365-worldwide)|
+|Resources|[Azure Docs IoT Defender for IoT]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
 </br>
