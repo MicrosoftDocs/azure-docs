@@ -233,6 +233,7 @@ You may need to integrate Azure Monitor with other systems or to build custom so
 
 
 Additional integrations not shown in the diagram that may be of interest. 
+
 | Integration | Description |
 |----|----|
 | [Defender for the Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](../defender-for-cloud/monitoring-components.md). |
