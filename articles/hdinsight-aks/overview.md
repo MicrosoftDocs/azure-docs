@@ -56,7 +56,7 @@ The latest version of HDInsight is orchestrated using AKS, which enables the pla
 
 HDInsight on AKS can connect seamlessly with HDInsight. You can reap the benefits of using needed cluster types in a hybrid model. Interoperate with cluster types of HDInsight using the same storage and metastore across both the offerings. 
 
-[HDInsight](/azure/hdinsight/) offers Apache Kafka®, Apache HBase® and other analytics workloads in Platform as a Service (PaaS) formfactor.
+[HDInsight](/azure/hdinsight/) offers Apache Kafka®, Apache HBase® and other analytics workloads in Platform as a Service (PaaS) form factor.
 
 :::image type="content" source="./media/overview/connectivity-diagram.png" alt-text="Diagram showing connectivity concepts.":::
 
