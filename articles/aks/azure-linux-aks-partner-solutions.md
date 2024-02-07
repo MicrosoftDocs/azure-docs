@@ -5,7 +5,7 @@ description: Discover partner-tested solutions that enable you to build, test, d
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
-ms.date: 02/01/2024
+ms.date: 02/07/2024
 ---
 
 # Azure Linux AKS Container Host Partner Solutions
@@ -30,7 +30,7 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 ### Advantech
 
-![Advantech logo](./media/azure-linux-aks-partner-solutions/Advantech.png)
+![Advantech logo](./media/azure-linux-aks-partner-solutions/Advantech.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
@@ -42,37 +42,53 @@ For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/e
 
 ### Hashicorp
 
-![Hashicorp logo](./media/azure-linux-aks-partner-solutions/Hashicorp.png)
+![Hashicorp logo](./media/azure-linux-aks-partner-solutions/Hashicorp.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
 | Terraform | DevOps |
 
-At HashiCorp, we believe infrastructure enables innovation, and we're helping organizations to operate that infrastructure in the cloud. Our suite of multicloud infrastructure automation products, built on projects with source code freely available at their core, underpin the most important applications for the largest enterprises in the world. As part of the once-in-a-generation shift to the cloud, organizations of all sizes, from well-known brands to ambitious start-ups, rely on our solutions to provision, secure, connect, and run their business-critical applications so they can deliver essential services, communications tools, and entertainment platforms worldwide. |
+At HashiCorp, we believe infrastructure enables innovation, and we're helping organizations to operate that infrastructure in the cloud.
+
+<details> <summary> See more </summary><br>
+
+Our suite of multicloud infrastructure automation products, built on projects with source code freely available at their core, underpin the most important applications for the largest enterprises in the world. As part of the once-in-a-generation shift to the cloud, organizations of all sizes, from well-known brands to ambitious start-ups, rely on our solutions to provision, secure, connect, and run their business-critical applications so they can deliver essential services, communications tools, and entertainment platforms worldwide.
+
+</details>
 
 For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Hasicorp on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/hashicorp-4665790.terraform-azure-saas?tab=overview).
 
 ### Akuity
 
-![Akuity logo](./media/azure-linux-aks-partner-solutions/Akuity.png)
+![Akuity logo](./media/azure-linux-aks-partner-solutions/Akuity.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
 | Akuity Platform | DevOps |
 
-The Akuity Platform is a managed solution for Argo CD from the creators of Argo open source project. Argo Project is a suite of open source tools for deploying and running applications and workloads on Kubernetes. It extends the Kubernetes APIs and unlocks new and powerful capabilities in application deployment, container orchestration, event automation, progressive delivery, and more. Akuity is rooted in Argo, extending its capabilities and using the same familiar user interface. The platform solves real-life DevOps use cases using battle-tested patterns packaged into a product with the best possible developer experience.
+The Akuity Platform is a managed solution for Argo CD from the creators of Argo open source project.
+
+<details> <summary> See more </summary><br>
+
+Argo Project is a suite of open source tools for deploying and running applications and workloads on Kubernetes. It extends the Kubernetes APIs and unlocks new and powerful capabilities in application deployment, container orchestration, event automation, progressive delivery, and more.
+
+Akuity is rooted in Argo, extending its capabilities and using the same familiar user interface. The platform solves real-life DevOps use cases using battle-tested patterns packaged into a product with the best possible developer experience.
+
+</details>
 
 For more information, see [Akuity Solutions](https://akuity.io/).
 
 ### Kong
 
-![Kong logo](./media/azure-linux-aks-partner-solutions/Kong.png)
+![Kong logo](./media/azure-linux-aks-partner-solutions/Kong.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
 | Kong Connect | DevOps <br> Security |
 
 Kong Konnect is the unified cloud-native API lifecycle platform to optimize any environment. It reduces operational complexity, promotes federated governance, and provides robust security by seamlessly managing Kong Gateway, Kong Ingress Controller and Kong Mesh with a single management console, delivering API configuration, portal, service catalog, and analytics capabilities.
+
+<details> <summary> See more </summary><br>
 
 A unified Konnect control plane empowers businesses to:
 
@@ -84,6 +100,8 @@ A unified Konnect control plane empowers businesses to:
 
 Kong’s extensive ecosystem of community and enterprise plugins delivers critical functionality, including authentication, authorization, rate limiting, request enforcement, caching and more, without increasing API platform’s footprint.
 
+</details>
+
 For more information, see [Kong Solutions](https://konghq.com/) and [Kong on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/konginc1581527938760.kong-enterprise?tab=Overview).
 
 ## Networking
@@ -92,7 +110,7 @@ Ensure efficient traffic management, enhanced security, and optimal network perf
 
 ### Buoyant
 
-![Buoyant logo](./media/azure-linux-aks-partner-solutions/Buoyant.png)
+![Buoyant logo](./media/azure-linux-aks-partner-solutions/Buoyant.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
@@ -104,15 +122,23 @@ For more information, see [Buoyant Solutions](https://buoyant.io/cloud) and [Buo
 
 ### Isovalent
 
-![Isovalent logo](./media/azure-linux-aks-partner-solutions/Isovalent.png)
+![Isovalent logo](./media/azure-linux-aks-partner-solutions/Isovalent.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
 | Isovalent Enterprise for Cilium | Networking <br> Security <br> Observability |
 
-Isovalent Enterprise for Cilium provides advanced network policy capabilities, including DNS-aware policy, L7 policy, and deny policy, enabling fine-grained control over network traffic for micro-segmentation and improved security. It also provides multi-cluster connectivity via Cluster Mesh, seamless networking and security across multiple clouds, including public cloud providers like AWS, Azure, and Google Cloud Platform, as well as on-premises environments. With free service-to-service communication and advanced load balancing, Isovalent makes it easy to deploy and manage complex microservices architectures.
+Isovalent Enterprise for Cilium provides advanced network policy capabilities, including DNS-aware policy, L7 policy, and deny policy, enabling fine-grained control over network traffic for micro-segmentation and improved security.
 
-The Hubble flow observability + User Interface feature provides real-time network traffic flow and policy visualization, as well as a powerful User Interface for easy troubleshooting and network management. Tetragon provides advanced security capabilities such as protocol enforcement, IP and port allow lists, and automatic application-aware policy generation to protect against the most sophisticated threats. Tetragon is built on eBPF, enabling scaling to meet the needs of the most demanding cloud-native environments with ease. Isovalent provides enterprise-grade support from their experienced team of experts, ensuring that any issues are resolved in a timely and efficient manner. Additionally, professional services help organizations deploy and manage Cilium in production environments.
+<details> <summary> See more </summary><br>
+
+Isovalent also provides multi-cluster connectivity via Cluster Mesh, seamless networking and security across multiple clouds, including public cloud providers like AWS, Azure, and Google Cloud Platform, as well as on-premises environments. With free service-to-service communication and advanced load balancing, Isovalent makes it easy to deploy and manage complex microservices architectures.
+
+The Hubble flow observability + User Interface feature provides real-time network traffic flow and policy visualization, as well as a powerful User Interface for easy troubleshooting and network management. Tetragon provides advanced security capabilities such as protocol enforcement, IP and port allow lists, and automatic application-aware policy generation to protect against the most sophisticated threats. Tetragon is built on eBPF, enabling scaling to meet the needs of the most demanding cloud-native environments with ease.
+
+Isovalent provides enterprise-grade support from their experienced team of experts, ensuring that any issues are resolved in a timely and efficient manner. Additionally, professional services help organizations deploy and manage Cilium in production environments.
+
+</details>
 
 For more information, see [Isovalent Solutions](https://isovalent.com/blog/post/isovalent-azure-linux/) and [Isovalent on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/isovalentinc1662143158090.isovalent-cilium-enterprise?tab=overview).
 
@@ -122,7 +148,7 @@ Observability provides deep insights into your systems, enabling rapid issue det
 
 ### Dynatrace
 
-![Dynatrace logo](./media/azure-linux-aks-partner-solutions/Dynatrace.png)
+![Dynatrace logo](./media/azure-linux-aks-partner-solutions/Dynatrace.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
@@ -138,13 +164,19 @@ Ensure the integrity and confidentiality of applications, thereby fostering trus
 
 ### Tetrate
 
-![Tetrate logo](./media/azure-linux-aks-partner-solutions/Tetrate.png)
+![Tetrate logo](./media/azure-linux-aks-partner-solutions/Tetrate.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
 | Tetrate Istio Distro (TID) | Security <br> Networking |
 
-Tetrate Istio Distro (TID) is a simple, safe enterprise-grade Istio distro, providing the easiest way of installing, operating, and upgrading. TID enforces fetching certified versions of Istio and enables only compatible versions of Istio installation. It includes a FIPS-compliant flavor, delivers platform-based Istio configuration validations by integrating validation libraries from multiple sources, uses various cloud provider certificate management systems to create Istio CA certs that are used for signing service mesh managed workloads, and provides multiple additional integration points with cloud providers.
+Tetrate Istio Distro (TID) is a simple, safe enterprise-grade Istio distro, providing the easiest way of installing, operating, and upgrading.
+
+<details> <summary> See more </summary><br>
+
+TID enforces fetching certified versions of Istio and enables only compatible versions of Istio installation. It includes a FIPS-compliant flavor, delivers platform-based Istio configuration validations by integrating validation libraries from multiple sources, uses various cloud provider certificate management systems to create Istio CA certs that are used for signing service mesh managed workloads, and provides multiple additional integration points with cloud providers.
+
+</details>
 
 For more information, see [Tetrate Solutions](https://istio.tetratelabs.io/download/) and [Tetrate on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tetrate1598353087553.tetrateistio?tab=Overview).
 
@@ -154,7 +186,7 @@ Storage enables standardized and seamless storage interactions, ensuring high ap
 
 ### Veeam
 
-![Veeam logo](./media/azure-linux-aks-partner-solutions/Veeam.png)
+![Veeam logo](./media/azure-linux-aks-partner-solutions/Veeam.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
@@ -170,7 +202,7 @@ Automate and standardize the system settings across your environments to enhance
 
 ### Corent
 
-![Corent logo](./media/azure-linux-aks-partner-solutions/Corent.png)
+![Corent logo](./media/azure-linux-aks-partner-solutions/Corent.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
@@ -186,17 +218,23 @@ Migrate workloads to Azure Linux Container Host on AKS with confidence.
 
 ### Catalogic
 
-LOGO HERE
+![Catalogic logo](./media/azure-linux-aks-partner-solutions/Catalogic.png){: width="35%" height="auto"}
 
 | Solution | Categories |
 |----------|------------|
 | CloudCasa | Migration |
 
-CloudCasa is a Kubernetes backup, recovery, and migration solution that is fully compatible with AKS, as well as all other major Kubernetes distributions and managed services. Install the CloudCasa agent and let it do all the hard work of protecting and recovering your cluster resources and persistent data from human error, security breaches, and service failures, including providing the business continuity and compliance that your business requires.
+CloudCasa is a Kubernetes backup, recovery, and migration solution that is fully compatible with AKS, as well as all other major Kubernetes distributions and managed services.
+
+<details> <summary> See more </summary><br>
+
+Install the CloudCasa agent and let it do all the hard work of protecting and recovering your cluster resources and persistent data from human error, security breaches, and service failures, including providing the business continuity and compliance that your business requires.
 
 From a single dashboard, CloudCasa makes cross-cluster, cross-tenant, cross-region and cross-cloud recoveries easy. Recovery and migration from backups includes recovering an entire cluster along with your vNETs, add-ons, load balancers and more. During recovery, users can migrate to Azure Linux, and migrate storage resources from Azure Disk to Azure Container Storage.
 
 CloudCasa can also centrally manage Azure Backup or Velero backup installations across multiple clusters and cloud providers, with migration of resources to different environments.
+
+</details>
 
 For more information, see [Catalogic Solutions](https://cloudcasa.io/) and [Catalogic on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/catalogicsoftware1625626770507.cloudcasa-aks-app).
 
