@@ -52,18 +52,25 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 ## Create connected logistics application
 
-Create the application using following steps:
+To create your IoT Central application:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab.
+1. Navigate to the [Create IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal. If prompted, sign in with your Azure account.
 
-1. Select **Create app** under **Connected Logistics**.
+1. Enter the following information:
 
-1. **Create app** opens the **New application** form. Enter the following details:
+    | Field | Description |
+    | ----- | ----------- |
+    | Subscription | The Azure subscription you want to use. |
+    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource name | A valid Azure resource name. |
+    | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
+    | Template | **Connected Logistics** |
+    | Region | The Azure region you want to use. |
+    | Pricing plan | The pricing plan you want to use. |
 
-    - **Application name**: you can use default suggested name or enter your friendly application name.
-    - **URL**: you can use suggested default URL or enter your friendly unique memorable URL.
-    - **Billing Info**: The directory, Azure subscription, and region details are required to provision the resources.
-    - **Create**: Select create at the bottom of the page to deploy your application.
+1. Select **Review + create**. Then select **Create**.
+
+[!INCLUDE [iot-central-navigate-from-portal](../../../includes/iot-central-navigate-from-portal.md)]
 
 ## Walk through the application
 

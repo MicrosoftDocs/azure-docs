@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager template samples for chaos experiments
-description: Sample Azure Resource Manager templates to create Azure Chaos Studio Preview experiments.
+description: Sample Azure Resource Manager templates to create Azure Chaos Studio experiments.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: sample
@@ -10,8 +10,8 @@ ms.service: chaos-studio
 ms.custom: devx-track-arm-template
 ---
 
-# ARM template samples for experiments in Azure Chaos Studio Preview
-This article includes sample [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/syntax.md) to create a [chaos experiment](chaos-studio-chaos-experiments.md) in Azure Chaos Studio Preview. Each sample includes a template file and a parameters file with sample values to provide to the template.
+# ARM template samples for experiments in Azure Chaos Studio
+This article includes sample [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/syntax.md) to create a [chaos experiment](chaos-studio-chaos-experiments.md) in Azure Chaos Studio. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 ## Create an experiment (sample)
 
@@ -50,7 +50,7 @@ In this sample, we create a chaos experiment with a single target resource and a
   "resources": [
     {
       "type": "Microsoft.Chaos/experiments",
-      "apiVersion": "2021-09-15-preview",
+      "apiVersion": "2023-11-01",
       "name": "[parameters('experimentName')]",
       "location": "[parameters('location')]",
       "identity": {

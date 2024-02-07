@@ -4,9 +4,8 @@ titleSuffix: Azure Storage
 description: Learn how to enable SFTP support for Azure Blob Storage so that you can directly connect to your Azure Storage account by using an SFTP client.
 author: normesta
 
-ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/17/2023
 ms.author: normesta
@@ -107,7 +106,7 @@ az storage account update -g <resource-group> -n <storage-account> --enable-sftp
 
 ## Configure permissions
 
-Azure Storage doesn't support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
+Azure Storage doesn't support shared access signature (SAS), or Microsoft Entra authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
 
 In this section, you'll learn how to create a local user, choose an authentication method, and assign permissions for that local user. 
 
@@ -155,6 +154,9 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    > [!div class="mx-imgBorder"]
    > ![Container permissions tab](./media/secure-file-transfer-protocol-support-how-to/container-perm-tab.png)
 
+   > [!IMPORTANT]
+   > The local user must have at least one container permission for the container it is connecting to otherwise the connection attempt will fail.
+
 6. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this local user. 
 
    To learn more about the home directory, see [Home directory](secure-file-transfer-protocol-support.md#home-directory).
@@ -179,7 +181,9 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 
    ```powershell
    $permissionScope = New-AzStorageLocalUserPermissionScope -Permission rw -Service blob -ResourceName mycontainer 
-   ``` 
+   ```
+   > [!IMPORTANT]
+   > The local user must have at least one container permission for the container it is connecting to otherwise the connection attempt will fail.
 
 2. Decide which methods of authentication you'd like associate with this local user. You can associate a password and / or an SSH key. 
 

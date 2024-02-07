@@ -12,7 +12,7 @@ ms.date: 03/08/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp
-ms.custom: azureday1, devx-track-js
+ms.custom: azureday1, devx-track-js, AppServiceConnectivity
 ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---

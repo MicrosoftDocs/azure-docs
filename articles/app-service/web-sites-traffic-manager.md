@@ -5,8 +5,8 @@ description: Find best practices for configuring Azure Traffic Manager when you 
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.topic: article
 ms.date: 02/25/2016
-ms.custom: seodec18
-
+author: cephalin
+ms.author: cephalin
 ---
 # Controlling Azure App Service traffic with Azure Traffic Manager
 > [!NOTE]
@@ -43,5 +43,3 @@ When using Azure Traffic Manager with Azure, keep in mind the following points:
 
 ## Next Steps
 For a conceptual and technical overview of Azure Traffic Manager, see [Traffic Manager Overview](../traffic-manager/traffic-manager-overview.md).
-
-

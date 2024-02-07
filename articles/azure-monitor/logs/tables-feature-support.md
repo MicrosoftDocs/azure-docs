@@ -4,7 +4,6 @@ description: Reference for tables that support ingestion-time transformations in
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.tgt_pltfrm: na
 ms.date: 07/10/2022
 ---
 
@@ -135,7 +134,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | |
 | [ASimAuditEventLogs](/azure/azure-monitor/reference/tables/ASimAuditEventLogs) | |
 | [ASimDnsActivityLogs](/azure/azure-monitor/reference/tables/ASimDnsActivityLogs) | |
-| ASimFileEventLogs | |
+| [ASimFileEventLogs](/azure/azure-monitor/reference/tables/asimfileeventlogs) | |
 | [ASimNetworkSessionLogs](/azure/azure-monitor/reference/tables/ASimNetworkSessionLogs) | |
 | [ASimWebSessionLogs](/azure/azure-monitor/reference/tables/ASimWebSessionLogs) | |
 | [ATCExpressRouteCircuitIpfix](/azure/azure-monitor/reference/tables/atcexpressroutecircuitipfix) | |

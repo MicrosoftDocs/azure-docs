@@ -11,7 +11,6 @@ ms.author: banders
 ms.reviewer: mattmcinnes
 ---
 
-
 # Save costs with Azure Dedicated Host reservations
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
@@ -22,16 +21,13 @@ include software licensing costs. See the [Overview of Azure Dedicated Hosts for
 ## Determine the right dedicated host SKU before you buy
 
 
-Before you buy a reservation, you should determine which dedicated host you need. A SKU is defined for a dedicated host representing the VM series and
-type. 
+Before you buy a reservation, you should determine which dedicated host you need. A SKU is defined for a dedicated host representing the VM series and type. 
 
 Start by going over the supported sizes for [Windows virtual machine](./sizes.md) or [Linux](./sizes.md) to identify the VM series.
 
 Next, check whether it is supported on Azure Dedicated Hosts. [Azure Dedicated Hosts pricing](https://aka.ms/ADHPricing) page has the complete list of dedicated hosts SKUs, their CPU information, and various pricing options (including reserved instances).
 
-You may find several SKUs supporting your selected VM series (with different Types). Identify the best SKU by comparing the capacity of the host (number of vCPUs). Note that you will be able to apply your reservation to multiple dedicated hosts SKUs supporting the same VM series (for example DSv3_Type1 and DSv3_Type2) but not across different VM series (like DSv3 and ESv3).
-
-
+You may find several SKUs supporting your selected VM series (with different Types). Identify the best SKU by comparing the capacity of the host (number of vCPUs). Note that you will be able to apply your reservation to multiple dedicated hosts SKUs supporting the same VM series (for example DSv3_Type1 and DSv3_Type2) but not across different VM series (like DSv3 and ESv3).  Over the lifetime of the reservation, you may need to switch between different dedicated host SKUs that support the same VM size, depending on the hardware usage fluctuations and lifecycle.
 
 ## Purchase restriction considerations
 
@@ -97,9 +93,6 @@ For more information about how reservation discounts appear in usage data, see 
 You can make the following types of changes to a reservation after purchase:
 
 - Update reservation scope
-
-- Instance size flexibility (if applicable)
-
 - Ownership
 
 You can also split a reservation into smaller chunks and merge already split reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
@@ -147,3 +140,5 @@ To learn more about Azure Reservations, see the following articles:
 - [Windows software costs not included with reservations](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
+
+

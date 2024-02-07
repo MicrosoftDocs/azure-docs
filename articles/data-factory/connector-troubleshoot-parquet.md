@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -176,7 +176,7 @@ This article provides suggestions to troubleshoot common problems with the Parqu
 
 - **Resolution**: Try to generate smaller files (size < 1G) with a limitation of 1000 rows per file.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

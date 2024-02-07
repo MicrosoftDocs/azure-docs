@@ -58,21 +58,25 @@
 
 1. Don't change any other fields. Use the filled in configuration in client input to connect to the VPN.
 
-1. To connect using the command line, type the following command:
+   - To connect using the command line, type the following command:
   
-    ```
-    sudo openvpn --config <name and path of your VPN profile file>&
-    ```
+     ```
+     sudo openvpn --config <name and path of your VPN profile file>&
+     ```
+   - To disconnect using command line, type the following command:
 
-1. To connect using the GUI, go to system settings.
+     ```
+     sudo pkill openvpn
+     ```
+   - To connect using the GUI, go to system settings.
 
-1. Click **+** to add a new VPN connection.
+1. Select **+** to add a new VPN connection.
 
 1. Under **Add VPN**, pick **Import from file…**.
 
 1. Browse to the profile file and double-click or pick **Open**.
 
-1. Click **Add** on the **Add VPN** window.
+1. Select **Add** on the **Add VPN** window.
   
    :::image type="content" source="./media/vpn-gateway-vwan-config-openvpn-linux/import.png" alt-text="Screenshot shows Import from file on the Add VPN page." lightbox="./media/vpn-gateway-vwan-config-openvpn-linux/import.png":::
 

@@ -8,7 +8,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to 
 ms.date: 06/27/2023
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
 
 # Get Load Balancer metrics with Azure Monitor CLI 

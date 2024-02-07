@@ -21,19 +21,17 @@ VM extensions can be applied to your Azure Arc-enabled server-managed machine vi
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
-2. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
+2. In the portal, browse to **Machines - Azure Arc** and select your machine from the list.
 
-3. Choose **Extensions**, then select **Add**. Choose the extension you want from the list of available extensions and follow the instructions in the wizard. In this example, we will deploy the Log Analytics VM extension.
+3. Choose **Extensions**, then select **Add**.
 
-    ![Select VM extension for selected machine](./media/manage-vm-extensions/add-vm-extensions.png)
-
-    The following example shows the installation of the Log Analytics VM extension from the Azure portal:
+4. Choose the extension you want from the list of available extensions and follow the instructions in the wizard. In this example, we will deploy the Log Analytics VM extension.
 
     ![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
     To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/agents/agent-windows.md#workspace-id-and-key).
 
-4. After confirming the required information provided, select **Review + Create**. A summary of the deployment is displayed and you can review the status of the deployment.
+5. After confirming the required information provided, select **Review + Create**. A summary of the deployment is displayed and you can review the status of the deployment.
 
 >[!NOTE]
 >While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
@@ -44,7 +42,7 @@ You can get a list of the VM extensions on your Azure Arc-enabled server from th
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
-2. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
+2. In the portal, browse to **Machines - Azure Arc** and select your machine from the list.
 
 3. Choose **Extensions**, and the list of installed extensions is returned.
 
@@ -68,7 +66,7 @@ You can upgrade one, or select multiple extensions eligible for an upgrade from 
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
-2. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
+2. In the portal, browse to **Machines - Azure Arc** and select your hybrid machine from the list.
 
 3. Choose **Extensions**, and review the status of extensions under the **Update available** column.
 
@@ -90,7 +88,7 @@ You can remove one or more extensions from an Azure Arc-enabled server from the 
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
-2. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
+2. In the portal, browse to **Machines - Azure Arc** and select your hybrid machine from the list.
 
 3. Choose **Extensions**, and then select an extension from the list of installed extensions.
 

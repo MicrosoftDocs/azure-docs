@@ -6,7 +6,7 @@ author: rolyon
 manager: amycolannino
 
 ms.service: role-based-access-control
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 02/02/2019
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this tutorial, you will need:
 
-- Permissions to create users in Azure Active Directory (or have an existing user)
+- Permissions to create users in Microsoft Entra ID (or have an existing user)
 - [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
 
 ## Role assignments

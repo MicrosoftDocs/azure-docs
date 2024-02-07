@@ -1,8 +1,6 @@
 ---
 title: Azure Fluid Relay FAQ
 description: Frequently asked questions about Fluid Relay
-author: hickeys
-ms.author: hickeys
 ms.date: 6/1/2022
 ms.service: azure-fluid
 ms.topic: reference

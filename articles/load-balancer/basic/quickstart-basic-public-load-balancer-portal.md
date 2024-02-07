@@ -23,7 +23,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create the virtual network
 
@@ -301,4 +301,3 @@ To learn more about Azure Load Balancer, continue to:
 
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](../load-balancer-overview.md)
-

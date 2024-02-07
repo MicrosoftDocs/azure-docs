@@ -3,14 +3,15 @@ title: Back up Azure VMware Solution VMs with Azure Backup Server
 description: Configure your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 08/23/2022
+ms.date: 12/21/2023
+ms.custom: engagement-fy23
 ---
 
 # Back up Azure VMware Solution VMs with Azure Backup Server
 
 This article shows you how to back up VMware virtual machines (VMs) running on Azure VMware Solution with Azure Backup Server.  First, thoroughly go through [Set up Microsoft Azure Backup Server for Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
 
-Then, we'll walk through all of the necessary procedures to:
+Then, walk through all of the necessary procedures to:
 
 > [!div class="checklist"] 
 > * Set up a secure channel so that Azure Backup Server can communicate with VMware vCenter Server over HTTPS. 
@@ -31,12 +32,12 @@ By default, Azure Backup Server communicates with VMware vCenter Server over HTT
 
 1. On the VMware vSphere Client **Getting Started** page, select **Download trusted root CA certificates**.
 
-   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="Screenshot showing the vSphere Web Client Getting Started window to access vSphere remotely.":::
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="Screenshot showing the vSphere Client Getting Started window to access vSphere remotely.":::
 
 1. Save the **download.zip** file to the Azure Backup Server machine, and then extract its contents to the **certs** folder, which contains the:
 
-   - Root certificate file with an extension that begins with a numbered sequence like .0 and .1.
-   - CRL file with an extension that begins with a sequence like .r0 or .r1.
+   - Root certificate file with an extension that begins with a numbered sequence like 0.0 and 0.1.
+   - CRL file with an extension that begins with a sequence like, .r0 or .r1.
 
 1. In the **certs** folder, right-click the root certificate file and select **Rename** to change the extension to **.crt**.
 
@@ -200,7 +201,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
 1. On the **Review Disk Storage Allocation** page, review the disk space provided for the VM backups.
 
-   - The recommended disk allocations are based on the retention range you specified, the workload type, and the protected data size. Make any changes required, and then select **Next**.
+   - The recommended disk allocations are based on the retention range you specified, the workload type, and the protected data size. Make any changes that are required, then select **Next**.
    - **Data size:** Size of the data in the protection group.
    - **Disk space:** Recommended amount of disk space for the protection group. If you want to modify this setting, select space lightly larger than the amount you estimate each data source grows.
    - **Storage pool details:** Shows the status of the storage pool, which includes total and remaining disk size.
@@ -232,9 +233,9 @@ Protection groups gather multiple VMs and apply the same data retention and back
 1. On the **Specify Online Backup Schedule** page, indicate how often you want to back up data from local storage to Azure. 
 
    - Cloud recovery points for the data to get generated according to the schedule. 
-   - After the recovery point gets generated, it's then transferred to the Recovery Services vault in Azure.
+   - After the recovery point gets generated, it gets transferred to the Recovery Services vault in Azure.
 
-   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png" alt-text="Screenshot showing the Create New Protection Group Wizard to specify online backup schedule which DPN will use to generate your protection plan.":::
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png" alt-text="Screenshot showing the Create New Protection Group Wizard to specify online backup schedule and which DPN is used to generate your protection plan.":::
 
 1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points created from the backups to Azure.
 
@@ -271,7 +272,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 1. In the Azure Backup Server Administrator Console, select the **Recovery** view. 
 
-1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for pane display the available recovery points.
+1. Use the **Browse** pane and browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for pane display the available recovery points.
 
    :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/recovery-points.png" alt-text="Screenshot showing the available recovery points for VMware vCenter Server.":::
 
@@ -306,14 +307,14 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 ### Restore an individual file from a VM
 
-You can restore individual files from a protected VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the files you want before you start the recovery process. 
+You can restore individual files from a protected VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse in the VMDK and find the files you want before you start the recovery process. 
 
 > [!NOTE]
 > Restoring an individual file from a VM is available only for Windows VM and disk recovery points.
 
 1. In the Azure Backup Server Administrator Console, select the **Recovery** view.
 
-1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for pane display the available recovery points.
+1. In the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for pane display the available recovery points.
 
    :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png" alt-text="Screenshot showing the recovery points for VMware vCenter Server.":::
 
@@ -329,11 +330,11 @@ You can restore individual files from a protected VM recovery point. This featur
 1. To find the files you want to recover, in the **Path** pane, double-click the item in the **Recoverable Item** column to open it. Then select the file or folders you want to recover. To select multiple items, select the **Ctrl** key while you select each item. Use the **Path** pane to search the list of files or folders that appear in the **Recoverable Item** column.
     
    > [!NOTE]
-   > **Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the **Up** button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job.
+   > The option, **Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the **Up** button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job.
 
    :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png" alt-text="Screenshot showing the date and time for the available recovery points selected.":::
 
-1. When you've selected the items for recovery, in the Administrator Console tool ribbon, select **Recover** to open the **Recovery Wizard**. In the **Recovery Wizard**, the **Review Recovery Selection** screen shows the selected items to be recovered.
+1. After selecting the items for recovery, in the Administrator Console tool ribbon, select **Recover** to open the **Recovery Wizard**. In the **Recovery Wizard**, the **Review Recovery Selection** screen shows the selected items to be recovered.
 
 1. On the **Specify Recovery Options** screen, do one of the following steps:
 
@@ -352,7 +353,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
 ## Next steps
 
-Now that you've covered backing up your Azure VMware Solution VMs with Azure Backup Server, you may want to learn about: 
+Now that you know how to back up your Azure VMware Solution VMs with Azure Backup Server, expand your knowledge and learn more about: 
 
 - [Troubleshooting when setting up backups in Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md).
 - [Lifecycle management of Azure VMware Solution VMs](./integrate-azure-native-services.md).

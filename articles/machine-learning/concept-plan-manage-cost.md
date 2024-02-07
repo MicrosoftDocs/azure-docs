@@ -1,10 +1,10 @@
 ---
-title: Plan to manage costs 
+title: Plan to manage costs
 titleSuffix: Azure Machine Learning
-description: Plan and manage costs for Azure Machine Learning with cost analysis in Azure portal. Learn further cost-saving tips to lower your cost when building ML models.  
+description: Plan and manage costs for Azure Machine Learning with cost analysis in Azure portal. Learn further cost-saving tips to lower your cost when building ML models.
 author: sdgilley
 ms.author: sgilley
-ms.custom: subject-cost-optimization, event-tier1-build-2022, build-2023
+ms.custom: subject-cost-optimization, build-2023
 ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: mlops
@@ -21,11 +21,6 @@ After you've started using Azure Machine Learning resources, use the cost manage
 Understand that the costs for Azure Machine Learning are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you're billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for Azure Machine Learning. After you're familiar with managing costs for Azure Machine Learning, apply similar methods to manage costs for all the Azure services used in your subscription.
 
 For more information on optimizing costs, see [how to manage and optimize cost in Azure Machine Learning](how-to-manage-optimize-cost.md).
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -61,8 +56,8 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
-* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
-* Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+* [Enable idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
+* Or [set up a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance to save cost when you aren't planning to use it.
 
  
 ### Costs might accrue before resource deletion
@@ -89,13 +84,13 @@ After you delete an Azure Machine Learning workspace in the Azure portal or with
 
 To delete the workspace along with these dependent resources, use the SDK:
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 ```python
 from azure.ai.ml.entities import Workspace
 ml_client.workspaces.begin_delete(name=ws.name, delete_dependent_resources=True)
 ```
 
-If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in [Azure portal](https://portal.azure.com).
+If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in the [Azure portal](https://portal.azure.com).
 
 ### Using Azure Prepayment credit with Azure Machine Learning
 

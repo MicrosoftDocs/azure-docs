@@ -5,7 +5,7 @@ author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 09/07/2023
 ms.custom: template-how-to
 ---
 
@@ -15,10 +15,9 @@ To get started with Operator Nexus, you need to create a Network Fabric Controll
 in your target Azure region.
 
 Each NFC is associated with a CM in the same Azure region and your subscription.
-The NFC/CM pair lifecycle manages up to 32 Azure Operator Nexus instances deployed in your sites connected to this Azure region.
 
-You'll need to complete the prerequisites before you can deploy the Operator Nexus first NFC and CM pair.
-In subsequent deployments of Operator Nexus, you can skip to creating the NFC and CM.
+You'll need to complete the prerequisites before you can deploy the first Operator Nexus NFC and CM pair.
+In subsequent deployments of Operator Nexus, you will only need to create the NFC and CM after the [quota](./reference-limits-and-quotas.md#network-fabric) of supported Operator Nexus instances has been reached.
 
 ## Resource Provider Registration
 
@@ -26,7 +25,6 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
   necessary Azure Resource Providers:
   - Microsoft.NetworkCloud
   - Microsoft.ManagedNetworkFabric
-  - Microsoft.HybridContainerService
   - Microsoft.HybridNetwork
   - Microsoft.Storage 
   - Microsoft.Keyvault 
@@ -34,7 +32,6 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
   - Microsoft.ExtendedLocation 
   - Microsoft.HybridCompute 
   - Microsoft.HybridConnectivity 
-  - Microsoft.HybridContainerService 
   - Microsoft.Insights 
   - Microsoft.Kubernetes 
   - Microsoft.KubernetesConfiguration 
@@ -43,7 +40,8 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
   - Microsoft.ResourceConnector 
   - Microsoft.Resources
 
-## Dependant Azure resources setup
+## Dependent Azure resources setup
+
 - Establish [ExpressRoute](/azure/expressroute/expressroute-introduction) connectivity
   from your on-premises network to an Azure Region:
   - ExpressRoute circuit [creation and verification](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)
@@ -76,10 +74,9 @@ Install latest version of the
 ```
 
 >[!NOTE]
->The account must have permissions to read/write/publish in the subscription
+>Your account must have permissions to read/write/publish in the subscription
 
 ## Create steps
 
 - Step 1: [Create Network Fabric Controller](./howto-configure-network-fabric-controller.md)
 - Step 2: [Create Cluster Manager](./howto-cluster-manager.md)
-- 

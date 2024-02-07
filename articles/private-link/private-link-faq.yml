@@ -62,9 +62,9 @@ sections:
           No. You don't require a dedicated subnet for Private Endpoints. You can choose a Private Endpoint IP from any subnet from the VNet where your service is deployed.  
 
       - question: |
-          Can a private endpoint connect to Private Link services across Azure Active Directory tenants? 
+          Can a private endpoint connect to Private Link services across Microsoft Entra tenants? 
         answer: |
-          Yes. Private endpoints can connect to Private Link services or to an Azure PaaS across Azure Active Directory tenants. Private Endpoints across tenants require a manual request approval. 
+          Yes. Private endpoints can connect to Private Link services or to an Azure PaaS across Microsoft Entra tenants. Private Endpoints across tenants require a manual request approval. 
 
       - question: |
           Can Private Endpoint connect to Azure PaaS resources across Azure regions?

@@ -5,7 +5,7 @@ description: Learn how to configure an Always On VPN user tunnel for your VPN ga
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 08/11/2023
 ms.author: cherylmc
 
 ---

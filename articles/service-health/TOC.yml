@@ -36,6 +36,8 @@
     href: ./alerts-activity-log-service-notifications-portal.md
   - name: View service health notifications by using the Azure portal
     href: service-notifications.md
+  - name: Elevated access requirement for viewing Security Advisories
+    href: security-advisories-elevated-access.md 
   - name: Send alerts to outside systems via webhook
     href: service-health-alert-webhook-guide.md
   - name: Send alerts to ServiceNow
@@ -58,6 +60,8 @@
     href: resource-health-checks-resource-types.md
   - name: Impacted Resources Support for Outages
     href: impacted-resources-outage.md
+  - name: Impacted Resources Support for Planned Maintenance Events
+    href: impacted-resources-planned-maintenance.md
   - name: Impacted Resources Support for Security Incidents
     href: impacted-resources-security.md
   - name: Resource Health FAQ

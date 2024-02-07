@@ -5,7 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.custom: devx-track-azurecli
+ms.topic: article
 ms.date: 06/07/2023
 ms.author: danlep
 ---
@@ -85,14 +86,14 @@ Use the policy to configure a single query request, read request, delete request
     <write-request type="insert | replace | upsert" consistency-level="bounded-staleness | consistent-prefix | eventual | session | strong" pre-trigger="myPreTrigger" post-trigger="myPostTrigger">
         <id template="liquid">
             "Item ID in container"
-        </id>       
+        </id>
+         <partition-key data-type="string | number | bool | none | null" template="liquid"> 
+            "Container partition key"
+        </partition-key>      
         <etag type="match | no-match" template="liquid" > 
             "System-generated entity tag" 
-        </etag> 
-        <set-body template="liquid" >...set-body policy configuration...</set-body>
-        <partition-key data-type="string | number | bool | none | null" template="liquid"> 
-            "Container partition key"
-        </partition-key> 
+        </etag>
+        <set-body template="liquid" >...set-body policy configuration...</set-body> 
     </write-request>
     
     <response> 
@@ -269,7 +270,7 @@ resourceGroupName="<MY-RESOURCE-GROUP>"
 # Variable for subscription
 resourceGroupName="<MY-SUBSCRIPTION-NAME>"
 
-# Set principal variable to the value from Azure portal
+# Set principal variable to the value from Managed identities page of API Management instance in Azure portal
 principal="<MY-APIM-MANAGED-ID-PRINCIPAL-ID>"
 
 # Get the scope value of Cosmos DB account
@@ -321,7 +322,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
         <container-name>myContainer</container-name>
     </connection-info>
     <query-request>
-        <sql-statement>SELECT * FROM c </sqlstatement>
+        <sql-statement>SELECT * FROM c </sql-statement>
     </query-request>
 </cosmosdb-data-source>
 ```

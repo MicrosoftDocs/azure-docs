@@ -82,7 +82,7 @@ To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](/
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 
-In the following code, `hostname` is the host name or IP address for SAP Web Dispatcher or the application server. `SapHostFileEntry` is the IP address, fully qualified domain name, or host name of every instance that's listed in [GetSystemInstanceList](./provider-netweaver.md#determine-all-hostname-associated-with-an-sap-system).
+In the following code, `hostname` is the host name or IP address for SAP Web Dispatcher or the application server. `SapHostFileEntry` is the IP address, fully qualified domain name, or host name of every instance that's listed in [GetSystemInstanceList](./provider-netweaver.md#adding-netweaver-provider) point 6 (xi).
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'

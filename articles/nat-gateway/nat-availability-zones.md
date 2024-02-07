@@ -54,9 +54,10 @@ A zonal promise for zone isolation scenarios exists when a virtual machine insta
 
 *Figure 3: Zonal isolation by creating zonal stacks with the same zone NAT gateway, public IPs, and virtual machines provides the best method of ensuring zone resiliency against outages.*
 
-Failure of outbound connectivity due to a zone outage is isolated to the specific zone affected. The outage won't affect the other zonal stacks where other NAT gateways are deployed with their own subnets and zonal public IPs. 
+> [!NOTE]
+> Creating zonal stacks for each availability zone within a region is the most effective method for building zone-resiliency against outages for NAT gateway. However, ths configuration only safeguards the remaining availability zones where the outage did **not** take place. With this configuration, failure of outbound connectivity from a zone outage is isolated to the specific zone affected. The outage won't affect the other zonal stacks where other NAT gateways are deployed with their own subnets and zonal public IPs. 
 
-Creating zonal stacks for each availability zone within a region is the most effective method for building zone-resiliency against outages for NAT gateway. 
+
 
 ### Integration of inbound with a standard load balancer  
 

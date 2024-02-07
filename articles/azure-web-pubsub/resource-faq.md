@@ -33,4 +33,4 @@ Azure Web PubSub service is more suitable for situations where:
 
 ##  Where does my data reside?
 
-Azure Web PubSub does not store any customer data. If you use Azure Web PubSub service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
+Azure Web PubSub does not store any customer data. If you use Azure Web PubSub service together with other Azure services, like Azure Storage for diagnostics, see [Azure Privacy Overview (white paper)](https://go.microsoft.com/fwlink/p/?linkid=2220836) for guidance about how to keep data residency in Azure regions.

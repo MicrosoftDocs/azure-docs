@@ -1,0 +1,49 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions on Azure Cosmos DB for MongoDB
+  description: Get answers to frequently asked questions about Azure Cosmos DB for MongoDB and the differences between the two offers.
+  author: gahl-levy
+  ms.author: gahllevy
+  ms.service: cosmos-db
+  ms.subservice: mongodb
+  ms.topic: faq
+  ms.date: 09/12/2023
+title: Frequently asked questions on Azure Cosmos DB for MongoDB
+summary: |
+  [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+
+sections:
+  - name: General FAQ
+    questions:
+      - question: |
+          Does Azure Cosmos DB for MongoDB support my data residency requirements?
+        answer: |
+          Yes, data residency is governed at the database account level, which is associated with one or more regions. Typically, you create a database account for each residency requirement. For example, if you have a requirement to store data in the US and EU, you would create two database accounts, one in the US and one in the EU.
+      - question: |
+          Does Azure Cosmos DB for MongoDB support documents larger than 2 MB?
+        answer: |
+          Yes, documents as large as 16 MB are fully supported.
+      - question: |
+          Does Azure Cosmos DB for MongoDB support multi-field sort?
+        answer: |
+          Yes, multi-field sort is supported. A compound index is required for the fields in the sort to ensure the operation is efficient and scalable.
+      - question: |
+          Does Azure Cosmos DB for MongoDB scale linearly?
+        answer: |
+          In many cases, Azure Cosmos DB's costs scale better than linear. For example, if you read a 1-KB document, this operation equates to one Request Unit (RU). But if you read a 10-KB document, this larger operation still equates to roughly one RU. The [capacity calculator](https://cosmos.azure.com/capacitycalculator/) can help you estimate your throughput needs.
+      - question: |
+          How can I encrypt data and manage access at the field level?
+        answer: |
+          Azure Cosmos DB for MongoDB supports Field Level Encryption.
+      - question: |
+          How do I pay for Request Units (RUs)?
+        answer: |
+          Azure Cosmos DB for MongoDB offers three capacity modes: provisioned throughput, autoscale, and serverless. Autoscale instantaneously scales to meet your needs, and serverless only charges for the throughput you use.
+      - question: |
+          Which features are supported in Azure Cosmos DB for MongoDB?
+        answer: |
+          Azure Cosmos DB for MongoDB supports a rich set of MongoDB features backed by Azure Cosmos DB's limitless scale architecture. These features include: Aggregation pipelines, Change streams, Indexes, Geospatial queries, and more. For more information, see [feature support matrix](feature-support-42.md). Not sure if your workload is ready?
+      - question: |
+          Does Azure Cosmos DB for MongoDB run on-premises?
+        answer: |
+          Azure Cosmos DB for MongoDB is a cloud-native multi-tenant service and isn't available on-premises. Azure Cosmos DB offers an [emulator for local development and testing](../emulator.md).

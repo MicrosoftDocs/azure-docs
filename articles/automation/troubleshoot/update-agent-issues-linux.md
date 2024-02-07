@@ -5,6 +5,7 @@ services: automation
 ms.date: 11/01/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
+ms.custom: linux-related-content
 ---
 
 # Troubleshoot Linux update agent issues
@@ -56,7 +57,7 @@ To verify if a VM is an Azure VM, check for Asset tag value using the below comm
 sudo dmidecode
 ```
 
-If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot VM to initiate re-registration. 
+If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot VM to initiate re-registration.
 
 
 ## Monitoring agent service health checks
@@ -65,23 +66,23 @@ If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot
 
 To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../../azure-monitor/agents/agent-linux.md).
 
-This task checks if the folder is present - 
+This task checks if the folder is present -
 
 */etc/opt/microsoft/omsagent/conf/omsadmin.conf*
 
 ### Monitoring Agent status
- 
-To fix this issue, you must start the OMS Agent service by using the following command: 
+
+To fix this issue, you must start the OMS Agent service by using the following command:
 
 ```bash
  sudo /opt/microsoft/omsagent/bin/service_control restart
 ```
 
-To validate you can perform process check using the below command: 
+To validate you can perform process check using the below command:
 
 ```bash
-process_name="omsagent" 
-ps aux | grep %s | grep -v grep" % (process_name)" 
+process_name="omsagent"
+ps aux | grep %s | grep -v grep" % (process_name)"
 ```
 
 For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md)
@@ -95,18 +96,18 @@ To fix this issue, purge the OMS Agent completely and reinstall it with the [wor
 
 Validate that there are no more multihoming by checking the directories under this path:
 
- */var/opt/microsoft/omsagent*. 
+ */var/opt/microsoft/omsagent*.
 
 As they are the directories of workspaces, the number of directories equals the number of workspaces on-boarded to OMSAgent.
 
 ### Hybrid Runbook Worker
-To fix the issue, run the following command: 
+To fix the issue, run the following command:
 
 ```bash
 sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'
 ```
 
-This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
+This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
 
 Validate to check if the following two paths exists:
 
@@ -135,7 +136,7 @@ To fix this issue, run the following command:
 sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'
 ```
 
-This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
+This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration.
 
 If the issue still persists, run the [omsagent Log Collector tool](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
 
@@ -157,7 +158,7 @@ HTTP_PROXY
 
 To fix this issue, allow access to IP **169.254.169.254**. For more information, see [Access Azure Instance Metadata Service](../../virtual-machines/windows/instance-metadata-service.md#azure-instance-metadata-service-windows)
 
-After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
+After the network changes, you can either rerun the Troubleshooter or run the below commands to validate:
 
 ```bash
  curl -H \"Metadata: true\" http://169.254.169.254/metadata/instance?api-version=2018-02-01
@@ -165,7 +166,7 @@ After the network changes, you can either rerun the Troubleshooter or run the be
 
 ### General internet connectivity
 
-This check makes sure that the machine has access to the internet and can be ignored if you have blocked internet and allowed only specific URLs. 
+This check makes sure that the machine has access to the internet and can be ignored if you have blocked internet and allowed only specific URLs.
 
 CURL on any http url.
 
@@ -210,9 +211,9 @@ Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](../..
 
 Post making Network changes you can either rerun the Troubleshooter or
 
-Curl on software repositories configured in package manager. 
+Curl on software repositories configured in package manager.
 
-Refreshing repos would help to confirm the communication. 
+Refreshing repos would help to confirm the communication.
 
 ```bash
 sudo apt-get check

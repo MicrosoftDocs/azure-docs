@@ -5,25 +5,42 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/19/2023
+ms.date: 09/14/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Application Gateway health monitoring overview
+# Application Gateway health probes overview
 
-Azure Application Gateway by default monitors the health of all resources in its backend pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy backend pool once they become available and respond to health probes. By default, Application gateway sends the health probes with the same port that is defined in the backend HTTP settings. A custom probe port can be configured using a custom health probe.
+Azure Application Gateway monitors the health of all the servers in its backend pool and automatically stops sending traffic to any server it considers unhealthy. The probes continue to monitor such an unhealthy server, and the gateway starts routing the traffic to it once again as soon as the probes detect it as healthy. 
 
-The source IP address that Application Gateway uses for health probes depend on the backend pool:
- 
-- If the server address in the backend pool is a public endpoint, then the source address is the application gateway's frontend public IP address.
-- If the server address in the backend pool is a private endpoint, then the source IP address is from the application gateway subnet's private IP address space.
+The default probe uses the port number from the associated Backend Setting and other [preset configurations](#default-health-probe). You can use Custom Probes to configure them your way.
+
+## Probes behavior
+
+### Source IP address
+The source IP address of the probes depends on the backend server type:
+- If the server in the backend pool is a public endpoint, the source address will be your application gateway's frontend public IP address.
+- If the server in the backend pool is a private endpoint, the source IP address will be from your application gateway subnet's address space.
+
+### Probe operations
+A gateway starts firing probes immediately after you configure a Rule by associating it with a Backend Setting and Backend Pool (and the Listener, of course). The illustration shows that the gateway independently probes all the backend pool servers. The incoming requests that start arriving are sent only to the healthy servers. A backend server is marked as unhealthy by default until a successful probe response is received.
 
 :::image type="content" source="media/application-gateway-probe-overview/appgatewayprobe.png" alt-text="Diagram showing Application Gateway initiating health probes to individual backend targets within a backend pool":::
 
-In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
+The required probes are determined based on the unique combination of the Backend Server and Backend Setting. For example, consider a gateway with a single backend pool with two servers and two backend settings, each having different port numbers. When these distinct backend settings are associated with the same backend pool using their respective rules, the gateway creates probes for each server and the combination of the backend setting. You can view this on the [Backend health page](application-gateway-backend-health.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+:::image type="content" source="media/application-gateway-probe-overview/multiple-be-settings.png" alt-text="Diagram showing health probes report on the Backend Health page":::
+
+Moreover, all instances of the application gateway probe the backend servers independently of each other.
+
+### Probe intervals
+The same probe configuration applies to each instance of your Application Gateway. For example, if an application gateway has two instances and the probe interval is set to 20 seconds, both instances will send the health probe every 20 seconds.
+
+Once the probe detects a failed response, the counter for "Unhealthy threshold" sets off and marks the server as unhealthy if the consecutive failed count matches the configured threshold. Accordingly, if you set this Unhealthy Threshold as 2, the subsequent probe will first detect this failure. The application gateway will then mark the server as unhealthy after 2 consecutive failed probes [First detection 20 secs + (2 consecutive failed probes * 20 secs)].
+
+> [!NOTE]
+> The Backend health report is updated based on the respective probe's refresh interval and doesn't depend on the user's request.
 
 ## Default health probe
 
@@ -43,12 +60,6 @@ If the default probe check fails for server A, the application gateway stops for
 | Unhealthy threshold |3 |Governs how many probes to send in case there's a failure of the regular health probe. In v1 SKU, these additional health probes are sent in quick succession to determine the health of the backend quickly and don't wait for the probe interval. For v2 SKU, the health probes wait the interval. The backend server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 The default probe looks only at \<protocol\>:\//127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes. For more information about HTTPS probes, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md#for-probe-traffic).
-
-### Probe intervals
-
-All instances of Application Gateway probe the backend independent of each other. The same probe configuration applies to each Application Gateway instance. For example, if the probe configuration is to send health probes every 30 seconds and the application gateway has two instances, then both instances send the health probe every 30 seconds.
-
-Also if there are multiple listeners, then each listener probes the backend independent of each other. For example, if there are two listeners pointing to the same backend pool on two different ports (configured by two backend http settings) then each listener probes the same backend independently. In this case, there are two probes from each application gateway instance for the two listeners. If there are two instances of the application gateway in this scenario, the backend virtual machine would see four probes per the configured probe interval.
 
 ## Custom health probe
 
@@ -86,7 +97,11 @@ For example:
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
-Once the match criteria is specified, it can be attached to probe configuration using a `-Match` parameter in PowerShell.
+Match criteria can be attached to probe configuration using a `-Match` operator in PowerShell.
+
+### Some use cases for Custom probes
+- If a backend server allows access to only authenticated users, the application gateway probes will receive a 403 response code instead of 200. As the clients (users) are bound to authenticate themselves for the live traffic, you can configure the probe traffic to accept 403 as an expected response.
+- When a backend server has a wildcard certificate (*.contoso.com) installed to serve different sub-domains, you can use a Custom probe with a specific hostname (required for SNI) that is accepted to establish a successful TLS probe and report that server as healthy. With "override hostname" in the Backend Setting set to NO, the different incoming hostnames (subdomains) will be passed as is to the backend.
 
 ## NSG considerations
 

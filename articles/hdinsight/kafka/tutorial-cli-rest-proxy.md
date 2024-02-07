@@ -23,9 +23,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An application registered with Azure AD. The client applications that you write to interact with the Kafka REST proxy will use this application's ID and secret to authenticate to Azure. For more information, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
+* An application registered with Microsoft Entra ID. The client applications that you write to interact with the Kafka REST proxy will use this application's ID and secret to authenticate to Azure. For more information, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
-* An Azure AD security group with your registered application as a member. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+* A Microsoft Entra security group with your registered application as a member. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Microsoft Entra groups, see [Create a basic group and add members using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 * Azure CLI. Ensure you have at least version 2.0.79. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -50,8 +50,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     |storageAccount|Replace STORAGEACCOUNTNAME with a name for your new storage account.|
     |httpPassword|Replace PASSWORD with a password for the cluster login, **admin**.|
     |sshPassword|Replace PASSWORD with a password for the secure shell username, **sshuser**.|
-    |securityGroupName|Replace SECURITYGROUPNAME with the client AAD security group name for Kafka REST Proxy. The variable will be passed to the `--kafka-client-group-name` parameter for `az-hdinsight-create`.|
-    |securityGroupID|Replace SECURITYGROUPID with the client AAD security group ID for Kafka REST Proxy. The variable will be passed to the `--kafka-client-group-id` parameter for `az-hdinsight-create`.|
+    |securityGroupName|Replace SECURITYGROUPNAME with the client Microsoft Entra security group name for Kafka REST Proxy. The variable will be passed to the `--kafka-client-group-name` parameter for `az-hdinsight-create`.|
+    |securityGroupID|Replace SECURITYGROUPID with the client Microsoft Entra security group ID for Kafka REST Proxy. The variable will be passed to the `--kafka-client-group-id` parameter for `az-hdinsight-create`.|
     |storageContainer|Storage container the cluster will use, leave as-is for this tutorial. This variable will be set with the name of the cluster.|
     |workernodeCount|Number of worker nodes in the cluster, leave as-is for this tutorial. To guarantee high availability, Kafka requires a minimum of 3 worker nodes|
     |clusterType|Type of HDInsight cluster, leave as-is for this tutorial.|
@@ -130,8 +130,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         |Parameter | Description|
         |---|---|
         |--kafka-management-node-size|The size of the node. This tutorial uses the value **Standard_D4_v2**.|
-        |--kafka-client-group-id|The client AAD security group ID for Kafka REST Proxy. The value is passed from the variable **$securityGroupID**.|
-        |--kafka-client-group-name|The client AAD security group name for Kafka REST Proxy. The value is passed from the variable **$securityGroupName**.|
+        |--kafka-client-group-id|The client Microsoft Entra security group ID for Kafka REST Proxy. The value is passed from the variable **$securityGroupID**.|
+        |--kafka-client-group-name|The client Microsoft Entra security group name for Kafka REST Proxy. The value is passed from the variable **$securityGroupName**.|
         |--version|The HDInsight cluster version must be at least 4.0. The value is passed from the variable **$clusterVersion**.|
         |--component-version|The Kafka version must be at least 2.1. The value is passed from the variable **$componentVersion**.|
     

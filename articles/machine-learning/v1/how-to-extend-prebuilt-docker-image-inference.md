@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Extend Prebuilt docker images in Azure Machine Learning'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.author: sehan
 author: dem108
 ms.date: 10/21/2021

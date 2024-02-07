@@ -1,8 +1,8 @@
 ---
-title: 'Quickstart: Connect - MySQL Workbench - Azure Database for MySQL - Flexible Server'
+title: 'Quickstart: Connect MySQL Workbench'
 description: This Quickstart provides the steps to use MySQL Workbench to connect and query data from Azure Database for MySQL - Flexible Server.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: mvc, mode-other
@@ -14,18 +14,18 @@ ms.date: 9/21/2020
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This quickstart demonstrates how to connect to an Azure Database for MySQL - Flexible Server using the MySQL Workbench application.
+This quickstart demonstrates how to connect to an Azure Database for MySQL flexible server instance using the MySQL Workbench application.
 
 ## Prerequisites
 
 This quickstart uses the resources created in either of these guides as a starting point:
 
-- [Create an Azure Database for MySQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
-- [Create an Azure Database for MySQL - Flexible Server using Azure CLI](./quickstart-create-server-cli.md)
+- [Create an Azure Database for MySQL flexible server instance using Azure portal](./quickstart-create-server-portal.md)
+- [Create an Azure Database for MySQL flexible server instance using Azure CLI](./quickstart-create-server-cli.md)
 
 ## Preparing your client workstation
-- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
-- If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
+- If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage an Azure Database for MySQL flexible server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
+- If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL flexible server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
 
 - Download and install MySQL Workbench on your computer from [the MySQL website](https://dev.mysql.com/downloads/workbench/).
 
@@ -37,11 +37,11 @@ Get the connection information needed to connect to the flexible server. You nee
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
-<!--- :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL - Flexible Server name":::--->
+<!--- :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL flexible server instance name.":::--->
 
 ## Connect to the server using MySQL Workbench
 
-To connect to Azure Database for MySQL - Flexible Server using MySQL Workbench:
+To connect to Azure Database for MySQL flexible server using MySQL Workbench:
 
 1. Launch the MySQL Workbench application on your computer.
 
@@ -67,7 +67,7 @@ To connect to Azure Database for MySQL - Flexible Server using MySQL Workbench:
     A new SQL tab opens with a blank editor where you can type your queries.
 
 > [!NOTE]
-> Encrypted connection using TLS 1.2 is required and enforced on your Azure Database for MySQL - Flexible Server. Although typically no additional configuration with TLS/SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the TLS/SSL CA certification with MySQL Workbench. For more information, see [connect using TLS/SSL](./how-to-connect-tls-ssl.md)
+> Encrypted connection using TLS 1.2 is required and enforced on your Azure Database for MySQL flexible server instance. Although typically no additional configuration with TLS/SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the TLS/SSL CA certification with MySQL Workbench. For more information, see [connect using TLS/SSL](./how-to-connect-tls-ssl.md)
 
 ## Create a table, insert data, read data, update data, delete data
 
@@ -108,10 +108,10 @@ To connect to Azure Database for MySQL - Flexible Server using MySQL Workbench:
 3. Notice the three tabbed results in the **Result Grid** section in the middle of the page.
 4. Notice the **Output** list at the bottom of the page. The status of each command is shown.
 
-Now, you have connected to Azure Database for MySQL - Flexible Server by using MySQL Workbench, and you have queried data using the SQL language.
+Now, you have connected to Azure Database for MySQL flexible server by using MySQL Workbench, and you have queried data using the SQL language.
 
 ## Next steps
-- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
-- Learn more about [Networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md).
-- [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
+- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL flexible server](./how-to-connect-tls-ssl.md).
+- Learn more about [Networking in Azure Database for MySQL flexible server](./concepts-networking.md).
+- [Create and manage Azure Database for MySQL flexible server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
+- [Create and manage Azure Database for MySQL flexible server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).

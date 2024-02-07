@@ -8,7 +8,7 @@ ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
-ms.date: 03/09/2023
+ms.date: 09/12/2023
 ---
 
 # What is RU-based and vCore-based Azure Cosmos DB for MongoDB?
@@ -17,27 +17,58 @@ Azure Cosmos DB is a fully managed NoSQL and relational database for modern app 
 
 Both, the Request Unit (RU) and vCore-based Azure Cosmos DB for MongoDB offering make it easy to use Azure Cosmos DB as if it were a MongoDB database. Both options work without the overhead of complex management and scaling approaches. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. Additionally, both are cloud-native offerings that can be integrated seamlessly with other Azure services to build enterprise-grade modern applications.
 
-## Choosing between RU-based and vCore-based options
+## Choose between RU-based and vCore-based
 
-Here are a few key factors to help you decide which is the right architecture for you:
+Here are a few key factors to help you decide which is the right option for you.
 
-| Factor | RU-based | vCore-based |
-| ----------- | ----------- | -------|
-| What do you want to do |  &bull; Works well if you're trying to build new cloud-native MongoDB apps or refactor existing apps for all the benefits of a cloud-native offering | &bull; Works well if you're trying to lift and shift existing MongoDB apps and run them as-is on a fully supported managed service. |
-| What are your availability needs | &bull; Offers upto [99.999%](../high-availability.md#slas) of availability with multi-region deployments | &bull; Offers competitive SLA (once generally available) |
-| How do you want to scale | &bull; Offers limitless horizontal scalability, instantaneous scale up and granular throughput control. | &bull; Offers high-capacity vertical and horizontal scaling with familiar vCore-based cluster tier options to choose from. |
-| What are your top read & query patterns | &bull; Works well for workloads with more point reads *(fetching a single item by its ID and shard key value)* and lesser long running queries and complex aggregation pipeline operations. | &bull; Works irrespective of the operation types in your workload. Operations may include workloads with long-running queries, complex aggregation pipelines, distributed transactions, joins, etc. |
+### Choose RU-based if
+
+- You're building new cloud-native MongoDB apps or refactoring existing apps for cloud-native benefits.
+- Your workload has more point reads (fetching a single item by its _id and shard key value) and few long-running queries and complex aggregation pipeline operations.
+- You want limitless horizontal scalability, instantaneous scale up, and granular throughput control.
+- You're running mission-critical applications requiring industry-leading 99.999% availability.
+
+[**Get started with Azure Cosmos DB for MongoDB RU**](./quickstart-python.md)
+
+> [!TIP]
+> Want to try the Azure Cosmos DB for MongoDB RU with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
+
+### Choose vCore-based if
+
+- You're migrating (lift & shift) an existing MongoDB workload or building a new MongoDB application.
+- Your workload has more long-running queries, complex aggregation pipelines, distributed transactions, joins, etc.
+- You prefer high-capacity vertical and horizontal scaling with familiar vCore-based cluster tiers such as M30, M40, M50 and more.
+- You're running applications requiring 99.995% availability.
+- You need native support for storing and searching vector embeddings.
+
+[**Get started with Azure Cosmos DB for MongoDB vCore**](./vcore/quickstart-portal.md)
 
 ## Resource and billing differences between the options
 
-There are differences between the offerings in the way the resources are assigned and billed on the platform:
+The RU and vCore services have different architectures with important billing differences.
 
-| Resource details | RU-based | vCore-based |
-| ----------- | ----------- | -------|
-| How are the resources assigned | &bull; This option is a multi-tenant service that instantly assigns resources to the workload to meet its storage and throughput needs. <br/>&bull; Throughput uses the concept of [Request Units (RUs)](../request-units.md). | &bull; This option provides dedicated instances using preset CPU, memory and storage resources that scale to meet your needs. |
-| How are the resources billed | &bull; You pay variable fees for the RUs and consumed storage. <br/>&bull; RU charges are based on the choice of the model: provisioned throughput (standard or autoscale) or serverless. | &bull; You pay consistent flat fee based on the compute (CPU, memory and the number of nodes) and storage. |
+### RU-based resources and billing
+
+- You'd like a multi-tenant service that instantly allocates resources to your workload, aligning with storage and throughput requirements.
+
+> [!NOTE]
+> Throughput is based on [Request Units (RUs)](../request-units.md).
+
+- You prefer to pay fixed (standard provisioned throughput) or variable (autoscale) fees corresponding to Request Units (RUs) and consumed storage.
+
+> [!NOTE]
+> RU charges depend on the selected model: provisioned throughput (standard or autoscale) or serverless.
+
+[**Get started with Azure Cosmos DB for MongoDB RU**](./quickstart-python.md)
+
+### vCore-based resources and billing
+
+- You'd like dedicated instances that utilize preset CPU, memory, and storage resources, which can dynamically scale to suit your needs.
+- You prefer to pay a consistent flat fee based on compute (CPU, memory, and the number of nodes) and storage.
+
+[**Get started with Azure Cosmos DB for MongoDB vCore**](./vcore/quickstart-portal.md)
 
 ## Next steps
 
-- [Create a Go app](quickstart-go.md) using Azure Cosmos DB for MongoDB.
-- Deploy Azure Cosmos DB for MongoDB vCore [using a Bicep template](vcore/quickstart-bicep.md).
+> [!div class="nextstepaction"]
+> [Try Azure Cosmos DB for free](../try-free.md)

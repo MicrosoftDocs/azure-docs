@@ -73,7 +73,7 @@ The steps in this section show how to set up the template VM:
 
 3. Set up external backup storage for students.  Students can save files directly to their assigned VM since all changes that they make are saved across sessions. However, we recommend that students back up their work to storage that is external from their VM for a few reasons:
     - To enable students to access their work after the class and lab ends.  
-    - In case the student gets their VM into a bad state and their image needs to be [reset](how-to-manage-vm-pool.md#reset-vms).
+    - In case the student gets their VM into a bad state and their image needs to be [reimaged](how-to-manage-vm-pool.md#reimage-lab-vms).
 
     With ArcGIS, each student should back up the following files at the end of each work session:
 

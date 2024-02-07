@@ -3,7 +3,7 @@ title: Restore deleted apps
 description: Learn how to restore a deleted app in Azure App Service. Avoid the headache of an accidentally deleted app.
 author: seligj95
 ms.author: jordanselig
-ms.date: 4/3/2023
+ms.date: 10/4/2023
 ms.topic: article 
 ms.custom: devx-track-azurepowershell
 ---
@@ -52,6 +52,7 @@ The detailed information includes:
 >- `Restore-AzDeletedWebApp` isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
 >- The Restore-AzDeletedWebApp cmdlet restores a deleted web app. The web app specified by TargetResourceGroupName, TargetName, and TargetSlot will be overwritten with the contents and settings of the deleted web app. If the target parameters are not specified, they will automatically be filled with the deleted web app's resource group, name, and slot. If the target web app does not exist, it will automatically be created in the app service plan specified by TargetAppServicePlanName.
 >- By default `Restore-AzDeletedWebApp` will restore both your app configuration as well any content. If you want to only restore content, you use the **`-RestoreContentOnly`** flag with this commandlet.
+>- Custom domains, bindings, or certs that you import to your app won't be restored. You'll need to re-add them after your app is restored. 
 
 
 After identifying the app you want to restore, you can restore it using `Restore-AzDeletedWebApp`, as shown in the following examples.

@@ -33,13 +33,7 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
 * Complete the [Create resources to get started](quickstart-create-resources.md) to:
     * Create a workspace
 * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create) to use for training your model
-* Azure Machine Learning extension (preview) for Azure Pipelines. This extension can be installed from the Visual Studio marketplace at [https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2). 
-
-    > [!TIP]
-    >This extension isn't required to submit the Azure Machine Learning job; it's required to be able to wait for the job completion.
-
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
+* Azure Machine Learning extension for Azure Pipelines. This extension can be installed from the Visual Studio marketplace at [https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.azureml-v2). 
 
 ## Step 1: Get the code
 
@@ -79,7 +73,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 1. Choose **+ New service connection** and select **Generic**.
 
-1. Use **https://management.azure.com** and provide a service connection name. Don't provide any authentication related information.
+1. Use ```https://management.azure.com``` and provide a service connection name. Don't provide any authentication related information.
 
 1. Create your service connection.
 
@@ -130,7 +124,6 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - checkout: none
   - task: UsePythonVersion@0
     displayName: Use Python >=3.8
     inputs:
@@ -154,11 +147,7 @@ jobs:
       inlineScript: |
       
         # submit component job and get the run name
-        job_out=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name)
-
-        # Remove quotes around job name
-        job_name=$(sed -e 's/^"//' -e 's/"$//' <<<"$job_out")
-        echo $job_name
+        job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
 
         # Set output variable for next task
         echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
@@ -184,7 +173,6 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - checkout: none
   - task: UsePythonVersion@0
     displayName: Use Python >=3.8
     inputs:
@@ -210,11 +198,8 @@ jobs:
       inlineScript: |
       
         # submit component job and get the run name
-        job_out=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name)
+        job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
 
-        # Remove quotes around run name
-        job_name=$(sed -e 's/^"//' -e 's/"$//' <<<"$job_out")
-        echo $job_name
 
         # Set output variable for next task
         echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
@@ -256,9 +241,9 @@ The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `Az
   dependsOn: SubmitAzureMLJob
   variables: 
     # We are saving the name of azureMl job submitted in previous step to a variable and it will be used as an inut to the AzureML Job Wait task
-    azureml_job_name_from_submit_job: $[ dependencies.SubmitAzureMLJob.outputs['submit_azureml_job_task.AZUREML_JOB_NAME'] ] 
+    azureml_job_name_from_submit_job: $[ dependencies.SubmitAzureMLJob.outputs['submit_azureml_job_task.JOB_NAME'] ] 
   steps:
-  - task: AzureMLJobWaitTask@0
+  - task: AzureMLJobWaitTask@1
     inputs:
       serviceConnection: $(service-connection)
       resourceGroupName: $(resource-group)

@@ -1,53 +1,52 @@
 ---
-title: SIGN in Azure Cosmos DB query language
-description: Learn about SQL system function SIGN in Azure Cosmos DB.
-author: ginamr
+title: SIGN
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the sign of the specified number.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# SIGN (Azure Cosmos DB)
+
+# SIGN (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.  
-  
+Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.  
+
 ## Syntax
-  
+
 ```sql
 SIGN(<numeric_expr>)  
-```  
-  
+```
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
+
+Returns a numeric expression.  
+
 ## Examples
-  
-  The following example returns the `SIGN` values of numbers from -2 to 2.  
-  
-```sql
-SELECT SIGN(-2) AS s1, SIGN(-1) AS s2, SIGN(0) AS s3, SIGN(1) AS s4, SIGN(2) AS s5  
-```  
-  
- Here is the result set.  
-  
-```json
-[{s1: -1, s2: -1, s3: 0, s4: 1, s5: 1}]  
-```  
+
+The following example returns the sign of various numbers from -2 to 2.  
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/sign/query.sql" highlight="2-6":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/sign/result.json":::
 
 ## Remarks
 
-This system function will not utilize the index.
+- This function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`ABS`](abs.md)

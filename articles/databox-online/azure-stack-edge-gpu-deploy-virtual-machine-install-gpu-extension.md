@@ -516,7 +516,8 @@ Follow these steps to verify the driver installation:
     See "man sudo_root" for details.
     
     Administrator@VM1:~$
-	```
+    ```
+
 2. Run the nvidia-smi command-line utility installed with the driver. If the driver is successfully installed, you'll be able to run the utility and see the following output:
 
     ```powershell

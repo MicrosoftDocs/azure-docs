@@ -2,13 +2,15 @@
 title: Auto grow storage - Azure CLI - Azure Database for MariaDB
 description: This article describes how you can enable auto grow storage using the Azure CLI in Azure Database for MariaDB.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 06/24/2022
 ---
 # Auto-grow Azure Database for MariaDB storage using the Azure CLI
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This article describes how you can configure an Azure Database for MariaDB server storage to grow without impacting the workload.
 

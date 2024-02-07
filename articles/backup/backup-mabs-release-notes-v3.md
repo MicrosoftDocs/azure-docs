@@ -2,15 +2,38 @@
 title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 12/04/2023
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Release notes for Microsoft Azure Backup Server
 
 This article provides the known issues and workarounds for Microsoft Azure Backup Server (MABS) V3.
+
+## MABS V4 UR1 Refresh known issues and workarounds
+
+No known issues.
+
+
+
+## MABS V4 UR1 known issues and workarounds
+
+Microsoft is recalling the release of Update Rollup 1 for Microsoft Azure Backup Server V4 due to the following known issues:
+
+- Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check. 
+
+  **Error Message**: The replica of Microsoft Hyper-V RCT on `<Machine Name>` is not consistent with the protected data source. MABS has detected changes in file locations or volume configurations of protected objects since the data source was configured for protection. (ID 30135)
+
+- MABS console occasionally crashes when SMTP alerts or reports are configured.
+
+  The updated build **Update Rollup 1 Refresh for MABS V4** is released that fixes these known issues. 
+
+>[!Important]
+>If you had installed Update Rollup 1 for MABS V4 (14.0.42.0), we recommend that you install **Update Rollup1 Refresh (14.0.46.0)** on your MABS server and update the protection agents from *KB 5033756*.
+>
+>For any queries or additional information, contact **Microsoft Support**.
 
 ## MABS V4 known issues and workarounds 
 
@@ -77,7 +100,7 @@ If you're protecting Windows Server 2012 and 2012 R2, you need to install Visual
 
 9. Start MSDPM service.
 
-### After installing UR1, the MABS reports aren't updated with new RDL files
+### After you install UR1, the MABS reports aren't updated with new RDL files
 
 **Description**: With UR1, the MABS report formatting issue is fixed with updated RDL files. The new RDL files aren't automatically replaced with existing files.
 

@@ -2,16 +2,13 @@
 title: 'How to scale your environment - Azure Time Series Insights| Microsoft Docs'
 description: Learn how to scale your Azure Time Series Insights environment using the Azure portal.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
 ms.devlang: csharp
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
-ms.custom: seodec18
 ---
 
 # How to scale your Azure Time Series Insights Gen1 environment
@@ -53,6 +50,6 @@ However, changing the pricing tier SKU is not allowed. For example, an environme
 
 - For more information, review [Understanding retention in Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
-- Learn about [configuring data retention in Azure Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Learn about [configuring data retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Learn about [planning out your environment](time-series-insights-environment-planning.md).

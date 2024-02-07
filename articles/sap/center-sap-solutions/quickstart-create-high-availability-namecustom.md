@@ -57,7 +57,7 @@ az workloads sap-sizing-recommendation --app-location "eastus" --database-type "
 
 ## Create *json* configuration file with custom resource names
 
-- Prepare a *json* file with the configuration (payload) to use for the deployment of SAP system infrastructure. You can make edits in this [sample payload]([https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayloadDistributedNon-HA.json](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) or use the examples listed in the [Rest API documentation](/rest/api/workloads) for Azure Center for SAP solutions 
+- Prepare a *json* file with the configuration (payload) to use for the deployment of SAP system infrastructure. You can make edits in this [sample payload](https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/Payload_Samples/CreatePayload_withTransportDirectory_withHAAvSet_withCustomResourceName.json) or use the examples listed in the [Rest API documentation](/rest/api/workloads) for Azure Center for SAP solutions 
 - In this json file, provide the custom resource names for the infrastructure that is deployed for your SAP system
 
 ## Deploy infrastructure for your SAP system

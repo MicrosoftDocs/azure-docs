@@ -1,6 +1,6 @@
 ---
-title: Protect your applications with the App Service plan - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your applications with the App Service plan
+
 description: Learn how to enable the App Service plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
@@ -8,7 +8,7 @@ ms.date: 06/29/2023
 
 # Protect your applications with Defender for App Service
 
-Defender for App Service in Microsoft Defender for Cloud is a fully managed platform for building and hosting your web apps and APIs. It provides management, monitoring, and operational insights to meet enterprise-grade performance, security, and compliance requirements. For more information, see [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Azure App Service is a fully managed platform for building and hosting your web apps and APIs. It provides management, monitoring, and operational insights to meet enterprise-grade performance, security, and compliance requirements. For more information, see [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 **Microsoft Defender for App Service** uses the scale of the cloud to identify attacks targeting applications running over App Service. Attackers probe web applications to find and exploit weaknesses. Before being routed to specific environments, requests to applications running in Azure go through several gateways, where they're inspected and logged. The data is then used to identify exploits and attackers, and to learn new patterns that are used later.
 
@@ -17,10 +17,10 @@ When you enable Microsoft Defender for App Service, you immediately benefit from
 - **Secure** - Defender for App Service assesses the resources covered by your App Service plan and generates security recommendations based on its findings. Use the detailed instructions in these recommendations to harden your App Service resources.
 
 - **Detect** - Defender for App Service detects a multitude of threats to your App Service resources by monitoring:
-    - the VM instance in which your App Service is running, and its management interface
-    - the requests and responses sent to and from your App Service apps
-    - the underlying sandboxes and VMs
-    - App Service internal logs - available thanks to the visibility that Azure has as a cloud provider
+  - the VM instance in which your App Service is running, and its management interface
+  - the requests and responses sent to and from your App Service apps
+  - the underlying sandboxes and VMs
+  - App Service internal logs - available thanks to the visibility that Azure has as a cloud provider
 
 As a cloud-native solution, Defender for App Service can identify attack methodologies applying to multiple targets. For example, from a single host it would be difficult to identify a distributed attack from a small subset of IPs, crawling to similar endpoints on multiple hosts.
 

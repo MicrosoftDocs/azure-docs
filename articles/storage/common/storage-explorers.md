@@ -2,14 +2,14 @@
 title: Microsoft client tools for working with Azure Storage
 description: A list of client tools provided by Microsoft that enable you to view and interact with your Azure Storage data.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: dineshm
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Microsoft client tools for working with Azure Storage

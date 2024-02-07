@@ -4,11 +4,10 @@ titleSuffix: Azure Files
 description: Learn how to save costs on Azure file share deployments by using Azure Files Reservations.
 services: storage
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 11/21/2022
 ms.author: kendownie
-ms.subservice: files
 recommendations: false
 ---
 

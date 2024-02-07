@@ -40,7 +40,7 @@ In the **AzureVPN** folder, navigate to the ***azurevpnconfig.xml*** file and op
 When you add a connection, use the information you collected in the previous step for the profile details page. The fields correspond to the following information:
 
 * **Audience:** Identifies the recipient resource the token is intended for.
-* **Issuer:** Identifies the Security Token Service (STS) that emitted the token as well as the Azure AD tenant.
+* **Issuer:** Identifies the Security Token Service (STS) that emitted the token as well as the Microsoft Entra tenant.
 * **Tenant:** Contains an immutable, unique identifier of the directory tenant that issued the token.
 * **FQDN:** The fully qualified domain name (FQDN) on the Azure VPN gateway.
 * **ServerSecret:** The VPN gateway preshared key.

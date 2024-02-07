@@ -6,7 +6,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 09/29/2023
 ms.author: franlanglois
 ---
 
@@ -22,7 +22,7 @@ Test your system's resiliency to connection breaks using a [reboot](cache-admini
 
 ## TCP settings for Linux-hosted client applications
 
-The default TCP settings in some Linux versions can cause Redis server connections to fail for 13 minutes or more. The default settings can prevent the client application from detecting closed connections and restoring them automatically if the connection wasn't closed gracefully. 
+The default TCP settings in some Linux versions can cause Redis server connections to fail for 13 minutes or more. The default settings can prevent the client application from detecting closed connections and restoring them automatically if the connection wasn't closed gracefully.
 
 The failure to reestablish a connection can happen in situations where the network connection is disrupted or the Redis server goes offline for unplanned maintenance.
 
@@ -77,7 +77,7 @@ Use notifications to learn of upcoming maintenance. For more information, see [C
 
 ## Schedule maintenance window
 
-Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Schedule updates](cache-administration.md#schedule-updates).
+Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates).
 
 ## More design patterns for resilience
 
@@ -85,11 +85,11 @@ Apply design patterns for resiliency. For more information, see [How do I make m
 
 ## Idle timeout
 
-Azure Cache for Redis has a 10-minute timeout for idle connections. The 10-minute timeout allows the server to automatically clean up leaky connections or connections orphaned by a client application. Most Redis client libraries have a built-in capability to send `heartbeat` or `keepalive` commands periodically to prevent connections from being closed even if there are no requests from the client application. 
+Azure Cache for Redis has a 10-minute timeout for idle connections. The 10-minute timeout allows the server to automatically clean up leaky connections or connections orphaned by a client application. Most Redis client libraries have a built-in capability to send `heartbeat` or `keepalive` commands periodically to prevent connections from being closed even if there are no requests from the client application.
 
 If there's any risk of your connections being idle for 10 minutes, configure the `keepalive` interval to a value less than 10 minutes. If your application is using a client library that doesn't have native support for `keepalive` functionality, you can implement it in your application by periodically sending a `PING` command.
 
-## Next steps
+## Related content
 
 - [Best practices for development](cache-best-practices-development.md)
 - [Azure Cache for Redis development FAQ](cache-development-faq.yml)

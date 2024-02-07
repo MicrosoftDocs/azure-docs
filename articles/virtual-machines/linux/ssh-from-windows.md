@@ -71,7 +71,7 @@ Using the Azure CLI, you specify the path and filename for the public key using 
 az vm create \
    --resource-group myResourceGroup \
    --name myVM \
-   --image UbuntuLTS\
+   --image Ubuntu2204\
    --admin-username azureuser \
    --ssh-key-value ~/.ssh/id_rsa.pub
 ```

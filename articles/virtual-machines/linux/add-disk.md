@@ -1,10 +1,9 @@
 ---
-title: Add a data disk to Linux VM using the Azure CLI 
+title: Add a data disk to Linux VM using the Azure CLI
 description: Learn to add a persistent data disk to your Linux VM with the Azure CLI
 author: roygara
-ms.service: storage
-ms.subservice: disks
-ms.custom: devx-track-azurecli
+ms.service: azure-disk-storage
+ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 01/09/2023
@@ -13,7 +12,7 @@ ms.author: rogarana
 
 # Add a disk to a Linux VM
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing.
 
@@ -56,7 +55,7 @@ ssh azureuser@10.123.123.25
 
 ### Find the disk
 
-Once you connect to your VM, find the disk. In this example, we're using `lsblk` to list the disks. 
+Once you connect to your VM, find the disk. In this example, we're using `lsblk` to list the disks.
 
 ```bash
 lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
@@ -89,18 +88,18 @@ lrwxrwxrwx 1 root root 12 Mar 28 19:41 lun0 -> ../../../sdc
 
 ### Format the disk
 
-Format the disk with `parted`, if the disk size is two tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning. 
+Format the disk with `parted`, if the disk size is two tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning.
 
 > [!NOTE]
 > It is recommended that you use the latest version `parted` that is available for your distro.
-> If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
+> If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.
 
 
 The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We're also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
-sudo partprobe /dev/sdc1
+sudo partprobe /dev/sdc
 sudo mkfs.xfs /dev/sdc1
 ```
 

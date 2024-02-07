@@ -30,7 +30,7 @@ You can use the `Exists` operator with any ABAC attribute, but it is only suppor
 
 If you add three or more expressions for a targeted action, you must define the logical grouping of those expressions in the code editor, Azure PowerShell, or Azure CLI. A logical grouping of `a AND b OR c` can be either `(a AND b) OR c` or `a AND (b OR c )`.
 
-**Are conditions supported via Azure AD Privileged Identity Management (Azure AD PIM) for Azure resources?**
+**Are conditions supported via Microsoft Entra Privileged Identity Management (Microsoft Entra PIM) for Azure resources?**
 
 Yes, for specific roles. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 

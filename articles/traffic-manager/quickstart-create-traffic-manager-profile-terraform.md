@@ -3,11 +3,13 @@ title: 'Quickstart: Create an Azure Traffic Manager profile using Terraform'
 description: 'In this article, you create an Azure Traffic Manager profile using Terraform'
 services: traffic-manager
 ms.topic: quickstart
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 ms.service: traffic-manager
 author: TomArcherMsft
 ms.author: tarcher
 ms.date: 6/8/2023
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure Traffic Manager profile using Terraform
@@ -25,8 +27,6 @@ In this article, you learn how to:
 > * Create a random value for the Azure Traffic Manager profile DNS config relative name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string).
 > * Create an Azure Traffic Manager profile using [azurerm_traffic_manager_profile](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/traffic_manager_profile).
 > * Create two Azure Traffic Manager external endpoint using [azurerm_traffic_manager_external_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/traffic_manager_external_endpoint).
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

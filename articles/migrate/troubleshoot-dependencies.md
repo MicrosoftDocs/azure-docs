@@ -49,7 +49,7 @@ The table below summarizes all errors encountered when gathering dependency data
 |--|--|--|
 | **60001**:UnableToConnectToPhysicalServer | Either the [prerequisites](./migrate-support-matrix-physical.md) to connect to the server have not been met or there are network issues in connecting to the server, for instance some proxy settings.| - Ensure that the server meets the prerequisites and [port access requirements](./migrate-support-matrix-physical.md). <br/> - Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Migrate appliance, and retry the operation. This is to allow remote inbound connections on servers - _Windows:_ WinRM port 5985 (HTTP) and _Linux:_ SSH port 22 (TCP). <br/>- Ensure that you have chosen the correct authentication method on the appliance to connect to the server. <br/> - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).|
 | **60002**:InvalidServerCredentials| Unable to connect to server. Either you have provided incorrect credentials on the appliance or the credentials previously provided have expired.| - Ensure that you have provided the correct credentials for the server on the appliance. You can check that by trying to connect to the server using those credentials.<br/> - If the credentials added are incorrect or have expired, edit the credentials on the appliance and revalidate the added servers. If the validation succeeds, the issue is resolved.<br/> - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).|
-| **60005**:SSHOperationTimeout | The operation took longer than expected either due to network latency issues or due to the lack of latest updates on the server.| - Ensure that the impacted server has the latest kernel and OS updates installed.<br/>- Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.<br/> - Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance.md) to check if they return null or empty data.<br/>- If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager). | 
+| **60005**:SSHOperationTimeout | The operation took longer than expected either due to network latency issues or due to the lack of latest updates on the server.| - Ensure that the impacted server has the latest kernel and OS updates installed.<br/>- Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.<br/> - Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance.md) to check if they return null or empty data.<br/>- If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager). |
 | **9000**: VMware tools status on the server can't be detected. | VMware tools might not be installed on the server or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.1 are installed and running on the server. |
 | **9001**: VMware tools aren't installed on the server. | VMware tools might not be installed on the server or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.1 are installed and running on the server. |
 | **9002**: VMware tools aren't running on the server. | VMware tools might not be installed on the server or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.0 are installed and running on the server. |
@@ -159,7 +159,8 @@ The issue happens when the VMware discovery agent in appliance tries to download
 The error usually appears for servers running Windows Server 2008 or lower.
 
 ### Remediation
-Install the required PowerShell version (2.0 or later) at this location on the server: ($SYSTEMROOT)\System32\WindowsPowershell\v1.0\powershell.exe. [Learn more](/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
+Install Windows PowerShell 5.1 at this location on the server. Following the instructios in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
+
 
 After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
 
@@ -168,14 +169,14 @@ After you install the required PowerShell version, verify if the error was resol
 ### Remediation
 Make sure that the user account provided in the appliance has access to the WMI namespace and subnamespaces. To set the access:
 
-1.	Go to the server that's reporting this error.
-1.	Search and select **Run** from the **Start** menu. In the **Run** dialog, enter **wmimgmt.msc** in the **Open** text box, and select **Enter**.
-1.	The wmimgmt console opens where you can find **WMI Control (Local)** in the left pane. Right-click it, and select **Properties** from the menu.
-1.	In the **WMI Control (Local) Properties** dialog, select the **Securities** tab.
-1.	On the **Securities** tab, select **Security** to open the **Security for ROOT** dialog.
-1.	Select **Advanced** to open the **Advanced Security Settings for Root** dialog. 
-1.	Select **Add** to open the **Permission Entry for Root** dialog.
-1.	Click **Select a principal** to open the **Select Users, Computers, Service Accounts, or Groups** dialog.
+1. Go to the server that's reporting this error.
+1. Search and select **Run** from the **Start** menu. In the **Run** dialog, enter **wmimgmt.msc** in the **Open** text box, and select **Enter**.
+1. The wmimgmt console opens where you can find **WMI Control (Local)** in the left pane. Right-click it, and select **Properties** from the menu.
+1. In the **WMI Control (Local) Properties** dialog, select the **Securities** tab.
+1. On the **Securities** tab, select **Security** to open the **Security for ROOT** dialog.
+1. Select **Advanced** to open the **Advanced Security Settings for Root** dialog.
+1. Select **Add** to open the **Permission Entry for Root** dialog.
+1. Click **Select a principal** to open the **Select Users, Computers, Service Accounts, or Groups** dialog.
 1. Select the usernames or groups you want to grant access to the WMI, and select **OK**.
 1. Ensure you grant execute permissions, and select **This namespace and subnamespaces** in the **Applies to** dropdown list.
 1. Select **Apply** to save the settings and close all dialogs.
@@ -254,16 +255,16 @@ After you use the mitigation steps for the preceding errors, verify if the mitig
 1. For agentless dependency analysis, run the following commands to see if you get a successful output.
 
       - For Windows servers:
-    
-          ```` 
-          Invoke-VMScript -VM $vm -ScriptText "powershell.exe 'Get-WmiObject Win32_Process'" -GuestCredential $credential 
-      
-          Invoke-VMScript -VM $vm -ScriptText "powershell.exe 'netstat -ano -p tcp'" -GuestCredential $credential 
-          ```` 
+
+          ````
+          Invoke-VMScript -VM $vm -ScriptText "powershell.exe 'Get-WmiObject Win32_Process'" -GuestCredential $credential
+
+          Invoke-VMScript -VM $vm -ScriptText "powershell.exe 'netstat -ano -p tcp'" -GuestCredential $credential
+          ````
       - For Linux servers:
           ````
           Invoke-VMScript -VM $vm -ScriptText "ps -o pid,cmd | grep -v ]$" -GuestCredential $credential
-    
+
           Invoke-VMScript -VM $vm -ScriptText "netstat -atnp | awk '{print $4,$5,$7}'" -GuestCredential $credential
           ````
 

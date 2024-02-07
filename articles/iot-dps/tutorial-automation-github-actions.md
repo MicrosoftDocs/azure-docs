@@ -213,7 +213,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
    ```
 
    > [!NOTE]
-   > This job and others use the parameter `--auth-type login` in some commands to indicate that the operation should use the service principal from the current Azure AD session. The alternative, `--auth-type key` doesn't require the service principal configuration, but is less secure.
+   > This job and others use the parameter `--auth-type login` in some commands to indicate that the operation should use the service principal from the current Microsoft Entra session. The alternative, `--auth-type key` doesn't require the service principal configuration, but is less secure.
 
    For more information about the commands run in this job, see:
 

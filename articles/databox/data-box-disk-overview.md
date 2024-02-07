@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
 description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
 ms.date: 09/09/2022
-ms.author: alkohli
+ms.author: shaas
 # Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
 
@@ -42,7 +42,6 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 
 You can use your Data Box data with many non-Azure service providers. For instance:
 
-- **[Commvault](http://documentation.commvault.com/commvault/v11/article?p=97276.htm)** - allows you to migrate large volumes of data to Microsoft Azure using the Azure Data Box.
 - **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to backup and replicated large amounts of data from your Hyper-V machine to your Data Box.
 
 For a list of other non-Azure service providers that integrate with Data Box, see [Azure Data Box Partners](https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf).

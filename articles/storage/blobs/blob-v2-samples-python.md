@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: View code samples that use the Azure Blob Storage client library for Python version 2.1.
 services: storage
 author: pauljewellmsft
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 04/03/2023

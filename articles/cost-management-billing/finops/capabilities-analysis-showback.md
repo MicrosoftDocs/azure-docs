@@ -1,13 +1,12 @@
 ---
 title: Data analysis and showback
 description: This article helps you understand the data analysis and showback capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
-ms.subservice: common
+ms.subservice: finops
 ms.reviewer: micflan
 ---
 
@@ -88,6 +87,7 @@ As a starting point, we focus on tools available in the Azure portal and Microso
   - [Analyze resource usage metrics in Azure Monitor](../../azure-monitor/essentials/tutorial-metrics.md).
   - [Review resource configuration changes in Azure Resource Graph](../../governance/resource-graph/how-to/get-resource-changes.md).
 - If you need to build more advanced reports or merge cost data with other cloud or business data, [connect to Cost Management data in Power BI](/power-bi/connect-data/desktop-connect-azure-cost-management).
+  - If getting started with cost reporting in Power BI, consider using these [Power BI sample reports](https://github.com/flanakin/cost-management-powerbi).
 
 ## Building on the basics
 
@@ -107,7 +107,7 @@ At this point, you're likely productively utilizing the native reporting and ana
   - Consider both bottom-up and top-down approaches to drive FinOps through data.
   - Use alerting systems and collaboration tools to raise awareness of costs on a recurring basis.
 - Regularly evaluate the quality of the data and reports.
-  - Consider introducing a feedback mechanism to learn how stakeholders are using reports and when they can't or or aren't meeting their needs. Use it as a KPI for your reports.
+  - Consider introducing a feedback mechanism to learn how stakeholders are using reports and when they can't or aren't meeting their needs. Use it as a KPI for your reports.
   - Focus heavily on data quality and consistency. Many issues surfaced within the reporting tools are result from the underlying data ingestion, normalization, and cost allocation processes. Channel the feedback to the right stakeholders and raise awareness of and resolve issues that are impacting end-to-end cost visibility, accountability, and optimization.
 
 ## Learn more at the FinOps Foundation

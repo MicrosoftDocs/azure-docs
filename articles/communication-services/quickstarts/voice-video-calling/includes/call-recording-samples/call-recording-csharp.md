@@ -38,7 +38,7 @@ Let's get started with a few simple steps!
 ## 1. Create a Call Automation client
 
 Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/call-automation/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
-To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
+To create a call automation client, you use your Communication Services connection string and pass it to `CallAutomationClient` object.
 
 ```csharp
 CallAutomationClient callAutomationClient = new CallAutomationClient("<ACSConnectionString>");
@@ -64,7 +64,7 @@ Response<RecordingStateResult> response = await callAutomationClient.GetCallReco
 ```
 
 ### 2.1. Only for Unmixed - Specify a user on channel 0
-To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants are assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording assigns channel 0 to the first participant speaking. 
 
 ```csharp
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
@@ -89,7 +89,7 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
    RecordingChannel = RecordingChannel.Unmixed,
    RecordingFormat = RecordingFormat.Wav,
    RecordingStateCallbackUri = new Uri("<CallbackUri>"),
-   ChannelAffinity = { channelAffinity }
+   ChannelAffinity = new List<ChannelAffinity>{ channelAffinity }
 };
 Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording().StartAsync(recordingOptions);
 ```
@@ -125,7 +125,7 @@ Use an [Azure Event Grid](../../../../../event-grid/event-schema-communication-s
 
 An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
 
-Below is an example of the event schema.
+Example of the event schema:
 
 ```
 {
@@ -136,7 +136,7 @@ Below is an example of the event schema.
         "recordingStorageInfo": {
             "recordingChunks": [
                 {
-                    "documentId": string, // Document id for for the recording chunk
+                    "documentId": string, // Document id for the recording chunk
                     "contentLocation": string, //Azure Communication Services URL where the content is located
                     "metadataLocation": string, // Azure Communication Services URL where the metadata for this chunk is located
                     "deleteLocation": string, // Azure Communication Services URL to use to delete all content, including recording and metadata.
@@ -162,7 +162,7 @@ Use `DownloadToAsync` API for downloading the recorded media.
 var recordingDownloadUri = new Uri(contentLocation);
 var response = await callAutomationClient.GetCallRecording().DownloadToAsync(recordingDownloadUri, fileName);
 ```
-The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadToAsync` method download the content into provided filename.
+The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadToAsync` method downloads the content into provided filename.
 
 ## 7. Delete recording content using 'DeleteAsync' API
 

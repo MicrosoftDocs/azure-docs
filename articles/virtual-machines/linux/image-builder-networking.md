@@ -3,12 +3,11 @@ title: Azure VM Image Builder networking options
 description: Understand the networking options available to you when you deploy the Azure VM Image Builder service.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 08/10/2020
+ms.reviewer: jushiman
+ms.date: 07/25/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-
 ---
 
 # Azure VM Image Builder networking options
@@ -45,6 +44,9 @@ If you use an existing virtual network, VM Image Builder deploys an additional V
 > [!NOTE]
 > The virtual network must be in the same region as the VM Image Builder service region.
 > 
+
+> [!IMPORTANT]
+> The Azure VM Image Builder service modifies the WinRM connection configuration on all Windows builds to use HTTPS on port 5986 instead of the default HTTP port on 5985. This configuration change can impact workflows that rely on WinRM communication.
 
 ### Why deploy a proxy VM?
 

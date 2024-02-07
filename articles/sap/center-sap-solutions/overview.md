@@ -5,8 +5,8 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: overview
 ms.date: 10/19/2022
-ms.author: ladolan
-author: lauradolan
+ms.author: sagarkeswani
+author: sagarkeswani
 #Customer intent: As a developer, I want to learn about Azure Center for SAP solutions so that I can decide to use the service with a new or existing SAP system.
 ---
 

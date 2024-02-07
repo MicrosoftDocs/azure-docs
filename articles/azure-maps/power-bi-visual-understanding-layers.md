@@ -1,10 +1,10 @@
 ---
 title: Layers in an Azure Maps Power BI visual
-titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn about the different layers available in an Azure Maps Power BI visual.
+titleSuffix: Microsoft Azure Maps Power BI visual
+description: This article describes the different layers available in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 11/29/2021
+ms.date: 07/19/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -74,21 +74,31 @@ The second type of layer connects addition external sources of data to map to pr
     :::column-end:::
 :::row-end:::
 
-All the data rendering layers, as well as the **Tile layer**, have options for min and max zoom levels that are used to specify a zoom level range these layers should be displayed at. This allows one type of rendering layer to be used at one zoom level and a transition to another rendering layer at another zoom level.
+All the data rendering layers and the **Tile layer**, have options for min and max zoom levels that are used to specify a zoom level range these layers should be displayed at. These options allow one type of rendering layer to be used at one zoom level and a transition to another rendering layer at another zoom level.
 
-These layers also have an option to be positioned relative to other layers in the map. When multiple data rendering layers are used, the order in which they are added to the map determines their relative layering order when they have the same **Layer position** value.
+These layers can also be positioned relative to other layers in the map. When multiple data rendering layers are used, the order in which they're added to the map determines their relative layering order when they have the same **Layer position** value.
 
 ## General layer settings
 
 The general layer section of the **Format** pane are common settings that apply to the layers that are connected to the Power BI dataset in the **Fields** pane (Bubble layer, 3D column layer).
 
-| Setting     | Description   |
-|-------------|---------------|
-| Unselected transparency | The transparency of shapes that are not selected, when one or more shapes are selected.  |
-| Show zeros              | Specifies if points that have a size value of zero should be shown on the map using the minimum radius. |
-| Show negatives          | Specifies if absolute value of negative size values should be plotted.   |
-| Min data value          | The minimum value of the input data to scale against. Good for clipping outliers.  |
-| Max data value          | The maximum value of the input data to scale against. Good for clipping outliers.  |
+| Setting        | Description                            |
+|----------------|----------------------------------------|
+| Unselected transparency | The transparency of shapes that aren't selected, when one or more shapes are selected.  |
+| Show zeros     | (Deprecated) Specifies if points that have a size value of zero should be shown on the map using the minimum radius. |
+| Show negatives | (Deprecated) Specifies if absolute value of negative size values should be plotted.   |
+| Min data value | The minimum value of the input data to scale against. Good for clipping outliers.  |
+| Max data value | The maximum value of the input data to scale against. Good for clipping outliers.  |
+
+> [!NOTE]
+>
+> **General layer settings retirement**
+>
+> The **Show zeros** and **Show negatives** Power BI Visual General layer settings were deprecated starting in the September 2023 release of Power BI. You can no longer create new reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports. To upgrade to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
+>
+> :::image type="content" source="./media/power-bi-visual/range-scaling-drop-down.png" alt-text="A screenshot of the range scaling drop-down":::
+>
+> For more information on the range scaling option, see **Range scaling** in the properties table of the [Add a bubble layer] article.
 
 ## Next steps
 
@@ -110,3 +120,5 @@ Add more context to the map:
 
 > [!div class="nextstepaction"]
 > [Show real-time traffic](power-bi-visual-show-real-time-traffic.md)
+
+ [Add a bubble layer]: power-bi-visual-add-bubble-layer.md

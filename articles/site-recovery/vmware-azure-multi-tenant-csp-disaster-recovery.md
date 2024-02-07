@@ -52,9 +52,9 @@ You can access the tenant’s subscription through the Microsoft Partner Center 
 
 	![The All Resources link](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
 
-4. You can verify access by clicking the Azure Active Directory link on the top right of the Azure portal.
+4. You can verify access by clicking the Microsoft Entra ID link on the top right of the Azure portal.
 
-	![Azure Active Directory link](./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png)
+	![Microsoft Entra ID link](./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png)
 
 You can now perform and manage all Site Recovery operations for the tenant in the Azure portal. To access the tenant subscription through CSP for managed disaster recovery, follow the previously described process.
 

@@ -3,7 +3,7 @@ title: Scale VMware/physical disaster recovery with Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/30/2022
+ms.date: 08/31/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -150,7 +150,7 @@ Process server capacity is affected by data churn rates, and not by the number o
 
 **CPU** | **Memory** | **Cache disk** | **Churn rate**
  --- | --- | --- | --- 
-12 vCPUs<br> 2 sockets*6 cores @ 2.5 Ghz | 24 GB | 1 GB | Up to 2 TB a day
+12 vCPUs<br> 2 sockets*6 cores @ 2.5 Ghz | 24 GB | 1 TB | Up to 2 TB a day
 
 Set up the process server as follows:
 

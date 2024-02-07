@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Virtual Desktop golden image
 description: A walkthrough for how to set up a golden image for your Azure Virtual Desktop deployment in the Azure portal.
-author: cshea15
+author: cshea-msft
 ms.topic: how-to
 ms.date: 12/01/2021
 ms.author: chashea
@@ -11,9 +11,9 @@ manager: bterkaly
 This article will walk you through how to use the Azure portal to create a custom image to use for your Azure Virtual Desktop session hosts. This custom image, which we'll call a "golden image," contains all apps and configuration settings you want to apply to your deployment.
 There are other approaches to customizing your session hosts, such as using device management tools like [Microsoft Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) or automating your image build using tools like [Azure Image Builder](../virtual-machines/windows/image-builder-virtual-desktop.md) with [Azure DevOps](/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops&preserve-view=true). Which strategy works best depends on the complexity and size of your planned Azure Virtual Desktop environment and your current application deployment processes. 
 ## Create an image from an Azure VM
-When creating a new VM for your golden image, make sure to choose an OS that's in the list of [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses).  We recommend using a Windows 10 multi-session (with or without Microsoft 365) or Windows Server image for pooled host pools. We recommend using Windows 10 Enterprise images for personal host pools. You can use either Generation 1 or Generation 2 VMs; Gen 2 VMs support features that aren't supported for Gen 1 machines. Learn more about Generation 1 and Generation 2 VMs at [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+When creating a new VM for your golden image, make sure to choose an OS that's in the list of [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses).  We recommend using a Windows 10 or 11 multi-session (with or without Microsoft 365) or Windows Server image for pooled host pools. We recommend using Windows 10 or 11 Enterprise images for personal host pools. You can use either Generation 1 or Generation 2 VMs; Gen 2 VMs support features that aren't supported for Gen 1 machines. Learn more about Generation 1 and Generation 2 VMs at [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 > [!IMPORTANT]
-> The VM used for taking the image must be deployed without "Login with Azure AD" flag. During the deployment of Session Hosts in Azure Virtual Desktop, if you choose to add VMs to Azure Active Directory you are able to Login with AD Credentials too.
+> The VM used for taking the image must be deployed without "Login with Microsoft Entra ID" flag. During the deployment of Session Hosts in Azure Virtual Desktop, if you choose to add VMs to Microsoft Entra ID you are able to Login with AD Credentials too.
 ### Take your first snapshot
 First, [create the base VM](../virtual-machines/windows/quick-create-portal.md) for your chosen image. After you've deployed the image, take a snapshot of the disk of your image VM. Snapshots are save states that will let you roll back any changes if you run into problems while building the image. Since you'll be taking many snapshots throughout the build process, make sure to give the snapshot a name you can easily identify. 
 ### Customize your VM
@@ -51,6 +51,6 @@ Here are some extra things you should keep in mind when creating a golden image:
 - Make sure to remove the VM from the domain before running sysprep. 
 - Delete the base VM once you've captured the image from it. 
 - After you've captured your image, don't use the same VM you captured again. Instead, create a new base VM from the last snapshot you created. You'll need to periodically update and patch this new VM on a regular basis.  
-- Don't create a new base VM from an existing custom image.
+- Don't create a new base VM from an existing custom image. It is better to start with a brand-new source VM.
 ## Next steps
 If you want to add a language pack to your image, see [Language packs](language-packs.md).

@@ -1,71 +1,55 @@
 ---
-title: TicksToDateTime in Azure Cosmos DB query language
-description: Learn about SQL system function TicksToDateTime in Azure Cosmos DB.
-author: seesharprun
+title: TicksToDateTime
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the number of ticks as a date and time value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 08/18/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# TicksToDateTime (Azure Cosmos DB)
+
+# TicksToDateTime (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Converts the specified ticks value to a DateTime.
-  
+Converts the specified number of ticks to a date and time value.
+
 ## Syntax
-  
+
 ```sql
-TicksToDateTime (<Ticks>)
+TicksToDateTime(<numeric_expr>)
 ```
 
 ## Arguments
 
-*Ticks*  
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
 
-A signed numeric value, the current number of 100 nanosecond ticks that have elapsed since the Unix epoch. In other words, it is the number of 100 nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
+> [!NOTE]
+> For more information on the ISO 8601 format, see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 ## Return types
 
-Returns the UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
-  
-|Format|Description|
-|-|-|
-|YYYY|four-digit year|
-|MM|two-digit month (01 = January, etc.)|
-|DD|two-digit day of month (01 through 31)|
-|T|signifier for beginning of time elements|
-|hh|two-digit hour (00 through 23)|
-|mm|two-digit minutes (00 through 59)|
-|ss|two-digit seconds (00 through 59)|
-|.fffffff|seven-digit fractional seconds|
-|Z|UTC (Coordinated Universal Time) designator|
-  
-  For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+Returns a UTC date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.fffffffZ`.
+
+## Examples
+
+The following example converts the ticks to a date and time value.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/tickstodatetime/query.sql" highlight="2-4":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/tickstodatetime/result.json":::
 
 ## Remarks
 
-TicksToDateTime will return `undefined` if the ticks value specified is invalid.
+- This function returns `undefined` if the ticks value specified is invalid.
 
-## Examples
-  
-The following example converts the ticks to a DateTime:
+## Related content
 
-```sql
-SELECT TicksToDateTime(15943368134575530) AS DateTime
-```
-
-```json
-[
-    {
-        "DateTime": "2020-07-09T23:20:13.4575530Z"
-    }
-]
-```  
-
-## Next steps
-
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`TimestampToDateTime`](timestamptodatetime.md)

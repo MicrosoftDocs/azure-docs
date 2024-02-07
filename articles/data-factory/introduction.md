@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: overview
-ms.date: 08/11/2022
+ms.date: 07/20/2023
 ---
 
 # What is Azure Data Factory?
@@ -118,7 +118,7 @@ Control flow is an orchestration of pipeline activities that includes chaining a
 ### Variables
 Variables can be used inside of pipelines to store temporary values and can also be used in conjunction with parameters to enable passing values between pipelines, data flows, and other activities.
 
-## Next steps
+## Related content
 Here are important next step documents to explore:
 
 - [Dataset and linked services](concepts-datasets-linked-services.md)

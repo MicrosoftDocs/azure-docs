@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 07/18/2023
 ms.author: duau
 
 ---
@@ -131,11 +131,36 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
     * **ExpressRoute Direct resource**: Select the ExpressRoute Direct resource you created in the previous section.
     * **Circuit bandwidth**: Select the bandwidth for the circuit. Ensure to keep track of the bandwidth utilization for the ExpressRoute Direct port.
     * **SKU**: Select the SKU type for the ExpressRoute circuit that best suits your environment.
-    * **Billing model**: Only **Metered** billing model circuits are supported with ExpressRoute Direct.
+    * **Billing model**: Only **Metered** billing model circuits are supported with ExpressRoute Direct at creation.
+  
+    > [!NOTE]
+    > You can change from **Metered** to **Unlimited** after the creation of the circuit. This change is irreversible once completed. To change the billing model, go to the **configuration** page of the ExpressRoute Direct circuit. 
 
 1. Specify any resource tags, then select **Review + Create** to validate the settings before creating the resource.
 
 1. Select **Create** once validation passed. You'll see a message letting you know that your deployment is underway. A status will display on this page when your ExpressRoute circuit resource gets created. 
+
+## Public Preview
+
+The following scenario is in public preview:
+
+ExpressRoute Direct and ExpressRoute circuit(s) in a different subscription or Microsoft Entra tenants. You'll create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
+
+### Enable ExpressRoute Direct and circuits in a different subscription
+
+1. To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com with the ExpressRoute Direct and target ExpressRoute circuit Azure subscription IDs. You'll receive an e-mail once the feature get enabled for your subscriptions.
+
+1. Go to the ExpressRoute Direct resource and select **Authorizations** under *Settings* in the left side menu. Then enter a name for a new authorization and select **Save**.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/authorization.png" alt-text="Screenshot of authorizations page.":::
+
+1. Create a new ExpressRoute circuit in a different subscription or Microsoft Entra tenant. 
+
+1. Select **Direct** as the port type and check the box for **Redeem authorization**. Enter the resource URI of the ExpressRoute Direct resource and enter the authorization key generated in step 2.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/redeem-authorization.png" alt-text="Screenshot of redeeming authorization when creating a new ExpressRoute circuit.":::
+
+1. Select **Review + Create** to validate the settings before creating the resource. Then select **Create** to deploy the new ExpressRoute circuit.
 
 ## Next steps
 

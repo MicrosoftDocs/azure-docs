@@ -17,7 +17,7 @@ The following sections provide details about how to connect your BMC Helix produ
 
 Ensure that you've met the following prerequisites:
 
-* Azure Active Directory is registered.
+* Microsoft Entra ID is registered.
 * You have the supported version of BMC Helix Multi-Cloud Service Management (version 19.08 or later).
 
 ## Configure the BMC Helix connection
@@ -28,7 +28,7 @@ Ensure that you've met the following prerequisites:
    1. Search for the **Create Incident from Azure Alerts** flow.
    1. Copy the webhook URL.
    
-   ![Screenshot that shows the webhook U R L in Integration Studio.](media/itsmc-secure-webhook-connections-bmc/bmc-url.png)
+   :::image type="content" source="media/itsmc-secure-webhook-connections-bmc/bmc-url.png" lightbox="media/itsmc-secure-webhook-connections-bmc/bmc-url.png" alt-text="Screenshot that shows the webhook U R L in Integration Studio.":::
    
 1. Follow the instructions according to the version:
    * [Enabling prebuilt integration with Azure Monitor for version 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html)
@@ -50,4 +50,4 @@ Ensure that you've met the following prerequisites:
       - **Check**: Selected by default to enable usage.
       - The Azure tenant ID and Azure application ID are taken from the application that you defined earlier.
 
-   ![Screenshot that shows BMC configuration.](media/itsmc-secure-webhook-connections-bmc/bmc-configuration.png)
+   :::image type="content" source="media/itsmc-secure-webhook-connections-bmc/bmc-configuration.png" lightbox="media/itsmc-secure-webhook-connections-bmc/bmc-configuration.png" alt-text="Screenshot that shows BMC configuration.":::

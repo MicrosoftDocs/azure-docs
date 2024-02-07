@@ -14,7 +14,7 @@ ms.reviewer: JeffWo
 
 A full list of available plugins can be found at [Table of Plugins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
-![CollectD overview](media/data-sources-collectd/overview.png)
+:::image type="content" source="media/data-sources-collectd/overview.png" lightbox="media/data-sources-collectd/overview.png" alt-text="CollectD overview":::
 
 The following CollectD configuration is included in the Log Analytics agent for Linux to route  CollectD data to the Log Analytics agent for Linux.
 

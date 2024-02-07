@@ -4,8 +4,8 @@ description: In this article, learn how to configure, initiate, and manage backu
 ms.topic: how-to
 ms.date: 05/30/2023
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ms.custom: engagement-fy23
 ---
 

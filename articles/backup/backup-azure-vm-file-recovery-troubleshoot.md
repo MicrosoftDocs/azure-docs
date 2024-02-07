@@ -2,9 +2,10 @@
 title: Troubleshoot Azure VM file recovery
 description: Troubleshoot issues when recovering files and folders from an Azure VM backup.
 ms.topic: troubleshooting
+ms.custom: linux-related-content
 ms.date: 07/12/2020
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot issues in file recovery of an Azure VM backup
@@ -54,7 +55,7 @@ This section provides steps to troubleshoot common issues you might experience w
    ```bash
       ping download.microsoft.com
    ```
-   
+
 ### The script downloads successfully, but fails to run
 
 When you run the Python script for Item Level Recovery (ILR) on SUSE Linux Enterprise Server 12 SP4, it fails with the error "iscsi_tcp module can’t be loaded" or "iscsi_tcp_module not found".
@@ -169,7 +170,7 @@ If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover 
 
 ### You can't copy the files from mounted volumes
 
-The copy might fail with the error "0x80070780: The file cannot be accessed by the system." 
+The copy might fail with the error "0x80070780: The file cannot be accessed by the system."
 
 Check if the source server has disk deduplication enabled. If it does, ensure the restore server also has deduplication enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
 

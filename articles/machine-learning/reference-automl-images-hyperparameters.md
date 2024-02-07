@@ -5,7 +5,6 @@ description: Learn which hyperparameters are available for computer vision tasks
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: ignite-2022
 ms.topic: reference
 ms.reviewer: ssalgado
 author: swatig007
@@ -15,7 +14,7 @@ ms.date: 01/18/2022
 
 # Hyperparameters for computer vision tasks in automated machine learning
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
 

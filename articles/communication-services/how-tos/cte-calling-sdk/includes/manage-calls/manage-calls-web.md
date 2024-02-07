@@ -12,7 +12,7 @@ ms.author: xixian
 Start a synchronous one-to-one or group call with `startCall` API on `teamsCallAgent`. You can provide `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as a parameter to define the target of the call. The method returns the `TeamsCall` instance that allows you to subscribe to call events.
 
 > [!NOTE]
-> Start a group call with `teamsCallAgent` requires chat's `threadId` when calling `startCall` method. Created `TeamsCall` instance has property `threadId` capturing this thread. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread). 
+> Start a group call with `teamsCallAgent` requires chat's `threadId` when calling `startCall` method. Created `TeamsCall` instance has property `threadId` capturing this thread. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread).
 
 Start a one-to-one Voice-over IP (VoIP) call to Teams user:
 ```js
@@ -47,10 +47,39 @@ Join Teams meeting with combination of thread ID, organizer ID, tenant ID, and m
 ```js
 const meetingCall = teamsCallAgent.join({ threadId: '<THREAD_ID>', organizerId: '<ORGANIZER_ID>', tenantId: '<TENANT_ID>', messageId: '<MESSAGE_ID>' });
 ```
-Join Teams meeting with meeting code:
+Join Teams meeting with meeting code and passcode:
 ```js
-const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>'});
+const meetingCall = teamsCallAgent.join({ meetingId: '<MEETING_CODE>', passcode: '<PASSCODE>'});
 ```
+
+### Join Teams meeting with meeting ID and passcode:
+
+Developers can use multiple ways to join Teams meeting. One of them is meeting ID and passcode, which allows people to join the Teams meeting they are invited to from a device or application. You always need to provide both meeting ID and passcode to join the meeting. Passcode is case sensitive.
+- Format of the meeting ID and passcode is:
+  * Meeting ID: 12 digits.
+  * Passcode: 6 characters
+     
+- How often do you need to refresh meeting ID & passcode?
+   * Meeting ID and passcode does not change once created. Developers don't need to refresh neither of those for change.
+   * Teams meeting organizer can't regenerate the meeting ID and passcode.
+       
+- Is there any difference in Teams meeting experience if the user joins through URL or meeting ID & passcode?
+  * No. Users will have the same user experience if they join Teams meeting through Teams meeting URL or meeting ID & passcode. 
+
+- How should developers store and manage passcode?
+  * Meeting ID and passcode are coordinates to join the meeting. Developers should treat it as secret, which should be encrypted and if stored then behind access control.
+  * If the coordinates are exposed, anyone can join the meeting and ruin the experience for everyone in the meeting.
+    
+
+- How to get meeting ID & passcode ?
+     1. Graph API: Use Graph API to retrieve information about `onlineMeeting` resource and check the object in property `joinMeetingIdSettings`.
+     1. Teams: In your Teams application go to `Calendar` app and open details of a meeting. Online meetings have meeting ID and passcode in the definition of the meeting. 
+     1. Outlook: You can find the meeting ID & passcode in calendar events or in email meeting invites.
+     1. Developers can't retrieve the meeting ID & passcode through calling SDK or retrieve it from verbose console logs.
+
+
+- How can I verify the meeting ID & passcode is correct?
+  * MeetingId and passcode verification can be done via : https://www.microsoft.com/en-us/microsoft-teams/join-a-meeting
 
 ## Receive a Teams incoming call
 
@@ -94,17 +123,31 @@ await call.mute();
 //unmute local device
 await call.unmute();
 ```
+## Mute other participants
+
+To mute all other participants or mute a specific participant, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant:
+
+```js
+//mute all participants except yourself
+await call.muteAllRemoteParticipants();
+
+//mute a specific participant
+await call.remoteParticipants[0].mute();
+```
+
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 
 ## Manage remote participants
 
 Other call participants are available in the `TeamsCall` instance under the property `remoteParticipants`. It is a collection of `RemoteParticipant` objects. You can list, add and remove other participants from the call.
 
 > [!NOTE]
-> Adding a participant method requires chat's `threadId`. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread). 
+> Adding a participant method requires chat's `threadId`. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread).
 
 You can add new Teams user or phone number to the Teams call or Teams meeting by calling the method `addParticipant` on the object `TeamsCall`. The method accepts identifiers `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as input and returns synchronously the instance of `RemoteParticipant` and triggers the event `remoteParticipantsUpdated` on the `TeamsCall` instance.
 
-You can remove a participant from the Teams call or Teams meeting by invoking the `removeParticipant` method on the `TeamsCall` instance asynchronously. The method accepts identifiers `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as an input. The method is resolved when `RemoteParticipant` is removed from the `remoteParticipants` collection, and the event `remoteParticipantsUpdated` on the `TeamsCall` instance is triggered. 
+You can remove a participant from the Teams call or Teams meeting by invoking the `removeParticipant` method on the `TeamsCall` instance asynchronously. The method accepts identifiers `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as an input. The method is resolved when `RemoteParticipant` is removed from the `remoteParticipants` collection, and the event `remoteParticipantsUpdated` on the `TeamsCall` instance is triggered.
 
 List other call participants:
 ```js
@@ -131,7 +174,7 @@ await call.removeParticipant(phoneUser);
 
 Remote participants represent an endpoint connected to the ongoing Teams call or Teams meeting. The class `remoteParticipant` has the following set of properties and collections:
 
-- `identifier`: Returns one of the following identifiers: `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, or `UnknownIdentifier`. 
+- `identifier`: Returns one of the following identifiers: `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, or `UnknownIdentifier`.
 
 ```js
 const identifier = remoteParticipant.identifier;
@@ -165,8 +208,8 @@ const state = remoteParticipant.state;
 
 ```js
 const callEndReason = remoteParticipant.callEndReason;
-const callEndReasonCode = callEndReason.code 
-const callEndReasonSubCode = callEndReason.subCode 
+const callEndReasonCode = callEndReason.code
+const callEndReasonSubCode = callEndReason.subCode
 ```
 
 - `isMuted`: Returns `Boolean` value representing a status of local mute.
@@ -175,7 +218,7 @@ const callEndReasonSubCode = callEndReason.subCode
 const isMuted = remoteParticipant.isMuted;
 ```
 
-- `isSpeaking`: Returns `Boolean` value representing the status of non-empty audio being sent. 
+- `isSpeaking`: Returns `Boolean` value representing the status of non-empty audio being sent.
 
 ```js
 const isSpeaking = remoteParticipant.isSpeaking;
@@ -186,7 +229,7 @@ const isSpeaking = remoteParticipant.isSpeaking;
 ```js
 const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
 ```
-- `displayName`: Returns a `string` representing display name. Communication Services calling SDK does not set this value for Teams users. 
+- `displayName`: Returns a `string` representing display name. Communication Services calling SDK does not set this value for Teams users.
 
 ```js
 const displayName = remoteParticipant.displayName;
@@ -212,7 +255,7 @@ const callInfo = call.info;
 const threadId = call.info.threadId;
 ```
 
-•	`remoteParticipants`: Returns a collection of `remoteParticipant` objects representing other participants in the Teams call or Teams meeting. 
+•	`remoteParticipants`: Returns a collection of `remoteParticipant` objects representing other participants in the Teams call or Teams meeting.
 
 ```js
 const remoteParticipants = call.remoteParticipants;
@@ -255,11 +298,11 @@ const callState = call.state;
 
 ```js
 const callEndReason = call.callEndReason;
-const callEndReasonCode = callEndReason.code 
-const callEndReasonSubCode = callEndReason.subCode 
+const callEndReasonCode = callEndReason.code
+const callEndReasonSubCode = callEndReason.subCode
 ```
 
-•	`direction`: Returns a `string` representing the direction of the call. The property can have one of the following values: "Incoming' or `Outgoing`. 
+•	`direction`: Returns a `string` representing the direction of the call. The property can have one of the following values: "Incoming' or `Outgoing`.
 
 ```js
 const isIncoming = call.direction == 'Incoming';
@@ -301,4 +344,59 @@ If Teams user stops call recording, the recording is placed into the chat associ
 Recommendations for the management of chat ID:
 - Escalation of the 1:1 phone call by adding another phone participant: Use Graph API to get the existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000"
 - Group call with single Teams user and multiple phone participants: Use Graph API to get existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000"
-- Group call with more than 2 Teams users: Use Graph API to get or create a group chat with the Teams users 
+- Group call with more than 2 Teams users: Use Graph API to get or create a group chat with the Teams users
+
+## Send or receive a reaction from other participants
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
+
+Within Azure Communication Services you can send and receive reactions when on a group call:
+- Like :+1:
+- Love :heart:
+- Applause :clap:
+- Laugh :smile:
+- Surprise :open_mouth:
+
+To send a reaction you'll use the `sendReaction(reactionMessage)` API. To receive a reaction message will be built with Type `ReactionMessage` which uses `Reaction` enums as an attribute. 
+
+You'll need to subscribe for events which provide the subscriber event data as:
+```javascript
+export interface ReactionEventPayload {
+    /**
+     * identifier for a participant
+     */
+    identifier: CommunicationUserIdentifier | MicrosoftTeamsUserIdentifier;
+    /**
+     * reaction type received
+     */
+    reactionMessage: ReactionMessage;
+}
+```
+
+You can determine which reaction is coming from which participant with `identifier` attribute and gets the reaction type from `ReactionMessage`. 
+
+### Sample on how to send a reaction in a meeting
+```javascript
+const reaction = call.feature(SDK.Features.Reaction);
+const reactionMessage: SDK.ReactionMessage = {
+       reactionType: 'like'
+};
+await reaction.sendReaction(reactionMessage);
+```
+
+### Sample on how to receive a reaction in a meeting
+```javascript
+const reaction = call.feature(SDK.Features.Reaction);
+reaction.on('reaction', event => {
+    // user identifier
+    console.log("User Mri - " + event.identifier);
+    // received reaction
+    console.log("User Mri - " + event.reactionMessage.name);
+    // reaction message
+    console.log("reaction message - " + JSON.stringify(event.reactionMessage));
+}
+```
+
+### Key things to note about using Reactions:
+- Reactions won't work if the meeting organizer updates the meeting policy to disallow the reaction in a Teams interop call.
+- Sending of reactions doesn't work on 1:1 calls.

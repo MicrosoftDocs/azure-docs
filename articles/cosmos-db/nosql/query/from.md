@@ -1,30 +1,31 @@
 ---
-title: FROM clause in Azure Cosmos DB
-description: Learn about the SQL syntax, and example for FROM clause for Azure Cosmos DB. This article also shows examples to scope results, and get sub items by using the FROM clause.
-author: seesharprun
+title: FROM
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL clause that identifies the source of data for a query.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 05/08/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# FROM clause in Azure Cosmos DB
+
+# FROM clause (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-The FROM (`FROM <from_specification>`) clause is optional, unless the source is filtered or projected later in the query. A query like `SELECT * FROM Families` enumerates over the entire `Families` container. You can also use the special identifier ROOT for the container instead of using the container name.
+The FROM (``FROM <from_specification>``) clause is optional, unless the source is filtered or projected later in the query. A query like ``SELECT * FROM products`` enumerates over an entire container regardless of the name. You can also use the special identifier ``ROOT`` for the container instead of using the container name.
 
-The `FROM` clause enforces the following rules per query:
+The ``FROM`` clause enforces the following rules per query:
 
-* The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the alias for `Families`. AS is an optional keyword to [alias](working-with-json.md#aliasing) the identifier.  
-
-* Once aliased, the original source name cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid because the identifier `Families` has been aliased and can't be resolved anymore.  
-
-* All referenced properties must be fully qualified, to avoid any ambiguous bindings in the absence of strict schema adherence. For example, `SELECT id FROM Families f` is syntactically invalid because the property `id` isn't bound.
+- The container can be aliased, such as ``SELECT p.id FROM products AS p`` or simply ``SELECT p.id FROM products p``. Here, ``p`` is the alias for the container. The container doesn't necessarily need to be named ``products`` or ``p``. ``AS`` is an optional keyword to [alias](working-with-json.md#alias-values) the identifier.  
+- Once aliased, the original source name can't be bound. For example, ``SELECT products.id FROM products p`` is syntactically invalid because the identifier ``products`` has been aliased and can't be resolved anymore.  
+- All referenced properties must be fully qualified, to avoid any ambiguous bindings in the absence of strict schema adherence. For example, ``SELECT id FROM products p`` is syntactically invalid because the property ``id`` isn't bound. The query should instead reference the property ``id`` using ``p.id`` (or ``<alias>.<property-name>``).
 
 ## Syntax
-  
+
 ```sql  
 FROM <from_specification>  
   
@@ -40,129 +41,54 @@ FROM <from_specification>
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
-     | <container_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '[' "property_name" | array_index ']'
 ```  
-  
+
 ## Arguments
-  
-- `<from_source>`  
-  
-  Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<container_expression>` using following rules:  
-  
-  -  If the expression is a container_name, then container_name will be used as an alias.  
-  
-  -  If the expression is `<container_expression>`, then property_name, then property_name will be used as an alias. If the expression is a container_name, then container_name will be used as an alias.  
-  
-- AS `input_alias`  
-  
-  Specifies that the `input_alias` is a set of values returned by the underlying container expression.  
- 
-- `input_alias` IN  
-  
-  Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying container expression. Any value returned by underlying container expression that is not an array is ignored.  
-  
-- `<container_expression>`  
-  
-  Specifies the container expression to be used to retrieve the documents.  
-  
-- `ROOT`  
-  
-  Specifies that document should be retrieved from the default, currently connected container.  
-  
-- `container_name`  
-  
-  Specifies that document should be retrieved from the provided container. The name of the container must match the name of the container currently connected to.  
-  
-- `input_alias`  
-  
-  Specifies that document should be retrieved from the other source defined by the provided alias.  
-  
-- `<container_expression> '.' property_name`  
-  
-  Specifies that document should be retrieved by accessing the `property_name` property.  
-  
-- `<container_expression> '[' "property_name" | array_index ']'`  
-  
-  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified container expression.  
-  
+
+| | Description |
+| --- | --- |
+| **``<from_source>``** | Specifies a data source, with or without an alias. If alias isn't specified, it's inferred from the ``<container_expression>`` using following rules. If the expression is a ``container_name``, then ``container_name`` is used as an alias. If the expression is ``<container_expression>``, then ``property_name`` is used as an alias. If the expression is a ``container_name``, then ``container_name`` is used as an alias. |
+| **AS ``input_alias``** | Specifies that the ``input_alias`` is a set of values returned by the underlying container expression. |
+| **``input_alias`` IN** | Specifies that the ``input_alias`` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying container expression. Any value returned by underlying container expression that isn't an array is ignored. |
+| **``<container_expression>``** | Specifies the container expression to be used to retrieve the items. |
+| **``ROOT``** | Specifies that the item should be retrieved from the default, currently connected container. |
+| **``container_name``** | Specifies that the item should be retrieved from the provided container. The name of the container must match the name of the container currently connected to. |
+| **``input_alias``** | Specifies that the item should be retrieved from the other source defined by the provided alias. |
+| **``<container_expression> '.' property_name``** | Specifies that the item should be retrieved by accessing the ``property_name`` property. |
+| **``<container_expression> '[' "property_name" \| array_index ']'``** | Specifies that the item should be retrieved by accessing the ``property_name`` property or ``array_index`` array element for all items retrieved by specified container expression. |
+
 ## Remarks
-  
-All aliases provided or inferred in the `<from_source>`(s) must be unique. The Syntax `<container_expression> '.' property_name` is the same as `<container_expression> '[' "property_name" ']'`. However, the latter syntax can be used if a property name contains a non-identifier character.  
-  
+
+All aliases provided or inferred in the ``<from_source>``(s) must be unique. The Syntax ``<container_expression> '.' property_name`` is the same as ``<container_expression> '[' "property_name" ']'``. However, the latter syntax can be used if a property name contains a nonidentifier character.  
+
 ### Handling missing properties, missing array elements, and undefined values
-  
-If a container expression accesses properties or array elements and that value does not exist, that value will be ignored and not processed further.  
-  
+
+If a container expression accesses properties or array elements and that value doesn't exist, that value is ignored and not processed further.  
+
 ### Container expression context scoping  
-  
-A container expression may be container-scoped or document-scoped:  
-  
-- An expression is container-scoped, if the underlying source of the container expression is either ROOT or `container_name`. Such an expression represents a set of documents retrieved from the container directly, and is not dependent on the processing of other container expressions.  
-  
-- An expression is document-scoped, if the underlying source of the container expression is `input_alias` introduced earlier in the query. Such an expression represents a set of documents obtained by evaluating the container expression in the scope of each document belonging to the set associated with the aliased container. The resulting set will be a union of sets obtained by evaluating the container expression for each of the documents in the underlying set.
+
+A container expression may be container-scoped or item-scoped:  
+
+- An expression is container-scoped, if the underlying source of the container expression is either ``ROOT`` or ``container_name``. Such an expression represents a set of items retrieved from the container directly, and isn't dependent on the processing of other container expressions.  
+
+- An expression is item-scoped, if the underlying source of the container expression is ``input_alias`` introduced earlier in the query. Such an expression represents a set of items obtained by evaluating the container expression. This evaluation is performed in the scope of each item belonging to the set associated with the aliased container. The resulting set is a union of sets obtained by evaluating the container expression for each of the items in the underlying set.
 
 ## Examples
 
-### Get subitems by using the FROM clause
+In this first example, the ``FROM`` clause is used to specify the current container as a source, give it a unique name, and then alias it. The alias is then used to project specific fields in the query results.
 
-The FROM clause can reduce the source to a smaller subset. To enumerate only a subtree in each item, the subroot can become the source, as shown in the following example:
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/from/query.sql" range="1-6" highlight="5-6":::
 
-```sql
-    SELECT *
-    FROM Families.children
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/from/result.json":::
 
-The results are:
+In this next example, the ``FROM`` clause can also reduce the source to a smaller subset. To enumerate only a subtree in each item, the subroot can become the source. An array or object subroot can be used as a source.
 
-```json
-    [
-      [
-        {
-            "firstName": "Henriette Thaulow",
-            "gender": "female",
-            "grade": 5,
-            "pets": [
-              {
-                  "givenName": "Fluffy"
-              }
-            ]
-        }
-      ],
-      [
-       {
-            "familyName": "Merriam",
-            "givenName": "Jesse",
-            "gender": "female",
-            "grade": 1
-        },
-        {
-            "familyName": "Miller",
-            "givenName": "Lisa",
-            "gender": "female",
-            "grade": 8
-        }
-      ]
-    ]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/from-field/query.sql" range="1-4" highlight="3-4":::
 
-The preceding query used an array as the source, but you can also use an object as the source. The query considers any valid, defined JSON value in the source for inclusion in the result. The following example would exclude `Families` that don't have an `address.state` value.
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/from-field/result.json":::
 
-```sql
-    SELECT *
-    FROM Families.address.state
-```
+## Related content
 
-The results are:
-
-```json
-    [
-      "WA",
-      "NY"
-    ]
-```
-
-## Next steps
-
-- [Getting started](getting-started.md)
-- [SELECT clause](select.md)
-- [WHERE clause](where.md)
+- [``SELECT`` clause](select.md)
+- [``WHERE`` clause](where.md)

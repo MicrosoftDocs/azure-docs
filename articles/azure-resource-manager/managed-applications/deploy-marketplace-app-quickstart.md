@@ -86,7 +86,7 @@ After the managed application deployment is finished, you can verify the resourc
 
 1. The managed resource group shows the resources that were deployed and the deployments that created the resources.
 
-   :::image type="content" source="media/deploy-marketplace-app-quickstart/mrg-apps.png" alt-text="Screenshot of the managed resource group that that highlights the deployments and list of deployed resources.":::
+   :::image type="content" source="media/deploy-marketplace-app-quickstart/mrg-apps.png" alt-text="Screenshot of the managed resource group that highlights the deployments and list of deployed resources.":::
 
 1. To review the publisher's permissions in the managed resource group, select **Access Control (IAM)** > **Role assignments**.
 

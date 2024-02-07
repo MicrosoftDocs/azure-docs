@@ -3,7 +3,7 @@ title: Monitor Azure Site Recovery with Azure Monitor Logs
 description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/07/2023
+ms.date: 08/31/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 
@@ -73,7 +73,7 @@ The churn and upload rate data will start feeding into the workspace.
 You retrieve data from logs using log queries written with the [Kusto query language](../azure-monitor/logs/get-started-queries.md). This section provides a few examples of common queries you might use for Site Recovery monitoring.
 
 > [!NOTE]
-> Some of the examples use **replicationProviderName_s** set to **A2A**. This retrieves Azure VMs that are replicated to a secondary Azure region using Site Recovery. In these examples, you can replace **A2A** with **InMageAzureV2**, if you want to retrieve on-premises VMware VMs or physical servers that are replicated to Azure using Site Recovery.
+> Some of the examples use **replicationProviderName_s** set to **A2A**. This retrieves Azure VMs that are replicated to a secondary Azure region using Site Recovery. In these examples, you can replace **A2A** with **InMageRcm**, if you want to retrieve on-premises VMware VMs or physical servers that are replicated to Azure using Site Recovery.
 
 
 ### Query replication health
@@ -238,7 +238,7 @@ This query plots a summary table for VMware VMs and physical servers replicated 
 
 ```
 AzureDiagnostics  
-| where replicationProviderName_s == "InMageAzureV2"   
+| where replicationProviderName_s == "InMageRcm"   
 | where isnotempty(name_s) and isnotnull(name_s)   
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | project VirtualMachine = name_s , Vault = Resource , ReplicationHealth = replicationHealth_s, Status = protectionState_s, RPO_in_seconds = rpoInSeconds_d, TestFailoverStatus = failoverHealth_s, AgentVersion = agentVersion_s, ReplicationError = replicationHealthErrors_s, ProcessServer = processServerName_g  
@@ -249,7 +249,7 @@ AzureDiagnostics 
 You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/alerts/alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal) about setting up log alerts. 
 
 > [!NOTE]
-> Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region. In these examples, you can replace **A2A** with **InMageAzureV2** if you want to set alerts for on-premises VMware VMs or physical servers replicated to Azure.
+> Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region. In these examples, you can replace **A2A** with **InMageRcm** if you want to set alerts for on-premises VMware VMs or physical servers replicated to Azure.
 
 ### Multiple machines in a critical state
 

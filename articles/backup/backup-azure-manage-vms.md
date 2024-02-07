@@ -4,8 +4,8 @@ description: Learn how to manage and monitor Azure VM backups by using the Azure
 ms.topic: conceptual
 ms.date: 07/05/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Manage Azure VM backups with Azure Backup service
 
@@ -148,7 +148,7 @@ To stop protection and delete data of a VM:
     :::image type="content" source="./media/backup-azure-manage-vms/delete-backup-data.png" alt-text="Screenshot showing to delete backup data.":::
 
 > [!NOTE]
-> After completing the delete operation the backed up data will be retained for 14 days in the [soft deleted state](./soft-delete-virtual-machines.md). <br>In addition, you can also [enable or disable soft delete](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+> After completing the delete operation the backed up data will be retained for 14 days in the [soft deleted state](./soft-delete-virtual-machines.md). <br>In addition, you can also [enable or disable soft delete](./backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 
 ## Resume protection of a VM
 

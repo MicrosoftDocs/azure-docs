@@ -15,7 +15,7 @@ adobe-target-content: ./create-first-function-cli-csharp-ieux
 
 In this article, you use command-line tools to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
 
-This article creates an HTTP triggered function that runs on .NET 6 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions). There's also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
+This article creates an HTTP triggered function that runs on .NET 8 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions). There's also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -23,9 +23,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Before you begin, you must have the following:
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download).
-
-+ [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
 
 + One of the following tools for creating Azure resources:
 
@@ -35,31 +33,7 @@ Before you begin, you must have the following:
 
 You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-### Prerequisite check
-
-Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources:
-
-# [Azure CLI](#tab/azure-cli)
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-
-+ Run `dotnet --list-sdks` to check that the required versions are installed.
-
-+ Run `az --version` to check that the Azure CLI version is 2.4 or later.
-
-+ Run `az login` to sign in to Azure and verify an active subscription.
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-
-+ Run `dotnet --list-sdks` to check that the required versions are installed.
-
-+ Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
-
-+ Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
-
----
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## Create a local function project
 
@@ -68,7 +42,7 @@ In Azure Functions, a function project is a container for one or more individual
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ```console
-    func init LocalFunctionProj --worker-runtime dotnet-isolated --target-framework net6.0
+    func init LocalFunctionProj --worker-runtime dotnet-isolated --target-framework net8.0
     ```
  
 
@@ -93,14 +67,39 @@ In Azure Functions, a function project is a container for one or more individual
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
 #### HttpExample.cs
+    
+*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable as an [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) object. That parameter is decorated with the **HttpTriggerAttribute**, to define the trigger behavior.
+    
+```csharp
+using System.Net;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-The function code generated from the template depends on the type of compiled C# project.
+namespace Company.Function
+{
+    public class HttpExample
+    {
+        private readonly ILogger<HttpExample> _logger;
 
-*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) object that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. Because of the isolated worker process model,    `HttpRequestData` is a representation of the actual `HttpRequest`, and not the request object itself.
+        public HttpExample(ILogger<HttpExample> logger)
+        {
+            _logger = logger;
+        }
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs":::
+        [Function("HttpExample")]
+        public IActionResult Run([HttpTrigger(AuthorizationLevel.AuthLevelValue, "get", "post")] HttpRequest req)
+        {            
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-The return object is an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object that contains the data that's handed back to the HTTP response.
+            return new OkObjectResult("Welcome to Azure Functions!");
+        }
+    }
+}
+```
+    
+The return object is an [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) object that contains the data that's handed back to the HTTP response.
 
 To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=csharp).
 
@@ -176,5 +175,7 @@ Copy the complete **Invoke URL** shown in the output of the publish command into
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
 > [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=isolated-process)

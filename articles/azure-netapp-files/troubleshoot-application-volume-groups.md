@@ -2,15 +2,9 @@
 title: Troubleshoot application volume group errors for Azure NetApp Files | Microsoft Docs
 description: Describes error or warning conditions and their resolutions for application volume groups for Azure NetApp Files. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/19/2021
 ms.author: anfdocs

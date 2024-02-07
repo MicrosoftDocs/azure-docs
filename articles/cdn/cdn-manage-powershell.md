@@ -136,7 +136,6 @@ Get-AzCdnEndpoint -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 - Standard_Verizon
 - Premium_Verizon
 - Custom_Verizon
-- Standard_Akamai
 - Standard_Microsoft
 - Standard_ChinaCdn
 
@@ -185,7 +184,7 @@ Clear-AzCdnEndpointContent -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ## Pre-load some assets
 
 > [!NOTE]
-> Pre-loading is only available on Azure CDN from Verizon profiles.
+> Pre-loading is only available on Azure CDN from Edgio profiles.
 
 `Import-AzCdnEndpointContent` pre-loads assets into the CDN cache.
 
@@ -265,4 +264,3 @@ Remove-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 * Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 
 * To learn about CDN features, see [CDN Overview](cdn-overview.md).
-

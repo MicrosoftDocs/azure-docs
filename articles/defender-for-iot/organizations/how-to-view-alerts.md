@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md).
+This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md).
 
 For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
@@ -128,7 +128,7 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
 
 You might want to access raw traffic files, also known as *packet capture files* or *PCAP* files as part of your investigation.
 
-To access raw traffic files for your alert, select **Download Filtered Pcap** from the top-left corner of your alert details page:
+To access raw traffic files for your alert, select **Download PCAP** from the top-left corner of your alert details page:
 
 For example:
 
@@ -136,7 +136,7 @@ For example:
 
 The PCAP file is downloaded and your browser prompts you to open or save it locally.
 
-### Export alerts to CSV or PDF
+## Export alerts to CSV or PDF
 
 You may want to export a selection of alerts to a CSV or PDF file for offline sharing and reporting.
 

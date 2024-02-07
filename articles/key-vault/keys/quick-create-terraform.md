@@ -2,13 +2,15 @@
 title: 'Quickstart: Create an Azure key vault and key using Terraform'
 description: 'In this article, you create an Azure key vault and key using Terraform'
 services: key-vault
-author: TomArcherMsft
+author: msmbaldwin
 ms.topic: quickstart
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 ms.service: key-vault
 ms.subservice: keys
-ms.author: tarcher
-ms.date: 4/14/2023
+ms.author: mbaldwin
+ms.date: 10/3/2023
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure key vault and key using Terraform
@@ -25,8 +27,6 @@ In this article, you learn how to:
 > * Create a random value using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure key vault using [azurerm_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault)
 > * Create an Azure key vault key using [azurerm_key_vault_key](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key)
-
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

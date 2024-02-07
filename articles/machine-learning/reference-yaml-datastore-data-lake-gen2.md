@@ -6,23 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
+ms.custom: cliv2
 
 author: ynpandey
 ms.author: yogipandey
-ms.date: 10/21/2021
+ms.date: 12/15/2023
 ms.reviewer: franksolomon
 ---
 
 # CLI (v2) Azure Data Lake Gen2 YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json.
+The source JSON schema can be found at [this resource](https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json).
 
-
-
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 

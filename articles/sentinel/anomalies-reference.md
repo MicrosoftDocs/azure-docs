@@ -57,7 +57,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
 | **MITRE ATT&CK sub-techniques:** | Cloud Account                                                      |
@@ -72,7 +72,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Core Directory/UserManagement/Delete user<br>Core Directory/Device/Delete user<br>Core Directory/UserManagement/Delete user |
@@ -86,7 +86,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **Activity:**                    | Core Directory/UserManagement/Update user                          |
@@ -144,10 +144,10 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory sign-in logs<br>Windows Security logs       |
+| **Data sources:**                | Microsoft Entra sign-in logs<br>Windows Security logs       |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Activity:**                    | **Azure AD:** Sign-in activity<br>**Windows Security:** Failed login (Event ID 4625) |
+| **Activity:**                    | **Microsoft Entra ID:** Sign-in activity<br>**Windows Security:** Failed login (Event ID 4625) |
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
@@ -158,7 +158,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Core Directory/UserManagement/User password reset |
@@ -172,7 +172,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **MITRE ATT&CK sub-techniques:** | Additional Azure Service Principal Credentials                     |
@@ -187,10 +187,10 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory sign-in logs<br>Windows Security logs       |
+| **Data sources:**                | Microsoft Entra sign-in logs<br>Windows Security logs       |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Activity:**                    | **Azure AD:** Sign-in activity<br>**Windows Security:** Successful login (Event ID 4624) |
+| **Activity:**                    | **Microsoft Entra ID:** Sign-in activity<br>**Windows Security:** Successful login (Event ID 4624) |
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
@@ -198,7 +198,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 Microsoft Sentinel's customizable, machine learning-based anomalies can identify anomalous behavior with analytics rule templates that can be put to work right out of the box. While anomalies don't necessarily indicate malicious or even suspicious behavior by themselves, they can be used to improve detections, investigations, and threat hunting.
 
-- [Anomalous Azure AD sign-in sessions](#anomalous-azure-ad-sign-in-sessions)
+- [Anomalous Microsoft Entra sign-in sessions](#anomalous-azure-ad-sign-in-sessions)
 - [Anomalous Azure operations](#anomalous-azure-operations)
 - [Anomalous Code Execution](#anomalous-code-execution)
 - [Anomalous local account creation](#anomalous-local-account-creation)
@@ -239,14 +239,16 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 - [Unusual network volume anomaly](#unusual-network-volume-anomaly)
 - [Unusual web traffic detected with IP in URL path](#unusual-web-traffic-detected-with-ip-in-url-path)
 
-### Anomalous Azure AD sign-in sessions
+<a name='anomalous-azure-ad-sign-in-sessions'></a>
 
-**Description:** The machine learning model groups the Azure AD sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions over the past day. 
+### Anomalous Microsoft Entra sign-in sessions
+
+**Description:** The machine learning model groups the Microsoft Entra sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions over the past day. 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Azure Active Directory sign-in logs                                |
+| **Data sources:**                | Microsoft Entra sign-in logs                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts<br>T1566 - Phishing<br>T1133 - External Remote Services |
 
@@ -336,7 +338,7 @@ Configuration details:
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Collection<br>Discovery<br>Initial Access<br>Persistence<br>Privilege Escalation |
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
 

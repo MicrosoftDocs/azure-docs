@@ -61,7 +61,7 @@ To download a pre-defined SNMP MIB file from the Azure portal, you'll need acces
 
 Defender for IoT in the Azure portal provides a downloadable MIB file for you to load into your SNMP monitoring system to pre-define Defender for IoT sensors.
 
-**To download the SNMP MIB file** from [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
+**To download the SNMP MIB file** from [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 

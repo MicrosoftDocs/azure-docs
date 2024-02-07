@@ -2,14 +2,12 @@
 metadata:
   title: "Traffic analytics FAQ"
   titleSuffix: Azure Network Watcher
-  description: Get answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
-  services: network-watcher
+  description: Find answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
+  ms.author: halkazwini
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 04/19/2023
-  ms.author: halkazwini
-  ms.custom: engagement-fy23
+  ms.date: 12/13/2023
 title: Traffic analytics frequently asked questions (FAQ)
 summary: |
   This article provides answers to the most frequently asked questions about traffic analytics in Azure Network Watcher.  
@@ -18,44 +16,34 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          What are the prerequisites to use traffic analytics?
+          What prerequisites are needed to use traffic analytics?
         answer: |
-          Traffic analytics requires the following prerequisites:
-          
-          - A Network Watcher enabled subscription.
-          - NSG flow logs enabled for the network security groups you want to monitor.
-          - An Azure storage account, to store raw flow logs.
-          - An Azure Log Analytics workspace, with read and write access.
-          
-          Your account must meet one of the following to enable traffic analytics:
-          
-          - Your account must have any one of the following Azure roles at the subscription scope: owner, contributor, or network contributor.
-          - If your account isn't assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
-                      
-              - Microsoft.Network/applicationGateways/read
-              - Microsoft.Network/connections/read
-              - Microsoft.Network/loadBalancers/read 
-              - Microsoft.Network/localNetworkGateways/read 
-              - Microsoft.Network/networkInterfaces/read 
-              - Microsoft.Network/networkSecurityGroups/read 
-              - Microsoft.Network/publicIPAddresses/read
-              - Microsoft.Network/routeTables/read
-              - Microsoft.Network/virtualNetworkGateways/read 
-              - Microsoft.Network/virtualNetworks/read
-                  
-          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md):
-          
-          If you aren't able to see the role assignments, contact the respective subscription admin. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-          
+          See [Traffic analytics prerequisites](traffic-analytics.md#prerequisites) for a list of the required prerequisites.
+
+      - question: |
+          How can I check if I have the required roles?
+        answer: |
+          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md). If you can't see the role assignments, contact the respective subscription admin.
+
       - question: |
           Can I enable flow logs for network security groups that are in different regions than my workspace region?
         answer: |
-          Yes, these network security groups can be in different regions than your Log Analytics workspace.
+          Yes, network security groups can be in different regions than your Log Analytics workspace region.
 
       - question: |
           Can multiple network security groups be configured within a single workspace?
         answer: |
           Yes.
+
+      - question: |
+          Are Classic network security groups supported?
+        answer: |
+          No, traffic analytics doesn't support classic network security groups.
+      
+      - question: |
+          Why doesn't traffic analytics display data for my traffic analytics enabled network security groups? 
+        answer: |
+          In the resource selection dropdown in the traffic analytics dashboard, the resource group of the **Virtual Network** resource must be selected, not the resource group of the virtual machine or network security group.  
 
       - question: |
           Can I use an existing workspace?
@@ -68,14 +56,24 @@ sections:
           Yes, your Azure storage account can be in one subscription, and your Log Analytics workspace can be in a different subscription.
 
       - question: |
-          Can I store raw logs in a different subscription?
+          Can I store raw logs in a different subscription than the subscription used for network security groups or virtual networks?
         answer: |
-          Yes. You can configure NSG flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the network security group. The network security group and the destination storage account must also share the same Azure Active Directory Tenant.
+          Yes. You can configure flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the network security group (NSG flow logs) or virtual network (VNet flow logs). The destination storage account must share the same Microsoft Entra Tenant of the network security group (NSG flow logs) or virtual network (VNet flow logs).
 
       - question: |
           Can my flow log resources and storage accounts be in different tenants?
         answer: |
-          No. All resources must be in the same tenant including Network security groups, flow logs, storage accounts & Log Analytics workspaces (in cases where Traffic Analytics is enabled).
+          No. All resources must be in the same tenant including network security groups (NSG flow logs), virtual networks (VNet flow logs), flow logs, storage accounts and Log Analytics workspaces (if traffic analytics is enabled).
+
+      - question: |
+          Can I configure a different retention policy for the storage account than Log Analytics workspace?
+        answer: |
+          Yes.
+
+      - question: |
+          Will I lose the data stored in Log Analytics workspace if I delete the storage account used for flow logging?
+        answer: |
+          No. If you delete the storage account that is used for NSG/VNet flow logs, the data stored in Log Analytics workspace won't be affected. You can still view historic data in Log Analytics workspace (some metrics will be impacted) but Traffic Analytics will no longer process any new additional flow logs until you update the flow logs to use a different storage account.
 
       - question: |
           What if I can't configure a network security group for traffic analytics due to a "Not found" error?
@@ -83,7 +81,7 @@ sections:
           Select a supported region. If you select a non-supported region, you receive a "Not found" error. For more information, see [Traffic analytics supported regions](./supported-region-traffic-analytics.md).
 
       - question: |
-          What if I'm getting the status, “Failed to load,” under the NSG flow logs page?
+          What if I'm getting the status: “Failed to load” in the flow logs page?
         answer: |
           The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](.//network-watcher-nsg-flow-logging-portal.md#register-insights-provider), [PowerShell](./network-watcher-nsg-flow-logging-powershell.md#register-insights-provider), or [Azure CLI](./network-watcher-nsg-flow-logging-cli.md#register-insights-provider) instructions on how to register it.
           
@@ -122,71 +120,9 @@ sections:
           You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#create-a-flow-log-and-traffic-analytics-workspace).
                     
       - question: |
-          Can I configure traffic analytics using an Azure Resource Manager template or client?
+          Can I configure traffic analytics using an Azure Resource Manager template or a Bicep file?
         answer: |
-          Currently, you can't use an Azure Resource Manager template to configure traffic analytics, but you can use an Azure Resource Manager client. See the following examples.
-          
-          **Set cmdlet example:**
-          
-          ```
-          #Requestbody parameters
-          $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
-          $TAstorageId = "/subscriptions/<storage subscription id>/resourcegroups/<storage resource group name> /providers/microsoft.storage/storageaccounts/<storage account name>"
-          $networkWatcherResourceGroupName = "<network watcher resource group name>"
-          $networkWatcherName = "<network watcher name>"
-          
-          $requestBody = 
-          @"
-          {
-              'targetResourceId': '${TAtargetUri}',
-              'properties': 
-              {
-                  'storageId': '${TAstorageId}',
-                  'enabled': '<true to enable flow log or false to disable flow log>',
-                  'retentionPolicy': 
-                  {
-                      days: <enter number of days like to retail flow logs in storage account>,
-                      enabled: <true to enable retention or false to disable retention>
-                  }
-              },
-              'flowAnalyticsConfiguration':
-              {
-                          'networkWatcherFlowAnalyticsConfiguration':
-                {
-                  'enabled':<true to enable traffic analytics or false to disable traffic analytics>
-                  'workspaceId':'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
-                  'workspaceRegion':'<workspace region>',
-                  'workspaceResourceId':'/subscriptions/<workspace subscription id>/resourcegroups/<workspace resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
-                  
-                }
-          
-              }
-          }
-          "@
-          $apiversion = "2016-09-01"
-          
-          armclient login
-          armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
-          ```
-          
-          **Get cmdlet example:**
-
-          ```
-          #Requestbody parameters
-          $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
-          
-          
-          $requestBody = 
-          @"
-          {
-              'targetResourceId': '${TAtargetUri}'
-          }
-          “@
-          
-          
-          armclient login
-          armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/queryFlowLogStatus?api-version=${apiversion}" $requestBody
-          ```
+          Yes, you can use an Azure Resource Manager template or a Bicep file to configure traffic analytics. For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md) and [Configure NSG flow logs using a Bicep file](quickstart-configure-network-security-group-flow-logs-from-bicep.md).
 
       - question: |
           How is traffic analytics priced?
@@ -364,13 +300,3 @@ sections:
           - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
           - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
           - On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
-          
-      - question: |
-          Are Classic network security groups supported?
-        answer: |
-          No, traffic analytics doesn't support classic network security groups. It's recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
-      
-      - question: |
-          Why doesn't traffic analytics display data for my traffic analytics enabled network security groups? 
-        answer: |
-          In the resource selection dropdown in the traffic analytics dashboard, the resource group of the **Virtual Network** resource must be selected, not the resource group of the virtual machine or network security group.  

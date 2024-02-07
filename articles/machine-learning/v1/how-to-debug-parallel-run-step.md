@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, troubleshooting, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, troubleshooting, sdkv1, devx-track-python
 ms.reviewer: lagayhar
 ms.author: scottpolly
 author: scottpolly
@@ -17,7 +17,7 @@ ms.date: 11/16/2022
 
 # Troubleshooting the ParallelRunStep
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 

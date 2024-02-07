@@ -3,14 +3,14 @@ title: Integrate Azure Managed HSM with Azure Policy
 description: Learn how to integrate Azure Managed HSM with Azure Policy
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/31/2021
+ms.date: 08/23/2023
 ms.service: key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ---
 
-# Integrate Azure Managed HSM with Azure Policy (preview)
+# Integrate Azure Managed HSM with Azure Policy
 
 [Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill-down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md).
 
@@ -51,16 +51,6 @@ Using RSA keys with smaller key sizes is not a secure design practice. You may b
 
 ## Enabling and managing a Managed HSM policy through the Azure CLI
 
-### Register preview feature in your subscription
-
-In the subscription that customer owns, run the following Azure CLI command line as Contributor or Owner role of the subscription,
-
-```azurecli-interactive
-az feature register --namespace Microsoft.KeyVault --name MHSMGovernance
-```
-
-If there is an existing HSM pool in this subscription, update will be carried to these pools. Full enablement of the policy may take up to 30 mins. See [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md?tabs=azure-cli).
-
 ### Giving permission to scan daily
 
 To check the compliance of the pool's inventory keys, the customer must assign the "Managed HSM Crypto Auditor" role to "Azure Key Vault Managed HSM Key Governance Service"(App ID: a1b76039-a76c-499f-a2dd-846b4cc32627) so it can access key's metadata. Without the grant of permission, inventory keys are not going to be reported on Azure Policy compliance report, only new keys, updated keys, imported keys and rotated keys will be checked on compliance. To do so, a user who has role of "Managed HSM Administrator" to the Managed HSM needs to run the following Azure CLI commands:
@@ -68,7 +58,7 @@ To check the compliance of the pool's inventory keys, the customer must assign t
 On windows:
 
 ```azurecli-interactive
-az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query objectId
+az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query id
 ```
 
 Copy the `id` printed, paste it in the following command:
@@ -80,7 +70,7 @@ az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor"
 On Linux or Windows Subsystem of Linux:
 
 ```azurecli-interactive
-spId=$(az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query objectId|cut -d "\"" -f2)
+spId=$(az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query id|cut -d "\"" -f2)
 echo $spId
 az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id $spId --hsm-name <hsm name>
 ```
@@ -89,10 +79,10 @@ az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor"
 
 Policy assignments have concrete values defined for policy definitions' parameters. In the [Azure portal](https://portal.azure.com/?Microsoft_Azure_ManagedHSM_assettypeoptions=%7B%22ManagedHSM%22:%7B%22options%22:%22%22%7D%7D&Microsoft_Azure_ManagedHSM=true&feature.canmodifyextensions=true}), go to "Policy", filter on the "Key Vault" category, find these four preview key governance policy definitions. Select one, then select "Assign" button on top. Fill in each field. If the policy assignment is for request denials, use a clear name about the policy because, when a request is denied, the policy assignment's name will appear in the error. Select Next, uncheck "Only show parameters that need input or review", and enter values for parameters of the policy definition. Skip the "Remediation", and create the assignment. The service will need up to 30 minutes to enforce "Deny" assignments.
 
-- [Preview]: Azure Key Vault Managed HSM keys should have an expiration date
-- [Preview]: Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size
-- [Preview]: Azure Key Vault Managed HSM Keys should have more than the specified number of days before expiration
-- [Preview]: Azure Key Vault Managed HSM keys using elliptic curve cryptography should have the specified curve names
+- Azure Key Vault Managed HSM keys should have an expiration date
+- Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size
+- Azure Key Vault Managed HSM Keys should have more than the specified number of days before expiration
+- Azure Key Vault Managed HSM keys using elliptic curve cryptography should have the specified curve names
 
 You can also do this operation using the Azure CLI. See [Create a policy assignment to identify non-compliant resources with Azure CLI](../../governance/policy/assign-policy-azurecli.md).
 
