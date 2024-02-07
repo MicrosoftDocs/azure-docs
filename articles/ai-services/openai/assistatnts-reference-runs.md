@@ -425,5 +425,113 @@ When a run has the status: "requires_action" and required_action.type is submit_
 
 |Parameter| Type | Required | Description |
 |---|---|---|---|
-|`thread_id` | string | Required | The ID of the thread that was run. |
-|`run_id` | string | Required | The ID of the run to modify. |
+|`thread_id` | string | Required | The ID of the thread to which this run belongs.|
+|`run_id` | string | Required | The ID of the run that requires the tool output submission. |
+
+**Request body**
+
+|Name | Type | Required | Description |
+|---  |---   |---       |--- |
+| `tool_outputs | array | Required | |
+
+### Returns
+
+The modified run object matching the specified ID.
+
+### Example submit tool outputs to run request
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+run = client.beta.threads.runs.submit_tool_outputs(
+  thread_id="thread_abc123",
+  run_id="run_abc123",
+  tool_outputs=[
+    {
+      "tool_call_id": "call_abc123",
+      "output": "28C"
+    }
+  ]
+)
+print(run)
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/submit_tool_outputs?api-version=2024-02-15-preview \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "tool_outputs": [
+      {
+        "tool_call_id": "call_abc123",
+        "output": "28C"
+      }
+    ]
+  }'
+
+```
+
+---
+
+## Cancel a run
+
+```http
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/cancel?api-version=2024-02-15-preview
+```
+
+Cancels a run that is in_progress.
+
+**Path Parameters**
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+|`thread_id` | string | Required | The ID of the thread to which this run belongs.|
+|`run_id` | string | Required | The ID of the run to cancel. |
+
+### Returns
+
+The modified run object matching the specified ID.
+
+### Example submit tool outputs to run request
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+run = client.beta.threads.runs.cancel(
+  thread_id="thread_abc123",
+  run_id="run_abc123"
+)
+print(run)
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/cancel?api-version=2024-02-15-preview \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' \
+  -X POST
+```
+
+---
+
+## run object
+
