@@ -5707,7 +5707,77 @@
         },
         {
             "source_path_from_root": "/articles/industrial-iot/overview-what-is-industrial-iot-platform.md",
-            "redirect_url": "/azure/industrial-iot/overview-what-is-industrial-iot",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/index.yml",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/industrial-iot-platform-versions.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/overview-what-is-industrial-iot.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/overview-what-is-opc-publisher.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/reference-command-line-arguments.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/reference-opc-publisher-telemetry-format.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-configure-industrial-iot-components.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-data-explorer-import.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-deploy-industrial-iot-platform.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-industrial-iot-azure-data-explorer.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-publisher-configure-opc-publisher.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-publisher-deploy-opc-publisher-standalone.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-publisher-performance-memory-tuning-opc-publisher.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/industrial-iot/tutorial-visualize-data-time-series-insights.md",
+            "redirect_url": "https://github.com/Azure/Industrial-IoT/blob/main/readme.md",
             "redirect_document_id": false
         },
         {
@@ -10798,6 +10868,13 @@
             "source_path_from_root": "/articles/azure-health-insights/response-info.md",
             "redirect_url": "/azure/azure-health-insights/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
+            "redirect_url": "/azure/reliability/reliability-traffic-manager",
+            "redirect_document_id": false
         }
+
+        
     ]
 }

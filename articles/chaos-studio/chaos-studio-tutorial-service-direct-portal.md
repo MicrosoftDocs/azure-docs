@@ -2,7 +2,8 @@
 title: Create an experiment using a service-direct fault with Chaos Studio
 description: Create an experiment that uses a service-direct fault with Azure Chaos Studio to fail over an Azure Cosmos DB instance.
 author: prasha-microsoft
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/01/2021
