@@ -2,12 +2,12 @@
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 09/12/2023
+ms.date: 02/07/2024
 ms.author: dacurwin
 ms.custom: generated
 ---
 
-There are **58** recommendations in this category.
+There are **61** recommendations in this category.
 
 |Recommendation |Description |Severity |
 |---|---|---|
