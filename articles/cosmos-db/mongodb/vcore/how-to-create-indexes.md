@@ -25,11 +25,15 @@ The `CreateIndexes` Command in Azure Cosmos DB for MongoDB vCore has been enhanc
 
 ## Blocking Option
 
-The `CreateIndexes` Command now includes a `{ "blocking": true }` option, designed to provide more control over the indexing process in specific scenarios.
+The `CreateIndexes` Command now includes a `{ "blocking": true }` option, designed to provide more control over the indexing process in an empty collection.
 
 ## Default Setting
 
 The default value of this option is `false`, ensuring backward compatibility and maintaining the existing behavior for users who do not opt-in for the new feature.
+
+## Expected Behavior
+
+Setting `{ "blocking": true }` blocks all write operations (delete, update, insert) to the collection until index creation is completed. This feature is particularly useful in scenarios such as migration utilities where indexes are created on empty collections before data writes commence.
 
 ## Define a Create Index
 
@@ -38,7 +42,7 @@ For simplicity, let us consider an example of a blog application with the follow
 - **Database name**: `cosmicworks`
 - **Collection name**: `products`
 
-To demonstrate the use of this new option in the `cosmicworks` database for an empty collection named `products`, consider the following code:
+To demonstrate the use of this new option in the `cosmicworks` database for an empty collection named `products`. This code snippet demonstrates how to use the blocking option, which will temporarily block write operations to the specified collection during index creation in an empty collection:
 
 ```javascript
 use cosmicworks;
@@ -49,12 +53,6 @@ db.runCommand({
 })
 
 ```
-
-This code snippet demonstrates how to use the blocking option, which will temporarily block write operations to the specified collection during index creation in an empty collection.
-
-## Expected Behavior
-
-Setting `{ "blocking": true }` blocks all write operations (delete, update, insert) to the collection until index creation is completed. This feature is particularly useful in scenarios such as migration utilities where indexes are created on empty collections before data writes commence.
 
 ## Advantages in Specific Scenarios
 
