@@ -48,7 +48,7 @@ When a TCP connection is established, the first three packets sent in the connec
 
     The first two packets involved in the TCP handshake are the [SYN], [SYN, ACK] packets. You don't need the last packet in the handshake, which is the [ACK] packet. The client sends the [SYN] packet. Once the server receives the [SYN] packet, it sends the [ACK] packet as an acknowledgment of receiving the [SYN] from the client.
 
-    :::image type="content" source="./media/packet-capture-inspect/syn-filter.png" alt-text="Screenshot shows how to apply a filter to see the [SYN] and and [SYN, ACK] packets in a TCP stream in Wireshark." lightbox="./media/packet-capture-inspect/syn-filter.png":::
+    :::image type="content" source="./media/packet-capture-inspect/syn-filter.png" alt-text="Screenshot shows how to apply a filter to see the [SYN] and [SYN, ACK] packets in a TCP stream in Wireshark." lightbox="./media/packet-capture-inspect/syn-filter.png":::
 
 1. Select the [SCK] packet. 
 
