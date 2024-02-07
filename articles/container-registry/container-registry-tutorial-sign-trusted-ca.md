@@ -42,7 +42,7 @@ In this article:
 
 ## Install the notation CLI and AKV plugin
 
-1. Install Notation `v1.1.0` on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
+1. Install Notation version `v1.1.0` on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
