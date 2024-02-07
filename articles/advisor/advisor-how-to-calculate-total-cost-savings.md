@@ -17,6 +17,8 @@ You can calculate aggregated potential yearly savings by following these steps:
 
 1. Leverage the cost savings amount for each recommendation to calculate aggregated potential yearly savings.
 
+articles/advisor/media/advisor-how-to-calculate-total-cost-savings.png
+
 > [!NOTE]
 > Recommendations show savings individually, and may overlap with the savings shown in other recommendations, for example – you can only benefit from savings plans or reservations for virtual machines, but not from both.
 
