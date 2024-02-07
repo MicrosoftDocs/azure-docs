@@ -533,5 +533,51 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 
 ---
 
-## run object
+## Run object
 
+Represents an execution run on a thread.
+
+|Name | Type | Description |
+|---  |---   |---         |
+| `id`| string | The identifier, which can be referenced in API endpoints.|
+| `object` | string | The object type, which is always thread.run.|
+| `created_at` | integer | The Unix timestamp (in seconds) for when the run was created.|
+| `thread_id` | string | The ID of the thread that was executed on as a part of this run.|
+| `assistant_id` | string | The ID of the assistant used for execution of this run.|
+| `status` | string | The status of the run, which can be either queued, in_progress, requires_action, cancelling, cancelled, failed, completed, or expired.|
+| `required_action` | object or null | Details on the action required to continue the run. Will be null if no action is required.|
+| `last_error` | object or null | The last error associated with this run. Will be null if there are no errors.|
+| `expires_at` | integer | The Unix timestamp (in seconds) for when the run will expire.|
+| `started_at` | integer or null | The Unix timestamp (in seconds) for when the run was started.|
+| `cancelled_at` | integer or null | The Unix timestamp (in seconds) for when the run was cancelled.|
+| `failed_at` | integer or null | The Unix timestamp (in seconds) for when the run failed.|
+| `completed_at` | integer or null | The Unix timestamp (in seconds) for when the run was completed.|
+| `model` | string | The model that the assistant used for this run.|
+| `instructions` | string | The instructions that the assistant used for this run.|
+| `tools` | array | The list of tools that the assistant used for this run.|
+| `file_ids` | array | The list of File IDs the assistant used for this run.|
+| `metadata` | map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
+| `usage` | object or null | Usage statistics related to the run. This value will be null if the run is not in a terminal state (i.e. in_progress, queued, etc.).|
+
+## Run step object
+
+Represent a step in execution of a run.
+
+|Name | Type | Description |
+|---  |---   |---         |
+| `id`| string | The identifier of the run step, which can be referenced in API endpoints.|
+| `object`| string | The object type, which is always thread.run.step.|
+| `created_at`| integer | The Unix timestamp (in seconds) for when the run step was created.|
+| `assistant_id`| string | The ID of the assistant associated with the run step.|
+| `thread_id`| string | The ID of the thread that was run.|
+| `run_id`| string | The ID of the run that this run step is a part of.|
+| `type`| string | The type of run step, which can be either message_creation or tool_calls.|
+| `status`| string | The status of the run step, which can be either in_progress, cancelled, failed, completed, or expired.|
+| `step_details`| object | The details of the run step.|
+| `last_error`| object or null | The last error associated with this run step. Will be null if there are no errors.|
+| `expired_at`| integer or null | The Unix timestamp (in seconds) for when the run step expired. A step is considered expired if the parent run is expired.|
+| `cancelled_at`| integer or null | The Unix timestamp (in seconds) for when the run step was cancelled.|
+| `failed_at`| integer or null | The Unix timestamp (in seconds) for when the run step failed.|
+| `completed_at`| integer or null | The Unix timestamp (in seconds) for when the run step completed.|
+| `metadata`| map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
+| `usage`| object or null | Usage statistics related to the run step. This value will be null while the run step's status is in_progress.|
