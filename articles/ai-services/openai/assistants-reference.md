@@ -16,9 +16,7 @@ ms.custom:
 
 This article provides reference documentation for Python and REST for the new Assistants API (Preview). More in-depth step-by-step guidance is provided in the [getting started guide](./how-to/assistant.md).
 
-## Assistants
-
-### Create an assistant
+## Create an assistant
 
 ```http
 POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview
@@ -66,9 +64,8 @@ assistant = client.beta.assistants.create(
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' \
   -d '{
     "instructions": "You are an AI assistant that can write code to help answer math questions.",
     "tools": [
@@ -127,9 +124,8 @@ print(assistant_file)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files?api-version=2024-02-15-preview \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' \
   -d '{
        "file_id": "file-abc123"
      }'
@@ -137,7 +133,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id
 
 ---
 
-### List assistants
+## List assistants
 
 ```http
 GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview
@@ -183,14 +179,13 @@ print(my_assistants.data)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview  \
-  -H "api-key: YOUR_API_KEY" \
-  -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' 
 ```
 
 ---
 
-### List assistant files
+## List assistant files
 
 ```http
 GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files?api-version=2024-02-15-preview
@@ -240,14 +235,14 @@ print(assistant_files)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}/files?api-version=2024-02-15-preview  \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
   -H 'OpenAI-Beta: assistants=v1' 
 ```
 
 ---
 
-### Retrieve assistant
+## Retrieve assistant
 
 ```http
 GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-02-15-preview
@@ -284,14 +279,14 @@ print(my_assistant)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-02-15-preview  \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
   -H 'OpenAI-Beta: assistants=v1' 
 ```
 
 ---
 
-### Retrieve assistant file
+## Retrieve assistant file
 
 ```http
 GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-02-15-preview
@@ -332,14 +327,14 @@ print(assistant_file)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}/files/{file-id}?api-version=2024-02-15-preview  \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
   -H 'OpenAI-Beta: assistants=v1' 
 ```
 
 ---
 
-### Modify assistant
+## Modify assistant
 
 ```http
 POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-02-15-preview
@@ -396,9 +391,8 @@ print(my_updated_assistant)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-02-15-preview  \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' \
   -d '{
       "instructions": "You are an HR bot, and you have access to files to answer employee questions about company policies. Always response with info from either of the files.",
       "tools": [{"type": "code-interpreter"}],
@@ -409,7 +403,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id
 
 ---
 
-### Delete assistant
+## Delete assistant
 
 ```http
 DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-02-15-preview
@@ -446,15 +440,14 @@ print(response)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-02-15-preview  \
-  -H "api-key: YOUR_API_KEY" \
+  -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' \
   -X DELETE
 ```
 
 ---
 
-### Delete assistant file
+## Delete assistant file
 
 ```http
 DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-02-15-preview
@@ -475,4 +468,57 @@ File deletion status
 
 ### Example delete assistant file
 
+# [Python 1.x](#tab/python)
 
+```python
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+deleted_assistant_file = client.beta.assistants.files.delete(
+    assistant_id="asst_abc123",
+    file_id="file-abc123"
+)
+print(deleted_assistant_file)
+
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-02-15-preview
+```  \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' \
+  -X DELETE
+```
+
+## Assistant object
+
+| Field  | Type  | Description   |
+|---|---|---|
+| id | string | The identifier, which can be referenced in API endpoints.|
+
+## Assistant file object
+
+| Field  | Type  | Description   |
+|---|---|---|
+| `id`| string | The identifier, which can be referenced in API endpoints.|
+|`object`| string | The object type, which is always `assistant.file` |
+|`created_at` | integer | The Unix timestamp (in seconds) for when the assistant file was created.|
+|`assistant_id` | string | The assistant ID that the file is attached to. |
+
+| Field  | Type  | Description   |
+|---|---|---|
+| `id` | string | The identifier, which can be referenced in API endpoints.|
+| `object` | string | The object type, which is always assistant.|
+| `created_at` | integer | The Unix timestamp (in seconds) for when the assistant was created.|
+| `name` | string or null | The name of the assistant. The maximum length is 256 characters.|
+| `description` | string or null | The description of the assistant. The maximum length is 512 characters.|
+| `model` | string | ID of the model to use. You can use the List models API to see all of your available models, or see our Model overview for descriptions of them.|
+| `instructions` | string or null | The system instructions that the assistant uses. The maximum length is 32768 characters.|
+| `tools` | array | A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, retrieval, or function.|
+| `file_ids` | array | A list of file IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order.|
+| `metadata` | map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
