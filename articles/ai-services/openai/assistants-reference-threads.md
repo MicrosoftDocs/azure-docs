@@ -169,6 +169,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
       }
     }' 
 ```
+---
 
 ## Delete thread
 
@@ -213,7 +214,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
   -H 'Content-Type: application/json' \
   -X DELETE
 ```
-
+---
 ## Thread object
 
 | Field  | Type  | Description   |
