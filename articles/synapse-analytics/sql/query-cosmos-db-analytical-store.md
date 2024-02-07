@@ -65,6 +65,9 @@ The SQL connection string has the following format:
 
 The region is optional. If omitted, the container's primary region is used.
 
+> [!IMPORTANT]
+> There is another optional parameter in connection string called `endpoint`. The `endpoint` param is needed for accounts that do not match the standard `*.documents.azure.com` format. For example, if your Azure CosmosDB account ends with `.documents.azure.us`, make sure that you add `endpoint=<account name>.documents.azure.us` in the connection string.
+
 The Azure Cosmos DB container name is specified without quotation marks in the `OPENROWSET` syntax. If the container name has any special characters, for example, a dash (-), the name should be wrapped within square brackets (`[]`) in the `OPENROWSET` syntax.
 
 ### [OPENROWSET with credential](#tab/openrowset-credential)
