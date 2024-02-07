@@ -353,7 +353,7 @@ Each of the following sections makes API requests by using the five different lo
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
    ```HTTP
    https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -401,7 +401,7 @@ In the preceding GeoJSON response, the negative distance from the main site geof
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
    ```HTTP
    https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -449,7 +449,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
     ```HTTP
       https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -500,7 +500,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
     ```HTTP
     https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -542,7 +542,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 4. Select the **GET** HTTP method.
 
-5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section]).
+5. Enter the following URL. The request should look like the following URL (replace `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data] section).
 
     ```HTTP
     https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -612,4 +612,4 @@ There are no resources that require cleanup.
 [Event handlers in Azure Event Grid]: ../event-grid/event-handlers.md
 [three event types]: ../event-grid/event-schema-azure-maps.md
 [Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
-[Upload Geofencing GeoJSON data section]: #upload-geofencing-geojson-data
+[Upload Geofencing GeoJSON data]: #upload-geofencing-geojson-data
