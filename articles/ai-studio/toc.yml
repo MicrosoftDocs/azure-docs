@@ -168,7 +168,7 @@
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
-    - name: Monitor quality and safety of deployed applications
+    - name: Monitor prompt flow deployments
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
