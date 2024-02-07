@@ -46,7 +46,7 @@ The following table list shows the features of HDInsight on AKS that are current
 
 |	Feature	|	Estimated release timeline	| Status |
 | --- | --- | --- |
-|	Autoscale - Load Based - Trino	|	Q1 2024	| Released |
+|	Autoscale - Load Based - Trino	|	Q1 2024	| Completed |
 |	Shuffle aware load based auto scale for Spark	|	Q2 2024	| |
 |	In Place Upgrade	|	Q2 2024	| 
 |	Reserved Instance Support 	|	Q2 2024	| |
