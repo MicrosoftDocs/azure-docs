@@ -56,12 +56,12 @@ The following table lists the metrics available for the Microsoft.ContainerInsta
 - LINK to metrics page. Example: - [Microsoft.Storage/storageAccounts/blobServices](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-blobservices-metrics)
 - OR INCLUDE metrics table, starting with the metrics tableheader: -->
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [microsoft.containerinstance/containergroups](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containergroups-metrics-include.md)].
+[!INCLUDE [microsoft-containerinstance-containergroups](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containergroups-metrics-include.md)]
 
 ### Supported metrics for Microsoft.ContainerInstance/containerScaleSets
 The following table lists the metrics available for the Microsoft.ContainerInstance/containerScaleSets resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [microsoft.containerinstance/containerscalesets](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containerscalesets-metrics-include.md)].
+[!INCLUDE [microsoft-containerinstance-containerscalesets-metrics](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containerscalesets-metrics-include.md)]
 
 <!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
@@ -79,7 +79,7 @@ The following table lists the metrics available for the Microsoft.ContainerInsta
 <!-- Add at least one resource provider/resource type here. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices
 Repeat this section for each resource type/namespace in your service. -->
 ### Supported resource logs for Microsoft.ContainerInstance/containerGroups
-[!INCLUDE [microsoft.containerinstance/containergroups](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-containerinstance-containergroups-logs-include.md)].
+[!INCLUDE [microsoft-containerinstance-containergroups-logs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-containerinstance-containergroups-logs-include.md)]
 
 <!-- ## Azure Monitor Logs tables. Required section. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
