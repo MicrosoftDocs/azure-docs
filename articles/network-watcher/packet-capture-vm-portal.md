@@ -6,15 +6,15 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 01/26/2024
-# CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
+ms.date: 02/07/2024
+#CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
 
 # Manage packet captures for virtual machines with Azure Network Watcher using the Azure portal
 
 The Network Watcher packet capture tool allows you to create capture sessions to record network traffic to and from an Azure virtual machine (VM). Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps in diagnosing network anomalies both reactively and proactively. Its applications extend beyond anomaly detection to include gathering network statistics, acquiring insights into network intrusions, debugging client-server communication, and addressing various other networking challenges. Network Watcher packet capture enables you to initiate packet captures remotely, alleviating the need for manual execution on a specific virtual machine.
 
-In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using the Azure portal. To learn how to manage packet captures using PowerShell or Azure CLI, see [Manage packet captures for virtual machines using PowerShell](network-watcher-packet-capture-manage-powershell.md) or [Manage packet captures for virtual machines using the Azure CLI](network-watcher-packet-capture-manage-cli.md).
+In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using the Azure portal. To learn how to manage packet captures using PowerShell or Azure CLI, see [Manage packet captures for virtual machines using PowerShell](packet-capture-vm-powershell.md) or [Manage packet captures for virtual machines using the Azure CLI](network-watcher-packet-capture-manage-cli.md).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ In this article, you learn how to remotely configure, start, stop, download, and
 
 > [!NOTE]
 > - Azure creates a Network Watcher instance in the the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. Whenever you use Network Watcher packet capture, Azure installs the agent on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json). To manually install the agent, see [Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md) or [Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md).
+> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json). To manually install the agent, see [Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md) or [Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md).
 > - The last two IP addresses and ports listed in the **Prerequisites** are common across all Network Watcher tools that use the Network Watcher agent and might occasionally change.
 
 If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
@@ -37,11 +37,11 @@ If a network security group is associated to the network interface, or subnet th
 
 1. In the search box at the top of the portal, enter *Network Watcher*. Select **Network Watcher** from the search results.
 
-    :::image type="content" source="./media/network-watcher-packet-capture-manage-portal/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-packet-capture-manage-portal/portal-search.png":::
+    :::image type="content" source="./media/packet-capture-vm-portal/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/packet-capture-vm-portal/portal-search.png":::
 
 1. Select **Packet capture** under **Network diagnostic tools**. Any existing packet captures are listed, regardless of their status.
 
-    :::image type="content" source="./media/network-watcher-packet-capture-manage-portal/packet-capture.png" alt-text="Screenshot shows Network Watcher packet capture in the Azure portal." lightbox="./media/network-watcher-packet-capture-manage-portal/packet-capture.png":::
+    :::image type="content" source="./media/packet-capture-vm-portal/packet-capture.png" alt-text="Screenshot shows Network Watcher packet capture in the Azure portal." lightbox="./media/packet-capture-vm-portal/packet-capture.png":::
 
 1. Select **+ Add** to create a packet capture. In **Add packet capture**, enter or select values for the following settings:
 
@@ -74,11 +74,11 @@ If a network security group is associated to the network interface, or subnet th
 
 1. Select **Start packet capture**.
 
-    :::image type="content" source="./media/network-watcher-packet-capture-manage-portal/add-packet-capture.png" alt-text="Screenshot of Add packet capture in the Azure portal showing available options.":::
+    :::image type="content" source="./media/packet-capture-vm-portal/add-packet-capture.png" alt-text="Screenshot of Add packet capture in the Azure portal showing available options.":::
 
 1. Once the time limit set on the packet capture is reached, the packet capture stops and can be reviewed. To manually stop a packet capture session before it reaches its time limit, select the **...** on the right-side of the packet capture, or right-click it, then select **Stop**.
  
-    :::image type="content" source="./media/network-watcher-packet-capture-manage-portal/stop-packet-capture.png" alt-text="Screenshot that shows how to stop a packet capture in the Azure portal.":::
+    :::image type="content" source="./media/packet-capture-vm-portal/stop-packet-capture.png" alt-text="Screenshot that shows how to stop a packet capture in the Azure portal." lightbox="./media/packet-capture-vm-portal/stop-packet-capture.png":::
 
 ## Download a packet capture
 
@@ -96,12 +96,12 @@ To download a packet capture file saved to Azure storage, follow these steps:
 
 1. In the **Details** section, select the packet capture file link.
 
-    :::image type="content" source="./media/network-watcher-packet-capture-manage-portal/packet-capture-file.png" alt-text="Screenshot that shows how to select the packet capture file in the Azure portal.":::
+    :::image type="content" source="./media/packet-capture-vm-portal/packet-capture-file.png" alt-text="Screenshot that shows how to select the packet capture file in the Azure portal." lightbox="./media/packet-capture-vm-portal/packet-capture-file.png":::
 
 1. In the blob page, select **Download**.
 
 > [!NOTE]
-> You can also download the capture file from the storage account container using the Azure portal or Storage Explorer<sup>1</sup> at the following path: 
+> You can also download capture files from the storage account container using the Azure portal or Storage Explorer<sup>1</sup> at the following path: 
 > ```
 > https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetcapture_{UTCcreationTime}.cap
 > ```
@@ -119,7 +119,7 @@ To download a packet capture file saved to the virtual machine (VM), connect to 
 
 1. In the **Packet capture** page, select **...** on the right-side of the packet capture that you want to delete, or right-click it, then select **Delete**.
 
-    :::image type="content" source="./media/network-watcher-packet-capture-manage-portal/delete-packet-capture.png" alt-text="Screenshot that shows how to delete a packet capture from Network Watcher in Azure portal.":::
+    :::image type="content" source="./media/packet-capture-vm-portal/delete-packet-capture.png" alt-text="Screenshot that shows how to delete a packet capture from Network Watcher in Azure portal." lightbox="./media/packet-capture-vm-portal/delete-packet-capture.png":::
 
 1. Select **Yes**.
 
@@ -129,4 +129,4 @@ To download a packet capture file saved to the virtual machine (VM), connect to 
 ## Related content
 
 - To learn how to automate packet captures with virtual machine alerts, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
-- To determine whether specific traffic is allowed in or out of a virtual machine, see [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+- To learn how to analyze a Network Watcher packet capture file using Wireshark, see [Inspect and analyze Network Watcher packet capture files](packet-capture-inspect.md).
