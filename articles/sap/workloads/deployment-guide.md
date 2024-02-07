@@ -1,4 +1,3 @@
-### YamlMime:How-to
 ---
 title: Azure Virtual Machines deployment for SAP NetWeaver | Microsoft Docs
 description: Learn how to deploy SAP software on Linux virtual machines in Azure.
