@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
-This article describes features and enhancements introduced in Azure Health Data Services in 2023 and 2024, including these services:
+This article describes new features and enhancements introduced in Azure Health Data Services in 2023 and 2024, including these services:
 
 - FHIR&reg; service
 - DICOM&reg; service
@@ -26,7 +26,7 @@ This article describes features and enhancements introduced in Azure Health Data
 
 ## January 2024
 
-### Bulk update of files in the DICOM service is generally available
+### Bulk update of files in the DICOM service
 
 The bulk update operation enables you to change imaging metadata for multiple files stored in the DICOM service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use an API to perform updates to patient demographics and avoid the cost of repeating time-consuming uploads.
 
@@ -36,15 +36,15 @@ Learn more:
 
 - [Bulk update DICOM files](dicom/update-files.md)
 
-### Selectable search parameter capability for the FHIR service is available for preview
+### Selectable search parameters for the FHIR service (preview)
 
-The selectable search parameter capability allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries
+The selectable search parameter capability available for preview allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries.
 
 Learn more: 
 
 - [Selectable search parameters for the FHIR service](fhir/selectable-search-parameters.md)
 
-### FHIR service integration with Azure Active Directory B2C is generally available
+### Integration of the FHIR service with Azure Active Directory B2C
 
 Healthcare organizations can use the FHIR service in Azure Health Data Services with Azure Active Directory B2C (Azure AD B2C). This capability gives organizations a secure and convenient way to grant access to the FHIR service in Azure Health Data Services with fine-grained access control for different users or groups, without creating or comingling user accounts in their organization’s Microsoft Entra ID tenant. With this integration, organizations can:
 
@@ -72,7 +72,7 @@ To request storage greater than 4 TB, [create a support request](https://portal.
 
 ## December 2023
 
-### Encryption with customer-managed keys is generally available for the FHIR and DICOM services
+### Encryption with customer-managed keys for the FHIR and DICOM services
 
 Data stored in Azure Health Data Services is automatically and seamlessly encrypted with service-managed keys managed by Microsoft. You can enable data encryption with customer-managed keys (CMK) for new and existing FHIR® and DICOM® services, providing your organization with improved flexibility to manage access controls.
 
@@ -81,7 +81,7 @@ Learn more:
 - [Configure customer-managed keys for the FHIR service](fhir/configure-customer-managed-keys.md)
 - [Configure customer-managed keys for the DICOM service](dicom/configure-customer-managed-keys.md)
 
-### Store and manage DICOM medical imaging data with Azure Data Lake Storage (Preview)
+### Store and manage DICOM medical imaging data with Azure Data Lake Storage (preview)
 
 With the integration of the DICOM service with Azure Data Lake Storage available for preview, organizations have full control over their imaging data and increased flexibility to access and work with that data through the Azure storage ecosystem and APIs. By using Azure Data Lake Storage with the DICOM service, organizations are able to:
 
@@ -105,11 +105,11 @@ Learn more:
 
 ## November 2023
 
-### Unified Azure portal landing page for Health Data and AI Services
+### Unified Azure portal landing page 
 
 In the Azure portal, we launched a unified landing page that lets users access all Microsoft Health Data and AI Services in one place. The landing page makes it easier to find and use all related Health Data and AI Services and includes links to relevant documentation to help users get started. To check out the landing page, sign into your Azure subscription and then search for **Health Data and AI Services**.
 
-### Bulk delete capability in the FHIR service available for public preview
+### Bulk delete capability in the FHIR service (preview)
 
 The `bulk delete` operation allows you to delete resources from the FHIR server asynchronously. The `bulk delete` operation can be executed at the system level or for individual resource types. 
 
@@ -117,7 +117,7 @@ Learn more:
 
 - [Bulk delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md)
 
-### Import operation in the FHIR service supports importing soft deleted resources
+### Import operation in the FHIR service supports soft deleted resources
 
 The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. 
 

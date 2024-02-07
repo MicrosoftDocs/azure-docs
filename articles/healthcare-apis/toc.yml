@@ -58,9 +58,9 @@
     - name: Release notes
       href: release-notes.md
     - name: Archived release notes
+      href: release-notes-archive.md
     - name: Known issues
       href: known-issues.md
-      href: release-notes-archive.md
 - name: Resources
   expanded: true
   items: 

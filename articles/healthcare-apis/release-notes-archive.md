@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Release notes: Azure Health Data Services archive
 
-This article lists the history of new features and enhancements that were introduced in Azure Health Data Services for 2021 and 2022, including these services:
+This article lists the history of new features and enhancements introduced in Azure Health Data Services in 2021 and 2022, including these services:
 
 - FHIR&reg; service
 - DICOM&reg; service
