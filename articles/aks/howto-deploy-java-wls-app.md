@@ -15,7 +15,7 @@ This article demonstrates how to:
 - Run your Java, Java EE, or Jakarta EE on Oracle WebLogic Server (WLS).
 - Stand up a WLS cluster using the Azure Marketplace offer.
 - Build the application Docker image to serve as auxiliary image to provide WebLogic Deploy Tooling (WDT) models and applications.
-- Deploy the containerized application to the existing WLS cluster on AKS.
+- Deploy the containerized application to the existing WLS cluster on AKS with connection to Microsoft Azure SQL
 
 This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
 
@@ -42,6 +42,7 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
   - A Java JDK compatible with the version of WLS you intend to run. The article directs you to install a version of WLS that uses JDK 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Ensure that you have the zip/unzip utility installed; use `zip/unzip -v` to test if `zip/unzip` works.
+- All of the steps in this article, with the exception of those involving Docker, can also be executed in the Azure Cloud Shell. To learn more about Azure Cloud Shell, see [What is Azure Cloud Shell?](/azure/cloud-shell/overview)
 
 ## Deploy WLS on AKS
 
@@ -540,16 +541,18 @@ In the previous steps, you created the auxiliary image including models and WDT.
    
    1. Select the copy icon.
    
-   1. The `DB_CONNECTION_STRING` value is the portion of the string from `jdbc:` up to but not including `;user=azureuser`.
+   1. For `DB_CONNECTION_STRING`, replace the value `{your_password_here}` with your database password.
    
    1. The `DB_USER` value is the portion of the string from `azureuser` up to but not including `;password={your_password_here}`.
    
    1. The `DB_PASSWORD` value is the value you entered when you created the database.
 
+   Be sure to enclose the value of the `DB_` variables in double quotes to prevent the shell from interferring with the values.
+
    ```bash
-   export DB_CONNECTION_STRING=<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>
-   export DB_USER=<example-welogic@sqlserverforwlsaks>
-   export DB_PASSWORD=<example-Secret123456>
+   export DB_CONNECTION_STRING="<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>"
+   export DB_USER="<example-welogic@sqlserverforwlsaks>"
+   export DB_PASSWORD="<example-Secret123456>"
    export WLS_DOMAIN_NS=sample-domain1-ns
    export WLS_DOMAIN_UID=sample-domain1
    export SECRET_NAME=sqlserver-secret
