@@ -392,7 +392,7 @@ After you retrieve the required values:
 
 |Field  |Description  |Default value |
 |---------|---------|---------|
-|`azure_cloud` |Used to specify the name of the Azure cloud that is being used, 'AzureCloud' is set as default. Available values are: 'AzureCloud', 'AzureChinaCloud' and 'AzureUSGovernment'. |None (field is empty) |
+|`azure_cloud` |Used to specify the name of the Azure cloud that is being used, Available values are: `AzureCloud`, `AzureChinaCloud`, and `AzureUSGovernment`. | `AzureCloud` |
 |`key_names` |An array of strings. Provide this field if you want to send a subset of the columns to Log Analytics. |None (field is empty) |
 |`plugin_flush_interval` |Defines the maximal time difference (in seconds) between sending two messages to Log Analytics.  |`5` |
 |`retransmission_time` |Sets the amount of time in seconds for retransmitting messages once sending failed. |`10` |
@@ -446,16 +446,18 @@ To monitor the connectivity and activity of the Microsoft Sentinel output plugin
 If you are not seeing any data in this log file, generate and send some events locally (through the input and filter plugins) to make sure the output plugin is receiving data. Microsoft Sentinel will support only issues relating to the output plugin.
 
 
-#### Network security
+### Network security
 Define network settings and enable network isolation for Microsoft Sentinel Logstash output plugin.
 
-##### Virtual network service tags
+#### Virtual network service tags
 
 Microsoft Sentinel output plugin supports [Azure virtual network service tags](../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureActiveDirectory* tags are required. 
 
 Azure Virtual network service tags can be used to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags cannot be used, the Firewall requirements are given below.
 
-##### Firewall requirements
+#### Firewall requirements
+
+The following table lists the firewall requirements for scenarios where Azure virtual network service tags can't be used.
 
 | Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
 |------|------|------|---------|--------|--------|
