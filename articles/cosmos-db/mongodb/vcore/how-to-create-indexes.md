@@ -1,5 +1,5 @@
 ---
-title: CreateIndexes Command
+title:  CreateIndexes Command in Azure Cosmos DB for MongoDB (vCore)
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use create Indexing for empty collections in Azure Cosmos DB for MongoDB vCore.
 author: khelanmodi
