@@ -1,5 +1,5 @@
 ---
-title: 2023-2024 Azure Health Data Services monthly releases
+title: Release notes for Azure Health Data Services monthly releases 2023-2024
 description: Stay updated with the latest features and improvements of Azure Health Data Services. Read the monthly release notes and learn how to get the most out of healthcare data.
 services: healthcare-apis
 author: kgaddam10
@@ -15,10 +15,10 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
-This article describes features and enhancements made to Azure Health Data Services from 2023-2024, including these services:
+This article describes features and enhancements introduced in Azure Health Data Services in 2023 and 2024, including these services:
 
-- FHIR service
-- DICOM service
+- FHIR&reg; service
+- DICOM&reg; service
 - MedTech service
 
 > [!NOTE]
@@ -36,7 +36,7 @@ Learn more:
 
 - [Bulk update DICOM files](dicom/update-files.md)
 
-### Selectable search parameter capability is available for preview for the FHIR service
+### Selectable search parameter capability for the FHIR service is available for preview
 
 The selectable search parameter capability allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries
 
@@ -95,9 +95,9 @@ Learn more:
 - [Azure Data Lake Storage integration for the DICOM service in Azure Health Data Services](dicom/dicom-data-lake.md)
 - [Deploy the DICOM service with Azure Data Lake Storage](dicom/deploy-dicom-services-in-azure-data-lake.md)
 
-### Enhancement of the $export operation in the FHIR service
+### Enhancement of the export operation in the FHIR service
 
-The $export operation supports exporting versioned resources and soft deleted resources. 
+The `export` operation supports exporting versioned resources and soft deleted resources. 
 
 Learn more:
 
@@ -111,27 +111,41 @@ In the Azure portal, we launched a unified landing page that lets users access a
 
 ### Bulk delete capability in the FHIR service available for public preview
 
-$bulk-delete allows you to delete resources from the FHIR server asynchronously. The bulk delete operation can be executed at the system level or for individual resource types. 
+The `bulk delete` operation allows you to delete resources from the FHIR server asynchronously. The `bulk delete` operation can be executed at the system level or for individual resource types. 
 
 Learn more:
 
 - [Bulk delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md)
 
-**$import operation supports importing soft deleted resources**
+### Import operation in the FHIR service supports importing soft deleted resources
 
-The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. For more information, see [Fix SQL Import for Soft Delete and History](https://github.com/microsoft/fhir-server/pull/3530).
+The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. 
 
-**Performance improvement of FHIR queries**
+Learn more: 
 
-We improved performance of FHIR queries with _include parameter. For more information, see [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
+- [Fix SQL Import for soft delete and history](https://github.com/microsoft/fhir-server/pull/3530)
 
-**Bug fixes**
-- **Searching with _include and wildcard resulted in query failure**. The issue is fixed and permits only the wild character  “*” to be present for _include and _revinclude searches. For more information, see [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
+### Performance improvement of FHIR queries
 
-- **Multiple export jobs created resulting in increase data storage volume**. Due to a bug, Export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. For more information, see [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
+We improved performance of FHIR queries with _include parameter. 
 
-- **Retriable exception for import operation, when using duplicate files**. If there are duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. This fix addresses the issue. Import operations with same file are no longer retriable. For information, see [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
+Learn more:
 
+- [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
+
+### FHIR service bug fixes
+
+- **Fixed: Searching with _include and wildcard results in query failure**. The issue is fixed and permits only the wild character  `*` to be present for _include and _revinclude searches. 
+
+ - **Fixed: Multiple export jobs created results in increase data storage volume**. Due to a bug, export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. 
+
+- **Fixed: Retriable exception for import operation when using duplicate files**. If there are duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. This fix addresses the issue. Import operations with same file are no longer retriable. 
+
+Learn more:
+
+  - [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541)
+  - [Fix export](https://github.com/microsoft/fhir-server/pull/3567)
+  - [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557)
 
 ## October 2023
 
@@ -396,4 +410,8 @@ Two new attributes for returning the count of Instances in a Study or Series are
 
 One new sample app is released in the [Health Data Services samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples)
 
+## Related content
+[Release notes archive 2022-2021](release-notes-archive.md)
+[Known issues](known-issues.md)
 
+[!INCLUDE [FHIR and DICOM trademark statement](includes/healthcare-apis-fhir-dicom-trademark.md)]

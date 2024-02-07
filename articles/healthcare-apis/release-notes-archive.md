@@ -1,12 +1,12 @@
 ---
-title: Azure Health Data Services monthly releases archive
+title: Release notes archive for Azure Health Data Services monthly releases 2021 and 2022
 description: Explore the archive of Azure Health Data Services release notes for 2021 and 2022. Learn about the features and enhancements introduced in FHIR, DICOM, and MedTech services to help you manage and analyze health data. 
 services: healthcare-apis
 author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 02/06/2024
+ms.date: 02/15/2024
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -15,13 +15,13 @@ ms.custom: references_regions
 
 This article lists the history of new features and enhancements that were introduced in Azure Health Data Services for 2021 and 2022, including these services:
 
-- FHIR service
-- DICOM service
+- FHIR&reg; service
+- DICOM&reg; service
 - MedTech service
 
 ## December 2022
 
-### DICOM Events available in public preview
+### DICOM events available in public preview
 
 Azure Health Data Services [Events](events/events-overview.md) include a public preview of [two new event types](events/events-message-structure.md#dicom-events-message-structure) for the DICOM service. These new event types enable applications that use Event Grid to use event-driven workflows when DICOM images are created or deleted.
 
@@ -515,12 +515,9 @@ Unclear error message for conditional create with no ID [#2168](https://github.c
 
 See [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [CalculatedContent](./../healthcare-apis/iot/how-to-use-calculatedcontent-mappings.md) 
 
-## Next steps
+## Related content
 
-Learn about:
-
+[Release notes 2023 and 2024](release-notes.md)
 [Known issues: Azure Health Data Services](known-issues.md)
 
-[Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR and DICOM trademark statement](includes/healthcare-apis-fhir-dicom-trademark.md)]
