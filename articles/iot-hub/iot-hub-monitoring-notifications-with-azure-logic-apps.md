@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 02/05/2024
+ms.date: 02/07/2024
 ---
 
 # Tutorial: Monitor IoT devices and send notifications with Azure Logic Apps
@@ -16,7 +16,7 @@ Use Azure Logic Apps to monitor incoming device telemetry from IoT Hub and send 
 
 ![End-to-end diagram](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
-[Azure Logic Apps](../logic-apps/index.yml) can help you orchestrate workflows across on-premises and cloud services, multiple enterprises, and various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
+[Azure Logic Apps](../logic-apps/index.yml) can help you orchestrate workflows across on-premises and cloud services, multiple enterprises, and various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
 
 In this tutorial, you perform the following tasks:
 
@@ -99,25 +99,9 @@ Create a Service Bus namespace and queue. Later in this article, you create a ro
 
 1. Copy the value of **Primary connection string** and save it to use later in this tutorial when you configure the logic app.
 
-<!-- 1. Back on the **Service Bus Namespace** pane, select **Queues** from the **Entities** section of the resource menu. Then, select the queue that you just created from the list
-
-   :::image type="content" source="./media/iot-hub-monitoring-notifications-with-azure-logic-apps/queues-select-queue.png" alt-text="Screenshot that shows the list of queues in your namespace.":::
-
-1. On the **Service Bus Queue** pane, select **Shared access policies** from the **Settings** section of the resource menu. Then, select **Add** to add a policy.
-
-   :::image type="content" source="./media/iot-hub-monitoring-notifications-with-azure-logic-apps/queue-shared-access-policies-add.png" alt-text="Screenshot that shows adding a shared access policy to a Service Bus queue.":::
-
-1. In the **Policy name** field, provide a name for the policy. Check **Manage**, and then select **Create**.
-
-   :::image type="content" source="./media/iot-hub-monitoring-notifications-with-azure-logic-apps/add-sas-policy.png" alt-text="Screenshot that shows creating a shared access policy.":::
-
-1. After your policy is created, select it from the list of policies to open the details.
-
-1. Copy the value of the **Primary connection string** and save it to use later in this tutorial when you configure the logic app. -->
-
 ## Add a custom endpoint and routing rule to your IoT hub
 
-Add a custom endpoint for the Service Bus queue to your IoT hub. Then, create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties).
+Add a custom endpoint for the Service Bus queue to your IoT hub. Then, create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they're picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties).
 
 ### Add a custom endpoint and route
 
@@ -167,7 +151,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
    | Parameter | Value |
    | --------- | ----- |
    | **Resource group** | Select the same resource group that contains your IoT hub. |
-   | **Name** | Provide a name for your the logic app. |
+   | **Name** | Provide a name for your logic app. |
    | **Region** | Select a location close to you. |
    | **Plan type** | Select **Consumption**, which is sufficient for this tutorial. |
 
@@ -256,7 +240,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
       | **Subject** | `High temperature detected`. |
       | **Body** | `High temperature detected`. |
 
-      If the **Add dynamic content** dialog opens, select **Hide** to close it. You do not use dynamic content in this tutorial.
+      If the **Add dynamic content** dialog opens, select **Hide** to close it. You don't use dynamic content in this tutorial.
 
       ![Provide details for SMTP connection email fields.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
 
@@ -270,7 +254,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
 
    1. On the **smtp API Connection** pane, under **General**, select **Edit API connection**.
 
-   1. On the **Edit API Connection** pane, select **Enable SSL?**, re-enter the password for your email account, and select **Save**.
+   1. On the **Edit API Connection** pane, select **Enable SSL?**, reenter the password for your email account, and select **Save**.
 
       ![Edit SMTP API connection in your logic app in the Azure portal.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 
@@ -289,17 +273,17 @@ Start sending temperature messages from your IoT device to test the monitoring a
 
 ## Clean up resources
 
-If you don't need the resources that you created in this tutorial any longer, delete it and the resource group in the portal. To do so, select the **tutorial-iot-hub-rg** resource group that contains your IoT hub and select **Delete**.
+If you don't need the resources that you created in this tutorial any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and select **Delete**.
 
 Alternatively, use the CLI:
 
 ```azurecli-interactive
 # Delete your resource group and its contents
-az group delete --name tutorial-iot-hub-rg
+az group delete --name <RESOURCE_GROUP_NAME>
 ```
 
 ## Next steps
 
-You have successfully created a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
+In this tutorial, you created a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
