@@ -154,7 +154,7 @@
       - name: Virtual Machine Scale Set - Portal
         href: network-watcher-packet-capture-manage-portal-vmss.md
       - name: Virtual machine - PowerShell
-        href: network-watcher-packet-capture-manage-powershell.md
+        href: packet-capture-vm-powershell.md
       - name: Virtual Machine Scale Set - PowerShell
         href: network-watcher-packet-capture-manage-powershell-vmss.md
       - name: Virtual machine - Azure CLI
