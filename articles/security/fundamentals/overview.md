@@ -199,6 +199,18 @@ Azure networking supports various secure remote access scenarios. Some of these 
 
 - [Connect Azure Virtual Networks to each other](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
+### Azure Virtual Network Manager
+
+[Azure Virtual Network Manager](../../virtual-network-manager/overview.md) is a management service that enables you to group, configure, deploy, and manage virtual networks globally across Azure subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want applied to your virtual networks. Once configurations are set, you can deploy them across all the selected virtual networks in network groups at one time. Changes to the network groups are automatically applied to all the virtual networks in the network groups. This reduces the complexity of managing multiple virtual networks globally across multiple Azure regions, subscriptions, and tenants.
+
+Virtual Network Manager provides the following capabilities:
+
+- [Network groups](../../virtual-network-manager/concept-network-groups.md) allow you to group virtual networks together to make it easier to manage and enforce policies. Network groups are a logical grouping of virtual networks based on your needs from a topology and security perspective. You can manually create network groups or use dynamic network groups with [Azure Policy](../../virtual-network-manager/concept-azure-policy-integration.md).
+- [Connectivity configurations](../../virtual-network-manager/concept-connectivity-configuration.md) help you define how virtual networks are connected to each other through a set of connectivity rules. You can define connectivity configurations for network groups, and are applied to all the virtual networks in the network group. Also, they will be applied to new virtual networks added to network groups. You can define connectivity configurations for mesh and hub-and-spoke topologies.
+- [Security admin rules](../../virtual-network-manager/concept-security-admins.md) allow you to centrally define security policies for your virtual networks. With security admin rules, you create rule collections that contain a set of rules based on your security requirements. This rule collection is then applied to network groups needing the policies. In turn, all your virtual networks in the network group will be covered by the security admin rules.
+
+[!NOTE] Security admin rules are evaluated before network security groups, also known as NSGs. If a security admin rule is defined for a network group, it will take precedence over network security group rules. Security admin rules are designed to be applied centrally by network administrators for organization-wide policy enforcement. Network security groups are designed to be applied by application owners for application-specific policy enforcement. So design of security admin rules should be done with this in mind.
+
 ### Azure Private Link
 
 [Azure Private Link](https://azure.microsoft.com/services/private-link/) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services privately in your virtual network over a [private endpoint](../../private-link/private-endpoint-overview.md). Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network.
