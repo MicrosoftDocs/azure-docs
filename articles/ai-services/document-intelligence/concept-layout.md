@@ -153,7 +153,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
     * Select the **Fetch** button.
 
-1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the `Analyze Layout` API and analyze the document.
+1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the `Analyze Layout` API to analyze the document.
 
     :::image type="content" source="media/fott-layout.png" alt-text="Screenshot of `Layout` dropdown window.":::
 
@@ -291,7 +291,7 @@ The document layout model in Document Intelligence extracts print and handwritte
 
 ### Selection marks
 
-The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). The text representation (i.e., `:selected:` and `:unselected`) is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
+The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). The text representation (that is, `:selected:` and `:unselected`) is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
 
 ```json
 {
