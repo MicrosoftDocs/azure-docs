@@ -15,7 +15,7 @@ This article provides information about the **most recent** Azure HDInsight on A
 Azure HDInsight on AKS is a new version of HDInsight, which runs on Kubernetes and brings in the best of the open source on Kubernetes. It's gaining popularity among enterprise customers for open-source analytics on Azure Kubernetes Services.
 
 > [!NOTE]
-> To understand about HDInsight on AKS versioning and support, refer to the **[versioning page](../versions.md)**.
+> To understand about HDInsight on AKS versioning and support, refer to the **[versioning schema](../versions.md)**.
 
 You can refer to [What's new](../whats-new.md) page for all the details of the features currently in public preview for this release.
 
@@ -28,6 +28,9 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 - Cluster Pool Version: 1.1
 - Cluster Version: 1.1.0
 - AKS version: 1.27
+
+> [!TIP]
+> To create a new HDInsight on AKS cluster on 1.1.0, you are required to create a new cluster pool with version 1.1
 
 ### New Features
 
