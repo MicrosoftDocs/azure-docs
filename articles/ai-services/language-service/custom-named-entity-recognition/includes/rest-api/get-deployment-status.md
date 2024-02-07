@@ -3,7 +3,6 @@
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 12/19/2023
 ms.author: aahi
@@ -45,4 +44,3 @@ Once you send the request, you will get the following response. Keep polling thi
     "status":"running"
 }
 ```
-
