@@ -524,7 +524,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Subnet |
-> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet.<br/>*Available only for storage accounts in subscriptions that have at least one virtual network subnet configured. The subnet used in the condition must have the `Microsoft.Storage` service endpoint enabled.* |
+> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet.<br/>*Available only for storage accounts in subscriptions that have at least one virtual network subnet using [service endpoints](../common/storage-network-security.md#grant-access-from-a-virtual-network) configured.* |
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |

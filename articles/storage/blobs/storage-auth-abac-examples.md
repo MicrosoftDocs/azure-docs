@@ -1694,7 +1694,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ### Example: Allow access to blobs in specific containers from a specific subnet
 
-This condition allows read, write, add and delete access to blobs in `container1` only from subnet `default` on virtual network `virtualnetwork1`.
+This condition allows read, write, add and delete access to blobs in `container1` only from subnet `default` on virtual network `virtualnetwork1`. To use the [Subnet](storage-auth-abac-attributes.md#subnet) attribute in this example, the subnet must have [service endpoints enabled](../common/storage-network-security.md#grant-access-from-a-virtual-network) for Azure Storage.
 
 There are five potential actions for read, write, add and delete access to existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include any of the following actions.
 
