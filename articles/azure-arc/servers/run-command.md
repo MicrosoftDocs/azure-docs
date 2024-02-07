@@ -27,13 +27,13 @@ Connected Machine agent version must be 1.33 or higher.
 
 Listing the run commands or showing details of a command requires the `Microsoft.HybridCompute/machines/runCommands/read` permission. The built-in [Reader](/azure/role-based-access-control/built-in-roles) role and higher levels have this permission.
 
-Running a command requires the `Microsoft.HybridCompute/machines/runCommands/write` permission. The Azure Connected Machine Resource Administrator role and higher levels have this permission.
+Running a command requires the `Microsoft.HybridCompute/machines/runCommands/write` permission. The [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles) role and higher levels have this permission.
 
 You can use one of the [built-in roles](/azure/role-based-access-control/built-in-roles) or create a [custom role](/azure/role-based-access-control/custom-roles) to use Run Command.
 
 ## Blocking run commands locally
 
-The Connected Machine agent supports local configurations that allow you to set an allowlist or a blocklist. See [Extension allowlists and blocklists](security-overview.md#extension-allowlists-and-blocklists) https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#extension-allowlists-and-blocklists to learn more.
+The Connected Machine agent supports local configurations that allow you to set an allowlist or a blocklist. See [Extension allowlists and blocklists](security-overview.md#extension-allowlists-and-blocklists) to learn more.
 
 For Windows:
 
@@ -46,7 +46,7 @@ For Linux:
 
 ## Azure CLI
 
-The following examples use [az connectedmachine run-command](/cli/azure/connectedmachine/run-command?view=azure-cli-latest) to run a shell script on an Azure Windows machine.
+The following examples use [az connectedmachine run-command](/cli/azure/connectedmachine/run-command) to run a shell script on an Azure Windows machine.
 
 ### Execute a script with the machine
 
@@ -86,7 +86,7 @@ az connectedmachine run-command delete --name "myRunCommand" --machine-name "myM
 
 ## PowerShell
 
-### Execute a script with the machine.
+### Execute a script with the machine
 
 ```powershell
 New-AzConnectedMachineRunCommand -ResourceGroupName "myRG" -MachineName "myMachine" -Location "EastUS" -RunCommandName "RunCommandName" –SourceScript "echo Hello World!"
