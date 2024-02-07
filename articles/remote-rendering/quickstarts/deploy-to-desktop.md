@@ -35,7 +35,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Open *Edit > Project Settings...*
 1. Select **Player** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
-1. Expand **Publishing Settings**.
+1. Expand the **Publishing Settings**.
 1. In **Supported Device Families**, make sure **Desktop** is checked.
     ![player settings desktop support Unity 2020](./media/unity-2020-enable-desktop-support.png)
 1. Expand the **XR Settings**.
@@ -79,6 +79,8 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
   ![Build settings Unity 2021 and later](./media/unity-2021-build-settings-pc.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
+
+---
 
 ## Build the Visual Studio solution
 

@@ -50,6 +50,8 @@ The HoloLens 2 must be in developer mode and paired with the desktop machine. Re
 1. Select **Switch to Platform**
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored
 
+---
+
 ## Build the Visual Studio solution
 
 1. Open the generated **Quickstart.sln** with Visual Studio
