@@ -389,7 +389,7 @@ Each of the following sections makes API requests by using the five different lo
     }
     ```
 
-In the preceding GeoJSON response, the negative distance from the main site geofence means that the equipment is inside the geofence. The positive distance from the subsite geofence means that the equipment is outside the subsite geofence. Because this is the first time this device has been located inside the main site geofence, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification that equipment has entered the geofence.
+In the preceding GeoJSON response, the negative distance from the main site geofence means that the equipment is inside the geofence. The positive distance from the subsite geofence means that the equipment is outside the subsite geofence. Since it's the first time this device was located inside the main site geofence, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification that equipment entered the geofence.
 
 ### Location 2 (47.63800,-122.132531)
 
@@ -437,7 +437,7 @@ In the preceding GeoJSON response, the negative distance from the main site geof
     }
     ````
 
-In the preceding GeoJSON response, the equipment has remained in the main site geofence and hasn't entered the subsite geofence. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive any email notifications.
+In the preceding GeoJSON response, the equipment remained in the main site geofence and didn't enter the subsite geofence. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive any email notifications.
 
 ### Location 3 (47.63810783315048,-122.13336020708084)
 
@@ -485,7 +485,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
     }
     ````
 
-In the preceding GeoJSON response, the equipment has remained in the main site geofence, but has entered the subsite geofence. As a result, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification indicating that the equipment has entered a geofence.
+In the preceding GeoJSON response, the equipment remained in the main site geofence, and entered the subsite geofence. As a result, the `isEventPublished` parameter is set to `true`. The Operations Manager receives an email notification indicating that the equipment entered a geofence.
 
 >[!NOTE]
 >If the equipment had moved into the subsite after business hours, no event would be published and the operations manager wouldn't receive any notifications.  
@@ -530,7 +530,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
     }
     ````
 
-In the preceding GeoJSON response, the equipment has remained in the main site geofence, but has exited the subsite geofence. Notice, however, that the `userTime` value is after the `expiredTime` as defined in the geofence data. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive an email notification.
+In the preceding GeoJSON response, the equipment remained in the main site geofence, but exited the subsite geofence. Notice, however, that the `userTime` value is after the `expiredTime` as defined in the geofence data. As a result, the `isEventPublished` parameter is set to `false`, and the Operations Manager doesn't receive an email notification.
 
 ### Location 5 (47.63799, -122.134505)
 
@@ -578,9 +578,9 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
     }
     ````
 
-In the preceding GeoJSON response, the equipment has exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the Operations Manager receives an email notification indicating that the equipment has exited a geofence.
+In the preceding GeoJSON response, the equipment exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the Operations Manager receives an email notification indicating that the equipment exited a geofence.
 
-You can also [Send email notifications using Event Grid and Logic Apps]. For more information,see [Event handlers in Azure Event Grid].
+You can also [Send email notifications using Event Grid and Logic Apps]. For more information, see [Event handlers in Azure Event Grid].
 
 ## Clean up resources
 
@@ -597,8 +597,8 @@ There are no resources that require cleanup.
 [Azure portal]: https://portal.azure.com
 [Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [Billing and pricing models]: /azure/logic-apps/logic-apps-pricing#standard-pricing
+[Check the GeoJSON data upload status]: #check-the-geojson-data-upload-status
 [Data Upload API]: /rest/api/maps/data/upload
-<!--[data registry]: /rest/api/maps/data-registry-->
 [Geofencing GeoJSON data]: geofence-geojson.md
 [Azure Maps service geographic scope]
 [Handle content types in Azure Logic Apps]: ../logic-apps/logic-apps-content-type.md
