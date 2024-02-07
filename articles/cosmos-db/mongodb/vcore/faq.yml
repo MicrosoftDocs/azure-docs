@@ -1,0 +1,26 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions
+  titleSuffix: Azure Cosmos DB for MongoDB vCore
+  description: Get answers to frequently asked questions about Azure Cosmos DB for MongoDB vCore.
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: mjbrown
+  ms.service: cosmos-db
+  ms.subservice: nosql
+  ms.topic: faq
+  ms.date: 02/07/2024
+title: Frequently asked questions about Azure Cosmos DB for MongoDB vCore
+summary: |
+  [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+sections:
+  - name: General
+    questions:
+      - question: |
+          TODO
+        answer: |
+          TODO
+additionalContent: |
+  ## Related content
+
+  - [TODO](about:blank)
