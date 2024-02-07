@@ -50,6 +50,9 @@ You can enable access to Grafana Enterprise plugins by selecting a Grafana Enter
 > [!NOTE]
 > The Grafana Enterprise monthly plan is a paid plan, owned and charged by Grafana Labs, through Azure Marketplace. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
 
+> [!NOTE]
+> Azure Managed Grafana Enterprise is only available in Azure Global.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).

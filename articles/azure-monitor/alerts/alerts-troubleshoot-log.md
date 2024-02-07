@@ -1,11 +1,13 @@
 ---
 title: Troubleshoot log alerts in Azure Monitor | Microsoft Docs
 description: Common issues, errors, and resolutions for log alert rules in Azure.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: build-2023
 ms.date: 06/20/2023
 ms.reviewer: yalavi
 ---
+
 # Troubleshoot log alerts in Azure Monitor  
 
 This article describes how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
