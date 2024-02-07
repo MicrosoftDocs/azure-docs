@@ -56,6 +56,10 @@ The response to this request looks like the following example that includes the 
     }
   ]
 }
+```
+
+>[!NOTE]
+>This command only shows roles that are associated with an application and not a custom organization level role.
 
 ## Manage users
 
