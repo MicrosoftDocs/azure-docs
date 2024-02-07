@@ -31,7 +31,6 @@ There are two methods for the quickstart. Choosing Azure Developer CLI is a more
 - The latest .NET 7.0 SDK.
 - A Linux OS
 
-
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -41,17 +40,9 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
-## Clone the repository
+## Sample Code
 
-All code used in the quickstart is available at [Azure-Samples/aks-store-demo](https://github.com/Azure-Samples/aks-store-demo). You can clone the repository either through git onto your local machine, or use the azd init --template flag.
-
-> [!NOTE]
-> This sample application is for demo purposes and doesn't represent all the best practices for Kubernetes applications. 
-> For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
-
-### AZD Template
-
-You can quickly clone the application with the AZD command `azd init --template aks-store-demo`.
+All code used in the quickstart is available at [Azure-Samples/aks-store-demo](https://github.com/Azure-Samples/aks-store-demo).
 
 The quickstart application includes the following Kubernetes deployments and services:
 
@@ -63,11 +54,19 @@ The quickstart application includes the following Kubernetes deployments and ser
 - **Rabbit MQ**: Message queue for an order queue.
 
 > [!NOTE]
-> We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
+> We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production use. These are used here for simplicity, but we recommend using managed services instead, such as Azure CosmosDB or Azure Service Bus.
+
+### Template Command
+
+You can quickly clone the application with `azd init` with the name of the repo using the --template flag.
+
+For instance, our code sample is at: `azd init --template aks-store-demo`.
 
 ### Git
 
-Clone the repository directly through GitHub, then you need to Run `azd init` from inside the directory to create configurations for the AZD CLI. You're prompted for an environment name, this article uses `aksqs`.
+Alternatively, you can clone the application directly through GitHub, then run `azd init` from inside the directory to create configurations for the AZD CLI. 
+
+When prompted for an environment name you can chose anything, but our quickstart uses `aksqs`.
 
 ## Sign in to your Azure Cloud account
 
@@ -174,6 +173,10 @@ Once on the store page, you can add new items to your cart and check them out. T
 Once you're finished with the quickstart, remember to clean up all your resources to avoid Azure charges. 
 
 Run `azd down` to delete all your resources used in the quickstart, which includes your resource group, cluster, and related Azure Services.
+
+> [!NOTE]
+> This sample application is for demo purposes and doesn't represent all the best practices for Kubernetes applications. 
+> For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 ## Next steps
 
