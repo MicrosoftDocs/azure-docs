@@ -70,7 +70,7 @@ Here's how to configure a host pool to automatically assign users to VMs using t
 2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    ```azurecli
-  az desktopvirtualization hostpool update --resource-group $resourceGroupName --name $hostPoolName --personal-desktop-assignment-type Automatic
+   az desktopvirtualization hostpool update --resource-group $resourceGroupName --name $hostPoolName --personal-desktop-assignment-type Automatic
    ```
 
 ---
@@ -114,7 +114,7 @@ Here's how to configure a host pool to automatically assign users to VMs using t
 2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    ```azurecli
-  az desktopvirtualization hostpool update --resource-group $resourceGroupName --name $hostPoolName --personal-desktop-assignment-type Direct
+   az desktopvirtualization hostpool update --resource-group $resourceGroupName --name $hostPoolName --personal-desktop-assignment-type Direct
    ```
 
 ---
