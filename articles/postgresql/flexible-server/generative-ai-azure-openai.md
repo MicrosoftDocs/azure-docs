@@ -34,7 +34,7 @@ select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>');
 
 ## `azure_openai.create_embeddings`
 
-Invokes the Azure Open AI API to create embeddings using the provided deployment over the given input.
+Invokes the Azure OpenAI API to create embeddings using the provided deployment over the given input.
 
 ```postgresql
 azure_openai.create_embeddings(deployment_name text, input text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true)
