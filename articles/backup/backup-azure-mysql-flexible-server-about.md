@@ -2,7 +2,7 @@
 title: Overview - retention of Azure Database for MySQL - Flexible Server for long term by using Azure Backup
 description: This article provides an overview of Azure Database for MySQL - Flexible Server retention for long term.
 ms.topic: overview
-ms.date: 12/08/2022
+ms.date: 02/16/2024
 ms.service: backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -23,7 +23,7 @@ You can recover this backup in your specified storage containers, which can be u
 
 To back up an Azure Database for MySQL - Flexible Server:
 
-1. Grant permissions to the backup vault MSI on the target ARM resource (MySQL-Flexible  server), establishing access and control.
+1. Grant permissions to the Backup vault MSI on the target ARM resource (MySQL-Flexible  server), establishing access and control.
 2. Configure backup policies, and specify the scheduling, retention, and other parameters.
 
 Once the configuration is complete:
@@ -35,9 +35,9 @@ Once the configuration is complete:
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server-about/mysql-flexible-server-backup-architecture.png" alt-text="Diagram shows the backup flow for Azure Database for MySQL Flexible Server." lightbox="./media/backup-azure-mysql-flexible-server-about/mysql-flexible-server-backup-architecture.png":::
 
-## Azure Backup authentication with the MySQL - Flexible server
+## Azure Backup authentication with MySQL - Flexible server
 
-The Azure Backup needs to connect to the Azure MySQL - Flexible server while taking each backup. 
+Azure Backup needs to connect to Azure MySQL - Flexible server while taking each backup. 
 
 ## Permissions for an Azure Database for MySQL - Flexible Server backup
 
