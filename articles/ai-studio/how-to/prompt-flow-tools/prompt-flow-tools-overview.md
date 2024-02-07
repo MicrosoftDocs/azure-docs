@@ -5,7 +5,7 @@ description: Learn about prompt flow tools that are available in Azure AI Studio
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: overview
-ms.date: 12/6/2023
+ms.date: 2/6/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -35,7 +35,7 @@ To discover more custom tools developed by the open-source community, see [More 
 ## Remarks
 - If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html).
 - To install the custom tools, if you are using the automatic runtime, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the **Save and install** button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to create and manage a runtime](../create-manage-runtime.md).
-:::image type="content" source="./media/prompt-flow-tools-overview/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "./media/prompt-flow-tools-overview/install-package-on-automatic-runtime.png":::
+:::image type="content" source="../../media/prompt-flow/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "../../media/prompt-flow/install-package-on-automatic-runtime.png":::
 
 ## Next steps
 
