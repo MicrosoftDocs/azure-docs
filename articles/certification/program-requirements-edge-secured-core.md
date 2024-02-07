@@ -183,7 +183,6 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |:---|:---|
 |Status|Required|
 |Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
-|Resources|TBD|
 
 ---
 </br>
@@ -290,7 +289,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint.|
-|Resources|[Azure Docs Defender for Endpoint](../defender-for-iot/how-to-configure-agent-based-solution.md) Link TBD|
+|Resources|[Azure Docs Defender for Endpoint](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
 </br>
@@ -309,7 +308,6 @@ Note: Use of other system management toolchains (for example, Ansible, etc.) by 
 |:---|:---|
 |Status|Audit|
 |Description|The purpose of the requirement is to validate the device can receive and update its firmware and software through Azure Device update or other approved services.|
-|Resources|Link TBD|
 
 ---
 </br>
