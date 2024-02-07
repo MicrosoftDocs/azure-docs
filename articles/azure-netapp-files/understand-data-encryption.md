@@ -26,9 +26,7 @@ Azure NetApp Files uses standard CryptoMod to generate AES-256 encryption keys. 
 
 ## Understand data in-transit encryption  
 
-In addition to securing data at-rest, Azure NetApp Files can secure data when it's in-transit between endpoints. The encryption method used depends on the protocol or feature. 
-
-Most insecure in-transit protocols (such as telnet, NIS, NDMP) are disabled in Azure NetApp Files. DNS, however, isn't encrypted by Azure NetApp Files (no DNS Sec support) thus should be encrypted by using external network encryption when possible. 
+In addition to securing data at-rest, Azure NetApp Files can secure data when it's in-transit between endpoints. The encryption method used depends on the protocol or feature. DNS isn't encrypted in-transit in Azure NetApp files. Continue reading to learn about SMB and NFS encryption, LDAP, and data replication in Azure NetApp Files. 
 
 ### SMB encryption 
 
