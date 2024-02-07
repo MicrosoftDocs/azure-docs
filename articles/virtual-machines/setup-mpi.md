@@ -57,8 +57,8 @@ where:
 |Parameter|Description                                        |
 |---------|---------------------------------------------------|
 |`NPROCS`	|Specifies the number of MPI processes. For example: `-n 16`.|
-|`$HOSTFILE`|Specifies a file containing the hostname or IP address, to indicate the location of where the MPI processes will run. For example: `--hostfile hosts`.|
-|`$NUMBER_PROCESSES_PER_NUMA`	|Specifies the number of MPI processes that will run in each NUMA domain. For example, to specify four MPI processes per NUMA, you use `--map-by ppr:4:numa:pe=1`.|
+|`$HOSTFILE`|Specifies a file containing the hostname or IP address, to indicate the location of where the MPI processes run. For example: `--hostfile hosts`.|
+|`$NUMBER_PROCESSES_PER_NUMA`	|Specifies the number of MPI processes that run in each NUMA domain. For example, to specify four MPI processes per NUMA, you use `--map-by ppr:4:numa:pe=1`.|
 |`$NUMBER_THREADS_PER_PROCESS`	|Specifies the number of threads per MPI process. For example, to specify one MPI process and four threads per NUMA, you use `--map-by ppr:1:numa:pe=4`.|
 |`-report-bindings`	|Prints MPI processes mapping to cores, which is useful to verify that your MPI process pinning is correct.|
 |`$MPI_EXECUTABLE`	|Specifies the MPI executable built linking in MPI libraries. MPI compiler wrappers do this automatically. For example: `mpicc` or `mpif90`.|
@@ -188,7 +188,7 @@ where:
 
 |Parameter|Description                                        |
 |---------|---------------------------------------------------|
-|`MV2_CPU_BINDING_POLICY`	|Specifies which binding policy to use, which will affect how processes are pinned to core IDs. In this case, you specify scatter, so processes will be evenly scattered among the NUMA domains.|
+|`MV2_CPU_BINDING_POLICY`	|Specifies which binding policy to use, which will affect how processes are pinned to core IDs. In this case, you specify `scatter`, so processes are evenly scattered among the NUMA domains.|
 |`MV2_CPU_BINDING_LEVEL`|Specifies where to pin processes. In this case, you set it to numanode, which means processes are pinned to units of NUMA domains.|
 |`MV2_SHOW_CPU_BINDING`	|Specifies if you want to get debug information about where the processes are pinned.|
 |`MV2_SHOW_HCA_BINDING`	|Specifies if you want to get debug information about which host channel adapter each process is using.|
@@ -272,7 +272,7 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 0x7fff
 ```
 
-Please note interfaces are named as mlx5_ib* inside HPC VM image.
+Note interfaces are named as `mlx5_ib*` inside HPC VM images.
 
 Also note that as long as the tenant (Availability Set or Virtual Machine Scale Set) exists, the PKEYs remain the same. This is true even when nodes are added/deleted. New tenants get different PKEYs.
 
