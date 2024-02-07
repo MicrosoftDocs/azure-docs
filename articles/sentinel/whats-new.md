@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 01/11/2024
+ms.date: 02/07/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -26,6 +26,12 @@ The listed features were released in the last three months. For information abou
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### Microsoft Sentinel now generally available (GA) in Azure China 21Vianet
+
+Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. <!--what does this actually mean?--> Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
+
+For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
 ### Incident tasks now generally available (GA)
 
