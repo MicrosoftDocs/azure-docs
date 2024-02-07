@@ -9,7 +9,7 @@ ms.topic: reference
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.custom: devplatv2, event-tier1-build-2022
+ms.custom: devplatv2
 ms.date: 10/18/2023
 ---
 
@@ -40,4 +40,3 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 > - Standard_ND96asr_v4
 > - Standard_ND96amsr_A100_v4
 > - Standard_ND40rs_v2
-

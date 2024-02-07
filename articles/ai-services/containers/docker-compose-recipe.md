@@ -5,14 +5,13 @@ description: Learn how to deploy multiple Azure AI containers. This article show
 #services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: aahi
-#Customer intent: As a potential customer, I want to know how to configure containers so I can reuse them.
 
 # SME: Brendan Walsh
+#Customer intent: As a potential customer, I want to know how to configure containers so I can reuse them.
 ---
 
 # Use Docker Compose to deploy multiple containers

@@ -3,34 +3,77 @@ title: "Quickstart: Azure Blob Storage library - .NET"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 01/30/2024
+ms.date: 02/06/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet, ai-video-demo
 ai-usage: ai-assisted
+zone_pivot_groups: azure-blob-storage-quickstart-options
 ---
 
 # Quickstart: Azure Blob Storage client library for .NET
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
+> [!NOTE]
+> The **Build from scratch** option walks you step by step through the process of creating a new project, installing packages, writing the code, and running a basic console app. This approach is recommended if you want to understand all the details involved in creating an app that connects to Azure Blob Storage. If you prefer to automate deployment tasks and start with a completed project, choose [Start with a template](storage-quickstart-blobs-dotnet.md?pivots=blob-storage-quickstart-template).
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+> [!NOTE]
+> The **Start with a template** option uses the Azure Developer CLI to automate deployment tasks and starts you off with a completed project. This approach is recommended if you want to explore the code as quickly as possible without going through the setup tasks. If you prefer step by step instructions to build the app, choose [Build from scratch](storage-quickstart-blobs-dotnet.md?pivots=blob-storage-quickstart-scratch).
+
+::: zone-end
+
 Get started with the Azure Blob Storage client library for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud, and is optimized for storing massive amounts of unstructured data.
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 In this article, you follow steps to install the package and try out example code for basic tasks.
 
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+In this article, you use the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to deploy Azure resources and run a completed console app with just a few commands.
+
+::: zone-end
+
 [API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples)
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 This video shows you how to start using the Azure Blob Storage client library for .NET.
 > [!VIDEO cdae65e7-1892-48fe-934a-70edfbe147be]
 
 The steps in the video are also described in the following sections.
 
+::: zone-end
+
 ## Prerequisites
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
-- Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
+- Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. This code sample uses .NET 8.0. Be sure to get the SDK and not the runtime.
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
+
+::: zone-end
 
 ## Setting up
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 This section walks you through preparing a project to work with the Azure Blob Storage client library for .NET.
 
@@ -125,6 +168,58 @@ using System.IO;
 Console.WriteLine("Hello, World!");
 ```
 
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can create a storage account and run the sample code with just a few commands. You can run the project in your local development environment, or in a [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers).
+
+### Initialize the Azure Developer CLI template and deploy resources
+
+From an empty directory, follow these steps to initialize the `azd` template, provision Azure resources, and get started with the code:
+
+- Clone the quickstart repository assets from GitHub and initialize the template locally:
+
+    ```console
+    azd init --template blob-storage-quickstart-dotnet
+    ```
+
+    You'll be prompted for the following information:
+
+    - **Environment name**: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
+
+- Log in to Azure:
+
+    ```console
+    azd auth login
+    ```
+- Provision and deploy the resources to Azure:
+
+    ```console
+    azd up
+    ```
+
+    You'll be prompted for the following information:
+
+    - **Subscription**: The Azure subscription that your resources are deployed to.
+    - **Location**: The Azure region where your resources are deployed.
+    
+    The deployment might take a few minutes to complete. The output from the `azd up` command includes the name of the newly created storage account, which you'll need later to run the code.
+
+## Run the sample code
+
+At this point, the resources are deployed to Azure and the project is ready to run. Follow these steps to update the name of the storage account in the code and run the sample console app:
+
+- **Update the storage account name**: Navigate to the `src` directory and edit `Program.cs`. Find the `<storage-account-name>` placeholder and replace it with the actual name of the storage account created by the `azd up` command. Save the changes.
+- **Run the project**: If you're using Visual Studio, press F5 to build and run the code and interact with the console app. If you're using the .NET CLI, navigate to your application directory, build the project using `dotnet build`, and run the application using the `dotnet run`.
+- **Observe the output**: This app creates a test file in your local *data* folder and uploads it to a container in the storage account. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files. 
+
+To learn more about how the sample code works, see [Code examples](#code-examples).
+
+When you're finished testing the code, see the [Clean up resources](#clean-up-resources) section to delete the resources created by the `azd up` command.
+
+::: zone-end
+
 ## Object model
 
 Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
@@ -154,8 +249,19 @@ The sample code snippets in the following sections demonstrate how to perform th
 - [Download a blob](#download-a-blob)
 - [Delete a container](#delete-a-container)
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 > [!IMPORTANT]
 > Make sure you've installed the correct NuGet packages and added the necessary using statements in order for the code samples to work, as described in the [setting up](#setting-up) section.
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+> [!NOTE]
+> The Azure Developer CLI template includes a project with sample code already in place. The following examples provide detail for each part of the sample code. The template implements the recommended passwordless authentication method, as described in the [Authenticate to Azure](#authenticate-to-azure-and-authorize-access-to-blob-data) section. The connection string method is shown as an alternative, but isn't used in the template and isn't recommended for production code.
+
+::: zone-end
 
 [!INCLUDE [storage-quickstart-credential-free-include](../../../includes/storage-quickstart-credential-free-include.md)]
 
@@ -163,7 +269,11 @@ The sample code snippets in the following sections demonstrate how to perform th
 
 Create a new container in your storage account by calling the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) method on the `blobServiceClient` object. In this example, the code appends a GUID value to the container name to ensure that it's unique.
 
-Add this code to the end of the `Program.cs` file:
+::: zone pivot="blob-storage-quickstart-scratch"
+
+Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 // TODO: Replace <storage-account-name> with your actual storage account name
@@ -187,7 +297,11 @@ To learn more about creating a container, and to explore more code samples, see 
 
 Upload a blob to a container using [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync). The example code creates a text file in the local *data* directory to upload to the container.
 
-Add the following code to the end of the `Program.cs` class:
+::: zone pivot="blob-storage-quickstart-scratch"
+
+Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 // Create a local file in the ./data/ directory for uploading and downloading
@@ -214,7 +328,11 @@ To learn more about uploading blobs, and to explore more code samples, see [Uplo
 
 List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 Console.WriteLine("Listing blobs...");
@@ -232,7 +350,11 @@ To learn more about listing blobs, and to explore more code samples, see [List b
 
 Download the blob we created earlier by calling the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method. The example code appends the string "DOWNLOADED" to the file name so that you can see both files in local file system.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 // Download the blob to a local file
@@ -254,7 +376,11 @@ The following code cleans up the resources the app created by deleting the conta
 
 The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were created correctly, before they're deleted.
 
+::: zone pivot="blob-storage-quickstart-scratch"
+
 Add the following code to the end of the `Program.cs` file:
+
+::: zone-end
 
 ```csharp
 // Clean up
@@ -272,6 +398,8 @@ Console.WriteLine("Done");
 ```
 
 To learn more about deleting a container, and to explore more code samples, see [Delete and restore a blob container with .NET](storage-blob-container-delete.md).
+
+::: zone pivot="blob-storage-quickstart-scratch"
 
 ## The completed code
 
@@ -446,7 +574,27 @@ Done
 
 Before you begin the clean-up process, check your *data* folder for the two files. You can open them and observe that they're identical.
 
-After you verify the files, press the **Enter** key to delete the test files and finish the demo.
+::: zone-end
+
+## Clean up resources
+
+::: zone pivot="blob-storage-quickstart-scratch"
+
+After you verify the files and finish testing, press the **Enter** key to delete the test files along with the container you created in the storage account. You can also use [Azure CLI](storage-quickstart-blobs-cli.md#clean-up-resources) to delete resources.
+
+::: zone-end
+
+::: zone pivot="blob-storage-quickstart-template"
+
+When you're done with the quickstart, you can clean up the resources you created by running the following command:
+
+```console
+azd down
+```
+
+You'll be prompted to confirm the deletion of the resources. Enter `y` to confirm.
+
+::: zone-end
 
 ## Next steps
 

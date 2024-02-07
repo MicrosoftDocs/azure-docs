@@ -23,8 +23,22 @@ The listed features were released in the last three months. For information abou
 
 ## February 2024
 
+- [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### Incident tasks now generally available (GA)
+
+Incident tasks, which help you standardize your incident investigation and response practices so you can more effectively manage incident workflow, are now generally available (GA) in Microsoft Sentinel.
+
+- Learn more about incident tasks in the Microsoft Sentinel documentation:
+    - [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)
+    - [Work with incident tasks in Microsoft Sentinel](work-with-tasks.md)
+    - [Audit and track changes to incident tasks in Microsoft Sentinel](audit-track-tasks.md)
+
+- See [this blog post by Benji Kovacevic](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-tasks-repository-in-microsoft-sentinel/ba-p/4038563) that shows how you can use incident tasks in combination with watchlists, automation rules, and playbooks to build a task management solution with two parts:
+    - A repository of incident tasks.
+    - A mechanism that automatically attaches tasks to newly created incidents, according to the incident title, and assigns them to the proper personnel.
 
 ### AWS and GCP data connectors now support Azure Government clouds
 
@@ -42,6 +56,8 @@ Windows DNS events can now be ingested to Microsoft Sentinel using the Azure Mon
 - For more information, see [Stream and filter data from Windows DNS servers with the AMA connector](connect-dns-ama.md).
 
 ## January 2024
+
+[Reduce false positives for SAP systems with analytics rules](#reduce-false-positives-for-sap-systems-with-analytics-rules)
 
 ### Reduce false positives for SAP systems with analytics rules
 

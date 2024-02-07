@@ -7,7 +7,6 @@ ms.date: 08/13/2020
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 
 # Convert Resource Classes to Workload Groups

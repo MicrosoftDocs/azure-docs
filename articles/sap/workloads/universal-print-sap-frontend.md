@@ -62,5 +62,5 @@ SAP defines front-end printing with several [constraints](https://help.sap.com/d
 ## Next steps
 Check out the documentation:
 
-- [SAP’s print queue API](https://api.sap.com/api/API_CLOUD_PRINT_PULL_SRV/overview)
+- [Integrating SAP S/4HANA Cloud and Local Printers](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/1e39bb68bbda4c48af4a79d35f5837e0.html?locale=en-US&version=latest)
 - [Universal Print API](/graph/api/resources/print)
