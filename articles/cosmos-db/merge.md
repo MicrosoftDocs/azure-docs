@@ -8,8 +8,9 @@ ms.author: sidandrews
 ms.reviewer: dech
 ms.service: cosmos-db
 ms.date: 04/28/2023
-ms.custom: event-tier1-build-2022, ignite-2022
 ---
+
+
 
 # Merge partitions in Azure Cosmos DB (preview)
 
@@ -132,34 +133,6 @@ $parameters = @{
 Invoke-AzCosmosDBSqlContainerMerge @parameters
 ```
 
-For **shared-throughput databases**, use `Invoke-AzCosmosDBSqlDatabaseMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
-
-
-
-```azurepowershell-interactive
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    Name = "<cosmos-database-name>"
-    WhatIf = $true
-}
-Invoke-AzCosmosDBSqlDatabaseMerge @parameters
-```
-
-Start the merge by running the same command without the `-WhatIf` parameter.
-
-
-
-```azurepowershell-interactive
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    Name = "<cosmos-database-name>"
-}
-Invoke-AzCosmosDBSqlDatabaseMerge @parameters
-
-```
-
 #### [API for NoSQL](#tab/nosql/azure-cli)
 
 For **provisioned throughput** containers, start the merge by using [`az cosmosdb sql container merge`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-merge).
@@ -198,13 +171,17 @@ az rest `
     --url $endpoint `
     --body "{}"
 
+```
+
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
+
 
 For **provisioned throughput** containers, use `Invoke-AzCosmosDBMongoDBCollectionMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
 
 
 
 ```azurepowershell-interactive
+
 $parameters = @{
     ResourceGroupName = "<resource-group-name>"
     AccountName = "<cosmos-account-name>"
@@ -212,11 +189,11 @@ $parameters = @{
     Name = "<cosmos-container-name>"
     WhatIf = $true
 }
+
 Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
 ```
 
 Start the merge by running the same command without the `-WhatIf` parameter.
-
 
 
 ```azurepowershell-interactive
@@ -227,33 +204,6 @@ $parameters = @{
     Name = "<cosmos-container-name>"
 }
 Invoke-AzCosmosDBMongoDBCollectionMerge @parameters
-```
-
-For **shared-throughput** databases, use `Invoke-AzCosmosDBMongoDBDatabaseMerge` with the `-WhatIf` parameter to preview the merge without actually performing the operation.
-
-
-
-```azurepowershell-interactive
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    Name = "<cosmos-database-name>"
-    WhatIf = $true
-}
-Invoke-AzCosmosDBMongoDBDatabaseMerge @parameters
-```
-
-Start the merge by running the same command without the `-WhatIf` parameter.
-
-
-
-```azurepowershell-interactive
-$parameters = @{
-    ResourceGroupName = "<resource-group-name>"
-    AccountName = "<cosmos-account-name>"
-    Name = "<cosmos-database-name>"
-}
-Invoke-AzCosmosDBMongoDBDatabaseMerge @parameters
 ```
 
 #### [API for MongoDB](#tab/mongodb/azure-cli)
@@ -281,11 +231,6 @@ az cosmosdb mongodb database merge \
 	--account-name '<cosmos-account-name>'                               
 	--name '<cosmos-database-name>'                                
 	--resource-group '<resource-group-name>'
-```
-
-
-```http-interactive
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
 ```
 
 
@@ -375,4 +320,3 @@ If you enroll in the preview, the following connectors fail.
 - Learn more about [using Azure CLI with Azure Cosmos DB.](/cli/azure/azure-cli-reference-for-cosmos-db)
 - Learn more about [using Azure PowerShell with Azure Cosmos DB.](/powershell/module/az.cosmosdb/)
 - Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)
-

@@ -6,7 +6,6 @@ author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 01/04/2024
 ms.author: banders

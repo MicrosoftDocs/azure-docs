@@ -2,12 +2,11 @@
 title: Use Chaos Studio to replicate a DNS outage by using the NSG fault
 description: Get started with Azure Chaos Studio by creating a DNS outage by using the network security group fault.
 services: chaos-studio
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.topic: article
 ms.date: 08/26/2021
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Replicate a DNS outage by using the NSG fault

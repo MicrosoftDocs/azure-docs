@@ -2,7 +2,6 @@
 title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 ms.topic: article
-ms.custom: ignite-2022
 ms.date: 11/27/2023
 ---
 

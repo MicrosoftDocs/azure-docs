@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 [Azure Resource Health](/azure/service-health/resource-health-overview?WT.mc_id=Portal-Microsoft_Azure_Health) is a component of Azure Monitor that can be configured to generate alerts based on signals from Azure Red Hat OpenShift clusters. These alerts help you prepare for events such as planned and unplanned maintenance.
 
-Resource Health alert signals for ARO clusters include the following:
+Resource Health signals can generate one or more of the following alerts:
 
 - **Cluster maintenance operation pending:** This signal indicates that your Azure Red Hat OpenShift cluster will undergo a maintenance operation within the next two weeks. This may cause rolling reboots of nodes resulting in workload pod restarts.
 - **Cluster maintenance operation in progress:** This signal indicates one of the following operation types:
@@ -25,7 +25,7 @@ Resource Health alert signals for ARO clusters include the following:
 
 - **Cluster API server is unreachable:** This signal indicates that the Azure Red Hat OpenShift service Resource Provider is unable to reach your cluster's API server. Your cluster is hence unable to be monitored and is unmanageable. 
 
-Once the underlying condition causing an alert signal is remediated, the signal is cleared and the alert condition ends.
+Once the underlying condition causing an alert is remediated, the alert is cleared and the Resource Health is reported as *Available*.
 
 ## Creating alert rules
 
@@ -34,6 +34,8 @@ Configuring Resource Health alerts for an ARO cluster requires an alert rule. Al
 1. In the [Azure portal](https://ms.portal.azure.com/), go to the ARO cluster for which you want to configure alerts.
 
 1. Select **Resource health**, then select **Add resource health alert**.
+
+    :::image type="content" source="media/howto-monitor-alerts/resource-health.png" alt-text="Screenshot showing Resource health window with Add resource health alert button highlighted.":::
 
 1. Enter all applicable parameters for the alert rule in the various tabs of the window, including an **Alert rule name** in the **Details** tab.
   

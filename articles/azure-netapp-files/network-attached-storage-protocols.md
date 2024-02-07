@@ -174,7 +174,7 @@ In the following illustration, `user1` authenticates to Azure NetApp Files to ac
 
 In this instance, `user1` gets full control on their own folder (`user1-dir`) and no access to the `HR` folder. This setting is based on the security ACLs specified in the file system, and `user1` will get the expected access regardless of which protocol they're accessing the volumes from.
 
-:::image type="content" source="../media/azure-netapp-files/user1-dual-protocol-example.png" alt-text="Diagram of user accessing a dual-protocol volume with Azure NetApp Files." lightbox="../media/azure-netapp-files/user1-dual-protocol-example.png":::
+:::image type="content" source="./media/network-attached-storage-protocols/user1-dual-protocol-example.png" alt-text="Diagram of user accessing a dual-protocol volume with Azure NetApp Files." lightbox="./media/network-attached-storage-protocols/user1-dual-protocol-example.png":::
 
 ### Considerations for Azure NetApp Files dual-protocol volumes
 
