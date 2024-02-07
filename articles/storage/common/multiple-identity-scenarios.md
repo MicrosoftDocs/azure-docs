@@ -541,7 +541,7 @@ public class ExampleService {
     let blobServiceClient2 = new BlobServiceClient(
       "https://<contract-storage-account>.blob.core.windows.net",
       new DefaultAzureCredential({
-        managedIdentityClientId: clientIDstorage
+        managedIdentityClientId: clientIdStorage
       })
     );
     
