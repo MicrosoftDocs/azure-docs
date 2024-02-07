@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI Service Assistants Python & REST AP threads reference 
+title: Azure OpenAI Service Assistants Python & REST API threads reference 
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's Python & REST API threads with Assistants
 manager: nitinme

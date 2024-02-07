@@ -196,7 +196,7 @@ items:
        - name: Assistants
          href: ./assistants-reference.md
        - name: Threads
-         href: ./how-to/assistant-reference-threads.md
+         href: ./how-to/assistants-reference-threads.md
        - name: Messages
          href: ./how-to/assistant.md
        - name: Runs
