@@ -1,5 +1,5 @@
 ---
-title: Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop (preview)
+title: Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop
 description: Learn how to use Uniform Resource Identifier (URI) schemes with the Remote Desktop client to subscribe and connect to Azure Virtual Desktop
 ms.topic: conceptual
 author: dknappettmsft
@@ -7,11 +7,8 @@ ms.author: daknappe
 ms.date: 01/19/2023
 ---
 
-# Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop (preview)
+# Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop 
 
-> [!IMPORTANT]
-> The *ms-avd* Uniform Resource Identifier scheme for Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can use Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or RemoteApp.
 
@@ -39,8 +36,6 @@ Here's the list of currently supported commands for *ms-avd* and their correspon
 
 `ms-avd:connect` locates a specified Azure Virtual Desktop resource and initiates the RDP session, directly connecting a specified user to that resource.
 
-> [!IMPORTANT]
-> The ms-avd:connect command is currently in preview and shouldn't be used in production.
 
 **Command name:** connect
 
