@@ -2,7 +2,7 @@
 title: What's new with Azure Connected Machine agent
 description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 12/06/2023
+ms.date: 02/07/2024
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,21 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
+
+## Version 1.38 - February 2024
+
+Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- AlmaLinux 9 is now a [supported operating system](prerequisites.md#supported-operating-systems)
+
+### Fixed
+
+- The hybrid instance metadata service (HIMDS) now listens on the IPv6 local loopback address (::1)
+- Improved logging in the extension manager and policy engine
+- Improved reliability when fetching the latest operating system metadata
+- Reduced extension manager CPU usage
 
 ## Version 1.37 - December 2023
 
@@ -80,24 +95,6 @@ The Windows Admin Center in Azure feature is incompatible with Azure Connected M
 - Better error handling when a user specifies an invalid location name to [azcmagent connect](azcmagent-connect.md)
 - Fixed a bug where clearing the `incomingconnections.enabled` [configuration setting](azcmagent-config.md) would show `<nil>` as the previous value
 - Security fix for the extension allowlist and blocklist feature to address an issue where an invalid extension name could impact enforcement of the lists.
-
-## Version 1.34 - September 2023
-
-Download for [Windows](https://download.microsoft.com/download/b/3/2/b3220316-13db-4f1f-babf-b1aab33b364f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### New features
-
-- [Extended Security Updates for Windows Server 2012 and 2012 R2](prepare-extended-security-updates.md) can be purchased and enabled through Azure Arc. If your server is already running the Azure Connected Machine agent, [upgrade to agent version 1.34](manage-agent.md#upgrade-the-agent) or later to take advantage of this new capability.
-- Additional system metadata is collected to enhance your device inventory in Azure:
-  - Total physical memory
-  - Additional processor information
-  - Serial number
-  - SMBIOS asset tag
-- Network requests to Microsoft Entra ID (formerly Azure Active Directory) now use `login.microsoftonline.com` instead of `login.windows.net`
-
-### Fixed
-
-- Better handling of disconnected agent scenarios in the extension manager and policy engine.
 
 ## Next steps
 
