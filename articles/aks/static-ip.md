@@ -60,7 +60,7 @@ This article shows you how to create a static public IP address and assign it to
 2. Get the static public IP address using the [`az network public-ip list`][az-network-public-ip-list] command. Specify the name of the node resource group and public IP address you created, and query for the `ipAddress`.
 
     ```azurecli-interactive
-    az network public-ip show --resource-group myNetworkResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
+    az network public-ip show --resource-group <node resource group name> --name myAKSPublicIP --query ipAddress --output tsv
     ```
 
 ## Create a service using the static IP address
@@ -89,7 +89,7 @@ This article shows you how to create a static public IP address and assign it to
     kind: Service
     metadata:
       annotations:
-        service.beta.kubernetes.io/azure-load-balancer-resource-group: myNetworkResourceGroup
+        service.beta.kubernetes.io/azure-load-balancer-resource-group: <node resource group name>
         service.beta.kubernetes.io/azure-pip-name: myAKSPublicIP
       name: azure-load-balancer
     spec:
@@ -113,7 +113,7 @@ This article shows you how to create a static public IP address and assign it to
     kind: Service
     metadata:
       annotations:
-        service.beta.kubernetes.io/azure-load-balancer-resource-group: myNetworkResourceGroup
+        service.beta.kubernetes.io/azure-load-balancer-resource-group: <node resource group name>
         service.beta.kubernetes.io/azure-pip-name: myAKSPublicIP
         service.beta.kubernetes.io/azure-dns-label-name: <unique-service-label>
       name: azure-load-balancer

@@ -395,7 +395,7 @@
     items:
     - name: Overview
       href: flexible-server/concepts-extensions.md
-    - name: Azure AI extension
+    - name: Azure AI (azure_ai)
       items:
       - name: Overview
         href: flexible-server/generative-ai-azure-overview.md
@@ -403,14 +403,16 @@
         href: flexible-server/generative-ai-azure-openai.md
       - name: Azure Cognitive Services
         href: flexible-server/generative-ai-azure-cognitive.md
-      - name: Vector similarity search (pgvector)
-        items:
-        - name: Basics of pgvector
-          href: flexible-server/how-to-use-pgvector.md
-        - name: Optimize performance when using pgvector
-          href: flexible-server/how-to-optimize-performance-pgvector.md
-    - name: pg_azure_storage
+    - name: Azure Storage (pg_azure_storage)
       href: flexible-server/reference-pg-azure-storage.md
+    - name: Vector similarity search (pgvector)
+      items:
+      - name: Basics of pgvector
+        href: flexible-server/how-to-use-pgvector.md
+        displayName: vector databases
+      - name: Optimize performance when using pgvector
+        href: flexible-server/how-to-optimize-performance-pgvector.md
+        displayName: vector databases
 - name: Migration
   items:
   - name: Migrate Single Server to Flexible Server
