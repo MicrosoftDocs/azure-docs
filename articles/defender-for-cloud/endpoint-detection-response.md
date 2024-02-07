@@ -4,7 +4,7 @@ description: Learn how to use Defender for Cloud recommendations to identify if 
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 01/29/2024
+ms.date: 02/07/2024
 ---
 
 # Detect and configure endpoint detection and response solutions
@@ -20,12 +20,6 @@ The recommendations associated with Defender for Endpoint allow you to:
 - Identify gaps in the security configurations on any of the discovered endpoint detection and response solutions.
 
 - Remediate detected gaps in your security configurations.
-
-> [!NOTE]
-> The Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). All Defender for Servers features that depend on the AMA, including those described on the [Enable Defender for Endpoint (Log Analytics)](endpoint-protection-recommendations-technical.md) page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
-
-> [!IMPORTANT]
-> Defender for Cloud recommends using the process described on this page to review endpoint detection and response solution installation status and configuration issues within your endpoint detection and response solution.
 
 The following endpoint detection and response solutions are supported and can be enabled through Defender for Cloud
 
@@ -47,13 +41,25 @@ The following endpoint detection and response solutions are supported and can be
     - [Defender for Servers Plan 2](tutorial-enable-servers-plan.md)
     - [Defender CSPM](tutorial-enable-cspm-plan.md)
 
-- Enable [agentless scanning for your machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
+- Enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
 
-## Detect an endpoint detection and response solution
+## Discover endpoint detection and response solutions on virtual machines
 
 Defender for Cloud provides recommendations when an endpoint detection and response solution isn't detected on your Azure virtual machines (VM), AWS EC2 instances or GCP VM instances.
 
-### Detect an endpoint detection and response solution on your machine
+The following table provides a list of the supported endpoint detection and response solutions with their supported platforms.
+
+| Endpoint detection and response solution | Supported platforms |
+|--|--|
+| Microsoft Defender for Endpoint for Windows | Windows |
+| Microsoft Defender for Endpoint for Linux1  | Linux (GA) |
+| Microsoft Defender for Endpoint Unified Solution2  | Windows Server 2012 R2 and Windows 2016 |
+| CrowdStrike (Falcon) | Windows and Linux |
+| McAfee | Windows and Linux |
+| Symantec | Windows and Linux |
+| Sophos |  Windows and Linux |
+
+**To discover endpoint recommendations and response solutions on virtual machines**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -61,9 +67,9 @@ Defender for Cloud provides recommendations when an endpoint detection and respo
 
 1. In the search field, enter the appropriate recommendation.
 
-    - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
-    - `Endpoint Detection and Response (EDR) solution should be installed on EC2s`
-    - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`
+    - `EDR solution should be installed on Virtual Machines`
+    - `EDR solution should be installed on EC2s`
+    - `EDR solution should be installed on Virtual Machines (GCP)`
 
 1. Select the recommendation.
 
@@ -71,11 +77,9 @@ Defender for Cloud provides recommendations when an endpoint detection and respo
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab 
 
-## Configure an endpoint detection and response solution
+## Identify misconfigurations on endpoint detection and response solution
 
-When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations will appear on the recommendations page that can assist you in the correction of those misconfigurationsn on your Azure VM, AWS EC2 instances or GCP VM instances.
-
-### Configure an endpoint detection and response solution on Azure VM
+When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations will appear on the recommendations page that can assist you in the correction of those misconfigurationsn on your Azure VM, AWS EC2 instances or GCP VM instances. These recommendations will only be available if you have Defender for Endpoint integration is enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -83,9 +87,9 @@ When Defender for Cloud detects misconfigurations in your endpoint detection and
 
 1. In the search field, enter the appropriate recommendation.
 
-    - `Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines`
-    - `Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s`
-    - `Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines`
+    - `EDR configuration issues should be resolved on virtual machines`
+    - `EDR configuration issues should be resolved on EC2s`
+    - `EDR configuration issues should be resolved on GCP virtual machines`
 
 1. Select the recommendation.
 
@@ -106,9 +110,5 @@ Defender for Servers Plan 1 includes the Defender for Endpoint agent provisionin
 After the fix process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
 Learn how to [use the fix option](implement-security-recommendations.md#use-the-fix-option).
-
-**Sample scenario 1**: If the Defender for Endpoint integration is configured correctly on your subscription but can't be found on your machine, the fix option presents a reference to manual troubleshooting.
-
-**Sample scenario 2**: If you enable Defender for Servers Plan 1 on your machine, Defender for Endpoint's agent provisioning is included with Plan 1. In the next scan results, that machine is classified as `Not Applicable`.
 
 ## Next steps
