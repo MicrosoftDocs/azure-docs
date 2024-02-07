@@ -399,7 +399,7 @@
           href: appliance-catalog/hpe-edgeline-el300.md
         - name: HPE ProLiant DL20 Gen10 (L500 Rugged)
           href: appliance-catalog/hpe-proliant-dl20-smb-legacy.md
-        - name: Neousys Nuvo-500LP (L100 Rugged)
+        - name: Neousys Nuvo-5006LP (L100 Rugged)
           href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: System maintenance references
     items:
