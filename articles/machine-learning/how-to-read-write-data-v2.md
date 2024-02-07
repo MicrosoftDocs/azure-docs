@@ -9,11 +9,13 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 06/20/2023
+ms.date: 02/06/2024
 ms.custom:
   - devplatv2
   - sdkv2
   - cliv2
+  - event-tier1-build-2022
+  - ignite-2022
   - build-2023
   - ignite-2023
 #Customer intent: As an experienced Python developer, I need to read my data, to make it available to a remote compute resource, to train my machine learning models.
@@ -22,7 +24,6 @@ ms.custom:
 # Access data in a job
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
-
 
 In this article you learn:
 
@@ -984,6 +985,8 @@ In the `Input` object, specify the `type` as `AssetTypes.MLTABLE` and `mode` as 
 
 > [!NOTE]
 > To use [serverless compute](how-to-use-serverless-compute.md), delete `compute="cpu-cluster",` in this code.
+
+For more information about the MLClient object, MLClient object initialization options, and how to connect to a workspace, visit [Connect to a workspace](./how-to-manage-workspace.md#connect-to-a-workspace).
 
 ```python
 from azure.ai.ml import command
