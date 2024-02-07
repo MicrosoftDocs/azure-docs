@@ -305,11 +305,11 @@ chmod 600 /home/$USER/.ssh/authorized_keys
 chmod 644 /home/$USER/.ssh/config
 ```
 
-The above syntax assumes a shared home directory, else .ssh directory must be copied to each node.
+The above syntax assumes a shared home directory, else `.ssh` directory must be copied to each node.
 
 ## Next steps
 
-- Learn about the [InfiniBand enabled](sizes-hpc.md#rdma-capable-instances) [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs
+- Learn about the [InfiniBand enabled](sizes-hpc.md#rdma-capable-instances) [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs.
 - Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read [Optimal MPI process placement for HB-series VMs](https://techcommunity.microsoft.com/t5/azure-global/optimal-mpi-process-placement-for-azure-hb-series-vms/ba-p/2450663).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
