@@ -161,8 +161,8 @@
         href: network-watcher-packet-capture-manage-cli.md
     - name: Analyze a packet capture
       items:
-      - name: Find anomalies
-        href: network-watcher-deep-packet-inspection.md
+      - name: Inspect to find anomalies
+        href: packet-capture-inspect.md
       - name: Proactive network monitoring with Azure Functions
         href: network-watcher-alert-triggered-packet-capture.md
       - name: Perform intrusion detection using open source tools
