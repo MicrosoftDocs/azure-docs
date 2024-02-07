@@ -5,7 +5,8 @@ services: chaos-studio
 author: rsgel
 ms.topic: article
 ms.date: 01/02/2024
-ms.author: carlsonr
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ---
 
