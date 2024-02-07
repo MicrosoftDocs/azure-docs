@@ -81,6 +81,8 @@ landingContent:
         links:
           - text: API Specification for Kubernetes
             url: api-specification-kubernetes.md
+          - text: Reliability in Application Gateway for Containers
+            url: ../reliability/reliability-app-gateway-containers.md
 
   # Card
   - title: Gateway API
