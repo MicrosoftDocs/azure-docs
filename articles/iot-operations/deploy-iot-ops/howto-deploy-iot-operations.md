@@ -23,7 +23,7 @@ Cloud resources:
 
 * Azure access permissions. At a minimum, have **Contributor** permissions in your Azure subscription. Depending on the deployment method and feature flag status you select, you may also need **Microsoft/Authorization/roleAssignments/write** permissions. If you *don't* have role assignment write permissions, take the following additional steps when deploying:
 
-  * If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter set to `false`.
+  * If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter to `false`.
   * If deploying with the Azure CLI, include the `--disable-rsync-rules`.
 
 * An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
