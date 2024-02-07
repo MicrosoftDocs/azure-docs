@@ -22,7 +22,7 @@ recommendations: false
 
 The `gpt-4` model version `0125-preview` is now available on Azure OpenAI Service in the East US, North Central US, and South Central US regions.  Customers with deployments of `gpt-4` version `1106-preview` will be automatically upgraded to `0125-preview` in the coming weeks.  
 
-For information on model regional availability and upgrade the [models page](./concepts/models.md).
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
 
 ### Assistants API public preview
 
