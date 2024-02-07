@@ -2,7 +2,7 @@
 title: How to use the Linux Operating System (OS) Azure Monitor Agent Troubleshooter
 description: Detailed instructions on using the Linux agent troubleshooter tool to diagnose potential issues.
 ms.topic: conceptual
-author: RepinStyle
+author: guywi-ms
 ms.author: guywild
 ms.date: 12/14/2023
 ms.custom: references_regions

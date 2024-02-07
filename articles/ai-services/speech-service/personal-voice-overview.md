@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 1/10/2024
+ms.date: 2/7/2024
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -66,7 +66,7 @@ Once you have a personal voice, you can [use it](./personal-voice-how-to-use.md)
 ## Reference documentation
 
 > [!div class="nextstepaction"]
-> [Custom voice API specification - 2023-12-01-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/Speech/TextToSpeech/preview/2023-12-01-preview/texttospeech.json/)
+> [Custom voice REST API reference documentation](/rest/api/speech/)
 
 ## Responsible AI 
 
