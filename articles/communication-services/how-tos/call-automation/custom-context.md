@@ -2,7 +2,7 @@
 title: Azure Communication Services Call Automation how-to for passing call contextual data in Call Automation 
 titleSuffix: An Azure Communication Services how-to document
 description: Provides a how-to guide for passing contextual information with Call Automation.
-author: juta
+author: jutik0
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
