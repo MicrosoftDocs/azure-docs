@@ -33,7 +33,7 @@ In this tutorial, you complete the following steps:
 ## Prerequisites
 
 - An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Python 3.7 or higher, with the [Azure Python SDK](/azure/developer/python/sdk/azure-sdk-overview) package installed.
+- [Python 3.8](https://www.python.org/downloads/) or higher
 
 >[!NOTE]
 > This tutorial works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Create and deploy a Python application to an Azure Website](../app-service/quickstart-python.md). For more information about installing packages used in this tutorial, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
