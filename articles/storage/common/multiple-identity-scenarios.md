@@ -246,7 +246,7 @@ const { BlobServiceClient } = require("@azure/storage-blob");
 const { KeyClient  } = require("@azure/keyvault-keys");
 ```
 
-In the `index.js` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
+In the `index.js` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding SDK classes.
 
 ```javascript
 
