@@ -600,9 +600,7 @@ There are no resources that require cleanup.
 [Check the GeoJSON data upload status]: #check-the-geojson-data-upload-status
 [Data Upload API]: /rest/api/maps/data/upload
 [Geofencing GeoJSON data]: geofence-geojson.md
-[Azure Maps service geographic scope]
 [Handle content types in Azure Logic Apps]: ../logic-apps/logic-apps-content-type.md
-[How to create data registry]: how-to-create-data-registries.md
 [logic app]: ../event-grid/handler-webhooks.md#logic-apps
 [logic apps]: ../event-grid/handler-webhooks.md#logic-apps
 [Postman]: https://www.postman.com
