@@ -287,7 +287,7 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
 
 ## Give session hosts in a personal host pool a friendly name
 
-You can give personal desktops you create *friendly names* to help users distinguish them in their feeds. 
+You can give personal desktops you create *friendly names* to help users distinguish them in their feeds using PowerShell. The Azure portal or Azure CLI doesn't currently have a way to give session host friendly names.
 
 [!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
 

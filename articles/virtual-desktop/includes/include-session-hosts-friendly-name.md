@@ -18,7 +18,7 @@ $parameters = @{
 Update-AzWvdSessionHost @parameters
 ```
 
-The Azure portal doesn't currently have a way to give session host friendly names.
+
 
 ### Get the session host friendly name
 
