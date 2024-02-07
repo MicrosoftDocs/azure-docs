@@ -174,7 +174,7 @@ To use **Basic** authentication, in addition to the generic properties that are 
 
 ### Key pair authentication
 
-To use **Key pair** authentication, you need to configure and create key pair authentication user in Snowflake by referring to [Key Pair Authentication & Key Pair Rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth). Afterwards, make a note of the private key and the passphrase (optional), which you use to define the linked service.
+To use **Key pair** authentication, you need to configure and create a key pair authentication user in Snowflake by referring to [Key Pair Authentication & Key Pair Rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth). Afterwards, make a note of the private key and the passphrase (optional), which you use to define the linked service.
 
 In addition to the generic properties that are described in the preceding section, specify the following properties:
 
@@ -250,8 +250,8 @@ In addition to the generic properties that are described in the preceding sectio
                 "type": "SecureString",
                 "value": "<client secret>"
             },
-        "scope": "<scope>",
-        "role": "<role>"
+            "scope": "<scope>",
+            "role": "<role>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
