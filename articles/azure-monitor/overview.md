@@ -225,11 +225,23 @@ You may need to integrate Azure Monitor with other systems or to build custom so
 |---------|---------|
 |[Event Hubs](../event-hubs/event-hubs-about.md)|Azure Event Hubs is a streaming platform and event ingestion service. It can transform and store data by using any real-time analytics provider or batching/storage adapters. Use Event Hubs to stream Azure Monitor data to partner SIEM and monitoring tools.|
 |[Azure Storage](../storage/common/storage-introduction.md)| Export data to Azure storage for less expensive, long-term archival of monitoring data for auditing or compliance purposes. 
-|Hosted and Managed Partners | Many external partners integrate with Azure Monitor. Azure Monitor has partnered with other monitoring providers to provide an [Azure-hosted version of their products](/azure/partner-solutions/) to make interoperability easier. Examples include Elastic, Datadog, Logz.io, and Dynatrace. 
+|Hosted and Managed Partners | Many external partners integrate with Azure Monitor. Azure Monitor has partnered with other monitoring providers to provide an [Azure-hosted version of their products](/azure/partner-solutions/partners) to make interoperability easier. Examples include Elastic, Datadog, Logz.io, and Dynatrace. 
 |[API](/rest/api/monitor/)|Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. With APIs, you have unlimited possibilities to build custom solutions that integrate with Azure Monitor.|
 |[Azure Logic Apps](../logic-apps/logic-apps-overview.md)|Azure Logic Apps is a service you can use to automate tasks and business processes by using workflows that integrate with different systems and services with little or no code. Activities are available that read and write metrics and logs in Azure Monitor. You can use Logic Apps to [customize responses and perform other actions in response to Azure Monitor alerts](alerts/alerts-logic-apps.md).  You can also perform other [more complex actions](logs/logicapp-flow-connector.md) when the Azure Monitor infrastructure doesn't already supply a built-it method.|
 |[Azure Functions](../azure-functions/functions-overview.md)| Similar to Azure Logic Apps, Azure Functions give you the ability to preprocess and post process monitoring data and perform complex action beyond the scope of typical Azure Monitor alerts. Azure Functions uses code however providing additional flexibility over Logic Apps.
 |Azure DevOps and GitHub | Azure Monitor Application Insights gives you the ability to create [Work Item Integration](app/release-and-work-item-insights.md?tabs=work-item-integration) with monitoring data embedding in it. Additional options include [release annotations](app/release-and-work-item-insights.md?tabs=release-annotations) and [continuous monitoring](app/release-and-work-item-insights.md?tabs=continuous-monitoring). |
+
+
+Additional integrations not shown in the diagram that may be of interest. 
+
+| Integration | Description |
+|----|----|
+| [Defender for the Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](../defender-for-cloud/monitoring-components.md). |
+| [Microsoft Sentinel](../sentinel/index.yml) | Connect to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](../sentinel/connect-data-sources.md). |
+| [Microsoft Intune](/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, Event Hubs, or log analytics in Intune (preview)](/mem/intune/fundamentals/review-logs-using-azure-monitor).  |
+| [ITSM](alerts/itsmc-overview.md) | The [IT Service Management (ITSM) Connector](./alerts/itsmc-overview.md) allows you to connect Azure and a supported ITSM product/service.   |
+
+These are just a few options. There are many more third party companies that integrate with Azure and Azure Monitor at various levels. Use your favorite search engine to locate them. 
 
 ## Frequently asked questions
 

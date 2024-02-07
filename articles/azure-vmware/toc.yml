@@ -65,7 +65,7 @@ items:
       href: concepts-security-recommendations.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-vmware-solution-security-baseline?toc=/azure/azure-vmware/toc.json
-    - name: AVS Vulnerability Management
+    - name: Vulnerability Management
       href: concepts-vulnerability-management.md
   - name: Storage
     href: concepts-storage.md
