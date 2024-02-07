@@ -181,7 +181,7 @@ In addition to the generic properties that are described in the preceding sectio
 | Property         | Description                                                  | Required |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | user | Login name for the Snowflake user. | Yes |
-| privateKey | The private key used for the key pair authentication. <br> To ensure the private key is valid when sent to Azure Data Factory, and considering that the privateKey file includes newline characters (\n), it's essential to correctly format the privateKey content in its string literal form. This process involves adding \n explicitly to each newline.   | Yes |
+| privateKey | The private key used for the key pair authentication. <br/><br/>To ensure the private key is valid when sent to Azure Data Factory, and considering that the privateKey file includes newline characters (\n), it's essential to correctly format the privateKey content in its string literal form. This process involves adding \n explicitly to each newline.   | Yes |
 | privateKeyPassphrase | The passphrase used for decrypting the private key, if it is encrypted.  | No |
 
 **Example:**
@@ -219,10 +219,8 @@ In addition to the generic properties that are described in the preceding sectio
 
 To use **Service Principal** authentication, set up the Snowflake Service-to-Service (S2S) authentication environment referring to [How to configure Azure to issue OAuth tokens on behalf of a client to access Snowflake](https://community.snowflake.com/s/article/Create-External-OAuth-Token-Using-Azure-AD-For-The-OAuth-Client-Itself). Afterwards, make note of these values, which you use to define the linked service:
 
-- Application (client) ID, which is **Client ID** in the linked service.  
-
+- Application (client) ID, which is **Client ID** in the linked service.
 - Client secret value, which is the **Client secret** in the linked service.
-
 - Tenant ID
 
 In addition to the generic properties that are described in the preceding section, specify the following properties:
@@ -609,7 +607,7 @@ When you use Snowflake dataset as source type, the associated data flow script i
 source(allowSchemaDrift: true,
 	validateSchema: false,
 	query: 'select * from MYTABLE',
-	format: 'query') ~> SnowflakeV2Source
+	format: 'query') ~> SnowflakeSource
 ```
 
 If you use inline dataset, the associated data flow script is:
@@ -619,7 +617,7 @@ source(allowSchemaDrift: true,
 	validateSchema: false,
 	format: 'query',
 	query: 'select * from MYTABLE',
-	store: 'snowflake') ~> SnowflakeV2Source
+	store: 'snowflake') ~> SnowflakeSource
 ```
 ### Native Change Tracking
 
@@ -650,7 +648,7 @@ IncomingStream sink(allowSchemaDrift: true,
 	keys:['movieId'],
 	format: 'table',
 	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> SnowflakeV2Sink
+	skipDuplicateMapOutputs: true) ~> SnowflakeSink
 ```
 
 If you use inline dataset, the associated data flow script is:
@@ -667,7 +665,7 @@ IncomingStream sink(allowSchemaDrift: true,
 	upsertable: false,
 	store: 'snowflake',
 	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> SnowflakeV2Sink
+	skipDuplicateMapOutputs: true) ~> SnowflakeSink
 ```
 #### Query Pushdown optimization
 By setting the pipeline Logging Level to None, we exclude the transmission of intermediate transformation metrics, preventing potential hindrances to Spark optimizations and enabling query pushdown optimization provided by Snowflake. This pushdown optimization allows substantial performance enhancements for large Snowflake tables with extensive datasets.
