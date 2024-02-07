@@ -241,9 +241,9 @@ npm install @azure/keyvault-keys
 At the top of your `index.js` file, add the following using statements:
 
 ```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { BlobServiceClient } = require("@azure/storage-blob");
-const { KeyClient  } = require("@azure/keyvault-keys");
+import { DefaultAzureCredential } from "@azure/identity";
+import { BlobServiceClient } from "@azure/storage-blob";
+import { KeyClient  } from "@azure/keyvault-keys";
 ```
 
 In the `index.js` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
@@ -520,10 +520,10 @@ public class ExampleService {
 2. Use the following code to create instances of the necessary services your app will connect to. 
 
     ```javascript
-    const { DefaultAzureCredential } = require("@azure/identity");
-    const { BlobServiceClient } = require("@azure/storage-blob");
-    const { CosmosClient  } = require("@azure/cosmos");
-    const sql = require("mssql");
+    import { DefaultAzureCredential } from "@azure/identity";
+    import { BlobServiceClient } from "@azure/storage-blob";
+    import { CosmosClient  } from "@azure/cosmos";
+    import sql from "mssql";
 
 
     // Get the first user-assigned managed identity ID to connect to shared storage
@@ -574,7 +574,7 @@ public class ExampleService {
         }
     };
 
-    await sql.connect(sqlConfig)
+    await sql.connect(sqlConfig);
     ```
 
 ---
