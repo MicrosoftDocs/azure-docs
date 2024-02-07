@@ -78,3 +78,167 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 
 ## List messages
 
+
+```http
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-02-15-preview
+```
+
+Returns a list of messages for a given thread.
+
+**Path Parameters**
+
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+|`thread_id` | string | Required | The ID of the thread that messages belong to. |
+
+**Query Parameters**
+
+|Name | Type | Required | Description |
+|---  |---   |---       |--- |
+| `limit` | integer | Optional - Defaults to 20 |A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.|
+| `order` | string | Optional - Defaults to desc |Sort order by the created_at timestamp of the objects. asc for ascending order and desc for descending order.|
+| `after` | string | Optional | A cursor for use in pagination. after is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.|
+| `before` | string | Optional | A cursor for use in pagination. before is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.|
+
+### Returns
+
+A list of message objects.
+
+### Example list messages request
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+thread_messages = client.beta.threads.messages.list("thread_abc123")
+print(thread_messages.data)
+
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-02-15-preview \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' 
+```
+
+---
+
+## List message files
+
+```http
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files?api-version=2024-02-15-preview
+```
+
+Returns a list of message files.
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+|`thread_id` | string | Required | The ID of the thread that the message and files belong to. |
+|`message_id`| string | Required | The ID of the message that the files belongs to. |
+
+**Query Parameters**
+
+|Name | Type | Required | Description |
+|---  |---   |---       |--- |
+| `limit` | integer | Optional - Defaults to 20 |A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.|
+| `order` | string | Optional - Defaults to desc |Sort order by the created_at timestamp of the objects. asc for ascending order and desc for descending order.|
+| `after` | string | Optional | A cursor for use in pagination. after is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.|
+| `before` | string | Optional | A cursor for use in pagination. before is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.|
+
+### Returns
+
+A list of message file objects
+
+### Example list message files request
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+message_files = client.beta.threads.messages.files.list(
+  thread_id="thread_abc123",
+  message_id="msg_abc123"
+)
+print(message_files)
+
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/files?api-version=2024-02-15-preview \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' 
+```
+
+---
+
+## Retrieve message
+
+```http
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-02-15-preview
+```
+
+Retrieves a message file.
+
+**Path parameters**
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+|`thread_id` | string | Required | The ID of the thread that the message belongs to. |
+|`message_id`| string | Required | The ID of the message to retrieve. |
+
+
+### Returns
+
+The message file object.
+
+### Example retrieve message request
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+message = client.beta.threads.messages.retrieve(
+  message_id="msg_abc123",
+  thread_id="thread_abc123",
+)
+print(message)
+
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-02-15-preview \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' 
+```
+
+---
+
+## Retrieve message file
