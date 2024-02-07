@@ -15,7 +15,7 @@ This article provides information about the **most recent** Azure HDInsight on A
 Azure HDInsight on AKS is a new version of HDInsight, which runs on Kubernetes and brings in the best of the open source on Kubernetes. It's gaining popularity among enterprise customers for open-source analytics on Azure Kubernetes Services.
 
 > [!NOTE]
-> To understand about HDInsight on AKS versioning and support, refer to the **[versioning schema](../versions.md)**.
+> To understand about HDInsight on AKS versioning and support, refer to the **[versioning schema](../versions.md)**.
 
 You can refer to [What's new](../whats-new.md) page for all the details of the features currently in public preview for this release.
 
