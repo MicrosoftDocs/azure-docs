@@ -25,7 +25,7 @@ Azure Maps provides services to support the tracking of equipment entering and e
 > * Upload [Geofencing GeoJSON data] that defines the construction site areas you want to monitor.  You'll use the [Data Upload API] to upload geofences as polygon coordinates to your Azure Maps account.
 > * Set up two [logic apps] that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
 > * Use [Azure Event Grid] to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
-> * Use [Search Geofence Get API] to receive notifications when a piece of equipment exits and enters the geofence areas.
+> * Use [Spatial Geofence Get API] to receive notifications when a piece of equipment exits and enters the geofence areas.
 
 ## Prerequisites
 
@@ -606,9 +606,8 @@ There are no resources that require cleanup.
 [logic app]: ../event-grid/handler-webhooks.md#logic-apps
 [logic apps]: ../event-grid/handler-webhooks.md#logic-apps
 [Postman]: https://www.postman.com
-[Search Geofence Get API]: /rest/api/maps/spatial/getgeofence
 [Send email notifications using Event Grid and Logic Apps]: ../event-grid/publish-iot-hub-events-to-logic-apps.md
-[Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
+[Spatial Geofence Get API]: /rest/api/maps/spatial/get-geofence
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Event handlers in Azure Event Grid]: ../event-grid/event-handlers.md
 [three event types]: ../event-grid/event-schema-azure-maps.md
