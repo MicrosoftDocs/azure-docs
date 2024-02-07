@@ -183,7 +183,7 @@ The `--assign-endpoint` argument grants a public IP for validation and enables a
 
 ### Connect to the Service Registry from the app
 
-After you created a service with Spring Boot and created an application in Azure Spring Apps, deploy the application and confirm the operation. Before that, however, you must bind your application to the Service Registry so that it can get connection information from the registry.
+After you create a service instance with Spring Boot and create an application in Azure Spring Apps, you deploy the application and confirm the operation. Before that, however, you must bind your application to the Service Registry so that it can get connection information from the registry.
 
 Typically, a Eureka client needs to write the following connection information settings in the *application.properties* configuration file of a Spring Boot application so that you can connect to the server:
 
