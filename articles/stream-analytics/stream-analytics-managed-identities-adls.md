@@ -1,12 +1,11 @@
 ---
 title: Authenticate Azure Stream Analytics to Azure Data Lake Storage Gen1
-description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Data Lake Storage Gen1 output. 
+description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Data Lake Storage Gen1 output.
 author: enkrumah
-ms.author: ebnkruma 
+ms.author: ebnkruma
 ms.service: stream-analytics
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 03/16/2021
-ms.custom: seodec18
 ---
 
 # Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities

@@ -349,7 +349,7 @@ The following is an example response:
     
 ## Deploy Llama 2 models to real-time endpoints
 
-Llama 2 models can be deployed to real-time endpoints in AI studio. When deployed to real-time endpoints, you can select all the details about on the infrastructure running the model including the virtual machines used to run it and the number of instances to handle the load you're expecting. Models deployed in this modality consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
+Llama 2 models can be deployed to real-time endpoints in AI Studio. When deployed to real-time endpoints, you can select all the details about on the infrastructure running the model including the virtual machines used to run it and the number of instances to handle the load you're expecting. Models deployed in this modality consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
 
 ### Create a new deployment
 

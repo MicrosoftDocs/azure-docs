@@ -5,7 +5,6 @@ ms.topic: article
 ms.date: 08/31/2023
 author: nickomang
 ms.author: nickoman
-ms.custom: event-tier1-build-2022
 ---
 
 # Supported Kubernetes versions in Azure Kubernetes Service (AKS)

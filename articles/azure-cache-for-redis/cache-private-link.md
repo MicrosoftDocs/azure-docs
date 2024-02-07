@@ -358,8 +358,12 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 ### Why can't I connect to a private endpoint?
 
 - Private endpoints can't be used with your cache instance if your cache is already a VNet injected cache.
+  
+- For Basic, Standard, and Premium tier caches, you are limited to 100 private links. 
 
-- On Premium tier caches, you have a limit of one private link for clustered caches. Enterprise and Enterprise Flash tier caches do not have this limitation for clustered caches. For all other caches, your limit is 100 private links.
+- On Premium tier caches using clustering, you are limited to one private link.
+  
+- Enterprise and Enterprise Flash tier caches are limited to 84 private links.
 
 - You try to [persist data to storage account](cache-how-to-premium-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
 
