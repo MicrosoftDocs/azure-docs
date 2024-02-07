@@ -22,7 +22,11 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
 1. Select the **Table** menu and choose a table for your search.
 1. In the **Search** box, enter a search term.
 
+   #### [Azure portal](#tab/azure-portal)
    :::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-criteria.png":::
+
+   #### [Defender portal](#tab/defender-portal)
+   :::image type="content" source="media/search-jobs/search-job-defender-portal.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-criteria.png":::
 
 1. Click the **Run search** link to open the advanced KQL editor and a preview of the results for a seven day time range.
    
