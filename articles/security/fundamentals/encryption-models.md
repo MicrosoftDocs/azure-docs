@@ -8,7 +8,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 05/05/2023
+ms.date: 02/07/2024
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -154,7 +154,7 @@ The Azure services that support each encryption model:
 | Functions                        | Yes                | Yes                | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
-| Azure HDInsight                  | Yes                | All                | -                  |
+| Azure HDInsight                  | Yes                | Yes                | -                  |
 | Azure Monitor Application Insights | Yes              | Yes                | -                  |
 | Azure Monitor Log Analytics      | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Explorer              | Yes                | Yes                | -                  |
