@@ -1,5 +1,5 @@
 ---
-title: Calculate total cost savings.
+title: Calculate total cost savings in Azure Advisor.
 ms.topic: article
 ms.date: 02/06/2024
 
