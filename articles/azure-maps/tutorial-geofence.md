@@ -70,6 +70,9 @@ To upload the geofencing GeoJSON data:
 
     The `geojson` parameter in the URL path represents the data format of the data being uploaded.
 
+   > [!NOTE]
+   > Replace {geography} with your geographic scope. For more information, see [Azure Maps service geographic scope] and the [Spatial Geofence Get API].
+
 6. Select the **Body** tab.
 
 7. In the dropdown lists, select **raw** and **JSON**.
@@ -355,9 +358,6 @@ Each of the following sections makes API requests by using the five different lo
    ```HTTP
    https://{geography}.atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2022-08-01&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
-
-   > [!NOTE]
-   > Replace {geography} with your geographic scope. For more information, see [Azure Maps service geographic scope] and the [Spatial Geofence Get API].
 
 6. Select **Send**.
 
