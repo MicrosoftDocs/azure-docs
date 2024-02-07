@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Blob Storage
 description: This article contains important reference material you need when you monitor Azure Blob Storage.
-ms.date: 02/01/2024
+ms.date: 02/07/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: normesta
@@ -81,7 +81,7 @@ For the metrics supporting dimensions, you need to specify the dimension value t
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
-- [Microsoft.Storage/storageAccounts/StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs)
+- [StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs)
 
 ### Fields that describe the operation
 

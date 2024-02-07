@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Blob Storage
 description: Start here to learn how to monitor Azure Blob Storage.
-ms.date: 02/05/2024
+ms.date: 02/07/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: normesta
@@ -79,6 +79,7 @@ For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage 
 
 <!-- LOGS SECTION START -------------------------------------->
 
+<a name="collection-and-routing"></a>
 <!-- ## Resource logs. Required section.
   - If your service doesn't collect resource logs, use the following include [!INCLUDE [horz-monitor-no-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
   - If your service collects resource logs, add the following include, statement, and service-specific information as appropriate. -->
@@ -86,18 +87,6 @@ For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs).
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
 NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
-<a name="collection-and-routing"></a>
-### Azure Blob Storage diagnostic settings
-
-When you create the diagnostic setting, choose **blob** as the type of storage that you want to enable logs for. Then, specify one of the following categories of operations for which you want to collect logs.
-
-| Category | Description |
-|:---|:---|
-| StorageRead | Read operations on objects. |
-| StorageWrite | Write operations on objects. |
-| StorageDelete | Delete operations on objects. |
-
-The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system will decide which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs).
 
 > [!NOTE]
 > Data Lake Storage Gen2 doesn't appear as a storage type because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
