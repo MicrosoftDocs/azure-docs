@@ -69,6 +69,11 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 
 If you're configuring Defender for IoT sensors on your SNMP monitoring system manually, use the following table for reference regarding sensor object identifier values (OIDs):
 
+<!-- what else needs to be here? is this correct? I think there needs to be a proper intro? does this apply to other systems? I think so. Is that table set up correctly, i think it will need changing. should displaystring just be string? Are headings correct - presume not? And the names in them as well?
+## SolarWinds automatic discovery
+
+If you're configuring *Solorwinds* or *Sanofi* to discover and monitor the OT sensor, the following fields need to be added to SNMP Mib-2.-->
+
 | Management console and sensor | OID | Format | Description |
 |--|--|--|--|
 | **Appliance name** | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the on-premises management console |
@@ -83,11 +88,24 @@ If you're configuring Defender for IoT sensors on your SNMP monitoring system ma
 | **Service Status** | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
 | **Locally/cloud connected** | 1.3.6.1.4.1.53313.6   |STRING | Activation mode of this appliance: Cloud Connected / Locally Connected |
 | **License status** | 1.3.6.1.4.1.53313.7  |STRING | Activation period of this appliance: Active / Expiration Date / Expired |
+| **Microsoft Defender for IoT**  | 1.3.6.1.2.1.1.1 - sysDescr  | DISPLAYSTRING  | Return string value |
+| **Value = 1.3.6.1.4.1.53313.1** |1.3.6.1.2.1.1.2 - sysObjectID  | DISPLAYSTRING | This points to the private MIB allocation  |
+| **Sensor OS uptime** |1.3.6.1.2.1.1.3 - sysUpTime | DISPLAYSTRING  | The textual identification of the contact person for this managed node, together with information on how to contact this person.  |
+| **Appliance Name** | 1.3.6.1.2.1.1.5 - sysName | DISPLAYSTRING  | Sensor the name the customer sets |
+| **Value = Portal.azure.com** |1.3.6.1.2.1.1.6 - sysLocation  | DISPLAYSTRING | Allow user to edit in CLI / property file  |
+| **Value = 7** | 1.3.6.1.2.1.1.7 - sysServices  | INTEGER   | |
+| **Network card #** |1.3.6.1.2.1.2.2.1.1 - ifIndex  | GAUGE32  | |
+| **Network card role**  | 1.3.6.1.2.1.2.2.1.2 - ifDescription | DISPLAYSTRING | NIC linux hardware description |
+| **1.3.6.1.2.1.2.2.1.3.117** | 1.3.6.1.2.1.2.2.1.3 - ifinterface type  |  | |
+| **For management MTU set**  | 1.3.6.1.2.1.2.2.1.4 - ifMtu | GAUGE32  | Return value  |
+| **Interface speed** | 1.3.6.1.2.1.2.2.1.5 – ifspeed  | GAUGE32 | Return value  |
 
 Note that:
 
 - Nonexisting keys respond with null, HTTP 200.
 - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be not applicable.
+
+<!-- where is the public MiB file that needs to be updated? -->
 
 ## Next steps
 
