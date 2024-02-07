@@ -77,8 +77,6 @@ The following table provides a list of the supported endpoint detection and resp
     - [Upgrade defender plan](#upgrade-defender-plan)
     - [Troubleshoot issues](#troubleshoot-issues)
 
-After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab 
-
 ### Enable MDE integration
 
 This recommended action will be present if an endpoint detection and response solution wasn't detected on the affected VM.
@@ -96,6 +94,8 @@ This recommended action will be present if an endpoint detection and response so
 1. Select **Enable**.
 
     :::image type="content" source="media/endpoint-detection-response/enable-endpoint.png" alt-text="Screenshot that shows the pop-up window from which to enable the Defender for Endpoint integration on.":::
+
+After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
 ### Upgrade defender plan
 
@@ -117,6 +117,8 @@ This recommended action will be available if the affected VM doesn't have Defend
 
     :::image type="content" source="media/endpoint-detection-response/enable-plan.png" alt-text="Screenshot that shows the pop-up window that allows you to select which Defender for Servers plan to enable on your subscription.":::
 
+After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
+
 ### Troubleshoot issues
 
 This recommended action will be available if an endpoint detection and response solution was detected, but Defender for Endpoint failed to install successfully on the affected machine.
@@ -130,6 +132,8 @@ This recommended action will be available if an endpoint detection and response 
     :::image type="content" source="media/endpoint-detection-response/remediation-steps.png" alt-text="Screenshot that shows where the remediation steps are located in the recommendation.":::
 
 1. Follow the instructions on the [troubleshoot Microsoft Defender for Endpoint onboarding issues](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide) page.
+
+After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
 ## Identify misconfigurations on endpoint detection and response solution
 
