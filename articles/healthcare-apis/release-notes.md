@@ -28,7 +28,7 @@ This article describes new features and enhancements introduced in Azure Health 
 
 ### Bulk update of files in the DICOM service
 
-The bulk update operation enables you to change imaging metadata for multiple files stored in the DICOM service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use an API to perform updates to patient demographics and avoid the cost of repeating time-consuming uploads.
+The bulk update operation allows you to change imaging metadata for multiple files stored in the DICOM service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use an API to perform updates to patient demographics and avoid the cost of repeating time-consuming uploads.
 
 Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the change feed and persists the original, unmodified instances for future retrieval.
 
@@ -51,7 +51,7 @@ Healthcare organizations can use the FHIR service in Azure Health Data Services 
 - Use additional identity providers to authenticate and access FHIR resources with SMART on FHIR scopes. 
 - Manage and customize user access rights or permissions with SMART on FHIR scopes that support fine-grained access control, FHIR resource types and interactions, and a user’s underlying privileges.
 
-Learn more:
+Related content:
 
 - [Use Azure Active Directory B2C to grant access to the FHIR service](fhir/azure-ad-b2c-setup.md)
 - [Configure multiple service identity providers for the FHIR service](fhir/configure-identity-providers.md)
@@ -121,15 +121,15 @@ Learn more:
 
 The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. 
 
-Learn more: 
+Related content: 
 
 - [Fix SQL Import for soft delete and history](https://github.com/microsoft/fhir-server/pull/3530)
 
-### Performance improvement of FHIR queries
+### Performance improvement for FHIR queries
 
-We improved performance of FHIR queries with _include parameter. 
+We improved performance of FHIR queries with the `_include` parameter. 
 
-Learn more:
+Related content:
 
 - [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
 
