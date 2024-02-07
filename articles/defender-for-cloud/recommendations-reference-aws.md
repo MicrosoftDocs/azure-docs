@@ -6,7 +6,7 @@ ms.date: 06/27/2023
 ms.custom: generated
 ---
 
-# Security recommendations for Amazon Web Services resources
+# Security recommendations for Amazon Web Services (AWS) resources
 
 This article lists all the recommendations you might see in Microsoft Defender for Cloud if you connect an Amazon Web Services (AWS) account by using the **Environment settings** page. The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
