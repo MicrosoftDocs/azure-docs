@@ -1,10 +1,10 @@
 ---
-title: Azure Functions Overview 
+title: Azure Functions Overview
 description: Learn how you can use Azure Functions to build robust serverless apps.
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 05/22/2023
-ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022, build-2023
+ms.custom: devdivchpfy22, build-2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

@@ -4,7 +4,6 @@ description: In this tutorial, you learn how to deploy the IIoT Platform.
 author: hansgschossmann
 ms.author: johanng
 ms.service: industrial-iot
-ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 3/22/2021
 ---
