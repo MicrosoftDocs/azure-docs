@@ -194,15 +194,12 @@ The new dev box has the AzDO repository cloned, and all instructions from devbox
 
 ### 4: Create your own tasks in your own catalog
 
-The final stage of a complete customizations architecture. In this stage, you create your own tasks in the catalog attached to the dev center, to support your dev box configuration. You might choose to add <some examples>.
+The final stage of a complete customizations architecture. In this stage, you create your own tasks in the catalog attached to the dev center, to support your dev box configuration. You might choose to <some examples>.
 
-1.	Create a copy of the quick-start catalog (devcenter-catalog)
-2.	Learn how to write tasks by looking at Tasks using existing PowerShell scripts with help of reference docs
-3.	Attach your own repository as a catalog (AzDO and GitHub supported using managed identity), or sync if it's already an existing catalog
-4.	Try out your new tasks
-5.	Author a devbox.yaml file for those tasks
-
-
+1.	Create a copy of the quick-start catalog (https://github.com/microsoft/devcenter-catalog) in your own repository.
+2.	Create tasks in your repository by modifying existing PowerShell scripts, or creating new scripts. Use the examples given in the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples) and [PowerShell documentation](/powershell/) to get started.
+3.	Attach your repository to your dev center as a catalog (AzDO and GitHub supported using managed identity).
+4.	Author a devbox.yaml file for those tasks by following the steps in [Create your own setup tasks in devbox.yaml](#2-create-your-own-setup-tasks-in-devboxyaml). 
 
 ## Related content
 
