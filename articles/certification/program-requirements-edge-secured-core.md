@@ -127,7 +127,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint. |
-|Resources|[Azure Docs IoT Defender for IoT]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
+|Resources|[Azure Docs Defender for Endpoint]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
 </br>
@@ -193,7 +193,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 ## Linux OS Support
 >[!Note]
-> Linux is not yet supported. The below represent expected requirements. Please contact esc-contacts@microsoft.com if you are interested in certifying a Linux device, including device HW and OS specs, and whether or not it meets each of the draft requirements below.
+> Linux is not yet supported. The below represent expected requirements. Please fill out this [form](https://forms.office.com/r/HSAtk0Ghru) if you are interested in certifying a Linux device, including device HW and OS specs, and whether or not it meets each of the draft requirements below.
 
 ## Linux Hardware/Firmware Requirements
 
@@ -290,7 +290,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint.|
-|Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md) Link TBD|
+|Resources|[Azure Docs Defender for Endpoint](../defender-for-iot/how-to-configure-agent-based-solution.md) Link TBD|
 
 ---
 </br>
