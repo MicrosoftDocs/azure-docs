@@ -2,7 +2,7 @@
 title: Calculate total cost savings in Azure Advisor.
 ms.topic: article
 ms.date: 02/06/2024
-
+description: Calculate total cost savings in Azure Advisor by downloading recommendations and using cost savings for individual recommendations.
 ---
 
 # Calculate total cost savings
