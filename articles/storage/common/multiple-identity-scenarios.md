@@ -574,7 +574,7 @@ public class ExampleService {
         }
     };
 
-    await sql.connect(sqlConfig)
+    await sql.connect(sqlConfig);
     ```
 
 ---
