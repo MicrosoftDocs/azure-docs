@@ -142,7 +142,9 @@ In Standard workflows, the **Transform XML** action supports specifying an XML e
 
 1. In the **Transform XML** action, open the **Advanced parameters** list, and select **XML Extension Object**, which adds the parameter to the action.
 
-1. In the **XML Extension Object** box, specify your extension object.
+1. In the **XML Extension Object** box, specify your extension object, for example:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-transform/xml-extension-object-standard.png" alt-text="Screenshot shows Transform XML action with XML Extension Object parameter and value." lightbox="media/logic-apps-enterprise-integration-transform/xml-extension-object-standard.png":::
 
 ### Byte order mark
 
