@@ -1,12 +1,10 @@
 ---
 title: Planning a change from Desired State Configuration extension for Linux to machine configuration
 description: Guidance for moving from Desired State Configuration extension to the machine configuration feature of Azure Policy.
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ---
 # Planning a change from Desired State Configuration extension for Linux to machine configuration
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Machine configuration is the latest implementation of functionality that has been provided by the
 PowerShell Desired State Configuration (DSC) extension for Linux virtual machines in Azure. When
@@ -153,24 +151,21 @@ Use the `Remove.py` script as documented in
 
 ## Next steps
 
-- [Create a package artifact][03] for machine configuration.
-- [Test the package artifact][10] from your development environment.
-- [Publish the package artifact][11] so it's accessible to your machines.
+- [Develop a custom machine configuration package][10].
 - Use the **GuestConfiguration** module to [create an Azure Policy definition][12] for at-scale
   management of your environment.
 - [Assign your custom policy definition][13] using Azure portal.
 
 <!-- Reference link definitions -->
-[01]: ./overview.md
+[01]: ../overview.md
 [02]: /powershell/dsc/getting-started/lnxgettingstarted
-[03]: ./how-to-create-package.md
-[04]: ./how-to-create-package.md#author-a-configuration
-[05]: ../../virtual-machines/extensions/dsc-template.md
-[06]: ./assignments.md
+[03]: ../how-to/develop-custom-package/2-create-package.md
+[04]: ../how-to/develop-custom-package/2-create-package.md#author-a-configuration
+[05]: /azure/virtual-machines/extensions/dsc-template
+[06]: ../concepts/assignments.md
 [07]: https://github.com/azure/nxtools#getting-started
-[08]: ./dsc-in-machine-configuration.md#special-requirements-for-get
+[08]: ./psdsc-in-machine-configuration.md#special-requirements-for-get
 [09]: https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer
-[10]: ./how-to-test-package.md
-[11]: ./how-to-publish-package.md
-[12]: ./how-to-create-policy-definition.md
-[13]: ../policy/assign-policy-portal.md
+[10]: ../how-to/develop-custom-package/overview.md
+[12]: ../how-to/create-policy-definition.md
+[13]: ../../policy/assign-policy-portal.md

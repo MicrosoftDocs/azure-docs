@@ -1,13 +1,11 @@
 ---
 title: Azure Automation State Configuration to machine configuration migration planning
 description: This article provides process and technical guidance for customers interested in moving from DSC version 2 in Azure Automation to version 3 in Azure Policy.
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
 # Azure Automation state configuration to machine configuration migration planning
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Machine configuration is the latest implementation of functionality that has been provided by Azure
 Automation State Configuration (also known as Azure Automation Desired State Configuration, or
@@ -379,33 +377,30 @@ configuration stored in Azure Automation by making a REST request to the service
 
 ## Next steps
 
-- [Create a package artifact][05] for machine configuration.
-- [Test the package artifact][17] from your development environment.
-- [Publish the package artifact][18] so it's accessible to your machines.
+- [Develop a custom machine configuration package][17].
 - Use the **GuestConfiguration** module to [create an Azure Policy definition][19] for at-scale
   management of your environment.
 - [Assign your custom policy definition][20] using Azure portal.
 - Learn how to view [compliance details for machine configuration][21] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ./overview.md
+[01]: ../overview.md
 [02]: /powershell/dsc/getting-started/wingettingstarted
 [03]: /powershell/dsc/getting-started/lnxgettingstarted
 [04]: /powershell/gallery/how-to/working-with-local-psrepositories
-[05]: ./how-to-create-package.md
-[06]: ./how-to-create-package.md#author-a-configuration
-[07]: /powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.4
+[05]: ../how-to/develop-custom-package/2-create-package.md
+[06]: ../how-to/develop-custom-package/2-create-package.md#author-a-configuration
+[07]: /powershell/gallery/how-to/working-with-local-psrepositories
 [08]: https://github.com/Azure/azure-policy/blob/bbfc60104c2c5b7fa6dd5b784b5d4713ddd55218/samples/GuestConfiguration/package-samples/resource-modules/WindowsDscConfiguration/DscResources/WindowsDscConfiguration/WindowsDscConfiguration.psm1#L97
-[09]: ./dsc-in-machine-configuration.md#special-requirements-for-get
-[10]: ../../azure-resource-manager/management/overview.md#terminology
-[11]: ../../automation/state-configuration/remove-node-and-configuration-package.md
-[12]: ../policy/assign-policy-portal.md
-[13]: ../../automation/automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines
-[14]: ../../azure-arc/servers/overview.md
-[15]: ../../azure-arc/servers/onboard-dsc.md
+[09]: ./psdsc-in-machine-configuration.md#special-requirements-for-get
+[10]: /azure/azure-resource-manager/management/overview#terminology
+[11]: /azure/automation/state-configuration/remove-node-and-configuration-package
+[12]: ../../policy/assign-policy-portal.md
+[13]: /azure/automation/automation-dsc-onboarding#enable-physicalvirtual-linux-machines
+[14]: /azure/azure-arc/servers/overview
+[15]: /azure/azure-arc/servers/onboard-dsc
 [16]: https://www.powershellgallery.com/packages/AADSCConfigContent/
-[17]: ./how-to-test-package.md
-[18]: ./how-to-publish-package.md
-[19]: ./how-to-create-policy-definition.md
-[20]: ../policy/assign-policy-portal.md
-[21]: ../policy/how-to/determine-non-compliance.md
+[17]: ../how-to/develop-custom-package/overview.md
+[19]: ../how-to/create-policy-definition.md
+[20]: ../../policy/assign-policy-portal.md
+[21]: ../../policy/how-to/determine-non-compliance.md
