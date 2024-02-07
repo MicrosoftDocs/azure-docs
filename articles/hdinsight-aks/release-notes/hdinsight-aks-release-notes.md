@@ -33,34 +33,26 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 - [Workload Identity](/azure/aks/workload-identity-overview) is supported by default for clusterpools on 1.1
 - Trino clusters support Trino 426 from 1.1.0 release
-  - HDInsight on AKS Trino now includes all changes up to version 426 with several notable improvements provided by the community, learn more about Trino [here](https://trino.io/docs/current/release/release-426.html).
+  - HDInsight on AKS now includes all changes up to Trino 426 with several notable improvements provided by the community, learn more about Trino [here](https://trino.io/docs/current/release/release-426.html).
 - Trino cluster shape now supports load-based autoscale from 1.1.0 release
-  - Trino now supports load-based autoscale making cluster more cost efficient. Learn more about it [here](/azure/hdinsight-aks/hdinsight-on-aks-autoscale-clusters).
+  - Trino on HDInsight on AKS now supports load-based autoscale making cluster more cost efficient. Learn more about it [here](/azure/hdinsight-aks/hdinsight-on-aks-autoscale-clusters).
 - Trino cluster shape adds simplified hive metastore and catalogs configuration
-  - We have simplified external Hive metastore configuration for Trino cluster, specify external metastore in config.properties and enable it for each catalog with single parameter, learn more about enhancements [here](/azure/hdinsight-aks/trino/trino-connect-to-metastore).
+  - HDInsight on AKS has simplified external Hive metastore configuration for Trino cluster, you can now specify external metastore in config.properties and enable it for each catalog with single parameter, learn more about enhancements [here](/azure/hdinsight-aks/trino/trino-connect-to-metastore).
 - Trino cluster shape adds sharded sql connector
-- Flink clusters now support Flink 1.17.0 from 1.1.0 release
-- Flink SQL Gateway is now supported from 1.1.0 release of Flink on session clusters
+- Flink clusters now support Flink 1.17.0 from HDInsight on AKS 1.1.0 release
+  -   HDInsight on AKS now supports Flink 1.17.0 release, with significant improvements on checkpoints, subtask level flamegraph, watermark alignments. Learn more about the Flink 1.17 release [here](https://nightlies.apache.org/flink/flink-docs-release-1.17/release-notes/flink-1.17/)
+- Flink [SQL Gateway](https://flink.apache.org/2023/03/23/announcing-the-release-of-apache-flink-1.17/#sql-client--gateway) is now supported from HDInsight on AKS 1.1.0 release with Flink session clusters 
 
-### Bug Fixes
+### Bug Fixes & CVEs
 
+- This release includes several critical CVE fixes across the platform and open source components.
 - Trino cluster shape excludes system tables from caching automatically
 - Trino cluster shape improves Power BI timestamp timezones handling
 
 ### Known issues
 
 - **Workload identity limitation:**
-  - There is a limitation when transitioning to workload identity. This is due to the permission-sensitive nature of FIC operations.
-    
-    Two available options to address this limitation:
-    
-    1. **Option 1:**
-       - Cannot support the deletion of a cluster by deleting the resource group.
-       - Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions.
-       - If FIC deletion fails, the high-level cluster deletion will also fail.
-    1.  **Option 2:**
-         - On the Resource Provider side, ignore FIC deletion errors to unblock the cluster deletion workflow.
-         - Clusters can be deleted by deleting the resource group. However, FICs will be leaked in the user's Managed Service Identity (MSI).
+  - There is a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This is due to the permission-sensitive nature of FIC operations. Users cannot perform deletion of a cluster by deleting the resource group. Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion will also fail.
 
 
 ### New regions
