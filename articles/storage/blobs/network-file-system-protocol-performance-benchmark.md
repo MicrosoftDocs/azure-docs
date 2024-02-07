@@ -29,38 +29,46 @@ Storage performance testing is done to evaluate and compare different storage se
 
 **Using real-world application** is always the best method as it measures performance for real-world workloads that users are running on top of storage service. However, this method is often not practical as it requires replica of the production environment and end-users to generate proper load on the system. Some applications do have a load generation capability and should be used for performance benchmarking.
 
-## Running performance benchmarks on Azure Blob Storage with NFS 3.0
 Even though using real-world applications for performance testing is the best option, due to simplicity of testing setup, the most common method is using performance benchmarking tools. We show the recommended setup for running performance tests on Azure Blob Storage with NFS 3.0.
 
-### Selecting virtual machine size
+## Selecting virtual machine size
 To properly execute performance testing, the first step is to correctly size a virtual machine used in testing. Virtual machine acts as a client that will run performance benchmarking tool. Most important aspect when selecting the virtual machine size for this test is available network bandwidth. The bigger virtual machine we select, better results we can achieve. If we run the test in Azure, we recommend using one of the [general purpose](/azure/virtual-machines/sizes-general) virtual machines.
 
-### Creating a storage account with NFS 3.0
+## Creating a storage account with NFS 3.0
 After selecting the virtual machine, we need to create storage account we will use in our testing. Follow our [how-to guide](network-file-system-protocol-support-how-to.md) for step-by-step guidance. We recommend reading [performance considerations for NFS 3.0 in Azure Blob Storage](network-file-system-protocol-support-how-to.md) before testing.  
 
-### Executing performance benchmark
-There are several performance benchmarking tools available to use on Linux environments. Any of them can be used to evaluate performance, we share our recommended approach with `fio`. It's available through standard package managers for each linux distribution or as an [open-source code](https://github.com/axboe/fio). Below are the most common test cases. For further customization and different parameters, consult [FIO documentation](https://fio.readthedocs.io/en/latest/index.html).
+## Executing performance benchmark
+There are several performance benchmarking tools available to use on Linux environments. Any of them can be used to evaluate performance, we share our recommended approach with `fio`. FIO is available through standard package managers for each linux distribution or as an [source code](https://github.com/axboe/fio). Below are the most common test cases. For further customization and different parameters, consult [FIO documentation](https://fio.readthedocs.io/en/latest/index.html).
 
-#### Test case 1: measuring read throughput
+Following parameters are used for testing:
 
-`fio --name=newfile1 --ioengine=libaio --directory=/mnt/pgandhimntpoint --direct=1 --blocksize=1M --readwrite=read --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
+|Workload    | Metric    | Block size | Number of threads | IO depth | File size | Direct IO |
+| ---------- | --------- | ---------- | ----------------- | -------- | --------- | --------- |
+| Sequential | Bandwidth |1 MiB       | 8                 | 1024     | 10 GiB    | Yes       |
+| Sequential | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | Yes       |
+| Random     | IOPS      |4 KiB       | 8                 | 1024     | 10 GiB    | Yes       |
 
-#### Test case 2: measuring write throughput
 
-`fio --name=newfile1 --ioengine=libaio --directory=/mnt/pgandhimntpoint --direct=1 --blocksize=1M --readwrite=write --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
+### Measuring sequential read bandwidth
 
-#### Test case 3: measuring sequential read IOPS
+`fio --name=seq_read_bw --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=1M --readwrite=read --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
 
-`fio --name=newfile1 --ioengine=libaio --directory=/mnt/pgandhimntpoint --direct=1 --blocksize=4K --readwrite=read --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
+### Measuring write sequential bandwidth
 
-#### Test case 4: measuring random read IOPS
+`fio --name=seq_write_bw --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=1M --readwrite=write --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
 
-`fio --name=newfile1 --ioengine=libaio --directory=/mnt/pgandhimntpoint --direct=1 --blocksize=4K --readwrite=randread --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
+### Measuring sequential read IOPS
 
-#### Test case 5: measuring sequential write IOPS
+`fio --name=seq_read_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=read --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
 
-`fio --name=newfile1 --ioengine=libaio --directory=/mnt/pgandhimntpoint --direct=1 --blocksize=4K --readwrite=write --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 –group_reporting –time_based=1`
+### Measuring random read IOPS
 
-#### Test case 6: measuring random write IOPS
+`fio --name=rnd_read_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=randread --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 --group_reporting --time_based=1`
 
-`fio --name=newfile1 --ioengine=libaio --directory=/mnt/pgandhimntpoint --direct=1 --blocksize=4K --readwrite=randwrite --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 –group_reporting –time_based=1`
+### Measuring sequential write IOPS
+
+`fio --name=seq_write_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=write --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 –group_reporting –time_based=1`
+
+### Measuring random write IOPS
+
+`fio --name=rnd_write_iops --ioengine=libaio --directory=/mnt/test_folder --direct=1 --blocksize=4K --readwrite=randwrite --filesize=10G --end_fsync=1 --numjobs=8 --iodepth=1024 --runtime=60 –group_reporting –time_based=1`
