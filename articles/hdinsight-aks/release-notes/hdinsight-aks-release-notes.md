@@ -39,7 +39,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 - Trino cluster shape adds simplified hive metastore and catalogs configuration
   - We have simplified external Hive metastore configuration for Trino cluster, specify external metastore in config.properties and enable it for each catalog with single parameter, learn more about enhancements [here](/azure/hdinsight-aks/trino/trino-connect-to-metastore).
 - Trino cluster shape adds sharded sql connector
-- Flink clusters now support Flink 1.17 from 1.1.0 release
+- Flink clusters now support Flink 1.17.0 from 1.1.0 release
 - Flink SQL Gateway is now supported from 1.1.0 release of Flink on session clusters
 
 ### Bug Fixes
@@ -76,7 +76,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 |Workload|Version|
 | -------- | -------- |
 |Trino | 426 |
-|Flink | 1.17 |
+|Flink | 1.17.0 |
 |Apache Spark | 3.3.1 |
 
 **Supported Java and Scala versions**
