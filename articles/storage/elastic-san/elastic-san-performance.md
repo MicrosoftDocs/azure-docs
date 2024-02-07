@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.custom:
   - ignite-2023-elastic-SAN
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/06/2024
 ms.author: rogarana
 ---
 
@@ -93,7 +93,7 @@ Generally, this is the ideal configuration for a SAN sharing workloads. It's bes
 |Workload  |Requested IOPS  |Served IOPS  |Spike time  |
 |---------|---------|---------|---------|
 |AKS workload     |5,000         |5,000         |9:00 am         |
-|Workload 1     |40,000         |19,000         |9:01 am         |
+|Workload 1     |40,000         |21,000         |9:01 am         |
 |Workload 2     |45,000         |45,000         |9:00 am         |
 |Workload 3     |64,000         |64,000         |9:00 am         |
 
