@@ -109,7 +109,7 @@ The following table lists a subset of the operations that Azure Container Instan
 | Microsoft.ContainerInstance/containerGroups/write | Create or update a specific container group. |
 | Microsoft.ContainerInstance/containerGroups/delete | Delete the specific container group. |
 | Microsoft.ContainerInstance/containerGroups/restart/action | Restarts a specific container group. This log only captures customer-intiated restarts, not restarts initiated by Azure Container Instances infrastructure. |
-| Microsoft.ContainerInstance/containerGroups/stop/action | Stops a specific container group. Compute resources will be deallocated and billing will stop. |
+| Microsoft.ContainerInstance/containerGroups/stop/action | Stops a specific container group. Compute resources are deallocated and billing stops. |
 | Microsoft.ContainerInstance/containerGroups/start/action | Starts a specific container group. |
 | Microsoft.ContainerInstance/containerGroups/containers/exec/action | Exec into a specific container. |
 | Microsoft.ContainerInstance/containerGroups/containers/attach/action | Attach to the output stream of a container. |
@@ -136,7 +136,7 @@ The following table lists a subset of the operations that Azure Container Instan
 <!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
 
 > [!NOTE]
-> Some of the columns listed below only exist as part of the schema, and don't have any data emitted in logs. These columns are denoted below with a description of 'Empty'.
+> Some of the columns in the following list exist only as part of the schema, and don't have any data emitted in logs. These columns are denoted with a description of 'Empty'.
 
 ### ContainerInstanceLog_CL
 

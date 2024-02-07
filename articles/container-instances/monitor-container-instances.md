@@ -63,7 +63,7 @@ All metrics for Container Instances are in the namespace **Container group stand
 <!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. -->
 [!INCLUDE [horz-monitor-container-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-container-metrics.md)]
 <!-- Add service-specific information about your container/Prometheus metrics here.-->
-For more information about container metrics for Container Instances, see [Monitor container resources in Azure Container Instances](/container-instances-monitor.md).
+For more information about container metrics for Container Instances, see [Monitor container resources in Azure Container Instances](container-instances-monitor.md).
 <!-- ## System metrics. Optional. If your service uses system-imported metrics, add the following include and information. 
 [!INCLUDE [horz-monitor-system-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-system-metrics.md)]
 <!-- Add service-specific information about your system-imported metrics here.-->
