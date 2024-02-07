@@ -26,22 +26,18 @@ The following endpoint detection and response solutions are supported and can be
 | Endpoint detection and response solution | Supported platforms | 
 |--|--|
 | Microsoft Defender for Endpoint for Windows | Windows |
-| Microsoft Defender for Endpoint for Linux <sup>[1](#footnote1)</sup> | Linux | 
-| Microsoft Defender for Endpoint Unified Solution <sup>[2](#footnote2)</sup>| Windows Server 2012 R2 <br> Windows 2016 |
-
-<sup><a name="footnote1"></a>1</sup>: A Linux machine that has Microsoft Defender for Endpoint enabled, appears as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is disabled to avoid clashes with other anti-virus software.
-
-<sup><a name="footnote2"></a>2</sup>: The Defender for Endpoint unified solution on Server 2012 R2 automatically installs Microsoft Defender Antivirus in `Active mode`. For Windows Server 2016, Microsoft Defender Antivirus is built into the operating system.
+| Microsoft Defender for Endpoint for Linux | Linux <br><br> Linux machines must have Microsoft Defender for Endpoint enabled. These types of machines appears as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is disabled to avoid clashes with other anti-virus software.| 
+| Microsoft Defender for Endpoint Unified Solution | Windows Server 2012 R2 <br> Windows 2016 <br><br> The Defender for Endpoint unified solution on Server 2012 R2 automatically installs Microsoft Defender Antivirus in `Active mode`. For Windows Server 2016, Microsoft Defender Antivirus is built into the operating system. |
 
 ## Prerequisites
 
 - [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
 
-- Enable either of the following plans enabled on Defender for Cloud:
+- You must have either of the following plans enabled on Defender for Cloud:
     - [Defender for Servers Plan 2](tutorial-enable-servers-plan.md)
     - [Defender CSPM](tutorial-enable-cspm-plan.md)
 
-- Enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
+- You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) either under Defender for Servers or Defender for CSPM.
 
 ## Discover endpoint detection and response solutions on virtual machines
 
@@ -65,17 +61,85 @@ The following table provides a list of the supported endpoint detection and resp
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. In the search field, enter the appropriate recommendation.
+1. Search for and select one of the following recommendations:
 
     - `EDR solution should be installed on Virtual Machines`
     - `EDR solution should be installed on EC2s`
     - `EDR solution should be installed on Virtual Machines (GCP)`
 
-1. Select the recommendation.
+    :::image type="content" source="media/endpoint-detection-response/identify-recommendations.png" alt-text="Screenshot of the recommendations page showing the identify endpoint solution recommendations." lightbox="media/endpoint-detection-response/identify-recommendations.png":::
 
-1. [Remediate the recommendation](implement-security-recommendations.md).
+1. Select the relevant recommendation.
+
+1. The recommendation offers multiple recommended actions to resolve on each attached machine, select the relevant option to see the remediation steps:
+
+    - [Troubleshoot issues](#troubleshoot-issues)
+    - [Enable MDE integration](#enable-mde-integration)
+    - [Upgrade defender plan](#upgrade-defender-plan)
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab 
+
+### Troubleshoot issues
+
+### Enable MDE integration
+
+This recommended action will be available if an endpoint detection and response solution wasn't detected on the affected VM.
+
+**To enable the Defender for Endpoint integration on the affected VM**:
+
+1. Select the affected machine. 
+
+1. (Optional) Select multiple affected machines that have the `Enable MDE integration` recommended action.
+
+1. Select **Fix**.
+
+    :::image type="content" source="media/endpoint-detection-response/enable-fix.png" alt-text="Screenshot that shows where the fix button is located on the screen." lightbox="media/endpoint-detection-response/enable-fix.png":::
+
+1. Select **Enable**.
+
+    :::image type="content" source="media/endpoint-detection-response/enable-endpoint.png" alt-text="Screenshot that shows the pop-up window that you which subscriptions to enable Defender for Endpoint on.":::
+
+### Upgrade defender plan
+
+This recommended action will be available if the affected VM doesn't have Defender for Servers Plan 1 or Plan 2 enabled on it.
+
+**To enable the Defender for Servers on the affected VM**:
+
+1. Select the affected machine. 
+
+1. (Optional) Select multiple affected machines that have the `Upgrade defender plan` recommended action.
+
+1. Select **Fix**.
+
+    :::image type="content" source="media/endpoint-detection-response/upgrade-fix.png" alt-text="Screenshot that shows where the fix button is located on the screen." lightbox="media/endpoint-detection-response/upgrade-fix.png":::
+
+1. In the plan selection drop-down menu, select **Plan 1** or **Plan 2**. Each plan comes with it's own cost, learn more about about he cost of each plan on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+1. Select **Enable**.
+
+    :::image type="content" source="media/endpoint-detection-response/enable-plan.png" alt-text="Screenshot that shows the pop-up window that you which subscriptions to enable Defender for Endpoint on.":::
+
+#### Identify which endpoint detection and response solution is enabled on a VM
+
+If you don't know which endpoint detection and response solution is enabled on your machine, you can check your healthy resources to see which solution is enabled on your machine.
+
+**To identify which solution is enabled on a VM**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+
+1. Search for and select one of the following recommendations:
+
+    - `EDR solution should be installed on Virtual Machines`
+    - `EDR solution should be installed on EC2s`
+    - `EDR solution should be installed on Virtual Machines (GCP)`
+
+1. Select **Healthy resources**.
+
+1. The Discovered EDRs column will display the solution that is detected.
+
+    :::image type="content" source="media/endpoint-detection-response/discovered-solutions.png" alt-text="Screenshot of the Healthy resources tab which shows where you can see which endpoint detection and response solution is enabled on your machine.":::
 
 ## Identify misconfigurations on endpoint detection and response solution
 
@@ -91,9 +155,9 @@ When Defender for Cloud detects misconfigurations in your endpoint detection and
     - `EDR configuration issues should be resolved on EC2s`
     - `EDR configuration issues should be resolved on GCP virtual machines`
 
-1. Select the recommendation.
+1. Select the relevant recommendation.
 
-1. [Remediate the recommendation](implement-security-recommendations.md).
+1. 
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab 
 
