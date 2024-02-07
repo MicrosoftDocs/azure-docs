@@ -27,7 +27,7 @@
             - name: Upgrade API version
               href: upgrade-version.md
         - name: FAQ
-          href: mongodb-faq.yml
+          href: faq.yml
         - name: Change log
           href: change-log.md
     - name: Quickstarts

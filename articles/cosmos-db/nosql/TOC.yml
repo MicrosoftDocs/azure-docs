@@ -1,5 +1,9 @@
 - name: NoSQL documentation
   href: index.yml
+- name: Overview
+  items:
+    - name: FAQ
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: .NET

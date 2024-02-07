@@ -1,20 +1,18 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about the API for Table in Azure Cosmos DB
-  description: Get answers to frequently asked questions about the API for Table in Azure Cosmos DB
+  title: Frequently asked questions
+  titleSuffix: Azure Cosmos DB for Table
+  description: Get answers to frequently asked questions about Azure Cosmos DB for Table.
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: akshanka
   ms.service: cosmos-db
-  ms.subservice: table
+  ms.subservice: apache-gremlin
   ms.topic: faq
-  ms.date: 08/12/2020
-title: Frequently asked questions about the API for Table in Azure Cosmos DB
+  ms.date: 02/07/2024
+title: Frequently asked questions about Azure Cosmos DB for Table
 summary: |
   [!INCLUDE[Table](../includes/appliesto-table.md)]
-
-  The Azure Cosmos DB for Table is available in the [Azure portal](https://portal.azure.com) First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB for Table account to your Azure subscription, and then add tables to your account. You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB for Table](introduction.md).
-
 sections:
   - name: API for Table in Azure Cosmos DB Vs Azure Table storage
     questions:
@@ -348,8 +346,7 @@ sections:
           * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 additionalContent: |
+  ## Related content
 
-  ## Next steps
-
-  * [Build a API for Table app with .NET SDK and Azure Cosmos DB](quickstart-dotnet.md)
-  * [Build a Java app to manage Azure Cosmos DB for Table data](quickstart-java.md)
+  - [Build a API for Table app with .NET SDK and Azure Cosmos DB](quickstart-dotnet.md)
+  - [Build a Java app to manage Azure Cosmos DB for Table data](quickstart-java.md)

@@ -24,7 +24,7 @@ landingContent:
           - text: Wire protocol compatibility with Tinkerpop
             url: support.md
           - text: FAQ
-            url: gremlin-api-faq.yml
+            url: faq.yml
       - linkListType: concept
         links:
           - text: Wire protocol compatibility

@@ -29,17 +29,14 @@ sections:
           How does Azure Cosmos DB support various data models such as key/value, columnar, document, and graph?
         answer: |
           Key/value (table), columnar, document, and graph data models are all natively supported because of the ARS (atoms, records, and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available using the ARS design (NoSQL, MongoDB RU, Table, Apache Cassandra and Apache Gremlin). Azure Cosmos DB also supports other APIs such as MongoDB vCore or PostgreSQL.
-          
       - question: |
           Can I use multiple APIs to access my data?
         answer: |
-          Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, NoSQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a  result, we recommend using the same API for all access to the data in a given account.
-          
+          Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, NoSQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a  result, we recommend using the same API for all access to the data in a given account.          
       - question: |
           Is Azure Cosmos DB HIPAA compliant?
         answer: |
-          Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](/compliance/regulatory/offering-hipaa-hitech).
-          
+          Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](/compliance/regulatory/offering-hipaa-hitech).          
       - question: |
           What are the storage limits of Azure Cosmos DB?
         answer: |
@@ -55,8 +52,7 @@ sections:
       - question: |
           How much does Azure Cosmos DB cost?
         answer: |
-          For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page.  The number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container determines Azure Cosmos DB usage charges.
-          
+          For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page.  The number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container determines Azure Cosmos DB usage charges.          
       - question: |
           Is a free account available?
         answer: |
@@ -64,8 +60,7 @@ sections:
           
           If you're new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and a credit to try all the Azure services. If you have a Visual Studio subscription, you're also eligible for [free Azure credits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.
           
-          You can also use the [Azure Cosmos DB Emulator](emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
-          
+          You can also use the [Azure Cosmos DB Emulator](emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.          
       - question: |
           How can I get extra help with Azure Cosmos DB?
         answer: |
@@ -74,14 +69,14 @@ sections:
           - [Microsoft Q&A question page](/answers/topics/azure-cosmos-db.html)
           - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
           
-          To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-          
+          To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.          
       - question: |
           Try Azure Cosmos DB subscriptions
         answer: |
           You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) and use any personal Microsoft account (MSA). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used along with an Azure Free Trial or an Azure paid subscription.
           Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscriptions associated with your user ID.
           The following conditions apply to Try Azure Cosmos DB subscriptions:
+
           - Account access can be granted to personal Microsoft accounts (MSA). Avoid using Microsoft Entra accounts or accounts belonging to corporate Microsoft Entra tenants, they might have limitations in place that could block access granting.
           - One [throughput provisioned container](./set-throughput.md#set-throughput-on-a-container) per subscription for API for NoSQL, Gremlin, and Table accounts.
           - Up to three [throughput provisioned collections](./set-throughput.md#set-throughput-on-a-container) per subscription for MongoDB accounts.
@@ -101,7 +96,7 @@ sections:
       - question: |
           What is a primary key?
         answer: |
-          A primary key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute primary keys. Multiple keys are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](sql/manage-with-cli.md#list-account-keys).
+          A primary key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute primary keys. Multiple keys are available on the **Keys** blade of the [Azure portal](https://portal.azure.com). For more information about keys, see [View, copy, and regenerate access keys](sql/manage-with-cli.md#list-account-keys).
       - question: |
           What are the regions that PreferredLocations can be set to?
         answer: |
@@ -166,7 +161,7 @@ sections:
       - question: |
           Does the API for NoSQL support SQL?
         answer: |
-          The SQL query language supported by API for NoSQL accounts is an enhanced subset of the query functionality that's supported by SQL Server. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see the [SQL Query][query] article.
+          The SQL query language supported by API for NoSQL accounts is an enhanced subset of the query functionality that's supported by SQL Server. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see [NoSQL Query](nosql/query) article.
       - question: |
           Does the API for NoSQL support SQL aggregation functions?
         answer: |
@@ -204,14 +199,11 @@ sections:
           Where are permissions allowed in the object hierarchy?
         answer: |
           Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level isn't currently allowed.
-          
-          [azure-portal]: https://portal.azure.com
-          [query]: query/getting-started.md
 additionalContent: |
   ## Related content
 
   - Frequently asked questions about [Azure Cosmos DB for NoSQL](nosql/faq.yml)
-  - Frequently asked questions about [Azure Cosmos DB for MongoDB](mongodb/mongodb-faq.yml)
-  - Frequently asked questions about [Azure Cosmos DB for Apache Gremlin](gremlin-api-faq.yml)
-  - Frequently asked questions about [Azure Cosmos DB for Apache Cassandra](cassandra/cassandra-faq.yml)
-  - Frequently asked questions about [Azure Cosmos DB for Table](table/table-api-faq.yml)
+  - Frequently asked questions about [Azure Cosmos DB for MongoDB](mongodb/faq.yml)
+  - Frequently asked questions about [Azure Cosmos DB for Apache Gremlin](gremlin/faq.yml)
+  - Frequently asked questions about [Azure Cosmos DB for Apache Cassandra](cassandra/faq.yml)
+  - Frequently asked questions about [Azure Cosmos DB for Table](table/faq.yml)
