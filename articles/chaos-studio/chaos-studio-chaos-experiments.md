@@ -1,12 +1,12 @@
 ---
 title: Chaos experiments in Azure Chaos Studio
 description: Understand the concept of a chaos experiment in Azure Chaos Studio. What are the parts of a chaos experiment? How can you create a chaos experiment?
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.author: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept, ignite-fall-2021
+ms.custom: template-concept
 ---
 
 # Chaos experiments

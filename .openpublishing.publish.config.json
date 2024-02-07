@@ -1193,6 +1193,7 @@
     "name": "docfx_v3"
   },
   "redirection_files": [
+  ".openpublishing.redirection.json",
   ".openpublishing.redirection.active-directory.json",
   ".openpublishing.redirection.api-management.json",
   ".openpublishing.redirection.app-service.json",
@@ -1211,10 +1212,11 @@
   ".openpublishing.redirection.azure-vmware.json",
   ".openpublishing.redirection.azure-web-pubsub.json",
   ".openpublishing.redirection.baremetal-infrastructure.json",
+  ".openpublishing.redirection.container-service.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
+  ".openpublishing.redirection.guidance.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
-  ".openpublishing.redirection.json",
   ".openpublishing.redirection.key-vault.json",
   ".openpublishing.redirection.machine-configuration.json",
   ".openpublishing.redirection.marketplace.json",
@@ -1232,6 +1234,7 @@
   "articles/ai-services/.openpublishing.redirection.cognitive-services.json",
   "articles/ai-studio/.openpublishing.redirection.ai-studio.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
+  "articles/azure-functions/.openpublishing.redirection.azure-functions.json",
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
   "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
@@ -1253,6 +1256,8 @@
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/governance/policy/.openpublishing.redirection.policy.json",
   "articles/governance/policy/.openpublishing.redirection.resource-graph.json",
+  "articles/governance/blueprints/.openpublishing.redirection.blueprints.json",
+  "articles/governance/management-groups/.openpublishing.redirection.management-groups.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
   "articles/hdinsight-aks/.openpublishing.redirection.hdinsight-aks.json",
   "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
@@ -1274,6 +1279,7 @@
   "articles/mysql/.openpublishing.redirection.mysql.json",
   "articles/network-watcher/.openpublishing.redirection.network-watcher.json",
   "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
+  "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json",
   "articles/peering-service/.openpublishing.redirection.peering-service.json",
   "articles/postgresql/.openpublishing.redirection.postgresql.json",
   "articles/purview/.openpublishing.redirection.purview.json",
@@ -1291,7 +1297,6 @@
   "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
   "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
-  "articles/virtual-network/.openpublishing.redirection.virtual-network.json",
-  "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json"
+  "articles/virtual-network/.openpublishing.redirection.virtual-network.json"
 ]
 }

@@ -97,7 +97,7 @@ One such example is if your storage resides in Azure NetApp Files, while your NA
 
 The following figure shows an example of that kind of configuration.
 
-:::image type="content" source="../media/azure-netapp-files/hub-spoke-dual-protocol.png" alt-text="Illustration that shows hub spoke architecture with Azure NetApp Files and Active Directory cloud resident, NAS clients on-premises." lightbox="../media/azure-netapp-files/hub-spoke-dual-protocol.png":::
+:::image type="content" source="./media/dual-protocol-permission-behaviors/hub-spoke-dual-protocol.png" alt-text="Illustration that shows hub spoke architecture with Azure NetApp Files and Active Directory cloud resident, NAS clients on-premises." lightbox="./media/dual-protocol-permission-behaviors/hub-spoke-dual-protocol.png":::
 
 ## Next steps
 

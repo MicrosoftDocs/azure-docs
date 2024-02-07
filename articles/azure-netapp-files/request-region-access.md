@@ -22,17 +22,17 @@ In some special situations, you might need to explicitly request access to a reg
     2. For **Subscription**, select your subscription. 
     3. For **Quota Type**, select **Storage: Azure NetApp Files limits**.
 
-    ![Screenshot that shows the Problem Description tab.](../media/azure-netapp-files/support-problem-descriptions.png)
+    ![Screenshot that shows the Problem Description tab.](./media/shared/support-problem-descriptions.png)
 
 3. Under the **Additional details** tab, click **Enter details** in the Request Details field.  
 
-    ![Screenshot that shows the Details tab and the Enter Details field.](../media/azure-netapp-files/quota-additional-details.png)
+    ![Screenshot that shows the Details tab and the Enter Details field.](./media/shared/quota-additional-details.png)
 
 4. To request region access, provide the following information in the Quota Details window that appears:   
     1. In **Quota Type**, select **Region Access**.
     2. In **Region Requested**, select your region.
 
-    ![Screenshot that shows the Quota Details window for requesting region access.](../media/azure-netapp-files/quota-details-region-access.png)
+    ![Screenshot that shows the Quota Details window for requesting region access.](./media/request-region-access/quota-details-region-access.png)
 
 5. Click **Save and continue**. Click **Review + create** to create the request.
 
