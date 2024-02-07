@@ -133,17 +133,19 @@ This recommended action will be available if an endpoint detection and response 
 
 ## Identify misconfigurations on endpoint detection and response solution
 
-When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations will appear on the recommendations page that can assist you in the correction of those misconfigurationsn on your Azure VM, AWS EC2 instances or GCP VM instances. These recommendations will only be available if you have Defender for Endpoint integration is enabled.
+When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page that correct misconfigurations on your Azure VM, AWS EC2 instances and GCP VM instances. These recommendations are only be available if you have the Defender for Endpoint enabled on the VM. These recommendations check three different security checks.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. In the search field, enter the appropriate recommendation.
+1. Search for and select one of the following recommendations:
 
     - `EDR configuration issues should be resolved on virtual machines`
     - `EDR configuration issues should be resolved on EC2s`
     - `EDR configuration issues should be resolved on GCP virtual machines`
+
+    :::image type="content" source="media/endpoint-detection-response/configurable-solutions.png" alt-text="Screenshot that shows the recommendations that configure your endpoint detection and solution and remediate misconfigurations." lightbox="media/endpoint-detection-response/configurable-solutions.png":::
 
 1. Select the relevant recommendation.
 
