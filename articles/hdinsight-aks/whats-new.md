@@ -42,24 +42,24 @@ The following table list shows the features of HDInsight on AKS that are current
 |	Flink	|	Support for Flink native web UI, Flink support with HMS for [DStream](./flink/use-hive-metastore-datastream.md), Submit jobs to the cluster using [REST API and Azure portal](./flink/flink-job-management.md), Run programs packaged as JAR files via the [Flink CLI](./flink/use-flink-cli-to-submit-jobs.md), Support for persistent Savepoints, Support for update the configuration options when the job is running,  Connecting to multiple Azure services: [Azure Cosmos DB](./flink/cosmos-db-for-apache-cassandra.md), [Azure Databricks](./flink/azure-databricks.md), [Azure Data Explorer](./flink/integration-of-azure-data-explorer.md), [Azure Event Hubs](./flink/flink-how-to-setup-event-hub.md), [Azure IoT Hub](./flink/azure-iot-hub.md), [Azure Pipelines](./flink/use-azure-pipelines-to-run-flink-jobs.md), [Azure Data Factory Managed Airflow](./flink/flink-job-orchestration.md), [HDInsight Kafka](./flink/process-and-consume-data.md), Submit jobs to the cluster using [Flink CLI](./flink/use-flink-cli-to-submit-jobs.md) and [CDC](./flink/monitor-changes-postgres-table-flink.md) with Flink |
 |	Spark	|	[Jupyter Notebook](./spark/submit-manage-jobs.md), Support for [Delta lake](./spark/azure-hdinsight-spark-on-aks-delta-lake.md) 2.0, Zeppelin Support, Support ATS, Support for Yarn History server interface, Job submission using SSH, Job submission using SDK and [Machine Learning Notebook](./spark/azure-hdinsight-spark-on-aks-delta-lake.md)	|		
 
-## Coming soon
+## Roadmap of Features
 
 |	Feature	|	Estimated release timeline	| Status |
 | --- | --- | --- |
 |	Autoscale - Load Based - Trino	|	Q1 2024	| Completed |
-|	Shuffle aware load based auto scale for Spark	|	Q2 2024	| |
-|	In Place Upgrade	|	Q2 2024	| 
-|	Reserved Instance Support 	|	Q2 2024	| |
-|	MSI based authentication for Metastore (SQL)	|	Q1 2024	| |
-|	Spark 3.4 Support	|	Q2 2024	| |
-|	Trino 426 Support	|	Q1 2024	| |
-|	Ranger for RBAC	|	Q2 2024	| |
-|	App mode support for Flink	|	Q2 2024	| |
-|	Flink 1.17 Support	|	Q1 2024	| |
-|	Spark ACID Support	|	Q1 2024	| |
-|	Configurable SKUs for Headnode, SSH	|	Q2 2024	| |
-|	Flink SQL Gateway Support	|	Q2 2024	| |
-|	Private Clusters for HDInsight on AKS	|	Q2 2024	| |
-|	Ranger Support for Spark SQL	|	Q2 2024	| |
-|	Ranger ACLs on Storage Layer	|	Q2 2024	| |
-|	Support for One lake as primary container	|	Q2 2024	| 
+|	Shuffle aware load based auto scale for Spark	|	Q2 2024	| In Progress |
+|	In Place Upgrade	|	Q2 2024	| In Progress |
+|	Reserved Instance Support 	|	Q2 2024	| In Progress |
+|	MSI based authentication for Metastore (SQL)	|	Q1 2024	| In Progress |
+|	Spark 3.4	|	Q2 2024	| In Progress |
+|	Trino 426 |	Q1 2024	| Completed |
+|	Ranger for RBAC	|	Q2 2024	| In Progress |
+|	App mode support for Flink	|	Q2 2024	| In Progress|
+|	Flink 1.17 	|	Q1 2024	| Completed |
+|	Spark ACID Support	|	Q1 2024	| In Progress|
+|	Configurable SKUs for Headnode, SSH	|	Q2 2024	| In Progress|
+|	Flink SQL Gateway Support	|	Q1 2024	| Completed |
+|	Private Clusters for HDInsight on AKS	|	Q2 2024	|In Progress |
+|	Ranger Support for Spark SQL	|	Q2 2024	| In Progress |
+|	Ranger ACLs on Storage Layer	|	Q2 2024	| In Progress |
+|	Support for One lake as primary container	|	Q2 2024	| In Progress|
