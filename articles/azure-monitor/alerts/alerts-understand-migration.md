@@ -1,10 +1,12 @@
 ---
 title: Understand migration for Azure Monitor alerts
 description: Understand how the alerts migration works and troubleshoot problems.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/20/2023
 ms.reviewer: yalavi
 ---
+
 # Understand migration options to newer alerts
 
 Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
