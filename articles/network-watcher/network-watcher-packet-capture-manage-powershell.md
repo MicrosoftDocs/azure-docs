@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 02/07/2024
 ms.custom: devx-track-azurepowershell
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
@@ -136,7 +136,7 @@ The following output is an example of the output from the `Get-AzNetworkWatcherP
 
 ```output
 ProvisioningState Name   Target                                                                                                                              BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------- ----   ------                                                                                                                              ----------------------- -------------------- ------------------
 Succeeded         myVM_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM 0                       1073741824           18000
 ```
 
@@ -176,4 +176,4 @@ Remove-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM
 ## Related content
 
 - To learn how to automate packet captures with virtual machine alerts, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
-- To determine whether specific traffic is allowed in or out of a virtual machine, see [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+- To learn how to analyze a Network Watcher packet capture file using Wireshark, see [Inspect and analyze Network Watcher packet capture files](packet-capture-inspect.md).
