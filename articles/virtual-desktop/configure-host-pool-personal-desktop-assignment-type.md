@@ -70,7 +70,10 @@ Here's how to configure a host pool to automatically assign users to VMs using t
 2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    ```azurecli
-   az desktopvirtualization hostpool update --resource-group $resourceGroupName --name $hostPoolName --personal-desktop-assignment-type Automatic
+   az desktopvirtualization hostpool update \
+       --resource-group $resourceGroupName \
+       --name $hostPoolName \
+       --personal-desktop-assignment-type Automatic
    ```
 
 ---
@@ -114,14 +117,19 @@ Here's how to configure a host pool to automatically assign users to VMs using t
 2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
    ```azurecli
-   az desktopvirtualization hostpool update --resource-group $resourceGroupName --name $hostPoolName --personal-desktop-assignment-type Direct
+   az desktopvirtualization hostpool update \
+       --resource-group $resourceGroupName \
+       --name $hostPoolName \
+       --personal-desktop-assignment-type Direct
    ```
 
 ---
 
 ### Directly assign users to session hosts
 
-#### [Azure portal](#tab/azure)
+Here's how to directly assign users to session hosts using the Azure portal or PowerShell. You can't assign users to session hosts using Azure CLI.
+
+#### [Azure portal](#tab/azure2)
 
 To directly assign a user to a session host in the Azure portal:
 
@@ -149,7 +157,7 @@ To directly assign a user to a session host in the Azure portal:
 
 1. When you're done, select **Select**.
 
-#### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell2)
 
 Here's how to configure a host pool to assign a user to a specific session host using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
@@ -161,20 +169,14 @@ Here's how to configure a host pool to assign a user to a specific session host 
    Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser $userupn
    ```
 
-#### [Azure CLI](#tab/cli)
-
-Here's how to configure a host pool to assign a user to a specific session host.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
-
 
 ---
 
 ## Unassign a personal desktop
 
-#### [Azure portal](#tab/azure)
+Here's how to unassign a personal desktop using the Azure portal or PowerShell. You can't unassign a personal desktop using Azure CLI. 
+
+#### [Azure portal](#tab/azure2)
 
 To unassign a personal desktop in the Azure portal:
 
@@ -200,7 +202,7 @@ To unassign a personal desktop in the Azure portal:
 
 1. Select **Unassign** when prompted with the warning.
 
-#### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell2)
 
 Here's how to configure a host pool to unassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
@@ -221,20 +223,13 @@ Here's how to configure a host pool to unassign a personal desktop using the [Az
    ```
 
 
-#### [Azure CLI](#tab/cli)
-
-Here's how to configure a host pool to unassign a personal desktop using [az-desktopvirtualization-hostpool](/cli/azure/desktopvirtualization/hostpool).
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
-
-
 ---
 
 ## Reassign a personal desktop
 
-#### [Azure portal](#tab/azure)
+Here's how to reassign a personal desktop using the Azure portal or PowerShell. You can't reassign a personal desktop using Azure CLI. 
+
+#### [Azure portal](#tab/azure2)
 
 To reassign a personal desktop in the Azure portal:
 
@@ -261,7 +256,7 @@ To reassign a personal desktop in the Azure portal:
 
 1. When you're done, select **Select**.
 
-#### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell2)
 
 Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
@@ -286,14 +281,6 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
    }
    Invoke-AzRestMethod @reassignDesktopParams
    ```
-
-#### [Azure CLI](#tab/cli)
-
-Here's how to reassign a personal desktop using [az-desktopvirtualization-hostpool](/cli/azure/desktopvirtualization/hostpool).
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Run the following command to define the `$reassignUserUpn` variable by running the following command:
 
 
 ---
