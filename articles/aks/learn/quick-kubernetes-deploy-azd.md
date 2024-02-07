@@ -7,7 +7,7 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-ja
 #Customer intent: As a developer or cluster operator, I want to deploy an AKS cluster and deploy an application so I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure Developer CLI (AZD).
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure Developer CLI (AZD)
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you learn to:
 
@@ -79,7 +79,7 @@ Type in your Microsoft Credentials in the new page. If you encounter any issues,
 
 ### Troubleshooting: Cannot Connect to Localhost
 
-Certain Azure security policies cause conflicts when trying to sign in. Your local machine is a different IP from the virtual machine and needs to be whitelisted. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
+Certain Azure security policies cause conflicts when trying to sign in. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
 
 The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI](#).
 
