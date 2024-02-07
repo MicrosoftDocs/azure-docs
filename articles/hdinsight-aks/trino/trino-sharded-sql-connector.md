@@ -141,7 +141,7 @@ This example describes:
 
 Connector evalutes the query constraints during the pllanning and performs elminiation based on the provided query predicates, this helps speed up query performance and allows connector to query large amounts of data.
 
-Bucketing formula to determine assigments using murmurhash function implementation `https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/digest/MurmurHash3.html#hash32x86-byte:A-int-int-int-`
+Bucketing formula to determine assignments using murmurhash function implementation described [here](https://commons.apache.org/proper/commons-codec/apidocs/src-html/org/apache/commons/codec/digest/MurmurHash3.html#line.388)
 
 # Type Mapping
 
