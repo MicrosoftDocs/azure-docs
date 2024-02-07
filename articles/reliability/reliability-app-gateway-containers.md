@@ -30,10 +30,9 @@ Application Gateway for Containers supports zone-redundancy by default.  You don
 To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions supports availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
 
 >[!TIP]
->If your region doesn't support availability zones, you can use [fault domains and update domains]() to mitigate impact during planned maintenance and unexpected failures.
+>If your region doesn't support availability zones, you can use [availablity set fault domains and update domains](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) to mitigate impact during planned maintenance and unexpected failures.
 
 
 ## Next steps
-
 
 - [Reliability in Azure](/azure/availability-zones/overview)
