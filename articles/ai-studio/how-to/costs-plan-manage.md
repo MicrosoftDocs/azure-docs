@@ -87,7 +87,7 @@ When you use cost analysis, you view Azure AI hub resource costs in graphs and t
 
 ### Monitor Azure AI Studio project costs
 
-You can get to cost analysis from the [Azure portal](https://portal.azure.com). You can also get to cost analysis from the [Azure AI Studio portal](https://ai.azure.com).
+You can get to cost analysis from the [Azure portal](https://portal.azure.com). You can also get to cost analysis from the [Azure AI Studio](https://ai.azure.com).
 
 > [!IMPORTANT]
 > Your Azure AI project costs are only a subset of your overall application or solution costs. You need to monitor costs for all Azure resources used in your application or solution. See [Azure AI hub resources](../concepts/ai-resources.md) for more information.
@@ -96,14 +96,14 @@ For the examples in this section, assume that all Azure AI Studio resources are 
 
 Here's an example of how to monitor costs for an Azure AI Studio project. The costs are used as an example only. Your costs will vary depending on the services that you use and the amount of usage.
 
-1. Sign in to [Azure AI Studio portal](https://ai.azure.com).
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select your project and then select **Settings** from the left navigation menu.
 
     :::image type="content" source="../media/cost-management/project-costs/project-settings-go-view-costs.png" alt-text="Screenshot of the Azure AI Studio portal showing how to see project settings." lightbox="../media/cost-management/project-costs/project-settings-go-view-costs.png":::
 
-1. Select **See project cost on Azure portal**. The Azure portal opens to the cost analysis page for your project. 
+1. Select **View cost for resources**. The [Azure portal](https://portal.azure.com) opens to the cost analysis page for your project. 
 
-1. Expand the **Resource** column to see the costs for each service that's underlying your [Azure AI project](../concepts/ai-resources.md#organize-work-in-projects-for-customization). But this view doesn't include costs for all resources that you use in an Azure AI Studio project.
+1. Expand the **Resource** column to see the costs for each service that's underlying your [Azure AI project](../concepts/ai-resources.md#organize-work-in-projects-for-customization). But this view doesn't include costs for all resources that you use in an Azure AI project.
 
     :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI project and associated resources." lightbox="../media/cost-management/project-costs/costs-per-project-resource.png":::
 
@@ -125,7 +125,7 @@ Here's an example of how to monitor costs for an Azure AI Studio project. The co
 
     :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with Azure AI project expanded." lightbox="../media/cost-management/project-costs/costs-per-project-resource-details.png":::
 
-1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI](../concepts/ai-resources.md#azure-ai-hub-resources) resource. You can also apply a filter to focus on other costs in your resource group. 
+1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI hub](../concepts/ai-resources.md#azure-ai-hub-resources) resource. You can also apply a filter to focus on other costs in your resource group. 
 
 You can also view resource group costs directly from the Azure portal. To do so:
 1. Sign in to [Azure portal](https://portal.azure.com).
