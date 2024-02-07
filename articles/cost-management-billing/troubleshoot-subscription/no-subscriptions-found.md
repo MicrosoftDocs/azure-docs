@@ -9,7 +9,6 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 12/06/2022
 ms.author: banders
-ms.custom: seodec18
 ---
 
 # No subscriptions found sign in error for Azure portal

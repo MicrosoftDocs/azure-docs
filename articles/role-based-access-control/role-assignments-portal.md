@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/30/2024
 ms.author: rolyon
-ms.custom: contperf-fy21q3-portal,subject-rbac-steps
+ms.custom: subject-rbac-steps
 ---
 
 # Assign Azure roles using the Azure portal

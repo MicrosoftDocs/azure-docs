@@ -1,10 +1,9 @@
 ---
-title: User-assigned managed identities for Azure Stream Analytics 
+title: User-assigned managed identities for Azure Stream Analytics
 description: This article describes configuring user-assigned managed identities for Azure Stream Analytics.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/15/2023
 ---

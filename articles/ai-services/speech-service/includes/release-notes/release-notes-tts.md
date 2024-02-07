@@ -4,7 +4,17 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 1/18/2024
 ms.author: eur
+ms.custom: references_regions
 ---
+
+### February 2024 release
+
+#### OpenAI voices
+
+The Azure AI Speech service supports OpenAI text to speech voices in the following regions: North Central US and Sweden Central. Like Azure AI Speech voices, OpenAI text to speech voices deliver high-quality speech synthesis to convert written text into natural sounding spoken audio. This unlocks a wide range of possibilities for immersive and interactive user experiences. For more information, see [What are OpenAI text to speech voices?](../../openai-voices.md). 
+
+> [!NOTE]
+> OpenAI text to speech voices are also available in [Azure OpenAI Service](../../../openai/reference.md#text-to-speech). 
 
 ### December 2023 release
 

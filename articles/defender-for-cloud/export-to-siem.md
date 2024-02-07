@@ -23,9 +23,9 @@ There are built-in Azure tools that are available that ensure you can view your 
 
 ## Stream alerts to Defender XDR with the Defender XDR API
 
-Defender for Cloud natively integrates with [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide) allows you to use Defender XDR's incidents and alerts API to stream alerts and incidents into non-Microsoft solutions. Defender for Cloud customers can access one API for all Microsoft security products and can use this integration as an easier way to export alerts and incidents.
+Defender for Cloud natively integrates with [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender) allows you to use Defender XDR's incidents and alerts API to stream alerts and incidents into non-Microsoft solutions. Defender for Cloud customers can access one API for all Microsoft security products and can use this integration as an easier way to export alerts and incidents.
 
-Learn how to [integrate SIEM tools with Defender XDR](/microsoft-365/security/defender/configure-siem-defender?view=o365-worldwide).
+Learn how to [integrate SIEM tools with Defender XDR](/microsoft-365/security/defender/configure-siem-defender).
 
 ## Stream alerts to Microsoft Sentinel
 
@@ -33,7 +33,7 @@ Defender for Cloud natively integrates with [Microsoft Sentinel](../sentinel/ove
 
 ### Microsoft Sentinel's connectors for Defender for Cloud
 
-Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud at the subscription and tenant levels. 
+Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud at the subscription and tenant levels.
 
 You can:
 
@@ -78,7 +78,7 @@ Before you set up the Azure services for exporting alerts, make sure you have:
     - if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`
     - if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action` -->
 
-### Set up the Azure services 
+### Set up the Azure services
 
 You can set up your Azure environment to support continuous export using either:
 
@@ -86,8 +86,8 @@ You can set up your Azure environment to support continuous export using either:
 
 1. Download and run [the PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/3rd%20party%20SIEM%20integration).
 
-1. Enter the required parameters. 
- 
+1. Enter the required parameters.
+
 1. Execute the script.
 
 The script performs all of the steps for you. When the script finishes, use the output to install the solution in the SIEM platform.
@@ -102,13 +102,13 @@ The script performs all of the steps for you. When the script finishes, use the 
 
 1. Define a policy for the event hub with `Send` permissions.
 
-**If you're streaming alerts to QRadar** 
+**If you're streaming alerts to QRadar**:
 
 1. Create an event hub `Listen` policy.
 
 1. Copy and save the connection string of the policy to use in QRadar.
 
-1. Create a consumer group. 
+1. Create a consumer group.
 
 1. Copy and save the name to use in the SIEM platform.
 
@@ -158,9 +158,9 @@ To stream alerts into **ArcSight**, **SumoLogic**, **Syslog servers**, **LogRhyt
     |:---|:---| :---|
     | SumoLogic | No | Instructions for setting up SumoLogic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hubs](https://help.sumologic.com/docs/send-data/collect-from-other-data-sources/azure-monitoring/collect-logs-azure-monitor/). |
     | ArcSight | No | The ArcSight Azure Event Hubs smart connector is available as part of [the ArcSight smart connector collection](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
-    | Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-    | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/).
-    |Logz.io | Yes | For more information, see [Getting started with monitoring and logging using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
+    | Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).|
+    | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/).|
+    |Logz.io | Yes | For more information, see [Getting started with monitoring and logging using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)|
 
 1. (Optional) Stream the raw logs to the event hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available).
 

@@ -50,7 +50,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
 1. The mobile application starts the liveness check and notifies the app server. 
 
-1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token.  
+1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token.
     
     ```json
     Request:
@@ -59,7 +59,8 @@ The high-level steps involved in liveness orchestration are illustrated below:
     --header 'Content-Type: application/json' \
     --data '{
       "livenessOperationMode": "passive",
-      "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd"
+      "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
+      "sendResultsToClient": "false"
     }'
      
     Response:
@@ -290,3 +291,8 @@ See the Azure AI Vision SDK reference to learn about other options in the livene
 
 - [Kotlin (Android)](https://aka.ms/liveness-sample-java)
 - [Swift (iOS)](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme)
+
+See the Session REST API reference to learn more about the features available to orchestrate the liveness solution.
+
+- [Liveness Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectliveness-singlemodal)
+- [Liveness-With-Verify Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectlivenesswithverify-singlemodal)

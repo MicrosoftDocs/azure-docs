@@ -7,7 +7,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q3, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
