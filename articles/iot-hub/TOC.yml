@@ -47,9 +47,13 @@
       - name: Visualize data in Power BI
         displayName: Stream Analytics
         href: iot-hub-live-data-visualization-in-power-bi.md
-      - name: Visualize data in an App Service web app
+      - name: Visualize data in App Service web apps
         displayName: Node.js
         href: iot-hub-live-data-visualization-in-web-apps.md
+      - name: Monitor and notify with Logic Apps
+        displayName: Service Bus, queue, namespace
+        href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+
 - name: Concepts
   items:
     - name: IoT Hub concepts overview
@@ -435,10 +439,6 @@
             - name: Raspberry Pi with C
               displayName: BME280 sensor
               href: iot-hub-raspberry-pi-kit-c-get-started.md
-    - name: Extended IoT scenarios
-      items:
-        - name: Remote monitoring and notifications with Logic Apps
-          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: Troubleshoot and problem solution
       items:
         - name: Troubleshoot device connectivity
