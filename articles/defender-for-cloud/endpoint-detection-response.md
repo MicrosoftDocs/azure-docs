@@ -39,7 +39,7 @@ The following endpoint detection and response solutions are supported and can be
 
 - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) either under Defender for Servers or Defender for CSPM.
 
-## Discover endpoint detection and response solutions on virtual machines
+## Detect an endpoint detection and response solutions on virtual machines
 
 Defender for Cloud provides recommendations when an endpoint detection and response solution isn't detected on your Azure virtual machines (VM), AWS EC2 instances or GCP VM instances.
 
@@ -55,7 +55,7 @@ The following table provides a list of the supported endpoint detection and resp
 | Symantec | Windows and Linux |
 | Sophos |  Windows and Linux |
 
-**To discover endpoint recommendations and response solutions on virtual machines**:
+**To detect an endpoint recommendations and response solutions on virtual machines**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -73,17 +73,15 @@ The following table provides a list of the supported endpoint detection and resp
 
 1. The recommendation offers multiple recommended actions to resolve on each attached machine, select the relevant option to see the remediation steps:
 
-    - [Troubleshoot issues](#troubleshoot-issues)
     - [Enable MDE integration](#enable-mde-integration)
     - [Upgrade defender plan](#upgrade-defender-plan)
+    - [Troubleshoot issues](#troubleshoot-issues)
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab 
 
-### Troubleshoot issues
-
 ### Enable MDE integration
 
-This recommended action will be available if an endpoint detection and response solution wasn't detected on the affected VM.
+This recommended action will be present if an endpoint detection and response solution wasn't detected on the affected VM.
 
 **To enable the Defender for Endpoint integration on the affected VM**:
 
@@ -97,7 +95,7 @@ This recommended action will be available if an endpoint detection and response 
 
 1. Select **Enable**.
 
-    :::image type="content" source="media/endpoint-detection-response/enable-endpoint.png" alt-text="Screenshot that shows the pop-up window that you which subscriptions to enable Defender for Endpoint on.":::
+    :::image type="content" source="media/endpoint-detection-response/enable-endpoint.png" alt-text="Screenshot that shows the pop-up window from which to enable the Defender for Endpoint integration on.":::
 
 ### Upgrade defender plan
 
@@ -117,7 +115,21 @@ This recommended action will be available if the affected VM doesn't have Defend
 
 1. Select **Enable**.
 
-    :::image type="content" source="media/endpoint-detection-response/enable-plan.png" alt-text="Screenshot that shows the pop-up window that you which subscriptions to enable Defender for Endpoint on.":::
+    :::image type="content" source="media/endpoint-detection-response/enable-plan.png" alt-text="Screenshot that shows the pop-up window that allows you to select which Defender for Servers plan to enable on your subscription.":::
+
+### Troubleshoot issues
+
+This recommended action will be available if an endpoint detection and response solution was detected, but Defender for Endpoint failed to install successfully on the affected machine.
+
+**To troubleshoot issues on your VM**:
+
+1. Select the affected resource.
+
+1. Select **Remediation steps**.
+
+    :::image type="content" source="media/endpoint-detection-response/remediation-steps.png" alt-text="Screenshot that shows where the remediation steps are located in the recommendation.":::
+
+1. Follow the instructions on the [troubleshoot Microsoft Defender for Endpoint onboarding issues](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide) page.
 
 #### Identify which endpoint detection and response solution is enabled on a VM
 
