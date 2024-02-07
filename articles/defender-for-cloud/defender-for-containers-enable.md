@@ -118,6 +118,6 @@ You can check out the following blogs:
 
 Now that you enabled Defender for Containers, you can:
 
-- [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
+- [Scan your ACR images for vulnerabilities](agentless-vulnerability-assessment-azure.md)
 - [Scan your Amazon AWS ECR images for vulnerabilities](defender-for-containers-vulnerability-assessment-elastic.md)
 - Check out [common questions](faq-defender-for-containers.yml) about Defender for Containers.

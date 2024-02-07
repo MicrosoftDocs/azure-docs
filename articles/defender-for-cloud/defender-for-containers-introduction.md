@@ -68,11 +68,6 @@ Defender for Containers scans the container images in Azure Container Registry (
 
 Vulnerability information powered by Microsoft Defender Vulnerability Management is added to the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) for contextual risk, calculation of attack paths, and hunting capabilities.
 
-> [!NOTE]
-> The Qualys offering is only available to customers who onboarded to Defender for Containers before November 15, 2023.
-
-There are two solutions for vulnerability assessment in Azure, one powered by Microsoft Defender Vulnerability Management and one powered by Qualys.
-
 Learn more about:
 
 - [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md)

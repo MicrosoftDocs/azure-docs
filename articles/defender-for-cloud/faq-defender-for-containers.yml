@@ -74,7 +74,7 @@ sections:
       - question: |
           How does Defender for Containers scan an image?
         answer: |
-          Defender for Containers pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner or with Microsoft Defender Vulnerability Management for multicloud environments. The scanner extracts a list of known vulnerabilities.
+          Defender for Containers pulls the image from the registry and runs it in an isolated sandbox with Microsoft Defender Vulnerability Management for multicloud environments. The scanner extracts a list of known vulnerabilities.
 
           Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying you when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
@@ -92,11 +92,6 @@ sections:
         answer: |
           - **Not applicable resources** are resources for which the recommendation can't give a definitive answer. The not applicable tab includes reasons for each resource that couldn't be assessed.
           - **Unverified resources** are resources scheduled to be assessed, but not assessed yet.
-
-      - question: |
-          Does Microsoft share any information with Qualys in order to perform image scans?
-        answer: |
-          No, the Qualys scanner is hosted by Microsoft, and no customer data is shared with Qualys.
 
       - question: |
           Why is Defender for Cloud alerting me to vulnerabilities about an image that isn't in my registry?
