@@ -47,7 +47,7 @@ There are three ways to change the replication settings:
 
 Geo-redundancy and read-access can be changed at the same time. However, any change that also involves zone-redundancy requires a conversion and must be performed separately using a two-step process. These two steps can be performed in any order.
 
-### Replication change table
+### Changing redundancy configuration
 
 The following table provides an overview of how to switch between replication types.
 
@@ -70,9 +70,9 @@ The following table provides an overview of how to switch between replication ty
 
 ## Change the replication setting
 
-Depending on your scenario from the [replication change table](#replication-change-table), use one of the following methods to change your replication settings.
+Depending on your scenario from the [changing redundancy configuration](#changing-redundancy-configuration) section, use one of the following methods to change your replication settings.
 
-### Change the replication setting using the portal, PowerShell, or the CLI
+### Change the redundancy configuration with Azure Portal, PowerShell, or Azure CLI
 
 In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account.
 
