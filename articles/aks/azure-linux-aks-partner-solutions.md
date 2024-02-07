@@ -30,7 +30,7 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 ### Advantech
 
-![Advantech logo](./media/azure-linux-aks-partner-solutions/Advantech.png){: width="35%" height="auto"}
+![Advantech logo](./media/azure-linux-aks-partner-solutions/Advantech.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -42,7 +42,7 @@ For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/e
 
 ### Hashicorp
 
-![Hashicorp logo](./media/azure-linux-aks-partner-solutions/Hashicorp.png){: width="35%" height="auto"}
+![Hashicorp logo](./media/azure-linux-aks-partner-solutions/Hashicorp.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -60,7 +60,7 @@ For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Has
 
 ### Akuity
 
-![Akuity logo](./media/azure-linux-aks-partner-solutions/Akuity.png){: width="35%" height="auto"}
+![Akuity logo](./media/azure-linux-aks-partner-solutions/Akuity.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -80,7 +80,7 @@ For more information, see [Akuity Solutions](https://akuity.io/).
 
 ### Kong
 
-![Kong logo](./media/azure-linux-aks-partner-solutions/Kong.png){: width="35%" height="auto"}
+![Kong logo](./media/azure-linux-aks-partner-solutions/Kong.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -110,7 +110,7 @@ Ensure efficient traffic management, enhanced security, and optimal network perf
 
 ### Buoyant
 
-![Buoyant logo](./media/azure-linux-aks-partner-solutions/Buoyant.png){: width="35%" height="auto"}
+![Buoyant logo](./media/azure-linux-aks-partner-solutions/Buoyant.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -122,7 +122,7 @@ For more information, see [Buoyant Solutions](https://buoyant.io/cloud) and [Buo
 
 ### Isovalent
 
-![Isovalent logo](./media/azure-linux-aks-partner-solutions/Isovalent.png){: width="35%" height="auto"}
+![Isovalent logo](./media/azure-linux-aks-partner-solutions/Isovalent.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -148,7 +148,7 @@ Observability provides deep insights into your systems, enabling rapid issue det
 
 ### Dynatrace
 
-![Dynatrace logo](./media/azure-linux-aks-partner-solutions/Dynatrace.png){: width="35%" height="auto"}
+![Dynatrace logo](./media/azure-linux-aks-partner-solutions/Dynatrace.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -164,7 +164,7 @@ Ensure the integrity and confidentiality of applications, thereby fostering trus
 
 ### Tetrate
 
-![Tetrate logo](./media/azure-linux-aks-partner-solutions/Tetrate.png){: width="35%" height="auto"}
+![Tetrate logo](./media/azure-linux-aks-partner-solutions/Tetrate.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -186,7 +186,7 @@ Storage enables standardized and seamless storage interactions, ensuring high ap
 
 ### Veeam
 
-![Veeam logo](./media/azure-linux-aks-partner-solutions/Veeam.png){: width="35%" height="auto"}
+![Veeam logo](./media/azure-linux-aks-partner-solutions/Veeam.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -202,7 +202,7 @@ Automate and standardize the system settings across your environments to enhance
 
 ### Corent
 
-![Corent logo](./media/azure-linux-aks-partner-solutions/Corent.png){: width="35%" height="auto"}
+![Corent logo](./media/azure-linux-aks-partner-solutions/Corent.png)
 
 | Solution | Categories |
 |----------|------------|
@@ -218,7 +218,7 @@ Migrate workloads to Azure Linux Container Host on AKS with confidence.
 
 ### Catalogic
 
-![Catalogic logo](./media/azure-linux-aks-partner-solutions/Catalogic.png){: width="35%" height="auto"}
+![Catalogic logo](./media/azure-linux-aks-partner-solutions/Catalogic.png)
 
 | Solution | Categories |
 |----------|------------|
