@@ -131,28 +131,6 @@ This recommended action will be available if an endpoint detection and response 
 
 1. Follow the instructions on the [troubleshoot Microsoft Defender for Endpoint onboarding issues](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide) page.
 
-#### Identify which endpoint detection and response solution is enabled on a VM
-
-If you don't know which endpoint detection and response solution is enabled on your machine, you can check your healthy resources to see which solution is enabled on your machine.
-
-**To identify which solution is enabled on a VM**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
-
-1. Search for and select one of the following recommendations:
-
-    - `EDR solution should be installed on Virtual Machines`
-    - `EDR solution should be installed on EC2s`
-    - `EDR solution should be installed on Virtual Machines (GCP)`
-
-1. Select **Healthy resources**.
-
-1. The Discovered EDRs column will display the solution that is detected.
-
-    :::image type="content" source="media/endpoint-detection-response/discovered-solutions.png" alt-text="Screenshot of the Healthy resources tab which shows where you can see which endpoint detection and response solution is enabled on your machine.":::
-
 ## Identify misconfigurations on endpoint detection and response solution
 
 When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations will appear on the recommendations page that can assist you in the correction of those misconfigurationsn on your Azure VM, AWS EC2 instances or GCP VM instances. These recommendations will only be available if you have Defender for Endpoint integration is enabled.
@@ -186,5 +164,27 @@ Defender for Servers Plan 1 includes the Defender for Endpoint agent provisionin
 After the fix process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
 Learn how to [use the fix option](implement-security-recommendations.md#use-the-fix-option).
+
+## Identify which endpoint detection and response solution is enabled on a VM
+
+If you don't know which endpoint detection and response solution is enabled on your machine, you can check your healthy resources to see which solution is enabled on your machine.
+
+**To identify which solution is enabled on a VM**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+
+1. Search for and select one of the following recommendations:
+
+    - `EDR solution should be installed on Virtual Machines`
+    - `EDR solution should be installed on EC2s`
+    - `EDR solution should be installed on Virtual Machines (GCP)`
+
+1. Select **Healthy resources**.
+
+1. The Discovered EDRs column will display the solution that is detected.
+
+    :::image type="content" source="media/endpoint-detection-response/discovered-solutions.png" alt-text="Screenshot of the Healthy resources tab which shows where you can see which endpoint detection and response solution is enabled on your machine.":::
 
 ## Next steps
