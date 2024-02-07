@@ -31,7 +31,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ### New Features
 
-- [Workload Identity](/azure/aks/workload-identity-overview) is supported by default for clusterpools on 1.1
+- [Workload Identity](/azure/aks/workload-identity-overview) is supported by default for cluster pools on 1.1
 - Trino clusters support Trino 426 from 1.1.0 release
   - HDInsight on AKS now includes all changes up to Trino 426 with several notable improvements provided by the community, learn more about Trino [here](https://trino.io/docs/current/release/release-426.html).
 - Trino cluster shape now supports load-based autoscale from 1.1.0 release
@@ -40,7 +40,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
   - HDInsight on AKS has simplified external Hive metastore configuration for Trino cluster, you can now specify external metastore in config.properties and enable it for each catalog with single parameter, learn more about enhancements [here](/azure/hdinsight-aks/trino/trino-connect-to-metastore).
 - Trino cluster shape adds sharded sql connector
 - Flink clusters now support Flink 1.17.0 from HDInsight on AKS 1.1.0 release
-  -   HDInsight on AKS now supports Flink 1.17.0 release, with significant improvements on checkpoints, subtask level flamegraph, watermark alignments. Learn more about the Flink 1.17 release [here](https://nightlies.apache.org/flink/flink-docs-release-1.17/release-notes/flink-1.17/)
+  -   HDInsight on AKS now supports Flink 1.17.0 release, with significant improvements on checkpoints, subtask level flame graph, watermark alignments. Learn more about the Flink 1.17 release [here](https://nightlies.apache.org/flink/flink-docs-release-1.17/release-notes/flink-1.17/)
 - Flink [SQL Gateway](https://flink.apache.org/2023/03/23/announcing-the-release-of-apache-flink-1.17/#sql-client--gateway) is now supported from HDInsight on AKS 1.1.0 release with Flink session clusters 
 
 ### Bug Fixes & CVEs
