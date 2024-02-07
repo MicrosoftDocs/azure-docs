@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI's Python & REST API with Assistants
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 02/07/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
