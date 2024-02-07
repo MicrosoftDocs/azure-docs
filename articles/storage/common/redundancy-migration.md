@@ -179,6 +179,30 @@ Customer-initiated conversion is only available from the Azure portal, not from 
 
 Customer-initiated conversion isn't available in all regions. For more information, see the [region limitations](#region) article.
 
+# [PowerShell](#tab/powershell)
+
+To change between locally redundant and zone-redundant storage with PowerShell, call the [Start-AzStorageAccountMigration](/powershell/module/az.storage/start-azstorageaccountmigration) command and specify the `-TargetSku` parameter:
+
+```powershell
+Start-AzStorageAccountMigration
+    -AccountName <String>
+    -ResourceGroupName <String>
+    -TargetSku <String>
+    -AsJob
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To change between locally redundant and zone-redundant storage with Azure CLI, call the [az storage account migration start](/cli/azure/storage/account/migration#az-storage-account-migration-start) command and specify the `--sku` parameter:
+
+```azurecli-interactive
+az storage account migration start  \
+    -- account-name <string> \
+    -- g <string> \
+    --sku <string> \
+    --no-wait
+```
+
 ##### Monitoring customer-initiated conversion progress
 
 The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
@@ -200,6 +224,26 @@ As the conversion request is evaluated and processed, the status should progress
 > While Microsoft handles your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
 >
 > Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
+
+# [PowerShell](#tab/powershell)
+
+To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+
+```powershell
+Get-AzStorageAccountMigration
+   -AccountName <String>
+   -ResourceGroupName <String>
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+
+```powershell
+Get-AzStorageAccountMigration
+   -AccountName <String>
+   -ResourceGroupName <String>
+```
 
 #### support-initiated conversion
 
