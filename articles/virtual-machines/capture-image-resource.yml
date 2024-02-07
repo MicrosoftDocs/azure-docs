@@ -221,7 +221,6 @@ procedureSection:
         $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
         ```
       - |
-      
         Create the image.
 
         ```azurepowershell-interactive
@@ -253,7 +252,6 @@ procedureSection:
         ```azurepowershell-interactive
         Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
         ```
-
       - |
         Mark the VM as generalized.
 
