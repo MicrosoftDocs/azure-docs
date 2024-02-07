@@ -1,7 +1,6 @@
 ---
 author: dcurwin
 ms.service: defender-for-cloud
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 09/27/2023
 ms.author: dacurwin
@@ -10,8 +9,6 @@ ms.author: dacurwin
 ## DevOps recommendations
 
 ### Azure DevOps recommendations
-
-There are **10** Azure DevOps recommendations in this category.
 
 | Recommendation | Description | Severity |
 |--|--|--|
@@ -27,8 +24,6 @@ There are **10** Azure DevOps recommendations in this category.
 | [Azure DevOps Classic Azure service connections shouldn't be used to access a subscription](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/a887e860-40ff-4b57-9ef9-5177a11091ac) | Use the Azure Resource Manager (ARM) type of service connections instead of Azure Classic service connections to connect to Azure subscriptions. The ARM model offers multiple security enhancements, including stronger access control, improved auditing, ARM-based deployment/governance, access to managed identities and key vault for secrets, Entra Permissions-based authentication, and support for tags and resource groups for streamlined management. | Medium |
 
 ### GitHub recommendations
-
-There are **15** GitHub recommendations in this category.
 
 | Recommendation | Description | Severity |
 |--|--|--|
@@ -49,8 +44,6 @@ There are **15** GitHub recommendations in this category.
 | [(Preview) GitHub repositories should have API security testing findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/7ad00833-a0f0-47b9-b377-5665bd5d9074/showSecurityCenterCommandBar~/false) | API security vulnerabilities have been found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities. | Medium |
 
 ### GitLab recommendations
-
-There are **4** GitLab recommendations in this category.
 
 | Recommendation | Description | Severity |
 |--|--|--|
