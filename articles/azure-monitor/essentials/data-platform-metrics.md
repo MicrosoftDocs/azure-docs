@@ -1,10 +1,9 @@
 ---
 title: Metrics in Azure Monitor | Microsoft Docs
 description: Learn about metrics in Azure Monitor, which are lightweight monitoring data capable of supporting near real-time scenarios.
-author: bwren 
+author: bwren
 ms.reviewer: priyamishra
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 04/25/2023
 ms.author: bwren
@@ -12,7 +11,7 @@ ms.author: bwren
 
 # Azure Monitor Metrics overview
 
-Azure Monitor Metrics is a feature of Azure Monitor that collects numeric data from [monitored resources](../monitor-reference.md) into a time-series database. Metrics are numerical values that are collected at regular intervals and describe some aspect of a system at a particular time.
+Azure Monitor Metrics is a feature of Azure Monitor that collects numeric data from monitored resources into a time-series database. Metrics are numerical values that are collected at regular intervals and describe some aspect of a system at a particular time.
 
 > [!NOTE]
 > Azure Monitor Metrics is one half of the data platform that supports Azure Monitor. The other half is [Azure Monitor Logs](../logs/data-platform-logs.md), which collects and organizes log and performance data. You can analyze that data by using a rich query language.
@@ -50,13 +49,12 @@ Azure Monitor collects metrics from the following sources. After these metrics a
 
 - **Azure resources**: Platform metrics are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](./metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition.
 - **Applications**: Application Insights creates metrics for your monitored applications to help you detect performance issues and track trends in how your application is being used. Values include _Server response time_ and _Browser exceptions_.
-- **Virtual machine agents**: Metrics are collected from the guest operating system of a virtual machine. You can enable guest OS metrics for Windows virtual machines by using the [Windows diagnostic extension](../agents/diagnostics-extension-overview.md) and for Linux virtual machines by using the [InfluxData Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/).
+- **Virtual machine agents**: Metrics are collected from the guest operating system of a virtual machine. You can enable guest OS metrics for Windows virtual machines by using the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview). Azure Monitor Agent replaces the legacy agents - [Windows diagnostic extension](../agents/diagnostics-extension-overview.md) and the [InfluxData Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/) for Linux virtual machines.
 - **Custom metrics**: You can define metrics in addition to the standard metrics that are automatically available. You can [define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights. You can also create custom metrics for an Azure service by using the [custom metrics API](./metrics-store-custom-rest-api.md).
 - **Kubernetes clusters**: Kubernetes clusters typically send metric data to a local Prometheus server that you must maintain. [Azure Monitor managed service for Prometheus ](prometheus-metrics-overview.md) provides a managed service that collects metrics from Kubernetes clusters and store them in Azure Monitor Metrics.
 
-For a complete list of data sources that can send data to Azure Monitor Metrics, see [What is monitored by Azure Monitor?](../monitor-reference.md).
+## REST API
 
-## REST API 
 Azure Monitor provides REST APIs that allow you to get data in and out of Azure Monitor Metrics.
 - **Custom metrics API** - [Custom metrics](./metrics-custom-overview.md) allow you to load your own metrics into the Azure Monitor Metrics database. Those metrics can then be used by the same analysis tools that process Azure Monitor platform metrics. 
 - **Azure Monitor Metrics REST API** - Allows you to access Azure Monitor platform metrics definitions and values. For more information, see [Azure Monitor REST API](/rest/api/monitor/metrics/list).  For information on how to use the API, see the [Azure monitoring REST API walkthrough](./rest-api-walkthrough.md).

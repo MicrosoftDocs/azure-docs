@@ -6,7 +6,7 @@ author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 01/02/2024
 ---
 
 # Configure intelligent tuning for Azure Database for PostgreSQL - Flexible Server by using the Azure portal

@@ -53,7 +53,7 @@ sections:
     questions: 
       - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for NAT gateway?
         answer: |
-          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total amount of active connection on NAT gateway. 
+          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total amount of active connections on NAT gateway. 
 
       - question: How can I see SNAT port usage on NAT gateway?
         answer: |

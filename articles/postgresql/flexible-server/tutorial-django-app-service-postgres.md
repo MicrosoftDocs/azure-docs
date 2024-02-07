@@ -109,7 +109,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan DjangoPo
 
 # Create subnet for web app
 
-az network vnet subnet create --name <webapp-subnet-name> --resource-group myresourcegroup --vnet-name <vnet-name>
+az network vnet subnet create --name <webapp-subnet-name> --resource-group myresourcegroup --vnet-name <vnet-name> --delegations Microsoft.Web/serverfarms
 
 # Replace <vnet-name> with the virtual network created when creating Azure Database for PostgreSQL flexible server. Replace <webapp-subnet-name> to replace with the subnet created for web app. 
 

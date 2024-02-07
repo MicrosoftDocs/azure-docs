@@ -4,7 +4,6 @@ description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
 author: CaryChai
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic:  reference
 ms.date: 08/29/2023
 ms.author: cachai
@@ -66,6 +65,9 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
 
 # [Consumption only environment](#tab/consumption-only)
+
+>[!Note]
+> When using Consumption only environments, all [outbound ports required by Azure Kubernetes Service](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) are also required for your container app.
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|

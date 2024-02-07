@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/18/2023
 ms.author: rolyon
-ms.custom: contperf-fy21q2, mode-other
+ms.custom: mode-other
 #Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
 ---
 

@@ -5,14 +5,13 @@ description: Learn how to deploy Azure AI containers on Azure Container Instance
 #services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.service: azure-ai-services
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: aahi
-#Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.
-
 # https://github.com/Azure/cognitiveservices-aci
+#Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.
 ---
 
 # Deploy and run container on Azure Container Instance
