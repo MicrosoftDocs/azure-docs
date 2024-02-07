@@ -1,14 +1,13 @@
 ---
 title: Quickstart - Add raw media access to your app (Unity)
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
-author: jowang
+description: In this quickstart, you learn how to add raw media access calling capabilities to your Unity app by using Azure Communication Services.
+author: jowang-msft
 ms.author: jowang
 ms.date: 02/02/2024
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other
 ---
 
 In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for Unity.
@@ -152,7 +151,8 @@ Because the app generates the video frames, the app must inform the Azure Commun
         };
     }
     ```
-    Please note that `unsafe` modifier is used on this method since `NativeBuffer` requires access to native memory resources. Therefore, `Allow unsafe` option needs to be enabled in Unity Editor as well.
+    > [!NOTE]
+    > `unsafe` modifier is used on this method since `NativeBuffer` requires access to native memory resources. Therefore, `Allow unsafe` option needs to be enabled in Unity Editor as well.
 
 7. Similarly, we can handle incoming video frames in response to video stream `StateChanged` event.
     ```csharp
