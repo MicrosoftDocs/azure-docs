@@ -2,7 +2,7 @@
 title: Check update compliance in Azure Update Manager
 description: This article explains how to use Azure Update Manager in the Azure portal to assess update compliance for supported machines.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 11/20/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -93,7 +93,7 @@ You can check the updates from the **Overview** or **Machines** pane.
 ---
 
 > [!NOTE]
-> In Update Manager, you can initiate a software updates compliance scan on the machine to get the current list of operating system (guest) updates, including the security and critical updates. On Windows, the Windows Update Agent performs the software update scan. On Linux, the software update scan is performed by using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL definitions for that platform, which are retrieved from a local or remote repository.
+> In Update Manager, you can initiate a software updates compliance scan on the machine to get the current list of operating system (guest) updates, including the security and critical updates. On Windows, the Windows Update Agent performs the software update scan. On Linux, the software update scan is performed using the package manager that returns the missing updates as per the configured repositories which are retrieved from a local or remote repository.
 
 ## Next steps
 

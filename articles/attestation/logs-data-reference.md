@@ -7,7 +7,7 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 10/16/2023
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Data reference of Azure Attestation logs
@@ -27,4 +27,3 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, including info
 ## Diagnostics tables 
 
 Azure Attestation uses the [Azure Activity](/azure/azure-monitor/reference/tables/azureactivity) and [Azure Attestation Diagnostics](/azure/azure-monitor/reference/tables/azureattestationdiagnostics) tables to store resource log information.  
-

@@ -64,6 +64,6 @@ Now, use the output JSON file from the previous command containing the encrypted
 Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json"
 ```
 
-## Next steps
+## Related content
 For information about security considerations for data movement, see [Data movement security considerations](data-movement-security-considerations.md).
 

@@ -177,7 +177,7 @@ If you want to delete just the data factory, and not the entire resource group, 
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
-## Next steps
+## Related content
 
 In this quickstart, you created an Azure Data Factory using an ARM template and validated the deployment. To learn more about Azure Data Factory and Azure Resource Manager, continue on to the articles below.
 

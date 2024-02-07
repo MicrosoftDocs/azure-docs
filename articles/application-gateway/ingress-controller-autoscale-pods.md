@@ -4,9 +4,9 @@ description: This article provides instructions on how to scale your AKS backend
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 10/26/2023
 ms.author: greglin
 ---
 
@@ -18,12 +18,16 @@ In the following tutorial, we explain how you can use Application Gateway's `Avg
 
 Use following two components:
 
-* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) - We use the metric adapter to expose Application Gateway metrics through the metric server. The Azure Kubernetes Metric Adapter is an open source project under Azure, similar to the Application Gateway Ingress Controller. 
+* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) - We use the metric adapter to expose Application Gateway metrics through the metric server. The Azure Kubernetes Metric Adapter is an open source project under Azure, similar to the Application Gateway Ingress Controller.
 * [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) - We use HPA to use Application Gateway metrics and target a deployment for scaling.
+
+> [!NOTE]
+> The Azure Kubernetes Metrics Adapter is no longer maintained. Kubernetes Event-driven Autoscaling (KEDA) is an alternative.<br>
+> Also see [Application Gateway for Containers](for-containers/overview.md).
 
 ## Setting up Azure Kubernetes Metric Adapter
 
-1. First, create a Microsoft Entra service principal and assign it `Monitoring Reader` access over Application Gateway's resource group. 
+1. First, create a Microsoft Entra service principal and assign it `Monitoring Reader` access over Application Gateway's resource group.
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"

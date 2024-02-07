@@ -4,7 +4,6 @@ description: Learn about the options available to scale an Azure Cosmos DB for A
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra

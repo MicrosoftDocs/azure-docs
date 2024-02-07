@@ -5,6 +5,7 @@
   - name: What is Application Gateway for Containers?
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Deploy Application Gateway for Containers ALB Controller
     href: quickstart-deploy-application-gateway-for-containers-alb-controller.md
@@ -38,6 +39,8 @@
     items:
      - name: Backend MTLS
        href: how-to-backend-mtls-gateway-api.md
+     - name: Header rewrite
+       href: how-to-header-rewrite-gateway-api.md
      - name: Multi-site hosting
        href: how-to-multiple-site-hosting-gateway-api.md
      - name: Path, header, and query string based routing
@@ -46,14 +49,18 @@
        href: how-to-ssl-offloading-gateway-api.md
      - name: Traffic Splitting / Weighted Round Robin
        href: how-to-traffic-splitting-gateway-api.md
-     - name: URL Rewrite
+     - name: URL rewrite
        href: how-to-url-rewrite-gateway-api.md
   - name: Ingress API
     items:
+    - name: Header rewrite
+      href: how-to-header-rewrite-ingress-api.md
     - name: Multi-site hosting
       href: how-to-multiple-site-hosting-ingress-api.md
     - name: SSL Offloading
       href: how-to-ssl-offloading-ingress-api.md
+    - name: URL rewrite
+      href: how-to-url-rewrite-ingress-api.md
   - name: Troubleshoot
     href: troubleshooting-guide.md
 - name: Kubernetes Reference

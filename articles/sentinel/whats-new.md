@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 01/11/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -20,9 +20,113 @@ The listed features were released in the last three months. For information abou
 > `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## February 2024
+
+- [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
+- [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
+- [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### Incident tasks now generally available (GA)
+
+Incident tasks, which help you standardize your incident investigation and response practices so you can more effectively manage incident workflow, are now generally available (GA) in Microsoft Sentinel.
+
+- Learn more about incident tasks in the Microsoft Sentinel documentation:
+    - [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)
+    - [Work with incident tasks in Microsoft Sentinel](work-with-tasks.md)
+    - [Audit and track changes to incident tasks in Microsoft Sentinel](audit-track-tasks.md)
+
+- See [this blog post by Benji Kovacevic](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-tasks-repository-in-microsoft-sentinel/ba-p/4038563) that shows how you can use incident tasks in combination with watchlists, automation rules, and playbooks to build a task management solution with two parts:
+    - A repository of incident tasks.
+    - A mechanism that automatically attaches tasks to newly created incidents, according to the incident title, and assigns them to the proper personnel.
+
+### AWS and GCP data connectors now support Azure Government clouds
+
+Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
+
+The configurations for these connectors for Azure Government customers differs slightly from the public cloud configuration. See the relevant documentation for details:
+
+- [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
+- [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)
+
+### Windows DNS Events via AMA connector now generally available (GA)
+
+Windows DNS events can now be ingested to Microsoft Sentinel using the Azure Monitor Agent with the now generally available data connector. This connector allows you to define Data Collection Rules (DCRs) and powerful, complex filters so that you ingest only the specific DNS records and fields you need.
+
+- For more information, see [Stream and filter data from Windows DNS servers with the AMA connector](connect-dns-ama.md).
+
+## January 2024
+
+[Reduce false positives for SAP systems with analytics rules](#reduce-false-positives-for-sap-systems-with-analytics-rules)
+
+### Reduce false positives for SAP systems with analytics rules
+
+Use analytics rules together with the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP® systems. The Microsoft Sentinel solution for SAP® applications now includes the following enhancements:
+
+- The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
+
+- The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
+
+For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
+
+## November 2023
+
+- [Take advantage of Microsoft Defender for Cloud integration with Microsoft Defender XDR (Preview)](#take-advantage-of-microsoft-defender-for-cloud-integration-with-microsoft-defender-xdr-preview)
+- [Near-real-time rules now generally available](#near-real-time-rules-now-generally-available)
+- [Elevate your cybersecurity intelligence with enrichment widgets (Preview)](#elevate-your-cybersecurity-intelligence-with-enrichment-widgets-preview)
+
+### Take advantage of Microsoft Defender for Cloud integration with Microsoft Defender XDR (Preview)
+
+Microsoft Defender for Cloud is now [integrated with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview), formerly known as Microsoft 365 Defender. This integration, currently **in Preview**, allows Defender XDR to collect alerts from Defender for Cloud and create Defender XDR incidents from them.
+
+Thanks to this integration, Microsoft Sentinel customers who have enabled [Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md) will now be able to ingest and synchronize Defender for Cloud incidents, with all their alerts, through Microsoft Defender XDR.
+
+To support this integration, Microsoft has added a new **Tenant-based Microsoft Defender for Cloud (Preview)** connector. This connector will allow Microsoft Sentinel customers to receive Defender for Cloud alerts and incidents across their entire tenants, without having to monitor and maintain the connector's enrollment to all their Defender for Cloud subscriptions.
+
+This connector can be used to ingest Defender for Cloud alerts, regardless of whether you have Defender XDR incident integration enabled.
+
+- Learn more about [Microsoft Defender for Cloud integration with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview).
+- Learn more about [ingesting Defender for Cloud incidents into Microsoft Sentinel](ingest-defender-for-cloud-incidents.md).
+<!--
+- Learn how to [connect the tenant-based Defender for Cloud data connector](connect-defender-for-cloud-tenant.md) (in Preview).
+-->
+
+### Near-real-time rules now generally available
+
+Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) are now generally available (GA). These highly responsive rules provide up-to-the-minute threat detection by running their queries at intervals just one minute apart.
+
+- [Learn more about near-real-time rules](near-real-time-rules.md).
+- [Create and work with near-real-time rules](create-nrt-rules.md).
+
+<a name="visualize-data-with-enrichment-widgets-preview"></a>
+### Elevate your cybersecurity intelligence with enrichment widgets (Preview)
+
+Enrichment widgets in Microsoft Sentinel are dynamic components designed to provide you with in-depth, actionable intelligence about entities. They integrate external and internal content and data from various sources, offering a comprehensive understanding of potential security threats. These widgets serve as a powerful enhancement to your cybersecurity toolkit, offering both depth and breadth in information analysis.
+
+Widgets are already available in Microsoft Sentinel today (in Preview). They currently appear for IP entities, both on their full [entity pages](entity-pages.md) and on their [entity info panels](incident-investigation.md) that appear in Incident pages. These widgets show you valuable information about the entities, from both internal and third-party sources.
+
+**What makes widgets essential in Microsoft Sentinel?**
+
+- **Real-time updates:** In the ever-evolving cybersecurity landscape, real-time data is of paramount importance. Widgets provide live updates, ensuring that your analysts are always looking at the most recent data.
+
+- **Integration:** Widgets are seamlessly integrated into Microsoft Sentinel data sources, drawing from their vast reservoir of logs, alerts, and intelligence. This integration means that the visual insights presented by widgets are backed by the robust analytical power of Microsoft Sentinel.
+
+In essence, widgets are more than just visual aids. They are powerful analytical tools that, when used effectively, can greatly enhance the speed and efficiency of threat detection, investigation, and response.
+
+- [Enable the enrichment widgets experience in Microsoft Sentinel](enable-enrichment-widgets.md)
+
 ## October 2023
 
+- [Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel](#microsoft-applied-skill-available-for-microsoft-sentinel)
 - [Changes to the documentation table of contents](#changes-to-the-documentation-table-of-contents)
+
+### Microsoft Applied Skill available for Microsoft Sentinel
+
+This month Microsoft Worldwide Learning announced [Applied Skills](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/announcing-microsoft-applied-skills-the-new-credentials-to/ba-p/3775645) to help you acquire the technical skills you need to reach your full potential. Microsoft Sentinel is included in the initial set of credentials offered! This credential is based on the learning path with the same name.
+- **Learning path** - [Configure SIEM security operations using Microsoft Sentinel](/training/paths/configure-security-information-event-management-operations-using-microsoft-sentinel/)
+  <br>Learn at your own pace, and the modules require you to have your own Azure subscription.
+- **Applied Skill** - [Configure SIEM security operations using Microsoft Sentinel](/credentials/applied-skills/configure-siem-security-operations-using-microsoft-sentinel/)
+  <br>A 2 hour assessment is contained in a sandbox virtual desktop. You are provided an Azure subscription with some features already configured.
 
 ### Changes to the documentation table of contents
 

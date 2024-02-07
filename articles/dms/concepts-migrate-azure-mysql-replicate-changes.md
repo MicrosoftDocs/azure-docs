@@ -51,7 +51,7 @@ To complete the replicate changes migration successfully, ensure that the follow
 
 - When performing a replicate changes migration, the name of the database on the target server must be the same as the name on the source server.
 - Support is limited to the ROW binlog format.
-- DDL changes replication is supported only when you have selected the option for migrating entire server on DMS UI.
+- DDL changes replication is supported only when migrating to a v8.0 Azure Database for MySQL Flexible Server target server and when you have selected the option for **Replicate data definition and administration statements for selected objects** on DMS UI. The replication feature supports replicating data definition and administration statements that occur after the initial load and are logged in the binary log to the target.
 - Renaming databases or tables is not supported when replicating changes.
 
 ## Next steps

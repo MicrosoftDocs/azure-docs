@@ -1,12 +1,11 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 01/27/2022
+ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 Submit a **POST** request using the following URL, headers, and JSON body to import your project.

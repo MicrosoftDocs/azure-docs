@@ -19,12 +19,12 @@ Query auditing is enabled with a [diagnostic setting](../essentials/diagnostic-s
 Access the diagnostic setting for a Log Analytics workspace in the Azure portal in either of the following locations:
 
 - From the **Azure Monitor** menu, select **Diagnostic settings**, and then locate and select the workspace.
-
-    [![Diagnostic settings Azure Monitor](media/query-audit/diagnostic-setting-monitor.png) ](media/query-audit/diagnostic-setting-monitor.png#lightbox) 
+    <!-- convertborder later -->
+    :::image type="content" source="media/query-audit/diagnostic-setting-monitor.png" lightbox="media/query-audit/diagnostic-setting-monitor.png" alt-text="Screenshot of diagnostic settings Azure Monitor." border="false"::: 
 
 - From the **Log Analytics workspaces** menu, select the workspace, and then select **Diagnostic settings**.
 
-    [![Diagnostic settings Log Analytics workspace](media/query-audit/diagnostic-setting-workspace.png) ](media/query-audit/diagnostic-setting-workspace.png#lightbox) 
+    :::image type="content" source="media/query-audit/diagnostic-setting-workspace.png" lightbox="media/query-audit/diagnostic-setting-workspace.png" alt-text="Screenshot of diagnostic settings Log Analytics workspace."::: 
 
 ### Resource Manager template
 You can get an example Resource Manager template from [Diagnostic setting for Log Analytics workspace](../essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-a-log-analytics-workspace).

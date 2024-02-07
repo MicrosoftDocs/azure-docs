@@ -38,7 +38,7 @@ echo $OUTPUT | jq -r '.name.displayName'
 ```
 
 > [!NOTE]
-> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-script).
+> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-scripts).
 
 ## Use Azure PowerShell container instance
 
@@ -93,7 +93,7 @@ The following Azure Resource Manager template (ARM template) creates a container
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2023-01-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -106,7 +106,7 @@ The following Azure Resource Manager template (ARM template) creates a container
     },
     {
       "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2023-01-01",
       "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('fileShareName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -157,13 +157,13 @@ The following Azure Resource Manager template (ARM template) creates a container
               "readOnly": false,
               "shareName": "[variables('fileShareName')]",
               "storageAccountName": "[variables('storageAccountName')]",
-              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').keys[0].value]"
+              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value]"
             }
           }
         ]
       },
       "dependsOn": [
-        "storageAccount"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     }
   ]

@@ -2,13 +2,13 @@
 title: Best practices when using the Anomaly Detector univariate API
 titleSuffix: Azure AI services
 description: Learn about best practices when detecting anomalies with the Anomaly Detector API.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: best-practice
 ms.custom: cogserv-non-critical-anomaly-detector
-ms.date: 01/22/2021
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 

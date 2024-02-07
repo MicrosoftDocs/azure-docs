@@ -4,7 +4,7 @@ description: Follow this quickstart to run an app that uses the Azure Batch clie
 ms.date: 04/13/2023
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: seo-python-october2019, mvc, devx-track-python, mode-api
+ms.custom: mvc, devx-track-python, mode-api
 ---
 
 # Quickstart: Use Python to create a Batch pool and run a job

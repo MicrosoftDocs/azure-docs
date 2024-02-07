@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and Bicep files | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: conceptual
-ms.date: 10/10/2023
+ms.date: 11/03/2023
 ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
 ---
 
@@ -89,11 +89,11 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 ## Deploy remote Bicep file
 
-Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) to [build](/cli/azure/bicep) the Bicep file to a JSON template, and then load the JSON file to the remote location.
+Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) to [build](/cli/azure/bicep) the Bicep file to a JSON template, and then load the JSON file to the remote location. For more information, see [Deploy remote ARM JSON templates](../templates/deploy-cli.md#deploy-remote-template).
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameters file. The parameter file can be either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameter-files).
+To pass parameter values, you can use either inline parameters or a parameters file. The parameters file can be either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameter-files).
 
 ### Inline parameters
 
@@ -123,20 +123,20 @@ The _arrayContent.json_ format is:
 
 ```json
 [
-    "value1",
-    "value2"
+  "value1",
+  "value2"
 ]
 ```
 
 To pass in an object, for example, to set tags, use JSON. For example, your Bicep file might include a parameter like this one:
 
 ```json
-    "resourceTags": {
-      "type": "object",
-      "defaultValue": {
-        "Cost Center": "IT Department"
-      }
-    }
+"resourceTags": {
+  "type": "object",
+  "defaultValue": {
+    "Cost Center": "IT Department"
+  }
+}
 ```
 
 In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script:
@@ -172,11 +172,24 @@ az deployment group create \
 
 However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, set the variable to a JSON string. Escape the quotation marks: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
-The evaluation of parameters follows a sequential order, meaning that if a value is assigned multiple times, only the last assigned value is used. To ensure proper parameter assignment, it is advised to provide your parameters file initially and selectively override specific parameters using the _KEY=VALUE_ syntax. It's important to mention that if you are supplying a `bicepparam` parameters file, you can use this argument only once.
+The evaluation of parameters follows a sequential order, meaning that if a value is assigned multiple times, only the last assigned value is used. To ensure proper parameter assignment, it's advised to provide your parameters file initially and selectively override specific parameters using the _KEY=VALUE_ syntax. It's important to mention that if you're supplying a `bicepparam` parameters file, you can use this argument only once.
+
+### Bicep parameter files
+
+Rather than passing parameters as inline values in your script, you might find it easier to use a parameters file, either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameter-files) that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI. For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
+
+With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
+
+The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command is run.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --parameters storage.bicepparam
+```
 
 ### JSON parameter files
-
-Rather than passing parameters as inline values in your script, you might find it easier to use a parameters file, either a `.bicepparam` file or a JSON parameters file, that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI.
 
 The following example shows a parameters file named _storage.parameters.json_. The file is in the same directory where the command is run.
 
@@ -189,21 +202,6 @@ az deployment group create \
 ```
 
 For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
-
-### Bicep parameter files
-
-With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
-
-The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command is run.
-
-```azurecli-interactive
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --parameters storage.bicepparam
-```
-
-The parameters file must be a local file. External parameters files aren't supported with Azure CLI. For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
 
 ## Preview changes
 

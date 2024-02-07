@@ -1,12 +1,12 @@
 ---
-title: How to use Apache Flink & Delta connector in HDInsight on AKS
-description: Learn how to use Apache Flink-Delta connector
+title: How to use Apache Flink® on HDInsight on AKS with Flink/Delta connector
+description: Learn how to use Flink/Delta Connector
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# How to use Apache Flink-Delta connector
+# How to use Flink/Delta Connector
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -19,16 +19,16 @@ In this article, you learn how to use Flink-Delta connector
 > * Write the data to a delta table.
 > * Query it in Power BI.
 
-## What is Apache Flink-Delta connector
+## What is Flink/Delta connector
 
-Flink-Delta Connector is a JVM library to read and write data from Apache Flink applications to Delta tables utilizing the Delta Standalone JVM library. The connector provides exactly once delivery guarantee.
+Flink/Delta Connector is a JVM library to read and write data from Apache Flink applications to Delta tables utilizing the Delta Standalone JVM library. The connector provides exactly once delivery guarantee.
 
 ## Apache Flink-Delta Connector includes
 
 * DeltaSink for writing data from Apache Flink to a Delta table.
 * DeltaSource for reading Delta tables using Apache Flink.
 
-We are using the following connector, to match with the HDInsight on AKS Flink version.
+We are using the following connector, to match with the Apache Flink version running on HDInsight on AKS cluster.
 
 |Connector's version| Flink's version|
 |-|-|
@@ -36,7 +36,7 @@ We are using the following connector, to match with the HDInsight on AKS Flink v
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](./flink-create-cluster-portal.md) 
+* [Create Flink 1.16.0 cluster](./flink-create-cluster-portal.md) 
 * storage account
 * [Power BI desktop](https://www.microsoft.com/download/details.aspx?id=58494)
 
@@ -485,3 +485,4 @@ Once the data is in delta sink, you can run the query in Power BI desktop and cr
 
 * [Delta connectors](https://github.com/delta-io/connectors/tree/master/flink).
 * [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -72,7 +72,7 @@ In this section, you create a Python script that sends 200 events (10 devices * 
         event_data_batch = producer.create_batch() # Create a batch. You will add events to the batch later. 
         for dev in devices:
             # Create a dummy reading.
-            reading = {'id': dev, 'timestamp': str(datetime.datetime.utcnow()), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
+            reading = {'id': dev, 'timestamp': str(datetime.datetime.now(datetime.UTC)), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
             s = json.dumps(reading) # Convert the reading into a JSON string.
             event_data_batch.add(EventData(s)) # Add event data to the batch.
         producer.send_batch(event_data_batch) # Send the batch of events to the event hub.

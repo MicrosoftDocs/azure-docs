@@ -7,7 +7,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 12/18/2023
 ms.author: banders
 ---
 
@@ -53,6 +53,8 @@ Depending on the view you use in cost analysis, you'll see different benefit cos
 When you use the **DailyCosts** view with a date filter applied, you'll easily see when a benefit was purchased with an increase in actual daily costs. If you try to view costs with the **Amortized cost** metric, you'll see the same results as **Actual Cost**.
 
 Let's look at an example one-year benefit purchased for $12,016.00, purchased on October 23, 2019. The term ends on October 23, 2020, and a leap year day is included in the term, so the term's duration is 366 days.
+
+Although the following example shows a reservation, the same logic applies to a savings plan. The only difference is that you use **PricingModel: SavingsPlan** instead of **Pricing Model: Reservation**.
 
 In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management** > **Cost analysis**.
 

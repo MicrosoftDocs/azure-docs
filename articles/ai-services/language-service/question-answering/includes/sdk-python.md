@@ -4,7 +4,7 @@ description: This quickstart shows how to get started with the question answerin
 ms.topic: include
 author: jboback
 ms.author: jboback
-ms.date: 11/11/2021
+ms.date: 12/19/2023
 ---
 
 Use this quickstart for the question answering client library for Python to:

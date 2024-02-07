@@ -3,7 +3,7 @@ title: Key concepts and roles
 titleSuffix: Azure Deployment Environments
 description: Learn the key concepts, role definitions, and terminology for Azure Deployment Environments.
 ms.service: deployment-environments
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
@@ -70,7 +70,7 @@ Deployment environments scan the specified folder of the repository to find [env
 
 ## Environment definitions
 
-An environment definition is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams use the items that you provide in the catalog to create environments in Azure.
+An environment definition is a combination of an IaC template and an environment file that acts as a manifest. The template defines the environment, and the environment file provides metadata about the template. Your development teams use the items that you provide in the catalog to create environments in Azure.
 
 > [!NOTE]
 > Azure Deployment Environments uses Azure Resource Manager (ARM) templates.

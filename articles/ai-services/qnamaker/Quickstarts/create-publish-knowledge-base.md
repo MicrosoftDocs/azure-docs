@@ -7,8 +7,8 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: quickstart
-ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-other
+ms.date: 01/19/2024
+ms.custom: mode-other
 ---
 
 # Quickstart: Create, train, and publish your QnA Maker knowledge base

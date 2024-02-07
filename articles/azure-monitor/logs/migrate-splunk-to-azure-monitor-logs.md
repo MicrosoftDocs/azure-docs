@@ -7,7 +7,7 @@ ms.reviewer: MeirMen
 ms.topic: how-to 
 ms.date: 01/27/2023
 
-#customer-intent: As an IT manager, I want to understand the steps required to migrate my Splunk deployment to Azure Monitor Logs so that I can decide whether to migrate and plan and execute my migration.
+# Customer intent: As an IT manager, I want to understand the steps required to migrate my Splunk deployment to Azure Monitor Logs so that I can decide whether to migrate and plan and execute my migration.
 
 ---
 
@@ -61,7 +61,7 @@ The benefits of migrating to Azure Monitor include:
 Your current usage in Splunk will help you decide which [pricing tier](../logs/change-pricing-tier.md) to select in Azure Monitor and estimate your future costs:
 
 - [Follow Splunk guidance](https://docs.splunk.com/Documentation/Splunk/latest/Admin/AboutSplunksLicenseUsageReportView) to view your usage report.
-- [Estimate Azure Monitor usage and costs](../usage-estimated-costs.md#estimate-azure-monitor-usage-and-costs) using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor). 
+- [Azure Monitor cost estimates](../cost-estimate.md) using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor). 
 
 ## 2. Set up a Log Analytics workspace
 

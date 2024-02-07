@@ -10,7 +10,7 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: franksolomon
 ms.date: 06/02/2023
-ms.custom: contperf-fy21q1, data4ml
+ms.custom: data4ml
 # Customer intent: As an experienced Python developer, I need to make my Azure storage data available to my remote compute, to train my machine learning models.
 ---
 
@@ -780,7 +780,7 @@ ml_client = MLClient(
 )
 
 # get the latest version of the data asset
-# Note: the variable VERSION is set in the previous code code
+# Note: the variable VERSION is set in the previous code
 data_asset = ml_client.data.get(name="pets-mltable-example", version=VERSION)
 
 # the table from the data asset id

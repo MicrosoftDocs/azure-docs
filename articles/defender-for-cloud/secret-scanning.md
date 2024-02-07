@@ -1,26 +1,87 @@
 ---
-title: Manage secrets with agentless secret scanning (preview)
-description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
+title: Manage secrets with agentless secrets scanning
+description: Learn how to scan your servers for secrets with Defender for Server's agentless secrets scanning.
 ms.topic: overview
-ms.date: 08/15/2023
+ms.date: 12/20/2023
 ---
 
-# Manage secrets with agentless secret scanning (preview)
+# Manage secrets with agentless secrets scanning
 
 Attackers can move laterally across networks, find sensitive data, and exploit vulnerabilities to damage critical information systems by accessing internet-facing workloads and exploiting exposed credentials and secrets.
 
-Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, Defender for Cloud can assist your security team to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
+Defender for Cloud's agentless secrets scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, Defender for Cloud can assist your security team to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
 
-By using agentless secret scanning, you can proactively discover the following types of secrets across your environments:
+By using agentless secrets scanning, you can proactively discover the following types of secrets across your environments (in Azure, AWS and GCP cloud providers):
 
-- **Insecure SSH private keys (Azure, AWS, GCP)** - supports RSA algorithm for PuTTy files, PKCS#8 and PKCS#1 standards
-- **Plaintext Azure SQL connection strings (Azure, AWS)** - supports SQL PAAS
-- **Plaintext Azure storage account connection strings (Azure, AWS)**
-- **Plaintext Azure storage account SAS tokens (Azure, AWS)**
-- **Plaintext AWS access keys (Azure, AWS)**
-- **Plaintext AWS RDS SQL connection string (Azure, AWS)** -supports SQL PAAS
+- Insecure SSH private keys:
 
-In addition to detecting SSH private keys, the agentless scanner verifies whether they can be used to move laterally in the network. Keys that we didn't successfully verify are categorized as **unverified** in the **Recommendation** pane.
+  - Supports RSA algorithm for PuTTy files.
+  - PKCS#8 and PKCS#1 standards.
+  - OpenSSH standard.
+- Plaintext Azure SQL connection strings, supports SQL PAAS.
+- Plaintext Azure database for PostgreSQL.
+- Plaintext Azure database for MySQL.
+- Plaintext Azure database for MariaDB.
+- Plaintext Azure Cosmos DB, including PostgreSQL, MySQL and MariaDB.
+- Plaintext AWS RDS connection string, supports SQL PAAS:
+
+  - Plaintext Amazon Aurora with Postgres and MySQL flavors.
+  - Plaintext Amazon custom RDS with Oracle and SQL Server flavors.
+- Plaintext Azure storage account connection strings.
+- Plaintext Azure storage account SAS tokens.
+- Plaintext AWS access keys.
+- Plaintext AWS S3 pre-signed URL.
+- Plaintext Google storage signed URL.
+- Plaintext Azure AD Client Secret.
+- Plaintext Azure DevOps Personal Access Token.
+- Plaintext GitHub Personal Access Token.
+- Plaintext Azure App Configuration Access Key.
+- Plaintext Azure Cognitive Service Key.
+- Plaintext Azure AD User Credentials.
+- Plaintext Azure Container Registry Access Key.
+- Plaintext Azure App Service Deployment Password.
+- Plaintext Azure Databricks Personal Access Token.
+- Plaintext Azure SignalR Access Key.
+- Plaintext Azure API Management Subscription Key.
+- Plaintext Azure Bot Framework Secret Key.
+- Plaintext Azure Machine Learning Web Service API Key.
+- Plaintext Azure Communication Services Access Key.
+- Plaintext Azure EventGrid Access Key.
+- Plaintext Amazon Marketplace Web Service (MWS) Access Key.
+- Plaintext Azure Maps Subscription Key.
+- Plaintext Azure Web PubSub Access Key.
+- Plaintext OpenAI API Key.
+- Plaintext Azure Batch Shared Access Key.
+- Plaintext NPM Author Token.
+- Plaintext Azure Subscription Management Certificate. 
+
+Secrets findings can be found using the [Cloud Security Explorer](#remediate-secrets-with-cloud-security-explorer) and the [Secrets tab](#remediate-secrets-from-your-asset-inventory) with their metadata like secrets type, file name, file path, last access time, and more.
+
+The following secrets can also be accessed from the `Security Recommendations` and `Attack Path`, across Azure, AWS and GCP cloud providers:
+
+- Insecure SSH private keys:
+
+  - Supporting RSA algorithm for PuTTy files.
+  - PKCS#8 and PKCS#1 standards.
+  - OpenSSH standard.
+- Plaintext Azure database connection string:
+
+  - Plaintext Azure SQL connection strings, supports SQL PAAS.
+  - Plaintext Azure database for PostgreSQL.
+  - Plaintext Azure database for MySQL.
+  - Plaintext Azure database for MariaDB.
+  - Plaintext Azure Cosmos DB, including PostgreSQL, MySQL and MariaDB.
+- Plaintext AWS RDS connection string, supports SQL PAAS:
+
+  - Plaintext Amazon Aurora with Postgres and MySQL flavors.
+  - Plaintext Amazon custom RDS with Oracle and SQL Server flavors.
+- Plaintext Azure storage account connection strings.
+- Plaintext Azure storage account SAS tokens.
+- Plaintext AWS access keys.
+- Plaintext AWS S3 pre-signed URL.
+- Plaintext Google storage signed URL.
+
+The agentless scanner verifies whether SSH private keys can be used to move laterally in your network. Keys that aren't successfully verified are categorized as `unverified` on the Recommendations page.
 
 ## Prerequisites
 
@@ -38,15 +99,15 @@ For requirements for agentless scanning, see [Learn about agentless scanning](co
 
 ## Remediate secrets with attack path
 
-Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
+Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
 
-Attack path analysis takes into account the contextual information of your environment to identify issues that may compromise it. This analysis helps prioritize the riskiest issues for faster remediation.
+Attack path analysis takes into account the contextual information of your environment to identify issues that might compromise it. This analysis helps prioritize the riskiest issues for faster remediation.
 
 The attack path page shows an overview of your attack paths, affected resources and a list of active attack paths.
 
 ### Azure VM supported attack path scenarios
 
-Agentless secret scanning for Azure VMs supports the following attack path scenarios:
+Agentless secrets scanning for Azure VMs supports the following attack path scenarios:
 
 - `Exposed Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`.
 
@@ -58,7 +119,7 @@ Agentless secret scanning for Azure VMs supports the following attack path scena
 
 ### AWS instances supported attack path scenarios
 
-Agentless secret scanning for AWS instances supports the following attack path scenarios:
+Agentless secrets scanning for AWS instances supports the following attack path scenarios:
 
 - `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`.
 
@@ -70,7 +131,7 @@ Agentless secret scanning for AWS instances supports the following attack path s
 
 ### GCP instances supported attack path scenarios
 
-Agentless secret scanning for GCP VM instances supports the following attack path scenarios:
+Agentless secrets scanning for GCP VM instances supports the following attack path scenarios:
 
 - `Exposed Vulnerable GCP VM instance has an insecure SSH private key that is used to authenticate to a GCP VM instance`.
 
@@ -80,7 +141,7 @@ Agentless secret scanning for GCP VM instances supports the following attack pat
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack path**.
 
-    :::image type="content" source="media/secret-scanning/attack-path.png" alt-text="Screenshot that shows how to navigate to your attack path in Defender for Cloud.":::
+    :::image type="content" source="media/secret-scanning/attack-path.png" alt-text="Screenshot that shows how to navigate to your attack path in Defender for Cloud." lightbox="media/secret-scanning/attack-path.png":::
 
 1. Select the relevant attack path.
 
@@ -88,7 +149,7 @@ Agentless secret scanning for GCP VM instances supports the following attack pat
 
 ## Remediate secrets with recommendations
 
-If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the recommendations page. Depending on your resources, either or both of the following recommendations appear:
+If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the Recommendations page. Depending on your resources, either or both of the following recommendations appear:
 
 - **Azure resources**: `Machines should have secrets findings resolved`
 
@@ -106,8 +167,7 @@ If a secret is found on your resource, that resource triggers an affiliated reco
 
 1. Select either:
 
-    - **Azure resources**: `Machines should have secrets findings resolved`
-
+    - **Azure resources**: `Machines should have secret findings resolved`
     - **AWS resources**: `EC2 instances should have secret findings resolved`
     - **GCP resources**: `VM instances should have secret findings resolved`
 

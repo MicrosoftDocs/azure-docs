@@ -20,6 +20,9 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Terraform
+      displayName: Terraform
+      href: quickstart-load-balancer-standard-public-terraform.md
     expanded: true
   - name: Create an internal load balancer
     items:
@@ -35,6 +38,9 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
+    - name: Terraform
+      displayName: Terraform
+      href: quickstart-load-balancer-standard-internal-terraform.md
     expanded: true
 - name: Tutorials
   items:
@@ -188,12 +194,8 @@
       href: configure-inbound-NAT-rules-vm-scale-set.md
     - name: Add multiple Virtual Machine Scale Set instances behind one Azure Load Balancer
       href: load-balancer-multiple-virtual-machine-scale-set.md
-    - name: Use with an existing Azure Load Balancer - Portal
+    - name: Use Virtual Machine Scale Set instance with an existing Azure Load Balancer
       href: configure-vm-scale-set-portal.md
-    - name: Use with an existing Azure Load Balancer - PowerShell
-      href: configure-vm-scale-set-powershell.md
-    - name: Use with an existing Azure Load Balancer - CLI
-      href: configure-vm-scale-set-cli.md
   - name: Upgrade from a basic to standard load balancer
     items:
     - name: Upgrade options and guidance

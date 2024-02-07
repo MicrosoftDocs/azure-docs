@@ -2,7 +2,7 @@
 title: Image descriptions - Azure AI Vision
 titleSuffix: Azure AI services
 description: Concepts related to the image description feature of the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 07/04/2023
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
 ---
 
 # Image descriptions

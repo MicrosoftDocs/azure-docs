@@ -1,10 +1,12 @@
 ---
 title: Call a webhook with a classic metric alert in Azure Monitor
 description: Learn how to reroute Azure metric alerts to other, non-Azure systems.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 05/28/2023
 ms.reviewer: harelbr
 ---
+
 # Call a webhook with a classic metric alert in Azure Monitor
 
 > [!WARNING]
@@ -20,7 +22,7 @@ Azure alerts use HTTP POST to send the alert contents in JSON format to a webhoo
 ## Configure webhooks via the Azure portal
 To add or update the webhook URI, in the [Azure portal](https://portal.azure.com/), go to **Create/Update Alerts**.
 
-![Add an alert rule pane](./media/alerts-webhooks/Alertwebhook.png)
+:::image type="content" source="./media/alerts-webhooks/Alertwebhook.png" lightbox="./media/alerts-webhooks/Alertwebhook.png" alt-text="Add an alert rule pane":::
 
 You can also configure an alert to post to a webhook URI by using [Azure PowerShell cmdlets](../powershell-samples.md#create-metric-alerts), a [cross-platform CLI](../cli-samples.md#work-with-alerts), or [Azure Monitor REST APIs](/rest/api/monitor/alertrules).
 

@@ -350,7 +350,7 @@ Recommendations for the management of chat ID:
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
 
-Within ACS you can send and receive reactions when on a group call:
+Within Azure Communication Services you can send and receive reactions when on a group call:
 - Like :+1:
 - Love :heart:
 - Applause :clap:

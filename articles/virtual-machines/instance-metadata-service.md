@@ -6,15 +6,15 @@ manager: paulmey
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 04/11/2023
 ms.author: frdavid
 ms.reviewer: azmetadatadev
 ---
 
-# Azure Instance Metadata Service 
+# Azure Instance Metadata Service
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
@@ -77,8 +77,8 @@ Any request that doesn't meet **both** of these requirements are rejected by the
 > [!IMPORTANT]
 > IMDS is **not** a channel for sensitive data. The API is unauthenticated and open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
 
-If it isn't necessary for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
-For example, if only a known system service needs to access instance metadata service, you can set a firewall rule on IMDS endpoint, only allowing the specific process(es) to access, or denying access for the rest of the processes. 
+If it isn't necessary for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access.
+For example, if only a known system service needs to access instance metadata service, you can set a firewall rule on IMDS endpoint, only allowing the specific process(es) to access, or denying access for the rest of the processes.
 
 ## Proxies
 
@@ -105,7 +105,7 @@ Endpoints may support required and/or optional parameters. See [Schema](#schema)
 
 ### Query parameters
 
-IMDS endpoints support HTTP query string parameters. For example: 
+IMDS endpoints support HTTP query string parameters. For example:
 
 ```URL
 http://169.254.169.254/metadata/instance/compute?api-version=2021-01-01&format=json
@@ -122,7 +122,7 @@ Requests with duplicate query parameter names will be rejected.
 
 ### Route parameters
 
-For some endpoints that return larger json blobs, we support appending route parameters to the request endpoint to filter down to a subset of the response: 
+For some endpoints that return larger json blobs, we support appending route parameters to the request endpoint to filter down to a subset of the response:
 
 ```URL
 http://169.254.169.254/metadata/<endpoint>/[<filter parameter>/...]?<query parameters>
@@ -242,6 +242,10 @@ When you don't specify a version, you get an error with a list of the newest sup
 
 #### Supported API versions
 
+> [!NOTE]
+> Version 2023-07-01 is still being rolled out, it may not be available in some regions.
+
+- 2023-07-01
 - 2021-12-13
 - 2021-11-15
 - 2021-11-01
@@ -299,9 +303,6 @@ The IMDS API contains multiple endpoint categories representing different data s
 | `/metadata/versions` | See [Versions](#versions) | N/A
 
 ## Versions
-
-> [!NOTE]
-> This feature was released alongside version 2020-10-01, which is currently being rolled out and may not yet be available in every region.
 
 ### List API versions
 
@@ -407,15 +408,18 @@ Schema breakdown:
 
 The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks, plus an additional object for the local temporary disk.
 
-The image reference object contains the following information about the OS image:
+The image reference object contains the following information about the OS image, please note that an image could come either from the platform, marketplace, community gallery, or direct shared gallery but not both:
 
-| Data | Description |
-|------|-------------|
-| `id` | Resource ID
-| `offer` | Offer of the platform or marketplace image
-| `publisher` | Image publisher
-| `sku` | Image sku
-| `version` | Version of the platform or marketplace image
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `id` | Resource ID | 2019-06-01
+| `offer` | Offer of the platform or marketplace image | 2019-06-01
+| `publisher` | Publisher of the platform or marketplace image | 2019-06-01
+| `sku` | Sku of the platform or marketplace image | 2019-06-01
+| `version` | Version of the image | 2019-06-01
+| `communityGalleryImageId` | Resource ID of the community image, empty otherwise | 2023-07-01
+| `sharedGalleryImageId` | Resource ID o direct shared image, empty otherwise | 2023-07-01
+| `exactVersion` | Version of the community or direct shared image | 2023-07-01
 
 The OS disk object contains the following information about the OS disk used by the VM:
 
@@ -465,7 +469,7 @@ Data | Description | Version introduced |
 | `keyEncryptionKey.keyUrl` | The location of the key | 2021-11-01
 
 The resource disk object contains the size of the [Local Temp Disk](managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
-If there's [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this value is 0. 
+If there's [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this value is 0.
 
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
@@ -483,11 +487,11 @@ If there's [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this val
 | `macAddress` | VM mac address | 2017-04-02
 
 > [!NOTE]
-> The nics returned by the network call are not guaranteed to be in order. 
+> The nics returned by the network call are not guaranteed to be in order.
 
 ### Get user data
 
-When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. Check the end to end user data experience [here](user-data.md). 
+When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. Check the end to end user data experience [here](user-data.md).
 
 To set up user data, utilize the quickstart template [here](https://aka.ms/ImdsUserDataArmTemplate). The sample below shows how to retrieve this data through IMDS. This feature is released with version `2021-01-01` and above.
 
@@ -696,7 +700,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "hostGroup": {
       "id": "testHostGroupId"
-    },    
+    },
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -765,7 +769,10 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "offer": "WindowsServer",
             "publisher": "MicrosoftWindowsServer",
             "sku": "2019-Datacenter",
-            "version": "latest"
+            "version": "latest",
+            "communityGalleryImageId": "/CommunityGalleries/testgallery/Images/1804Gen2/Versions/latest",
+            "sharedGalleryImageId": "/SharedGalleries/1P/Images/gen2/Versions/latest",
+            "exactVersion": "1.1686127202.30113"
         },
         "osDisk": {
             "caching": "ReadWrite",
@@ -835,7 +842,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "hostGroup": {
       "id": "testHostGroupId"
-    }, 
+    },
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -904,7 +911,10 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
             "offer": "UbuntuServer",
             "publisher": "Canonical",
             "sku": "16.04.0-LTS",
-            "version": "latest"
+            "version": "latest",
+            "communityGalleryImageId": "/CommunityGalleries/testgallery/Images/1804Gen2/Versions/latest",
+            "sharedGalleryImageId": "/SharedGalleries/1P/Images/gen2/Versions/latest",
+            "exactVersion": "1.1686127202.30113"
         },
         "osDisk": {
             "caching": "ReadWrite",
@@ -1130,6 +1140,29 @@ Example document:
 }
 ```
 
+#### Signature Validation Guidance
+
+When validating the signature, you should confirm that the signature was created with a certificate from Azure. This is done by validating the certificate Subject Alternative Name (SAN).
+
+Example SAN `DNS Name=eastus.metadata.azure.com, DNS Name=metadata.azure.com`
+
+> [!NOTE]
+> The domain for the public cloud and each sovereign cloud will be different.
+
+| Cloud | Domain in SAN |
+|-------|-------------|
+| [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
+| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
+| [Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
+| [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
+
+> [!NOTE]
+> The certificates might not have an exact match for the domain. For this reason, the certification validation should accept any subdomain (for example, in public cloud general availability regions accept `*.metadata.azure.com`).
+
+We don't recommend certificate pinning for intermediate certs. For further guidance, see [Certificate pinning - Certificate pinning and Azure services](/azure/security/fundamentals/certificate-pinning).
+Please note that the Azure Instance Metadata Service will NOT offer notifications for future Certificate Authority changes.
+Instead, you must follow the centralized [Azure Certificate Authority details](/azure/security/fundamentals/azure-ca-details?tabs=root-and-subordinate-cas-list) article for all future updates.
+
 #### Sample 1: Validate that the VM is running in Azure
 
 Vendors in Azure Marketplace want to ensure that their software is licensed to run only in Azure. If someone copies the VHD to an on-premises environment, the vendor needs to be able to detect that. Through IMDS, these vendors can get signed data that guarantees response only from Azure.
@@ -1207,7 +1240,7 @@ Verification successful
       "expiresOn": "11/28/18 06:16:17 -0000"
     },
   "vmId": "d3e0e374-fda6-4649-bbc9-7f20dc379f34",
-  "licenseType": "Windows_Client",  
+  "licenseType": "Windows_Client",
   "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
   "sku": "RS3-Pro"
 }
@@ -1231,30 +1264,6 @@ openssl verify -verbose -CAfile /etc/ssl/certs/DigiCert_Global_Root.pem -untrust
 ---
 
 The `nonce` in the signed document can be compared if you provided a `nonce` parameter in the initial request.
-
-> [!NOTE]
-> The certificate for the public cloud and each sovereign cloud will be different.
-
-| Cloud | Certificate |
-|-------|-------------|
-| [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
-| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
-| [Azure operated by 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
-| [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
-
-> [!NOTE]
-> The certificates might not have an exact match of `metadata.azure.com` for the public cloud. For this reason, the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
-
-In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Azure rolls over the certificates, which is standard PKI practice. You must update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
-
-You can find the intermediate certificates on [this page](../security/fundamentals/azure-CA-details.md). The intermediate certificates for each of the regions can be different.
-
-> [!NOTE]
-> The intermediate certificate for Azure operated by 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
-If you pinned the intermediate certificates for Azure operated by 21Vianet as part of a root chain authority change, the intermediate certificates must be updated.
-
-> [!NOTE]
-> Starting February 2022, our Attested Data certificates will be impacted by a TLS change. Due to this, the root CA will change from Baltimore CyberTrust to DigiCert Global G2 only for Public and US Government clouds. If you have the Baltimore CyberTrust cert or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** pinned, please follow the instructions listed there **immediately** to prevent any disruptions from using the Attested Data endpoint.
 
 ## Managed identity
 
@@ -1331,7 +1340,7 @@ If there's a data element not found or a malformed request, the Instance Metadat
 - **Why am I'm not seeing the SKU information for my VM in `instance/compute` details?**
   - For custom images created from Azure Marketplace, Azure platform doesn't retain the SKU information for the custom image and the details for any VMs created from the custom image. This is by design and hence not surfaced in the VM `instance/compute` details.
 
-- **Why is my request timed out for my call to the service?**
+- **Why is my request timed out (or failed to connect) for my call to the service?**
   - Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally, if you've changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
 
     ### [Windows](#tab/windows/)

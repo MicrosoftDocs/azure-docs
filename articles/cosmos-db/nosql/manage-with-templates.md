@@ -1,10 +1,10 @@
 ---
 title: Create and manage Azure Cosmos DB with Resource Manager templates
-description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for API for NoSQL 
+description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for API for NoSQL
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: sidandrews
@@ -65,7 +65,7 @@ This template creates an Azure Cosmos DB account in two regions with options for
 
 ## Azure Cosmos DB container with server-side functionality
 
-This template creates an Azure Cosmos DB account, database and container with with a stored procedure, trigger, and user-defined function. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template creates an Azure Cosmos DB account, database and container with a stored procedure, trigger, and user-defined function. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-sql-container-sprocs%2Fazuredeploy.json)
 

@@ -2,7 +2,7 @@
 title: What is Azure AI Immersive Reader?
 titleSuffix: Azure AI services
 description: Immersive Reader is a tool that is designed to help people with learning differences or help new readers and language learners with reading comprehension.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
 
@@ -10,7 +10,6 @@ ms.service: azure-ai-immersive-reader
 ms.topic: overview
 ms.date: 11/15/2021
 ms.author: rwaller
-ms.custom: "cog-serv-seo-aug-2020"
 keywords: readers, language learners, display pictures, improve reading, read content, translate
 #Customer intent: As a developer, I want to learn more about the Immersive Reader, which is a new offering in Azure AI services, so that I can embed this package of content into a document to accommodate users with reading differences.
 ---

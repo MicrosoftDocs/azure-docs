@@ -43,6 +43,9 @@ man tcpdump
 
 Most browser Developer Tools have a "Network" tab that allows you to capture network activity between the browser and the server. 
 
+> [!NOTE]
+> If the issues you are investigating require multiple requests to reproduce, select the **Preserve Log** option with Microsoft Edge, Google Chrome, and Safari. For Mozilla Firefox select the **Persist Logs** option.
+
 ### Microsoft Edge (Chromium)
 
 1. Open the [DevTools](/microsoft-edge/devtools-guide-chromium/)

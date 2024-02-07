@@ -7,7 +7,7 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 11/18/2022
 ms.author: msangapu
-ms.custom: cli-validate, devx-track-azurecli, devx-track-linux
+ms.custom: cli-validate, devx-track-azurecli, linux-related-content
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 
@@ -401,7 +401,7 @@ services:
 
    redis:
      image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-     environment: 
+     environment:
       - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```

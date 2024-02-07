@@ -5,10 +5,10 @@ items:
     items:
     - name: Supported platforms and features
       href: supportability.md
-    - name: Naming conventions
-      href: naming.md
     - name: Plan your automated deployment
       href: plan-deployment.md
+    - name: Naming conventions
+      href: naming.md
     - name: Using a custom naming convention
       href: naming-module.md
     - name: Configuration
@@ -17,8 +17,6 @@ items:
         href: configure-devops.md
       - name: Configure the control plane
         href: configure-control-plane.md
-      - name: Configure Configuration Web App
-        href: configure-webapp.md
       - name: Configure the workload zone
         href: configure-workload-zone.md
       - name: Configure the SAP system
@@ -27,6 +25,10 @@ items:
         href: configure-sap-parameters.md
       - name: Configure custom disk sizing
         href: configure-extra-disks.md
+      - name: Extensibility
+        href: extensibility.md
+      - name: Configure Configuration Web App
+        href: configure-webapp.md
       - name: Configure external tools
         href: tools-configuration.md
   - name: How-to guides
@@ -35,6 +37,8 @@ items:
       href: get-started.md
     - name: Upgrading the automation framework
       href: upgrading.md
+    - name: Troubleshoot the automation framework
+      href: troubleshooting.md
     - name: Deployment
       items:
       - name: Deploy the control plane

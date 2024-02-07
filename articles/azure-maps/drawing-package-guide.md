@@ -226,6 +226,12 @@ You should now have all the DWG drawings prepared to meet Azure Maps Conversion 
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
 > [Tutorial: Creating a Creator indoor map]
 
 :::zone-end
@@ -348,6 +354,12 @@ When finished, select the **Create + Download** button to download a copy of the
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
 > [Create indoor map with the onboarding tool]
 
 :::zone-end
@@ -366,3 +378,6 @@ When finished, select the **Create + Download** button to download a copy of the
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [facility level]: drawing-requirements.md#facility-level
 [Create indoor map with the onboarding tool]: creator-onboarding-tool.md
+
+[What is Azure Maps Creator?]: about-creator.md
+[Creator for indoor maps]: creator-indoor-maps.md

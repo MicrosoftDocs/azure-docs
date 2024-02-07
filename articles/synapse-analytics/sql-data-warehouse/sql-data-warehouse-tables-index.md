@@ -8,7 +8,6 @@ ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 
@@ -61,6 +60,9 @@ CREATE TABLE myTable
   )  
 WITH ( HEAP );
 ```
+
+> [!NOTE]
+> If you frequently perform `INSERT`, `UPDATE`, or `DELETE` operations on a heap table, it is advisable to include table rebuilding in your maintenance schedule by using `ALTER TABLE` command. For example, `ALTER TABLE [SchemaName].[TableName] REBUILD`. This practice contributes to reduced fragmentation, resulting in improved performance during read operations.
 
 ## Clustered and nonclustered indexes
 

@@ -4,11 +4,11 @@ description: Learn how to monitor changes to resources and resource groups in an
 author: guywi-ms
 services: azure-monitor
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 12/11/2023
 ms.author: guywild
 ms.reviewer: orens
 
-#customer-intent: As an IT manager, I want to understand how I can use activity log insights to monitor changes to resources and resource groups in an Azure subscription.
+# Customer intent: As an IT manager, I want to understand how I can use activity log insights to monitor changes to resources and resource groups in an Azure subscription.
 ---
 
 # Monitor changes to resources and resource groups with Azure Monitor activity log insights

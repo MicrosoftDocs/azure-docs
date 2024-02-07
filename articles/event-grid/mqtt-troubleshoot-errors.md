@@ -1,18 +1,21 @@
 ---
 title: Azure Event Grid’s MQTT broker feature - Troubleshooting guide
-description: This article provides guidance on how to troubleshoot MQTT broker related issues. 
+description: This article provides guidance on how to troubleshoot MQTT broker related issues.
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
-author: veyaddan
-ms.author: veyaddan
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
+author: george-guirguis
+ms.author: geguirgu
+ms.subservice: mqtt
 ---
 
 # Guide to troubleshoot issues with Azure Event Grid’s MQTT broker feature
 
 This guide provides you with information on what you can do to troubleshoot things before you submit a support ticket.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Unable to connect an MQTT client to your Event Grid namespace
 

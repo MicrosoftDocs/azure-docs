@@ -282,7 +282,10 @@ For both RDB and AOF persistence:
 
 ### Can I use the same storage account for persistence across two different caches?
 
-Yes, you can use the same storage account for persistence across two different caches. The [limitations on subscriptions and regions](#prerequisites-and-limitations) still apply.
+No, you must use different storage accounts for different caches. Each cache must have its own storage account to set up for persistence.
+
+> [!IMPORTANT]
+> Use separate storage accounts for persistence and performing periodic export operations on a cache.
 
 ### Will I be charged for the storage being used in data persistence?
 

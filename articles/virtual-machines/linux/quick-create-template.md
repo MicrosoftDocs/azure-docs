@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Use a Resource Manager template to create an Ubuntu Linux VM'
 description: Learn how to use an Azure Resource Manager template to create and deploy an Ubuntu Linux virtual machine with this quickstart.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 04/13/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -67,6 +67,8 @@ Several resources are defined in the template:
     - **Subnet Name**: name for the subnet the VM should use.
     - **Network Security Group Name**: name for the NSG.
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
+
+Cost information isn't presented during the virtual machine creation process for ARM templates like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure CLI, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-cli.md).
 

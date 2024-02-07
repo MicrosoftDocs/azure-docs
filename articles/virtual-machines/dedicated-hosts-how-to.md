@@ -6,7 +6,7 @@ ms.author: mattmcinnes
 ms.service: azure-dedicated-host
 ms.topic: how-to
 ms.workload: infrastructure
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ms.date: 07/12/2023
 ms.reviewer: vamckMS
 ---
@@ -126,7 +126,7 @@ az vm host group create \
    -z 1 \
    --ultra-ssd-enabled true \
    --platform-fault-domain-count 2 \
-   --automatic-placement true 
+   --automatic-placement true
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -273,6 +273,9 @@ New-AzVM `
 
 You can also create a scale set on your host.
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ### [Portal](#tab/portal)
 
 When you deploy a scale set, you specify the host group.
@@ -292,6 +295,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image myImage \
+  --orchestration-mode uniform \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --host-group myHostGroup \
@@ -316,6 +320,7 @@ New-AzVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
+  -OrchestrationMode 'Uniform' `
   -UpgradePolicyMode "Automatic"`
   -HostGroupId $hostGroup.Id
 ```
@@ -348,7 +353,7 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
 ### [CLI](#tab/cli)
 
-Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host. 
+Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host.
 
 Replace the values with your own information.
 
@@ -408,27 +413,27 @@ Start-AzVM `
 
 ---
 
-## Move a VM from dedicated host to multi-tenant infrastructure
-You can move a VM that is running on a dedicated host to multi-tenant infrastructure, but the VM must first be Stop\Deallocated.
+## Move a VM from dedicated host to multitenant infrastructure
+You can move a VM that is running on a dedicated host to multitenant infrastructure, but the VM must first be Stop\Deallocated.
 
 - Make sure that your subscription has sufficient vCPU quota for the VM in the region where
-- Your multi-tenant VM will be scheduled in the same region and zone as the dedicated host
+- Your multitenant VM will be scheduled in the same region and zone as the dedicated host
 
 ### [Portal](#tab/portal)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the [portal](https://portal.azure.com).
+Move a VM from dedicated host to multitenant infrastructure using the [portal](https://portal.azure.com).
 
 1. Open the page for the VM.
 1. Select **Stop** to stop\deallocate the VM.
 1. Select **Configuration** from the left menu.
 1. Select **None** under host group drop-down menu.
 1. When you're done, select **Save** at the top of the page.
-1. After the VM has been reconfigured as a multi-tenant VM, select **Overview** from the left menu.
+1. After the VM has been reconfigured as a multitenant VM, select **Overview** from the left menu.
 1. At the top of the page, select **Start** to restart the VM.
 
 ### [CLI](#tab/cli)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to reconfigure it as a multi-tenant VM. 
+Move a VM from dedicated host to multitenant infrastructure using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to reconfigure it as a multitenant VM.
 
 Replace the values with your own information.
 
@@ -441,7 +446,7 @@ az vm start -n myVM -g myResourceGroup
 
 ### [PowerShell](#tab/powershell)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the PowerShell.
+Move a VM from dedicated host to multitenant infrastructure using the PowerShell.
 
 Replace the values of the variables with your own information.
 
@@ -468,7 +473,7 @@ Stop-AzVM `
 Update-AzVM `
    -ResourceGroupName $vmRGName `
    -VM $myVM `
-   -HostId '' 
+   -HostId ''
 
 Start-AzVM `
    -ResourceGroupName $vmRGName `
@@ -682,7 +687,7 @@ Restarting a host does not completely power off the host. When the host restarts
 ### [Portal](#tab/portal)
 
 1. Search for and select the host.
-1. In the top menu bar, select the **Restart** button. 
+1. In the top menu bar, select the **Restart** button.
 1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
 1. Once the restart has completed, the Host Status will return to **Host available**.
 

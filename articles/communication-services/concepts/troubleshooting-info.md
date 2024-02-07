@@ -407,11 +407,11 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 4006 | The Destination/To number isn't reachable| Try resending the message at a later time |
 | 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
 | 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
-| 4009 | Message is rejected by Microsoft Entitlement System| Most often it happens if fraudulent activity is detected. Please contact support for more details |
+| 4009 | Message is rejected by Microsoft Entitlement System| Most often this happens if fraudulent activity is detected. Please contact support for more details |
 | 4010 | Message was blocked due to the toll-free number not being verified | [Review unverified sending limits](./sms/sms-faq.md#toll-free-verification) and submit toll-free verification as soon as possible |
 | 5000 | Message failed to deliver. Please reach out Microsoft support team for more details| File a support request through the Azure portal |
 | 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
-| 5002 | Message Delivery Timeout|  Try resending the message |
+| 5002 | Carrier does not support delivery report | Most often this happens if a carrier does not support delivery reports. No action required as message may have been delivered already. |
 | 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
 
 

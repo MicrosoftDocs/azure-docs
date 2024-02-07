@@ -1,7 +1,7 @@
 ---
 title: Azure Arc overview
 description: Learn about what Azure Arc is and how it helps customers enable management and governance of their hybrid resources with other Azure services and features.
-ms.date: 10/24/2023
+ms.date: 11/03/2023
 ms.topic: overview
 ---
 
@@ -28,7 +28,7 @@ Currently, Azure Arc allows you to manage the following resource types hosted ou
 * [Azure data services](data/overview.md): Run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. SQL Managed Instance
 and PostgreSQL (preview) services are currently available.
 * [SQL Server](/sql/sql-server/azure-arc/overview): Extend Azure services to SQL Server instances hosted outside of Azure.
-* Virtual machines (preview): Provision, resize, delete and manage virtual machines based on [VMware vSphere](./vmware-vsphere/overview.md) or [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview) and enable VM self-service through role-based access. 
+* Virtual machines: Provision, resize, delete and manage virtual machines based on [VMware vSphere](./vmware-vsphere/overview.md) or [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview) and enable VM self-service through role-based access.
 
 ## Key features and benefits
 
@@ -82,7 +82,7 @@ For information, see the [Azure pricing page](https://azure.microsoft.com/pricin
 * Learn about [Azure Arc-enabled servers](./servers/overview.md).
 * Learn about [Azure Arc-enabled Kubernetes](./kubernetes/overview.md).
 * Learn about [Azure Arc-enabled data services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/).
-* Learn about [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview).
+* Learn about [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview).
 * Learn about [Azure Arc-enabled VMware vSphere](vmware-vsphere/overview.md).
 * Learn about [Azure Arc-enabled VM Management on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 * Learn about [Azure Arc-enabled System Center Virtual Machine Manager](system-center-virtual-machine-manager/overview.md).

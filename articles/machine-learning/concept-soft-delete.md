@@ -5,12 +5,11 @@ description: Soft delete allows you to recover workspace data after accidental d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: 
 ms.topic: conceptual
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 11/07/2022
+ms.date: 01/22/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As an IT pro, understand how to enable data protection capabilities, to protect against accidental deletion.
 ---
@@ -67,7 +66,7 @@ When deleting a workspace from the Azure portal, check __Delete the workspace pe
 
 :::moniker range="azureml-api-1"
 > [!TIP]
-> The v1 SDK and CLI don't provide functionality to override the default soft-delete behavior. To override the default behavior from SDK or CLI, use the the v2 versions. For more information, see the [CLI & SDK v2](concept-v2.md) article or the [v2 version of this article](concept-soft-delete.md?view=azureml-api-2&preserve-view=true#deleting-a-workspace).
+> The v1 SDK and CLI don't provide functionality to override the default soft-delete behavior. To override the default behavior from SDK or CLI, use the v2 versions. For more information, see the [CLI & SDK v2](concept-v2.md) article or the [v2 version of this article](concept-soft-delete.md?view=azureml-api-2&preserve-view=true#deleting-a-workspace).
 
 :::moniker-end  
 :::moniker range="azureml-api-2"

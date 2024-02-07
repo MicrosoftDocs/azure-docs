@@ -1,10 +1,10 @@
 ---
 title: 'IT Service Management Connector: Secure Webhook in Azure Monitor - Azure configurations'
 description: This article shows you how to configure Azure to connect your ITSM products or services with Secure Webhook in Azure Monitor to centrally monitor and manage ITSM work items.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.reviewer: nolavime
-
 ---
 
 # Configure Azure to connect ITSM tools by using Secure Webhook
@@ -21,7 +21,7 @@ To register the application with Microsoft Entra ID:
 1. In Microsoft Entra ID, select **Expose application**.
 1. Select **Add** for **Application ID URI**.
 
-   [![Screenshot that shows the option for setting the U R I of the application I D.](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png)](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad-expand.png#lightbox)
+   :::image type="content" source="media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png" lightbox="media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png" alt-text="Screenshot that shows the option for setting the U R I of the application I D.":::
 1. Select **Save**.
 
 ## Define a service principal
@@ -61,7 +61,7 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 
    The following image shows the configuration of a sample Secure Webhook action:
 
-   ![Screenshot that shows a Secure Webhook action.](media/itsm-connector-secure-webhook-connections-azure-configuration/secure-webhook.png)
+   :::image type="content" source="media/itsm-connector-secure-webhook-connections-azure-configuration/secure-webhook.png" lightbox="media/itsm-connector-secure-webhook-connections-azure-configuration/secure-webhook.png" alt-text="Screenshot that shows a Secure Webhook action.":::
 
 ## Configure the ITSM tool environment
 Secure Webhook supports connections with the following ITSM tools:

@@ -15,26 +15,21 @@ Azure HDInsight 5.1 offers the latest open-source components with significant en
 
 ### Apache Kafka 3.2.0
   
-If you migrate from Kafka to 3.2.0, you can take advantage of the following new features:
+If you migrate to Kafka 3.2.0 (HDI 5.1), you can take advantage of the following new features:
 
-
-:::image type="content" source="./media/migrate-5-1-versions/kafka-320-improvements.png" alt-text="Screenshot shows kafka 3.2.0 improvements." lightbox="./media/migrate-5-1-versions/kafka-320-improvements.png":::
-
-
-- Support Automated consumer offsets sync across cluster in MM 2.0, making it easier to migrate or failover consumers across clusters. (KIP-545)
-- Hint to the partition leader to recover the partition: A new feature that allows the controller to communicate to a newly elected topic partition leader whether it needs to recover its state (KIP-704)
-- Supports TLS 1.2 by default for secure communication
-- Zookeeper Dependency Removal: Producers and consumers no longer need the zookeeper parameter. Use the `--bootstrap-server` option instead of `--zookeeper` with CLI commands. (KIP-500)
-- Configurable backlog size for creating Acceptor: A new configuration that allows setting the size of the SYN backlog for TCP’s acceptor sockets on the brokers (KIP-764)
-- Top-level error code field to DescribeLogDirsResponse: A new error code that makes DescribeLogDirs API consistent with other APIs and allows returning other errors besides CLUSTER_AUTHORIZATION_FAILED (KIP-784) 
+- Support Automated consumer offsets sync across cluster in MM 2.0, making it easier to migrate or failover consumers across clusters [KIP-545](https://cwiki.apache.org/confluence/display/KAFKA/KIP-545%3A+support+automated+consumer+offset+sync+across+clusters+in+MM+2.0).
+- Hint to the partition leader to recover the partition: A new feature that allows the controller to communicate to a newly elected topic partition leader whether it needs to recover its state [KIP-704](https://cwiki.apache.org/confluence/display/KAFKA/KIP-704%3A+Send+a+hint+to+the+partition+leader+to+recover+the+partition).
+- Supports TLS 1.2 by default for secure communication.
+- Zookeeper Dependency Removal: Producers and consumers no longer need the zookeeper parameter. Use the `--bootstrap-server` option instead of `--zookeeper` with CLI commands [KIP-500](https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum).
+- Configurable backlog size for creating Acceptor: A new configuration that allows setting the size of the SYN backlog for TCP’s acceptor sockets on the brokers [KIP-764](https://cwiki.apache.org/confluence/display/KAFKA/KIP-764%3A+Configurable+backlog+size+for+creating+Acceptor).
+- Top-level error code field to DescribeLogDirsResponse: A new error code that makes DescribeLogDirs API consistent with other APIs and allows returning other errors besides CLUSTER_AUTHORIZATION_FAILED [KIP-784](https://cwiki.apache.org/confluence/display/KAFKA/KIP-784%3A+Add+top-level+error+code+field+to+DescribeLogDirsResponse).
 
 
 For a complete list of updates, see [Apache Kafka 3.2.0 release notes](https://archive.apache.org/dist/kafka/3.2.0/RELEASE_NOTES.html).
 
-
 ## Kafka client compatibility
 
-New Kafka brokers support older clients. [KIP-35 - Retrieving protocol version](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introduced a mechanism for dynamically determining the functionality of a Kafka broker and [KIP-97: Improved Kafka Client RPC Compatibility Policy](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) introduced a new compatibility policy and guarantees for the Java client. Previously, a Kafka client had to interact with a broker of the same version or a newer version. Now, newer versions of the Java clients and other clients that support KIP-35 such as `librdkafka` can fall back to older request types or throw appropriate errors if functionality isn't available.
+New Kafka brokers support older clients. [KIP-35 - Retrieving protocol version](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) introduced a mechanism for dynamically determining the functionality of a Kafka broker and [KIP-97: Improved Kafka Client RPC Compatibility Policy](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) introduced a new compatibility policy and guarantees for the Java client. Previously, a Kafka client had to interact with a broker of the same version or a newer version. Now, newer versions of the Java clients and other clients that support [KIP-35](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) such as `librdkafka` can fall back to older request types or throw appropriate errors if functionality isn't available.
 
 :::image type="content" source="./media/migrate-5-1-versions/client-compatibility.png" alt-text="Screenshot shows Upgrade Kafka client compatibility." lightbox="./media/migrate-5-1-versions/client-compatibility.png":::
 

@@ -37,8 +37,8 @@ Start with a single workspace to support initial monitoring. See [Design a Log A
 Some monitoring of Azure resources is available automatically with no configuration required. To collect more monitoring data, you must perform configuration steps.
 
 The following table shows the configuration steps required to collect all available data from your Azure resources. It also shows at which step data is sent to Azure Monitor Metrics and Azure Monitor Logs. The following sections describe each step in further detail.
-
-[![Diagram that shows deploying Azure resource monitoring.](media/best-practices-data-collection/best-practices-azure-resources.png)](media/best-practices-data-collection/best-practices-azure-resources.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/best-practices-data-collection/best-practices-azure-resources.png" lightbox="media/best-practices-data-collection/best-practices-azure-resources.png" alt-text="Diagram that shows deploying Azure resource monitoring." border="false":::
 
 ### Collect tenant and subscription logs
 
@@ -66,7 +66,7 @@ Insights provide a specialized monitoring experience for a particular service. T
 
 There's no cost for insights, but you might be charged for any data they collect.
 
-See [What is monitored by Azure Monitor?](monitor-reference.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information.
+See [Azure Monitor Insights overview](insights/insights-overview.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information.
 
 > [!IMPORTANT]
 > The following insights are much more complex than others and have more guidance for their configuration:

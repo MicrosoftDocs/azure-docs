@@ -46,7 +46,7 @@ See the video below an in-depth video tutorial on how to hot-fix your environmen
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
 
-## Next steps
+## Related content
 
 - [Automated publishing for continuous integration and delivery](continuous-integration-delivery-improvements.md)
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)

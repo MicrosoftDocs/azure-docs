@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 10/12/2023
+ms.date: 11/02/2023
 ms.topic: conceptual
 ---
 
@@ -191,19 +191,28 @@ When scheduling a task on Batch nodes, you can choose whether to run it with tas
 
 A [compute node](nodes-and-pools.md#nodes) is an Azure virtual machine (VM) or cloud service VM that is dedicated to processing a portion of your application's workload. Follow these guidelines when working with nodes.
 
-### Idempotent start tasks
+### Start tasks: lifetime and idempotency
 
-As with other tasks, the node [start task](jobs-and-tasks.md#start-task) should be idempotent, as it will be rerun every time the node boots. An idempotent task is simply one that produces a consistent result when run multiple times.
+As with other tasks, the node [start task](jobs-and-tasks.md#start-task) should be idempotent. Start tasks are rerun when the compute node
+restarts or when the Batch agent restarts. An idempotent task is simply one that produces a consistent result when run multiple times.
+
+Start tasks shouldn't be long-running or be coupled to the lifetime of the compute node. If you need to start programs that are services or
+service-like in nature, construct a start task that enables these programs to be started and managed by operating system facilities such as
+`systemd` on Linux or Windows Services. The start task should still be constructed as idempotent such that subsequent execution of the
+start task is handled properly if these programs were previously installed as services.
+
+> [!TIP]
+> When Batch reruns your start task, it will attempt to delete the start task directory and create it again. If Batch fails to
+> recreate the start task directory, then the compute node will fail to launch the start task.
+
+These services must not take file locks on any files in Batch-managed directories on the node, because otherwise Batch is unable to delete
+those directories due to the file locks. For example, instead of configuring launch of the service directly from the start task working
+directory, copy the files elsewhere in an idempotent fashion. Then install the service from that location using the operating system
+facilities.
 
 ### Isolated nodes
 
 Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](../virtual-machines/isolation.md).
-
-### Manage long-running services via the operating system services interface
-
-Sometimes there's a need to run another agent alongside the Batch agent in the node. For example, you may want to gather data from the node and report it. We recommend that these agents be deployed as OS services, such as a Windows service or a Linux `systemd` service.
-
-These services must not take file locks on any files in Batch-managed directories on the node, because otherwise Batch will be unable to delete those directories due to the file locks. For example, if installing a Windows service in a start task, instead of launching the service directly from the start task working directory, copy the files elsewhere (or if the files exist just skip the copy). Then install the service from that location. When Batch reruns your start task, it will delete the start task working directory and create it again.
 
 ### Avoid creating directory junctions in Windows
 
@@ -220,10 +229,10 @@ section about attaching and preparing data disks for compute nodes.
 
 ### Attaching and preparing data disks
 
-Each individual compute node will have the exact same data disk specification attached if specified as part of the Batch pool instance. Only
+Each individual compute node has the exact same data disk specification attached if specified as part of the Batch pool instance. Only
 new data disks may be attached to Batch pools. These data disks attached to compute nodes aren't automatically partitioned, formatted or
 mounted. It's your responsibility to perform these operations as part of your [start task](jobs-and-tasks.md#start-task). These start tasks
-must be crafted to be idempotent. A re-execution of the start task after the compute node has been provisioned is possible. If the start
+must be crafted to be idempotent. Re-execution of the start tasks on compute nodes is possible. If the start
 task isn't idempotent, potential data loss can occur on the data disks.
 
 > [!TIP]
@@ -257,7 +266,7 @@ note before promoting your method into production use.
 
 #### Preparing data disks in Windows Batch pools
 
-Azure data disks attached to Batch Windows compute nodes are presented unpartitioned and unformatted. You'll need to enumerate disks
+Azure data disks attached to Batch Windows compute nodes are presented unpartitioned and unformatted. You need to enumerate disks
 with `RAW` partitions for actioning as part of your start task. This information can be retrieved using the `Get-Disk` PowerShell cmdlet.
 As an example, you could potentially see:
 
@@ -288,6 +297,14 @@ If you notice a problem involving the behavior of a node or tasks running on a n
 For user subscription mode Batch accounts, automated OS upgrades can interrupt task progress, especially if the tasks are long-running. [Building idempotent tasks](#build-durable-tasks) can help to reduce errors caused by these interruptions. We also recommend [scheduling OS image upgrades for times when tasks aren't expected to run](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Allowing automatic updates is recommended, but you can set this value to `false` if you need to ensure that an OS update doesn't happen unexpectedly.
+
+## Batch API
+
+### Timeout Failures
+
+Timeout failures don't necessarily indicate that the service failed to process the request. When a timeout failure occurs,
+you should either retry the operation or retrieve the state of the resource, as appropriate for the situation, to verify the
+status of whether the operation succeeded or failed.
 
 ## Connectivity
 
@@ -334,6 +351,9 @@ Linux:
 
 - A user named **_azbatch**
 
+> [!TIP]
+> Naming of these users or groups are implementation artifacts and are subject to change at any time.
+
 ### File cleanup
 
 Batch actively tries to clean up the working directory that tasks are run in, once their retention time expires. Any files written outside of this directory are [your responsibility to clean up](#manage-task-lifetime) to avoid filling up disk space.
@@ -344,4 +364,4 @@ The automated cleanup for the working directory will be blocked if you run a ser
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [default Azure Batch quotas, limits, and constraints, and how to request quota increases](batch-quota-limit.md).
-- Learn how to to [detect and avoid failures in pool and node background operations ](batch-pool-node-error-checking.md).
+- Learn how to [detect and avoid failures in pool and node background operations ](batch-pool-node-error-checking.md).

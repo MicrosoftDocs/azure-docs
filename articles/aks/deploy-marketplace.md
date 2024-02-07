@@ -23,7 +23,7 @@ Included among these solutions are Kubernetes application-based container offers
 
 This feature is currently supported only in the following regions:
 
-- East US, EastUS2EUAP, West US, Central US, West Central US, South Central US, East US2, West US2, West Europe, North Europe, Canada Central, South East Asia, Australia East, Central India, Japan East, Korea Central, UK South, UK West, Germany West Central, France Central, East Asia, West US3, Norway East, South African North, North Central US, Australia South East, Switzerland North, Japan West, South India
+- Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, East Asia, East US, East US 2, East US 2 EAUP, France Central, France South, Germany North, Germany West Central, Japan East, Japan West, Jio India West, Korea Central, Korea South, North Central Us, North Europe, Norway East, Norway West, South Africa North, South Central US, South India, Southeast Asia, Sweden Central, Switzerland North, UAE North, UK South, UK West, West Central US, West Europe, West US, West US 2, West US 3
 
 Kubernetes application-based container offers can't be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
@@ -101,6 +101,7 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 
 
 
+
 ---
 
 ## Manage the offer lifecycle
@@ -138,6 +139,7 @@ az k8s-extension show --name <extension-name> --cluster-name <clusterName> --res
 
 
 
+
 ---
 
 ## Monitor billing and usage information
@@ -165,6 +167,7 @@ Select an application, then select the uninstall button to remove the extension 
 ```azurecli-interactive
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
+
 
 
 

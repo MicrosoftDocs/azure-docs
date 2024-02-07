@@ -2,15 +2,14 @@
 title: v1 to v2 API Migration
 titleSuffix: Azure AI services
 description: The version 1 endpoint and authoring Language Understanding APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs.
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 04/02/2019
+ms.date: 01/19/2024
 ---
 
 # API v1 to v2 Migration guide for LUIS apps

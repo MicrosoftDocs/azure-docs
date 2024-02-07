@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: aro, gpu, openshift, red hat
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 12/15/2023
 ms.custom: template-how-to
 ---
 
@@ -50,6 +50,14 @@ ARO supports the following GPU workers:
 * NC24s v3
 * NC24rs v3
 * NC64as T4 v3
+
+The following instances are also supported in additional MachineSets:
+
+* Standard_ND96asr_v4
+* NC24ads_A100_v4
+* NC48ads_A100_v4
+* NC96ads_A100_v4
+* ND96amsr_A100_v4
 
 > [!NOTE] 
 > When requesting quota, remember that Azure is per core. To request a single NC4as T4 v3 node, you will need to request quota in groups of 4. If you wish to request an NC16as T4 v3, you will need to request quota of 16.

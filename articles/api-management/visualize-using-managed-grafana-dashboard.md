@@ -6,7 +6,6 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 10/17/2022
 ms.author: danlep
-ms.custom: 
 ---
 
 # Visualize API Management monitoring data using a Managed Grafana dashboard

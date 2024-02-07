@@ -21,7 +21,7 @@ In this article, you'll learn how to:
 - [Compare baselines using File Integrity Monitoring](#compare-baselines-using-file-integrity-monitoring)
 
 > [!NOTE]
-> File Integrity Monitoring may create the following account on monitored SQL Servers: `NT Service\HealthService` \
+> File Integrity Monitoring might create the following account on monitored SQL Servers: `NT Service\HealthService` \
 > If you delete the account, it will be automatically recreated.
 
 ## Availability
@@ -43,7 +43,7 @@ FIM is only available from Defender for Cloud's pages in the Azure portal. There
 
     The following information is provided for each workspace:
 
-    - Total number of changes that occurred in the last week (you may see a dash "-“ if FIM isn't enabled on the workspace)
+    - Total number of changes that occurred in the last week (you might see a dash "-“ if FIM isn't enabled on the workspace)
     - Total number of computers and VMs reporting to the workspace
     - Geographic location of the workspace
     - Azure subscription that the workspace is under
@@ -184,7 +184,7 @@ Use wildcards to simplify tracking across directories. The following rules apply
 
 ### Enable built-in recursive registry checks
 
-The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary may configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
+The FIM registry hive defaults provide a convenient way to monitor recursive changes within common security areas.  For example, an adversary might configure a script to execute in LOCAL_SYSTEM context by configuring an execution at startup or shutdown.  To monitor changes of this type, enable the built-in check.  
 
 ![Registry.](./media/file-integrity-monitoring-enable-log-analytics/baselines-registry.png)
 

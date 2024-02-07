@@ -5,7 +5,7 @@ ms.service: azure-ai-language
 ms.author: jboback
 author: jboback
 ms.topic: reference
-ms.date: 01/23/2022
+ms.date: 12/19/2023
 ---
 
 # Format guidelines for question answering

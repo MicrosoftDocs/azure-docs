@@ -160,7 +160,7 @@ destination.sasl.mechanism=GSSAPI
 
 **Why does MirrorMaker create only two replicas of the topic in the destination cluster while the source has more?**
 
-  MirrormMker 2 doesn’t replicate the replication factor of topics to target clusters. This can be controlled from MM2 config, by specifying the required number of “replication.factor”. The default value for the same is two.
+  MirrorMaker 2 doesn’t replicate the replication factor of topics to target clusters. This can be controlled from MM2 config, by specifying the required number of “replication.factor”. The default value for the same is two.
 
 **How to use custom replication policy in MirrorMaker 2.0?**
 

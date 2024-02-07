@@ -2,14 +2,13 @@
 title: Language support
 titleSuffix: Azure AI services
 description: Azure AI services enable you to build applications that see, hear, speak with, and understand your users.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-ms.custom: seodec18
 ---
 
 # Natural language support for Azure AI services

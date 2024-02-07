@@ -17,7 +17,7 @@ ms.author: vikancha
 
 **Applies to:** Windows VMs :heavy_check_mark: Flexible scale sets 
 
-## NGads V620 Series (preview) ##
+## NGads V620 Series ##
 The AMD Software: Cloud Edition drivers must be installed to take advantage of the GPU capabilities of Azure NGads V620 Series VMs.
 
 ### Requirements
@@ -38,8 +38,7 @@ Create the VMs using CLI. (Azure AMD GPU driver extensions don't support NGads  
 5. Reboot the VM
 
 ### Verify driver installation
-1.	You can verify driver installation in Device Manager. The following example shows successful configuration of the Radeon Pro V620 card on an Azure NGads V620 VM. The exact driver date and version will depend on the driver package released.<br><br>
-![NGads driver device manager](https://github.com/isgonzalez-MSFT/azure-docs-pr/assets/135761331/abc86bb4-5d3d-416f-bb7b-822461fd5c37)
+1.	You can verify driver installation in Device Manager. The following example shows successful configuration of the Radeon Pro V620 card on an Azure NGads V620 VM. The exact driver date and version will depend on the driver package released.
 
 
 ## NVv4 Series ##

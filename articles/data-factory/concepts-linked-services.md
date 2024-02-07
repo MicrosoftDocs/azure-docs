@@ -124,7 +124,7 @@ You can find the list of supported data stores in the [connector overview](copy-
 
 Reference [compute environments supported](compute-linked-services.md) for details about different compute environments you can connect to from your service as well as the different configurations.
 
-## Next steps
+## Related content
 
 - [Learn how to use credentials from a user-assigned managed identity in a linked service](credentials.md).
 

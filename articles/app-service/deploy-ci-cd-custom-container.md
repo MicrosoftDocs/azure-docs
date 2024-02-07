@@ -8,9 +8,8 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
 ms.date: 11/18/2022
 ms.author: msangapu
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-
 ---
 # Continuous deployment with custom containers in Azure App Service
 
@@ -189,7 +188,7 @@ This optional configuration replaces the default authentication with publishing 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
                             --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
-                            --sdk-auth
+                            --json-auth
 ```
 
 > [!IMPORTANT]

@@ -1,11 +1,11 @@
 ---
-title: Set up an Azure-SSIS Integration Runtime with PowerShell 
+title: Set up an Azure-SSIS Integration Runtime with PowerShell
 description: Learn how to set up an Azure-SSIS Integration Runtime in Azure Data Factory with PowerShell so you can deploy and run SSIS packages in Azure.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 08/10/2023
 author: chugugrace
 ms.author: chugu
@@ -598,7 +598,7 @@ For more SSIS documentation, see:
 - [Connect to on-premises data sources with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
 - [Schedule package executions in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages)
 
-## Next steps
+## Related content
 
 In this tutorial, you learned how to: 
 

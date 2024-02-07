@@ -1,18 +1,18 @@
 ---
-title: Using HDInsight Kafka with HDInsight on AKS Apache Flink
-description: Learn how to use HDInsight Kafka with HDInsight on AKS Apache Flink
+title: Using Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
+description: Learn how to use Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
  
-# Using HDInsight Kafka with HDInsight on AKS - Apache Flink
+# Using Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 A well known use case for Apache Flink is stream analytics. The popular choice by many users to use the data streams, which are ingested using Apache Kafka. Typical installations of Flink and Kafka start with event streams being pushed to Kafka, which can be consumed by Flink jobs.
 
-This example uses HDInsight on AKS Flink 1.16.0 to process streaming data consuming and producing Kafka topic. 
+This example uses HDInsight on AKS clusters running Flink 1.16.0 to process streaming data consuming and producing Kafka topic. 
 
 > [!NOTE]
 > FlinkKafkaConsumer is deprecated and will be removed with Flink 1.17, please use KafkaSource instead.
@@ -30,7 +30,7 @@ This example uses HDInsight on AKS Flink 1.16.0 to process streaming data consum
 * Create a [HDInsight on AKS Cluster pool](../quickstart-create-cluster.md) with same VNet.
 * Create a Flink cluster to the cluster pool created. 
 
-## Apache Flink-Kafka Connector
+## Apache Kafka Connector
 
 Flink provides an [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka/) for reading data from and writing data to Kafka topics with exactly once guarantees.
 
@@ -45,7 +45,7 @@ Flink provides an [Apache Kafka Connector](https://nightlies.apache.org/flink/fl
 
 ## Building Kafka Sink 
 
-Kafka sink provides a builder class to construct an instance of a KafkaSink. We use the same to construct our Sink and use it along with HDInsight on AKS Flink
+Kafka sink provides a builder class to construct an instance of a KafkaSink. We use the same to construct our Sink and use it along with Flink cluster running on HDInsight on AKS
 
 **SinKafkaToKafka.java**
 ``` java
@@ -156,3 +156,4 @@ public class Event {
 ## Reference
 
 * [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/connectors/datastream/kafka)
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

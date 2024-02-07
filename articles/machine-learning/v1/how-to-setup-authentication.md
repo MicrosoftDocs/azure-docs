@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 07/18/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, has-adal-ref, contperf-fy21q2, subject-rbac-steps, sdkv1
+ms.custom: UpdateFrequency5, has-adal-ref, subject-rbac-steps, sdkv1
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows using SDK v1
@@ -76,8 +76,10 @@ The easiest way to create an SP and grant access to your workspace is by using t
 1. Create the service principal. In the following example, an SP named **ml-auth** is created:
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor --scopes /subscriptions/<subscription id>
+    az ad sp create-for-rbac --json-auth --name ml-auth --role Contributor --scopes /subscriptions/<subscription id>
     ```
+
+    The parameter `--json-auth` is available in Azure CLI versions >= 2.51.0. Versions prior to this use `--sdk-auth`.
 
     The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you'll need them for other steps in this article.
 

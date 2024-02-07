@@ -1,69 +1,81 @@
 ---
-title: Implement security recommendations
-description: This article explains how to respond to recommendations in Microsoft Defender for Cloud to protect your resources and satisfy security policies.
+title: Remediate security recommendations in Microsoft Defender for Cloud 
+description: Learn how to remediate security recommendations in Microsoft Defender for Cloud 
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 10/20/2022
+ms.date: 11/22/2023
 ---
-# Implement security recommendations in Microsoft Defender for Cloud
 
-Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.
+# Remediate security recommendations
 
-<a name="remediation-steps"></a>
+Resources and workloads protected by Microsoft Defender for Cloud are assessed against built-in and custom security standards enabled in your Azure subscriptions, AWS accounts, and GCP projects. Based on those assessments, security recommendations provide practical steps to remediate security issues, and improve security posture.
 
-## Remediation steps
+This article describes how to remediate security recommendations in your Defender for Cloud deployment using the latest version of the portal experience.
 
-After reviewing all the recommendations, decide which one to remediate first. We recommend that you prioritize the security controls with the highest potential to increase your secure score.
+## Before you start
 
-1. From the list, select a recommendation.
+Before you attempt to remediate a recommendation you should review it in detail. Learn how to [review security recommendations](review-security-recommendations.md).
 
-1. Follow the instructions in the **Remediation steps** section. Each recommendation has its own set of instructions. The following screenshot shows remediation steps for configuring applications to only allow traffic over HTTPS.
+> [!IMPORTANT]
+> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience, you must select **Try it now**.
+>
+> :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
 
-    :::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="Manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
+## Group recommendations by risk level
 
-1. Once completed, a notification appears informing you whether the issue is resolved.
+Before you start remediating, we recommend grouping your recommendations by risk level in order to remediate the most critical recommendations first.
 
-## Fix button
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option.
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-**Fix** helps you quickly remediate a recommendation on multiple resources.
+1. Select **Group by** > **Primary grouping** > **Risk level** > **Apply**.
 
-To implement a **Fix**:
+    :::image type="content" source="media/implement-security-recommendations/group-by-risk-level.png" alt-text="Screenshot of the recommendations page that shows how to group your recommendations." lightbox="media/implement-security-recommendations/group-by-risk-level.png":::
 
-1. From the list of recommendations that have the **Fix** action icon :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::, select a recommendation.
+    Recommendations are displayed in groups of risk levels.
 
-    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
+You can now review critical and other recommendations to understand the recommendation and remediation steps. Use the graph to understand the risk to your business, including which resources are exploitable, and the effect that the recommendation has on your business.
 
-1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Fix**.
+## Remediate recommendations
 
-    > [!NOTE]
-    > Some of the listed resources might be disabled, because you don't have the appropriate permissions to modify them.
+After reviewing recommendations by risk, decide which one to remediate first.
 
-1. In the confirmation box, read the remediation details and implications.
+In addition to risk level, we recommend that you prioritize the security controls in the default [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) standard in Defender for Cloud, since these controls affect your [secure score](secure-score-security-controls.md).
 
-    ![Quick fix.](./media/implement-security-recommendations/microsoft-defender-for-cloud-quick-fix-view.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    > [!NOTE]
-    > The implications are listed in the grey box in the **Fixing resources** window that opens after clicking **Fix**. They list what changes happen when proceeding with the **Fix**.
-:::image type="content" source="media/implement-security-recommendations/fixing-resources-window.png" alt-text="Screenshot showing fixing resources window." lightbox="media/implement-security-recommendations/fixing-resources-window.png":::
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. Insert the relevant parameters if necessary, and approve the remediation.
+1. Select a recommendation to remediate.
 
-    > [!NOTE]
-    > It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the remediation actions, check the [activity log](#activity-log).
+1. Select **Take action** 
 
-1. Once completed, a notification appears informing you if the remediation succeeded.
+1. Locate the Remediate section and follow the remediation instructions.
 
-<a name="activity-log"></a>
+    :::image type="content" source="./media/implement-security-recommendations/security-center-remediate-recommendation.png" alt-text="This screenshot shows manual remediation steps for a recommendation." lightbox="./media/implement-security-recommendations/security-center-remediate-recommendation.png":::
 
-## Fix actions logged to the activity log
+## Use the Fix option
 
-The remediation operation uses a template deployment or REST API `PATCH` request to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-monitor/essentials/activity-log.md).
+To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option to help you quickly remediate a recommendation on multiple resources. If the Fix button is not present in the recommendation, then there is no option to apply a quick fix. 
+
+**To remediate a recommendation with the Fix button**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+
+1. Select a recommendation to remediate.
+
+1. Select **Take action** > **Fix**.
+
+    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="This screenshot shows recommendations with the Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
+
+1. Follow the rest of the remediation steps.
+
+After remediation completes, it can take several minutes for the change to take place.
 
 ## Next steps
 
-In this document, you were shown how to remediate recommendations in Defender for Cloud. To learn how  recommendations are defined and selected for your environment, see the following page:
-
-- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
+[Learn about](governance-rules.md) using governance rules in your remediation processes.
