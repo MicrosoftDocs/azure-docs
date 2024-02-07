@@ -533,7 +533,7 @@ public class ExampleService {
     let blobServiceClient = new BlobServiceClient(
       "https://<receipt-storage-account>.blob.core.windows.net",
       new DefaultAzureCredential({
-        managedIdentityClientId: clientIDstorage
+        managedIdentityClientId: clientIdStorage
       })
     );
     
