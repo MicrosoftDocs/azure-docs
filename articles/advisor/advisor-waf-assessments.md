@@ -15,7 +15,7 @@ ms.date: 12/1/2023
 
 The Azure Well-Architected Framework, WAF, is a design framework that helps you understand the pros and cons of cloud system options and can improve the quality of a workload. To learn more, see [Azure Well- Architected Framework](/azure/well-architected/)
 
-Microsoft now offers WAF Assessment recommendations related to Azure resources based on the five pillars of WAF to Azure Advisor customers with the goal of enabling you to take assessments on, and receive recommendations directly within, the Advisor platform.
+Microsoft now offers WAF Assessment recommendations related to Azure resources based on the five pillars of WAF to Azure Advisor customers. You can take assessments on, and receive recommendations directly within, the Advisor platform.
 
 > [!NOTE]
 > Only the Assessments initiated via Advisor are visible on Advisor for the selected subscription and/or workload. 
@@ -158,12 +158,10 @@ To learn more about permissions, see [Permissions in Azure Advisor](/azure/advis
 
 From the recommendations list page, you can:
   * Select a recommendation and see details about it in a pane that opens
-  * *Postpone*, *Dismiss*, or mark as *In progress*. If you mark a recommendation as in progress and finish with it (take the recommended actions), it's important to mark it as completed. You do this through the recommendation list in the **In progress** view, or through the detail pane of a recommendation in progress. 
+  * *Postpone*, *Dismiss*, or mark as *In progress*. If you mark a recommendation as in progress and finish with it (take the recommended actions), it's important to mark it as completed. You mark the recommendation as completed through the recommendation list in the **In progress** view, or through the detail pane of a recommendation in progress. 
 
 > [!NOTE]
 > Assessment recommendations have no immediate impact on your existing Advisor score. 
-
-
 
 ## Related content
 
