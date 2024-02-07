@@ -138,9 +138,11 @@ Customer-initiated conversion adds a new option for customers to start a convers
 >
 > For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).
 
-Customer-initiated conversion is only available from the Azure portal, not from PowerShell or the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
-
 Customer-initiated conversion isn't available in all regions. For more information, see the [region limitations](#region) article.
+
+# [Portal](#tab/portal)
+
+Customer-initiated conversion is available from the Azure portal, PowerShell, and the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
 
 # [PowerShell](#tab/powershell)
 
@@ -170,10 +172,6 @@ az storage account migration start  \
 
 ##### Monitoring customer-initiated conversion progress
 
-The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
-
-:::image type="content" source="media/redundancy-migration/change-replication-status-sml.png" alt-text="Screenshot showing the status of the conversion request on the Redundancy page of the Azure portal." lightbox="media/redundancy-migration/change-replication-status.png":::
-
 As the conversion request is evaluated and processed, the status should progress through the list shown in the following table:
 
 | Status                                         | Explanation                                                                          |
@@ -189,6 +187,12 @@ As the conversion request is evaluated and processed, the status should progress
 > While Microsoft handles your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
 >
 > Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
+
+# [Portal](#tab/powershell)
+
+The status of your customer-initiated conversion is displayed on the **Redundancy** page of the storage account:
+
+:::image type="content" source="media/redundancy-migration/change-replication-status-sml.png" alt-text="Screenshot showing the status of the conversion request on the Redundancy page of the Azure portal." lightbox="media/redundancy-migration/change-replication-status.png":::
 
 # [PowerShell](#tab/powershell)
 
