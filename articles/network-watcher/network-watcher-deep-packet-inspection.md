@@ -30,7 +30,7 @@ In this example, you learn how to view the initial Round Trip Time (RTT) of a Tr
 
 When a TCP connection is established, the first three packets sent in the connection follow a pattern referred to as the three-way handshake. By examining the first two packets sent in this handshake, an initial request from the client and a response from the server, you can calculate the latency. This latency is referred to as the Round Trip Time (RTT). For more information on the TCP protocol and the three-way handshake, see [Explanation of the three-way handshake via TCP/IP](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip).
 
-1. Launch WireShark.
+1. Launch Wireshark.
 
 1. Load the **.cap** file from your packet capture session.
 
@@ -46,7 +46,7 @@ When a TCP connection is established, the first three packets sent in the connec
 
 1. Select **Apply as Filter**, and then select **... and selected** to show the packets with **Syn** bit set to 1 within the TCP stream.
 
-    The first two packets involved in the TCP handshake are the [SYN], [SYN, ACK] packets. You don't need the last packet in the handshake, which is the [ACK] packet. The [SYN] packet is sent by the client. Once it's received, the server sends the [ACK] packet as an acknowledgment of receiving the [SYN] from the client.
+    The first two packets involved in the TCP handshake are the [SYN], [SYN, ACK] packets. You don't need the last packet in the handshake, which is the [ACK] packet. The client sends the [SYN] packet. Once the server receives the [SYN] packet, it sends the [ACK] packet as an acknowledgment of receiving the [SYN] from the client.
 
     :::image type="content" source="./media/network-watcher-deep-packet-inspection/syn-filter.png" alt-text="Screenshot shows how to apply a filter to see the [SYN] and and [SYN, ACK] packets in a TCP stream in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/syn-filter.png":::
 
@@ -62,11 +62,11 @@ You can have many applications running on an Azure virtual machine. Many of thes
 
 In this example, you learn how to analyze a packet capture to find unwanted protocols that might indicate unauthorized communication from an application running on your virtual machine.
 
-1. Launch WireShark.
+1. Launch Wireshark.
 
 1. Load the **.cap** file from your packet capture session.
 
-1. Select **Statistics**, then select **Protocol Hierarchy**.
+1. From the **Statistics** menu, select **Protocol Hierarchy**.
 
     :::image type="content" source="./media/network-watcher-deep-packet-inspection/protocol-hierarchy.png" alt-text="Screenshot shows how to get to Protocol Hierarchy from the Statistics menu in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/protocol-hierarchy.png":::
 
@@ -76,62 +76,27 @@ In this example, you learn how to analyze a packet capture to find unwanted prot
 
     In the example, you can see that there was traffic using the BitTorrent protocol, which is used for peer-to-peer file sharing. As an administrator, if you don't expect to see BitTorrent traffic on this particular virtual machine, then you can remove the peer-to-peer software that's installed on this virtual machine, or block the traffic using a network security group or a firewall.
 
-## Finding top destinations and ports
+## Find destinations and ports
 
-Understanding the types of traffic, the endpoints, and the ports communicated over is important when monitoring or troubleshooting applications and resources on your network. Utilizing a packet capture file, we can quickly learn the top destinations our VM is communicating with and the ports being utilized.
+Understanding the types of traffic, the endpoints, and the ports communicated over is important when monitoring or troubleshooting applications and resources in your network. By analyzing a packet capture file, you can learn the top destinations your virtual machine communicated with and the ports that were used.
 
-### Step 1
+1. Launch Wireshark.
 
-Using the same capture in the previous scenario, select **Statistics** > **IPv4 Statistics** > **Destinations and Ports**
+1. Load the **.cap** file from your packet capture session.
 
-![packet capture window][4]
+1. From the **Statistics** menu, select **IPv4 Statistics** and then select **Destinations and Ports**.
 
-### Step 2
+    :::image type="content" source="./media/network-watcher-deep-packet-inspection/destinations-ports.png" alt-text="Screenshot shows how to get to Destinations and Ports window in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/destinations-ports.png":::
 
-As we look through the results a line stands out, there were multiple connections on port 111. The most used port was 3389, which is remote desktop, and the remaining are RPC dynamic ports.
+1. In the **Destinations and Ports** window, you can see the top destinations and ports that were communicated with during the capture session. You display only communication with a specific protocol by using a filter. For example, you can see if there was any communication using the Remote Desktop Protocol (RDP) protocol by entering **rdp** in the **Display filter** box.
 
-While this traffic might mean nothing, it's a port that was used for many connections and is unknown to the administrator.
-
-![figure 5][5]
-
-### Step 3
-
-Now that we've determined an out of place port, we can filter our capture based on the port.
-
-The filter in this scenario would be:
-
-```
-tcp.port == 111
-```
-
-We enter the filter text in the filter textbox and press enter.
-
-![figure 6][6]
-
-From the results, we can see all the traffic is coming from a local virtual machine on the same subnet. If we still don’t understand why this traffic is occurring, we can further inspect the packets to determine why it's making these calls on port 111. With this information, we can take the appropriate action.
+    :::image type="content" source="./media/network-watcher-deep-packet-inspection/rdp-filter.png" alt-text="Screenshot shows the RDP destinations and the ports that were used in Wireshark." lightbox="./media/network-watcher-deep-packet-inspection/rdp-filter.png":::
+    
+    Similarly, you can filter for other protocols you're interested in.
 
 ## Next step
 
-Learn about the other diagnostic features of Network Watcher by visiting [Azure network monitoring overview](network-watcher-monitoring-overview.md).
+To learn about the other diagnostic features of Network Watcher, see:
 
-[1]: ./media/network-watcher-deep-packet-inspection/figure1.png
-[2]: ./media/network-watcher-deep-packet-inspection/figure2.png
-[3]: ./media/network-watcher-deep-packet-inspection/figure3.png
-[4]: ./media/network-watcher-deep-packet-inspection/figure4.png
-[5]: ./media/network-watcher-deep-packet-inspection/figure5.png
-[6]: ./media/network-watcher-deep-packet-inspection/figure6.png
-[7]: ./media/network-watcher-deep-packet-inspection/figure7.png
-[8]: ./media/network-watcher-deep-packet-inspection/figure8.png
-
-
-
-
-
-
-
-
-
-
-
-
-
+> [!div class="nextstepaction"]
+> [Azure network monitoring overview](network-watcher-monitoring-overview.md)
