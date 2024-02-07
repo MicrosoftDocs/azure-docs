@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 03/16/2023
+ms.date: 02/06/2024
 ms.author: mbaldwin
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
@@ -79,6 +79,7 @@ What's logged:
   * Creating, modifying, or deleting the keys.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, listing keys.
   * Key backup, restore, purge
+  * Key release
 * Invalid paths that result in a 404 response. 
 
 ## Access your logs
