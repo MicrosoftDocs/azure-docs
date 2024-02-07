@@ -552,7 +552,7 @@ public class ExampleService {
     let client = new CosmosClient({
       endpoint: process.env["COSMOS_ENDPOINT"],
       credential: new DefaultAzureCredential({
-        managedIdentityClientId: clientIDdatabases
+        managedIdentityClientId: clientIdDatabases
       })
     });
     
