@@ -36,6 +36,9 @@ For a detailed overview of all of the redundancy options, see [Azure Storage red
 
 You can change your storage account's redundancy configurations as needed, though some configurations are subject to [limitations](#limitations-for-changing-replication-types) and [downtime requirements](#downtime-requirements). Reviewing these limitations and requirements before making any changes within your environment helps avoid conflicts with your own timeframe and uptime requirements.
 
+> [!IMPORTANT]
+> Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM).
+
 There are three ways to change the replication settings:
 
 - [Add or remove geo-replication or read access](#change-the-replication-setting-using-the-portal-powershell-or-the-cli) to the secondary region.
@@ -122,14 +125,16 @@ During a conversion, there's [no data loss or application downtime required](#do
 There are two ways to initiate a conversion:
 
 - [Customer-initiated](#customer-initiated-conversion)
-- [support-initiated](#support-initiated-conversion)
+- [Support-initiated](#support-initiated-conversion)
 
 > [!TIP]
 > Microsoft recommends you use customer-initiated conversion instead of support-initiated conversion when possible. With customer-initiated conversion you can start and monitor the progress of the conversion request directly from the Azure portal, and there is no need to open and manage a support request.
 
 #### Customer-initiated conversion
 
-Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can start and monitor the progress of the conversion directly from the Azure portal. Once initiated, the conversion could still take up to 72 hours to begin, but potential delays related to opening and managing a support request are eliminated.
+Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help determining the regions in which customer-initiated conversion is supported, see the [region limitations](#region) article.
+
+Customer-initiated conversion can be comleted in supported regions using the Azure Portal, PowerShell, or the Azure CLI. Once initiated, the conversion could still take up to 72 hours to begin.
 
 > [!IMPORTANT]
 > A customer-initiated conversion could take up to 72 hours to begin after you initiate it.
@@ -138,11 +143,16 @@ Customer-initiated conversion adds a new option for customers to start a convers
 >
 > For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).
 
-Customer-initiated conversion isn't available in all regions. For more information, see the [region limitations](#region) article.
-
 # [Portal](#tab/portal)
 
-Customer-initiated conversion is available from the Azure portal, PowerShell, and the Azure CLI. To initiate the conversion, perform the same steps used for changing other replication settings in the Azure portal as described in [Change the replication setting using the portal, PowerShell, or the CLI](#change-the-replication-setting-using-the-portal-powershell-or-the-cli).
+To add or modify a storage account's zonal-redundancy within the Azure portal, perform these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Under **Data management** select **Redundancy**.
+1. Update the **Redundancy** setting.
+1. Select **Save**.
+
+    :::image type="content" source="media/redundancy-migration/change-replication-zone-option-sml.png" alt-text="Screenshot showing how to change the zonal-replication option in portal." lightbox="media/redundancy-migration/change-replication-zone-option.png":::
 
 # [PowerShell](#tab/powershell)
 
