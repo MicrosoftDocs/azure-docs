@@ -15,7 +15,7 @@ If you're unable to provision a Windows Server 2012 Extended Security Update lic
 
 - **Permissions:** Verify you have sufficient permissions (Contributor role or higher) within the scope of ESU provisioning and linking.  
 
-- **Core minimums:** Verify you have specified sufficient cores for the ESU License. Physical core-based licenses require a minimum of 16 cores, and virtual core-based licenses require a minimum of 8 cores per virtual machine (VM). 
+- **Core minimums:** Verify you have specified sufficient cores for the ESU License. Physical core-based licenses require a minimum of 16 cores per machine, and virtual core-based licenses require a minimum of 8 cores per virtual machine (VM). 
 
 - **Conventions:** Verify you have selected an appropriate subscription and resource group and provided a unique name for the ESU license.     
 
