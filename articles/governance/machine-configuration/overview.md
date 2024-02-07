@@ -1,12 +1,10 @@
 ---
-title: Understand Azure Automanage Machine Configuration
+title: Understand Azure Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
-ms.date: 05/16/2023
+ms.date: 02/01/2024
 ms.topic: conceptual
 ---
-# Understand the machine configuration feature of Azure Automanage
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
+# Understanding Azure Machine Configuration
 
 Azure Policy's machine configuration feature provides native capability to audit or configure
 operating system settings as code for machines running in Azure and hybrid
@@ -68,11 +66,8 @@ To deploy the extension at scale across many machines, assign the policy initiat
 to a management group, subscription, or resource group containing the machines that you plan to
 manage.
 
-If you prefer to deploy the extension and managed identity to a single machine, follow the guidance
-for each:
-
-- [Overview of the Azure Policy Guest Configuration extension][13]
-- [Configure managed identities for Azure resources on a VM using the Azure portal][14]
+If you prefer to deploy the extension and managed identity to a single machine, see
+[Configure managed identities for Azure resources on a VM using the Azure portal][14].
 
 To use machine configuration packages that apply configurations, Azure VM guest configuration
 extension version 1.26.24 or later is required.
@@ -93,7 +88,7 @@ built-in content, machine configuration handles loading these tools automaticall
 
 | Operating system |                 Validation tool                 |                                                                         Notes                                                                          |
 | ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Windows          | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
+| Windows          | [PowerShell Desired State Configuration][15] v2 | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
 | Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                              |
 | Linux            | [Chef InSpec][16]                               | Installs Chef InSpec version 2.2.61 in default location and adds it to system path. It installs InSpec's dependencies, including Ruby and Python, too. |
 
@@ -439,46 +434,45 @@ Machine configuration built-in policy samples are available in the following loc
 - Learn how to view [compliance details for machine configuration][07] policy assignments.
 
 <!-- Link reference definitions -->
-[01]: ../../azure-arc/servers/overview.md
-[02]: ../../azure-resource-manager/management/extension-resource-types.md
-[03]: assignments.md#manually-creating-machine-configuration-assignments
-[04]: ../../automanage/index.yml
-[05]: assignments.md
+[01]: /azure/azure-arc/servers/overview
+[02]: /azure/azure-resource-manager/management/extension-resource-types
+[03]: ./concepts/assignments.md#manually-creating-machine-configuration-assignments
+[04]: /azure/automanage
+[05]: ./concepts/assignments.md
 [06]: ../policy/assign-policy-portal.md
 [07]: ../policy/how-to/determine-non-compliance.md
 [08]: https://youtu.be/t9L8COY-BkM
-[09]: ../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal
-[10]: ../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell
-[11]: ../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli
-[12]: ../../virtual-machines/extensions/overview.md
-[13]: ./overview.md
-[14]: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md
+[09]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-portal
+[10]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-powershell
+[11]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-cli
+[12]: /azure/virtual-machines/extensions/overview
+[14]: /entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm
 [15]: /powershell/dsc/overview
 [16]: https://www.chef.io/inspec/
 [17]: ../policy/how-to/get-compliance-data.md#evaluation-triggers
-[18]: ../../virtual-network/manage-network-security-group.md#create-a-security-rule
-[19]: ../../virtual-network/service-tags-overview.md
+[18]: /azure/virtual-network/manage-network-security-group#create-a-security-rule
+[19]: /azure/virtual-network/service-tags-overview
 [20]: https://www.microsoft.com/download/details.aspx?id=56519
-[21]: ../../private-link/private-link-overview.md
-[22]: ../../virtual-network/what-is-ip-address-168-63-129-16.md
-[23]: ../../azure-arc/servers/network-requirements.md
-[24]: ../../azure-arc/servers/private-link-security.md
-[25]: ../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request
+[21]: /azure/private-link/private-link-overview
+[22]: /azure/virtual-network/what-is-ip-address-168-63-129-16
+[23]: /azure/azure-arc/servers/network-requirements
+[24]: /azure/azure-arc/servers/private-link-security
+[25]: /azure/active-directory/managed-identities-azure-resources/managed-identities-faq#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request
 [26]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e
 [27]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6
-[28]: ../../virtual-machines/availability.md
-[29]: ../../availability-zones/cross-region-replication-azure.md
-[30]: ../../virtual-machines/availability.md#availability-sets
-[31]: ../../site-recovery/site-recovery-overview.md
+[28]: /azure/virtual-machines/availability
+[29]: /azure/availability-zones/cross-region-replication-azure
+[30]: /azure/virtual-machines/availability#availability-sets
+[31]: /azure/site-recovery/site-recovery-overview
 [32]: ../policy/troubleshoot/general.md
-[33]: ./how-to-set-up-authoring-environment.md
-[34]: ./how-to-test-package.md
-[35]: ../../virtual-machines/windows/run-command.md
-[36]: ../../virtual-machines/linux/run-command.md
+[33]: ./how-to/develop-custom-package/overview.md
+[34]: ./how-to/develop-custom-package/3-test-package.md
+[35]: /azure/virtual-machines/windows/run-command
+[36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
 [38]: ../policy/samples/built-in-policies.md
 [39]: ../policy/samples/built-in-initiatives.md
 [40]: https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
-[42]: ./how-to-create-package.md
-[43]: ./how-to-create-policy-definition.md
+[42]: ./how-to/develop-custom-package/overview.md
+[43]: ./how-to/create-policy-definition.md
