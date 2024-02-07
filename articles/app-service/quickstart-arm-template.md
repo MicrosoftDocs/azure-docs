@@ -19,9 +19,9 @@ adobe-target-content: ./quickstart-arm-template-uiex
 ::: zone pivot="platform-windows"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-A resource manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
+A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
 
-If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button will open the ARM template in the Azure portal.
+If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button opens the ARM template in the Azure portal.
 
 Use the following button to deploy on **Windows**:
 
@@ -30,9 +30,9 @@ Use the following button to deploy on **Windows**:
 ::: zone pivot="platform-linux"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-A resource manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
+a Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
 
-If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button will open the ARM template in the Azure portal.
+If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button opens the ARM template in the Azure portal.
 
 Use the following button to deploy on **Linux**:
 
@@ -41,9 +41,9 @@ Use the following button to deploy on **Linux**:
 ::: zone pivot="platform-windows-container"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A premium plan is needed to deploy a Windows container app. See the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing) for pricing details.
 
-A resource manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
+a Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
 
-If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button will open the ARM template in the Azure portal.
+If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button opens the ARM template in the Azure portal.
 
 Use the following button to deploy on **Windows container**:
 
@@ -66,14 +66,14 @@ Two Azure resources are defined in the template:
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
 
-This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
+This template contains several parameters that are predefined for your convenience. See the table  for parameter defaults and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
 | webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
 | location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
-| language   | string  | ".net"                       | Programming language stack (.NET, php, node, html) |
+| language   | string  | ".NET"                       | Programming language stack (.NET, php, node, html) |
 | helloWorld | boolean | False                        | True = Deploy "Hello World" app |
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 ::: zone-end
@@ -87,7 +87,7 @@ Two Azure resources are defined in the template:
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
 
-This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
+This template contains several parameters that are predefined for your convenience. See the table  for parameter defaults and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
@@ -109,7 +109,7 @@ Two Azure resources are defined in the template:
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
 
-This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
+This template contains several parameters that are predefined for your convenience. See the table  for parameter defaults and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
@@ -130,17 +130,17 @@ Azure CLI is used here to deploy the template. You can also use the Azure portal
 The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
-Run the commands below to deploy a .NET framework app on Windows.
+Run the following commands to deploy a .NET framework app on Windows.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus"
 
 az deployment group create --resource-group myResourceGroup \
---parameters language=".net" helloWorld="true" webAppName="<app-name>" \
+--parameters language=".NET" helloWorld="true" webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
-Run the commands below to create a Python app on Linux.
+Run the following commands to create a Python app on Linux:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus"
@@ -149,7 +149,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
 
-To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown in the table. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Language    | Example                                              |
 |-------------|------------------------------------------------------|
@@ -162,7 +162,7 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 ---
 ::: zone-end
 ::: zone pivot="platform-windows-container"
-Run the commands below to deploy a [.NET app](https://mcr.microsoft.com/product/dotnet/samples/tags) on a Windows container.
+Run the following commands to deploy a [.NET app](https://mcr.microsoft.com/product/dotnet/samples/tags) on a Windows container.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus"
