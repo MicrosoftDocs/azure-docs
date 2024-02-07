@@ -17,14 +17,36 @@ This article shows you how to deploy Azure Operator 5G Core on the Advanced Kube
 
 To deploy on the Azure Kubernetes service, you must have the following configurations:
 
-- Resource Group/Subscription
-- The Azure Operator 5G Core release version and corresponding Kubernetes version
-- Networks created for Data plane
+- [Resource Group/Subscription](../cost-management-billing/manage/create-enterprise-subscription.md)
+- The [Azure Operator 5G Core release version and corresponding Kubernetes version](overview-product.md#compatibility)
+- [Networks created for network functions](#create-networks-for-network-functions)
 - Sizing (the number of worker nodes/VM sizes/flavors/subnet sizes)
 - Availability Zones
 - Federations installed
-- Appropriate roles and permissions in your Tenant to create the cluster and modify the Azure Virtual Machine Scale Sets.
+- Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.md) in your Tenant to create the cluster, modify the Azure Virtual Machine Scale Sets, and [add user defined routes](../virtual-network/virtual-networks-udr-overview.md) to Vnet in case you’re going to deploy UPF. Validation was done with Subscription level contributor access. However, access/ role requirements may change over time as code in Azure changes.
  
+
+## Create Networks for network functions
+
+For SMF/AMF specifically, you must have the following frontend VIP IPs:
+
+- N2 secondary and primary
+- S1, S6, S11, S10
+- N26 AMF and MME 
+
+Topolgy and quantity of Vnets and Subnets may differ based on your custom requirements. Refer to [this article](../virtual-network/quick-create-portal.md) for additional information. 
+
+A reference deployment of Azure Operator 5G Core, per cluster, has one vnet and three constiuent subnets, all part of the same vnet.
+
+- One for aks itself – a /24
+- One for the VIPs that aks creates – a /25
+- A util subnet that’s used to point to the dataplane ports - /26
+
+User defined routes (UDRs) are added to other vnets pointing to this vnet in order to point traffic to the cluster for dataplane and signaling traffic.
+
+> [!NOTE]
+> In a reference deployment, as more clusters are added, more subnets are added to the same vnet.
+
 ## Create the initial cluster
 
 1. Navigate and sign in to the [Azure portal](https://ms.portal.azure.com/).
@@ -72,6 +94,61 @@ To deploy on the Azure Kubernetes service, you must have the following configura
     1. Change the fields to **true** and select the green **Patch** button at the top of the screen.
     1. Return to the Azure portal. Navigate to the cluster resource in the original resource group and scale it up to the desired number of workers.
     
+## Modify SMF or AMF network function 
+
+For the VIP IP’s for AMF from the previous section, depending on your network topology, create a single or multiple Azure LoadBalancer(s) of type **Microsoft.Network/loadBalancers** standard SKU, Regional.
+
+Frontend IP configuration for this LoadBalancer should come based on the ip configuration from the input requirements.
+
+### Backend LoadBalancer rules
+
+The backend of this loadbalancer should point to the dataplane ports you created for the requiste networks you created. For instance, if you have a dataplane port for n26 interface specifically, attach the loadbalancer backend address pool to that n26 dataplane nic port. For example:
+
+```
+"frontendPort": 0,
+"backendPort": 0,
+"enableFloatingIP": true,
+"idleTimeoutInMinutes": 4,
+"protocol": "All",
+"enableTcpReset": false,
+"loadDistribution": "SourceIP",
+"disableOutboundSnat": true,
+```
+## Health Probes
+
+For health probes, use the following settings:
+ 
+```
+Protocol: TCP, intervalInSeconds: 5, numberOfProbes: 1, probeThreshold: 1, ProbePort: 30100.
+```
+
+## Create a Network Function Service server 
+
+AO5GC requires NFS storage. Follow [these instructions](../storage/files/storage-files-quick-create-use-linux.md) to create this storage.
+
+```azurecli
+$RG_NAME – The name of your resource group
+$STORAGEACCOUNT-NAME – A unique name for this storage account
+$VNET_NAME – The name of your private vnet
+$CONNECTION_NAME – A unique name for this private connection
+$SUBNET_NAME – The name of your subnet that’s used to connect to your AKS
+$STORAGE_RESOURCE – A unique name for this storage resource
+
+# Create Storage Account
+$ az storage account create --resource-group $RG_NAME --name $STORAGEACCOUNT_NAME --location $AZURE_REGION --sku Premium_LRS --kind FileStorage
+
+# Disable secure transfer
+$ az storage account update -g $RG_NAME -n $STORAGEACCOUNT_NAME--https-only false
+
+# Disable subnet polices
+$ az network vnet subnet update --name $SUBNET_NAME --resource-group $RG_NAME --vnet-name $VNET_NAME --disable-private-endpoint-network-policies true
+
+# Create private endpoint for NFS mount
+$ az network private-endpoint create --resource-group $RG_NAME --name $PRIVATE_ENDPOINT_NAME –location $LOCATION --subnet $SUBNET_NAME--vnet-name $VNETNAME --private-connection-resource-id $STORAGE_RESOURCE
+
+--group-id "file" --connection-name snet1-cnct
+```
+
 ## Next steps
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).

@@ -42,6 +42,7 @@ items:
   - name: Deployment order for clusters, network functions and observability
     href: concept-deployment-order.md
   - name: Observability and analytics
+  - name: Observability and analytics
     href: concept-observability-analytics.md
 - name: How-to guides
   items:
