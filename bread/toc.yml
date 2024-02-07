@@ -261,9 +261,6 @@ items:
       - name: Azure Certified Device
         tocHref: /azure/certification/
         topicHref: /azure/certification/
-      - name: Industrial IoT
-        tocHref: /azure/industrial-iot/
-        topicHref: /azure/industrial-iot/index
       - name: IoT Operations
         tocHref: /azure/iot-operations/
         topicHref: /azure/iot-operations/index
