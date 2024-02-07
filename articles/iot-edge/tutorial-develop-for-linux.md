@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/23/2024
+ms.date: 02/05/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -1064,7 +1064,6 @@ Currently, the *iotedgedev* tool template targets .NET 7.0. If you want to targe
     <ItemGroup>
         <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.42.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-        <PackageReference Include="Microsoft.NET.Build.Containers" Version="8.0.101" />
     </ItemGroup>
 </Project>
 ```

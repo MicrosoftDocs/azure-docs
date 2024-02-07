@@ -11,7 +11,6 @@ author: blazem-msft
 ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
-ms.custom: "seo-lt-2019"
 ---
 # Enable Transparent Data Encryption (TDE) for Stretch Database on Azure (Transact-SQL)
 > [!div class="op_single_selector"]

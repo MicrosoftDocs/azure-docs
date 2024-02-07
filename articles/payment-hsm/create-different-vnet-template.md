@@ -411,7 +411,7 @@ $mgmtSubnetPrefix = "10.1.0.0/24"
 Finally, use the Azure PowerShell [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet to deploy your ARM template.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $templateParametersPath -resourceName $resourceName -skuName $skuName -stampId $stampId -vnetName $hostVnetName -vnetAddressPrefix $hostVnetAddressPrefix -hsmSubnetName $hostSubnetName -hsmSubnetPrefix $hostSubnetPrefix -managementVnetName $mgmtVnetName -managementVnetAddressPrefix $mgmtVnetAddressPrefix -managementHsmSubnetName $mgmtSubnetName  -managementHsmSubnetPrefix $mgmtSubnetPrefix
+New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $templateParametersPath -resourceName $resourceName -skuName $skuName -stampId $stampId -vnetName $hostVnetName -vnetAddressPrefix $hostVnetAddressPrefix -hsmSubnetName $hostSubnetName -hsmSubnetPrefix $hostSubnetPrefix -managementVnetName $mgmtVnetName -managementVnetAddressPrefix $mgmtVnetAddressPrefix -managementHsmSubnetName $mgmtSubnetName  -managementHsmSubnetPrefix $mgmtSubnetPrefix
 ```
 
 ---

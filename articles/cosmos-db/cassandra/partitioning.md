@@ -5,7 +5,6 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/03/2021
 ---
