@@ -40,7 +40,7 @@ items:
   items:
   - name: Release notes
     href: ./release-notes/hdinsight-aks-release-notes.md
-  - name: Archived release notes for Azure HDInsight on AKS
+  - name: Archived release notes
     href: ./release-notes/hdinsight-aks-release-notes-archive.md
 - name: Get started
   items:
