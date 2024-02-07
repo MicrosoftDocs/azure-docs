@@ -527,7 +527,7 @@ public class ExampleService {
 
 
     // Get the first user-assigned managed identity ID to connect to shared storage
-    let clientIDstorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
+    let clientIdStorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
     
     // First blob storage client that using a managed identity
     let blobServiceClient = new BlobServiceClient(
