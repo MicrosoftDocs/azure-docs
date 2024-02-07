@@ -16,7 +16,7 @@ This page contains a series of steps to get a new device Edge Secured-core certi
 Create a [Microsoft Partner Center account](https://partner.microsoft.com/dashboard/account/exp/enrollment/welcome?cloudInstance=Global&accountProgram=Reseller)
 
 ## Certification steps
-1. Review [Edge Secured-core certification requirements](program-requirements-edge-secured-core).
+1. Review [Edge Secured-core certification requirements](program-requirements-edge-secured-core.md).
 2. Submit a [form](https://forms.office.com/r/HSAtk0Ghru) to express interest in getting your device(s) certified.
 3. Microsoft will reach out to you on next steps and provide instructions for validating that your device meets the program's requirements.
 4. Once your device validation is completed based on the instructions provided,  share the results with Microsoft.
