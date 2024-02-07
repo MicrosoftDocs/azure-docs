@@ -37,10 +37,10 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select the **Universal Windows Platform settings** tab.
 1. Expand the **Publishing Settings**.
 1. In **Supported Device Families**, make sure **Desktop** is checked.
-    ![player settings desktop support Unity 2020](./media/unity-2020-enable-desktop-support.png)
+    ![A screenshot showing the Project settings in the Player menu, highlighting the enabled checkbox for 'Desktop' in the 'Supported Device Families' list under the 'Universal Windows Platform' tab in Unity 2020](./media/unity-2020-enable-desktop-support.png)
 1. Expand the **XR Settings**.
 1. Disable **Virtual Reality Supported**.\
-    ![player settings virtual reality support Unity 2020](./media/unity-2020-disable-xr.png)
+    ![A screenshot showing the Project settings in the Player menu, highlighting the disabled checkbox for 'Virtual Reality Support' in the 'XR Settings' under the 'Universal Windows Platform' tab in Unity 2020](./media/unity-2020-disable-xr.png)
 
 # [Unity 2021+](#tab/Unity2021PlusSettings)
 
@@ -49,11 +49,11 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Select the **Universal Windows Platform settings** tab.
 1. Expand the **Publishing Settings**.
 1. In **Supported Device Families**, make sure **Desktop** is checked.
-    ![player settings desktop support Unity 2021 and later](./media/unity-2021-enable-desktop-support.png)
+    ![A screenshot showing the Project settings in the Player menu, highlighting the enabled checkbox for Desktop in the Supported Device Families list under the Universal Windows Platform tab in Unity 2021 and later](./media/unity-2021-enable-desktop-support.png)
 1. Select **XR Plugin Management** in the menu to the left.
 1. Select the **Universal Windows Platform settings** tab.
 1. Disable **OpenXR**.\
-    ![player settings enable OpenXR Unity 2021 and later](./media/unity-2021-disable-xr.png)
+    ![A screenshot showing the Project settings in the Player menu, highlighting the disabled checkbox for 'Virtual Reality Support' in the 'XR Settings' under the 'Universal Windows Platform' tab in Unity 2021 and later](./media/unity-2021-disable-xr.png)
 
 ---
 
@@ -66,7 +66,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Set *Target Device* to **PC**.
 1. Set *Architecture* to **x86**.
 1. Set *Build Type* to **D3D Project**.\
-  ![Build settings Unity 2020](./media/unity-2020-build-settings-pc.png)
+  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button, and the settings 'Target Device' being 'PC', 'Architecture' being 'x86' and 'Build Type' being 'D3D Project' in Unity 2020.](./media/unity-2020-build-settings-pc.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
@@ -76,7 +76,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Change *Platform* to **Universal Windows Platform** (**PC Standalone** is also supported but not used here).
 1. Set *Architecture* to **Intel 32-bit**.
 1. Set *Build Type* to **D3D Project**.\
-  ![Build settings Unity 2021 and later](./media/unity-2021-build-settings-pc.png)
+  ![A screenshot showing the Build Menu, highlighting the chosen platform of 'Universal Windows Platform', the 'Switch Platform' button, and the settings 'Architecture' being 'Intel 32-bit' and 'Build Type' being 'D3D Project' in Unity 2021 and later.](./media/unity-2021-build-settings-pc.png)
 1. Select **Switch to Platform**.
 1. When pressing **Build** (or 'Build And Run'), you're asked to select some folder where the solution should be stored.
 
@@ -87,7 +87,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Open the generated **Quickstart.sln** with Visual Studio.
 1. Change the configuration to **Release** and **x86**.
 1. Switch the debugger mode to **Local Machine**.\
-  ![Solution configuration](./media/unity-deploy-config-pc.png)
+  ![A screenshot showing the Visual Studio and highlighting the 'Solution Configurations' being Release, the 'Solution Platforms' being 'x86' and the 'Debugger mode' being 'Local Machine'.](./media/unity-deploy-config-pc.png)
 1. Build the solution.
 
 ## Launch the sample project
