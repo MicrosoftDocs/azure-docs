@@ -246,7 +246,7 @@ import { BlobServiceClient } from "@azure/storage-blob";
 import { KeyClient  } from "@azure/keyvault-keys";
 ```
 
-In the `index.js` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
+In the `index.js` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding SDK classes.
 
 ```javascript
 
@@ -546,13 +546,13 @@ public class ExampleService {
     );
     
     // Get the second user-assigned managed identity ID to connect to shared databases
-    let clientIDdatabases = process.env.MANAGED_IDENTITY_CLIENT_ID_DATABASES;
+    let clientIdDatabases = process.env.MANAGED_IDENTITY_CLIENT_ID_DATABASES;
     
     // Create an Azure Cosmos DB client
     let client = new CosmosClient({
       endpoint: process.env["COSMOS_ENDPOINT"],
       credential: new DefaultAzureCredential({
-        managedIdentityClientId: clientIDdatabases
+        managedIdentityClientId: clientIdDatabases
       })
     });
     
