@@ -30,7 +30,7 @@ In this tutorial:
 
 ## Install Notation CLI and AKV plugin
 
-1. Install Notation version `v1.1.0` on a Linux amd64 environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/).
+1. Install Notation v1.1.0 on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
@@ -41,7 +41,7 @@ In this tutorial:
     cp ./notation /usr/local/bin
     ```
 
-2. Install the Notation Azure Key Vault plugin named `azure-kv` version `v1.0.2` on a Linux amd64 environment.
+2. Install the Notation Azure Key Vault plugin `azure-kv` v1.0.2 on a Linux amd64 environment.
 
     > [!NOTE]
     > The URL and SHA256 checksum for the Notation Azure Key Vault plugin can be found on the plugin's [release page](https://github.com/Azure/notation-azure-kv/releases).
@@ -50,7 +50,7 @@ In this tutorial:
     notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.0.2/notation-azure-kv_1.0.2_linux_amd64.tar.gz --sha256sum f2b2e131a435b6a9742c202237b9aceda81859e6d4bd6242c2568ba556cee20e
     ```
 
-3. List the available plugins and confirm that the `azure-kv` plugin with version `v1.0.2` is included in the list. 
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.0.2` is included in the list. 
 
     ```bash
     notation plugin ls
