@@ -96,7 +96,7 @@ Understanding the types of traffic, the endpoints, and the ports communicated ov
 
 ## Next step
 
-To learn about the other diagnostic features of Network Watcher, see:
+To learn about the other network diagnostic tools of Network Watcher, see:
 
 > [!div class="nextstepaction"]
 > [Network Watcher diagnostic tools](network-watcher-overview.md#network-diagnostic-tools)
