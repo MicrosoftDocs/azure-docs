@@ -161,7 +161,7 @@ sections:
       - question: |
           Does the API for NoSQL support SQL?
         answer: |
-          The SQL query language supported by API for NoSQL accounts is an enhanced subset of the query functionality that's supported by SQL Server. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see [NoSQL Query](nosql/query) article.
+          The SQL query language supported by API for NoSQL accounts is an enhanced subset of the query functionality that's supported by SQL Server. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see [NoSQL Query](nosql/query/index.yml).
       - question: |
           Does the API for NoSQL support SQL aggregation functions?
         answer: |
