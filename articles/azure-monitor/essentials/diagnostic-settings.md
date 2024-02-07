@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.custom:
-ms.date: 10/19/2023
+ms.date: 02/06/2023
 ms.reviewer: lualderm
 ---
 
@@ -66,7 +66,7 @@ When you use category groups, you:
 Currently, there are two category groups:
 
 - **All**: Every resource log offered by the resource.
-- **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
+- **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective depending on your use case. As mentioned above, what's collected is dynamic, and Microsoft may change it over time as new resource log categories become available.
 
 The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.  
 

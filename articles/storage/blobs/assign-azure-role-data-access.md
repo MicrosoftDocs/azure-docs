@@ -83,31 +83,31 @@ To assign a role scoped to a blob container or a storage account, you should spe
 The scope for a container is in the form:
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
+/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>/blobServices/default/containers/<container-name>
 ```
 
 The scope for a storage account is in the form:
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
 ```
 
 To assign a role scoped to a storage account, specify a string containing the scope of the container for the `--scope` parameter.
 
-The following example assigns the **Storage Blob Data Contributor** role to a user, scoped to a container named *sample-container*. Make sure to replace the sample values and the placeholder values in brackets with your own values:
+The following example assigns the **Storage Blob Data Contributor** role to a user. The role assignment is scoped to level of the container. Make sure to replace the sample values and the placeholder values in brackets (`<>`) with your own values:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
     -RoleDefinitionName "Storage Blob Data Contributor" `
-    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
+    -Scope  "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>/blobServices/default/containers/<container-name>"
 ```
 
-The following example assigns the **Storage Blob Data Reader** role to a user by specifying the object ID. The role assignment is scoped to a storage account named **storage-account**. Make sure to replace the sample values and the placeholder values in brackets with your own values: 
+The following example assigns the **Storage Blob Data Reader** role to a user by specifying the object ID. The role assignment is scoped to the level of the storage account. Make sure to replace the sample values and the placeholder values in brackets (`<>`) with your own values: 
 
 ```powershell
 New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
     -RoleDefinitionName "Storage Blob Data Reader" `
-    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storage-account"
+    -Scope  "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
 ```
 
 Your output should be similar to the following:
@@ -133,16 +133,16 @@ To assign an Azure role to a security principal with Azure CLI, use the [az role
 To assign a role scoped to a container, specify a string containing the scope of the container for the `--scope` parameter. The scope for a container is in the form:
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
+/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>/blobServices/default/containers/<container-name>
 ```
 
-The following example assigns the **Storage Blob Data Contributor** role to a user, scoped to the level of the container. Make sure to replace the sample values and the placeholder values in brackets with your own values:
+The following example assigns the **Storage Blob Data Contributor** role to a user. The role assignment is scoped to the level of the container. Make sure to replace the sample values and the placeholder values in brackets (`<>`) with your own values:
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>"
+    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>/blobServices/default/containers/<container-name>"
 ```
 
 For information about assigning roles with PowerShell at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).

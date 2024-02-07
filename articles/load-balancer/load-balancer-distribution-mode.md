@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: seodec18, template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli
 ms.workload: infrastructure-services
 ms.date: 01/22/2024
 ms.author: mbender

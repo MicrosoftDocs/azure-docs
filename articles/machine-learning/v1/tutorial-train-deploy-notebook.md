@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Train and deploy an example in Jupyter Notebook"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train and deploy an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook. 
+description: Use Azure Machine Learning to train and deploy an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 09/14/2022
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, sdkv1, devx-track-python
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 

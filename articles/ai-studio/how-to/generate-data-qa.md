@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/6/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -124,7 +124,7 @@ print(f"Tokens used: {result['token_usage']}")
 
 ## Using the generated data in prompt flow
 
-One of the features of prompt flow is the ability to test and evaluate your flows on batch of inputs. This approach is useful for checking the quality and performance of your flows before deploying them. To use this feature, you need to provide the data in a specific (.jsonl) format that prompt flow can understand. We prepare this data from the questions and answers that we have generated in [Generate data from text](#generate-data-from-text) step. We use this data for batch run and flow evaluation.
+One of the features of [prompt flow](./prompt-flow.md) is the ability to test and [evaluate your flows](./evaluate-flow-results.md) with a batch of inputs. This approach is useful for checking the quality and performance of your flows before deploying them. To use this feature, you need to provide the data in a specific (.jsonl) format that prompt flow can understand. Now prepare this data from the questions and answers that we generated in [Generate data from text](#generate-data-from-text) step. We use this data for batch run and flow evaluation.
 
 ### Format and save the generated data
 
@@ -156,7 +156,7 @@ data_df.to_json(output_file, lines=True, orient="records")
 
 ### Use the data for evaluation
 
-To use the "generated_qa.jsonl" file for evaluation, you need to add this file as data to your evaluation flow. Go to a flow in Azure AI Studio and select **Evaluate**.
+To use the `generated_qa.jsonl` file for evaluation, you need to add this file as data to your evaluation flow. Go to a flow in Azure AI Studio and select **Evaluate**.
 
 1. Enter details in **Basic Settings**
 2. Select **Add new data** from **Batch run settings**.

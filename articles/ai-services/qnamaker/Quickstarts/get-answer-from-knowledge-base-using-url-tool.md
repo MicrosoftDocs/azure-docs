@@ -11,7 +11,6 @@ ms.subservice: azure-ai-qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: how-to
 ms.date: 01/19/2024
-ms.custom: ignite-fall-2021
 ---
 
 # Get an answer from a QNA Maker knowledge base
