@@ -23,7 +23,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
 - Sizing (the number of worker nodes/VM sizes/flavors/subnet sizes)
 - Availability Zones
 - Federations installed
-- Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.md) in your Tenant to create the cluster, modify the Azure Virtual Machine Scale Sets, and [add user defined routes](../virtual-network/virtual-networks-udr-overview.md) to Vnet in case you’re going to deploy UPF. Validation was done with Subscription level contributor access. However, access/ role requirements may change over time as code in Azure changes.
+- Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.md) in your Tenant to create the cluster, modify the Azure Virtual Machine Scale Sets, and [add user defined routes](../virtual-network/virtual-networks-udr-overview.md) to virtual network in case you’re going to deploy UPF. Validation was done with Subscription level contributor access. However, access/ role requirements can change over time as code in Azure changes.
  
 
 ## Create Networks for network functions
@@ -34,15 +34,15 @@ For SMF/AMF specifically, you must have the following frontend VIP IPs:
 - S1, S6, S11, S10
 - N26 AMF and MME 
 
-Topolgy and quantity of Vnets and Subnets may differ based on your custom requirements. Refer to [this article](../virtual-network/quick-create-portal.md) for additional information. 
+Topology and quantity of Vnets and Subnets can differ based on your custom requirements. For more information, see Quickstart: Use the Azure portal to create a virtual network [this article](../virtual-network/quick-create-portal.md). 
 
-A reference deployment of Azure Operator 5G Core, per cluster, has one vnet and three constiuent subnets, all part of the same vnet.
+A reference deployment of Azure Operator 5G Core, per cluster, has one virtual network and three constituent subnets, all part of the same virtual network.
 
-- One for aks itself – a /24
-- One for the VIPs that aks creates – a /25
-- A util subnet that’s used to point to the dataplane ports - /26
+- One for Advanced Kubernetes Services itself – a /24
+- One for the VIPs that the Advanced Kubernetes Services creates – a /25
+- A utility subnet that points to the data plane ports - /26
 
-User defined routes (UDRs) are added to other vnets pointing to this vnet in order to point traffic to the cluster for dataplane and signaling traffic.
+User defined routes (UDRs) are added to other virtual networks that point to this virtual network. Traffic is then pointed to the cluster for data plane and signaling traffic.
 
 > [!NOTE]
 > In a reference deployment, as more clusters are added, more subnets are added to the same vnet.
@@ -96,13 +96,13 @@ User defined routes (UDRs) are added to other vnets pointing to this vnet in ord
     
 ## Modify SMF or AMF network function 
 
-For the VIP IP’s for AMF from the previous section, depending on your network topology, create a single or multiple Azure LoadBalancer(s) of type **Microsoft.Network/loadBalancers** standard SKU, Regional.
+For the VIP IPs for AMF from the previous section, depending on your network topology, create a single or multiple Azure LoadBalancer(s) of type **Microsoft.Network/loadBalancers** standard SKU, Regional.
 
 Frontend IP configuration for this LoadBalancer should come based on the ip configuration from the input requirements.
 
 ### Backend LoadBalancer rules
 
-The backend of this loadbalancer should point to the dataplane ports you created for the requiste networks you created. For instance, if you have a dataplane port for n26 interface specifically, attach the loadbalancer backend address pool to that n26 dataplane nic port. For example:
+The backend of this load balancer should point to the data plane ports you created for the requisite networks you created. For instance, if you have a data plane port for n26 interface specifically, attach the load balancer backend address pool to that n26 data plane nic port. For example:
 
 ```
 "frontendPort": 0,
