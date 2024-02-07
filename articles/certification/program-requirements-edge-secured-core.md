@@ -211,19 +211,20 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Status|Required|
 |Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals. Memory regions for peripherals must be gated with hardware/firmware such as memory region domain controllers or SMMU (System Memory Management Unit).|
 
+---
 </br>
 
----
+
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that the device has adequate mitigations from Firmware security threats through one of the following approaches: 
-- Approved firmware that does SRTM + runtime firmware hardening
-- Firmware scanning and evaluation by approved Microsoft third party
-|Resources| https://trustedcomputinggroup.org/ |
+|Description|The purpose of the requirement is to ensure that the device has adequate mitigations from Firmware security threats through one of the following approaches: <ul><li>Approved firmware that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul>|
+|Resources| [Trusted Computing Group](https://trustedcomputinggroup.org/) |
 
 ---
 </br>
+
+
 
 |Name|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
@@ -297,8 +298,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure.
-Note: Use of other system management toolchains (for example, Ansible, etc.) by operators are not prohibited, but the device must include the azure-osconfig agent such that it's ready to be managed from Azure.|
+|Description|The purpose of the requirement is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (for example, Ansible, etc.) by operators are not prohibited, but the device must include the azure-osconfig agent such that it's ready to be managed from Azure.|
 |Dependency|azure-osconfig|
 
 ---
@@ -351,7 +351,7 @@ Note: Use of other system management toolchains (for example, Ansible, etc.) by 
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate the device against thea bility to perform a reset (remove user data, remove user configs).|
+|Description|The purpose of this requirement is to validate the device against the ability to perform a reset (remove user data, remove user configs).|
 
 ---
 </br>
