@@ -242,3 +242,147 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 ---
 
 ## Retrieve message file
+
+```http
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files/{file_id}?api-version=2024-02-15-preview
+```
+
+Retrieves a message file.
+
+**Path parameters**
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+|`thread_id` | string | Required | The ID of the thread which the message and file belongs to. |
+|`message_id`| string | Required | The ID of the message that the file belongs to. |
+|`file_id` | string | Required | The ID of the file being retrieved. |
+
+**Returns**
+
+The message file object.
+
+### Example retrieve message file request
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+message_files = client.beta.threads.messages.files.retrieve(
+    thread_id="thread_abc123",
+    message_id="msg_abc123",
+    file_id="assistant-abc123"
+)
+print(message_files)
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files/{file_id}?api-version=2024-02-15-preview
+``` \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' 
+```
+
+---
+
+## Modify message
+
+```http
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-02-15-preview
+```
+
+Modifies a message.
+
+**Path parameters**
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+|`thread_id` | string | Required | The ID of the thread to which the message belongs. |
+|`message_id`| string | Required | The ID of the message to modify. |
+
+**Request body**
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+| metadata | map| Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.|
+
+### Returns
+
+The modified message object.
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_version="2024-02-15-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+message = client.beta.threads.messages.update(
+  message_id="msg_abc12",
+  thread_id="thread_abc123",
+  metadata={
+    "modified": "true",
+    "user": "abc123",
+  },
+)
+print(message)
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-02-15-preview
+``` \
+  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+      "metadata": {
+        "modified": "true",
+        "user": "abc123"
+      }
+    }'  
+   
+```
+
+---
+
+## Message object
+
+Represents a message within a thread.
+
+|Name | Type | Description |
+|---  |---   |---         |
+| `id` | string  |The identifier, which can be referenced in API endpoints.|
+| `object` | string  |The object type, which is always thread.message.|
+| `created_at` | integer  |The Unix timestamp (in seconds) for when the message was created.|
+| `thread_id` | string  |The thread ID that this message belongs to.|
+| `role` | string  |The entity that produced the message. One of user or assistant.|
+| `content` | array  |The content of the message in array of text and/or images.|
+| `assistant_id` | string or null  |If applicable, the ID of the assistant that authored this message.|
+| `run_id` | string or null  |If applicable, the ID of the run associated with the authoring of this message.|
+| `file_ids` | array  |A list of file IDs that the assistant should use. Useful for tools like retrieval and code_interpreter that can access files. A maximum of 10 files can be attached to a message.|
+| `metadata` | map  |Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.|
+
+## Message file object
+
+A list of files attached to a `message`
+
+|Name | Type | Description |
+|---  |---   |---         |
+| `id`| string | The identifier, which can be referenced in API endpoints.|
+|`object`|string| The object type, which is always `thread.message.file`.|
+|`created_at`|integer | The Unix timestamp (in seconds) for when the message file was created.|
+|`message_id`| string | The ID of the message that the File is attached to.|
+
