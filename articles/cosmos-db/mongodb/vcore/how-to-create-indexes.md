@@ -23,7 +23,7 @@ The `CreateIndexes` Command in Azure Cosmos DB for MongoDB vCore has been enhanc
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md).
 
-## New Feature: Blocking Option
+## Blocking Option
 
 The `CreateIndexes` Command now includes a `{ "blocking": true }` option, designed to provide more control over the indexing process in specific scenarios.
 
