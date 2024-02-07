@@ -8,11 +8,11 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 02/06/2024
 ms.author: lajanuar
 ---
 
-<!-- markdownlint-disable DOCSMD006 -->
+<!-- markdownlint-disable DOCSMD006 -->
 
 # Document Intelligence layout model
 
@@ -46,14 +46,6 @@ Document structure layout analysis is the process of analyzing a document to ext
 The following illustration shows the typical components in an image of a sample page.
 
   :::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
-
-::: moniker range=">=doc-intel-3.0.0"
-
-  ***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
-
-  :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
-
-::: moniker-end
 
 ## Development options
 
@@ -109,7 +101,7 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 ::: moniker-end
 
-### Layout model data extraction
+### Get started with Layout model
 
 See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Document Intelligence. You need the following resources:
 
@@ -120,8 +112,6 @@ See how data, including text, tables, table headers, selection marks, and struct
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ::: moniker range=">=doc-intel-3.0.0"
-
-## Document Intelligence Studio
 
 > [!NOTE]
 > Document Intelligence Studio is available with v3.0 APIs and later versions.
@@ -193,6 +183,42 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
+### Pages
+
+The pages collection is the first object you see in the service response. The page units in the model output are computed as shown:
+
+ **File format**   | **Computed page unit**   | **Total pages**  |
+| --- | --- | --- |
+|Images (JPEG/JPG, PNG, BMP, HEIF) | Each image = 1 page unit | Total images  |
+|PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
+|TIFF | Each image in the TIFF = 1 page unit | Total images in the PDF |
+|Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+|Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets | 
+|PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides | 
+|HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": [],
+        "kind": "document"
+    }
+]
+```
+### Extract selected page(s) from documents
+
+For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
+
+> [!NOTE]
+> For the Microsoft Word and HTML file support, the API ignores the pages parameter and extracts all pages by default.
+
 ### Paragraphs
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
@@ -212,14 +238,14 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
-| **Predicted role**   | **Description**   |
-| --- | --- |
-| `title`  | The main heading(s) in the page |
-| `sectionHeading`  | One or more subheading(s) on the page  |
-| `footnote`  | Text near the bottom of the page  |
-| `pageHeader`  | Text near the top edge of the page  |
-| `pageFooter`  | Text near the bottom edge of the page  |
-| `pageNumber`  | Page number  |
+| **Predicted role**   | **Description**   | **Supported file types** | 
+| --- | --- | --- |
+| `title`  | The main heading(s) in the page | pdf, image, docx, pptx, xlsx, html |
+| `sectionHeading`  | One or more subheading(s) on the page  | pdf, image, docx, xlsx, html |
+| `footnote`  | Text near the bottom of the page  | pdf, image |
+| `pageHeader`  | Text near the top edge of the page  | pdf, image, docx |
+| `pageFooter`  | Text near the bottom edge of the page  | pdf, image, docx, pptx, html |
+| `pageNumber`  | Page number  | pdf, image |
 
 ```json
 {
@@ -239,26 +265,6 @@ The new machine-learning based page object detection extracts logical roles like
     ]
 }
 
-```
-
-### Pages
-
-The pages collection is the first object you see in the service response.
-
-```json
-"pages": [
-    {
-        "pageNumber": 1,
-        "angle": 0,
-        "width": 915,
-        "height": 1190,
-        "unit": "pixel",
-        "words": [],
-        "lines": [],
-        "spans": [],
-        "kind": "document"
-    }
-]
 ```
 
 ### Text lines and words
@@ -285,7 +291,7 @@ The document layout model in Document Intelligence extracts print and handwritte
 
 ### Selection marks
 
-The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
+The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). The text representation (i.e., `:selected:` and `:unselected`) is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
 
 ```json
 {
@@ -306,6 +312,9 @@ The Layout model also extracts selection marks from documents. Extracted selecti
 ### Tables
 
 Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether the area is recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
+
+> [!NOTE]
+> Table is not supported if the input file is XLSX.
 
 ```json
 {
@@ -347,10 +356,6 @@ The response includes classifying whether each text line is of handwriting style
     ]
 }
 ```
-
-### Extract selected page(s) from documents
-
-For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
 ::: moniker-end
 

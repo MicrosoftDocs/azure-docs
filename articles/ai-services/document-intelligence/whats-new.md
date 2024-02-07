@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
-ms.date: 01/19/2024
+ms.date: 02/06/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -582,7 +582,7 @@ The v3.1 API introduces new and updated capabilities:
   * [**Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
   * [**Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
   * [**Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md).
-  * [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [Microsoft Office and HTML text extraction](concept-read.md#microsoft-office-and-html-text-extraction).
+  * [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx), Excel (xlsx) and PowerPoint (pptx) are now supported with the Read API. See [Read data extraction](concept-read.md#data-extraction).
 
 ---
 
