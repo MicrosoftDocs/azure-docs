@@ -20,7 +20,7 @@ The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Pass
 
 For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](configure.md#ubuntu-hpc-vm-images) and [AlmaLinux-HPC VM images](configure.md#almalinux-hpc-vm-images) are suitable. These VM images come optimized and pre-loaded with the OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages and are the easiest way to get started.
 
-Though the examples here are for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (16.04, 18.04 19.04, 20.04) and SLES (12 SP4 and 15). More examples for setting up other MPI implementations on others distros is on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mpis.sh).
+Though the examples here are for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (18.04, 20.04, 22.04) and SLES (12 SP4 and 15 SP4). More examples for setting up other MPI implementations on others distros is on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mpis.sh).
 
 > [!NOTE]
 > Running MPI jobs on SR-IOV enabled VMs with certain MPI libraries (such as Platform MPI) may require setting up of partition keys (p-keys) across a tenant for isolation and security. Follow the steps in the [Discover partition keys](#discover-partition-keys) section for details on determining the p-key values and setting them correctly for an MPI job with that MPI library.
