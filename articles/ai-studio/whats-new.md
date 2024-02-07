@@ -1,7 +1,7 @@
 ---
-title: What is AI Studio?
+title: What's new in Azure AI Studio?
 titleSuffix: Azure AI Studio
-description: Azure AI Studio brings together capabilities from across multiple Azure AI services. You can build generative AI applications on an enterprise-grade platform.
+description: This article provides you with information about new releases and features.
 manager: nitinme
 keywords: Release notes
 ms.service: azure-ai-studio
