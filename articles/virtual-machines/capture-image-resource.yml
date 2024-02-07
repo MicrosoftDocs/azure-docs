@@ -253,6 +253,7 @@ procedureSection:
         ```azurepowershell-interactive
         Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
         ```
+
       - |
         Mark the VM as generalized.
 
