@@ -71,9 +71,9 @@ Benefits of using Microsoft Entra ID include:
 
 ### Manage PostgreSQL access for Microsoft Entra ID principals
 
-When Microsoft Entra ID authentication is enabled and Microsoft Entra ID principal is added as a Microsoft Entra ID administrator, the account gets the same privileges as [the `citus` role](#the-citus-role). The Microsoft Entra ID administrator sign-in can be a Microsoft Entra ID user, Service Principal or Managed Identity. Multiple Microsoft Entra ID administrators can be configured at any time and you can optionally disable PostgreSQL (password) authentication to the Azure Cosmos DB for PostgreSQL cluster for better auditing and compliance needs.
+When Microsoft Entra ID authentication is enabled and Microsoft Entra ID principal is added as a Microsoft Entra ID administrator, the account gets the same privileges as [the `citus` role](#the-citus-role). The Microsoft Entra ID administrator sign-in can be a Microsoft Entra ID user, Service Principal, or Managed Identity. Multiple Microsoft Entra ID administrators can be configured at any time and you can optionally disable PostgreSQL (password) authentication to the Azure Cosmos DB for PostgreSQL cluster for better auditing and compliance needs.
 
-Additionally, any number of non-admin Microsoft Entra ID roles can be added to a cluster at any time once Microsoft Entra ID authentication is enabled. Database permissions for non-admin Microsoft Entra ID roles are managed similar to regular roles.
+Additionally, any number of nonadmin Microsoft Entra ID roles can be added to a cluster at any time once Microsoft Entra ID authentication is enabled. Database permissions for nonadmin Microsoft Entra ID roles are managed similar to regular roles.
 
 <a name='connect-using-azure-ad-identities'></a>
 

@@ -102,7 +102,7 @@ az login
 
 The command opens a browser window to the Microsoft Entra ID authentication page. It requires you to give your Microsoft Entra ID user name and password.
 
-The user account name you use to authenticate (e.g. user@tenant.onmicrosoft.com) is the one the access token will be generated for in the next step.
+The user account name you use to authenticate (for example, user@tenant.onmicrosoft.com) is the one the access token will be generated for in the next step.
 
 <a name='retrieve-the-azure-ad-access-token'></a>
 
@@ -111,7 +111,7 @@ The user account name you use to authenticate (e.g. user@tenant.onmicrosoft.com)
 Use the Azure CLI to acquire an access token for the Microsoft Entra ID authenticated user to access Azure Cosmos for PostgreSQL. Here's an example:
 
 ```azurecli-interactive
-az account get-access-token --resource https://postgres.cosmos.azure.com
+az account get-access-token --resource https://token.postgres.cosmos.azure.com
 ```
 
 After authentication is successful, Microsoft Entra ID returns an access token for current Azure subscription:
