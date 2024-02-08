@@ -106,7 +106,7 @@ Because of a security vulnerability discovered in Windows Active Directory domai
 
 Essentially, Microsoft recommends that administrators enable LDAP signing along with channel binding. If the LDAP client supports channel binding tokens and LDAP signing, channel binding and signing are required, and registry options are set by the new Microsoft patch.
 
-Azure NetApp Files, by default, supports LDAP channel binding opportunistically, meaning LDAP channel binding is used when the client support it. If it doesn't support/send channel binding, communication is still allowed, and channel binding isn't enforced.
+Azure NetApp Files, by default, supports LDAP channel binding opportunistically, meaning LDAP channel binding is used when the client supports it. If it doesn't support/send channel binding, communication is still allowed, and channel binding isn't enforced.
 
 ### LDAP over SSL (port 636)
 
