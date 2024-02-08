@@ -5,7 +5,6 @@ services: virtual-machines
 author: yashar
 ms.service: azure-dedicated-host
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 06/05/2023
 ms.author: banders
 ms.reviewer: mattmcinnes
@@ -140,5 +139,3 @@ To learn more about Azure Reservations, see the following articles:
 - [Windows software costs not included with reservations](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
-
-

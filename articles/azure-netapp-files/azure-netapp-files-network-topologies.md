@@ -4,7 +4,6 @@ description: Describes guidelines that can help you design an effective network 
 services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/10/2023
 ms.author: ramakk

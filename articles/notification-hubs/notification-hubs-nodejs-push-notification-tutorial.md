@@ -7,7 +7,6 @@ author: sethmanheim
 manager: femila
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.devlang: javascript
 ms.topic: article
 ms.date: 08/23/2021

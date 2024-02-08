@@ -6,10 +6,9 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 03/28/2023
-ms.author: rolyon 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: rolyon
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
