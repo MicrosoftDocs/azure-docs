@@ -27,7 +27,7 @@ Get started with the Azure Cosmos DB for NoSQL client library for Node.js to que
 
 ## Prerequisites
 
-[!INCLUDE[Developer Quickstart prerequisites](includes/quickstart/dev-prereqs.md)]
+[!INCLUDE[Developer Quickstart prerequisites](../includes/dev-prereqs.md)]
 
 ## Setting up
 
