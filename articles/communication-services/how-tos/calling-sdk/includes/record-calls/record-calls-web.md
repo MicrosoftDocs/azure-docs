@@ -46,7 +46,7 @@ You can also get a list of recordings by using the `recordings` property of `cal
 const recordings = callRecordingApi.recordings;
 
 recordings.forEach(r => {
-    console.log("User: ${r.displayName}, State: ${r.state});
+    console.log("User: ${r.displayName}, State: ${r.state}");
 ```
 
 You can also subscribe to 'recordingsUpdated' and get a collection of updated recordings. This event is triggered whenever there is a recording update
@@ -60,7 +60,7 @@ const cloudRecordingsUpdatedHandler = (args: { added: SDK.RecordingInfo[], remov
 
                         console.log('Recording stopped by: ');
                         args.removed?.forEach(r => {
-                            console.log('User: ${r.displayName});
+                            console.log('User: ${r.displayName}');
                         });
                     };
 callRecordingApi.on('recordingsUpdated', cloudRecordingsUpdatedHandler );
