@@ -30,7 +30,7 @@ Use the following button to deploy on **Windows**:
 ::: zone pivot="platform-linux"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-a Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
+A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
 
 If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button opens the ARM template in the Azure portal.
 
@@ -41,7 +41,7 @@ Use the following button to deploy on **Linux**:
 ::: zone pivot="platform-windows-container"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A premium plan is needed to deploy a Windows container app. See the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing) for pricing details.
 
-a Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
+A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
 
 If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button opens the ARM template in the Azure portal.
 
@@ -70,12 +70,12 @@ This template contains several parameters that are predefined for your convenien
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
-| location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
-| sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
-| language   | string  | ".NET"                       | Programming language stack (.NET, php, node, html) |
-| helloWorld | boolean | False                        | True = Deploy "Hello World" app |
-| repoUrl    | string  | " "                          | External Git repo (optional) |
+| webAppName | string  | `webApp-**[<uniqueString>]` | [Web App name](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
+| location   | string  | `[resourceGroup().location]` | [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) |
+| sku        | string  | `F1`                         | Instance size (F1 = Free Tier) |
+| language   | string  | `.NET`                       | Programming language stack (.NET, php, node, html) |
+| helloWorld | boolean | `False`                        | True = Deploy "Hello World" app |
+| repoUrl    | string  | ` `                          | External Git repo (optional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-linux). It deploys an App Service plan and an App Service app on Linux. It's compatible with all supported programming languages on App Service.
@@ -91,11 +91,12 @@ This template contains several parameters that are predefined for your convenien
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
-| location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
-| sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
-| linuxFxVersion   | string  | "DOTNETCORE&#124;3.0        | "Programming language stack &#124; Version" |
-| repoUrl    | string  | " "                          | External Git repo (optional) |
+| webAppName | string  | `webApp-<uniqueString>` | App name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
+| appServicePlanName | string  | `webAppPlan-<uniqueString>` | App Service Plan name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
+| location   | string  | `[resourceGroup().location]` | [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)
+| sku        | string  | `F1`                         | Instance size (F1 = Free Tier) |
+| linuxFxVersion   | string  | `DOTNETCORE&#124;3.0`        | "Programming language stack &#124; Version" |
+| repoUrl    | string  | ` `                          | External Git repo (optional) |
 
 ---
 ::: zone-end
@@ -113,14 +114,16 @@ This template contains several parameters that are predefined for your convenien
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
-| appServicePlanName | string  | "webAppPlan-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App Service Plan name |
-| location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
-| skuTier        | string  | "P1v3"                         | Instance size ([View available SKUs](configure-custom-container.md?tabs=debian&pivots=container-windows#customize-container-memory)) |
-| appSettings | string  | "[{"name": "PORT","value": "8080"}]"                          | App Service listening port. Needs to be 8080. |
-| kind       | string  | "windows"                          | Operating System |
-| hyperv     | string  | "true"                          |  |
-| windowsFxVersion | string  | "DOCKER&#124;mcr.microsoft.com/dotnet/samples:aspnetapp"                          | Container image |
+| webAppName | string  | `webApp-<uniqueString>` | App name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
+| appServicePlanName | string  | `webAppPlan-<uniqueString>` | App Service Plan name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
+| location   | string  | `[resourceGroup().location]`| [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) |
+| skuTier        | string  | `P1v3`                         | Instance size ([View available SKUs](configure-custom-container.md?tabs=debian&pivots=container-windows#customize-container-memory)) |
+| appSettings | string  | `[{"name": "PORT","value": "8080"}]`"                          | App Service listening port. Needs to be 8080. |
+| kind       | string  | `windows`                          | Operating System |
+| hyperv     | string  | `true`                          | Isolation mode |
+| windowsFxVersion | string  | `DOCKER&#124;mcr.microsoft.com/dotnet/samples:aspnetapp`                          | Container image |
+
+
 
 ::: zone-end
 ## Deploy the template
