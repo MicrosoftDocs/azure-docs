@@ -26,11 +26,11 @@ Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki
 
 ## About encryption key management
 
-By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your subscription with your own keys called customer-managed keys (CMKs). CMKs offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 ## Customer-managed keys with Azure Key Vault
 
-There is also an option to manage your subscription with your own keys. Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+There is also an option to manage your subscription with your own keys. Customer-managed keys (CMKs), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
@@ -41,7 +41,7 @@ You must use Azure Key Vault to store your customer-managed keys. You can either
 There are some limitations when using the E0 tier with existing/previously created applications:
 
 * Migration to an E0 resource will be blocked. Users will only be able to migrate their apps to F0 resources. After you've migrated an existing resource to F0, you can create a new resource in the E0 tier.
-* Moving applications to or from an E0 resource will be blocked. A work around for this limitation is to export your existing application, and import it as an E0 resource.
+* Moving applications to or from an E0 resource will be blocked. A work-around for this limitation is to export your existing application, and import it as an E0 resource.
 * The Bing Spell check feature isn't supported.
 * Logging end-user traffic is disabled if your application is E0.
 * The Speech priming capability from the Azure AI Bot Service isn't supported for applications in the E0 tier. This feature is available via the Azure AI Bot Service, which doesn't support CMK.
