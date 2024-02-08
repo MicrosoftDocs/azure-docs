@@ -42,7 +42,7 @@ The following list presents the set of features that are currently available in 
 |                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
-| Mid-call scenarios    | Add one or more endpoints to an existing call (with custom context) | ✔️    | ✔️    |     ✔️         |    ✔️   |
+| Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Cancel adding an endpoint to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio using Text-to-Speech                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -53,11 +53,12 @@ The following list presents the set of features that are currently available in 
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Blind Transfer* a 1:1 call to another endpoint (with custom context) | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Blind Transfer* a participant from group call to another endpoint (with custom context) |  ✔️    | ✔️    |     ✔️         |   ✔️ |
+|                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Blind Transfer* a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
+|                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them.| ✔️    |  ✔️   |     ✔️         |    ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
