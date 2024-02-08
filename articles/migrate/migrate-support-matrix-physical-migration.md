@@ -53,7 +53,7 @@ Passthrough disks | Supported.
 NFS | NFS volumes mounted as volumes on the machines aren't replicated.
 ReiserFS | Not supported.
 iSCSI targets | Machines with iSCSI targets aren't supported for agentless migration.
-Multipath IO | Supported for Windows servers with Microsoft or vendor-specific Device-Specific Module (DSM) installed.
+Multipath IO | Supported for Windows servers with Microsoft or vendor-specific Device-Specific Module installed.
 Teamed NICs | Not supported.
 IPv6 | Not supported.
 PV drivers / XenServer tools | Not supported.
@@ -83,8 +83,8 @@ Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.
 BitLocker | Not supported. | Disable BitLocker before you enable replication for a machine.
 VM name | From 1 to 63 characters.<br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
-Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/> - Before migration enables Remote Desktop Protocol (RDP) on the on-premises VM. Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.<br/> For site-to-site virtual private network access, enable RDP and allow RDP in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks. Also check that the OS storage area network policy is set to **OnlineAll**. [Learn more](prepare-for-migration.md).
-Connect after migration-Linux | To connect to Azure VMs after migration by using Secure Shell (SSH):<br/> Before migration, on the on-premises machine, check that the SSH service is set to **Start** and that firewall rules allow an SSH connection.<br/> After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected. Also add a public IP address for the VM.
+Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/> - Before migration enables Remote Desktop Protocol (RDP) on the on-premises VM. Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.<br/> - For site-to-site virtual private network access, enable RDP and allow RDP in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks. Also check that the OS storage area network policy is set to **OnlineAll**. [Learn more](prepare-for-migration.md).
+Connect after migration-Linux | To connect to Azure VMs after migration by using Secure Shell (SSH):<br/> - Before migration, on the on-premises machine, check that the SSH service is set to **Start** and that firewall rules allow an SSH connection.<br/> - After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected. Also add a public IP address for the VM.
 
 ## Next steps
 

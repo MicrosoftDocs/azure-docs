@@ -46,12 +46,11 @@ Assessment | You can add up to 35,000 servers in a single group.<br/><br/> You c
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance by using a compressed Hyper-V VHD that you download from the portal or by using a [PowerShell script](deploy-appliance-script.md).
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance by using a compressed Hyper-V VHD that you download from the portal or by using a [PowerShell script](deploy-appliance-script.md). For more information:
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---hyper-v) for Hyper-V.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-
-In Azure Government, you must deploy the appliance [by using the script](deploy-appliance-script-government.md).
+- [Use the script](deploy-appliance-script-government.md) to deploy the appliance in Azure Government.
 
 ## Port access
 
@@ -73,7 +72,7 @@ Supported servers | You can perform software inventory on up to 5,000 servers ru
 Operating systems | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/reference/integration-services) enabled.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have Secure Shell (SSH) connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on OS type and the type of package manager being used, here are some more commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
 Server access | You can add multiple domain and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
-Port access | Windows server needs access on port 5985 (HTTP). Linux servers need access on port 22(TCP).<br /> <br />If using domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /><br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
+Port access | Windows server needs access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).<br /> <br />If using domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /><br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 Discovery | Software inventory is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the information about the software inventory from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> Software inventory is agentless. No agent is installed on the servers.
 
 ## SQL Server instance and database discovery requirements
