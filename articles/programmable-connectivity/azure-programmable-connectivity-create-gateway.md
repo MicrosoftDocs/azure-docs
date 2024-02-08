@@ -11,7 +11,7 @@ ms.custom: template-overview
 
 # Quickstart: Create an APC gateway
  
-In this quickstart, you learn how to create an Azure Programmable Connectivity (APC) gateway and subscribe to API plans in the Azure Portal.
+In this quickstart, you learn how to create an Azure Programmable Connectivity (APC) gateway and subscribe to API plans in the Azure portal.
 
 ## Prerequisites
 
