@@ -7,7 +7,6 @@ author: mbender-ms
 manager: kumudD
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: devx-track-arm-template
 ms.date: 04/17/2023
 ms.author: mbender

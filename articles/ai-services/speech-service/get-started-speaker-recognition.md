@@ -1,7 +1,7 @@
 ---
 title: "Speaker Recognition quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, you use speaker recognition to confirm who is speaking. Learn about common design patterns for working with speaker verification and identification. 
+description: In this quickstart, you use speaker recognition to confirm who is speaking. Learn about common design patterns for working with speaker verification and identification.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -10,7 +10,7 @@ ms.date: 01/08/2022
 ms.author: eur
 ms.devlang: cpp
 # ms.devlang: cpp, csharp, javascript
-ms.custom: devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-other, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
+ms.custom: devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-services
 keywords: speaker recognition, voice biometry
 ---

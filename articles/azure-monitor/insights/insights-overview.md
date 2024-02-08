@@ -62,4 +62,3 @@ The following table lists the available curated visualizations and information a
 ## Next steps
 
 - Reference some of the insights listed above to review their functionality
-- Understand [what Azure Monitor can monitor](../monitor-reference.md)

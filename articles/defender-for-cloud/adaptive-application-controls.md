@@ -19,7 +19,7 @@ When you enable and configure adaptive application controls, you get security al
 
 By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple oversight and compliance goals:
 
-- Identify potential malware, even any that antimalware solutions can miss 
+- Identify potential malware, even any that antimalware solutions can miss
 - Improve compliance with local security policies that dictate the use of only licensed software
 - Identify outdated or unsupported versions of applications
 - Identify software your organization banned but is nevertheless running on your machines

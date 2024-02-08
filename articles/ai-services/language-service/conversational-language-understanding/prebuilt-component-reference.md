@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu
 ---
 
 # Supported prebuilt entity components
@@ -47,4 +47,3 @@ In multilingual conversation projects,  you can enable any of the prebuilt compo
 ## Next steps
 
 [Entity components](concepts/entity-components.md) 
-

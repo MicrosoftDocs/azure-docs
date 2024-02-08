@@ -7,8 +7,6 @@ ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
 ---
 # Scaling apps in an App Service Environment v1
 
