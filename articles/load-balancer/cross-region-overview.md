@@ -6,7 +6,6 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 06/23/2023
 ms.author: mbender
 ms.custom: template-concept, references_regions
@@ -14,7 +13,7 @@ ms.custom: template-concept, references_regions
 
 # Cross-region (Global) Load Balancer
 
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
+Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant high availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.

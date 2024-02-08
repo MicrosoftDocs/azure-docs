@@ -7,7 +7,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: merae
 ms.service: cosmos-db
-ms.custom: ignite-2022, references_regions
+ms.custom: references_regions
 ms.topic: overview
 ms.date: 11/07/2022
 ---

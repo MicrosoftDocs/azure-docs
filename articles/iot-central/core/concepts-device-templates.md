@@ -15,7 +15,7 @@ ms.custom: device-developer
 
 A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types.
 
-A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
+A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 A device template includes the following sections:
 
@@ -88,7 +88,7 @@ The JSON file that defines the device model uses the [Digital Twin Definition La
 ]
 ```
 
-To learn more about DTDL models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
+To learn more about DTDL models, see the [IoT Plug and Play modeling guide](../../iot/concepts-modeling-guide.md).
 
 > [!NOTE]
 > IoT Central defines some extensions to the DTDL v2 language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
@@ -251,4 +251,4 @@ A solution developer creates views that let operators monitor and manage connect
 
 ## Next steps
 
-Now that you've learned about device templates, a suggested next step is to read [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md) to learn more about the data a device exchanges with IoT Central.
+Now that you've learned about device templates, a suggested next step is to read [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md) to learn more about the data a device exchanges with IoT Central.

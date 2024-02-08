@@ -8,7 +8,7 @@ ms.subservice: apache-cassandra
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/03/2023
-ms.custom: devx-track-python, mode-api, ignite-2022, py-fresh-zinc
+ms.custom: devx-track-python, mode-api, py-fresh-zinc
 ---
 # Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB
 [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]

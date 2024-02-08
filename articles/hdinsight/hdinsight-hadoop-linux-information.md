@@ -1,8 +1,8 @@
 ---
-title: Tips for using Hadoop on Linux-based HDInsight - Azure 
+title: Tips for using Hadoop on Linux-based HDInsight - Azure
 description: Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.
 ms.service: hdinsight
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2023
 ---

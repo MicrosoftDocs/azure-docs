@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
 ms.topic: conceptual
-ms.custom: how-to, ignite-2022
+ms.custom: how-to
 ---
 
 # Query & compare experiments and runs with MLflow

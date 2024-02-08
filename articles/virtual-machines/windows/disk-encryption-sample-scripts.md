@@ -8,8 +8,7 @@ ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 01/04/2023
-
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 

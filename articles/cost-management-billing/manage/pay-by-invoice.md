@@ -9,7 +9,6 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/08/2024
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Pay for your Azure subscription by wire transfer
