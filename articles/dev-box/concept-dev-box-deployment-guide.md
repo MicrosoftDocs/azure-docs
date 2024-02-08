@@ -6,7 +6,7 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 02/02/2024
 ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand the process, considerations, and configuration options so that I can successfully plan and implement a Microsoft Dev Box deployment.
 ---
@@ -31,7 +31,7 @@ Describe who's involved and what they're responsible for.
 - Developer
     - Create and connect to dev box
 
-## Define requirements / objectives
+## Define your requirements for Microsoft Dev Box
 
 Gather all requirements for the MDB deployment in the customer's environment. Provide background about how this might influence the implementation. For example, accessing other Azure resources might require bring your own network. More will be provided in the implementation section.
 
