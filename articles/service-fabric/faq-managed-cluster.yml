@@ -70,7 +70,7 @@ sections:
       - question: | 
           Can I transfer my subscription to a different Microsoft Entra tenant?
         answer: |
-          No. At this time you would need to create a new Service Fabric managed cluster resource after the subscription has been transferred to a different AAD tenant.
+          No. At this time you would need to create a new Service Fabric managed cluster resource after the subscription has been transferred to a different Microsoft Entra tenant.
       
       - question: | 
           Can I move/migrate my cluster between Microsoft Entra tenants?
