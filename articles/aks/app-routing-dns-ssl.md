@@ -1,6 +1,6 @@
 ---
-title: Set up advanced Ingress configurations on Azure Kubernetes Service 
-description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service. 
+title: Set up a custom domain name and SSL certificate with the application routing add-on
+description: Understand configuring a custom doman and SSL certificate with the application routing add-on for Azure Kubernetes Service. 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
