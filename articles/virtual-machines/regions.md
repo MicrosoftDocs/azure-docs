@@ -6,7 +6,6 @@ ms.author: mimckitt
 ms.reviewer: cynthnn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.custom: engagement-fy23
 ms.date: 02/21/2023
 ---

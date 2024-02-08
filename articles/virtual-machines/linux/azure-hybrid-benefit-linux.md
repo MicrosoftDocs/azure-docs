@@ -8,7 +8,6 @@ ms.service: virtual-machines
 ms.subservice: billing
 ms.collection: linux
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 05/02/2023
 ms.author: vvarshney
 ms.reviewer: mattmcinnes

@@ -8,11 +8,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 09/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 #  What is SAP HANA on Azure (Large Instances)?
 
