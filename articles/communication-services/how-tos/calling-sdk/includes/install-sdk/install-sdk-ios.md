@@ -5,11 +5,12 @@ ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
 ---
+
 ## Set up your system
 
 ### Create the Xcode project
 
-In Xcode, create a new iOS project and select the **Single View App** template. This quickstart uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the **Language** to **Swift** and **User Interface** to **SwiftUI**. 
+In Xcode, create a new iOS project and select the **Single View App** template. This quickstart uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the **Language** to **Swift** and **User Interface** to **SwiftUI**.
 
 You're not going to create unit tests or UI tests during this quickstart. Feel free to clear the **Include Unit Tests** and **Include UI Tests** text boxes.
 
