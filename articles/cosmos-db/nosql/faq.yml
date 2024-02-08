@@ -19,13 +19,13 @@ sections:
       - question: |
           How do I start developing against the API for NoSQL?
         answer: |
-          First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add an API for NoSQL container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](create-sql-api-dotnet.md#create-account).
+          First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add an API for NoSQL container to your Azure subscription.
           
-          [Software development kits (SDKs)](nosql/sdk-dotnet-v2.md) are available for .NET, Python, Node.js, JavaScript, and Java. Developers can also use the [RESTful HTTP APIs](/rest/api/cosmos-db/) to interact with Azure Cosmos DB resources from various platforms and languages.
+          [Software development kits (SDKs)](sdk-dotnet-v2.md) are available for .NET, Python, Node.js, JavaScript, and Java. Developers can also use the [RESTful HTTP APIs](/rest/api/cosmos-db/) to interact with Azure Cosmos DB resources from various platforms and languages.
       - question: |
           Can I access some ready-made samples to get a head start?
         answer: |
-          Samples for the API for NoSQL [.NET](nosql/samples-dotnet.md), [Java](nosql/samples-java.md), [Node.js](nosql/samples-nodejs.md), and [Python](nosql/samples-python.md) SDKs are available on GitHub.
+          Samples for the API for NoSQL [.NET](samples-dotnet.md), [Java](samples-java.md), [Node.js](samples-nodejs.md), and [Python](samples-python.md) SDKs are available on GitHub.
       - question: |
           Does the API for NoSQL database support schema-free data?
         answer: |
@@ -48,15 +48,15 @@ sections:
       - question: |
           How do I create a database?
         answer: |
-          You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a container](nosql/quickstart-portal.md#create-container-database), one of the [Azure Cosmos DB SDKs](nosql/sdk-dotnet-v3.md), or the [REST APIs](/rest/api/cosmos-db/).
+          You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a container](quickstart-portal.md#create-container-database), one of the [Azure Cosmos DB SDKs](sdk-dotnet-v3.md), or the [REST APIs](/rest/api/cosmos-db/).
       - question: |
           How do I set up users and permissions?
         answer: |
-          You can create users and permissions by using one of the [Azure Cosmos DB API SDKs](nosql/sdk-dotnet-v3.md) or the [REST APIs](/rest/api/cosmos-db/).
+          You can create users and permissions by using one of the [Azure Cosmos DB API SDKs](sdk-dotnet-v3.md) or the [REST APIs](/rest/api/cosmos-db/).
       - question: |
           Does the API for NoSQL support SQL?
         answer: |
-          The SQL query language supported by API for NoSQL accounts is an enhanced subset of the query functionality that SQL Server supports. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see [NoSQL Query](nosql/query/index.yml).
+          The SQL query language supported by API for NoSQL accounts is an enhanced subset of the query functionality that SQL Server supports. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see [NoSQL Query](query/index.yml).
       - question: |
           Does the API for NoSQL support SQL aggregation functions?
         answer: |
@@ -76,7 +76,7 @@ sections:
         answer: |
           You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
           
-          - The bulk executor tool, as described in [Using bulk executor .NET library](nosql/bulk-executor-dotnet.md) and [Using bulk executor Java library](bulk-executor-java.md)
+          - The bulk executor tool, as described in [Using bulk executor .NET library](bulk-executor-dotnet.md) and [Using bulk executor Java library](bulk-executor-java.md)
           - Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
       - question: |
           Does the API for NoSQL support resource link caching?
@@ -85,7 +85,7 @@ sections:
       - question: |
           Is a local instance of API for NoSQL available?
         answer: |
-          Yes. The [Azure Cosmos DB Emulator](emulator.md) provides a high-fidelity emulation of the Azure Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB. This functionality includes support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator. You can then deploy the applications to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
+          Yes. The [Azure Cosmos DB Emulator](../emulator.md) provides a high-fidelity emulation of the Azure Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB. This functionality includes support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator. You can then deploy the applications to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
       - question: |
           Why are long floating-point values in a document rounded when viewed from data explorer in the portal.
         answer: |
