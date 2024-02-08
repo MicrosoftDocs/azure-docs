@@ -4,7 +4,6 @@ description: Describes how to create a volume with an availability zone by using
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 01/13/2023
