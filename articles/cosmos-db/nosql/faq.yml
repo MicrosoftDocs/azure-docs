@@ -37,7 +37,7 @@ sections:
       - question: |
           What is a container?
         answer: |
-          A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the throughput and used storage determines the [cost](performance-levels.md). Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
+          A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the throughput and used storage determines the cost. Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
           
           - For API for NoSQL, the resource is called a container.
           - For API for MongoD, a container maps to a Collection.
