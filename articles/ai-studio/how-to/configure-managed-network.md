@@ -259,7 +259,6 @@ If you plan to use __Visual Studio Code__ with Azure AI, add outbound _FQDN_ rul
 * `update.code.visualstudio.com`
 * `*.vo.msecnd.net`
 * `marketplace.visualstudio.com`
-* `ghcr.io`
 * `pkg-containers.githubusercontent.com`
 * `github.com`
 
