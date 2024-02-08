@@ -61,7 +61,7 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - From the Management VM, verify you  have access to [vCenter Server and NSX-T manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
 - An unused, isolated [NSX Data Center network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
-- The firewall and proxy URLs must be allowlisted to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure eArc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
+- The firewall and proxy URLs must be allowlisted to enable communication from the management machine and Appliance VM to the required Arc resource bridge URLs. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
 - Verify your vCenter Server version is 7.0 or higher.
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 - A datastore with a minimum of 100 GB of free disk space is available through the resource pool or cluster. 
@@ -93,7 +93,7 @@ Alternately, users can sign in to their Subscription, navigate to the **Resource
 
 Use the following steps to guide you through the process to onboard Azure Arc for Azure VMware Solution.
 
-1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
+1. Sign in to the Management VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the software.
 2. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -121,7 +121,9 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
     - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the K8s node pool IP range.  
     - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
-    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You can choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM`
+    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You can choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM` with the first lp as the gateway.
+    - If all the parameters are provided, the firewall and proxy URLs must be allowlisted for the lps between k8sNodeIPPoolStart, k8sNodeIPPoolEnd.
+    - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, then the IPs to whitelist are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](https://learn.microsoft.com/azure/azure-arc/resource-bridge/network-requirements).  
 
     **Json example**
     ```json
