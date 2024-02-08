@@ -27,8 +27,8 @@ The recommendations associated with Defender for Endpoint allow you to:
 
 | Feature | Requirements |
 |--|--|
-| Detect endpoint detection and response solutions | You must have either of the following plans enabled on Defender for Cloud: <br> - [Defender for Servers plan 1 or plan 2](tutorial-enable-servers-plan.md) <br> [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) <br> <br> You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) |
-| Identify misconfigurations in endpoint detection and response solutions | You must have either of the following plans enabled on Defender for Cloud: <br> - [Defender for Servers plan 2](tutorial-enable-servers-plan.md) <br> [Defender CSPM](tutorial-enable-cspm-plan.md) <br> <br> You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) |
+| Detect endpoint detection and response solutions | You must have either of the following plans enabled on Defender for Cloud: <br> - [Defender for Servers plan 1 or plan 2](tutorial-enable-servers-plan.md) <br> - Enable [Defender CSPM](tutorial-enable-cspm-plan.md) <br> <br> - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) |
+| Identify misconfigurations in endpoint detection and response solutions | You must have either of the following plans enabled on Defender for Cloud: <br> - [Defender for Servers plan 2](tutorial-enable-servers-plan.md) <br> Enable [Defender CSPM](tutorial-enable-cspm-plan.md) <br> <br> - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) |
 
 - Supported endpoint detection and response solutions:
 
