@@ -7,7 +7,6 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.workload: identity
 ms.custom: devx-track-azurecli
 ms.date: 01/02/2024
 ms.author: rolyon

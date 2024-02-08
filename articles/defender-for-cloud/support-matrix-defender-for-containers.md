@@ -5,7 +5,7 @@ ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
 ms.date: 12/14/2023
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ---
 
 # Containers support matrix in Defender for Cloud

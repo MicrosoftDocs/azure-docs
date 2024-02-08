@@ -10,7 +10,7 @@ ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 01/31/2024
 ms.topic: how-to
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2
 ---
 
 # Deploy MLflow models to online endpoints
@@ -137,6 +137,13 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     import requests
     import pandas as pd
     from mlflow.deployments import get_deploy_client
+    from mlflow.tracking import MlflowClient
+    ```
+
+1. Initialize the MLflow client
+
+    ```python
+    mlflow_client = MlflowClient()
     ```
 
 1. Configure the deployment client
@@ -292,6 +299,12 @@ version = registered_model.version
     You can configure the properties of this endpoint using a configuration file. In this case, you're configuring the authentication mode of the endpoint to be "key".
     
     ```python
+
+    # Creating a unique endpoint name with current datetime to avoid conflicts
+    import datetime
+    
+    endpoint_name = "sklearn-diabetes-" + datetime.datetime.now().strftime("%m%d%H%M%f")
+
     endpoint_config = {
         "auth_mode": "key",
         "identity": {
@@ -300,7 +313,7 @@ version = registered_model.version
     }
     ```
 
-    Let's write this configuration into a `JSON` file:
+    Write this configuration into a `JSON` file:
 
     ```python
     endpoint_config_path = "endpoint_config.json"
@@ -810,4 +823,4 @@ deployment_client.delete_endpoint(endpoint_name)
 
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
-- [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)- [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
+- [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)

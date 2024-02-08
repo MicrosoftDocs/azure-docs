@@ -5,11 +5,10 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: article
-ms.date: 11/07/2023
+ms.date: 01/30/2024
 ms.author: mbender
 ms.custom:
   - references_regions
-  - ignite-fall-2021
   - engagement-fy23
   - ignite-2023
 ---
@@ -89,7 +88,7 @@ You can view Azure Virtual Network Manager settings under **Network Manager** fo
 
 ### What happens when all zones are down in a region with a virtual network manager instance?
 
-Should a regional outage occur, all configurations applied to current resources managed persist, and you can't modify existing configurations, or create new configuration.
+Should a regional outage occur, all configurations applied to current managed virtual network resources will remain intact during the outage. You can't create new configurations or modify existing configurations during the outage. Once the outage is resolved, you can continue to manage your virtual network resources as before.
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to a non-managed virtual network?
 

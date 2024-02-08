@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/18/2024
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: build-spring-2022, cliv2, sdkv2
 ---
 
 # Attach a Kubernetes cluster to Azure Machine Learning workspace

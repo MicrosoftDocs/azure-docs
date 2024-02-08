@@ -7,7 +7,7 @@ ms.author: greglin
 ms.date: 11/03/2023
 ms.topic: quickstart
 ms.service: dns
-ms.custom: mode-ui, ignite-2022
+ms.custom: mode-ui
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
 
