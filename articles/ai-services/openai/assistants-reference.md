@@ -495,6 +495,8 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id
   -X DELETE
 ```
 
+---
+
 ## Assistant object
 
 | Field  | Type  | Description   |
