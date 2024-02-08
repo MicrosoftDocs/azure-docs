@@ -18,7 +18,7 @@ This article provides guidance on how to troubleshoot common connectivity issues
 > [!IMPORTANT]
 > Azure Lab Services is a managed offering where some of the backing resources for a Lab are not directly accessible. This impacts the ability to utilize other Azure VM troubleshooting guides like [Troubleshoot RDP connections on an Azure Virtual Machine](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
 
-## Connection speed
+## Slow connection speed
 
 #### Symptoms
 
@@ -57,7 +57,7 @@ A network can affect the connectivity to Azure Lab Services, from an enterprise 
 ##### Specific internet service provider (ISP)
 It isn't common to have multiple ISPs to connect to. If the slowdown is on a specific network and other options were explored, then you might want to contact your ISP to see if they have any limiters on RDP/SSH connections.
 
-## Virtual Machine not running
+## Can't connect to the remote computer
 
 #### Symptoms
 
@@ -82,7 +82,7 @@ Adjusting the [lab automatic shutdown settings](/azure/lab-services/how-to-enabl
 - Shutdown virtual machines when users don't connect: If students don't connect to the virtual machine after some time and if the duration is too short, the virtual machine will be shutdown. The timing can affect students starting the virtual machine themselves, or if schedules are used in the lab. Changing the idle setting to a longer duration is an option but has potential cost implications. If schedules are being used, the virtual machines can be started closer to when the class time starts. 
 
 
-## Outbound network restriction
+## Outbound connection is restricted
 
 #### Symptoms
 
@@ -98,7 +98,7 @@ Adjusting the [lab automatic shutdown settings](/azure/lab-services/how-to-enabl
 
 Consider removing the RDP/SSH restriction or add an exemption for the [lab public IP address](/azure/lab-services/how-to-configure-firewall-settings#find-public-ip-for-a-lab), which can be added to the allowlist for the firewall or router. 
 
-## Misconfigurations on the lab VM
+## Lab connection issue after admin changes
 
 #### Symptoms
 
@@ -117,7 +117,7 @@ A lab template can be set up with a [script to autoreset the networking](https:/
 
 If custom DNS is needed, use [Advanced Networking](/azure/lab-services/how-to-connect-vnet-injection) and specify custom DNS servers on the virtual network.
 
-## Unable to connect an outgoing VPN from a lab VM
+## Lab VM unable to connect via outgoing VPN
 
 #### Symptoms
 
@@ -131,7 +131,7 @@ If custom DNS is needed, use [Advanced Networking](/azure/lab-services/how-to-co
 
 [!INCLUDE [contact Azure support](includes/lab-services-contact-azure-support.md)]
 
-## Confirm no lab deployment issues
+## Unable to connect to lab VM after deployment
 
 #### Symptoms
 
@@ -145,7 +145,7 @@ If custom DNS is needed, use [Advanced Networking](/azure/lab-services/how-to-co
 
 The [activity log](/azure/azure-monitor/essentials/activity-log?tabs=powershell) can be filtered on the resource group that the lab is located in. The events can take a few minutes to be available in the log. These event logs contain more detailed information that can be used for troubleshooting and should be included if a support ticket needs to be created.
 
-## Login with username and password 
+## Unable to login with username and password 
 
 #### Symptoms
 
@@ -175,8 +175,8 @@ There are situations where a student password is fraudulently changed by a bad a
 ##### Remote Desktop Gateway 
 While uncommon, the remote desktop client the students are using can have a Remote Desktop Gateway configured. If so, they would need to enter their gateway credentials first (to authenticate to the gateway) before connecting to their student VM.
 
-## Advanced Networking Troubleshooting Items 
-Some troubleshooting items only apply to [advanced networking scenarios](/azure/lab-services/concept-lab-services-supported-networking-scenarios). 
+## Troubleshooting with Advanced Networking 
+Some troubleshooting scenarios only apply to labs with [advanced networking](/azure/lab-services/concept-lab-services-supported-networking-scenarios). 
 
 #### Missing a Network Security Group 
 For a lab plan configured with advanced networking, one of the first checks is to confirm that the lab services network subnet has a network security group connected to it. This lets the RDP/SSH connections be allowed through. Without a network security group, all connections are blocked to the virtual machines (template VM and student VMs). 
