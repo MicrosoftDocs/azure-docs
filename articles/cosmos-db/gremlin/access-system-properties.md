@@ -56,6 +56,7 @@ If collection has document expiration enabled and documents have `ttl` property 
 
 You can set TTL on the container to -1 or set it to **On (no default)** from Azure portal, then the TTL is infinite for any item unless the item has TTL value explicitly set.
 
-## Next steps
-* [Azure Cosmos DB Optimistic Concurrency](../faq.yml#how-does-the-api-for-nosql-provide-concurrency-)
-* [Time to Live (TTL)](../time-to-live.md) in Azure Cosmos DB
+## Next step
+
+> [!div class="nextstepaction"]
+> [Time to Live (TTL) in Azure Cosmos DB](../time-to-live.md)
