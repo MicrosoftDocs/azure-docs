@@ -32,8 +32,8 @@ This section discusses the options available for encrypting your backup data sto
 ### Encryption of backup data using platform-managed keys
 
 Azure Backup provides you two options (**Microsoft managed keys** and **Customer Managed keys**) to manage the backup data encryption for your Backup vault. By default, all your data is encrypted using Microsoft managed keys. Azure Backup uses the Backup Management Service app to access Azure Key Vault, but not the managed identity of the Backup vault.
-You can fetch your own keys to encrypt the backup data by using the **Customer Managed Keys** option under **Encryption settings** on the *Backup vault*.
 
+You can fetch your own keys to encrypt the backup data by using the **Customer Managed Keys** option under **Encryption settings** on the *Backup vault*.
 
 ## Cross Region Restore support for PostgreSQL using Azure Backup
 
