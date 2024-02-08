@@ -5,11 +5,9 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 09/20/2023
 ms.author: saraic
 ms.reviewer: cynthn
-
 ---
 
 # Create an image definition and an image version 

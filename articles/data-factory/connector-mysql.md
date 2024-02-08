@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/16/2024
+ms.date: 02/07/2024
 ms.author: jianleishen
 ---
 
@@ -317,11 +317,11 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your MySQL driver version: 
 
-1. Create a new MySQL linked service and configure it by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
+1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
-1. More MySQL versions are supported for the latest driver version. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 
 ## Related content
 

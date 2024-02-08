@@ -8,7 +8,6 @@ editor: jwargo
 
 ms.assetid: 91188310-307a-11e9-b210-d663bd873d93
 ms.service: notification-hubs
-ms.workload: mobile
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: sethm

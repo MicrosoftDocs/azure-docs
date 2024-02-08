@@ -1,16 +1,14 @@
 ---
-title: Tutorial -  Manage Linux virtual machine configuration in Azure 
+title: Tutorial -  Manage Linux virtual machine configuration in Azure
 description: In this tutorial, you learn how to identify changes and manage package updates on a Linux virtual machine
 author: mgoedtel
 manager: gwallace
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-
 #Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Linux virtual machines.
 ---
 # Tutorial: Monitor changes and update a Linux virtual machine in Azure

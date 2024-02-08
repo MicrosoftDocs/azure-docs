@@ -6,7 +6,6 @@ author: asudbring
 manager: Marina Lipshteyn
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.date: 03/23/2023
 ms.author: allensu
