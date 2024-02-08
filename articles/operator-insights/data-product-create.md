@@ -24,27 +24,18 @@ In this article, you learn how to create an Azure Operator Insights Data Product
 - (Optional) If you plan to integrate Data Product with Microsoft Purview, you must have an active Purview account. Make note of the Purview collection ID when you [set up Microsoft Purview with a Data Product](purview-setup.md).
 - After obtaining your subscription access, register the Microsoft.NetworkAnalytics and Microsoft.HybridNetwork Resource Providers (RPs) to continue. For guidance on registering RPs in your subscription, see [Register resource providers in Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-### For CMK-based data encryption or Microsoft Purview
+## Prepare your Azure portal or Azure CLI environment
 
-If you're using CMK-based data encryption or Microsoft Purview, you must set up Azure Key Vault and user-assigned managed identity (UAMI) as prerequisites.
+You can use the Azure portal or the Azure CLI to follow the steps in this article.
 
-#### Set up Azure Key Vault
-
-Azure key Vault Resource is used to store your Customer Managed Key (CMK) for data encryption. Data Product uses this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
 
 # [Portal](#tab/azure-portal)
 
-1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group where you intend to deploy the Data Product resource.
-1. Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource. This is done via the **Access Control (IAM)** tab on the Azure Key Vault resource.
-1. Navigate to the object and select **Keys**. Select **Generate/Import**.
-1. Enter a name for the key and select **Create**.
-1. Select the newly created key and select the current version of the key.
-1. Copy the Key Identifier URI to your clipboard to use when creating the Data Product.
+Confirm that you can sign in to the [Azure portal](https://portal.azure.com) and can access the subscription.
 
 # [Azure CLI](#tab/azure-cli)
-<!-- CLI link is [Create an Azure Key Vault resource](../key-vault/general/quick-create-cli.md) in the same subscription and resource group where you intend to deploy the Data Product resource. --> 
 
-You can sign in to Azure and run Azure CLI commands in one of two ways:
+You can run Azure CLI commands in one of two ways:
 
 - You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
 - You can install the CLI and run CLI commands locally.
@@ -63,9 +54,6 @@ The button launches an interactive shell that you can use to run the steps outli
 ### Install the Azure CLI locally
 
 You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
-Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is preinstalled and configured to use with your account. Select the Cloud Shell button on the menu in the upper-right section of the Azure portal:
-
-To launch Azure Cloud Shell, sign in to the Azure portal.
 
 To log into your local installation of the CLI, run the az sign-in command:
 
@@ -73,7 +61,7 @@ To log into your local installation of the CLI, run the az sign-in command:
 az login
 ```
 
-## Change the active subscription
+### Change the active subscription
 
 Azure subscriptions have both a name and an ID. You can switch to a different subscription using [az account set](/cli/azure/account#az-account-set) specifying the desired subscription ID or name.
 
@@ -84,16 +72,55 @@ az account set --subscription "My Demos"
 # change the active subscription using the subscription ID
 az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
+---
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the az group create command to create a resource group named myResourceGroup in the eastus location.
+A resource group is a logical container into which Azure resources are deployed and managed.
+
+# [Portal](#tab/azure-portal)
+
+If you plan to use CMK-based data encryption or Microsoft Purview, set up a resource group now:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Resource groups**.
+1. Select **Create** and follow the prompts. 
+
+For more information, see [Create a resource group](/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups).
+
+If you don't plan to use CMK-based date encryption or Microsoft Purview, you can set up a resource group now or when you [the create the Data Product resource](#create-an-azure-operator-insights-data-product-resource).
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the az group create command to create a resource group named myResourceGroup in the eastus location.
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location "EastUS"
 ```
+---
 
-## Create a key vault
+## Set up resources for CMK-based data encryption or Microsoft Purview
+
+If you're using CMK-based data encryption or Microsoft Purview, you must set up Azure Key Vault and user-assigned managed identity (UAMI) as prerequisites.
+
+### Set up Azure Key Vault
+
+Azure key Vault Resource is used to store your Customer Managed Key (CMK) for data encryption. Data Product uses this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
+
+# [Portal](#tab/azure-portal)
+
+1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group where you intend to deploy the Data Product resource.
+1. Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource. This is done via the **Access Control (IAM)** tab on the Azure Key Vault resource.
+1. Navigate to the object and select **Keys**. Select **Generate/Import**.
+1. Enter a name for the key and select **Create**.
+1. Select the newly created key and select the current version of the key.
+1. Copy the Key Identifier URI to your clipboard to use when creating the Data Product.
+
+# [Azure CLI](#tab/azure-cli)
+
+<!-- CLI link is [Create an Azure Key Vault resource](../key-vault/general/quick-create-cli.md) in the same subscription and resource group where you intend to deploy the Data Product resource. --> 
+
+#### Create a key vault
 
 Use the Azure CLI az keyvault create command to create a Key Vault in the resource group from the previous step. You will need to provide some information:
 
@@ -117,7 +144,7 @@ Vault Name: The name you provided to the --name parameter above.
 Vault URI: In the example, this is https://<your-unique-keyvault-name>.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
-## Key vault role assignment
+#### Assign roles for the key vault
 
 Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource.
 
@@ -126,7 +153,7 @@ az role assignment create --role "Key Vault Administrator" --assignee <<user ema
 ```
 Replace the values for subscriptionid, resource-group-name, and key-vault-name with the appropriate values.
 
-## Create a Key
+#### Create a Key
 
 ```azurecli-interactive
 az keyvault key create --vault-name "<your-unique-keyvault-name>" -n ExampleKey --protection software
@@ -134,11 +161,11 @@ az keyvault key create --vault-name "<your-unique-keyvault-name>" -n ExampleKey 
 
 From the output screen copy the KeyID and store it in your clipboard for later use.
 
-<!-- PowerShell link is  [Create an Azure Key Vault resource](../key-vault/general/quick-create-powershell.md) in the same subscription and resource group where you intend to deploy the Data Product resource. --> 
-
 ---
 
-#### Set up user-assigned managed identity
+<!-- PowerShell link is  [Create an Azure Key Vault resource](../key-vault/general/quick-create-powershell.md) in the same subscription and resource group where you intend to deploy the Data Product resource. --> 
+
+### Set up a user-assigned managed identity
 
 # [Portal](#tab/azure-portal)
 
@@ -148,6 +175,8 @@ From the output screen copy the KeyID and store it in your clipboard for later u
 # [Azure CLI](#tab/azure-cli)
 
 <!-- Managed identity link for the CLI: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli -->
+
+#### Create a user-assigned managed identity
 
 To create a user-assigned managed identity, your account needs the Managed Identity Contributor role assignment.
 
@@ -163,18 +192,17 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 
 Copy the principalId from the output screen and store it in your clipboard for later use.
 
-## Assign User-Assigned Managed Identity to Key Vault
+#### Assign the user-assigned managed identity to the key vault
 
 ```azurecli-interactive
 az role assignment create --role "Key Vault Administrator" --assignee <<pricipalID from above step>> --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
-<!-- Managed identity link for PowerShell: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell -->
-
 ---
 
+<!-- Managed identity link for PowerShell: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell -->
 
-## Create an Azure Operator Insights Data Product resource in the Azure portal
+## Create an Azure Operator Insights Data Product resource
 
 You create the Azure Operator Insights Data Product resource.
 
@@ -256,7 +284,7 @@ For ownersemail, vaulturi, keyname, version, purviewaccount, collection, uami an
 
 ---
 
-## Deploy Sample Insights
+## Deploy sample insights
 
 Once your Data Product instance is created, you can deploy a sample insights dashboard. This dashboard works with the sample data that came along with the Data Product instance.
 
