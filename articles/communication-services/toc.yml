@@ -344,6 +344,8 @@ items:
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: Add video background effects
         href: quickstarts/voice-video-calling/get-started-video-effects.md
+      - name: Add Augmented Reality filters to your video calls
+        href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Diagnostics
       items:
       - name: Diagnose your network

@@ -8,7 +8,6 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 08/03/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017

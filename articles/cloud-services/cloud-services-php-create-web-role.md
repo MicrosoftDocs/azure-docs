@@ -1,7 +1,6 @@
 ---
 title: Create Azure web and worker roles for PHP
 description: A guide to creating PHP web and worker roles in an Azure cloud service, and configuring the PHP runtime.
-documentationcenter: php
 author: msangapu-msft
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services

@@ -9,7 +9,6 @@ ms.service: azure-ai-language
 ms.topic: whats-new
 ms.date: 01/31/2024
 ms.author: aahi
-ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # What's new in Azure AI Language?

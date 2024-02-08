@@ -7,7 +7,6 @@ manager: amycolannino
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
-ms.workload: identity
 ms.topic: overview
 ms.date: 01/26/2024
 ms.author: rolyon

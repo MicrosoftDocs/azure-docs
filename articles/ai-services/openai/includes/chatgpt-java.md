@@ -11,7 +11,7 @@ ms.author: mbullwin
 ms.date: 07/26/2023
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/java/quickstarts/get-started-app-chat-template) |
+[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/java/quickstarts/get-started-app-chat-template) | [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/chatgpt-intellij) 
 
 ## Prerequisites
 

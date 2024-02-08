@@ -64,7 +64,7 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - A resource group in the subscription where you have an owner or contributor role.
 - An unused, isolated [NSX Data Center network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
 - Verify your Azure subscription is enabled and has connectivity to Azure end points.
-- The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure eArc resource bridge (Preview) network requirements](/azure/azure-arc/resource-bridge/network-requirements).
+- The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
 - Verify your vCenter Server version is 6.7 or higher.
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 - A datastore with a minimum of 100 GB of free disk space is available through the resource pool or cluster. 

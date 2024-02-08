@@ -7,7 +7,7 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 # How To Create an ILB ASEv1 Using Azure Resource Manager Templates
 

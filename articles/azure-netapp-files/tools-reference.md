@@ -1,10 +1,9 @@
 ---
-title: Azure NetApp Files tools 
-description: Learn about the tools available to you to maximize your experience and savings with Azure NetApp Files. 
+title: Azure NetApp Files tools
+description: Learn about the tools available to you to maximize your experience and savings with Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 01/12/2023
 ms.author: anfdocs

@@ -5,7 +5,7 @@ services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/12/2022
+ms.date: 01/31/2024
 ms.topic: quickstart
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell
@@ -89,7 +89,7 @@ To create an Azure Virtual Network, use the Azure PowerShell [New-AzVirtualNetwo
 New-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup" -Location "EastUS" -Tag $tags -AddressPrefix $VNetAddressPrefix -Subnet $myPHSMSubnetConfig
 ```
 
-To verify that the VNet was created correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
+To verify that the virtual network was created correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"

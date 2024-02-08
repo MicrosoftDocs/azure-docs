@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: "mvc, seodec18, devx-track-azurepowershell"
+ms.custom: mvc, devx-track-azurepowershell
 ms.date: 03/25/2021
 ms.author: keithp
 ---

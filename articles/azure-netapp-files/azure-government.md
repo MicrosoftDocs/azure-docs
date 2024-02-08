@@ -4,7 +4,6 @@ description: Learn how to connect to Azure Government to use Azure NetApp Files 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 11/02/2023
@@ -26,7 +25,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
 | Azure NetApp Files backup | Public preview | No |
-| Azure NetApp Files large volumes | Public preview | No |
+| Azure NetApp Files large volumes | Public preview | Public preview [(select regions)](large-volumes-requirements-considerations.md#supported-regions) |
 
 ## Portal access
 

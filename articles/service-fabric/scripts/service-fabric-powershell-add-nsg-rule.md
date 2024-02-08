@@ -7,7 +7,6 @@ manager: chackdan
 tags: azure-service-management
 
 ms.service: service-fabric
-ms.workload: multiple
 ms.topic: sample
 ms.date: 11/28/2017
 ms.author: atsenthi

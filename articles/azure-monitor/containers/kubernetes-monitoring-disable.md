@@ -140,10 +140,11 @@ The configuration change can take a few minutes to complete. Because Helm tracks
 
 ## Disable Prometheus
 
-Use the following `az aks update` Azure CLI command with the `--disable-azure-monitor-metrics` parameter to remove the metrics add-on from your AKS cluster, and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. It doesn't remove the data already collected and stored in the Azure Monitor workspace for your cluster.
+Use the following `az aks update` Azure CLI command with the `--disable-azure-monitor-metrics` parameter to remove the metrics add-on from your AKS cluster or `az k8s-extension delete` Azure CLI command with the `--name azuremonitor-metrics` parameter to remove the metrics add-on from Arc-enabled cluster, and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. It doesn't remove the data already collected and stored in the Azure Monitor workspace for your cluster.
 
 ```azurecli
 az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
+az k8s-extension delete --name azuremonitor-metrics --cluster-name <cluster-name> --resource-group <cluster-resource-group> --cluster-type connectedClusters 
 ```
 
 This command performs the following actions:

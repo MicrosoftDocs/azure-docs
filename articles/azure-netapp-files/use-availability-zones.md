@@ -4,7 +4,6 @@ description: Azure availability zones are highly available, fault tolerant, and 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 11/17/2022
 ms.author: anfdocs
