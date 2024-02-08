@@ -62,7 +62,7 @@ The [Azure role assignment condition format](../../role-based-access-control/con
 
 ## Status of condition features in Azure Storage
 
-Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request`, `resource`, and `principal` attributes in the standard storage account performance tier. It's either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
+Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request`, `resource`, `environment`, and `principal` attributes in the standard storage account performance tier. It's either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
 
 See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -70,9 +70,8 @@ The following table shows the current status of ABAC by storage account performa
 
 | Performance tier | Resource types | Attribute types    | Attributes                | Availability |
 |---|---|---|---|---|
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>principal | All attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>environment<br/>principal | All attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
 | Standard | Data Lake Storage Gen2                      | resource                  | snapshot       | Preview |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment | All attributes | Preview |
 | Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | All attributes | Preview |
 
 
