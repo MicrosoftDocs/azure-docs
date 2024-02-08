@@ -5,12 +5,22 @@ ms.topic: article
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 01/25/2024
+ms.date: 02/08/2024
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. This identity can be a *managed identity* or *service principal*. A system-assigned managed identity is automatically created when you create an AKS cluster. This identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources][managed-identity-resources-overview].
+Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. The identity can be a *managed identity* or a *service principal*.
+
+This article provides details on how to enable the following managed identity types on a new or existing AKS cluster:
+
+* System-assigned managed identity
+* Bring your own user-assigned managed identity
+* Pre-created Kubelet managed identity
+
+## Overview
+
+When you deploy an AKS cluster, a system-assigned managed identity is automatically created, and it's managed by the Azure platform, so it doesn't require you to provision or rotate any secrets. For more information, see [managed identities for Azure resources][managed-identity-resources-overview].
 
 AKS doesn't automatically create a [service principal](kubernetes-service-principal.md), so you have to create one. Clusters that use a service principal eventually expire, and the service principal must be renewed to avoid impacting cluster authentication with the identity. Managing service principals adds complexity, so it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities. Managed identities use certificate-based authentication. Each managed identity's credentials have an expiration of *90 days* and are rolled after *45 days*. AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable.
 
@@ -471,7 +481,8 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 
 ## Next steps
 
-Use [Azure Resource Manager templates][aks-arm-template] to create a managed identity-enabled cluster.
+* Use [Azure Resource Manager templates][aks-arm-template] to create a managed identity-enabled cluster.
+* Learn how to [use kubelogin][kubelogin-authentication] for all supported Microsoft Entra authentication methods in AKS.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
