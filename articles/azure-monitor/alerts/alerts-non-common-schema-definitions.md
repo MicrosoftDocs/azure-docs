@@ -2,12 +2,14 @@
 title: Noncommon alert schema definitions in Azure Monitor
 description: Understanding the noncommon alert schema definitions for Azure Monitor.
 author: issahn
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.reviewer: nolavime
 ---
 
 # Noncommon alert schema definitions
+
 The noncommon alert schema were historically used to customize alert email templates and webhook schemas for metric, log, and activity log alert rules. We recommend using the [common schema](./alerts-common-schema.md) for all alert types and integrations.
 
 This article describes the noncommon alert schema definitions for Azure Monitor, including definitions for:

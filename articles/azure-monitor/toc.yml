@@ -1075,7 +1075,8 @@ items:
         href: visualize/workbook-templates-move-region.md
     - name: Azure Workbook components
       items:
-        - name: Data sources
+        - name: Data sources 
+          href: visualize/workbooks-data-sources.md
         - name: Visualizations
           items:
           - name: Overview
@@ -1484,8 +1485,6 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
-  - name: Partner integrations
-    href: partners.md
   - name: Logs Tables reference
     href: /azure/azure-monitor/reference/
   - name: Self-monitoring data reference

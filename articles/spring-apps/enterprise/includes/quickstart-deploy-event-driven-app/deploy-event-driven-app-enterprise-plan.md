@@ -2,7 +2,7 @@
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 07/19/2023
 ---

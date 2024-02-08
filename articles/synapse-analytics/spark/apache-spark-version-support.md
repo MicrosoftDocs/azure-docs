@@ -26,10 +26,10 @@ The runtimes have the following advantages:
 
 > [!WARNING]  
 > End of Support Notification for Azure Synapse Runtime for Apache Spark 2.4 and Apache Spark 3.1.
-> * Effective September 29, 2023, the Azure Synapse will discontinue official support for Spark 2.4 Runtimes.
-> * Effective January 26, 2024, the Azure Synapse will discontinue official support for Spark 3.1 Runtimes.  
+> * Effective September 29, 2023, Azure Synapse will discontinue official support for Spark 2.4 Runtimes.
+> * Effective January 26, 2024, Azure Synapse will discontinue official support for Spark 3.1 Runtimes.  
 > * Post these dates, we will not be addressing any support tickets related to Spark 2.4 or 3.1. There will be no release pipeline in place for bug or security fixes for Spark 2.4 and 3.1. Utilizing Spark 2.4 or 3.1 post the support cutoff dates is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
-> * We strongly advise to proactively upgrade their workloads to a more recent version of the runtime (e.g., [Azure Synapse Runtime for Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md)).
+> * We strongly advise proactively upgrading workloads to a more recent version of the runtime (e.g., [Azure Synapse Runtime for Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md)).
 
 The following table lists the runtime name, Apache Spark version, and release date for supported Azure Synapse Runtime releases.
 

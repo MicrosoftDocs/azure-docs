@@ -6,20 +6,13 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.custom:
-ms.date: 10/19/2023
+ms.date: 02/06/2023
 ms.reviewer: lualderm
 ---
 
 # Diagnostic settings in Azure Monitor
 
-This article provides details on creating and configuring diagnostic settings to send Azure platform metrics and logs to different destinations.
-
-[Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
-
-[Platform logs](./platform-logs-overview.md) provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.
-
-- **Resource logs** aren't collected until they're routed to a destination.
-- **Activity logs** exist on their own but can be routed to other locations.
+This article provides details on creating and configuring diagnostic settings to send Azure platform metrics, resource logs and the activity log to different destinations.
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
@@ -46,9 +39,10 @@ Information on these newer features is included in this article.
 
 There are three sources for diagnostic information:
 
-- Metrics
-- Resource logs
-- Activity logs
+- **[Platform metrics](./metrics-supported.md)** are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
+- **[Platform logs](./platform-logs-overview.md)**  - provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.
+   - **Resource logs**  aren't collected until they're routed to a destination.
+   - The **Activity log** provides information about resources from outside the resource, such as when the resource was created or deleted. Entries exist on their own but can be routed to other locations.
 
 ### Metrics
 
@@ -56,14 +50,13 @@ The **AllMetrics** setting routes a resource's platform metrics to other destina
 
 ### Resource logs
 
-With logs, you can select the log categories you want to route individually or choose a category group.
+With resource logs, you can select the log categories you want to route individually or choose a category group.
 
+**Category groups**
 > [!NOTE]
 > Category groups don't apply to all metric resource providers. If a provider doesn't have them available in the diagnostic settings in the Azure portal, then they also won't be available via Azure Resource Manager templates. 
 
-You can use *category groups* to dynamically collect resource logs based on predefined groupings instead of selecting individual log categories. Microsoft defines the groupings to help monitor specific use cases across all Azure services.
-
-Over time, the categories in the group might be updated as new logs are rolled out or as assessments change. When log categories are added or removed from a category group, your log collection is modified automatically without you having to update your diagnostic settings.
+You can use *category groups* to dynamically collect resource logs based on predefined groupings instead of selecting individual log categories. Microsoft defines the groupings to help monitor specific use cases across all Azure services. Over time, the categories in the group might be updated as new logs are rolled out or as assessments change. When log categories are added or removed from a category group, your log collection is modified automatically without you having to update your diagnostic settings.
 
 When you use category groups, you:
 
@@ -73,7 +66,7 @@ When you use category groups, you:
 Currently, there are two category groups:
 
 - **All**: Every resource log offered by the resource.
-- **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
+- **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective depending on your use case. As mentioned above, what's collected is dynamic, and Microsoft may change it over time as new resource log categories become available.
 
 The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.  
 
@@ -104,6 +97,7 @@ To ensure the security of data in transit, all destination endpoints are configu
 ## Activity log settings
 
 The activity log uses a diagnostic setting but has its own user interface because it applies to the whole subscription rather than individual resources. The destination information listed here still applies. For more information, see [Azure activity log](activity-log.md).
+
 
 ## Requirements and limitations
 
@@ -136,7 +130,7 @@ The following table provides unique requirements for each destination including 
 | Destination | Requirements |
 |:---|:---|
 | Log Analytics workspace | The workspace doesn't need to be in the same region as the resource being monitored.|
-| Storage account | Don't use an existing storage account that has other, nonmonitoring data stored in it so that you can better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.<br><br> Diagnostic settings can't access storage accounts when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in storage accounts so that the Azure Monitor diagnostic settings service is granted access to your storage account.<br><br>[Azure DNS zone endpoints (preview)](../../storage/common/storage-account-overview.md#azure-dns-zone-endpoints-preview) and [Azure Premium LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) (locally redundant storage) storage accounts aren't supported as a log or metric destination.|
+| Storage account | Don't use an existing storage account that has other, non-monitoring data stored in it. Spliting the types of data up allow you better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To prevent modification of the data, send it to immutable storage. Set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.<br><br> Diagnostic settings can't access storage accounts when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in storage accounts so that the Azure Monitor diagnostic settings service is granted access to your storage account.<br><br>[Azure DNS zone endpoints (preview)](../../storage/common/storage-account-overview.md#azure-dns-zone-endpoints-preview) and [Azure Premium LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) (locally redundant storage) storage accounts aren't supported as a log or metric destination.|
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in Event Hubs so that the Azure Monitor diagnostic settings service is granted access to your Event Hubs resources.|
 | Partner integrations | The solutions vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 

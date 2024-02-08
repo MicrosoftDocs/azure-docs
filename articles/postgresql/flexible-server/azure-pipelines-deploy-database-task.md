@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
-ms.custom: seodec18, mode-other
+ms.custom: mode-other
 ms.date: 01/16/2024
 ---
 

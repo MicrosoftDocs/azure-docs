@@ -108,6 +108,7 @@ The following table lists the claim resolvers with information about the OpenID 
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:Scope} |The `scope`  query string parameter. | openid |
 | {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com|
+| {OIDC:IdToken} | The `id token`  query string parameter. | N/A |
 
 Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#openid-connect-relying-party-application) of the OpenID Connect claim resolvers.
 

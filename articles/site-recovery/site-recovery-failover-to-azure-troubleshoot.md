@@ -6,7 +6,6 @@ manager: abhemraj
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.workload: storage-backup-recovery
 ms.date: 08/01/2023
 ms.author: ankitadutta
 ---

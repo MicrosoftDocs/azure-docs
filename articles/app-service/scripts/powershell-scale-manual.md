@@ -8,7 +8,7 @@ ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.topic: sample
 ms.date: 12/06/2022
 ms.author: msangapu
-ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Scale a web app manually using PowerShell

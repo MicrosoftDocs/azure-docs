@@ -27,7 +27,7 @@ The first step in designing and defining your automation rule is figuring out wh
 
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
-- (**Preview**) Create tasks for your analysts to follow in triaging, investigating, and remediating incidents.
+- Create tasks for your analysts to follow in triaging, investigating, and remediating incidents.
 - Suppress noisy incidents (see [this article on handling false positives](false-positives.md#add-exceptions-by-using-automation-rules) instead)
 - Triage new incidents by changing their status from New to Active and assigning an owner.
 - Tag incidents to classify them.
