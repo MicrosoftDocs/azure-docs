@@ -41,11 +41,6 @@ These instances provide excellent performance for many AI, ML, and analytics too
 NVIDIA NVLink Interconnect: Supported<br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
-The ND A100 v4 series supports the following kernel versions: <br>
-CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
-Ubuntu 18.04: 5.4.0-1043-azure <br>
-Ubuntu 20.04: 5.4.0-1046-azure <br>
-<br>
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|
