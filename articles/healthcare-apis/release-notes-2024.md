@@ -51,7 +51,7 @@ Related content:
 - [Use Azure Active Directory B2C to grant access to the FHIR service](fhir/azure-ad-b2c-setup.md)
 - [Configure multiple service identity providers for the FHIR service](fhir/configure-identity-providers.md)
 - [Troubleshoot identity provider configuration for the FHIR service](fhir/troubleshoot-identity-provider-configuration.md)
-- [SMART on FHIR](fhir/smart-on-fhir.md)
+- [Enable SMART on FHIR for the FHIR service](fhir/smart-on-fhir.md)
 - [Sample: Azure ONC (g)(10) SMART on FHIR](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/patientandpopulationservices-smartonfhir-oncg10)
 
 #### Request up to 100 TB of storage

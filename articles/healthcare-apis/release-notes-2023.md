@@ -74,33 +74,19 @@ Learn more:
 
 #### Import operation supports soft deleted resources
 
-The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. 
-
-Related content: 
-
-- [Fix SQL Import for soft delete and history](https://github.com/microsoft/fhir-server/pull/3530)
+The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. See [FPR#3530](https://github.com/microsoft/fhir-server/pull/3530)
 
 #### Performance improvement for queries
 
-We improved performance of FHIR queries with the `_include` parameter. 
-
-Related content:
-
-- [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
+We improved performance of FHIR queries with the `_include` parameter. See [PR#3572](https://github.com/microsoft/fhir-server/pull/3572).
 
 #### Bug fixes
 
-- **Fixed: Searching with `_include` and wildcard results in query failure**. The issue is fixed and permits only the wild character  `*` to be present for `_include` and `_revinclude` searches. 
+- **Fixed: Searching with `_include` and wildcard results in query failure**. The issue is fixed and permits only the wild character  `*` to be present for `_include` and `_revinclude` searches. [PR#3541](https://github.com/microsoft/fhir-server/pull/3541).
 
- - **Fixed: Multiple export jobs created results in increase data storage volume**. Due to a bug, export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. 
+ - **Fixed: Multiple export jobs created results in increase data storage volume**. Due to a bug, export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. See [PR#3567](https://github.com/microsoft/fhir-server/pull/3567).
 
-- **Fixed: Retriable exception for import operation when using duplicate files**. If there are duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. The fix addresses the issue. Import operations with same file are no longer retriable. 
-
-Related content:
-
-  - [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541)
-  - [Fix export](https://github.com/microsoft/fhir-server/pull/3567)
-  - [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557)
+- **Fixed: Retriable exception for import operation when using duplicate files**. If there are duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. The fix addresses the issue. Import operations with same file are no longer retriable. See [PR#3557](https://github.com/microsoft/fhir-server/pull/3557).
 
 ## October 2023
 
@@ -191,7 +177,7 @@ Learn more:
 
 - **Fixed: Metadata endpoint URL in the capability statement is a relative URL.** According to the FHIR specification, the metadata endpoint URL in the capability statement needs to be an absolute URL. The fix addresses the issue. See [PR#3265](https://github.com/microsoft/fhir-server/pull/3265).
 
-Related content:
+Learn more:
 - [FHIR Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). 
 
 ### DICOM service
@@ -256,7 +242,7 @@ Azure Health Data Services is generally available in the Japan East region.
 
 The `_till` parameter is an optional parameter and allows you to export resources that were modified until the specified time. This improvement applies to system export.
 
-Related content:
+Learn more:
 
 - [Export FHIR data](./../healthcare-apis/fhir/export-data.md)
 - [FHIR specification](https://hl7.org/fhir/uv/bulkdata/)
