@@ -101,6 +101,7 @@ Click the resource provider name in the following table to see the list of opera
 | **Integration** |
 | [Microsoft.ApiManagement](#microsoftapimanagement) |
 | [Microsoft.AppConfiguration](#microsoftappconfiguration) |
+| [Microsoft.AVS](#microsoftavs) |
 | [Microsoft.AzureStack](#microsoftazurestack) |
 | [Microsoft.AzureStackHCI](#microsoftazurestackhci) |
 | [Microsoft.DataBoxEdge](#microsoftdataboxedge) |
