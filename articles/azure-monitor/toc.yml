@@ -716,7 +716,7 @@ items:
     - name: Define network settings
       href: agents/azure-monitor-agent-data-collection-endpoint.md
     - name: Configure Private Link for Azure Monitor Agent
-      href: /agents/azure-monitor-agent-private-link.md
+      href: agents/azure-monitor-agent-private-link.md
     - name: Migrate from Log Analytics Agent
       items:
       - name: Migration guidance
