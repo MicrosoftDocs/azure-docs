@@ -30,7 +30,7 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 ### Advantech
 
-<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Advantech.png" alt="advantech logo" width="15%" height="auto">
+<img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Advantech.png" alt="advantech logo" width="20%" height="auto">
 
 
 | Solution | Categories |
