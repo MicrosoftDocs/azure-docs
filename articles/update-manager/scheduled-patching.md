@@ -285,7 +285,7 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 
 | **Update Type** | **Details** |
 | ---------- | ------------- |
-| Reboot | If the machine(s) needs a reboot, you need to have 15 minutes left in the maintenance window, else the reboot is skipped. In this example, you must start the reboot by 5:45 PM.|
+| Reboot | If the Azure VMs needs a reboot, you need to have 15 minutes left in the maintenance window, else the reboot is skipped. In this example, you must start the reboot by 5:45 PM.|
 | Updates installed in batches | If the batch size is X, then the minimum time required to update the packages is calculated as follows </br></br> - If X is less than or equal to 3, the minimum required time  = 5 x X minutes. </br> - If X is greater than 3, the minimum required time = 15+2 x (X-3) minutes. </br> **Note**  Only Azure Update Manager service controls the batch size (X) of the updates. |
 
 ---
