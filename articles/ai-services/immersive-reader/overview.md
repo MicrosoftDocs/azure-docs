@@ -1,7 +1,7 @@
 ---
 title: What is Azure AI Immersive Reader?
 titleSuffix: Azure AI services
-description: Learn how you can use Immersive Reader to help people with learning differences or help new readers and language learners with reading comprehension.
+description: Learn how you can use Immersive Reader to help people with learning differences or help new readers and language learners improve reading comprehension.
 #services: cognitive-services
 author: rwallerms
 manager: nitinme
@@ -37,7 +37,7 @@ Immersive Reader isolates content to improve readability.
 
 ### Display pictures for common words
 
-For commonly used terms, the Immersive Reader displays a picture.
+Immersive Reader displays a picture for commonly used terms.
 
 :::image type="content" source="media/picture-dictionary.png" alt-text="Screenshot of Immersive Reader's picture dictionary displaying a picture of a tool for the word tool.":::
 
@@ -49,13 +49,13 @@ Immersive Reader can help learners understand parts of speech and grammar by hig
 
 ### Read content aloud
 
-Speech synthesis (or text-to-speech) is baked into the Immersive Reader service, which lets your readers select text to be read aloud.
+Speech synthesis (or text to speech) is baked into the Immersive Reader service. Readers can select text to be read aloud.
 
 :::image type="content" source="media/read-aloud.png" alt-text="Screenshot of Immersive Reader's text-to-speech feature that reads text aloud.":::
 
 ### Translate content in real-time
 
-Immersive Reader can translate text into many languages in real-time, which is helpful to improve comprehension for readers learning a new language.
+Immersive Reader can translate text into many languages in real time, which is helpful to improve comprehension for readers learning a new language.
 
 :::image type="content" source="media/translation.png" alt-text="Screenshot of Immersive Reader's language translation feature.":::
 
@@ -67,10 +67,10 @@ With Immersive Reader, you can break words into syllables to improve readability
 
 ## How does Immersive Reader work?
 
-Immersive Reader is a standalone web application. When invoked using the Immersive Reader client library is displayed on top of your existing web application in an `iframe`. When your web application calls the Immersive Reader service, you specify the content to show the reader. The Immersive Reader client library handles the creation and styling of the `iframe` and communication with the Immersive Reader backend service. The Immersive Reader service processes the content for parts of speech, text to speech, translation, and more.
+Immersive Reader is a standalone web application. When it's invoked, the Immersive Reader client library displays on top of your existing web application in an `iframe`. When your web application calls the Immersive Reader service, you specify the content to show the reader. The Immersive Reader client library handles the creation and styling of the `iframe` and communication with the Immersive Reader backend service. The Immersive Reader service processes the content for parts of speech, text to speech, translation, and more.
 
 ## Next step
 
-The Immersive Reader client library is available in C#, JavaScript, Java (Android),  Kotlin (Android), and Swift (iOS). Get started with:
+The Immersive Reader client library is available in C#, JavaScript, Java (Android), Kotlin (Android), and Swift (iOS). Get started with:
 
 * [Quickstart: Use the Immersive Reader client library](quickstarts/client-libraries.md)

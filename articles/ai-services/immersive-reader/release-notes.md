@@ -88,8 +88,8 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 * Updated the Android code sample HTML to work with the latest SDK
 * Updated launch response to return the number of characters processed
 * Updated code samples to use v1.1.0
-* Do not allow launchAsync to be called when already loading
-* Checked for invalid content by ignoring messages where the data is not a string
+* Doesn't allow launchAsync to be called when already loading
+* Checked for invalid content by ignoring messages where the data isn't a string
 * Wrapped call to window in an if clause to check browser support of Promise
 
 #### Fixes
@@ -112,23 +112,23 @@ This release contains breaking changes, new features, code sample improvements, 
 
 #### New features
 
-* Add support to enable or disable cookies
-* Add Android Kotlin quick start code sample
-* Add Android Java quick start code sample
-* Add Node quick start code sample
+* Added support to enable or disable cookies
+* Added Android Kotlin quick start code sample
+* Added Android Java quick start code sample
+* Added Node quick start code sample
 
 #### Improvements
 
-* Update Node.js advanced README.md
-* Change Python code sample from advanced to quick start
-* Move iOS Swift code sample into js/samples
-* Update code samples to use v1.0.0
+* Updated Node.js advanced README.md
+* Changed Python code sample from advanced to quick start
+* Moved iOS Swift code sample into js/samples
+* Updated code samples to use v1.0.0
 
 #### Fixes
 
-* Fix for Node.js advanced code sample
-* Add missing files for advanced-csharp-multiple-resources
-* Remove en-us from hyperlinks
+* Fixed for Node.js advanced code sample
+* Added missing files for advanced-csharp-multiple-resources
+* Removed en-us from hyperlinks
 
 <br>
 
@@ -138,24 +138,24 @@ This release contains new features, improvements to code samples, security vulne
 
 #### New features
 
-* Add iOS Swift code sample
-* Add C# advanced code sample demonstrating use of multiple resources 
-* Add support to disable the full screen toggle feature
-* Add support to hide the Immersive Reader application exit button
-* Add a callback function that may be used by the host application upon exiting the Immersive Reader
-* Update code samples to use Azure Active Directory Authentication
+* Added iOS Swift code sample
+* Added C# advanced code sample demonstrating use of multiple resources
+* Added support to disable the full screen toggle feature
+* Added support to hide the Immersive Reader application exit button
+* Added a callback function that may be used by the host application upon exiting the Immersive Reader
+* Updated code samples to use Azure Active Directory Authentication
 
 #### Improvements
 
-* Update C# advanced code sample to include Word document
-* Update code samples to use v0.0.3
+* Updated C# advanced code sample to include Word document
+* Updated code samples to use v0.0.3
 
 #### Fixes
 
-* Upgrade lodash to version 4.17.14 to fix security vulnerability
-* Update C# MSAL library to fix security vulnerability
-* Upgrade mixin-deep to version 1.3.2 to fix security vulnerability
-* Upgrade jest, webpack and webpack-cli which were using vulnerable versions of set-value and mixin-deep to fix security vulnerability
+* Upgraded lodash to version 4.17.14 to fix security vulnerability
+* Updated C# MSAL library to fix security vulnerability
+* Upgraded mixin-deep to version 1.3.2 to fix security vulnerability
+* Upgraded jest, webpack and webpack-cli which were using vulnerable versions of set-value and mixin-deep to fix security vulnerability
 
 <br>
 
@@ -165,24 +165,24 @@ This release contains new features, improvements to code samples, security vulne
 
 #### New features
 
-* Add Python advanced code sample
-* Add Java quick start code sample
-* Add simple code sample
+* Added Python advanced code sample
+* Added Java quick start code sample
+* Added simple code sample
 
 #### Improvements
 
-* Rename resourceName to cogSvcsSubdomain
-* Move secrets out of code and use environment variables
-* Update code samples to use v0.0.2
+* Renamed resourceName to cogSvcsSubdomain
+* Moved secrets out of code and use environment variables
+* Updated code samples to use v0.0.2
 
 #### Fixes
 
-* Fix Immersive Reader button accessibility bugs
-* Fix broken scrolling
-* Upgrade handlebars package to version 4.1.2 to fix security vulnerability
-* Fixes bugs in SDK unit tests
-* Fixes JavaScript Internet Explorer 11 compatibility bugs
-* Updates SDK urls
+* Fixed Immersive Reader button accessibility bugs
+* Fixed broken scrolling
+* Upgraded handlebars package to version 4.1.2 to fix security vulnerability
+* Fixed bugs in SDK unit tests
+* Fixed JavaScript Internet Explorer 11 compatibility bugs
+* Updated SDK urls
 
 <br>
 
@@ -190,25 +190,23 @@ This release contains new features, improvements to code samples, security vulne
 
 The initial release of the Immersive Reader JavaScript SDK.
 
-* Add Immersive Reader JavaScript SDK
-* Add support to specify the UI language
-* Add a timeout to determine when the launchAsync function should fail with a timeout error
-* Add support to specify the z-index of the Immersive Reader iframe
-* Add support to use a webview tag instead of an iframe, for compatibility with Chrome Apps
-* Add SDK unit tests
-* Add Node.js advanced code sample
-* Add C# advanced code sample
-* Add C# quick start code sample
-* Add package configuration, Yarn and other build files
-* Add git configuration files
-* Add README.md files to code samples and SDK
-* Add MIT License
-* Add Contributor instructions
-* Add static icon button SVG assets
+* Added Immersive Reader JavaScript SDK
+* Added support to specify the UI language
+* Added a timeout to determine when the launchAsync function should fail with a timeout error
+* Added support to specify the z-index of the Immersive Reader iframe
+* Added support to use a webview tag instead of an iframe, for compatibility with Chrome Apps
+* Added SDK unit tests
+* Added Node.js advanced code sample
+* Added C# advanced code sample
+* Added C# quick start code sample
+* Added package configuration, Yarn and other build files
+* Added git configuration files
+* Added README.md files to code samples and SDK
+* Added MIT License
+* Added Contributor instructions
+* Added static icon button SVG assets
 
-## Next steps
+## Related content
 
-Get started with Immersive Reader:
-
-* Read the [Immersive Reader client library reference](./reference.md)
-* Explore the [Immersive Reader client library on GitHub](https://github.com/microsoft/immersive-reader-sdk)
+* [Immersive Reader client library reference](./reference.md)
+* [Immersive Reader client library on GitHub](https://github.com/microsoft/immersive-reader-sdk)
