@@ -367,5 +367,5 @@ procedureSection:
             -PublicIpAddressName "myImagePIP" 
         ```
 nextStep:
-  text: Azure Compute Gallery
+  text: Store and share images in an Azure Compute Gallery
   url: shared-image-galleries.md
