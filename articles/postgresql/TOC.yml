@@ -134,8 +134,6 @@
       items:
       - name: Overview
         href: flexible-server/concepts-business-continuity.md
-      - name: High availability
-        href: flexible-server/concepts-high-availability.md
       - name: Reliability and high availability
         href: ../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json
       - name: Backup and restore
