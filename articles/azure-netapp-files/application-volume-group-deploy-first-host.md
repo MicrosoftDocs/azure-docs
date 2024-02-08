@@ -1,10 +1,9 @@
 ---
 title: Deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
-description: Describes how to deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA. 
+description: Describes how to deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 10/13/2022
 ms.author: anfdocs
