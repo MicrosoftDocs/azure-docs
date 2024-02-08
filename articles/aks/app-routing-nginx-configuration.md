@@ -1,5 +1,5 @@
 ---
-title: Advanced ingress and NGINX ingress controller configuration
+title: Configure multiple ingress controllers and NGINX ingress annotations with the application routing add-on for Azure Kubernetes Service
 description: Understand the advanced configuration options that are supported with the application routing add-on with the NGINX ingress controller for Azure Kubernetes Service. 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
