@@ -56,6 +56,7 @@ There are two ways to enable preview experiences.
 	
    [**Pipeline experimental view**](#pipeline-experimental-view)
    * [Dynamic content flyout](#dynamic-content-flyout)
+   * [Linked service for Web activity] (#linked-service-web-activity)
 
    [**Monitoring experimental view**](#monitoring-experimental-view)
    * [Error message relocation to Status column](#error-message-relocation-to-status-column)
@@ -155,6 +156,21 @@ In supported activities, you'll see an icon next to the setting. Clicking this w
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-32.png" alt-text="Screenshot of the new dynamic content flyout icon.":::
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-33.png" alt-text="Screenshot of the new dynamic content flyout with dynamic content options to choose.":::
+
+#### Linked service for Web activity
+
+There are new settings available for the Web activity. 
+
+By default, the **Connection type** will be set to **Inline**, but you can choose to select **Linked service**. Doing so will allow you to reference a REST linked service for authentication purposes.
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-45.png" alt-text="Screenshot of the new Web activity settings.":::
+
+After selecting **Linked service**, use the drop-down menu to select an exisitng linked service or click **New** to create a new linked service. 
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-46.png" alt-text="Screenshot of the Web activity settings with Linked service selected.":::
+
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-47.png" alt-text="Screenshot of the fly-out for setting up a new linked service.":::
+
 
 ### Monitoring experimental view
 
