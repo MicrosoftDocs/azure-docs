@@ -40,7 +40,7 @@ There are two different configuration modes for outbound traffic from the manage
 1: You can use outbound rules with _allow only approved outbound_ mode to achieve the same result as using allow internet outbound. The differences are:
 
 * You must add rules for each outbound connection you need to allow.
-* Adding FQDN outbound rules increase your costs as this rule type uses Azure Firewall.
+* Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall. For more information, see [Pricing](#pricing)
 * The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add may increase your risk.
 
 The managed VNet is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace, workspace's default storage, container registry and key vault __if they're configured as private__ or __the workspace isolation mode is set to allow only approved outbound__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
@@ -1070,7 +1070,7 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 * FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. The Azure Firewall (standard SKU) is provisioned by Azure Machine Learning.
 
     > [!IMPORTANT]
-    > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/) and view prices for the _standard_ version.
+    > The firewall isn't created until you add an outbound FQDN rule. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/) and view prices for the _standard_ version.
 
 ## Limitations
 
@@ -1080,6 +1080,7 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed VNet.
 * Kubernetes and attached VMs aren't supported in an Azure Machine Learning managed VNet.
+* Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
 
 ### Migration of compute resources
 
