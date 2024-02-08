@@ -1,113 +1,85 @@
 ---
-title: Monitor Azure Machine Learning data reference | Microsoft Docs
-description: Reference documentation for monitoring Azure Machine Learning. Learn about the data & resources collected and available in Azure Monitor. 
-services: machine-learning
-ms.service: machine-learning
-ms.subservice: mlops
+title: Monitoring data reference for Machine Learning
+description: This article contains important reference material you need when you monitor Azure Machine Learning.
+ms.date: 02/08/2024
+ms.custom: horz-monitor
 ms.topic: reference
-ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.custom: subject-monitoring engagement-fy23
-ms.date: 09/12/2023
+ms.service: machine-learning
+ms.subservice: mlops
 ---
 
-# Monitoring Azure Machine Learning data reference
+<!-- 
+IMPORTANT 
+To make this template easier to use, first:
+1. Search and replace Machine Learning with the official name of your service.
+2. Search and replace machine-learning with the service name to use in GitHub filenames.-->
 
-Learn about the data and resources collected by Azure Monitor from your Azure Machine Learning workspace. See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for details on collecting and analyzing monitoring data.
+<!-- VERSION 3.0 2024_01_01
+For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
 
-## Metrics
+<!-- Most services can use the following sections unchanged. All headings are required unless otherwise noted.
+The sections use #included text you don't have to maintain, which changes when Azure Monitor functionality changes. Add info into the designated service-specific places if necessary. Remove #includes or template content that aren't relevant to your service.
 
-This section lists all the automatically collected platform metrics collected for Azure Machine Learning. The resource provider for these metrics is [Microsoft.MachineLearningServices/workspaces](../azure-monitor/essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
+At a minimum your service should have the following two articles:
 
-**Model**
+1. The primary monitoring article (based on the template monitor-service-template.md)
+   - Title: "Monitor Machine Learning"
+   - TOC title: "Monitor"
+   - Filename: "monitor-machine-learning.md"
 
-| Metric | Unit | Description |
-|--|--|--|
-| Model Register Succeeded | Count | Number of model registrations that succeeded in this workspace |
-| Model Register Failed | Count | Number of model registrations that failed in this workspace |
-| Model Deploy Started | Count | Number of model deployments started in this workspace |
-| Model Deploy Succeeded | Count | Number of model deployments that succeeded in this workspace |
-| Model Deploy Failed | Count | Number of model deployments that failed in this workspace |
+2. A reference article that lists all the metrics and logs for your service (based on this template).
+   - Title: "Machine Learning monitoring data reference"
+   - TOC title: "Monitoring data reference"
+   - Filename: "monitor-machine-learning-reference.md".
+-->
 
-**Quota**
+# Machine Learning monitoring data reference
 
-Quota information is for Azure Machine Learning compute only.
+<!-- Intro. Required. -->
+[!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-| Metric | Unit | Description |
-|--|--|--|
-| Total Nodes | Count | Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes |
-| Active Nodes | Count | Number of Active nodes. The nodes that are actively running a job. |
-| Idle Nodes | Count | Number of idle nodes. Idle nodes are the nodes that are not running any jobs but can accept new job if available. |
-| Unusable Nodes | Count | Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes. |
-| Preempted Nodes | Count | Number of preempted nodes. These nodes are the low-priority nodes that are taken away from the available node pool. |
-| Leaving Nodes | Count | Number of leaving nodes. Leaving nodes are the nodes that just finished processing a job and will go to Idle state. |
-| Total Cores | Count | Number of total cores |
-| Active Cores | Count | Number of active cores |
-| Idle Cores | Count | Number of idle cores |
-| Unusable Cores | Count | Number of unusable cores |
-| Preempted Cores | Count | Number of preempted cores |
-| Leaving Cores | Count | Number of leaving cores |
-| Quota Utilization Percentage | Count | Percent of quota utilized |
+See [Monitor Machine Learning](monitor-azure-machine-learning.md) for details on the data you can collect for Machine Learning and how to use it.
 
-**Resource**
+<!-- ## Metrics. Required section. -->
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+The resource provider for these metrics is Microsoft.MachineLearningServices/workspaces.
 
-| Metric| Unit | Description |
-|--|--|--|
-| CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one-minute intervals. |
-| CpuUtilizationPercentage | Count | Utilization percentage of a CPU node. Utilization is aggregated in one minute intervals. |
-| CpuUtilizationMillicores | Count | Utilization of a CPU node in millicores. Utilization is aggregated in one minute intervals. |
-| CpuCapacityMillicores | Count | Maximum capacity of a CPU node in millicores. Capacity is aggregated in one minute intervals. |
-| CpuMemoryCapacityMegabytes | Count | Maximum memory utilization of a CPU node in megabytes. Utilization is aggregated in one minute intervals. |
-| CpuMemoryUtilizationMegabytes | Count | Memory utilization of a CPU node in megabytes. Utilization is aggregated in one minute intervals. |
-| CpuMemoryUtilizationPercentage | Count | Memory utilization percentage of a CPU node. Utilization is aggregated in one minute intervals. |
-| GpuUtilization | Count | Percentage of utilization on a GPU node. Utilization is reported at one-minute intervals. |
-| GpuUtilizationPercentage | Count | Utilization percentage of a GPU device. Utilization is aggregated in one minute intervals. |
-| GpuUtilizationMilliGPUs | Count | Utilization of a GPU device in milli-GPUs. Utilization is aggregated in one minute intervals. |
-| GpuCapacityMilliGPUs | Count | Maximum capacity of a GPU device in milli-GPUs. Capacity is aggregated in one minute intervals. |
-| GpuMemoryCapacityMegabytes | Count | Maximum memory capacity of a GPU device in megabytes. Capacity aggregated in at one minute intervals. |
-| GpuMemoryUtilization | Count | Percentage of memory utilization on a GPU node. Utilization is reported at one-minute intervals. |
-| GpuMemoryUtilizationMegabytes | Count | Memory utilization of a GPU device in megabytes. Utilization aggregated in at one minute intervals.
-| GpuMemoryUtilizationPercentage | Count | Memory utilization percentage of a GPU device. Utilization aggregated in at one minute intervals.
-| GpuEnergyJoules | Count | Interval energy in Joules on a GPU node. Energy is reported at one-minute intervals. |
-| DiskAvailMegabytes | Count | Available disk space in megabytes. Metrics are aggregated in one minute intervals. |
-| DiskReadMegabytes | Count | Data read from disk in megabytes. Metrics are aggregated in one minute intervals. |
-| DiskUsedMegabytes | Count | Used disk space in megabytes. Metrics are aggregated in one minute intervals. |
-| DiskWriteMegabytes | Count | Data written into disk in megabytes. Metrics are aggregated in one minute intervals. |
-| IBReceiveMegabytes | Count | Network data received over InfiniBand in megabytes. Metrics are aggregated in one minute intervals. |
-| IBTransmitMegabytes | Count | Network data sent over InfiniBand in megabytes. Metrics are aggregated in one minute intervals. |
-| NetworkInputMegabytes | Count | Network data received in megabytes. Metrics are aggregated in one minute intervals. |
-| NetworkOutputMegabytes | Count | Network data sent in megabytes. Metrics are aggregated in one minute intervals. |
+The metrics categories are Model, Quota, Resource, Run, and Traffic. Quota information is for Machine Learning compute only. Run provides information on training runs for the workspace.
+<!-- Repeat the following section for each resource type/namespace in your service. -->
 
+### Supported metrics for Microsoft.MachineLearningServices/workspaces
+The following table lists the metrics available for the Microsoft.MachineLearningServices/workspaces resource type.
 
+<!-- For each ### section:
+1. Replace the <ResourceType/namespace> placeholder in the heading and introductory sentence. Example: ### Supported metrics for Microsoft.Storage/storageAccounts/blobServices
+2. Find the metrics for the resource type at https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index#supported-metrics-per-resource-type, which is autogenerated from underlying systems. Either link to the listed metrics page(s), OR #include the metrics table(s).
+3. Add any further information after each metric #include or link. -->
 
-**Run**
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-machinelearningservices-workspaces-metrics-include.md)]
 
-Information on training runs for the workspace.
+### Supported metrics for Microsoft.MachineLearningServices/workspaces/onlineEndpoints
+The following table lists the metrics available for the Microsoft.MachineLearningServices/workspaces/onlineEndpoints resource type.
 
-| Metric | Unit | Description |
-|--|--|--|
-| Cancelled Runs | Count | Number of runs canceled for this workspace. Count is updated when a run is successfully canceled. |
-| Cancel Requested Runs | Count | Number of runs where cancel was requested for this workspace. Count is updated when cancellation request has been received for a run. |
-| Completed Runs | Count | Number of runs completed successfully for this workspace. Count is updated when a run has completed and output has been collected. |
-| Failed Runs | Count | Number of runs failed for this workspace. Count is updated when a run fails. |
-| Finalizing Runs | Count | Number of runs entered finalizing state for this workspace. Count is updated when a run has completed but output collection still in progress. | 
-| Not Responding Runs | Count | Number of runs not responding for this workspace. Count is updated when a run enters Not Responding state. |
-| Not Started Runs | Count | Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |
-| Preparing Runs | Count | Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared. |
-| Provisioning Runs | Count | Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning. |
-| Queued Runs | Count | Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready. |
-| Started Runs | Count | Number of runs running for this workspace. Count is updated when run starts running on required resources. |
-| Starting Runs | Count | Number of runs started for this workspace. Count is updated after request to create run and run info, such as the Run ID, has been populated |
-| Errors | Count | Number of run errors in this workspace. Count is updated whenever run encounters an error. |
-| Warnings | Count | Number of run warnings in this workspace. Count is updated whenever a run encounters a warning. |
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics-include.md)]
 
-## Metric dimensions
+### Supported metrics for Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments
+The following table lists the metrics available for the Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments resource type.
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+<!-- For each ### section:
+1. Replace the <ResourceType/namespace> placeholder in the heading and introductory sentence. Example: ### Supported metrics for Microsoft.Storage/storageAccounts/blobServices
+2. Find the metrics for the resource type at https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index#supported-metrics-per-resource-type, which is autogenerated from underlying systems. Either link to the listed metrics page(s), OR #include the metrics table(s).
+3. Add any further information after each metric #include or link. -->
 
-Azure Machine Learning has the following dimensions associated with its metrics.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-machinelearningservices-workspaces-onlineendpoints-deployments-metrics-include.md)]
 
+<!-- ## Metric dimensions. Required section. -->
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 | Dimension | Description |
 | ---- | ---- |
 | Cluster Name | The name of the compute cluster resource. Available for all quota metrics. |
@@ -131,9 +103,60 @@ The valid values for the RunType dimension are:
 | StepRun | A run for a pipeline step. |
 | ReusedStepRun | A run for a pipeline step that reuses a previous run. |
 
-## Activity log
+<!-- ## Resource logs. Required section. -->
+[!INCLUDE [horz-monitor-ref-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-The following table lists the operations related to Azure Machine Learning that may be created in the Activity log.
+<!-- Add at least one resource provider/resource type here. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices
+Repeat this section for each resource type/namespace in your service. -->
+### Supported resource logs for Microsoft.MachineLearningServices/registries
+[!INCLUDE [Microsoft.MachineLearningServices/registries](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-machinelearningservices-registries-logs-include.md)]
+
+### Supported resource logs for Microsoft.MachineLearningServices/workspaces
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-machinelearningservices-workspaces-logs-include.md)]
+
+### Supported resource logs for Microsoft.MachineLearningServices/workspaces/onlineEndpoints
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-machinelearningservices-workspaces-onlineendpoints-logs-include.md)]
+
+<!-- ## Azure Monitor Logs tables. Required section. -->
+[!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+### Machine Learning
+Microsoft.MachineLearningServices/workspaces
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity)
+- [AMLOnlineEndpointConsoleLog](/azure/azure-monitor/reference/tables/AMLOnlineEndpointConsoleLog)
+- [AMLOnlineEndpointTrafficLog](/azure/azure-monitor/reference/tables/AMLOnlineEndpointTrafficLog)
+- [AMLOnlineEndpointEvent](/azure/azure-monitor/reference/tables/Log](/azure/azure-monitor/reference/tables/AMLOnlineEndpointEvent)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics)
+- [AMLComputeClusterEvent](/azure/azure-monitor/reference/tables/AMLComputeClusterEvent)
+- [AMLComputeClusterNodeEvent](/azure/azure-monitor/reference/tables/AMLComputeClusterNodeEvent)
+- [AMLComputeJobEvent](/azure/azure-monitor/reference/tables/AMLComputeJobEvent)
+- [AMLRunStatusChangedEvent](/azure/azure-monitor/reference/tables/AMLRunStatusChangedEvent)
+- [AMLComputeCpuGpuUtilization](/azure/azure-monitor/reference/tables/AMLComputeCpuGpuUtilization)
+- [AMLComputeInstanceEvent](/azure/azure-monitor/reference/tables/AMLComputeInstanceEvent)
+- [AMLDataLabelEvent](/azure/azure-monitor/reference/tables/AMLDataLabelEvent)
+- [AMLDataSetEvent](/azure/azure-monitor/reference/tables/AMLDataSetEvent)
+- [AMLDataStoreEvent](/azure/azure-monitor/reference/tables/AMLDataStoreEvent)
+- [AMLDeploymentEvent](/azure/azure-monitor/reference/tables/AMLDeploymentEvent)
+- [AMLEnvironmentEvent](/azure/azure-monitor/reference/tables/AMLEnvironmentEvent)
+- [AMLInferencingEvent](/azure/azure-monitor/reference/tables/AMLInferencingEvent)
+- [AMLModelsEvent](/azure/azure-monitor/reference/tables/AMLModelsEvent)
+- [AMLPipelineEvent](/azure/azure-monitor/reference/tables/AMLPipelineEvent)
+- [AMLRunEvent](/azure/azure-monitor/reference/tables/AMLRunEvent)
+
+Microsoft.MachineLearningServices/registries
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity)
+- [AmlRegistryReadEventsLog](/azure/azure-monitor/reference/tables/AmlRegistryReadEventsLog)
+- [AmlRegistryWriteEventsLog](/azure/azure-monitor/reference/tables/AmlRegistryWriteEventsLog)
+
+<!-- Find the table(s) for your service at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. These files are auto generated from the REST API.
+NOTE: Also refer to https://learn.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics#azure-diagnostics-mode to see whether your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics. 
+Link to the service-specific tables. If your service uses the AzureDiagnostics table, list the fields you use and what they're for. If your service uses both tables, list both types of information. Add any further information after each table link, such as descriptions and usage, or information not found in the tables. Example:
+
+<!-- ## Activity log. Required section. -->
+[!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+<!-- Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and link to the possible operations for your service, using the format - [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#<namespace>).
+Example: - .
+If there are other operations not in the link, list them here in table form. -->
+The following table lists some operations related to Machine Learning that may be created in the activity log. For a complete listing of Microsoft.MachineLearningServices operations, see [Microsoft.MachineLearningServices resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 | Operation | Description |
 |:---|:---|
@@ -143,42 +166,9 @@ The following table lists the operations related to Azure Machine Learning that 
 | Deletes the compute resources | A compute resource was deleted |
 | List secrets | On operation listed secrets for a Machine Learning workspace |
 
-## Resource logs
-
-This section lists the types of resource logs you can collect for Azure Machine Learning workspace.
-
-Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azure-monitor/essentials/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
-
-| Category | Display Name |
-| ----- | ----- |
-| AmlComputeClusterEvent | AmlComputeClusterEvent |
-| AmlComputeClusterNodeEvent (deprecated) | AmlComputeClusterNodeEvent |
-| AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
-| AmlComputeJobEvent | AmlComputeJobEvent |
-| AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
-| ModelsChangeEvent | ModelsChangeEvent |
-| ModelsReadEvent | ModelsReadEvent |
-| ModelsActionEvent | ModelsActionEvent |
-| DeploymentReadEvent | DeploymentReadEvent |
-| DeploymentEventACI | DeploymentEventACI |
-| DeploymentEventAKS | DeploymentEventAKS |
-| InferencingOperationAKS | InferencingOperationAKS |
-| InferencingOperationACI | InferencingOperationACI |
-| EnvironmentChangeEvent | EnvironmentChangeEvent |
-| EnvironmentReadEvent | EnvironmentReadEvent |
-| DataLabelChangeEvent | DataLabelChangeEvent |
-| DataLabelReadEvent | DataLabelReadEvent |
-| ComputeInstanceEvent | ComputeInstanceEvent |
-| DataStoreChangeEvent | DataStoreChangeEvent |
-| DataStoreReadEvent | DataStoreReadEvent |
-| DataSetChangeEvent | DataSetChangeEvent |
-| DataSetReadEvent | DataSetReadEvent |
-| PipelineChangeEvent | PipelineChangeEvent |
-| PipelineReadEvent | PipelineReadEvent |
-| RunEvent | RunEvent |
-| RunReadEvent | RunReadEvent |
-
-
+<!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. -->
+[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
+<!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
 ## Schemas
 
 The following schemas are in use by Azure Machine Learning
@@ -255,6 +245,7 @@ The following schemas are in use by Azure Machine Learning
 | ClusterErrorCodes | Error code received during cluster creation or scaling |
 | CreationApiVersion | Api version used while creating the cluster |
 
+<!-- removing as deprecated
 ### AmlComputeClusterNodeEvent table
 
 | Property | Description |
@@ -282,7 +273,7 @@ The following schemas are in use by Azure Machine Learning
 
 > [!NOTE]
 > Effective February 2022, the AmlComputeClusterNodeEvent table will be deprecated. We recommend that you instead use the AmlComputeClusterEvent table.
-
+-->
 ### AmlComputeInstanceEvent table
 
 | Property | Description |
@@ -450,7 +441,8 @@ For more information on this log, see [Monitor online endpoints](how-to-monitor-
 [!INCLUDE [endpoint-monitor-event-reference](includes/endpoint-monitor-event-reference.md)]
 
 For more information on this log, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
-## See also
 
-- See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+## Related content
+
+- See [Monitor Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Machine Learning.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
