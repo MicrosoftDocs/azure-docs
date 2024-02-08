@@ -96,7 +96,7 @@ LDAP signing is specific to connections on Microsoft Active Directory servers th
 
 :::image type="content" source="./media/understand-data-encryption/packet-ldap-signing.png" alt-text="Screenshot of NFS packet with LDAP signing." lightbox="./media/understand-data-encryption/packet-ldap-signing.png":::
 
-LDAP signing can also be [configured from the Windows server side](/windows-server/identity/enable-ldap-signing-in-windows-server) via Group Policy to either be [opportunistic with LDAP signing (none – support if requested by client) or to enforce LDAP signing (require)](/windows/security/threat-protection/security-policy-settings/domain-controller-ldap-server-signing-requirements). LDAP signing can add some performance overhead to LDAP traffic that usually isn't noticeable to end users.
+LDAP signing can also be [configured from the Windows server side](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server) via Group Policy to either be [opportunistic with LDAP signing (none – support if requested by client) or to enforce LDAP signing (require)](/windows/security/threat-protection/security-policy-settings/domain-controller-ldap-server-signing-requirements). LDAP signing can add some performance overhead to LDAP traffic that usually isn't noticeable to end users.
 
 Windows Active Directory also enables you to use LDAP signing and sealing (end-to-end encryption of LDAP packets). Azure NetApp Files doesn't support this feature. 
 
