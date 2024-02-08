@@ -1,13 +1,11 @@
 ---
 title: How to publish custom machine configuration package artifacts
 description: Learn how to publish a machine configuration package file to Azure blob storage and get a SAS token for secure access.
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
 # How to publish custom machine configuration package artifacts
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
@@ -109,20 +107,15 @@ $contentUri = New-AzStorageBlobSASToken @tokenParams
 > create it. You can only create new tokens. For more information about SAS tokens, see
 > [Grant limited access to Azure Storage resources using shared access signatures (SAS)][06].
 
-## Next steps
+## Next step
 
-- [Test the package artifact][07] from your development environment.
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][08] for at-scale
-  management of your environment.
-- [Assign your custom policy definition][09] using Azure portal.
+> [!div class="nextstepaction"]
+> [Sign a custom machine configuration package](./5-sign-package.md)
 
 <!-- Reference link definitions -->
-[01]: ./overview.md
-[02]: ../../storage/common/storage-sas-overview.md
-[03]: ../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network
-[04]: ../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account
+[01]: ../../overview.md
+[02]: /azure/storage/common/storage-sas-overview
+[03]: /azure/storage/common/storage-network-security#grant-access-from-a-virtual-network
+[04]: /azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account
 [05]: /azure/cloud-shell/using-the-shell-window#upload-and-download-files
-[06]: ../../storage/common/storage-sas-overview.md
-[07]: ./how-to-test-package.md
-[08]: ./how-to-create-policy-definition.md
-[09]: ../policy/assign-policy-portal.md
+[06]: /azure/storage/common/storage-sas-overview

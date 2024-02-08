@@ -8,7 +8,6 @@ ms.service: traffic-manager
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.topic: article
-ms.workload: traffic-manager
 ms.date: 04/27/2023
 ms.author: allensu
 ---

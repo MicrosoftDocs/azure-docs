@@ -1,12 +1,10 @@
 ---
 title: How to test machine configuration package artifacts
-description: The experience creating and testing packages that audit or apply configurations to machines.
-ms.date: 08/11/2023
+description: Learn how to test custom packages that audit or apply configurations to machines.
+ms.date: 02/01/2024
 ms.topic: how-to
 ---
 # How to test machine configuration package artifacts
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 The PowerShell module **GuestConfiguration** includes tools to automate testing a configuration
 package outside of Azure. Use these tools to find issues and iterate quickly before moving on to
@@ -119,19 +117,13 @@ during `Set`, use the `-verbose` parameter.
 After running the command `Start-GuestConfigurationPackageRemediation`, you can run the command
 `Get-GuestConfigurationComplianceStatus` again to confirm the machine is now in the correct state.
 
-## Next steps
+## Next step
 
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][06] for at-scale
-  management of your environment.
-- [Assign your custom policy definition][07] using Azure portal.
-- Learn how to view [compliance details for machine configuration][08] policy assignments.
+> [!div class="nextstepaction"]
+> [Publish a custom machine configuration package](./4-publish-package.md)
 
 <!-- Reference link definitions -->
-[01]: ./how-to-set-up-authoring-environment.md
-[02]: ./how-to-create-package.md
+[01]: ./1-set-up-authoring-environment.md
+[02]: ./2-create-package.md
 [03]: /sysinternals/downloads/psexec
 [04]: https://www.sudo.ws/docs/man/sudo.man/
-[05]: ./how-to-publish-package.md
-[06]: ./how-to-create-policy-definition.md
-[07]: ../policy/assign-policy-portal.md
-[08]: ../policy/how-to/determine-non-compliance.md

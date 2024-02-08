@@ -1,13 +1,11 @@
 ---
 title: Azure Automation State Configuration to machine configuration migration planning
 description: This article provides process and technical guidance for customers interested in moving from DSC version 2 in Azure Automation to version 3 in Azure Policy.
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
 # Azure Automation state configuration to machine configuration migration planning
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Machine configuration is the latest implementation of functionality that has been provided by Azure
 Automation State Configuration (also known as Azure Automation Desired State Configuration, or
@@ -356,14 +354,6 @@ Before removing a machine from Azure Automation State Configuration, onboard eac
 Azure Policy can manage the machine. The machine can be onboarded to Azure Arc at any time, but you
 can use Azure Automation State Configuration to automate the process.
 
-You can register a machine to Azure Arc-enabled servers by using PowerShell DSC. For details, view
-the page [How to install the Connected Machine agent using Windows PowerShell DSC][15]. Remember
-however, that Azure Automation State Configuration can manage only one configuration per machine,
-per Automation Account. You can export, test, and prepare your content for machine configuration,
-and then switch the node configuration in Azure Automation to onboard to Azure Arc. As the last
-step, remove the node registration from Azure Automation State Configuration and move forward only
-managing the machine state through machine configuration.
-
 ## Troubleshooting issues when exporting content
 
 Details about known issues are provided in this section.
@@ -374,38 +364,34 @@ When using PowerShell on macOS and Linux, you may have issues dealing with the f
 `Export-AzAutomationDSCConfiguration`.
 
 As a workaround, a module has been published to the PowerShell Gallery named
-[AADSCConfigContent][16]. The module has only one command, which exports the content of a
+[AADSCConfigContent][15]. The module has only one command, which exports the content of a
 configuration stored in Azure Automation by making a REST request to the service.
 
 ## Next steps
 
-- [Create a package artifact][05] for machine configuration.
-- [Test the package artifact][17] from your development environment.
-- [Publish the package artifact][18] so it's accessible to your machines.
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][19] for at-scale
+- [Develop a custom machine configuration package][16].
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][18] for at-scale
   management of your environment.
 - [Assign your custom policy definition][20] using Azure portal.
 - Learn how to view [compliance details for machine configuration][21] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ./overview.md
+[01]: ../overview.md
 [02]: /powershell/dsc/getting-started/wingettingstarted
 [03]: /powershell/dsc/getting-started/lnxgettingstarted
 [04]: /powershell/gallery/how-to/working-with-local-psrepositories
-[05]: ./how-to-create-package.md
-[06]: ./how-to-create-package.md#author-a-configuration
-[07]: /powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.4
+[05]: ../how-to/develop-custom-package/2-create-package.md
+[06]: ../how-to/develop-custom-package/2-create-package.md#author-a-configuration
+[07]: /powershell/gallery/how-to/working-with-local-psrepositories
 [08]: https://github.com/Azure/azure-policy/blob/bbfc60104c2c5b7fa6dd5b784b5d4713ddd55218/samples/GuestConfiguration/package-samples/resource-modules/WindowsDscConfiguration/DscResources/WindowsDscConfiguration/WindowsDscConfiguration.psm1#L97
-[09]: ./dsc-in-machine-configuration.md#special-requirements-for-get
-[10]: ../../azure-resource-manager/management/overview.md#terminology
-[11]: ../../automation/state-configuration/remove-node-and-configuration-package.md
-[12]: ../policy/assign-policy-portal.md
-[13]: ../../automation/automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines
-[14]: ../../azure-arc/servers/overview.md
-[15]: ../../azure-arc/servers/onboard-dsc.md
-[16]: https://www.powershellgallery.com/packages/AADSCConfigContent/
-[17]: ./how-to-test-package.md
-[18]: ./how-to-publish-package.md
-[19]: ./how-to-create-policy-definition.md
-[20]: ../policy/assign-policy-portal.md
-[21]: ../policy/how-to/determine-non-compliance.md
+[09]: ./psdsc-in-machine-configuration.md#special-requirements-for-get
+[10]: /azure/azure-resource-manager/management/overview#terminology
+[11]: /azure/automation/state-configuration/remove-node-and-configuration-package
+[12]: ../../policy/assign-policy-portal.md
+[13]: /azure/automation/automation-dsc-onboarding#enable-physicalvirtual-linux-machines
+[14]: /azure/azure-arc/servers/overview
+[15]: https://www.powershellgallery.com/packages/AADSCConfigContent/
+[16]: ../how-to/develop-custom-package/overview.md
+[17]: ../how-to/create-policy-definition.md
+[18]: ../../policy/assign-policy-portal.md
+[19]: ../../policy/how-to/determine-non-compliance.md

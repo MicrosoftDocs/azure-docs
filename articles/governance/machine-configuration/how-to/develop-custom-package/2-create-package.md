@@ -1,12 +1,10 @@
 ---
 title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
-ms.date: 08/11/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ---
 # How to create custom machine configuration package artifacts
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
@@ -215,22 +213,14 @@ After the DSC resource has been installed in the development environment, use th
 **FilesToInclude** parameter for `New-GuestConfigurationPackage` to include content for the
 third-party platform in the content artifact.
 
-## Next steps
+## Next step
 
-- [Test the package artifact][07] from your development environment.
-- [Publish the package artifact][08] so it's accessible to your machines.
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][09] for at-scale
-  management of your environment.
-- [Assign your custom policy definition][10] using Azure portal.
+> [!div class="nextstepaction"]
+> [Test a custom machine configuration package](./3-test-package.md)
 
 <!-- Reference link definitions -->
-[01]: ./overview.md
+[01]: ../../overview.md
 [02]: /powershell/dsc/overview
-[03]: ./how-to-set-up-authoring-environment.md
-[04]: /powershell/dsc/getting-started/wingettingstarted#define-a-configuration-and-generate-the-configuration-document
+[03]: ./1-set-up-authoring-environment.md
 [05]: /powershell/dsc/resources/authoringResourceClass
 [06]: https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22
-[07]: ./how-to-test-package.md
-[08]: ./how-to-publish-package.md
-[09]: ./how-to-create-policy-definition.md
-[10]: ../policy/assign-policy-portal.md

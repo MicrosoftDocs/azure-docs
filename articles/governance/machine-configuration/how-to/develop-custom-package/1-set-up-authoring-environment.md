@@ -1,12 +1,10 @@
 ---
 title: How to install the machine configuration authoring module
 description: Learn how to install the PowerShell module for creating and testing machine configuration policy definitions and assignments.
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ---
 # How to set up a machine configuration authoring environment
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 The PowerShell module **GuestConfiguration** automates the process of creating custom content
 including:
@@ -60,19 +58,12 @@ Validate that the module has been imported:
 Get-Command -Module 'GuestConfiguration'
 ```
 
-## Next steps
+## Next step
 
-- [Create a package artifact][04] for machine configuration.
-- [Test the package artifact][05] from your development environment.
-- Use the **GuestConfiguration** module to [create an Azure Policy definition][06] for at-scale
-  management of your environment.
-- [Assign your custom policy definition][07] using Azure portal.
+> [!div class="nextstepaction"]
+> [Create a custom machine configuration package](./2-create-package.md)
 
 <!-- Reference link definitions -->
 [01]: https://github.com/PowerShell/PowerShell/releases/tag/v7.1.3
 [02]: https://github.com/PowerShell/PowerShell/releases/tag/v7.2.4
 [03]: /powershell/azure/install-az-ps
-[04]: ./how-to-create-package.md
-[05]: ./how-to-test-package.md
-[06]: ./how-to-create-policy-definition.md
-[07]: ../policy/assign-policy-portal.md

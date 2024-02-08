@@ -6,7 +6,6 @@ services: virtual-machines
 author: kapilv
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 05/17/2023
 ms.author: kapilv

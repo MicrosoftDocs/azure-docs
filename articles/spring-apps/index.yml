@@ -166,7 +166,7 @@ conceptualContent:
             - text: Set up SSO using Microsoft Entra ID for Spring Cloud Gateway and API Portal
               url: enterprise/how-to-set-up-sso-with-azure-ad.md
               itemType: how-to-guide
-            - text: Use permissions
+            - text: Create roles and permissions
               url: enterprise/how-to-permissions.md
               itemType: how-to-guide
             - text: Load application secrets using Key Vault

@@ -4,7 +4,6 @@ description: Lists the different sizes available for high performance computing 
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 12/7/2023
 ms.reviewer: jushiman
 ---

@@ -150,7 +150,7 @@
     - name: Manage a packet capture
       items:
       - name: Virtual machine - Portal
-        href: network-watcher-packet-capture-manage-portal.md
+        href: packet-capture-vm-portal.md
       - name: Virtual Machine Scale Set - Portal
         href: network-watcher-packet-capture-manage-portal-vmss.md
       - name: Virtual machine - PowerShell

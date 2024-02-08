@@ -1,13 +1,11 @@
 ---
 title: How to sign machine configuration packages
 description: You can optionally sign machine configuration content packages and force the agent to only allow signed content
-ms.date: 04/18/2023
+ms.date: 02/01/2024
 ms.topic: how-to
 ---
 
 # How to sign machine configuration packages
-
-[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Machine configuration custom policies use SHA256 hash to validate the policy package hasn't
 changed. Optionally, customers may also use a certificate to sign packages and force the machine
@@ -118,21 +116,17 @@ and value `enabled` to all virtual machines where code signing should be require
 place, the policy definition generated using the `New-GuestConfigurationPolicy` cmdlet enables the
 requirement through the machine configuration extension.
 
-## Next steps
+## Related content
 
-- [Test the package artifact][04] from your development environment.
-- [Publish the package artifact][05] so it's accessible to your machines.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][06] for at-scale
+- Use the `GuestConfiguration` module to [create an Azure Policy definition][04] for at-scale
   management of your environment.
-- [Assign your custom policy definition][07] using Azure portal.
-- Learn how to view [compliance details for machine configuration][08] policy assignments.
+- [Assign your custom policy definition][05] using Azure portal.
+- Learn how to view [compliance details for machine configuration][06] policy assignments.
 
 <!-- Reference link definitions -->
 [01]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows
-[02]: ../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault
-[03]: ../policy/samples/built-in-policies.md#tags
-[04]: ./how-to-test-package.md
-[05]: ./how-to-publish-package.md
-[06]: ./how-to-create-policy-definition.md
-[07]: ../policy/assign-policy-portal.md
-[08]: ../policy/how-to/determine-non-compliance.md
+[02]: /azure/virtual-machines/windows/key-vault-setup#use-templates-to-set-up-key-vault
+[03]: ../../../policy/samples/built-in-policies.md#tags
+[04]: ../create-policy-definition.md
+[05]: ../../../policy/assign-policy-portal.md
+[06]: ../../../policy/how-to/determine-non-compliance.md
