@@ -45,7 +45,7 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone-end
 
-[!INCLUDE[Developer Quickstart setup](../includes/dev-setup.md)]
+[!INCLUDE[Developer Quickstart setup](../includes/azd-setup.md)]
 
 ### Install the client library
 

@@ -27,7 +27,7 @@ Get started with the Azure Cosmos DB for NoSQL client library for Python to quer
 
 ## Prerequisites
 
-[!INCLUDE[Developer Quickstart prerequisites](../includes/dev-prereqs.md)]
+[!INCLUDE[Developer Quickstart prerequisites](includes/quickstart/dev-prereqs.md)]
 
 ## Setting up
 
@@ -45,7 +45,7 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone-end
 
-[!INCLUDE[Developer Quickstart setup](includes/quickstart/dev-setup.md)]
+[!INCLUDE[Developer Quickstart setup](../includes/azd-setup.md)]
 
 ### Install the client library
 
