@@ -127,7 +127,7 @@ These values will be used later in this article. Note that several other useful 
 
 ## Create an Azure SQL Database
 
-[!INCLUDE [create-an-azure-sql-database](includes/jakartaee/create-an-azure-sql-database.md)]
+[!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
 Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
 
