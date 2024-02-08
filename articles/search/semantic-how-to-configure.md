@@ -173,7 +173,7 @@ Otherwise, delete `queryLanguage`.
 
 ### Step 2: Replace `searchFields` with `semanticConfiguration`
 
-If your code calls the 2020-06-30-Preview REST API or beta SDK packages targeting that REST API version, you might be using `searchFields` in a query request to specify semantic fields and priorities. In initial beta versions, `searchFields` had a dual purpose, constraining the initial query to the fields listed in `searchFields`, and also setting field priority if semantic ranking was used. In later versions, `searchFields` retains it's original purpose, but is no longer used for semantic ranking.
+If your code calls the 2020-06-30-Preview REST API or beta SDK packages targeting that REST API version, you might be using `searchFields` in a query request to specify semantic fields and priorities. In initial beta versions, `searchFields` had a dual purpose, constraining the initial query to the fields listed in `searchFields`, and also setting field priority if semantic ranking was used. In later versions, `searchFields` retains its original purpose, but is no longer used for semantic ranking.
 
 Keep `searchFields` in query requests if you're using it to limit full text search to the list of named fields.
 

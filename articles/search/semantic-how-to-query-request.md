@@ -100,7 +100,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 1. Set "search" to a full text search query based on the [simple syntax](query-simple-syntax.md). Semantic ranking is an extension of full text search, so while this parameter isn't required, you won't get an expected outcome if it's null.
 
-1. Set "semanticConfiguration" to a [predefined semantic configuration](#2---create-a-semantic-configuration) that's embedded in your index.
+1. Set "semanticConfiguration" to a [predefined semantic configuration](semantic-how-to-configure.md) that's embedded in your index.
 
 1. Set "answers" to specify whether [semantic answers](semantic-answers.md) are included in the result. Currently, the only valid value for this parameter is `extractive`. Answers can be configured to return a maximum of 10. The default is one. This example shows a count of three answers: `extractive|count-3`.
 
