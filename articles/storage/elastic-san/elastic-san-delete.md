@@ -31,7 +31,7 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 
 ### Linux
 
-You can use the following script to create your connections. To execute it, you will require the following parameters:
+You can use the following script to create your connections. To execute it, you'll require the following parameters:
 
 - subscription: Subscription ID
 - g: Resource Group Name
@@ -47,10 +47,10 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 
 ## Delete a SAN
 
-You can delete your SAN by using the Azure portal, Azure PowerShell, or Azure CLI. If you delete a SAN or a volume group, the corresponding child resources will be deleted along with it. The delete commands for each of the resource levels are below.
+You can delete your SAN by using the Azure portal, Azure PowerShell, or Azure CLI. If you delete a SAN or a volume group, the corresponding child resources are deleted along with it. The delete commands for each of the resource levels are below.
 
 
-The following commands delete your volumes. These commands use `ForceDelete false`, `-DeleteSnapshot false`, `--x-ms-force-delete false`, and `--x-ms-delete-snapshots false` parameters for PowerShell and CLI, respectively. If you set `ForceDelete` or `--x-ms-force-delete` to `true`, it'll cause volume deletion to succeed even if you've active iSCSI connections. If you set `-DeleteSnapshot` or `--x-ms-delete-snapshots` to `true`, it'll delete all snapshots associated with the volume, as well as the volume itself.
+The following commands delete your volumes. These commands use `ForceDelete false`, `-DeleteSnapshot false`, `--x-ms-force-delete false`, and `--x-ms-delete-snapshots false` parameters for PowerShell and CLI, respectively. If you set `ForceDelete` or `--x-ms-force-delete` to `true`, it causes volume deletion to succeed even if you have active iSCSI connections. If you set `-DeleteSnapshot` or `--x-ms-delete-snapshots` to `true`, it deletes all snapshots associated with the volume, and the volume itself.
 
 # [PowerShell](#tab/azure-powershell)
 
