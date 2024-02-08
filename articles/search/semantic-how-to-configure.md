@@ -65,7 +65,7 @@ Across all semantic configuration properties, the fields you assign must be:
 
    The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Only searchable and retrievable string fields are eligible. Make sure to list content fields and keyword fields in priority order.
 
-   :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
+   :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." lightbox="./media/semantic-search-overview/create-semantic-config.png" border="true":::
 
    Select **OK** to save the changes.
 
@@ -181,8 +181,11 @@ If your code calls the 2020-06-30-Preview REST API or beta SDK packages targetin
 
 Keep `searchFields` in query requests if you're using it to limit full text search to the list of named fields.
 
-Add a `semanticConfiguration` to an index schema to specify field prioritization, following the instructions in this article.
+Add a `semanticConfiguration` to an index schema to specify field prioritization, following the [instructions in this article](#add-a-semantic-configuration).
 
 ## Next steps
 
-Test your configuration by [creating a semantic query](semantic-how-to-query-request.md).
+Test your semantic configuration by running a semantic query.
+
+> [!div class="nextstepaction"]
+> [Create a semantic query](semantic-how-to-query-request.md).
