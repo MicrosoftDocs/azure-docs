@@ -42,7 +42,7 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
 1. On the **Overview** page, copy the **Application (client) ID**. You use this value when you configure the identity provider for the portal in your API center.
       
 1. On the **API permissions** page, select **+ Add a permission**. 
-    1. On the **Request API permissions** page, select the **APIs my organization uses** tab. Search for and select **Azure API Center**. 
+    1. On the **Request API permissions** page, select the **APIs my organization uses** tab. Search for and select **Azure API Center**. You can also search for and select application ID `c3ca1a77-7a87-4dba-b8f8-eea115ae4573`. 
     1. On the **Request permissions** page, select **user_impersonation**.
     1. Select **Add permissions**. 
 
@@ -126,7 +126,17 @@ If the user is assigned the role, there might be a problem with the registration
 az provider register --namespace Microsoft.ApiCenter
 ```
 
-For more information and steps to register the resource provider using other tools, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+### Unable to select Azure API Center permissions in Microsoft Entra app registration
+
+If you're unable to request API permissions to Azure API Center in your Microsoft Entra app registration for the API Center portal, check that you are searching for **Azure API Center** (or application ID `c3ca1a77-7a87-4dba-b8f8-eea115ae4573`). 
+
+If the app isn't present, there might be a problem with the registration of the **Microsoft.ApiCenter** resource provider in your subscription. You might need to re-register the resource provider. To do this, run the following command in the Azure CLI:
+
+```azurecli
+az provider register --namespace Microsoft.ApiCenter
+```
+
+After re-registering the resource provider, try again to request API permissions.
 
 
 ## Related content
@@ -134,3 +144,4 @@ For more information and steps to register the resource provider using other too
 * [Azure CLI reference for API Center](/cli/azure/apic) 
 * [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
 * [Best practices for Azure RBAC](../role-based-access-control/best-practices.md)
+* [Register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
