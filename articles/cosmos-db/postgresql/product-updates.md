@@ -23,7 +23,7 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### February 2024
-* General availability: [Microsoft Entra authentication](./concepts-authentication.md#microsoft-entra-id-authentication) is now supported in addition to Postgres roles in [all supported regions](./resources-regions.md).
+* General availability: [Microsoft Entra authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview) is now supported in addition to Postgres roles in [all supported regions](./resources-regions.md).
 
 ### January 2024
 * General availability: [32 TiB storage per node for multi-node configurations](./resources-compute.md#multi-node-cluster) in all supported regions.
