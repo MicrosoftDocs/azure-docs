@@ -33,9 +33,7 @@ This quickstart shows how to get started with the Azure Cosmos DB for Table from
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* [.NET 6.0](https://dotnet.microsoft.com/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+[!INCLUDE[Developer Quickstart prerequisites](includes/dev-prereqs.md)]
 
 ### Prerequisite check
 
