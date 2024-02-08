@@ -1076,6 +1076,7 @@ items:
     - name: Azure Workbook components
       items:
         - name: Data sources
+          href: visualize/workbooks-data-sources.md
         - name: Visualizations
           items:
           - name: Overview
