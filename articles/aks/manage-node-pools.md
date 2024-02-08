@@ -193,7 +193,7 @@ As your workload demands change, you can associate existing capacity reservation
 - The capacity reservation group should already exist and should contain minimum one capacity reservation, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated. For more information, see [capacity reservation groups][capacity-reservation-groups].
 - You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). System-assigned managed identities won't work for this feature. In the following example, replace the environment variables with your own values.
 
-   ```azurecli-interactive
+    ```azurecli-interactive
     IDENTITY_NAME=myID
     RG_NAME=myResourceGroup
     CLUSTER_NAME=myAKSCluster
@@ -202,7 +202,7 @@ As your workload demands change, you can associate existing capacity reservation
     LOCATION=westus2
     az identity create --name $IDENTITY_NAME --resource-group $RG_NAME  
     IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
-   ```
+    ```
 - You need to assign the `Contributor` role to the user-assigned identity created above. For more details, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps#privileged-administrator-roles).
 - Create a new cluster and assign the newly created identity.
     ```azurecli-interactive
@@ -229,6 +229,7 @@ NODEPOOL_NAME=myNodepool
 CRG_NAME=myCRG
 CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
 az aks nodepool add --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --crg-id $CRG_ID
+```
 
 ### Associate an existing capacity reservation group with a system node pool
 
@@ -242,7 +243,8 @@ NODEPOOL_NAME=myNodepool
 CRG_NAME=myCRG
 CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
 IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
-az aks create --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --crg-id $CRG_ID --assign-identity $IDENTITY_ID --enable-managed-identity 
+az aks create --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --crg-id $CRG_ID --assign-identity $IDENTITY_ID --enable-managed-identity
+```
 
 > [!NOTE]
 > Deleting a node pool implicitly dissociates that node pool from any associated capacity reservation group before the node pool is deleted. Deleting a cluster implicitly dissociates all node pools in that cluster from their associated capacity reservation groups.
