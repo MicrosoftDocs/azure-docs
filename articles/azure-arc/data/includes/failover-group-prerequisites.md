@@ -23,7 +23,7 @@ The following prerequisites must be met before setting up failover groups betwee
 - The instance at the secondary site requires `--license-type` as `DisasterRecovery`. This instance needs to be new, without any user objects. 
 
 > [!NOTE]
-> - It is important to specify the `--license-type` **during** the Azure Arc-enabled SQL MI creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
+> - It is important to specify the `--license-type` **during** the managed instance creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
 
 ## Deployment process
 
