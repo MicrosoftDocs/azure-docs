@@ -19,73 +19,7 @@ sections:
       - question: |
           How to evaluate the efficiency of Gremlin queries
         answer: |
-          The **executionProfile()** preview step can be used to provide an analysis of the query execution plan. This step needs to be added to the end of any Gremlin query as illustrated by the following example:
-
-          **Query example**
-
-          ```
-          g.V('mary').out('knows').executionProfile()
-          ```
-
-          **Example output**
-
-          ```json
-          [
-            {
-              "gremlin": "g.V('mary').out('knows').executionProfile()",
-              "totalTime": 8,
-              "metrics": [
-                {
-                  "name": "GetVertices",
-                  "time": 3,
-                  "annotations": {
-                    "percentTime": 37.5
-                  },
-                  "counts": {
-                    "resultCount": 1
-                  }
-                },
-                {
-                  "name": "GetEdges",
-                  "time": 5,
-                  "annotations": {
-                    "percentTime": 62.5
-                  },
-                  "counts": {
-                    "resultCount": 0
-                  },
-                  "storeOps": [
-                    {
-                      "count": 0,
-                      "size": 0,
-                      "time": 0.6
-                    }
-                  ]
-                },
-                {
-                  "name": "GetNeighborVertices",
-                  "time": 0,
-                  "annotations": {
-                    "percentTime": 0
-                  },
-                  "counts": {
-                    "resultCount": 0
-                  }
-                },
-                {
-                  "name": "ProjectOperator",
-                  "time": 0,
-                  "annotations": {
-                    "percentTime": 0
-                  },
-                  "counts": {
-                    "resultCount": 0
-                  }
-                }
-              ]
-            }
-          ]
-          ```
+          The **executionProfile()** preview step can be used to provide an analysis of the query execution plan. This step needs to be added to the end of any Gremlin query. For example, you can add the step to the end of a `g.V('example').out('relationship')` query resulting in `g.V('example').out('relationship').executionProfile()`.
 
           The output of the above profile shows how much time is spent obtaining the vertex objects, the edge objects, and the size of the working data set. This is related to the standard cost measurements for Azure Cosmos DB queries.
 
@@ -94,19 +28,19 @@ sections:
       - question: |
           How are RU/s charged when running queries on a graph database?
         answer: |
-          All graph objects, vertices, and edges, are shown as JSON documents in the backend. Since one Gremlin query can modify one or many graph objects at a time, the cost associated with it is directly related to the objects, edges that are processed by the query. This is the same process that Azure Cosmos DB uses for all other APIs. For more information, see [Request Units in Azure Cosmos DB](../request-units.md).
+          All graph objects, vertices, and edges, are shown as JSON documents in the backend. Since one Gremlin query can modify one or many graph objects at a time, the cost associated with it's directly related to the objects, edges that are processed by the query. This is the same process that Azure Cosmos DB uses for all other APIs. For more information, see [Request Units in Azure Cosmos DB](../request-units.md).
 
-          The RU charge is based on the working data set of the traversal, and not the result set. For example, if a query aims to obtain a single vertex as a result but needs to traverse more than one other object on the way, then the cost will be based on all the graph objects that it will take to compute the one result vertex.
+          The RU charge is based on the working data set of the traversal, and not the result set. For example, if a query aims to obtain a single vertex as a result but needs to traverse more than one other object on the way, then the cost is based on all the graph objects that it takes to compute the one result vertex.
 
       - question: |
           What's the maximum scale that a graph database can have in Azure Cosmos DB for Gremlin?
         answer: |
-          Azure Cosmos DB makes use of [horizontal partitioning](../partitioning-overview.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a API for Gremlin container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](../partitioning-overview.md) article.
+          Azure Cosmos DB makes use of [horizontal partitioning](../partitioning-overview.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, an API for Gremlin container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](../partitioning-overview.md) article.
 
       - question: |
           For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET?
         answer: |
-          Azure Cosmos DB for Gremlin leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](https://tinkerpop.apache.org/).
+          Azure Cosmos DB for Gremlin uses the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers supported by Apache](https://tinkerpop.apache.org/).
 
       - question: |
           How can I protect against injection attacks using Gremlin drivers?
@@ -123,9 +57,7 @@ sections:
       - question: |
           Why am I getting the "WebSocketException: The server returned status code '200' when status code '101' was expected" error?
         answer: |
-          This error is likely thrown when the wrong endpoint is being used. The endpoint that generates this error has the following pattern:
-
-          `https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/`
+          This error is likely thrown when the wrong endpoint is being used. The endpoint that generates this error has the following pattern: `https://<account-name>.documents.azure.com:443/`
 
           This is the documents endpoint for your graph database.  The correct endpoint to use is the Gremlin Endpoint, which has the following format:
 
@@ -134,14 +66,14 @@ sections:
       - question: |
           Why am I getting the "RequestRateIsTooLarge" error?
         answer: |
-          This error means that the allocated Request Units per second aren't enough to serve the query. This error is usually seen when you run a query that obtains all vertices:
+          This error means that the allocated Request Units per second aren't enough to serve the query. This error is seen when you run a query that obtains all vertices:
 
           ```
           // Query example:
           g.V()
           ```
 
-          This query will attempt to retrieve all vertices from the graph. So, the cost of this query will be equal to at least the number of vertices in terms of RUs. The RU/s setting should be adjusted to address this query.
+          This query attempts to retrieve all vertices from the graph. So, the cost of this query will be equal to at least the number of vertices in terms of RUs. The RU/s setting should be adjusted to address this query.
 
       - question: |
           Why do my Gremlin driver connections get dropped eventually?
@@ -158,3 +90,8 @@ additionalContent: |
 
   - [Azure Cosmos DB for Gremlin wire protocol support](support.md)
   - Create, query, and traverse an Azure Cosmos DB graph database using the [Gremlin console](quickstart-console.md)
+
+  ## Next step
+
+  > [!div class="nextstepaction"]
+  > [Frequently asked questions about Azure Cosmos DB](../faq.yml)

@@ -20,13 +20,13 @@ sections:
           What are the key differences between the Azure Cosmos DB for Cassandra and Apache Cassandra?
         answer: |
           - Apache Cassandra recommends a 100-MB limit on the size of a partition key. The API for Cassandra for Azure Cosmos DB allows up to 20 GB per partition.
-          - Apache Cassandra allows you to disable durable commits. You can skip writing to the commit log and go directly to the memtables. This can lead to data loss if the node goes down before memtables are flushed to SSTables on disk. Azure Cosmos DB always does durable commits to help prevent data loss.
+          - Apache Cassandra allows you to disable durable commits. You can skip writing to the commit log and go directly to the in-memory data structure. This can lead to data loss if the node goes down before the in-memory data structures are flushed to SSTables on disk. Azure Cosmos DB always does durable commits to help prevent data loss.
           - Apache Cassandra can see diminished performance if the workload involves many replacements or deletions. The reason is tombstones that the read workload needs to skip over to fetch the latest data. The API for Cassandra won't see diminished read performance when the workload has many replacements or deletions.
           - During scenarios of high replacement workloads, compaction needs to run to merge SSTables on disk. (A merge is needed because Apache Cassandra's writes are append only. Multiple updates are stored as individual SSTable entries that need to be periodically merged). This situation can also lead to lowered read performance during compaction. This performance impact doesn't happen in the API for Cassandra because the API doesn't implement compaction.
-          - Setting a replication factor of 1 is possible with Apache Cassandra. However, it leads to low availability if the only node with the data goes down. This is not an issue with the API for Cassandra for Azure Cosmos DB because there is always a replication factor of 4 (quorum of 3).
+          - Setting a replication factor of 1 is possible with Apache Cassandra. However, it leads to low availability if the only node with the data goes down. This isn't an issue with the API for Cassandra for Azure Cosmos DB because there's always a replication factor of 4 (quorum of 3).
           - Adding or removing nodes in Apache Cassandra requires manual intervention, along with high CPU usage on the new node while existing nodes move some of their token ranges to the new node. This situation is the same when you're decommissioning an existing node. However, the API for Cassandra scales out without any issues observed in the service or application.
-          - There is no need to set **num_tokens** on each node in the cluster as in Apache Cassandra. Azure Cosmos DB fully manages nodes and token ranges.
-          - The API for Cassandra is fully managed. You don't need the **nodetool** commands, such as repair and decommission, that are used in Apache Cassandra.
+          - There's no need to set **num_tokens** on each node in the cluster as in Apache Cassandra. Azure Cosmos DB fully manages nodes and token ranges.
+          - The API for Cassandra is fully managed. You don't need commands, such as repair and decommission, that are used in Apache Cassandra.
       - question: |
           What protocol version does the API for Cassandra support?
         answer: |
@@ -81,7 +81,7 @@ sections:
       - question: |
           Does the primary key map to the partition key concept of Azure Cosmos DB?
         answer: |
-          Yes, the partition key is used to place the entity in the right location. In Azure Cosmos DB, it's used to find the right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](../partitioning-overview.md) article. The essential takeaway here is that a logical partition shouldn't go over the 20-GB limit.
+          Yes, the partition key is used to place the entity in the right location. In Azure Cosmos DB, it's used to find the right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](../partitioning-overview.md) article. The essential takeaway here's that a logical partition shouldn't go over the 20-GB limit.
 
       - question: |
           What happens when I get a notification that a partition is full?
@@ -116,9 +116,9 @@ sections:
           There's no physical limit on the number of keyspaces because they're metadata containers. If you have a large number of keyspaces, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
       - question: |
-          Can I bring in a lot of data after starting from a normal table?
+          Can I bring in many data after starting from a normal table?
         answer: |
-          Yes. Assuming uniformly distributed partitions, the storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes and more. But if you're anticipating a lot of immediate data growth, it makes more sense to directly [provision for the anticipated throughput](../set-throughput.md) rather than starting lower and increasing it immediately.
+          Yes. Assuming uniformly distributed partitions, the storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes and more. But if you're anticipating numerous immediate data growth, it makes more sense to directly [provision for the anticipated throughput](../set-throughput.md) rather than starting lower and increasing it immediately.
 
       - question: |
           Can I use YAML file settings to configure API behavior?
@@ -172,7 +172,7 @@ sections:
       - question: |
           Can I pair an on-premises Apache Cassandra cluster with the API for Cassandra?
         answer: |
-          At present, Azure Cosmos DB has an optimized experience for a cloud environment without the overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We're working on an offering to help pair the on-premises or cloud Cassandra cluster with the API for Cassandra for Azure Cosmos DB.
+          Now, Azure Cosmos DB has an optimized experience for a cloud environment without the overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We're working on an offering to help pair the on-premises or cloud Cassandra cluster with the API for Cassandra for Azure Cosmos DB.
 
       - question: |
           Does the API for Cassandra provide full backups?
@@ -193,7 +193,7 @@ sections:
       - question: |
           Does the API for Cassandra index all attributes of an entity by default?
         answer: |
-          No. The API for Cassandra supports [secondary indexes](secondary-indexing.md), which behave in a similar way to Apache Cassandra. The API does not index every attribute by default.
+          No. The API for Cassandra supports [secondary indexes](secondary-indexing.md), which behave in a similar way to Apache Cassandra. The API doesn't index every attribute by default.
 
       - question: |
           Can I use the new API for Cassandra SDK locally with the emulator?
@@ -212,4 +212,9 @@ sections:
 additionalContent: |
   ## Related content
 
-  - Get started with [elastically scaling an Azure Cosmos DB for Apache Cassandra account](scale-account-throughput.md).
+  - Get started with [elastically scaling an Azure Cosmos DB for Apache Cassandra account](scale-account-throughput.md)
+
+  ## Next step
+
+  > [!div class="nextstepaction"]
+  > [Frequently asked questions about Azure Cosmos DB](../faq.yml)
