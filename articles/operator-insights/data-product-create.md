@@ -134,10 +134,6 @@ az keyvault key create --vault-name "<your-unique-keyvault-name>" -n ExampleKey 
 
 From the output screen copy the KeyID and store it in your clipboard for later use.
 
-# [Azure PowerShell](#tab/azure-powershell)
-
-PowerShell....
-
 <!-- PowerShell link is  [Create an Azure Key Vault resource](../key-vault/general/quick-create-powershell.md) in the same subscription and resource group where you intend to deploy the Data Product resource. --> 
 
 ---
@@ -150,8 +146,6 @@ PowerShell....
 1. Navigate to the Azure Key Vault resource that you created earlier and assign the UAMI with **Key Vault Administrator** role.
 
 # [Azure CLI](#tab/azure-cli)
-
-Azure CLI...
 
 <!-- Managed identity link for the CLI: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli -->
 
@@ -174,9 +168,6 @@ Copy the principalId from the output screen and store it in your clipboard for l
 ```azurecli-interactive
 az role assignment create --role "Key Vault Administrator" --assignee <<pricipalID from above step>> --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
-# [Azure PowerShell](#tab/azure-powershell)
-
-PowerShell....
 
 <!-- Managed identity link for PowerShell: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell -->
 
@@ -216,8 +207,6 @@ You create the Azure Operator Insights Data Product resource.
 1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned. After this process completes, you can work with your data ingestion, explore sample dashboards and queries, and so on.
 
 # [Azure CLI](#tab/azure-cli)
-
-Azure CLI...
 
 To create a Azure Operator Insights DataProduct with just mandatory parameters, use the following command:
 
@@ -264,10 +253,6 @@ For Product name and corresponding versions
 - Monitoring - Affirmed MCC
     - 0 or 1
 For ownersemail, vaulturi, keyname, version, purviewaccount, collection, uami and tags use the desired values.
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-PowerShell....
 
 ---
 
@@ -345,10 +330,7 @@ When you have finished exploring Azure Operator Insights Data Product, you shoul
 
 # [Azure CLI](#tab/azure-cli)
 
-Azure CLI...
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-PowerShell....
-
+```azurecli-interactive
+az group delete --name "myResourceGroup"
+```
 ---
