@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/26/2023
 ms.author: jushiman
 ---
