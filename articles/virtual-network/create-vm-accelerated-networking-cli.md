@@ -251,10 +251,10 @@ For more information about application binding requirements, see [How Accelerate
 <a name="enable-accelerated-networking-on-existing-vms"></a>
 
 In order to ensure that your custom image or applications correctly support the dynamic binding and revocation of virtual functions, the functionality can be tested on any Windows Hyper-V server. Use a local Windows Server running Hyper-V in the following configuration:
- - Ensure you have a physical network adapter that supports SR-IOV
- - An external virtual switch is created on top of this SR-IOV adapter with "Enable single-root I/O virtualization (SR-IOV)" checked
- - A virtual machine running your operating system image or application is created/deployed
- - The network adapters for this virtual machine, under Hardware Acceleration, have "Enable SR-IOV" selected
+ - Ensure you have a physical network adapter that supports SR-IOV.
+ - An external virtual switch is created on top of this SR-IOV adapter with "Enable single-root I/O virtualization (SR-IOV)" checked.
+ - A virtual machine running your operating system image or application is created/deployed.
+ - The network adapters for this virtual machine, under Hardware Acceleration, have "Enable SR-IOV" selected.
 
 Once you've verified your virtual machine and application are leveraging a network adapter using SR-IOV, you can modify the following example commands to toggle SR-IOV off/on in order to revoke and add the virtual function which will simulate what happens during Azure host servicing:
 
