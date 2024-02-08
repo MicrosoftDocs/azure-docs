@@ -1,5 +1,5 @@
 ---
-title: SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure 
+title: SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure
 description:  Multi-SID high availability for SAP ASCS/SCS instances with Windows Server Failover Clustering and file share on Azure
 author: rdeltcheva
 manager: juergent
@@ -9,7 +9,6 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/16/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017

@@ -2,7 +2,6 @@
 title: Azure Automanage Account
 description: Learn how an Automanage Account works and how to create one.
 ms.service: automanage
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/10/2021
 ---

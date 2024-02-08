@@ -4,7 +4,6 @@ description: Learn about metrics in Azure Monitor, which are lightweight monitor
 author: bwren
 ms.reviewer: priyamishra
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 04/25/2023
 ms.author: bwren
 ---

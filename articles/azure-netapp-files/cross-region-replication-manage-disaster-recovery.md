@@ -4,7 +4,6 @@ description: Describes how to manage disaster recovery by using Azure NetApp Fil
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: anfdocs
@@ -99,4 +98,3 @@ After the resync operation from destination to source is complete, you need to b
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
-

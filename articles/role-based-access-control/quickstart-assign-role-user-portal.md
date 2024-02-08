@@ -6,13 +6,10 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-
 #Customer intent: As a new user, I want to see how to grant access to resources in the portal, so that I can start granting access to others.
-
 ---
 
 # Tutorial: Grant a user access to Azure resources using the Azure portal
