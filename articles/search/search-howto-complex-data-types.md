@@ -252,7 +252,7 @@ Users will encounter the below error during indexing when complex collections ex
 
 In some use cases, we might need to add more than 3000 items to a collection. In those use cases, we can pipe (|) or use any form of delimiter to delimit the values, concatenate them, and store them as a delimited string. There is no limitation on the number of strings stored in an array in Azure Search. Storing these complex values as strings avoids the limitation. The customer needs to validate whether this workaround meets their scenario requirements.
 
-Consider, For example, it wouldn't be possible to use complex types if the "searchScope" array below had more than 3000 elements.
+For example, it wouldn't be possible to use complex types if the "searchScope" array below had more than 3000 elements.
 
 ```json
 
@@ -283,6 +283,10 @@ Storing these complex values as strings with a delimiter avoids the limitation
 ]
 
 ```
+Rather than storing these with wildcards, we can also use a custom analyzer that splits the word into | to cut down on storage size.
+
+https://learn.microsoft.com/en-us/azure/search/index-add-custom-analyzer
+
 The reason we have stored the values with wildcards instead of just storing them as below
 
 >`|FRA|1234|C100|`
@@ -342,6 +346,7 @@ Only the above design choice requires this wild card entry; if it had been saved
 
 ```
 We can thus satisfy requirements where we need to search for a combination of values by storing it as a delimited string instead of a complex collection if our complex collections exceed the Azure Search limit. This is one of the workarounds, and the customer needs to validate if this would meet their scenario requirements.
+
 
 ## Next steps
 
