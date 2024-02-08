@@ -18,6 +18,12 @@ recommendations: false
 
 ## February 2024
 
+### GPT-4-0125-preview model available
+
+The `gpt-4` model version `0125-preview` is now available on Azure OpenAI Service in the East US, North Central US, and South Central US regions.  Customers with deployments of `gpt-4` version `1106-preview` will be automatically upgraded to `0125-preview` in the coming weeks.  
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
 ### Assistants API public preview
 
 Azure OpenAI now supports the API that powers OpenAI's GPTs. Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and advanced tools like code interpreter, and custom functions. To learn more, see:
@@ -43,6 +49,9 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 - [Fine-tuning & function calling](./how-to/fine-tuning-functions.md)
 - [`gpt-35-turbo 1106` support](./concepts/models.md#fine-tuning-models)
 
+### Chunk size parameter for Azure OpenAI on your data
+
+- You can now set the [chunk size](./concepts/use-your-data.md#ingestion-parameters) parameter when your data is ingested. Adjusting the chunk size can enhance the model's responses by setting the maximum number of tokens for any given chunk of your data in the search index.
 
 ## December 2023
 
@@ -118,7 +127,7 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 ### Azure OpenAI on your data
 
-- New [custom parameters](./concepts/use-your-data.md#custom-parameters) for determining the number of retrieved documents and strictness.
+- New [custom parameters](./concepts/use-your-data.md#runtime-parameters) for determining the number of retrieved documents and strictness.
     - The strictness setting sets the threshold to categorize documents as relevant to your queries.
     - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
 - You can see data ingestion/upload status in the Azure OpenAI Studio.

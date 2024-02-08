@@ -5,7 +5,6 @@ author: ApnaLakshay
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/13/2023
 ms.author: lnagpal
 ---

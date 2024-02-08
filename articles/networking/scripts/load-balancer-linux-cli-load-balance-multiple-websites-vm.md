@@ -8,7 +8,6 @@ ms.service: load-balancer
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: allensu
 ---

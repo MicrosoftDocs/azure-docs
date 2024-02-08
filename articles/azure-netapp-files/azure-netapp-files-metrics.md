@@ -4,7 +4,6 @@ description: Azure NetApp Files provides metrics on allocated storage, actual st
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 07/19/2023
 ms.author: anfdocs

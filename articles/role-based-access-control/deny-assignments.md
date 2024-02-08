@@ -6,7 +6,6 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 03/25/2022
 ms.author: rolyon
 ms.reviewer: bagovind
