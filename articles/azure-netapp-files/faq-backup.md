@@ -2,7 +2,6 @@
 title: Azure NetApp Files backup FAQs | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about using the Azure NetApp Files backup feature.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
