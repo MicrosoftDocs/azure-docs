@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 02/08/2024
 tags: connectors
 # Customer intent: As a developer, I want to get log data from my Log Analytics workspace or telemetry from my Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
@@ -67,19 +67,9 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 ## Add an Azure Monitor Logs action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. In your workflow where you want to add the Azure Monitor Logs action, follow one of these steps:
-
-   - To add an action under the last step, select **New step**.
-
-   - To add an action between steps, move your pointer use over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-   For more information about adding an action, see [Build a workflow by adding a trigger or action](../logic-apps/create-workflow-with-trigger-or-action.md).
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **Azure Monitor Logs**.
-
-1. From the actions list, select the action that you want.
+1. In your workflow where you want to add the Azure Monitor Logs action, follow these general steps to add an Azure Monitor Logs action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    This example continues with the action named **Run query and visualize results**.
 
@@ -134,12 +124,13 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 1. For **Time Range**, select **Set in query**.
 
-   > [!NOTE]
-   >
-   > There are three options for **Time Range**
-   > - **Exact** -- start-time and end-time can be provided dynamically
-   > - **Relative** -- set relative value such as last hour, last 12 hour, etc.
-   > - **Set in query** -- applies when TimeGenerated filter is included in query
+   The following table describes the options for **Time Range**:
+
+   | Time Range | Description |
+   |------------|-------------|
+   | **Exact** | Dynamically provide the start time and end time. |
+   | **Relative** | Set the relative value such as the last hour, last 12 hours, and so on. |
+   | **Set in query** | Applies when the **TimeGenerated** filter is included in query. |
 
 1. For **Chart Type**, select **Html Table**.
 
