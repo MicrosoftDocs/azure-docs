@@ -110,7 +110,7 @@ To install the sensor software update ensure that you see the :::image type="ico
 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step 2: Update sensor** from the toolbar. The **Update sensor** pane opens in the right side of the screen. For example:
 
-    :::image type="content" source="media/update-ot-software/sensorupdates2.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates2.png":::
+    :::image type="content" source="media/update-ot-software/sensorupdates2.png" alt-text="Screenshot of the package update option." lightbox="media/update-ot-software/sensorupdates2.png":::
 
     For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu.
 
