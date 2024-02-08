@@ -75,20 +75,6 @@ If you want to use a custom DNS, use the following steps:
 1. In your Azure VMware Solution private cloud, navigate to the DNS page, under **Workload networking**, select **DNS** and identify the default forwarder-zones under the **DNS zones** tab.
 1. Edit the forwarder zone to add the custom DNS server IP. By adding the custom DNS as the first IP, it allows requests to be directly forwarded to the first IP and decreases the number of retries.
 
-## Registration to Arc for Azure VMware Solution feature set
-
-The following **Register features** are for provider registration using Azure CLI.
-
-```azurecli
-az provider register --namespace Microsoft.ConnectedVMwarevSphere 
-az provider register --namespace Microsoft.ExtendedLocation 
-az provider register --namespace Microsoft.KubernetesConfiguration 
-az provider register --namespace Microsoft.ResourceConnector 
-az provider register --namespace Microsoft.AVS
-```
-Alternately, users can sign in to their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned previously.
-
-
 ## Onboard process to deploy Azure Arc
 
 Use the following steps to guide you through the process to onboard Azure Arc for Azure VMware Solution.
