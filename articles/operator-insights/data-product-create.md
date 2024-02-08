@@ -91,7 +91,7 @@ If you plan to use CMK-based data encryption or Microsoft Purview, set up a reso
 1. Select **Resource groups**.
 1. Select **Create** and follow the prompts. 
 
-For more information, see [Create a resource group](/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups).
+For more information, see [Create resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups).
 
 If you don't plan to use CMK-based date encryption or Microsoft Purview, you can set up a resource group now or when you [create the Data Product resource](#create-an-azure-operator-insights-data-product-resource).
 
