@@ -4,7 +4,6 @@ description: Learn how to change the size of a capacity pool or a volume. Resizi
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2023
