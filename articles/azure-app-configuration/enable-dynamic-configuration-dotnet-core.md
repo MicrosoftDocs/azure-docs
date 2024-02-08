@@ -35,7 +35,7 @@ Finish the quickstart [Create a .NET app with App Configuration](./quickstart-do
 
 Open the `Program.cs` file and update the code configurations to match the following:
 
-### [ASP.NET Core 6.0+](#tab/core6x)
+### [.NET 6.0+](#tab/core6x)
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -72,7 +72,7 @@ if (_refresher != null)
 }
 ```
 
-### [ASP.NET Core 3.x](#tab/core3x)
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp
 using Microsoft.Extensions.Configuration;

@@ -9,7 +9,6 @@ ms.subservice: apache-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.devlang: csharp
-ms.custom: seodec18, ignite-2022
 #Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ---
 

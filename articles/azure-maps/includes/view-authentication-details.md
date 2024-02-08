@@ -1,8 +1,8 @@
 ---
 title: View authentication details for Microsoft Azure Maps
 description: Use the Azure portal to view authentication details for Azure Maps. 
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: eriklind
 ms.date: 06/21/2021 
 ms.topic: include
 ms.service: azure-maps

@@ -26,6 +26,13 @@ id, datePublished, tags
 2, 2016-07-07, "cloud,mobile"
 ```
 
+If a field inside the CSV file contains the delimeter, it should be wrapped in quotes. If the field contains a quote, it must be escaped using double quotes (`""`).
+
+```text
+id, datePublished, tags
+1, 2020-01-05, "tags,with,""quoted text"""
+```
+
 Without the `delimitedText` parsing mode, the entire contents of the CSV file would be treated as one search document.
 
 Whenever you're creating multiple search documents from a single blob, be sure to review [Indexing blobs to produce multiple search documents](search-howto-index-one-to-many-blobs.md) to understand how document key assignments work. The blob indexer is capable of finding or generating values that uniquely define each new document. Specifically, it can create a transitory `AzureSearch_DocumentKey` that generated when a blob is parsed into smaller parts, where the value is then used as the search document's key in the index.

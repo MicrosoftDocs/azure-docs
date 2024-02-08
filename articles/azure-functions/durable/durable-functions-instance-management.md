@@ -7,7 +7,6 @@ ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
-ms.custom: ignite-2022
 #Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances, so I can keep my orchestrations running efficiently and make improvements.
 ---
 

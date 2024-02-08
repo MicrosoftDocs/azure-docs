@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 01/19/2024
+ms.date: 01/25/2024
 ms.custom: engagement-fy23
 ---
 
@@ -326,6 +326,40 @@ Requirement | Details
 **Management** | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/logs/manage-access.md).<br /><br /> Don't delete the workspace created by Azure Migrate, unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
 **Internet connectivity** | If servers aren't connected to the internet, install the Log Analytics gateway on the servers.
 **Azure Government** | Agent-based dependency analysis isn't supported.
+
+## Import servers using RVTools XLSX (preview)
+
+As part of your migration journey to Azure using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, you can [import the servers using the RVtools XLSX file (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
+
+### Key benefits
+
+- Helps to create a business case or assess the servers before you deploy the appliance.
+- Aids as an alternative when there's an organizational restriction to deploy Azure Migrate appliance.
+- Helpful when you can't share credentials that allow access to on-premises servers
+- Useful when security constraints prevent you from gathering and sending data collected by the appliance to Azure. 
+
+### Limitations
+
+#### [Business case considerations](#tab/businesscase)
+
+If you're importing servers by using an RVTools XLSX file and building a business case, listed below are few limitations: 
+
+- Performance history duration in Azure settings aren't applicable.
+- Servers are classified as unknown in the business case utilization insights chart and are sized as-is without right sizing for Azure or AVS cost.
+
+#### [Assessment considerations](#tab/assessmentcase)
+
+If you're importing servers by using an RVTools XLSX file for creating an assessment with the following criteria:
+- Sizing criteria as **performance-based** on the configured CPU and memory (based on the CPUs and Memory columns from the RVTools XLSX).
+- Storage criteria (In use MiB and In use MB for versions prior to 4.1.2)
+
+You won't be able to provide performance history or percentile information.
+
+To get an accurate OS suitability/readiness in Azure VM and Azure VMware Solution assessment, enter the **Operating system** version and **architecture** in the respective columns. 
+
+---
+
+
 
 ## Next steps
 

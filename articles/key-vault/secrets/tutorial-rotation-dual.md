@@ -9,7 +9,7 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/20/2023
 ms.author: mbaldwin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 

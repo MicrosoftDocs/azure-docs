@@ -7,10 +7,9 @@ manager: amycolannino
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 01/24/2022
 ms.author: rolyon
-ms.reviewer: bagovind 
+ms.reviewer: bagovind
 ms.custom: devx-track-azurepowershell
 ---
 

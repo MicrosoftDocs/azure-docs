@@ -1,8 +1,7 @@
 ---
 title: Review pull request annotations in GitHub and Azure DevOps
-description: Review pull request annotations in GitHub or in Azure DevOps. 
+description: Review pull request annotations in GitHub or in Azure DevOps.
 ms.topic: overview
-ms.custom: ignite-2022
 ms.date: 06/06/2023
 ---
 

@@ -342,7 +342,7 @@ class PictureLaunchViewController: UIViewController, UINavigationControllerDeleg
                         self.cameraButton.isEnabled = true
                         
                     }, onFailure: { error in
-                        print("An error occured launching the Immersive Reader: \(error)")
+                        print("An error occurred launching the Immersive Reader: \(error)")
                         self.spinner.stopAnimating()
                         self.activityIndicatorBackground.alpha = 0
                         self.photoButton.isEnabled = true
@@ -357,7 +357,7 @@ class PictureLaunchViewController: UIViewController, UINavigationControllerDeleg
                     self.cameraButton.isEnabled = true
                     
                 }
-                print("An error occured retrieving the token: \(error)")
+                print("An error occurred retrieving the token: \(error)")
             })
             
         }, onFailure: { error in
@@ -375,7 +375,7 @@ class PictureLaunchViewController: UIViewController, UINavigationControllerDeleg
     ///     -onSuccess: A closure that gets called when the token is successfully recieved using Azure Active Directory authentication.
     ///     -theToken: The token for the Immersive Reader recieved using Azure Active Directory authentication.
     ///     -onFailure: A closure that gets called when the token fails to be obtained from the Azure Active Directory Authentication.
-    ///     -theError: The error that occured when the token fails to be obtained from the Azure Active Directory Authentication.
+    ///     -theError: The error that occurred when the token fails to be obtained from the Azure Active Directory Authentication.
     func getToken(onSuccess: @escaping (_ theToken: String) -> Void, onFailure: @escaping ( _ theError: String) -> Void) {
         
         let tokenForm = "grant_type=client_credentials&resource=https://cognitiveservices.azure.com/&client_id=" + Constants.clientId + "&client_secret=" + Constants.clientSecret

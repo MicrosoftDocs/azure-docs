@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/14/2024
 ms.reviewer: harelbr
 ---
+
 # Manage your alert rules
 
 Manage your alert rules in the Azure portal, or using the CLI or PowerShell.

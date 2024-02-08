@@ -7,7 +7,7 @@ ms.date: 06/02/2023
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, contperf-fy21q2, contperf-fy22q1, contperf-fy22q2
+ms.custom: mvc
 ---
 
 # What is Azure IoT Central?
@@ -139,4 +139,3 @@ Now that you have an overview of IoT Central, here are some suggested next steps
 - If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
-

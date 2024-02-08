@@ -5,7 +5,6 @@ description: This article shows how to create an Automation account by using the
 services: automation
 ms.date: 04/12/2023
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 

@@ -31,7 +31,7 @@ DevOps security currently supports the following DevOps platforms:
 
 DevOps security requires the following permissions:
 
-| Feature                          | Permissions                      | 
+| Feature                          | Permissions                      |
 |----------------------------------|----------------------------------|
 | Connect DevOps environments to Defender for Cloud | <ul><li>Azure: Subscription Contributor or Security Admin</li><li>Azure DevOps: Project Collection Administrator on target Organization</li><li>GitHub: Organization Owner</li><li>GitLab: Group Owner on target Group</li></ul> |
 | Review security insights and findings | Security Reader |
@@ -47,8 +47,7 @@ DevOps security requires the following permissions:
 The following tables summarize the availability and prerequisites for each feature within the supported DevOps platforms:
 
 > [!NOTE]
-> Starting March 7, 2024, [Defender CSPM](concept-cloud-security-posture-management.md) must be enabled to have premium DevOps security capabilities which include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See details below to learn more.
-
+> Starting March 7, 2024, [Defender CSPM](concept-cloud-security-posture-management.md) must be enabled on at least one subscription or multicloud connector in the tenant to benefit from premium DevOps security capabilities which include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See details below to learn more.
 ### Azure DevOps
 
 | Feature                          | Foundational CSPM                         | Defender CSPM                             | Prerequisites |
@@ -62,8 +61,8 @@ The following tables summarize the availability and prerequisites for each featu
 | [Pull request annotations](review-pull-request-annotations.md) | | ![Yes Icon](./media/icons/yes-icon.png) | See [here](enable-pull-request-annotations.md) |
 | [Code to cloud mapping for Containers](container-image-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps extension](azure-devops-extension.md#configure-the-microsoft-security-devops-azure-devops-extension-1) |
 | [Code to cloud mapping for Infrastructure as Code templates](iac-template-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps extension](azure-devops-extension.md) |
-| [Attack path analysis](how-to-manage-attack-path.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on the Azure DevOps connector |
-| [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on the Azure DevOps connector |
+| [Attack path analysis](how-to-manage-attack-path.md) | | ![Yes Icon](./media/icons/yes-icon.png) |Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP Connector in the same tenant as the DevOps Connector |
+| [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) |Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector|
 
 
 ### GitHub
@@ -78,8 +77,8 @@ The following tables summarize the availability and prerequisites for each featu
 | [Security recommendations to fix DevOps environment misconfigurations](concept-devops-posture-management-overview.md) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | N/A |
 | [Code to cloud mapping for Containers](container-image-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps action](github-action.md) |
 | [Code to cloud mapping for Infrastructure as Code templates](iac-template-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps action](github-action.md) |
-| [Attack path analysis](how-to-manage-attack-path.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on the GitHub connector |
-| [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on the GitHub connector |
+| [Attack path analysis](how-to-manage-attack-path.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector |
+| [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector |
 
 
 ### GitLab
@@ -91,4 +90,4 @@ The following tables summarize the availability and prerequisites for each featu
 | [Security recommendations to discover exposed secrets](defender-for-devops-introduction.md#manage-your-devops-environments-in-defender-for-cloud) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [GitLab Ultimate](https://about.gitlab.com/pricing/ultimate/) |
 | [Security recommendations to fix open source vulnerabilities](defender-for-devops-introduction.md#manage-your-devops-environments-in-defender-for-cloud) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [GitLab Ultimate](https://about.gitlab.com/pricing/ultimate/) |
 | [Security recommendations to fix infrastructure as code misconfigurations](defender-for-devops-introduction.md#manage-your-devops-environments-in-defender-for-cloud) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [GitLab Ultimate](https://about.gitlab.com/pricing/ultimate/) |
-| [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on the GitLab connector |
+| [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector |

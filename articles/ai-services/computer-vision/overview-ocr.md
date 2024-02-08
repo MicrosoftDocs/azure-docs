@@ -10,7 +10,7 @@ ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 07/04/2023
 ms.author: pafarley
-ms.custom: seodec18, devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # OCR - Optical Character Recognition

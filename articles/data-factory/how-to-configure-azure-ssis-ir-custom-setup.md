@@ -6,7 +6,6 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019
 ms.date: 07/17/2023
 ---
 
