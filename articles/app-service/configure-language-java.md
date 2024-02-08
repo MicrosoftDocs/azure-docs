@@ -1092,6 +1092,8 @@ As you provision an App Service with Tomcat to host your Java workload (a WAR fi
 
 Additionally, there are certain transformations that are further applied on top of the server.xml for Tomcat distribution upon start. These are transformations to the Connector, Host, and Valve settings.
 
+Please note that the latest versions of Tomcat will have these server.xml. (8.5.58 and 9.0.38 onward). Older versions of Tomcat do not use transforms and may have different behavior as a result.
+
 ### Connector
 
 ``` 
@@ -1143,8 +1145,7 @@ On Linux, it has all of the same customization, plus:
                 </xsl:attribute>
  ```
 * Connector uses the address of the container instead of 127.0.0.1
- 
-Notably, the latest versions of Tomcat will have these server.xml. (8.5.58 and 9.0.38 onward). Older versions of Tomcat do not use transforms and may have different behavior as a result.
+
 
 ::: zone-end
 
