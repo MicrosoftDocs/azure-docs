@@ -4,7 +4,6 @@ description: Describes throughput performance for the service levels of Azure Ne
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/02/2022
 ms.author: anfdocs
@@ -39,7 +38,7 @@ The throughput limit for a volume is determined by the combination of the follow
 
 The following diagram shows throughput limit examples of volumes in an auto QoS capacity pool:
 
-![Service level illustration](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
+![Service level illustration](./media/azure-netapp-files-service-levels/azure-netapp-files-service-levels.png)
 
 * In Example 1, a volume from an auto QoS capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s (2 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
@@ -58,7 +57,7 @@ For example, for an SAP HANA system, this capacity pool can be used to create th
 
 The following diagram illustrates the scenarios for the SAP HANA volumes:
 
-![QoS SAP HANA volume scenarios](../media/azure-netapp-files/qos-sap-hana-volume-scenarios.png) 
+![QoS SAP HANA volume scenarios](./media/azure-netapp-files-service-levels/qos-sap-hana-volume-scenarios.png) 
 
 ## Next steps
 

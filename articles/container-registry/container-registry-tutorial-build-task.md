@@ -5,7 +5,7 @@ ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli
 ms.service: container-registry
 # Customer intent: As a developer or devops engineer, I want to trigger container image builds automatically when I commit code to a Git repo.
 ---

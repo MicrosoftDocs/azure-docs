@@ -19,11 +19,20 @@ This article contains troubleshooting tips for Azure IoT Operations Preview.
 
 For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations *check* and *support* commands.
 
-[Azure CLI version 2.42.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+[Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
 - Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
+
+### Linked authorization failed error
+
+If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
+
+To resolve this issue, either request the required permissions or make the following adjustments to your deployment steps:
+
+  * If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter to `false`.
+  * If deploying with the Azure CLI, include the `--disable-rsync-rules` flag with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
 ## Data Processor pipeline deployment status is failed
 

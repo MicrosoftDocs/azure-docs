@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 01/31/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, vb
 ms.custom: devx-track-csharp
@@ -322,7 +322,7 @@ The recommended way to send request telemetry is where the request acts as an <a
 
 You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./transaction-search-and-diagnostics.md?tabs=transaction-search) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request by using its operation ID.
 
-For more information on correlation, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
+For more information on correlation, see [Telemetry correlation in Application Insights](distributed-trace-data.md).
 
 When you track telemetry manually, the easiest way to ensure telemetry correlation is by using this pattern:
 

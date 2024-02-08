@@ -28,7 +28,7 @@ Log Analytics Dedicated Clusters use a commitment tier pricing model of at least
 
 ## Prerequisites
 
-- Dedicated clusters require a minimum ingestion commitment of 500 GB per day.
+- Dedicated clusters require a minimum ingestion commitment of 100 GB per day.
 - When creating a dedicated cluster, you can't name it with the same name as a cluster that was deleted within the past two weeks.
 
 ## Required permissions

@@ -1,12 +1,13 @@
 ---
 title: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
 description: Use the Azure portal to create an experiment from the AAD outage experiment template.
-author: prasha-microsoft 
-ms.author: prashabora
+author: prasha-microsoft
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 09/27/2023
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to
 ---
 
 # Use a chaos experiment template to induce an outage on an Azure Active Directory instance
