@@ -25,14 +25,14 @@ This article covers the following steps that are used to enable marketplace priv
 
 Before you begin, make sure you know your billing account type because the steps needed to enable marketplace purchases vary based on your account type.
 
-If you don't know your billing account type, [check the type of your billing account](manage-billing-access#check-the-type-of-your-billing-account.md).
+If you don't know your billing account type, [check the type of your billing account](manage-billing-access.md#check-the-type-of-your-billing-account.md).
 
 ## Enable marketplace purchase
 
 You enable the marketplace policy setting to enable marketplace purchases. How you navigate to the setting depends on your billing account type. The required permissions also differ. Marketplace purchases support the following account types:
 
-- [Microsoft Customer Agreement (MCA)](#_mca---enable-the-marketplace-policy-setting)
-- [Enterprise Agreement (EA)](#ea-–-enable-the-marketplace-policy-setting)
+- [Microsoft Customer Agreement (MCA)](#mca--enable-the-marketplace-policy-setting)
+- [Enterprise Agreement (EA)](#ea--enable-the-marketplace-policy-setting)
 
 At a high level, here's how the process to enable purchases works.
 
@@ -191,4 +191,5 @@ For more information about setting up and configuring Marketplace product collec
 
 ## Next steps
 
-To learn more about setting up and configuring Marketplace product collections, see [Collections overview](/marketplace/create-manage-private-azure-marketplace-new#collections-overview).
+- To learn more about setting up and configuring Marketplace product collections, see [Collections overview](/marketplace/create-manage-private-azure-marketplace-new#collections-overview).
+- Read more about the Marketplace in the [Microsoft commercial marketplace customer documentation](/marketplace/).
