@@ -80,7 +80,7 @@ Type in your Microsoft Credentials in the new page. If you encounter any issues,
 
 Certain Azure security policies cause conflicts when trying to sign in. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
 
-The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI](#).
+The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI][install-azure-cli].
 
 1. Run `--az login --scope https://graph.microsoft.com/.default` 
 2. Copy the "localhost" URL from the failed redirect
@@ -180,7 +180,7 @@ Run `azd down` to delete all your resources used in the quickstart, which includ
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. You hosted a store app, but there's still more to learn. If you'd like continue to learn more about AKS in-depth or create an admin panel to add new store products with Open AI, visit the [AKS tutorial][aks-tutorial].
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. You hosted a store app, but there's more to learn in the [AKS tutorial][aks-tutorial].
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -196,6 +196,7 @@ In this quickstart, you deployed a Kubernetes cluster and then deployed a simple
 [azure-resource-group]: ../../azure-resource-manager/management/overview.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
