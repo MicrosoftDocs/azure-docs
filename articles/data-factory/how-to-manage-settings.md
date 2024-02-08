@@ -77,7 +77,7 @@ To apply changes, select a **Regional format** and make sure to hit the **Apply*
 
 Additionally, you can set specific settings for your Data Factory. In the **Navigate** tab, you'll find **Factory settings** under **General**. In your Factory settings, you can adjust a few settings.
 
-:::image type="content" source="media/how-to-manage-settings/adf-settings-7.png" alt-text="Screenshot of general Factory settings.":::
+:::image type="content" source="media/how-to-manage-settings/adf-settings-9.png" alt-text="Screenshot of general Factory settings.":::
 
 * **Show billing report**
 
