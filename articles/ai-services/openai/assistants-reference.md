@@ -92,7 +92,7 @@ Create an assistant file by attaching a `File` to an `assistant`.
 
 **Request body**
 
-| Name | Type | Required |
+| Name | Type | Required | Description |
 |---|---|---|
 | file_id | string | Required | A File ID (with purpose="assistants") that the assistant should use. Useful for tools like code_interpreter that can access files. |
 
@@ -146,7 +146,7 @@ Returns a list of all assistants.
 |Parameter| Type | Required | Description |
 |---|---|---|---|
 | `limit` | integer | Optional | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.|
-| `order` | string | Optional | Defaults to desc | Sort order by the created_at timestamp of the objects. asc for ascending order and desc for descending order.|
+| `order` | string | Optional - Defaults to desc | Sort order by the created_at timestamp of the objects. asc for ascending order and desc for descending order.|
 | `after` | string | Optional | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. |
 |`before`| string | Optional | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. |
 
@@ -204,7 +204,7 @@ Returns a list of assistant files.
 |Parameter| Type | Required | Description |
 |---|---|---|---|
 | `limit` | integer | Optional | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.|
-| `order` | string | Optional | Defaults to desc | Sort order by the created_at timestamp of the objects. asc for ascending order and desc for descending order.|
+| `order` | string | Optional - Defaults to desc | Sort order by the created_at timestamp of the objects. asc for ascending order and desc for descending order.|
 | `after` | string | Optional | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list. |
 |`before`| string | Optional | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list. |
 

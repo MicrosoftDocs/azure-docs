@@ -12,7 +12,7 @@ recommendations: false
 ms.custom:
 ---
 
- Assistants API (Preview) runs reference
+# Assistants API (Preview) runs reference
 
 This article provides reference documentation for Python and REST for the new Assistants API (Preview). More in-depth step-by-step guidance is provided in the [getting started guide](./how-to/assistant.md).
 
