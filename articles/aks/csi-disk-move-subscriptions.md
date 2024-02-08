@@ -64,8 +64,14 @@ Preserving data is important while working with persistent volumes to avoid risk
     "diskState": "Unattached",
     ```
 
-1. If `diskState` shows `Attached`, first verify if any workloads are still accessing the volume and stop them first. After a period of time, disk state will report `Unattached` and can then be moved.
+1. If `diskState` shows `Attached`, first verify if any workloads are still accessing the volume and stop them first. After a period of time, disk state returns state `Unattached` and can then be moved.
 
+
+## Move persistent volume
+
+
+
+## Next steps
 
 <!-- LINKS - external -->
 
