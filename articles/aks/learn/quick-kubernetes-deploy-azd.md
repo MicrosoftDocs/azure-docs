@@ -74,7 +74,11 @@ The Azure Development Template contains all the code needed to create the servic
 
 Run `azd auth login` 
 
-Type in your Microsoft Credentials in the new page. If you encounter any issues, skip to the Troubleshooting section.
+1. You are shown a device code to copy.
+2. Hit enter to open in a new tab the auth portal.
+3. Type in your Microsoft Credentials in the new page.
+4. Verify that it is you trying to connect to Azure CLI If you encounter any issues, skip to the Troubleshooting section.
+5. Once it works, you should see the message "Device code authentication completed. Logged in to Azure." in your terminal
 
 ### Troubleshooting: Cannot Connect to Localhost
 
@@ -82,9 +86,9 @@ Certain Azure security policies cause conflicts when trying to sign in. As a wor
 
 The workaround requires the Azure CLI for authentication. If you don't have it or aren't using GitHub Codespaces, install the [Azure CLI][install-azure-cli].
 
-1. Run `--az login --scope https://graph.microsoft.com/.default` 
+1. Inside a terminal, run `az login --scope https://graph.microsoft.com/.default` 
 2. Copy the "localhost" URL from the failed redirect
-3. In a new terminal window within your VS Code Codespace, type `curl <url>`
+3. In a new terminal window,  type `curl` and paste your url
 4. If it works, code for a webpage saying "You have logged into Microsoft Azure!" appears
 5. Close the terminal and go back to the old terminal
 6. Copy and note down which subscription_id you want to use
@@ -96,7 +100,7 @@ The workaround requires the Azure CLI for authentication. If you don't have it o
 
 Quickly create all your resources with the `azd up` command. The demo app can take longer depending on your internet speed.
 
-azd up runs the commands for the two hooks for pre-provision and post-provision. During this process, you're prompted to select which Azure Subscription and Region you'd like to use for your AKS Cluster.
+azd up runs the commands for the two hooks for pre-provision and post-provision. During this process, you're prompted to select which Azure subscription and region for your AKS Cluster.
 
 ## Deploy the application
 
