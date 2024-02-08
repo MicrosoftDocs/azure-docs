@@ -70,7 +70,8 @@ This template contains several parameters that are predefined for your convenien
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | `webApp-[<uniqueString>]` | [Web App name](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
+| webAppName | string  | `webApp-<uniqueString>` | App name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
+| appServicePlanName | string  | `webAppPlan-<uniqueString>` | App Service Plan name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
 | location   | string  | `[resourceGroup().location]` | [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) |
 | sku        | string  | `F1`                         | Instance size (F1 = Free Tier) |
 | language   | string  | `.NET`                       | Programming language stack (.NET, php, node, html) |
