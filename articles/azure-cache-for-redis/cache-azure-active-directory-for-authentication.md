@@ -7,7 +7,7 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 02/07/2024
 ms.author: franlanglois
 
 ---
@@ -43,15 +43,13 @@ To use the ACL integration, your client application must assume the identity of 
 
 ## Enable Microsoft Entra ID authentication on your cache
 
-If you would like to use a custom access policy instead of Redis Data Owner, go to the **Data Access Configuration** on the Resource menu. For more information, see [Configure a custom data access policy for your application](cache-configure-role-based-access-control.md#configure-a-custom-data-access-policy-for-your-application).
-
 1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to configure Microsoft Entra token-based authentication.
 
 1. Select **Authentication** from the Resource menu.
 
 1. In the working pane, select **(PREVIEW) Enable Microsoft Entra Authorization**.
 
-1. Select **Enable Microsoft Entra Authorization**, and enter the name of a valid user. Then, select **Save**. You could also enter a managed identity or service principal to connect to your cache instance.
+1. Select **Enable Microsoft Entra Authorization**, and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
 
     :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the enable Microsoft Entra authentication checked.":::
 
@@ -96,15 +94,13 @@ Because most Azure Cache for Redis clients assume that a password and access key
 
 1. Update your Redis connection logic to use following `UserName` and `Password`:
 
-   - `UserName` = Object ID of your managed identity or service principal
-
-   - `Password` = Microsoft Entra token that you acquired using MSAL
+    `UserName` = Object ID of your managed identity or service principal
+    `Password` = Microsoft Entra token that you acquired using MSAL
 
 1. Ensure that your client executes a Redis [AUTH command](https://redis.io/commands/auth/) automatically before your Microsoft Entra token expires using:
 
-   - `UserName` = Object ID of your managed identity or service principal
-
-   - `Password` = Microsoft Entra token refreshed periodically
+    `UserName` = Object ID of your managed identity or service principal
+    `Password` = Microsoft Entra token refreshed periodically
 
 ### Client library support
 
