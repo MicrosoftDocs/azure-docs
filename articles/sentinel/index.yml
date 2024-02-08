@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: yelevin
   ms.author: yelevin
-  ms.date: 11/09/2021
+  ms.date: 02/08/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -98,6 +98,10 @@ landingContent:
         links:
         - text: Investigate with UEBA
           url: investigate-with-ueba.md
+        - text: Threat hunting
+          url: hunting.md
+        - text: Kusto Query Language in Microsoft Sentinel
+          url: kusto-overview.md
       - linkListType: how-to-guide
         links:
           - text: Investigate incidents
@@ -106,6 +110,8 @@ landingContent:
             url: work-with-tasks.md
           - text: Monitor your data
             url: monitor-your-data.md
+          - text: Conduct end-to-end threat hunting
+            url: hunts.md
 
 # Card (optional)
   - title: Respond
@@ -120,38 +126,4 @@ landingContent:
             url: automate-incident-handling-with-automation-rules.md
           - text: Playbooks
             url: automate-responses-with-playbooks.md
-
- # Card (optional)
-  - title: Research
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Threat hunting
-            url: hunting.md
-      - linkListType: how-to-guide
-        links:
-          - text: Conduct end-to-end threat hunting
-            url: hunts.md
-          - text: Hunt with Jupyter notebooks
-            url: notebooks.md
-
- # Card (optional)
-  - title: Kusto Query Language in Microsoft Sentinel
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Kusto Query Language in Microsoft Sentinel
-            url: kusto-overview.md
-          - text: KQL quick reference guide
-            url: /azure/data-explorer/kql-quick-reference
-      - linkListType: tutorial
-        links:
-          - text: Kusto Query Language tutorial (Azure Monitor)
-            url: /azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor
-      - linkListType: learn
-        links:
-          - text: Write your first query with Kusto Query Language
-            url: /training/modules/write-first-query-kusto-query-language/
-          - text: More KQL learning and skilling resources
-            url: kusto-resources.md
 
