@@ -54,6 +54,7 @@ Notably, the `citus` role has some restrictions:
 `citus` role can't be deleted but would be disabled if 'Microsoft Entra ID authentication only' authentication method is selected on cluster.
 
 <a name='azure-active-directory-authentication-preview'></a>
+<a name='microsoft-entra-id-authentication-preview'></a>
 
 ## Microsoft Entra ID authentication
 
