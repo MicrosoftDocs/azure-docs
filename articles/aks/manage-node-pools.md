@@ -223,12 +223,12 @@ As your workload demands change, you can associate existing capacity reservation
 Associate an existing capacity reservation group with a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command and specify a capacity reservation group with the `--crg-id` flag. The following example assumes you have a CRG named "myCRG".
 
 ```azurecli-interactive
-    RG_NAME=myResourceGroup
-    CLUSTER_NAME=myAKSCluster
-    NODEPOOL_NAME=myNodepool
-    CRG_NAME=myCRG
-    CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
-    az aks nodepool add --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --crg-id $CRG_ID
+RG_NAME=myResourceGroup
+CLUSTER_NAME=myAKSCluster
+NODEPOOL_NAME=myNodepool
+CRG_NAME=myCRG
+CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
+az aks nodepool add --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --crg-id $CRG_ID
     ```
 
 ### Associate an existing capacity reservation group with a system node pool
