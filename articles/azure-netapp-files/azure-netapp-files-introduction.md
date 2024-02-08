@@ -4,7 +4,6 @@ description: Learn about Azure NetApp Files, an Azure native, first-party, enter
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: overview
 ms.date: 01/11/2024
 ms.author: anfdocs

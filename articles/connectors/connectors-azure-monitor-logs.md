@@ -33,15 +33,12 @@ This how-to guide describes how to build a [Consumption logic app workflow](../l
 
 For technical information about this connector's operations, see the [connector's reference documentation](/connectors/azuremonitorlogs/).
 
-> [!NOTE]
-> 
-> Both of the following actions can run a log query against a Log Analytics workspace or 
-> Application Insights resource. The difference exists in the way that data is returned.
-> 
-> | Action | Description |
-> |--------|-------------|
-> | [Run query and list results](/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each action](../logic-apps/logic-apps-control-flow-loops.md). |
-> | [Run query and visualize results](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns a JPG file that depicts the query result set. This action lets you use the result set in the rest of the workflow by sending the results in an email, for example. The action only returns a JPG file if the query returns results. |
+Both of the following actions can run a log query against a Log Analytics workspace or Application Insights resource. The difference exists in the way that data is returned.
+
+| Action | Description |
+|--------|-------------|
+| [Run query and list results](/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each action](../logic-apps/logic-apps-control-flow-loops.md). |
+| [Run query and visualize results](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns a JPG file that depicts the query result set. This action lets you use the result set in the rest of the workflow by sending the results in an email, for example. The action only returns a JPG file if the query returns results. |
 
 ## Limitations
 
@@ -65,12 +62,6 @@ For technical information about this connector's operations, see the [connector'
 - The [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) or [Application Insights resource](../azure-monitor/app/app-insights-overview.md) that you want to connect.
 
 - The [Consumption logic app workflow](../logic-apps/logic-apps-overview.md#resource-environment-differences) from where you want to access your Log Analytics workspace or Application Insights resource. To use an Azure Monitor Logs action, start your workflow with any trigger. This guide uses the [**Recurrence** trigger](connectors-native-recurrence.md).
-
-  > [!NOTE]
-  > 
-  > Although you can turn on the Log Analytics setting in a logic app resource to collect information about runtime data 
-  > and events as described in the how-to guide [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md), this setting isn't required 
-  > for you to use the Azure Monitor Logs connector.
 
 - An Office 365 Outlook account to complete the example in this guide. Otherwise, you can use any email provider that has an available connector in Azure Logic Apps.
 
@@ -110,6 +101,10 @@ For technical information about this connector's operations, see the [connector'
 
 1. In the **Query** box, enter the following Kusto query to retrieve the specified log data from the following sources:
 
+   > [!NOTE]
+   >
+   > When you create your own queries, make sure they work correctly in Log Analytics before you add them to your Azure Monitor Logs action.
+
    * Log Analytics workspace
 
      The following example query selects errors that occurred within the last day, reports their total number, and sorts them in ascending order.
@@ -137,11 +132,14 @@ For technical information about this connector's operations, see the [connector'
      | evaluate autocluster()
      ```
 
+1. For **Time Range**, select **Set in query**.
+
    > [!NOTE]
    >
-   > When you create your own queries, make sure they work correctly in Log Analytics before you add them to your Azure Monitor Logs action.
-
-1. For **Time Range**, select **Set in query**.
+   > There are three options for **Time Range**
+   > - **Exact** -- start-time and end-time can be provided dynamically
+   > - **Relative** -- set relative value such as last hour, last 12 hour, etc.
+   > - **Set in query** -- applies when TimeGenerated filter is included in query
 
 1. For **Chart Type**, select **Html Table**.
 

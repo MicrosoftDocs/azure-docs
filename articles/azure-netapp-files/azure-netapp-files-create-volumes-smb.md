@@ -4,7 +4,6 @@ description: This article shows you how to create an SMB3 volume in Azure NetApp
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 05/31/2023
 ms.author: anfdocs
