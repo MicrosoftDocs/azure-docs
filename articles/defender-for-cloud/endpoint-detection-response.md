@@ -25,11 +25,10 @@ The recommendations associated with Defender for Endpoint allow you to:
 
 - [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
 
-- You must have either of the following plans enabled on Defender for Cloud:
-    - [Defender for Servers Plan 2](tutorial-enable-servers-plan.md)
-    - [Defender CSPM](tutorial-enable-cspm-plan.md)
-
-- You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
+| Feature | Requirements |
+|--|--|
+| Detect endpoint detection and response solutions | You must have either of the following plans enabled on Defender for Cloud: <br> - [Defender for Servers plan 1 or plan 2](tutorial-enable-servers-plan.md) <br> [Defender CSPM](tutorial-enable-cspm-plan.md) <br> <br> You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) |
+| Identify misconfigurations in endpoint detection and response solutions | You must have either of the following plans enabled on Defender for Cloud: <br> - [Defender for Servers plan 2](tutorial-enable-servers-plan.md) <br> [Defender CSPM](tutorial-enable-cspm-plan.md) <br> <br> You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) |
 
 - Supported endpoint detection and response solutions:
 
@@ -89,7 +88,7 @@ This recommended action will be present if an endpoint detection and response so
 
 1. Select **Fix**.
 
-    :::image type="content" source="media/endpoint-detection-response/enable-fix.png" alt-text="Screenshot that shows where the fix button is located on the screen." lightbox="media/endpoint-detection-response/enable-fix.png":::
+    :::image type="content" source="media/endpoint-detection-response/enable-fix.png" alt-text="Screenshot that shows where the fix button is located." lightbox="media/endpoint-detection-response/enable-fix.png":::
 
 1. Select **Enable**.
 
@@ -129,15 +128,21 @@ This recommended action will be available if an endpoint detection and response 
 
 1. Select **Remediation steps**.
 
-    :::image type="content" source="media/endpoint-detection-response/remediation-steps.png" alt-text="Screenshot that shows where the remediation steps are located in the recommendation.":::
+    :::image type="content" source="media/endpoint-detection-response/remediation-steps.png" alt-text="Screenshot that shows where the remediation steps are located in the recommendation." lightbox="media/endpoint-detection-response/remediation-steps.png":::
 
 1. Follow the instructions to [troubleshoot Microsoft Defender for Endpoint onboarding issues](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide).
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
-## Identify misconfigurations on endpoint detection and response solution
+## Identify misconfigurations in endpoint detection and response solution
 
-When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page that correct misconfigurations on your Azure VM, AWS EC2 instances and GCP VM instances. These recommendations are only be available if you have the Defender for Endpoint enabled on the VM. These recommendations check three different security checks.
+When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page that correct misconfigurations on your Azure VM, AWS EC2 instances and GCP VM instances. These recommendations are only be available if you have the Defender for Endpoint enabled on the VM. These recommendations check for the following security checks:
+
+- `Scan are out of 7 days`
+- `Signature out of date`
+- `Anti-virus is off or partially configured`
+
+**To identify misconfigurations in endpoint detection and response solution**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -153,23 +158,15 @@ When Defender for Cloud detects misconfigurations in your endpoint detection and
 
 1. Select the relevant recommendation.
 
-1. 
+1. Select a security check to review the affected resources.
+
+    :::image type="content" source="media/endpoint-detection-response/affected-resources.png" alt-text="Screenshot that shows a selected security check and the affected resources." lightbox="media/endpoint-detection-response/affected-resources.png":::
+
+1. Select each security check to review all affected resources.
+
+1. Expand the remediation steps and follow the instructions given.
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab 
-
-## Using the fix option
-
-Defender for Cloud includes an option that allows you to `Fix` machines that don't have an endpoint detection and response solution installed on them using the fix option. The fix option enables Microsoft Defender for Endpoint on your machines in your subscription. The Defender for Endpoint integration is included with both Defender for Servers Plan 1 and Plan 2.
-
-If your machine isn't covered by either of the Defender for Servers plans, the fix asks you to enable Defender for Servers and select a plan. You can learn about the cost for each plan on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
-
-If the Defender for Endpoint integrations is configured correctly on your subscription, but the Defender for Endpoint extension isn't found on the machine, a manual troubleshooting reference appears as the fix option.
-
-Defender for Servers Plan 1 includes the Defender for Endpoint agent provisioning feature. However, the discovery assessment is only available as part of the [agentless scanning](concept-agentless-data-collection.md) feature, which is included in Plan 2. Once you install the Defender for Endpoint agent on your machine, and only enable Plan 1, on the next scan it appears as `Not Applicable`.
-
-After the fix process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
-
-Learn how to [use the fix option](implement-security-recommendations.md#use-the-fix-option).
 
 ## Identify which endpoint detection and response solution is enabled on a VM
 
