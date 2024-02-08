@@ -6,20 +6,12 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 02/06/2024
 ---
 
 # Microsoft Entra ID and PostgreSQL authentication with Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra ID (formerly Azure Active Directory) authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained 
-> capabilities.
->
-> You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
 Azure Cosmos DB for PostgreSQL supports PostgreSQL authentication and integration with Microsoft Entra ID. Each Azure Cosmos DB for PostgreSQL cluster is created with native PostgreSQL authentication enabled and one built-in PostgreSQL role named `citus`. You can add more native PostgreSQL roles after cluster provisioning is completed.
 
@@ -63,7 +55,7 @@ Notably, the `citus` role has some restrictions:
 
 <a name='azure-active-directory-authentication-preview'></a>
 
-## Microsoft Entra ID authentication (preview)
+## Microsoft Entra ID authentication
 
 [Microsoft Entra ID](/entra/fundamentals/whatis) (formerly Azure Active Directory) authentication is a mechanism of connecting to Azure Cosmos DB  for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra ID authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 

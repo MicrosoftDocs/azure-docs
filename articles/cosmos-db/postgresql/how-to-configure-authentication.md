@@ -6,20 +6,12 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/18/2024
+ms.date: 02/06/2024
 ---
 
 # Use Microsoft Entra ID and native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra ID (formerly Azure Active Directory) authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained
-> capabilities.
->
-> You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
 In this article, you configure authentication methods for Azure Cosmos DB for PostgreSQL. You manage Microsoft Entra ID admin users and native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL. You also learn how to use a Microsoft Entra ID token with Azure Cosmos DB for PostgreSQL.
 
@@ -33,7 +25,7 @@ You need to use Azure portal to configure authentication methods on an Azure Cos
 Complete the following items on your Azure Cosmos DB for PostgreSQL cluster to enable or disable Microsoft Entra ID authentication and native PostgreSQL authentication.
 
 1. On the cluster page, under the **Cluster management** heading, choose **Authentication** to open authentication management options.
-1. In **Authentication methods** section, choose **PostgreSQL authentication only**, **Microsoft Entra ID authentication (preview)**, or **PostgreSQL and Microsoft Entra ID authentication (preview)** as the authentication method based on your requirements.
+1. In **Authentication methods** section, choose **PostgreSQL authentication only**, **Microsoft Entra ID authentication**, or **PostgreSQL and Microsoft Entra ID authentication** as the authentication method based on your requirements.
 
 Once done proceed with [configuring Microsoft Entra ID authentication](#configure-azure-active-directory-authentication) or [adding native PostgreSQL roles](#configure-native-postgresql-authentication) on the same **Authentication** page.
 
@@ -71,7 +63,7 @@ az ad sp update --id b4fa09d8-5da5-4352-83d9-05c2a44cf431 --set accountEnabled=t
 
 To add or remove Microsoft Entra ID roles on cluster, follow these steps on **Authentication** page:
 
-1. In **Microsoft Entra ID authentication (preview)** section, select **Add Microsoft Entra ID admins**.
+1. In **Microsoft Entra ID authentication** section, select **Add Microsoft Entra ID admins**.
 1. In **Select Microsoft Entra ID Admins** panel, select one or more valid Microsoft Entra ID user or enterprise application in the current AD tenant to be a Microsoft Entra ID administrator on your Azure Cosmos DB for PostgreSQL cluster.
 1. Use **Select** to confirm your choice.
 1. In the **Authentication** page, select **Save** in the toolbar to save changes or proceed with adding native PostgreSQL roles.
