@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: devx-track-azurepowershell
 ms.topic: article
-ms.date: 12/18/2022
+ms.date: 02/07/2024
 ms.author: juergent
 ---
 
@@ -149,13 +149,18 @@ By using proximity placement groups, you can bypass this restriction. Here's the
 - Create an availability set that references the Azure proximity group. (See the command later in this article.)
 - Deploy the application layer VMs by referencing the availability set and the proximity placement group.
 
+
+> [!IMPORTANT]
+> It is important to understand that disks of the application layer VMs are not guaranteed to be allocated in the same Availability Zone as the VMs are directed to using the proximity placement group. The result of the deployment shown in the next steps may be that the VMs are allocated in the same network spine and with that the same Availability Zone as the anchor VM. But the respctive disks (base VHD and mounted Azure block storage disks) may not be allocated under the same network spine or even the same availabity zone. Instead the disks of those VMs can be allocated in any of the datacenters of the specific region. Though the disks of the anchor VM that got deployed by defining a zone are going to be deployed in the same zone as the VM got deployed.
+
+
 Instead of deploying the first VM as demonstrated in the previous section, you reference an Availability Zone and the proximity placement group when you deploy the VM:
 
 ```azurepowershell-interactive
 New-AzVm -ResourceGroupName "ppgexercise" -Name "centralserviceszone1" -Location "westus2" -OpenPorts 80,3389 -Zone "1" -ProximityPlacementGroup "collocate" -Size "Standard_E8s_v4"
 ```
 
-A successful deployment of this virtual machine would host the ASCS/SCS instance of the SAP system in one Availability Zone. The scope of the proximity placement group is fixed to one of the network spines in the Availability Zone you defined.
+A successful deployment of this virtual machine would host the ASCS/SCS instance of the SAP system in one Availability Zone. In this case, the VM and the base VHD of the VM and potentially mounted Azure block storage disks are allocated within the same Availability Zone. The scope of the proximity placement group is fixed to one of the network spines in the Availability Zone you defined.
 
 In the next step, you need to create the availability sets you want to use for the application layer of your SAP system.
 
@@ -176,6 +181,9 @@ Ideally, you should use three fault domains. But the number of supported fault d
 ```azurepowershell-interactive
 New-AzVm -ResourceGroupName "ppgexercise" -Name "appinstance1" -Location "westus2" -OpenPorts 80,3389 -AvailabilitySetName "myppgavset" -ProximityPlacementGroup "collocate" -Size "Standard_E16s_v4"
 ```
+> [!NOTE]
+> The disks of the VMs deployed into the availability set above are not forced to be allocated in the same Availability Zone as the VM is. Though you achieved that the application layer VMs are spread across different fault domains under the same network spine as the anchor VM is allocated, the disks, though also allocated in different fault domains may be allocated in different locations on a region wide scope.
+
 
 The result of this deployment is:
 
