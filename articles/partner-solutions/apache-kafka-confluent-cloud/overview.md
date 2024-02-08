@@ -12,7 +12,7 @@ Azure Native ISV Services enable you to easily provision, manage, and tightly in
 
 You can find Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview).
 
-Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service is an Azure Marketplace offering that provides Apache Kafka as a service. It's fully managed so you can focus on building your applications rather than managing the clusters.
+Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service is an Azure Marketplace offering that provides Apache Kafka and Apache Flink as a managed service. It's fully managed so you can focus on building your applications rather than managing the clusters.
 
 To reduce the burden of cross-platform management, Microsoft partnered with Confluent Cloud to build an integrated provisioning layer from Azure to Confluent Cloud. It provides a consolidated experience for using Confluent Cloud on Azure. You can easily integrate and manage Confluent Cloud with your Azure applications.
 
