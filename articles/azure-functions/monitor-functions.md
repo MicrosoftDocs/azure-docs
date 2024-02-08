@@ -56,9 +56,6 @@ For more information about the resource types for Azure Functions, see [Azure Fu
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Azure Functions, see [Azure Functions monitoring data reference](monitor-functions-reference.md#metrics).
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
-The following examples use Azure Monitor metrics to help estimate the cost of running your function app on a Consumption plan. To learn more about estimating Consumption plan costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
-
-[!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]  
 
 <!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. 
 [!INCLUDE [horz-monitor-container-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-container-metrics.md)]
@@ -108,6 +105,12 @@ If your service has other logs that aren't resource logs or in the activity log,
 
 <!-- ### External tools. Required section. -->
 [!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+
+### Analyze metrics for Azure Functions
+
+The following examples use Azure Monitor metrics to help estimate the cost of running your function app on a Consumption plan. To learn more about estimating Consumption plan costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
+
+[!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]  
 
 <!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
