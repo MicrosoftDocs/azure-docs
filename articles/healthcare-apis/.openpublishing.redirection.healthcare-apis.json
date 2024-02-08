@@ -1,7 +1,7 @@
 {
     "redirections": [
       {
-          "source_path_from_root": "/articles/healthcare-apis/configure-cosmos-dbrelease-notes.md",
+          "source_path_from_root": "/articles/healthcare-apis/release-notes.md",
           "redirect_url": "/azure/healthcare-apis/release-notes-2024",
           "redirect_document_id": false
       },
