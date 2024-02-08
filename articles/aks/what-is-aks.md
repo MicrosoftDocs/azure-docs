@@ -4,24 +4,42 @@ description: Learn about the features of Azure Kubernetes Service (AKS) and how 
 ms.topic: overview
 ms.author: schaffererin
 author: schaffererin
-ms.date: 01/19/2024
+ms.date: 02/08/2024
 ---
 
 # What is Azure Kubernetes Service?
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications without container orchestration expertise. Azure handles critical operational tasks such as health monitoring and maintenance. When you create an AKS cluster, Azure automatically creates and configures a control plane for you at no cost. The control plane manages the Kubernetes objects and worker nodes that you deploy to run your applications. You only pay for the worker nodes within your clusters, not for the Kubernetes cluster itself.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service hosted on Azure that you can use to deploy and manage containerized applications without container orchestration expertise. AKS is an ideal platform for deploying and managing containerized applications that require high availability, scalability, and portability, and for deploying applications to multiple regions, using open-source tools, and integrating with existing DevOps tools. This article is intended for platform administrators or developers who are looking for a scalable, automated, managed Kubernetes solution.
+
+## Overview of AKS
+
+AKS reduces the complexity and operational overhead of managing Kubernetes by shifting that responsibility to Azure. The Azure platform manages the AKS control plane, which is responsible for the Kubernetes objects and worker nodes that you deploy to run your applications. Azure takes care of critical operations like health monitoring and maintenance, and you only pay for the AKS nodes that run your applications.
+
+![AKS overview graphic](./media/what-is-aks/what-is-aks.png)
+
+When you create an AKS cluster, Azure automatically creates and configures a control plane for you at no cost.
 
 > [!NOTE]
 > AKS is [CNCF-certified](https://www.cncf.io/training/certification/software-conformance/) and is compliant with SOC, ISO, PCI DSS, and HIPAA. For more information, see the [Microsoft Azure compliance overview](https://azure.microsoft.com/explore/trusted-cloud/compliance/).
 
-## When to use AKS
+## Container solutions in Azure
 
-Azure offers a range of container hosting services, including Azure Container Apps, Azure Kubernetes Service (AKS), and Web App for Containers, designed to accommodate various workloads, architectures, and business needs. AKS is an ideal platform for deploying and managing containerized applications that require high availability, scalability, and portability, and for deploying applications to multiple regions, using open-source tools, and integrating with existing DevOps tools. To help you better understand which Azure container service is right for your needs, see the following resources:
+Azure offers a range of container solutions designed to accommodate various workloads, architectures, and business needs.
+
+| Container solution | Resource type |
+| --------- | ------------- |
+| [Azure Kubernetes Service](#overview-of-aks) | Managed Kubernetes |
+| [Azure Red Hat OpenShift](../openshift/intro-openshift.md) | Managed Kubernetes |
+| [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) | Unmanaged Kubernetes |
+| [Azure Container Instances](../container-instances/container-instances-overview.md) | Managed Docker container instance |
+| [Azure Container Apps](../container-apps/overview.md) | Managed Kubernetes |
+
+For more information comparing the various solutions, see the following resources:
 
 * [Comparing the service models of Azure container solutions](/azure/architecture/guide/choose-azure-container-service)
 * [Comparing Azure compute service options](/azure/architecture/guide/technology-choices/compute-decision-tree)
 
-### Common AKS use cases
+### When to use AKS
 
 The following list describes some of the common use cases for AKS, but by no means is an exhaustive list:
 
