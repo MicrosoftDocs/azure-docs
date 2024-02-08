@@ -55,6 +55,6 @@ Arc SQL Server | Improved prompt for feedback in Azure portal | GA
 
 Arc SQL Server | Monitoring | Show monitoring upload status on Arc SQL Server Overview UX | GA
 
-Arc SQL Server | Migration | Continuously run and view a migration assessment for an Arc SQL Server in the Azure Portal | Public Preview
+Arc SQL Server | Migration | Continuously run and view a migration assessment for an Arc SQL Server in the Azure Portal | Preview
 
 
