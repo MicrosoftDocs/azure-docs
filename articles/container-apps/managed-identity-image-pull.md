@@ -116,6 +116,16 @@ You can verify that the role was added by checking the identity from the **Ident
 1. Select **Azure role assignments** from the menu on the managed identity resource page.
 1. Verify that the `acrpull` role is assigned to the user-assigned managed identity.
 
+#### Create a container app with a private image
+
+If you don't want to start by creating a container app with a public image, you can also do the following.
+
+1. Create a user-assigned managed identity.
+1. Add the `acrpull` role to the user-assigned managed identity.
+1. Create a container app with a private image and the user-assigned managed identity.
+
+This method is typical in Infrastructure as Code (IaC) scenarios.
+
 ### Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
