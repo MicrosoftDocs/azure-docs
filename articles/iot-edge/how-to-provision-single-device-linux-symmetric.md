@@ -340,8 +340,6 @@ sudo yum remove moby-engine
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-Is this correct? 
-
 ```bash
 sudo snap remove docker
 ```

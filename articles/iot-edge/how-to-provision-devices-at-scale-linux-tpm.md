@@ -218,12 +218,19 @@ After the runtime is installed on your device, configure the device with the inf
 
    ```bash
    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   # If using a snap installation of IoT Edge, the template file is located at /var/snap/iotedge/current/config/aziot/config.toml.edge.template
+   # Create a copy of the template file in your home directory and name it config.toml. For example:
+
+   # cp /var/snap/iotedge/current/config/aziot/config.toml.edge.template ~/config.toml
    ```
 
 1. Open the configuration file on the IoT Edge device.
 
    ```bash
    sudo nano /etc/aziot/config.toml
+
+   # If using a snap installation of IoT Edge, open the configuration file in your home directory. For example:
+   # nano ~/config.toml
    ```
 
 1. Find the provisioning configurations section of the file. Uncomment the lines for TPM provisioning, and make sure any other provisioning lines are commented out.
@@ -306,6 +313,10 @@ You can give access to the TPM by overriding the systemd settings so that the `a
 
    ```bash
    sudo iotedge config apply
+
+   # If using a snap installation of IoT Edge, use the following command:
+
+   # sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
    ```
 
 ## Verify successful installation

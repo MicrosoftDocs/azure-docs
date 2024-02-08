@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Edge
 description: Use X.509 certificates to test provisioning devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/25/2023
+ms.date: 02/07/2024
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -81,12 +81,21 @@ Have the following information ready:
 
    ```bash
    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+
+   # If using a snap installation of IoT Edge, the template file is located at /var/snap/iotedge/current/config/aziot/config.toml.edge.template
+   # Create a copy of the template file in your home directory and name it config.toml. For example:
+
+   # cp /var/snap/iotedge/current/config/aziot/config.toml.edge.template ~/config.toml
    ```
 
 1. Open the configuration file on the IoT Edge device.
 
    ```bash
    sudo nano /etc/aziot/config.toml
+
+   # If using a snap installation of IoT Edge, open the configuration file in your home directory. For example:
+   # nano ~/config.toml
+
    ```
 
 1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out.
@@ -134,6 +143,10 @@ Have the following information ready:
 
    ```bash
    sudo iotedge config apply
+
+   # If using a snap installation of IoT Edge, use the following command:
+
+   # sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
    ```
 
 ## Verify successful installation
