@@ -77,15 +77,12 @@ This procedure describes how to send a software version update to OT sensors at 
 
 1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, select **Sites and sensors**.
 
-    If you know your site and sensor name, you can browse or search for it directly, or apply a filter to help locate the site you need. <!-- Belle wants to add other images so I suggest removing this one, instead of ones that are more important --> For example:
-
-    :::image type="content" source="media/update-ot-software/filter-remote-update.png" alt-text="Screenshot of how to filter for OT sensors that are ready for remote update." lightbox="media/update-ot-software/filter-remote-update.png":::
+    If you know your site and sensor name, you can browse or search for it directly, or apply a filter to help locate the site you need. <!-- Belle wants to add other images so I suggest removing this one, instead of ones that are more important For example:     :::image type="content" source="media/update-ot-software/filter-remote-update.png"  alt-text="Screenshot of how to filter for OT sensors that are ready for remote update." lightbox="media/update-ot-software/filter-remote-update.png":::-->
 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**. For example:
+    :::image type="content" source="media/update-ot-software/sensorupdates1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
 
-:::image type="content" source="media/update-ot-software/sensorupdates1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
-
-For one or more individual sensors, select the  **Step one: Send package to sensor** option is also available from the **...** options menu to the right of the sensor row.
+    For one or more individual sensors, select the  **Step one: Send package to sensor** option is also available from the **...** options menu to the right of the sensor row.
 
 1. In the **Send package** pane that appears, under **Available versions**, select the software version from the list. If the version you need doesn't appear, select **Show more** to list all available versions.
 
@@ -93,9 +90,7 @@ For one or more individual sensors, select the  **Step one: Send package to sens
 
     The lower half of the screen shows the list of sensors to be updated and their status. It's important to check this properly, as there might be reasons why an update can't be sent to a sensor. This can be because it's updated to the version you wish to send, or there's a problem with the sensor, such as it's disconnected.
 
-    :::image type="content" source="media/update-ot-software/sendpackage-pane.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/sendpackage-pane.png" border="true":::
-
-    :::image type="content" source="media/update-ot-software/sendpackage-pane-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/sendpackage-pane-400.png" border="true":::
+    :::image type="content" source="media/update-ot-software/sendpackage-pane-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/sendpackage-pane.png" border="true":::
 
 1. Once you've checked the list of sensors to be updated, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, with the percentage completed automatically updating in the progress bar, so you can see that the process has started and letting you track its progress until the transfer is complete. For example:
 
