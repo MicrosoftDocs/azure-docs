@@ -270,4 +270,4 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 ## Next steps
 
 - [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
-- [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources).
+- [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
