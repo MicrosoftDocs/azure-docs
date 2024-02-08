@@ -27,7 +27,7 @@ The following steps describe the process to configure your container app to use 
 
 1. Create a container app with a public image.
 1. Add the user-assigned managed identity to the container app.
-1. Create a container app revision with a private image and the system-assigned managed identity.
+1. Create a container app revision with a private image and the user-assigned managed identity.
 
 ### Prerequisites
 
