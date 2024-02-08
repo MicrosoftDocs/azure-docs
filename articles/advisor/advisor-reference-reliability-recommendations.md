@@ -664,11 +664,11 @@ If you only have a single origin, Front Door always routes traffic to that origi
 
 Learn more about [Health probe best practices](https://aka.ms/afd-disable-health-probes).
 
-### Use the same domain name on Front Door and your origin
+### Use the same domain name on Azure Front Door and your origin
 
 We recommend that you preserve the original HTTP host name when you use a reverse proxy in front of a web application. Having a different host name at the reverse proxy than the one that's provided to the back-end application server can lead to cookies or redirect URLs that don't work properly. For example, session state can get lost, authentication can fail, or back-end URLs can inadvertently be exposed to end users. You can avoid these problems by preserving the host name of the initial request so that the application server sees the same domain as the web browser.
 
-Learn more about [Use the same domain name on Front Door and your origin](https://aka.ms/afd-same-domain-origin).
+Learn more about [Use the same domain name on Azure Front Door and your origin](https://aka.ms/afd-same-domain-origin).
 
 ## SAP for Azure
 
