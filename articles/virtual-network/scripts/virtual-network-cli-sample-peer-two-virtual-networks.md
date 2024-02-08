@@ -7,9 +7,8 @@ manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample
-ms.workload: infrastructure
 ms.date: 02/03/2022
-ms.author: allensu 
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ---
 
