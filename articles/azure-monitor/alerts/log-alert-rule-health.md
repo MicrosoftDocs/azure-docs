@@ -1,5 +1,5 @@
 ---
-title: Monitor health of log search alert rules
+title: Monitor the health of log search alert rules
 description: This article how to monitor the health of a log search alert rule.
 ms.topic: how-to
 author: AbbyMSFT
@@ -10,7 +10,7 @@ ms.date: 02/08/2024
 #Customer-intent: As a alerts administrator, I want to know when there are  issues with an alert rule, so I can act to resolve the issue or know when to contact Microsoft for support.
 ---
 
-# Monitor Log Analytics workspace health
+# Monitor the health of log search alert rules
 
 [Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including log search alert rules. When a log search alert rule is healthy, the rule runs and the query executes successfully. This article explains how to view the health status of your log search alert rule, and tells you what to do if there are issues affecting your log search alert rules.
 
