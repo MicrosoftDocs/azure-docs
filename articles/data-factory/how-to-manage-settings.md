@@ -71,7 +71,25 @@ To apply changes, select a **Regional format** and make sure to hit the **Apply*
 :::image type="content" source="media/how-to-manage-settings/adf-settings-6.png" alt-text="Screenshot of Apply button in the bottom left corner to make regional format changes.":::
 
 > [!NOTE]
-> Applying regional format changes will discard any unsaved changes in your data factory. 
+> Applying regional format changes will discard any unsaved changes in your data factory.
+
+## Factory Settings
+
+Additionally, you can set specific settings for your Data Factory. In the **Navigate** tab, you'll find **Factory settings** under **General**. In your Factory settings, you can adjust a few settings.
+
+:::image type="content" source="media/how-to-manage-settings/adf-settings-7.png" alt-text="Screenshot of general Factory settings.":::
+
+* **Show billing report**
+
+You can select your preferences for your billing report under **Show billing report**. Choose to see your billing **by pipeline** or **by factory**. By default, this setting will be set to **by factory**.
+
+* **Factory environment**
+
+You can set different environment labels for your factory. Choose from **Development**, **Test**, or **Production**. By default, this setting will be set to **None**.
+
+* **Staging**
+
+You can set your **default staging linked service** and **default staging storage folder**. This can be overriden in your factory resource. 
 
 ## Related content
 - [Manage the ADF preview experience](how-to-manage-studio-preview-exp.md)
