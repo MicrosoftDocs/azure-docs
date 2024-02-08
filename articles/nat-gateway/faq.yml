@@ -84,6 +84,10 @@ sections:
       - question: If multiple public IP addresses are assigned to a NAT gateway, is traffic flow disrupted when one of the IP addresses is removed?
         answer: |
           Any active connections associated with a public IP address terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs.
+
+      - question: What does it mean when I see an IP being used to connect outbound that is different from my NAT gateway public IP?
+        answer: |
+          There are a few possible reasons for why you could be seeing a different IP being used to connect outbound than the one associated to your NAT gateway. To help troubleshoot, refer to the [NAT Gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#nat-gateway-public-ip-isnt-used-to-connect-outbound).
           
   - name: Traffic routes
     questions:
@@ -171,7 +175,7 @@ sections:
 
       - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |
-          A zone-redundant public IP address can be attached to a "no zone" NAT gateway only. A NAT gateway designated to a specific zone must be attached to a public IP address from the same zone.      
+          A zone-redundant public IP address can be attached to either a "no zone" NAT gateway or a NAT gateway assigned to a specific availability zone. Refer to [NAT Gateway and availability zones](/azure/nat-gateway/nat-availability-zones) for more information.
 
   - name: NAT gateway and basic SKU resources
     questions: 
@@ -214,6 +218,10 @@ sections:
         answer: | 
            Yes. The addition of a NAT gateway to a subnet with service endpoints doesn't affect the endpoints. [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint traverses the Azure backbone instead of the internet. Private Link is recommended over service endpoints when connecting to Azure PaaS services directly from your Azure network.
 
+      - question: Can I use NAT gateway with my Databricks workspace?
+        answer: |
+          Yes. If you enable secure cluster connectivity in your workspace NAT gateway can be used in one of two ways with Databricks. If you use secure cluster connectivity with the **default VNet** that Azure Databricks creates, Azure Databricks automatically creates a NAT gateway for outbound traffic from your workspace's subnets. The NAT gateway is created within the managed resource group managed by Azure Dataricks. You can't modify this resource group or any resources provisioned within it. If you enable secure cluster connectivity on your workspace that uses VNet injection, you can deploy a NAT gateway on both of the workspace's subnets to provide outbound connectivity. You can modify the configuration for customized outbound connectivity requirements in this case. For more information, see [Secure cluster connectivity](/azure/databricks/security/network/classic/secure-cluster-connectivity). 
+          
 additionalContent: |
 
   ## Next steps
