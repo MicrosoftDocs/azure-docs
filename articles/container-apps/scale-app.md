@@ -62,7 +62,7 @@ If you define more than one scale rule, the container app begins to scale once t
 
 ## HTTP
 
-With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. [Container Apps jobs](jobs.md) don't support HTTP scaling rules.
+With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. Every 15 seconds, the number of concurrent requests is calculated as the number of requests in the past 15 seconds divided by 15. [Container Apps jobs](jobs.md) don't support HTTP scaling rules.
 
 In the following example, the revision scales out up to five replicas and can scale in to zero. The scaling property is set to 100 concurrent requests per second.
 
@@ -157,7 +157,7 @@ az containerapp create \
 
 ## TCP
 
-With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales. [Container Apps jobs](jobs.md) don't support TCP scaling rules.
+With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales. Every 15 seconds, the number of concurrent connections is calculated as the number of connections in the past 15 seconds divided by 15. [Container Apps jobs](jobs.md) don't support TCP scaling rules.
 
 In the following example, the container app revision scales out up to five replicas and can scale in to zero. The scaling threshold is set to 100 concurrent connections per second.
 
