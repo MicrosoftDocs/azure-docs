@@ -4,7 +4,7 @@ description: Shows how to quickly stand up WebLogic Server on Azure Kubernetes S
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 06/22/2023
+ms.date: 02/09/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 ---
 
@@ -19,7 +19,7 @@ This article demonstrates how to:
 
 This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
 
-For full automation, you can select your appliation and configure datasource connetion from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks). 
+For full automation, you can select your appliation and configure datasource connetion from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks).
 
 For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Service, see the official documentation from Oracle at [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
@@ -35,7 +35,7 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
     > [!NOTE]
     > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/) from Oracle.
   - Accept the license agreement.
-- Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux). 
+- Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
   - [Azure CLI](/cli/azure); use `az --version` to test if az works. This document was tested with version 2.55.1.
   - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7. Use `docker info` to test if Docker Daemon is running.
   - [kubectl](https://kubernetes-io-vnext-staging.netlify.com/docs/tasks/tools/install-kubectl/); use `kubectl version` to test if kubectl works. This document was tested with version v1.21.2.
@@ -92,7 +92,7 @@ The following steps make it so the WLS admin console and the sample app are expo
 1. Under the **Application Gateway Ingress Controller**, you should see all fields pre-populated with the defaults for **Virtual network** and **Subnet**. Leave the default values.
 1. For **Create ingress for Administration Console**, select **Yes**.
 
-    :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal showing Application Gateway Ingress Controllor configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal showing Application Gateway Ingress Controllor configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png":::
 
 1. Leave default values for other fields.
 1. Select **Review + create**. Ensure the validation does not fail. If it fails, fix any validation problems, then select **Review + create** again.
@@ -120,14 +120,14 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin console for this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **clusterExternalUrl**  value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **shellCmdtoOutputWlsImageModelYaml** value is the base64 string of WDT model that built in the container image. Save this value aside for later.
-1. The **shellCmdtoOutputWlsImageProperties** value is base64 string of WDT model properties that built in the container image. Save this value aside for later. 
+1. The **shellCmdtoOutputWlsImageProperties** value is base64 string of WDT model properties that built in the container image. Save this value aside for later.
 1. The **shellCmdtoConnectAks** value is the Azure CLI command to connect to this specific AKS cluster. This lets you use `kubectl` to administer the cluster.
 
 The other values in the outputs are beyond the scope of this article, but are explained in detail in the [WebLogic on AKS user guide](https://aka.ms/wls-aks-docs).
 
 ## Create an Azure SQL Database
 
-[!INCLUDE [create-an-azure-sql-database](includes/jakartaee/create-an-azure-sql-database.md)]
+[!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
 2. Create schema for the sample application. Follow [Query the database](/azure/azure-sql/database/single-database-create-quickstart#query-the-database) to open **Query editor** pane. Enter and run the following query.
 
@@ -152,7 +152,7 @@ This section updates the WLS cluster by deploying a sample application using [au
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/microsoft/weblogic-on-azure).
 
-You'll use `javaee/weblogic-cafe/`. Here's the file structure of the application. 
+You'll use `javaee/weblogic-cafe/`. Here's the file structure of the application.
 ```text
 weblogic-cafe
 ├── pom.xml
@@ -221,11 +221,11 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
    ```
 
    Paste the value of **shellCmdtoOutputWlsImageModelYaml** you saved from the deployment outputs. You get a file `${BASE_DIR}/mystaging/models/model.yaml`. The command will look similar to the following.
-    
+
    ```bash
    echo -e IyBDb3B5cmlna...Cgo= | base64 -d > model.yaml
    ```
-    
+
    The content of *model.yaml* is similar to the following text.
 
    ```yaml
@@ -286,7 +286,7 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
    ```bash
    echo -e IyBDb3B5cml...pFPTUK | base64 -d > model.properties
    ```
-    
+
    The content of *model.properties* is similar to the following text.
 
    ```text
@@ -419,7 +419,7 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 
    You'll find output as following when you build the image successfully.
 
-   ```text
+   ```output
    [+] Building 12.0s (8/8) FINISHED                                   docker:default
    => [internal] load build definition from Dockerfile                          0.8s
    => => transferring dockerfile: 473B                                          0.0s
@@ -458,17 +458,17 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
    /auxiliary/Dockerfile
    ```
 
-1. Push the auxiliary image to Azure Container Registry. 
+1. Push the auxiliary image to Azure Container Registry.
 
-   - Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
-   - Select the resource of type **Container registry** from resource list.
-   - Hover the mouse over the value next to **Login server** and select the copy icon to the right of the text. Set this as the value of the `ACR_LOGIN_SERVER` environment variable.
-   
+   1. Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
+   1. Select the resource of type **Container registry** from resource list.
+   1. Hover the mouse over the value next to **Login server** and select the copy icon to the right of the text. Set this as the value of the `ACR_LOGIN_SERVER` environment variable.
+
       ```bash
       export ACR_LOGIN_SERVER=<value-from-clipboard>
       ```
 
-   - Run the following commands to tag and push the image. Make sure Docker is running before executing these commands.
+   1. Run the following commands to tag and push the image. Make sure Docker is running before executing these commands.
 
       ```bash
       export ACR_NAME=$(echo ${ACR_LOGIN_SERVER} | cut -d '.' -f 1)
@@ -485,7 +485,7 @@ This section requires a Linux terminal with Azure CLI and kubectl installed.
 
       You'll find the output is similar to the following content.
 
-      ```text
+      ```output
       {
         "changeableAttributes": {
           "deleteEnabled": true,
@@ -509,42 +509,41 @@ In the previous steps, you created the auxiliary image including models and WDT.
 1. Connect to the AKS cluster.
 
    - In your shell, paste the value of the **shellCmdtoConnectAks** you saved aside previously. Execute the command. This will look similar to the following.
-   
+
       ```bash
       az account set --subscription <redacted>; az aks get-credentials --resource-group ejb010201wls --name wlsonaks2mkgvjqpy4cl4
       ```
-      
+
       You should see output similar to the following. If you don't see this output, troubleshoot and resolve the problem before continuing.
-      
-      ```bash
+
+      ```output
       Merged "wlsonaks2mkgvjqpy4cl4" as current context in /Users/<username>/.kube/config
       ```
-   
+
 1. Create secret for datasource connection.
 
-    This article uses secret name `sqlserver-secret` for the secret of the datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*. Make sure variable **DB_CONNECTION_STRING**, **DB_USER** and **DB_PASSWORD**  for database connection are set correctly.
+   This article uses secret name `sqlserver-secret` for the secret of the datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*. Make sure variable **DB_CONNECTION_STRING**, **DB_USER** and **DB_PASSWORD**  for database connection are set correctly.
 
-   | Variable | Value | Example |
-   |----------|-------|---------|
-   |`DB_CONNECTION_STRING` |  The connection string of SQL server. You can obtain it from portal. | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125`
-   | `DB_USER` | The username to login the SQL server. | `welogic@sqlserverforwlsaks` |
-   | `DB_PASSWORD` | The password to login the sQL server. | `Secret123456` |
-
+   | Variable               | Value                                                               | Example                                                                                       |
+   |------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+   | `DB_CONNECTION_STRING` | The connection string of SQL server. You can obtain it from portal. | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125` |
+   | `DB_USER`              | The username to login the SQL server.                               | `welogic@sqlserverforwlsaks`                                                                  |
+   | `DB_PASSWORD`          | The password to login the sQL server.                               | `Secret123456`                                                                                |
 
    Follow these steps to get the values for the variables.
-   
+
    1. Visit the SQL database resource in the portal.
-   
+
    1. In the left navigation panel, under **Settings**, select **Connection strings**.
-   
+
    1. Select the **JDBC** tab.
-   
+
    1. Select the copy icon.
-   
+
    1. For `DB_CONNECTION_STRING`, replace the value `{your_password_here}` with your database password.
-   
+
    1. The `DB_USER` value is the portion of the string from `azureuser` up to but not including `;password={your_password_here}`.
-   
+
    1. The `DB_PASSWORD` value is the value you entered when you created the database.
 
    Be sure to enclose the value of the `DB_` variables in double quotes to prevent the shell from interferring with the values.
@@ -567,15 +566,15 @@ In the previous steps, you created the auxiliary image including models and WDT.
      ${SECRET_NAME} \
      weblogic.domainUID=${WLS_DOMAIN_UID}
    ```
-   
+
    You must see the following output before continuing. If you do not see this output, troubleshoot and resolve the problem before continuing.
-   
-   ```bash
+
+   ```output
    secret/sqlserver-secret created
    secret/sqlserver-secret labeled
    ```
 
-2. Apply the auxiliary image by patching the domain custom resource definition (CRD).
+1. Apply the auxiliary image by patching the domain custom resource definition (CRD).
 
    The auxiliary image is defined in `spec.configuration.model.auxiliaryImages`, as the following snippet shows. For more information, see [auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/).
 
@@ -627,15 +626,15 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    kubectl get pod -n ${WLS_DOMAIN_NS} -w
    ```
-   
+
    Wait until the admin server and managed servers show the following values before proceeding. It may take a five - ten minutes for the system to reach this state. Here is a high level overview of what is happening while you wait.
-   
+
    - You'll see the `sample-domain1-introspector-zbtbz` running first. This software looks for changes to the domain custom resource so it can take the necessary actions on the Kubernetes cluster.
    - When changes are detected, the domain introspector kills and starts new pods to roll out the changes.
    - Next, you'll see the `sample-domain1-admin-server` pod terminate and restart.
    - Then, you'll see the two managed servers terminate and restart.
    - Only when all three pods show the `1/1 Running` state, is it ok to proceed.
-   
+
    ```bash
    NAME                             READY   STATUS    RESTARTS   AGE
    sample-domain1-admin-server      1/1     Running   0          20m
