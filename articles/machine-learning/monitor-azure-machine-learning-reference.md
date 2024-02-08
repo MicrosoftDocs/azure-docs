@@ -40,7 +40,7 @@ At a minimum your service should have the following two articles:
 <!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Machine Learning](monitor-azure-machine-learning.md) for details on the data you can collect for Machine Learning and how to use it.
+See [Monitor Machine Learning](monitor-azure-machine-learning.md) for details on the data you can collect for Azure Machine Learning and how to use it.
 
 <!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
@@ -124,7 +124,7 @@ Microsoft.MachineLearningServices/workspaces
 - [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity)
 - [AMLOnlineEndpointConsoleLog](/azure/azure-monitor/reference/tables/AMLOnlineEndpointConsoleLog)
 - [AMLOnlineEndpointTrafficLog](/azure/azure-monitor/reference/tables/AMLOnlineEndpointTrafficLog)
-- [AMLOnlineEndpointEvent](/azure/azure-monitor/reference/tables/Log](/azure/azure-monitor/reference/tables/AMLOnlineEndpointEvent)
+- [AMLOnlineEndpointEvent](/azure/azure-monitor/reference/tables/AMLOnlineEndpointEvent)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics)
 - [AMLComputeClusterEvent](/azure/azure-monitor/reference/tables/AMLComputeClusterEvent)
 - [AMLComputeClusterNodeEvent](/azure/azure-monitor/reference/tables/AMLComputeClusterNodeEvent)
@@ -169,10 +169,6 @@ The following table lists some operations related to Machine Learning that may b
 <!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. -->
 [!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
 <!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
-## Schemas
-
-The following schemas are in use by Azure Machine Learning
-
 ### AmlComputeJobEvent table
 
 | Property | Description |
@@ -395,7 +391,6 @@ The following schemas are in use by Azure Machine Learning
 | AmlPipelineDraftName | The name of the Azure Machine Learning pipeline draft. |
 | AmlPipelineEndpointId | The ID of the Azure Machine Learning pipeline endpoint. |
 | AmlPipelineEndpointName | The name of the Azure Machine Learning pipeline endpoint. |
-
 
 ### AmlRunEvent table
 
