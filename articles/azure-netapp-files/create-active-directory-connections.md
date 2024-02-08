@@ -4,7 +4,6 @@ description: This article shows you how to create and manage Active Directory co
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/07/2023

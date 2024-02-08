@@ -4,7 +4,6 @@ description: Describes how to manage a capacity pool that uses the manual QoS ty
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: anfdocs

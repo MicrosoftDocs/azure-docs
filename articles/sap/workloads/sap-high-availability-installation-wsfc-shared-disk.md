@@ -10,11 +10,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Install SAP NetWeaver HA on a Windows failover cluster and shared disk for an SAP ASCS/SCS instance in Azure

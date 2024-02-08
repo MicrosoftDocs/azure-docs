@@ -147,18 +147,20 @@
       href: network-watcher-diagnose-on-premises-connectivity.md
   - name: Capture and analyze packets
     items:
-    - name: Manage a packet capture
+    - name: Manage packet captures for VMs
       items:
-      - name: Virtual machine - Portal
-        href: network-watcher-packet-capture-manage-portal.md
-      - name: Virtual Machine Scale Set - Portal
+      - name: Azure Portal
+        href: packet-capture-vm-portal.md
+      - name: Azure PowerShell
+        href: packet-capture-vm-powershell.md
+      - name: Azure CLI
+        href: packet-capture-vm-cli.md
+    - name: Manage packet captures for scale sets
+      items:
+      - name: Azure Portal
         href: network-watcher-packet-capture-manage-portal-vmss.md
-      - name: Virtual machine - PowerShell
-        href: network-watcher-packet-capture-manage-powershell.md
-      - name: Virtual Machine Scale Set - PowerShell
+      - name: Azure PowerShell
         href: network-watcher-packet-capture-manage-powershell-vmss.md
-      - name: Virtual machine - Azure CLI
-        href: network-watcher-packet-capture-manage-cli.md
     - name: Analyze a packet capture
       items:
       - name: Inspect to find anomalies
