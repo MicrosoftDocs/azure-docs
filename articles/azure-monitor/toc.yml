@@ -1075,7 +1075,8 @@ items:
         href: visualize/workbook-templates-move-region.md
     - name: Azure Workbook components
       items:
-        - name: Data sources
+        - name: Data sources 
+          href: visualize/workbooks-data-sources.md
         - name: Visualizations
           items:
           - name: Overview

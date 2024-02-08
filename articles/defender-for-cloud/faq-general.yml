@@ -110,8 +110,7 @@ sections:
           If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
 
           :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Screenshot of Azure Activity log JSON explorer.":::
-
-
+    
       - question: |
           What happens when one recommendation is in multiple policy initiatives?
         answer: |
