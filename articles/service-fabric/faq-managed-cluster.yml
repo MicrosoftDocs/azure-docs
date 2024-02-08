@@ -73,7 +73,7 @@ sections:
           No. At this time you would need to create a new Service Fabric managed cluster resource after the subscription has been transferred to a different AAD tenant.
       
       - question: | 
-          Can I move/migrate my cluster between Azure tenants?
+          Can I move/migrate my cluster between Microsoft Entra tenants?
         answer: |
           No. At this time you would need to create a new Service Fabric managed cluster resource under the new tenant.
       
