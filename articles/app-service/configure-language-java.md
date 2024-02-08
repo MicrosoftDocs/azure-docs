@@ -1090,7 +1090,7 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 As you provision an App Service with Tomcat to host your Java workload (a WAR file or a JAR file), there are certain settings that you get out of the box for Tomcat configuration. You can refer to the [Official Apache Tomcat Documentation](https://tomcat.apache.org/) for detailed information, including the default configuration for Tomcat Web Server.
 
-Additionally, there are certain transformations that are further applied on top of the server.xml for Tomcat distribution upon start.
+Additionally, there are certain transformations that are further applied on top of the server.xml for Tomcat distribution upon start. These are transformations to the Connector, Host, and Valve settings.
 
 ### Connector
 
