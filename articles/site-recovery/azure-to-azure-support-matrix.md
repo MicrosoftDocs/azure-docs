@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 02/06/2024
+ms.date: 02/08/2024
 ms.service: site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
@@ -109,12 +109,12 @@ Windows 7 (x64) with SP1 onwards | From version [9.30](https://support.microsoft
 
 #### Linux
 
-> ![!NOTE]
-> `9.58` and `9.59` agent versions are not released for Azure to Azure. 
+> [!NOTE]
+> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
 
 **Operating system** | **Details**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609/), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, 9.3 
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609/), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, 9.3 <br> RHEL `9.x` is supported for the [following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-virtual-machines).
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10 </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, [7.8](https://support.microsoft.com/help/4564347/), [7.9 pre-GA version](https://support.microsoft.com/help/4578241/), 7.9 GA version is supported from 9.37 hot fix patch** </br> 8.0, 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409/), 8.4 (4.18.0-305.30.1.el8_4.x86_64 or later), 8.5 (4.18.0-348.5.1.el8_5.x86_64 or later), 8.6, 8.7.
 Ubuntu 14.04 LTS Server | Includes support for all 14.04.*x* versions; [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-virtual-machines);
 Ubuntu 16.04 LTS Server | Includes support for all 16.04.*x* versions; [Supported kernel version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the cloud-init package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the cloudinit configuration). Password-based sign in can be re-enabled on the virtual machine by resetting the password from the Support > Troubleshooting > Settings menu (of the failed over VM in the Azure portal.
@@ -130,7 +130,7 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5  [(Supported kernel ve
 SUSE Linux Enterprise Server 15 | 15, SP1, SP2, SP3, SP4, SP5 [(Supported kernel versions)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Upgrade of replicating machines from SP3 to SP4 isn't supported. If a replicated machine has been upgraded, you need to disable replication and re-enable replication after the upgrade.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8 , 8.9, 9.0, 9.1, 9.2, 9.3.  <br/><br/>8.1 (running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)). 
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8 , 8.9, 9.0, 9.1, 9.2, 9.3.  <br/><br/>8.1 (running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)). <br> Oracle Linux 9.x is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines).
 Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-for-azure-virtual-machines).
 
 > [!NOTE]
@@ -139,10 +139,24 @@ Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-fo
 > [!NOTE] 
 > To support latest Linux kernels within 15 days of release, Azure Site Recovery rolls out hot fix patch on top of latest mobility agent version. This fix is rolled out in between two major version releases. To update to latest version of mobility agent (including hot fix patch), follow steps mentioned in [this article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). This patch is currently rolled out for mobility agents used in Azure to Azure DR scenario.
 
+#### Supported kernel versions for Red Hat Enterprise Linux for Azure virtual machines 
+
+**Release** | **Mobility service version** | **Kernel versions** |
+--- | --- | --- |
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.60 | 5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64 <br> 5.14.0-284.11.1.el9_2.x86_64 <br> 5.14.0-284.13.1.el9_2.x86_64 <br> 5.14.0-284.16.1.el9_2.x86_64 <br> 5.14.0-284.18.1.el9_2.x86_64 <br> 5.14.0-284.23.1.el9_2.x86_64 <br> 5.14.0-284.25.1.el9_2.x86_64 <br> 5.14.0-284.28.1.el9_2.x86_64 <br> 5.14.0-284.30.1.el9_2.x86_64  <br> 5.14.0-284.32.1.el9_2.x86_64 <br> 5.14.0-284.34.1.el9_2.x86_64 <br> 5.14.0-284.36.1.el9_2.x86_64 <br> 5.14.0-284.40.1.el9_2.x86_64 <br> 5.14.0-284.41.1.el9_2.x86_64 <br>5.14.0-284.43.1.el9_2.x86_64 <br>5.14.0-284.44.1.el9_2.x86_64 <br> 5.14.0-284.45.1.el9_2.x86_64 <br>5.14.0-284.48.1.el9_2.x86_64 <br>5.14.0-284.50.1.el9_2.x86_64 <br> 5.14.0-284.52.1.el9_2.x86_64 <br>5.14.0-362.8.1.el9_3.x86_64 <br>5.14.0-362.13.1.el9_3.x86_64 |
+
+
+#### Supported Red Hat Linux kernel versions for Oracle Linux on Azure virtual machines 
+
+**Release** | **Mobility service version** | **Kernel versions** |
+--- | --- | --- |
+Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3   | 9.60 |  5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64 <br> 5.14.0-284.11.1.el9_2.x86_64 <br>5.14.0-284.13.1.el9_2.x86_64 <br>5.14.0-284.16.1.el9_2.x86_64 <br>5.14.0-284.18.1.el9_2.x86_64 <br> 5.14.0-284.23.1.el9_2.x86_64 <br> 5.14.0-284.25.1.el9_2.x86_64 <br> 5.14.0-284.28.1.el9_2.x86_64 <br> 5.14.0-284.30.1.el9_2.x86_64 <br> 5.14.0-284.32.1.el9_2.x86_64 <br> 5.14.0-284.34.1.el9_2.x86_64 <br> 5.14.0-284.36.1.el9_2.x86_64 <br> 5.14.0-284.40.1.el9_2.x86_64 <br> 5.14.0-284.41.1.el9_2.x86_64 <br> 5.14.0-284.43.1.el9_2.x86_64 <br> 5.14.0-284.44.1.el9_2.x86_64 <br> 5.14.0-284.45.1.el9_2.x86_64 <br> 5.14.0-284.48.1.el9_2.x86_64 <br> 5.14.0-284.50.1.el9_2.x86_64 <br> 5.14.0-284.52.1.el9_2.x86_64 <br> 5.14.0-362.8.1.el9_3.x86_64 <br> 5.14.0-362.13.1.el9_3.x86_64 |
+
 #### Supported Ubuntu kernel versions for Azure virtual machines
 
-> ![!NOTE]
-> `9.58` and `9.59` agent versions are not released for Azure to Azure. 
+> [!NOTE]
+> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
@@ -182,8 +196,9 @@ Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-fo
 
 #### Supported Debian kernel versions for Azure virtual machines
 
-> ![!NOTE]
-> `9.58` and `9.59` agent versions are not released for Azure to Azure. 
+> [!NOTE]
+> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+ 
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
@@ -211,7 +226,7 @@ Debian 10 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azur
 Debian 10 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810)| 5.10.0-0.deb10.23-amd64 <br> 5.10.0-0.deb10.23-cloud-amd64 <br> 4.19.0-25-amd64 <br> 4.19.0-25-cloud-amd64 <br> 5.10.0-0.deb10.24-amd64 <br> 5.10.0-0.deb10.24-cloud-amd64 |
 Debian 10 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f)| 5.10.0-0.bpo.3-amd64 <br> 5.10.0-0.bpo.3-cloud-amd64 <br> 5.10.0-0.bpo.4-amd64 <br> 5.10.0-0.bpo.4-cloud-amd64 <br> 5.10.0-0.bpo.5-amd64 <br> 5.10.0-0.bpo.5-cloud-amd64 <br> 4.19.0-24-amd64 <br> 4.19.0-24-cloud-amd64 <br> 5.10.0-0.deb10.22-amd64 <br> 5.10.0-0.deb10.22-cloud-amd64 <br> 5.10.0-0.deb10.23-amd64 <br> 5.10.0-0.deb10.23-cloud-amd64 |
 |||
-Debian 11 | [9.60]()| No new Debian 11 kernels supported in this release. |
+Debian 11 | [9.60]()| 5.10.0-27-amd64 <br> 5.10.0-27-cloud-amd64 |
 Debian 11 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50)| No new Debian 11 kernels supported in this release. |
 Debian 11 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d)| 5.10.0-26-amd64 <br> 5.10.0-26-cloud-amd64 |
 Debian 11 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810)| 5.10.0-24-amd64 <br> 5.10.0-24-cloud-amd64 <br> 5.10.0-25-amd64 <br> 5.10.0-25-cloud-amd64  |
@@ -223,7 +238,8 @@ Debian 11 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azur
 #### Supported SUSE Linux Enterprise Server 12 kernel versions for Azure virtual machines
 
 > ![!NOTE]
-> `9.58` and `9.59` agent versions are not released for Azure to Azure. 
+> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
@@ -237,7 +253,8 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.54](https://suppo
 #### Supported SUSE Linux Enterprise Server 15 kernel versions for Azure virtual machines
 
 > ![!NOTE]
-> `9.58` and `9.59` agent versions are not released for Azure to Azure. 
+> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+ 
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
@@ -250,17 +267,19 @@ s
 
 #### Supported Rocky Linux kernel versions for Azure virtual machines
 
-> ![!NOTE]
-> `9.58` and `9.59` agent versions are not released for Azure to Azure. 
+> [!NOTE]
+> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+ 
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-Rocky Linux  | [9.60]() | No new Rocky Linux kernels supported in this release. |
+
 Rocky Linux  | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | Rocky Linux 8.8 <br> Rocky Linux 8.9 |
 Rocky Linux  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 |
 
-> [!NOTE]
-> Support for Rocky Linux 9.1 is removed from the support matrix as issues were observed while using it with Azure Site Recovery.
+
+**Release** | **Mobility service version** | **Kernel version** |
+Rocky Linux 9.0 <br> Rocky Linux 9.1  | [9.60]() |  5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br>  <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64  |
 
 
 > [!IMPORTANT] 
