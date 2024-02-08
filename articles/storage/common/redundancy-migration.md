@@ -69,7 +69,7 @@ The following table provides an overview of how to switch between replication ty
 
 Depending on your scenario from the [changing redundancy configuration](#changing-redundancy-configuration) section, use one of the following methods to change your replication settings.
 
-### Change the redundancy configuration using Azure Portal, PowerShell, or Azure CLI
+### Change the redundancy configuration using Azure portal, PowerShell, or Azure CLI
 
 In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account.
 
@@ -131,12 +131,12 @@ There are two ways to initiate a conversion:
 
 Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help determining the regions in which customer-initiated conversion is supported, see the [region limitations](#region) article.
 
-Customer-initiated conversion can be comleted in supported regions using the Azure Portal, PowerShell, or the Azure CLI. After brinitiated, the conversion could still take up to 72 hours to begin.
+Customer-initiated conversion can be completed in supported regions using the Azure portal, PowerShell, or the Azure CLI. After initiation, the conversion could still take up to 72 hours to begin.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > There is no SLA for completion of a conversion. 
 >
->If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
+> If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
 >
 > For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).
 
