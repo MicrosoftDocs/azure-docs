@@ -12,7 +12,7 @@ ms.author: rifox
 
 ### Cloud recording
 
-Call recording is an extended feature of the core `Call` API. You first need to import calling features from the Calling SDK:
+Call recording is an extended feature of the core Call API. You first need to import calling features from the Calling SDK:
 
 ```js
 import { Features} from "@azure/communication-calling";

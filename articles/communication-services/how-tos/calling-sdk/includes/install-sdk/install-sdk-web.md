@@ -7,7 +7,7 @@ ms.author: rifox
 ---
 ## Install the SDK
 
-Use the `npm install` command to install the Azure Communication Services calling and common SDKs for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Common and Calling SDKs for JavaScript:
 
 ```console
 npm install @azure/communication-common --save

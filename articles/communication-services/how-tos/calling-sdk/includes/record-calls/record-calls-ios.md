@@ -9,13 +9,15 @@ ms.author: rifox
 
 ## Record calls
 
-> [!WARNING]
-> Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the Azure Communication Services Calling iOS SDK, `isRecordingActive` was part of the `Call` object and `didChangeRecordingState` was part of the `CallDelegate` delegate. For new beta releases, those APIs were moved as an extended feature of `Call`.
-
 > [!NOTE]
 > This API is provided as a preview for developers and might change based on feedback that we receive. Don't use this API in a production environment. To use this API, use the beta release of the Azure Communication Services Calling iOS SDK.
 
-Call recording is an extended feature of the core `Call` object. You first need to obtain the recording feature object:
+Call recording is an extended feature of the core `Call` object.
+
+> [!WARNING]
+> Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the Azure Communication Services Calling iOS SDK, `isRecordingActive` was part of the `Call` object and `didChangeRecordingState` was part of the `CallDelegate` delegate. For new beta releases, those APIs were moved as an extended feature of `Call`.
+
+You first need to obtain the recording feature object:
 
 ```swift
 let callRecordingFeature = call.feature(Features.recording)

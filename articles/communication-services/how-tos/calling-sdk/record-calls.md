@@ -18,7 +18,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-[Call recording](../../concepts/voice-video-calling/call-recording.md) lets your users record calls that they make with Azure Communication Services. In this article, you learn how to manage recording on the client side. Before you start, you need to set up [server side](../../quickstarts/voice-video-calling/call-recording-sample.md) recording.
+[Call recording](../../concepts/voice-video-calling/call-recording.md) lets your users record calls that they make with Azure Communication Services. In this article, you learn how to manage recording on the client side. Before you start, you need to set up recording on the [server side](../../quickstarts/voice-video-calling/call-recording-sample.md).
 
 ## Prerequisites
 
@@ -28,20 +28,20 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 - Optional: Completion of the [quickstart to add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Record Calls Client-side JavaScript](./includes/record-calls/record-calls-web.md)]
-[!INCLUDE [Local Recording Notification for Teams JavaScript](./includes/record-calls/record-calls-locally-web.md)]
+[!INCLUDE [Record calls client-side JavaScript](./includes/record-calls/record-calls-web.md)]
+[!INCLUDE [Local recording notification for Teams JavaScript](./includes/record-calls/record-calls-locally-web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Record Calls Client-side Android](./includes/record-calls/record-calls-android.md)]
+[!INCLUDE [Record calls client-side Android](./includes/record-calls/record-calls-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Record Calls Client-side iOS](./includes/record-calls/record-calls-ios.md)]
+[!INCLUDE [Record calls client-side iOS](./includes/record-calls/record-calls-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Record Calls Client-side Windows](./includes/record-calls/record-calls-windows.md)]
+[!INCLUDE [Record calls client-side Windows](./includes/record-calls/record-calls-windows.md)]
 ::: zone-end
 
 ### Compliance recording
@@ -62,7 +62,7 @@ const isComplianceRecordingActiveChangedHandler = () => {
 callRecordingApi.on('isRecordingActiveChanged', isComplianceRecordingActiveChangedHandler);
 ```
 
-You can also implement compliance recording by using a custom recording bot. [See the GitHub example](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/a3943bafd73ce0df780c0e1ac3428e3de13a101f/Samples/BetaSamples/LocalMediaSamples/ComplianceRecordingBot).
+You can also implement compliance recording by using a custom recording bot. See the [GitHub example](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/a3943bafd73ce0df780c0e1ac3428e3de13a101f/Samples/BetaSamples/LocalMediaSamples/ComplianceRecordingBot).
 
 ## Next steps
 

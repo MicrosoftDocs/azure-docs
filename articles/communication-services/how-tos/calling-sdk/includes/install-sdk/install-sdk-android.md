@@ -8,7 +8,7 @@ ms.author: rifox
 
 ## Install the SDK
 
-Locate your project-level *build.gradle* file and be sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`:
+Locate your project-level *build.gradle* file and add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`:
 
 ```groovy
 buildscript {
