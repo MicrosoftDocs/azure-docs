@@ -18,6 +18,12 @@ recommendations: false
 
 ## February 2024
 
+### GPT-4-0125-preview model available
+
+The `gpt-4` model version `0125-preview` is now available on Azure OpenAI Service in the East US, North Central US, and South Central US regions.  Customers with deployments of `gpt-4` version `1106-preview` will be automatically upgraded to `0125-preview` in the coming weeks.  
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
 ### Assistants API public preview
 
 Azure OpenAI now supports the API that powers OpenAI's GPTs. Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and advanced tools like code interpreter, and custom functions. To learn more, see:

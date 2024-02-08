@@ -4,7 +4,6 @@ description: Provides a summary about the latest new features and enhancements o
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: linux-related-content
 ms.topic: overview
 ms.date: 11/27/2023

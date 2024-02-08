@@ -4,7 +4,6 @@ description: include file Microsoft Entra workbook instructions
 author: shlipsey3
 manager: amycolannino
 ms.service: active-directory
-ms.workload: identity
 ms.topic: include
 ms.date: 10/04/2023
 ms.author: sarahlipsey

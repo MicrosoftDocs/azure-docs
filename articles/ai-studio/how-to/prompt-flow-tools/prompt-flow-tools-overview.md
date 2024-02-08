@@ -23,18 +23,25 @@ The following table provides an index of tools in prompt flow.
 | [Prompt](./prompt-tool.md) | Craft a prompt by using Jinja as the templating language. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Python](./python-tool.md) | Run Python code. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Azure OpenAI GPT-4 Turbo with Vision](./azure-open-ai-gpt-4v-tool.md) | Use AzureOpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
-| [Vector Index Lookup](./vector-index-lookup-tool.md) | Search text or a vector-based query from a vector index. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Content Safety (Text)](./content-safety-tool.md) | Use Azure AI Content Safety to detect harmful content. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
+| [Index Lookup](./index-lookup-tool.md) | Search an Azure Machine Learning Vector Index for relevant results using one or more text queries. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
+| [Vector Index Lookup](./vector-index-lookup-tool.md) | Search text or a vector-based query from a vector index. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Faiss Index Lookup](./faiss-index-lookup-tool.md) | Search a vector-based query from the Faiss index file. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Vector DB Lookup](./vector-db-lookup-tool.md) | Search a vector-based query from an existing vector database. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Embedding](./embedding-tool.md) | Use Azure Open AI embedding models to create an embedding vector that represents the input text. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Serp API](./serp-api-tool.md) | Use Serp API to obtain search results from a specific search engine. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 
+The following table shows an index of custom tools created by the community to extend prompt flow's capabilities for specific use cases. They aren't officially maintained or endorsed by prompt flow team. For questions or issues when using a tool, please see the support contact in the description.
+
+| Tool name | Description | Environment | Package name | 
+|-----------|-----------|-------------|--------------|
+| [Azure AI Language tools](https://microsoft.github.io/promptflow/integrations/tools/azure-ai-language-tool.html) | This collection of tools is a wrapper for various Azure AI Language APIs, which can help effectively understand and analyze documents and conversations. The capabilities currently supported include: Abstractive Summarization, Extractive Summarization, Conversation Summarization, Entity Recognition, Key Phrase Extraction, Language Detection, PII Entity Recognition, Conversational PII, Sentiment Analysis, Conversational Language Understanding, Translator. You can learn how to use them by the [Sample flows](https://github.com/microsoft/promptflow/tree/e4542f6ff5d223d9800a3687a7cfd62531a9607c/examples/flows/integrations/azure-ai-language). Support contact: taincidents@microsoft.com | Custom | [promptflow-azure-ai-language](https://pypi.org/project/promptflow-azure-ai-language/) |
+
 To discover more custom tools developed by the open-source community, see [More custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html).
 
 ## Remarks
 - If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html).
-- To install the custom tools, if you are using the automatic runtime, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the **Save and install** button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to create and manage a runtime](../create-manage-runtime.md).
+- To install the custom tools, if you're using the automatic runtime, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the **Save and install** button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to create and manage a runtime](../create-manage-runtime.md).
 :::image type="content" source="../../media/prompt-flow/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "../../media/prompt-flow/install-package-on-automatic-runtime.png":::
 
 ## Next steps

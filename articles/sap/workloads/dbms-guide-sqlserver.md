@@ -8,7 +8,6 @@ keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 11/14/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017

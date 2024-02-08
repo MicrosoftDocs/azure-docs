@@ -7,13 +7,12 @@ manager: CelesteDG
 
 ms.service: app-service
 ms.topic: include
-ms.workload: identity
 ms.date: 02/25/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-#Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ms.subservice: web-apps
+#Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ---
 
 Learn how to enable authentication for your web app running on Azure App Service and limit access to users in your organization.

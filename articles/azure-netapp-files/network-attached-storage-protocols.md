@@ -1,10 +1,9 @@
 ---
 title: Understand NAS protocols in Azure NetApp Files | Microsoft Learn
-description: Learn how SMB, NFS, and dual protocols operate in Azure NetApp Files.  
+description: Learn how SMB, NFS, and dual protocols operate in Azure NetApp Files.
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/02/2023
 ms.author: anfdocs

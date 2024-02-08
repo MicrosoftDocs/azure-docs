@@ -7,7 +7,7 @@ ms.service: network-watcher
 ms.topic: overview
 ms.date: 09/15/2023
 
-# CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
+#CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
 # What is Azure Network Watcher?
@@ -74,7 +74,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Packet capture
 
-**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](network-watcher-packet-capture-overview.md) and [Manage packet captures in virtual machines](network-watcher-packet-capture-manage-portal.md).
+**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](network-watcher-packet-capture-overview.md) and [Manage packet captures for virtual machines](packet-capture-vm-portal.md).
 
 ### VPN troubleshoot
 

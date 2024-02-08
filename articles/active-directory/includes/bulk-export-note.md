@@ -4,7 +4,6 @@ description: include file
 author: barclayn
 manager: amycolannino
 ms.service: active-directory
-ms.workload: identity
 ms.topic: include
 ms.date: 10/03/2023
 ms.author: barclayn
