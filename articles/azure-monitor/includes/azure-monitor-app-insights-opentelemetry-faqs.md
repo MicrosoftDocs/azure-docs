@@ -17,24 +17,25 @@ It's a new open-source standard for observability. Learn more at [OpenTelemetry]
 ### Why is Microsoft Azure Monitor investing in OpenTelemetry?
 
 Microsoft is among the largest contributors to OpenTelemetry.
-          
+
 The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
-          
+
 Over time, we believe OpenTelemetry will enable Azure Monitor customers to observe applications written in languages beyond our [supported languages](../app/app-insights-overview.md#supported-languages). It also expands the types of data you can collect through a rich set of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries). Furthermore, OpenTelemetry SDKs tend to be more performant at scale than their predecessors, the Application Insights SDKs.
 
 Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
 
 ### What's the status of OpenTelemetry?
 
-See the [OpenTelemetry Spec Compliance Matrix](https://github.com/open-telemetry/opentelemetry-specification/blob/main/spec-compliance-matrix.md).
+See [OpenTelemetry Status](https://opentelemetry.io/status/).
 
 ### What is the "Azure Monitor OpenTelemetry Distro"?
 
-You can think of it as a thin wrapper that bundles together all the OpenTelemetry components for a first class experience on Azure.
+You can think of it as a thin wrapper that bundles together all the OpenTelemetry components for a first class experience on Azure. This is also called [Distribution](https://opentelemetry.io/docs/concepts/distributions/) in OpenTelemetry.
 
 ### Why should I use the "Azure Monitor OpenTelemetry Distro"?
 
 There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
+
 - Reduces enablement effort
 - Supported by Microsoft
 - Brings in Azure Specific features such as:
@@ -45,8 +46,9 @@ There are several advantages to using the Azure Monitor OpenTelemetry Distro ove
    - [Application Insights Standard Metrics](../app/standard-metrics.md)
    - Detect resource metadata to autopopulate [Cloud Role Name](../app/app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
    - [Live Metrics](../app/live-stream.md) (future)
-          
+
 In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
+
 - An OTLP exporter and send to a second destination simultaneously
 - Other instrumentation libraries not included in the distro
 
@@ -62,9 +64,9 @@ Adopting OpenTelemetry now prevents having to migrate at a later date.
 
 ### When should I use the Azure Monitor OpenTelemetry exporter?
 
-For ASP..NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
+For ASP.NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
 
-For all other .NET scenarios, we recommend using our exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
+For all other .NET scenarios (like classic ASP.NET, Console apps etc.), we recommend using our exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
 
 ### What's the current release state of features within the Azure Monitor OpenTelemetry Distro?
 
