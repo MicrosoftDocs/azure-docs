@@ -20,7 +20,7 @@ The quickstart deploys either a Spring Boot app, embedded Tomcat, or Quarkus app
 
 ### [Embedded Tomcat](#tab/embeddedtomcat)
 
-:::image type="content" source="../../media/quickstart-java/embeddedtomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat Hello World web app running in Azure App Service in introduction.":::
+:::image type="content" source="../../media/quickstart-java/embedded-tomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat Hello World web app running in Azure App Service in introduction.":::
 
 ### [Quarkus](#tab/quarkus)
 
@@ -236,7 +236,7 @@ Once deployment is completed, your application is ready at `http://<appName>.azu
 
 Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the url with your local web browser, and you should see:
 
-:::image type="content" source="../../media/quickstart-java/embeddedtomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat web app running in Azure App Service.":::
+:::image type="content" source="../../media/quickstart-java/embedded-tomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat web app running in Azure App Service.":::
 
 ### [Quarkus](#tab/quarkus)
 
