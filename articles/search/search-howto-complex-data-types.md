@@ -283,9 +283,7 @@ Storing these complex values as strings with a delimiter avoids the limitation
 ]
 
 ```
-Rather than storing these with wildcards, we can also use a custom analyzer that splits the word into | to cut down on storage size.
-
-https://learn.microsoft.com/en-us/azure/search/index-add-custom-analyzer
+Rather than storing these with wildcards, we can also use a [custom analyzer](index-add-custom-analyzers.md)  that splits the word into | to cut down on storage size.
 
 The reason we have stored the values with wildcards instead of just storing them as below
 
