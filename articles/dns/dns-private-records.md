@@ -4,7 +4,6 @@ description: Overview of support for DNS records in Azure Private DNS.
 author: greg-lindsay
 ms.service: dns
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 02/07/2024
 ms.author: greglin
 ---
