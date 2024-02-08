@@ -21,14 +21,6 @@ The recommendations associated with Defender for Endpoint allow you to:
 
 - Remediate detected gaps in your security configurations.
 
-The following endpoint detection and response solutions are supported and can be enabled through Defender for Cloud
-
-| Endpoint detection and response solution | Supported platforms | 
-|--|--|
-| Microsoft Defender for Endpoint for Windows | Windows |
-| Microsoft Defender for Endpoint for Linux | Linux <br><br> Linux machines must have Microsoft Defender for Endpoint enabled. These types of machines appears as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is disabled to avoid clashes with other anti-virus software.| 
-| Microsoft Defender for Endpoint Unified Solution | Windows Server 2012 R2 <br> Windows 2016 <br><br> The Defender for Endpoint unified solution on Server 2012 R2 automatically installs Microsoft Defender Antivirus in `Active mode`. For Windows Server 2016, Microsoft Defender Antivirus is built into the operating system. |
-
 ## Prerequisites
 
 - [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
@@ -37,11 +29,17 @@ The following endpoint detection and response solutions are supported and can be
     - [Defender for Servers Plan 2](tutorial-enable-servers-plan.md)
     - [Defender CSPM](tutorial-enable-cspm-plan.md)
 
-- You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) either under Defender for Servers or Defender for CSPM.
+- You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
 
+- Supported endpoint detection and response solutions:
+
+    - **Microsoft Defender for Endpoint for Windows**
+    - **Microsoft Defender for Endpoint for Linux** - Linux machines must have Microsoft Defender for Endpoint enabled. These types of machines appears as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is disabled to avoid clashes with other anti-virus software.
+    - **Microsoft Defender for Endpoint Unified Solution** - *Windows Server 2012 R2*, *Windows 2016* - The Defender for Endpoint unified solution on Server 2012 R2 automatically installs Microsoft Defender Antivirus in `Active mode`. For Windows Server 2016, Microsoft Defender Antivirus is built into the operating system.
+    
 ## Detect an endpoint detection and response solutions on virtual machines
 
-Defender for Cloud provides recommendations when an endpoint detection and response solution isn't detected on your Azure virtual machines (VM), AWS EC2 instances or GCP VM instances.
+When Defender for Cloud doesn't detect an endpoint detection and response solution on your Azure virtual machines (VM), AWS EC2 instances or GCP VM instances, it will create recommendations to help you install Defender for Endpoint as your solution.
 
 The following table provides a list of the supported endpoint detection and response solutions with their supported platforms.
 
