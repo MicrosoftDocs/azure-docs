@@ -54,22 +54,28 @@ who needs to monitor dozens of security cameras feeds simultaneously may
 not need the maximum resolution and frame rate that each video stream
 can provide. In this scenario, you could utilize our [Video constraints](video-constraints.md) capability to limit the amount of bandwidth used by each video stream.
 
+## Logs on native platforms
+
+Implementing **logging** as per the [logs file retrieval tutorial](../../tutorials/log-file-retrieval-tutorial.md) is critical to gathering details for native development. Detailed logs help in diagnosing issues specific to device models or OS versions. We encourage to the developers that start configuring the Logs API to get details around the call lifetime.
+
 ## Implement existing quality and reliability capabilities before deployment
 
 > [!Note]
 > We recommend you use our easy to implement samples since they are already optimized to give your users the best call quality. Please see: [Samples](../../overview.md#samples)
 
-If our calling samples don't meet your needs or you decide to customize your solution please ensure you understand and implement the following capabilities in your custom calling scenarios. 
+If our calling samples don't meet your needs or you decide to customize your solution please ensure you understand and implement the following capabilities in your custom calling scenarios.
 
 Before you launch and scale your customized Azure Communication Services calling
 solution, implement the following capabilities to support a high quality calling experience. These tools help prevent common quality and reliability calling issues from happening and diagnose issues if they occur. Keep in mind, some of these call data aren't created or stored unless you implement them.
 
-The following sections detail the tools to implement at different phases of a call: 
+The following sections detail the tools to implement at different phases of a call:
+
 - **Before a call**
 - **During a call**
 - **After a call**
 
 ## Before a call
+
 **Pre-call readiness** – By using the pre-call checks Azure Communication Services provides,
   you can learn a user’s connection status before the call and take
   proactive action on their behalf. For example, if you learn a user’s
@@ -279,7 +285,7 @@ The call may have fired a User Facing Diagnostic indicating a severe problem wit
 
 ### Request support
 
-If you encounter quality or reliability issues you are unable to resolve and need support, you can submit a request for technical support. The more information you can provide in your request the better, however you can still submit requests with partial information to start your inquiry. See: [How to create azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request) 
+If you encounter quality or reliability issues you are unable to resolve and need support, you can submit a request for technical support. The more information you can provide in your request the better (native logs are criucial to optimize the response time), however you can still submit requests with partial information to start your inquiry. See: [How to create azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 - If you are notified of license requirements while attempting to request technical support, you may need to choose a paid Azure support plan that best aligns to your needs. See: [Compare Support Plans](https://azure.microsoft.com/support/plans).
 - If you prefer not to purchase support you can leverage community support. See: [Community Support](https://azure.microsoft.com/support/community/).
