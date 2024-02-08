@@ -37,7 +37,8 @@ The following table summarizes how Defender for Servers features will be provide
 | OS misconfigurations (Microsoft Cloud Security Benchmark) | Recommendations available in foundational CSPM and Defender for Servers using the Log Analytics agent, Guest Configuration agent (Preview). | Microsoft Defender Vulnerability Management premium, as part of Defender for Servers Plan 2. | - Functionality based on integration with Microsoft Defender Vulnerability Management premium will be available in preview around April 2024.<br/>- Functionality with the Log Analytics agent will be deprecated in August 2024<br/>- Functionality with Guest Configuration agent (Preview) will deprecate when the Microsoft Defender Vulnerability Management is available.<br/>- Support of this feature for Docker-hub and VMMS will be deprecated in Aug 2024. |
 | File integrity monitoring | Log Analytics agent, AMA (Preview) | Defender for Endpoint agent integration | Functionality with the Defender for Endpoint agent will be available around April 2024.<br/>- Functionality with the Log Analytics agent will be deprecated in August 2024.<br/>- Functionality with AMA will deprecate when the Defender for Endpoint integration is released. |
 
-The [500-MB benefit](faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) for data ingestion over the defined tables will remain supported via the AMA agent for the machines under subscriptions covered by Defender for Servers Plan 2. Every machine is eligible for the benefit only once, even if both Log Analytics agent and Azure Monitor agent are installed on it. Learn more about how to [deploy AMA](/azure/azure-monitor/vm/monitor-virtual-machine-agent#agent-deployment-options). 
+The [500-MB benefit](faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) for data ingestion over the defined tables will remain supported via the AMA agent for the machines under subscriptions covered by Defender for Servers Plan 2. Every machine is eligible for the benefit only once, even if both Log Analytics agent and Azure Monitor agent are installed on it.
+Learn more about how to [deploy AMA](/azure/azure-monitor/vm/monitor-virtual-machine-agent#agent-deployment-options). 
 
 For SQL servers on machines, we recommend to [migrate to SQL server-targeted Azure Monitoring Agent's (AMA) autoprovisioning process](defender-for-sql-autoprovisioning.md).
 
@@ -93,8 +94,7 @@ The following table summarizes the timetable for recommendations being deprecate
 | [Install endpoint protection solution on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df) | MMA | Azure and non-Azure (Windows) | August 2024 | [New agentless recommendation](upcoming-changes.md#changes-in-endpoint-protection-recommendations) |
 | [Endpoint protection health issues on machines should be resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a)  | MMA | Azure and non-Azure (Windows and Linux) | August 2024 | [New agentless recommendation](upcoming-changes.md#changes-in-endpoint-protection-recommendations). |
 
-  > [!NOTE]
-  > The new recommendations experience based on agentless machine scanning will support both Windows and Linux OS across multicloud machines.
+The [new recommendations](upcoming-changes.md#changes-in-endpoint-protection-recommendations) experience based on agentless machine scanning will support both Windows and Linux OS across multicloud machines.
 
 #### How will the replacement work?
 
