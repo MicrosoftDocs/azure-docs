@@ -47,7 +47,7 @@ sections:
 
       - question: Does NAT gateway support IP fragmentation?
         answer: |
-          No, NAT gateway doen't support IP fragmentation for TCP or UDP protocols.
+          No, NAT gateway doesn't support IP fragmentation for TCP or UDP protocols.
                   
   - name: NAT gateway metrics
     questions: 
