@@ -23,7 +23,7 @@ This template contains two activities:
 -	**Web Activity** to call Azure AI Document Intelligence's prebuilt read model API
 -	**Data flow** to transform extracted data from PDF
 
-This template defines 4 parameters: 
+This template defines five parameters: 
 -  *CognitiveServicesURL* is the Azure AI Document Intelligence URL ("https://{endpoint}/formrecognizer/v2.1/layout/analyze"). Replace {endpoint} with the endpoint that you obtained with your Azure AI Document Intelligence subscription. You need to replace the default value with your own URL.
 -  *CognitiveServicesKey* is the Azure AI Document Intelligence subscription key. You need to replace the default value with your own subscription key.
 -  *PDF_SourceURL* is the URL of your PDF source. You need to replace the default value with your own URL.
@@ -38,16 +38,16 @@ This template defines 4 parameters:
 
 1. Go to template **Extract data from PDF**. Create a **New** connection to your Azure AI Document Intelligence resource or choose an existing connection.
 
-	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop down menu to Azure AI Document Intelligence in template set up.":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop-down menu to an Azure AI Document Intelligence connection in template set-up.":::
 	
-    In your connection to Azure AI Document Intelligence, make sure to add a **Linked service Parameter**. You will need to use this parameter as your dynamic **Base URL**. You will also need to add an 
+    In your connection to Azure AI Document Intelligence, make sure to add a **Linked service Parameter**. You'll need to use this **url** parameter as your dynamic **Base URL**.
     You will also need to add a new **Auth header** under **Auth headers**. The name should be **Ocp-Apim-Subscription-Key** and the value should be the key value you find from your Azure Resource. 
    
    :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-3.png" alt-text="Screenshot of the linked service base URL that references the linked service parameter and Auth headers to add.":::
 
-3. Create a **New** connection to your destination storage store or choose an existing connection. This is where the extracted PDF data will be stored. 
+3. Create a **New** connection to your destination storage store or choose an existing connection. The chosen destination is where the extracted PDF data is stored. 
 
-	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-4.png" alt-text="Screenshot of how to create a new connection or select existing connection from a drop down menu to your sink in template set up.":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-4.png" alt-text="Screenshot of how to create a new connection or select existing connection from a drop-down menu to your sink in template set-up.":::
    
 4. Select **Use this template**. 
 
@@ -57,7 +57,7 @@ This template defines 4 parameters:
 
 	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-6.png" alt-text="Screenshot of pipeline view with web activity linking to a dataflow activity.":::
 
-6. Navigate to the **Data flow** activity and find **Settings**. Here you will need to add dynamic content for your linked service **url** parameter. After clicking **Add dynamic content**, the Pipeline expression builder will open. Select **Cognitive Services - POST activity output**. Then, type or copy and paste ".output.ADFWebActivityResponseHeaders['Operation-Location']". You should see the following in your expression builder. 
+6. Navigate to the **Data flow** activity and find **Settings**. Here you need to add dynamic content for your linked service **url** parameter. After clicking **Add dynamic content**, the Pipeline expression builder will open. Select **Cognitive Services - POST activity output**. Then, type or copy and paste ".output.ADFWebActivityResponseHeaders['Operation-Location']." You should see the following expression in your expression builder. 
 
 	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-7.png" alt-text="Screenshot of pipeline view of the dataflow activity settings.":::
 
