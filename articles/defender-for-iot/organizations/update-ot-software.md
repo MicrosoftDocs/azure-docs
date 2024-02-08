@@ -81,8 +81,7 @@ This procedure describes how to send a software version update to OT sensors at 
 
     :::image type="content" source="media/update-ot-software/filter-remote-update.png" alt-text="Screenshot of how to filter for OT sensors that are ready for remote update." lightbox="media/update-ot-software/filter-remote-update.png":::
 
-1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**. For example:
-<!-- placement holder need image of this , instead of the one that was below for the individual sensor -->
+1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**. For example:<!-- placement holder need image of this , instead of the one that was below for the individual sensor -->
 
     :::image type="content" source="media/update-ot-software/sensorupdates1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
 
