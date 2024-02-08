@@ -124,7 +124,7 @@ Microsoft.MachineLearningServices/workspaces
 - [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity)
 - [AMLOnlineEndpointConsoleLog](/azure/azure-monitor/reference/tables/AMLOnlineEndpointConsoleLog)
 - [AMLOnlineEndpointTrafficLog](/azure/azure-monitor/reference/tables/AMLOnlineEndpointTrafficLog)
-- [AMLOnlineEndpointEvent](/azure/azure-monitor/reference/tables/AMLOnlineEndpointEvent)
+- [AMLOnlineEndpointEventLog](/azure/azure-monitor/reference/tables/AMLOnlineEndpointEventLog)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics)
 - [AMLComputeClusterEvent](/azure/azure-monitor/reference/tables/AMLComputeClusterEvent)
 - [AMLComputeClusterNodeEvent](/azure/azure-monitor/reference/tables/AMLComputeClusterNodeEvent)

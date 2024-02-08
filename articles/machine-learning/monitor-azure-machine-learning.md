@@ -52,7 +52,7 @@ At a minimum your service should have the following two articles:
 <!-- ## Insights. Optional section. If your service has insights, add the following include and information. -->
 [!INCLUDE [horz-monitor-insights](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-insights.md)]
 <!-- Insights service-specific information. Add brief information about what your Azure Monitor insights provide here. You can refer to another article that gives details or add a screenshot. -->
-Machine Learning can use Application Insights to track metrics and logs. You can send built-in metrics and logs to Application Insights, and use Application Insights features such as Live metrics, Transaction search, Failures, and Performance for further analysis. For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints).
+Machine Learning can use Application Insights to track metrics and logs. You can send built-in metrics and logs to Application Insights, and use Application Insights features such as Live metrics, Transaction search, Failures, and Performance for further analysis. For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-types.md)]
