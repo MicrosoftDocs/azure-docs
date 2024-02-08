@@ -229,7 +229,6 @@ NODEPOOL_NAME=myNodepool
 CRG_NAME=myCRG
 CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
 az aks nodepool add --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --name $NODEPOOL_NAME --crg-id $CRG_ID
-    ```
 
 ### Associate an existing capacity reservation group with a system node pool
 
