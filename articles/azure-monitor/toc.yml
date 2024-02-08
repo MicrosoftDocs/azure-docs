@@ -164,7 +164,7 @@ items:
             displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
             href: app/api-custom-events-metrics.md
           - name: Log traces
-            href: app/asp-net-trace-logs.mda
+            href: app/asp-net-trace-logs.md
           - name: TelemetryProcessors
             displayName: processors, filtering, telemetry filtering, telemetry processor
             href: app/api-filtering-sampling.md
