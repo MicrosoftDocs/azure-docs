@@ -243,7 +243,6 @@ CRG_NAME=myCRG
 CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
 IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
 az aks create --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --crg-id $CRG_ID --assign-identity $IDENTITY_ID --enable-managed-identity 
-    ```
 
 > [!NOTE]
 > Deleting a node pool implicitly dissociates that node pool from any associated capacity reservation group before the node pool is deleted. Deleting a cluster implicitly dissociates all node pools in that cluster from their associated capacity reservation groups.
