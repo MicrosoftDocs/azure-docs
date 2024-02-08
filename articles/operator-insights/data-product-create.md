@@ -42,10 +42,97 @@ Azure key Vault Resource is used to store your Customer Managed Key (CMK) for da
 1. Copy the Key Identifier URI to your clipboard to use when creating the Data Product.
 
 # [Azure CLI](#tab/azure-cli)
-
-Azure CLI...
-
 <!-- CLI link is [Create an Azure Key Vault resource](../key-vault/general/quick-create-cli.md) in the same subscription and resource group where you intend to deploy the Data Product resource. --> 
+
+You can sign in to Azure and run Azure CLI commands in one of two ways:
+
+- You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
+- You can install the CLI and run CLI commands locally.
+
+### Use Azure Cloud Shell
+
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is preinstalled and configured to use with your account. Select the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
+
+[![Cloud Shell](./media/dp-quickstart-create/cloud-shell-menu.png)](https://portal.azure.com)
+
+The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
+
+[![Screenshot showing the Cloud Shell window in the portal](./media/dp-quickstart-create/cloud-shell.png)](https://portal.azure.com)
+
+
+### Install the Azure CLI locally
+
+You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is preinstalled and configured to use with your account. Select the Cloud Shell button on the menu in the upper-right section of the Azure portal:
+
+To launch Azure Cloud Shell, sign in to the Azure portal.
+
+To log into your local installation of the CLI, run the az sign-in command:
+
+```azurecli-interactive
+az login
+```
+
+## Change the active subscription
+
+Azure subscriptions have both a name and an ID. You can switch to a different subscription using [az account set](/cli/azure/account#az-account-set) specifying the desired subscription ID or name.
+
+```azurecli-interactive
+# change the active subscription using the subscription name
+az account set --subscription "My Demos"
+
+# change the active subscription using the subscription ID
+az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+## Create a resource group
+
+A resource group is a logical container into which Azure resources are deployed and managed. Use the az group create command to create a resource group named myResourceGroup in the eastus location.
+
+```azurecli-interactive
+az group create --name "myResourceGroup" --location "EastUS"
+```
+
+## Create a key vault
+
+Use the Azure CLI az keyvault create command to create a Key Vault in the resource group from the previous step. You will need to provide some information:
+
+- Key vault name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
+
+ Important
+
+Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+
+- Resource group name: myResourceGroup.
+
+- The location: EastUS.
+ 
+```azurecli-interactive
+az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "EastUS"
+```
+
+The output of this command shows properties of the newly created key vault. Take note of the two properties listed below:
+
+Vault Name: The name you provided to the --name parameter above.
+Vault URI: In the example, this is https://<your-unique-keyvault-name>.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+At this point, your Azure account is the only one authorized to perform any operations on this new vault.
+
+## Key vault role assignment
+
+Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource.
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Administrator" --assignee <<user email address>> --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+```
+Replace the values for subscriptionid, resource-group-name, and key-vault-name with the appropriate values.
+
+## Create a Key
+
+```azurecli-interactive
+az keyvault key create --vault-name "<your-unique-keyvault-name>" -n ExampleKey --protection software
+```
+
+From the output screen copy the KeyID and store it in your clipboard for later use.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -68,6 +155,25 @@ Azure CLI...
 
 <!-- Managed identity link for the CLI: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli -->
 
+To create a user-assigned managed identity, your account needs the Managed Identity Contributor role assignment.
+
+Use the az identity create command to create a user-assigned managed identity. The -g parameter specifies the resource group where to create the user-assigned managed identity. The -n parameter specifies its name. Replace the <RESOURCE GROUP> and <USER ASSIGNED IDENTITY NAME> parameter values with your own values.
+
+ Important
+
+When you create user-assigned managed identities, only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported. 
+
+```azurecli-interactive
+az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+```
+
+Copy the principalId from the output screen and store it in your clipboard for later use.
+
+## Assign User-Assigned Managed Identity to Key Vault
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Administrator" --assignee <<pricipalID from above step>> --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+```
 # [Azure PowerShell](#tab/azure-powershell)
 
 PowerShell....
@@ -112,6 +218,52 @@ You create the Azure Operator Insights Data Product resource.
 # [Azure CLI](#tab/azure-cli)
 
 Azure CLI...
+
+To create a Azure Operator Insights DataProduct with just mandatory parameters, use the following command:
+
+```azurecli-interactive
+az network-analytics data-product create --name <<dpname>> --resource-group <<rgname>> --location <<azurelocation>> --publisher Microsoft --product <<product name>> --major-version  <<product major version>>
+```
+
+To create a Azure Operator Insights DataProduct with all parameters, use the following command:
+
+```azurecli-interactive
+az network-analytics data-product create --data-product-name
+                                         --resource-group
+                                         [--encryption-key]
+                                         [--identity]
+                                         [--key-encryption-enable {Disabled, Enabled}]
+                                         [--location]
+                                         [--major-version]
+                                         [--managed-rg]
+                                         [--networkacls]
+                                         [--no-wait {0, 1, f, false, n, no, t, true, y, yes}]
+                                         [--owners]
+                                         [--private-links-enabled {Disabled, Enabled}]
+                                         [--product]
+                                         [--public-network-access {Disabled, Enabled}]
+                                         [--publisher]
+                                         [--purview-account]
+                                         [--purview-collection]
+                                         [--redundancy {Disabled, Enabled}]
+                                         [--tags]
+```
+
+
+Create data product with all parameter
+
+```azurecli-interactive
+az network-analytics data-product create --name <<dpname>> --resource-group <<rgname>> --location <<azurelocation>> --publisher Microsoft --product <<productname>> --major-version  <<product major version> --owners <<xyz@email>> --customer-managed-key-encryption-enabled Enabled --key-encryption-enable Enabled --encryption-key '{"keyVaultUri":"<vaulturi>","keyName":"<keyname>","keyVersion":"<version>"}' --purview-account purviewaccount --purview-collection collection --identity '{"type":"userAssigned","userAssignedIdentities":{"/subscriptions/<subid>/resourceGroups/<rgname>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<idname>"}}' --tags '{"key1":"value1","key2":"value2"}'
+```
+For dpname, rgname, azurelocation use the use desired values.
+For Product name and corresponding versions
+- Quality of Experience - Affirmed MCC GIGW
+  - 1.0
+- Quality of Experience - Affirmed MCC PGW or GGSN
+    - 1.0
+- Monitoring - Affirmed MCC
+    - 0 or 1
+For ownersemail, vaulturi, keyname, version, purviewaccount, collection, uami and tags use the desired values.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
