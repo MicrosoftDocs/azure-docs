@@ -4,7 +4,7 @@ description: Learn about the available metrics and diagnostic logging options fo
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ---
 

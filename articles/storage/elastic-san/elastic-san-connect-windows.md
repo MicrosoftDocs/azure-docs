@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN volume from a Windows 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ms.custom: references_regions
 ---

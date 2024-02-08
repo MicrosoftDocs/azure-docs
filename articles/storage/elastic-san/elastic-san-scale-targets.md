@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure Elas
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 01/22/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ms.custom: references_regions
 ---

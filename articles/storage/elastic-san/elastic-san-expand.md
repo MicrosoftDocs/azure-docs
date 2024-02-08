@@ -4,7 +4,7 @@ description: Learn how to increase the size of an Azure Elastic SAN and its volu
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 01/05/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---

@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Create multiple elastic SAN volume
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: sample
-ms.date: 01/05/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
 ---

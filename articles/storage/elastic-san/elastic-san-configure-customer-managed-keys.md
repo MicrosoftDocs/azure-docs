@@ -8,7 +8,7 @@ author: roygara
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 01/05/2024
+ms.date: 02/13/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, references_regions
 ---
 

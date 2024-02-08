@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ---
 

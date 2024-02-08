@@ -4,7 +4,7 @@ description: Learn how to configure access to an Azure Elastic SAN.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---

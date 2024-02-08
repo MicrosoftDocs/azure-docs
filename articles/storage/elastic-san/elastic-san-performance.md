@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.custom:
   - ignite-2023-elastic-SAN
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 02/13/2024
 ms.author: rogarana
 ---
 
