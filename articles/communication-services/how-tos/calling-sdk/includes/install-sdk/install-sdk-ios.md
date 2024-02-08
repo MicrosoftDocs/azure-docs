@@ -18,7 +18,7 @@ You're not going to create tests during this quickstart. Feel free to clear the 
 
 ### Install the package and dependencies by using CocoaPods
 
-1. Create a Podfile for your application, like this:
+1. Create a Podfile for your application, like this example:
 
     ```
     platform :ios, '13.0'
@@ -32,9 +32,9 @@ You're not going to create tests during this quickstart. Feel free to clear the 
 
 ### Request access to the microphone
 
-To access the device's microphone, you need to update your app's information property list with `NSMicrophoneUsageDescription`. You set the associated value to a string that will be included in the dialog that the system uses to request access from the user.
+To access the device's microphone, you need to update your app's information property list by using `NSMicrophoneUsageDescription`. You set the associated value to a string that will be included in the dialog that the system uses to request access from the user.
 
-Right-click the `Info.plist` entry of the project tree, and then select **Open As** > **Source Code**. Add the following lines in the top-level `<dict>` section, and then save the file.
+Right-click the *Info.plist* entry of the project tree, and then select **Open As** > **Source Code**. Add the following lines in the top-level `<dict>` section, and then save the file.
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
@@ -77,7 +77,7 @@ public func fetchTokenSync(then onCompletion: TokenRefreshOnCompletion) {
 }
 ```
 
-Pass the `CommunicationTokenCredential` object that you created to `CallClient`, and set the display name.
+Pass the `CommunicationTokenCredential` object that you created to `CallClient`, and set the display name:
 
 ```swift
 self.callClient = CallClient()

@@ -49,7 +49,7 @@ let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
 
 When you start recording from the server, the event `didChangeRecordingState` is triggered and the value of `recordingFeature.isRecordingActive` is `true`.
 
-Just like starting the call recording, if you want to stop the call recording, you need to get the `ServerCallId` and send it to your recording server so that it can stop the recording.
+Just like starting the call recording, if you want to stop the call recording, you need to get `ServerCallId` and send it to your recording server so that it can stop the recording:
 
 ```swift
 // Send serverCallId to your recording server to stop the call recording.
