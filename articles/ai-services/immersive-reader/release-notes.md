@@ -1,7 +1,7 @@
 ---
-title: "Immersive Reader SDK Release Notes"
+title: "Immersive Reader JavaScript SDK release notes"
 titleSuffix: Azure AI services
-description: Learn more about what's new in the Immersive Reader JavaScript SDK.
+description: Learn about what's new in the Immersive Reader JavaScript SDK.
 #services: cognitive-services
 author: rwallerms
 manager: guillasi
@@ -9,95 +9,95 @@ manager: guillasi
 ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-js
 ms.topic: release-notes
-ms.date: 11/15/2021
+ms.date: 02/07/2024
 ms.author: rwaller
 ---
 
-# Immersive Reader JavaScript SDK Release Notes
+# Immersive Reader JavaScript SDK release notes
 
 ## Version 1.4.0
 
-This release contains new feature, security vulnerability fixes, and updates to code samples.
+This release contains new features, security vulnerability fixes, and updates to code samples.
 
-#### New Features
+#### New features
 
 * Subdomain regex validation updated to allow private links
 
 #### Improvements
 
-* Update code samples to use v1.4.0
+* Updated code samples to use v1.4.0
 
 ## Version 1.3.0
 
 This release contains new features, security vulnerability fixes, and updates to code samples.
 
-#### New Features
+#### New features
 
 * Added the capability for the Immersive Reader iframe to request microphone permissions for Reading Coach
 
 #### Improvements
 
-* Update code samples to use v1.3.0
-* Update code samples to demonstrate the usage of latest options from v1.2.0
+* Updated code samples to use v1.3.0
+* Updated code samples to demonstrate the usage of latest options from v1.2.0
 
 ## Version 1.2.0
 
 This release contains new features, security vulnerability fixes, bug fixes, updates to code samples, and configuration options.
 
-#### New Features
+#### New features
 
-* Add option to set the theme to light or dark
-* Add option to set the parent node where the iframe/webview container is placed
-* Add option to disable the Grammar experience
-* Add option to disable the Translation experience
-* Add option to disable Language Detection
+* Added option to set the theme to light or dark
+* Added option to set the parent node where the iframe/webview container is placed
+* Added option to disable the Grammar experience
+* Added option to disable the Translation experience
+* Added option to disable Language Detection
 
 #### Improvements
 
-* Add title and aria modal attributes to the iframe
+* Added title and aria modal attributes to the iframe
 * Set isLoading to false when exiting
-* Update code samples to use v1.2.0
-* Adds React code sample
-* Adds Ember code sample
-* Adds Azure function code sample
-* Adds C# code sample demonstrating how to call the Azure Function for authentication
-* Adds Android Kotlin code sample demonstrating how to call the Azure Function for authentication
-* Updates the Swift code sample to be Objective C compliant
-* Updates Advanced C# code sample to demonstrate the usage of new options: parent node, disableGrammar, disableTranslation, and disableLanguageDetection
+* Updated code samples to use v1.2.0
+* Added React code sample
+* Added Ember code sample
+* Added Azure function code sample
+* Added C# code sample demonstrating how to call the Azure Function for authentication
+* Added Android Kotlin code sample demonstrating how to call the Azure Function for authentication
+* Updated the Swift code sample to be Objective C compliant
+* Updated Advanced C# code sample to demonstrate the usage of new options: parent node, disableGrammar, disableTranslation, and disableLanguageDetection
 
 #### Fixes
 
-* Fixes multiple security vulnerabilities by upgrading TypeScript packages
-* Fixes bug where renderButton rendered a duplicate icon and label in the button
+* Fixed multiple security vulnerabilities by upgrading TypeScript packages
+* Fixed bug where renderButton rendered a duplicate icon and label in the button
 
 ## Version 1.1.0
 
 This release contains new features, security vulnerability fixes, bug fixes, updates to code samples, and configuration options.
 
-#### New Features
+#### New features
 
-* Enable saving and loading user preferences across different browsers and devices
-* Enable configuring default display options
-* Add option to set the translation language, enable word translation, and enable document translation when launching Immersive Reader
-* Add support for configuring Read Aloud via options
-* Add ability to disable first run experience
-* Add ImmersiveReaderView for UWP
+* Enabled saving and loading user preferences across different browsers and devices
+* Enabled configuring default display options
+* Added option to set the translation language, enable word translation, and enable document translation when launching Immersive Reader
+* Added support for configuring Read Aloud via options
+* Added ability to disable first run experience
+* Added ImmersiveReaderView for UWP
 
 #### Improvements
 
-* Update the Android code sample HTML to work with the latest SDK
-* Update launch response to return the number of characters processed
-* Update code samples to use v1.1.0
+* Updated the Android code sample HTML to work with the latest SDK
+* Updated launch response to return the number of characters processed
+* Updated code samples to use v1.1.0
 * Do not allow launchAsync to be called when already loading
-* Check for invalid content by ignoring messages where the data is not a string
-* Wrap call to window in an if clause to check browser support of Promise
+* Checked for invalid content by ignoring messages where the data is not a string
+* Wrapped call to window in an if clause to check browser support of Promise
 
 #### Fixes
 
-* Fix dependabot by removing yarn.lock from gitignore
-* Fix security vulnerability by upgrading pug to v3.0.0 in quickstart-nodejs code sample
-* Fix multiple security vulnerabilities by upgrading Jest and TypeScript packages
-* Fix a security vulnerability by upgrading Microsoft.IdentityModel.Clients.ActiveDirectory to v5.2.0
+* Fixed dependabot by removing yarn.lock from gitignore
+* Fixed security vulnerability by upgrading pug to v3.0.0 in quickstart-nodejs code sample
+* Fixed multiple security vulnerabilities by upgrading Jest and TypeScript packages
+* Fixed a security vulnerability by upgrading Microsoft.IdentityModel.Clients.ActiveDirectory to v5.2.0
 
 <br>
 
@@ -105,12 +105,12 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 
 This release contains breaking changes, new features, code sample improvements, and bug fixes.
 
-#### Breaking Changes
+#### Breaking changes
 
 * Require Azure AD token and subdomain, and deprecates tokens used in previous versions.
 * Set CookiePolicy to disabled. Retention of user preferences is disabled by default. The Reader launches with default settings every time, unless the CookiePolicy is set to enabled.
 
-#### New Features
+#### New features
 
 * Add support to enable or disable cookies
 * Add Android Kotlin quick start code sample
@@ -136,7 +136,7 @@ This release contains breaking changes, new features, code sample improvements, 
 
 This release contains new features, improvements to code samples, security vulnerability fixes, and bug fixes.
 
-#### New Features
+#### New features
 
 * Add iOS Swift code sample
 * Add C# advanced code sample demonstrating use of multiple resources 
@@ -163,7 +163,7 @@ This release contains new features, improvements to code samples, security vulne
 
 This release contains new features, improvements to code samples, security vulnerability fixes, and bug fixes.
 
-#### New Features
+#### New features
 
 * Add Python advanced code sample
 * Add Java quick start code sample
@@ -210,5 +210,5 @@ The initial release of the Immersive Reader JavaScript SDK.
 
 Get started with Immersive Reader:
 
-* Read the [Immersive Reader client library Reference](./reference.md)
+* Read the [Immersive Reader client library reference](./reference.md)
 * Explore the [Immersive Reader client library on GitHub](https://github.com/microsoft/immersive-reader-sdk)
