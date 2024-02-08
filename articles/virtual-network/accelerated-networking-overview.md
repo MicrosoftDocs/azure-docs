@@ -1,12 +1,12 @@
 ---
 title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
-author: steveesp
+author: EllieMelissa
 ms.service: virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/18/2023
-ms.author: steveesp
+ms.author: ealume
 ---
 
 # Accelerated Networking overview
