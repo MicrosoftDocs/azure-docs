@@ -23,7 +23,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 
 Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements.
 
-Install the following Python libraries: `os`, `requests`, `json`
+Install the following Python libraries: `os`, `requests`, `json`.
 
 ### Set environment variables
 
