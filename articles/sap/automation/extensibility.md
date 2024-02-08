@@ -42,19 +42,22 @@ The Ansible playbooks must be named according to the following naming convention
 
 'Playbook name_pre' for playbooks to be run before the SDAF playbook and 'Playbook name_post' for playbooks to be run after the SDAF playbook.
 
-| Playbook name                             | Playbook name for 'pre' tasks                 | Playbook name for 'post' tasks                 | Description                                                       |
-| ----------------------------------------- | --------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------- |
-| `playbook_01_os_base_config.yaml`         | `playbook_01_os_base_config_pre.yaml`         | `playbook_01_os_base_config_post.yaml`         | Base operating system configuration                               |
-| `playbook_02_os_sap_specific_config.yaml` | `playbook_02_os_sap_specific_config_pre.yaml` | `playbook_02_os_sap_specific_config_post.yaml` | SAP specific configuration                                        |
-| `playbook_03_bom_processing.yaml`         | `playbook_03_bom_processing_pre.yaml`         | `playbook_03_bom_processing_post.yaml`         | Bill of Material processing                                       |
-| `playbook_04_00_00_db_install.yaml`       | `playbook_04_00_00_db_install_pre.yaml`       | `playbook_04_00_00_db_install_post.yaml`       | Database server installation                                      |
-| `playbook_04_00_01_db_ha.yaml`            | `playbook_04_00_01_db_ha_pre.yaml`            | `playbook_04_00_01_db_ha_post.yaml`            | Database High Availability configuration                          |
-| `playbook_05_00_00_sap_scs_install.yaml`  | `playbook_05_00_00_sap_scs_install_pre.yaml`  | `playbook_05_00_00_sap_scs_install_post.yaml`  | Central Services Installation and High Availability configuration |
-| `playbook_05_01_sap_dbload.yaml`          | `playbook_05_01_sap_dbload_pre.yaml`          | `playbook_05_01_sap_dbload_post.yaml`          | Database load                                                     |
-| `playbook_05_02_sap_pas_install.yaml`     | `playbook_05_02_sap_pas_install_pre.yaml`     | `playbook_05_02_sap_pas_install_post.yaml`     | Primary Application Server installation                           |
-| `playbook_05_03_sap_app_install.yaml`     | `playbook_05_03_sap_app_install_pre.yaml`     | `playbook_05_03_sap_app_install_post.yaml`     | Application Server installation                                   |
-| `playbook_05_04_sap_web_install.yaml`     | `playbook_05_04_sap_web_install_pre.yaml`     | `playbook_05_04_sap_web_install.yaml`          | Web dispatcher installation                                       |
+| Playbook name                                           | Playbook name for 'pre' tasks                              | Playbook name for 'post' tasks                              | Description                                                       |
+| ------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------- |
+| `playbook_01_os_base_config.yaml`                       | `playbook_01_os_base_config_pre.yaml`                      | `playbook_01_os_base_config_post.yaml`                      | Base operating system configuration                               |
+| `playbook_02_os_sap_specific_config.yaml`               | `playbook_02_os_sap_specific_config_pre.yaml`              | `playbook_02_os_sap_specific_config_post.yaml`              | SAP specific configuration                                        |
+| `playbook_03_bom_processing.yaml`                       | `playbook_03_bom_processing_pre.yaml`                      | `playbook_03_bom_processing_post.yaml`                      | Bill of Material processing                                       |
+| `playbook_04_00_00_db_install.yaml`                     | `playbook_04_00_00_db_install_pre.yaml`                    | `playbook_04_00_00_db_install_post.yaml`                    | Database server installation                                      |
+| `playbook_04_00_01_db_ha.yaml`                          | `playbook_04_00_01_db_ha_pre.yaml`                         | `playbook_04_00_01_db_ha_post.yaml`                         | Database High Availability configuration                          |
+| `playbook_05_00_00_sap_scs_install.yaml`                | `playbook_05_00_00_sap_scs_install_pre.yaml`               | `playbook_05_00_00_sap_scs_install_post.yaml`               | Central Services Installation and High Availability configuration |
+| `playbook_05_01_sap_dbload.yaml`                        | `playbook_05_01_sap_dbload_pre.yaml`                       | `playbook_05_01_sap_dbload_post.yaml`                       | Database load                                                     |
+| `playbook_05_02_sap_pas_install.yaml`                   | `playbook_05_02_sap_pas_install_pre.yaml`                  | `playbook_05_02_sap_pas_install_post.yaml`                  | Primary Application Server installation                           |
+| `playbook_05_03_sap_app_install.yaml`                   | `playbook_05_03_sap_app_install_pre.yaml`                  | `playbook_05_03_sap_app_install_post.yaml`                  | Application Server installation                                   |
+| `playbook_05_04_sap_web_install.yaml`                   | `playbook_05_04_sap_web_install_pre.yaml`                  | `playbook_05_04_sap_web_install_post.yaml`                  | Web dispatcher installation                                       |
+| `playbook_08_00_00_post_configuration_actions.yaml`     | `playbook_08_00_00_post_configuration_actions_pre.yml`     | `playbook_08_00_00_post_configuration_actions_post.yml`     | Post Configuration Actions                                        |
 
+> [!NOTE]
+> The playbook_08_00_00_post_configuration_actions.yaml step has no SDAF provided roles/tasks, it's only there to facilitate `_pre` and `_post` hooks after SDAF has completed the installation and configuration.
 
 ### Sample Ansible playbook
 
