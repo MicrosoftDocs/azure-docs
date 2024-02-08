@@ -35,8 +35,6 @@ When deploying an Elastic SAN, if you select ZRS for your SAN's redundancy optio
 
 If you deployed an LRS elastic SAN, you may need to deploy a new SAN, using snapshots exported to managed disks.
 
-If you choose to deploy ZRS for your Elastic SAN deployment, zonal failover will be supported by the platform without any manual intervention from users. Refer [here](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy#zone-redundant-storage) for details on Azure Storage ZRS support. 
-
 ### Low-latency design
 
 The latency differences between an elastic SAN on LRS and an elastic SAN on ZRS isn't particularly high. However, for workloads sensitive to latency spikes, consider an elastic SAN on LRS since it offers the lowest latency.
@@ -44,7 +42,6 @@ The latency differences between an elastic SAN on LRS and an elastic SAN on ZRS 
 ### Availability zone redeployment and migration
 
 To migrate an elastic SAN on LRs to ZRS, you must snapshot your elastic SAN's volumes, export them to managed disk snapshots, deploy an elastic SAN on ZRS, and then create volumes on the SAN on ZRS using those disk snapshots. To learn how to use snapshots, see [Snapshot Azure Elastic SAN Preview volumes](../storage/elastic-san/elastic-san-snapshots.md).
-
 
 ## Disaster recovery and business continuity
 
@@ -54,11 +51,9 @@ To migrate an elastic SAN on LRs to ZRS, you must snapshot your elastic SAN's vo
 
 For Azure Elastic SAN, you are responsible for the DR experience. You can [take snapshots](../storage/elastic-san/elastic-san-snapshots.md) of your volumes and [export them](../storage/elastic-san/elastic-san-snapshots.md#export-volume-snapshot) to managed disk snapshots. Then, you can [Copy an incremental snapshot to a new region](../virtual-machines/disks-copy-incremental-snapshot-across-regions.md) to store your data is in a region other than the region your elastic SAN is in. You should export to regions that are geographically distant from your primary region to reduce the possibility of multiple regions being affected due to a disaster.
 
-
 #### Outage detection, notification, and management
 
 You can find outage declarations in [Service Health - Microsoft Azure](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/~/serviceIssues). 
-
 
 ### Capacity and proactive disaster recovery resiliency
 
