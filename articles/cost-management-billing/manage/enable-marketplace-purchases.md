@@ -16,9 +16,9 @@ In the Azure portal, you buy non-Microsoft (third-party) software for use in Azu
 
 This article covers the following steps that are used to enable marketplace private offer purchases:
 
-1. Enable marketplace purchases for your billing account
-1. Set user permissions on the Azure subscription that you use to make purchases
-1. Set user permissions on the billing account that you use to make purchases
+1. Enable the Azure marketplace in the Azure portal
+1. Set user permissions to allow individuals to make Marketplace purchases
+1. Set user permissions to allow individuals to accept Marketplace private offers
 1. Optionally, if you have private marketplace enabled, then you can enable private offer purchases in the private marketplace
 
 ## Prerequisites
