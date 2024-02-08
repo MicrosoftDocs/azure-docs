@@ -234,7 +234,7 @@ az aks nodepool add --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --nam
 
 To associate an existing capacity reservation group with a system node pool, associate the cluster with the user-assigned identity with the Contributor role on your CRG and the CRG itself during cluster creation. Use the [`az aks create`][az-aks-create] command with the `--assign-identity` and `--crg-id` flags.
 
-    ```azurecli-interactive
+```azurecli-interactive
 IDENTITY_NAME=myID
 RG_NAME=myResourceGroup
 CLUSTER_NAME=myAKSCluster
