@@ -191,6 +191,8 @@
     items:
     - name: Export data
       href: tutorial-export-acm-data.md
+    - name: Tutorial - Improved exports (Preview)
+      href: tutorial-improved-exports.md
     - name: Seed historical cost dataset with Exports API
       href: ../automate/tutorial-seed-historical-cost-dataset-exports-api.md
     - name: Export cost data with a Storage SAS key
@@ -237,6 +239,8 @@
       items:
       - name: Migrate from EA Reporting APIs to ARM
         href: ../automate/migrate-ea-reporting-arm-apis-overview.md
+      - name: EA Marketplace Store Charge API
+        href: ../automate/migrate-ea-marketplace-store-charge-api.md
       - name: EA Usage Details APIs
         href: ../automate/migrate-ea-usage-details-api.md
       - name: EA Balance Summary API

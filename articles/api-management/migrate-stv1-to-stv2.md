@@ -33,7 +33,7 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/API configuration persisted in the storage layer.
 
-* The upgrade process involves creating a new compute in parallel to the old compute. The old compute takes 15-45 mins to be deleted with an option to delay it for up to 48 hours.
+* The upgrade process involves creating a new compute in parallel to the old compute. The old compute takes 15-45 mins to be deleted with an option to delay it for up to 48 hours. The 48 hour delay option is only available for VNet injected services.
 * The API Management status in the Portal will be "Updating".
 * Azure manages the management endpoint DNS, and updates to the new compute immediately on successful migration. 
 * The Gateway DNS still points to the old compute if custom domain is in use. 
@@ -246,7 +246,9 @@ On successful migration, update any network dependencies including DNS, firewall
 
 - **Can I roll back the migration if required?**
 
-   Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the stv1 platform. However, if you encounter any other issues post migration, you can roll back only if you have requested an extension to the old gateway purge. By default, the old gateway is purged in 15 mins that can be extended up to 48 hours by contacting support in advance. You should make sure to contact support before the old gateway is purged, if a rollback is required. 
+   **VNet-injected instances:** Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the stv1 platform. However, if you encounter any other issues post migration, you can roll back only if you have requested an extension to the old gateway purge. By default, the old gateway is purged in 15 mins that can be extended up to 48 hours by contacting support in advance. You should make sure to contact support before the old gateway is purged, if a rollback is required.
+
+   **Non-VNet injected instances:** If there is a failure during the migration process, the instance will automatically roll back to the stv1 platform. If the migration completes successfully, a rollback is not possible.
 
 - **Is there any change required in custom domain/private DNS zones?**
 

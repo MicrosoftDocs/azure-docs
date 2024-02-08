@@ -8,7 +8,6 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 02/02/2024
 ms.author: eur
-ms.custom: ignite-fall-2021
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for C++ on Windows desktop operating systems.

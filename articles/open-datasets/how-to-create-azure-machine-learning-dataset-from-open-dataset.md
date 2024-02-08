@@ -3,10 +3,10 @@ title: Create datasets with Azure Open Datasets
 description: Learn how to create an Azure Machine Learning dataset from Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: conceptual
-ms.author: franksolomon 
+ms.author: franksolomon
 author: fbsolo-ms1
 ms.date: 08/05/2020
-ms.custom: how-to, tracking-python, event-tier1-build-2022
+ms.custom: how-to, tracking-python
 #Customer intent: As an experienced Python developer, I want to use Azure Open Datasets in my ML workflows for improved model accuracy.
 ---
 

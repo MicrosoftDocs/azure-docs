@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 # Azure Database for PostgreSQL - Flexible Server networking with Private Link - Preview
 
-**Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL flexible server to bring it inside your Virtual Network (VNET). That functionality is introduced **in addition** to already [existing networking capabilities provided by VNET Integration](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL flexible server. With **Private Link**, traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
+**Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL flexible server to bring it inside your Virtual Network (virtual network). That functionality is introduced **in addition** to already [existing networking capabilities provided by VNET Integration](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL flexible server. With **Private Link**, traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
 > [!NOTE]
 > Azure Database for PostgreSQL flexible server supports Private Link based networking in Preview.
@@ -30,6 +30,11 @@ A **Private Endpoint** adds a network interface to a resource, providing it with
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](../../private-link/private-link-overview.md). A **private endpoint** is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and Subnet.
 
 The same public service instance can be referenced by multiple private endpoints in different VNets/subnets, even if they belong to different users/subscriptions (including within differing Microsoft Entra ID tenants) or if they have overlapping address spaces.
+
+> [!NOTE]
+> **Important Prerequisite:** Azure Database for PostgreSQL flexible server support for Private Endpoints in Preview requires enablement of [**Azure Database for PostgreSQL flexible server Private Endpoint capability** preview feature in your subscription](../../azure-resource-manager/management/preview-features.md). 
+> Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
+
 
 ## Key Benefits of Azure Private Link
 
@@ -65,12 +70,6 @@ Cross Feature Availability Matrix for preview of Private Endpoint in Azure Datab
 | Microsoft Entra Authentication (Entra Auth) | Yes | Works as designed |
 | Connection pooling with PGBouncer | Yes | Works as designed |
 | Private Endpoint DNS | Yes | Works as designed and [documented](../../private-link/private-endpoint-dns.md) |
-
-> [!NOTE]
-> Azure Database for PostgreSQL flexible server support for Private Endpoints in Preview requires enablement of [**Azure Database for PostgreSQL flexible server Private Endpoint capability** preview feature in your subscription](../../azure-resource-manager/management/preview-features.md). 
-> Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
-
-
 
 
 ### Connect from an Azure VM in Peered Virtual Network 

@@ -7,8 +7,6 @@ ms.topic: article
 ms.date: 06/29/2023
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: seodec18
-
 ---
 # Monitor apps in Azure App Service
 [Azure App Service](./overview.md) provides

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: mbender
-ms.custom: template-concept, seodec18, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Overview of IPv6 for Azure Load Balancer

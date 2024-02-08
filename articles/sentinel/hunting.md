@@ -3,7 +3,7 @@ title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
 author: yelevin
 ms.topic: conceptual
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 09/28/2022
 ms.author: yelevin
 ---
@@ -227,4 +227,3 @@ For more information, see:
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
 
 Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
-
