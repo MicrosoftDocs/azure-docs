@@ -1,6 +1,7 @@
 ---
-title: Access system document properties vian Azure Cosmos DB Graph
-description: Learn how read and write Azure Cosmos DB system document properties via API for Gremlin
+title: Access system document properties
+titleSuffix: Azure Cosmos DB for Graph
+description: Learn how to read and write Azure Cosmos DB system document properties via the API for Gremlin.
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
 ms.topic: how-to
@@ -28,7 +29,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ## Time-to-live (TTL)
 
-If collection has document expiration enabled and documents have `ttl` property set on them, then this property will be available in Gremlin traversal as a regular vertex or edge property. `ProjectionStrategy` isn't necessary to enable time-to-live property exposure.
+If collection has document expiration enabled and documents have `ttl` property set on them, then this property is available in Gremlin traversal as a regular vertex or edge property. `ProjectionStrategy` isn't necessary to enable time-to-live property exposure.
 
 * Use the following command to set time-to-live on a new vertex:
 
@@ -48,13 +49,13 @@ If collection has document expiration enabled and documents have `ttl` property 
   g.V().hasId(<ID>).has('pk', <pk>).property('ttl', <expirationTime>)
   ```
 
-* Applying time-to-live property on vertices does not automatically apply it to edges. Because edges are independent records in the database store. Use the following command to set time-to-live on vertices and all the incoming and outgoing edges of the vertex:
+* Applying time-to-live property on vertices doesn't automatically apply it to edges. Because edges are independent records in the database store. Use the following command to set time-to-live on vertices and all the incoming and outgoing edges of the vertex:
 
   ```console
   g.V().hasId(<ID>).has('pk', <pk>).as('v').bothE().hasNot('ttl').property('ttl', <expirationTime>)
   ```
 
-You can set TTL on the container to -1 or set it to **On (no default)** from Azure portal, then the TTL is infinite for any item unless the item has TTL value explicitly set.
+You can set time to Live (TTL) on the container to -1 or set it to **On (no default)** from Azure portal, then the TTL is infinite for any item unless the item has TTL value explicitly set.
 
 ## Next step
 
