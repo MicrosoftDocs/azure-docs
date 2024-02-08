@@ -212,7 +212,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - Gets
-  - The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval.
+  - Sum of the number of get commands run on the cache during the specified reporting interval. This is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _get_ family, including `GET`, `HGET` , `MGET`, and others. This value can differ from the total number of hits and misses because some individual commands access multiple keys. For example: `MGET key1 key2 key3` only increments the number of gets by one but increments the combined number of hits and misses by three.
 - Operations per Second
   - The total number of commands processed per second by the cache server during the specified reporting interval.  This value maps to "instantaneous_ops_per_sec" from the Redis INFO command.
 - Server Load
@@ -223,7 +223,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 > The _Server Load_ metric can present incorrect data for Enterprise and Enterprise Flash tier caches. Sometimes _Server Load_ is represented as being over 100. We are investigating this issue. We recommend using the CPU metric instead in the meantime.
 
 - Sets
-  - The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.
+  - Sum of the number of set commands run on the cache during the specified reporting interval. This is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _set_ family, including `SET`, `HSET` , `MSET`, and others.
 - Total Keys  
   - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
 - Total Operations
@@ -232,7 +232,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The amount of cache memory in MB that is used for key/value pairs in the cache during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This value doesn't include metadata or fragmentation.
   - On the Enterprise and Enterprise Flash tier, the Used Memory value includes the memory in both the primary and replica nodes. This can make the metric appear twice as large as expected.
 - Used Memory Percentage
-  - The percent of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage. This value doesn't include fragmentation.
+  - The percent of total memory that is being used during the specified reporting interval. This value references the `used_memory` value from the Redis INFO command to calculate the percentage. This value doesn't include fragmentation.
 - Used Memory RSS
   - The amount of cache memory used in MB during the specified reporting interval, including fragmentation. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 
