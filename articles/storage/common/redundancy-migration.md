@@ -69,7 +69,7 @@ The following table provides an overview of how to switch between replication ty
 
 Depending on your scenario from the [changing redundancy configuration](#changing-redundancy-configuration) section, use one of the following methods to change your replication settings.
 
-### Change the redundancy configuration with Azure Portal, PowerShell, or Azure CLI
+### Change the redundancy configuration using Azure Portal, PowerShell, or Azure CLI
 
 In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account.
 
@@ -223,7 +223,7 @@ Get-AzStorageAccountMigration
 
 ---
 
-#### support-initiated conversion
+#### Support-initiated conversion
 
 Customers can still request a conversion by opening a support request with Microsoft.
 
