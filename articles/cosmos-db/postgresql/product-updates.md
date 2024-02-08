@@ -7,7 +7,7 @@ ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/21/2024
+ms.date: 02/06/2024
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -21,6 +21,9 @@ Azure Cosmos DB for PostgreSQL gets updated regularly.
 Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
+
+### February 2024
+* General availability: [Microsoft Entra authentication](./concepts-authentication.md#microsoft-entra-id-authentication) is now supported in addition to Postgres roles in [all supported regions](./resources-regions.md).
 
 ### January 2024
 * General availability: [32 TiB storage per node for multi-node configurations](./resources-compute.md#multi-node-cluster) in all supported regions.
@@ -176,7 +179,7 @@ might have capabilities with limitations. For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-* [Microsoft Entra ID authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
+* There are no features in preview at this time.
 
 ## Contact us
 
