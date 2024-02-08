@@ -6,7 +6,6 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 08/14/2021
 ms.author: halkazwini
 ms.custom: engagement-fy23
