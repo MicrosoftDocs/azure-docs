@@ -16,6 +16,7 @@ The following limits apply to NAT gateway resources managed through Azure Resour
 | Resource            | Limit              |
 |---------------------|--------------------|
 | Public IP addresses | 16 per NAT gateway |
+| Subnets             | 800 per NAT gateway |
 | Data throughput     | 50 Gbps |
 | NAT gateways        | 1,000 per subscription per region |
 | Packets processed   | 1M - 5M packets per second |

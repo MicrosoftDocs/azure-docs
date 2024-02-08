@@ -5,7 +5,7 @@ description: Learn how to deploy a Premium tier Azure API Management instance to
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 01/26/2024
 ms.author: danlep
 ---
 
@@ -33,7 +33,7 @@ When adding a region, you configure:
 ## Prerequisites
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
+* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional region
 
@@ -125,12 +125,15 @@ Under some conditions, you might need to temporarily disable routing to one of t
 * To redirect traffic to other regions during a planned disaster recovery drill that simulates an unavailable region, or during a regional failure 
 
 To disable routing to a regional gateway in your API Management instance, update the gateway's `disableGateway` property value to `true`. You can set the value using the [Create or update service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API, the [az apim update](/cli/azure/apim#az-apim-update) command in the Azure CLI, the [set-azapimanagement](/powershell/module/az.apimanagement/set-azapimanagement) Azure PowerShell cmdlet, or other Azure tools.
+
+>[!NOTE]
+> You can only disable routing to a regional gateway when you are using API Management's default routing, not a custom routing solution. 
     
 To disable a regional gateway using the Azure CLI:
 
 1. Use the [az apim show](/cli/azure/apim#az-apim-show) command to show the locations, gateway status, and regional URLs configured for the API Management instance. 
     ```azurecli
-    az apim show --name contoso --resource-group myResourceGroup \
+    az apim show --name contoso --resource-group apim-hello-world-resource \
         --query "additionalLocations[].{Location:location,Disabled:disableGateway,Url:gatewayRegionalUrl}" \
         --output table
     ```
@@ -144,7 +147,7 @@ To disable a regional gateway using the Azure CLI:
     ```
 1. Use the [az apim update](/cli/azure/apim#az-apim-update) command to disable the gateway in an available location, such as West US 2.
     ```azurecli
-    az apim update --name contoso --resource-group myResourceGroup \
+    az apim update --name contoso --resource-group apim-hello-world-resource \
     --set additionalLocations[location="West US 2"].disableGateway=true
     ```
 
@@ -158,8 +161,10 @@ To restore routing to the regional gateway, set the value of `disableGateway` to
 
 This section provides considerations for multi-region deployments when the API Management instance is injected in a virtual network.
 
-* Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are the same as those for a network in the primary region.
+* Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are generally the same as those for a network in the primary region.
 * Virtual networks in the different regions don't need to be peered.
+> [!IMPORTANT]
+> When configured in internal VNet mode, each regional gateway must also have outbound connectivity on port 1443 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the FQDN or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service tag can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
 
 ### IP addresses
 
@@ -191,8 +196,15 @@ This section provides considerations for multi-region deployments when the API M
 
 
 [create an api management service instance]: get-started-create-service-instance.md
+
 [get started with azure api management]: get-started-create-service-instance.md
+
 [deploy an api management service instance to a new region]: #add-region
+
 [delete an api management service instance from a region]: #remove-region
+
 [unit]: https://azure.microsoft.com/pricing/details/api-management/
+
 [premium]: https://azure.microsoft.com/pricing/details/api-management/
+
+

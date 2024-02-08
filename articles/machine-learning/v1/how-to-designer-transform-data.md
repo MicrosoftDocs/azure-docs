@@ -10,7 +10,7 @@ ms.author: keli19
 author: likebupt
 ms.date: 02/08/2023
 ms.topic: how-to
-ms.custom: designer
+ms.custom: UpdateFrequency5, designer
 ---
 
 # Transform data in Azure Machine Learning designer
@@ -27,7 +27,8 @@ In this article, you'll learn how to:
 
 This how-to is a prerequisite for the [how to retrain designer models](how-to-retrain-designer.md) article. In that article, you'll learn how to use the transformed datasets to train multiple models, with pipeline parameters.
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+> [!IMPORTANT]
+> If you do not see graphical elements mentioned in this document, such as buttons in studio or designer, you may not have the right level of permissions to the workspace. Please contact your Azure subscription administrator to verify that you have been granted the correct level of access. For more information, see [Manage users and roles](../how-to-assign-roles.md).
 
 ## Transform a dataset
 
@@ -161,7 +162,7 @@ After the pipeline finishes running, you can navigate to your Azure portal blob 
 
 To continue with part two of this [Retrain models with Azure Machine Learning designer](how-to-retrain-designer.md) how-to, skip this section.
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 

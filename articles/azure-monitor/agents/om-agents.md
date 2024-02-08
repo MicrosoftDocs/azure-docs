@@ -29,7 +29,7 @@ The management server forwards the data directly to the service. It's never writ
 
 The following diagram shows the connection between the management servers and agents in a System Center Operations Manager management group and Azure Monitor, including the direction and ports.
 
-![Diagram that shows System Center Operations Manager and Azure Monitor integration. ](./media/om-agents/oms-operations-manager-connection.png)
+:::image type="content" source="./media/om-agents/oms-operations-manager-connection.png" lightbox="./media/om-agents/oms-operations-manager-connection.png" alt-text="Diagram that shows System Center Operations Manager and Azure Monitor integration. ":::
 
 If your IT security policies don't allow computers on your network to connect to the internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to Azure Monitor, see [Connect computers to Azure Monitor by using the Log Analytics gateway](./gateway.md).  
 

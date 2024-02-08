@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/30/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Create a public load balancer with IPv6 using Azure CLI
@@ -288,7 +288,7 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
 3. Create the virtual machines with the associated NICs:
 
     ```azurecli
-	az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
+    az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
 
-	az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
-	```
+    az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
+    ```

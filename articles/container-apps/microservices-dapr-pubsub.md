@@ -1,5 +1,5 @@
 ---
-title: "Microservices communication using Dapr Publish and Subscribe"
+title: "Tutorial: Microservices communication using Dapr Publish and Subscribe"
 titleSuffix: "Azure Container Apps"
 description: Enable two sample Dapr applications to send and receive messages and leverage Azure Container Apps.
 author: hhunter-ms
@@ -7,12 +7,12 @@ ms.author: hannahhunter
 ms.service: container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 12/20/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Microservices communication using Dapr Publish and Subscribe 
+# Tutorial: Microservices communication using Dapr Publish and Subscribe 
 
 In this tutorial, you'll:
 > [!div class="checklist"]
@@ -219,7 +219,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -431,7 +431,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -643,7 +643,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 

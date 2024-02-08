@@ -10,19 +10,19 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 08/29/2022
-ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, event-tier1-build-2022, build-2023
+ms.custom: UpdateFrequency5, tracking-python, references_regions, build-2023
 ---
 
 # Secure an Azure Machine Learning training environment with virtual networks (SDKv1)
 
-[!INCLUDE [SDK v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [SDK v1](../includes/machine-learning-sdk-v1.md)]
 
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning using the Python SDK v1.
 
 Azure Machine Learning compute instance and compute cluster can be used to securely train models in a virtual network. When planning your environment, you can configure the compute instance/cluster with or without a public IP address. The general differences between the two are:
 
-* **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Azure Active Directory, Azure Resource Manager, etc.).
+* **No public IP**: Reduces costs as it doesn't have the same networking resource requirements. Improves security by removing the requirement for inbound traffic from the internet. However, there are additional configuration changes required to enable outbound access to required resources (Microsoft Entra ID, Azure Resource Manager, etc.).
 * **Public IP**: Works by default, but costs more due to additional Azure networking resources. Requires inbound communication from the Azure Machine Learning service over the public internet.
 
 The following table contains the differences between these configurations:
@@ -133,7 +133,7 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
 
 
-+ Create either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic. Since the compute has no public IP address, it can't communicate with resources on the public internet without this configuration. For example, it wouldn't be able to communicate with Azure Active Directory or Azure Resource Manager. Installing Python packages from public sources would also require this configuration. 
++ Create either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic. Since the compute has no public IP address, it can't communicate with resources on the public internet without this configuration. For example, it wouldn't be able to communicate with Microsoft Entra ID or Azure Resource Manager. Installing Python packages from public sources would also require this configuration. 
 
     For more information on the outbound traffic that is used by Azure Machine Learning, see the following articles:
     - [Configure inbound and outbound network traffic](../how-to-access-azureml-behind-firewall.md).
@@ -206,7 +206,7 @@ The following configurations are in addition to those listed in the [Prerequisit
 
 # [Compute instance](#tab/instance)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import datetime
@@ -238,7 +238,7 @@ except ComputeTargetException:
 
 # [Compute cluster](#tab/cluster)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -278,8 +278,6 @@ except ComputeTargetException:
 
 When the creation process finishes, you train your model. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
-[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
-
 ## Azure Databricks
 
 * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
@@ -294,7 +292,7 @@ For specific information on using Azure Databricks with a virtual network, see [
 > [!IMPORTANT]
 > While previous sections of this article describe configurations required to **create** compute resources, the configuration information in this section is required to **use** these resources to train models.
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](../includes/machine-learning-public-internet-access.md)]
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](../how-to-access-azureml-behind-firewall.md).
 

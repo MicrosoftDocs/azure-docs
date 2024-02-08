@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/24/2022
-ms.custom: engagement-fy23
+ms.date: 08/29/2023
+ms.custom: engagement-fy24
 ---
 
 # Assessment overview (migrate to Azure VMs)
@@ -109,7 +109,7 @@ Calculations occur in these three stages:
 
 1. **Calculate Azure readiness**: Assess whether servers are suitable for migration to Azure.
 1. **Calculate sizing recommendations**: Estimate compute, storage, and network sizing.
-1. **Calculate monthly costs**: Calculate the estimated monthly compute and storage costs for running the servers in Azure after migration.
+1. **Calculate monthly costs**: Calculate the estimated monthly compute, storage, and security costs for running the servers in Azure after migration.
 
 Calculations are in the preceding order. A server moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.
 
@@ -121,8 +121,8 @@ Here's what's included in an Azure VM assessment:
 --- | ---
 **Target location** | The location to which you want to migrate. The assessment currently supports these target Azure regions:<br><br> Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China East 2,  China North, China North 2, East Asia, East US, East US 2, France Central, France South, Germany North, Germany West Central, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Africa West, South Central US, Southeast Asia, South India, Switzerland North, Switzerland West, UAE Central, UAE North, UK South, UK West, West Central US, West Europe, West India, West US, West US 2, JioIndiaCentral, JioIndiaWest, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia.
 **Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br><br> Specify the target storage disk as Premium-managed, Standard SSD-managed, Standard HDD-managed, or Ultra disk.
-**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as automatic, Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br><br> **Automatic**: The disk recommendation is based on the performance data of the disks, meaning the IOPS and throughput.<br><br>**Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
-**Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
+**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br><br> **Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
+**Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable. The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
 **Sizing criteria** | Used to rightsize the Azure VM.<br><br> Use as-is sizing or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
 **Percentile utilization** | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
@@ -134,6 +134,7 @@ Here's what's included in an Azure VM assessment:
 **VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration.<br><br> The default values are 31 days per month and 24 hours per day.
 **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If the setting has the default value "Yes," Azure prices for operating systems other than Windows are considered for Windows VMs.
 **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br><br> Leave the settings for reserved instances, discount (%) and VM uptime properties with their default settings.
+**Security** | Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it will assess security readiness and costs for your Azure VM with Microsoft Defender for Cloud.   
 
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
@@ -153,7 +154,7 @@ To calculate readiness, the assessment reviews the server properties and operati
 
 For an Azure VM Assessment, the assessment reviews the following properties of an on-premises VM to determine whether it can run on Azure VMs.
 
-Property | Details | Azure readiness status
+**Property** | **Details** | **Azure readiness status**
 --- | --- | ---
 **Boot type** | Azure supports UEFI boot type for OS mentioned [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure)| Not ready if the boot type is UEFI and Operating System running on the VM is: Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2
 **Cores** | Each server must have no more than 128 cores, which is the maximum number an Azure VM supports.<br><br> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br><br> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
@@ -188,6 +189,25 @@ Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Azure do
 OS specified as **Other** in vCenter Server | Azure Migrate can't identify the OS in this case. | Unknown readiness. Ensure that Azure supports the OS running inside the VM.
 32-bit operating systems | The server might start in Azure, but Azure might not provide full support. | Conditionally ready for Azure. Consider upgrading to a 64-bit OS before migrating to Azure.
 
+### Security readiness
+
+Assessments also determine readiness of the recommended target for Microsoft Defender for Servers. A server is marked as Ready for Microsoft Defender for Servers if it has the following:
+- Minimum 2 vCores (4 vCores preferred)
+- Minimum 1 GB RAM (4 GB preferred)
+- 2 GB of disk space
+- Runs any of the following Operating Systems:
+   - Windows Server 2008 R2, 2012 R2, 2016, 2019, 2022
+   - Red Hat Enterprise Linux Server 7.2+, 8+, 9+
+   - Ubuntu 16.04, 18.04, 20.04, 22.04
+   - SUSE Linux Enterprise Server 12, 15+
+   - Debian 9, 10, 11
+   - Oracle Linux 7.2+, 8
+   - CentOS Linux 7.2+
+   - Amazon Linux 2
+- For other Operating Systems, the server is marked as **Ready with Conditions**.
+If a server is not ready to be migrated to Azure, it is marked as **Not Ready** for Microsoft Defender for Servers.
+
+
 ## Calculating sizing
 
 After the server is marked as ready for Azure, the assessment makes sizing recommendations in the Azure VM assessment. These recommendations identify the Azure VM and disk SKU. Sizing calculations depend on whether you're using as-is on-premises sizing or performance-based sizing.
@@ -219,7 +239,6 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
 
 1. Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. In the case of import-based assessments, you have the option to provide the total IOPS, total throughput and total no. of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
 
-1. If you've specified the storage type as automatic, the selected type is based on the effective IOPS and throughput values. The Assessment determines whether to map the disk to a Standard HDD, Standard SSD, Premium disk, or Ultra disk in Azure. If the storage type is set to one of those disk types, the assessment tries to find a disk SKU within the storage type selected.
 1. Disks are selected as follows:
     - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure.
     - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
@@ -336,6 +355,9 @@ Cost is calculated using the following logic:
 - The Ultra disk VM reservation fee is not added in the total cost. [Learn More](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 Assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings.
+
+### Security cost
+For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for Server cost (Plan 2) per server for that region is added. The assessment aggregates the cost across all servers to calculate the total monthly security cost.
 
 Costs are displayed in the currency specified in the assessment settings.
 

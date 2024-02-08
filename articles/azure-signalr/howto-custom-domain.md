@@ -220,6 +220,12 @@ After you create a Shared Private Endpoint, you can add a custom certificate as 
 
 You don't have to explicitly allow SignalR Service IP addresses in key vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
 
+## Certificate rotation
+
+If you don't specify a secret version when creating custom certificate, Azure SignalR Service periodically checks latest version in Key Vault. When a new version is observed, it's automatically applied. The delay is usually within 1 hour.
+
+Alternatively, you can also pin custom certificate to a specific secret version in Key Vault. When you need to apply a new certificate, you can edit the secret version and then update custom certificate proactively.
+
 ## Cleanup
 
 If you don't plan to use the resources you've created in this article, you can delete the Resource Group.

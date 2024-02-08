@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Useful resources for working with Microsoft Sentinel
@@ -21,7 +20,7 @@ Microsoft Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL)
 
 ## Microsoft Sentinel templates for data to monitor
 
-The [Azure Active Directory Security Operations Guide](../active-directory/fundamentals/security-operations-introduction.md) includes specific guidance and knowledge about data that's important to monitor for security purposes, for several operational areas. 
+The [Microsoft Entra Security Operations Guide](../active-directory/fundamentals/security-operations-introduction.md) includes specific guidance and knowledge about data that's important to monitor for security purposes, for several operational areas. 
 
 In each article, check for sections named [Things to monitor](../active-directory/fundamentals/security-operations-privileged-accounts.md#things-to-monitor) for lists of events that we recommend alerting on and investigating, as well as analytics rule templates to deploy directly to Microsoft Sentinel.
 

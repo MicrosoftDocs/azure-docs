@@ -2,7 +2,7 @@
 title: Best practices for data collection rule creation and management in Azure Monitor
 description: Details on the best practices to be followed to correctly create and maintain data collection rule in Azure Monitor.
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 01/08/2024
 ms.reviewer: brunoga
 
 ---
@@ -34,7 +34,7 @@ In fact, it's not ideal and even not recommended to create a single DCR containi
 | | Create DCR specific to data source type inside the defined observability scope(s) | Creating separate DCRs for performance and events will help in both managing the configuration and the association with granularity based on the target machines. For instance, creating a DCR to collect both events and performance counters could result in an unoptimal approach. There could be situations in which a given machine (or set of machines) doesn't have the event logs or performance counters configured in the DCR. In this situation, the virtual machine(s) will be forced to process and execute a configuration that isn't necessary according to the software installed on it. | Not using different DCRs will force each and every associated virtual machine to transfer, process and execute configuration that might be not applicable according to the installed software. An excessive compute resource consumption and errors in processing configuration might happen causing the [Azure Monitor Agent (AMA)](../overview.md) becoming unresponsive. Moreover, collecting unnecessary data will increase data ingestion costs. |
 | Data destination | Create different DCR based on the destination | DCRs have the capability of sending data to multiple different destinations, like Azure Monitor Metrics and Azure Monitor Logs, simultaneously. Having DCR(s) specific to destination is helpful in managing the data sovereign or law requirements. Since, being compliant might require to send data only to allowed repositories created in allowed regions, having different DCRs allows for a better granular destination targeting | Not separating DCRs based on the data destination, might result in being not compliant with data handling, privacy and access requirements and could make unnecessary data collection resulting in unexpected costs. |
 
-The afore mentioned principles provide a foundation for creating your own DCR management approach that balances maintainability, ease of reuse, granularity, and service limits. DCRs also need shared governance, to minimize both the creation of silos and unnecessary duplication of work.
+The aforementioned principles provide a foundation for creating your own DCR management approach that balances maintainability, ease of reuse, granularity, and service limits. DCRs also need shared governance, to minimize both the creation of silos and unnecessary duplication of work.
 
 ## Next steps
 

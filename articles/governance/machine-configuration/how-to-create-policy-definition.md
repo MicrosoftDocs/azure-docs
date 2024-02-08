@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration policy definitions
 description: Learn how to create a machine configuration policy.
-ms.date: 04/18/2023
+ms.date: 11/02/2023
 ms.topic: how-to
 ---
 # How to create custom machine configuration policy definitions
@@ -17,7 +17,7 @@ the details about machine configuration's [remediation options][02].
 > `Deploy prerequisites to enable machine configuration policies on virtual machines`
 >
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
-> extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
+> extension version 1.26.24 or later, or Arc agent 1.10.0 or later, is required.
 >
 > Custom machine configuration policy definitions using either `AuditIfNotExists` or
 > `DeployIfNotExists` are in Generally Available (GA) support status.
@@ -194,6 +194,13 @@ Machine configuration supports overriding properties of a DSC Configuration at r
 feature means that the values in the MOF file in the package don't have to be considered static.
 The override values are provided through Azure Policy and don't change how the DSC Configurations
 are authored or compiled.
+
+Machine configuration supports the following value types for parameters:
+
+- String
+- Boolean
+- Double
+- Float
 
 The cmdlets `New-GuestConfigurationPolicy` and `Get-GuestConfigurationPackageComplianceStatus`
 include a parameter named **Parameter**. This parameter takes a hash table definition including all

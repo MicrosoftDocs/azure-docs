@@ -1,12 +1,12 @@
 ---
 title: 'Create a VM with a static private IP address - Azure CLI'
 description: Learn how to create a virtual machine with a static private IP address using the Azure CLI.
-author: asudbring
-ms.author: allensu
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/28/2022
 ms.custom: template-how-to, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---

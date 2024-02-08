@@ -4,6 +4,7 @@ description: Learn about and manage Azure public peering
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 06/30/2023
 ms.author: duau 

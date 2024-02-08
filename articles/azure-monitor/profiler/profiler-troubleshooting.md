@@ -2,7 +2,7 @@
 title: Troubleshoot Application Insights Profiler
 description: Walk through troubleshooting steps and information to enable and use Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 07/10/2023
 ms.reviewer: charles.weininger
 ---
 
@@ -12,7 +12,7 @@ This article presents troubleshooting steps and information to enable you to use
 
 ## Are you using the appropriate Profiler endpoint?
 
-Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
 |App setting    | US Government Cloud | China Cloud |
 |---------------|---------------------|-------------|
@@ -40,7 +40,7 @@ If the data you're trying to view is older than two weeks, try limiting your tim
 
 Check that a firewall or proxies aren't blocking your access to [this webpage](https://gateway.azureserviceprofiler.net).
 
-## Is Profiler running?
+## Are you seeing timeouts or do you need to check to see if Profiler is running?
 
 Profiling data is uploaded only when it can be attached to a request that happened while Profiler was running. Profiler collects data for two minutes each hour. You can also trigger Profiler by [starting a profiling session](./profiler-settings.md#profile-now).
 
@@ -50,7 +50,7 @@ Search for trace messages and custom events sent by Profiler to your Application
 
 1. In your Application Insights resource, select **Search** from the top menu.
 
-   :::image type="content" source="./media/profiler-troubleshooting/search-trace-messages.png" alt-text="Screenshot that shows selecting the Search button from the Application Insights resource.":::
+   :::image type="content" source="./media/profiler-troubleshooting/search-trace-messages.png" lightbox="./media/profiler-troubleshooting/search-trace-messages.png" alt-text="Screenshot that shows selecting the Search button from the Application Insights resource.":::
 
 1. Use the following search string to find the relevant data:
 
@@ -58,7 +58,7 @@ Search for trace messages and custom events sent by Profiler to your Application
    stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
    ```
 
-   :::image type="content" source="./media/profiler-troubleshooting/search-results.png" alt-text="Screenshot that shows the search results from aforementioned search string.":::
+   :::image type="content" source="./media/profiler-troubleshooting/search-results.png" lightbox="./media/profiler-troubleshooting/search-results.png" alt-text="Screenshot that shows the search results from aforementioned search string.":::
 
    The preceding search results include two examples of searches from two AI resources:
 
@@ -66,7 +66,7 @@ Search for trace messages and custom events sent by Profiler to your Application
 
    - Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the `ServiceProfilerSample` custom event is displayed, it means that a profile was captured and is available in the **Application Insights Performance** pane.
 
-   If no records are displayed, Profiler isn't running. Make sure you've [enabled Profiler on your Azure service](./profiler.md).
+   If no records are displayed, Profiler isn't running or has timed out. Make sure you've [enabled Profiler on your Azure service](./profiler.md).
 
 ## Double counting in parallel threads
 
@@ -95,12 +95,12 @@ For Profiler to work properly, make sure:
 
       If **ApplicationInsightsProfiler3** doesn't show up, restart your App Service application.
 
-      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job.png" alt-text="Screenshot that shows the WebJobs pane, which displays the name, status, and last runtime of jobs.":::
+      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job.png" lightbox="./media/profiler-troubleshooting/profiler-web-job.png" alt-text="Screenshot that shows the WebJobs pane, which displays the name, status, and last runtime of jobs.":::
 
    1. To view the details of the WebJob, including the log, select the **ApplicationInsightsProfiler3** link.
      The **Continuous WebJob Details** pane opens.
 
-      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job-log.png" alt-text="Screenshot that shows the Continuous WebJob Details pane.":::
+      :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job-log.png" lightbox="./media/profiler-troubleshooting/profiler-web-job-log.png" alt-text="Screenshot that shows the Continuous WebJob Details pane.":::
 
 If Profiler still isn't working for you, download the log and [submit an Azure support ticket](https://azure.microsoft.com/support/).
 
@@ -127,7 +127,7 @@ It ends like `https://<kudu-url>/DiagnosticServices`.
 
 A status page appears similar to the following example.
 
-![Screenshot that shows the Diagnostic Services status page.](../app/media/diagnostic-services-site-extension/status-page.png)
+:::image type="content" source="../app/media/diagnostic-services-site-extension/status-page.png" lightbox="../app/media/diagnostic-services-site-extension/status-page.png" alt-text="Screenshot that shows the Diagnostic Services status page.":::
 
 > [!NOTE]
 > Codeless installation of Application Insights Profiler follows the .NET Core support policy. For more information about supported runtimes, see [.NET Core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).

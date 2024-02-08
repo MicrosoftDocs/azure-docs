@@ -7,15 +7,13 @@ brand: azure
 metadata:
   title: Azure Cosmos DB
   description: Fully managed, distributed NoSQL & relational database for modern apps. High performance, availability, and support for PostgreSQL, MongoDB, and Cassandra.
-  services: cosmos-db
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: mjbrown
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.collection: collection
+
   ms.date: 02/28/2023
-  ms.custom: ignite-2022
 highlightedContent:
   items:
     - title: Introduction to Azure Cosmos DB
@@ -30,6 +28,9 @@ highlightedContent:
     - title: Q&A
       itemType: reference
       url: /answers/tags/187/azure-cosmos-db
+    - title: Vector Search with Azure Cosmos DB
+      itemType: concept
+      url: vector-search.md
     - title: Choose an API in Azure Cosmos DB
       itemType: concept
       url: choose-api.md
@@ -39,9 +40,6 @@ highlightedContent:
     - title: Create an Azure Cosmos DB for PostgreSQL account
       itemType: how-to-guide
       url: postgresql/quickstart-create-portal.md
-    - title: Learn more about Azure Cosmos DB
-      itemType: learn
-      url: /training/modules/explore-azure-cosmos-db/
 
 additionalContent:
   sections:

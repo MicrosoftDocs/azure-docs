@@ -5,7 +5,7 @@ description: Learn how to configure site-to-site VPN connections over ExpressRou
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---
@@ -21,7 +21,6 @@ You can configure a Site-to-Site VPN to a virtual network gateway over an Expres
 
 This feature is available for the following SKUs:
 
-* VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5 with standard public IP with no zones
 * VpnGw1AZ, VpnGw2AZ, VpnGw3AZ, VpnGw4AZ, VpnGw5AZ with standard public IP with one or more zones
 
   >[!NOTE]
@@ -52,7 +51,7 @@ Establishing connectivity is straightforward:
 
 ### Traffic from on-premises networks to Azure
 
-For traffic from on-premises networks to Azure, the Azure prefixes are advertised via both the ExpressRoute private peering BGP, and the VPN BGP. The result is two network routes (paths) toward Azure from the on-premises networks:
+For traffic from on-premises networks to Azure, the Azure prefixes are advertised via both the ExpressRoute private peering BGP, and the VPN BGP if BGP is configured on your VPN Gateway. The result is two network routes (paths) toward Azure from the on-premises networks:
 
 • One network route over the IPsec-protected path.
 
@@ -87,6 +86,10 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
 
    :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Gateway Private IPs - Enabled":::
 1. Use the private IP that you wrote down in step 3 as the remote IP on your on-premises firewall to establish the Site-to-Site tunnel over the ExpressRoute private peering.
+
+   >[!NOTE]
+   > Configurig BGP on your VPN Gateway is not required to achieve a VPN connection over ExpressRoute private peering.
+   >
 
 ## <a name="powershell"></a>PowerShell steps
 

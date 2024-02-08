@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/12/2022
+ms.date: 07/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -33,7 +33,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**: For transient failures, set retries for the activity. For permanent failures, check your configuration and contact support.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

@@ -5,14 +5,13 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 
 # Get started with Azure API for FHIR
 
-> [!Note]
-> Azure Health Data services is the evolved version of Azure API for FHIR enabling customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure Services. To learn about Azure Health Data Services [click here](https://azure.microsoft.com/products/health-data-services/).
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 This article outlines the basic steps to get started with Azure API for FHIR. Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning.
 
@@ -37,7 +36,7 @@ Refer to the steps in the [Quickstart guide](fhir-paas-portal-quickstart.md) for
 
 ## Accessing Azure API for FHIR
 
-When you're working with healthcare data, it's important to ensure that the data is secure, and it can't be accessed by unauthorized users or applications. FHIR servers use [OAuth 2.0](https://oauth.net/2/) to ensure this data security. Azure API for FHIR is secured using [Azure Active Directory (Azure AD)](../../active-directory/index.yml), which is an example of an OAuth 2.0 identity provider. [Azure AD identity configuration for Azure API for FHIR](././../azure-api-for-fhir/azure-active-directory-identity-configuration.md) provides an overview of FHIR server authorization, and the steps needed to obtain a token to access a FHIR server. While these steps apply to any FHIR server and any identity provider, this article will walk you through Azure API for FHIR as the FHIR server and Azure AD as our identity provider. For more information about accessing Azure API for FHIR, see [Access control overview](././../azure-api-for-fhir/azure-active-directory-identity-configuration.md#access-control-overview).
+When you're working with healthcare data, it's important to ensure that the data is secure, and it can't be accessed by unauthorized users or applications. FHIR servers use [OAuth 2.0](https://oauth.net/2/) to ensure this data security. Azure API for FHIR is secured using [Microsoft Entra ID](../../active-directory/index.yml), which is an example of an OAuth 2.0 identity provider. [Microsoft Entra identity configuration for Azure API for FHIR](././../azure-api-for-fhir/azure-active-directory-identity-configuration.md) provides an overview of FHIR server authorization, and the steps needed to obtain a token to access a FHIR server. While these steps apply to any FHIR server and any identity provider, this article will walk you through Azure API for FHIR as the FHIR server and Microsoft Entra ID as our identity provider. For more information about accessing Azure API for FHIR, see [Access control overview](././../azure-api-for-fhir/azure-active-directory-identity-configuration.md#access-control-overview).
 
 ### Access token validation
 
@@ -45,16 +44,16 @@ How Azure API for FHIR validates the access token will depend on implementation 
 
 ### Register a client application
 
-For an application to interact with Azure AD, it needs to be registered. In the context of the FHIR server, there are two kinds of application registrations:
+For an application to interact with Microsoft Entra ID, it needs to be registered. In the context of the FHIR server, there are two kinds of application registrations:
 
 -	Resource application registrations
 -	Client application registrations
 
-For more information about the two kinds of application registrations, see [Register the Azure Active Directory apps for Azure API for FHIR](fhir-app-registration.md).
+For more information about the two kinds of application registrations, see [Register the Microsoft Entra apps for Azure API for FHIR](fhir-app-registration.md).
 
 ## Configure Azure RBAC for FHIR
 
-The article [Configure Azure RBAC for FHIR](configure-azure-rbac.md), describes how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred method for assigning data plane access when data plane users are managed in the Azure AD tenant associated with your Azure subscription. If you're using an external Azure AD tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
+The article [Configure Azure RBAC for FHIR](configure-azure-rbac.md), describes how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred method for assigning data plane access when data plane users are managed in the Microsoft Entra tenant associated with your Azure subscription. If you're using an external Microsoft Entra tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
 
 ## Next steps
 

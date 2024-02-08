@@ -2,11 +2,10 @@
 title: Certificate pinning
 titleSuffix: Certificate pinning and Azure services
 description: Information about the history, usage, and risks of certificate pinning.
-services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 12/06/2023
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -26,9 +25,9 @@ For several years, certificate pinning was considered good security practice. Ov
 
 ## How to address certificate pinning in your application
 
-Typically, an application contains a list of authorized certificates or properties of certificates including Subject Distinguished Names, thumbprints, serial numbers, and public keys. Applications may pin against individual leaf or end-entity certificates, subordinate CA certificates, or even Root CA certificates.
+Typically, an application contains a list of authorized certificates or properties of certificates including Subject Distinguished Names, thumbprints, serial numbers, and public keys. Applications might pin against individual leaf or end-entity certificates, subordinate CA certificates, or even Root CA certificates.
 
-If your application explicitly specifies a list of acceptable CAs, you may periodically need to update pinned certificates when Certificate Authorities change or expire. To detect certificate pinning, we recommend the taking the following steps:
+If your application explicitly specifies a list of acceptable CAs, you might periodically need to update pinned certificates when Certificate Authorities change or expire. To detect certificate pinning, we recommend the taking the following steps:
 
 - If you're an application developer, search your source code for any of the following references for the CA that is changing or expiring. If there's a match, update the application to include the missing CAs.
     - Certificate thumbprints
@@ -38,7 +37,7 @@ If your application explicitly specifies a list of acceptable CAs, you may perio
     - Public keys
     - Other certificate properties
 
-- If you have an application that integrates with Azure APIs or other Azure services and you're unsure if it uses certificate pinning, check with the application vendor.
+- If your custom client application integrates with Azure APIs or other Azure services and you're unsure if it uses certificate pinning, check with the application vendor.
 
 ## Certificate pinning limitations
 The practice of certificate pinning has become widely disputed as it carries unacceptable certificate agility costs. One specific implementation, HTTP Public Key Pinning (HPKP), has been deprecated altogether

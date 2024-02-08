@@ -11,8 +11,8 @@ Reports in Container insights are recommended out-of-the-box for [Azure workbook
 
 ## View workbooks
 On the **Azure Monitor** menu in the Azure portal, select **Containers**. In the **Monitoring** section, select **Insights**, choose a particular cluster, and then select the **Reports** tab. You can also view them from the [workbook gallery](../visualize/workbooks-overview.md#the-gallery) in Azure Monitor.
-
-[![Screenshot that shows the Reports page.](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/container-insights-reports/reports-page.png" lightbox="media/container-insights-reports/reports-page.png" alt-text="Screenshot that shows the Reports page." border="false":::
 
 
 ## Cluster Optimization Workbook
@@ -35,6 +35,10 @@ The **event anomaly** analyzer groups similar events together for easier analysi
 
 ### Container optimizer
 The **container optimizer** analyzer shows containers with excessive cpu and memory limits and requests. Each tile can represent multiple containers with the same spec. For example, if a deployment creates 100 identical pods each with a container C1 and C2, then there will be a single tile for all C1 containers and a single tile for all C2 containers. Containers with set limits and requests are color-coded in a gradient from green to red. 
+
+> [!IMPORTANT]
+> This view doesn't include containers in the **kube-system** namespace and doesn't support Windows Server nodes.
+>
 
 The number on each tile represents how far the container limits/requests are from the optimal/suggested value. The closer the number is to 0 the better it is. Each tile has a color to indicate the following:
 
@@ -110,8 +114,8 @@ The number on each tile represents how far the container limits/requests are fro
 
 ## Create a custom workbook
 To create a custom workbook based on any of these workbooks, select the **View Workbooks** dropdown list and then select **Go to AKS Gallery** at the bottom of the list. For more information about workbooks and using workbook templates, see [Azure Monitor workbooks](../visualize/workbooks-overview.md).
-
-[![Screenshot that shows the AKS gallery.](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/container-insights-reports/aks-gallery.png" lightbox="media/container-insights-reports/aks-gallery.png" alt-text="Screenshot that shows the AKS gallery." border="false":::
 
 ## Next steps
 

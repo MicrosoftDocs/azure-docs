@@ -310,7 +310,10 @@ You can use additional circuit bandwidths on ExpressRoute Direct only to support
 
 **SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData at creation. You can change to **Unlimited** after the creation of the circuit by updating the `sku-family`.
+
+> [!NOTE]
+> Once you change to **Unlimited** data, you can't change back without needing to recreate the ExpressRoute circuit.
 
 Create a circuit on the ExpressRoute Direct resource:
 

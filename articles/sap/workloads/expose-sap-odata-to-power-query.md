@@ -16,7 +16,7 @@ Working with SAP datasets in Microsoft Excel or Power BI is a common requirement
 
 This article describes the required configurations and components to enable SAP dataset consumption via OData with [Power Query](/power-query/power-query-what-is-power-query). The SAP data integration is considered **"live"** because it can be refreshed from clients such as Microsoft Excel or Power BI on-demand, unlike data exports (like [SAP List Viewer (ALV)](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-us/4e/c38f8788d22b90e10000000a42189d/content.htm) CSV exports) for instance. Those exports are **static** by nature and have no continuous relationship with the data origin.
 
-The article puts emphasis on end-to-end user mapping between the known Azure AD identity in Power Query and the SAP backend user. This mechanism is often referred to as SAP Principal Propagation.
+The article puts emphasis on end-to-end user mapping between the known Microsoft Entra identity in Power Query and the SAP backend user. This mechanism is often referred to as SAP Principal Propagation.
 
 The focus of the described configuration is on the [Azure API Management](../../api-management/index.yml), [SAP Gateway](https://help.sap.com/viewer/product/SAP_GATEWAY), [SAP OAuth 2.0 Server with AS ABAP](https://help.sap.com/docs/SAP_NETWEAVER_750/e815bb97839a4d83be6c4fca48ee5777/0b899f00477b4034b83aa31764361852.html), and OData sources, but the concepts used apply to any web-based resource.
 
@@ -50,7 +50,7 @@ End users have a choice between local desktop or web-based clients (for instance
 [Azure API Management](../../api-management/index.yml) reflects local and web-based environment needs with different deployment modes that can be applied to Azure landscapes ([internal](../../api-management/api-management-using-with-internal-vnet.md?tabs=stv2)
 or [external](../../api-management/api-management-using-with-vnet.md?tabs=stv2)). `Internal` refers to instances that are fully restricted to a private virtual network whereas `external` retains public access to Azure API Management. On-premises installations require a hybrid deployment to apply the approach as is using the Azure API Management [self-hosted Gateway](../../api-management/self-hosted-gateway-overview.md).
 
-Power Query requires matching API service URL and Azure AD application ID URL. Configure a [custom domain for Azure API Management](../../api-management/configure-custom-domain.md) to meet the requirement.
+Power Query requires matching API service URL and Microsoft Entra application ID URL. Configure a [custom domain for Azure API Management](../../api-management/configure-custom-domain.md) to meet the requirement.
 
 [SAP Gateway](https://help.sap.com/docs/SAP_GATEWAY) needs to be configured to expose the desired target OData services. Discover and activate available services via SAP transaction code `/IWFND/MAINT_SERVICE`. For more information, see SAP's [OData configuration](https://help.sap.com/docs/SAP_GATEWAY).
 
@@ -64,9 +64,9 @@ Complete the setup of your custom domain as per the domain requirements. For mor
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/apim-custom-domain-setup.png" alt-text="Screenshot that shows custom domain mapping to Azure API Management domain.":::
 
-The respective Azure AD application registration for the Azure API Management tenant would look like below.
+The respective Microsoft Entra application registration for the Azure API Management tenant would look like below.
 
-:::image type="content" source="media/expose-sap-odata-to-power-query/aad-app-reg-for-apim-configuration.png" alt-text="Screenshot that shows the app registration for Azure API Management in Azure Active Directory.":::
+:::image type="content" source="media/expose-sap-odata-to-power-query/aad-app-reg-for-apim-configuration.png" alt-text="Screenshot that shows the app registration for Azure API Management in Microsoft Entra ID.":::
 
 > [!NOTE]
 > If custom domain for Azure API Management isn't an option for you, you need to use a [custom Power Query Connector](/power-query/startingtodevelopcustomconnectors) instead.
@@ -111,7 +111,7 @@ Retrieve the Base URL and insert in your target application. Below example shows
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/excel-odata-feed.png" alt-text="Screenshot that shows the OData configuration wizard in Excel Desktop.":::
 
-Switch the login method to **Organizational account** and click Sign in. Supply the Azure AD account that is mapped to the named SAP user on the SAP Gateway using SAP Principal Propagation. For more information about the configuration, see [this Microsoft tutorial](../../active-directory/saas-apps/sap-netweaver-tutorial.md#configure-sap-netweaver-for-oauth). Learn more about SAP Principal Propagation from [this](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) SAP community post and [this video series](https://github.com/MartinPankraz/SAP-MSTeams-Hero/blob/main/Towel-Bearer/103a-sap-principal-propagation-basics.md).
+Switch the login method to **Organizational account** and click Sign in. Supply the Microsoft Entra account that is mapped to the named SAP user on the SAP Gateway using SAP Principal Propagation. For more information about the configuration, see [this Microsoft tutorial](../../active-directory/saas-apps/sap-netweaver-tutorial.md#configure-sap-netweaver-for-oauth). Learn more about SAP Principal Propagation from [this](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) SAP community post and [this video series](https://github.com/MartinPankraz/SAP-MSTeams-Hero/blob/main/Towel-Bearer/103a-sap-principal-propagation-basics.md).
 
 Continue to choose at which level the authentication settings should be applied by Power Query on Excel. Below example shows a setting that would apply to all OData services hosted on the target SAP system (not only to the sample service GWSAMPLE_BASIC).
 
@@ -121,7 +121,7 @@ Continue to choose at which level the authentication settings should be applied 
 :::image type="content" source="media/expose-sap-odata-to-power-query/excel-odata-login.png" alt-text="Screenshot that shows the login flow within Excel for the Organizational Account option.":::
 
 > [!IMPORTANT]
-> The above guidance focusses on the process of obtaining a valid authentication token from Azure AD via Power Query. This token needs to be further processed for SAP Principal Propagation.
+> The above guidance focusses on the process of obtaining a valid authentication token from Microsoft Entra ID via Power Query. This token needs to be further processed for SAP Principal Propagation.
 
 ## Configure SAP Principal Propagation with Azure API Management
 
@@ -130,11 +130,11 @@ Use [this](https://github.com/Azure/api-management-policy-snippets/blob/master/e
 > [!NOTE]
 > Learn more about SAP Principal Propagation from [this](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) SAP community post and [this video series](https://github.com/MartinPankraz/SAP-MSTeams-Hero/blob/main/Towel-Bearer/103a-sap-principal-propagation-basics.md).
 
-:::image type="content" source="media/expose-sap-odata-to-power-query/app-registration-dependencies.png" alt-text="Diagram that shows the Azure Active Directory app registrations involved in this article.":::
+:::image type="content" source="media/expose-sap-odata-to-power-query/app-registration-dependencies.png" alt-text="Diagram that shows the Microsoft Entra app registrations involved in this article.":::
 
-The policy relies on an established SSO setup between Azure AD and SAP Gateway (use [SAP NetWeaver from the Azure AD gallery](../../active-directory/saas-apps/sap-netweaver-tutorial.md#adding-sap-netweaver-from-the-gallery)). See below an example with the demo user Adele Vance. User mapping between Azure AD and the SAP system happens based on the user principal name (UPN) as the unique user identifier.
+The policy relies on an established SSO setup between Microsoft Entra ID and SAP Gateway (use [SAP NetWeaver from the Microsoft Entra gallery](../../active-directory/saas-apps/sap-netweaver-tutorial.md#adding-sap-netweaver-from-the-gallery)). See below an example with the demo user Adele Vance. User mapping between Microsoft Entra ID and the SAP system happens based on the user principal name (UPN) as the unique user identifier.
 
-:::image type="content" source="media/expose-sap-odata-to-power-query/aad-user-config-for-sso.png" alt-text="Screenshot that shows the UPN of the demo user in Azure Active Directory.":::
+:::image type="content" source="media/expose-sap-odata-to-power-query/aad-user-config-for-sso.png" alt-text="Screenshot that shows the UPN of the demo user in Microsoft Entra ID.":::
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/aad-enterprise-sap-registration-sso.png" alt-text="Screenshot that shows the SAML2 configuration for SAP Gateway with UPN claim.":::
 
@@ -142,7 +142,7 @@ The UPN mapping is maintained on the SAP back end using transaction **SAML2**.
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/saml2-config.png" alt-text="Screenshot that shows the email mapping mode in SAP SAML2 transaction.":::
 
-According to this configuration **named SAP users** will be mapped to the respective Azure AD user. See below an example configuration from the SAP back end using transaction code **SU01**.
+According to this configuration **named SAP users** will be mapped to the respective Microsoft Entra user. See below an example configuration from the SAP back end using transaction code **SU01**.
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/sap-su01-config.png" alt-text="Screenshot of named SAP user in transaction SU01 with mapped email address.":::
 

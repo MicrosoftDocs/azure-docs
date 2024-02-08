@@ -20,6 +20,7 @@ Here are the main scenarios where rooms are useful:
 - **Rooms enable scheduled communication experience.** Rooms help service platforms deliver meeting-style experiences while still being suitably generic for a wide variety of industry applications. Services can schedule and manage rooms for patients seeking medical advice, financial planners working with clients, and lawyers providing legal services.
 - **Rooms enable an invite-only experience.** Rooms allow your services to control which users can join the room for a virtual appointment with doctors or financial consultants. This will allow only a subset of users with assigned Communication Services identities to join a room call.
 - **Rooms enable structured communications through roles and permissions.** Rooms allow developers to assign predefined roles to users to exercise a higher degree of control and structure in communication. Ensure only presenters can speak and share content in a large meeting or in a virtual conference.
+- **Add PSTN participants. (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))** Invite public switched telephone network (PSTN) participants to a call using a number purchased through your subscription or via Azure direct routing to your Session Border Controller (SBC).
 
 ## When to use rooms
 
@@ -58,7 +59,7 @@ The picture below illustrates the concept of managing and joining the rooms.
 
 :::image type="content" source="../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
 
-### Rooms API/SDKs
+### Virtual Rooms API/SDKs
 
 Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in your server application for `room` operations:
 - Create
@@ -67,6 +68,15 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 - Set and update the list of participants
 - Set and modify the Room validity
 - Assign roles and permissions to users. Details below.
+
+|Virtual Rooms SDK | Version | State|
+|-------------------| :-----------------------: | :-----------------------------: |
+| Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
+| Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
+| Virtual Rooms SDKs | 2023-03-31 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2022-02-01 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2021-04-07 | Will be retired on April 30, 2024 |
+
 
 ### Calling SDKs
 
@@ -115,8 +125,12 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Render a video in multiple places (local camera or remote stream) | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Set/Update video scaling mode | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Render remote video stream | ✔️ | ✔️ | ✔️ |
+| **Add PSTN participants** **| | |
+| - Call participants using phone calls | ✔️** | ❌ | ❌ |
 
-*) Only available on the web calling SDK. Not available on iOS and Android calling SDKs
+\* Only available on the web calling SDK. Not available on iOS and Android calling SDKs
+
+** Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Event handling
 

@@ -9,7 +9,6 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 04/05/2023
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Tutorial: Review your individual Azure subscription bill
@@ -36,7 +35,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Compare billed charges with your usage file
 

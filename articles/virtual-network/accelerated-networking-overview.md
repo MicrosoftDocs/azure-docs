@@ -3,6 +3,7 @@ title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
 author: steveesp
 ms.service: virtual-network
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: steveesp
@@ -11,6 +12,9 @@ ms.author: steveesp
 # Accelerated Networking overview
 
 This article describes the benefits, constraints, and supported configurations of Accelerated Networking. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance. This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for the most demanding network workloads.
+
+>[!NOTE]
+>For more information on Microsoft Azure Network Adapter (MANA) preview, please refer to the [Azure MANA Docs](./accelerated-networking-mana-overview.md)
 
 The following diagram illustrates how two VMs communicate with and without Accelerated Networking.
 
@@ -95,50 +99,50 @@ If you use a custom image that supports Accelerated Networking, make sure you ha
 
 Images with cloud-init version 19.4 or later have networking correctly configured to support Accelerated Networking during provisioning.
 
-# [RHEL, CentOS](#tab/redhat) 
+# [RHEL, CentOS](#tab/redhat)
 
 The following example shows a sample configuration drop-in for `NetworkManager` on RHEL or CentOS:
 
 ```bash
-sudo mkdir -p /etc/NetworkManager/conf.d 
-sudo cat > /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF 
-# Ignore SR-IOV interface on Azure, since it's transparently bonded 
-# to the synthetic interface 
-[keyfile] 
-unmanaged-devices=driver:mlx4_core;driver:mlx5_core 
-EOF 
+sudo mkdir -p /etc/NetworkManager/conf.d
+sudo cat > /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF
+# Ignore SR-IOV interface on Azure, since it's transparently bonded
+# to the synthetic interface
+[keyfile]
+unmanaged-devices=driver:mlx4_core;driver:mlx5_core
+EOF
 ```
 
-# [openSUSE, SLES](#tab/suse)  
+# [openSUSE, SLES](#tab/suse)
 
 The following example shows a sample configuration drop-in for `networkd` on openSUSE or SLES:
 
 ```bash
-sudo mkdir -p /etc/systemd/network 
-sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
-# Ignore SR-IOV interface on Azure, since it's transparently bonded 
-# to the synthetic interface 
-[Match] 
-Driver=mlx4_en mlx5_en mlx4_core mlx5_core 
-[Link] 
-Unmanaged=yes 
-EOF 
+sudo mkdir -p /etc/systemd/network
+sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF
+# Ignore SR-IOV interface on Azure, since it's transparently bonded
+# to the synthetic interface
+[Match]
+Driver=mlx4_en mlx5_en mlx4_core mlx5_core
+[Link]
+Unmanaged=yes
+EOF
 ```
 
-# [Ubuntu, Debian](#tab/ubuntu) 
+# [Ubuntu, Debian](#tab/ubuntu)
 
 The following example shows a sample configuration drop-in for `networkd` on Ubuntu, Debian, or Flatcar:
 
 ```bash
-sudo mkdir -p /etc/systemd/network 
-sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
-# Ignore SR-IOV interface on Azure, since it's transparently bonded 
-# to the synthetic interface 
-[Match] 
-Driver=mlx4_en mlx5_en mlx4_core mlx5_core 
-[Link] 
-Unmanaged=yes 
-EOF 
+sudo mkdir -p /etc/systemd/network
+sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF
+# Ignore SR-IOV interface on Azure, since it's transparently bonded
+# to the synthetic interface
+[Match]
+Driver=mlx4_en mlx5_en mlx4_core mlx5_core
+[Link]
+Unmanaged=yes
+EOF
 ```
 
 >[!NOTE]

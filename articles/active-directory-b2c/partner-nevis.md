@@ -2,21 +2,21 @@
 title: Tutorial to configure Azure Active Directory B2C with Nevis
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Nevis for passwordless authentication 
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 12/8/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm a developer, and I want to configure Nevis with Azure Active Directory B2C for passwordless authentication. I need to enable customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements.
 ---
 
 # Tutorial to configure Nevis with Azure Active Directory B2C for passwordless authentication
 
-In this tutorial, learn to enable passwordless authentication in Azure Active Directory B2C (Azure AD B2C) with the [Nevis](https://www.nevis.net/en/solution/authentication-cloud) Access app to enable customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements. PSD2 is a European Union (EU) directive, administered by the European Commission (Directorate General Internal Market) to regulate payment services and payment service providers throughout the EU and European Economic Area (EEA). 
+In this tutorial, learn to enable passwordless authentication in Azure Active Directory B2C (Azure AD B2C) with the Nevis Access app to enable customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements. PSD2 is a European Union (EU) directive, administered by the European Commission (Directorate General Internal Market) to regulate payment services and payment service providers throughout the EU and European Economic Area (EEA).  
 
 ## Prerequisites
 
@@ -24,7 +24,8 @@ To get started, you'll need:
 
 - A Nevis demo account
   - Go to nevis.net for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/) to request an account
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
@@ -86,7 +87,7 @@ The diagram shows the implementation.
 
 ### Integrate Azure AD B2C with Nevis
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Switch to your Azure AD B2C tenant. Note: the Azure AD B2C tenant usually is in a separate tenant.
 3. In the menu, select **Identity Experience Framework (IEF)**.
 4. Select **Policy Keys**.

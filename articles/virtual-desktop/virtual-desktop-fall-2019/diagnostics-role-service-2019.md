@@ -131,7 +131,7 @@ The following table lists common errors your admins might run into.
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
-|1322|ConnectionFailedNoMappingOfSIDinAD|The user isn't a member of Azure Active Directory. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|The user isn't a member of Microsoft Entra ID. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
 |3|UnauthorizedAccess|The user who tried to run the administrative PowerShell cmdlet either doesn't have permissions to do so or mistyped their username.|
 |1000|TenantNotFound|The tenant name you entered doesn't match any existing tenants. Review the tenant name for typos and try again.|
 |1006|TenantCannotBeRemovedHasSessionHostPools|You can't delete a tenant as long it contains objects. Delete the session host pools first, then try again.|
@@ -141,7 +141,7 @@ The following table lists common errors your admins might run into.
 |5001|SessionHostNotFound|The session host you queried might be offline. Check the host pool's status.|
 |5008|SessionHostUserSessionsExist |You must sign out all users on the session host before executing your intended management activity.|
 |6000|AppGroupNotFound|The application group name you entered doesn't match any existing application groups. Review the application group name for typos and try again.|
-|6022|RemoteAppNotFound|The RemoteApp name you entered doesn't match any RemoteApps. Review RemoteApp name for typos and try again.|
+|6022|RemoteAppNotFound|The RemoteApp name you entered doesn't match any application. Review RemoteApp name for typos and try again.|
 |6010|PublishedItemsExist|The name of the resource you're trying to publish is the same as a resource that already exists. Change the resource name and try again.|
 |7002|NameNotValidWhiteSpace|Don't use white space in the name.|
 |8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |

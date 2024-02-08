@@ -79,7 +79,7 @@ az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME}
 ```
 
 > [!NOTE]
-> If you delete this HSM the private endpiont will stop working. If your recover (undelete) this HSM later, you must re-create a new private endpoint.
+> If you delete this HSM the private endpoint will stop working. If your recover (undelete) this HSM later, you must re-create a new private endpoint.
 
 ### Create a Private Endpoint (Manually Request Approval) 
 ```azurecli

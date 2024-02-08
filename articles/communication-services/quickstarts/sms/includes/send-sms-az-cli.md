@@ -99,7 +99,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ## Send a 1:1 SMS message
 
-To send an SMS message to a list of recipients, call the `send` method from the sms module with a single recipient phone number. 
+To send an SMS message to a single recipient, call the `send` method from the sms module with a single recipient phone number. 
 
 ```azurecli-interactive
 az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
@@ -116,7 +116,7 @@ Make these replacements in the code:
 
 ## Send a 1:N SMS message
 
-To send an SMS message to a single recipient, call the `send` method from the sms module with multiple recipient phone numbers. 
+To send an SMS message to a list of recipients, call the `send` method from the sms module with multiple recipient phone numbers. 
 
 ```azurecli-interactive
 az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber1>" "<toPhoneNumber2>" "<toPhoneNumber3>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"

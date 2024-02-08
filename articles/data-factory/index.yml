@@ -5,15 +5,11 @@ summary: Azure Data Factory is Azure's cloud ETL service for scale-out serverles
 metadata:
   title: Azure Data Factory Documentation
   description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, and how to move and transform data for analysis.
-  services: data-factory
   ms.service: data-factory
   ms.topic: landing-page
-  ms.collection: collection
   author: jonburchel
   ms.author: jburchel
-  ms.date: 04/12/2023
-  ms.custom: contperf-fy21q4
-
+  ms.date: 01/05/2024
 landingContent:
   - title: What's New in Azure Data Factory
     linkLists:
@@ -31,6 +27,8 @@ landingContent:
         links:
           - text: Introduction to Azure Data Factory
             url: ./introduction.md
+          - text: Get started with Azure Data Factory
+            url: quickstart-get-started.md
       - linkListType: reference
         links:
           - text: Whitepapers
@@ -123,6 +121,20 @@ landingContent:
             url: ./data-transformation-functions.md 
           - text: Change Data Capture (CDC)
             url: ./concepts-change-data-capture.md
+  - title: Change data capture (CDC)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Change data capture
+            url: concepts-change-data-capture.md
+      - linkListType: concept
+        links:
+          - text: Change data capture resources
+            url: concepts-change-data-capture-resource.md
+      - linkListType: tutorial
+        links:
+          - text: Capture changed data with a CDC resource
+            url: how-to-change-data-capture-resource.md            
   - title: Managed Airflow
     linkLists:
       - linkListType: concept
@@ -149,20 +161,6 @@ landingContent:
             url: industry-sap-templates.md
           - text: SAP change data capture (CDC) capabilities
             url: sap-change-data-capture-introduction-architecture.md
-  - title: Change data capture (CDC)
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Change data capture
-            url: concepts-change-data-capture.md
-      - linkListType: concept
-        links:
-          - text: Change data capture resources
-            url: concepts-change-data-capture-resource.md
-      - linkListType: tutorial
-        links:
-          - text: Capture changed data with a CDC resource
-            url: how-to-change-data-capture-resource.md
   - title: Lift and shift SSIS packages
     linkLists:
       - linkListType: overview

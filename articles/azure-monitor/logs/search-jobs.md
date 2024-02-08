@@ -4,7 +4,7 @@ description: Search jobs are asynchronous log queries in Azure Monitor that make
 ms.topic: conceptual
 ms.date: 10/01/2022
 ms.custom: references_regions 
-#customer-intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
+# Customer intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
 ---
 
 # Run search jobs in Azure Monitor
@@ -261,21 +261,19 @@ Search jobs are intended to scan large volumes of data in a specific table. Ther
 - [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
 - [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
-- [parse](/azure/data-explorer/kusto/query/whereoperator)
-- [parse-where](/azure/data-explorer/kusto/query/whereoperator)
+- [parse](/azure/data-explorer/kusto/query/parse-operator)
+- [parse-where](/azure/data-explorer/kusto/query/parse-where-operator)
 
 You can use all functions and binary operators within these operators.
 
 ## Pricing model
 The charge for a search job is based on: 
 
-- Search job execution - the amount of data the search job needs to scan.
-- Search job results - the amount of data ingested in the results table, based on the regular log data ingestion prices.
+- Search job execution - the amount of data the search job scans.
+- Search job results - the amount of data the search job finds and is ingested into the results table, based on the regular log data ingestion prices.
 
-For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job returns 1000 records, you'll be charged for ingesting these 1000 records into the results table. 
-
-> [!NOTE]
-> Search job execution is free until early 2023. In other words, until early 2023, you will only incur charges for ingesting the search results, not for executing the search job. 
+For example, if your table holds 500 GB per day, for a search over 30 days, you'll be charged for 15,000 GB of scanned data. 
+If the search job finds 1,000 records that match the search query, you'll be charged for ingesting these 1,000 records into the results table. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

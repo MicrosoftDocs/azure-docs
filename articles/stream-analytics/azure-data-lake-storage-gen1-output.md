@@ -12,7 +12,7 @@ ms.date: 08/25/2020
 
 Stream Analytics supports [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) outputs. Azure Data Lake Storage is an enterprise-wide, hyperscale repository for big data analytic workloads. You can use Data Lake Storage to store data of any size, type, and ingestion speed for operational and exploratory analytics. Stream Analytics needs to be authorized to access Data Lake Storage.
 
-Azure Data Lake Storage output from Stream Analytics is not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
+Azure Data Lake Storage output from Stream Analytics is not available in Microsoft Azure operated by 21Vianet and Azure Germany (T-Systems International).
 
 ## Output configuration
 

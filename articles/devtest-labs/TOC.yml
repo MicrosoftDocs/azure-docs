@@ -225,26 +225,14 @@
     href: report-usage-across-multiple-labs-subscriptions.md
   - name: DevTest Labs in the enterprise
     items:
-    - name: DevTest Labs at enterprise scale
-      href: devtest-lab-guidance-prescriptive-adoption.md
     - name: Reference architecture
       href: devtest-lab-reference-architecture.md
     - name: Deliver proof of concept
       href: deliver-proof-concept.md
     - name: Scale up your DevTest Labs deployment
       href: devtest-lab-guidance-scale.md
-    - name: Orchestrate the implementation
-      href: devtest-lab-guidance-orchestrate-implementation.md
-    - name: Governance
-      items:
-      - name: Resources
-        href: devtest-lab-guidance-governance-resources.md
-      - name: Cost and ownership
-        href: devtest-lab-guidance-governance-cost-ownership.md
-      - name: Policy and compliance
-        href: devtest-lab-guidance-governance-policy-compliance.md
-      - name: Application migration and integration
-        href: devtest-lab-guidance-governance-application-migration-integration.md
+    - name: Governance of DevTest Labs
+      href: devtest-lab-guidance-governance-resources.md
   - name: Publish an app for testing
     href: test-app-azure.md
   - name: Troubleshoot
@@ -263,8 +251,6 @@
       href: create-alerts.md
   - name: Move to new region
     href: how-to-move-labs.md
-  - name: Move schedules to another region
-    href: how-to-move-schedule-to-new-region.md
 - name: Reference
   items:
   - name: CLI

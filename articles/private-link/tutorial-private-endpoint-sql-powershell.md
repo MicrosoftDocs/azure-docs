@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Azure SQL server and private endpoint.
+> * Create an Azure SQL server and private endpoint.
 > * Test connectivity to the SQL server private endpoint.
 
 ## Prerequisites
@@ -263,7 +263,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 
 In this section, you'll use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
  
 2. Select **Resource groups** in the left-hand navigation pane.
 

@@ -3,16 +3,13 @@ title: How to use CalculatedContent templates with the MedTech service device ma
 description: Learn how to use CalculatedContent templates with the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
 # How to use CalculatedContent templates with the MedTech service device mapping
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article provides an overview of how to use CalculatedContent templates within a MedTech service device mapping.
 
@@ -48,15 +45,18 @@ In the following example, `typeMatchExpression` is defined as:
 
 The CalculatedContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
-|Element|Description|JSONPath expression|JMESPath expression|
-|:------|:----------|:------------------|:------------------|
+|Element|Description|JSONPath expression example|JMESPath expression example|
+|:------|:----------|:--------------------------|:--------------------------|
 |typeMatchExpression|The expression that the MedTech service evaluates against the device message payload. If the service finds a matching token value, it considers the template a match. The service evaluates all later expressions against the extracted token value matched here.|`$..[?(@heartRate)]`|``[Body][?contains(keys(@), `heartRate`)] \| @[0]``|
 |deviceIdExpression|The expression to extract the device identifier.|`$.matchedToken.deviceId`|`@.matchedToken.deviceId`|
 |timestampExpression|The expression to extract the timestamp value for the measurement's `OccurrenceTimeUtc` value.|`$.matchedToken.endDate`|`@.matchedToken.endDate`|
 |patientIdExpression|The expression to extract the patient identifier. *Required* when the MedTech services's **Resolution type** is set to **Create**, and *optional* when the MedTech service's **Resolution type** is set to **Lookup**.|`$.matchedToken.patientId`|`@.matchedToken.patientId`|
 |encounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|`@.matchedToken.encounterId`
-|correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mapping.|`$.matchedToken.correlationId`|`@.matchedToken.correlationId`|
+|correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR&reg; destination mapping.|`$.matchedToken.correlationId`|`@.matchedToken.correlationId`|
 |values[].valueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|`@.matchedToken.heartRate`|
+
+> [!NOTE]
+> The **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown. For more information on configuring the MedTech service **Resolution type**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 ## Expression languages
 
@@ -67,7 +67,7 @@ When you're specifying the language to use for the expression, the following val
 | JSONPath            | `JsonPath` |
 | JMESPath            | `JmesPath` |
 
-Because JSONPath is the default expression language, it's not required to include the expression language within a CalculatedContent template:
+Because JSONPath is the default expression language, it's not required to include the expression language within a CalculatedContent template.
 
 ```json
 "templateType": "CalculatedContent",
@@ -110,9 +110,9 @@ In this example, we're using a device message that is capturing `heartRate` data
 
 ```json
 {
-  "heartRate": "78",
-  "endDate": "2023-03-13T22:46:01.8750000",
-  "deviceId": "device01"
+    "heartRate": "78",
+    "endDate": "2023-03-13T22:46:01.8750000",
+    "deviceId": "device01"
 }
 ```
 
@@ -120,11 +120,11 @@ The event hub enriches the device message before the MedTech service reads the d
 
 ```json
 {
-  "Body": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
-    "deviceId": "device01"
-  }
+    "Body": {
+        "heartRate": "78",
+        "endDate": "2023-03-13T22:46:01.8750000",
+        "deviceId": "device01"
+    }
 }
 ```
 
@@ -132,27 +132,28 @@ We're using this device mapping for the normalization stage:
 
 ```json
 {
-  "templateType": "CollectionContent",
-  "template": [
-    {
-      "templateType": "CalculatedContent",
-      "template": {
-        "typeName": "heartrate",
-        "typeMatchExpression": "$..[?(@heartRate)]",
-        "deviceIdExpression": "$.matchedToken.deviceId",
-        "timestampExpression": "$.matchedToken.endDate",
-        "values": [
-          {
-            "required": true,
-            "valueExpression": "$.matchedToken.heartRate",
-            "valueName": "hr"
-          }
-        ]
-      }
-    }
-  ]
+    "templateType": "CollectionContent",
+    "template": [
+        {
+            "templateType": "CalculatedContent",
+            "template": {
+                "typeName": "heartrate",
+                "typeMatchExpression": "$..[?(@heartRate)]",
+                "deviceIdExpression": "$.matchedToken.deviceId",
+                "timestampExpression": "$.matchedToken.endDate",
+                "values": [
+                    {
+                        "required": true,
+                        "valueExpression": "$.matchedToken.heartRate",
+                        "valueName": "hr"
+                    }
+                ]
+            }
+        }
+    ]
 }
 ```
+
 > [!IMPORTANT]
 > The MedTech service evaluates `typeMatchExpression` against the incoming device data payload. If the service finds a matching token value, it considers the template a match.
 >
@@ -162,16 +163,16 @@ We're using this device mapping for the normalization stage:
 
 ```json
 {
-  "Body": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
-    "deviceId": "device01"
-  },
-  "matchedToken": {
-    "heartRate": "78",
-    "endDate": "2023-03-13T22:46:01.8750000",
-    "deviceId": "device01"
-  }
+    "Body": {
+        "heartRate": "78",
+        "endDate": "2023-03-13T22:46:01.8750000",
+        "deviceId": "device01"
+    },
+    "matchedToken": {
+        "heartRate": "78",
+        "endDate": "2023-03-13T22:46:01.8750000",
+        "deviceId": "device01"
+    }
 }
 ```
 
@@ -179,17 +180,17 @@ The resulting normalized message will look like this after the normalization sta
 
 ```json
 [
-  {
-    "type": "heartrate",
-    "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
-    "deviceId": "device01",
-    "properties": [
-      {
-        "name": "hr",
-        "value": "78"
-      }
-    ]
-  }
+    {
+        "type": "heartrate",
+        "occurrenceTimeUtc": "2023-03-13T22:46:01.875Z",
+        "deviceId": "device01",
+        "properties": [
+            {
+                "name": "hr",
+                "value": "78"
+            }
+        ]
+    }
 ]
 ```
 
@@ -200,11 +201,10 @@ The resulting normalized message will look like this after the normalization sta
 
 ## Next steps
 
-In this article, you learned how to use CalculatedContent templates with the MedTech service device mapping.
+[How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
 
-To learn how to use the MedTech service custom functions, see:
+[Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-> [!div class="nextstepaction"]
-> [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office, and is used with permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

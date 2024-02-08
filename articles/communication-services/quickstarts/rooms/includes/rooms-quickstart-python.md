@@ -120,19 +120,38 @@ Create a new `room` using the `participants` defined in the code snippet above:
 # Create a room
 valid_from = datetime.now()
 valid_until = valid_from + timedelta(weeks=4)
+pstn_dial_out_enabled = False
 
 try:
     create_room = rooms_client.create_room(
         valid_from=valid_from,
         valid_until=valid_until,
+        pstn_dial_out_enabled=pstn_dial_out_enabled,
         participants=participants
     )
     print("\nCreated a room with id: " + create_room.id)
 except HttpResponseError as ex:
     print(ex)
 ```
+*pstn_dial_out_enabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `room.id` in the storage medium of choice. You can reference the `id` to view or update the properties of a `room` object.
+
+### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstn_dial_out_enabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstn_dial_out_enabled` parameter.
+
+```python
+# Create a room with PSTN dial out capability
+pstn_dial_out_enabled = True
+create_room = rooms_client.create_room(pstn_dial_out_enabled=pstn_dial_out_enabled)
+print("\nCreated room with pstn_dial_out_enabled: " + updated_room.pstn_dial_out_enabled)
+
+# Update a room to enable or disable PSTN dial out capability
+pstn_dial_out_enabled= False
+updated_room = rooms_client.update_room(room_id=room_id, pstn_dial_out_enabled=pstn_dial_out_enabled)
+print("\nUpdated room with pstn_dial_out_enabled: " + updated_room.pstn_dial_out_enabled)
+
+```
 
 ## Get properties of an existing room
 
@@ -156,10 +175,11 @@ The lifetime of a `room` can be modified by issuing an update request for the `v
 # Update the lifetime of a room
 valid_from =  datetime.now()
 valid_until = valid_from + timedelta(weeks=7)
+pstn_dial_out_enabled=True
 
 try:
-    updated_room = rooms_client.update_room(room_id=room_id, valid_from=valid_from, valid_until=valid_until)
-     print("\nUpdated room with validFrom: " + updated_room.valid_from + " and validUntil: " + updated_room.valid_until)
+    updated_room = rooms_client.update_room(room_id=room_id, valid_from=valid_from, valid_until=valid_until, pstn_dial_out_enabled=pstn_dial_out_enabled)
+     print("\nUpdated room with validFrom: " + updated_room.valid_from + ", validUntil: " + updated_room.valid_until + " and pstn_dial_out_enabled: " + updated_room.pstn_dial_out_enabled)
 except HttpResponseError as ex:
     print(ex)
 ```
@@ -179,7 +199,9 @@ try:
         print("\nPrinting the first room in list"
             "\nRoom Id: " + room.id +
             "\nCreated date time: " + str(room.created_at) +
-            "\nValid From: " + str(room.valid_from) + "\nValid Until: " + str(room.valid_until))
+            "\nValid From: " + str(room.valid_from) + 
+            "\nValid Until: " + str(room.valid_until) +
+            "\nPSTN Dial-Out Enabled: " + str(room.pstn_dial_out_enabled))
         count += 1
 except HttpResponseError as ex:
     print(ex)
@@ -270,13 +292,14 @@ Created a room with id:  99445276259151407
 
 Retrieved room with id:  99445276259151407
 
-Updated room with validFrom: 2023-05-03T00:00:00+00:00  and validUntil: 2023-06-23T00:00:00+00:00
+Updated room with validFrom: 2023-05-03T00:00:00+00:00, validUntil: 2023-06-23T00:00:00+00:00 and pstn_dial_out_enabled: True
 
 Printing the first room in list
 Room Id: 99445276259151407
 Created date time: 2023-05-03T00:00:00+00:00
 Valid From: 2023-05-03T00:00:00+00:00
 Valid Until: 2023-06-23T00:00:00+00:00
+PSTN Dial-Out Enabled: True
 
 Add or update participants in room
 

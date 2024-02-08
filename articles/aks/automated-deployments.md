@@ -15,7 +15,7 @@ Automated deployments simplify the process of setting up a GitHub Action and cre
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE]
-> This feature is not yet available in all regions.
+> Private clusters are currently not supported.
 
 ## Prerequisites
 

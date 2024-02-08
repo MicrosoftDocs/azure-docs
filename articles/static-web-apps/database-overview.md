@@ -78,7 +78,7 @@ Here's an example command that starts the SWA CLI with a database connection:
 swa start ./src --data-api-location swa-db-connections
 ```
 
-This command starts the SWA CLI in the *src* directory. The `--data-api-location` option tells the CLI that a folder named *swa-db-connections* holds the *[staticwebapps.database.config.json](https://github.com/MicrosoftDocs/data-api-builder-docs/blob/main/data-api-builder/configuration-file.md)* file.
+This command starts the SWA CLI in the *src* directory. The `--data-api-location` option tells the CLI that a folder named *swa-db-connections* holds the *[staticwebapp.database.config.json](https://github.com/MicrosoftDocs/data-api-builder-docs/blob/main/data-api-builder/configuration-file.md)* file.
 
 > [!NOTE]
 > In development, if you use a connection string to authenticate, use the `env()` function to read a connection string from an environment variable. The string passed in to the `env` function must be surrounded by quotes.

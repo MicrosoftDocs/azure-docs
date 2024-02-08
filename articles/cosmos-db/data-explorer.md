@@ -1,12 +1,11 @@
 ---
-title: Use Azure Cosmos DB Explorer to manage your data 
+title: Use Azure Cosmos DB Explorer to manage your data
 description: Learn about Azure Cosmos DB Explorer, a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB.
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 03/02/2023
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ---
 
 # Work with data using Azure Cosmos DB Explorer
@@ -43,7 +42,7 @@ To open Azure Cosmos DB Explorer from the Azure portal:
 
 Currently, viewing documents that contain a UUID isn't supported in Data Explorer. This limitation doesn't affect loading collections, only viewing individual documents or queries that include these documents. To view and manage these documents, users should continue to use the tool that was originally used to create these documents.
 
-Customers receiving HTTP-401 errors may be due to insufficient Azure RBAC permissions for your Azure account, particularly if the account has a custom role. Any custom roles must have `Microsoft.DocumentDB/databaseAccounts/listKeys/*` action to use Data Explorer if signing in using their Azure Active Directory credentials.
+Customers receiving HTTP-401 errors may be due to insufficient Azure RBAC permissions for your Azure account, particularly if the account has a custom role. Any custom roles must have `Microsoft.DocumentDB/databaseAccounts/listKeys/*` action to use Data Explorer if signing in using their Microsoft Entra credentials.
 
 ## Next steps
 

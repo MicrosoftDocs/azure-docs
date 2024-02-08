@@ -15,11 +15,11 @@ ms.reviewer: franksolomon
 
 # CLI (v2) import schedule YAML schema
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-CLI-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/schedule.schema.json.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -27,7 +27,6 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- |
 | `$schema` | string | The YAML schema. | |
 | `name` | string | **Required.** Name of the schedule. | |
-| `version` | string | Version of the schedule. If omitted, Azure Machine Learning autogenerates a version. | |
 | `description` | string | Description of the schedule. | |
 | `tags` | object | Dictionary of tags for the schedule. | |
 | `trigger` | object | The trigger configuration to define rule when to trigger job. **One of `RecurrenceTrigger` or `CronTrigger` is required.** | |
@@ -72,7 +71,7 @@ Recurrence schedule defines the recurrence pattern, containing `hours`, `minutes
 
 ### Import data definition (preview)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 Customer can directly use `import_data: ./<data_import>.yaml` or can use the following properties to define the data import definition.
 
@@ -92,7 +91,7 @@ Customer can directly use `import_data: ./<data_import>.yaml` or can use the fol
 | `path` | string | Define this value only when the `type` defined above is `FileSystem` The folder path of the folder in the external source of type `FileSystem` where the file(s) or data that needs to be imported resides.| | |
 | `connection` | string | **Required.** The connection property for the external source referenced in the format of `azureml:<connection_name>` | | |
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Remarks
 
@@ -104,7 +103,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: Schedule for a data import with recurrence pattern
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-CLI-v2.md)]
 
 ## YAML: Schedule for data import with recurrence pattern (preview)
 ```yml
@@ -156,7 +155,7 @@ import_data:
 
 ## YAML: Schedule for a data import with cron expression
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-CLI-v2.md)]
 
 ## YAML: Schedule for data import with cron expression (preview)
 ```yml

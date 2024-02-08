@@ -1,14 +1,13 @@
 ---
 title: Considerations for running ISV file services in Azure
 titleSuffix: Azure Storage
-description: Basic guidance for different ISV options on running file services in Azure 
+description: Basic guidance for different ISV options on running file services in Azure
 author: dukicn
 ms.author: nikoduki
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 03/22/2022
-ms.service: storage
-ms.subservice: common
-ms.custom: ignite-2022
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ---
 
 # Running ISV file services in Azure
@@ -128,7 +127,7 @@ This article compares several ISV solutions that provide files services in Azure
 
 |                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
 |-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **Azure AD support**                                | Yes (via AD DS)      | Yes (via AD DS)                | Yes (via AD DS)           | Yes                   | Yes (via AD DS)       | Yes (via AD DS)       |
+| **Microsoft Entra ID support**                                | Yes (via AD DS)      | Yes (via AD DS)                | Yes (via AD DS)           | Yes                   | Yes (via AD DS)       | Yes (via AD DS)       |
 | **Active directory support**                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
 | **LDAP support**                                    | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   |
 

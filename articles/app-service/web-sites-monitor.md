@@ -6,8 +6,7 @@ ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
 ms.date: 06/29/2023
 ms.author: msangapu
-ms.custom: seodec18
-
+author: msangapu-msft
 ---
 # Monitor apps in Azure App Service
 [Azure App Service](./overview.md) provides

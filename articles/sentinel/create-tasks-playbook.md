@@ -13,10 +13,6 @@ This article explains how to use playbooks to create (and optionally perform) in
 
 [Incident tasks](incident-tasks.md) can be created automatically not only by playbooks, but also by automation rules, and also manually, ad-hoc, from within an incident.
 
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Use cases for different roles
 
 This article addresses the following scenarios that apply to SOC managers, senior analysts, and automation engineers:
@@ -50,11 +46,11 @@ There are two ways to work with playbooks to generate tasks:
 
 ### Use a playbook to add a task and perform it
 
-In this example we're going to add a playbook action that adds a task to the incident to reset a compromised user's password, and we'll add another playbook action that sends a signal to Azure Active Directory Identity Protection (AADIP) to actually reset the password. Then we'll add a final playbook action to mark the task in the incident complete.
+In this example we're going to add a playbook action that adds a task to the incident to reset a compromised user's password, and we'll add another playbook action that sends a signal to Microsoft Entra ID Protection (AADIP) to actually reset the password. Then we'll add a final playbook action to mark the task in the incident complete.
 
 To add and configure these actions, take the following steps:
 
-1. From the **Microsoft Sentinel** connector, add the **Add task to incident (Preview)** action.  
+1. From the **Microsoft Sentinel** connector, add the **Add task to incident** action.  
     Choose the **Incident ARM ID** dynamic content item for the **Incident ARM id** field. Enter **Reset user password** as the **Title**. Add a description if you want.
 
     :::image type="content" source="media/create-tasks-playbook/add-task-reset-password.png" alt-text="Screenshot shows playbook actions to add a task to reset a user's password.":::
@@ -70,17 +66,17 @@ To add and configure these actions, take the following steps:
     :::image type="content" source="media/create-tasks-playbook/for-each-accounts.png" alt-text="Screenshot shows how to add a for-each loop action to a playbook in order to perform an action on each discovered account.":::
 
 1. Inside the **For each** loop, select **Add an action**.  
-    Search for and select the  **Azure AD Identity Protection** connector, and select the **Confirm a risky user as compromised (Preview)** action.  
-    Add the **Accounts AAD user ID** dynamic content item to the **userIds Item - 1** field.
+    Search for and select the  **Microsoft Entra ID Protection** connector, and select the **Confirm a risky user as compromised (Preview)** action.  
+    Add the **Accounts Microsoft Entra user ID** dynamic content item to the **userIds Item - 1** field.
 
     > [!NOTE]
-    > This field (Accounts AAD user ID) is one way to identify a user in AADIP. It might not necessarily be the best way in every scenario, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Azure AD Identity Protection documentation](../active-directory/identity-protection/overview-identity-protection.md).
+    > This field (Accounts Microsoft Entra user ID) is one way to identify a user in AADIP. It might not necessarily be the best way in every scenario, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Microsoft Entra ID Protection documentation](../active-directory/identity-protection/overview-identity-protection.md).
 
-    This action sets in motion processes inside Azure AD Identity Protection that will reset the user's password.
+    This action sets in motion processes inside Microsoft Entra ID Protection that will reset the user's password.
 
     :::image type="content" source="media/create-tasks-playbook/confirm-compromised.png" alt-text="Screenshot shows sending entities to AADIP to confirm compromise.":::
 
-1. Add the **Mark a task as completed (Preview)** action from the Microsoft Sentinel connector.  
+1. Add the **Mark a task as completed** action from the Microsoft Sentinel connector.  
     Add the **Incident task ID** dynamic content item to the **Task ARM id** field.
 
     :::image type="content" source="media/create-tasks-playbook/mark-complete.png" alt-text="Screenshot shows how to add a playbook action to mark an incident task complete.":::
@@ -112,14 +108,14 @@ In this example we're going to add a playbook action that researches an IP addre
     :::image type="content" source="media/create-tasks-playbook/set-condition.png" alt-text="Screenshot shows how to set a true-false condition in a playbook.":::
 
 1. Inside the **True** option, select **Add an action**.  
-    Select the **Add task to incident (Preview)** action from the **Microsoft Sentinel** connector.  
+    Select the **Add task to incident** action from the **Microsoft Sentinel** connector.  
     Choose the **Incident ARM ID** dynamic content item for the **Incident ARM id** field.  
     Enter **Mark user as compromised** as the **Title**. Add a description if you want.
 
     :::image type="content" source="media/create-tasks-playbook/condition-true.png" alt-text="Screenshot shows playbook actions to add a task to mark a user as compromised.":::
 
 1. Inside the **False** option, select **Add an action**.  
-    Select the **Add task to incident (Preview)** action from the **Microsoft Sentinel** connector.  
+    Select the **Add task to incident** action from the **Microsoft Sentinel** connector.  
     Choose the **Incident ARM ID** dynamic content item for the **Incident ARM id** field.  
     Enter **Reach out to the user to confirm the activity** as the **Title**. Add a description if you want.
 

@@ -5,20 +5,15 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: tutorial
-ms.date: 04/14/2023
-ms.custom: FY23 content-maintenance, engagement-FY23
+ms.date: 08/01/2023
+ms.custom: FY23 content-maintenance, engagement-FY24
 ---
 
 # Tutorial: Create a secured hub and spoke network
 
 In this tutorial, you create a hub and spoke network topology using Azure Virtual Network Manager. You then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. Also, you configure a security configuration to block outbound network traffic to the internet on ports 80 and 443. Last, you verify that configurations were applied correctly by looking at the virtual network and virtual machine settings.
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is now in General Availability for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in Public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 In this tutorial, you learn how to:
 
@@ -29,6 +24,7 @@ In this tutorial, you learn how to:
 > * Create a security configuration blocking traffic on port 80 and 443.
 > * Verify configurations were applied.
 
+:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png" alt-text="Diagram of secure hub and spoke topology components.":::
 ## Prerequisite
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

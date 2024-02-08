@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Configure authentication for the web app.
-> * Limit access to the web app to users in your organization by using Azure Active Directory (Azure AD) as the identity provider.
+> * Limit access to the web app to users in your organization by using Microsoft Entra ID as the identity provider.
 
 ## Automatic authentication provided by App Service
 
@@ -34,7 +34,7 @@ App service authentication provides:
 * Easily turn on and configure through the Azure portal and app settings. 
 * No SDKs, specific languages, or changes to application code are required.​ 
 * Several identity providers are supported:
-    * Azure AD
+    * Microsoft Entra ID
     * Microsoft Account
     * Facebook
     * Google

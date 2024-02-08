@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 01/18/2024
 tags: connectors
 ---
 
@@ -38,6 +38,13 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
     1. Use a Blob trigger that returns file properties, such as [**When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
 
     1. Follow the trigger with the Azure Blob Storage managed connector action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content), which reads the complete file and implicitly uses chunking.
+
+- Azure Blob Storage trigger limits
+
+  - The *managed* connector trigger is limited to 30,000 blobs in the polling virtual folder.
+  - The *built-in* connector trigger is limited to 10,000 blobs in the entire polling container.
+  
+  If the limit is exceeded, a new blob might not be able to trigger the workflow, so the trigger is skipped.
 
 ## Prerequisites
 

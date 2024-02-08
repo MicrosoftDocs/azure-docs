@@ -76,7 +76,7 @@ switchport mode trunk
 
 ## Deploy with unidirectional gateways/data diodes
 
-You might deploy Defender for IoT with unidirectional gateways, also known as data diodes. Data diodes provide a secure way to monitor networks as they only allow data to flow in one direction. This means data can be monitored without compromising the security of the network, as data cannot be sent back in the opposite direction. Examples of data diode solutions are [Waterfall](https://waterfall-security.com/data-diode-solutions/), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://hirschmann.com/en/Hirschmann_Produkte/Hirschmann-News/Rail_Data_Diode/index.phtml).
+You might deploy Defender for IoT with unidirectional gateways, also known as data diodes. Data diodes provide a secure way to monitor networks as they only allow data to flow in one direction. This means data can be monitored without compromising the security of the network, as data cannot be sent back in the opposite direction. Examples of data diode solutions are [Waterfall](https://waterfall-security.com), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://hirschmann.com/en/Hirschmann_Produkte/Hirschmann-News/Rail_Data_Diode/index.phtml).
 
 If unidirectional gateways are needed, we recommend deploying your data diodes on the SPAN traffic going to the sensor monitoring port. For example, use a data diode to monitor traffic from a sensitive system, such as an industrial control system, while keeping the system completely isolated from the monitoring system. 
 

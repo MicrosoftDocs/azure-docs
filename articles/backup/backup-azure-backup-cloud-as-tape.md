@@ -3,9 +3,10 @@ title: How to replace your tape infrastructure
 description: Learn how Azure Backup provides tape-like semantics that enable you to back up and restore data in Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Move your long-term storage from tape to the Azure cloud
 
 Azure Backup and System Center Data Protection Manager customers can:

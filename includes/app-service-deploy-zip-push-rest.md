@@ -29,11 +29,13 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 While deploying synchronously you may receive errors related to connection timeouts. Add `?isAsync=true` to the URL to deploy asynchronously. You will receive a response as soon as the zip file is uploaded with a `Location` header pointing to the pollable deployment status URL. When polling the URL provided in the `Location` header, you will receive a HTTP 202 (Accepted) response while the process is ongoing and a HTTP 200 (OK) response once the archive has been expanded and the deployment has completed successfully.
 
-#### Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-An alternative to using HTTP BASIC authentication for the zip deployment is to use an Azure AD identity. Azure AD identity may be needed if [HTTP BASIC authentication is disabled for the SCM site](../articles/app-service/deploy-configure-credentials.md#disable-basic-authentication).
+#### Microsoft Entra authentication
 
-A valid Azure AD access token for the the user or service principal performing the deployment will be required. An access token can be retrieved using the Azure CLI's `az account get-access-token` command.  The access token will be used in the Authentication header of the HTTP POST request.
+An alternative to using HTTP BASIC authentication for the zip deployment is to use a Microsoft Entra identity. Microsoft Entra identity may be needed if [HTTP BASIC authentication is disabled for the SCM site](../articles/app-service/deploy-configure-credentials.md#disable-basic-authentication).
+
+A valid Microsoft Entra access token for the user or service principal performing the deployment will be required. An access token can be retrieved using the Azure CLI's `az account get-access-token` command.  The access token will be used in the Authentication header of the HTTP POST request.
 
 ```bash
 curl -X POST \

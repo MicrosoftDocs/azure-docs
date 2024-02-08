@@ -5,7 +5,7 @@ services:  automation
 ms.subservice: update-management
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 09/18/2020 
+ms.date: 09/18/2020
 ---
 
 # Enable Update Management using Azure Resource Manager template
@@ -178,25 +178,25 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
             }
           }
         },
-    	{
-    		"apiVersion": "2015-11-01-preview",
-    		"location": "[parameters('location')]",
-    		"name": "[variables('Updates').name]",
-    		"type": "Microsoft.OperationsManagement/solutions",
-    		"id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
-    		"dependsOn": [
-    			"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-    		],
-    		"properties": {
-    			"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-    		},
-    		"plan": {
-    			"name": "[variables('Updates').name]",
-    			"publisher": "Microsoft",
-    			"promotionCode": "",
-    			"product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
-    		}
-    	},
+      {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('location')]",
+        "name": "[variables('Updates').name]",
+        "type": "Microsoft.OperationsManagement/solutions",
+        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
+        "dependsOn": [
+          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+        ],
+        "properties": {
+          "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+        },
+        "plan": {
+          "name": "[variables('Updates').name]",
+          "publisher": "Microsoft",
+          "promotionCode": "",
+          "product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
+        }
+      },
         {
           "type": "Microsoft.Automation/automationAccounts",
           "apiVersion": "2020-01-13-preview",

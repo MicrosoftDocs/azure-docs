@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 12/13/2023
 ---
 
 # Data operation code samples for Azure Logic Apps
@@ -324,7 +324,7 @@ To try the [**Parse JSON** action example](../logic-apps/logic-apps-perform-data
 
 ## Select
 
-To try the [**Select** action example](../logic-apps/logic-apps-perform-data-operations.md#select-action), here are the action definitions you can use:
+To try the [**Select** action example](../logic-apps/logic-apps-perform-data-operations.md#select-action), the following action definitions create a JSON object array from an integer array:
 
 ```json
 "actions": {
@@ -356,6 +356,43 @@ To try the [**Select** action example](../logic-apps/logic-apps-perform-data-ope
       },
       "runAfter": {
          "Initialize_variable_-_integer_array": [
+           "Succeeded"
+         ]
+      }
+   }
+},
+```
+
+The following example shows action definitions that create a string array from a JSON object array, but for this task, next to the **Map** box, switch to text mode (![Icon for text mode.](media/logic-apps-perform-data-operations/text-mode.png)) in the designer, or use the code view editor instead:
+
+```json
+"actions": {
+   "Initialize_variable_-_object_array": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [ 
+            {
+               "name": "myObjectArray",
+               "type": "Array",
+               "value": [
+                  {"Val":"1", "Txt":"One"},
+                  {"Val":"2", "Txt":"Two"},
+                  {"Val":"4", "Txt":"Four"},
+                  {"Val":"10", "Txt":"Ten"}
+               ]
+            }
+         ]
+      },
+      "runAfter": {}
+   },
+   "Select": {
+      "type": "Select",
+      "inputs": {
+         "from": "@body('myObjectArray')?['value']",
+         "select": "@{item()?['Txt']}"
+      },
+      "runAfter": {
+         "Initialize_variable_-_object_array": [
            "Succeeded"
          ]
       }

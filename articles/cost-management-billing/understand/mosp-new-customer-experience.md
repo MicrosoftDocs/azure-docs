@@ -204,9 +204,9 @@ After your Azure billing account is updated, you'll get an email from Microsoft 
 
     Some customers have two identities with the same email address - a work account and a Microsoft account. Typically, only one of their identities has permissions to perform billing administration. If they sign in with the identity that doesn't have permission, they would not be able to accept the terms. Verify that you're using the correct identity to sign in.
 
-- You have signed in to the incorrect Azure Active Directory (Azure AD) tenant. 
+- You have signed in to the incorrect Microsoft Entra tenant. 
 
-    Your billing account is associated with an Azure AD tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Azure AD tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
+    Your billing account is associated with a Microsoft Entra tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Microsoft Entra tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
 
     1. Select your email from the top right of the page.
 

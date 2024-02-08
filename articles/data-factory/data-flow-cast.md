@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Cast transformation in mapping data flow 
@@ -51,6 +51,6 @@ To modify the data type for columns in your data flow, add columns to "Cast sett
 	),
 	errors: true) ~> <castTransformationName<>
 ```
-## Next steps
+## Related content
 
 Modify existing columns and new columns using the [derived column transformation](data-flow-derived-column.md).

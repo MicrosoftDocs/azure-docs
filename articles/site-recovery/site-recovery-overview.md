@@ -20,6 +20,8 @@ Azure Recovery Services contributes to your BCDR strategy:
 - **Site Recovery service**: Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery [replicates](azure-to-azure-quickstart.md) workloads running on physical and virtual machines (VMs) from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to a secondary location, and access apps from there. After the primary location is running again, you can fail back to it.
 - **Backup service**: The [Azure Backup](../backup/index.yml) service keeps your data safe and recoverable.
 
+Azure Site Recovery has an option of *High Churn*, enabling you to configure disaster recovery for Azure VMs having data churn up to 100 MB/s. This helps you to enable disaster recovery for more IO intensive workloads. [Learn more](../site-recovery/concepts-azure-to-azure-high-churn-support.md).
+
 Site Recovery can manage replication for:
 
 - Azure VMs replicating between Azure regions
@@ -56,7 +58,7 @@ Site Recovery can manage replication for:
 **Replication scenarios** | Replicate Azure VMs from <br/>1. One Azure region to another.<br/>2. Azure Public MEC to the Azure region it's connected to.<br/>3. One Azure Public MEC to another Public MEC connected to same Azure region.<br/><br/>  Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux), Azure Stack VMs to Azure.<br/><br/> Replicate AWS Windows instances to Azure.<br/><br/> Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
 **Regions** | Review [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery) for Site Recovery. |
 **Replicated machines** | Review the replication requirements for [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) replication, [on-premises VMware VMs and physical servers](vmware-physical-azure-support-matrix.md#replicated-machines), and [on-premises Hyper-V VMs](hyper-v-azure-support-matrix.md#replicated-vms).
-**Workloads** | You can replicate any workload running on a machine that's supported for replication. And, the Site Recovery team did app-specific tests for a [number of apps](site-recovery-workload.md#workload-summary).
+**Workloads** | You can replicate any workload running on a machine that's supported for replication. Learn more about the app-specific [workload summary](site-recovery-workload.md#workload-summary). 
 
 ## Next steps
 

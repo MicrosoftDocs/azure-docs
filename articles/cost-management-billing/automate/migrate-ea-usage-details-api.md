@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Usage Details APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/18/2022
+ms.date: 01/30/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Migrate from EA Usage Details APIs
@@ -67,16 +67,6 @@ The table below summarizes the different APIs that you may be using today to ing
 | `/v3/enrollments/{enrollmentNumber}/usagedetailsbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON |
 | `/v3/enrollments/{enrollmentNumber}/usagedetails/submit?billingPeriod={billingPeriod}` | - API method: POST<br> - Asynchronous (polling based)<br> - Data format: CSV |
 | `/v3/enrollments/{enrollmentNumber}/usagedetails/submit?startTime=2017-04-01&endTime=2017-04-10` | - API method: POST<br> - Asynchronous (polling based)<br> - Data format: CSV |
-
-## Enterprise Marketplace Store Charge APIs to migrate off
-
-In addition to the usage details APIs outlined above, you'll need to migrate off the [Enterprise Marketplace Store Charge APIs](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge). All Azure and Marketplace charges have been merged into a single file that is available through the new solutions. You can identify which charges are *Azure* versus *Marketplace* charges by using the `PublisherType` field that is available in the new dataset. The table below outlines the applicable APIs. All of the following APIs are behind the *https://consumption.azure.com* endpoint.
-
-| Endpoint | API Comments | 
-| --- | --- |
-| `/v3/enrollments/{enrollmentNumber}/marketplacecharges` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON |
-| `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON |
-| `/v3/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | - API method: GET<br> - Synchronous (non polling)<br> - Data format: JSON | 
 
 ## Data field mapping
 

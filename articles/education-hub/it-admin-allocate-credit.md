@@ -61,7 +61,7 @@ After you have created credits, they will be shown as rows in the "Credits" tab.
    
 3. You can also modify which Educator's have access to the Credit. To do this, navigate to Cost Management and add or remove Educators from the billing profile associated with the credit.
 
-The chosen Educators should now receive an email inviting them to visit the Education Hub to begin using these Credits. Ensure the Educators log into the Azure portal with the account associated with the credit's billing profile.
+The chosen Educators should now receive an email inviting them to visit the Education Hub to begin using these Credits. Ensure the Educators sign in to the Azure portal with the account associated with the credit's billing profile.
 
 ## Next steps
 

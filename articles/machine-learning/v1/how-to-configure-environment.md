@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 09/30/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022, build-2023
+ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, sdkv1, build-2023
 ---
 
 # Set up a Python development environment for Azure Machine Learning (v1)
@@ -64,7 +64,7 @@ Create a workspace configuration file in one of the following methods:
 
     Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace#write-config-path-none--file-name-none-) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -129,7 +129,7 @@ To use Visual Studio Code for development:
 1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Install the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md) (preview).
 
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Once you have the Visual Studio Code extension installed, use it to:
 
@@ -146,10 +146,10 @@ There's nothing to install or configure for a compute instance.
 
 Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with [Create resources to get started](../quickstart-create-resources.md).
 
-To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
+To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [stop the compute instance](../how-to-create-manage-compute-instance.md#manage). Or [enable idle shutdown](../how-to-create-manage-compute-instance.md#enable-idle-shutdown) for the compute instance.
+> To prevent incurring charges for an unused compute instance, [stop the compute instance](../how-to-manage-compute-instance.md). Or [enable idle shutdown](../how-to-create-compute-instance.md#configure-idle-shutdown) for the compute instance.
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](../how-to-run-jupyter-notebooks.md).
 

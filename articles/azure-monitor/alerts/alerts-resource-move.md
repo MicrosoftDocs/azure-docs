@@ -6,7 +6,7 @@ ms.custom: subject-moving-resources
 ms.date: 05/28/2023
 ms.reviewer: ofmanor
 ---
-# How to update alert rules or alert processing rules when their target resource moves to a different Azure region
+# Update alert rules or alert processing rules when their target resource moves to a different Azure region
 
 This article describes why existing [alert rules](./alerts-overview.md) and [alert processing rules](./alerts-action-rules.md) may be impacted when you move other Azure resources between regions, and how to identify and resolve those issues. Check the main [resource move documentation](../../azure-resource-manager/management/move-resources-overview.md) for additional information on when is resource move between regions useful and a checklist of designing a move process.
 
@@ -28,7 +28,7 @@ When you move a resource, its resource ID changes in most cases. Behind the scen
 Alert rules and alert processing rules have a scope of resources they apply to. The scope could be an entire subscription, a resource group, or one or more specific resources.
 For example, here is a rule with a scope with two resources (two virtual machines):
 
-![Multi resource alert rule](media/alerts-resource-move/multi-resource-alert-rule.png)
+:::image type="content" source="media/alerts-resource-move/multi-resource-alert-rule.png" lightbox="media/alerts-resource-move/multi-resource-alert-rule.png" alt-text="Multi resource alert rule":::
 
 If the rule scope explicitly mentions a resource, and that resource has moved and changed its resource ID, then that rule will look for a wrong or non-existent resource and thus fail.
 
@@ -73,7 +73,7 @@ Navigate to Alerts > Alert processing rules (preview) > filter by the containing
 3. Adjust other properties of the rule as needed.
 4. Click **Save**.
 
-![Change alert rule scope](media/alerts-resource-move/change-alert-rule-scope.png)
+:::image type="content" source="media/alerts-resource-move/change-alert-rule-scope.png" lightbox="media/alerts-resource-move/change-alert-rule-scope.png" alt-text="Change alert rule scope":::
 
 ### Change the scope of a rule using Azure Resource Manager templates
 

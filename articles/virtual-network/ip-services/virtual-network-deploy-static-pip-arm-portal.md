@@ -2,13 +2,13 @@
 title: Create a VM with a static public IP address - Azure portal
 description: Learn how to create a VM with a static public IP address using the Azure portal.
 services: virtual-network
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 12/16/2022
-ms.author: allensu
 ms.custom: template-how-to, engagement-fy23
 ---
 # Create a virtual machine with a static public IP address using the Azure portal

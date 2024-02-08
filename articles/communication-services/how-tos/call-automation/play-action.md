@@ -7,7 +7,7 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: kpunjabi
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
@@ -36,9 +36,17 @@ This guide will help you get started with playing audio files to participants by
 |Status|Code|Subcode|Message|
 |----|--|-----|-----|
 |PlayCompleted|200|0|Action completed successfully.|
+|PlayCanceled|400|8508|Action failed, the operation was canceled.|
 |PlayFailed|400|8535|Action failed, file format is invalid.|
 |PlayFailed|400|8536|Action failed, file could not be downloaded.|
-|PlayCanceled|400|8508|Action failed, the operation was canceled.|
+|PlayFailed|400|8565 | Action failed, bad request to Azure AI services. Check input parameters. | 
+|PlayFailed | 401 | 8565 | Action failed, Azure AI services authentication error. | 
+|PlayFailed | 403 | 8565 | Action failed, forbidden request to Azure AI services, free subscription used by the request ran out of quota. | 
+|PlayFailed | 429 | 8565 | Action failed, requests exceeded the number of allowed concurrent requests for the Azure AI services subscription. | 
+|PlayFailed | 408 | 8565 | Action failed, request to Azure AI services timed out. | 
+|PlayFailed | 500 | 9999 | Unknown internal server error | 
+|PlayFailed | 500 | 8572 | Action failed due to play service shutdown. |
+
 
 ## Clean up resources
 

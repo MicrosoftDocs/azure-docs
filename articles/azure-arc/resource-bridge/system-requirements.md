@@ -1,24 +1,29 @@
 ---
-title: Azure Arc resource bridge (preview) system requirements
-description: Learn about system requirements for Azure Arc resource bridge (preview).
+title: Azure Arc resource bridge system requirements
+description: Learn about system requirements for Azure Arc resource bridge.
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 11/03/2023
 ---
 
-# Azure Arc resource bridge (preview) system requirements
+# Azure Arc resource bridge system requirements
 
-This article describes the system requirements for deploying Azure Arc resource bridge (preview).
+This article describes the system requirements for deploying Azure Arc resource bridge.
 
 Arc resource bridge is used with other partner products, such as [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), [Arc-enabled VMware vSphere](../vmware-vsphere/index.yml), and [Arc-enabled System Center Virtual Machine Manager (SCVMM)](../system-center-virtual-machine-manager/index.yml). These products may have additional requirements.  
+
+## Required Azure permissions
+
+- To onboard Arc resource bridge, you must have the [Contributor](/azure/role-based-access-control/built-in-roles) role for the resource group.
+
+- To read, modify, and delete Arc resource bridge, you must have the [Contributor](/azure/role-based-access-control/built-in-roles) role for the resource group.
 
 ## Management tool requirements
 
 [Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments.
 
-If you're deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
+If deploying Arc resource bridge on VMware, Azure CLI 64-bit is required to be installed on the management machine to run the deployment commands.
 
-If you're deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
-
+If deploying on Azure Stack HCI, then Azure CLI 32-bit should be installed on the management machine.
 
 Arc Appliance CLI extension, 'arcappliance', needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
 
@@ -43,11 +48,11 @@ The IP address prefix is the subnet's IP address range for the virtual network a
 
 Consult your network engineer to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
 
-## Static configuration
+## Static IP configuration
 
-Static IP configuration is recommended for Arc resource bridge, because the resource bridge needs three static IPs in the same subnet for the control plane, appliance VM, and reserved appliance VM. 
+If deploying Arc resource bridge to a production environment, static configuration must be used when deploying Arc resource bridge. Static IP configuration is used to assign three static IPs (that are in the same subnet) to the Arc resource bridge control plane, appliance VM, and reserved appliance VM.
 
-If using DHCP, reserve those IP addresses, ensuring the IPs are outside of the assignable DHCP range of IPs (i.e. the control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP). DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+DHCP is only supported in a test environment for testing purposes only for VM management on Azure Stack HCI, and it should not be used in a production environment. DHCP isn't supported on any other Arc-enabled private cloud, including Arc-enabled VMware, Arc for AVS, or Arc-enabled SCVMM. If using DHCP, you must reserve the IP addresses used by the control plane and appliance VM. In addition, these IPs must be outside of the assignable DHCP range of IPs. Ex: The control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP. If the control plane IP or appliance VM IP changes (ex: due to an outage, this impacts the resource bridge availability and functionality.
 
 ## Management machine requirements
 
@@ -59,6 +64,7 @@ Management machine requirements:
 - Open communication to Control Plane IP (`controlplaneendpoint` parameter in `createconfig` command).
 - Open communication to Appliance VM IP. 
 - Open communication to the reserved Appliance VM IP. 
+- if applicable, communication over port 443 to the private cloud management console (ex: VMware vCenter host machine)
 - Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
 - Internet access
   
@@ -75,7 +81,8 @@ Appliance VM IP address requirements:
 - Open communication with the management machine and management endpoint (such as vCenter for VMware or MOC cloud agent service endpoint for Azure Stack HCI).
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
 - Static IP assigned (strongly recommended)
-   - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+
+  - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
 
 - Must be from within the IP address prefix.
 - Internal and external DNS resolution. 
@@ -97,13 +104,13 @@ Reserved appliance VM IP requirements:
 
 - Static IP assigned (strongly recommended)
 
-   - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+  - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
 
-   - Must be from within the IP address prefix.
+  - Must be from within the IP address prefix.
 
-   - Internal and external DNS resolution. 
+  - Internal and external DNS resolution.
 
-   - If using a proxy, the proxy server has to be reachable from this IP and all IPs within the VM IP pool.
+  - If using a proxy, the proxy server has to be reachable from this IP and all IPs within the VM IP pool.
 
 ## Control plane IP requirements
 
@@ -111,7 +118,7 @@ The appliance VM hosts a management Kubernetes cluster with a control plane that
 
 Control plane IP requirements:
 
-   - Open communication with the management machine.
+- Open communication with the management machine.
    - Static IP address assigned; the IP address should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. 
    - If using DHCP, the control plane IP should be a single reserved IP that is outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
    - If using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid) and installing Arc resource bridge, then the control plane IP for the resource bridge can't be used by the AKS hybrid cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
@@ -148,6 +155,8 @@ Notice that the IP addresses for the gateway, control plane, appliance VM and DN
 
 Arc resource bridge may require a separate user account with the necessary roles to view and manage resources in the on-premises infrastructure (such as Arc-enabled VMware vSphere). If so, during creation of the configuration files, the `username` and `password` parameters will be required. The account credentials are then stored in a configuration file locally within the appliance VM.  
 
+> [!WARNING]
+> Arc resource bridge can only use a user account that does not have multifactor authentication enabled. 
 If the user account is set to periodically change passwords, [the credentials must be immediately updated on the resource bridge](maintenance.md#update-credentials-in-the-appliance-vm). This user account may also be set with a lockout policy to protect the on-premises infrastructure, in case the credentials aren't updated and the resource bridge makes multiple attempts to use expired credentials to access the on-premises control center.
 
 For example, with Arc-enabled VMware, Arc resource bridge needs a separate user account for vCenter with the necessary roles. If the [credentials for the user account change](troubleshoot-resource-bridge.md#insufficient-permissions), then the credentials stored in Arc resource bridge must be immediately updated by running `az arcappliance update-infracredentials` from the [management machine](#management-machine-requirements). Otherwise, the appliance will make repeated attempts to use the expired credentials to access vCenter, which will result in a lockout of the account.
@@ -164,11 +173,9 @@ Three configuration files are created when the `createconfig` command completes 
 
 By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 
-By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
-
 ### Kubeconfig
 
-The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location to the management machine, because it's required for maintaining the appliance VM. 
+The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location on the management machine, because it's required for maintaining the appliance VM. If the kubeconfig is lost, it can be retrieved by running the `az arcappliance get-credentials` command.
 
 ### HCI login configuration file (Azure Stack HCI only)
 
@@ -176,9 +183,7 @@ Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/
 
 ## AKS on Azure Stack HCI with Arc resource bridge
    
-To use AKS and Arc resource bridge together on Azure Stack HCI, AKS must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be deployed unless you delete Arc resource bridge first. Once AKS is deployed to Azure Stack HCI, you can deploy Arc resource bridge.
-
-When you deploy Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the following configurations must be applied:
+When you deploy Arc resource bridge with AKS on Azure Stack HCI (AKS-HCI), the following configurations must be applied:
 
 - Arc resource bridge and AKS-HCI should share the same `vswitchname` and be in the same subnet, sharing the same value for the parameter, `ipaddressprefix` .
 
@@ -194,11 +199,13 @@ For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to instal
 
 ## Next steps
 
-- Understand [network requirements for Azure Arc resource bridge (preview)](network-requirements.md).
+- Understand [network requirements for Azure Arc resource bridge](network-requirements.md).
 
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
+- Review the [Azure Arc resource bridge overview](overview.md) to understand more about features and benefits.
 
-- Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+- Learn about [security configuration and considerations for Azure Arc resource bridge](security-overview.md).
+
+
 
 
 

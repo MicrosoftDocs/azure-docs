@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/13/2023
+ms.date: 02/02/2024
 ms.author: danlep
 ---
 
 # Set body
 
-Use the `set-body` policy to set the message body for incoming and outgoing requests. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
+Use the `set-body` policy to set the message body for a request or response. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
 
 > [!IMPORTANT]
 >  By default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
@@ -23,7 +23,7 @@ Use the `set-body` policy to set the message body for incoming and outgoing requ
 ## Policy statement
 
 ```xml
-<set-body template="liquid" xsi-nil="blank | null">
+<set-body template="liquid" xsi-nil="blank | null" parse-date="true | false">
     new body value as text
 </set-body>
 ```
@@ -34,6 +34,7 @@ Use the `set-body` policy to set the message body for incoming and outgoing requ
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |template|Used to change the templating mode that the `set-body` policy runs in. Currently the only supported value is:<br /><br />- `liquid` - the `set-body` policy will use the liquid templating engine |No| N/A|
 |xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values:<br /><br />- `blank` - `nil` is represented with an empty string.<br />- `null` - `nil` is represented with a null value.<br/></br>Policy expressions aren't allowed. |No | `blank` |
+|parse-date| Boolean. Specifies whether date-formatted strings (for example, `"/Date(1198908717056)/"`, `"2012-03-21T05:40Z"`) are parsed to System.DateTime (`mm/dd/yyyy hh:mm:ss`). When set to `false`, date values are simply copied.<br/></br>Policy expressions aren't allowed.  |No| `true`|
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.
@@ -74,6 +75,7 @@ OriginalUrl.
 </pre>
 
 
+
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
@@ -110,6 +112,7 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 > [!NOTE]
 > The policy requires Pascal casing for Liquid filter names (for example, "AtLeast" instead of "at_least").
 > 
+
 * Abs
 * Append
 * AtLeast
@@ -153,7 +156,6 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 * Upcase
 * UrlDecode
 * UrlEncode
-
 
 ## Examples
 
@@ -272,3 +274,4 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 * [API Management transformation policies](api-management-transformation-policies.md)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
+

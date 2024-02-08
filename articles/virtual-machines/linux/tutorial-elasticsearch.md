@@ -20,7 +20,7 @@ ms.author: routlaw
 
 This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure. To see the Elastic Stack in action, you can optionally connect to Kibana  and work with some sample logging data. 
 
-Additionally, you can follow the [Deploy Elastic on Azure Virtual Machines](https://learn.microsoft.com/training/modules/deploy-elastic-azure-virtual-machines/) module for a more guided tutorial on deploying Elastic on Azure Virtual Machines.   
+Additionally, you can follow the [Deploy Elastic on Azure Virtual Machines](/training/modules/deploy-elastic-azure-virtual-machines/) module for a more guided tutorial on deploying Elastic on Azure Virtual Machines.   
 
 In this tutorial you learn how to:
 
@@ -57,7 +57,7 @@ The following example creates a VM named *myVM* and creates SSH keys if they do 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
