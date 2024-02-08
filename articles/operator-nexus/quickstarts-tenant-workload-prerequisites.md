@@ -240,7 +240,7 @@ After setting the environment variables, your virtual machine can reach outside 
 > [!NOTE]
 > HTTP is not supported due to security reasons when using the proxy to access resources outside of the virtual machine. It is required to use HTTPS for secure communication when managing packages or installing software on the Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network.
 
-In order to reach the desired endpoints, you need to add the required egress endpoints to the cloud services network. Egress endpoints can be added using the `--additional-egress-endpoints` parameter when creating the network. Be sure to include any domains needed to pull images, such as `.docker.io`.
+Configuring the proxy is a crucial step in ensuring a successful connection to your desired endpoints. To achieve this, you can add the egress endpoints to the cloud services network during the initial creation or as an update, using the `--additional-egress-endpoints` parameter. While wildcarding the URL endpoints might seem convenient, it isn't recommended for security reasons. For example, if you want to configure the proxy to allow image pulling from any repository hosted off docker.io, you can specify `.docker.io` as an endpoint.
 
 > [!IMPORTANT]
 > When using a proxy, it's also important to set the `no_proxy` environment variable properly. This variable can be used to specify domains or IP addresses that shouldn't be accessed through the proxy. If not set properly, it can cause issues while accessing services, such as the Kubernetes API server or cluster IP. Make sure to include the IP address or domain name of the Kubernetes API server and any cluster IP addresses in the `no_proxy` variable.
