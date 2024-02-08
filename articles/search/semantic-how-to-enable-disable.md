@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 02/08/2024
 ---
 
 # Enable or disable semantic ranker
@@ -84,4 +84,4 @@ To re-enable semantic ranking, rerun the above request, setting "semanticSearch"
 
 ## Next steps
 
-[Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic ranking on your content.
+[Configure semantic ranking](semantic-how-to-configure.md) so that you can test out semantic ranking on your content.

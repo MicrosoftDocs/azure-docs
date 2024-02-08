@@ -1,5 +1,5 @@
 ---
-title: Configure semantic ranker
+title: Query with semantic ranking
 titleSuffix: Azure AI Search
 description: Set a semantic query type to attach the deep learning models of semantic ranking.
 
@@ -10,169 +10,46 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 02/08/2024
 ---
 
-# Configure semantic ranking and return captions in search results
+# Create a semantic query in Azure AI Search
 
 In this article, learn how to invoke a semantic ranking over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
-To use semantic ranker:
-
-+ Add a semantic configuration to an index
-+ Add parameters to a query request
-
 ## Prerequisites
 
-+ A search service on Basic, Standard tier (S1, S2, S3), or Storage Optimized tier (L1, L2), subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
++ A search service at the Basic tier or higher, with [semantic ranking enabled at the service level](semantic-how-to-enable-disable.md).
 
-+ Semantic ranker [enabled on your search service](semantic-how-to-enable-disable.md).
-
-+ An existing search index with rich text content. Semantic ranking applies to text (non-vector) fields and works best on content that is informational or descriptive.
++ An existing search index with a [semantic configuration](semantic-how-to-configure.md) and rich text content. Semantic ranking applies to text (nonvector) fields and works best on content that is informational or descriptive.
 
 + Review [semantic ranking](semantic-search-overview.md) if you need an introduction to the feature.
 
 > [!NOTE]
 > Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses machine reading comprehension to recognize content having the characteristics of a caption or answer, but doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking. If you want chat-style interaction with generated responses, see [Retrieval Augmented Generation (RAG)](retrieval-augmented-generation-overview.md).
 
-## 1 - Choose a client
+## Choose a client
 
 Choose a search client that supports semantic ranking. Here are some options:
 
-+ [Azure portal (Search explorer)](search-explorer.md), recommended for initial exploration.
++ [Azure portal](https://portal.azure.com), using the index designer to add a semantic configuration.
++ [Postman app](https://www.postman.com/downloads/) using [REST APIs](/rest/api/searchservice/)
++ [Azure SDK for .NET](https://www.nuget.org/packages/Azure.Search.Documents)
++ [Azure SDK for Python](https://pypi.org/project/azure-search-documents)
++ [Azure SDK for Java](https://central.sonatype.com/artifact/com.azure/azure-search-documents)
++ [Azure SDK for JavaScript](https://www.npmjs.com/package/@azure/search-documents)
 
-+ [Postman app](https://www.postman.com/downloads/) using [REST APIs](/rest/api/searchservice/). See this [Quickstart](search-get-started-rest.md) for help with setting up REST calls.
-
-+ [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents) in the Azure SDK for .NET.
-
-+ [Azure.Search.Documents](https://pypi.org/project/azure-search-documents) in the Azure SDK for Python.
-
-+ [azure-search-documents](https://central.sonatype.com/artifact/com.azure/azure-search-documents) in the Azure SDK for Java.
-
-+ [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) in the Azure SDK for JavaScript.
-
-## 2 - Create a semantic configuration
-
-A *semantic configuration* is a section in your index that establishes field inputs for semantic ranking. You can add or update a semantic configuration at any time, no rebuild necessary. If you create multiple configurations, you can specify a default. At query time, specify a semantic configuration on a [query request](#4---set-up-the-query), or leave it blank to use the default.
-
-A semantic configuration has a name and the following properties:
-
-| Property | Characteristics |
-|----------|-----------------|
-| Title field | A short string, ideally under 25 words. This field could be the title of a document, name of a product, or a unique identifier. If you don't have suitable field, leave it blank. | 
-| Content fields | Longer chunks of text in natural language form, subject to [maximum token input limits](semantic-search-overview.md#how-inputs-are-collected-and-summarized) on the machine learning models. Common examples include the body of a document, description of a product, or other free-form text. | 
-| Keyword fields | A list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. | 
-
-You can only specify one title field, but you can have as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields might get truncated.
-
-Across all semantic configuration properties, the fields you assign must be:
-
-+ Attributed as `searchable` and `retrievable`
-+ Strings of type `Edm.String`, `Collection(Edm.String)`, string subfields of  `Collection(Edm.ComplexType)`
-
-### [**Azure portal**](#tab/portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic ranking enabled](semantic-how-to-enable-disable.md).
-
-1. Open an index.
-
-1. Select **Semantic Configurations** and then select **Add Semantic Configuration**.
-
-   The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order.
-
-   :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
-
-   Select **OK** to save the changes.
-
-### [**REST API**](#tab/rest)
-
-1. Formulate a [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) request.
-
-1. Add a semantic configuration to the index definition, perhaps after `scoringProfiles` or `suggesters`. Specifying a default is optional but useful if you have more than one configuration.
-
-    ```json
-    "semantic": {
-        "defaultConfiguration": "my-semantic-config-default",
-        "configurations": [
-            {
-                "name": "my-semantic-config-default",
-                "prioritizedFields": {
-                    "titleField": {
-                        "fieldName": "HotelName"
-                    },
-                    "prioritizedContentFields": [
-                        {
-                            "fieldName": "Description"
-                        }
-                    ],
-                    "prioritizedKeywordsFields": [
-                        {
-                            "fieldName": "Tags"
-                        }
-                    ]
-                }
-            },
-                        {
-                "name": "my-semantic-config-desc-only",
-                "prioritizedFields": {
-                    "prioritizedContentFields": [
-                        {
-                            "fieldName": "Description"
-                        }
-                    ]
-                }
-            }
-        ]
-    }
-    ```
-
-### [**.NET SDK**](#tab/sdk)
-
-Use the [SemanticConfiguration class](/dotnet/api/azure.search.documents.indexes.models.semanticconfiguration?view=azure-dotnet-preview&preserve-view=true) in the Azure SDK for .NET.
-
-```c#
-var definition = new SearchIndex(indexName, searchFields);
-
-SemanticSettings semanticSettings = new SemanticSettings();
-semanticSettings.Configurations.Add(new SemanticConfiguration
-    (
-        "my-semantic-config",
-        new PrioritizedFields()
-        {
-            TitleField = new SemanticField { FieldName = "HotelName" },
-            ContentFields = {
-            new SemanticField { FieldName = "Description" },
-            new SemanticField { FieldName = "Description_fr" }
-            },
-            KeywordFields = {
-            new SemanticField { FieldName = "Tags" },
-            new SemanticField { FieldName = "Category" }
-            }
-        }
-    )
-);
-
-definition.SemanticSettings = semanticSettings;
-
-adminClient.CreateOrUpdateIndex(definition);
-```
-
----
-
-> [!TIP]
-> To see an example of creating a semantic configuration and using it to issue a semantic query, check out the [semantic ranking Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/semantic-search).
-
-## 3 - Avoid features that bypass relevance scoring
+## Avoid features that bypass relevance scoring
 
 Several query capabilities in Azure AI Search bypass relevance scoring or are otherwise incompatible with semantic ranking. If your query logic includes the following features, you can't semantically rank your results:
 
-+ A query with `search=*` or an empty search string, such as pure filter-only query, won't work because there is nothing to measure semantic relevance against. The query must provide terms or phrases that can be assessed during processing.
++ A query with `search=*` or an empty search string, such as pure filter-only query, won't work because there's nothing to measure semantic relevance against. The query must provide terms or phrases that can be assessed during processing.
 
 + A query composed in the [full Lucene syntax](query-lucene-syntax.md) (`queryType=full`) is incompatible with semantic ranking (`queryType=semantic`). The semantic model doesn't support the full Lucene syntax.
 
 + Sorting (orderBy clauses) on specific fields overrides search scores and a semantic score. Given that the semantic score is supposed to provide the ranking, adding an orderby clause results in an HTTP 400 error if you apply semantic ranking over ordered results.
 
-## 4 - Set up the query
+## Set up the query
 
 In this step, add parameters to the query request. To be successful, your query should be full text search (using the `search` parameter to pass in a string), and the index should contain text fields with rich semantic content and a semantic configuration.
 
@@ -254,7 +131,7 @@ Azure SDKs are on independent release cycles and implement search features on th
 
 ---
 
-## 5 - Evaluate the response
+## Evaluate the response
 
 Only the top 50 matches from the initial results can be semantically ranked. As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select parameter. A response includes the original relevance score, and might also include a count, or batched results, depending on how you formulated the request.
 
@@ -284,31 +161,6 @@ The response for the above example query returns the following match as the top 
   ...
 ]
 ```
-
-## Migrate from preview versions
-
-If your semantic ranking code is using preview APIs, this section explains how to migrate to stable versions. Generally available versions include:
-
-+ [2023-11-01 (REST)](/rest/api/searchservice/)
-+ [Azure.Search.Documents (Azure SDK for .NET)](https://www.nuget.org/packages/Azure.Search.Documents/)
-
-**Behavior changes:**
-
-+ As of July 14, 2023, semantic ranker is language agnostic. It can rerank results composed of multilingual content, with no bias towards a specific language. In preview versions, semantic ranking would deprioritize results differing from the language specified by the field analyzer.
-
-+ In 2021-04-30-Preview and all later versions, `semanticConfiguration` (in an index definition) defines which search fields are used in semantic ranking. In the 2020-06-30-Preview REST API, `searchFields` (in a query request) was used for field specification and prioritization. This approach only worked in 2020-06-30-Preview and is obsolete in all other versions.
-
-### Step 1: Remove queryLanguage
-
-The semantic ranking engine is now language agnostic. If `queryLanguage` is specified in your query logic, it's no longer used for semantic ranking, but still applies to [spell correction](speller-how-to-add.md).
-
-+ Use [Search POST](/rest/api/searchservice/documents/search-post) and remove `queryLanguage` for semantic ranking purposes.
-
-### Step 2: Add semanticConfiguration
-
-If your code calls the 2020-06-30-Preview REST API or beta SDK packages targeting that REST API version, you might be using `searchFields` in a query request to specify semantic fields and priorities. This code must now be updated to use `semanticConfiguration` instead.
-
-+ [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) to add `semanticConfiguration`. 
 
 ## Next steps
 
