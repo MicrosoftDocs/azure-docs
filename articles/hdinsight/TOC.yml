@@ -276,6 +276,7 @@ items:
     - name: Troubleshoot
       items:
       - name: Known issues 
+        items:
         - name: Known issues in HDInsight
           href: ./hdinsight-known-issues.md
       - name: Request increase for CPU core quota
