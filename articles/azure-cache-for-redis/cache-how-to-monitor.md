@@ -212,7 +212,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - Gets
-  - Sum of the number of get commands run on the cache during the specified reporting interval. This is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _set_ family, including `GET`, `HGET` , `MGET`, and others. This value can differ from the total number of hits and misses because some individual commands access multiple keys. For example: `MGET key1 key2 key3` only increments the number of gets by one but increments the combined number of hits and misses by three.
+  - Sum of the number of get commands run on the cache during the specified reporting interval. This is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _get_ family, including `GET`, `HGET` , `MGET`, and others. This value can differ from the total number of hits and misses because some individual commands access multiple keys. For example: `MGET key1 key2 key3` only increments the number of gets by one but increments the combined number of hits and misses by three.
 - Operations per Second
   - The total number of commands processed per second by the cache server during the specified reporting interval.  This value maps to "instantaneous_ops_per_sec" from the Redis INFO command.
 - Server Load
@@ -223,7 +223,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 > The _Server Load_ metric can present incorrect data for Enterprise and Enterprise Flash tier caches. Sometimes _Server Load_ is represented as being over 100. We are investigating this issue. We recommend using the CPU metric instead in the meantime.
 
 - Sets
-  - Sum of the number of set commands run on the cache during the specified reporting interval. This is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _set_ family, including `GET`, `HGET` , `MGET`, and others. This value can differ from the total number of hits and misses because some individual commands access multiple keys. For example: `MSET key1 value1 key2 value2 key3 value3` only increments the number of sets by one.
+  - Sum of the number of set commands run on the cache during the specified reporting interval. This is a combined total of the increases in the `cmdstat` counts reported by the Redis INFO all command for all commands in the _set_ family, including `SET`, `HSET` , `MSET`, and others. For example: `MSET key1 value1 key2 value2 key3 value3` only increments the number of sets by one.
 - Total Keys  
   - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
 - Total Operations
