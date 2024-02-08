@@ -7,7 +7,6 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.workload: identity
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/12/2022

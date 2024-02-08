@@ -1,10 +1,9 @@
 ---
 title: Configure manual backups for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure manual backups for Azure NetApp Files volumes. 
+description: Describes how to configure manual backups for Azure NetApp Files volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 06/13/2023
 ms.author: anfdocs
@@ -87,5 +86,3 @@ If you haven’t done so, enable the backup functionality for the volume before 
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
-
-

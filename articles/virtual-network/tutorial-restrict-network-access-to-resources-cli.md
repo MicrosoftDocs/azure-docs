@@ -5,15 +5,14 @@ services: virtual-network
 author: asudbring
 manager: mtillman
 tags: azure-resource-manager
-# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
 
 # Restrict network access to PaaS resources with virtual network service endpoints using the Azure CLI
