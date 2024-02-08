@@ -4,7 +4,6 @@ description: Learn about Azure Automanage for virtual machines best practices fo
 author: mmccrory
 ms.service: automanage
 ms.collection: linux
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/10/2021
 ms.author: memccror
