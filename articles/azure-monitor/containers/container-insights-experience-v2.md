@@ -41,7 +41,7 @@ While the above steps are sufficient, for the full visualization experience, a f
 
 ### Node and pod labels collection 
 
-By default the labels for nodes and pods aren't available, but can be collected through re-enabling the addon.
+By default the labels for nodes and pods aren't available, but can be collected through re-enabling the addon. Node labels are required for filtering data by node pools.
 
 1.) If the managed Prometheus addon is currently deployed, we must first disable it
 
@@ -72,8 +72,9 @@ As this feature is currently in preview, there are several, known limitations, t
 * Live data viewing on the Cluster tab
 * Workbooks reports data
 * Node memory working set and RSS metrics
-* Partial or no data available in the multi-cluster view
+* Partial or no data available in the multi-cluster view based on container insights DCR settings
+* Recommended alerts
 
-In addition, due to query limitations, users running clusters of over 5000 containers or on a time range exceeding thirty days may experience throttling issues and 429 errors when retrieving data.
+In addition, due to query limitations, users running clusters of over 5000 containers or on a time range exceeding seven days may experience throttling issues and 429 errors when retrieving data.
 
 For all other issues or bugs identified not included in the list, reach out to askcoin@microsoft.com to resolve.
