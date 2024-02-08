@@ -8,7 +8,6 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.date: 02/05/2024
 ms.author: radeltch
 ---

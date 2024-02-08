@@ -4,7 +4,6 @@ description: Use Azure PowerShell to find image URNs and purchase plan parameter
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 03/17/2021
 author: ebolton-cyber
 ms.author: edewebolton

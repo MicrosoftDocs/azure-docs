@@ -18,7 +18,7 @@ Take advantage of threat intelligence produced by Microsoft to generate high fid
 
 ## Prerequisites
 
-Install the appropriate solutions from the content hub and connect the data connectors to get following data sources in Microsoft Sentinel:
+In order to produce high fidelity alerts and incidents, one or more of the supported data connectors must be installed, but a premium MDTI license is not required. Install the appropriate solutions from the content hub to connect these data sources. 
 
   - Common Event Format (CEF)
   - DNS (Preview)

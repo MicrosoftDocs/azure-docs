@@ -6,7 +6,6 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 02/06/2024
 ms.author: mbender
 ms.custom: template-how-to
