@@ -75,7 +75,7 @@ Output for this command will look similar to the following and specify whether a
 
 ## Agents
 
-When you enable VM Insights for a machine, the following agents are installed. For the network requirements for these agents, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
+When you enable VM Insights for a machine, the following agents are installed. 
 
 > [!IMPORTANT]
 > Azure Monitor Agent has several advantages over the legacy Log Analytics agent, which will be deprecated by August 2024. After this date, Microsoft will no longer provide any support for the Log Analytics agent. [Migrate to Azure Monitor agent](../agents/azure-monitor-agent-migration.md) before August 2024 to continue ingesting data. 
@@ -91,6 +91,8 @@ When you enable VM Insights for a machine, the following agents are installed. F
 	- `<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
 	- `<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
+
+    For more information, see [Define Azure Monitor Agent network settings](../agents/azure-monitor-agent-data-collection-endpoint.md).
 
 - The Dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This address identifies the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
 ## Data collection rule 
@@ -109,6 +111,10 @@ The DCR is defined by the options in the following table.
 > VM Insights automatically creates a DCR that includes a special data stream required for its operation. Do not modify the VM Insights DCR or create your own DCR to support VM Insights. To collect additional data, such as Windows and Syslog events, create separate DCRs and associate them with your machines.
 
 If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM Insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).  
+
+## Enable network isolation for Azure Monitor Agent
+
+To enable network isolation for Azure Monitor Agent, see [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
 
 ## Migrate from Log Analytics agent to Azure Monitor Agent
 
