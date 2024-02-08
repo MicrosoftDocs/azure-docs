@@ -61,6 +61,12 @@ For more information about custom security attributes, see:
 - [Principal does not appear in Attribute source](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
 - [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md)
 
+## Environment attributes
+
+To use the [Private endpoint](../storage/blobs/storage-auth-abac-attributes.md#private-endpoint) attribute, you must have at least one private endpoint configured in your subscription.
+
+To use the [Subnet](../storage/blobs/storage-auth-abac-attributes.md#subnet) attribute, you must have at least one virtual network subnet using [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) configured in your subscription.
+
 ## Next steps
 
 - [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)

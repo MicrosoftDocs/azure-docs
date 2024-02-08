@@ -163,26 +163,11 @@ items:
           - name: Application Insights API summary
             displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
             href: app/api-custom-events-metrics.md
-          - name: Connection strings
-            href: app/sdk-connection-string.md
-            displayName: connection string, instrumentation key
-          - name: Distributed tracing and telemetry correlation
-            href: app/distributed-trace-data.md
-            displayName: correlation headers, w3c, distributed tracing, tracing
-          - name: Exceptions
-            href: app/asp-net-exceptions.md
           - name: Log traces
             href: app/asp-net-trace-logs.md
-          - name: Sampling
-            displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-            href: app/sampling-classic-api.md
-          - name: Statsbeat
-            href: app/statsbeat.md
           - name: TelemetryProcessors
             displayName: processors, filtering, telemetry filtering, telemetry processor
             href: app/api-filtering-sampling.md
-          - name: Microsoft Entra authentication
-            href: app/azure-ad-authentication.md
           - name: IP address collection
             href: app/ip-collection.md
             displayName: geolocation, IP collection, IP tracking, IP storage
@@ -1513,18 +1498,33 @@ items:
     href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
+    - name: Connection strings
+      href: app/sdk-connection-string.md
+      displayName: connection string, instrumentation key
+    - name: Microsoft Entra authentication
+      href: app/azure-ad-authentication.md
     - name: Application Insights data model
       href: app/data-model-complete.md
+    - name: Distributed tracing and telemetry correlation
+      href: app/distributed-trace-data.md
+      displayName: correlation headers, w3c, distributed tracing, tracing
+    - name: Sampling
+      href: app/sampling-classic-api.md
+      displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+    - name: Statsbeat
+      href: app/statsbeat.md
+    - name: Log-based & pre-aggregated metrics
+      href: app/pre-aggregated-metrics-log-metrics.md
+    - name: Exceptions
+      href: app/asp-net-exceptions.md
+    - name: ASP.NET Dependencies
+      href: app/asp-net-dependencies.md
     - name: Metrics
       items:
-      - name: Log-based & pre-aggregated metrics
-        href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
         href: essentials/app-insights-metrics.md
       - name: Standard metrics
         href: app/standard-metrics.md
-    - name: ASP.NET Dependencies
-      href: app/asp-net-dependencies.md
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
