@@ -13,10 +13,7 @@ ms.custom: references_regions
 
 # Release notes 2024: Azure Health Data Services
 
-This article describes new features and enhancements introduced in 2024 for the FHIR&reg; service, DICOM&reg; service, or MedTech service in Azure Health Data Services.
-
-> [!NOTE]
-> Azure Health Data Services is generally available. For more information, see the [Service Level Agreement (SLA) for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
+This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech services in Azure Health Data Services.
 
 ## January 2024
 
@@ -44,7 +41,7 @@ Learn more:
 
 #### Integration of the FHIR service with Azure Active Directory B2C
 
-Healthcare organizations can use the FHIR service in Azure Health Data Services with Azure Active Directory B2C (Azure AD B2C). This capability gives organizations a secure and convenient way to grant access to the FHIR service in Azure Health Data Services with fine-grained access control for different users or groups, without creating or comingling user accounts in their organization’s Microsoft Entra ID tenant. With this integration, organizations can:
+Healthcare organizations can use the FHIR service in Azure Health Data Services with Azure Active Directory B2C (Azure AD B2C). Organizations gain a secure and convenient way to grant access to the FHIR service with fine-grained access control for different users or groups, without creating or comingling user accounts in their organization’s Microsoft Entra ID tenant. With this integration, organizations can:
 
 - Use additional identity providers to authenticate and access FHIR resources with SMART on FHIR scopes. 
 - Manage and customize user access rights or permissions with SMART on FHIR scopes that support fine-grained access control, FHIR resource types and interactions, and a user’s underlying privileges.

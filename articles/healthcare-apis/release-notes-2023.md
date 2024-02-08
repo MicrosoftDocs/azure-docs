@@ -13,10 +13,7 @@ ms.custom: references_regions
 
 # Release notes: 2023 Azure Health Data Services
 
-This article describes features and enhancements introduced in 2023 for the FHIR&reg; service, DICOM&reg; service, or MedTech service in Azure Health Data Services.
-
-> [!NOTE]
-> Azure Health Data Services is generally available. For more information, see the [Service Level Agreement (SLA) for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
+This article describes features, enhancements, and bug fixes released in 2023 for the FHIR&reg; service, DICOM&reg; service, and MedTech services in Azure Health Data Services.
 
 ## December 2023
 
@@ -97,7 +94,7 @@ Related content:
 
  - **Fixed: Multiple export jobs created results in increase data storage volume**. Due to a bug, export jobs created multiple child jobs when used with the typefilter parameter. The fix addresses the issue. 
 
-- **Fixed: Retriable exception for import operation when using duplicate files**. If there are duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. This fix addresses the issue. Import operations with same file are no longer retriable. 
+- **Fixed: Retriable exception for import operation when using duplicate files**. If there are duplicate files during import, an exception would be thrown. This exception was considered as a retriable exception. The fix addresses the issue. Import operations with same file are no longer retriable. 
 
 Related content:
 
@@ -107,7 +104,7 @@ Related content:
 
 ## October 2023
 
-### DICOM Service
+### DICOM service
 
 #### Bulk import (preview)
 
@@ -139,7 +136,7 @@ With incremental load mode, healthcare organizations can:
 - Perform concurrent ingestion of data while simultaneously executing API CRUD operations on the FHIR server.
 - Ingest versioned FHIR resources.
 - Maintain the `lastUpdated` field value in FHIR resources during ingestion.
-- Support conditional references
+- Support conditional references.
 
 Learn more:
 
@@ -167,209 +164,183 @@ Learn more:
 
 #### Bug fixes
 
-- **Fixed: Continuous retry on the import operation.** We observed an issue where $import kept  retrying when the NDJSON file size is greater than 2 GB. The issue is fixed., for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
+- **Fixed: Continuous retry on the import operation.** We observed an issue where $import kept retrying when the NDJSON file size is greater than 2 GB. The issue is fixed. See [PR#3342](https://github.com/microsoft/fhir-server/pull/3342).
 
-- **Fixed: Patient and Group level export job restart.** Patient and group level exports on interruption would restart from the beginning. This bug is fixed to restart the export jobs from the last successfully completed page of results. See [PR#3205](https://github.com/microsoft/fhir-server/pull/3205).
-
-### DICOM Service
-
-#### API version 2 
-
-The DICOM service API version 2 (v2) introduces [several changes and new features](dicom/dicom-service-v2-api-changes.md). Most notable is the change to validation of DICOM attributes during store (STOW) operations. Beginning with v2, the request fails only if required attributes fail validation. See the [DICOM Conformance Statement v2](dicom/dicom-services-conformance-statement-v2.md). 
-
-## June 2023
-
-### FHIR Service 
-
-#### Introducing Incremental Import
-
-$Import operation supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
-
-With Incremental Load mode, customers can:
-1.	Perform concurrent ingestion of data while simultaneously executing API CRUD operations on the FHIR server.
-1.	Ingest versioned FHIR resources.
-1.	Maintain the lastUpdated field value in FHIR resources during ingestion.
-For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
-
-#### Reindex operation provides job status at resource level
-
-Reindex operation supports determining the status of the reindex operation with help of API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`.
-Details per resource, on the number of completed reindexed resources can be obtained with help of the new field, added in the response- "resourceReindexProgressByResource". For details, see [3286](https://github.com/microsoft/fhir-server/pull/3286).
-
-#### FHIR Search Query optimization of complex queries
-
-Some organizations experienced issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generator to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
-
-#### Metadata endpoint URL in capability statement is relative URL
-
-Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. For details on the FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). This fix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
-
-
-### DICOM Service
-
-#### Retrieve rendered image is GA
-
-[Rendered images](dicom/dicom-services-conformance-statement.md#retrieve-rendered-image-for-instance-or-frame) can be retrieved from the DICOM service by using the new rendered endpoint. This API allows a DICOM instance or frame to be accessed in a consumer format (`jpeg` or `png`), a capability that can simplify scenarios such as a client application displaying an image preview. 
-
-
-#### Fixed issue where DICOM events and Change Feed may miss changes
-
-The DICOM Change Feed API could previously return results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the Change Feed resource could result in new change events appearing in the middle of the result set. For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call could have incorrectly returned `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid System Topics, and could have resulted in missing events in downstream event handlers. For more information, see [#2611](https://github.com/microsoft/dicom-server/pull/2611).
-
-### MedTech service 
-
-#### Encounter identifiers included in the device message
-
-Customers can include encounter identifiers in the device message so that they can look up the corresponding FHIR encounter and link it to the observation created in the FHIR transformation. This look up feature is supported in OSS and was a request from customers for the PaaS MedTech service.
-
-
-## May 2023
-
-### FHIR Service 
-
-#### SMART on FHIR : Fixed clinical scope mapping for applications
-
-This bug fix addresses issue with clinical scope not interpreted correctly for backend applications. 
-For more information, visit [#3250](https://github.com/microsoft/fhir-server/pull/3250)
-
-#### Addresses duplicate key error when passed in request parameters and body
-
-This bug fix handles the issue, when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns 415 Unsupported Media Type. This issue is due to repeating a query parameter in the URL query string and the request body. This fix considers all the query parameters from request and body as input. For more information, visit [#3232](https://github.com/microsoft/fhir-server/pull/3232)
-
-## April 2023
-### Azure Health Data Services
-
-#### Azure Health Data services General Available (GA) in new regions
-
-General availability (GA) of Azure Health Data services in West Central US region.
-
-### FHIR Service 
-
-#### Fixed performance for Search Queries with identifiers
-
-This bug fix addresses timeout issues observed for search queries with identifiers, by using the OPTIMIZE clause.
-For more information, visit [#3207](https://github.com/microsoft/fhir-server/pull/3207)
-
-#### Fixed transient issues associated with loading custom search parameters
-
-This bug fix addresses the issue where the FHIR service wouldn't load the latest SearchParameter status in a failure.
-For more information, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
-
-## March 2023
-### Azure Health Data Services
-
-#### Azure Health Data services General Available (GA) in new regions
-
-General availability (GA) of Azure Health Data services in Japan East region.
-
-
-## February 2023
-### FHIR service
-
-#### Introduction of _till parameters and throughput improvement by 50x
-
-_till parameter is introduced as optional parameter and allows you to export resources that have been modified until the specified time. 
-
-This feature improvement is applicable to System export, for more information on export, see [FHIR specification](https://hl7.org/fhir/uv/bulkdata/)
-
-Also see [Export your FHIR data by invoking the $export command on the FHIR service](./../healthcare-apis/fhir/export-data.md)
-
-#### Fixed issue for Chained search with :contains modifier results with no resources are returned
-
-This bug fix addresses the issue and identified resources, per search criteria with :contains modifier are returned. 
-
-For more information, visit [#2990](https://github.com/microsoft/fhir-server/pull/2990) 
-
-
-
-#### Provide the ability to tweak continuation token size limit with header.
-
-
-Previous to this change, during pagination Cosmos DB continuation token had a default limit of 3 Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value that can be used to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
-
-For more information, visit [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](./../healthcare-apis/azure-api-for-fhir/overview-of-search.md)
-
-
-#### Fixed issue related to HTTP Status code 500 was encountered when :not modifier was used with chained searches
-
-This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier. for more information on bug fix visit [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
-
-
-#### Versioning policy enabled at resource level still required If-match header for transaction requests.
-
-Bug fix addresses the issue and versioned policy at resource level doesn't require if-match header, for more information on bug fix visit [#2994](https://github.com/microsoft/fhir-server/pull/2994)
-
-
-
-
-### MedTech service
-
-#### Mapping Debugger released in public-preview
-
-The MedTech service's new Mapping Debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. It enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. 
-
-For more information, visit [How to use the MedTech service Mapping debugger - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/how-to-use-mapping-debugger.md)
-
-
-
-#### Error Message released in private-preview
-
-The MedTech service has an error message feature that allows you to easily view any errors generated, and the message that caused each error. You can understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/troubleshoot-errors-logs.md)
-
-
-
-
+- **Fixed: Patient and group level export job restart.** Patient and group level exports on interruption would restart from the beginning. This bug is fixed to restart the export jobs from the last successfully completed page of results. See [PR#3205](https://github.com/microsoft/fhir-server/pull/3205).
 
 ### DICOM service
 
-#### New DICOM Event Types are GA
+#### API version 2 
 
-[DICOM Events](events/events-message-structure.md#dicom-events-message-structure) are generally available in the HDS workspace-level event subscriptions. These new event types enable event-driven workflows in medical imaging applications by subscribing to events for newly created and deleted DICOM images.
+The DICOM service API version 2 (v2) introduces several changes and new features. Most notable is the change to validation of DICOM attributes during store (STOW) operations. Beginning with v2, the request fails only if necessary attributes fail validation. 
 
+Learn more:
 
-#### Validation errors included with the FailedSOPSequence
+- [DICOM v2 API changes](dicom/dicom-service-v2-api-changes.md)
+- [DICOM Conformance Statement v2](dicom/dicom-services-conformance-statement-v2.md)
 
-Previously, DICOM validation failures returned by the Store (STOW) API lacked the detail necessary to diagnose and resolve problems. The latest API changes improve the error messages by including more information about the specific attributes that failed validation and the reason for the failures. See the [conformance statement](dicom/dicom-services-conformance-statement.md#store-response-payload) for details.
+## June 2023
 
+### FHIR service 
 
-### Toolkit and Samples Open Source
+#### Bug fixes
 
+- **Fixed: Reindex operation provides job status at resource level.** The `reindex` operation supports determining the status of the `reindex` operation with help of the API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`. To see how many resources were reindexed, look for the **resourceReindexProgressByResource** field in the response. This field shows the progress for each resource type. See [PR#3286](https://github.com/microsoft/fhir-server/pull/3286).
 
-Two new sample apps are released in the open source samples repo: [Azure-Samples/azure-health-data-services-samples: Samples for using the Azure Health Data Services (github.com)](https://github.com/Azure-Samples/azure-health-data-services-samples)
+- **Fixed: Optimization of complex search queries.** Some organizations experienced issues where complex FHIR queries with reference search parameters would time out. The issue was fixed by updating the SQL query generator to use an INNER JOIN for reference search parameters. See [PR#3295](https://github.com/microsoft/fhir-server/pull/3295).
 
+- **Fixed: Metadata endpoint URL in the capability statement is a relative URL.** According to the FHIR specification, the metadata endpoint URL in the capability statement needs to be an absolute URL. The fix addresses the issue. See [PR#3265](https://github.com/microsoft/fhir-server/pull/3265).
 
+Related content:
+- [FHIR Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). 
 
+### DICOM service
 
+#### Retrieve rendered images
 
+[Rendered images](dicom/dicom-services-conformance-statement.md#retrieve-rendered-image-for-instance-or-frame) can be retrieved from the DICOM service by using the new rendered endpoint. This API allows a DICOM instance or frame to be accessed in a consumer format (`jpeg` or `png`), a capability that can simplify scenarios such as a client application displaying an image preview. 
+
+#### Bug fixes
+
+- **Fixed: Issue where DICOM events and the change feed may miss changes.** The DICOM change feed API returned results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the change feed resource resulted in new change events appearing in the middle of the result set. 
+
+  For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call might incorrectly return `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid system topics, and resulted in missing events in downstream event handlers. See [PR#2611](https://github.com/microsoft/dicom-server/pull/2611).
+
+### MedTech service 
+
+#### Link device messages to FHIR encounters
+
+Device messages can have encounter identifiers that match the ones in FHIR encounters. This way, healthcare organizations can easily find and link the FHIR encounters to the observations from the device data. Open Source Software (OSS) supports the look-up feature, which customers of the MedTech service asked for.
+
+## May 2023
+
+### FHIR service 
+
+#### Bug fixes
+
+- **Fixed: SMART on FHIR clinical scope mapping for applications.** This bug fix addresses an issue with clinical scope not interpreted correctly for backend applications. 
+See [PR#3250](https://github.com/microsoft/fhir-server/pull/3250).
+
+- **Fixed: Duplicate key error when passed in request parameters and body.** This fix handles the issue when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns `415 Unsupported Media Type`. This issue is due to repeating a query parameter in the URL query string and the request body. The fix considers all the query parameters from request and body as input. See [PR#3232](https://github.com/microsoft/fhir-server/pull/3232).
+
+## April 2023
+
+### Azure Health Data Services
+
+#### Availability in West Central US region
+
+Azure Health Data Services is generally available in the West Central US region.
+
+### FHIR service 
+
+#### Bug fixes
+
+- **Fixed: Performance for search queries with identifiers.** This bug fix addresses timeout issues observed for search queries with identifiers by using the OPTIMIZE clause.
+See [PR#3207](https://github.com/microsoft/fhir-server/pull/3207)
+
+- **Fixed: Transient issues associated with loading custom search parameters.** This bug fix addresses the issue where the FHIR service wouldn't load the latest SearchParameter status in a failure. See [PR#3222](https://github.com/microsoft/fhir-server/pull/3222)
+
+## March 2023
+
+### Azure Health Data Services
+
+#### Availability in the Japan East region
+
+Azure Health Data Services is generally available in the Japan East region.
+
+## February 2023
+
+### FHIR service
+
+#### The _till parameter and throughput improvement by 50x
+
+The `_till` parameter is an optional parameter and allows you to export resources that were modified until the specified time. This improvement applies to system export.
+
+Related content:
+
+- [Export FHIR data](./../healthcare-apis/fhir/export-data.md)
+- [FHIR specification](https://hl7.org/fhir/uv/bulkdata/)
+
+#### Bug fixes
+
+- **Fixed: Chained search with :contains modifier results but no resources.** This bug fix addresses the issue and identified resources, per search criteria with :contains modifier are returned. See [PR#2990](https://github.com/microsoft/fhir-server/pull/2990). 
+
+- **Fixed: The ability to tweak continuation token size limit header.** Before this change, during pagination a Cosmos DB continuation token had a default limit of 3 KB. With this change, you can send a Cosmos DB continuation token limit in the header. Valid range is set to 1-3 KB. The header value to send the value is `x-ms-documentdb-responsecontinuationtokenlimitinkb`. See [PR#2971](https://github.com/microsoft/fhir-server/pull/2971/files).
+
+- **Fixed: HTTP Status code 500 encountered when :not modifier is used with chained searches.** This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier. See [PR#3041](https://github.com/microsoft/fhir-server/pull/3041).
+
+- **Fixed: Versioning policy enabled at resource level required If-match header for transaction requests.** The fix addresses the issue. Versioned policy at the resource level doesn't require if-match header. See [PR#2994](https://github.com/microsoft/fhir-server/pull/2994).
+
+### MedTech service
+
+#### Mapping Debugger (preview)
+
+The MedTech service Mapping Debugger is a self-service tool for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. It enables you to easily view and make inline adjustments in real-time without having to leave the Azure portal. 
+
+Learn more:
+
+- [Use the MedTech service Mapping debugger](./../healthcare-apis/iot/how-to-use-mapping-debugger.md)
+
+#### Error message capability (preview)
+
+The MedTech service error message feature allows you to view any errors generated, and the message that caused each error. You can learn the context behind any errors without manual effort. 
+
+Learn more:
+
+- [Troubleshoot errors using the MedTech service logs](./../healthcare-apis/iot/troubleshoot-errors-logs.md)
+
+### DICOM service
+
+#### DICOM event types
+
+DICOM events are available in Azure Health Data Services workspace-level event subscriptions. These new event types enable event-driven workflows in medical imaging applications by subscribing to events for newly created and deleted DICOM images.
+
+Learn more:
+
+- [DICOM events](events/events-message-structure.md#dicom-events-message-structure)
+
+#### Toolkit and samples open source
+Two more sample apps are available in the open source samples repo. See [Azure-Samples/azure-health-data-services-samples)](https://github.com/Azure-Samples/azure-health-data-services-samples).
+
+#### Bug fixes
+
+- **Fixed: Validation errors included with the FailedSOPSequence.** Previously, DICOM validation failures returned by the Store (STOW) API lacked the detail necessary to diagnose and resolve problems. The API changes improve the error messages by including more information about the attributes that failed validation and the reason why. 
+
+Learn more:
+
+- [DICOM conformance statement](dicom/dicom-services-conformance-statement.md#store-response-payload)
 
 ## January 2023
 
 ### Azure Health Data Services
 
-#### Azure Health Data services General Available (GA) in new regions
+#### Azure Health Data services available in more regions
 
-General availability (GA) of Azure Health Data services in France Central, North Central US and Qatar Central Regions.
-
+Azure Health Data Services is generally available in the France Central, North Central US, and Qatar Central regions.
 
 ### DICOM service
 
-#### Added support for `ModalitiesInStudy` attribute
+#### Support for ModalitiesInStudy attribute
 
-The DICOM service supports `ModalitiesInStudy` as a [searchable attribute](dicom/dicom-services-conformance-statement.md#searchable-attributes) at the Study, Series, and Instance level. Support for this attribute allows for the list of modalities in a study to be returned more efficiently, without needing to query each series independently. 
+The DICOM service supports `ModalitiesInStudy` as a [searchable attribute](dicom/dicom-services-conformance-statement.md#searchable-attributes) at the study, series, and instance level. Support for this attribute allows for the list of modalities in a study to be returned more efficiently without needing to query each series independently. 
 
+Learn more:
 
-#### Added support for `NumberOfStudyRelatedInstances` and `NumberOfSeriesRelatedInstances` attributes
+- [Searchable attributes](dicom/dicom-services-conformance-statement.md#searchable-attributes)
 
-Two new attributes for returning the count of Instances in a Study or Series are available in Search [responses](dicom/dicom-services-conformance-statement.md#other-series-tags). 
+#### Support for NumberOfStudyRelatedInstances and NumberOfSeriesRelatedInstances attributes
 
+Two attributes for returning the count of instances in a study or series are available in search responses.
 
+Learn more:
 
-### Toolkit and Samples Open Source
+[Search responses](dicom/dicom-services-conformance-statement.md#other-series-tags) 
 
+### Toolkit and samples open source
 
-#### New sample app has been released
+#### Another sample app is available
 
-One new sample app is released in the [Health Data Services samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples)
+One new sample app is released in the [Azure Health Data Services samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples).
 
 ## Related content
 
