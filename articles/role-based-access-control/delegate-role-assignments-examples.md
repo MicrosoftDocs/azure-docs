@@ -7,7 +7,6 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.workload: identity
 ms.custom: devx-track-azurepowershell
 ms.date: 01/30/2024
 ms.author: rolyon

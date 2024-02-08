@@ -309,7 +309,7 @@ Following are common scenarios for monitoring your application.
 - Use the **Performance** view in Application insights to view the performance of different operations in your application.
 - Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application.
 - Use [Application Map](../app/app-map.md) to view the dependencies between your application components and identify any bottlenecks.
-- Enable [distributed tracing](../app/distributed-tracing-telemetry-correlation.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures, to gain better observability into the interaction between services.
+- Enable [distributed tracing](../app/distributed-trace-data.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures, to gain better observability into the interaction between services.
 
 **Application failures**<br>
 - Use the **Failures** tab of Application insights to view the number of failed requests and the most common exceptions.
