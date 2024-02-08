@@ -112,7 +112,7 @@ To set user permission for a user:
 1. In the top menu, select **+ Add**, and then select **Enterprise administrator**.
 1. Complete the Add role assignment form and then select **Add**.
 
-For more information about adding another enterprise administrator, see [Add another enterprise administrator](https://learn.microsoft.com/azure/cost-management-billing/manage/direct-ea-administration#add-another-enterprise-administrator).
+For more information about adding another enterprise administrator, see [Add another enterprise administrator](direct-ea-administration.md#add-another-enterprise-administrator).
 
 ## Set user permissions on the Azure subscription
 
@@ -129,7 +129,7 @@ To set permission for a subscription:
 1. Enter the email address of the user to whom you want to give access.
 1. Select **Save** to assign the role.
 
-For more information about assigning roles, see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) and [Privileged administrator roles](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-steps#privileged-administrator-roles).
+For more information about assigning roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
 
 ## Optionally enable private offer purchases in the private Azure Marketplace
 
@@ -145,7 +145,7 @@ To assign the Marketplace admin role:
 1. Under **Role**, choose **Marketplace Admin**.
 1. Select the desired user from the dropdown list, then select **Done**.
 
-For more information about assigning the Marketplace admin role, see [Assign the Marketplace admin role](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#assign-the-marketplace-admin-role).
+For more information about assigning the Marketplace admin role, see [Assign the Marketplace admin role](/marketplace/create-manage-private-azure-marketplace-new#assign-the-marketplace-admin-role).
 
 ### Enable the private offer purchase in the private Marketplace
 
@@ -185,8 +185,10 @@ After the private offer purchase is enabled in the private Marketplace, all user
 1. Browse the Gallery or use the search field to find the item you want.
 1. Select **Done**.
 
-For more information about setting up and configuring Marketplace product collections, see [Collections overview](https://learn.microsoft.com/marketplace/create-manage-private-azure-marketplace-new#collections-overview).
+For more information about setting up and configuring Marketplace product collections, see [Collections overview](/marketplace/create-manage-private-azure-marketplace-new#collections-overview).
 
 :::image type="content" source="./media/enable-marketplace-purchases/azure-portal-private-marketplace-manage-collection-rules-select.png" alt-text="Screenshot showing the Collection items." lightbox="./media/enable-marketplace-purchases/azure-portal-private-marketplace-manage-collection-rules-select.png" :::
 
 ## Next steps
+
+To learn mor about setting up and configuring Marketplace product collections, see [Collections overview](/marketplace/create-manage-private-azure-marketplace-new#collections-overview)
