@@ -70,7 +70,7 @@ This template contains several parameters that are predefined for your convenien
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | `webApp-**[<uniqueString>]` | [Web App name](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
+| webAppName | string  | `webApp-[<uniqueString>]` | [Web App name](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
 | location   | string  | `[resourceGroup().location]` | [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) |
 | sku        | string  | `F1`                         | Instance size (F1 = Free Tier) |
 | language   | string  | `.NET`                       | Programming language stack (.NET, php, node, html) |
@@ -95,7 +95,7 @@ This template contains several parameters that are predefined for your convenien
 | appServicePlanName | string  | `webAppPlan-<uniqueString>` | App Service Plan name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
 | location   | string  | `[resourceGroup().location]` | [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)
 | sku        | string  | `F1`                         | Instance size (F1 = Free Tier) |
-| linuxFxVersion   | string  | `DOTNETCORE&#124;3.0`        | "Programming language stack &#124; Version" |
+| linuxFxVersion   | string  | `DOTNETCORE|3.0`        | "Programming language stack &#124; Version" |
 | repoUrl    | string  | ` `                          | External Git repo (optional) |
 
 ---
@@ -118,10 +118,10 @@ This template contains several parameters that are predefined for your convenien
 | appServicePlanName | string  | `webAppPlan-<uniqueString>` | App Service Plan name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
 | location   | string  | `[resourceGroup().location]`| [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) |
 | skuTier        | string  | `P1v3`                         | Instance size ([View available SKUs](configure-custom-container.md?tabs=debian&pivots=container-windows#customize-container-memory)) |
-| appSettings | string  | `[{"name": "PORT","value": "8080"}]`"                          | App Service listening port. Needs to be 8080. |
+| appSettings | string  | `[{"name": "PORT","value": "8080"}]`| App Service listening port. Needs to be 8080. |
 | kind       | string  | `windows`                          | Operating System |
 | hyperv     | string  | `true`                          | Isolation mode |
-| windowsFxVersion | string  | `DOCKER&#124;mcr.microsoft.com/dotnet/samples:aspnetapp`                          | Container image |
+| windowsFxVersion | string  | `DOCKER|mcr.microsoft.com/dotnet/samples:aspnetapp`                          | Container image |
 
 
 
