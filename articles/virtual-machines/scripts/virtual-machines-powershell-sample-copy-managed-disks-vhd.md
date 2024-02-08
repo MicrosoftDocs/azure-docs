@@ -9,7 +9,6 @@ ms.custom: devx-track-azurepowershell
 ms.service: virtual-machines
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 03/01/2023
 ms.author: ramankum
 ---

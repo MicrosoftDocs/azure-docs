@@ -6,7 +6,6 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 01/22/2024
 ms.author: juergent
 ---
@@ -56,6 +55,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- February 07, 2024: Clarified disk allocation when using PPGs to bind availability set in specific Availability Zone in [Configuration options for optimal network latency with SAP applications](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
 - February 01, 2024: Added guidance for [SAP front-end printing to Universal Print](./universal-print-sap-frontend.md).
 - January 24, 2024: Split [SAP RISE integration documentation](./rise-integration.md) into multiple segments for improved legibility, additional overview information added.
 - January 22, 2024: Changes in all high availability documentation to include guidelines for setting the “probeThreshold” property to 2 in the load balancer’s health probe configuration.

@@ -7,7 +7,6 @@ author: halkazwini
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 01/20/2021
 ms.author: halkazwini
 ms.custom: engagement-fy23

@@ -7,9 +7,8 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
-ms.date: 01/22/2024
+ms.date: 02/08/2024
 ms.author: radeltch
 ---
 
@@ -124,7 +123,7 @@ To create the iSCSI disks for the clusters to be used by your SAP systems, run t
 - **nw1-xscs-0** and **nw1-xscs-1**: The hostnames of the **NW1** ASCS cluster nodes.
 - **nw1-db-0** and **nw1-db-1**: The hostnames of the database cluster nodes.
 
-In the following instructions, replace the bold-formatted placeholder text with the hostnames of your cluster nodes and the SID of your SAP system.
+In the following instructions, replace adjust the hostnames of your cluster nodes and the SID of your SAP system.
 
 1. Create the root folder for all SBD devices.
 
@@ -880,7 +879,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     sudo vi /etc/corosync/corosync.conf
     ```
 
-    a. Add the following bold-formatted content to the file if the values aren't there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
+    a. Check the following section in the file and adjust, if the values aren't there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
     ```text
     [...]
@@ -952,12 +951,12 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
    > [!NOTE]
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
-   > Refer to the bold section in the following command.
+
 
 #### [Managed identity](#tab/msi)
 
    ```bash
-   # replace the bold strings with your subscription ID and resource group of the VM
+   # Adjust the command with your subscription ID and resource group of the VM
 
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
@@ -970,7 +969,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 #### [Service principal](#tab/spn)
 
    ```bash
-   # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
+   # Adjust the command with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
    
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
