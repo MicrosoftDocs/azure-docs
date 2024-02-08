@@ -104,7 +104,7 @@ The following table lists operations related to Azure Functions that may be crea
 |Microsoft.Web/sites/stop/action| Function app stopped.|
 |Microsoft.Web/sites/write| Change a function app setting, such as runtime version or enable remote debugging.|
 
-You may also find logged operations that relate to the underlying App Service behaviors. For a more complete list, see [Microsoft.Web resource provider operations](/azure/role-based-access-control/resource-provider-operations.md#microsoftweb).
+You may also find logged operations that relate to the underlying App Service behaviors. For a more complete list, see [Microsoft.Web resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftweb).
 
 <!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. 
 [!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
