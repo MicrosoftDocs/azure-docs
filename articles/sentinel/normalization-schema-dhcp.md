@@ -5,7 +5,6 @@ author: limwainstein
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: lwainstein
-ms.custom: ignite-fall-2021
 ---
 
 # The Advanced Security Information Model (ASIM) DHCP normalization schema reference (Public preview)

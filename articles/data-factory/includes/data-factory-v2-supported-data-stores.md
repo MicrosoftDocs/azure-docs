@@ -1,13 +1,12 @@
 ---
 title: include file
 description: include file
-services: data-factory
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
 ms.date: 10/20/2023
 ms.author: jianleishen
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 | Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime) | Supported by [self-hosted IR](../concepts-integration-runtime.md#self-hosted-integration-runtime) |

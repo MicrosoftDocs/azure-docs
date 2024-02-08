@@ -64,7 +64,7 @@ Skills can execute independently and in parallel, or sequentially if you feed th
 
 + Skill #2 is a [Sentiment Detection skill](cognitive-search-skill-sentiment.md) accepts "pages" as input, and produces a new field called "Sentiment" as output that contains the results of sentiment analysis.
 
-Notice how the output of the first skill ("pages") is used in sentiment analysis, where "/document/reviews_text/pages/*" is both the context and input. For more information about path formulation, see [How to reference annotations](cognitive-search-concept-annotations-syntax.md).
+Notice how the output of the first skill ("pages") is used in sentiment analysis, where "/document/reviews_text/pages/*" is both the context and input. For more information about path formulation, see [How to reference enrichments](cognitive-search-concept-annotations-syntax.md).
 
 ```json
 {
@@ -222,7 +222,7 @@ The enrichment tree now has a new node placed under the context of the skill. Th
  
 ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
-To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you'll need to specify it as ```"/document/reviews_text/pages/*"```. For more information about paths, see [Reference annotations](cognitive-search-concept-annotations-syntax.md).
+To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you'll need to specify it as ```"/document/reviews_text/pages/*"```. For more information about paths, see [Reference enrichments](cognitive-search-concept-annotations-syntax.md).
 
 ### Skill #2 Language detection
 

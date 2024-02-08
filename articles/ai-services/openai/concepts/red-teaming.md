@@ -5,12 +5,10 @@ description: Learn about how red teaming and adversarial testing are an essentia
 ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 11/03/2023
-ms.custom: 
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-keywords:
 ---
 
 # Planning red teaming for large language models (LLMs) and their applications

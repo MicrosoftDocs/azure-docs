@@ -2,11 +2,9 @@
 title: 'How to add a custom domain - Azure Front Door'
 description: In this article, you learn how to onboard a custom domain to Azure Front Door profile using the Azure portal.
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 09/07/2023
 ms.author: duau
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.

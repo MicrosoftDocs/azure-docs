@@ -2,7 +2,6 @@
 title: Azure Workbooks composite bar renderer 
 description: Learn about all the Azure Workbooks composite bar renderer visualizations. 
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/21/2023
@@ -187,4 +186,4 @@ The composite bar view for a graph with the preceding settings will look like th
 
 ## Next steps
 
-[Get started with Azure Workbooks](workbooks-getting-started.md)
+[Get started with Azure Workbooks](workbooks-overview.md)

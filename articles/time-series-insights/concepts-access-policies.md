@@ -2,15 +2,12 @@
 title: 'Configure security to grant data access - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to configure security, permissions, and manage data access policies in your Azure Time Series Insights environment.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: seodec18
 ---
 
 # Grant data access to an environment

@@ -87,6 +87,7 @@ az networkcloud cluster show --cluster-name "clusterName" --resource-group "reso
 ```
 
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
+For more detailed insights on the upgrade progress, the individual BMM in each Rack can be checked for status. Example of this is provided in the reference section under [BareMetal Machine roles](./reference-near-edge-baremetal-machine-roles.md).
 
 ## Configure compute threshold parameters for runtime upgrade using cluster updateStrategy
 The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:

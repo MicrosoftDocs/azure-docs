@@ -147,7 +147,7 @@ You can specify the virtual network configuration settings in the load test crea
 
 1. (Optional) Check **Disable Public IP deployment** if you don't want to deploy a public IP address, load balancer, and network security group in your subnet.
 
-  When you select this option, ensure that there is an alternative mechanism like [Azure NAT Gateway](/azure/nat-gateway/nat-overview#outbound-connectivity), [Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal), or a [network virtual appliance (NVA)](/azure/virtual-wan/scenario-route-through-nvas-custom) to enable outbound traffic routing from the subnet. 
+    When you select this option, ensure that there is an alternative mechanism like [Azure NAT Gateway](/azure/nat-gateway/nat-overview#outbound-connectivity), [Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal), or a [network virtual appliance (NVA)](/azure/virtual-wan/scenario-route-through-nvas-custom) to enable outbound traffic routing from the subnet. 
    
 1. Review or fill the load test information. Follow these steps to [create or manage a test](./how-to-create-manage-test.md).
 
@@ -226,9 +226,9 @@ The subnet you use for deploying the load test can't be delegated to another Azu
 
 Learn more about [adding or removing a subnet delegation](/azure/virtual-network/manage-subnet-delegation#remove-subnet-delegation-from-an-azure-service).
 
-### Starting the load test fails with `User doesn't have subnet/join/action permission on the virtual network (ALTVNET004)`
+### Updating or starting the load test fails with `User doesn't have subnet/join/action permission on the virtual network (ALTVNET004)`
 
-To start a load test, you must have sufficient permissions to deploy Azure Load Testing to the virtual network. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. 
+To update or start a load test, you must have sufficient permissions to deploy Azure Load Testing to the virtual network. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. 
 
 1. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 

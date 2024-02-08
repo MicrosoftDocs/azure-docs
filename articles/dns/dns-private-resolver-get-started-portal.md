@@ -7,7 +7,7 @@ ms.author: greglin
 ms.date: 11/03/2023
 ms.topic: quickstart
 ms.service: dns
-ms.custom: mode-ui, ignite-2022
+ms.custom: mode-ui
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
 
@@ -65,7 +65,7 @@ Next, add a virtual network to the resource group that you created, and configur
 5. Select the **default** subnet.
 6. Enter the following values on the **Edit subnet** page:
     - Name: snet-inbound
-    - IPv4 address range: 10.0.0.0.16
+    - IPv4 address range: 10.0.0.0/16
     - Starting address: 10.0.0.0
     - Size: /28 (16 IP addresses)
     - Select **Save**

@@ -2,22 +2,22 @@
 title: Commitment tier pricing for Azure AI
 titleSuffix: Azure AI Studio
 description: Learn how to sign up for commitment tier pricing instead of pay-as-you-go pricing.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
+ms.reviewer: siarora
+ms.author: larryfr
+author: Blackmist 
 ---
 
 # Commitment tier pricing for Azure AI
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Azure AI offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the Azure AI resources and features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
+Azure AI offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the Azure AI hub resources and features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
 
 ## Purchase a commitment plan by updating your Azure resource
 

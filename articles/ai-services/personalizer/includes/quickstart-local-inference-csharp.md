@@ -7,7 +7,7 @@ ms.author: jacodel
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include
-ms.date: 09/06/2022
+ms.date: 01/19/2024
 ---
 
 You will need to install the Personalizer client library for .NET to:

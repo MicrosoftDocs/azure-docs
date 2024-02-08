@@ -285,7 +285,7 @@ To learn more, please see:
 [Azure Maps npm Package]: https://www.npmjs.com/package/azure-maps-rest
 [Azure Maps Route service]: /rest/api/maps/route
 [How to use the Service module]: how-to-use-services-module.md
-[Point of Interest]: /rest/api/maps/search/getsearchpoi
+[Point of Interest]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0
 [Post Route Directions API documentation]: /rest/api/maps/route/postroutedirections#supportingpoints
 [Post Route Directions]: /rest/api/maps/route/postroutedirections
 [Postman]: https://www.postman.com/downloads/

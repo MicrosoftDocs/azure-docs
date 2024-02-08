@@ -2,15 +2,15 @@
 title: Vector index lookup tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces the Vector index lookup tool for flows in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
+ms.reviewer: keli19
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Vector index lookup tool for flows in Azure AI Studio
@@ -43,7 +43,7 @@ The following are available input parameters:
 
 ## Outputs
 
-The following JSON format response is an example returned by the tool that includes the top-k scored entities. The entity follows a generic schema of vector search result provided by promptflow-vectordb SDK. For the Vector Index Search, the following fields are populated:
+The following JSON format response is an example returned by the tool that includes the top-k scored entities. The entity follows a generic schema of vector search result provided by the `promptflow-vectordb` SDK. For the Vector Index Search, the following fields are populated:
 
 | Field Name | Type | Description |
 | ---- | ---- | ----------- |

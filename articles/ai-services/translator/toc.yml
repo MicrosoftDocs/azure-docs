@@ -7,6 +7,9 @@ items:
   - name: What is Translator Service?
     displayName: features,develop,development,free
     href: translator-overview.md
+  - name: Create a Translator resource
+    displayName: endpoint,key,portal,azure,authentication,delete,resource
+    href: create-translator-resource.md  
   - name: Language Support
     displayName: iso,language code,translation,transliteration,detection,detect,pdf,document
     href: language-support.md
@@ -27,9 +30,6 @@ items:
   - name: What is Text Translation?
     displayName: features,develop,development,free
     href: text-translation-overview.md
-  - name: Create a Translator resource
-    displayName: endpoint,key,portal,azure,authentication,delete,resource
-    href: create-translator-resource.md
   - name: 🆕 Text Translation SDK overview (preview)
     displayName: get started,sdk,keys,endpoint
     href: text-sdk-overview.md

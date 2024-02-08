@@ -7,9 +7,8 @@ manager: ganesr
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/18/2018
-ms.author: allensu 
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ---
 

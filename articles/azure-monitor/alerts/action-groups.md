@@ -1,11 +1,13 @@
 ---
 title: Azure Monitor action groups
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure functions.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 05/02/2023
 ms.reviewer: jagummersall
 ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref
 ---
+
 # Action groups
 
 When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
@@ -485,7 +487,7 @@ For information about pricing for supported countries/regions, see [Azure Monito
 >
 > If you use the webhook action, your target webhook endpoint must be able to process the various JSON payloads that different alert sources emit. You can't pass security certificates through a webhook action. To use basic authentication, you must pass your credentials through the URI. If the webhook endpoint expects a specific schema, for example, the Microsoft Teams schema, use the Logic Apps action to transform the alert schema to meet the target webhook's expectations.
 
-Webhook action groups use the following rules:
+Webhook action groups generally follow these rules when called:
 - When a webhook is invoked, if the first call fails, it is retried at least 1 more time, and up to 5 times (5 retries) at various delay intervals (5, 20, 40 seconds).
     - The delay between 1st and 2nd attempt is 5 seconds
     - The delay between 2nd and 3rd attempt is 20 seconds

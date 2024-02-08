@@ -6,11 +6,10 @@ description: This article contains keyphrase prebuilt entity information in Lang
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 10/28/2021
+ms.date: 01/19/2024
 ---
 
 # keyPhrase prebuilt entity for a LUIS app

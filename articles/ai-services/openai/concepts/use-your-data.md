@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 11/14/2023
+ms.date: 01/09/2023
 recommendations: false
 ---
 
@@ -29,7 +29,7 @@ One of the key features of Azure OpenAI on your data is its ability to retrieve 
 To get started, [connect your data source](../use-your-data-quickstart.md) using Azure OpenAI Studio and start asking questions and chatting on your data.
 
 > [!NOTE]
-> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) with either the gpt-35-turbo or the gpt-4 models deployed.
+> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) deployed in a [supported region](#azure-openai-on-your-data-regional-availability) with either the gpt-35-turbo or the gpt-4 models.
 
 ## Data formats and file types
 
@@ -232,15 +232,26 @@ When you want to reuse the same URL/web address, you can select [Azure AI Search
 ---
 
 
-## Custom parameters
+## Ingestion parameters
 
-You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions).
+You can use the following parameter to change how your data is ingested in Azure OpenAI Studio, Azure AI Studio, and the ingestion API. Changing the parameter requires re-ingesting your data into Azure Search.
+
+|Parameter name  | Description  |
+|---------|---------|
+| **Chunk size** | Azure OpenAI on your data processes your documents by splitting them into chunks before indexing them in Azure Search. The chunk size is the maximum number of tokens for any chunk in the search index. The default chunk size is 1024 tokens. However, given the uniqueness of your data, you may find a different chunk size (such as 256, 512, or 1536 tokens for example) more effective. Adjusting the chunk size can enhance the performance of the chat bot. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it can affect retrieval performance. This is the `chunkSize` parameter in the API.|
+
+
+## Runtime parameters
+
+You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions). You do not need to re-ingest your your data when you update these parameters. 
 
 
 |Parameter name  | Description  |
 |---------|---------|
-|**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
-| **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
+| **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. This is the `inScope` parameter in the API. |
+|**Top K Documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information may be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. Conversely, if you think the model is providing irrelevant information alongside useful data, consider decreasing it. When experimenting with the [chunk size](#ingestion-parameters), we recommend adjusting the top-K parameter to achieve the best performance. Usually, it is beneficial to change the top-K value in the opposite direction of your chunk size adjustment. For example, if you decrease the chunk size from the default of 1024, you might want to increase the top-K value to 10 or 20. This ensures a similar amount of information is provided to the model, as reducing the chunk size decreases the amount of information in the 5 documents given to the model. This is the `topNDocuments` parameter in the API. |
+| **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API. |
+
 
 ## Document-level access control
 
@@ -337,7 +348,7 @@ Use the following sections to help you configure Azure OpenAI on your data for o
 
 ### System message
 
-Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 400 tokens. 
+Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There are token limits that apply to the system message, used with every API call, and counted against the overall token limit. The system message will be truncated if it exceeds the token limits listed in the [token estimation](#token-usage-estimation-for-azure-openai-on-your-data) section.
 
 For example, if you're creating a chatbot where the data consists of transcriptions of quarterly financial earnings calls, you might use the following system message:
 
@@ -356,6 +367,7 @@ Set a limit on the number of tokens per model response. The upper limit for Azur
 ### Limit responses to your data 
 
 This option encourages the model to respond using your data only, and is selected by default. If you unselect this option, the model might more readily apply its internal knowledge to respond. Determine the correct selection based on your use case and scenario. 
+
 
 
 ### Interacting with the model
@@ -386,7 +398,6 @@ Avoid asking long questions and break them down into multiple questions if possi
 * We recommend using a system message to inform the model that your data is in another language. For example:
 
 *   *"**You are an AI assistant designed to help users extract information from retrieved Japanese documents. Please scrutinize the Japanese documents carefully before formulating a response. The user's query will be in Japanese, and you must response also in Japanese."*
-
 
 * If you have documents in multiple languages, we recommend building a new index for each language and connecting them separately to Azure OpenAI.  
 
@@ -466,6 +477,8 @@ After you upload your data through Azure OpenAI studio, you can make a call agai
 
 
 
+
+
 |Parameter  |Recommendation  |
 |---------|---------|
 |`fieldsMapping`    | Explicitly set the title and content fields of your index. This impacts the search retrieval quality of Azure AI Search, which impacts the overall response and citation quality.         |
@@ -537,6 +550,7 @@ When you chat with a model, providing a history of the chat will help the model 
 ## Token usage estimation for Azure OpenAI on your data
 
 
+
 | Model                   | Total tokens available | Max tokens for system message | Max tokens for model response |
 |-------------------------|------------------------|------------------------------------|------------------------------------|
 | ChatGPT Turbo (0301) 8k | 8000                   | 400                                | 1500                               |
@@ -545,6 +559,7 @@ When you chat with a model, providing a history of the chat will help the model 
 | GPT-4 32k               | 32000                  | 2000                               | 6400                               |
 
 The table above shows the total number of tokens available for each model type. It also determines the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
+
 
 
 * The meta prompt (MP): if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens is 4036 tokens. Otherwise (for example if `inScope=False`) the maximum is 3444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt as well as the query rewriting prompts for retrieval.
@@ -565,6 +580,28 @@ class TokenEstimator(object):
       
 token_output = TokenEstimator.estimate_tokens(input_text)
 ```
+
+## Azure OpenAI on your data regional availability
+
+You can use Azure OpenAI on your data with an Azure OpenAI resource in the following regions: 
+* Australia East
+* Brazil South
+* Canada East
+* East US
+* East US 2
+* France Central
+* Japan East
+* North Central US
+* Norway East
+* South Central US
+* South India
+* Sweden Central
+* Switzerland North
+* UK South
+* West Europe
+* West US
+
+If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI on your data.
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)

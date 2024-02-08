@@ -19,10 +19,6 @@ The new plan also provides a more predictable and flexible pricing structure for
 
 The new pricing plan charges based on the number of storage accounts you protect, which simplifies cost calculations and allows for easy scaling as your needs change. You can enable it at the subscription or resource level and can also exclude specific storage accounts from protected subscriptions, providing more granular control over your security coverage. Extra charges might apply to storage accounts with high-volume transactions that exceed a high monthly threshold.
 
-## Deprecation of Defender for Storage (classic)
-
-The classic plan will be deprecated in the future, and the deprecation will be announced three years in advance. All future capabilities will only be added to the new plan.
-
 > [!NOTE]
 > If you already have the legacy Defender for Storage (classic) enabled and want to access the new security features and pricing, you'll need to proactively migrate to the new plan. You can migrate to the new plan with one-click through the Azure Portal or use Azure Policy and IaC tools.
 

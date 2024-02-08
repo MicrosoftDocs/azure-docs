@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Examples for better understanding pricing model under different integration runtime types

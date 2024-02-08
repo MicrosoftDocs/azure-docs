@@ -6,7 +6,6 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.topic: overview
-ms.workload: infrastructure
 ms.date: 09/01/2023
 ms.author: jushiman
 ms.reviewer: cynthn

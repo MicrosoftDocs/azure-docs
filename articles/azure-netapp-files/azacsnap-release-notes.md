@@ -1,16 +1,9 @@
 ---
 title: Release Notes for Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
-description: Provides release notes for the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+description: Provides release notes for the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2023
 ms.author: phjensen
@@ -246,5 +239,3 @@ AzAcSnap v5.0 Preview (Build: 20210318.30771) has been released with the followi
 
 - [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
 - [Download the latest release of the installer](https://aka.ms/azacsnapinstaller)
-
-

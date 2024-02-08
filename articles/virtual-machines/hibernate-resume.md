@@ -3,7 +3,6 @@ title: Learn about hibernating your VM
 description: Learn how to hibernate a VM.
 author: mattmcinnes
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/31/2023
 ms.author: jainan

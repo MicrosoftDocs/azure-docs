@@ -4,8 +4,7 @@ description: Learn about the NAT gateway resource of the Azure NAT Gateway servi
 author: asudbring
 ms.service: nat-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.custom: ignite-2022, FY23 content-maintenance
+ms.custom: FY23 content-maintenance
 ms.date: 07/10/2023
 ms.author: allensu
 ---

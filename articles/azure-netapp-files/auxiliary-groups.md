@@ -1,16 +1,9 @@
 ---
 title: Understand auxiliary/supplemental groups with NFS in Azure NetApp Files
-description: Learn about auxiliary/supplemental groups with NFS in Azure NetApp Files.  
+description: Learn about auxiliary/supplemental groups with NFS in Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2023
 ms.author: anfdocs
@@ -36,7 +29,7 @@ Accept requests from the kernel to  map  user  id  numbers  into lists  of group
 
 When an access request is made, only 16 GIDs are passed in the RPC portion of the packet.
 
-:::image type="content" source="../media/azure-netapp-files/packet-output.png" alt-text="Output of RPC packet with 16 GIDs." lightbox="../media/azure-netapp-files/packet-output.png":::
+:::image type="content" source="./media/auxiliary-groups/packet-output.png" alt-text="Output of RPC packet with 16 GIDs." lightbox="./media/auxiliary-groups/packet-output.png":::
 
 Any GID beyond the limit of 16 is dropped by the protocol. Extended GIDs in Azure NetApp Files can only be used with external name services such as LDAP.
 

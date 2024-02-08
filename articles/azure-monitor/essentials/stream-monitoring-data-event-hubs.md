@@ -158,8 +158,6 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available at [this LogRhythm website](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/).
 |Logz.io | Yes | For more information, see [Get started with monitoring and logging by using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).
 
-Other partners might also be available. For a more complete list of all Azure Monitor partners and their capabilities, see [Azure Monitor partner integrations](../partners.md).
-
 ## Next steps
 * [Read the overview of the Azure activity log](../essentials/platform-logs-overview.md)
 * [Set up an alert based on an activity log event](../alerts/alerts-log-webhook.md)

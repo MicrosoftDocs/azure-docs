@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to validate user inputs by using custom policies, so that I can ensure that the data entered by users is accurate and meets the required criteria.
+
 ---
 
 #  Validate user inputs by using Azure Active Directory B2C custom policy 
@@ -375,7 +379,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 ## Step 7 - Validate user input by using validation technical profiles
 
-The validation techniques we've used in step 1, step 2 and step 3 aren't applicable for all scenarios. If your business rules are complex to be defined at claim declaration level, you can configure a [Validation Technical](validation-technical-profile.md), and then call it from a [Self-Asserted Technical Profile](self-asserted-technical-profile.md).
+The validation techniques we've used in step 1, step 2 and step 3 aren't applicable for all scenarios. If your business rules are too complex to be defined at claim declaration level, you can configure a [Validation Technical](validation-technical-profile.md), and then call it from a [Self-Asserted Technical Profile](self-asserted-technical-profile.md).
 
 > [!NOTE] 
 > Only self-asserted technical profiles can use validation technical profiles. Learn more about [validation technical profile](validation-technical-profile.md) 

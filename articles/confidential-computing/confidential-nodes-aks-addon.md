@@ -1,14 +1,12 @@
 ---
 title: Azure Kubernetes Service plugin for confidential VMs
 description: How to use the Intel SGX device plugin and Intel SGX quote helper daemon sets for confidential VMs with Azure Kubernetes Service.
-author: agowdamsft
-ms.service: virtual-machines 
+author: angarg05
+ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: article
 ms.date: 11/01/2021
-ms.author: amgowda
-ms.custom: ignite-fall-2021
+ms.author: ananyagarg
 ---
 
 # Confidential computing plugin for Confidential VMs
