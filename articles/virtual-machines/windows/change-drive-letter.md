@@ -6,7 +6,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: disks
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: jushiman
