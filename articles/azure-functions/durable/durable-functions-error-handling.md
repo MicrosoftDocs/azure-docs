@@ -396,7 +396,7 @@ await ctx.CallActivityWithRetryAsync("FlakeyActivity", retryOptions, null);
 TaskOptions retryOptions = TaskOptions.FromRetryHandler(retryContext =>
 {
     // Don't retry anything that derives from ApplicationException
-    if (!retryContext.LastFailure.IsCausedBy<ApplicationException>())
+    if (retryContext.LastFailure.IsCausedBy<ApplicationException>())
     {
         return false;
     }
