@@ -4,7 +4,7 @@ description: Learn how to use Defender for Cloud recommendations to identify if 
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 02/08/2024
 ---
 
 # Detect and configure endpoint detection and response solutions
@@ -39,9 +39,9 @@ The recommendations associated with Defender for Endpoint allow you to:
     
 ## Detect an endpoint detection and response solutions on virtual machines
 
-When Defender for Cloud doesn't detect an endpoint detection and response solution on your Azure virtual machines (VM), AWS EC2 instances or GCP VM instances, it will create recommendations to help you install Defender for Endpoint as your solution.
+When Defender for Cloud can't detect an endpoint detection and response solution on Azure virtual machines (VM), AWS EC2 instances or GCP VM instances, it will present recommendations that help you install Defender for Endpoint as your endpoint detection and response solution.
 
-The following table provides a list of the supported endpoint detection and response solutions with their supported platforms.
+Defender for Cloud has the ability to detect several endpoint detection and response solutions on various supported platforms. The following table contains the currently supported solutions and platforms: 
 
 | Endpoint detection and response solution | Supported platforms |
 |--|--|
@@ -52,6 +52,8 @@ The following table provides a list of the supported endpoint detection and resp
 | McAfee | Windows and Linux |
 | Symantec | Windows and Linux |
 | Sophos |  Windows and Linux |
+
+<br>
 
 **To detect an endpoint recommendations and response solutions on virtual machines**:
 
@@ -129,7 +131,7 @@ This recommended action will be available if an endpoint detection and response 
 
     :::image type="content" source="media/endpoint-detection-response/remediation-steps.png" alt-text="Screenshot that shows where the remediation steps are located in the recommendation.":::
 
-1. Follow the instructions on the [troubleshoot Microsoft Defender for Endpoint onboarding issues](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide) page.
+1. Follow the instructions to [troubleshoot Microsoft Defender for Endpoint onboarding issues](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide).
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
