@@ -107,7 +107,7 @@ The following list describes the three authentication types:
    | Property                   | Required?                     | Description                                                                                                                                                                                                                         |
    |----------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `Private key`              | Yes                           | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
-   | `Host key`                 | No for Gen1 <br> Yes for Gen2 | The host key of the Git server. If you connect to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+   | `Host key`                 | No for Gen1 <br> Yes for Gen2 | The host key of the Git server. If you connect to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`.      |
    | `Host key algorithm`       | No for Gen1 <br> Yes for Gen2 | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
    | `Strict host key checking` | No                            | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
@@ -121,7 +121,7 @@ Gen2 requires more configuration properties than Gen1 when using SSH authenticat
 
 | Property             | Description                                                                                                                                                                                                                         |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Host key`           | The host key of the Git server. If you connect to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+| `Host key`           | The host key of the Git server. If you connect to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`.      |
 | `Host key algorithm` | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`.                                                                                                   |
 
 Use the following steps to upgrade from Gen1 to Gen2:
@@ -291,6 +291,40 @@ az spring app deploy \
     --name <app-name> \
     --artifact-path <path-to-your-JAR-file> \
     --config-file-pattern <config-file-pattern>
+```
+
+---
+
+## Bind an app to the Application Configuration Service
+
+You can now choose to bind your application to the Application Configuration Service when creating a new app.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to create a new app and bind it to the Application Configuration Service:
+
+1. In the navigation pane, select **Apps** to see all your apps.
+
+1. Select **Create App** to create a new app.
+
+1. Enter a name for your new app.
+
+1. Select the **Bind** tab and then select **Application Configuration Service** from the dropdown.
+
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/configuration-service-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind dropdown highlighted." lightbox="media/how-to-enterprise-application-configuration-service/configuration-service-bind-app-when-creation.png":::
+
+1. Select **Create** to finish creating your app and binding it to the Application Configuration Service.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to create a new app and bind it to the Application Configuration Service:
+
+```azurecli
+az spring app create \ 
+    --resource-group <resource-group> \ 
+    --service <service-name> \ 
+    --name <app-name> \ 
+    --bind-application-configuration-service 
 ```
 
 ---
