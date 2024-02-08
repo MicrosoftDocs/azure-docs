@@ -81,7 +81,7 @@ This procedure describes how to send a software version update to OT sensors at 
 
     :::image type="content" source="media/update-ot-software/filter-remote-update.png" alt-text="Screenshot of how to filter for OT sensors that are ready for remote update." lightbox="media/update-ot-software/filter-remote-update.png":::
 
-1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**. For example:<!-- placement holder need image of this , instead of the one that was below for the individual sensor -->
+1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**. For example:
 
 :::image type="content" source="media/update-ot-software/sensorupdates1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
 
@@ -92,8 +92,8 @@ For one or more individual sensors, select the  **Step one: Send package to sens
     To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
     The lower half of the screen shows the list of sensors to be updated and their status. It's important to check this properly, as there might be reasons why an update can't be sent to a sensor. This can be because it's updated to the version you wish to send, or there's a problem with the sensor, such as it's disconnected.
-    <!-- we need to make a better version of the image, clearer and sharper   :::image type="content" source="media/update-ot-software/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/send-package-multiple-versions.png" border="false":::-->
-    :::image type="content" source="media/update-ot-software/sendpackage-pane.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/sendpackage-pane.png" border="false":::
+
+    :::image type="content" source="media/update-ot-software/sendpackage-pane.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." lightbox="media/update-ot-software/sendpackage-pane.png" border="true":::
 
 1. Once you've checked the list of sensors to be updated, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, with the percentage completed automatically updating in the progress bar, so you can see that the process has started and letting you track its progress until the transfer is complete. For example:
 
