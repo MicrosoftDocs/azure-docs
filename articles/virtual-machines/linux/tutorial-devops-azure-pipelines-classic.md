@@ -8,7 +8,6 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
-ms.workload: infrastructure
 ms.date: 08/15/2022
 ms.author: moala
 ms.custom: devops

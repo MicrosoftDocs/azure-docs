@@ -7,7 +7,6 @@ ms.author: chashea
 ms.date: 09/05/2023
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.workload: infrastructure-services
 ms.custom: devx-track-terraform
 content_well_notifications:
   - AI-Contribution

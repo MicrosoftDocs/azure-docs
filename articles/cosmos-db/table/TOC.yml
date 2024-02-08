@@ -38,12 +38,8 @@
       href: quickstart-python.md
     - name: Go
       href: how-to-use-go.md
-    - name: PHP
-      href: how-to-use-php.md
     - name: C++
       href: how-to-use-c-plus.md
-    - name: Ruby
-      href: how-to-use-ruby.md
     - name: F#
       href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
       maintainContext: true
