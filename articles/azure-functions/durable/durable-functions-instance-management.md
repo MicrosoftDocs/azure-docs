@@ -715,7 +715,9 @@ public static async Task Run(
     string suspendReason = "Need to pause workflow";
     await client.SuspendAsync(instanceId, suspendReason);
     
-    // ... wait for some period of time since suspending is an async operation...
+    // Wait for 30 seconds to ensure that the orchestrator state is updated as suspended. 
+    DateTime dueTime = context.CurrentUtcDateTime.AddSeconds(30);
+    await context.CreateTimer(dueTime, CancellationToken.None);
     
     string resumeReason = "Continue workflow";
     await client.ResumeAsync(instanceId, resumeReason);
@@ -733,7 +735,9 @@ module.exports = async function(context, instanceId) {
     const suspendReason = "Need to pause workflow";
     await client.suspend(instanceId, suspendReason);
 
-    // ... wait for some period of time since suspending is an async operation...
+    // Wait for 30 seconds to ensure that the orchestrator state is updated as suspended.  
+    const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ seconds: 30 });
+    yield context.df.createTimer(deadline.toJSDate());
 
     const resumeReason = "Continue workflow";
     await client.resume(instanceId, resumeReason);
@@ -745,6 +749,7 @@ module.exports = async function(context, instanceId) {
 ```python
 import azure.functions as func
 import azure.durable_functions as df
+from datetime import timedelta
 
 async def main(req: func.HttpRequest, starter: str, instance_id: str):
     client = df.DurableOrchestrationClient(starter)
@@ -752,7 +757,9 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str):
     suspend_reason = "Need to pause workflow"
     await client.suspend(instance_id, suspend_reason)
 
-    # ... wait for some period of time since suspending is an async operation...
+    # Wait for 30 seconds to ensure that the orchestrator state is updated as suspended. 
+    due_time = context.current_utc_datetime + timedelta(seconds=30)
+    yield context.create_timer(due_time)
 
     resume_reason = "Continue workflow"
     await client.resume(instance_id, resume_reason)
@@ -769,7 +776,9 @@ $SuspendReason = 'Need to pause workflow'
 
 Suspend-DurableOrchestration -InstanceId $InstanceId -Reason $SuspendReason
 
-# ... wait for some period of time since suspending is an async operation...
+# Wait for 30 seconds to ensure that the orchestrator state is updated as suspended.
+$duration = New-TimeSpan -Seconds 30
+Start-DurableTimer -Duration $duration
 
 $ResumeReason = 'Continue workflow'
 Resume-DurableOrchestration -InstanceId $InstanceId -Reason $ResumeReason
@@ -787,7 +796,8 @@ public void suspendResumeInstance(
     String suspendReason = "Need to pause workflow";
     client.suspendInstance(instanceID, suspendReason);
 
-    // ... wait for some period of time since suspending is an async operation...
+    // Wait for 30 seconds to ensure that the orchestrator state is updated as suspended. 
+    ctx.createTimer(Duration.ofSeconds(30)).await();
 
     String resumeReason = "Continue workflow";
     client.getClient().resumeInstance(instanceID, resumeReason);
