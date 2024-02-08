@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, mode-api, ignite-2022, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet
+ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for .NET with the MongoDB driver
@@ -52,15 +52,15 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - create resources](<./includes/azure-cli-create-resource-group-and-resource.md>)]
+[!INCLUDE [Azure CLI - create resources](./includes/azure-cli-create-resource-group-and-resource.md)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - create resource group and resources](<./includes/powershell-create-resource-group-and-resource.md>)]
+[!INCLUDE [Powershell - create resource group and resources](./includes/powershell-create-resource-group-and-resource.md)]
 
 #### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - create resource](<./includes/portal-create-resource.md>)]
+[!INCLUDE [Portal - create resource](./includes/portal-create-resource.md)]
 
 ---
 
@@ -68,15 +68,15 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+[!INCLUDE [Azure CLI - get connection string](./includes/azure-cli-get-connection-string.md)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+[!INCLUDE [Powershell - get connection string](./includes/powershell-get-connection-string.md)]
 
 #### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-resource.md>)]
+[!INCLUDE [Portal - get connection string](./includes/portal-get-connection-string-from-resource.md)]
 
 ---
 
@@ -98,7 +98,7 @@ dotnet add package MongoDb.Driver
 
 ### Configure environment variables
 
-[!INCLUDE [Multi-tab](<./includes/environment-variables-connection-string.md>)]
+[!INCLUDE [Multi-tab](./includes/environment-variables-connection-string.md)]
 
 ## Object model
 

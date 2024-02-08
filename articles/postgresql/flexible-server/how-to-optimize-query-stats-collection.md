@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ms.author: assaff
 author: assaff
-ms.date: 03/23/2023
+ms.date: 01/02/2024
 ---
 
 # Optimize query statistics collection on Azure Database for PostgreSQL - Flexible Server

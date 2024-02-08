@@ -8,7 +8,7 @@ author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: ""
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/02/2024
 ---
 
 # Stop/Start Azure Database for PostgreSQL - Flexible Server using Azure CLI

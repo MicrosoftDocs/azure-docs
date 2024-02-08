@@ -12,10 +12,6 @@ author: sagarkeswani
 
 # Deploy S/4HANA infrastructure with Azure Center for SAP solutions
 
-
-
-
-
 In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions*. There are [three deployment options](#deployment-types): distributed with High Availability (HA), distributed non-HA, and single server. 
 
 ## Prerequisites
@@ -158,6 +154,17 @@ The following operating system (OS) software versions are compatible with these 
     1. For **Managed identity source**, choose if you want the service to create a new managed identity or you can instead use an existing identity. If you wish to allow the service to create a managed identity, acknowledge the checkbox which asks for your consent for the identity to be created and the contributor role access to be added for all resource groups.
 
     1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop down menu. If you are selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you are trying to deploy. That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group and Resource Group which has the existing SSHKEY. If you wish to later install the SAP system using Azure Center for SAP Solutions, we also recommend giving the **Storage Blob Data Reader and Reader** and **Data Access roles** on the Storage Account which has the SAP software media.
+
+1. Under **Managed resource settings**, choose the network settings for the managed storage account deployed into your subscription. This storage account is required for ACSS to orchestrate the deployment of new SAP system and further power all the SAP management capabilities.
+
+    1. For **Storage account network access**, select Enable access from specific virtual network for enhanced network security access for the managed storage account. This option ensures that this storage account is accessible only from the virtual network in which the SAP system exists.
+
+
+   > [!IMPORTANT]
+   > To use the secure network access option, you must enable Microsoft.Storage [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) on the Application and Database subnets. You can learn more about storage account network security in [this documentation](../../storage/common/storage-network-security.md). Private endpoint on managed storage account is not currently supported in this scenario.
+   
+         
+   When you choose to limit network access to specific virtual networks, Azure Center for SAP solutions service accesses this storage account using [**trusted access**](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services) based on the managed identity associated with the VIS resource.
 
 1. Select **Next: Virtual machines**.
 

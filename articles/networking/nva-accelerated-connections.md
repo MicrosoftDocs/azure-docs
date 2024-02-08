@@ -1,6 +1,6 @@
 ---
-title: Accelerated connections network performance optimization and NVAs
-description: Learn how Accelerated Connections improves Network Virtual Appliance (NVA) performance.
+title: Accelerated connections network performance optimization on NVAs and VMs
+description: Learn how Accelerated Connections improves networking performance for NVAs and VMs.
 author: steveesp
 ms.service: virtual-network
 ms.topic: conceptual
@@ -69,6 +69,8 @@ This list will be updated as more regions become available. The following region
 * West US
 * East US 2
 * Central US
+* South UK
+* West Europe
 
 ## Supported SKUs
 

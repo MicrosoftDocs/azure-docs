@@ -23,10 +23,10 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account][az-account] command.
 
-## Export environmental variables
+## Export environment variables
 
 To help simplify steps to configure the identities required, the steps below define
-environmental variables for reference on the cluster.
+environment variables for reference on the cluster.
 
 Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME`.
 

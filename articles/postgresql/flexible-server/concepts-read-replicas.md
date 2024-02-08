@@ -4,7 +4,7 @@ description: This article describes the read replica feature in Azure Database f
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 11/06/2023
+ms.date: 01/16/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:

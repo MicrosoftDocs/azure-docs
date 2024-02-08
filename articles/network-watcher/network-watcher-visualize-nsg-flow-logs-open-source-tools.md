@@ -6,7 +6,6 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: halkazwini
 ms.custom: engagement-fy23, linux-related-content

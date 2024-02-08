@@ -5,11 +5,9 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.workload: mobile
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: danlep
-
 ---
 
 # Observability in Azure API Management

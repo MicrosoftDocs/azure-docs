@@ -86,23 +86,30 @@ You must have a service principal with a certificate credential that can access 
 > [!IMPORTANT]
 > You might need a Microsoft Entra tenant administrator in your organization to perform this setup for you.
 
-1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
+1. Create or obtain a Microsoft Entra ID service principal. Follow the instructions detailed in [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal). Leave the **Redirect URI** field empty.
 1. Note the Application (client) ID, and your Microsoft Entra Directory (tenant) ID (these IDs are UUIDs of the form xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, where each character is a hexadecimal digit).
 
 ### Prepare certificates
 
-It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each.  Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
+The ingestion agent only supports certificate-based authentication for service principals. It's up to you whether you use the same certificate and key for each VM, or use a unique certificate and key for each.  Using a certificate per VM provides better security and has a smaller impact if a key is leaked or the certificate expires. However, this method adds a higher maintainability and operational complexity.
 
 1. Obtain a certificate. We strongly recommend using trusted certificate(s) from a certificate authority.
-1. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
-1. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate expires, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
+2. Add the certificate(s) as credential(s) to your service principal, following [Create a Microsoft Entra app and service principal in the portal](/entra/identity-platform/howto-create-service-principal-portal).
+3. We **strongly recommend** additionally storing the certificates in a secure location such as Azure Key vault.  Doing so allows you to configure expiry alerting and gives you time to regenerate new certificates and apply them to your ingestion agents before they expire.  Once a certificate expires, the agent  is unable to authenticate to Azure and no longer uploads data.  For details of this approach see [Renew your Azure Key Vault certificates Azure portal](../key-vault/certificates/overview-renew-certificate.md).
     - You need the 'Key Vault Certificates Officer' role on the Azure Key Vault in order to add the certificate to the Key Vault. See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) for details of how to assign roles in Azure.
 
-1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
+4. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
     `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>`
 
-5. Ensure the certificate(s) are base64 encoded. On Linux, you can based64 encode a pkcs12-formatted certificate by using the command:
+   > [!IMPORTANT]
+   > The pkcs12 file must not be protected with a passphrase. When OpenSSL prompts you for an export password, press <kbd>Enter</kbd> to supply an empty passphrase.
+
+5. Validate your pkcs12 file. This displays information about the pkcs12 file including the certificate and private key:
+
+    `openssl pkcs12 -nodes -in <pkcs12-certificate-filename> -info`
+
+6. Ensure the pkcs12 file is base64 encoded. On Linux, you can base64 encode a pkcs12-formatted certificate by using the command:
 
     `base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>`
 
@@ -129,7 +136,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 7. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at `/etc/ssh/ssh_known_hosts`.
 
 > [!TIP]
-> Use the Linux command `ssh-keyscan` to add a server's SSH key to a VM's `known_hosts` file manually. For example, `sudo sh -c 'ssh-keyscan -H 10.213.0.6 >> /etc/ssh/ssh_known_hosts'`.
+> Use the Linux command `ssh-keyscan` to add a server's SSH public key to a VM's `known_hosts` file manually. For example, `ssh-keyscan -H <server-ip> | sudo tee -a /etc/ssh/ssh_known_hosts`.
 
 ## Configure the connection between the SFTP server and VM
 
@@ -160,22 +167,18 @@ If your agent VMs don't have access to public DNS, then you need to add entries 
 
 This process assumes that you're connecting to Azure over ExpressRoute and are using Private Links and/or Service Endpoints. If you're connecting over public IP addressing,  you **cannot** use this workaround and must use public DNS.
 
-Create the following resources from a virtual network that is peered to your ingestion agents:
-
-- A Service Endpoint to Azure Storage
-- A Private Link or Service Endpoint to the Key Vault created by your Data Product.  The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
-
-Steps:
-
+1. Create the following resources from a virtual network that is peered to your ingestion agents:
+    - A Service Endpoint to Azure Storage
+    - A Private Link or Service Endpoint to the Key Vault created by your Data Product.  The Key Vault is the same one you found in [Grant permissions for the Data Product Key Vault](#grant-permissions-for-the-data-product-key-vault).
 1. Note the IP addresses of these two connections.
-2. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
-3. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*.
-4. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
+1. Note the ingestion URL for your Data Product.  You can find the ingestion URL on your Data Product overview page in the Azure portal, in the form *\<account name\>.blob.core.windows.net*.
+1. Note the URL of the Data Product Key Vault.  The URL appears as *\<vault name\>.vault.azure.net*.
+1. Add a line to */etc/hosts* on the VM linking the two values in this format, for each of the storage and Key Vault:
     ```
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-5. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+1. Additionally to this, the public IP of the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
     ```
     <Public IP>   login.microsoftonline.com
     ````

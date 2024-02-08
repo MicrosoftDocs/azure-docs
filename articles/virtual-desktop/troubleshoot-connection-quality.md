@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 09/26/2022
 ms.author: helohr
-manager: femila
 ---
 
 # Troubleshooting connection quality in Azure Virtual Desktop
