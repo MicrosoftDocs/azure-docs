@@ -226,20 +226,21 @@ New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesN
 
 #### Using the proxy to reach outside of the virtual machine
 
-Once you have created your VM or Kubernetes cluster with this cloud services network, you can use the proxy to reach outside of the virtual machine. Proxy is useful if you need to access resources outside of the virtual machine, such as pulling images or accessing data.
+After creating your Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network, you can use the tenant proxy to reach outside of the virtual machine. This proxy is useful if you need to access resources outside of the virtual machine, such as managing packages or installing software.
 
 To use the proxy, you need to set the following environment variables:
 
 ```bash
-export HTTP_PROXY=http://169.254.0.11:3128
-export http_proxy=http://169.254.0.11:3128
 export HTTPS_PROXY=http://169.254.0.11:3128
 export https_proxy=http://169.254.0.11:3128
 ```
 
-Once you have set the environment variables, your virtual machine should be able to reach outside of the virtual network using the proxy.
+After setting the environment variables, your virtual machine can reach outside of the virtual network using the proxy.
 
-In order to reach the desired endpoints, you need to add the required egress endpoints to the cloud services network. Egress endpoints can be added using the `--additional-egress-endpoints` parameter when creating the network. Be sure to include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
+> [!NOTE]
+> HTTP is not supported due to security reasons when using the proxy to access resources outside of the virtual machine. It is recommended to use HTTPS for secure communication when managing packages or installing software on the Operator Nexus VM or Operator Nexus Kubernetes cluster with this cloud services network.
+
+In order to reach the desired endpoints, you need to add the required egress endpoints to the cloud services network. Egress endpoints can be added using the `--additional-egress-endpoints` parameter when creating the network. Be sure to include any domains needed to pull images, such as `.docker.io`.
 
 > [!IMPORTANT]
 > When using a proxy, it's also important to set the `no_proxy` environment variable properly. This variable can be used to specify domains or IP addresses that shouldn't be accessed through the proxy. If not set properly, it can cause issues while accessing services, such as the Kubernetes API server or cluster IP. Make sure to include the IP address or domain name of the Kubernetes API server and any cluster IP addresses in the `no_proxy` variable.
