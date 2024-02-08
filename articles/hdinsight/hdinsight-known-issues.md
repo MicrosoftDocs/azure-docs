@@ -19,7 +19,6 @@ Azure HDInsight has the following known issues:
 | HDInsight component | Issue description |
 |---------------------|-------------------|
 | Kafka | [Kafka 2.4.1 validation error in ARM templates](#kafka-241-validation-error-in-arm-templates) |
-| Spark | [Conda version regression in a recent HDInsight release](#conda-version-regression-in-a-recent-hdinsight-release)|
 | Platform | [Cluster reliability issue with older images in HDInsight clusters](#cluster-reliability-issue-with-older-images-in-hdinsight-clusters)|
 
 ### Kafka 2.4.1 validation error in ARM templates
@@ -103,7 +102,7 @@ Select the title to view more information about that specific known issue. Fixed
 
 | Issue ID         | Area                   |Title                    | Issue publish date| Status |
 |------------------|------------------------|-------------------------|-------------------|-------|
-|Not applicable|Not applicable|Not applicable|Not applicable|Not applicable|
+|Not applicable|Spark|Conda Version Regression in a recent HDInsight release|October 13, 2023|Closed|
 
 ## Next steps
 
