@@ -6,7 +6,6 @@ ms.author: schaffererin
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 03/11/2022
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---

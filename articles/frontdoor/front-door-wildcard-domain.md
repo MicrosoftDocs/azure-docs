@@ -1,12 +1,11 @@
 ---
-title: Support for wildcard domains 
+title: Support for wildcard domains
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door supports mapping and managing wildcard domains in the list of custom domains.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 02/07/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers

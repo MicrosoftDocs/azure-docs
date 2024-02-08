@@ -5,7 +5,6 @@ services: api-management
 author: dlepow
 manager: cfowler
 ms.service: api-management
-ms.workload: integration
 ms.topic: article
 ms.date: 05/09/2022
 ms.author: danlep

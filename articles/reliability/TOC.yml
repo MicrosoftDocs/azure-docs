@@ -152,8 +152,6 @@
       items:
       - name: Availability zones
         href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../networking/disaster-recovery-dns-traffic-manager.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Backup
       href: reliability-backup.md
     - name: Azure Bastion
@@ -204,14 +202,8 @@
         href: ../ddos-protection/ddos-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity
     - name: Azure Disk Encryption 
       href: ../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure DNS - Azure DNS Private Zones
-      href: ../dns/private-dns-getstarted-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure DNS - Azure DNS Private Resolver
-      items:
-      - name: Availability zones
-        href: ../dns/dns-private-resolver-get-started-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../dns/dns-faq-private.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#will-azure-private-dns-zones-work-across-azure-regions- 
+    - name: Azure DNS 
+      href: reliability-dns.md
     - name: Azure Event Grid
       items:
       - name: Availability zones
@@ -270,6 +262,8 @@
       href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
     - name: Azure Storage - Blob Storage
       href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Traffic Manager
+      href: reliability-traffic-manager.md
     - name: Azure Virtual WAN
       items:
       - name: Availability zones

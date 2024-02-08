@@ -4,7 +4,6 @@ description: Describes limits for Azure NetApp Files resources and how to reques
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 09/29/2023
 ms.author: anfdocs
