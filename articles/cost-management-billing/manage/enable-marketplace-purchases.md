@@ -17,15 +17,15 @@ In the Azure portal, you buy non-Microsoft (third-party) software for use in Azu
 This article covers the following steps that are used to enable marketplace private offer purchases:
 
 1. Enable marketplace purchases for your billing account
-1. Set user permissions on the billing account that you use to make purchases
 1. Set user permissions on the Azure subscription that you use to make purchases
+1. Set user permissions on the billing account that you use to make purchases
 1. Optionally, if you have private marketplace enabled, then you can enable private offer purchases in the private marketplace
 
 ## Prerequisites
 
 Before you begin, make sure you know your billing account type because the steps needed to enable marketplace purchases vary based on your account type.
 
-If you don't know your billing account type, [check the type of your billing account](manage-billing-access.md#check-the-type-of-your-billing-account.md).
+If you don't know your billing account type, [check the type of your billing account](manage-billing-access.md#check-the-type-of-your-billing-account).
 
 ## Enable marketplace purchase
 
@@ -78,6 +78,24 @@ To enable the policy setting on the billing account (EA enrollment):
 
 For more information about the Azure Marketplace policy setting, see [Purchase control through EA billing administration under an Enterprise Agreement (EA)](/marketplace/purchase-control-options#purchase-control-through-ea-billing-administration-under-an-enterprise-agreement-ea) .
 
+## Set user permissions on the Azure subscription
+
+Setting permission for a subscription is needed for both EA or MCA customers to purchase a marketplace private offer, a private plan, or a public plan. The permission granted applies to only the individual users that you select.
+
+To set permission for a subscription:
+
+1. Sign in to the Azure portal.
+1. Navigate to **Subscriptions** and then search for the name of the subscription.
+1. Search for and then select the subscription that you want to manage access for.
+1. Select **Access control (IAM)** from the left-hand pane.
+1. To give access to a user, select **Add** from the top of the page.
+1. In the **Role** drop-down list, select the owner or contributor role.
+1. Enter the email address of the user to whom you want to give access.
+1. Select **Save** to assign the role.
+
+For more information about assigning roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
+
+
 ## Set user permission to accept private offers
 
 The permission (billing role) required to accept private offers and how you grant the permission varies, based on your agreement type.
@@ -113,23 +131,6 @@ To set user permission for a user:
 1. Complete the Add role assignment form and then select **Add**.
 
 For more information about adding another enterprise administrator, see [Add another enterprise administrator](direct-ea-administration.md#add-another-enterprise-administrator).
-
-## Set user permissions on the Azure subscription
-
-Setting permission for a subscription is needed for both EA or MCA customers to purchase a marketplace private offer, a private plan, or a public plan. The permission granted applies to only the individual users that you select.
-
-To set permission for a subscription:
-
-1. Sign in to the Azure portal.
-1. Navigate to **Subscriptions** and then search for the name of the subscription.
-1. Search for and then select the subscription that you want to manage access for.
-1. Select **Access control (IAM)** from the left-hand pane.
-1. To give access to a user, select **Add** from the top of the page.
-1. In the **Role** drop-down list, select the owner or contributor role.
-1. Enter the email address of the user to whom you want to give access.
-1. Select **Save** to assign the role.
-
-For more information about assigning roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
 
 ## Optionally enable private offer purchases in the private Azure Marketplace
 
