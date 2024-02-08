@@ -1103,7 +1103,8 @@ Additionally, there are certain transformations that are further applied on top 
 * maxThreads to (WEBSITE_CATALINA_MAXTHREADS, default 200)
 * maxConnections to (WEBSITE_CATALINA_MAXCONNECTIONS, default 10000)
  
-> **NOTE**: The conectionTimeout, maxThreads and maxConnections can be tuned with theseapp settings
+> [!NOTE]
+> The connectionTimeout, maxThreads and maxConnections settings can be tuned with app settings
  
 ### Host
 
