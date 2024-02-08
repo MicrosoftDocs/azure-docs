@@ -569,7 +569,7 @@
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitor function apps with Azure Monitor
+        - name: Monitor
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Configure monitoring
@@ -581,7 +581,7 @@
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring
-        - name: Diagnostic logs
+        - name: Send logs to Azure Monitor Logs
           href: functions-monitor-log-analytics.md
           displayName: Azure Monitor, Kusto, Log Analytics, metrics
     - name: Authenticate
@@ -1008,7 +1008,7 @@
       href: functions-host-json.md
     - name: host.json 1.x reference
       href: functions-host-json-v1.md
-    - name: Monitoring data
+    - name: Monitoring data reference
       href: monitor-functions-reference.md  
     - name: Networking FAQ
       href: functions-networking-faq.yml
