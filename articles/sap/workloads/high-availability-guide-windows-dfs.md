@@ -10,10 +10,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 11/12/2021
 ms.author: stmuelle
-
 ---
 
 # Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share

@@ -6,7 +6,6 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 01/22/2024
 ms.author: juergent
 ---
