@@ -17,6 +17,10 @@ ms.date: 02/08/2024
 
 Semantic ranker is a premium feature that's billed by usage. By default, semantic ranker is disabled on all services. 
 
+## Check availability
+
+Check the [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page on the Azure web site to see if your region is listed.
+
 ## Enable semantic ranking
 
 Follow these steps to enable [semantic ranker](semantic-search-overview.md) at the service level. Once enabled, it's available to all indexes. You can't turn it on or off for specific indexes.
@@ -25,19 +29,13 @@ Follow these steps to enable [semantic ranker](semantic-search-overview.md) at t
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your search service. The service must be a billable tier.
-
-1. Determine whether the service region supports semantic ranking:
-
-   1. Find your service region in the overview page in the Azure portal.
-
-   1. Check the [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page on the Azure web site to see if your region is listed.
+1. Navigate to your search service. On the **Overview** page, make sure the service is a billable tier, Basic or higher.
 
 1. On the left-nav pane, select **Semantic ranking**.
 
 1. Select either the **Free plan** or the **Standard plan**. You can switch between the free plan and the standard plan at any time.
 
-:::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic ranking in the Azure portal." border="true":::
+   :::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic ranking in the Azure portal." border="true":::
 
 The free plan is capped at 1,000 queries per month. After the first 1,000 queries in the free plan, you'll receive an error message letting you know you've exhausted your quota the next time you issue a semantic query. When this happens, you need to upgrade to the standard plan to continue using semantic ranking.
 

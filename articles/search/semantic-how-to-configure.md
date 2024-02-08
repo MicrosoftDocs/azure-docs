@@ -63,7 +63,7 @@ Across all semantic configuration properties, the fields you assign must be:
 
 1. Select **Semantic Configurations** and then select **Add Semantic Configuration**.
 
-   The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order.
+   The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Only searchable and retrievable string fields are eligible. Make sure to list content fields and keyword fields in priority order.
 
    :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
 
@@ -113,39 +113,43 @@ Across all semantic configuration properties, the fields you assign must be:
 
 ### [**.NET SDK**](#tab/sdk)
 
-Use the [SemanticConfiguration class](/dotnet/api/azure.search.documents.indexes.models.semanticconfiguration?view=azure-dotnet-preview&preserve-view=true) in the Azure SDK for .NET.
+Use the [SemanticConfiguration class](/dotnet/api/azure.search.documents.indexes.models.semanticconfiguration?view=azure-dotnet&branch=main&preserve-view=true) in the Azure SDK for .NET.
+
+The following example is from the [semantic ranking sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample08_SemanticSearch.md) authored by the Azure SDK team.
 
 ```c#
-var definition = new SearchIndex(indexName, searchFields);
-
-SemanticSettings semanticSettings = new SemanticSettings();
-semanticSettings.Configurations.Add(new SemanticConfiguration
-    (
-        "my-semantic-config",
-        new PrioritizedFields()
+string indexName = "hotel";
+SearchIndex searchIndex = new(indexName)
+{
+    Fields =
+    {
+        new SimpleField("HotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true, IsFacetable = true },
+        new SearchableField("HotelName") { IsFilterable = true, IsSortable = true },
+        new SearchableField("Description") { IsFilterable = true },
+        new SearchableField("Category") { IsFilterable = true, IsSortable = true, IsFacetable = true },
+    },
+    SemanticSearch = new()
+    {
+        Configurations =
         {
-            TitleField = new SemanticField { FieldName = "HotelName" },
-            ContentFields = {
-            new SemanticField { FieldName = "Description" },
-            new SemanticField { FieldName = "Description_fr" }
-            },
-            KeywordFields = {
-            new SemanticField { FieldName = "Tags" },
-            new SemanticField { FieldName = "Category" }
-            }
+            new SemanticConfiguration("my-semantic-config", new()
+            {
+                TitleField = new SemanticField("HotelName"),
+                ContentFields =
+                {
+                    new SemanticField("Description")
+                },
+                KeywordsFields =
+                {
+                    new SemanticField("Category")
+                }
+            })
         }
-    )
-);
-
-definition.SemanticSettings = semanticSettings;
-
-adminClient.CreateOrUpdateIndex(definition);
+    }
+};
 ```
 
 ---
-
-> [!TIP]
-> To see an example of creating a semantic configuration and using it to issue a semantic query, check out the [semantic ranking Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/semantic-search).
 
 ## Migrate from preview versions
 
@@ -177,7 +181,7 @@ If your code calls the 2020-06-30-Preview REST API or beta SDK packages targetin
 
 Keep `searchFields` in query requests if you're using it to limit full text search to the list of named fields.
 
-Add a `semanticConfiguration` to an index schema to specify field prioritization, following the instructions in this article. In the same index schema, assign a semantic configuration to each field that participates in semantic ranking.
+Add a `semanticConfiguration` to an index schema to specify field prioritization, following the instructions in this article.
 
 ## Next steps
 

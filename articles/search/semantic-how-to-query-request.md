@@ -19,9 +19,9 @@ In this article, learn how to invoke a semantic ranking over a result set, promo
 
 ## Prerequisites
 
-+ A search service at the Basic tier or higher, with [semantic ranking enabled at the service level](semantic-how-to-enable-disable.md).
++ A search service, Basic tier or higher, with [semantic ranking](semantic-how-to-enable-disable.md).
 
-+ An existing search index with a [semantic configuration](semantic-how-to-configure.md) and rich text content. Semantic ranking applies to text (nonvector) fields and works best on content that is informational or descriptive.
++ An existing search index with a [semantic configuration](semantic-how-to-configure.md) and rich text content.
 
 + Review [semantic ranking](semantic-search-overview.md) if you need an introduction to the feature.
 
@@ -55,19 +55,21 @@ In this step, add parameters to the query request. To be successful, your query 
 
 ### [**Azure portal**](#tab/portal-query)
 
-[Search explorer](search-explorer.md) has been updated to include options for semantic ranking. 
+[Search explorer](search-explorer.md) includes options for semantic ranking. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Open your search index and select **Search explorer**.
+1. Open a search index and select **Search explorer**.
 
-1. There are two ways to specify the query, JSON or options. Using JSON, you can paste definitions into the query editor:
-
-   :::image type="content" source="./media/semantic-search-overview/semantic-portal-json-query.png" alt-text="Screenshot showing JSON query syntax in the Azure portal." border="true":::
-
-1. Using options, specify that you want to use semantic ranking and to create a configuration. If you don't see these options, make sure semantic ranking is enabled and also refresh your browser.
+1. Select **Query options**. If you already defined a semantic configuration, it's selected by default. If you don't have one, [create a semantic configuration](semantic-how-to-configure.md) for your index.
 
     :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
+
+1. Enter a query, such as "historic hotel with good food", and select **Search**.
+
+1. Alternatively, select **JSON view** and paste definitions into the query editor:
+
+   :::image type="content" source="./media/semantic-search-overview/semantic-portal-json-query.png" alt-text="Screenshot showing JSON query syntax in the Azure portal." border="true":::
 
 ### [**REST API**](#tab/rest-query)
 
@@ -120,14 +122,54 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 ### [**.NET SDK**](#tab/dotnet-query)
 
-Azure SDKs are on independent release cycles and implement search features on their own timeline. Check the change log for each package to verify general availability for semantic ranking.
+Use QueryType or SemanticQuery to invoke semantic ranking on a semantic query. The [following example](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample08_SemanticSearch.md) is from the Azure SDK team.
 
-| Azure SDK | Package |
-|-----------|---------|
-| .NET | [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents)  |
-| Java | [azure-search-documents](https://central.sonatype.com/artifact/com.azure/azure-search-documents)  |
-| JavaScript | [azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)|
-| Python | [azure-search-document](https://pypi.org/project/azure-search-documents) |
+```csharp
+SearchResults<Hotel> response = await searchClient.SearchAsync<Hotel>(
+    "Is there any hotel located on the main commercial artery of the city in the heart of New York?",
+    new SearchOptions
+    {
+        SemanticSearch = new()
+        {
+            SemanticConfigurationName = "my-semantic-config",
+            QueryCaption = new(QueryCaptionType.Extractive),
+            QueryAnswer = new(QueryAnswerType.Extractive)
+        },
+        QueryLanguage = QueryLanguage.EnUs,
+        QueryType = SearchQueryType.Semantic
+    });
+
+int count = 0;
+Console.WriteLine($"Semantic Search Results:");
+
+Console.WriteLine($"\nQuery Answer:");
+foreach (QueryAnswerResult result in response.SemanticSearch.Answers)
+{
+    Console.WriteLine($"Answer Highlights: {result.Highlights}");
+    Console.WriteLine($"Answer Text: {result.Text}");
+}
+
+await foreach (SearchResult<Hotel> result in response.GetResultsAsync())
+{
+    count++;
+    Hotel doc = result.Document;
+    Console.WriteLine($"{doc.HotelId}: {doc.HotelName}");
+
+    if (result.SemanticSearch.Captions != null)
+    {
+        var caption = result.SemanticSearch.Captions.FirstOrDefault();
+        if (caption.Highlights != null && caption.Highlights != "")
+        {
+            Console.WriteLine($"Caption Highlights: {caption.Highlights}");
+        }
+        else
+        {
+            Console.WriteLine($"Caption Text: {caption.Text}");
+        }
+    }
+}
+Console.WriteLine($"Total number of search results:{count}");
+```
 
 ---
 
@@ -139,7 +181,7 @@ In semantic ranking, the response has more elements: a new semantically ranked r
 
 In a client app, you can structure the search page to include a caption as the description of the match, rather than the entire contents of a specific field. This approach is useful when individual fields are too dense for the search results page.
 
-The response for the above example query returns the following match as the top pick. Captions are returned because the  "captions" property is set, with plain text and highlighted versions. Answers are omitted from the example because one couldn't be determined for this particular query and corpus.
+The response for the above example query returns the following match as the top pick. Captions are returned because the "captions" property is set, with plain text and highlighted versions. Answers are omitted from the example because one couldn't be determined for this particular query and corpus.
 
 ```json
 "@odata.count": 35,
