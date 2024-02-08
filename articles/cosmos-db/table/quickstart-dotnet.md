@@ -35,11 +35,6 @@ This quickstart shows how to get started with the Azure Cosmos DB for Table from
 
 [!INCLUDE[Developer Quickstart prerequisites](includes/dev-prereqs.md)]
 
-### Prerequisite check
-
-* In a terminal or command window, run ``dotnet --list-sdks`` to check that .NET 6.x is one of the available versions.
-* Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
-
 ## Setting up
 
 Deploy this project's development container to your environment. Then, use the Azure Developer CLI (azd) to create an Azure Cosmos DB for Table account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
@@ -56,7 +51,7 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone-end
 
-[!INCLUDE[Developer Quickstart setup](../includes/azd-setup.md)]
+[!INCLUDE[Developer Quickstart setup](/includes/dev-setup.md)]
 
 ### Install the client library
 
