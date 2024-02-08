@@ -1,12 +1,11 @@
 ---
 title: What is a rule set?
 titleSuffix: Azure Front Door
-description: This article provides an overview of the Azure Front Door Rule sets feature. 
+description: This article provides an overview of the Azure Front Door Rule sets feature.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.custom: devx-track-arm-template
 ms.date: 05/15/2023
 ms.author: duau
