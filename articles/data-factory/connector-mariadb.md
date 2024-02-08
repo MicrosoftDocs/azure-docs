@@ -292,7 +292,7 @@ Here are steps that help you upgrade your MariaDB driver version:
 
 1. The data type mapping for the latest MariaDB linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
 
-1. More MariaDB versions are supported for the latest driver version. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
+1. The latest driver version v2 supports more MariaDB versions. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
 
 ## Related content
 

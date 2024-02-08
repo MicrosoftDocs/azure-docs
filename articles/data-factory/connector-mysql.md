@@ -321,7 +321,7 @@ Here are steps that help you upgrade your MySQL driver version:
 
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
-1. More MySQL versions are supported for the latest driver version. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 
 ## Related content
 
