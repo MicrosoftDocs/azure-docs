@@ -20,7 +20,7 @@ Azure Service Health monitors:
 
 ## Permissions required
 
-- To view the health of a log search alert rule, you need `read` permissions to the rule. 
+- To view the health of a log search alert rule, you need `read` permissions to the log search alert rule. 
 - To set up health status alerts, you need `write` permissions to the log search alert rule, as provided by the [Monitoring Contributor built-in role](../roles-permissions-security.md#monitoring-contributor), for example.
 
 ## View health and set up health status alerts for log search alert rules
@@ -38,12 +38,11 @@ To view the health of your log search alert rule and set up health status alerts
 
     - **Health history**: Indicates whether Azure Service Health detected query execution issues in the specific log search alert rule. Select the health event to view details about the event.
     - **Azure service issues**: Displayed when a known issue with an Azure service might affect execution of the log search alert query. Select the message to view details about the service issue in Azure Service Health.
-   
-    > [!NOTE]
-    > - Service health notifications do not indicate that your log search alert rule is necessarily affected by the know service issue. If your log search alert rule health status is **Available**, Azure Service Health did not detect issues in your alert rule.
+
+        > [!NOTE]
+        > - Service health notifications do not indicate that your log search alert rule is necessarily affected by the known service issue. If your log search alert rule health status is **Available**, Azure Service Health did not detect issues in your alert rule.
  
     :::image type="content" source="media/log-search-alert-health/log-search-alert-resource-health-page.png" alt-text="The Resource health page for a log search alert rule.":::
-
 
 This table describes the possible resource health status values for a log search alert rule:
 
@@ -79,7 +78,6 @@ This table describes the possible resource health status values for a log search
 ## Next steps
 
 Learn more about:
-
-- [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md).
 - [Querying log data in Azure Monitor Logs](../logs/get-started-queries.md).
+- [Create or edit a log alert rule](alerts-create-log-alert-rule.md)
 
