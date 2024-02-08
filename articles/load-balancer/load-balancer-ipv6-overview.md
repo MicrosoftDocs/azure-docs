@@ -6,7 +6,6 @@ author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 05/03/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
