@@ -9,7 +9,7 @@ metadata:
   ms.service: cosmos-db
   ms.subservice: mongodb
   ms.topic: faq
-  ms.date: 02/07/2024
+  ms.date: 02/08/2024
 title: Frequently asked questions on Azure Cosmos DB for MongoDB
 summary: |
   [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
