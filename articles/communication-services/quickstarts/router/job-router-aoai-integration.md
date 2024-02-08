@@ -90,7 +90,8 @@ Workers are evaluated based on:
   <img src="./media/AOI_KeyAndEndpoint.png" alt="AOI_Details"/>
 </p>
 
-6. In the Azure Portal navigate to your newly created Function App Enviornmental Variables balde and create the following variables:
+6. In the Azure Portal navigate to your newly created Function App Enviornmental Variables blade and create the following variables:
+
 | Name  | Value | Description         |
 |-------|-------|---------------------|
 | OpenAIBaseURI | {Endpoint}| Endpoint URI from OpenAI Resource   |
