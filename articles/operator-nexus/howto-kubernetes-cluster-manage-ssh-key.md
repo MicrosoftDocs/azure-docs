@@ -34,7 +34,7 @@ There are a few different ways that you can provide SSH keys for your cluster no
   * `controlPlaneNodeConfiguration.administratorConfiguration.sshPublicKeys` - For the control plane, you can provide public keys that are inserted into the control plane nodes.
 * If you don't provide any SSH keys when creating your cluster, no SSH keys are inserted into the nodes. This means that users can't SSH into the nodes. You can add SSH keys later by updating the cluster configuration, but can't remove those keys once it's added.
 
-Refer the [Disconnected mode access](./howto-kubernetes-cluster-connect.md#disconnected-mode-access) provides insight into when you might need SSH keys and how to locate the node IP address.
+Refer the [Disconnected mode access](./howto-kubernetes-cluster-connect.md#disconnected-mode-access) guide for insight into when you might need SSH keys and how to locate the node IP address.
   
 ## Manage Operator Nexus Kubernetes cluster node SSH keys
 
