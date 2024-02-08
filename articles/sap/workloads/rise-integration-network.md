@@ -9,10 +9,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 12/21/2023
 ms.author: robiro
-
 ---
 
 # Connectivity with SAP RISE

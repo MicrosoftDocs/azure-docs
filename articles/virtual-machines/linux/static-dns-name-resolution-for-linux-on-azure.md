@@ -4,7 +4,6 @@ description: How to create virtual network interface cards and use internal DNS 
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: networking
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 04/06/2023

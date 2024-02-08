@@ -5,7 +5,6 @@ author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 12/01/2023
 ms.author: simranparkhe
 ms.custom: devx-track-azurecli, linux-related-content

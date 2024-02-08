@@ -4,7 +4,6 @@ description: Describes how to create a volume that uses the dual protocol (NFSv3
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 06/22/2023
 ms.author: anfdocs
