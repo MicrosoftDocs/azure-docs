@@ -35,6 +35,7 @@ To complete this tutorial, you will need:
 
 - Permissions to create users in Microsoft Entra ID (or have an existing user)
 - [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
+- [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation)
 
 ## Role assignments
 
