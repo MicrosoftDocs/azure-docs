@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.date: 04/06/2023
 ms.author: vikancha
