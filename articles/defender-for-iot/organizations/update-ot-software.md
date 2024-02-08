@@ -84,9 +84,9 @@ This procedure describes how to send a software version update to OT sensors at 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**. For example:
 <!-- placement holder need image of this , instead of the one that was below for the individual sensor -->
 
-:::image type="content" source="media/update-ot-software/sensorupdates1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
+    :::image type="content" source="media/update-ot-software/sensorupdates1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates1.png":::
 
-For one or more individual sensors, select the  **Step one: Send package to sensor** option is also available from the **...** options menu to the right of the sensor row.
+    For one or more individual sensors, select the  **Step one: Send package to sensor** option is also available from the **...** options menu to the right of the sensor row.
 
 1. In the **Send package** pane that appears, under **Available versions**, select the software version from the list. If the version you need doesn't appear, select **Show more** to list all available versions.
 
@@ -110,7 +110,7 @@ To install the sensor software update ensure that you see the :::image type="ico
 
 1. Select one or more sites to update, and then select **Sensor update** > **Remote update** > **Step 2: Update sensor** from the toolbar. The **Update sensor** pane opens in the right side of the screen. For example:
 
-:::image type="content" source="media/update-ot-software/sensorupdates2.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates2.png":::
+    :::image type="content" source="media/update-ot-software/sensorupdates2.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/sensorupdates2.png":::
 
     For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu.
 
