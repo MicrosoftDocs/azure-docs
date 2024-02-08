@@ -424,6 +424,22 @@ To check the logs of `application-configuration-service` and `flux-source-contro
 > [!NOTE]
 > There could be a few minutes delay before the logs are available in Log Analytics.
 
+## Troubleshoot
+
+If the latest changes don't reflect on the applications, there are several things to check based on the [Refresh Strategies](#refresh-strategies) section.
+
+1. First check wether the Git repo has been updated correctly and the application is bound to the application configuration service:
+   - Check the branch of the desired config file changes is updated.
+   - Check the pattern configured in application configuration service matches the updated config files.
+   - Check the application is bound to the application configuration service.
+2. Secondly, check whether the configMap is updated:
+   - Check related configMap of the app to see if it's updated. If still not updated, raise a ticket.  
+3. Thirdly, we can check whether the configMap is mouted to the application as a file:
+   - Check the mounted file using `web shell`. If the file is not updated, wait for the K8S refresh interval (1 minute).
+   - Or you can force a refresh by restarting the application.
+4. Then the updated configurations should be able to read by the applications.   
+   
+
 ## Next steps
 
 - [Azure Spring Apps](index.yml)
