@@ -1073,7 +1073,7 @@
           },
           {
             "source_path_from_root": "/articles/data-factory/connector-troubleshoot-google-adwords.md",
-            "redirect_url": "/azure/data-factory/connector-google-adwords",
+            "redirect_url": "/azure/data-factory/connector-troubleshoot-google-ads",
             "redirect_document_id": false
           }          
     ]

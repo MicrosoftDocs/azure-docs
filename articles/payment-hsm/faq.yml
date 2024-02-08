@@ -6,7 +6,6 @@ metadata:
   author: msmbaldwin
   tags: azure-resource-manager
   ms.service: payment-hsm
-  ms.workload: security
   ms.topic: faq
   ms.date: 03/10/2023
   ms.author: mbaldwin
