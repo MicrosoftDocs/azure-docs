@@ -61,17 +61,19 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - From the Management VM, verify you  have access to [vCenter Server and NSX-T manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
 - An unused, isolated [NSX Data Center network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
-- Verify your Azure subscription is enabled and has connectivity to Azure end points.
-- The firewall and proxy URLs must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure eArc resource bridge (Preview) network requirements](/azure/azure-arc/resource-bridge/network-requirements).
-- Verify your vCenter Server version is 6.7 or higher.
+- The firewall and proxy URLs must be allowlisted to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. See the [Azure eArc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
+- Verify your vCenter Server version is 7.0 or higher.
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 - A datastore with a minimum of 100 GB of free disk space is available through the resource pool or cluster. 
-- On the vCenter Server, allow inbound connections on TCP port 443. This action ensures that the Arc resource bridge and VMware vSphere cluster extension can communicate with the vCenter Server.
 
 > [!NOTE]
 > - Private endpoint is currently not supported.
 > - DHCP support isn't available to customers at this time, only static IP addresses are currently supported.
 
+If you want to use a custom DNS, use the following steps:
+
+1. In your Azure VMware Solution private cloud, navigate to the DNS page, under **Workload networking**, select **DNS** and identify the default forwarder-zones under the **DNS zones** tab.
+1. Edit the forwarder zone to add the custom DNS server IP. By adding the custom DNS as the first IP, it allows requests to be directly forwarded to the first IP and decreases the number of retries.
 
 ## Registration to Arc for Azure VMware Solution feature set
 
