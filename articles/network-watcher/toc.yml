@@ -158,7 +158,7 @@
       - name: Virtual Machine Scale Set - PowerShell
         href: network-watcher-packet-capture-manage-powershell-vmss.md
       - name: Virtual machine - Azure CLI
-        href: network-watcher-packet-capture-manage-cli.md
+        href: packet-capture-vm-cli.md
     - name: Analyze a packet capture
       items:
       - name: Inspect to find anomalies

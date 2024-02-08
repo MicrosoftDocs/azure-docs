@@ -6,13 +6,11 @@ author: rolyon
 manager: amycolannino
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: role-based-access-control
-ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
 ms.date: 12/01/2023
 ms.author: rolyon
 ms.reviewer: bagovind
-
 ---
 # Create or update Azure custom roles using the REST API
 

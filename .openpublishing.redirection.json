@@ -10421,6 +10421,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-dsc.md",
+            "redirect_url": "/azure/azure-arc/servers/deployment-options",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-arc/kubernetes/plan-at-scale-deployment.md",
             "redirect_url": "/azure/azure-arc/kubernetes/overview",
             "redirect_document_id": false

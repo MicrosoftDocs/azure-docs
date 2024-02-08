@@ -3,7 +3,6 @@ title: Automatic Extension Upgrade for VMs and Scale Sets in Azure
 description: Learn how to enable the Automatic Extension Upgrade for your virtual machines and virtual machine scale sets in Azure.
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.workload: infrastructure
 ms.topic: how-to
 ms.reviewer: jushiman
 ms.date: 11/7/2023
