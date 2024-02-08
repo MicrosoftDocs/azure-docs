@@ -17,10 +17,6 @@ Azure Peering Service is a networking service that enhances customer connectivit
 
 In this article, you learn how to create, change, and delete a Peering Service connection using the Azure CLI. To learn how to manage a Peering Service connection using the Azure portal or Azure PowerShell, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md) or [Create or change a Peering Service connection using PowerShell](powershell.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-If you decide to install and use Azure CLI locally, this article requires you to use version 2.0.28 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade). If using Azure Cloud Shell, the latest version is already installed.
-
 ## Prerequisites 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
