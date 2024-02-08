@@ -1,10 +1,9 @@
 ---
 title: Requirements and considerations for large volumes | Microsoft Docs
-description: Describes the requirements and considerations you need to be aware of before using large volumes.  
+description: Describes the requirements and considerations you need to be aware of before using large volumes.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 11/02/2023

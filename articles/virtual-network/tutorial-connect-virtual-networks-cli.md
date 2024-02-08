@@ -4,15 +4,14 @@ description: In this article, you learn how to connect virtual networks with vir
 services: virtual-network
 author: asudbring
 tags: azure-resource-manager
-# Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
+# Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ---
 
 # Connect virtual networks with virtual network peering using the Azure CLI
