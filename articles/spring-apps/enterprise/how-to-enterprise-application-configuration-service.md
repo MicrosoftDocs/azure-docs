@@ -151,7 +151,12 @@ The Application Configuration Service also supports polyglot apps like dotNET, G
 
 ## Refresh strategies
 
-When you modify and commit your configurations in a Git repository, several steps are involved before these changes are reflected in your applications. This process, though automated, involves distinct stages and components, each with its own timing and behavior.
+When you modify and commit your configurations in a Git repository, several steps are involved before these changes are reflected in your applications, as you can see from the diagram below. 
+
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/acs-refresh-lifecycle.png" alt-text="Lifecycle of the refresh process of Application Configuration Service." lightbox="media/how-to-enterprise-application-configuration-service/acs-refresh-lifecycle.png":::
+
+
+This process, though automated, involves distinct stages and components, each with its own timing and behavior.
 1. **Polling By Application Configuraiton Service**: The Application Configuration Service regularly polls the backend Git repositories to detect any changes. This polling occurs at a set frequency, defined by the 'refresh interval'. When a change is detected, Application Configuration Service updates the Kubernetes ConfigMap.
 2. **ConfigMap Update and Interaction with Kubelet Cache**: In Azure Spring Apps, this ConfigMap is mounted as a data volume to the relevant application. However, there is a natural delay in this process. This delay is due to the frequency at which the kubelet refreshes its cache to recognize changes in ConfigMaps.
 3. **Application Reads Updated Configuration**: Finally, your application running in the Azure Spring Apps environment can access the updated configuration values. It's important to note that existing beans in the Spring Context won't be refreshed to use the updated configurations automatically.
