@@ -6,7 +6,7 @@ ms.author: HollyCl
 ms.service: azure
 ms.custom: references_regions 
 ms.topic: overview 
-ms.date: 01/29/2024
+ms.date: 02/09/2024
 
 ---
 
@@ -94,7 +94,7 @@ Disconnected "break-glass" mode maintains data when connectivity between the Azu
 
 ## Azure Operator 5G Core architecture
 
-The following diagram depicts the high-level architecture of AO5GC as it pertains to Public Preview supported components:
+The following diagram depicts the high-level architecture of Azure Operator 5G Core as it pertains to Public Preview supported components:
 
 :::image type="content" source="media/overview-product/architecture-5g-core-overview.png" alt-text="Diagram illustrating the high-level architecture of supported features in Azure Operator 5G Core at Public Preview.":::
 

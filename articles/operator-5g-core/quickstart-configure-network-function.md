@@ -5,18 +5,20 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 01/18/2024
+ms.date: 02/09/2024
 
 ---
 
 # Quickstart: Configure a network function in Azure Operator 5G Core
 
-Azure Operator 5G Core supports YANG-based configuration of the 1P Packet Core Network Functions deployed on Azure and Nexus by:
+Azure Operator 5G Core supports  direct configuration of the 1P Packet Core Network Functions deployed on Azure and Nexus by:
 
    - enabling SSH access to port 22 of network configuration management pods directly. 
    - enabling configuration of network functions through CLI or by NETCONF to port 830, or by RESTCONF to port 443. 
    
 Note that many concurrent config user sessions are supported. 
+
+## Additional information
 
 For more information, see the documentation for the [Configuration Manager](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/Microservices/Shared/Microservices/Config_Manager.htm  ).
 

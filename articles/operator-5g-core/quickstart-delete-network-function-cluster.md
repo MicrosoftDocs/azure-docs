@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 01/30/2024
+ms.date: 02/09/2024
 
 ---
 # Quickstart: Delete a network function deployment or ClusterServices in Azure Operator 5G Core
@@ -43,4 +43,4 @@ ARMClient.exe DELETE
 
 ## Related content
 
-- [Deploy a network function on Advanced Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
+- [Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)

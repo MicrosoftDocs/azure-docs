@@ -1,16 +1,16 @@
 ---
 title: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services
-description: Learn the high-level process to deploy Azure Operator 5G Core observability on Advanced Kubernetes Services.
+description: Learn the high-level process to deploy Azure Operator 5G Core observability on Azure Kubernetes Services.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 02/01/2024
+ms.date: 02/09/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS) or Nexus Advanced Kubernetes Services (NAKS)
+# Quickstart: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS) or Nexus Azure Kubernetes Services (NAKS)
 
 Use the following Azure CLI commands to deploy observability resources for Azure Operator 5G Core
 
@@ -33,4 +33,4 @@ New-AzResourceGroupDeployment `
 
 ## Next step
 
-- [Deploy a network function on Advanced Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
+- [Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)

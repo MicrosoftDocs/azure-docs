@@ -1,11 +1,11 @@
 ---
 title: How to Deploy Azure Operator 5G Core
-description: Learn how to deploy Azure Operator 5G core using Bicep Scripts, PowerShell, and Azure CLI
+description: Learn how to deploy Azure Operator 5G core using Bicep Scripts, PowerShell, and Azure CLI.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 01/31/2024
+ms.date: 02/09/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
@@ -19,13 +19,13 @@ Azure Operator 5G Core is deployed using the Azure Operator 5G Core Resource Pro
 - Microsoft.MobilePacketCore/nrfDeployments - NRF network function
 - Microsoft.MobilePacketCore/nssfDeployments - NSSF network function
 - Microsoft.MobilePacketCore/upfDeployments - UPF network function
-- Microsoft.MobilePacketCore/observabilityServices - per cluster observability PaaS services (elastic/elastalert/kargo/kafka/etc.)
+- Microsoft.MobilePacketCore/observabilityServices - per cluster observability PaaS services (elastic/elastalert/kargo/kafka/etc)
 
 ## Prerequisites
 
 Before you can successfully deploy Azure Operator 5G Core, you must:
 - [register your resource provider](../azure-resource-manager/management/resource-providers-and-types.md) for the HybridNetwork and MobilePacketCore namespaces.
-- [Complete the prerequisites to deploy Azure Operator 5G Core on Advanced Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md)
+- [Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md).
 
 ## Post cluster creation 
 
@@ -34,9 +34,19 @@ After you complete the prerequisite steps and create a cluster, you must enable 
 
 ## ARC-enable the cluster
 
-ARC is used to enable communication from the Azure Operator 5G Core resource provider to Kubernetes. You must have access to the cluster's kubeconfig file, or to Kubernetes API server to run the connectedK8s command. Use the following Azure CLI command:
+ARC is used to enable communication from the Azure Operator 5G Core resource provider to Kubernetes. You must have access to the cluster's kubeconfig file, or to Kubernetes API server to run the connectedK8s command. Refer to [Use Azure role-based access control to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)](../aks/control-kubeconfig-access.md) for information.
+
+### ARC-enable the cluster for Azure Kubernetes Services 
+
+Use the following Azure CLI command:
 
 `$ az connectedk8s connect --name <ARC NAME> --resource-group <RESOURCE GROUP> --custom-locations-oid <LOCATION> --kube-config <KUBECONFIG FILE>`
+
+### ARC-enable the cluster for Nexus Azure Kubernetes Services
+
+Retrieve the Nexus AKS connected cluster ID with the following command. You need this cluster ID to create the custom location.
+
+ `$ az connectedk8s show -n <NAKS-CLUSTER-NAME> -g <NAKS-RESOURCE-GRUP>  --query id -o tsv` 
 
 ## Install the Network Function Manager Kubernetes extension
 
@@ -54,7 +64,7 @@ Enter the following Azure CLI command to create an Azure custom location:
 
 The empty parameter files that were bundled with the Bicep scripts must be populated with values suitable for the cluster being deployed. Open each parameter file and add IP addresses, subnets, and storage account information. 
 
-You can also modify the parameterized values yaml file to change tuning parameters such as cpu, memory limits and requests. You can also add new parameters manually.
+You can also modify the parameterized values yaml file to change tuning parameters such as cpu, memory limits, and requests. You can also add new parameters manually.
 
 The Bicep scripts read these parameter files to produce a JSON object. The object is passed to Azure Resource Manager and used to deploy the Azure Operator 5G Core resource.
 
