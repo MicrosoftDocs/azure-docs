@@ -16,13 +16,13 @@ Observability has three pillars: metrics, tracing, and logs.  Metrics show whe
 
 ## Observability overview
 
-The following components provide observability for AO5GC:
+The following components provide observability for Azure Operator 5G Core:
 
  [:::image type="content" source="media/concept-observability-analytics/observability-overview.png" alt-text="Diagram of text boxes showing the components that support observability functions for Azure Operator 5G Core.":::](media/concept-observability-analytics/observability-overview-expanded.png#lightbox)
 
 ### Observability open source components
 
-AO5GC uses the following open source components for observability functions.
+Azure Operator 5G Core uses the following open source components for observability functions.
 
 |Observability parameters    |Open source components |
 |----------------------------|-----------------------|
@@ -72,7 +72,7 @@ The EFK logging framework provides the following features:
 
 ### Helm customization
 
-AO5GC provides a default set of Helm values that you can use to deploy the EFK logging framework. You can customize these values to improve scalability and performance if needed.
+Azure Operator 5G Core provides a default set of Helm values that you can use to deploy the EFK logging framework. You can customize these values to improve scalability and performance if needed.
 
 ### Observability
 
@@ -107,7 +107,7 @@ For information about Elastic events, see [Elastic events](https://manuals.metas
 
 #### Log visualization
 
-The EFK framework aggregates logs from nodes and applications running inside your AO5GC installation. When logging is enabled, the EFK framework uses Fluentd to aggregate event logs from all applications and nodes into Elasticsearch. The EFK framework also provides a centralized Kibana web UI where users can view the logs or create rich visualizations and dashboards with the aggregated data. 
+The EFK framework aggregates logs from nodes and applications running inside your Azure Operator 5G Core installation. When logging is enabled, the EFK framework uses Fluentd to aggregate event logs from all applications and nodes into Elasticsearch. The EFK framework also provides a centralized Kibana web UI where users can view the logs or create rich visualizations and dashboards with the aggregated data. 
 
 ## Metrics framework
 
@@ -125,7 +125,7 @@ The following diagram shows how the different components of the metrics framewor
 
 The core components of the metrics framework are: 
 
-- **Prometheus server** - The Prometheus server collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and triggers alerts if certain conditions are true. AO5GC supports integration with the Prometheus server out of the box, with minimal required configuration.
+- **Prometheus server** - The Prometheus server collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and triggers alerts if certain conditions are true. Azure Operator 5G Core supports integration with the Prometheus server out of the box, with minimal required configuration.
 - **Client libraries** - Client libraries instrument the application code. 
 - **Alertmanager** - Alertmanager handles alerts sent by client applications such as the Prometheus server. It handles deduplicating, grouping, and routing alerts to the correct receiver integrations (email, slack, etc.). Alertmanager  also supports silencing and inhibition of alerts. 
 - **Grafana** - Grafana provides an out of the box set of dashboards rich with 3GPP and other KPIs to query, visualize, and understand the collected data. 
@@ -193,7 +193,7 @@ IstioHTTPRequestLatencyTooHigh: Requests are taking more than the &lt;configured
 
 #### Jaeger tracing with OpenTelemetry Protocol
 
-AO5GC uses the OpenTelemetry Protocol (OTLP) in Jaeger tracing. OTLP replaces the Jaeger agent in fed-paas-helpers. AO5GC deploys the fed-otel_collector federation. The OpenTelemetry (OTEL) Collector runs as part of the fed-otel_collector namespace:
+Azure Operator 5G Core uses the OpenTelemetry Protocol (OTLP) in Jaeger tracing. OTLP replaces the Jaeger agent in fed-paas-helpers. Azure Operator 5G Core deploys the fed-otel_collector federation. The OpenTelemetry (OTEL) Collector runs as part of the fed-otel_collector namespace:
 
  [:::image type="content" source="media/concept-observability-analytics/jaeger-components.png" alt-text="Diagram of text boxes showing Jaeger tracing and OpenTelemetry Protocol components in  Azure Operator 5G Core.":::](media/concept-observability-analytics/jaeger-components-expanded.png#lightbox)
 
