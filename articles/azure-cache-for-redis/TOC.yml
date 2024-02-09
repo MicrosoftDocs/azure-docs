@@ -40,6 +40,8 @@
         href: cache-dotnet-how-to-use-azure-redis-cache.md
       - name: Java app
         href: cache-java-get-started.md
+      - name: Java app with JCache
+        href: cache-java-redisson-get-started.md
       - name: Node.js app
         href: cache-nodejs-get-started.md
       - name: Python app

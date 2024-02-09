@@ -73,9 +73,9 @@ The VM used for the SFTP agent should be set up following best practice for secu
   - Access to the certificate and private key for the service principal that you create during this procedure
   - Access to the directory for secrets that you create on the VM during this procedure.
   
-## Acquire the agent RPM
+## Download the RPM for the agent
 
-A link to download the SFTP agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
+Download the RPM for the SFTP agent using the details you received as part of the [Azure Operator Insights onboarding process](overview.md#how-do-i-get-access-to-azure-operator-insights) or from [https://go.microsoft.com/fwlink/?linkid=2254734](https://go.microsoft.com/fwlink/?linkid=2254734).
 
 ## Set up authentication to Azure
 
@@ -178,10 +178,11 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-1. Additionally to this, the public IP of the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+1. Add the public IP address of the URL *login.microsoftonline.com* to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
     ```
     <Public IP>   login.microsoftonline.com
     ````
+
 ## Install and configure agent software
 
 Repeat these steps for each VM onto which you want to install the agent:
