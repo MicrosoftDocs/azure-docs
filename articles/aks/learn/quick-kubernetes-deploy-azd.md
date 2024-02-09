@@ -102,22 +102,7 @@ Quickly create all your resources with the `azd up` command. The demo app can ta
 
 azd up runs the commands for the two hooks for pre-provision and post-provision. During this process, you're prompted to select which Azure subscription and region for your AKS Cluster.
 
-## Deploy the application
-
-In the AZD Template, there are files ready for deployment to start your service. In our AKS Quickstart, we use the 
-`aks-store-quickstart.yaml`.
-
-  For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
-
-  If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
-
-1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
-
-    ```azurecli
-    kubectl apply -f aks-store-quickstart.yaml
-    ```
-
-    Your output shows the newly created deployments and services:
+At the end, your output shows the newly created deployments and services:
 
     ```output
     deployment.apps/rabbitmq created
