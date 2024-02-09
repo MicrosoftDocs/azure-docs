@@ -255,7 +255,7 @@ const blobServiceClient = new BlobServiceClient(
   new DefaultAzureCredential()
 );
 
-const keyClient  = new KeyClient(`https://<YOUR KEYVAULT NAME>.vault.azure.net`, new DefaultAzureCredential());
+const keyClient = new KeyClient(`https://<YOUR KEYVAULT NAME>.vault.azure.net`, new DefaultAzureCredential());
 const result = await keyClient.createKey("<keyName>", "RSA");
 ```
 
