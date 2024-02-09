@@ -13,7 +13,7 @@ ms.author: kumud
 ---
 # What is Internet Analyzer? (Preview)
 
-[!INCLUDE [Azure Internet Analyzer retirement notice](includes/internet-analyzer-retirement.md)]
+[!INCLUDE [Azure Internet Analyzer retirement notice](../../includes/internet-analyzer-retirement.md)]
 
 Internet Analyzer is a client-side measurement platform to test how networking infrastructure changes impact your customers’ performance. Whether you’re migrating from on-premises to Azure or evaluating a new Azure service, Internet Analyzer allows you to learn from your users’ data and Microsoft’s rich analytics to better understand and optimize your network architecture with Azure—before you migrate.
 

@@ -11,7 +11,7 @@ ms.author: kumud
 ---
 # Interpreting your scorecard
 
-[!INCLUDE [Azure Internet Analyzer retirement notice](includes/internet-analyzer-retirement.md)]
+[!INCLUDE [Azure Internet Analyzer retirement notice](../../includes/internet-analyzer-retirement.md)]
 
 The scorecard tab contains the aggregated and analyzed results from your tests. Each test has its own scorecards. Scorecards provide quick and meaningful summaries of measurement results to provide data-driven results for your networking requirements. Internet Analyzer takes care of the analysis, allowing you to focus on the decision.
 
