@@ -98,7 +98,7 @@ Linux: CentOS | 5.2 to 5.11</b><br/> 6.1 to 6.10</b><br/> </br> 7.0, 7.1, 7.2, 7
 Ubuntu | Ubuntu 14.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) <br> Ubuntu 22.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. </br> (*includes support for all 14.04.*x*, 16.04.*x*, 18.04.*x*, 20.04.*x* versions)  
 Debian | Debian 7/Debian 8 (includes support for all 7. *x*, 8. *x* versions). [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). <br/> Debian 9 (includes support for 9.1 to 9.13. Debian 9.0 isn't supported.). [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). <br/> Debian 10, Debian 11 [(Review supported kernel versions)](#debian-kernel-versions).
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(review supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1, SP2, SP3, SP4, SP5 [(review supported kernel versions)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Note**: Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and re-enable after the upgrade. <br/> Support for SUSE Linux Enterprise Server 15 SP5 is available for Modernized experience only.| 
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, and 9.3   <br/><br/> **Notes:** <br> - Support for Oracle Linux `8.9`, `9.0`, `9.1`, `9.2`, and `9.3` is only available for Modernized experience and isn't available for Classic experience. <br> - Support for Oracle Linux `9.1` is removed from support matrix, as issues were observed using Azure Site Recovery with Oracle Linux 9.0 and 9.1. <br><br> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/). |
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, and 9.3   <br/><br/> **Notes:** <br> - Support for Oracle Linux `8.9`, `9.0`, `9.1`, `9.2`, and `9.3` is only available for Modernized experience and isn't available for Classic experience. <br><br> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/). |
 Rocky Linux | [See supported versions](#rocky-linux-server-supported-kernel-versions).
 
 > [!NOTE]
@@ -119,11 +119,13 @@ Rocky Linux | [See supported versions](#rocky-linux-server-supported-kernel-vers
 16.04 LTS | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810), [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 4.4.0-21-generic to 4.4.0-210-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic, 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-142-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1113-azure </br> 4.15.0-101-generic to 4.15.0-107-generic |
 |||
 18.04 LTS | [9.60]() | No new Ubuntu 18.04 kernels supported in this release. |
+18.04 LTS | [9.59]() | No new Ubuntu 18.04 kernels supported in this release. |
 18.04 LTS | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Ubuntu 18.04 kernels supported in this release|
 18.04 LTS | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | No new Ubuntu 18.04 kernels supported in this release|
 18.04 LTS |[9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810) | 4.15.0-1163-azure <br> 4.15.0-1164-azure <br> 4.15.0-1165-azure <br> 4.15.0-1166-azure <br> 4.15.0-1167-azure <br> 4.15.0-210-generic <br> 4.15.0-211-generic <br> 4.15.0-212-generic <br> 4.15.0-213-generic <br> 5.4.0-1107-azure <br> 5.4.0-1108-azure <br> 5.4.0-1109-azure <br> 5.4.0-147-generic <br> 5.4.0-148-generic <br> 5.4.0-149-generic <br> 5.4.0-150-generic | 
 |||
 20.04 LTS | [9.60]() | No new Ubuntu 20.04 kernels supported in this release. |
+20.04 LTS | [9.59]() | No new Ubuntu 20.04 kernels supported in this release. |
 20.04 LTS |[9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 5.15.0-89-generic <br> 5.15.0-91-generic <br> 5.4.0-167-generic <br> 5.4.0-169-generic |
 20.04 LTS |[9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.15.0-1049-azure <br> 5.15.0-1050-azure <br> 5.15.0-1051-azure <br> 5.15.0-86-generic <br> 5.15.0-87-generic <br> 5.15.0-88-generic <br> 5.4.0-1117-azure <br> 5.4.0-1118-azure <br> 5.4.0-1119-azure <br> 5.4.0-164-generic <br> 5.4.0-165-generic <br> 5.4.0-166-generic |
 20.04 LTS|[9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810) | 5.15.0-1037-azure <br> 5.15.0-1038-azure <br> 5.15.0-1039-azure <br> 5.15.0-1040-azure <br> 5.15.0-1041-azure <br> 5.15.0-70-generic <br> 5.15.0-71-generic <br> 5.15.0-72-generic <br> 5.15.0-73-generic <br> 5.15.0-75-generic <br> 5.15.0-76-generic <br> 5.4.0-1107-azure <br> 5.4.0-1108-azure <br> 5.4.0-1109-azure <br> 5.4.0-1110-azure <br> 5.4.0-1111-azure <br> 5.4.0-148-generic <br> 5.4.0-149-generic <br> 5.4.0-150-generic <br> 5.4.0-152-generic <br> 5.4.0-153-generic  |
@@ -143,44 +145,64 @@ Rocky Linux | [See supported versions](#rocky-linux-server-supported-kernel-vers
 
 **Supported release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-Debian 7 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810), [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d), [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.59]() | No new Debian 7 kernels supported in this release. |
+Debian 7 | 9.54, [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810), [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d), [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50), 9.60 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
+Debian 8 | [9.59]() | No new Debian 8 kernels supported in this release. |
 Debian 8 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810), [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) <br> [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50). | 3.16.0-4-amd64 to 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.12-amd64 |
 |||
+Debian 9.1 | [9.59]() | No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Debian 9.1 kernels supported in this release|
-Debian 9.1 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | No new Debian 9.1 kernels supported in this release|
+Debian 9.1 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810) | No new Debian 9.1 kernels supported in this release|
 Debian 9.1 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f)| No new Debian 9.1 kernels supported in this release
 |||
 Debian 10 | [9.60]()| 4.19.0-26-amd64 <br> 4.19.0-26-cloud-amd64 <br> 5.10.0-0.deb10.27-amd64 <br> 5.10.0-0.deb10.27-cloud-amd64 |
+Debian 10 | [9.59]() | No new Debian 10 kernels supported in this release. |
 Debian 10 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Debian 10 kernels supported in this release  |
-Debian 10 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) <br> **Note**: Support for 9.56 agent is available for Modernized experience only. | 5.10.0-0.deb10.26-amd64 <br> 5.10.0-0.deb10.26-cloud-amd64  |
+Debian 10 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.10.0-0.deb10.26-amd64 <br> 5.10.0-0.deb10.26-cloud-amd64  |
 Debian 10 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810) | 4.19.0-24-amd64 <br> 4.19.0-24-cloud-amd64 <br> 5.10.0-0.deb10.22-amd64 <br> 5.10.0-0.deb10.22-cloud-amd64 <br> 5.10.0-0.deb10.23-amd64 <br> 5.10.0-0.deb10.23-cloud-amd64 |
 Debian 10 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f)| 5.10.0-0.bpo.3-amd64 <br> 5.10.0-0.bpo.3-cloud-amd64 <br> 5.10.0-0.bpo.4-amd64 <br> 5.10.0-0.bpo.4-cloud-amd64 <br> 5.10.0-0.bpo.5-amd64 <br> 5.10.0-0.bpo.5-cloud-amd64 <br> 5.10.0-0.deb10.21-amd64 <br> 5.10.0-0.deb10.21-cloud-amd64 |
 |||
 Debian 11 | [9.60]() | 5.10.0-27-amd64 <br> 5.10.0-27-cloud-amd64 |
+Debian 11 | [9.59]() | No new Debian 11 kernels supported in this release. |
 Debian 11 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Debian 11 kernels supported in this release. |
-Debian 11 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) <br> **Note**: Support for 9.56 agent is available for Modernized experience only. | 5.10.0-26-amd64 <br> 5.10.0-26-cloud-amd64 |
+Debian 11 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.10.0-26-amd64 <br> 5.10.0-26-cloud-amd64 |
 Debian 11 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810)| 5.10.0-22-amd64 <br> 5.10.0-22-cloud-amd64 <br> 5.10.0-23-amd64 <br> 5.10.0-23-cloud-amd64 |
 Debian 11 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f)| 5.10.0-21-amd64 <br> 5.10.0-21-cloud-amd64 |
 
 
 ### SUSE Linux Enterprise Server 12 supported kernel versions
 
+> [!NOTE]
+> Mobility service versions`9.56` and `9.60` are only available for Modernized experience. <br>
+> Mobility service versions `9.59` is only available for Classic experience. <br>
+> Mobility service version `9.60` is not released for VMWare to Azure Site Recovery. 
+
+
+
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.60]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.163-azure:5 |
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.59]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 12 kernels supported in this release. |
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 12 kernels supported in this release. |
-SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) <br> **Note**: Support for 9.56 agent is available for Modernized experience only. | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 12 kernels supported in this release. |
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 12 kernels supported in this release. |
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.130-azure:5 <br> 4.12.14-16.133-azure:5 <br> 4.12.14-16.136-azure:5  |
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.124-azure:5 <br> 4.12.14-16.127-azure:5 |
 
 ### SUSE Linux Enterprise Server 15 supported kernel versions
 
+> [!NOTE]
+> Mobility service versions`9.56` and `9.60` are only available for Modernized experience. <br>
+> Mobility service versions `9.59` is only available for Classic experience. <br>
+> Mobility service version `9.60` is not released for VMWare to Azure Site Recovery. 
+
+
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.59]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 15 kernels supported in this release. |
 SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 <br> **Note:** SUSE 15 SP5 is only supported for Modernized experience. | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 15 kernels supported in this release.|
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 <br> **Note:** SUSE 15 SP5 is only supported for Modernized experience. | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) <br> **Note**: Support for 9.56 agent is available for Modernized experience only. | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.152-azure:5  <br> 5.14.21-150400.14.69-azure:4 <br> 5.14.21-150500.31-azure:5 <br> 5.14.21-150500.33.11-azure:5 <br> 5.14.21-150500.33.14-azure:5 <br> 5.14.21-150500.33.17-azure:5 <br> 5.14.21-150500.33.20-azure:5 <br> 5.14.21-150500.33.3-azure:5 <br> 5.14.21-150500.33.6-azure:5 |
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 <br> **Note:** SUSE 15 SP5 is only supported for Modernized experience. | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.152-azure:5  <br> 5.14.21-150400.14.69-azure:4 <br> 5.14.21-150500.31-azure:5 <br> 5.14.21-150500.33.11-azure:5 <br> 5.14.21-150500.33.14-azure:5 <br> 5.14.21-150500.33.17-azure:5 <br> 5.14.21-150500.33.20-azure:5 <br> 5.14.21-150500.33.3-azure:5 <br> 5.14.21-150500.33.6-azure:5 |
 SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.55](https://support.microsoft.com/topic/update-rollup-68-for-azure-site-recovery-a81c2d22-792b-4cde-bae5-dc7df93a7810) | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 5.14.21-150400.14.49-azure:4 <br> 5.14.21-150400.14.52-azure:4 |
 SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f) | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 5.14.21-150400.14.31-azure:4 <br> 5.14.21-150400.14.34-azure:4 <br> 5.14.21-150400.14.37-azure:4 <br> 5.14.21-150400.14.43-azure:4 <br> 5.14.21-150400.14.46-azure:4 <br> 5.14.21-150400.14.40-azure:4 |
 
@@ -189,13 +211,15 @@ SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.54](https://support.mic
 > [!IMPORTANT]
 > Support for Rocky Linux is available for Modernized experience only and not available for Classic experience.
 
+**Release** | **Mobility service version** | **Red Hat kernel version** |
+--- | --- | --- |
+Rocky Linux 9.0 <br> Rocky Linux 9.1  | [9.60]() |  5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br>  <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64  |
+
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 Rocky Linux <br>  | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | Rocky Linux 8.8 <br> Rocky Linux 8.9 |
 Rocky Linux <br>  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 |
 
-> [!NOTE]
-> Support for Rocky Linux 9.1 is removed from the support matrix as issues were observed while using it with Azure Site Recovery.
 
 ## Linux file systems/guest storage
 
