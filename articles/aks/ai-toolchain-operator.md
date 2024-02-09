@@ -28,7 +28,6 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     > The subscription you use must have GPU VM quota.
 
 * Azure CLI version 2.47.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-* Helm v3 installed. For more information, see [Installing Helm](https://helm.sh/docs/intro/install/).
 * The Kubernetes command-line client, kubectl, installed and configured. For more information, see [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 * [Install the Azure CLI AKS preview extension](#install-the-azure-cli-preview-extension).
 * [Register the AI toolchain operator add-on feature flag](#register-the-ai-toolchain-operator-add-on-feature-flag).
@@ -63,12 +62,6 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     az feature show --namespace "Microsoft.ContainerService" --name "AIToolchainOperatorPreview"
     ```
 
-3. When the status reflects *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace "Microsoft.ContainerService"
-    ```
-
 ### Export environment variables
 
 * To simplify the configuration steps in this article, you can define environment variables using the following commands. Make sure to replace the placeholder values with your own.
@@ -76,6 +69,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     ```azurecli-interactive
     export AZURE_SUBSCRIPTION_ID="mySubscriptionID"
     export AZURE_RESOURCE_GROUP="myResourceGroup"
+    export AZURE_LOCATION="myLocation"
     export CLUSTER_NAME="myClusterName"
     ```
 
@@ -86,15 +80,15 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create --name $AZURE_RESOURCE_GROUP --location eastus
+    az group create --name ${AZURE_RESOURCE_GROUP} --location ${AZURE_LOCATION}
     ```
 
 2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [`az aks create`][az-aks-create] command with the `--enable-ai-toolchain-operator` and `--enable-oidc-issuer` flags.
 
     ```azurecli-interactive
-    az aks create --subscription $AZURE_SUBSCRIPTION_ID --location eastus --resource-group $AZURE_RESOURCE_GROUP --name $CLUSTER_NAME --enable-managed-identity --enable-oidc-issuer --enable-ai-toolchain-operator --aks-custom-headers AKSHTTPCustomFeatures=Microsoft.ContainerService/AIToolchainOperatorPreview
+    az aks create --location ${AZURE_LOCATION} --resource-group ${AZURE_RESOURCE_GROUP} --name ${CLUSTER_NAME} --enable-managed-identity --enable-oidc-issuer --enable-ai-toolchain-operator
     ```
-
+    
     > [!NOTE]
     > AKS creates a managed identity once you enable the AI toolchain operator add-on. The managed identity is used to access the AI toolchain operator workspace CRD. The AI toolchain operator workspace CRD is used to create and manage AI toolchain operator workspaces.
     >
@@ -105,7 +99,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 1. Configure `kubectl` to connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials --resource-group $AZURE_RESOURCE_GROUP --name $CLUSTER_NAME
+    az aks get-credentials --resource-group ${AZURE_RESOURCE_GROUP} --name ${CLUSTER_NAME}
     ```
 
 2. Verify the connection to your cluster using the `kubectl get` command.
@@ -114,34 +108,43 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     kubectl get nodes
     ```
 
-3. Export environment variables for the principal ID identity and client ID identity using the following commands:
+3. Export environment variables for the MC resource group, principal ID identity, and KAITO identity using the following commands:
 
     ```azurecli-interactive
-    export MC_RESOURCE_GROUP=$(az aks show --resource-group $AZURE_RESOURCE_GROUP --name $CLUSTER_NAME --query nodeResourceGroup -o tsv)
-    export PRINCIPAL_ID=$(az identity show --name "ai-toolchain-operator-{CLUSTER_NAME}" --resource-group "{MC_RESOURCE_GROUP} --query 'principalId' -o tsv)
-    export CLIENT_ID=$(az identity show --name gpuIdentity --resource-group "${AZURE_RESOURCE_GROUP}" --subscription "${AZURE_SUBSCRIPTION_ID}" --query 'clientId' -o tsv)
+    export MC_RESOURCE_GROUP=$(az aks show --resource-group ${AZURE_RESOURCE_GROUP} --name ${CLUSTER_NAME} --query nodeResourceGroup -o tsv)
+    export PRINCIPAL_ID=$(az identity show --name "ai-toolchain-operator-${CLUSTER_NAME}" --resource-group "${MC_RESOURCE_GROUP}" --query 'principalId' -o tsv)
+    export KAITO_IDENTITY_NAME="ai-toolchain-operator-${CLUSTER_NAME}"
     ```
-
-## Create a role assignment for the principal ID identity
-
-1. Create a new role assignment for the service principal using the [`az role assignment create`][az-role-assignment-create] command.
+4.  Create a new role assignment for the service principal using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
-    az role assignment create --role "Contributor" --assignee "${PRINCIPAL_ID}" --scope "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourcegroups/${AZURE_RESOURCE_GROUP}"/providers/Microsoft.ContainerService/managedClusters/${CLUSTER_NAME}"
-    ```
-
-2. Get the AKS OIDC Issuer URL and export it as an environment variable using the following command:
-
-    ```azurecli-interactive
-    export AKS_OIDC_ISSUER=$(az aks show --resource-group "${AZURE_RESOURCE_GROUP}" --name "${CLUSTER_NAME}" --subscription "${AZURE_SUBSCRIPTION_ID}" --query "oidcIssuerProfile.issuerUrl" -o tsv)
+    az role assignment create --role "Contributor" --assignee "${PRINCIPAL_ID}" --scope "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourcegroups/${AZURE_RESOURCE_GROUP}"
     ```
 
 ## Establish a federated identity credential
 
-* Create the federated identity credential between the managed identity, AKS OIDC issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
+1. Get the AKS OIDC Issuer URL and export it as an environment variable:
 
     ```azurecli-interactive
-    az identity federated-credential create --name "${FEDERATED_IDENTITY}" --identity-name "ai-toolchain-operator-{CLUSTER_NAME}" --resource-group "${AZURE_RESOURCE_GROUP} --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"kube-system":"gpu-provisioner" --audience api://AzureADTokenExchange --subscription "${AZURE_SUBSCRIPTION_ID}"
+    export AKS_OIDC_ISSUER=$(az aks show --resource-group "${AZURE_RESOURCE_GROUP}" --name "${CLUSTER_NAME}" --query "oidcIssuerProfile.issuerUrl" -o tsv)
+    ```
+2. Create the federated identity credential between the managed identity, AKS OIDC issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
+
+    ```azurecli-interactive
+    az identity federated-credential create --name "kaito-federated-identity" --identity-name "${KAITO_IDENTITY_NAME}" -g "${MC_RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"kube-system:kaito-gpu-provisioner" --audience api://AzureADTokenExchange
+    ```
+
+## Verify that your deployment is running
+
+1. Restart the KAITO GPU provisioner deployment on your pods using the `kubectl rollout restart` command:
+
+    ```azurecli-interactive
+    kubectl rollout restart deployment/kaito-gpu-provisioner -n kube-system
+    ```
+2. Verify that the deployment is running using the `kubectl get` command:
+
+    ```azurecli-interactive
+    kubectl get deployment -n kube-system | grep kaito
     ```
 
 ## Deploy a default hosted AI model
@@ -167,7 +170,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 4. Run the Falcon 7B model with a sample input of your choice using the following `curl` command:
 
     ```azurecli-interactive
-    curl -X POST "http://SERVICE_IP:80/chat" -H "accept: application/json" -H "Content-Type: application/json" -d '{"prompt":"YOUR_PROMPT_HERE"}'
+    curl -X POST "http://${SERVICE_IP}:80/chat" -H "accept: application/json" -H "Content-Type: application/json" -d '{"prompt":"YOUR_PROMPT_HERE"}'
     ```
 
 ## Clean up resources
@@ -177,7 +180,7 @@ If you no longer need these resources, you can delete them to avoid incurring ex
 * Delete the resource group and its associated resources using the [`az group delete`][az-group-delete] command.
 
     ```azurecli-interactive
-    az group delete --name AZURE_RESOURCE_GROUP --yes --no-wait
+    az group delete --name "${AZURE_RESOURCE_GROUP}" --yes --no-wait
     ```
 
 ## Next steps
