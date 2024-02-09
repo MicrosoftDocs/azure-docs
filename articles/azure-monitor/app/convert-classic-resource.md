@@ -25,12 +25,9 @@ Workspace-based resources:
 > [!IMPORTANT]
 > * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
 > 
-
-> 
->    * You can enable [diagnostic settings on classic Application Insights]() before you [migrate to a workspace-based Application Insights resource](convert-classic-resource.md).All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
->    
+> * [Workspace-based Application Insights resources](./create-workspace-resource.md) are not compatible with continuous export. We recommend migrating to  [diagnostic settings](../essentials/diagnostic-settings.md) on classic Application Insights resources before transitioning to a workspace-based Application Insights. This ensures continuity and compatibility of your diagnostic settings.
+>
 > * Diagnostic settings export might increase costs. For more information, see [Diagnostic settings-based export](export-telemetry.md#diagnostic-settings-based-export).
-> 
 
 ## New capabilities
 
@@ -334,6 +331,15 @@ To continue with automated exports, you will need to migrate to [diagnostic sett
 If you are using Terraform to manage your Azure resources, it is important to use the latest version of the Terraform azurerm provider before attempting to upgrade your App Insights resource. Using an older version of the provider, such as version 3.12, may result in the deletion of the classic component before creating the replacement workspace-based Application Insights resource. This can cause the loss of previous data and require updating the configurations in your monitored apps with new connection string and instrumentation key values.
 
 To avoid this issue, make sure to use the latest version of the Terraform [azurerm provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest), version 3.89 or higher, which performs the proper migration steps by issuing the appropriate ARM call to upgrade the App Insights classic resource to a workspace-based resource while preserving all the old data and connection string/instrumentation key values.
+
+### Can I still use the old API to create Application Insights resources programmatically?
+Yes, calls to the old API for creating Application Insights resources continue to work as before. The old API version doesn't include a reference to the Log Analytics resource. However, when you trigger a legacy API call, it automatically creates a resource and the required association between Application Insights and Log Analytics.
+
+### Should I migrate diagnostic settings on classic Application Insights before moving to a workspace-based AI?
+Yes, we recommend migrating diagnostic settings on classic Application Insights resources before transitioning to a workspace-based Application Insights. This ensures continuity and compatibility of your diagnostic settings.
+
+### What is the migration process for Application Insights resources?
+The migration of Application Insights resources to the new format isn't instantaneous on the day of deprecation. Instead, it occurs over time. We'll gradually migrate all Application Insights resources, ensuring a smooth transition with minimal disruption to your services.
 
 ## Troubleshooting
 
