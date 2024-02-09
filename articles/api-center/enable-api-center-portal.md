@@ -16,6 +16,8 @@ This article shows how to enable your *API Center portal*, an automatically gene
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
+> [!VIDEO https://www.youtube.com/embed/7Z45FdCLFbA]
+
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).

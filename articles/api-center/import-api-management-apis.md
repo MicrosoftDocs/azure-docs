@@ -25,6 +25,8 @@ After adding an API from API Management, you can add metadata and documentation 
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
+> [!VIDEO https://www.youtube.com/embed/SuGkhuBUV5k]
+
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
