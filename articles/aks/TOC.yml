@@ -409,6 +409,8 @@
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
               href: api-server-authorized-ip-ranges.md
+            - name: Manage cluster certificates and rotation
+              href: certificate-rotation.md
             - name: Use custom certificate authorities
               href: custom-certificate-authority.md
             - name: Use Azure Policy

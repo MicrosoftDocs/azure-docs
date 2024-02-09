@@ -707,12 +707,15 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    vm.swappiness = 10
    ```
 
-5. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
+5. **[A]** Check the  *cloud-netconfig-azure* package version.
 
-   > [!NOTE]
-   > Check the installed version of the *cloud-netconfig-azure* package by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or later, it's no longer necessary to suppress the management of network interfaces by the cloud network plug-in. If the version is earlier than 1.3, we recommend that you update the *cloud-netconfig-azure* package to the latest available version.  
+   
+   Check the installed version of the *cloud-netconfig-azure* package by running **zypper info cloud-netconfig-azure**. If the version is earlier than 1.3, we recommend that you update the *cloud-netconfig-azure* package to the latest available version.  
 
-   To prevent the cloud network plug-in from removing the virtual IP address (Pacemaker must control the assignment), change the configuration file for the network interface as shown in the following code. For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+   > [!TIP]   
+   > If the version in your environment is 1.3 or later, it's no longer necessary to suppress the management of network interfaces by the cloud network plug-in. 
+
+   **Only if the version of cloud-netconfig-azure is lower than 1.3**, change the configuration file for the network interface as shown in the following code to prevent the cloud network plug-in from removing the virtual IP address (Pacemaker must control the assignment). For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
 
    ```bash
    # Edit the configuration file
