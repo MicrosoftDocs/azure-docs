@@ -5,13 +5,12 @@ summary: Learn about Internet peering with Microsoft global network.
 
 metadata:
   title: Internet peering documentation
-  titleSuffix: Azure
-  description: Learn about peering with Microsoft.
-  ms.service: internet-peering
-  ms.topic: landing-page
+  description: Learn how to use internet peering with Microsoft.
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 01/23/2023
+  ms.service: internet-peering
+  ms.topic: landing-page
+  ms.date: 02/09/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -83,5 +82,5 @@ landingContent:
             url: walkthrough-peering-service-all.md
           - text: Enable Peering Service on a Direct peering using the portal
             url: howto-peering-service-portal.md
-            
-            
+          - text: Enable Peering Service Voice on a Direct peering using the portal
+            url: howto-peering-service-voice-portal.md
