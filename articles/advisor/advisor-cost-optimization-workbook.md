@@ -91,12 +91,12 @@ If you have Software Assurance, you can enable [Hybrid Benefit](../virtual-machi
 #### SQL
 
 Azure Hybrid Benefit represents an excellent opportunity to save costs on SQL instances.
-If you have Software Assurance, you can enable [SQL Hybrid Benefit](../azure/azure-sql/azure-hybrid-benefit.md).
+If you have Software Assurance, you can enable [SQL Hybrid Benefit](/azure/azure-sql/azure-hybrid-benefit).
 You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
 
 #### Azure Stack HCI
 
-Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](../azure-stack/hci/concepts/azure-hybrid-benefit-hci.md).
+Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](/azure-stack/hci/concepts/azure-hybrid-benefit-hci).
 
 ### Azure Reservations
 
@@ -189,7 +189,7 @@ The Azure Firewall Premium query identifies Azure Firewalls with Premium SKU and
 
 #### Azure Firewall instances per region
 
-Optimize the use of Azure Firewall by having a central instance of Azure Firewall in the hub virtual network or Virtual WAN secure hub. Share the same firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure there's no unexpected cross-region traffic as part of the hub-spoke topology, nor multiple Azure firewall instances deployed to the same region. To learn more about Azure Firewall design principles, check [Azure Well-Architected Framework review - Azure Firewall](../azure/well-architected/service-guides/azure-firewall#cost-optimization.md).
+Optimize the use of Azure Firewall by having a central instance of Azure Firewall in the hub virtual network or Virtual WAN secure hub. Share the same firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure there's no unexpected cross-region traffic as part of the hub-spoke topology, nor multiple Azure firewall instances deployed to the same region. To learn more about Azure Firewall design principles, check [Azure Well-Architected Framework review - Azure Firewall](/azure/well-architected/service-guides/azure-firewall#cost-optimization).
 
 #### Application Gateway with empty backend pool
 
