@@ -221,13 +221,13 @@ Use the following steps to build the image:
    cd ${BASE_DIR}/mystaging/models
    ```
 
-   Paste the value of **shellCmdtoOutputWlsImageModelYaml** you saved from the deployment outputs. You get a file *${BASE_DIR}/mystaging/models/model.yaml*. The command will look similar to the following example:
+1. Copy the **shellCmdtoOutputWlsImageModelYaml** value that you saved from the deployment outputs, paste it into the Bash window, and run the command. The command will look similar to the following example:
 
    ```bash
    echo -e IyBDb3B5cmlna...Cgo= | base64 -d > model.yaml
    ```
 
-   The content of *model.yaml* is similar to the following example.
+   This command produces a *${BASE_DIR}/mystaging/models/model.yaml* file with contents similar to the following example:
 
    ```yaml
    # Copyright (c) 2020, 2021, Oracle and/or its affiliates.
@@ -282,15 +282,15 @@ Use the following steps to build the image:
            MaxThreadsConstraint: "SampleMaxThreads"
    ```
 
-1. In a similar way, paste the value of **shellCmdtoOutputWlsImageProperties**. You get a file *${BASE_DIR}/mystaging/models/model.properties*. The command will look similar to the following.
+1. In a similar way, copy the **shellCmdtoOutputWlsImageProperties** value, paste it into the Bash window, and run the command. The command will look similar to the following example:
 
    ```bash
    echo -e IyBDb3B5cml...pFPTUK | base64 -d > model.properties
    ```
 
-   The content of *model.properties* is similar to the following example.
+   This command produces a *${BASE_DIR}/mystaging/models/model.properties* file with contents similar to the following example:
 
-   ```text
+   ```properties
    # Copyright (c) 2021, Oracle Corporation and/or its affiliates.
    # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
 
@@ -302,14 +302,14 @@ Use the following steps to build the image:
 
 1. Use the following steps to create the application model file.
 
-   1. Use the following commands to copy *weblogic-cafe.war* and save it to *wlsdeploy/applications*.
+   1. Use the following commands to copy *weblogic-cafe.war* and save it to *wlsdeploy/applications*:
 
       ```bash
       mkdir -p ${BASE_DIR}/mystaging/models/wlsdeploy/applications
       cp $BASE_DIR/weblogic-on-azure/javaee/weblogic-cafe/target/weblogic-cafe.war ${BASE_DIR}/mystaging/models/wlsdeploy/applications/weblogic-cafe.war
       ```
 
-   1. Use the following commands to create the application model file with the content shown. Save the model file to *${BASE_DIR}/mystaging/models/appmodel.yaml*.
+   1. Use the following commands to create the application model file with the contents shown. Save the model file to *${BASE_DIR}/mystaging/models/appmodel.yaml*.
 
       ```bash
       cat <<EOF >appmodel.yaml
@@ -322,7 +322,7 @@ Use the following steps to build the image:
       EOF
       ```
 
-1. Use the following commands to download and install Microsoft SQL Server JDBC driver to *wlsdeploy/externalJDBCLibraries*.
+1. Use the following commands to download and install Microsoft SQL Server JDBC driver to *wlsdeploy/externalJDBCLibraries*:
 
    ```bash
    export DRIVER_VERSION="10.2.1.jre8"
@@ -332,15 +332,15 @@ Use the following steps to build the image:
    curl -m 120 -fL ${MSSQL_DRIVER_URL} -o ${BASE_DIR}/mystaging/models/wlsdeploy/externalJDBCLibraries/mssql-jdbc-${DRIVER_VERSION}.jar
    ```
 
-1. Next, create the database connection model with the following content. Save the model file to `${BASE_DIR}/mystaging/models/dbmodel.yaml`. The model uses placeholder (secret `sqlserver-secret`) for database username, password, and Url. Make sure the following fields are set correcly. The following model names the resource with **jdbc/WebLogicCafeDB**.
+1. Next, use the following commands to create the database connection model file with the contents shown. Save the model file to *${BASE_DIR}/mystaging/models/dbmodel.yaml*. The model uses placeholders (secret `sqlserver-secret`) for database username, password, and URL. Make sure the following fields are set correctly. The following model names the resource with `jdbc/WebLogicCafeDB`.
 
-   | Item Name | Field | Value |
-   |--------------------|----------------------------|----------------|
-   | JNDI name | `resources.JDBCSystemResource.<resource-name>.JdbcResource.JDBCDataSourceParams.JNDIName`  | `jdbc/WebLogicCafeDB` |
-   | Driver name | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.DriverName` | `com.microsoft.sqlserver.jdbc.SQLServerDriver` |
-   | Database Url | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.URL`  | `@@SECRET:sqlserver-secret:url@@` |
-   | Database password | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.PasswordEncrypted` | `@@SECRET:sqlserver-secret:password@@` |
-   | Database username | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.Properties.user.Value`  |  `'@@SECRET:sqlserver-secret:user@@'` |
+   | Item Name         | Field                                                                                     | Value                                          |
+   |-------------------|-------------------------------------------------------------------------------------------|------------------------------------------------|
+   | JNDI name         | `resources.JDBCSystemResource.<resource-name>.JdbcResource.JDBCDataSourceParams.JNDIName` | `jdbc/WebLogicCafeDB`                          |
+   | Driver name       | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.DriverName`                | `com.microsoft.sqlserver.jdbc.SQLServerDriver` |
+   | Database Url      | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.URL`                       | `@@SECRET:sqlserver-secret:url@@`              |
+   | Database password | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.PasswordEncrypted`         | `@@SECRET:sqlserver-secret:password@@`         |
+   | Database username | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.Properties.user.Value`     | `'@@SECRET:sqlserver-secret:user@@'`           |
 
    ```bash
    cat <<EOF >dbmodel.yaml
@@ -367,7 +367,7 @@ Use the following steps to build the image:
    EOF
    ```
 
-1. Create application archive file using `zip` command. Remove `wlsdeploy` folder as you'll not use it anymore.
+1. Use the following commands to create an application archive file and remove the *wlsdeploy* folder, which you won't need anymore.
 
    ```bash
    cd ${BASE_DIR}/mystaging/models
@@ -376,7 +376,7 @@ Use the following steps to build the image:
    rm -f -r wlsdeploy
    ```
 
-1. Download and install [WebLogic Deploy Tooling](https://oracle.github.io/weblogic-deploy-tooling/)(WDT) in the staging directory and remove its weblogic-deploy/bin/*.cmd files, which are not used in UNIX environments:
+1. Use the following commands to download and install [WebLogic Deploy Tooling](https://oracle.github.io/weblogic-deploy-tooling/) (WDT) in the staging directory and remove its *weblogic-deploy/bin/\*.cmd* files, which aren't used in UNIX environments:
 
    ```bash
    cd ${BASE_DIR}/mystaging
@@ -386,13 +386,13 @@ Use the following steps to build the image:
    rm ./weblogic-deploy/bin/*.cmd
    ```
 
-   Remove the WDT installer.
+1. Use the following command to remove the WDT installer:
 
    ```bash
    rm weblogic-deploy.zip
    ```
 
-1. Build an auxiliary image using docker.
+1. Use the following commands to build an auxiliary image using docker:
 
    ```bash
    cd ${BASE_DIR}/mystaging
@@ -411,14 +411,14 @@ Use the following steps to build the image:
    EOF
    ```
 
-1. Run the `docker buildx build` command using `${BASE_DIR}/mystaging/Dockerfile`.
+1. Run the `docker buildx build` command using *${BASE_DIR}/mystaging/Dockerfile*, as shown in the following example:
 
    ```bash
    cd ${BASE_DIR}/mystaging
    docker buildx build --platform linux/amd64 --build-arg AUXILIARY_IMAGE_PATH=/auxiliary --tag model-in-image:WLS-v1 .
    ```
 
-   You'll find output as following when you build the image successfully.
+   When you build the image successfully, the output looks similar to the following example:
 
    ```output
    [+] Building 12.0s (8/8) FINISHED                                   docker:default
@@ -438,18 +438,28 @@ Use the following steps to build the image:
    => => naming to docker.io/library/model-in-image:WLS-v1                      0.2s
    ```
 
-   If you have successfully created the image, then it should now be in your local machine’s Docker repository. For example:
+1. If you have successfully created the image, then it should now be in your local machine’s Docker repository. You can verify the image creation by using the following command:
 
    ```text
-   $ docker images model-in-image:WLS-v1
+   docker images model-in-image:WLS-v1
+   ```
+
+   This command should produce output similar to the following example:
+
+   ```output
    REPOSITORY       TAG       IMAGE ID       CREATED       SIZE
    model-in-image   WLS-v1    76abc1afdcc6   2 hours ago   8.61MB
    ```
 
-   After the image is created, it should have the WDT executables in /auxiliary/weblogic-deploy, and WDT model, property, and archive files in /auxiliary/models. You can run ls in the Docker image to verify this:
+   After the image is created, it should have the WDT executables in */auxiliary/weblogic-deploy*, and WDT model, property, and archive files in */auxiliary/models*. Use the following command on the Docker image to verify this result:
 
-   ```text
-   $ docker run -it --rm model-in-image:WLS-v1 find /auxiliary -maxdepth 2 -type f -print
+   ```bash
+   docker run -it --rm model-in-image:WLS-v1 find /auxiliary -maxdepth 2 -type f -print
+   ```
+
+   This command should produce output similar to the following example:
+
+   ```output
    /auxiliary/models/dbmodel.yaml
    /auxiliary/models/archive.zip
    /auxiliary/models/model.properties
@@ -459,11 +469,11 @@ Use the following steps to build the image:
    /auxiliary/Dockerfile
    ```
 
-1. Push the auxiliary image to Azure Container Registry.
+1. Use the following steps to push the auxiliary image to Azure Container Registry:
 
-   1. Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
-   1. Select the resource of type **Container registry** from resource list.
-   1. Hover the mouse over the value next to **Login server** and select the copy icon to the right of the text. Set this as the value of the `ACR_LOGIN_SERVER` environment variable.
+   1. Open the Azure portal and go to the resource group that you provisioned in the [Deploy WSL on AKS](#deploy-wls-on-aks) section.
+   1. Select the resource of type **Container registry** from the resource list.
+   1. Hover the mouse over the value next to **Login server** and select the copy icon to the right of the text. Set this as the value of the `ACR_LOGIN_SERVER` environment variable by using the following command:
 
       ```bash
       export ACR_LOGIN_SERVER=<value-from-clipboard>
@@ -478,13 +488,13 @@ Use the following steps to build the image:
       docker push $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
       ```
 
-      You can run `az acr repository show` to test whether the image is pushed to the remote repository successfully.
+   1. You can run `az acr repository show` to test whether the image is pushed to the remote repository successfully, as shown in the following example:
 
       ```bash
       az acr repository show --name ${ACR_NAME} --image wlsaks-auxiliary-image:1.0
       ```
 
-      You'll find the output is similar to the following content.
+      This command should produce output similar to the following example:
 
       ```output
       {
@@ -505,7 +515,7 @@ Use the following steps to build the image:
 
 ### Apply the auxiliary image
 
-In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WLS cluster, create the secret for datasource Url, username and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
+In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WLS cluster, use the following steps to create the secret for the datasource URL, username, and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
 
 1. Connect to the AKS cluster.
 
