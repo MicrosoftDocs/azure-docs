@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Release notes 2024: Azure Health Data Services
 
-This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech services in Azure Health Data Services.
+This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
 ## January 2024
 

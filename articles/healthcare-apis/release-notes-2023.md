@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Release notes: 2023 Azure Health Data Services
 
-This article describes features, enhancements, and bug fixes released in 2023 for the FHIR&reg; service, DICOM&reg; service, and MedTech services in Azure Health Data Services.
+This article describes features, enhancements, and bug fixes released in 2023 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
 ## December 2023
 

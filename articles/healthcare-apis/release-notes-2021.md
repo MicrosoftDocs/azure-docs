@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Release notes 2021: Azure Health Data Services
 
-This article describes features, enhancements, and bug fixes released in 2021 for the FHIR&reg; service, DICOM&reg; service, and MedTech services in Azure Health Data Services.
+This article describes features, enhancements, and bug fixes released in 2021 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
 > [!NOTE]
 > Azure Health Data Services is generally available. For more information, see the [Service Level Agreement (SLA) for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
