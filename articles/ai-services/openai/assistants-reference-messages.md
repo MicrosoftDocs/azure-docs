@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service Assistants Python & REST API messages reference 
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI's Python & REST API messages with Assistants
+description: Learn how to use Azure OpenAI's Python & REST API messages with Assistants.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -37,11 +37,11 @@ Create a message.
 | `role` | string | Required | The role of the entity that is creating the message. Currently only user is supported.|
 | `content` | string | Required | The content of the message. |
 | `file_ids` | array | Optional | A list of File IDs that the message should use. There can be a maximum of 10 files attached to a message. Useful for tools like retrieval and code_interpreter that can access and use files. |
-| `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long. |
+| `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long. |
 
 ### Returns
 
-A message object.
+A [message](#message-object) object.
 
 ### Example create message request
 
@@ -80,7 +80,6 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 
 ## List messages
 
-
 ```http
 GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-02-15-preview
 ```
@@ -105,7 +104,7 @@ Returns a list of messages for a given thread.
 
 ### Returns
 
-A list of message objects.
+A list of [message](#message-object) objects.
 
 ### Example list messages request
 
@@ -159,7 +158,7 @@ Returns a list of message files.
 
 ### Returns
 
-A list of message file objects
+A list of [message file](#message-file-object) objects
 
 ### Example list message files request
 
@@ -210,7 +209,7 @@ Retrieves a message file.
 
 ### Returns
 
-The message file object.
+The [message file](#message-file-object) object.
 
 ### Example retrieve message request
 
@@ -255,13 +254,13 @@ Retrieves a message file.
 
 |Parameter| Type | Required | Description |
 |---|---|---|---|
-|`thread_id` | string | Required | The ID of the thread which the message and file belongs to. |
+|`thread_id` | string | Required | The ID of the thread, which the message and file belongs to. |
 |`message_id`| string | Required | The ID of the message that the file belongs to. |
 |`file_id` | string | Required | The ID of the file being retrieved. |
 
 **Returns**
 
-The message file object.
+The [message file](#message-file-object) object.
 
 ### Example retrieve message file request
 
@@ -314,7 +313,7 @@ Modifies a message.
 
 |Parameter| Type | Required | Description |
 |---|---|---|---|
-| metadata | map| Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.|
+| metadata | map| Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
 
 ### Returns
 
@@ -375,11 +374,11 @@ Represents a message within a thread.
 | `assistant_id` | string or null  |If applicable, the ID of the assistant that authored this message.|
 | `run_id` | string or null  |If applicable, the ID of the run associated with the authoring of this message.|
 | `file_ids` | array  |A list of file IDs that the assistant should use. Useful for tools like retrieval and code_interpreter that can access files. A maximum of 10 files can be attached to a message.|
-| `metadata` | map  |Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.|
+| `metadata` | map  |Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
 
 ## Message file object
 
-A list of files attached to a `message`
+A list of files attached to a message.
 
 |Name | Type | Description |
 |---  |---   |---         |
@@ -387,4 +386,3 @@ A list of files attached to a `message`
 |`object`|string| The object type, which is always `thread.message.file`.|
 |`created_at`|integer | The Unix timestamp (in seconds) for when the message file was created.|
 |`message_id`| string | The ID of the message that the File is attached to.|
-

@@ -29,11 +29,11 @@ Create a thread.
 |Name | Type | Required | Description |
 |---  |---   |---       |--- |
 |`messages`|array| Optional | A list of messages to start the thread with. |
-|`metadata`| map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long. |
+|`metadata`| map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long. |
 
 ### Returns
 
-A thread object.
+A [thread object](#thread-object).
 
 ### Example create thread request
 
@@ -131,7 +131,7 @@ Modifies a thread.
 
 ### Returns
 
-The modified thread object matching the specified ID.
+The modified [thread object](#thread-object) matching the specified ID.
 
 ### Example modify thread request
 
@@ -169,6 +169,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
       }
     }' 
 ```
+
 ---
 
 ## Delete thread
@@ -214,6 +215,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
   -H 'Content-Type: application/json' \
   -X DELETE
 ```
+
 ---
 ## Thread object
 

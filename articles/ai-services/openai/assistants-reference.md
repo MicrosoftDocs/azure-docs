@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service Assistants Python & REST API reference
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI's Python & REST API with Assistants
+description: Learn how to use Azure OpenAI's Python & REST API with Assistants.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -22,7 +22,7 @@ This article provides reference documentation for Python and REST for the new As
 POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview
 ```
 
-Create an assistant with a model and instructions
+Create an assistant with a model and instructions.
 
 ### Request body
 
@@ -32,13 +32,13 @@ Create an assistant with a model and instructions
 | name | string or null | Optional | The name of the assistant. The maximum length is 256 characters.|
 | description| string or null | Optional | The description of the assistant. The maximum length is 512 characters.|
 | instructions | string or null | Optional | The system instructions that the assistant uses. The maximum length is 32768 characters.|
-| tools | array | Optional | Defaults to []. A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function.|
+| tools | array | Optional | Defaults to []. A list of tools enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can currently be of types `code_interpreter`, or `function`.|
 | file_ids | array | Optional | Defaults to []. A list of file IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order.|
 | metadata | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
 
 ### Returns
 
-An assistant object.
+An [assistant](#assistant-object) object.
 
 ### Example create assistant request
 
@@ -74,6 +74,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2
     "model": "gpt-4-1106-preview"
   }'
 ```
+
 ---
 
 ## Create assistant file
@@ -98,7 +99,7 @@ Create an assistant file by attaching a `File` to an `assistant`.
 
 ### Returns
 
-An assistant object.
+An [assistant](#assistant-object) object.
 
 ### Example create assistant file request
 
@@ -152,7 +153,7 @@ Returns a list of all assistants.
 
 ### Returns
 
-A list of `assistant` objects
+A list of [assistant](#assistant-object) objects
 
 ### Example list assistants
 
@@ -210,7 +211,7 @@ Returns a list of assistant files.
 
 ### Returns
 
-A list of assistant file objects
+A list of [assistant file](#assistant-file-object) objects
 
 ### Example list assistant files
 
@@ -236,8 +237,7 @@ print(assistant_files)
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}/files?api-version=2024-02-15-preview  \
   -H "api-key: $AZURE_OPENAI_KEY" \
-  -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' 
+  -H 'Content-Type: application/json' 
 ```
 
 ---
@@ -258,7 +258,7 @@ Retrieves an assistant.
 
 **Returns**
 
-The `assistant` object matching the specified ID.
+The [assistant](#assistant-object) object matching the specified ID.
 
 ### Example retrieve assistant
 
@@ -280,8 +280,7 @@ print(my_assistant)
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-02-15-preview  \
   -H "api-key: $AZURE_OPENAI_KEY" \
-  -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' 
+  -H 'Content-Type: application/json' 
 ```
 
 ---
@@ -303,7 +302,7 @@ Retrieves an Assistant file.
 
 ### Returns
 
-The `assistant file` object matching the specified ID
+The [assistant file](#assistant-file-object) object matching the specified ID
 
 ### Example retrieve assistant file
 
@@ -328,8 +327,7 @@ print(assistant_file)
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}/files/{file-id}?api-version=2024-02-15-preview  \
   -H "api-key: $AZURE_OPENAI_KEY" \
-  -H 'Content-Type: application/json' \
-  -H 'OpenAI-Beta: assistants=v1' 
+  -H 'Content-Type: application/json' 
 ```
 
 ---
@@ -356,13 +354,13 @@ Modifies an assistant.
 | `name` | string or null | Optional | The name of the assistant. The maximum length is 256 characters. |
 | `description` | string or null | Optional | The description of the assistant. The maximum length is 512 characters. |
 | `instructions` | string or null | Optional | The system instructions that the assistant uses. The maximum length is 32768 characters. |
-| `tools` | array | Optional | Defaults to []. A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, retrieval, or function. |
+| `tools` | array | Optional | Defaults to []. A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function. |
 | `file_ids` | array | Optional | Defaults to []. A list of File IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order. If a file was previously attached to the list but does not show up in the list, it will be deleted from the assistant. |
-| `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long. |
+| `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long. |
 
 **Returns**
 
-The modified `assistant` object.
+The modified [assistant object](#assistant-object).
 
 ### Example modify assistant
 
@@ -377,11 +375,11 @@ client = AzureOpenAI(
 
 my_updated_assistant = client.beta.assistants.update(
   "asst_abc123",
-  instructions="You are an HR bot, and you have access to files to answer employee questions about company policies. Always response with info from either of the files.",
+  instructions="You are an HR bot, and you have access to files to answer employee questions about company policies. Always respond with info from either of the files.",
   name="HR Helper",
   tools=[{"type": "code-interpreter"}],
-  model="gpt-4",
-  file_ids=["file-abc123", "file-abc456"],
+  model="gpt-4", #model = model deployment name
+  file_ids=["assistant-abc123", "assistant-abc456"],
 )
 
 print(my_updated_assistant)
@@ -397,7 +395,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id
       "instructions": "You are an HR bot, and you have access to files to answer employee questions about company policies. Always response with info from either of the files.",
       "tools": [{"type": "code-interpreter"}],
       "model": "gpt-4",
-      "file_ids": ["file-abc123", "file-abc456"]
+      "file_ids": ["assistant-abc123", "assistant-abc456"]
     }'
 ```
 
@@ -501,7 +499,16 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id
 
 | Field  | Type  | Description   |
 |---|---|---|
-| id | string | The identifier, which can be referenced in API endpoints.|
+| `id` | string | The identifier, which can be referenced in API endpoints.|
+| `object` | string | The object type, which is always assistant.|
+| `created_at` | integer | The Unix timestamp (in seconds) for when the assistant was created.|
+| `name` | string or null | The name of the assistant. The maximum length is 256 characters.|
+| `description` | string or null | The description of the assistant. The maximum length is 512 characters.|
+| `model` | string | Name of the model deployment name to use.|
+| `instructions` | string or null | The system instructions that the assistant uses. The maximum length is 32768 characters.|
+| `tools` | array | A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function.|
+| `file_ids` | array | A list of file IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order.|
+| `metadata` | map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
 
 ## Assistant file object
 
@@ -511,16 +518,3 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id
 |`object`| string | The object type, which is always `assistant.file` |
 |`created_at` | integer | The Unix timestamp (in seconds) for when the assistant file was created.|
 |`assistant_id` | string | The assistant ID that the file is attached to. |
-
-| Field  | Type  | Description   |
-|---|---|---|
-| `id` | string | The identifier, which can be referenced in API endpoints.|
-| `object` | string | The object type, which is always assistant.|
-| `created_at` | integer | The Unix timestamp (in seconds) for when the assistant was created.|
-| `name` | string or null | The name of the assistant. The maximum length is 256 characters.|
-| `description` | string or null | The description of the assistant. The maximum length is 512 characters.|
-| `model` | string | ID of the model to use. You can use the List models API to see all of your available models, or see our Model overview for descriptions of them.|
-| `instructions` | string or null | The system instructions that the assistant uses. The maximum length is 32768 characters.|
-| `tools` | array | A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, retrieval, or function.|
-| `file_ids` | array | A list of file IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order.|
-| `metadata` | map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|

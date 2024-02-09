@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service Assistants Python & REST API runs reference 
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI's Python & REST API runs with Assistants
+description: Learn how to use Azure OpenAI's Python & REST API runs with Assistants.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -35,11 +35,11 @@ Create a run.
 |Name | Type | Required | Description |
 |---  |---   |---       |--- |
 | `assistant_id` | string | Required | The ID of the assistant to use to execute this run. |
-| `model` | string or null | Optional | The ID of the Model to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used. |
+| `model` | string or null | Optional | The model deployment name to be used to execute this run. If a value is provided here, it will override the model deployment name associated with the assistant. If not, the model deployment name associated with the assistant will be used. |
 | `instructions` | string or null | Optional | Overrides the instructions of the assistant. This is useful for modifying the behavior on a per-run basis. |
 | `additional_instructions` | string or null | Optional | Appends additional instructions at the end of the instructions for the run. This is useful for modifying the behavior on a per-run basis without overriding other instructions. |
 | `tools` | array or null | Optional | Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis. |
-| `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long. |
+| `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long. |
 
 ### Returns
 
@@ -92,7 +92,7 @@ Create a thread and run it in a single request.
 |---  |---   |---       |--- |
 | `assistant_id` | string  | Required | The ID of the assistant to use to execute this run.|
 | `thread` | object  | Optional | |
-| `model` | string or null  | Optional | The ID of the Model to be used to execute this run. If a value is provided here, it will override the model associated with the assistant. If not, the model associated with the assistant will be used.|
+| `model` | string or null  | Optional | The ID of the Model deployment name to be used to execute this run. If a value is provided here, it will override the model deployment name associated with the assistant. If not, the model deployment name associated with the assistant will be used.|
 | `instructions` | string or null  | Optional | Override the default system message of the assistant. This is useful for modifying the behavior on a per-run basis.|
 | `tools` | array or null  | Optional | Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.|
 | `metadata` | map  | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
@@ -167,7 +167,7 @@ Returns a list of runs belonging to a thread.
 
 ### Returns
 
-A list of run objects.
+A list of [run](#run-object) objects.
 
 ### Example list runs request
 
@@ -224,7 +224,7 @@ Returns a list of steps belonging to a run.
 
 ### Returns
 
-A list of run step objects.
+A list of [run step](#run-step-object) objects.
 
 ### Example list run steps request
 
@@ -273,7 +273,7 @@ Retrieves a run.
 
 ### Returns
 
-The run object matching the specified run ID.
+The [run](#run-object) object matching the specified run ID.
 
 ### Example list run steps request
 
@@ -323,7 +323,7 @@ Retrieves a run step.
 
 ### Returns
 
-The run step object matching the specified ID.
+The [run step](#run-step-object) object matching the specified ID.
 
 ### Example retrieve run steps request
 
@@ -376,6 +376,10 @@ Modifies a run.
 |Name | Type | Required | Description |
 |---  |---   |---       |--- |
 | `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
+
+### Returns
+
+The modified [run](#run-object) object matching the specified ID.
 
 ### Example modify run request
 
@@ -432,11 +436,11 @@ When a run has the status: "requires_action" and required_action.type is submit_
 
 |Name | Type | Required | Description |
 |---  |---   |---       |--- |
-| `tool_outputs | array | Required | |
+| `tool_outputs | array | Required | A list of tools for which the outputs are being submitted. |
 
 ### Returns
 
-The modified run object matching the specified ID.
+The modified [run](#run-object) object matching the specified ID.
 
 ### Example submit tool outputs to run request
 
@@ -500,7 +504,7 @@ Cancels a run that is in_progress.
 
 ### Returns
 
-The modified run object matching the specified ID.
+The modified [run](#run-object) object matching the specified ID.
 
 ### Example submit tool outputs to run request
 
@@ -544,20 +548,20 @@ Represents an execution run on a thread.
 | `created_at` | integer | The Unix timestamp (in seconds) for when the run was created.|
 | `thread_id` | string | The ID of the thread that was executed on as a part of this run.|
 | `assistant_id` | string | The ID of the assistant used for execution of this run.|
-| `status` | string | The status of the run, which can be either queued, in_progress, requires_action, cancelling, cancelled, failed, completed, or expired.|
+| `status` | string | The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, or `expired`.|
 | `required_action` | object or null | Details on the action required to continue the run. Will be null if no action is required.|
 | `last_error` | object or null | The last error associated with this run. Will be null if there are no errors.|
 | `expires_at` | integer | The Unix timestamp (in seconds) for when the run will expire.|
 | `started_at` | integer or null | The Unix timestamp (in seconds) for when the run was started.|
-| `cancelled_at` | integer or null | The Unix timestamp (in seconds) for when the run was cancelled.|
+| `cancelled_at` | integer or null | The Unix timestamp (in seconds) for when the run was canceled.|
 | `failed_at` | integer or null | The Unix timestamp (in seconds) for when the run failed.|
 | `completed_at` | integer or null | The Unix timestamp (in seconds) for when the run was completed.|
-| `model` | string | The model that the assistant used for this run.|
+| `model` | string | The model deployment name that the assistant used for this run.|
 | `instructions` | string | The instructions that the assistant used for this run.|
 | `tools` | array | The list of tools that the assistant used for this run.|
 | `file_ids` | array | The list of File IDs the assistant used for this run.|
 | `metadata` | map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
-| `usage` | object or null | Usage statistics related to the run. This value will be null if the run is not in a terminal state (i.e. in_progress, queued, etc.).|
+
 
 ## Run step object
 
@@ -572,7 +576,7 @@ Represent a step in execution of a run.
 | `thread_id`| string | The ID of the thread that was run.|
 | `run_id`| string | The ID of the run that this run step is a part of.|
 | `type`| string | The type of run step, which can be either message_creation or tool_calls.|
-| `status`| string | The status of the run step, which can be either in_progress, cancelled, failed, completed, or expired.|
+| `status`| string | The status of the run step, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.|
 | `step_details`| object | The details of the run step.|
 | `last_error`| object or null | The last error associated with this run step. Will be null if there are no errors.|
 | `expired_at`| integer or null | The Unix timestamp (in seconds) for when the run step expired. A step is considered expired if the parent run is expired.|
@@ -580,4 +584,4 @@ Represent a step in execution of a run.
 | `failed_at`| integer or null | The Unix timestamp (in seconds) for when the run step failed.|
 | `completed_at`| integer or null | The Unix timestamp (in seconds) for when the run step completed.|
 | `metadata`| map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
-| `usage`| object or null | Usage statistics related to the run step. This value will be null while the run step's status is in_progress.|
+
