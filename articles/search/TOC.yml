@@ -440,24 +440,24 @@
       href: index-ranking-similarity.md
     - name: Add a scoring profile
       href: index-add-scoring-profiles.md
-  - name: Performance and monitoring
+  - name: Monitoring and performance
     items:
     - name: Monitor
       href: monitor-azure-cognitive-search.md
-    - name: Performance analysis
-      href: search-performance-analysis.md
-    - name: Performance benchmarks
-      href: performance-benchmarks.md
-    - name: Tips for better performance
-      href: search-performance-tips.md
-    - name: Visualize resource logs
-      href: search-monitor-logs-powerbi.md
     - name: Monitor queries
       href: search-monitor-queries.md
     - name: Monitor indexer-based indexing
       href: search-howto-monitor-indexers.md
     - name: Monitor client-side interactions
       href: search-traffic-analytics.md
+    - name: Visualize resource logs
+      href: search-monitor-logs-powerbi.md
+    - name: Performance analysis
+      href: search-performance-analysis.md
+    - name: Performance benchmarks
+      href: performance-benchmarks.md
+    - name: Tips for better performance
+      href: search-performance-tips.md
   - name: Service management
     items:
     - name: Manage in the portal

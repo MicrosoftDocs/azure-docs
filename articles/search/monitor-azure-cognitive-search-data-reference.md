@@ -85,9 +85,14 @@ Microsoft.Search/searchServices
 - [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics)
 
-#### AzureDiagnostics table
+#### AzureActivity table
 
-Queries against the AzureDiagnostics table in Log Analytics can include the common properties, the [search-specific properties](#resource-log-search-props), and the [search-specific operations](#resource-log-search-ops) listed in the schema reference section.
+
+| Table | Description |
+|-------|-------------|
+| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Entries from the Azure activity log provide insight into control plane operations. Tasks invoked on the control plane, such as adding or removing replicas and partitions, are represented through a "Get Admin Key" activity. |
+| [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) | Logged query and indexing operations. Queries against the AzureDiagnostics table in Log Analytics can include the common properties, the [search-specific properties](#resource-log-search-props), and the [search-specific operations](#resource-log-search-ops) listed in the schema reference section. |
+| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | Metric data emitted by Azure AI Search that measures health and performance. |
 
 <!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
