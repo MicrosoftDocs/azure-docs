@@ -442,14 +442,14 @@
       href: index-add-scoring-profiles.md
   - name: Performance and monitoring
     items:
+    - name: Monitor
+      href: monitor-azure-cognitive-search.md
     - name: Performance analysis
       href: search-performance-analysis.md
     - name: Performance benchmarks
       href: performance-benchmarks.md
     - name: Tips for better performance
       href: search-performance-tips.md
-    - name: Monitor Azure AI Search
-      href: monitor-azure-cognitive-search.md
     - name: Visualize resource logs
       href: search-monitor-logs-powerbi.md
     - name: Monitor queries

@@ -63,19 +63,6 @@ In Azure AI Search, platform metrics measure query performance, indexing volume,
 
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
-### Get system data from REST APIs
-
-Because Azure portal pages are refreshed every few minutes, the numbers reported are approximate, intended to give you a general sense of how well your system is handling requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page. If precision is a requirement, consider using APIs.
-
-Azure AI Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service, which you can obtain programmatically:
-
-+ [Service Statistics (REST)](/rest/api/searchservice/get-service-statistics)
-+ [Index Statistics (REST)](/rest/api/searchservice/get-index-statistics)
-+ [Document Counts (REST)](/rest/api/searchservice/count-documents)
-+ [Indexer Status (REST)](/rest/api/searchservice/get-indexer-status)
-
-For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman](search-get-started-rest.md) or another REST client to query your search service.
-
 <!-- ## Prometheus/container metrics. Optional. If your service uses containers/Prometheus metrics, add the following include and information. 
 [!INCLUDE [horz-monitor-container-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-container-metrics.md)]
 <!-- Add service-specific information about your container/Prometheus metrics here.-->
@@ -213,7 +200,11 @@ The following table lists common and recommended alert rules for Azure AI Search
 <!-- You can change the wording and add more links if useful. -->
 
 - [Azure AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md)
-- [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
-- [Analyze performance in Azure AI Search](search-performance-analysis.md)
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
 - [Monitor queries](search-monitor-queries.md)
 - [Monitor indexer-based indexing](search-howto-monitor-indexers.md)
+- [Monitor client-side interactions](search-traffic-analytics.md)
+- [Visualize resource logs](search-monitor-logs-powerbi.md)
+- [Analyze performance in Azure AI Search](search-performance-analysis.md)
+- [Performance benchmarks](performance-benchmarks.md)
+- [Tips for better performance](search-performance-tips.md)
