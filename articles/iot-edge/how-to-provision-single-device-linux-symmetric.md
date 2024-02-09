@@ -7,7 +7,7 @@ ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.date: 02/09/2024
 ms.author: patricka
 ms.reviewer: mattmcinnes
 ---

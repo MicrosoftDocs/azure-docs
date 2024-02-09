@@ -4,7 +4,7 @@ description: Use a simulated TPM on a Linux device to test the Azure IoT Hub dev
 author: PatAltimore
 manager: lizross
 ms.author: patricka
-ms.date: 05/13/2022
+ms.date: 02/09/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -212,26 +212,37 @@ After you have your registration ID and endorsement key, you're ready to continu
 
 After the runtime is installed on your device, configure the device with the information it uses to connect to the device provisioning service and IoT Hub.
 
-1. Know your device provisioning service **ID Scope** and device **Registration ID** that were gathered previously.
+Know your device provisioning service **ID Scope** and device **Registration ID** that were gathered previously.
 
-1. Create a configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
+Create a configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
 
-   ```bash
-   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
-   # If using a snap installation of IoT Edge, the template file is located at /var/snap/iotedge/current/config/aziot/config.toml.edge.template
-   # Create a copy of the template file in your home directory and name it config.toml. For example:
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-   # cp /var/snap/iotedge/current/config/aziot/config.toml.edge.template ~/config.toml
-   ```
+```bash
+sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+```
 
-1. Open the configuration file on the IoT Edge device.
+Open the configuration file on the IoT Edge device.
 
-   ```bash
-   sudo nano /etc/aziot/config.toml
+```bash
+sudo nano /etc/aziot/config.toml
+```
 
-   # If using a snap installation of IoT Edge, open the configuration file in your home directory. For example:
-   # nano ~/config.toml
-   ```
+# [Ubuntu Core snaps](#tab/snaps)
+
+If using a snap installation of IoT Edge, the template file is located at `/var/snap/iotedge/current/config/aziot/config.toml.edge.template`. Create a copy of the template file in your home directory and name it config.toml. For example:
+
+```bash
+cp /var/snap/iotedge/current/config/aziot/config.toml.edge.template ~/config.toml
+```
+
+Open the configuration file in your home directory on the IoT Edge device.
+
+```bash
+nano ~/config.toml
+```
+
+---
 
 1. Find the provisioning configurations section of the file. Uncomment the lines for TPM provisioning, and make sure any other provisioning lines are commented out.
 
@@ -309,15 +320,20 @@ You can give access to the TPM by overriding the systemd settings so that the `a
 
    If you don't see that the correct permissions have been applied, try rebooting your machine to refresh `udev`.
 
-1. Apply the configuration changes that you made on the device.
+Apply the configuration changes that you made on the device.
 
-   ```bash
-   sudo iotedge config apply
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+```bash
+sudo iotedge config apply
+```
 
-   # If using a snap installation of IoT Edge, use the following command:
+# [Ubuntu Core snaps](#tab/snaps)
 
-   # sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
-   ```
+```bash
+sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+```
+
+---
 
 ## Verify successful installation
 

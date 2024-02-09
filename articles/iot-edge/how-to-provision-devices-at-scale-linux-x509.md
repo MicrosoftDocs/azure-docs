@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Edge
 description: Use X.509 certificates to test provisioning devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/07/2024
+ms.date: 02/09/2024
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
