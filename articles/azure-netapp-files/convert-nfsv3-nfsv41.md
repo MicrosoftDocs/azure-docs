@@ -1,10 +1,9 @@
 ---
 title: Convert an NFS volume between NFSv3 and NFSv4.1 with Azure NetApp Files | Microsoft Docs
-description: Describes how to convert an NFS volume between NFSv3 and NFSv4.1. 
+description: Describes how to convert an NFS volume between NFSv3 and NFSv4.1.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 11/08/2022
 ms.author: anfdocs

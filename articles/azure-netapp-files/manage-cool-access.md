@@ -1,10 +1,9 @@
 ---
-title: Manage Azure NetApp Files standard storage with cool access 
+title: Manage Azure NetApp Files standard storage with cool access
 description: Learn how to free up storage by configuring inactive data to move from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure storage account (the cool tier).
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 01/16/2023
 ms.author: anfdocs

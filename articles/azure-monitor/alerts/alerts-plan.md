@@ -1,12 +1,11 @@
 ---
 title: 'Plan your Alerts and automated actions'
 description: Recommendations for deployment of Azure Monitor alerts and automated actions.
+ms.author: abbyweisberg
 ms.topic: conceptual
 author: bwren
-ms.author: bwren
 ms.date: 05/31/2023
 ms.reviewer: bwren
-
 ---
 
 # Plan your alerts and automated actions

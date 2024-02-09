@@ -9,11 +9,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 01/28/2022
 ms.author: sedusch
 ms.custom: subject-rbac-steps
-
 ---
 # SAP Information Lifecycle Management (ILM) with Microsoft Azure Blob Storage
 

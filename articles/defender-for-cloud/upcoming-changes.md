@@ -31,7 +31,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
-| [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 11, 2024 | February 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
 | [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
@@ -73,8 +72,8 @@ These public preview recommendations will be deprecated.
 
 | Recommendation | Agent | Deprecation date | Replacement recommendation |
 |--|--|--|--|
-| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | February 2024 | New agentless recommendations. |
-| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | February 2024 | New agentless recommendations. |
+| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | March 2024 | New agentless recommendations. |
+| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | March 2024 | New agentless recommendations. |
 
 The current generally available recommendations will remain supported until August 2024.
 
@@ -88,6 +87,8 @@ As part of that deprecation, we’ll be introducing new agentless endpoint prote
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines | February 2024 |
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s | February 2024 |
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | February 2024 |
+
+Learn more about the [migration to the updated Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
 
 ## Change in pricing for multicloud container threat detection
 
@@ -129,21 +130,6 @@ The following two recommendations related to PCI (Permission Creep Index) are se
 
 - `Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)`
 - `Over-Provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)`
-
-## Four new recommendations for Azure Stack HCI resource type
-
-**Announcement date: January 11, 2024**
-
-**Estimated date for change: February 2024**
-
-Azure Stack HCI is set to be a new resource type that can be managed through Microsoft Defender for Cloud. We're adding four recommendations that are specific to the HCI resource type:
-
-| Recommendation | Description  | Severity |
-|----------|----------|----------|
-| Azure Stack HCI servers should meet Secured-core requirements | Ensure that all Azure Stack HCI servers meet the Secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
-| Azure Stack HCI servers should have consistently enforced application control policies | At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) policies must be consistent across servers in the same cluster. | High |
-| Azure Stack HCI systems should have encrypted volumes | Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems | High |
-| Host and VM networking should be protected on Azure Stack HCI systems | Protect data on the Azure Stack HCI host’s network and on virtual machine network connections. | Low |
 
 ## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
 

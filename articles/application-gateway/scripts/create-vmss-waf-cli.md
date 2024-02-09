@@ -7,7 +7,6 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: greglin
 ms.custom: mvc, devx-track-azurecli

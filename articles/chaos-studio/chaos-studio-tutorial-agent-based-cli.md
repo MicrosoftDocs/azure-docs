@@ -4,7 +4,8 @@ description: Create an experiment that uses an agent-based fault and configure t
 author: prasha-microsoft
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli

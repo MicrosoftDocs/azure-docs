@@ -116,9 +116,9 @@ If the Azure AI hub resource the project uses was created through Azure portal:
 
 ## Use an index in prompt flow
 
-1. Open your AI Studio project
-1. In Flows, create a new Flow or open an existing flow 
-1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***
+1. Open your AI Studio project.
+1. In **Flows**, create a new flow or open an existing flow.
+1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***.
 
     :::image type="content" source="../media/index-retrieve/index-lookup-tool.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/index-lookup-tool.png":::
 
