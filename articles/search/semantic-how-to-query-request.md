@@ -206,10 +206,7 @@ The response for the above example query returns the following match as the top 
 
 ## Next steps
 
-Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results carry forward to semantic ranking. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
+Semantic ranking can be used in hybrid queries that combine keyword search and vector search into a single request and a unified response.
 
-+ [Analyzers for text processing](search-analyzers.md)
-+ [Configure BM25 relevance scoring](index-similarity-and-scoring.md)
-+ [Relevance scoring in hybrid search using Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
-+ [Add scoring profiles](index-add-scoring-profiles.md)
-+ [Semantic ranking overview](semantic-search-overview.md)
+> [!div class="nextstepaction"]
+> [Hybrid query with semantic ranking](hybrid-search-how-to-query.md#semantic-hybrid-search)
