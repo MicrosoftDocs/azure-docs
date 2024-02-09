@@ -487,7 +487,7 @@ await callObj2.mute();
 ```
 Limitations:
 - This must be done with two different call agents with different identities, hence the code snippet shows two call agents being used, each with its own Call object.
-- In the code example above, both CallAgents are joining the same call (same call Ids). You can also join different calls with each agent and send one video on one call and a different video on the other call. 
+- In the code example, both CallAgents are joining the same call (same call Ids). You can also join different calls with each agent and send one video on one call and a different video on the other call. 
 - Sending the same camera in both CallAgent, isn't supported. They must be two different cameras.
 - Sending two different cameras with one CallAgent is currently not supported.
 - On macOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.
