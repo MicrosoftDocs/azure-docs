@@ -598,7 +598,6 @@ You can use Azure OpenAI on your data with an Azure OpenAI resource in the follo
 * South India
 * Sweden Central
 * Switzerland North
-* UAE North
 * UK South
 * West Europe
 * West US
