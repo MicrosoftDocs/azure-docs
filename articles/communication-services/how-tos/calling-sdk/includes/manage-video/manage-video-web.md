@@ -20,7 +20,7 @@ const deviceManager = await callClient.getDeviceManager();
 
 ### Get local devices
 
-To access local devices, you can use enumeration methods on `deviceManager`. Enumeration is an asynchronous action
+To access local devices, you can use enumeration methods on `deviceManager`. Enumeration is an asynchronous action.
 
 ```js
 //  Get a list of available video devices for use.
@@ -102,8 +102,8 @@ console.log(result.audio);
 console.log(result.video);
 ```
 #### Notes
-- The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
-- The 'audioDevicesUpdated' event fires when audio devices are plugged
+- `videoDevicesUpdated` event fires when video devices are plugging-in/unplugged.
+- `audioDevicesUpdated` event fires when audio devices are plugged.
 - When the DeviceManager is created, at first it doesn't know about any devices if permissions are not granted yet, so initially its device list is empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user clicks on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager is able to learn about devices because user has already previously granted access. It will initially it will have its device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection isn't supported on Android Chrome, iOS Safari, nor macOS Safari.
 
