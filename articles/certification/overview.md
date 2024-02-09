@@ -29,8 +29,8 @@ Edge Secured-core is a security certification for devices running a full operati
 
 The Edge Secured-core program serves two different audiences.
 
-1. **Device builders**: Do you build Edge devices? Easily differentiate your Edge device capabilities and gain access to a worldwide audience looking to reliably purchase devices built to run on Azure. Use the Edge Secured-core listing to increase product visibility and connect with customers by certifying your device and show it meets specific security requirements.
-1.  **Solution builders**: Wondering what are security-capable Edge devices? Confidently find and purchase Edge devices built to run on Azure, knowing they meet specific security requirements. Easily search and select the right device for your Edge solution on the [Edge Secured-core devices list](edge-secured-core-devices.md).
+1. **Device builders**: Do you build Edge devices? Easily differentiate your Edge device capabilities by certifying your device to show that it meets specific security requirements.
+1.  **Solution builders**: Wondering what are security-capable Edge devices? Confidently purchase Edge devices from Device builders, knowing they meet specific security requirements. Check out the list of current Device builders that have certified Edge Secured-core devices. [Edge Secured-core devices list](edge-secured-core-devices.md).
 
 ## Next steps
 
