@@ -39,11 +39,11 @@ Use the following procedure to download and install the SDK. The steps include [
 
     | Path | Description |
     |:-----|:----|
-    | *license.md* | License
-    | *ThirdPartyNotices.md* | Partner notices
-    | *REDIST.txt* | Redistribution notice
-    | *include* | Required header files for C++
-    | *lib/arm32* | Native library for ARM32 required to link your application
-    | *lib/arm64* | Native library for ARM64 required to link your application
-    | *lib/x64* | Native library for x64 required to link your application
-    | *lib/x86* | Native library for x86 required to link your application
+    | *license.md* | License |
+    | *ThirdPartyNotices.md* | Partner notices |
+    | *REDIST.txt* | Redistribution notice |
+    | *include* | Required header files for C++ |
+    | *lib/arm32* | Native library for ARM32 required to link your application |
+    | *lib/arm64* | Native library for ARM64 required to link your application |
+    | *lib/x64* | Native library for x64 required to link your application |
+    | *lib/x86* | Native library for x86 required to link your application |

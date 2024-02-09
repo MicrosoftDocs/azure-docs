@@ -12,7 +12,7 @@ In this quickstart, you install the [Speech SDK](~/articles/ai-services/speech-s
 
 Code samples in the documentation are written in C# 8 and run on .NET standard 2.0.
 
-## Prerequisites
+## Platform requirements
 
 [!INCLUDE [Requirements](csharp-requirements.md)]
 
