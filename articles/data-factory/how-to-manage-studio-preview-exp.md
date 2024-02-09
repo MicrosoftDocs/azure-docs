@@ -35,7 +35,7 @@ There are two ways to enable preview experiences.
      	
 	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-4.png" alt-text="Screenshot of Settings panel showing Azure Data Factory Studio preview update turned on and the Apply button in the bottom left corner.":::
   
-   Your data factory will refresh to show the preview features. 
+   Your data factory refreshes to show the preview features. 
   
    Similarly, you can disable preview features with the same steps. Click **Open settings to opt out** or click the **Settings** button and unselect **Azure Data Factory Studio preview update**. 
    
@@ -151,7 +151,7 @@ A new flyout has been added to make it easier to set dynamic content in your pip
 | ForEach | Items |
 | If/Switch/Until | Expression |
 
-In supported activities, you'll see an icon next to the setting. Clicking this will open up the flyout where you can choose your dynamic content. 
+In supported activities, you'll see an icon next to the setting. Clicking this icon opens up the flyout where you can choose your dynamic content. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-32.png" alt-text="Screenshot of the new dynamic content flyout icon.":::
 
@@ -161,11 +161,11 @@ In supported activities, you'll see an icon next to the setting. Clicking this w
 
 There are new settings available for the Web activity. 
 
-By default, the **Connection type** will be set to **Inline**, but you can choose to select **Linked service**. Doing so will allow you to reference a REST linked service for authentication purposes.
+By default, the **Connection type** will be set to **Inline**, but you can choose to select **Linked service**. Doing so allows you to reference a REST linked service for authentication purposes.
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-45.png" alt-text="Screenshot of the new Web activity settings.":::
 
-After selecting **Linked service**, use the drop-down menu to select an exisitng linked service or click **New** to create a new linked service. 
+After selecting **Linked service**, use the drop-down menu to select an existing linked service or click **New** to create a new linked service. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-46.png" alt-text="Screenshot of the Web activity settings with Linked service selected.":::
 
@@ -175,7 +175,7 @@ After selecting **Linked service**, use the drop-down menu to select an exisitng
 ### Monitoring experimental view
 
 UI (user interfaces) changes have been made to the monitoring page. These changes were made to simplify and streamline your monitoring experience.
-The monitoring experience remains the same as detailed [here](monitor-visually.md), except for items detailed below. 
+The monitoring experience remains the same as detailed [here](monitor-visually.md), except for items detailed in the following section. 
 
 #### Error message relocation to Status column
 
@@ -195,7 +195,7 @@ Find the error icon in the pipeline monitoring page and in the pipeline **Output
 > [!NOTE]
 > This feature is now generally available in the ADF studio.  
 
-When monitoring your pipeline run, you have the option to enable the container view, which will provide a consolidated view of the activities that ran.
+When monitoring your pipeline run, you have the option to enable the container view, which provides a consolidated view of the activities that ran.
 This view is available in the output of your pipeline debug run and in the detailed monitoring view found in the monitoring tab. 
 
 ##### How to enable the container view in pipeline debug output
@@ -218,7 +218,7 @@ In the detailed view of your pipeline run, there's a new dropdown to select your
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-38.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
 
-Select **Container** to see the new container view. If you have iteration or conditional activities, the nested activities will be grouped under the parent activity. 
+Select **Container** to see the new container view. If you have iteration or conditional activities, the nested activities are grouped under the parent activity. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-39.png" alt-text="Screenshot of the container monitoring view in pipeline monitoring.":::
 
@@ -259,7 +259,7 @@ You can also now view **Pipeline run details** in a new pane in the detailed pip
 
 ## Provide feedback
 
-We want to hear from you! If you see this pop-up, please let us know your thoughts by providing feedback on the updates you've tested.  
+We want to hear from you! If you see this pop-up, let us know your thoughts by providing feedback on the updates you tested.  
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-19.png" alt-text="Screenshot of the feedback survey where user can select between one and five stars.":::
 
