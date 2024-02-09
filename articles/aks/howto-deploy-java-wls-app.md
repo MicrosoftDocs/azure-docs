@@ -519,13 +519,16 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
 1. Connect to the AKS cluster.
 
-   - In your shell, paste the value of the **shellCmdtoConnectAks** you saved aside previously. Execute the command. This will look similar to the following.
+   - Copy the **shellCmdtoConnectAks** value that you saved aside previously, paste it into the Bash window, then run the command. The command should look similar to the following example:
 
       ```bash
-      az account set --subscription <redacted>; az aks get-credentials --resource-group ejb010201wls --name wlsonaks2mkgvjqpy4cl4
+      az account set --subscription <subscription>
+      az aks get-credentials \
+          --resource-group <resource-group> \
+          --name <name>
       ```
 
-      You should see output similar to the following. If you don't see this output, troubleshoot and resolve the problem before continuing.
+      You should see output similar to the following example. If you don't see this output, troubleshoot and resolve the problem before continuing.
 
       ```output
       Merged "wlsonaks2mkgvjqpy4cl4" as current context in /Users/<username>/.kube/config
