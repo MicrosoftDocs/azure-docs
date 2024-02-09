@@ -230,7 +230,7 @@ public class ExampleService {
 
 #### [JavaScript](#tab/javascript)
 
-1. Inside of your project, use [NPM](https://docs.npmjs.com/) to add a reference to the `@azure/identity` npm package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app. 
+1. Inside of your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app. 
 
     ```bash
     npm install --save @azure/identity @azure/storage-blob @azure/keyvault-keys
