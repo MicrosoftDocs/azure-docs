@@ -171,7 +171,7 @@ To verify if the local video is on or off you can use isLocalVideoStarted API, w
 call.isLocalVideoStarted;
 ```
 
-To listen for changes to the local video, you can subscribe and unsubscribe to the isLocalVideoStartedChanged event
+To listen for changes to the local video, you can subscribe and unsubscribe to the isLocalVideoStartedChanged event:
 ```js
 // Subscribe to local video event
 call.on('isLocalVideoStartedChanged', () => {
@@ -209,7 +209,7 @@ To verify if screen sharing is on or off, you can use isScreenSharingOn API, whi
 call.isScreenSharingOn;
 ```
 
-To listen for changes to the screen share, you can subscribe and unsubscribe to the isScreenSharingOnChanged event
+To listen for changes to the screen share, you can subscribe and unsubscribe to the isScreenSharingOnChanged event:
 ```js
 // Subscribe to screen share event
 call.on('isScreenSharingOnChanged', () => {
@@ -364,7 +364,7 @@ CSS for styling the loading spinner over the remote video stream.
 
 ### Remote video quality
 
-The Azure Communication Services WebJS SDK, starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18), provides a feature called Optimal Video Count (OVC). This feature can be used to inform applications at run-time how many incoming videos from different participants can be optimally rendered at a given moment in a group call (2+ participants). This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participants application should render at a given moment. Applications should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period (around 10s), between updates that to avoid too frequent of changes.
+The Azure Communication Services WebJS SDK, starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18), provides a feature called Optimal Video Count (OVC). This feature can be used to inform applications at run-time how many incoming videos from different participants can be optimally rendered at a given moment in a group call (2+ participants). This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participants application should render at a given moment. Applications should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period (around 10 s), between updates that to avoid too frequent of changes.
 
 **Usage**
 The `optimalVideoCount` feature is a call feature
