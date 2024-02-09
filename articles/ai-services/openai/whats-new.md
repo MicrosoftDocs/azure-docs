@@ -34,6 +34,7 @@ Azure OpenAI now supports the API that powers OpenAI's GPTs. Azure OpenAI Assist
 - [Code Interpreter](./how-to/code-interpreter.md)
 - [Function calling](./how-to/assistant-functions.md)
 - [Assistants model & region availability](./concepts/models.md#assistants-preview)
+- [Assistants Python & REST reference](./assistants-reference.md)
 - [Assistants Samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
 
 ### OpenAI text to speech voices public preview
