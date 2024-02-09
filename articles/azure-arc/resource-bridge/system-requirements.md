@@ -37,9 +37,6 @@ Arc resource bridge has the following minimum resource requirements:
 
 These minimum requirements enable most scenarios. However, a partner product may support a higher resource connection count to Arc resource bridge, which requires the bridge to have higher resource requirements. Failure to provide sufficient resources may cause errors during deployment, such as disk copy errors. Review the partner product's documentation for specific resource requirements.
 
-> [!NOTE]
-> To use Azure Kubernetes Service (AKS) on Azure Stack HCI with Arc resource bridge, AKS must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be installed unless you delete Arc resource bridge first. Once AKS is deployed to Azure Stack HCI, you can deploy Arc resource bridge again.
-
 ## IP address prefix (subnet) requirements
 
 The IP address prefix (subnet) where Arc resource bridge will be deployed requires a minimum prefix of /29. The IP address prefix must have enough available IP addresses for the gateway IP, control plane IP, appliance VM IP, and reserved appliance VM IP. Please work with your network engineer to ensure that there is an available subnet with the required available IP addresses and IP address prefix for Arc resource bridge.
@@ -119,22 +116,22 @@ The appliance VM hosts a management Kubernetes cluster with a control plane that
 Control plane IP requirements:
 
 - Open communication with the management machine.
-   - Static IP address assigned; the IP address should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. 
-   - If using DHCP, the control plane IP should be a single reserved IP that is outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
-   - If using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid) and installing Arc resource bridge, then the control plane IP for the resource bridge can't be used by the AKS hybrid cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
 
-   - If using a proxy, the proxy server has to be reachable from IPs within the IP address prefix, including the reserved appliance VM IP. 
+  - Static IP address assigned; the IP address should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. 
+  - If using DHCP, the control plane IP should be a single reserved IP that is outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+
+- If using a proxy, the proxy server has to be reachable from IPs within the IP address prefix, including the reserved appliance VM IP.
 
 ## DNS server
-   
+
 DNS server(s) must have internal and external endpoint resolution. The appliance VM and control plane need to resolve the management machine and vice versa. All three IPs must be able to reach the required URLs for deployment.
 
 ## Gateway
-   
+
 The gateway IP should be an IP from within the subnet designated in the IP address prefix.
 
 ## Example minimum configuration for static IP deployment
-   
+
 The following example shows valid configuration values that can be passed during configuration file creation for Arc resource bridge. It is strongly recommended to use static IP addresses when deploying Arc resource bridge. 
 
 Notice that the IP addresses for the gateway, control plane, appliance VM and DNS server (for internal resolution) are within the IP address prefix. This key detail helps ensure successful deployment of the appliance VM.
@@ -169,7 +166,7 @@ There are several different types of configuration files, based on the on-premis
 
 ### Appliance configuration files
 
-Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): `<appliance-name>-resource.yaml`, `<appliance-name>-appliance.yaml` and `<appliance-name>-infra.yaml`.
+Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI): `<appliance-name>-resource.yaml`, `<appliance-name>-appliance.yaml` and `<appliance-name>-infra.yaml`.
 
 By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 
@@ -180,22 +177,6 @@ The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-
 ### HCI login configuration file (Azure Stack HCI only)
 
 Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/hci/manage/deploy-arc-resource-bridge-using-command-line#set-up-arc-vm-management) (kvatoken.tok) to interact with Azure Stack HCI. The KVA token is generated with the appliance configuration files when deploying Arc resource bridge. This token is also used when collecting logs for Arc resource bridge, so it should be saved in a secure location with the rest of the appliance configuration files. This file is saved in the directory provided during configuration file creation or the default CLI directory.
-
-## AKS on Azure Stack HCI with Arc resource bridge
-   
-When you deploy Arc resource bridge with AKS on Azure Stack HCI (AKS-HCI), the following configurations must be applied:
-
-- Arc resource bridge and AKS-HCI should share the same `vswitchname` and be in the same subnet, sharing the same value for the parameter, `ipaddressprefix` .
-
-- The IP address prefix (subnet) must contain enough IP addresses for both the Arc resource bridge and AKS-HCI.
-
-- Arc resource bridge should be given a unique `vnetname` that is different from the one used for AKS Hybrid. 
-
-- The Arc resource bridge requires different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`. These IPs can't be shared between the two.
-
-- Arc resource bridge and AKS-HCI must each have a unique control plane IP.
-
-For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to install Azure Arc Resource Bridge on Windows Server - AKS hybrid](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server). 
 
 ## Next steps
 
