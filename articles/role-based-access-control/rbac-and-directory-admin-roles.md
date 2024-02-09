@@ -81,7 +81,7 @@ At a high level, Azure roles control permissions to manage Azure resources, whil
 | Manage access to Azure resources | Manage access to Microsoft Entra resources |
 | Supports custom roles | Supports custom roles |
 | Scope can be specified at multiple levels (management group, subscription, resource group, resource) | [Scope](../active-directory/roles/custom-overview.md#scope) can be specified at the tenant level (organization-wide), administrative unit, or on an individual object (for example, a specific application) |
-| Role information can be accessed in Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager templates, REST API | Role information can be accessed in the Azure admin portal, Microsoft 365 admin center, Microsoft Graph, AzureAD PowerShell |
+| Role information can be accessed in Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager templates, REST API | Role information can be accessed in the Azure portal, Microsoft Entra admin center, Microsoft 365 admin center, Microsoft Graph, Microsoft Graph PowerShell |
 
 <a name='do-azure-roles-and-azure-ad-roles-overlap'></a>
 
