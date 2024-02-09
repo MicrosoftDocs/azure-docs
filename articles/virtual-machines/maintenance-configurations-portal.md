@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/24/2022
 ms.author: jushiman
 #pmcontact: shants

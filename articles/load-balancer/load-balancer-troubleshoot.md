@@ -6,7 +6,6 @@ author: mbender-ms
 manager: kumudD
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 01/09/2024
 ms.author: mbender
 ms.custom: engagement-fy23

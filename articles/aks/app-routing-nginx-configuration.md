@@ -1,15 +1,16 @@
 ---
-title: Advanced ingress and NGINX ingress controller configuration
-description: Understand the advanced configuration options that are supported with the application routing add-on with the NGINX ingress controller for Azure Kubernetes Service. 
+title: Configure multiple ingress controllers and NGINX ingress annotations with the application routing add-on for Azure Kubernetes Service (AKS)
+description: Understand the advanced configuration options that are supported with the application routing add-on with the NGINX ingress controller for Azure Kubernetes Service (AKS). 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/21/2023
 ---
 
-#  Advanced NGINX ingress controller and ingress configurations with the application routing add-on
+# Advanced NGINX ingress controller and ingress configurations with the application routing add-on
 
 The application routing add-on supports two ways to configure ingress controllers and ingress objects:
+
 - [Configuration of the NGINX ingress controller](#configuration-of-the-nginx-ingress-controller) such as creating multiple controllers, configuring private load balancers, and setting static IP addresses.
 - [Configuration per ingress resource](#configuration-per-ingress-resource-through-annotations) through annotations.
 
