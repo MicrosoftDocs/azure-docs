@@ -254,7 +254,7 @@ The **object grounding** integration brings a new layer to data analysis and use
 > To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S0) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 > [!CAUTION]
-> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 #### [REST](#tab/rest)
 
@@ -390,7 +390,10 @@ The chat responses you receive from the model should now include enhanced inform
     "choices":
     [
         {
-            "finish_reason":"stop",
+            "finish_details": {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
             "index": 0,
             "message":
             {

@@ -374,9 +374,9 @@ To view the remaining duration until end of support, that is, the number of mont
 ## Onboard to Azure Stack HCI (optional)
 
 > [!Note]
-> Perform this step only if you are migrating to [Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/overview).
+> Perform this step only if you are migrating to [Azure Stack HCI](/azure-stack/hci/overview).
 
-Provide the Azure Stack cluster information and the credentials to connect to the cluster. For more information, see [Download the Azure Stack HCI software](https://learn.microsoft.com/azure-stack/hci/deploy/download-azure-stack-hci-software).
+Provide the Azure Stack cluster information and the credentials to connect to the cluster. For more information, see [Download the Azure Stack HCI software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
 
 :::image type="content" source="./media/tutorial-discover-hyper-v/onboard-hci.png" alt-text="Screenshot that shows the Onboard to Azure Stack HCI section.":::
 

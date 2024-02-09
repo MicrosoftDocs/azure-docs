@@ -5,7 +5,6 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 11/12/2022
 ms.author: eur
-ms.custom: ignite-fall-2021
 ---
 
 #### [Windows](#tab/windowsinstall)

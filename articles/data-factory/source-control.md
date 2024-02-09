@@ -6,7 +6,6 @@ ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 11/06/2023
 ---
 

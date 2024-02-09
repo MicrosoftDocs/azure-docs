@@ -4,7 +4,6 @@ description: Monitor your running app in Azure Container Apps
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/29/2022
 ms.author: v-wellsjason

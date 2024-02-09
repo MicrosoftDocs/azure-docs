@@ -3,14 +3,15 @@ title: Create datasets with Azure Open Datasets
 description: Learn how to create an Azure Machine Learning dataset from Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: conceptual
-ms.author: franksolomon 
+ms.author: franksolomon
 author: fbsolo-ms1
 ms.date: 08/05/2020
-ms.custom: how-to, tracking-python, event-tier1-build-2022
-#Customer intent: As an experienced Python developer, I want to use Azure Open Datasets in my ML workflows for improved model accuracy.
+ms.custom: how-to, tracking-python
 ---
-
 # Create Azure Machine Learning datasets from Azure Open Datasets
+
+> [!CAUTION]
+> This articles references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) datasets and [Azure Open Datasets](./index.yml). 
 

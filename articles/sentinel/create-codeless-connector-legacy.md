@@ -4,7 +4,6 @@ description: Legacy codeless connector instructions in Microsoft Sentinel using 
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.custom: ignite-2022
 ms.date: 11/22/2023
 ---
 # Create a legacy codeless connector for Microsoft Sentinel

@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: larryfr
 ms.date: 06/16/2023
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.custom: devx-track-azurecli, cliv2
 ---
 
 # Manage Azure Machine Learning workspaces using Azure CLI

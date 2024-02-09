@@ -7,7 +7,6 @@ ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
 ---
 
 # Network configuration details for App Service Environment for Power Apps with Azure ExpressRoute

@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 01/24/2024
+ms.date: 2/6/2024
 recommendations: false
 ---
 
@@ -18,7 +18,49 @@ recommendations: false
 
 ## February 2024
 
-- [Azure OpenAI on your data](./concepts/use-your-data.md) is now Generally Available. It additionally provides public preview support for Pinecone and Elasticsearch databases. 
+### GPT-4-0125-preview model available
+
+The `gpt-4` model version `0125-preview` is now available on Azure OpenAI Service in the East US, North Central US, and South Central US regions.  Customers with deployments of `gpt-4` version `1106-preview` will be automatically upgraded to `0125-preview` in the coming weeks.  
+
+For information on model regional availability and upgrades refer to the [models page](./concepts/models.md).
+
+### Assistants API public preview
+
+Azure OpenAI now supports the API that powers OpenAI's GPTs. Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and advanced tools like code interpreter, and custom functions. To learn more, see:
+
+- [Quickstart](./assistants-quickstart.md)
+- [Concepts](./concepts/assistants.md)
+- [In-depth Python how-to](./how-to/assistant.md)
+- [Code Interpreter](./how-to/code-interpreter.md)
+- [Function calling](./how-to/assistant-functions.md)
+- [Assistants model & region availability](./concepts/models.md#assistants-preview)
+- [Assistants Samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
+
+### OpenAI text to speech voices public preview
+
+Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get AI-generated speech from the text you provide. To learn more, see the [overview guide](../speech-service/openai-voices.md) and try the [quickstart](./text-to-speech-quickstart.md).
+
+> [!NOTE]
+> Azure AI Speech also supports OpenAI text to speech voices. To learn more, see [OpenAI text to speech voices via Azure OpenAI Service or via Azure AI Speech](../speech-service/openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech) guide.
+
+### New Fine-tuning capabilities and model support
+
+- [Continuous fine-tuning](https://aka.ms/oai/fine-tuning-continuous)
+- [Fine-tuning & function calling](./how-to/fine-tuning-functions.md)
+- [`gpt-35-turbo 1106` support](./concepts/models.md#fine-tuning-models)
+
+### Chunk size parameter for Azure OpenAI on your data
+
+- You can now set the [chunk size](./concepts/use-your-data.md#ingestion-parameters) parameter when your data is ingested. Adjusting the chunk size can enhance the model's responses by setting the maximum number of tokens for any given chunk of your data in the search index.
+
+### New regional support for Azure OpenAI on your data
+
+You can now use Azure OpenAI on your data in the following Azure region:
+* South Africa North
+
+### Azure OpenAI on your data general availability
+
+- [Azure OpenAI on your data](./concepts/use-your-data.md) is now generally available. It additionally provides public preview support for Pinecone and Elasticsearch databases.
 
 ## December 2023
 
@@ -94,7 +136,7 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 ### Azure OpenAI on your data
 
-- New [custom parameters](./concepts/use-your-data.md#custom-parameters) for determining the number of retrieved documents and strictness.
+- New [custom parameters](./concepts/use-your-data.md#runtime-parameters) for determining the number of retrieved documents and strictness.
     - The strictness setting sets the threshold to categorize documents as relevant to your queries.
     - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
 - You can see data ingestion/upload status in the Azure OpenAI Studio.

@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu
 ---
 
 # What is conversational language understanding?
@@ -92,4 +92,3 @@ An AI system includes not only the technology, but also the people who will use 
 * As you go through the project development lifecycle, review the [glossary](glossary.md) to learn more about the terms used throughout the documentation for this feature. 
 
 * Remember to view the [service limits](service-limits.md) for information such as [regional availability](service-limits.md#regional-availability).
-

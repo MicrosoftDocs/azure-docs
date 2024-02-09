@@ -4,7 +4,6 @@ description: Learn more about VM application packages in an Azure Compute Galler
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.date: 09/18/2023
 author: ju-shim
 ms.author: nikhilpatel

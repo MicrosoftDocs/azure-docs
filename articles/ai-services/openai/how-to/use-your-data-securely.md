@@ -105,7 +105,7 @@ When using the API, pass the `filter` parameter in each API request. For example
 
 ## Resources configuration
 
-Use the following sections to configure your resources for optimal secure usage. If you plan to only secure part of your resources, you can skip the sections unrelated to your use case.
+Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below.
 
 ## Create resource group
 
