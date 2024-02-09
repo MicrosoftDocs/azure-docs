@@ -8,8 +8,6 @@ author: fbsolo-ms1
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
 ---
-#Customer intent: As an experienced Python developer, I want to use Azure Open Datasets in my ML workflows for improved model accuracy.
-
 # Create Azure Machine Learning datasets from Azure Open Datasets
 
 > [!CAUTION]
