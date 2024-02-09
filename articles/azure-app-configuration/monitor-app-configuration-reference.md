@@ -26,7 +26,7 @@ Resource Provider and Type: [App Configuration Platform Metrics](../azure-monito
 | Daily Storage Usage | Percent |	Represents the amount of storage in use as a percentage of the maximum allowance. This metric is updated at least once daily. |
 | Request Quota Usage | Percent |	Represents the current total request usage in percentage. |
 | Replication Latency | Milliseconds |	Represents the average time it takes for a replica to be consistent with current state. |
-| Snapshot Storage Size | Count | Represents the total storage usage of configuration snapshot(s) in bytes. This metric is updated at least once daily. |
+| Snapshot Storage Size | Count | Represents the total storage usage of configuration snapshot(s) in bytes. |
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
