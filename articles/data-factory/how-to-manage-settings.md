@@ -89,7 +89,7 @@ You can set different environment labels for your factory. Choose from **Develop
 
 * **Staging**
 
-You can set your **default staging linked service** and **default staging storage folder**. This can be overriden in your factory resource. 
+You can set your **default staging linked service** and **default staging storage folder**. This can be overridden in your factory resource. 
 
 ## Related content
 - [Manage the ADF preview experience](how-to-manage-studio-preview-exp.md)
