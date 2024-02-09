@@ -216,7 +216,19 @@ Know your device provisioning service **ID Scope** and device **Registration ID*
 
 Create a configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
 
-# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
+
+```bash
+sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+```
+
+Open the configuration file on the IoT Edge device.
+
+```bash
+sudo nano /etc/aziot/config.toml
+```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
 
 ```bash
 sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
@@ -322,7 +334,13 @@ You can give access to the TPM by overriding the systemd settings so that the `a
 
 Apply the configuration changes that you made on the device.
 
-# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
+```bash
+sudo iotedge config apply
+```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
 ```bash
 sudo iotedge config apply
 ```
