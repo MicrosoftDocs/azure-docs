@@ -4,7 +4,7 @@ description: Learn how to transcode media files in parallel using ffmpeg in Azur
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2023
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: mvc, devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the .NET API
@@ -146,7 +146,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Azure Active Directory](batch-aad-auth.md) to authenticate individual users or an unattended application.
+The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Microsoft Entra ID](batch-aad-auth.md) to authenticate individual users or an unattended application.
 
 ```csharp
 BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);

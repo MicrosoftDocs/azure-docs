@@ -1,5 +1,5 @@
 ---
-title: Integrate airflow logs with Azure Monitor - Microsoft Microsoft Azure Data Manager for Energy Preview
+title: Integrate airflow logs with Azure Monitor - Microsoft Azure Data Manager for Energy
 description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Integrate airflow logs with Azure Monitor
 
-In this article, you'll learn how to start collecting Airflow Logs for your Microsoft Azure Data Manager for Energy Preview instances into Azure Monitor. This integration feature helps you debug Airflow DAG ([Directed Acyclic Graph](https://airflow.apache.org/docs/apache-airflow/stable/concepts/dags.html)) run failures. 
+In this article, you'll learn how to start collecting Airflow Logs for your Microsoft Azure Data Manager for Energy instances into Azure Monitor. This integration feature helps you debug Airflow DAG ([Directed Acyclic Graph](https://airflow.apache.org/docs/apache-airflow/stable/concepts/dags.html)) run failures. 
 
 
 ## Prerequisites
@@ -27,7 +27,7 @@ In this article, you'll learn how to start collecting Airflow Logs for your Micr
 
 
 ## Enabling diagnostic settings to collect logs in a storage account
-Every Azure Data Manager for Energy Preview instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
+Every Azure Data Manager for Energy instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
 
 * Storage account
 * Log Analytics workspace
@@ -42,7 +42,8 @@ To access logs via any of the above two options, you need to create a Diagnostic
 
 Follow the following steps to set up Diagnostic Settings:
 
-1. Open Microsoft Azure Data Manager for Energy Preview' *Overview* page
+1. Open Microsoft Azure Data Manager for Energy' *Overview* page
+
 1. Select *Diagnostic Settings* from the left panel
 
     [![Screenshot for Azure monitor diagnostic setting overview page. The page shows a list of existing diagnostic settings and the option to add a new one.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-diagnostic-settings-overview-page.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-diagnostic-settings-overview-page.png#lightbox)
@@ -76,24 +77,48 @@ After a diagnostic setting is created for archiving Airflow task logs into a sto
 
 ## Enabling diagnostic settings to integrate logs with Log Analytics Workspace
 
-You can integrate Airflow logs with Log Analytics Workspace by using **Diagnostic Settings** under the left panel of your Microsoft Azure Data Manager for Energy Preview instance overview page. 
+You can integrate Airflow logs with Log Analytics Workspace by using **Diagnostic Settings** under the left panel of your Microsoft Azure Data Manager for Energy instance overview page. 
 
 [![Screenshot for creating a diagnostic setting. It shows the options to select subscription & Log Analytics Workspace with which to integrate.](media/how-to-integrate-airflow-logs-with-azure-monitor/creating-diagnostic-setting-choosing-destination-retention.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/creating-diagnostic-setting-choosing-destination-retention.png#lightbox)
 
 ## Working with the integrated Airflow Logs in Log Analytics Workspace
 
-Use Kusto Query Language (KQL) to retrieve desired data on collected Airflow logs from your Log Analytics Workspace.
+Use Kusto Query Language (KQL) to retrieve desired data on collected Airflow logs from your Log Analytics Workspace. You can either load the prebuilt sample queries to your Log Analytics Workspace or create your own queries.
 
 
 [![Screenshot for Azure Monitor Log Analytics page for viewing collected logs. Under log management, tables from all sources will be visible.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png#lightbox)
 
-1. Select Logs from your resource's menu. Log Analytics opens with the **Queries** window that includes prebuilt queries for your resource type.
+1. **Loading Pre-built queries:** Select Logs from your resource's menu. Log Analytics opens with the *Queries* window that includes prebuilt queries for your resource type. Browse through the available queries. Identify the one to run and select Run. The query is added to the query window and the results are returned.
 
+2. **Write queries in the Query editor:** You can copy, paste and edit the following queries or write your own in KQL on the Query Editor of your Log Analytics Workspace.
 
-2. Browse through the available queries. Identify the one to run and select Run. The query is added to the query window and the results are returned.
+## Sample Queries
+This query returns all the Airflow logs that are of level ERROR. You can filter the results by adding (uncommenting) where clause for the Azure Data Manager for Energy instance name and correlation ID for your DAG runs. 
 
+```kusto
 
+OEPAirFlowTask
+| extend ResourceName = tostring(split(_ResourceId , '/')[-1])
+// | where ResourceName == "<the name of ADME instance>"        // to filter on resourceName replace <...> and uncomment line
+// | where CorrelationId == "<DAG run's runId>"                 // to filter on correlationID replace <...> with correlationId (same as runId) - we have created a duplicate for to maintain consistency of column name across all services 
+| where LogLevel  == "ERROR"
+| project TimeGenerated, DagName, LogLevel, DagTaskName, CodePath, Content
 
+```
+
+This query lists all DAG runs and their corresponding correlation IDs in the mentioned Azure Data Manager for Energy resource. 
+
+```kusto
+
+OEPAirFlowTask
+| extend ResourceName = tostring(split(_ResourceId , '/')[-1])
+// | where ResourceName == "<the name of ADME instance>"        // to filter on resourceName replace <...> and uncomment line
+| distinct DagName, CorrelationId                               // correlationId is same as runId - we have created a duplicate for consistency in search across logs of all services 
+| sort by DagName asc
+
+```
+
+We have added document to help you [troubleshoot](../energy-data-services/troubleshoot-manifest-ingestion.md) your manifest ingestion process using the Airflow logs collected in your Log Analytics Workspace.
 
 ## Next steps
 Now that you're collecting resource logs, create a log query alert to be proactively notified when interesting data is identified in your log data.

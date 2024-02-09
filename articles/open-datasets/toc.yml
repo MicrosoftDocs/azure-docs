@@ -68,6 +68,10 @@
         href: dataset-encode.md
       - name: GATK Resource Bundle
         href: dataset-gatk-resource-bundle.md
+      - name: TCGA Open Data
+        href: dataset-the-cancer-genome-atlas.md
+      - name: Pan UK-Biobank
+        href: dataset-panancestry-uk-bio-bank.md
   - name: Labor and economics
     items:
     - name: US Labor Force Statistics

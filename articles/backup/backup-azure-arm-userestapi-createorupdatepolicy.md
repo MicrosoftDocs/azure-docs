@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 02/14/2023
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Create Azure Recovery Services backup policies using REST API
 

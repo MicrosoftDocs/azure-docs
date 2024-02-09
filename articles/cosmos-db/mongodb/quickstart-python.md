@@ -9,12 +9,21 @@ ms.subservice: mongodb
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/08/2022
-ms.custom: devx-track-js, ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-python
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+
+> [!div class="op_single_selector"]
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Go](quickstart-go.md)
+>
 
 Get started with the PyMongo package to create databases, collections, and documents within your Azure Cosmos DB resource. Follow these steps to install the package and try out example code for basic tasks.
 
@@ -44,15 +53,15 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - create resources](<./includes/azure-cli-create-resource-group-and-resource.md>)]
+[!INCLUDE [Azure CLI - create resources](./includes/azure-cli-create-resource-group-and-resource.md)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - create resource group and resources](<./includes/powershell-create-resource-group-and-resource.md>)]
+[!INCLUDE [Powershell - create resource group and resources](./includes/powershell-create-resource-group-and-resource.md)]
 
 #### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - create resource](<./includes/portal-create-resource.md>)]
+[!INCLUDE [Portal - create resource](./includes/portal-create-resource.md)]
 
 ---
 
@@ -60,15 +69,15 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 #### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+[!INCLUDE [Azure CLI - get connection string](./includes/azure-cli-get-connection-string.md)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+[!INCLUDE [Powershell - get connection string](./includes/powershell-get-connection-string.md)]
 
 #### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-resource.md>)]
+[!INCLUDE [Portal - get connection string](./includes/portal-get-connection-string-from-resource.md)]
 
 ---
 
@@ -110,14 +119,14 @@ This quickstart will create a single Azure Cosmos DB account using the API for M
 
 ### Configure environment variables
 
-[!INCLUDE [Multi-tab](<./includes/environment-variables-connection-string.md>)]
+[!INCLUDE [Multi-tab](./includes/environment-variables-connection-string.md)]
 
 ## Object model
 
 Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and documents.
 
 :::image type="complex" source="media/quickstart-nodejs/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, collections, and docs.":::
-    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
+    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database shards. One of the database shards includes two child collection shards. The other database shard includes a single child collection shard. That single collection shard has three child doc shards.
 :::image-end:::
 
 Each type of resource is represented by a Python class. Here are the most common classes:
@@ -263,10 +272,3 @@ Remove-AzResourceGroup @parameters
 1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
 
 ---
-
-## Next steps
-
-In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account, create a database, and create a collection using the PyMongo driver. You can now dive deeper into the Azure Cosmos DB for MongoDB to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
-
-> [!div class="nextstepaction"]
-> [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../migration-choices.md)

@@ -37,7 +37,7 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. In t
 
 1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com))
 1. In the left navigation pane, select **Designer** > **Easy-to-use prebuilt modules**
-    ![Screenshot showing how to create a new pipeline draft.](../media/tutorial-designer-automobile-price-train-score/launch-designer.png)
+    ![Screenshot showing how to create a new pipeline draft.](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Manually rebuild your experiment with designer components.
     
@@ -59,7 +59,8 @@ A pipeline job executes on a **compute target** attached to your workspace. You 
 Once you submit a job from a pipeline draft, it turns into a **pipeline job**. Each pipeline job is recorded and logged in Azure Machine Learning.
 
 To set a default compute target for the entire pipeline:
-1. Select the **Gear icon** ![Gear icon in the designer](../media/tutorial-designer-automobile-price-train-score/gear-icon.png) next to the pipeline name.
+
+1. Select the **Gear icon** ![Gear icon in the designer](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) next to the pipeline name.
 1. Select **Select compute target**.
 1. Select an existing compute, or create a new compute by following the on-screen instructions.
 

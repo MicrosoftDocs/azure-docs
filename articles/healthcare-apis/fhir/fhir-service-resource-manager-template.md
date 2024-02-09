@@ -41,6 +41,9 @@ The template defines three Azure resources:
 - Microsoft.HealthcareApis/workspaces/fhirservices      
 - Microsoft.Storage/storageAccounts
 
+> [!NOTE]
+> Local RBAC is deprecated. Access Policies configuration associated with Local RBAC in ARM template are deprecated. Existing customers using Local RBAC need to migrate to Azure RBAC by November 2024. For questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
 You can deploy the FHIR service resource by **removing** the workspaces resource, the storage resource, and the `dependsOn` property in the “Microsoft.HealthcareApis/workspaces/fhirservices” resource.
 
 

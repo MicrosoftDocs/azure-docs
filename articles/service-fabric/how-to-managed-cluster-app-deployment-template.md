@@ -7,8 +7,9 @@ author: tomvcassidy
 ms.service: service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 05/24/2023
 ---
+
 # Manage application lifecycle on a managed cluster using Azure Resource Manager
 
 You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
@@ -55,7 +56,7 @@ After the storage account is created, you create a blob container where the appl
 
 You can grant access to the container in one of the following ways:
 
-* You can assign an Azure RBAC role that grants permissions to the container to a security principal, so that that security principal can access data in the container via Azure AD authorization. For more information, see [Authorize access to blobs using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md).
+* You can assign an Azure RBAC role that grants permissions to the container to a security principal, so that that security principal can access data in the container via Microsoft Entra authorization. For more information, see [Authorize access to blobs using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md).
 * You can delegate access to the container with a shared access signature to grant a client access to blobs in the container for a limited period of time and with specific permissions. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 * You can use the account access keys to authorize access to blob data. This approach is the least secure and so is not recommended.
 
@@ -173,10 +174,10 @@ To delete a service fabric application that was deployed by using the applicatio
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet to delete the application resources:
+1. Use the [Remove-AzServiceFabricApplication](/powershell/module/az.servicefabric/remove-azservicefabricapplication) cmdlet to delete the application resources:
 
     ```powershell
-    Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
+    Remove-AzServiceFabricApplication -ResourceId <String> [-Force]
     ```
 
 

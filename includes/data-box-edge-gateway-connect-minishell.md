@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 03/06/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Depending on the operating system of client, the procedures to remotely connect to the device are different.

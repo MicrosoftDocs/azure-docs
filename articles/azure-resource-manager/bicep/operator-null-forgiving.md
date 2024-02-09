@@ -2,6 +2,7 @@
 title: Bicep null-forgiving operator
 description: Describes Bicep null-forgiving operator.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 05/04/2023
 ---
 

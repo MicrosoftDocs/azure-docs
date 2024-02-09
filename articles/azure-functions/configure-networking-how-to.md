@@ -2,7 +2,7 @@
 title: How to configure Azure Functions with a virtual network
 description: Article that shows you how to perform certain virtual networking tasks for Azure Functions.
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 06/23/2023
 ms.custom: template-how-to
 ---
 
@@ -12,10 +12,12 @@ This article shows you how to perform tasks related to configuring your function
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you must either create a new storage account or link to an existing storage account. The storage account linked to your app must be a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. During function app creation, you can secure a new storage account behind a virtual network and integrate the function app with this network. At this time, you can't secure an existing storage account being used by your function app in the same way. 
+When you create a function app, you either create a new storage account or link to an existing storage account. During function app creation, you can secure a new storage account behind a virtual network and integrate the function app with this network. At this time, you can't secure an existing storage account being used by your function app in the same way. 
 
 > [!NOTE]  
 > Securing your storage account is supported for all tiers in both Dedicated (App Service) and Elastic Premium plans. Consumption plans currently don't support virtual networks.
+
+For a list of all restrictions on storage accounts, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 ### During function app creation 
 
@@ -27,7 +29,7 @@ Complete the following tutorial to create a new function app a secured storage a
 
 # [Deployment templates](#tab/templates)
 
-Use Bicep or Azure Resource Manager (ARM) [quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints) to create secured function app and storage account resources.
+Use Bicep files or Azure Resource Manager (ARM) templates to create a secured function app and storage account resources. When you create a secured storage account in an automated deployment, you must also specifically set the `WEBSITE_CONTENTSHARE` setting and create the file share as part of your deployment. For more information, including links to example deployments, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). 
 
 ---
 
@@ -60,8 +62,8 @@ To secure the storage for an existing function app:
     | Setting name | Value | Comment |
     |----|----|----|
     | `AzureWebJobsStorage`| Storage connection string | This is the connection string for a secured storage account. |
-    | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |  Storage connection string | This is the connection string for a secured storage account.This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
-    | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside.This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
+    | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |  Storage connection string | This is the connection string for a secured storage account. This setting is required for Consumption and Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
+    | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside. This setting is required for Consumption and Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
     | `WEBSITE_CONTENTOVERVNET` | 1 | A value of 1 enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. |
 
 1. Select **Save** to save the application settings. Changing app settings causes the app to restart.  

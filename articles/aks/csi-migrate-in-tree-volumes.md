@@ -2,7 +2,7 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 05/16/2023
+ms.date: 01/11/2024
 author: mgoedtel
 
 ---
@@ -16,12 +16,12 @@ To make this process as simple as possible, and to ensure no data loss, this art
 ## Before you begin
 
 * The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. For an Azure Active Directory (Azure AD) RBAC enabled cluster, you're a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
+* Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. For a Microsoft Entra RBAC enabled cluster, you're a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
 
 ## Migrate Disk volumes
 
 > [!NOTE]
-> The labels `failure-domain.beta.kubernetes.io/zone` and `failure-domain.beta.kubernetes.io/region` have been deprecated in AKS 1.24 and removed in 1.26. If your existing persistent volumes are still using nodeAffinity matching these two labels, you need to change them to `topology.kubernetes.io/zone` and `topology.kubernetes.io/region` labels in the new persistent volume setting.
+> The labels `failure-domain.beta.kubernetes.io/zone` and `failure-domain.beta.kubernetes.io/region` have been deprecated in AKS 1.24 and removed in 1.28. If your existing persistent volumes are still using nodeAffinity matching these two labels, you need to change them to `topology.kubernetes.io/zone` and `topology.kubernetes.io/region` labels in the new persistent volume setting.
 
 Migration from in-tree to CSI is supported using two migration options:
 
@@ -39,7 +39,7 @@ The benefits of this approach are:
 * It's simple and can be automated.
 * No need to clean up original configuration using in-tree storage class.
 * Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
-* No extra costs as the result of not having to create more objects such as disk, snapshots, etc.
+* No extra cost incurred as the result of not having to create additional Azure objects, such as disk, snapshots, etc.
 
 The following are important considerations to evaluate:
 
@@ -110,7 +110,7 @@ The following are important considerations to evaluate:
         i=$((i + 1))
       else
         PVC_CREATION_TIME=$(kubectl get pvc  $PVC -n $NAMESPACE -o jsonpath='{.metadata.creationTimestamp}')
-        if [[ $PVC_CREATION_TIME > $STARTTIMESTAMP ]]; then
+        if [[ $PVC_CREATION_TIME >= $STARTTIMESTAMP ]]; then
           if [[ $ENDTIMESTAMP > $PVC_CREATION_TIME ]]; then
             PV="$(kubectl get pvc $PVC -n $NAMESPACE -o jsonpath='{.spec.volumeName}')"
             RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
@@ -183,7 +183,7 @@ The following are important considerations to evaluate:
    * `namespace` - The cluster namespace
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
    * `targetCSIStorageClass` - The CSI storage driver-based StorageClass, which can be either one of the default storage classes that have the provisioner set to **disk.csi.azure.com** or **file.csi.azure.com**. Or you can create a custom storage class as long as it is set to either one of those two provisioners. 
-   * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
+   * `startTimeStamp` - Provide a start time **before** PVC creation time in the format **yyyy-mm-ddthh:mm:ssz**
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
 
     ```bash
@@ -279,10 +279,11 @@ Before proceeding, verify the following:
               DISK_URI="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.azureDisk.diskURI}')"
               TARGET_RESOURCE_GROUP="$(cut -d'/' -f5 <<<"$DISK_URI")"
               echo $DISK_URI
+              SUBSCRIPTION_ID="$(echo $DISK_URI | grep -o 'subscriptions/[^/]*' | sed 's#subscriptions/##g')"
               echo $TARGET_RESOURCE_GROUP
               PERSISTENT_VOLUME_RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-              az snapshot create --resource-group $TARGET_RESOURCE_GROUP --name $PVC-$FILENAME --source "$DISK_URI"
-              SNAPSHOT_PATH=$(az snapshot list --resource-group $TARGET_RESOURCE_GROUP --query "[?name == '$PVC-$FILENAME'].id | [0]")
+              az snapshot create --resource-group $TARGET_RESOURCE_GROUP --name $PVC-$FILENAME --source "$DISK_URI" --subscription ${SUBSCRIPTION_ID}
+              SNAPSHOT_PATH=$(az snapshot list --resource-group $TARGET_RESOURCE_GROUP --query "[?name == '$PVC-$FILENAME'].id | [0]" --subscription ${SUBSCRIPTION_ID})
               SNAPSHOT_HANDLE=$(echo "$SNAPSHOT_PATH" | tr -d '"')
               echo $SNAPSHOT_HANDLE
               sleep 10
@@ -361,7 +362,10 @@ Before proceeding, verify the following:
 
 ## Migrate File share volumes
 
-Migration from in-tree to CSI is supported by creating a static volume.
+Migration from in-tree to CSI is supported by creating a static volume:
+* No need to clean up original configuration using in-tree storage class.
+* Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
+* No extra cost incurred as the result of not having to create additional Azure objects, such as file shares, etc.
 
 ### Migration
 
@@ -507,8 +511,8 @@ Migration from in-tree to CSI is supported by creating a static volume.
 
 ## Next steps
 
-For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
-
+- For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
+- Protect your newly migrated CSI Driver based PVs by [backing them up using Azure Backup for AKS](../backup/azure-kubernetes-service-cluster-backup.md).
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-the-cluster

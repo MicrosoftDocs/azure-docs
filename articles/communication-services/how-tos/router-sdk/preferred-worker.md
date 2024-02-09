@@ -7,9 +7,8 @@ ms.author: danielgerlag
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 01/31/2022
-ms.custom: template-how-to
-zone_pivot_groups: acs-js-csharp
-
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: acs-js-csharp-java-python
 #Customer intent: As a developer, I want to target a specific worker
 ---
 
@@ -19,7 +18,7 @@ In the context of a call center, customers might be assigned an account manager 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 
@@ -27,21 +26,21 @@ In the context of a call center, customers might be assigned an account manager 
 
 Every worker automatically has an `Id` label. You can apply worker selectors to the job, to target a specific worker.
 
-In the following example, a job is created that targets a specific worker. If that worker does not accept the job within the TTL of 1 minute, the condition for the specific worker is no longer be valid and the job could go to any worker.
+In the following example, a job is created that targets a specific worker. If that worker does not accept the job within the offer expiry duration of 1 minute, the condition for the specific worker is no longer be valid and the job could go to any worker.
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await routerClient.CreateJobAsync(
-    options: new CreateJobOptions(
-            jobId: "<job id>",
-            channelId: "<channel id>",
-            queueId: "<queue id>")
+await client.CreateJobAsync(
+    new CreateJobOptions(jobId: "job1", channelId: "Xbox_Chat_Channel", queueId: queue.Value.Id)
     {
-        RequestedWorkerSelectors = new List<WorkerSelector>()
-          {
-            new WorkerSelector("Id", LabelOperator.Equal, "<preferred worker id>", TimeSpan.FromMinutes(1))
-          }
+        RequestedWorkerSelectors =
+        {
+            new RouterWorkerSelector(key: "Id", labelOperator: LabelOperator.Equal, value: new RouterValue("<preferred_worker_id>")) {
+                Expedite = true,
+                ExpiresAfter = TimeSpan.FromSeconds(45)
+            }
+        }
     });
 ```
 
@@ -50,19 +49,52 @@ await routerClient.CreateJobAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createJob({
-    channelId: "<channel id>",
-    queueId: "<queue id>",
-    workerSelectors: [
+await client.path("/routing/jobs/{jobId}", "job1").patch({
+    body: {
+        channelId: "Xbox_Chat_Channel",
+        queueId: queue.body.id,
+        requestedWorkerSelectors: [
         {
             key: "Id",
-            operator: "equal",
+            labelOperator: "equal",
             value: "<preferred worker id>",
-            ttl: "00:01:00"
-        }
-    ]
+            expiresAfterSeconds: 45
+        }]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```python
+client.upsert_job(job_id = "job1",
+    channel_id = "Xbox_Chat_Channel",
+    queue_id = queue.id,
+    requested_worker_selectors = [
+        RouterWorkerSelector(
+            key = "Id",
+            label_operator = LabelOperator.EQUAL,
+            value = "<preferred worker id>",
+            expires_after_seconds = 45
+        )
+    ]
+)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+client.createJob(new CreateJobOptions("job1", "Xbox_Chat_Channel", queue.getId())
+    .setRequestedWorkerSelectors(List.of(
+        new RouterWorkerSelector("Id", LabelOperator.EQUAL, new RouterValue("<preferred_worker_id>"))
+          .setExpiresAfter(Duration.ofSeconds(45.0))
+          .setExpedite(true))));
+  ```
 
 ::: zone-end
 

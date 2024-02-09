@@ -8,7 +8,6 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
-ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -189,6 +188,8 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+When you query the view, you may encounter errors or unexpected results. This probably means that the view references columns or objects that were modified or no longer exist. You need to manually adjust the view definition to align with the underlying schema changes.
 
 ## Next steps
 

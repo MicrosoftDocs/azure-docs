@@ -2,17 +2,10 @@
 title: Azure VMware Solution datastore performance considerations for Azure NetApp Files | Microsoft Docs
 description: Describes considerations for Azure VMware Solution (AVS) datastore design and sizing when used with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 11/12/2023
 ms.author: anfdocs
 ---
 # Azure VMware Solution datastore performance considerations for Azure NetApp Files 
@@ -68,7 +61,7 @@ Testing both small and large block operations and iterating through sequential a
 The results in this article were achieved using the following environment configuration:   
 
 * AVS hosts:
-    * Size: [AV36](../azure-vmware/introduction.md#av36p-and-av52-node-sizes-available-in-azure-vmware-solution) 
+    * Size: [AV36](../azure-vmware/introduction.md) 
     * Host count: 4
     * VMware ESXi version 7u3
 * AVS private cloud connectivity: UltraPerformance gateway with FastPath
@@ -82,7 +75,7 @@ The results in this article were achieved using the following environment config
         * One volume group per physical volume
         * One logical partition per volume group
         * One XFS file system per logical partition
-* AVS to Azure NetApp Files protocol: [NFS version 3](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal#faqs ) 
+* AVS to Azure NetApp Files protocol: [NFS version 3](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal#faqs) 
 * Workload generator: `fio` version 3.16
 * Fio scripts: [`fio-parser`](https://github.com/mchad1/fio-parser)
  
@@ -102,43 +95,43 @@ If you stripe volumes across multiple disks, ensure the backup software or disas
 
 To understand how well a single AVS VM scales as more virtual disks are added, tests were performed with one, two, four, and eight datastores (each containing a single VMDK). The following diagram shows a single disk averaged around 73,040 IOPS (scaling from 100% write / 0% read, to 0% write / 100% read). When this test was increased to two drives, performance increased by 75.8% to 128,420 IOPS. Increasing to four drives began to show diminishing returns of what a single VM, sized as tested, could push.  The peak IOPS observed were 147,000 IOPS with 100% random reads. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-multiple.png" alt-text="Diagram that shows single VM scaling to multiple datastores." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-multiple.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-multiple.png" alt-text="Diagram that shows single VM scaling to multiple datastores." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-multiple.png":::
 
 ### Single-host scaling – Single datastore 
 
-It scales poorly to increase the number of VMs driving IO to a single datastore from a single host. This fact is due to the single network flow. When maximum performance is reached for a given workload, it's often the result of a single queue used along the way to the host’s single NFS datastore over a single TCP connection. Using an 8-KB block size, total IOPS increased between 3% and 16% when scaling from one VM with a single VMDK to four VMs with 16 total VMDKs (four per VM, all on a single datastore). 
+It scales poorly to increase the number of VMs driving IO to a single datastore from a single host. This fact is due to the single network flow. When maximum performance is reached for a given workload, it's often the result of a single queue used along the way to the host's single NFS datastore over a single TCP connection. Using an 8-KB block size, total IOPS increased between 3% and 16% when scaling from one VM with a single VMDK to four VMs with 16 total VMDKs (four per VM, all on a single datastore). 
 
 Increasing the block size (to 64 KB) for large block workloads had comparable results, reaching a peak of 2148 MiB/s (single VM, single VMDK) and 2138 MiB/s (4 VMs, 16 VMDKs). 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-host.png" alt-text="Diagram that shows scaling VMs on a single datastore host." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-host.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host.png" alt-text="Diagram that shows scaling VMs on a single datastore host." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host.png":::
 
 ### Single-host scaling – Multiple datastores
 
 From the context of a single AVS host, while a single datastore allowed the VMs to drive about 76,000 IOPS, spreading the workloads across two datastores increased total throughput by 76% on average. Moving beyond two datastores to four resulted in a 163% increase (over one datastore, a 49% increase from two to four) as shown in the following diagram. Even though there were still performance gains, increasing beyond eight datastores showed diminishing returns.
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-host-four-vm.png" alt-text="Diagram that shows scaling VMs on a single datastore host with four VMs." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-host-four-vm.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host-four-vm.png" alt-text="Diagram that shows scaling VMs on a single datastore host with four VMs." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host-four-vm.png":::
 
 ### Multi-host scaling – Single datastore 
 
 A single datastore from a single host produced over 2000 MiB/s of sequential 64-KB throughput. Distributing the same workload across all four hosts produced a peak gain of 135% driving over 5000 MiB/s. This outcome likely represents the upper ceiling of a single Azure NetApp Files volume throughput performance.
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-throughput-single-volume.png" alt-text="Diagram that shows throughput scaling on a single Azure NetApp Files volume." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-throughput-single-volume.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-throughput-single-volume.png" alt-text="Diagram that shows throughput scaling on a single Azure NetApp Files volume." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-throughput-single-volume.png":::
 
 Decreasing the block size from 64 KB to 8 KB and rerunning the same iterations resulted in four VMs producing 195,000 IOPS, as shown the following diagram. Performance scales as both the number of hosts and the number of datastores increase, because the number of network flows increases. The performance increases by scaling the number of hosts multiplied by the number of datastores, because the count of network flows is a factor of hosts times datastores. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-network-flows.png" alt-text="Formula that shows the calculation of total network flows." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-network-flows.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-network-flows.png" alt-text="Formula that shows the calculation of total network flows." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-network-flows.png":::
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-scale-single-datastore.png" alt-text="Diagram that shows IOPS scaling on a single Azure NetApp Files datastore." lightbox="../media/azure-netapp-files/performance-azure-vmware-scale-single-datastore.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-single-datastore.png" alt-text="Diagram that shows IOPS scaling on a single Azure NetApp Files datastore." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-single-datastore.png":::
 
 ### Multi-host scaling – Multiple datastores
 
 A single datastore with four VMs spread across four hosts produced over 5000 MiB/s of sequential 64-KB IO. For more demanding workloads, each VM is moved to a dedicated datastore, producing over 10,500 MiB/s in total, as shown in the following diagram. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-scale-four-hosts.png" alt-text="Diagram that shows scaling datastores on four hosts." lightbox="../media/azure-netapp-files/performance-azure-vmware-scale-four-hosts.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-four-hosts.png" alt-text="Diagram that shows scaling datastores on four hosts." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-four-hosts.png":::
 
 For small-block, random workloads, a single datastore produced 195,000 random 8-KB IOPS.  Scaling to four datastores produced over 530,000 random 8K IOPS. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-scale-four-hosts-8k.png" alt-text="Diagram that shows scaling datastores on four hosts with 8k block size." lightbox="../media/azure-netapp-files/performance-azure-vmware-scale-four-hosts-8k.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-four-hosts-8k.png" alt-text="Diagram that shows scaling datastores on four hosts with 8k block size." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-four-hosts-8k.png":::
 
 ## Implications and recommendations
 
@@ -160,13 +153,13 @@ Four Azure NetApp Files datastores provide up of 10 GBps of usable bandwidth for
 
 For granular performance tuning, both Windows and Linux guest operating systems allow for striping across multiple disks. As such, you should stripe file systems across multiple VMDKs spread across multiple datastores.  However, if application snapshot consistency is an issue and can't be overcome with LVM or storage spaces, consider mounting Azure NetApp Files from the guest operating system or investigate application-level scaling, of which Azure has many great options. 
 
-If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously.  As individual writes are striped across multiple disks, the file system needs to ensure disks are “frozen” during the snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as xfs (xfs_freeze) and NTFS (volume shadow copies), which backup software can take advantage of. 
+If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously.  As individual writes are striped across multiple disks, the file system needs to ensure disks are "frozen" during the snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as xfs (xfs_freeze) and NTFS (volume shadow copies), which backup software can take advantage of. 
 
 Because Azure NetApp Files bills for provisioned capacity at the capacity pool rather than allocated capacity (datastores), you will, for example, pay the same for 4x20TB datastores or 20x4TB datastores. If you need to, you can tweak capacity and performance of datastores on-demand, [dynamically via the Azure API/console](dynamic-change-volume-service-level.md). 
 
-For example, as you approach the end of a fiscal year you find that you need more storage performance on Standard datastore. You can increase the datastores’ service level for a month to enable all VMs on those datastores to have more performance available to them, while maintaining other datastores at a lower service level. You not only save cost but gain more performance by having workloads spread among more TCP connections between each datastore to each AVS host. 
+For example, as you approach the end of a fiscal year you find that you need more storage performance on Standard datastore. You can increase the datastores' service level for a month to enable all VMs on those datastores to have more performance available to them, while maintaining other datastores at a lower service level. You not only save cost but gain more performance by having workloads spread among more TCP connections between each datastore to each AVS host. 
 
-You can monitor your datastore metrics through vCenter or through the Azure API/Console. From vCenter, you can monitor a datastore’s aggregate average IOPS in the [Performance/Advanced Charts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-B3D99B36-E856-41A5-84DB-9B7C8FABCF83.html) , as long as you enable Storage IO Control Metrics collection on the datastore. The Azure [API](monitor-volume-capacity.md#using-rest-api) and [console](monitor-azure-netapp-files.md)  present metrics for `WriteIops`, `ReadIops`, `ReadThroughput`, and `WriteThroughput`, among others, to measure your workloads at the datastore level. With Azure metrics, you can set alert rules with actions to automatically resize a datastore via an Azure function, a webhook, or other actions. 
+You can monitor your datastore metrics through vCenter or through the Azure API/Console. From vCenter, you can monitor a datastore's aggregate average IOPS in the [Performance/Advanced Charts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-B3D99B36-E856-41A5-84DB-9B7C8FABCF83.html) , as long as you enable Storage IO Control Metrics collection on the datastore. The Azure [API](monitor-volume-capacity.md#using-rest-api) and [console](monitor-azure-netapp-files.md)  present metrics for `WriteIops`, `ReadIops`, `ReadThroughput`, and `WriteThroughput`, among others, to measure your workloads at the datastore level. With Azure metrics, you can set alert rules with actions to automatically resize a datastore via an Azure function, a webhook, or other actions. 
 
 ## Next steps  
 

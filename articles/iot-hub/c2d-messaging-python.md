@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: how-to
-ms.date: 01/02/2023
+ms.date: 05/30/2023
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
@@ -20,7 +20,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 This article shows you how to:
 
-* Send cloud-to-device messages, from your solution backend, to a single device through IoT Hub
+* Send cloud-to-device (C2D) messages from your solution backend to a single device through IoT Hub
 
 * Receive cloud-to-device messages on a device
 
@@ -28,7 +28,7 @@ This article shows you how to:
 
 At the end of this article, you run two Python console apps:
 
-* **SimulatedDevice.py**: a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), which connects to your IoT hub and receives cloud-to-device messages.
+* **SimulatedDevice.py**: simulates a device that connects to your IoT hub and receives cloud-to-device messages.
 
 * **SendCloudToDeviceMessage.py**: sends cloud-to-device messages to the simulated device app through IoT Hub.
 
@@ -41,7 +41,7 @@ To learn more about cloud-to-device messages, see [Send cloud-to-device messages
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
@@ -70,7 +70,7 @@ In this section, you create a Python console app to simulate a device and receiv
     RECEIVED_MESSAGES = 0
     ```
 
-1. Add the following code to **SimulatedDevice.py** file. Replace the `{deviceConnectionString}` placeholder value with the device connection string for the device you created in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart:
+1. Add the following code to **SimulatedDevice.py** file. Replace the `{deviceConnectionString}` placeholder value with the connection string for the registered device in [Prerequisites](#prerequisites):
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"

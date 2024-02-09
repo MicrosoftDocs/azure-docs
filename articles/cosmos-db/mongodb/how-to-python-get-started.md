@@ -9,7 +9,7 @@ ms.subservice: mongodb
 ms.devlang: python
 ms.topic: how-to
 ms.date: 11/18/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-python
 ---
 
 # Get started with Azure Cosmos DB for MongoDB and Python
@@ -79,11 +79,11 @@ In the commands below, we show *msdocs-cosmos* as the resource group name. Chang
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get resource name](<./includes/azure-cli-get-resource-name.md>)]
+[!INCLUDE [Azure CLI - get resource name](./includes/azure-cli-get-resource-name.md)]
 
 ### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - set resource name](<./includes/powershell-set-resource-name.md>)]
+[!INCLUDE [Powershell - set resource name](./includes/powershell-set-resource-name.md)]
 
 ### [Portal](#tab/azure-portal)
 
@@ -94,21 +94,21 @@ Skip this step and use the information for the portal in the next step.
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+[!INCLUDE [Azure CLI - get connection string](./includes/azure-cli-get-connection-string.md)]
 
 ### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+[!INCLUDE [Powershell - get connection string](./includes/powershell-get-connection-string.md)]
 
 ### [Portal](#tab/azure-portal)
 
-[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-sign-in.md>)]
+[!INCLUDE [Portal - get connection string](./includes/portal-get-connection-string-from-sign-in.md)]
 
 ---
 
 ## Configure environment variables
 
-[!INCLUDE [Multitab - store connection string in environment variable](<./includes/environment-variables-connection-string.md>)]
+[!INCLUDE [Multitab - store connection string in environment variable](./includes/environment-variables-connection-string.md)]
 
 ## Create MongoClient with connection string
 
@@ -132,7 +132,7 @@ client.close()
 
 ## Use MongoDB client classes with Azure Cosmos DB for API for MongoDB
 
-[!INCLUDE [Conceptual object model](<./includes/conceptual-object-model.md>)]
+[!INCLUDE [Conceptual object model](./includes/conceptual-object-model.md)]
 
 Each type of resource is represented by one or more associated Python classes. Here's a list of the most common classes:
 

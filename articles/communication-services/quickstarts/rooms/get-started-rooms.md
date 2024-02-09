@@ -10,51 +10,45 @@ ms.author: antonsamson
 ms.date: 09/01/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: mode-other, devx-track-azurecli
+ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 # Quickstart: Create and manage a room resource
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
 
 ## Object model
 
-The table below lists the main properties of `room` objects: 
+The table below lists the main properties of `room` objects:
 
 | Name                  | Description                               |
 |-----------------------|-------------------------------------------|
 | `roomId`              | Unique `room` identifier.                  |
-| `validFrom`           | Earliest time a `room` can be used. | 
+| `validFrom`           | Earliest time a `room` can be used. |
 | `validUntil`          | Latest time a `room` can be used. |
-| `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. | 
+| `pstnDialOutEnabled`*  | Enable or disable dialing out to a PSTN number in a room.|
+| `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. |
 | `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
 
+*pstnDialOutEnabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ::: zone pivot="platform-azcli"
 [!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
 
 [!INCLUDE [Use rooms with .NET SDK](./includes/rooms-quickstart-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
 
 [!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 This quickstart helps you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a predetermined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
 
 [!INCLUDE [Use rooms with Python SDK](./includes/rooms-quickstart-python.md)]
@@ -69,7 +63,7 @@ This quickstart helps you get started with Azure Communication Services Rooms. A
 
 ## Next steps
 
-Once you've created the room and configured it, you can learn how to [join a rooms call](join-rooms-call.md). 
+Once you've created the room and configured it, you can learn how to [join a rooms call](join-rooms-call.md).
 
 In this section you learned how to:
 > [!div class="checklist"]

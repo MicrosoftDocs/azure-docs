@@ -4,8 +4,8 @@ description: Learn about the Python server SDK for the Azure Web PubSub service.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: how-to 
-ms.custom: kr2b-contr-experiment
+ms.topic: how-to
+ms.custom: kr2b-contr-experiment, devx-track-python
 ms.date: 05/23/2022
 ---
 
@@ -61,17 +61,17 @@ Or use the service endpoint and the access key:
 >>> service = WebPubSubServiceClient(endpoint='<endpoint>', hub='hub', credential=AzureKeyCredential("<access_key>"))
 ```
 
-Or use [Azure Active Directory][aad_doc] (Azure AD):
+Or use [Microsoft Entra ID][microsoft_entra_id_doc]:
 
 1. [pip][pip] install [`azure-identity`][azure_identity_pip].
-2. [Enable Azure AD authentication on your Webpubsub resource][aad_doc].
+2. [Enable Microsoft Entra authorization on your Webpubsub resource][microsoft_entra_id_doc].
 3. Update code to use [DefaultAzureCredential][default_azure_credential].
 
-    ```python
-    >>> from azure.messaging.webpubsubservice import WebPubSubServiceClient
-    >>> from azure.identity import DefaultAzureCredential
-    >>> service = WebPubSubServiceClient(endpoint='<endpoint>', hub='hub', credential=DefaultAzureCredential())
-    ```
+   ```python
+   >>> from azure.messaging.webpubsubservice import WebPubSubServiceClient
+   >>> from azure.identity import DefaultAzureCredential
+   >>> service = WebPubSubServiceClient(endpoint='<endpoint>', hub='hub', credential=DefaultAzureCredential())
+   ```
 
 ## Examples
 
@@ -162,6 +162,7 @@ When you submit a pull request, a CLA-bot automatically determines whether you n
 This project has adopted the Microsoft Open Source Code of Conduct. For more information, see [Code of Conduct][code_of_conduct] FAQ or contact [Open Source Conduct Team](mailto:opencode@microsoft.com) with questions or comments.
 
 <!-- LINKS -->
+
 [webpubsubservice_docs]: ./index.yml
 [azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
@@ -180,5 +181,5 @@ This project has adopted the Microsoft Open Source Code of Conduct. For more inf
 [connection_string]: howto-websocket-connect.md#authorization
 [azure_portal]: howto-develop-create-instance.md
 [azure-key-credential]: https://aka.ms/azsdk-python-core-azurekeycredential
-[aad_doc]: howto-authorize-from-application.md
+[microsoft_entra_id_doc]: howto-authorize-from-application.md
 [samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub/azure-messaging-webpubsubservice/samples

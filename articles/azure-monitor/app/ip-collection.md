@@ -2,8 +2,8 @@
 title: Application Insights IP address collection | Microsoft Docs
 description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
-ms.date: 04/06/2023
-ms.custom: devx-track-js
+ms.date: 06/23/2023
+ms.custom:
 ms.reviewer: saars
 ---
 
@@ -126,15 +126,15 @@ Content-Length: 54
 }
 ```
 
-### Powershell
+### PowerShell
 
-The Powershell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
+The PoweShell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
 
 ```powershell
 Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking:$true
 ```
 
-For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](https://learn.microsoft.com/powershell/module/az.applicationinsights/update-azapplicationinsights)
+For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights)
 
 ## Telemetry initializer
 
@@ -264,6 +264,22 @@ requests
 Newly collected IP addresses will appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all four octets zeroed out.
 
 If you're testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. The `::1` value represents the loopback address in IPv6. It's equivalent to `127.0.0.1` in IPv4.
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How is city, country/region, and other geolocation data calculated?
+
+We look up the IP address (IPv4 or IPv6) of the web client:
+          
+* Browser telemetry: We collect the sender's IP address.
+* Server telemetry: The Application Insights module collects the client IP address. It's not collected if `X-Forwarded-For` is set.
+* To learn more about how IP address and geolocation data is collected in Application Insights, see [Geolocation and IP address handling](./ip-collection.md).
+          
+You can configure `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it's moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
+          
+You can [use Power BI](../logs/log-powerbi.md) to display your request telemetry on a map if you've [migrated to a workspace-based resource](./convert-classic-resource.md).          
 
 ## Next steps
 

@@ -5,6 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 03/08/2023
 ms.custom: engagement-fy23
 ---
@@ -30,8 +31,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
     - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering servers in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
     - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
-    - The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
-    - You can associate a new or existing Log Analytics workspace with an Azure Migrate project.
+    - The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
     - You attach the workspace the first time that you set up dependency visualization for a server. The workspace for an Azure Migrate project can't be modified after it's added.
     - In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
 
@@ -111,7 +111,7 @@ To install the MMA on a Linux server:
 
    `sh InstallDependencyAgent-Linux64.bin`
 
-- [Learn more](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
+- [Learn more](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md#install-or-upgrade-dependency-agent) about how you can use scripts to install the Dependency agent.
 - [Learn more](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) about the operating systems supported by the Dependency agent.
 
 

@@ -53,12 +53,12 @@ Like Azure Functions, developing with the change feed processor library is easy.
 
 ## Reading change feed with a pull model
 
-The [change feed pull model](change-feed-pull-model.md) allows you to consume the change feed at your own pace. Changes must be requested by the client and there's no automatic polling for changes. If you want to permanently "bookmark" the last processed change (similar to the push model's lease container), you'll need to [save a continuation token](change-feed-pull-model.md#saving-continuation-tokens).
+The [change feed pull model](change-feed-pull-model.md) allows you to consume the change feed at your own pace. Changes must be requested by the client and there's no automatic polling for changes. If you want to permanently "bookmark" the last processed change (similar to the push model's lease container), you'll need to [save a continuation token](change-feed-pull-model.md#save-continuation-tokens).
 
 Using the change feed pull model, you get more low level control of the change feed. When reading the change feed with the pull model, you have three options:
 
 - Read changes for an entire container
-- Read changes for a specific [FeedRange](change-feed-pull-model.md#using-feedrange-for-parallelization)
+- Read changes for a specific [FeedRange](change-feed-pull-model.md#use-feedrange-for-parallelization)
 - Read changes for a specific partition key value
 
 You can parallelize the processing of changes across multiple clients, just as you can with the change feed processor. However, the pull model doesn't automatically handle load-balancing across clients. When you use the pull model to parallelize processing of the change feed, you'll first obtain a list of FeedRanges. A FeedRange spans a range of partition key values. You'll need to have an orchestrator process that obtains FeedRanges and distributes them among your machines. You can then use these FeedRanges to have multiple machines read the change feed in parallel.

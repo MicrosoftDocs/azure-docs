@@ -7,10 +7,10 @@ ms.author: deeikele
 ms.reviewer: larryfr
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 09/14/2022
+ms.subservice: enterprise-readiness
+ms.date: 02/02/2024
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom:
 ---
 
 # Create, run, and delete Azure Machine Learning resources using REST
@@ -86,13 +86,13 @@ curl -h "Authorization:Bearer <YOUR-ACCESS-TOKEN>" ...more args...
 To retrieve the list of resource groups associated with your subscription, run:
 
 ```bash
-curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups?api-version=2021-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
+curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups?api-version=2022-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
 Across Azure, many REST APIs are published. Each service provider updates their API on their own cadence, but does so without breaking existing programs. The service provider uses the `api-version` argument to ensure compatibility. 
 
 > [!IMPORTANT]
-> The `api-version` argument varies from service to service. For the Machine Learning Service, for instance, the current API version is `2022-05-01`. To find the latest API version for other Azure services, see the [Azure REST API reference](/rest/api/azure/) for the specific service.
+> The `api-version` argument varies from service to service. For the Machine Learning Service, for instance, the current API version is `2023-10-01`. To find the latest API version for other Azure services, see the [Azure REST API reference](/rest/api/azure/) for the specific service.
 
 All REST calls should set the `api-version` argument to the expected value. You can rely on the syntax and semantics of the specified version even as the API continues to evolve. If you send a request to a provider without the `api-version` argument, the response will contain a human-readable list of supported values. 
 
@@ -129,7 +129,7 @@ The above call will result in a compacted JSON response of the form:
 To retrieve the set of workspaces in a resource group, run the following, replacing `<YOUR-SUBSCRIPTION-ID>`, `<YOUR-RESOURCE-GROUP>`, and `<YOUR-ACCESS-TOKEN>`: 
 
 ```
-curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2022-05-01 \
+curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2023-10-01 \
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
@@ -146,7 +146,7 @@ Again you'll receive a JSON list, this time containing a list, each item of whic
     "properties": {
         "friendlyName": "",
         "description": "",
-        "creationTime": "2020-01-03T19:56:09.7588299+00:00",
+        "creationTime": "2023-01-03T19:56:09.7588299+00:00",
         "storageAccount": "/subscriptions/12345abc-abbc-1b2b-1234-57ab575a5a5a/resourcegroups/DeepLearningResourceGroup/providers/microsoft.storage/storageaccounts/myworkspace0275623111",
         "containerRegistry": null,
         "keyVault": "/subscriptions/12345abc-abbc-1b2b-1234-57ab575a5a5a/resourcegroups/DeepLearningResourceGroup/providers/microsoft.keyvault/vaults/myworkspace2525649324",
@@ -190,7 +190,7 @@ The value of the `api` response is the URL of the server that you'll use for mor
 
 ```bash
 curl https://<REGIONAL-API-SERVER>/history/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
-providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/experiments?api-version=2022-05-01 \
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/experiments?api-version=2023-10-01 \
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
@@ -198,7 +198,7 @@ Similarly, to retrieve registered models in your workspace, send:
 
 ```bash
 curl https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
-providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models?api-version=2022-05-01 \
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models?api-version=2023-10-01 \
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
@@ -234,15 +234,15 @@ Training and running ML models require compute resources. You can list the compu
 
 ```bash
 curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
-providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes?api-version=2022-05-01 \
+providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes?api-version=2023-10-01 \
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
-To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar replacements of `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN`, replace `YOUR-COMPUTE-NAME`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](/rest/api/azureml/2022-10-01/workspaces/create-or-update), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar replacements of `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN`, replace `YOUR-COMPUTE-NAME`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. The following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
-  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes/<YOUR-COMPUTE-NAME>?api-version=2022-05-01' \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes/<YOUR-COMPUTE-NAME>?api-version=2023-10-01' \
   -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -266,7 +266,7 @@ curl -X PUT \
 }'
 ```
 
-> [!Note]
+> [!NOTE]
 > In Windows terminals you may have to escape the double-quote symbols when sending JSON data. That is, text such as `"location"` becomes `\"location\"`. 
 
 A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You'll need to poll (or use the portal) to confirm its successful completion.
@@ -280,7 +280,7 @@ To create a workspace, PUT a call similar to the following to `management.azure.
 ```bash
 curl -X PUT \
   'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
-/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2022-05-01' \
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2023-10-01' \
   -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -312,7 +312,7 @@ When creating workspace, you can specify a user-assigned managed identity that w
 ```bash
 curl -X PUT \
   'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
-/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2022-05-01' \
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2023-10-01' \
   -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -356,7 +356,7 @@ To create a workspace that uses a user-assigned managed identity and customer-ma
 ```bash
 curl -X PUT \
   'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
-/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2022-05-01' \
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2023-10-01' \
   -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -407,7 +407,7 @@ curl
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ### Moving the workspace
 
@@ -418,10 +418,9 @@ curl
 
 The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 
 - Explore the complete [Azure Machine Learning REST API reference](/rest/api/azureml/).
-- Learn how to use the designer to [Predict automobile price with the designer](./tutorial-designer-automobile-price-train-score.md).
-- Explore [Azure Machine Learning with Jupyter notebooks](..//machine-learning/samples-notebooks.md).
+- Explore [Azure Machine Learning with Jupyter notebooks](../machine-learning/samples-notebooks.md).

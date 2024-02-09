@@ -4,10 +4,10 @@ titleSuffix: Azure Digital Twins
 description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/28/2023
+ms.date: 01/22/2024
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -83,6 +83,12 @@ If you don't have an Azure Digital Twins instance, follow the instructions in [C
 
 Then, make sure you have *Azure Digital Twins Data Owner* role on the instance. You can find instructions in [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
+If you'd like to add the name of your instance to your local CLI variables so it will automatically be plugged into later commands copied from this article, store it in the variable `dtname` like this:
+
+```dotnetcli
+dtname="<name-of-your-instance>"
+```
+
 ## Create an Event Hubs namespace and event hub
 
 The next step is to create an Event Hubs namespace and an event hub. This hub will receive graph lifecycle and property update notifications from the Azure Digital Twins instance and then forward the messages to the target Azure Data Explorer cluster. 
@@ -90,6 +96,9 @@ The next step is to create an Event Hubs namespace and an event hub. This hub wi
 As part of the [data history connection setup](#set-up-data-history-connection) later, you'll grant the Azure Digital Twins instance the *Azure Event Hubs Data Owner* role on the event hub resource.
 
 For more information about Event Hubs and their capabilities, see the [Event Hubs documentation](../event-hubs/event-hubs-about.md).
+
+>[!NOTE]
+>While setting up data history, local authorization must be *enabled* on the event hub. If you ultimately want to have local authorization disabled on your event hub, disable the authorization after setting up the connection. You'll also need to adjust some permissions, described in [Restrict network access to data history resources](#restrict-network-access-to-data-history-resources) later in this article.
 
 # [CLI](#tab/cli) 
 
@@ -169,7 +178,7 @@ Use the command in this section to create a data history connection and the tabl
 
 The command below uses local variables that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session) and has several parameters, including...
 * The names of the relationship lifecycle and twin lifecycle tables in Azure Data Explorer (these parameters are optional if you don't want to historize these event types, but required if you do want to historize these event types)
-* An optional parameter to specify the name of the twin property event table (if this value is not provided, this table will be named *AdtPropertyEvents* by default) 
+* An optional parameter to specify the name of the twin property event table (if this value is not provided, this table will be named *AdtPropertyEvents* by default). If you don't want to specify another name, remove the `--adx-property-events-table` parameter from the command before running it.
 * The optional parameter `--adx-record-removals` to turn on historization for twin property deletions (events that remove properties entirely)
 
 ```azurecli-interactive
@@ -227,6 +236,19 @@ After setting up the data history connection, you can optionally remove the role
 >[!NOTE]
 >Once the connection is set up, the default settings on your Azure Data Explorer cluster will result in an ingestion latency of approximately 10 minutes or less. You can reduce this latency by enabling [streaming ingestion](/azure/data-explorer/ingest-data-streaming) (less than 10 seconds of latency) or an [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). For more information about Azure Data Explorer ingestion latency, see [End-to-end ingestion latency](concepts-data-history.md#end-to-end-ingestion-latency).
 
+### Restrict network access to data history resources
+
+If you'd like to restrict network access to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection. This includes disabling local access for your resources, among other measures to reduce network access.
+
+To make sure your data history resources can communicate with each other, you should also modify the data connection for the Azure Data Explorer database to use a system-assigned managed identity.
+
+Follow the order of steps below to make sure your data history connection is set up properly when your resources need reduced network access.
+1. Make sure local authorization is *enabled* on your data history resources (your Azure Digital Twins instance, event hub, and Azure Data Explorer cluster)
+1. [Create the data history connection](#set-up-data-history-connection)
+1. Update the data connection for the Azure Data Explorer database to use a system-assigned managed identity. In the Azure portal, you can do this by navigating to the Azure Data Explorer cluster and using **Databases** in the menu to navigate to the data history database. In the database menu, select **Data connections**. In the table entry for your data history connection, you should see the option to **Assign managed identity**, where you can choose **System-assigned**.
+    :::image type="content" source="media/how-to-create-data-history-connection/database-managed-identity.png" alt-text="Screenshot of the option to assign a managed identity to a data connection in the Azure portal." lightbox="media/how-to-create-data-history-connection/database-managed-identity.png":::
+1. Now, you can disable local authorization or set other network restrictions for your desired resources, by changing the access settings on your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster.
+
 ### Troubleshoot connection setup
 
 Here are a few common errors you might encounter when setting up a data history connection, and how to resolve them.
@@ -261,37 +283,21 @@ You'll see confirmation messages on the screen as models, twins, and relationshi
 
 When the simulation is ready, the **Start simulation** button will become enabled. Scroll down and select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop and complete other browser actions in a separate window. This will continuously generate twin property updates events that will be historized to Azure Data Explorer.
 
-#### Verify data flow
-
-To verify that data is flowing through the data history pipeline, you can use the [data history validation in Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
-
-1. Navigate to the [Azure Digital Twins Explorer](https://explorer.digitaltwins.azure.net/) and ensure it's [connected to the right instance](how-to-use-azure-digital-twins-explorer.md#switch-contexts-within-the-app).
-
-1. Use the instructions in [Validate and explore historized properties](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties) to choose a historized twin property to visualize in the chart.
-
-If you see data being populated in the chart, this means that Azure Digital Twins update events are being successfully stored in Azure Data Explorer.
-
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-chart.png" alt-text="Screenshot of the Data history explorer showing a chart of historized values for a property." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-chart.png":::
-
-If you *don't* see data in the chart, the historization data flow isn't working properly. You can investigate the issue by viewing your Event Hubs namespace in the [Azure portal](https://portal.azure.com), which displays charts showing the flow of messages into and out of the namespace. This will allow you to verify both the flow of incoming messages from Azure Digital Twins and the outgoing messages to Azure Data Explorer, to help you identify which part of the flow isn't working.
-
-:::image type="content"  source="media/how-to-create-data-history-connection/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-create-data-history-connection/simulated-environment-portal.png":::
-
 ### View the historized updates in Azure Data Explorer
 
-Now that you've verified the data history flow is sending data to Azure Data Explorer, this section will show you how to view all three types of historized updates that were generated by the simulator and stored in Azure Data Explorer tables.
+This section will show you how to view all three types of historized updates that were generated by the simulator and stored in Azure Data Explorer tables.
 
 Start in the [Azure portal](https://portal.azure.com) and navigate to the Azure Data Explorer cluster you created earlier. Choose the **Databases** pane from the left menu to open the database view. Find the database you created for this article and select the checkbox next to it, then select **Query**.
 
 :::image type="content"  source="media/how-to-create-data-history-connection/azure-data-explorer-database.png" alt-text="Screenshot of the Azure portal showing a database in an Azure Data Explorer cluster.":::
 
-Next, expand the cluster and database in the left pane to see the name of the data history tables. There should be three: one for relationship lifecycle events, one for twin lifecycle events, and one for twin property update events. You'll use these table names to run queries on the table to verify and view the historized data.
+Next, expand the cluster and database in the left pane to see the name of the data history tables. There should be three: one for relationship lifecycle events, one for twin lifecycle events, and one for twin property update events. You'll use these table names to run queries on the tables to verify and view the historized data.
 
 :::image type="content"  source="media/how-to-create-data-history-connection/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the data history table is highlighted." lightbox="media/how-to-create-data-history-connection/data-history-table.png":::
 
-#### Verify relationship and twin lifecycle updates
+#### Verify table entries
 
-To verify that relationship and twin lifecycle events are being historized to the database, start by copying the following command. It has a placeholder for the name of the relationship lifecycle events table, and it will change the ingestion for the table to [batched mode](concepts-data-history.md#batch-ingestion-default) so it ingests data from the live simulation every 10 seconds.
+To verify that events are being historized to the database, start by copying the following command. It has a placeholder for the name of the **relationship lifecycle events table**, and it will change the ingestion for the table to [batched mode](concepts-data-history.md#batch-ingestion-default) so it ingests data from the live simulation every 10 seconds.
 
 ```kusto
 .alter table <relationship-lifecycle-events-table-name> policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:10", "MaximumNumberOfItems": 500, "MaximumRawDataSizeMB": 1024}'
@@ -301,13 +307,9 @@ Paste the command into the query window, replacing the placeholder with the name
 
 :::image type="content"  source="media/how-to-create-data-history-connection/data-history-run-query-1.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted." lightbox="media/how-to-create-data-history-connection/data-history-run-query-1.png":::
 
-Repeat the process with the following command to update the ingestion mode of the twin lifecycle events table.
+Repeat the command two more times using the name of the **twin lifecycle events table** and then the **property update table** to update the ingestion mode of the other tables as well.
 
-```kusto
-.alter table <twin-lifecycle-events-table-name> policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:10", "MaximumNumberOfItems": 500, "MaximumRawDataSizeMB": 1024}'
-```
-
-Next, add the following commands to the query window and run them. Each command contains a placeholder for the name of either the relationship lifecycle events table or the twin lifecycle events table, and the commands will output the number of items in the tables.
+Next, add the following commands to the query window and run them. Each command contains a placeholder for the name of one of the tables, and the commands will output the number of items in the tables.
 
 >[!NOTE]
 > It may take up to 5 minutes for the first batch of ingested data to appear.
@@ -318,33 +320,18 @@ Next, add the following commands to the query window and run them. Each command 
 
 <twin-lifecycle-events-table-name>
 | count
-```
 
-You should see in the results that the count of items in each table is something greater than 0, indicating that relationship lifecycle and twin lifecycle events are being historized to their respective tables.
-
-#### Verify and explore twin property updates table
-
-In this section you'll verify that twin property updates are being historized to the corresponding table, and do some more exploration with the data that's coming through.
-
-Start by running the command below. The command has a placeholder for the name of the twin property update table, and it will change the ingestion for the table to [batched mode](concepts-data-history.md#batch-ingestion-default) so it ingests data from the live simulation every 10 seconds.
-
-```kusto
-.alter table <twin-property-updates-table-name> policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:10", "MaximumNumberOfItems": 500, "MaximumRawDataSizeMB": 1024}'
-```
-
-Next, add the following command to the query window, and run it to verify that Azure Data Explorer has ingested twin updates into the table.
-
->[!NOTE]
-> It may take up to 5 minutes for the first batch of ingested data to appear.
-
-```kusto
 <twin-property-updates-table-name>
 | count
 ```
 
-You should see in the results that the count of items in the table is something greater than 0, indicating that twin property update events are being historized to the table.
+You should see in the results that the count of items in each table is something greater than 0, indicating that relationship lifecycle, twin lifecycle, and property update events are being historized to their respective tables.
 
-You can also add and run the following command to view 100 records in the table:
+#### Explore twin property updates table
+
+In this section you'll do some more exploration with the twin property update data that's in the table.
+
+First, run the following command to view 100 records in the table:
 
 ```kusto
 <twin-property-updates-table-name>
@@ -372,7 +359,13 @@ evaluate azure_digital_twins_query_request(ADTendpoint, ADTquery)
 
 The results should show the outflow numbers changing over time.
 
-:::image type="content"  source="media/how-to-create-data-history-connection/data-history-run-query-2.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The result for the example query is a line graph showing changing values over time for the salt machine outflows." lightbox="media/how-to-create-data-history-connection/data-history-run-query-2.png":::
+:::image type="content"  source="media/how-to-create-data-history-connection/data-history-run-query-2.png" alt-text="Screenshot of the Azure portal showing the query view for the database." lightbox="media/how-to-create-data-history-connection/data-history-run-query-2.png":::
+
+### Troubleshoot connection
+
+If you don't see data in Azure Data Explorer, the historization data flow isn't working properly. You can investigate the issue by viewing your Event Hubs namespace in the [Azure portal](https://portal.azure.com), which displays charts showing the flow of messages into and out of the namespace. This will allow you to verify both the flow of incoming messages from Azure Digital Twins and the outgoing messages to Azure Data Explorer, to help you identify which part of the flow isn't working.
+
+:::image type="content"  source="media/how-to-create-data-history-connection/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-create-data-history-connection/simulated-environment-portal.png":::
 
 ## Next steps 
 

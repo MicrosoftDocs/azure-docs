@@ -7,19 +7,21 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 05/01/2023
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api, template-quickstart,engagement-fy23
+ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure CLI
 
-Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
-This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
+- This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -27,11 +29,10 @@ An Azure resource group is a logical container into which you deploy and manage 
 
 Create a resource group with [az group create](/cli/azure/group#az-group-create).
 
-```azurecli
-  az group create \
-    --name CreateIntLBQS-rg \
-    --location westus3
-
+```azurecli-interactive
+    az group create \
+      --name CreateIntLBQS-rg \
+      --location westus3
 ```
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer.
@@ -42,7 +43,7 @@ Before you deploy VMs and test your load balancer, create the supporting virtual
 
 Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
-```azurecli
+```azurecli-interactive
   az network vnet create \
     --resource-group CreateIntLBQS-rg \
     --location westus3 \
@@ -56,12 +57,14 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 
 In this example, you create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
+ > [!IMPORTANT]
+ > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 ### Create a bastion public IP address
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the Azure Bastion host.
 
-```azurecli
+```azurecli-interactive
 az network public-ip create \
     --resource-group CreateIntLBQS-rg  \
     --name myBastionIP \
@@ -72,7 +75,7 @@ az network public-ip create \
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a subnet.
 
-```azurecli
+```azurecli-interactive
 az network vnet subnet create \
     --resource-group CreateIntLBQS-rg  \
     --name AzureBastionSubnet \
@@ -84,7 +87,7 @@ az network vnet subnet create \
 
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a host.
 
-```azurecli
+```azurecli-interactive
 az network bastion create \
     --resource-group CreateIntLBQS-rg  \
     --name myBastionHost \
@@ -111,7 +114,7 @@ This section details how you can create and configure the following components o
 
 Create an internal load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create).
 
-```azurecli
+```azurecli-interactive
   az network lb create \
     --resource-group CreateIntLBQS-rg \
     --name myLoadBalancer \
@@ -130,7 +133,7 @@ A virtual machine with a failed probe check is removed from the load balancer. T
 
 Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create).
 
-```azurecli
+```azurecli-interactive
   az network lb probe create \
     --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
@@ -151,7 +154,7 @@ A load balancer rule defines:
 
 Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create).
 
-```azurecli
+```azurecli-interactive
   az network lb rule create \
     --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
@@ -172,7 +175,7 @@ For a standard load balancer, the VMs in the backend pool are required to have n
 
 To create a network security group, use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
-```azurecli
+```azurecli-interactive
   az network nsg create \
     --resource-group CreateIntLBQS-rg \
     --name myNSG
@@ -182,7 +185,7 @@ To create a network security group, use [az network nsg create](/cli/azure/netwo
 
 To create a network security group rule, use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
 
-```azurecli
+```azurecli-interactive
   az network nsg rule create \
     --resource-group CreateIntLBQS-rg \
     --nsg-name myNSG \
@@ -209,7 +212,7 @@ In this section, you create:
 
 Create two network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create).
 
-```azurecli
+```azurecli-interactive
   array=(myNicVM1 myNicVM2)
   for vmnic in "${array[@]}"
   do
@@ -226,7 +229,7 @@ Create two network interfaces with [az network nic create](/cli/azure/network/ni
 
 Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
-```azurecli
+```azurecli-interactive
   array=(1 2)
   for n in "${array[@]}"
   do
@@ -249,7 +252,7 @@ It can take a few minutes for the VMs to deploy.
 
 Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add).
 
-```azurecli
+```azurecli-interactive
   array=(VM1 VM2)
   for vm in "${array[@]}"
   do
@@ -270,7 +273,7 @@ To provide outbound internet access for resources in the backend pool, create a 
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a single IP for the outbound connectivity.  
 
-```azurecli
+```azurecli-interactive
   az network public-ip create \
     --resource-group CreateIntLBQS-rg \
     --name myNATgatewayIP \
@@ -282,7 +285,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
 
 Use [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create) to create the NAT gateway resource. The public IP created in the previous step is associated with the NAT gateway.
 
-```azurecli
+```azurecli-interactive
   az network nat gateway create \
     --resource-group CreateIntLBQS-rg \
     --name myNATgateway \
@@ -294,7 +297,7 @@ Use [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gatewa
 
 Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
-```azurecli
+```azurecli-interactive
   az network vnet subnet update \
     --resource-group CreateIntLBQS-rg \
     --vnet-name myVNet \
@@ -306,7 +309,7 @@ Configure the source subnet in virtual network to use a specific NAT gateway res
 
 Create the network interface with [az network nic create](/cli/azure/network/nic#az-network-nic-create).
 
-```azurecli
+```azurecli-interactive
   az network nic create \
     --resource-group CreateIntLBQS-rg \
     --name myNicTestVM \
@@ -316,7 +319,7 @@ Create the network interface with [az network nic create](/cli/azure/network/nic
 ```
 Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).
 
-```azurecli
+```azurecli-interactive
   az vm create \
     --resource-group CreateIntLBQS-rg \
     --name myTestVM \
@@ -331,7 +334,7 @@ You might need to wait a few minutes for the virtual machine to deploy.
 
 Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to install IIS on the backend virtual machines and set the default website to the computer name.
 
-```azurecli
+```azurecli-interactive
   array=(myVM1 myVM2)
     for vm in "${array[@]}"
     do
@@ -370,7 +373,7 @@ Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to instal
 
 When your resources are no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
-```azurecli
+```azurecli-interactive
   az group delete \
     --name CreateIntLBQS-rg
 ```

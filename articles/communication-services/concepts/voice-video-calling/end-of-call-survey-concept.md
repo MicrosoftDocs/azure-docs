@@ -21,17 +21,13 @@ ms.subservice: calling
 > [!NOTE] 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
+The End of Call Survey provides you with a tool to understand how your end users perceive the overall quality and reliability of your JavaScript / Web SDK calling solution.
 
-The End of Call Survey allows Azure Communication Services to improve the overall Calling SDK. 
 
-<!-- provides you with a tool to understand how your end users perceive the overall quality and reliability of your JavaScript / Web SDK calling solution.  -->
-<!-- 
 ## Purpose of the End of Call Survey
-It’s difficult to determine a customer’s perceived calling experience and determine how well your calling solution is performing without gathering subjective feedback from customers.
+It’s difficult to determine a customer’s perceived calling experience and determine how well your calling solution is performing without gathering subjective feedback from customers. You can use the End of Call Survey to collect and analyze customers **subjective** opinions on their calling experience as opposed to relying only on **objective** measurements such as audio and video bitrate, jitter, and latency, which may not indicate if a customer had a poor calling experience.
 
-You can use the End of Call Survey to collect and analyze customers **subjective** opinions on their calling experience as opposed to relying only on **objective** measurements such as audio and video bitrate, jitter, and latency, which may not indicate if a customer had a poor calling experience. 
-
-After publishing survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability. -->
+After publishing survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability.
 
 
 ## Survey structure
@@ -43,6 +39,8 @@ The survey is designed to answer two questions from a user’s point of view.
 -	**Question 2:** Did the user perceive any Audio, Video, or Screen Share issues in the call?
 
 The API allows applications to gather data points that describe user perceived ratings of their Overall Call, Audio, Video, and Screen Share experiences. Microsoft analyzes survey API results according to the following goals.
+
+
 
 ### End of Call Survey API goals
 
@@ -87,14 +85,9 @@ The API allows applications to gather data points that describe user perceived r
 ### End of Call Survey customization
 
 
-You can choose to collect each of the four API values or only the ones
-you find most important. For example, you can choose to only ask
-customers about their overall call experience instead of asking them
-about their audio, video, and screen share experience. You can also
+You can choose to collect each of the four API values or only the ones you find most important. For example, you can choose to only ask customers about their overall call experience instead of asking them about their audio, video, and screen share experience. You can also
 customize input ranges to suit your needs. The default input range is 1
-to 5 for Overall Call, Audio, Video, and
-Screenshare. However, each API value can be customized from a minimum of
-0 to maximum of 100. 
+to 5 for Overall Call, Audio, Video, and Screenshare. However, each API value can be customized from a minimum of 0 to maximum of 100. 
 
 ### Customization options
 
@@ -109,16 +102,21 @@ Screenshare. However, each API value can be customized from a minimum of
    > [!NOTE]
    > A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
-<!-- ## Store and view survey data:
+## Store and view survey data:
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: **[Enable logging in Diagnostic Settings](../analytics/enable-logging.md)**
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services see our guidance:  [End of Call Survey Logs](../analytics/logs/end-of-call-survey-logs.md).
 
-You can only view your survey data if you have enabled a Diagnostic Setting to capture your survey data.  -->
+You cannot access your survey and it will not be stored unless you have enabled a Diagnostic Setting to capture your survey data.
 
 ## Next Steps
 
-<!-- -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../azure-monitor/logs/log-analytics-tutorial.md)
+- Learn how to use the End of Call Survey, see our tutorial: [Use the End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../azure-monitor/logs/get-started-queries.md) -->
-Learn how to use the End of Call Survey, see our tutorial: [Use the End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md)
+- Analyze your survey data, see: [End of Call Survey Logs](../analytics/logs/end-of-call-survey-logs.md)
+
+-	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../azure-monitor/logs/log-analytics-tutorial.md)
+
+-	Create your own queries in Log Analytics, see: [Get Started Queries](../../../azure-monitor/logs/get-started-queries.md)
+
+

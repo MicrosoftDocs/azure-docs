@@ -39,7 +39,7 @@ To use NAT gateway with Azure App services, follow these steps:
 
 5. Assign NAT gateway to the same subnet being used for Virtual network integration with your application(s).  
 
-To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](../app-service/networking/nat-gateway-integration.md#configuring-nat-gateway-integration) 
+To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](../app-service/networking/nat-gateway-integration.md#configure-nat-gateway-integration) 
 
 Important notes about the NAT gateway and Azure App Services integration:  
 
@@ -49,7 +49,7 @@ Important notes about the NAT gateway and Azure App Services integration:
 
 ### App services isn't using the NAT gateway public IP address to connect outbound 
 
-App services can still connect outbound to the internet even if VNet integration isn't enabled. By default, apps that are hosted in App Service are accessible directly through the internet and can reach only internet-hosted endpoints. To learn more, see App Services Networking Features. 
+App services can still connect outbound to the internet even if VNet integration isn't enabled. By default, apps that are hosted in App Service are accessible directly through the internet and can reach only internet-hosted endpoints. To learn more, see [App Services Networking Features](/azure/app-service/networking-features). 
 
 If you notice that the IP address used to connect outbound isn't your NAT gateway public IP address or addresses, check that virtual network integration has been enabled. Ensure the NAT gateway is configured to the subnet used for integration with your application(s). 
 
@@ -100,7 +100,7 @@ Update your idle timeout timer configuration on your User-Assigned NAT gateway w
 4. Select the Save button when you’re done. 
 
 >[!Note] 
->Increasing the TCP idle timeout timer to longer than 4 minutes can increase the risk of SNAT port exhaustion. For more information, see timer considerations.
+>Increasing the TCP idle timeout timer to longer than 4 minutes can increase the risk of SNAT port exhaustion.
 
 ## Azure Firewall 
 

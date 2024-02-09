@@ -37,11 +37,11 @@ Here are other important terms:
 
 - **Security principal**: An Azure security principal is a security identity that user-created apps, services, and automation tools use to access specific Azure resources. Think of it as a "user identity" (username and password or certificate) with a specific role, and tightly controlled permissions. A security principal should only need to do specific things, unlike a general user identity. It improves security if you grant it only the minimum permission level that it needs to perform its management tasks. A security principal used with an application or service is called a **service principal**.
 
-- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md): Azure AD is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant.
+- [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md): Microsoft Entra ID is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant.
 
-- **Azure tenant ID**: A tenant ID is a unique way to identify an Azure AD instance within an Azure subscription.
+- **Azure tenant ID**: A tenant ID is a unique way to identify a Microsoft Entra instance within an Azure subscription.
 
-- **Managed identities**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. For more information, see the following image and the [overview of managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+- **Managed identities**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to Key Vault or any service that supports Microsoft Entra authentication, without having any credentials in your code. For more information, see the following image and the [overview of managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Authentication
 To do any operations with Key Vault, you first need to authenticate to it. There are three ways to authenticate to Key Vault:

@@ -2,13 +2,12 @@
 title: Common Azure confidential computing scenarios and use cases
 description: Understand how to use confidential computing in your scenario.
 services: virtual-machines
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 11/04/2021
-ms.author: mamccrea
-ms.custom: ignite-fall-2021
+ms.author: jushiman
 ---
 # Use cases and scenarios
 Confidential computing applies to various use cases for protecting data in regulated industries such as government, financial services, and healthcare institutes. For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data may contain biometric data that is used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
@@ -69,7 +68,7 @@ The aggregate data-sets from many types of sensor and data feed are managed in a
 
 Commonly applicable to FSI and healthcare where there are legal or regulatory requirements that limit where certain workloads can be processed and be stored at-rest.
 
-In this use-case we use a combination of Azure Confidential Compute technologies with Azure Policy, Network Security Groups (NSGs) and Azure Active Directory Conditional Access to ensure that the following protection goals are met for the ‘lift & shift’ of an existing application:
+In this use-case we use a combination of Azure Confidential Compute technologies with Azure Policy, Network Security Groups (NSGs) and Microsoft Entra Conditional Access to ensure that the following protection goals are met for the ‘lift & shift’ of an existing application:
 
 - Application is protected from the cloud operator whilst in-use using Confidential Compute
 - Application resources can only be deployed in the West Europe Azure region

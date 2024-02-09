@@ -11,7 +11,7 @@ A control for gathering tabular input. All fields within the grid are editable a
 
 ## UI sample
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-editablegrid.png" alt-text="Microsoft.Common.EditableGrid":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-editablegrid.png" alt-text="Screenshot of Microsoft.Common.EditableGrid UI element with editable fields and varying rows.":::
 
 ## Schema
 

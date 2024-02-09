@@ -6,9 +6,9 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 05/26/2023
 ms.author: banders
-ms.reviewer: baolcsva
+ms.reviewer: sgautam
 ---
 
 # Key next steps after accepting your Microsoft Customer Agreement
@@ -23,7 +23,12 @@ Some of the benefits under the agreement include:
 
 ## Start building your solutions in Azure
 
-When you move existing subscriptions to your Microsoft Customer Agreement billing profile, service isn't changed and there's no service downtime. If you’re a new customer, Azure automatically creates a default subscription for you.
+When you move existing subscriptions to your Microsoft Customer Agreement billing profile, service isn't changed and there's no service downtime. 
+
+If you’re a new customer, Azure automatically creates a default subscription for you.
+
+>[!NOTE]
+>Microsoft Azure operated by 21Vianet customers must manually create their first subscription. For more information, see [Create a Microsoft Customer Agreement subscription](../manage/create-subscription.md).
 
 - [Move your existing pay-as-you-go subscriptions](../manage/mca-request-billing-ownership.md). You can link your subscriptions to the new MCA billing account by using billing ownership transfer.
 - [Move your existing EA subscriptions](../manage/mca-setup-account.md).
@@ -56,7 +61,7 @@ When you move from a pay-as-you-go or an enterprise agreement to a Microsoft Cus
 
 ¹ By request.
 
-² You continue to pay by invoice/wire transfer under the MCA but will need to send your payments to a different bank account. For information about where to send your payment, see [Pay your bill](../understand/pay-bill.md#wire-bank-details) after you select your country in the list.
+² You continue to pay by invoice/wire transfer under the MCA but will need to send your payments to a different bank account. For information about where to send your payment, see [Pay your bill](../understand/pay-bill.md#wire-bank-details) after you select your country/region in the list.
 
 ³ For more information, see [Pay for your Azure subscription by invoice](../manage/pay-by-invoice.md).
 

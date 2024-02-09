@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Project connector for Microsoft Sentinel"
+title: "Microsoft Project connector for Microsoft Sentinel (preview)"
 description: "Learn how to install the connector Microsoft Project to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Microsoft Project connector for Microsoft Sentinel
+# Microsoft Project connector for Microsoft Sentinel (preview)
 
 Microsoft Project (MSP) is a project management software solution. Depending on your plan, Microsoft Project lets you plan projects, assign tasks, manage resources, create reports and more. This connector allows you to stream your Azure Project audit logs into Microsoft Sentinel in order to track your project activities.
 

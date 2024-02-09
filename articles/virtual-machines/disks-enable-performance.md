@@ -2,11 +2,11 @@
 title: Preview - Increase performance of Premium SSDs and Standard SSD/HDDs
 description: Increase the performance of Azure Premium SSDs and Standard SSD/HDDs using performance plus.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 03/14/2023
 ms.author: rogarana
-ms.subservice: disks
+ms.custom: devx-track-azurepowershell
 ---
 
 # Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs
@@ -43,7 +43,7 @@ region=desiredRegion
 sku=desiredSKU
 #Size must be 513 or larger
 size=513
-az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region –performance-plus true 
+az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region --performance-plus true 
 
 az vm disk attach --vm-name $myVM --name $myDisk --resource-group $myRG 
 ```

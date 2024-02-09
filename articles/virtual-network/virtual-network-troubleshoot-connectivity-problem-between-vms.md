@@ -1,14 +1,12 @@
 ---
 title: Troubleshooting connectivity problems between Azure VMs
-description: Learn how to troubleshoot and resolve the connectivity problems that you might experience between Azure VMs.
+description: Learn how to troubleshoot and resolve the connectivity problems that you might experience between Azure virtual machines (VMs).
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 07/19/2023
 ms.author: allensu
 ---
 
@@ -20,7 +18,7 @@ You might experience connectivity problems between Azure virtual machines (VMs).
 
 ## Symptom
 
-One Azure VM cannot connect to another Azure VM.
+One Azure VM can't connect to another Azure VM.
 
 ## Troubleshooting guidance 
 
@@ -32,7 +30,7 @@ One Azure VM cannot connect to another Azure VM.
 6. [Check whether traffic is blocked by ACLs for the classic VM](#step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm)
 7. [Check whether the endpoint is created for the classic VM](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
 8. [Try to connect to a VM network share](#step-8-try-to-connect-to-a-vm-network-share)
-9. [Check Inter-Vnet connectivity](#step-9-check-inter-vnet-connectivity)
+9. [Check Inter-VNet connectivity](#step-9-check-inter-vnet-connectivity)
 
 ## Troubleshooting steps
 
@@ -58,7 +56,7 @@ For more information, see [Add network interfaces to or remove from virtual mach
 
 ### Step 2: Check whether network traffic is blocked by NSG or UDR
 
-Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to determine whether there is a Network Security Group (NSG) or User-Defined Route (UDR) that is interfering with traffic flow.
+Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [Connection troubleshoot](../network-watcher/network-watcher-connectivity-overview.md) to determine whether there's a Network Security Group (NSG) or User-Defined Route (UDR) that is interfering with traffic flow.
 
 ### Step 3: Check whether network traffic is blocked by VM firewall
 
@@ -82,7 +80,7 @@ netstat –ano
 netstat -l
 ```
 
-- Run the **telnet** command on the virtual machine itself to test the port. If the test fails, the application or service is not configured to listen on that port.
+- Run the **telnet** command on the virtual machine itself to test the port. If the test fails, the application or service isn't configured to listen on that port.
 
 ### Step 5: Check whether the problem is caused by SNAT
 
@@ -98,11 +96,11 @@ All VMs that you create in Azure by using the classic deployment model can autom
 
 ### Step 8: Try to connect to a VM network share
 
-If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
+If you can't connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
 
-### Step 9: Check Inter-Vnet connectivity
+### Step 9: Check Inter-VNet connectivity
 
-Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to determine whether there is a NSG or UDR that is interfering with traffic flow. You can also verify your Inter-Vnet configuration [here](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
+Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to determine whether there's an NSG or UDR that is interfering with traffic flow. You can also verify your Inter-VNet configuration [here](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 
 ### Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

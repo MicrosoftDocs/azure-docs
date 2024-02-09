@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Aggregate transformation in mapping data flow
@@ -109,6 +109,6 @@ MoviesYear aggregate(groupBy(year),
 	avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
-## Next steps
+## Related content
 
 * Define window-based aggregation using the [Window transformation](data-flow-window.md)

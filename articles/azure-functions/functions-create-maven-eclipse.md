@@ -4,7 +4,7 @@ description: How-to guide to create and publish a simple HTTP triggered serverle
 ms.topic: quickstart
 ms.date: 07/01/2018
 ms.devlang: java
-ms.custom: mvc, devcenter, devx-track-java
+ms.custom: mvc, devcenter, devx-track-java, devx-track-extended-java
 ---
 
 # Create your first function with Java and Eclipse 
@@ -19,7 +19,7 @@ This article shows you how to create a [serverless](https://azure.microsoft.com/
 
 To develop a functions app with Java and Eclipse, you must have the following installed:
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
+-  [Java Developer Kit](/java/openjdk/download#openjdk-17), version 8, 11, 17 or 21. (Java 21 is currently supported in preview only on Linux)
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), with Java and Maven support.
 -  [Azure CLI](/cli/azure)

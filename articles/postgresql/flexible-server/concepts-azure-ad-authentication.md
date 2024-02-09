@@ -1,98 +1,147 @@
 ---
-title: Active Directory authentication - Azure Database for PostgreSQL - Flexible Server
-description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for PostgreSQL - Flexible Server
+title: Active Directory authentication
+description: Learn about the concepts of Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Flexible Server.
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 11/03/2022
+ms.date: 12/21/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Azure Active Directory Authentication with PostgreSQL Flexible Server
+# Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
 
-Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
-With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism of connecting to Azure Database for PostgreSQL flexible server using identities defined in Microsoft Entra ID.
+With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-Benefits of using Azure AD include:
+**Benefits of using Microsoft Entra ID include:**
 
 - Authentication of users across Azure Services in a uniform way
 - Management of password policies and password rotation in a single place
-- Multiple forms of authentication supported by Azure Active Directory, which can eliminate the need to store passwords
-- Customers can manage database permissions using external (Azure AD) groups.
-- Azure AD authentication uses PostgreSQL database roles to authenticate identities at the database level
-- Support of token-based authentication for applications connecting to Azure Database for PostgreSQL
+- Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords
+- Customers can manage database permissions using external (Microsoft Entra ID) groups
+- Microsoft Entra authentication uses PostgreSQL database roles to authenticate identities at the database level
+- Support of token-based authentication for applications connecting to Azure Database for PostgreSQL flexible server
 
-## Azure Active Directory Authentication (Single Server VS Flexible Server)
 
-Azure Active Directory Authentication for Flexible Server is built using our experience and feedback we've collected from Azure Database for PostgreSQL Single Server, and supports the following features and improvements over single server:
+<a name='azure-active-directory-authentication-single-server-vs-flexible-server'></a>
 
-The following table provides a list of high-level Azure AD features and capabilities comparisons between Single Server and Flexible Server
+## Microsoft Entra authentication (Azure Database for PostgreSQL single Server vs Azure Database for PostgreSQL flexible server)
 
-| **Feature / Capability** | **Single Server** | **Flexible Server** |
+Microsoft Entra authentication for Azure Database for PostgreSQL flexible server is built using our experience and feedback collected from Azure Database for PostgreSQL single server, and supports the following features and improvements over Azure Database for PostgreSQL single server:
+
+The following table provides a list of high-level Microsoft Entra features and capabilities comparisons between Azure Database for PostgreSQL single server and Azure Database for PostgreSQL flexible server.
+
+| **Feature / Capability** | **Azure Database for PostgreSQL single server** | **Azure Database for PostgreSQL flexible server** |
 | --- | --- | --- |
-| Multiple Azure AD Admins | No | Yes |
+| Multiple Microsoft Entra Admins | No | Yes |
 | Managed Identities (System & User assigned) | Partial | Full |
 | Invited User Support | No | Yes |
 | Disable Password Authentication | Not Available | Available |
 | Service Principal can act as group member | No | Yes |
-| Audit Azure AD Logins | No | Yes |
-| PG bouncer support | No | Yes  (New Servers) |
+| Audit Microsoft Entra Logins | No | Yes |
+| PG bouncer support | No | Yes |
 
-## How Azure AD Works In Flexible Server
+<a name='how-azure-ad-works-in-flexible-server'></a>
 
-The following high-level diagram summarizes how authentication works using Azure AD authentication with Azure Database for PostgreSQL. The arrows indicate communication pathways.
+## How Microsoft Entra ID Works in Azure Database for PostgreSQL flexible server
+
+The following high-level diagram summarizes how authentication works using Microsoft Entra authentication with Azure Database for PostgreSQL flexible server. The arrows indicate communication pathways.
 
 ![authentication flow][1]
 
- Use these steps to configure Azure AD with Azure Database for PostgreSQL Flexible Server [Configure and sign in with Azure AD for Azure Database for PostgreSQL Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
+ Use these steps to configure Microsoft Entra ID with Azure Database for PostgreSQL flexible server [Configure and sign in with Microsoft Entra ID for Azure Database for PostgreSQL - Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
 
-## Manage PostgreSQL Access For AD Principals
+## Differences Between PostgreSQL Administrator and Microsoft Entra Administrator
 
-When Azure AD authentication is enabled and Azure AD principal is added as an Azure AD administrator the account gets the same privileges as the original PostgreSQL administrator. Only Azure AD administrator can manage other Azure AD enabled roles on the server using Azure portal or Database API. The Azure AD administrator sign-in can be an Azure AD user, Azure AD group, Service Principal or Managed Identity. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the PostgreSQL server. Multiple Azure AD administrators can be configured at any time and you can optionally disable password authentication to an Azure Database for PostgreSQL Flexible Server for better auditing and compliance needs.
+When Microsoft Entra authentication is enabled on your Flexible Server and Microsoft Entra principal is added as a **Microsoft Entra administrator** the account not only gets the same privileges as the original **PostgreSQL administrator** but also it can manage other Microsoft Entra ID enabled roles on the server. Unlike the PostgreSQL administrator, who can only create local password-based users, the Microsoft Entra administrator has the authority to manage both Entra users and local password-based users.
+
+Microsoft Entra administrator can be a Microsoft Entra user, Microsoft Entra group, Service Principal, or Managed Identity. Utilizing a group account as an administrator enhances manageability, as it permits centralized addition and removal of group members in Microsoft Entra ID without changing the users or permissions within the Azure Database for PostgreSQL flexible server instance. Multiple Microsoft Entra administrators can be configured concurrently, and you have the option to deactivate password authentication to an Azure Database for PostgreSQL flexible server instance for enhanced auditing and compliance requirements.
 
 ![admin structure][2]
 
  > [!NOTE]  
- > Service Principal or Managed Identity can now act as fully functional Azure AD Administrator in Flexible Server and this was a limitation in our Single Server.
+ > Service Principal or Managed Identity can now act as fully functional Microsoft Entra Administrator in Azure Database for PostgreSQL flexible server and this was a limitation in Azure Database for PostgreSQL single server.
 
-Azure AD administrators that are created via Portal, API or SQL would have the same permissions as the regular admin user created during server provisioning. Additionally, database permissions for non-admin Azure AD enabled roles are managed similar to regular roles.
+Microsoft Entra administrators that are created via Portal, API or SQL would have the same permissions as the regular admin user created during server provisioning. Additionally, database permissions for non-admin Microsoft Entra ID enabled roles are managed similar to regular roles.
 
-## Connect using Azure AD identities
+<a name='connect-using-azure-ad-identities'></a>
 
-Azure Active Directory authentication supports the following methods of connecting to a database using Azure AD identities:
+## Connect using Microsoft Entra identities
 
-- Azure Active Directory Password
-- Azure Active Directory Integrated
-- Azure Active Directory Universal with MFA
+Microsoft Entra authentication supports the following methods of connecting to a database using Microsoft Entra identities:
+
+- Microsoft Entra Password
+- Microsoft Entra integrated
+- Microsoft Entra Universal with MFA
 - Using Active Directory Application certificates or client secrets
 - [Managed Identity](how-to-connect-with-managed-identity.md)
 
 Once you've authenticated against the Active Directory, you then retrieve a token. This token is your password for logging in.
 
 > [!NOTE]  
-> Use these steps to configure Azure AD with Azure Database for PostgreSQL Flexible Server [Configure and sign in with Azure AD for Azure Database for PostgreSQL Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
+> Use these steps to configure Microsoft Entra ID with Azure Database for PostgreSQL flexible server [Configure and sign in with Microsoft Entra ID for Azure Database for PostgreSQL - Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
 
 ## Other considerations
 
-- Multiple Azure AD principals (a user, group, service principal or managed identity) can be configured as Azure AD Administrator for an Azure Database for PostgreSQL server at any time.
-- Only an Azure AD administrator for PostgreSQL can initially connect to the Azure Database for PostgreSQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
--  If an Azure AD principal is deleted from Azure AD, it still remains as PostgreSQL role, but it will no longer be able to acquire new access token. In this case, although the matching role still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
+- Microsoft user assigned tokens are 
+- Multiple Microsoft Entra principals (a user, group, service principal or managed identity) can be configured as Microsoft Entra Administrator for an Azure Database for PostgreSQL flexible server instance at any time.
+- Only a Microsoft Entra administrator for PostgreSQL can initially connect to the Azure Database for PostgreSQL flexible server instance using a Microsoft Entra account. The Active Directory administrator can configure subsequent Microsoft Entra database users.
+-  If a Microsoft Entra principal is deleted from Microsoft Entra ID, it still remains as PostgreSQL role, but it will no longer be able to acquire new access token. In this case, although the matching role still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
 
 > [!NOTE]  
-> Login with the deleted Azure AD user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for PostgreSQL this access will be revoked immediately.
+> Login with the deleted Microsoft Entra user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for PostgreSQL flexible server this access is revoked immediately.
 
-- Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and a new user is added with the same name the new user won't be able to connect with the existing role.
+- Azure Database for PostgreSQL flexible server matches access tokens to the database role using the user’s unique Microsoft Entra user ID, as opposed to using the username. If a Microsoft Entra user is deleted and a new user is created with the same name, Azure Database for PostgreSQL flexible server considers that a different user. Therefore, if a user is deleted from Microsoft Entra ID and a new user is added with the same name the new user won't be able to connect with the existing role.
+
+## Frequently asked questions
+
+
+* **What are different authentication modes available in Azure Database for PostgreSQL Flexible Server?**
+ 
+   Azure Database for PostgreSQL flexible server supports three modes of authentication namely  **PostgreSQL authentication only**, **Microsoft Entra authentication only**, and  **PostgreSQL and Microsoft Entra authentication**.
+
+* **Can I configure multiple Microsoft Entra administrators on my Flexible Server?**
+  
+    Yes. You can configure multiple Entra administrators on your flexible server. During provisioning, you can only set a single Microsoft Entra admin but once the server is created you can set as many Microsoft Entra administrators as you want by going to **Authentication** blade. 
+
+* **Is Microsoft Entra administrators only a Microsoft Entra user?****
+  
+    No. Microsoft Entra administrator can be a user, group, service principal or managed identity.
+
+* **Can Microsoft Entra administrator create local password-based users?**
+  
+   Unlike the PostgreSQL administrator, who can only create local password-based users, the Microsoft Entra administrator has the authority to manage both Entra users and local password-based users.
+
+* **What happens when I enable Microsoft Entra Authentication on my flexible server?**
+  
+    When Microsoft Entra Authentication is set at the server level, PGAadAuth extension gets enabled and results in a server restart.
+
+* **How do I log in using Microsoft Entra Authentication?**
+  
+    You can use client tools such as psql, pgadmin etc. to login to your flexible server. Please use the Microsoft Entra ID as **User name** and use your **Entra token** as your password which is generated using azlogin.
+
+* **How do I generate my token?**
+  
+   Please use the below steps to generate your token. [Generate Token](how-to-configure-sign-in-azure-ad-authentication.md).
+
+* **What is the difference between group login and individual login?**
+  
+   The only difference between logging in as **Microsoft Entra group member** and an individual **Entra user** lies in the **Username**, while logging in as an individual user you provide your individual Microsoft Entra ID whereas you'll utilize the group name while logging in as a group member. Regardless, in both scenarios, you'll employ the same individual Entra token as the password.
+
+* **What is the token lifetime?**
+
+     User tokens are valid for up to 1 hour whereas System Assigned Managed Identity tokens are valid for up to 24 hours.
 
 
 ## Next steps
 
-- To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for PostgreSQL, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).
-- To learn how to manage Azure AD users for Flexible Server, see [Manage Azure Active Directory users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
+- To learn how to create and populate Microsoft Entra ID, and then configure Microsoft Entra ID with Azure Database for PostgreSQL flexible server, see [Configure and sign in with Microsoft Entra ID for Azure Database for PostgreSQL - Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
+- To learn how to manage Microsoft Entra users for Flexible Server, see [Manage Microsoft Entra users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-azure-ad-users.md).
 
 <!--Image references-->
 

@@ -6,8 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 10/21/2022
-ms.custom: engagement-fy23
+ms.date: 1/23/2024
 zone_pivot_groups: iot-develop-toolset
 #- id: iot-develop-toolset
 ## Owner: timlt
@@ -619,8 +618,6 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
-> [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
 

@@ -4,11 +4,10 @@ description: Tutorial - Use IoT Hub tools to troubleshoot, during development, d
 services: iot-hub
 author: kgremban
 ms.author: kgremban
-ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
+ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-azurecli]
 ms.date: 02/01/2023
 ms.topic: tutorial
 ms.service: iot-hub
-
 #Customer intent: As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
 

@@ -6,7 +6,7 @@ ms.author: tejaswikolli
 ms.topic: reference
 ms.custom: subject-monitoring
 ms.service: container-registry
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Monitoring Azure Container Registry data reference

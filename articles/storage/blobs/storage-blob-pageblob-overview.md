@@ -2,14 +2,13 @@
 title: Overview of Azure page blobs
 description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: article
 ms.date: 05/11/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: wielriac
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -35,6 +34,8 @@ First party Microsoft services like Azure Site Recovery, Azure Backup, as well a
 - Application-directed incremental snapshot management: Applications can leverage page blob snapshots and REST APIs for saving the application checkpoints without incurring costly duplication of data. Azure Storage supports local snapshots for page blobs, which don't require copying the entire blob. These public snapshot APIs also enable accessing and copying of deltas between snapshots.
 - Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 - [SAS-based](../common/storage-sas-overview.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
+
+Unmanaged disks are being retired, for details see [Migrate your Azure unmanaged disks by September 30, 2025](../../virtual-machines/unmanaged-disks-deprecation.md).
 
 ## Pricing
 

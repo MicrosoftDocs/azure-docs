@@ -4,7 +4,7 @@ description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, a
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
-ms.date: 10/17/2022
+ms.date: 11/21/2023
 #Customer intent: As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
 ---
 

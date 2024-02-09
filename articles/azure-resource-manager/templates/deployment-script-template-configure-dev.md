@@ -38,7 +38,7 @@ echo $OUTPUT | jq -r '.name.displayName'
 ```
 
 > [!NOTE]
-> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-script).
+> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-scripts).
 
 ## Use Azure PowerShell container instance
 
@@ -93,7 +93,7 @@ The following Azure Resource Manager template (ARM template) creates a container
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2023-01-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -106,7 +106,7 @@ The following Azure Resource Manager template (ARM template) creates a container
     },
     {
       "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2023-01-01",
       "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('fileShareName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -157,13 +157,13 @@ The following Azure Resource Manager template (ARM template) creates a container
               "readOnly": false,
               "shareName": "[variables('fileShareName')]",
               "storageAccountName": "[variables('storageAccountName')]",
-              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').keys[0].value]"
+              "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value]"
             }
           }
         ]
       },
       "dependsOn": [
-        "storageAccount"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     }
   ]
@@ -212,7 +212,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 2. Open the container group. The default container group name is the project name appended with *cg*. The container instance is in the **Running** state.
 3. In the resource menu, select **Containers**. The container instance name is the project name appended with *container*.
 
-    ![Screenshot of the deployment script connect container instance in the Azure portal.](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png" alt-text="Screenshot of the deployment script connect container instance option in the Azure portal.":::
 
 4. Select **Connect**, and then select **Connect**. If you can't connect to the container instance, restart the container group and try again.
 5. In the console pane, run the following commands:
@@ -225,7 +225,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 
     The output is **Hello John Dole**.
 
-    ![Screenshot of the deployment script connect container instance test output in the console.](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png" alt-text="Screenshot of the deployment script connect container instance test output displayed in the console.":::
 
 ## Use an Azure CLI container instance
 
@@ -402,7 +402,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 1. Open the container group. The default container group name is the project name appended with *cg*. The container instance is shown in the **Running** state.
 1. In the resource menu, select **Containers**. The container instance name is the project name appended with *container*.
 
-    ![deployment script connect container instance](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png" alt-text="Screenshot of the deployment script connect container instance option in the Azure portal.":::
 
 1. Select **Connect**, and then select **Connect**. If you can't connect to the container instance, restart the container group and try again.
 1. In the console pane, run the following commands:
@@ -415,7 +415,7 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 
     The output is **Hello John Dole**.
 
-    ![deployment script container instance test](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test-cli.png)
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-test-cli.png" alt-text="Screenshot of the deployment script container instance test output displayed in the console.":::
 
 ## Use Docker
 
@@ -460,7 +460,7 @@ You also need to configure file sharing to mount the directory, which contains t
 
 1. The following screenshot shows how to run a PowerShell script, given that you have a *helloworld.ps1* file in the shared drive.
 
-    ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+    :::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png" alt-text="Screenshot of the Resource Manager template deployment script using Docker command.":::
 
 After the script is tested successfully, you can use it as a deployment script in your templates.
 

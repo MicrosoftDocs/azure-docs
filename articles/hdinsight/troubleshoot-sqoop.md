@@ -2,6 +2,7 @@
 title: Sqoop import/export command fails for some users in ESP clusters - Azure HDInsight
 description: 'Apache Sqoop import/export command fails with "Import Failed: java.io.IOException: The ownership on the staging directory /user/yourusername/.staging is not as expected" error for some users in Azure HDInsight ESP cluster'
 ms.service: hdinsight
+ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
 ms.date: 04/26/2023
 ---
@@ -27,7 +28,7 @@ In the example, `/user/yourlongdomainuserna/.staging` displays the truncated 20 
 
 The length of the username exceeds 20 characters in length. 
 
-Refer to [How objects and credentials are synchronized in an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/synchronization.md) for further details.
+Refer to [How objects and credentials are synchronized in a Microsoft Entra Domain Services managed domain](../active-directory-domain-services/synchronization.md) for further details.
 
 ## Workaround
 

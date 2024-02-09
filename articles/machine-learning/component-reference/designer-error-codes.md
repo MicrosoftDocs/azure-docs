@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: troubleshooting
+ms.custom: troubleshooting, devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 03/25/2021
@@ -287,7 +287,7 @@ If the model was trained using any of the specialized training components, conne
 The error of unique values is greater than allowed will occur if meeting **both** following conditions:
 
 - More than 97% instances of one column are unique values, which means nearly all categories are different from each other.
-- One column has more than than 1000 unique values.
+- One column has more than 1000 unique values.
 
 **Resolution:**
 

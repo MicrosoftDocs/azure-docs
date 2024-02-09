@@ -8,6 +8,7 @@ ms.author: kgremban
 ms.date: 03/09/2023
 ms.topic: tutorial
 ms.service: iot-dps
+ms.custom: devx-track-extended-java, devx-track-python
 zone_pivot_groups: iot-dps-set1
 ---
 
@@ -171,7 +172,7 @@ In this section, you'll prepare a development environment that's used to build t
    ```
 
    >[!NOTE]
-   >The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta. For information about updating V2 code samples to use a V3 release of the Python SDK, see [Azure IoT Device SDK for Python migration guide](https://github.com/Azure/azure-iot-sdk-python/blob/main/migration_guide_provisioning.md).
+   >The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta. For information about updating V2 code samples to use a V3 release of the Python SDK, see [Azure IoT Device SDK for Python migration guide](https://github.com/Azure/azure-iot-sdk-python/blob/v3/migration_guide_provisioning.md).
 
 ::: zone-end
 

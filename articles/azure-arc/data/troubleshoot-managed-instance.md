@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot connection to failover group - Azure Arc-enabled SQL Managed Instance
+title: Troubleshoot connection to failover group - SQL Managed Instance enabled by Azure Arc
 description: Describes how to troubleshoot issues with connections to failover group resources in Azure Arc-enabled data services
 author: MikeRayMSFT
 ms.author: mikeray
@@ -7,11 +7,11 @@ ms.topic: troubleshooting-general
 ms.date: 03/15/2023
 ---
 
-# Troubleshoot Azure Arc-enabled SQL Managed Instance deployments
+# Troubleshoot SQL Managed Instance enabled by Azure Arc deployments
 
 This article identifies potential issues, and describes how to diagnose root causes for these issues for deployments of Azure Arc-enabled data services. 
 
-## Connection to Azure Arc-enabled SQL Managed Instance failover group
+## Connection to SQL Managed Instance enabled by Azure Arc failover group
 
 This section describes how to troubleshoot issues connecting to a failover group.
 
@@ -27,7 +27,7 @@ On each side, there are two replicas for one failover group. Check the value of 
 
 If one of `connectedState` isn't equal to `CONNECTED`, see the instructions under [Check parameters](#check-parameters).
 
-If one of `synchronizationState` isn't equal to `HEALTHY`, focus on the instance which `synchronizationState` isn't equal to `HEALTHY`". Refer to [Can't connect to Arc-enabled SQL Managed Instance](#cant-connect-to-arc-enabled-sql-managed-instance) for how to debug.
+If one of `synchronizationState` isn't equal to `HEALTHY`, focus on the instance which `synchronizationState` isn't equal to `HEALTHY`". Refer to [Can't connect to SQL Managed Instance enabled by Azure Arc](#cant-connect-to-sql-managed-instance-enabled-by-azure-arc).
 
 ### Check parameters
 
@@ -92,12 +92,12 @@ kubectl exec -ti -n $nameSpace $sqlmiName-0 -c arc-sqlmi -- /opt/mssql-tools/bin
 
 If SQL server can use external endpoint TDS, there is a good chance it can reach external mirroring endpoint because they are defined and activated in the same service, specifically `$sqlmiName-external-svc`.
 
-## Can't connect to Arc-enabled SQL Managed Instance
+## Can't connect to SQL Managed Instance enabled by Azure Arc
 
-This section identifies specific steps you can take to troubleshoot connections to Azure Arc-enabled SQL managed instances.
+This section identifies specific steps you can take to troubleshoot connections to SQL Managed Instance enabled by Azure Arc.
 
 > [!NOTE]
-> You can't connect to an Azure Arc-enabled SQL Managed Instance if the instance license type is `DisasterRecovery`.
+> You can't connect to a SQL Managed Instance enabled by Azure Arc if the instance license type is `DisasterRecovery`.
 
 ### Check the managed instance status
 
@@ -109,7 +109,7 @@ kubectl -n $nameSpace get sqlmi $sqlmiName -o jsonpath-as-json='{.status}'
 
 **Results**
 
-The state should be `Ready`. If the value isn't `Ready`, you need to wait. If state is error, get the message field, collect logs, and contact support. See [Collecting the logs](#collecting-the-logs).
+The state should be `Ready`. If the value isn't `Ready`, you need to wait. If state is error, get the message field, collect logs, and contact support. See [Collect the logs](#collect-the-logs).
 
 ### Check the routing label for stateful set
 The routing label for stateful set is used to route external endpoint to a matched pod. The name of the label is `role.ag.mssql.microsoft.com`.
@@ -122,7 +122,7 @@ kubectl -n $nameSpace get pods $sqlmiName-2 -o jsonpath-as-json='{.metadata.labe
 
 **Results**
 
-If you didn't find primary, kill the pod that doesn't have any `role.ag.mssql.microsoft.com` label. If this doesn't resolve the issue, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
+If you didn't find primary, kill the pod that doesn't have any `role.ag.mssql.microsoft.com` label. If this doesn't resolve the issue, collect logs and contact support. See [Collect the logs](#collect-the-logs).
 
 ### Get Replica state from local container connection
 
@@ -138,7 +138,7 @@ kubectl exec -ti -n $nameSpace $sqlmiName-2 -c arc-sqlmi -- /opt/mssql-tools/bin
 
 All replicas should be connected & healthy. Here is the detailed description of the query results [sys.dm_hadr_availability_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-hadr-availability-replica-states-transact-sql).
 
-If you find it isn't synchronized or not connected unexpectedly, try to kill the pod which has the problem. If problem persists, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
+If you find it isn't synchronized or not connected unexpectedly, try to kill the pod which has the problem. If problem persists, collect logs and contact support. See [Collect the logs](#collect-the-logs).
 
 > [!NOTE]
 > If there are some large database in the instance, the seeding process to secondary could take a while. If this happens, wait for seeding to complete.
@@ -155,7 +155,7 @@ kubectl exec -ti -n $nameSpace $sqlmiName-2 -c arc-sqlmi -- /opt/mssql-tools/bin
 
 **Results**
 
-You should get `ServerName` from `Listener` of each replica. If you can't get `ServerName`, kill the pods which have the problem. If the problem persists after recovery, collect logs and contact support. See [Collecting the logs](#collecting-the-logs).
+You should get `ServerName` from `Listener` of each replica. If you can't get `ServerName`, kill the pods which have the problem. If the problem persists after recovery, collect logs and contact support. See [Collect the logs](#collect-the-logs).
 
 ### Check Kubernetes network connection
 
@@ -186,12 +186,9 @@ You should be able to connect to exposed external port (which has been confirmed
 
 You can use any client like `SqlCmd`, SQL Server Management Studio (SSMS), or Azure Data Studio (ADS) to test this out.
 
-## Collecting the logs
+## Connection between failover groups is lost
 
-If the previous steps all succeeded without any problem and you still can't log in, collect the logs and contact support
-
-### Connection between Failover groups is lost
-If the Failover groups between primary and geo-secondary Arc SQL Managed instances is configured to be in `sync` mode and the connection is lost for whatever reason for an extended period of time, then the logs on the primary Arc SQL managed instance cannot be truncated until the transactions are sent to the geo-secondary. This could lead to the logs filling up and potentially running out of space on the primary site. To break out of this situation, remove the failover groups and re-configure when the connection between the sites is re-established. 
+If the failover groups between primary and geo-secondary Arc SQL Managed instances is configured to be in `sync` mode and the connection is lost for whatever reason for an extended period of time, then the logs on the primary Arc SQL managed instance cannot be truncated until the transactions are sent to the geo-secondary. This could lead to the logs filling up and potentially running out of space on the primary site. To break out of this situation, remove the failover groups and re-configure when the connection between the sites is re-established. 
 
 The failover groups can be removed on both primary as well as secondary site as follows:
 
@@ -203,6 +200,10 @@ and if the data controller is deployed in `direct` mode, provide the `sharedname
 
 
 Once the failover group on the primary site is deleted, logs can be truncated to free up space.
+
+## Collect the logs
+
+If the previous steps all succeeded without any problem and you still can't log in, collect the logs and contact support
 
 ### Collection controller logs
 
@@ -227,6 +228,6 @@ kubectl -n $nameSpace  cp $sqlmiName-ha-0:/var/log $localFolder/$sqlmiName-ha-0/
 ```
 
 
-## Next steps
+## Related content
 
 [Get logs to troubleshoot Azure Arc-enabled data services](troubleshooting-get-logs.md)

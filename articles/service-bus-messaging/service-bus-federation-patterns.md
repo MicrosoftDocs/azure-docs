@@ -237,9 +237,9 @@ targets, illustrated here in C#:
 ``` csharp
 [FunctionName("SBRouter")]
 public static async Task Run(
-    [ServiceBusTrigger("source", Connection = "serviceBusConnectionAppSetting")] Message[] messages,
-    [ServiceBus("dest1", Connection = "serviceBusConnectionAppSetting")] QueueClient output1,
-    [ServiceBus("dest2", Connection = "serviceBusConnectionAppSetting")] QueueClient output2,
+    [ServiceBusTrigger("source", Connection = "serviceBusConnectionAppSetting")] ServiceBusReceivedMessage[] messages,
+    [ServiceBusOutput("dest1", Connection = "serviceBusConnectionAppSetting")] IAsyncCollector<dynamic> output1,
+    [ServiceBusOutput("dest2", Connection = "serviceBusConnectionAppSetting")] IAsyncCollector<dynamic> output2,
     ILogger log)
 {
     foreach (Message messageData in messages)

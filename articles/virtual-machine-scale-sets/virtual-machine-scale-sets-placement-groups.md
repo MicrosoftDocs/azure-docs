@@ -48,7 +48,7 @@ You can create a large Virtual Machine Scale Set using the [Azure CLI](https://g
 
 ```azurecli
 az group create -l southcentralus -n biginfra
-az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
+az vmss create -g biginfra -n bigvmss --image Ubuntu2204 --instance-count 1000
 ```
 
 The _vmss create_ command defaults certain configuration values if you do not specify them. To see the available options that you can override, try:

@@ -4,7 +4,7 @@ description: Sample Azure Resource Graph queries for Azure Container Registry sh
 ms.topic: sample
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.service: container-registry
 ms.custom: subject-resourcegraph-sample
 ---

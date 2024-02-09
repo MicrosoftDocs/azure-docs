@@ -23,7 +23,7 @@ Saving images to a compute gallery and replicating those images incurs extra cos
 
 ## Prerequisites
 
-- To change settings for the lab plan, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Lab Services Contributor](/azure/role-based-access-control/built-in-roles#lab-services-contributor) role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+- To change settings for the lab plan, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Lab Services Contributor](/azure/role-based-access-control/built-in-roles#lab-services-contributor) role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md).
 
 - To attach an Azure compute gallery to a lab plan, your Azure account needs to have the following permissions:
 
@@ -32,7 +32,7 @@ Saving images to a compute gallery and replicating those images incurs extra cos
     | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Azure compute gallery | If you attach an existing compute gallery. |
     | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Resource group | If you create a new compute gallery. |
 
-- If your Azure account is a guest user in Azure Active Directory, your Azure account needs to have the [Directory Readers](/azure/active-directory/roles/permissions-reference#directory-readers) role to attach an existing compute gallery.
+- If your Azure account is a guest user in Microsoft Entra ID, your Azure account needs to have the [Directory Readers](/azure/active-directory/roles/permissions-reference#directory-readers) role to attach an existing compute gallery.
 
 Learn how to [assign an Azure role in Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-steps#step-5-assign-role).
 

@@ -2,12 +2,13 @@
 title: Copy or move data to Azure Storage by using AzCopy v10
 description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: normesta
-ms.subservice: common
-ms.custom: contperf-fy21q2
+ms.subservice: storage-common-concepts
+ms.custom: ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Get started with AzCopy
@@ -21,6 +22,11 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 <a id="download-and-install-azcopy"></a>
 
+This video shows you how to download and run the AzCopy utility.
+> [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
+
+The steps in the video are also described in the following sections.
+
 ## Download AzCopy
 
 First, download the AzCopy V10 executable file to any directory on your computer. AzCopy V10 is just an executable file, so there's nothing to install.
@@ -28,8 +34,9 @@ First, download the AzCopy V10 executable file to any directory on your computer
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [Linux ARM64 Preview](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
+- [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
 
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
@@ -50,19 +57,13 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 ## Authorize AzCopy
 
-You can provide authorization credentials by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
+You can provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
 
-Use this table as a guide:
+<a name='option-1-use-azure-active-directory'></a>
 
-| Storage type | Currently supported method of authorization |
-|--|--|
-|**Blob storage** | Azure AD & SAS |
-|**Blob storage (hierarchical   namespace)** | Azure AD & SAS |
-|**File storage** | SAS only |
+#### Option 1: Use Microsoft Entra ID
 
-#### Option 1: Use Azure Active Directory
-
-This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command.
 
 #### Option 2: Use a SAS token
 
@@ -124,7 +125,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy jobs resume](storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json)|Resumes the existing job with the given job ID.|
 |[azcopy jobs show](storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json)|Shows detailed information for the given job ID.|
 |[azcopy list](storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json)|Lists the entities in a given resource.|
-|[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Azure Active Directory to access Azure Storage resources.|
+|[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Microsoft Entra ID to access Azure Storage resources.|
 |[azcopy login status](storage-ref-azcopy-login-status.md)|Lists the entities in a given resource.|
 |[azcopy logout](storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json)|Logs the user out and terminates access to Azure Storage resources.|
 |[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|Creates a container or file share.|
@@ -178,7 +179,7 @@ $AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThr
 
 #### Escape special characters in SAS tokens
 
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string.
+In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string. The resulting character sequence appears as `%%`. Make sure to add an extra `^` before each `&` character to create the character sequence `^&`.
 
 #### Run scripts by using Jenkins
 

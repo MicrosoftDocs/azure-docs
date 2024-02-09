@@ -1,14 +1,13 @@
 ---
 title: Maintenance schedules for Synapse SQL pool
-description: Maintenance scheduling enables customers to plan around the necessary scheduled maintenance events that Azure Synapse Analytics uses to roll out new features, upgrades, and patches.  
+description: Maintenance scheduling enables customers to plan around the necessary scheduled maintenance events that Azure Synapse Analytics uses to roll out new features, upgrades, and patches.
 author: sowmi93
 ms.author: sosivara
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/28/2022
 ms.reviewer: sngun
+ms.date: 01/10/2024
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ---
 
 # Use maintenance schedules to manage service updates and maintenance
@@ -21,12 +20,13 @@ For example, you can schedule a primary window of Saturday 22:00 to Sunday 01:00
 
 All newly created data warehouse instances will have a system-defined maintenance schedule applied during deployment. The schedule can be edited as soon as deployment is complete.
 
-Although a maintenance window can be between three and eight hours this does not mean the data warehouse will be offline for the duration. Maintenance can occur at any time within that window and you should expect a single disconnect during that period lasting ~5 -6 mins as the service deploys new code to your data warehouse. DW400c and lower may experience multiple brief losses in connectivity at various times during the maintenance window. When maintenance starts, all active sessions will be canceled, and non-committed transactions will be rolled back. To minimize instance downtime, make sure that your data warehouse has no long-running transactions before your chosen maintenance period.
+When choosing a maintenance window, you need to select a start time and set a maximum duration. The "maximum duration of a maintenance window" determines the timeframe in which maintenance tasks will be carried out. This timeframe can be between three (3) and eight (8) hours, with a minimum requirement of three (3) hours. During this period, your data warehouse will be temporarily offline as your dedicated pool is moved to upgraded capacity using a process similar to pause/resume. Under typical conditions, this operation will complete in well under 30 minutes, but it's important to note that in some cases, it can take longer. For instance, if there are active transactions when the maintenance begins, they will be canceled and rolled back, potentially causing delays in restoring the online service. To prevent this situation, we recommend ensuring that there are no long-running transactions active at the start of your maintenance window.
 
 All maintenance operations should finish within the specified maintenance windows unless we are required to deploy a time sensitive update. If your data warehouse is paused during a scheduled maintenance, it will be updated during the resume operation. You'll be notified immediately after your data warehouse maintenance is completed.
 
 > [!NOTE]
-> The maintenance windows are not applicable for DW400c or lower performance levels. They can undergo maintenance at any time.
+> - The maintenance windows are not applicable for DW400c or lower performance levels. They can undergo maintenance at any time.
+> - DW400c and lower may experience multiple brief losses in connectivity at various times during the maintenance window.
 
 ## Alerts and monitoring
 
@@ -55,19 +55,20 @@ To view the maintenance schedule that has been applied to your Synapse SQL pool,
 
 ![Overview blade](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## Skip or disable maintenance schedule
+## Skip or change maintenance schedule
 
-To ensure compliance with latest security requirements, we are unable to accommodate requests to skip or delay these updates. However, you may have some options to adjust your maintenance window within the current cycle depending on your situation:
-- If you receive a pending notification for maintenance, and you need more time to finish your jobs or notify your team, you can change the window start time as long as you do so before the beginning of your defined maintenance window. This will shift your window forward in time within the cycle. Note that if you change the window to a start time before the actual present time, maintenance will be triggered immediately.
+To ensure compliance with latest security requirements, we are unable to accommodate requests to skip or delay these updates. However, you may have some options to adjust your maintenance window if you are using DW500c and higher
+data warehouse tiers within the current cycle depending on your situation:
+- If you receive a pending notification for maintenance, and you need more time to finish your jobs or notify your team, you can change the window start time as long as you do so before the beginning of your defined maintenance window. This will shift your window forward in time within the cycle.
+
 - You can manually trigger the maintenance by pausing and resuming (or scaling) your SQL Dedicated pool after the start of a cycle for which a "Pending" notification has been received. The weekend maintenance cycle starts on Saturday at 00:00 UTC; the midweek maintenance cycle starts Tuesday at 12:00 UTC.
-- Although we do require a minimum window of 3 hours, note that maintenance usually takes less than 30 minutes to complete, but it may take longer in some cases. For example, if there are active transactions when the maintenance starts, they will be aborted and rolled back, which may cause delays in coming back online. To avoid this scenario, we recommend that you ensure that no long-running transactions are active during the start of your maintenance window.
 
-## Change a maintenance schedule
-
-A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about monitoring your data warehouse during an active maintenance event.
+- Although we do require a minimum window of 3 hours, under typical conditions this operation will complete in well under 30 minutes. However, it's important to note that in some cases, it can take longer. For instance, if there are active transactions when the maintenance begins, they will be canceled and rolled back, potentially causing delays in restoring the online service. To prevent this situation, we recommend ensuring that there are no long-running transactions active at the start of your maintenance window.
 
 > [!NOTE]
-> In case you are using DW400c or lower, although you are able to change the maintenance schedule, it will not be adhered to since it's a lower performance level. As mentioned earlier, these data warehouse tiers can undergo maintenance at any time.
+> - If you change the window to a start time before the actual present time, maintenance will be triggered immediately and if there are active transactions when the maintenance starts, they will be aborted and rolled back.
+> - After the pause and resume operation is completed to initiate the maintenance, instead of receiving a notification confirming the completion of the maintenance, you will be notified that it has been cancelled.
+> - In case you are using DW400c or lower, although you are able to change the maintenance schedule, it will not be adhered to since it's a lower performance level. As mentioned earlier, these data warehouse tiers can undergo maintenance at any time with the maintenance cycle.
 
 ## Identifying the primary and secondary windows
 
@@ -99,6 +100,40 @@ During preview, some regions might not yet support the full set of available **D
    If you're saving a schedule in a region that doesn't support maintenance scheduling, the following message appears. Your settings are saved and become active when the feature becomes available in your selected region.
 
    ![Message about region availability](./media/maintenance-scheduling/maintenance-not-active-toast.png)
+
+## Frequently asked questions
+
+### What is the expected frequency for the maintenance.
+
+Maintenance can happen more than once per month, because maintenance can include OS updates, security patches and drivers, internal Azure infrastructure updates, and DW patches and updates. Every customer has a twice-weekly schedule of maintenance cycles between through Saturday–Sunday, and Tuesday–Thursday.
+
+### What changes have been made after the maintenance is completed, even though my dedicated SQL pool version remains the same?
+
+After a maintenance update is completed, the SQL pool version may remain unchanged. This is because maintenance can include OS updates, security patches and drivers, internal Azure infrastructure updates, and DW patches and updates. Only if a Synapse DW patch or update is included in the maintenance will you see a change to the SQL Dedicated Pool version.
+
+### Is it possible to upgrade the version of my dedicated SQL pool on demand?
+
+- No, scheduled maintenance handles the management of dedicated SQL pools. However, you might have some options to trigger the maintenance once the cycle started, depending on your situation. Verify [Skip or change maintenance schedule](#skip-or-change-maintenance-schedule)
+- It's important to keep in mind that the dedicated SQL Pool is a Platform as a Service (PaaS) feature. This implies that Microsoft Azure handles all kinds of tasks related to the service, such as infrastructure, maintenance, updates, and scalability. Scheduled maintenance can be tracked by setting an alert/notification so you stay informed of impending maintenance activity.
+
+### What changes, if any, should be made before or after the dedicated SQL pool maintenance is completed?
+
+- During maintenance, your service will be briefly taken offline, similar to what occurs during a pause, resume, or scale operation. Typically, the overall maintenance operation is completed in well under 30 minutes. However, it could take a little longer, depending on database activity during the maintenance window. We recommend pausing ETL, table updates, and especially transactional operations to avoid longer than normal maintenance. For example:
+- If your instance is extremely busy during the planned window, especially with frequent update and delete activity, the maintenance operation might take longer than the normal time. To reduce the chance of extended maintenance activity, we recommend limiting activity to mostly read-only queries against the database if possible, and especially avoiding long-running transactional queries (see the next item).
+- If there are active transactions when the maintenance begins, they are canceled and rolled back, potentially causing delays in restoring the online service. To prevent this situation, we recommend ensuring that there are no long-running transactions active at the start of your maintenance window.
+
+### We were notified about an upcoming dedicated SQL pool scheduled maintenance with tracking ID 0000-000, but it was subsequently canceled or rescheduled. What prompted the cancellation or rescheduling of the maintenance?
+
+There are various factors that could lead to the cancellation of scheduled maintenance, including actions such as:
+- Pausing or scaling operations after receiving a pending maintenance notification while the cycle is initiated.
+- If you are targeting different Service Level Objectives (SLOs) during the maintenance cycle, such as transitioning from any SLO higher than DW400c and then scaling back to an SLO lower or equal to DW400c, or vice versa, a cancellation could occur. This is because maintenance windows are not applicable for DW400c or lower performance levels, and they can undergo maintenance at any time.
+- Internal infrastructure factors, such as actual changes to planned maintenance scheduling by the release team.
+- Maintenance may be canceled or rescheduled if internal monitoring detects that maintenance is taking longer than expected. Maintenance must be completed within the Service Level Agreements (SLAs) defined by customer maintenance window settings.
+
+### Are there any best practices that I need to consider for our workload during the maintenance window?
+
+- Yes, if possible, pause all transactional and ETL workloads during the planned maintenance interval to avoid errors or delays in restoring the online service. Long-running transactional operations should be completed prior to an upcoming maintenance period.
+- For workloads to be resilient to interruptions caused by maintenance operations, use retry logic for both the connection and the command (query) levels, applying longer retry intervals and/or more retry attempts to withstand an extended connection loss that can extend up to or greater than 30 minutes in some cases.
 
 ## Next steps
 

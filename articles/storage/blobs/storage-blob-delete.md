@@ -7,16 +7,24 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 05/11/2023
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Delete and restore a blob with .NET
 
+[!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
+
 This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob, or to restore a soft-deleted blob. To learn more, see the authorization guidance for the following REST API operations:
+    - [Delete Blob](/rest/api/storageservices/delete-blob#authorization)
+    - [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization)
 
 ## Delete a blob
 
@@ -27,14 +35,15 @@ To delete a blob, call either of these methods:
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
 
-The following example deletes a blob.
+The following example deletes a blob:
 
-```csharp
-public static async Task DeleteBlob(BlobClient blob)
-{
-    await blob.DeleteAsync();
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="Snippet_DeleteBlob":::
+
+If the blob has any associated snapshots, you must delete all of its snapshots to delete the blob. The following example deletes a blob and its snapshots:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="Snippet_DeleteBlobSnapshots":::
+
+To delete *only* the snapshots and not the blob itself, you can pass the parameter `DeleteSnapshotsOption.OnlySnapshots`.
 
 ## Restore a deleted blob
 
@@ -56,69 +65,22 @@ To restore deleted blobs when versioning is not enabled, call either of the foll
 
 These methods restore soft-deleted blobs and any deleted snapshots associated with them. Calling either of these methods for a blob that has not been deleted has no effect. The following example restores  all soft-deleted blobs and their snapshots in a container:
 
-```csharp
-public static async Task UndeleteBlobs(BlobContainerClient container)
-{
-    foreach (BlobItem blob in container.GetBlobs(BlobTraits.None, BlobStates.Deleted))
-    {
-        await container.GetBlockBlobClient(blob.Name).UndeleteAsync();
-    }
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="Snippet_RestoreBlob":::
 
 To restore a specific soft-deleted snapshot, first call the [Undelete](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.undelete) or [UndeleteAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.undeleteasync) on the base blob, then copy the desired snapshot over the base blob. The following example restores a block blob to the most recently generated snapshot:
 
-```csharp
-public static async Task RestoreSnapshots(BlobContainerClient container, BlobClient blob)
-{
-    // Restore the deleted blob.
-    await blob.UndeleteAsync();
-
-    // List blobs in this container that match prefix.
-    // Include snapshots in listing.
-    Pageable<BlobItem> blobItems = container.GetBlobs
-                    (BlobTraits.None, BlobStates.Snapshots, prefix: blob.Name);
-
-    // Get the URI for the most recent snapshot.
-    BlobUriBuilder blobSnapshotUri = new BlobUriBuilder(blob.Uri)
-    {
-        Snapshot = blobItems
-                    .OrderByDescending(snapshot => snapshot.Snapshot)
-                    .ElementAtOrDefault(0)?.Snapshot
-    };
-
-    // Restore the most recent snapshot by copying it to the blob.
-    blob.StartCopyFromUri(blobSnapshotUri.ToUri());
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="Snippet_RestoreSnapshot":::
 
 #### Restore soft-deleted blobs when versioning is enabled
 
-To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use either of the following methods:
+If a storage account is configured to enable blob versioning, deleting a blob causes the current version of the blob to become the previous version. To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use either of the following methods:
 
 - [StartCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
 - [StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
 
-```csharp
-public static void RestoreBlobsWithVersioning(BlobContainerClient container, BlobClient blob)
-{
-    // List blobs in this container that match prefix.
-    // Include versions in listing.
-    Pageable<BlobItem> blobItems = container.GetBlobs
-                    (BlobTraits.None, BlobStates.Version, prefix: blob.Name);
+The following code example shows how to get the latest version of a deleted blob, and restore the latest version by copying it to the base blob:
 
-    // Get the URI for the most recent version.
-    BlobUriBuilder blobVersionUri = new BlobUriBuilder(blob.Uri)
-    {
-        VersionId = blobItems
-                    .OrderByDescending(version => version.VersionId)
-                    .ElementAtOrDefault(0)?.VersionId
-    };
-
-    // Restore the most recently generated version by copying it to the base blob.
-    blob.StartCopyFromUri(blobVersionUri.ToUri());
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="Snippet_RestoreBlobWithVersioning":::
 
 ## Resources
 
@@ -130,6 +92,10 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs)
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 

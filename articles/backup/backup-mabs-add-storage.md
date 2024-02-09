@@ -4,8 +4,8 @@ description: Learn about the new features in Azure Backup Server. This article d
 ms.topic: conceptual
 ms.date: 03/01/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Add storage to Azure Backup Server

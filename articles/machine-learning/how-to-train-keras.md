@@ -7,19 +7,16 @@ ms.service: machine-learning
 ms.subservice: training
 ms.author: balapv
 author: balapv
-ms.reviewer: mopeakande
+ms.reviewer: sgilley
 ms.date: 10/05/2022
 ms.topic: how-to
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv2
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train Keras models at scale with Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [v1](v1/how-to-train-keras.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-train-keras.md)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this article, learn how to run your Keras training scripts using the Azure Machine Learning Python SDK v2.
 
@@ -47,7 +44,7 @@ To benefit from this article, you'll need to:
 
 You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page.
 
-[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
+[!INCLUDE [gpu quota](includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the job
 

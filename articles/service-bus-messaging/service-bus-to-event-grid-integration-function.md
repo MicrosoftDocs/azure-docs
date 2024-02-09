@@ -1,7 +1,6 @@
 ---
 title: Handle Service Bus events via Event Grid using Azure Functions
 description: This article provides steps for handling Service Bus events via Event Grid using Azure Functions. 
-documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
 ms.date: 12/12/2022
@@ -25,7 +24,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [service-bus-event-grid-prerequisites](./includes/service-bus-event-grid-prerequisites.md)]
 
 ## Additional prerequisites
-Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **Azure development** workload. This workload includes **Azure Function Tools** that you need to create, build, and deploy Azure Functions projects in Visual Studio. 
+Install [Visual Studio 2022](https://www.visualstudio.com/vs) and include the **Azure development** workload. This workload includes **Azure Function Tools** that you need to create, build, and deploy Azure Functions projects in Visual Studio. 
 
 ## Deploy the function app 
 

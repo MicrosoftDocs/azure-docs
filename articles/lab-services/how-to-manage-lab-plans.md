@@ -16,6 +16,11 @@ ms.date: 03/14/2023
 
 In Azure Lab Services, a lab plan is a container for managed lab types such as labs. An administrator sets up a lab plan with Azure Lab Services and provides access to lab owners who can create labs in the plan. This article describes how to create a lab plan, view all lab plans, or delete a lab plan.
 
+## Prerequisites
+
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+
 ## Create a lab plan
 
 To create a lab plan, see [Quickstart: Set up resources to create labs](quick-create-resources.md).

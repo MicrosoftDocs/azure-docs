@@ -3,11 +3,11 @@ title: Discover and deploy Microsoft Sentinel out-of-the-box content from Conten
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 01/09/2022
+ms.date: 09/29/2023
 ms.author: austinmc
 ---
 
-# Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)
+# Discover and manage Microsoft Sentinel out-of-the-box content
 
 The Microsoft Sentinel Content hub is your centralized location to discover and manage out-of-the-box (built-in) content. There you'll find packaged solutions for end-to-end products by domain or industry. You'll also have access to the vast number of standalone contributions hosted in our GitHub repository and feature blades.
 
@@ -23,13 +23,9 @@ The Microsoft Sentinel Content hub is your centralized location to discover and 
 
 If you're a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
 
-> [!IMPORTANT]
->
-> Microsoft Sentinel solutions and standalone content in the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Prerequisites
 
-In order to install, update and delete standalone content or solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role. 
+In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level. In addition, the **Template Spec Contributor** role is still required for some edge cases. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role. 
 
 This is in addition to Sentinel specific roles. For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md).
   
@@ -38,7 +34,7 @@ This is in addition to Sentinel specific roles. For more information about other
 
 The content hub offers the best way to find new content or manage the solutions you already have installed.
 
-1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
+1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub**.
 
 1. The **Content hub** page displays a searchable grid or list of solutions and standalone content.
 
@@ -61,7 +57,9 @@ For example, in the following image, the **Cisco Umbrella** solution lists one o
 
 Standalone content and solutions can be installed individually or all together in bulk. For more information on bulk operations, see [Bulk install and update content](#bulk-install-and-update-content) in the next section. Here's an example showing the install of an individual solution.
 
-1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**. 
+1. In the content hub, to view more information about a solution switch to **Card view**. 
+
+1. Then select **View details** to initiate steps for installation. 
 
 1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the **Basics** tab, enter the subscription, resource group, and workspace to deploy the solution. For example:
 
@@ -176,7 +174,7 @@ In this document, you learned how to find and deploy built-in solutions and stan
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
 - See the full Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
 - Find domain specific solutions in the [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md).
-- [Delete installed Microsoft Sentinel out-of-the-box content and solutions (public preview)](sentinel-solutions-delete.md)
+- [Delete installed Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-delete.md)
 
 Many solutions include data connectors that you'll need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector will have its own set of requirements, detailed on the data connector page in Microsoft Sentinel. 
 

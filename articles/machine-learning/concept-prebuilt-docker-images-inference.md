@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Prebuilt Docker images for inference (scoring) in Azure Machine Learning'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.author: sehan
 author: dem108
 ms.date: 11/04/2022
@@ -29,7 +29,18 @@ Prebuilt Docker container images for inference are used when deploying a model w
 > [!IMPORTANT]
 > The list provided below includes only **currently supported** inference docker images by Azure Machine Learning.
 
-[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
+* All the docker images run as non-root user.
+* We recommend using `latest` tag for docker images. Prebuilt docker images for inference are published to Microsoft container registry (MCR), to query list of tags available, follow [instructions on the GitHub repository](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
+* If you want to use a specific tag for any inference docker image, we support from `latest` to the tag that is *6 months* old from the `latest`.  
+
+**Inference minimal base images**
+
+Framework version | CPU/GPU | Pre-installed packages | MCR Path
+ --- | --- | --- | --- |
+NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu20.04-py38-cpu-inference:latest`
+NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu20.04-py38-cuda11.6.2-gpu-inference:latest`
+NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu22.04-py39-cpu-inference:latest`
+NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu22.04-py39-cuda11.8-gpu-inference:latest`
 
 ## How to use inference prebuilt docker images?
 

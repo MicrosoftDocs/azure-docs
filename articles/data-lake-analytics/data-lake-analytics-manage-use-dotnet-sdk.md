@@ -4,8 +4,8 @@ description: This article describes how to use the Azure .NET SDK to write apps 
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/20/2023
-ms.custom: devx-track-csharp
+ms.date: 12/20/2023
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Manage Azure Data Lake Analytics a .NET app
 
@@ -397,13 +397,13 @@ foreach (var r in recurrences)
 
 ## Common graph scenarios
 
-### Look up user in the AAD directory
+### Look up user in the Microsoft Entra ID directory
 
 ``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 ```
 
-### Get the ObjectId of a user in the AAD directory
+### Get the ObjectId of a user in the Microsoft Entra ID directory
 
 ``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );

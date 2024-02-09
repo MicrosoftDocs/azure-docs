@@ -1,9 +1,9 @@
 ---
-title: Use the REST API to add device templates in Azure IoT Central
-description: How to use the IoT Central REST API to add device templates in an application
+title: Add device templates in Azure IoT Central with the REST API
+description: How to use the IoT Central REST API to add, update, delete, and manage device templates in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/17/2022
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -24,9 +24,12 @@ To learn how to manage device templates by using the IoT Central UI, see [How to
 
 ## Device templates
 
-A device template contains a device model and view definitions. The REST API lets you manage the device model including cloud property definitions. Use the UI to create and manage views.
+A device template contains a device model and view definitions. The REST API lets you manage the device model including cloud property definitions. You must use the UI to create and manage views.
 
 The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
+
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Device templates REST API
 
@@ -175,7 +178,7 @@ The following example shows a request body that adds a device template for a the
 The request body has some required fields:
 
 * `@id`: a unique ID in the form of a simple Uniform Resource Name.
-* `@type`: declares that this object is an interface.
+* `@type`: declares that the top-level object is a `"ModelDefinition","DeviceModel"`.
 * `@context`: specifies the DTDL version used for the interface.
 * `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities may be defined in multiple interfaces.
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
@@ -454,27 +457,11 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
->[!NOTE]
->`{deviceTemplateId}` should be the same as the `@id` in the payload.
-
-The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the device template:
+The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the `capabilityModel` in the device template:
 
 ```json
 {
-    "displayName": "Thermostat",
-
-    "@id": "dtmi:contoso:mythermostattemplate",
-    "@type": [
-        "ModelDefinition",
-        "DeviceModel"
-    ],
-    "@context": [
-        "dtmi:iotcentral:context;2",
-        "dtmi:dtdl:context;2"
-    ],
     "capabilityModel": {
-        "@id": "dtmi:contoso:Thermostat;1",
-        "@type": "Interface",
         "contents": [
             {
                 "@type": [
@@ -1062,22 +1049,22 @@ Use **filter** to create expressions that filter the list of device templates. T
 | -------------------- | ------ | ------------------------------ |
 | Equals               | eq     | `'@id' eq 'dtmi:example:test;1'` |
 | Not Equals           | ne     | `displayName ne 'template 1'`    |
-| Less than or equals       | le     | `displayName le 'template A'`    |
+| Less than or equals  | le     | `displayName le 'template A'`    |
 | Less than            | lt     | `displayName lt 'template B'`    |
-| Greater than or equals      | ge     | `displayName ge 'template A'`    |
-| Greater than           | gt     | `displayName gt 'template B'`    |
+| Greater than or equals | ge   | `displayName ge 'template A'`    |
+| Greater than         | gt     | `displayName gt 'template B'`    |
 
 The following table shows the logic operators you can use in *filter* expressions:
 
-| Logic Operator | Symbol | Example                                                                              |
-| -------------- | ------ | ------------------------------------------------------------------------------------ |
+| Logic Operator | Symbol | Example |
+| -------------- | ------ |  ------ |
 | AND            | and    | `'@id' eq 'dtmi:example:test;1' and capabilityModelId eq 'dtmi:example:test:model1;1'` |
-| OR             | or     | `'@id' eq 'dtmi:example:test;1' or displayName ge 'template'`                          |
+| OR             | or     | `'@id' eq 'dtmi:example:test;1' or displayName ge 'template'` |
 
 Currently, *filter* works with the following device template fields:
 
-| FieldName         | Type   | Description                         |
-| ----------------- | ------ | ----------------------------------- |
+| FieldName           | Type   | Description                         |
+| ------------------- | ------ | ----------------------------------- |
 | `@id`               | string | Device template ID                  |
 | `displayName`       | string | Device template display name        |
 | `capabilityModelId` | string | Device template capability model ID |

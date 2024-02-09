@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, devx-track-arm-template
 
 # Deploy to Azure Container Instances from Azure Container Registry using a managed identity
 
-[Azure Container Registry][acr-overview] (ACR) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to container groups with Azure Container Instances. One way to configure registry access is to create an Azure Active Directory managed identity.
+[Azure Container Registry][acr-overview] (ACR) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to container groups with Azure Container Instances. One way to configure registry access is to create a Microsoft Entra managed identity.
 
 When access to an Azure Container Registry (ACR) is [restricted using a private endpoint](../container-registry/container-registry-private-link.md), using a managed identity allows Azure Container Instances [deployed into a virtual network](container-instances-vnet.md) to access the container registry through the private endpoint.
 
@@ -23,7 +23,7 @@ When access to an Azure Container Registry (ACR) is [restricted using a private 
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
 ## Limitations
-* Windows containers don't support managed identity-authenticated image pulls with ACR.
+* Windows containers don't support system-assigned managed identity-authenticated image pulls with ACR, only user-assigned.
 
 * The Azure container registry must have [Public Access set to either 'Select networks' or 'None'](../container-registry/container-registry-access-selected-networks.md). To set the Azure container registry's Public Access to 'All networks', visit ACI's article on [how to authenticate with ACR with service principal based authentication](container-instances-using-azure-container-registry.md).
 

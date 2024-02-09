@@ -3,7 +3,7 @@ title: Linter rule - max variables
 description: Linter rule - max variables.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/03/2022
+ms.date: 06/23/2023
 ---
 
 # Linter rule - max variables

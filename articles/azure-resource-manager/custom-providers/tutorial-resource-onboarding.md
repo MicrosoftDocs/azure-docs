@@ -208,25 +208,25 @@ Let's deploy the custom resource provider infrastructure. Either copy, save, and
 
 2. Search for **templates** in **All Services** or by using the main search box:
 
-   ![Search for templates](media/tutorial-resource-onboarding/templates.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/templates.png" alt-text="Screenshot of the search bar in Azure portal with 'templates' entered as the search query.":::
 
 3. Select **Add** on the **Templates** pane:
 
-   ![Select Add](media/tutorial-resource-onboarding/templatesadd.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/templatesadd.png" alt-text="Screenshot of the Templates pane in Azure portal with the Add button highlighted.":::
 
 4. Under **General**, enter a *Name* and *Description* for the new template:
 
-   ![Template name and description](media/tutorial-resource-onboarding/templatesdescription.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/templatesdescription.png" alt-text="Screenshot of the General section in Azure portal where the user enters a Name and Description for the new template.":::
 
 5. Create the Resource Manager template by copying in the JSON template from the "Get started with resource onboarding" section of this article:
 
-   ![Create a Resource Manager template](media/tutorial-resource-onboarding/templatesarmtemplate.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/templatesarmtemplate.png" alt-text="Screenshot of the Azure portal where the user pastes the JSON template into the ARM Template section.":::
 
 6. Select **Add** to create the template. If the new template doesn't appear, select **Refresh**.
 
 7. Select the newly created template and then select **Deploy**:
 
-   ![Select the new template and then select Deploy](media/tutorial-resource-onboarding/templateselectspecific.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/templateselectspecific.png" alt-text="Screenshot of the Azure portal showing the newly created template with the Deploy button highlighted.":::
 
 8. Enter the settings for the required fields and then select the subscription and resource group. You can leave the **Custom Resource Provider Id** box empty.
 
@@ -240,19 +240,19 @@ Let's deploy the custom resource provider infrastructure. Either copy, save, and
 
    Sample parameters:
 
-   ![Enter template parameters](media/tutorial-resource-onboarding/templatescustomprovider.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/templatescustomprovider.png" alt-text="Screenshot of the Azure portal displaying the template parameters input fields for the custom resource provider deployment.":::
 
 9. Go to the deployment and wait for it to finish. You should see something like the following screenshot. You should see the new association resource as an output:
 
-   ![Successful deployment](media/tutorial-resource-onboarding/customproviderdeployment.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/customproviderdeployment.png" alt-text="Screenshot of the Azure portal showing a successful deployment with the new association resource as an output.":::
 
    Here's the resource group, with **Show hidden types** selected:
 
-   ![Custom resource provider deployment](media/tutorial-resource-onboarding/showhidden.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/showhidden.png" alt-text="Screenshot of the resource group in Azure portal with Show hidden types selected, displaying the custom resource provider deployment.":::
 
 10. Explore the logic app **Runs history** tab to see the calls for the association create:
 
-    ![Logic app Runs history](media/tutorial-resource-onboarding/logicapprun.png)
+    :::image type="content" source="media/tutorial-resource-onboarding/logicapprun.png" alt-text="Screenshot of the Logic app Runs history tab in Azure portal showing the calls for the association create.":::
 
 ## Deploy additional associations
 
@@ -260,23 +260,23 @@ After you have the custom resource provider infrastructure set up, you can easil
 
 1. Go to the custom resource provider **Microsoft.CustomProviders/resourceProviders** resource in the resource group of the previous deployment. You need to select the **Show hidden types** check box:
 
-   ![Go to the resource](media/tutorial-resource-onboarding/showhidden.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/showhidden.png" alt-text="Screenshot of the Azure portal displaying the custom resource provider resource in the resource group with Show hidden types selected.":::
 
 2. Copy the Resource ID property of the custom resource provider.
 
 3. Search for *templates* in **All Services** or by using the main search box:
 
-   ![Search for templates](media/tutorial-resource-onboarding/templates.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/templates.png" alt-text="Screenshot of the search bar in Azure portal with 'templates' entered as the search query.":::
 
 4. Select the previously created template and then select **Deploy**:
 
-   ![Select the previously created template and then select Deploy](media/tutorial-resource-onboarding/templateselectspecific.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/templateselectspecific.png" alt-text="Screenshot of the Azure portal showing the previously created template with the Deploy button highlighted.":::
 
 5. Enter the settings for the required fields and then select the subscription and a different resource group. For the **Custom Resource Provider Id** setting, enter the Resource ID that you copied from the custom resource provider that you deployed earlier.
 
 6. Go to the deployment and wait for it to finish. It should now deploy only the new associations resource:
 
-   ![New associations resource](media/tutorial-resource-onboarding/createdassociationresource.png)
+   :::image type="content" source="media/tutorial-resource-onboarding/createdassociationresource.png" alt-text="Screenshot of the Azure portal displaying the successful deployment of the new associations resource.":::
 
 You can go back to the logic app **Run history** and see that another call was made to the logic app. You can update the logic app to augment additional functionality for each created association.
 

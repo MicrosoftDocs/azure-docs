@@ -6,10 +6,9 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 03/28/2023
-ms.author: rolyon 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: rolyon
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -17,7 +16,7 @@ ms.devlang: azurecli
 
 A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically just called a role. [Azure role-based access control (Azure RBAC)](overview.md) has over 120 [built-in roles](built-in-roles.md) or you can create your own custom roles. This article describes how to list the built-in and custom roles that you can use to grant access to Azure resources.
 
-To see the list of administrator roles for Azure Active Directory, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
+To see the list of administrator roles for Microsoft Entra ID, see [Administrator role permissions in Microsoft Entra ID](../active-directory/roles/permissions-reference.md).
 
 ## Azure portal
 

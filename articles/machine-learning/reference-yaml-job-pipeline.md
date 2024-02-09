@@ -6,24 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
+ms.custom: cliv2, update-code
 author: cloga
 ms.author: lochen
 ms.date: 11/28/2022
-ms.reviewer: scottpolly
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) pipeline job YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/reference-pipeline-yaml.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](reference-yaml-job-pipeline.md)
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 

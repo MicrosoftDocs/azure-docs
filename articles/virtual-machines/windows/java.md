@@ -1,14 +1,13 @@
 ---
-title: Create and Manage an Azure Virtual Machine Using Java 
+title: Create and Manage an Azure Virtual Machine Using Java
 description: Use Java and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
 services: virtual-machines
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/09/2021
-ms.custom: devx-track-java, devx-track-arm-template
-ms.author: cynthn
+ms.custom: devx-track-java, devx-track-arm-template, devx-track-extended-java
+ms.author: jushiman
 ---
 # Create and manage Windows VMs in Azure using Java
 

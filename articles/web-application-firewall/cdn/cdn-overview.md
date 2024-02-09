@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 10/16/2023
 ms.author: victorh
 ---
 
@@ -28,7 +28,7 @@ You can configure a WAF policy and associate that policy to one or more CDN endp
 
 - custom rules that you can create.
 
-- managed rule sets that are a collection of Azure-managed pre-configured rules.
+- managed rule sets that are a collection of Azure-managed preconfigured rules.
 
 When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are: *ALLOW*, *BLOCK*, *LOG*, and *REDIRECT*. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
 
@@ -58,7 +58,7 @@ You can choose one of the following actions when a request matches a rule's cond
 A WAF policy can consist of two types of security rules:
 
 - *custom rules*: rules that you can create yourself. 
-- *managed rule sets*: Azure managed pre-configured set of rules that you can enable.
+- *managed rule sets*: Azure managed preconfigured set of rules that you can enable.
 
 ### Custom rules
 
@@ -82,7 +82,7 @@ A rate control rule limits abnormally high traffic from any client IP address.
 
 ### Azure-managed rule sets
 
-Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since these rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures. The Azure managed Default Rule Set includes rules against the following threat categories:
+Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since Azure manages these rulesets, the rules are updated as needed to protect against new attack signatures. The Azure managed Default Rule Set includes rules against the following threat categories:
 
 - Cross-site scripting
 - Java attacks

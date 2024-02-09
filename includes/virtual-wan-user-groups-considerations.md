@@ -1,13 +1,12 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 03/23/2023
+ms.date: 07/31/2023
 ms.service: virtual-wan
 ms.topic: include
 ---
 
-* The maximum number of groups that can be referenced by a single P2S VPN gateway is 90. The maximum number of policy/group members (criteria used to identify which group a connecting user is a part of) in groups assigned to a gateway is 390. However, if a group is assigned to multiple connection configurations on the same gateway, this group and its members are counted multiple times towards the limits. For example, if there's a policy group with 10 members that is assigned to three VPN connection configurations on the gateway. This configuration would count as three groups with 30 total members as opposed to one group with 10 members. The total number of concurrent users connecting to a gateway is limited by the gateway scale unit and the number of IP
-addresses allocated to each user group and not the number of policy/group members associated with a gateway.
+* The maximum number of groups that can be referenced by a single P2S VPN gateway is 90. The maximum number of policy/group members (criteria used to identify which group a connecting user is a part of) in groups assigned to a gateway is 390. However, if a group is assigned to multiple connection configurations on the same gateway, this group and its members are counted multiple times towards the limits. For example, if there's a policy group with 10 members that is assigned to three VPN connection configurations on the gateway. This configuration would count as three groups with 30 total members as opposed to one group with 10 members. The total number of concurrent users connecting to a gateway is limited by the gateway scale unit and the number of IP addresses allocated to each user group and not the number of policy/group members associated with a gateway.
 
 * Once a group has been created as part of a VPN server configuration, the name and default setting of a group can't be modified.
 
@@ -18,5 +17,3 @@ addresses allocated to each user group and not the number of policy/group member
 * Groups that are being used by existing point-to-site VPN gateways can't be deleted.
 
 * You can reorder the priorities of your groups by clicking on the up-down arrow buttons corresponding to that group.
-
-* Address pools can't overlap with address pools used in other connection configurations (same or different gateways) in the same virtual WAN. Address pools also can't overlap with virtual network address spaces, virtual hub address spaces, or on-premises addresses

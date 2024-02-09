@@ -1,36 +1,31 @@
 ---
 title: Create, change, or delete a Peering Service connection - Azure CLI 
 description: Learn how to create, change, or delete a Peering Service connection using the Azure CLI.
-services: peering-service
 author: halkazwini
+ms.author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.workload: Infrastructure-services
-ms.date: 01/19/2023
-ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
+ms.date: 02/08/2024
+ms.custom: devx-track-azurecli
+
+#CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure CLI so I can enhance the connectivity to Microsoft services over the public internet.
 ---
 
 # Create, change, or delete a Peering Service connection using the Azure CLI
 
-> [!div class="op_single_selector"]
-> * [Portal](azure-portal.md)
-> * [PowerShell](powershell.md)
-> * [Azure CLI](cli.md)
-
 Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-In this article, you'll learn how to create, change, and delete a Peering Service connection using the Azure CLI.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-If you decide to install and use Azure CLI locally, this article requires you to use version 2.0.28 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade). If using Azure Cloud Shell, the latest version is already installed.
+In this article, you learn how to create, change, and delete a Peering Service connection using the Azure CLI. To learn how to manage a Peering Service connection using the Azure portal or Azure PowerShell, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md) or [Create or change a Peering Service connection using PowerShell](powershell.md).
 
 ## Prerequisites 
 
-- An Azure subscription.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Azure Cloud Shell or Azure CLI installed locally.
+
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade). If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 - A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
 
@@ -45,10 +40,10 @@ az provider register --name Microsoft.Peering
 
 ## List Peering Service locations and service providers 
 
-Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country where you can get the Peering Service:
+Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries/regions where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country where you can get the Peering Service:
 
 ```azurecli-interactive
-# List the countries available for Peering Service.
+# List the countries/regions available for Peering Service.
 az peering service country list --out table
 # List metro locations serviced in a country
 az peering service location list --country "united states" --output table
@@ -108,8 +103,7 @@ To delete a Peering Service connection, use [az peering service delete](/cli/azu
 az peering service delete --peering-service-name "myPeeringService" --resource-group "myResourceGroup"
 ```
 
-## Next steps
+## Related content
 
-- To learn more about Peering Service connection, see [Peering Service connection](connection.md).
-- To learn more about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-- To measure Peering Service connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn more about Peering Service connections, see [Peering Service connection](connection.md).
+- To learn more about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).

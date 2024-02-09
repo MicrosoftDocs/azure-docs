@@ -4,7 +4,8 @@ description: Troubleshoot issues with applying artifacts on an Azure DevTest Lab
 ms.topic: troubleshooting
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/31/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Troubleshoot issues applying artifacts on DevTest Labs virtual machines
@@ -19,7 +20,7 @@ You can troubleshoot artifact failures from the Azure portal or from the VM wher
 
 ## Troubleshoot artifact failures from the Azure portal
 
-If you can't apply an artifact to a VM, first check the following in the Azure portal:
+If you can't apply an artifact to a VM, first check the following items in the Azure portal:
 
 - Make sure that the VM is running.
 - Navigate to the **Artifacts** page for the lab VM to make sure the VM is ready for applying artifacts. If the Apply artifacts feature isn't available, you see a message at the top of the page.
@@ -46,11 +47,11 @@ An artifact can stop responding, and finally appear as **Failed**. To investigat
 1. On your lab **Overview** page, from the list under **My virtual machines**, select the VM that has the artifact you want to investigate.
 1. On the VM **Overview** page, select **Artifacts** in the left navigation. The **Artifacts** page lists artifacts associated with the VM, and their status.
 
-   ![Screenshot showing the list of artifacts and their status.](./media/devtest-lab-troubleshoot-apply-artifacts/artifact-list.png)
+   :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/artifact-list.png" alt-text="Screenshot showing the list of artifacts and their status.":::
 
 1. Select the artifact that shows a **Failed** status. The artifact opens with an extension message that includes details about the artifact failure.
 
-   ![Screenshot of the error message for a failed artifact.](./media/devtest-lab-troubleshoot-apply-artifacts/artifact-failure.png)
+   :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/artifact-failure.png" alt-text="Screenshot of the error message for a failed artifact.":::
 
 ### Inspect the Activity logs
 
@@ -62,7 +63,7 @@ Select the failed entry to see the error details. On the failure page, select **
 
 ### Investigate the private artifact repository and lab storage account
 
-When DevTest Labs applies an artifact, it reads the artifact configuration and files from connected repositories. By default, DevTest Labs has access to the DevTest Labs [public Artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). You can also connect a lab to a private repository to access custom artifacts. If a custom artifact fails to install, make sure the personal access token (PAT) for the private repository hasn't expired. If the PAT is expired, the artifact won't be listed, and any scripts that refer to artifacts from that repository will fail.
+When DevTest Labs applies an artifact, it reads the artifact configuration and files from connected repositories. By default, DevTest Labs has access to the DevTest Labs [public Artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). You can also connect a lab to a private repository to access custom artifacts. If a custom artifact fails to install, make sure the personal access token (PAT) for the private repository hasn't expired. If the PAT is expired, the artifact won't be listed, and any scripts that refer to artifacts from that repository fail.
 
 Depending on configuration, lab VMs might not have direct access to the artifact repository. DevTest Labs caches the artifacts in a lab storage account that's created when the lab first initializes. If access to this storage account is blocked, such as when traffic is blocked from the VM to the Azure Storage service, you might see an error similar to this:
 
@@ -76,14 +77,14 @@ To troubleshoot connectivity issues to the Azure Storage account:
 
 - Check for added network security groups (NSGs). If a subscription policy was added to automatically configure NSGs in all virtual networks, it would affect the virtual network used for creating lab VMs.
 
-- Verify NSG rules. Use [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) to determine whether an NSG rule is blocking traffic to or from a VM. You can also review effective security group rules to ensure that an inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](../virtual-network/diagnose-network-traffic-filter-problem.md).
+- Verify NSG rules. Use [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) to determine whether an NSG rule is blocking traffic to or from a VM. You can also review effective security group rules to ensure that an inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 - Check the lab's default storage account. The default storage account is the first storage account created when the lab was created. The name usually starts with the letter "a" and ends with a multi-digit number, such as a\<labname>#.
 
   1. Navigate to the lab's resource group.
   1. Locate the resource of type **Storage account** whose name matches the convention.
-  1. On the storage account **Overview** page, select **Firewalls and virtual networks** in the left navigation.
-  1. Ensure that **Firewalls and virtual networks** is set to **All networks**. Or, if the **Selected networks** option is selected, make sure the lab's virtual networks used to create VMs are added to the list.
+  1. On the storage account **Overview** page, select **Networking** in the left navigation.
+  1. On the **Firewalls and virtual networks** tab, ensure that **Public network access** is set to **Enabled from all networks**. Or, if the **Enabled from selected virtual networks and IP addresses** option is selected, make sure the lab's virtual networks used to create VMs are added to the list.
 
 For in-depth troubleshooting, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
@@ -95,7 +96,7 @@ You can connect to the lab VM where the artifact failed, and investigate the iss
 
 1. On the lab VM, go to *C:\\Packages\\Plugins\\Microsoft.Compute.CustomScriptExtension\\\*1.10.12\*\\Status\\*, where *\*1.10.12\** is the CSE version number.
 
-   ![Screenshot of the Status folder on the lab V M.](./media/devtest-lab-troubleshoot-apply-artifacts/status-folder.png)
+   :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/status-folder.png" alt-text="Screenshot of the Status folder on the lab V M.":::
 
 1. Open and inspect the *STATUS* file to view the error.
 
@@ -131,7 +132,7 @@ For general information about Azure extensions, see [Azure virtual machine exten
 
 The artifact installation could fail because of the way the artifact installation script is authored. For example:
 
-- The script has mandatory parameters, but fails to pass a value, either by allowing the user to leave it blank, or because there's no default value in the *artifactfile.json* definition file. The script stops responding because it's awaiting user input.
+- The script has mandatory parameters but fails to pass a value, either by allowing the user to leave it blank, or because there's no default value in the *artifactfile.json* definition file. The script stops responding because it's awaiting user input.
 
 - The script requires user input as part of execution. Scripts should work silently without requiring user intervention.
 
@@ -156,4 +157,4 @@ If you need more help, try one of the following support channels:
 - Contact the Azure DevTest Labs experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/).
 - Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
-- Go to the [Azure support site](https://azure.microsoft.com/support/options) and select **Get Support** to file an Azure support incident.
+- Go to the [Azure support site](https://azure.microsoft.com/support/options) and select **Submit a support ticket** to file an Azure support incident.

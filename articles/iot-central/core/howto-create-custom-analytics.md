@@ -1,9 +1,9 @@
 ---
-title: Extend Azure IoT Central with custom analytics | Microsoft Docs
+title: Extend Azure IoT Central with custom analytics
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 06/21/2022
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -28,9 +28,9 @@ In this how-to guide, you learn how to:
 
 ## Run the Script
 
-The below script will create an IoT Central application, Event Hubs namespace, and Databricks workspace in a resource group called `eventhubsrg`.
+The following script creates an IoT Central application, Event Hubs namespace, and Databricks workspace in a resource group called `eventhubsrg`.
 
-```azurecli-interactive
+```azurecli
 
 # A unique name for the Event Hub Namespace.
 eventhubnamespace="your-event-hubs-name-data-bricks"
@@ -194,7 +194,7 @@ The following steps show you how to import the library your sample needs into th
 
 1. The library status is now **Installed**:
 
-:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="Screenshot of Library installed.":::
+:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="Screenshot of Libraries page in Databricks showing installed library.":::
 
 ### Import a Databricks notebook
 
@@ -202,7 +202,7 @@ Use the following steps to import a Databricks notebook that contains the Python
 
 1. Navigate to the **Workspace** page in your Databricks environment. Select the dropdown from the workspace and then choose **Import**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of data bricks import.":::
+    :::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of Databricks notebook import.":::
 
 1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/main/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
@@ -210,7 +210,7 @@ Use the following steps to import a Databricks notebook that contains the Python
 
 1. Select the **Workspace** to view the imported notebook:
 
-    :::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Screenshot of Imported notebook.":::
+    :::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Screenshot of imported notebook in Databricks.":::
 
 1. Use the connection string output by the script to edit the code in the first Python cell to add the Event Hubs connection string:
 
@@ -238,7 +238,7 @@ You may see an error in the last cell. If so, check the previous cells are runni
 
 In the notebook, scroll down to see a plot of the rolling average humidity by device type. This plot continuously updates as streaming telemetry arrives:
 
-:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Screenshot of Smoothed telemetry plot.":::
+:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Screenshot of smoothed telemetry plot in the Databricks notebook.":::
 
 You can resize the chart in the notebook.
 
@@ -246,7 +246,7 @@ You can resize the chart in the notebook.
 
 In the notebook, scroll down to see the [box plots](https://en.wikipedia.org/wiki/Box_plot). The box plots are based on static data so to update them you must rerun the cell:
 
-:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Screenshot of box plots.":::
+:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Screenshot of box plots in the Databricks notebook.":::
 
 You can resize the plots in the notebook.
 
@@ -254,7 +254,7 @@ You can resize the plots in the notebook.
 
 To tidy up after this how-to and avoid unnecessary costs, you can run the following command to delete the resource group:
 
-```azurecli-interactive
+```azurecli
 az group delete -n eventhubsrg
 ```
 

@@ -1,8 +1,8 @@
 ---
 title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
 description: Learn about accessibility considerations in Azure Maps. See what features are available for making map applications accessible, and view accessibility tips.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 05/15/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -118,13 +118,13 @@ Any additional information that is placed on the base map should have correspond
 
 A marker or symbol is often used to represent a location on the map. Additional information about the location is typically displayed in a popup when the user interacts with the marker. In most applications, popups appear when a user selects a marker. However, clicking and tapping require the user to use a mouse and a touch screen, respectively. A good practice is to make popups accessible when using a keyboard. This functionality can be achieved by creating a popup for each data point and adding it to the map.
 
-The [Accessible popups] example loads points of interests on the map using a symbol layer and adds a popup to the map for each point of interest. A reference to each popup is stored in the properties of each data point. It can also be retrieved for a marker, such as when a marker is selected. When focused on the map, pressing the tab key allows the user to step through each popup on the map.
+The [Accessible popups] example loads points of interests on the map using a symbol layer and adds a popup to the map for each point of interest. A reference to each popup is stored in the properties of each data point. It can also be retrieved for a marker, such as when a marker is selected. When focused on the map, pressing the tab key allows the user to step through each popup on the map. For the source code for this sample, see [Accessible popups source code].
 
-:::image type="content" source="./media/map-accessibility/accessible-popups.png" alt-text="A screenshot showing a maps with accessible popups.":::
+:::image type="content" source="./media/map-accessibility/accessible-popups.png" alt-text="A screenshot showing a map with accessible popups.":::
 
 <!---------------------------------------------------------------
 <br/>
-<iframe height='500' scrolling='no' title='Make an accessible application' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Make an accessible application</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>. </iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 <br/>
 --------------------------------------------------------------->
 
@@ -155,29 +155,38 @@ Here are some more tips to make your web-mapping application more accessible.
 Learn about accessibility in the Web SDK modules.
 
 > [!div class="nextstepaction"]
-> [Drawing tools accessibility](drawing-tools-interactions-keyboard-shortcuts.md)
+> [Drawing tools accessibility]
 
 Learn about developing accessible apps:
 
 > [!div class="nextstepaction"]
-> [Accessibility in Action Digital Badge learning path](https://techcommunity.microsoft.com/t5/microsoft-learn/how-to-get-accessibility-in-action-badge/m-p/1735188)
+> [Accessibility in Action Digital Badge learning path]
 
 Take a look at these useful accessibility tools:
 > [!div class="nextstepaction"]
-> [Developing accessible apps](https://developer.microsoft.com/windows/accessible-apps)
+> [Developing accessible apps]
 
 > [!div class="nextstepaction"]
-> [WAI-ARIA Overview](https://www.w3.org/WAI/standards-guidelines/aria/)
+> [WAI-ARIA Overview]
 
 > [!div class="nextstepaction"]
-> [Web Accessibility Evaluation Tool (WAVE)](https://wave.webaim.org/)
+> [Web Accessibility Evaluation Tool (WAVE)]
 
 > [!div class="nextstepaction"]
-> [WebAim color contrast checker](https://webaim.org/resources/contrastchecker/)
+> [WebAim color contrast checker]
 
 > [!div class="nextstepaction"]
-> [No Coffee Vision Simulator](https://uxpro.cc/toolbox/nocoffee/)
+> [No Coffee Vision Simulator]
 
-[Accessible popups]: https://samples.azuremaps.com/?search=keyboard&sample=accessible-popups
+[Accessible popups]: https://samples.azuremaps.com/popups/accessible-popups
+[Accessible popups source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Popups/Accessible%20popups/Accessible%20popups.html
 [Accessibility Conformance Reports]: https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/
 [Accessible Rich Internet Applications (ARIA)]: https://www.w3.org/WAI/standards-guidelines/aria/
+
+[Drawing tools accessibility]: drawing-tools-interactions-keyboard-shortcuts.md
+[Accessibility in Action Digital Badge learning path]: https://techcommunity.microsoft.com/t5/microsoft-learn/how-to-get-accessibility-in-action-badge/m-p/1735188
+[Developing accessible apps]: https://developer.microsoft.com/windows/accessible-apps
+[WAI-ARIA Overview]: https://www.w3.org/WAI/standards-guidelines/aria
+[Web Accessibility Evaluation Tool (WAVE)]: https://wave.webaim.org
+[WebAim color contrast checker]: https://webaim.org/resources/contrastchecker
+[No Coffee Vision Simulator]: https://uxpro.cc/toolbox/nocoffee

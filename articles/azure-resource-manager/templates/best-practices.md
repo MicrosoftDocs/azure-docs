@@ -3,7 +3,7 @@ title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/01/2022
+ms.date: 09/22/2023
 ---
 # ARM template best practices
 
@@ -11,7 +11,7 @@ This article shows you how to use recommended practices when constructing your A
 
 ## Template limits
 
-Limit the size of your template to 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. The parameter file is also limited to 4 MB. You may get an error with a template or parameter file of less than 4 MB if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](error-job-size-exceeded.md).
+Limit the size of your template to 4 MB, and each resource definition to 1 MB. The limits apply to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. The parameter file is also limited to 4 MB. You may get an error with a template or parameter file of less than 4 MB if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](error-job-size-exceeded.md).
 
 You're also limited to:
 

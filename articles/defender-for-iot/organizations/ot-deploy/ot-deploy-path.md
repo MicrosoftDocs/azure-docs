@@ -2,7 +2,7 @@
 title: Deploy Defender for IoT for OT monitoring - Microsoft Defender for IoT
 description: Learn about the steps involved in deploying a Microsoft Defender for IoT system for OT monitoring.
 ms.topic: install-set-up-deploy
-ms.date: 02/13/2023
+ms.date: 07/04/2023
 ---
 
 # Deploy Defender for IoT for OT monitoring
@@ -24,7 +24,7 @@ While teams and job titles differ across different organizations, all Defender f
 
 Before you start planning your OT monitoring deployment, make sure that you have an Azure subscription and an OT plan onboarded Defender for IoT.
 
-For more information, see [Add an OT plan to your Azure subscription](../getting-started.md).
+For more information, see [Start a Microsoft Defender for IoT trial](../getting-started.md).
 
 ## Planning and preparing
 
@@ -38,14 +38,14 @@ Plan basic details about your monitoring system, such as:
 
 - **Sites and zones**: Decide how you'll segment the network you want to monitor using *sites* and *zones* that can represent locations all around the world.
 
-- **Sensor management**: Decide on whether you'll be using cloud-connected or air-gapped, locally-managed OT sensors, or a hybrid system of both. If you're using cloud-connected sensors, select a connection method, such as connecting directly or via a proxy.
+- **Sensor management**: Decide on whether you'll be using cloud-connected or air-gapped, locally managed OT sensors, or a hybrid system of both. If you're using cloud-connected sensors, select a connection method, such as connecting directly or via a proxy.
 
 - **Users and roles**: List of the types of users you'll need on each sensor, and the roles that they'll need for each activity.
 
 For more information, see [Plan your OT monitoring system with Defender for IoT](../best-practices/plan-corporate-monitoring.md).
 
 > [!TIP]
-> If you're using several locally-managed sensors, you may also want to deploy an [on-premises management console](air-gapped-deploy.md) for central visibility and management.
+> If you're using several locally managed sensors, you may also want to deploy an [on-premises management console](air-gapped-deploy.md) for central visibility and management.
 >
 #### Prepare for an OT site deployment
 
@@ -88,7 +88,7 @@ For more information, see:
 - [Configure mirroring with a switch SPAN port](../traffic-mirroring/configure-mirror-span.md)
 - [Configure traffic mirroring with a Remote SPAN (RSPAN) port](../traffic-mirroring/configure-mirror-rspan.md)
 - [Configure active or passive aggregation (TAP)](../best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap)
-- [Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)](../traffic-mirroring/configure-mirror-erspan.md)
+- [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan)
 - [Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md)
 - [Configure traffic mirroring with a Hyper-V vSwitch](../traffic-mirroring/configure-mirror-hyper-v.md)
 
@@ -123,7 +123,7 @@ Skip these steps if you're purchasing [pre-configured appliances](../ot-pre-conf
 
 Use an initial setup wizard to confirm network settings, activate the sensor, and apply SSH/TLS certificates.
 
-For more information, see [Activate and set up your OT network sensor](activate-deploy-sensor.md).
+For more information, see [Configure and activate your OT sensor](activate-deploy-sensor.md).
 
 #### Configure proxy connections
 
@@ -182,6 +182,30 @@ When baseline learning ends, the OT monitoring deployment process is complete, a
 > [!TIP]
 > [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts in Defender for IoT reflect your network traffic accurately, and learning mode hasn't already ended automatically.
 >
+
+## Connect Defender for IoT data to your SIEM
+
+Once Defender for IoT has been deployed, send security alerts and manage OT/IoT incidents by integrating Defender for IoT with your security information and event management (SIEM) platform and existing SOC workflows and tools.
+Integrate Defender for IoT alerts with your organizational SIEM by [integrating with Microsoft Sentinel](../iot-advanced-threat-monitoring.md) and leveraging the out-of-the-box Microsoft Defender for IoT solution, or by [creating forwarding rules](../how-to-forward-alert-information-to-partners.md) to other SIEM systems.
+Defender for IoT integrates out-of-the-box with Microsoft Sentinel, as well as [a broad range of SIEM systems](../integrate-overview.md), such as Splunk, IBM QRadar, LogRhythm, Fortinet, and more.
+
+For more information, see:
+
+- [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
+- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
+- [Connect on-premises OT network sensors to Microsoft Sentinel](../integrations/on-premises-sentinel.md)
+- [Integrations with Microsoft and partner services](../integrate-overview.md)
+- [Stream Defender for IoT cloud alerts to a partner SIEM](../integrations/send-cloud-data-to-partners.md)
+
+After integrating Defender for IoT alerts with a SIEM, we recommend the following next steps to operationalize OT/IoT alerts and fully integrate them with your existing SOC workflows and tools:
+
+- Identify and define relevant IoT/OT security threats and SOC incidents you would like to monitor based on your specific OT needs and environment.
+
+- Create detection rules and severity levels in the SIEM. Only relevant incidents will be triggered, thus reducing unnecessary noise. For example, you would define PLC code changes performed from unauthorized devices, or outside of work hours, as a high severity incident due to the high fidelity of this specific alert.
+    
+    In Microsoft Sentinel, the Microsoft Defender for IoT solution includes [a set of out-of-the-box detection rules](../iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data), which are built specifically for Defender for IoT data, and help you fine-tune the incidents created in Sentinel.
+
+- Define the appropriate workflow for mitigation, and create automated investigation playbooks for each use case. In Microsoft Sentinel, the Microsoft Defender for IoT solution includes [out-of-the-box playbooks for automated response to Defender for IoT alerts](../iot-advanced-threat-monitoring.md#automate-response-to-defender-for-iot-alerts).
 
 ## Next steps
 

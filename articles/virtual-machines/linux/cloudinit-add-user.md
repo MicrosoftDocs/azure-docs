@@ -1,5 +1,5 @@
 ---
-title: Use cloud-init to add a user to a Linux VM on Azure 
+title: Use cloud-init to add a user to a Linux VM on Azure
 description: How to use cloud-init to add a user to a Linux VM during creation with the Azure CLI
 author: mattmcinnes
 ms.service: virtual-machines
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 03/29/2022
 ms.author: mattmcinnes
 ms.subservice: cloud-init
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # Use cloud-init to add a user to a Linux VM in Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to add a user on a virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. This cloud-init script runs on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md).
 
@@ -32,7 +32,7 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3<snip>
 ```
-> [!NOTE] 
+> [!NOTE]
 > The #cloud-config file includes the `- default` parameter included. This will append the user, to the existing admin user created during provisioning. If you create a user without the `- default` parameter - the auto generated admin user created by the Azure platform would be overwritten.
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
@@ -49,7 +49,7 @@ az vm create \
   --name vmName \
   --image imageCIURN \
   --custom-data cloud_init_add_user.txt \
-  --generate-ssh-keys 
+  --generate-ssh-keys
 ```
 > [!NOTE]
 > Replace **myResourceGroup**, **vmName**, and **imageCIURN** values accordingly. Make sure an image with Cloud-init is chosen.
@@ -79,8 +79,8 @@ myadminuser:x:1000:
 ## Next steps
 
 For additional cloud-init examples of configuration changes, see the following:
- 
+
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
-- [Change VM local hostname](cloudinit-update-vm-hostname.md) 
+- [Change VM local hostname](cloudinit-update-vm-hostname.md)
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)

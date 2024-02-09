@@ -2,13 +2,13 @@
 title: Create a Java function using Visual Studio Code - Azure Functions
 description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/22/2022
+ms.date: 08/03/2023
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
 ms.devlang: java
-ms.custom: mode-api, vscode-azure-extension-update-complete
+ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-extended-java
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code
@@ -30,6 +30,8 @@ Before you get started, make sure you have the following requirements in place:
 
 [!INCLUDE [functions-requirements-visual-studio-code-java](../../includes/functions-requirements-visual-studio-code-java.md)]
 
+[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
+
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in Java. Later in this article, you'll publish your function code to Azure. 
@@ -45,7 +47,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |Prompt|Selection|
     |--|--|
     |**Select a language**| Choose `Java`.|
-    |**Select a version of Java**| Choose `Java 11` or `Java 8`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally. |
+    |**Select a version of Java**| Choose `Java 8`,  `Java 11`, `Java 17` or `Java 21`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally. |
     | **Provide a group ID** | Choose `com.function`. |
     | **Provide an artifact ID** | Choose `myFunction`. |
     | **Provide a version** | Choose `1.0-SNAPSHOT`. |

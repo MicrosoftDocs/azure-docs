@@ -9,7 +9,6 @@ metadata:
   description: Azure networking services provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
   ms.service: virtual-network
   ms.topic: hub-page
-  ms.collection:
   author: asudbring
   ms.author: allensu
   manager: kumudD
@@ -18,8 +17,8 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
-    - title: What is Azure Networking? 
-      itemType: overview # controls the icon image and super-title text 
+    - title: Azure Networking services overview 
+      itemType: overview
       url: fundamentals/networking-overview.md
     - title: What's new in Azure Networking? 
       itemType: whats-new 

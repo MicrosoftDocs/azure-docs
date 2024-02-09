@@ -4,7 +4,7 @@ description: Learn how to create a TypeScript function, then publish the local N
 ms.topic: quickstart
 ms.date: 02/06/2023
 ms.devlang: typescript
-ms.custom: mode-ui, vscode-azure-extension-update-complete
+ms.custom: mode-ui, vscode-azure-extension-update-complete, devx-track-js
 zone_pivot_groups: functions-nodejs-model
 ---
 
@@ -41,7 +41,7 @@ Before you get started, make sure you have the following requirements in place:
 + [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone-end
 ::: zone pivot="nodejs-model-v4" 
-+ [Azure Functions Core Tools v4.0.5095 or above](functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools v4.0.5382 or above](functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone-end
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
@@ -74,7 +74,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `TypeScript`.|
-    |**Select a TypeScript programming model**|Choose `Model V4 (Preview)`|
+    |**Select a TypeScript programming model**|Choose `Model V4`|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Select how you would like to open your project**|Choose `Open in current window`|
@@ -91,18 +91,6 @@ After you've verified that the function runs correctly on your local computer, i
 ## Create the function app in Azure
 
 [!INCLUDE [functions-create-azure-resources-vs-code](../../includes/functions-create-azure-resources-vs-code.md)]
-
-::: zone pivot="nodejs-model-v4" 
-## Update app settings
-
-To enable your V4 programming model app to run in Azure, you need to add a new application setting named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
-
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-
-1. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>. 
-
-1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
-::: zone-end
 
 ## Deploy the project to Azure
 

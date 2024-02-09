@@ -2,11 +2,10 @@
 title: Performance tiers for Azure managed disks
 description: Learn about performance tiers for managed disks.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: references_regions
 ---
 

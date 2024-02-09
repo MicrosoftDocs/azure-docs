@@ -7,13 +7,13 @@ ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
 ---
 # How To Control Inbound Traffic to an App Service Environment
 
 > [!IMPORTANT]
-> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 29 January 2024, you can no longer create new App Service Environment v1 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
 >
 
 ## Overview
@@ -49,7 +49,7 @@ The following list contains the ports used by an App Service Environment. All po
 ## Outbound Connectivity and DNS Requirements
 For an App Service Environment to function properly, it also requires outbound access to various endpoints. A full list of the external endpoints used by an ASE is in the "Required Network Connectivity" section of the [Network Configuration for ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) article.
 
-App Service Environments require a valid DNS infrastructure configured for the virtual network.  If the DNS configuration is changed after the creation of an App Service Environment, developers can force an App Service Environment to pick up the new DNS configuration.  If you trigger a rolling environment reboot using the **Restart** icon, the environment picks up the new DNS configuration. (The **Restart** icon is located at the top of the App Service Environment management blade, in the [Azure portal][NewPortal].)
+App Service Environments require a valid DNS infrastructure configured for the virtual network.  If the DNS configuration is changed after the creation of an App Service Environment, developers can force an App Service Environment to pick up the new DNS configuration.  If you trigger a rolling environment reboot using the **Restart** icon, the environment picks up the new DNS configuration. (The **Restart** icon is located at the top of the App Service Environment management blade, in the [Azure portal](https://portal.azure.com).)
 
 It's also recommended that any custom DNS servers on the vnet be set up ahead of time before creating an App Service Environment.  If a virtual network's DNS configuration is changed during the creation of an App Service Environment, the App Service Environment creation process will fail.  Similarly, if there's a custom DNS server that's unreachable or unavailable on the other end of a VPN gateway, the App Service Environment creation process will also fail.
 
@@ -138,6 +138,5 @@ For more information, see [Securely connecting to Backend resources from an App 
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md
-[NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->

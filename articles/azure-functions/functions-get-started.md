@@ -2,6 +2,7 @@
 title: Getting started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
 ms.topic: overview
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 12/13/2022
 zone_pivot_groups: programming-languages-set-functions-full
 ---
@@ -27,7 +28,7 @@ You can create C# functions by using one of the following tools:
 ::: zone pivot="programming-language-java"  
 You can create Java functions by using one of the following tools:
 
-+ [Eclipse](functions-create-maven-eclipse.md )
++ [Eclipse](functions-create-maven-eclipse.md)
 + [Gradle](functions-create-first-java-gradle.md)
 + [IntelliJ IDEA](functions-create-maven-intellij.md) 
 + [Maven](create-first-function-cli-java.md)

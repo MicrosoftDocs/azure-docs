@@ -1,17 +1,16 @@
 ---
-# Mandatory fields.
 title: 'Tutorial: Code a client app'
 titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to write the minimal code for an Azure Digital Twins client app, using the .NET (C#) SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 06/29/2023
 ms.topic: tutorial
 ms.service: digital-twins
+ms.custom: devx-track-dotnet
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -93,7 +92,7 @@ The first thing your app will need to do is authenticate against the Azure Digit
 
 To authenticate, you need the host name of your Azure Digital Twins instance.
 
-In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
+In *Program.cs*, paste the following code below the "Hello, World!" print line in the `Main` method. 
 Set the value of `adtInstanceUrl` to your Azure Digital Twins instance host name.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
@@ -126,7 +125,7 @@ In the directory where you created your project, create a new .json file called 
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the **Copy to Output Directory** property in the Property inspector to **Copy if Newer** or **Copy Always**. This will enable Visual Studio to find the JSON file with the default path when you run the program with F5 during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [Parse and validate models](how-to-parse-models.md).
+> You can check model documents to make sure the DTDL is valid using the [DTDLParser library](https://www.nuget.org/packages/DTDLParser). For more about using this library, see [Parse and validate models](how-to-parse-models.md).
 
 Next, add some more code to *Program.cs* to upload the model you've created into your Azure Digital Twins instance.
 

@@ -1,13 +1,13 @@
 ---
 title: Deploy STIG-compliant Linux Virtual Machines (Preview)
 description: This quickstart shows you how to deploy a STIG-compliant Linux VM (Preview) from the Azure portal or Azure Government portal.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: quickstart
 ms.custom: mode-other, kr2b-contr-experiment
 recommendations: false
-ms.date: 03/21/2023
+ms.date: 06/14/2023
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -154,6 +154,9 @@ The Azure STIG-compliant VM offering is expected to remain in Preview instead of
 
 **Can Azure Update Management be used with STIG images?** </br>
 Yes, [Update Management](../automation/update-management/overview.md) in Azure Automation supports STIG images.
+
+**What STIG settings are being applied by the template?** </br>
+For more information, see [Deploy Azure Virtual Machine (Linux) and apply STIG](https://github.com/Azure/ato-toolkit/tree/master/stig/linux).
 
 ## Next steps
 

@@ -1,13 +1,12 @@
 ---
-title: Manage default and individual user and group quotas for Azure NetApp Files volumes  | Microsoft Docs 
+title: Manage default and individual user and group quotas for Azure NetApp Files volumes  | Microsoft Docs
 description: Describes the considerations and steps for managing user and group quotas for Azure NetApp Files volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 06/14/2023
 ---
 # Manage default and individual user and group quotas for a volume 
 
@@ -35,31 +34,11 @@ Quota rules only come into effect on the CRR/CZR destination volume after the re
     * To provide optimal performance, the space consumption may exceed configured hard limit before the quota is enforced. The additional space consumption won't exceed either the lower of 1 GB or five percent of the configured hard limit.    
     * After reaching the quota limit, if a user or administrator deletes files or directories to reduce quota usage under the limit, subsequent quota-consuming file operations may resume with a delay of up to five seconds.
 
-## Register the feature  
-
-The feature to manage user and group quotas is currently in preview. Before using this feature for the first time, you need to register it. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableVolumeUserGroupQuota 
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableVolumeUserGroupQuota
-    ```
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 ## Create new quota rules 
 
 1. From the Azure portal, navigate to the volume for which you want to create a quota rule. Select **User and group quotas** in the navigation pane, then click **Add** to create a quota rule for a volume.  
 
-    ![Screenshot that shows the New Quota window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-new-quota.png) 
+    ![Screenshot that shows the New Quota window of Users and Group Quotas.](./media/manage-default-individual-user-group-quotas/user-group-quotas-new-quota.png) 
 
 2. In the **New quota** window that appears, provide information for the following fields, then click **Create**.
 
@@ -91,15 +70,15 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 1. On the Azure portal, navigate to the volume whose quota rule you want to edit or delete.  Select `…` at the end of the quota rule row, then select **Edit** or **Delete** as appropriate. 
 
-    ![Screenshot that shows the Edit and Delete options of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-delete-edit.png) 
+    ![Screenshot that shows the Edit and Delete options of Users and Group Quotas.](./media/manage-default-individual-user-group-quotas/user-group-quotas-delete-edit.png) 
 
     1. If you're editing a quota rule, update **Quota Limit** in the Edit User Quota Rule window that appears.
     
-        ![Screenshot that shows the Edit User Quota Rule window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-edit-rule.png) 
+        ![Screenshot that shows the Edit User Quota Rule window of Users and Group Quotas.](./media/manage-default-individual-user-group-quotas/user-group-quotas-edit-rule.png) 
 
     1. If you're deleting a quota rule, confirm the deletion by selecting **Yes**.  
     
-        ![Screenshot that shows the Confirm Delete window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-confirm-delete.png) 
+        ![Screenshot that shows the Confirm Delete window of Users and Group Quotas.](./media/manage-default-individual-user-group-quotas/user-group-quotas-confirm-delete.png) 
 
 ## Next steps 
 * [Understand default and individual user and group quotas](default-individual-user-group-quotas-introduction.md)

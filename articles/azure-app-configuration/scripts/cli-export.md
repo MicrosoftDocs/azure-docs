@@ -3,13 +3,13 @@ title: Azure CLI Script Sample - Export from an Azure App Configuration Store
 titleSuffix: Azure App Configuration
 description: Use Azure CLI script to export configuration from Azure App Configuration
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
-ms.author: mcleans 
+ms.author: malev 
 ms.custom: devx-track-azurecli
 ---
 

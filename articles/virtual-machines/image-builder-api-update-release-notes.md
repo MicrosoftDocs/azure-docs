@@ -1,16 +1,13 @@
 ---
-title: What's new in Azure VM Image Builder 
+title: What's new in Azure VM Image Builder
 description: This article offers the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 05/08/2023
+ms.date: 11/10/2023
 ms.reviewer: erd
 ms.subservice: image-builder
 ms.custom: references_regions
-
-
 ---
 
 # What's new in Azure VM Image Builder
@@ -19,8 +16,32 @@ ms.custom: references_regions
 
 This article contains all major API changes and feature updates for the Azure VM Image Builder (AIB) service.
 
+## Updates
+
+### November 2023
+Azure Image Builder is enabling Isolated Image Builds using Azure Container Instances in a phased manner. The rollout is expected to be completed by early 2024. Your existing image templates will continue to work and there is no change in the way you create or build new image templates. 
+
+You might observe a different set of transient Azure resources appear temporarily in the staging resource group but that does not impact your actual builds or the way you interact with Azure Image Builder. For more information, please see [Isolated Image Builds](./security-isolated-image-builds-image-builder.md).
+
+> [!IMPORTANT]
+> Make sure your subscription is registered for the `Microsoft.ContainerInstance` provider.
+
+### April 2023
+New portal functionality has been added for Azure Image Builder. Search “Image Templates” in Azure portal, then click “Create”. You can also [get started here](https://ms.portal.azure.com/#create/Microsoft.ImageTemplate) with building and validating custom images inside the portal.
+
 ## API releases
 
+### Version 2023-07-01
+
+**Coming Soon**
+
+Support for updating Azure Compute Gallery distribution targets.
+
+
+
+**Changes**
+
+New `errorHandling` property. This property provides users with more control over how errors are handled during the image building process. For more information, see [errorHandling](../virtual-machines/linux/image-builder-json.md#properties-errorhandling)
 
 ### Version 2022-07-01
 
@@ -38,6 +59,7 @@ This article contains all major API changes and feature updates for the Azure VM
 - VHDs can now be distributed to a custom blob or container in a custom storage account
 - `targetRegions` array added and applied only to "SharedImage" type distribute. For more information on `targetRegions`, see [Azure Compute Gallery](../../articles/virtual-machines/azure-compute-gallery.md)
 - Added support for using a [Direct Shared Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#sharing) image as the source for the image template. Direct Shared Gallery is currently in preview.
+- Triggers are now available in public preview to set up automatic image builds. For more information, see [How to use AIB triggers](./image-builder-triggers-how-to.md)
 
 
 

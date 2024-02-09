@@ -4,14 +4,11 @@ description: Basic design considerations when using Azure Dedicated HSM as part 
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 06/03/2022
 ms.author: keithp
-
 ---
 
 # Azure Dedicated HSM deployment architecture

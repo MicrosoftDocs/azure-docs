@@ -4,9 +4,9 @@ description: This quickstart provides several Go code samples you can use to con
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
-author: savjani
-ms.author: pariks
-ms.custom: mvc, mode-api
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: mvc, mode-api, devx-track-go, linux-related-content
 ms.devlang: golang
 ms.date: 05/03/2023
 ---
@@ -26,7 +26,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./how-to-manage-firewall-using-portal.md) or [Azure CLI](./how-to-manage-firewall-using-cli.md)
 
 ## Install Go and MySQL connector
@@ -72,7 +72,7 @@ Install [Go](https://go.dev/doc/install) and the [go-sql-driver for MySQL](https
 
 ### [Apple macOS](#tab/macos)
 
-1. Download and install Go according to the [installation instructions](https://go.dev/doc/install) matching your platform. 
+1. Download and install Go according to the [installation instructions](https://go.dev/doc/install) matching your platform.
 2. Launch the Bash shell.
 3. Make a folder for your project in your home directory, such as `mkdir -p ~/go/src/mysqlgo/`.
 4. Change directory into the folder, such as `cd ~/go/src/mysqlgo/`.
@@ -104,20 +104,20 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
 1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE), try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
 2. Paste the Go code from the sections below into text files, and then save them into your project folder with file extension \*.go (such as Windows path `%USERPROFILE%\go\src\mysqlgo\createtable.go` or Linux path `~/go/src/mysqlgo/createtable.go`).
-3. Locate the `HOST`, `DATABASE`, `USER`, and `PASSWORD` constants in the code, and then replace the example values with your own values. 
+3. Locate the `HOST`, `DATABASE`, `USER`, and `PASSWORD` constants in the code, and then replace the example values with your own values.
 4. Launch the command prompt or Bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\mysqlgo\`. On Linux `cd ~/go/src/mysqlgo/`.  Some of the IDE editors mentioned offer debug and runtime capabilities without requiring shell commands.
-5. Run the code by typing the command `go run createtable.go` to compile the application and run it. 
+5. Run the code by typing the command `go run createtable.go` to compile the application and run it.
 6. Alternatively, to build the code into a native application, `go build createtable.go`, then launch `createtable.exe` to run the application.
 
 ## Connect, create table, and insert data
 
-Use the following code to connect to the server, create a table, and load the data by using an **INSERT** SQL statement. 
+Use the following code to connect to the server, create a table, and load the data by using an **INSERT** SQL statement.
 
 The code imports three packages: the [sql package](https://go.dev/pkg/database/sql/), the [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) as a driver to communicate with the Azure Database for MySQL, and the [fmt package](https://go.dev/pkg/fmt/) for printed input and output on the command line.
 
 The code calls method [sql.Open()](http://go-database-sql.org/accessing.html) to connect to Azure Database for MySQL, and it checks the connection by using method [db.Ping()](https://go.dev/pkg/database/sql/#DB.Ping). A [database handle](https://go.dev/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://go.dev/pkg/database/sql/#DB.Exec) method several times to run several DDL commands. The code also uses [Prepare()](http://go-database-sql.org/prepared.html) and Exec() to run prepared statements with different parameters to insert three rows. Each time, a custom checkError() method is used to check if an error occurred and panic to exit.
 
-Replace the `host`, `database`, `user`, and `password` constants with your own values. 
+Replace the `host`, `database`, `user`, and `password` constants with your own values.
 
 ```Go
 package main
@@ -189,13 +189,13 @@ func main() {
 
 ## Read data
 
-Use the following code to connect and read the data by using a **SELECT** SQL statement. 
+Use the following code to connect and read the data by using a **SELECT** SQL statement.
 
 The code imports three packages: the [sql package](https://go.dev/pkg/database/sql/), the [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) as a driver to communicate with the Azure Database for MySQL, and the [fmt package](https://go.dev/pkg/fmt/) for printed input and output on the command line.
 
 The code calls method [sql.Open()](http://go-database-sql.org/accessing.html) to connect to Azure Database for MySQL, and checks the connection using method [db.Ping()](https://go.dev/pkg/database/sql/#DB.Ping). A [database handle](https://go.dev/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Query()](https://go.dev/pkg/database/sql/#DB.Query) method to run the select command. Then it runs [Next()](https://go.dev/pkg/database/sql/#Rows.Next) to iterate through the result set and [Scan()](https://go.dev/pkg/database/sql/#Rows.Scan) to parse the column values, saving the value into variables. Each time a custom checkError() method is used to check if an error occurred and panic to exit.
 
-Replace the `host`, `database`, `user`, and `password` constants with your own values. 
+Replace the `host`, `database`, `user`, and `password` constants with your own values.
 
 ```Go
 package main
@@ -259,13 +259,13 @@ func main() {
 
 ## Update data
 
-Use the following code to connect and update the data using a **UPDATE** SQL statement. 
+Use the following code to connect and update the data using a **UPDATE** SQL statement.
 
 The code imports three packages: the [sql package](https://go.dev/pkg/database/sql/), the [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) as a driver to communicate with the Azure Database for MySQL, and the [fmt package](https://go.dev/pkg/fmt/) for printed input and output on the command line.
 
 The code calls method [sql.Open()](http://go-database-sql.org/accessing.html) to connect to Azure Database for MySQL, and checks the connection using method [db.Ping()](https://go.dev/pkg/database/sql/#DB.Ping). A [database handle](https://go.dev/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://go.dev/pkg/database/sql/#DB.Exec) method to run the update command. Each time a custom checkError() method is used to check if an error occurred and panic to exit.
 
-Replace the `host`, `database`, `user`, and `password` constants with your own values. 
+Replace the `host`, `database`, `user`, and `password` constants with your own values.
 
 ```Go
 package main
@@ -315,13 +315,13 @@ func main() {
 
 ## Delete data
 
-Use the following code to connect and remove data using a **DELETE** SQL statement. 
+Use the following code to connect and remove data using a **DELETE** SQL statement.
 
 The code imports three packages: the [sql package](https://go.dev/pkg/database/sql/), the [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) as a driver to communicate with the Azure Database for MySQL, and the [fmt package](https://go.dev/pkg/fmt/) for printed input and output on the command line.
 
 The code calls method [sql.Open()](http://go-database-sql.org/accessing.html) to connect to Azure Database for MySQL, and checks the connection using method [db.Ping()](https://go.dev/pkg/database/sql/#DB.Ping). A [database handle](https://go.dev/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://go.dev/pkg/database/sql/#DB.Exec) method to run the delete command. Each time a custom checkError() method is used to check if an error occurred and panic to exit.
 
-Replace the `host`, `database`, `user`, and `password` constants with your own values. 
+Replace the `host`, `database`, `user`, and `password` constants with your own values.
 
 ```Go
 package main
@@ -381,4 +381,4 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
+> [Migrate your database using Export and Import](../flexible-server/concepts-migrate-import-export.md)

@@ -3,7 +3,7 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Mo
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/21/2022
+ms.date: 08/01/2023
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -40,7 +40,7 @@ VMware to Azure replication includes the following procedures:
 To create and register the Azure Site Recovery replication appliance, you need an Azure account with:
 
 - Contributor or Owner permissions on the Azure subscription.
-- Permissions to register Azure Active Directory (AAD) apps.
+- Permissions to register Microsoft Entra apps.
 - Owner or Contributor and User Access Administrator permissions on the Azure subscription to create a Key Vault, used during agentless VMware migration.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
@@ -55,13 +55,26 @@ Use the following steps to assign the required permissions:
 
 4. In **Add a role assignment**, Select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
-5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the Azure Active Directory apps.
+5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the Microsoft Entra apps.
 
 **Follow these steps to assign required permissions**:
 
-1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
+1. In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**. In **User settings**, verify that Microsoft Entra users can register applications (set to *Yes* by default).
 
-2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Azure Active Directory App.
+2. In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Microsoft Entra App.
+
+## Grant required permissions to the vault
+
+You will also need to grant the managed identity permissions to the cache storage accounts. You can create the storage account in advance and use the same for enabling replication. 
+
+Ensure that the following role permissions are present depending on the type of storage account:
+
+- Resource Manager based storage accounts (Standard Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Resource Manager based storage accounts (Premium Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 ## Prepare an account for automatic discovery
 

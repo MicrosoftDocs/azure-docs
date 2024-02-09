@@ -9,7 +9,7 @@ ms.subservice: calling
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-ios-android
+zone_pivot_groups: acs-plat-ios-android-windows
 
 #Customer intent: As a developer, I want to display the call transcription state on the client.
 ---
@@ -17,7 +17,7 @@ zone_pivot_groups: acs-plat-ios-android
 # Display call transcription state on the client
 
 > [!NOTE]
-> Call transcription state is only available from Teams meetings. Currently there's no support for call transcription state for ACS to ACS calls.
+> Call transcription state is only available from Teams meetings. Currently there's no support for call transcription state for Azure Communication Services to Azure Communication Services calls.
 
 When using call transcription you may want to let your users know that a call is being transcribe. Here's how.
 
@@ -34,6 +34,10 @@ When using call transcription you may want to let your users know that a call is
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Call transcription client-side iOS](./includes/call-transcription/call-transcription-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Call transcription client-side Windows](./includes/call-transcription/call-transcription-windows.md)]
 ::: zone-end
 
 ## Next steps

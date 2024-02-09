@@ -7,8 +7,8 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 01/11/2023
-ms.custom: devx-track-azurepowershell
+ms.date: 10/20/2023
+ms.custom:
 ---
 
 # Using a hotfix production environment
@@ -46,7 +46,7 @@ See the video below an in-depth video tutorial on how to hot-fix your environmen
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
 
-## Next steps
+## Related content
 
 - [Automated publishing for continuous integration and delivery](continuous-integration-delivery-improvements.md)
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)

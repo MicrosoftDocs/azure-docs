@@ -51,6 +51,8 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
     | TTL | Keep default value. |
     | TTL unit | Keep default value. |
     | Alias | Paste in the Static Web Apps generated URL you set aside in a previous step. Make sure to remove the `https://` prefix from your URL. |
+    
+    Additionally, you can select **Yes** for **Alias record set** and select your static web app instead of explicitly providing the URL to take advantage of alias record sets like [prevention from dangling DNS records](/azure/dns/dns-alias#prevent-dangling-dns-records).
 
 4. Select **OK**.
 
@@ -62,13 +64,14 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
 
 2. Select **+ Add**.
 
-3. In the *Enter domain* tab, enter your domain name prefixed with **www**.
+3. In the *Subdomain* box, enter your subdomain name (*i.e.*, **www**). The **Full domain** field should then display the name of your custom domain, including subdomain.
 
-    For instance, if your domain name is `example.com`, enter `www.example.com` into this box.
+    > [!NOTE]
+    > If you have delegated your domain to Azure DNS, and also elected to *Add custom domain on Azure DNS* when configuring your custom domain, you will have the option to select the *Azure DNS zone*. The following steps will then be performed automatically for you after you select **Add**.
 
 4. Select **Next**.
 
-5. In the *Validate + Configure* tab, enter the following values.
+5. In the *Validate + add* tab, enter the following values.
 
     | Setting | Value |
     |---|---|

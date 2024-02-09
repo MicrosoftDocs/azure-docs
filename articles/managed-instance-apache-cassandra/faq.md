@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-ui, ignite-2022
+ms.custom: mode-ui
 ---
 # Frequently asked questions about Azure Managed Instance for Apache Cassandra
 
@@ -22,7 +22,7 @@ It can be used either entirely in the cloud or as a part of a hybrid cloud and o
 
 ### Why should I use this service instead of Azure Cosmos DB for Apache Cassandra?
 
-Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It's a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see [Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra](compare-cosmosdb-managed-instance.md).
+Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It's a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see [Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra/choose-service.md).
 
 ### Is Azure Managed Instance for Apache Cassandra dependent on Azure Cosmos DB?
 
@@ -30,7 +30,7 @@ No, there's no architectural dependency between Azure Managed Instance for Apach
 
 ### What versions of Apache Cassandra does the service support?
 
-The service currently supports Cassandra versions 3.11 and 4.0. By default, version 3.11 is deployed, as version 4.0 is currently in public preview. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
+The service currently supports Cassandra versions 3.11 and 4.0. Both versions are GA. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
 
 ### Does Azure Managed Instance for Apache Cassandra have an SLA?
 
@@ -91,6 +91,10 @@ The settings for table metadata such as bloom filter, caching, read repair chanc
 ### Can I deploy a managed instance cluster using Terraform?
 
 Yes. You can find a sample for deploying a cluster with a datacenter [here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_datacenter).
+
+### How can I add a single public endpoint to my Azure Managed Instance Cassandra Cluster?
+
+To achieve this, you can [create a load balancer](../load-balancer/basic/quickstart-basic-internal-load-balancer-portal.md). When configuring the Backend pools of the load balancer, utilize all the IP addresses from the data center within your Managed Instance cluster. You might see errors in the logs when using java and other Cassandra drivers. Users use this approach to work around network restrictions when administering clusters with cqlsh. This approach might result in extra costs. Also, you should carefully assess how opting for a single endpoint can affect performance.
 
 ## Next steps
 

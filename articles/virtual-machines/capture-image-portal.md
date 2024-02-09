@@ -1,15 +1,13 @@
 ---
 title: Capture an image of a VM using the portal
-description: Create an image of a VM using the Azure portal. 
-author: cynthn
+description: Create an image of a VM using the Azure portal.
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/12/2022
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: portal
-
 ---
 # Create an image of a VM in the portal
 
@@ -19,6 +17,8 @@ For images stored in an Azure Compute Gallery (formerly known as Shared Image Ga
 
 > [!IMPORTANT]
 > Once you mark a VM as `generalized` in Azure, you cannot restart the VM. Legacy **managed images** are automatically marked as generalized.
+> > When capturing an image of a virtual machine in Azure, the virtual machine will be temporarily stopped to ensure data consistency and prevent any potential issues during the image creation. This is because capturing an image requires a point-in-time snapshot of the virtual machine's disk.
+> To avoid disruptions in a production environment, it's recommended you schedule the image capture process during a maintenance window or a time when the temporary downtime won't impacting critical services.
 
 
 ## Capture a VM in the portal 

@@ -1,18 +1,18 @@
 ---
-title: Data-driven style Expressions in the Azure Maps Web SDK | Microsoft Azure Maps
+title: Data-driven style expressions in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Web SDK to adjust styles in maps.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
-# Data-driven Style Expressions (Web SDK)
+# Data-driven style expressions (Web SDK)
 
-Expressions enable you to apply business logic to styling options that observe the properties defined in each shape in a data source. Expressions can filter data in a data source or a layer. Expressions may consist of conditional logic, like if-statements. And, they can be used to manipulate data using: string operators, logical operators, and mathematical operators.
+Expressions enable you to apply business logic to styling options that observe the properties defined in each shape in a data source. Expressions can filter data in a data source or a layer. Expressions might consist of conditional logic, like if-statements. And, they can be used to manipulate data using: string operators, logical operators, and mathematical operators.
 
 Data-driven styles reduce the amount of code needed to implement business logic around styling. When used with layers, expressions are evaluated at render time on a separate thread. This functionality provides increased performance compared to evaluating business logic on the UI thread.
 
@@ -188,7 +188,7 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | `['atan', number]` | number | Calculates the arctangent of the specified number. |
 | `['ceil', number]` | number | Rounds the number up to the next whole integer. |
 | `['cos', number]` | number | Calculates the cos of the specified number. |
-| `['distance', Point \| MultiPoint \| LineString \| MultiLineString \| Polygon \| MultiPolygon \| Feature \| FeatureCollection]` | number | Calculates the shortest distance in meters between the evaluated feature and the input geometry. Distance values returned may vary in precision due to loss in precision from encoding geometries, particularly below zoom level 13. |
+| `['distance', Point \| MultiPoint \| LineString \| MultiLineString \| Polygon \| MultiPolygon \| Feature \| FeatureCollection]` | number | Calculates the shortest distance in meters between the evaluated feature and the input geometry. Distance values returned might vary in precision due to loss in precision from encoding geometries, particularly below zoom level 13. |
 | `['e']` | number | Returns the mathematical constant `e`. |
 | `['floor', number]` | number | Rounds the number down to the previous whole integer. |
 | `['ln', number]` | number | Calculates the natural logarithm of the specified number. |
@@ -520,7 +520,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 The above expression renders a pin on the map with the text "64°F" overlaid on top of it as shown in the following image.
 
-![String operator expression example](media/how-to-expressions/string-operator-expression.png)
+:::image type="content" source="./media/how-to-expressions/string-operator-expression.png" alt-text="Screenshot of a map that demonstrates the string operator expression example.":::
 
 ## Interpolate and Step expressions
 
@@ -841,7 +841,7 @@ This layer renders the text field in the symbol layer as shown in the following 
 
 ## Zoom expression
 
-A `zoom` expression is used to retrieve the current zoom level of the map at render time and is defined as `['zoom']`. This expression returns a number between the minimum and maximum zoom level range of the map. The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Using the `zoom` expression allows styles to be modified dynamically as the zoom level of the map is changed. The `zoom` expression may only be used with `interpolate` and `step` expressions.
+A `zoom` expression is used to retrieve the current zoom level of the map at render time and is defined as `['zoom']`. This expression returns a number between the minimum and maximum zoom level range of the map. The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Using the `zoom` expression allows styles to be modified dynamically as the zoom level of the map is changed. The `zoom` expression can only be used with `interpolate` and `step` expressions.
 
 **Example**
 

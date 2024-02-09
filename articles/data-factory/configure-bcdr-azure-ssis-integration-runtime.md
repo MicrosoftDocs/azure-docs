@@ -1,18 +1,15 @@
 ---
 title: Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)
-description: This article describes how to configure Azure-SSIS integration runtime in Azure Data Factory with Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR). 
-services: data-factory
+description: This article describes how to configure Azure-SSIS integration runtime in Azure Data Factory with Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR).
 ms.service: data-factory
 ms.subservice: integration-services
-ms.workload: data-services
 ms.devlang: powershell
 author: chugugrace
 ms.author: chugu
 manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR) 
@@ -112,7 +109,7 @@ If a disaster occurs and impacts your existing Azure-SSIS IR but not Azure SQL D
 
 1. Using [Azure portal/ADF UI](./create-azure-ssis-integration-runtime-portal.md) or [Azure PowerShell](./create-azure-ssis-integration-runtime-powershell.md), create your new ADF/Azure-SSIS IR named *YourNewADF*/*YourNewAzureSSISIR*, respectively, in another region. If you use Azure portal/ADF UI, you can ignore the test connection error on **Deployment settings** page of **Integration runtime setup** pane.
 
-## Next steps
+## Related content
 
 You can consider these other configuration options for your Azure-SSIS IR:
 

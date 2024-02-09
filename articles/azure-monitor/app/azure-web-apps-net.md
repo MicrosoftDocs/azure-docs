@@ -13,15 +13,15 @@ ms.reviewer: abinetabate
 Enabling monitoring on your ASP.NET-based web applications running on [Azure App Service](../../app-service/index.yml) is now easier than ever. Previously, you needed to manually instrument your app. Now the latest extension/agent is built into the App Service image by default. This article will walk you through enabling Azure Monitor Application Insights monitoring and provide preliminary guidance for automating the process for large-scale deployments.
 
 > [!NOTE]
-> Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in *d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent* and are automatically updated with each stable release. If you follow the auto-instrumentation instructions to enable monitoring, it will automatically remove the deprecated extension for you.
+> Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in *d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent* and are automatically updated with each stable release. If you follow the autoinstrumentation instructions to enable monitoring, it will automatically remove the deprecated extension for you.
 
-If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This arrangement prevents duplicate data from being sent. To learn more, see the [Troubleshooting section](#troubleshooting).
+If both autoinstrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This arrangement prevents duplicate data from being sent. To learn more, see the [Troubleshooting section](#troubleshooting).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## Enable auto-instrumentation monitoring
+## Enable autoinstrumentation monitoring
 
-For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a complete list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 > [!NOTE]
 > The combination of `APPINSIGHTS_JAVASCRIPT_ENABLED` and `urlCompression` isn't supported. For more information, see the explanation in the [Troubleshooting section](#appinsights_javascript_enabled-and-urlcompression-isnt-supported).
@@ -108,7 +108,7 @@ To check which version of the extension you're running, go to `https://yoursiten
 
 Starting with version 2.8.9, the preinstalled site extension is used. If you're on an earlier version, you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](#enable-auto-instrumentation-monitoring): Even if you have the Application Insights extension for App Service installed. The UI shows only the **Enable** button. Behind the scenes, the old private site extension will be removed.
+* [Upgrade by enabling via the portal](#enable-autoinstrumentation-monitoring): Even if you have the Application Insights extension for App Service installed. The UI shows only the **Enable** button. Behind the scenes, the old private site extension will be removed.
 * [Upgrade through PowerShell](#enable-through-powershell):
 
     1. Set the application settings to enable the preinstalled site extension `ApplicationInsightsAgent`. For more information, see [Enable through PowerShell](#enable-through-powershell).
@@ -130,7 +130,7 @@ Here's our step-by-step troubleshooting guide for extension/agent-based monitori
 
     - Confirm that `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx` and is running.
 
-         If it isn't running, follow the instructions to [enable Application Insights monitoring](#enable-auto-instrumentation-monitoring).
+         If it isn't running, follow the instructions to [enable Application Insights monitoring](#enable-autoinstrumentation-monitoring).
 
     - Confirm that the status source exists and looks like `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`.
 
@@ -180,7 +180,7 @@ The following table provides a more detailed explanation of what these values me
 
 ### System.IO.FileNotFoundException after 2.8.44 upgrade
 
-The 2.8.44 version of auto-instrumentation upgrades Application Insights SDK to 2.20.0. The Application Insights SDK has an indirect reference to `System.Runtime.CompilerServices.Unsafe.dll` through `System.Diagnostics.DiagnosticSource.dll`. If the application has [binding redirect](/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element) for `System.Runtime.CompilerServices.Unsafe.dll` and if this library isn't present in the application folder, it might throw `System.IO.FileNotFoundException`.
+The 2.8.44 version of autoinstrumentation upgrades Application Insights SDK to 2.20.0. The Application Insights SDK has an indirect reference to `System.Runtime.CompilerServices.Unsafe.dll` through `System.Diagnostics.DiagnosticSource.dll`. If the application has [binding redirect](/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element) for `System.Runtime.CompilerServices.Unsafe.dll` and if this library isn't present in the application folder, it might throw `System.IO.FileNotFoundException`.
 
 To resolve this issue, remove the binding redirect entry for `System.Runtime.CompilerServices.Unsafe.dll` from the web.config file. If the application wanted to use `System.Runtime.CompilerServices.Unsafe.dll`, set the binding redirect as shown here:
 

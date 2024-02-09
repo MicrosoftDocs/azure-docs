@@ -1,9 +1,9 @@
 ---
-author: timwarner-msft
+author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
 ms.date: 09/04/2020
-ms.author: timwarner
+ms.author: davidsmatlak
 ms.custom: generated
 ---
 

@@ -6,9 +6,8 @@ author: rolyon
 manager: amycolannino
 
 ms.service: role-based-access-control
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for groups to resources so that they can perform their job.
@@ -33,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this tutorial, you will need:
 
-- Permissions to create groups in Azure Active Directory (or have an existing group)
+- Permissions to create groups in Microsoft Entra ID (or have an existing group)
 - [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
 
 ## Role assignments

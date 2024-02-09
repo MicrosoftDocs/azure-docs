@@ -120,7 +120,7 @@ The nodeTypes section describes the type of nodes that your cluster has. At leas
     "name": "NodeType0",
     "clientConnectionEndpointPort": "19000",
     "clusterConnectionEndpointPort": "19001",
-    "leaseDriverEndpointPort": "19002"
+    "leaseDriverEndpointPort": "19002",
     "serviceConnectionEndpointPort": "19003",
     "httpGatewayEndpointPort": "19080",
     "reverseProxyEndpointPort": "19081",

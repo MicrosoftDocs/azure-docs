@@ -4,10 +4,9 @@ description: Create an image version in an Azure Compute Gallery, by using custo
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: gallery
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/22/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -43,6 +42,8 @@ When you're using customer-managed keys for encrypting images in an Azure Comput
 - After you've used your own keys to encrypt an image, you can't go back to using platform-managed keys for encrypting those images.
 
 - VM image version source doesn't currently support customer-managed key encryption.
+
+- Some of the features like replicating an SSE+CMK image, creating an image from SSE+CMK encrypted disk etc. are not supported through portal.
 
 ## PowerShell
 

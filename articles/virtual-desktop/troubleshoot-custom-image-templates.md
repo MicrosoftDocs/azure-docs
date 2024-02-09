@@ -1,25 +1,23 @@
 ---
-title: Troubleshoot Custom image templates (preview) - Azure Virtual Desktop
-description: Troubleshoot Custom image templates in Azure Virtual Desktop.
+title: Troubleshoot custom image templates - Azure Virtual Desktop
+description: Troubleshoot custom image templates in Azure Virtual Desktop.
 ms.topic: troubleshooting
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/05/2023
+ms.date: 09/08/2023
 ---
 
-# Troubleshoot Custom image templates in Azure Virtual Desktop (preview)
+# Troubleshoot custom image templates in Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Custom image templates in Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). this article helps troubleshoot some issues you could run into.
+Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). This article helps troubleshoot some issues you could run into.
 
 ## General troubleshooting when creating an image
 
 Azure Image Builder uses Hashicorp Packer to create images. Packer outputs all log entries to a file called **customization.log**. By default this file is located in a resource group that Azure Image Builder created automatically with the naming convention `IT_<ResourceGroupName>_<TemplateName>_<GUID>`. You can override this naming by specifying your own name in the template creation phase.
 
 In this resource group is a storage account with a blob container called **packerlogs**. In the container is a folder named with a GUID in which you'll find the log file. 	Entries for built-in scripts you use to customize your image begin **Starting AVD AIB Customization: {Script name}: {Timestamp}**, to help you locate any errors related to the scripts.
+
+To learn how to interpret Azure Image Builder logs, see [Troubleshoot Azure VM Image Builder](../virtual-machines/linux/image-builder-troubleshoot.md).
 
 > [!IMPORTANT]
 > Microsoft Support doesn't handle issues for any customer created scripts, or any scripts or templates copied from a Microsoft repository and modified. You are welcome to collaborate and improve these tools in our [GitHub repository](https://github.com/Azure/RDS-Templates/issues), where you can open an issue. For more information, see [Why do we not support customer or third party scripts?](https://techcommunity.microsoft.com/t5/ask-the-performance-team/help-my-powershell-script-isn-t-working-can-you-fix-it/ba-p/755797)
@@ -41,3 +39,23 @@ The generation for the source image is shown when you select the image you want 
 ## PrivateLinkService Network Policy is not disabled for the given subnet
 
 If you receive the error message starting **PrivateLinkService Network Policy is not disabled for the given subnet**, you need to disable the *private service policy* on the subnet. For more information, see [Disable private service policy on the subnet](../virtual-machines/windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet).
+
+## Removing the Microsoft Store app 
+
+Removing or uninstalling the Microsoft Store app is not supported. Learn how to [Configure access to the Microsoft Store](/windows/configuration/stop-employees-from-using-microsoft-store).
+
+## Issues installing or enabling additional languages on Windows 10 images
+
+Additional languages can be added by custom image templates, which uses the [Install-Language PowerShell cmdlet](/powershell/module/languagepackmanagement/install-language). If you have issues installing or enabling additional languages on Windows 10 Enterprise and Windows 10 Enterprise multi-session images, ensure that:
+
+- You haven't disabled installing language packs by group policy on your image. The policy setting can be found at the following locations:
+
+   - **Computer Configuration** > **Administrative Templates** > **Control Panel** > **Regional and Language Options** > **Restrict Language Pack and Language Feature Installation**
+
+   - **User Configuration** > **Administrative Templates** > **Control Panel** > **Regional and Language Options** > **Restrict Language Pack and Language Feature Installation**
+
+- Your session hosts can connect to Windows Update to download languages and latest cumulative updates. 
+
+## Is Trusted Launch or are Confidential VMs supported?
+
+As custom image templates is based on Azure Image Builder, support for Trusted Launch or Confidential VMs is inherited. For more information, see [Confidential VM and Trusted Launch support](../virtual-machines/image-builder-overview.md#confidential-vm-and-trusted-launch-support).

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the data history feature for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/08/2023
+ms.date: 01/26/2024
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -23,9 +23,11 @@ Once graph updates are historized to Azure Data Explorer, you can run joint quer
 
 For more of an introduction to data history, including a quick demo, watch the following IoT show video:
 
-<iframe src="https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15" width="1080" height="530"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15]
 
-## Resources and data flow
+Messages emitted by data history are metered under the [Message pricing dimension](https://azure.microsoft.com/pricing/details/digital-twins/#pricing).
+
+## Prerequisites: Resources and permissions
 
 Data history requires the following resources:
 * Azure Digital Twins instance, with a [system-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) enabled.
@@ -34,37 +36,11 @@ Data history requires the following resources:
 
 These resources are connected into the following flow:
 
-:::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of telemetry data into Azure Digital Twins, through an event hub, to Azure Data Explorer.":::
+:::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of device telemetry data into Azure Digital Twins, through an event hub, to Azure Data Explorer.":::
 
 When the digital twin graph is updated, the information passes through the event hub into the target Azure Data Explorer cluster, where Azure Data Explorer stores the data as a timestamped record in the corresponding table.
 
 When working with data history, it's recommended to use the [2023-01-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2023-01-31) version or later of the APIs. With the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version, only twin properties (not twin lifecycle or relationship lifecycle events) can be historized. With earlier versions, data history is not available.
-
-### History from multiple Azure Digital Twins instances
-
-If you'd like, you can have multiple Azure Digital Twins instances historize updates to the same Azure Data Explorer cluster.
-
-Each Azure Digital Twins instance will have its own data history connection targeting the same Azure Data Explorer cluster. Within the cluster, instances can send their twin data to either...
-* **a separate set of tables** in the Azure Data Explorer cluster.
-* **the same set of tables** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table names while [creating the data history connections](how-to-create-data-history-connection.md#set-up-data-history-connection). In the [data history table schemas](#data-types-and-schemas), the `ServiceId` column in each table will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record in shared tables.
-
-## Creating a data history connection
-
-Once all the [resources](#resources-and-data-flow) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
-
-The command will always create a table for historized twin property events, which can use the default name or a custom name that you provide. Twin property deletions can optionally be included in this table. You can also provide table names for relationship lifecycle events and twin lifecycle events, and the command will create tables with those names to historize those event types.
-
-For step-by-step instructions on how to set up a data history connection, see [Create a data history connection](how-to-create-data-history-connection.md).
-
-## Updating a properties-only data history connection
-
-Prior to February 2023, the data history feature only historized twin property updates. If you have a properties-only data history connection from that time, you can update it to historize all graph updates to Azure Data Explorer (including twin properties, twin lifecycle events, and relationship lifecycle events). 
-
-This will require creating new tables in your Azure Data Explorer cluster for the new types of historized updates (twin lifecycle events and relationship lifecycle events). For twin property events, you can decide whether you want the new connection to continue using the same table from your original data history connection to store twin property updates going forward, or if you want the new connection to use an entirely new set of tables. Then, follow the instructions below for your preference.
-
-**If you want to continue using your existing table for twin property updates:** Use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for the two new event type tables, and to pass in the original table name for the twin property updates table. The new connection will override the old one, and continue to use the original table for future historized twin property updates.
-
-**If you want to use all new tables:** First, [delete your original data history connection](#deleting-a-data-history-connection). Then, use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for all three event type tables.
 
 ### Required permissions
 
@@ -76,6 +52,49 @@ In order to set up a data history connection, your Azure Digital Twins instance 
 Later, your Azure Digital Twins instance must have the following permission on the Event Hubs resource while data history is being used: **Azure Event Hubs Data Sender** (you can also opt instead to keep **Azure Event Hubs Data Owner** from data history setup).
 
 These permissions can be assigned using the Azure CLI or Azure portal.
+
+If you'd like to restrict network access to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection. For more information about this process, see [Restrict network access to data history resources](how-to-create-data-history-connection.md#restrict-network-access-to-data-history-resources).
+
+## Create and manage data history connection
+
+This section contains information for creating, updating, and deleting a data history connection.
+
+### Create a data history connection
+
+Once all the [resources](#prerequisites-resources-and-permissions) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
+
+The command will always create a table for historized twin property events, which can use the default name or a custom name that you provide. Twin property deletions can optionally be included in this table. You can also provide table names for relationship lifecycle events and twin lifecycle events, and the command will create tables with those names to historize those event types.
+
+For step-by-step instructions on how to set up a data history connection, see [Create a data history connection](how-to-create-data-history-connection.md).
+
+#### History from multiple Azure Digital Twins instances
+
+If you'd like, you can have multiple Azure Digital Twins instances historize updates to the same Azure Data Explorer cluster.
+
+Each Azure Digital Twins instance will have its own data history connection targeting the same Azure Data Explorer cluster. Within the cluster, instances can send their twin data to either...
+* **a separate set of tables** in the Azure Data Explorer cluster.
+* **the same set of tables** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table names while [creating the data history connections](how-to-create-data-history-connection.md#set-up-data-history-connection). In the [data history table schemas](#data-types-and-schemas), the `ServiceId` column in each table will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record in shared tables.
+
+### Update a properties-only data history connection
+
+Prior to February 2023, the data history feature only historized twin property updates. If you have a properties-only data history connection from that time, you can update it to historize all graph updates to Azure Data Explorer (including twin properties, twin lifecycle events, and relationship lifecycle events). 
+
+This will require creating new tables in your Azure Data Explorer cluster for the new types of historized updates (twin lifecycle events and relationship lifecycle events). For twin property events, you can decide whether you want the new connection to continue using the same table from your original data history connection to store twin property updates going forward, or if you want the new connection to use an entirely new set of tables. Then, follow the instructions below for your preference.
+
+**If you want to continue using your existing table for twin property updates:** Use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for the two new event type tables, and to pass in the original table name for the twin property updates table. The new connection will override the old one, and continue to use the original table for future historized twin property updates.
+
+**If you want to use all new tables:** First, [delete your original data history connection](#delete-a-data-history-connection). Then, use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for all three event type tables.
+
+### Delete a data history connection
+
+You can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md) to delete a data history connection. The CLI command is [az dt data-history connection delete](/cli/azure/dt/data-history/connection#az-dt-data-history-connection-delete).
+
+Deleting a connection also gives the option to clean up resources associated with the data history connection (for the CLI command, the optional parameter to add is `--clean true`). If you use this option, the command will delete the resources within Azure Data Explorer that are used to link your cluster to your event hub, including data connections for the database and the ingestion mappings associated with your table. The "clean up resources" option will **not** delete the actual event hub and Azure Data Explorer cluster used for the data history connection.
+
+The cleanup is a best-effort attempt, and requires the account running the command to have delete permission for these resources.
+
+>[!NOTE]
+> If you have multiple data history connections that share the same event hub or Azure Data Explorer cluster, using the "clean up resources" option while deleting one of these connections may disrupt your other data history connections that rely on these resources.
 
 ## Data types and schemas
 
@@ -163,22 +182,7 @@ Below is an example table of relationship lifecycle updates stored to Azure Data
 | PasteurizationMachine_A01_feeds_Relationship0 | feeds | Create | 2022-12-15 07:16:12.7120 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A01 | SaltMachine_C0 |
 | PasteurizationMachine_A02_feeds_Relationship0 | feeds | Create | 2022-12-15 07:16:12.7160 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A02 | SaltMachine_C0 |
 | PasteurizationMachine_A03_feeds_Relationship0 | feeds | Create | 2022-12-15 07:16:12.7250 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A03 | SaltMachine_C1 |
-| OsloFactory_contains_Relationship0 | contains | Delete | 2022-12-15 07:16:13.1780 | dairyadtinstance.api.wcus.digitaltwins.azure.net | OsloFactory | SaltMachine_C0 |  
-
-## Deleting a data history connection
-
-You can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md) to delete a data history connection. The CLI command is [az dt data-history connection delete](/cli/azure/dt/data-history/connection#az-dt-data-history-connection-delete).
-
-Deleting a connection also gives the option to clean up resources associated with the data history connection (for the CLI command, the optional parameter to add is `--clean true`). If you use this option, the command will delete the resources within Azure Data Explorer that are used to link your cluster to your event hub, including data connections for the database and the ingestion mappings associated with your table. The "clean up resources" option will **not** delete the actual event hub and Azure Data Explorer cluster used for the data history connection.
-
-The cleanup is a best-effort attempt, and requires the account running the command to have delete permission for these resources.
-
->[!NOTE]
-> If you have multiple data history connections that share the same event hub or Azure Data Explorer cluster, using the "clean up resources" option while deleting one of these connections may disrupt your other data history connections that rely on these resources.
-
-## Pricing
-
-Messages emitted by data history are metered under the [Message pricing dimension](https://azure.microsoft.com/pricing/details/digital-twins/#pricing).
+| OsloFactory_contains_Relationship0 | contains | Delete | 2022-12-15 07:16:13.1780 | dairyadtinstance.api.wcus.digitaltwins.azure.net | OsloFactory | SaltMachine_C0 |
 
 ## End-to-end ingestion latency
 
@@ -218,6 +222,17 @@ To enable streaming ingestion for your Azure Digital Twins data history table, t
 ```
 
 Ensure that `<table_name>` is replaced with the name of the table that was set up for you. It may take 5-10 minutes for the policy to take effect. 
+
+## Visualize historized properties
+
+[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), a developer tool for visualizing and interacting with Azure Digital Twins data, offers a **Data history explorer** feature for viewing historized properties over time in a chart or a table. This feature is also available in [3D Scenes Studio](concepts-3d-scenes-studio.md), an immersive 3D environment for giving Azure Digital Twins the visual context of 3D assets.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/data-history-explorer.png" alt-text="Screenshot of data history explorer for 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/data-history-explorer.png":::
+
+For more detailed information about using the data history explorer, see [Validate and explore historized properties](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
+
+>[!NOTE]
+> If you encounter issues selecting a property in the visual data history explorer experience, this might mean there's an error in some model in your instance. For example, having non-unique enum values in the attributes of a model will break this visualization feature. If this happens, [review your model definitions](how-to-use-azure-digital-twins-explorer.md#view-model-definition) and make sure all properties are valid.
 
 ## Next steps
 

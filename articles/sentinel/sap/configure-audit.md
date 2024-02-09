@@ -1,8 +1,8 @@
 ---
 title: Enable and configure SAP auditing for Microsoft Sentinel | Microsoft Docs
 description: This article shows you how to enable and configure auditing for the Microsoft Sentinel solution for SAP® applications, so that you can have complete visibility into your SAP solution.
-author: MSFTandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
 ms.date: 04/27/2022
 ---
@@ -17,6 +17,33 @@ This article shows you how to enable and configure auditing for the Microsoft Se
 > The steps in this article may vary, depending on your SAP system's version, and should be considered as a sample only.
 
 Some installations of SAP systems may not have audit log enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP® applications, enable auditing of your SAP system and configure the audit parameters.
+
+## Deployment milestones
+
+Track your SAP solution deployment journey through this series of articles:
+
+1. [Deployment overview](deployment-overview.md)
+
+1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
+
+1. [Prepare SAP environment](preparing-sap.md)
+
+1. **Configure auditing (*You are here*)**
+
+1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
+
+1. [Deploy SAP security content](deploy-sap-security-content.md)
+
+1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
+
+1. Optional deployment steps   
+   - [Configure data connector to use SNC](configure-snc.md)
+   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
+   - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
+   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 ## Check if auditing is enabled
 
@@ -132,27 +159,7 @@ The following table lists Message IDs used by the Microsoft Sentinel solution fo
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+In this article, you learned how to enable and configure SAP auditing for Microsoft Sentinel.
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the SAP data connector with SNC](configure-snc.md)
-- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-
-Troubleshooting:
-
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
-
-Reference files:
-
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
-- [Kickstart script reference](reference-kickstart.md)
-- [Update script reference](reference-update.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md)
-
-For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
+> [!div class="nextstepaction"]
+> [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md)

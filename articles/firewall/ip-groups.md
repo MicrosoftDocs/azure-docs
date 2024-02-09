@@ -6,7 +6,7 @@ author: vhorne
 ms.service: firewall
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 10/10/2023
 ms.author: victorh
 ---
 
@@ -22,9 +22,6 @@ IP Groups allow you to group and manage IP addresses for Azure Firewall rules in
 An IP Group can have a single IP address, multiple IP addresses, one or more IP address ranges or addresses and ranges in combination.
 
 IP Groups can be reused in Azure Firewall DNAT, network, and application rules for multiple firewalls across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
-
-> [!NOTE]
-> IP Groups are not currently available in Azure national cloud environments.
 
 ## Sample format
 
@@ -62,6 +59,43 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
 ![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
+
+## Parallel IP Group updates (preview)
+
+You can now update multiple IP Groups in parallel at the same time. This is particularly useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
+
+With this support, you can now:
+
+- Update 20 IP Groups at a time
+- Update the firewall and firewall policy during IP Group updates
+- Use the same IP Group in parent and child policy
+- Update multiple IP Groups referenced by firewall policy or classic firewall simultaneously
+- Receive new and improved error messages
+   - Fail and succeed states
+
+     For example, if there is an error with one IP Group update out of 20 parallel updates, the other updates proceed, and the errored IP Group fails. In addition, if the IP Group update fails, and the firewall is still healthy, the firewall remains in a *Succeeded* state. To check if the IP Group update has failed or succeeded, you can view the status on the IP Group resource.
+
+To activate Parallel IP Group support, you can register the feature using either Azure PowerShell or the Azure portal.
+
+### Azure PowerShell
+
+Use the following Azure PowerShell commands:
+
+```azurepowershell
+Connect-AzAccount
+Select-AzSubscription -Subscription <subscription_id> or <subscription_name>
+Register-AzProviderFeature -FeatureName AzureFirewallParallelIPGroupUpdate -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+It can take several minutes for this to take effect. Once the feature is completely registered, consider performing an update on Azure Firewall for the change to take effect immediately.
+
+### Azure portal
+
+1. Navigate to **Preview features** in the Azure portal.
+2. Search and register **AzureFirewallParallelIPGroupUpdate**.
+3. Ensure the feature is enabled.
+
+:::image type="content" source="media/ip-groups/preview-features-parallel.png" alt-text="Screenshot showing the parallel IP groups feature.":::
 
 ## Region availability
 

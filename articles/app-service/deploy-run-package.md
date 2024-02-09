@@ -3,6 +3,8 @@ title: Run your app from a ZIP package
 description: Deploy your app's ZIP package with atomicity. Improve the predictability and reliability of your app's behavior during the ZIP deployment process.
 ms.topic: article
 ms.date: 01/14/2020
+author: cephalin
+ms.author: cephalin
 
 ---
 

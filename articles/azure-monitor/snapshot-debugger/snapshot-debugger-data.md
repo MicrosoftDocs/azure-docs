@@ -6,8 +6,8 @@ author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
-ms.custom: devx-track-dotnet, devdivchpfy22
-ms.date: 04/14/2023
+ms.custom: devdivchpfy22
+ms.date: 11/17/2023
 ---
 
 # View Application Insights Snapshot Debugger data

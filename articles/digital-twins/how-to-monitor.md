@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Monitor Azure Digital Twins instances with metrics, alerts, and diagnostics.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/06/2023
+ms.date: 05/17/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -71,18 +71,20 @@ Metrics having to do with data ingress:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| IngressEvents | Ingress Events | Count | Total | The number of incoming telemetry events into Azure Digital Twins. | Result |
-| IngressEventsFailureRate | Ingress Events Failure Rate | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
+| IngressEvents | Ingress Events | Count | Total | The number of incoming device telemetry events into Azure Digital Twins. | Result |
+| IngressEventsFailureRate | Ingress Events Failure Rate | Percent | Average | The percentage of incoming device telemetry events for which the service returns an internal error (500) response code. | Result |
 | IngressEventsLatency | Ingress Events Latency | Milliseconds | Average | The time from when an event arrives to when it's ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
 
-### Bulk operation metrics (from the Jobs API)
+### Bulk operation metrics (from the Jobs APIs)
 
-Metrics having to do with bulk operations from the [Jobs API](/rest/api/digital-twins/dataplane/import-jobs):
+Metrics having to do with bulk operations from the [Jobs APIs](/rest/api/digital-twins/dataplane/jobs):
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| BulkOperationLatency | Bulk Operation Latency | Milliseconds | Average | Total time taken for a bulk operation to complete. | Operation, <br>Authentication, <br>Protocol |
-| BulkOperationEntityCount | Bulk Operation Entity Count | Count | Total | The number of twins, models, or relationships processed by a bulk operation. | Operation, <br>Result |              
+| ImportJobLatency | Import Job Latency | Milliseconds | Average | Total time taken for an import job to complete. | Operation, <br>Authentication, <br>Protocol |
+| ImportJobEntityCount | Import Job Entity Count | Count | Total | The number of twins, models, or relationships processed by an import job. | Operation, <br>Result |
+| DeleteJobLatency | Delete Job Latency | Milliseconds | Average | Total time taken for a delete job to complete. | Operation, <br>Authentication, <br>Protocol |
+| DeleteJobEntityCount | Delete Job Entity Count | Count | Total | The number of models, twins, and/or relationships deleted as part of a delete job. | Operation, <br>Result |
 
 ### Routing metrics
 

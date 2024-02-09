@@ -7,9 +7,8 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: overview
 ms.date: 05/04/2023
-ms.custom: template-overview
-
-# As a solution builder, I want a high-level overview of the options for managing an IoT solution so that I can easily find relevant content for my scenario.
+ms.custom: template-overview, devx-track-azurecli, devx-track-bicep
+# Customer intent: As a solution builder, I want a high-level overview of the options for managing an IoT solution so that I can easily find relevant content for my scenario.
 ---
 
 # Manage your IoT solution

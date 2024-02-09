@@ -60,7 +60,7 @@ This article shows you how to configure and use Helm in a Kubernetes cluster on 
 
     ```output
     NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
-    ingress-nginx/ingress-nginx     2.12.0          0.34.1          Ingress controller for Kubernetes using NGINX a...
+    ingress-nginx/ingress-nginx     4.7.0           1.8.0           Ingress controller for Kubernetes using NGINX a...
     ```
 
 2. Update the list of charts using the [helm repo update][helm-repo-update] command.
@@ -85,13 +85,13 @@ This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-c
 
     ```azurecli
     REGISTRY_NAME=<REGISTRY_NAME>
-    CONTROLLER_REGISTRY=k8s.gcr.io
+    CONTROLLER_REGISTRY=registry.k8s.io
     CONTROLLER_IMAGE=ingress-nginx/controller
-    CONTROLLER_TAG=v0.48.1
-    PATCH_REGISTRY=docker.io
-    PATCH_IMAGE=jettech/kube-webhook-certgen
-    PATCH_TAG=v1.5.1
-    DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+    CONTROLLER_TAG=v1.8.0
+    PATCH_REGISTRY=registry.k8s.io
+    PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
+    PATCH_TAG=v20230407
+    DEFAULTBACKEND_REGISTRY=registry.k8s.io
     DEFAULTBACKEND_IMAGE=defaultbackend-amd64
     DEFAULTBACKEND_TAG=1.5
 
@@ -225,7 +225,7 @@ For more information about managing Kubernetes application deployments with Helm
 
 <!-- LINKS - internal -->
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
-[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md

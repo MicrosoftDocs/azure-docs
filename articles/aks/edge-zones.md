@@ -105,7 +105,7 @@ The following example is an Azure Resource Manager template (ARM template) that 
 
 * **Linux Admin Username**: Enter a username to connect using SSH, such as azureuser.
 
-* **SSH RSA Public Key**: Copy and paste the public part of your SSH key pair (by default, the contents of ~/.ssh/id_rsa.pub).
+* **SSH RSA Public Key**: Copy and paste the public part of your SSH key pair (by default, the contents of the `~/.ssh/id_rsa.pub` file).
 
 If you're unfamiliar with ARM templates, see the tutorial on [deploying a local ARM template][arm-template-deploy].
 
@@ -303,7 +303,7 @@ In this section you'll learn how to deploy a Kubernetes cluster in the Edge Zone
 
 7. On the **Access** page, configure the following options:
 
-    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
     By default, *Basic* networking is used, and [Container insights](../azure-monitor/containers/container-insights-overview.md) is enabled.

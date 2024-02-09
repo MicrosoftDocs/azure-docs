@@ -4,8 +4,8 @@ description: Explains how to upgrade Azure Arc-enabled data controller, and othe
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 08/15/2022
 ms.topic: conceptual
@@ -44,7 +44,7 @@ Upgrades are limited to the next incremental minor or major version. For example
 
 ## Upgrade order
 
-Upgrade the data controller before you upgrade any data service. Azure Arc-enabled SQL Managed Instance is an example of a data service.
+Upgrade the data controller before you upgrade any data service. SQL Managed Instance enabled by Azure Arc is an example of a data service.
 
 A data controller may be up to one version ahead of a data service. A data service major version may not be one version ahead, or more than one version behind a data controller. 
 

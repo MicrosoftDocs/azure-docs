@@ -2,13 +2,13 @@
 title: Tutorial to set up Azure Data Box Heavy| Microsoft Docs
 description: In this tutorial, learn how to cable your Azure Data Box Heavy, connect Azure Data Box heavy, and turn on Azure Data Box Heavy.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 10/18/2019
-ms.author: alkohli
+ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to set up Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
@@ -57,7 +57,7 @@ Before you begin, make sure that:
 1. Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. 
 1. You need to have a laptop with RJ-45 cable to connect to the local UI and configure the device. Use the laptop to configure each node of the device once.
 1. You need one 40-Gbps cable or 10-Gbps cable per device node.
-    - Choose cables that are compatible with the [Mellanox MCX314A-BCCT](https://qnapdirect.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card?variant=31431916585011) network interface.
+    - Choose cables that are compatible with the Mellanox MCX314A-BCCT network interface.
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-Gbps switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 

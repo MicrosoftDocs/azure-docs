@@ -8,7 +8,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.subservice: nosql
 ms.topic: troubleshooting
-ms.custom: devx-track-dotnet, ignite-2022
+ms.custom: devx-track-dotnet
 ---
 # Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

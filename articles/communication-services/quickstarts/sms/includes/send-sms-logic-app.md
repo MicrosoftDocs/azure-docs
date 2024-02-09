@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: chpalm
+author: tophpalmer
 manager: anvalent
 
 ms.service: azure-communication-services
@@ -73,7 +73,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
     1. Using Service Principal ([Refer Services Principal Creation](../../identity/service-principal-from-cli.md)):
         1. Provide a name for the connection.
         
-        1. Select Service principal (Azure AD application) Authentication from the drop down options.
+        1. Select Service principal (Microsoft Entra application) Authentication from the drop down options.
         
         1. Enter the Tenant ID, Client ID & Client Secret of your Service Principal.
         

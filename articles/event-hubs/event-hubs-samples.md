@@ -2,7 +2,7 @@
 title: Samples - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of samples for Azure Event Hubs that are on GitHub.  
 ms.topic: article
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/05/2023 
 ---
 
@@ -44,7 +44,7 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 
 
 ## Go samples
-You can find Go samples for Azure Event Hubs in the [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub repository.
+You can find Go samples for Azure Event Hubs in the [azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs) folder in the [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go/) GitHub repository.
 
 ## Azure CLI samples
 You can find Azure CLI samples for Azure Event Hubs in the [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub repository.

@@ -2,7 +2,7 @@
 title: Collect data from CollectD in Azure Monitor | Microsoft Docs
 description: CollectD is an open source Linux daemon that periodically collects data from applications and system level information.  This article provides information on collecting data from CollectD in Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 06/01/2023
 ms.reviewer: JeffWo
 
 ---
@@ -14,7 +14,7 @@ ms.reviewer: JeffWo
 
 A full list of available plugins can be found at [Table of Plugins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
-![CollectD overview](media/data-sources-collectd/overview.png)
+:::image type="content" source="media/data-sources-collectd/overview.png" lightbox="media/data-sources-collectd/overview.png" alt-text="CollectD overview":::
 
 The following CollectD configuration is included in the Log Analytics agent for Linux to route  CollectD data to the Log Analytics agent for Linux.
 

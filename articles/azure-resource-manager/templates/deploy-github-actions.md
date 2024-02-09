@@ -2,7 +2,7 @@
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions.
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 06/23/2023
 ms.custom: github-actions-azure, devx-track-arm-template
 ---
 
@@ -95,9 +95,9 @@ The workflow file must be stored in the **.github/workflows** folder at the root
 
   - **name**: The name of the workflow.
   - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
-  
+
   # [OpenID Connect](#tab/openid)
- 
+
   ```yml
     on: [push]
     name: Azure ARM

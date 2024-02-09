@@ -11,7 +11,7 @@ ms.date: 02/09/2023
 
 # Create a Lambda function to send CloudWatch events to an S3 bucket
 
-In some cases, your CloudWatch logs may not match the format accepted by Microsoft Sentinel - .csv file in a GZIP format without a header. In this article, you use a [lambda function](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLanbdaFunction.py) within the Amazon Web Services (AWS) environment to send [CloudWatch events to an S3 bucket](connect-aws.md), and convert the format to the accepted format. 
+In some cases, your CloudWatch logs may not match the format accepted by Microsoft Sentinel - .csv file in a GZIP format without a header. In this article, you use a [lambda function](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLambdaFunction.py) within the Amazon Web Services (AWS) environment to send [CloudWatch events to an S3 bucket](connect-aws.md), and convert the format to the accepted format. 
 
 ## Create the lambda function 
 
@@ -37,7 +37,6 @@ The lambda function uses Python 3.9 runtime and x86_64 architecture.
 
     :::image type="content" source="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png" alt-text="Screenshot of the AWS Management Console Add permissions policies screen." lightbox="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png":::
 
-1. Copy the code link from the [source file](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLanbdaFunction.py). 
 1. Return to the function, select **Code**, and paste the code link under **Code source**.
 
     :::image type="content" source="media/cloudwatch-lambda-function/lambda-code-source.png" alt-text="Screenshot of the AWS Management Console Code source screen." lightbox="media/cloudwatch-lambda-function/lambda-code-source.png":::

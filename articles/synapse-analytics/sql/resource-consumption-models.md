@@ -9,7 +9,6 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: sngun    
-ms.custom: devx-track-azurepowershell
 ---
 
 # Synapse SQL resource consumption

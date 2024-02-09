@@ -48,11 +48,6 @@ If you prefer, you can complete this guide by using the [Azure portal](howto-dir
 ## <a name="delete"></a>Deprovision a Direct peering
 [!INCLUDE [peering-direct-delete](./includes/delete.md)]
 
-## Next steps
-
-* [Create or modify Exchange peering by using PowerShell](howto-exchange-powershell.md)
-* [Convert a legacy Exchange peering to an Azure resource by using PowerShell](howto-legacy-exchange-powershell.md)
-
 ## Additional resources
 You can get detailed descriptions of all the parameters by running the following command:
 
@@ -60,4 +55,8 @@ You can get detailed descriptions of all the parameters by running the following
 Get-Help Get-AzPeering -detailed
 ```
 
-For more information, see [Internet peering FAQs](faqs.md).
+## Next steps
+
+- [Create or modify Exchange peering by using PowerShell](howto-exchange-powershell.md).
+- [Convert a legacy Exchange peering to an Azure resource by using PowerShell](howto-legacy-exchange-powershell.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

@@ -1,13 +1,13 @@
 ---
 title: Built-in and preinstalled components on Azure-SSIS Integration Runtime
-description: List all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on Azure-SSIS Integration Runtime. 
+description: List all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on Azure-SSIS Integration Runtime.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019
-ms.date: 04/12/2023
+ms.custom: devx-track-dotnet
+ms.date: 01/05/2024
 ---
 
 # Built-in and preinstalled components on Azure-SSIS Integration Runtime
@@ -73,6 +73,6 @@ This article lists all built-in and preinstalled components, such as clients, dr
 | **Built-in workflow tasks** | [Execute Package Task](/sql/integration-services/control-flow/execute-package-task)<br/><br/>[Execute Process Task](/sql/integration-services/control-flow/execute-process-task)<br/><br/>[Execute SQL Server Agent Job Task](/sql/integration-services/control-flow/execute-sql-server-agent-job-task)<br/><br/>[Expression Task](/sql/integration-services/control-flow/expression-task)<br/><br/>[Message Queue Task](/sql/integration-services/control-flow/message-queue-task)<br/><br/>[Send Mail Task](/sql/integration-services/control-flow/send-mail-task)<br/><br/>[WMI Data Reader Task](/sql/integration-services/control-flow/wmi-data-reader-task)<br/><br/>[WMI Event Watcher Task](/sql/integration-services/control-flow/wmi-event-watcher-task) |
 | **Preinstalled tasks ([Azure Feature Pack](/sql/integration-services/azure-feature-pack-for-integration-services-ssis))** | [Azure Blob Download Task](/sql/integration-services/control-flow/azure-blob-download-task)<br/><br/>[Azure Blob Upload Task](/sql/integration-services/control-flow/azure-blob-upload-task)<br/><br/>[Azure Data Lake Analytics Task](/sql/integration-services/control-flow/azure-data-lake-analytics-task)<br/><br/>[Azure Data Lake Store File System Task](/sql/integration-services/control-flow/azure-data-lake-store-file-system-task)<br/><br/>[Azure HDInsight Create Cluster Task](/sql/integration-services/control-flow/azure-hdinsight-create-cluster-task)<br/><br/>[Azure HDInsight Delete Cluster Task](/sql/integration-services/control-flow/azure-hdinsight-delete-cluster-task)<br/><br/>[Azure HDInsight Hive Task](/sql/integration-services/control-flow/azure-hdinsight-hive-task)<br/><br/>[Azure HDInsight Pig Task](/sql/integration-services/control-flow/azure-hdinsight-pig-task)<br/><br/>[Azure SQL Azure Synapse Analytics Upload Task](/sql/integration-services/control-flow/azure-sql-dw-upload-task)<br/><br/>[Flexible File Task](/sql/integration-services/control-flow/flexible-file-task) |
 
-## Next steps
+## Related content
 
 To install additional custom/Open Source/3rd party components on your SSIS IR, follow the instructions in [Customize Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md).

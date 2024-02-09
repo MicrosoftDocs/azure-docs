@@ -1,8 +1,8 @@
 ---
 title: SAP security parameters monitored by the Microsoft Sentinel solution for SAP® to detect suspicious configuration changes
 description: Learn about the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors for suspicious configuration changes.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: reference
 ms.date: 03/26/2023
 ---
@@ -82,6 +82,7 @@ For more information, see:
 - [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
 - [SAP solution security content](sap-solution-security-content.md)
 - [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
 - [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)

@@ -4,7 +4,7 @@ description: Learn how to use dependency injection for registering and using ser
 
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 03/24/2021
 ms.reviewer: jehollan
 ---
@@ -35,6 +35,11 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
 
+> [!WARNING]
+> For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the `FunctionsStartup` class results in a function app startup error.
+>
+> Injection of `IConfiguration` can lead to unexpected behavior. To learn more about adding configuration sources, see [Customizing configuration sources](#customizing-configuration-sources).
+
 To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
 
 ```csharp
@@ -43,20 +48,19 @@ using Microsoft.Extensions.DependencyInjection;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
-namespace MyNamespace
+namespace MyNamespace;
+
+public class Startup : FunctionsStartup
 {
-    public class Startup : FunctionsStartup
+    public override void Configure(IFunctionsHostBuilder builder)
     {
-        public override void Configure(IFunctionsHostBuilder builder)
-        {
-            builder.Services.AddHttpClient();
+        builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton<IMyService>((s) => {
-                return new MyService();
-            });
+        builder.Services.AddSingleton<IMyService>((s) => {
+            return new MyService();
+        });
 
-            builder.Services.AddSingleton<ILoggerProvider, MyLoggerProvider>();
-        }
+        builder.Services.AddSingleton<ILoggerProvider, MyLoggerProvider>();
     }
 }
 ```
@@ -86,29 +90,28 @@ using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace MyNamespace
+namespace MyNamespace;
+
+public class MyHttpTrigger
 {
-    public class MyHttpTrigger
+    private readonly HttpClient _client;
+    private readonly IMyService _service;
+
+    public MyHttpTrigger(IHttpClientFactory httpClientFactory, IMyService service)
     {
-        private readonly HttpClient _client;
-        private readonly IMyService _service;
+        this._client = httpClientFactory.CreateClient();
+        this._service = service;
+    }
 
-        public MyHttpTrigger(IHttpClientFactory httpClientFactory, IMyService service)
-        {
-            this._client = httpClientFactory.CreateClient();
-            this._service = service;
-        }
+    [FunctionName("MyHttpTrigger")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+        ILogger log)
+    {
+        var response = await _client.GetAsync("https://microsoft.com");
+        var message = _service.GetMessage();
 
-        [FunctionName("MyHttpTrigger")]
-        public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            var response = await _client.GetAsync("https://microsoft.com");
-            var message = _service.GetMessage();
-
-            return new OkObjectResult("Response from function with injected dependencies.");
-        }
+        return new OkObjectResult("Response from function with injected dependencies.");
     }
 }
 ```
@@ -142,25 +145,24 @@ The host injects `ILogger<T>` and `ILoggerFactory` services into constructors.  
 The following example demonstrates how to add an `ILogger<HttpTrigger>` with logs that are exposed to the host.
 
 ```csharp
-namespace MyNamespace
+namespace MyNamespace;
+
+public class HttpTrigger
 {
-    public class HttpTrigger
+    private readonly ILogger<HttpTrigger> _log;
+
+    public HttpTrigger(ILogger<HttpTrigger> log)
     {
-        private readonly ILogger<HttpTrigger> _log;
-
-        public HttpTrigger(ILogger<HttpTrigger> log)
-        {
-            _log = log;
-        }
-
-        [FunctionName("HttpTrigger")]
-        public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
-        {
-            _log.LogInformation("C# HTTP trigger function processed a request.");
-
-            // ...
+        _log = log;
     }
+
+    [FunctionName("HttpTrigger")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+    {
+        _log.LogInformation("C# HTTP trigger function processed a request.");
+
+        // ...
 }
 ```
 
@@ -276,9 +278,6 @@ To access user secrets values in your function app code, use `IConfiguration` or
 
 ## Customizing configuration sources
 
-> [!NOTE]
-> Configuration source customization is available beginning in Azure Functions host versions 2.0.14192.0 and 3.0.14191.0.
-
 To specify additional configuration sources, override the `ConfigureAppConfiguration` method in your function app's `StartUp` class.
 
 The following sample adds configuration values from a base and an optional environment-specific app settings files.
@@ -291,19 +290,22 @@ using Microsoft.Extensions.DependencyInjection;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
-namespace MyNamespace
-{
-    public class Startup : FunctionsStartup
-    {
-        public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
-        {
-            FunctionsHostBuilderContext context = builder.GetContext();
+namespace MyNamespace;
 
-            builder.ConfigurationBuilder
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
-                .AddEnvironmentVariables();
-        }
+public class Startup : FunctionsStartup
+{
+    public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+    {
+        FunctionsHostBuilderContext context = builder.GetContext();
+
+        builder.ConfigurationBuilder
+            .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
+            .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+            .AddEnvironmentVariables();
+    }
+    
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
     }
 }
 ```
@@ -323,9 +325,6 @@ By default, configuration files such as *appsettings.json* are not automatically
     <CopyToPublishDirectory>Never</CopyToPublishDirectory>
 </None>
 ```
-
-> [!IMPORTANT]
-> For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the `FunctionsStartup` class results in a function app startup error.
 
 ## Next steps
 

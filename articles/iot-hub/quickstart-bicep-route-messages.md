@@ -7,151 +7,125 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: quickstart-bicep
-ms.date: 05/11/2022
+ms.date: 01/04/2024
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 ---
 
-# Quickstart: Deploy an Azure IoT Hub and a storage account using Bicep
+# Quickstart: Deploy an Azure IoT hub and a storage account using Bicep
 
-In this quickstart, you use Bicep to create an IoT Hub that will route messages to Azure Storage and a storage account to hold the messages. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in an application called  *arm-read-write* to submit messages from the device to the hub. The hub is configured so the messages sent to the hub are automatically routed to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
+In this quickstart, you use Bicep to create an IoT hub, an Azure Storage account, and a route to send messages from the IoT hub to storage. The hub is configured so the messages sent to the hub are automatically routed to the storage account if they meet the routing condition. At the end of this quickstart, you can open the storage account and see the messages sent.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+* [Install Azure CLI](/cli/azure/install-azure-cli)
 
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is called `101-iothub-auto-route-messages` from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iothub-auto-route-messages).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-auto-route-messages/main.bicep":::
-
 Two Azure resources are defined in the Bicep file:
 
-- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-- [Microsoft.Devices/IotHubs](/azure/templates/microsoft.devices/iothubs)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): A storage account with a container.
+* [Microsoft.Devices/IotHubs](/azure/templates/microsoft.devices/iothubs): An IoT hub with an endpoint that points to the storage container and a route to send filtered messages to that endpoint.
 
-## Deploy the Bicep file and run the sample app
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-auto-route-messages/main.bicep":::
 
-This section provides the steps to deploy the Bicep file, create a virtual device, and run the arm-read-write application to send the messages.
+## Deploy the Bicep file
 
-1. Create the resources by deploying the Bicep file using Azure CLI or Azure PowerShell.
+This section provides the steps to deploy the Bicep file.
 
-    # [CLI](#tab/CLI)
+1. Download the [main.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.devices/iothub-auto-route-messages/main.bicep) file from the Azure Quickstart Templates repo.
 
-    ```azurecli
-    az group create --name ContosoResourceGrp --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
-    ```
+1. Create the resources by deploying the Bicep file using Azure CLI.
 
-    # [PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    New-AzResourceGroup -Name ContosoResourceGrp -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
-    ```
-
-    ---
-
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
-
-1. Download and unzip the [IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp/archive/main.zip).
-
-1. Open a command window and go to the folder where you unzipped the IoT C# SDK. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Log into the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
-
-   ![Select the resource group](./media/horizontal-arm-route-messages/01-select-resource-group.png)
-
-1. You see the IoT Hub and storage account that were created when you deployed the Bicep file. Wait until the file is fully deployed before continuing. Then select your resource group to see your resources.
-
-   ![View resources in the resource group](./media/horizontal-arm-route-messages/02-view-resources-in-group.png)
-
-1. You need the **hub name**. Select the hub in the list of resources. Copy the name of the hub from the top of the IoT Hub section to the Windows clipboard.
-
-    Substitute the hub name in this command where noted, and execute this command in the command window:
-
-    ```cmd
-    SET IOT_HUB_URI=<hub name goes here>.azure-devices-net;
-    ```
-
-   which will look this example:
-
-   ```cmd
-   SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
+   ```azurecli
+   az group create --name ContosoResourceGrp --location eastus
+   az deployment group create --resource-group exampleRG --template-file main.bicep
    ```
 
-1. The next environment variable is the IoT Device Key. Add a new device to the hub by selecting **Devices** from the IoT Hub menu for the hub.
+   The deployment takes several minutes to complete. When the deployment finishes, you should see output detailing the deployed resources.
 
-   :::image type="content" source="./media/horizontal-arm-route-messages/04-select-iot-devices.png" alt-text="Screenshot that shows devices in the left pane." border="true":::
+## Send device-to-cloud messages
 
-1. On the right side of the screen, select **+ Add Device** to add a new device.
+In this section, you register a device in your new IoT hub and then send messages from that device to IoT Hub. The route that the Bicep file configured in the IoT hub only sends messages to storage if they contain the message property `level=storage`. To test that this routing condition works as expected, we'll send some messages with that property and some without.
 
-   Fill in the new device name. This quickstart uses a name starting with **Contoso-Test-Device**. Save the device and then open that screen again to retrieve the device key. (The key is generated for you when you close the pane.) Select either the primary or secondary key and copy it to the Windows clipboard. In the command window, set the command to execute and then press **Enter**. The command should look like this one but with the device key pasted in:
+>[!TIP]
+>This quickstart uses the Azure CLI simulated device for convenience. For a code example of sending device-to-cloud messages with message properties for routing, see [HubRoutingSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/HubRoutingSample) in the Azure IoT SDK for .NET.
 
-   ```cmd
-   SET IOT_DEVICE_KEY=<device-key-goes-here>
+1. Retrieve the name of the IoT hub that the template created for you.
+
+   If you used the default commands in the previous section, your resources were created in the **ContosoResourceGrp** resource group. If you used a different resource group, update the following command to match.
+
+   ```azurecli
+   az iot hub list --resource-group ContosoResourceGrp --output table
    ```
 
-1. The last environment variable is the **Device ID**. In the command window, set up the command and execute it.
+1. Copy the name of your IoT hub from the output. It should be formatted like `contosoHub{randomidentifier}`
 
-   ```cmd
-   SET IOT_DEVICE_ID=<device-id-goes-here>
+1. Add a device to the hub.
+
+   ```azurecli
+   az iot hub device-identity create --device-id contosoDevice --hub-name {YourIoTHubName} 
    ```
 
-   which will look like this example:
+1. Simulate the device and send device-to-cloud messages.
 
-   ```cmd
-   SET IOT_DEVICE_ID=Contoso-Test-Device
+   The `--data` parameter lets us set the message body.
+
+   ```azurecli
+   az iot device simulate \
+     --device-id contosoDevice \
+     --hub-name {YourIoTHubName} \
+     --data "This message won't be routed."
    ```
 
-1. To see the environment variables you've defined, type SET on the command line and press **Enter**, then look for the ones starting with **IoT**.
+   The simulator sends 100 messages and then disconnects. You don't need to wait for all 100 for the purposes of this quickstart.
 
-   ![See environment variables](./media/horizontal-arm-route-messages/06-environment-variables.png)
+   >[!TIP]
+   >The Azure CLI won't print the messages as it sends them. If you want to watch the messages as the arrive at your hub, you can install the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) and use it to monitor the built-in endpoint.
 
-    Now the environment variables are set, run the application from the same command window. Because you're using the same window, the variables will be accessible in memory when you run the application.
+1. Send device-to-cloud messages to be routed to storage.
 
-1. To run the application, type the following command in the command window and press **Enter**.
+   The `--properties` parameter allows us to add message, application, or system properties to the default message. For this quickstart, the route in your IoT hub is looking for messages that contain the message property `level=storage`.
 
-    `dotnet run arm-read-write`
+   ```azurecli
+   az iot device simulate \
+     --device-id contosoDevice \
+     --hub-name {YourIoTHubName} \
+     --properties level=storage \
+     --data "This message will be routed to storage."
+   ```
 
-   The application generates and displays messages on the console as it sends each message to the IoT hub. The hub was configured in the Bicep file to have automated routing. Messages containing the text `level = storage` are automatically routed to the storage account. Let the app run for 10 to 15 minutes, then press **Enter** once or twice until it stops running.
+## Review routed messages
 
-## Review deployed resources
-
-1. Log in to the [Azure portal](https://portal.azure.com) and select the Resource Group, then select the storage account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select the resource group, then select the storage account.
 
 1. Drill down into the storage account until you find files.
 
    ![Look at the storage account files](./media/horizontal-arm-route-messages/07-see-storage.png)
 
-1. Select one of the files and select **Download** and download the file to a location you can find later. It will have a name that's numeric, like 47. Add _.txt_ to the end and then double-click on the file to open it.
+1. Select one of the files and select **Download** and download the file to a location you can find later. It has a name that's numeric, like 47. Add _.txt_ to the end and then double-click on the file to open it.
 
 1. When you open the file, each row is for a different message. The body of each message is also encrypted. It must be in order for you to perform queries against the body of the message.
 
    ![View the sent messages](./media/horizontal-arm-route-messages/08-messages.png)
 
    > [!NOTE]
-   > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here is the path from the top of that folder: *./iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/Program.cs* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
+   > These messages are encoded in UTF-8 and base64. If you read the message back, you have to decode it from base64 and utf-8 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here is the path from the top of that folder: *./iothub/device/samples/how to guides/HubRoutingSample/Program.cs* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
 
-You have deployed a Bicep file to create an IoT Hub and a storage account, and run a program to send messages to the hub. The messages are then automatically stored in the storage account where they can be viewed.
+In this quickstart, you deployed a Bicep file to create an IoT hub and a storage account, then run a program to send messages to the hub. The messages are routed based on their message properties and stored in the storage account where they can be viewed.
 
 ## Clean up resources
 
 When you no longer need the resources that you created, delete the resource group.
 
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
+```azurecli
 az group delete --name exampleRG
 ```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
-```
-
----
 
 ## Next steps
 

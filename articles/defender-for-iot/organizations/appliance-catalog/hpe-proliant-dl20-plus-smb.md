@@ -134,7 +134,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
 
-1. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
+1. Change **Boot Mode** to **UEFI BIOS Mode**, and then select **F10: Save**.
 
 1. Select **Esc** twice to close the **System Configuration** form.
 
@@ -189,4 +189,4 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

@@ -1,31 +1,30 @@
 ---
 title: Tutorial - Deploy LAMP and WordPress on a VM
 description: In this tutorial, you learn how to install the LAMP stack, and WordPress, on a Linux virtual machine in Azure.
-author: cynthn
+author: ju-shim
 ms.collection: linux
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.devlang: azurecli
+ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 4/4/2023
 ms.author: mattmcinnes
 ms.reviewer: cynthn
-
 #Customer intent: As an IT administrator, I want to learn how to install the LAMP stack so that I can quickly prepare a Linux VM to run web applications.
 ---
 
 # Tutorial: Install a LAMP stack on an Azure Linux VM
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
 This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on an Ubuntu VM in Azure. To see the LAMP server in action, you can optionally install and configure a WordPress site. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Create an Ubuntu VM 
+> * Create an Ubuntu VM
 > * Open port 80 for web traffic
 > * Install Apache, MySQL, and PHP
 > * Verify installation and configuration
-> * Install WordPress 
+> * Install WordPress
 
 This setup is for quick tests or proof of concept. For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
@@ -35,7 +34,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -45,15 +44,15 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm) command. 
+Create a VM with the [az vm create](/cli/azure/vm) command.
 
-The following example creates a VM named *myVM* and creates SSH keys if they don't already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option. The command also sets *azureuser* as an administrator user name. You use this name later to connect to the VM. 
+The following example creates a VM named *myVM* and creates SSH keys if they don't already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option. The command also sets *azureuser* as an administrator user name. You use this name later to connect to the VM.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
@@ -75,10 +74,10 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 
 
-## Open port 80 for web traffic 
+## Open port 80 for web traffic
 
-By default, only SSH connections are allowed into Linux VMs deployed in Azure. Because this VM is going to be a web server, you need to open port 80 from the internet. Use the [az vm open-port](/cli/azure/vm) command to open the desired port.  
- 
+By default, only SSH connections are allowed into Linux VMs deployed in Azure. Because this VM is going to be a web server, you need to open port 80 from the internet. Use the [az vm open-port](/cli/azure/vm) command to open the desired port.
+
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
@@ -102,14 +101,14 @@ ssh azureuser@40.68.254.142
 
 ## Install Apache, MySQL, and PHP
 
-Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command, which is part of the `lamp-server^` package name. 
+Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command, which is part of the `lamp-server^` package name.
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
 
-You're prompted to install the packages and other dependencies. This process installs the minimum required PHP extensions needed to use PHP with MySQL.  
+You're prompted to install the packages and other dependencies. This process installs the minimum required PHP extensions needed to use PHP with MySQL.
 
 ## Verify Apache
 
@@ -131,7 +130,7 @@ Check the version of MySQL with the following command (note the capital `V` para
 mysql -V
 ```
 
-To help secure the installation of MySQL, including setting a root password, run the `mysql_secure_installation` script. 
+To help secure the installation of MySQL, including setting a root password, run the `mysql_secure_installation` script.
 
 ```bash
 sudo mysql_secure_installation

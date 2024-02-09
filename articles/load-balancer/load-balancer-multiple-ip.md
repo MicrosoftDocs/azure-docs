@@ -6,11 +6,16 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/12/2022
+ms.date: 11/29/2023
 ms.custom: template-tutorial, engagement-fy23
 ---
 
-# Tutorial: Load balance multiple IP configurations using the Azure portal 
+# Tutorial: Load balance multiple IP configurations using the Azure portal
+
+> [!div class="op_single_selector"]
+> * [Portal](load-balancer-multiple-ip.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
+> * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
 To host multiple websites, you can use another network interface associated with a virtual machine. Azure Load Balancer supports deployment of load-balancing to support the high availability of the websites.
 
@@ -29,101 +34,19 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create virtual network
+[!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]
 
-In this section, you'll create a virtual network for the load balancer and virtual machines.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+ > [!IMPORTANT]
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
+ > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
-3. In **Virtual networks**, select **+ Create**.
+ >
 
-4. In **Create virtual network**, enter or select this information in the **Basics** tab:
-
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **Create new**. </br> In **Name** enter **TutorialLBIP-rg**. </br> Select **OK**. |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**                                    |
-    | Region           | Select **West Europe** |
-
-5. Select the **IP Addresses** tab or select **Next: IP Addresses**.
-
-6. In the **IP Addresses** tab, enter the following information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16** |
-
-7. Select **+ Add subnet**.
-
-8. In **Add subnet**, enter the following information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **myBackendSubnet** |
-    | Subnet address range | Enter **10.1.0.0/24** |
-
-9. Select **Add**.
-
-10. Select the **Security** tab.
-
-11. Under **BastionHost**, select **Enable**. Enter the following information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
-    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
-
-12. Select the **Review + create** tab or select the blue **Review + create** button at the bottom of the page.
-
-13. Select **Create**.
-
-## Create NAT gateway
-
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
-
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
-
-2. In **NAT gateways**, select **+ Create**.
-
-3. In **Create network address translation (NAT) gateway**, enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialLBIP-rg**. |
-    | **Instance details** |    |
-    | NAT gateway name | Enter **myNATgateway**. |
-    | Availability zone | Select **None**. |
-    | Idle timeout (minutes) | Enter **15**. |
-
-4. Select the **Outbound IP** tab select the **Next: Outbound IP**.
-
-5. In **Outbound IP**, select **Create a new public IP address** next to **Public IP addresses**.
-
-6. Enter **myNATgatewayIP** in **Name** in **Add a public IP address**.
-
-7. Select **OK**.
-
-8. Select the **Subnet** tab or **Next: Subnet**.
-
-9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
-
-10. Select **myBackendSubnet** under **Subnet name**.
-
-11. Select **Review + create**.
-
-12. Select **Create**.
-
+[!INCLUDE [load-balancer-nat-gateway](../../includes/load-balancer-nat-gateway.md)]
 ## Create virtual machines
 
-In this section, you'll create two virtual machines to host the IIS websites.
+In this section, you create two virtual machines to host the IIS websites.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -135,10 +58,10 @@ In this section, you'll create two virtual machines to host the IIS websites.
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **TutorialLBIP-rg** |
+    | Resource Group | Select **load-balancer-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
-    | Region | Select **(Europe) West Europe** |
+    | Region | Select **(US) East US** |
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **1** |
     | Security type | Leave the default of **Standard**. |
@@ -159,7 +82,7 @@ In this section, you'll create two virtual machines to host the IIS websites.
     |-|-|
     | **Network interface** |  |
     | Virtual network | Select **myVNet**. |
-    | Subnet | Select **myBackendSubnet(10.1.0.0/24)** |
+    | Subnet | Select **backend-subnet(10.1.0.0/24)** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In **Create network security group**, enter **myNSG** in **Name**. </br> In **Inbound rules**, select **+Add an inbound rule**. </br> In **Service**, select **HTTP**. </br> In **Priority**, enter **100**. </br> In **Name**, enter **myNSGrule** </br> Select **Add** </br> Select **OK** |
@@ -180,7 +103,7 @@ In this section, you'll create two virtual machines to host the IIS websites.
 
 ## Create secondary network configurations
 
-In this section, you'll change the private IP address of the existing NIC of each virtual machine to **Static**. Next, you'll add a new NIC resource to each virtual machine with a **Static** private IP address configuration.
+In this section, you change the private IP address of the existing NIC of each virtual machine to **Static**. Next, you add a new NIC resource to each virtual machine with a **Static** private IP address configuration.
 
 For more information on configuring floating IP in the virtual machine configuration, see [Floating IP Guest OS configuration](load-balancer-floating-ip.md#floating-ip-guest-os-configuration).
 
@@ -192,7 +115,7 @@ For more information on configuring floating IP in the virtual machine configura
 
 4. Select **Networking** in **Settings**.
 
-5. In **Networking**, select the name of the network interface next to **Network interface**. The network interface will begin with the name of the VM and have a random number assigned. In this example, **myVM1266**.
+5. In **Networking**, select the name of the network interface next to **Network interface**. The network interface begins with the name of the VM and has a random number assigned. In this example, **myVM1266**.
 
     :::image type="content" source="./media/load-balancer-multiple-ip/myvm1-nic.png" alt-text="Screenshot of myVM1 networking configuration in Azure portal.":::
 
@@ -221,10 +144,10 @@ For more information on configuring floating IP in the virtual machine configura
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
-    | Resource group | Select **TutorialLBIP-rg**. |
+    | Resource group | Select **load-balancer-rg**. |
     | **Network interface** |  |
     | Name | Enter **myVM1NIC2** |
-    | Subnet | Select **myBackendSubnet (10.1.0.0/24)**. |
+    | Subnet | Select **backend-subnet (10.1.0.0/24)**. |
     | NIC network security group | Select **Advanced**. |
     | Configure network security group | Select **myNSG**. |
     | Private IP address assignment | Select **Static**. |
@@ -243,7 +166,7 @@ For more information on configuring floating IP in the virtual machine configura
 
 ## Configure virtual machines
 
-You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the secondary network configuration in this section. You'll add a route for the gateway for the secondary network configuration. You'll then install IIS on each virtual machine and customize the websites to display the hostname of the virtual machine.
+You connect to **myVM1** and **myVM2** with Azure Bastion and configure the secondary network configuration in this section. You add a route for the gateway for the secondary network configuration. Then you install IIS on each virtual machine and customize the websites to display the hostname of the virtual machine.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -460,11 +383,11 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
 
 ## Create load balancer
 
-You'll create a zone redundant load balancer that load balances virtual machines in this section. 
+You create a zone redundant load balancer that load balances virtual machines in this section. 
 
 With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
 
-During the creation of the load balancer, you'll configure:
+During the creation of the load balancer, you configure:
 
 * Two frontend IP addresses, one for each website.
 * Backend pools
@@ -480,10 +403,10 @@ During the creation of the load balancer, you'll configure:
     | ---                     | ---                                                |
     | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **TutorialLBIP-rg**. |
+    | Resource group         | Select **load-balancer-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **East US**.                                        |
     | SKU           | Leave the default **Standard**. |
     | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
@@ -617,7 +540,7 @@ During the creation of the load balancer, you'll configure:
 
 ## Test load balancer
 
-In this section, you'll discover the public IP address for each website. You'll enter the IP into a browser to test the websites you created earlier.
+In this section, you discover the public IP address for each website. You enter the IP into a browser to test the websites you created earlier.
 
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
@@ -649,11 +572,11 @@ If you're not going to continue to use this application, delete the virtual mach
 
 1. In the search box at the top of the portal, enter **Resource group**.  Select **Resource groups** in the search results.
 
-2. Select **TutorialLBIP-rg** in **Resource groups**.
+2. Select **load-balancer-rg** in **Resource groups**.
 
 3. Select **Delete resource group**.
 
-4. Enter **TutorialLBIP-rg** in **TYPE THE RESOURCE GROUP NAME:**. Select **Delete**.
+4. Enter **load-balancer-rg** in **TYPE THE RESOURCE GROUP NAME:**. Select **Delete**.
 
 ## Next steps
 

@@ -1,8 +1,8 @@
 ---
 title: Work with the previous version of Azure Migrate 
 description: Describes how to work with the previous version of Azure Migrate.
-author: v-ksreedevan
-ms.author: v-ksreedevan
+author: MaryMichael-MS
+ms.author: v-michaelar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/08/2023
@@ -206,7 +206,7 @@ To use dependency visualization, you associate a Log Analytics workspace with a 
 1. To attach a Log Analytics workspace to a project, in **Overview** > **Essentials**, click **Requires configuration**.
 2. You can create a new workspace, or attach an existing one:
     - To create a new workspace, specify a name. The workspace is created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-    - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions). To attach a workspace, ensure that you have 'Reader' access to the workspace.
+    - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace. To attach a workspace, ensure that you have 'Reader' access to the workspace.
 
 > [!NOTE]
 > You can't change the workspace associated with a migration project.
@@ -259,7 +259,7 @@ For machines monitored by System Center Operations Manager 2012 R2 or later, the
     `sh InstallDependencyAgent-Linux64.bin`
 
     - Learn more about the [Dependency agent support](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) for the Windows and Linux operating systems.
-    - [Learn more](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
+    - [Learn more](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md#install-or-upgrade-dependency-agent) about how you can use scripts to install the Dependency agent.
 
 >[!NOTE]
 > The Azure Monitor for VMs article referenced to provide an overview of the system prerequisites and methods to deploy the Dependency agent are also applicable to the Service Map solution.
