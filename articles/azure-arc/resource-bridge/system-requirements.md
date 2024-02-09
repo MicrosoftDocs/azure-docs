@@ -25,7 +25,7 @@ If deploying Arc resource bridge on VMware, Azure CLI 64-bit is required to be i
 
 If deploying on Azure Stack HCI, then Azure CLI 32-bit should be installed on the management machine.
 
-Arc Appliance CLI extension, 'arcappliance', needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
+Arc Appliance CLI extension, `arcappliance`, needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
 
 ## Minimum resource requirements
 

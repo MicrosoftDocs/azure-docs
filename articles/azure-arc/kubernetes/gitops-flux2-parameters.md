@@ -27,7 +27,7 @@ This article describes some of the parameters and arguments available for the `a
 | `--resource-group` `-g` | String | Name of the Azure resource group that holds the cluster resource. |
 | `--name` `-n`| String | Name of the Flux configuration in Azure. |
 | `--namespace` `--ns` | String | Name of the namespace to deploy the configuration.  Default: `default`. |
-| `--scope` `-s` | String | Permission scope for the operators. Possible values are `cluster` (full access) or `namespace` (restricted access). Default: `cluster`.
+| `--scope` `-s` | String | Permission scope for the operators. Possible values are `cluster` (full access) or `namespace` (restricted access). Default: `cluster`. |
 | `--suspend` | flag | Suspends all source and kustomize reconciliations defined in this Flux configuration. Reconciliations active at the time of suspension will continue.  |
 
 ## Source general arguments
