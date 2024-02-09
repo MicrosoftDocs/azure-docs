@@ -39,11 +39,18 @@ This section provides information about best practices associated with the Azure
 
 ### Android permission
 
-`android.permission.INTERNET` for network access.
-`android.permission.ACCESS_NETWORK_STATE` for network access.
-`android.permission.ACCESS_WIFI_STATE` for network access.
-`android.permission.RECORD_AUDIO` for capturing audio during calls.
-`android.permission.CAMERA` for accessing the camera for video calls.
+In order to request permissions required to make a call, they must be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following code:
+
+```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+```
 
 ### iOS permissions
 
@@ -60,7 +67,11 @@ Go to `Package.appxmanifest` and select capabilities:
 
 ## Configure the logs
 
-Implementing **logging** as per the [logs file retrieval tutorial](../../tutorials/log-file-retrieval-tutorial.md) is more critical than ever. Detailed logs help in diagnosing issues specific to device models or OS versions that meet the minimum SDK criteria. We encourage to the developers that start configuring the Logs API.
+Implementing **logging** as per the [logs file retrieval tutorial](../../tutorials/log-file-retrieval-tutorial.md) is more critical than ever. Detailed logs help in diagnosing issues specific to device models or OS versions that meet the minimum SDK criteria. We encourage to the developers that start configuring the Logs API without the logs the Microsoft Support team **won't be able** to help debug and troubleshoot the calls.
+
+## Track Call ID
+
+When troubleshooting happens for voice or video calls, you will be asked to provide a **CallID**; this ID is used to identify Communication Services calls. You **should** track the CallID in the telemetry that you codnfiugure in your app, you can follow the guidelines in the [troubleshooting guide](../troubleshooting-info.md).
 
 ## Subscribe to UFD (User Facing Diagnostics) and media quality statistics
 
@@ -73,6 +84,6 @@ Implementing **logging** as per the [logs file retrieval tutorial](../../tutoria
 
 **Dispose Properly**. Ensure that all call objects are correctly disposed of after use to free up system resources and avoid memory leaks.
 
-## Camera being used by another process
+## Camera or microphone being used by another process
 
-On mobile devices, if a Process A requests the camera device and it's being used by Process B, then Process A will overtake the camera device and Process B stop using the camera device as default behavior.
+It's important to note that on mobile devices if multiple processes try to access the camera or microphone at the same time, the first process to request access will take control of the device. As a result, the second process will immediately lose access to it.
