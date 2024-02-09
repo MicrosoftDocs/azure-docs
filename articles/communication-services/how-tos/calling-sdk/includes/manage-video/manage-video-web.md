@@ -408,7 +408,7 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 ```
 
 - `isReceiving`:
-    - Will inform the application if remote video stream data is being received or not. Such scenarios are:
+    - Informs the application if remote video stream data is being received or not. Such scenarios are:
         - I'm viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag goes to false and I see their video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true, and I see their video playing normally.
         - I'm viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, their video start to have bad quality, probably because of network issues, so I see the RemoteVideoStream.isReceiving flag goes to false.
         - I'm viewing the video of a Remote participant who is On macOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I see a black/frozen video since they paused their camera and I see the RemoteVideoStream.isReceiving flag goes to false. Once they resume playing the camera, then I see the RemoteVideoStream.isReceiving flag goes to true.
