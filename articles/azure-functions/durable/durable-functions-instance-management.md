@@ -715,7 +715,7 @@ public static async Task Run(
     string suspendReason = "Need to pause workflow";
     await client.SuspendAsync(instanceId, suspendReason);
     
-    // Wait for 30 seconds to ensure that the orchestrator state is updated as suspended. 
+    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
     DateTime dueTime = context.CurrentUtcDateTime.AddSeconds(30);
     await context.CreateTimer(dueTime, CancellationToken.None);
     
@@ -735,7 +735,7 @@ module.exports = async function(context, instanceId) {
     const suspendReason = "Need to pause workflow";
     await client.suspend(instanceId, suspendReason);
 
-    // Wait for 30 seconds to ensure that the orchestrator state is updated as suspended.  
+    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended.  
     const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ seconds: 30 });
     yield context.df.createTimer(deadline.toJSDate());
 
@@ -757,7 +757,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str):
     suspend_reason = "Need to pause workflow"
     await client.suspend(instance_id, suspend_reason)
 
-    # Wait for 30 seconds to ensure that the orchestrator state is updated as suspended. 
+    # Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
     due_time = context.current_utc_datetime + timedelta(seconds=30)
     yield context.create_timer(due_time)
 
@@ -776,7 +776,7 @@ $SuspendReason = 'Need to pause workflow'
 
 Suspend-DurableOrchestration -InstanceId $InstanceId -Reason $SuspendReason
 
-# Wait for 30 seconds to ensure that the orchestrator state is updated as suspended.
+# Wait for 30 seconds to ensure that the orchestrator state is updated to suspended.
 $duration = New-TimeSpan -Seconds 30
 Start-DurableTimer -Duration $duration
 
@@ -796,7 +796,7 @@ public void suspendResumeInstance(
     String suspendReason = "Need to pause workflow";
     client.suspendInstance(instanceID, suspendReason);
 
-    // Wait for 30 seconds to ensure that the orchestrator state is updated as suspended. 
+    // Wait for 30 seconds to ensure that the orchestrator state is updated to suspended. 
     ctx.createTimer(Duration.ofSeconds(30)).await();
 
     String resumeReason = "Continue workflow";
