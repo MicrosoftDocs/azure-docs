@@ -26,7 +26,7 @@ items:
       - name: Deploy a network function on Nexus Azure Kubernetes Services
         href: quickstart-deploy-network-functions.md
       - name: Deploy observability for Nexus Azure Kubernetes services
-    href: quickstart-deploy-observability.md
+        href: quickstart-deploy-observability.md
   - name: Delete a network function/cluster
     href: quickstart-delete-network-function-cluster.md
 - name: Tutorials

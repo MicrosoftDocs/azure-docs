@@ -29,7 +29,7 @@ Lifecycle Management consists of the following operations:
 The Azure Resource Manager (ARM) model that is used for lifecycle management is shown here: 
 
 > [!NOTE]
-> The CNFs are included for Public Preview while the VNFs are targeted for GA release.
+> The CNFs are included for Public Preview while the VNFs (VNFAgent and vMME) are targeted for GA release.
 
 :::image type="content" source="media/concept-centralized-lifecycle-management/lifecycle-management-model.png" alt-text="Diagram showing the containerized network functions and virtualized network functions responsible for lifecycle management in Azure Operator 5G Core.":::
 
