@@ -7,7 +7,6 @@ ms.custom: devx-track-azurepowershell
 author: athinanthny
 ms.author: atsenthi
 ms.service: service-fabric
-ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
 ---
