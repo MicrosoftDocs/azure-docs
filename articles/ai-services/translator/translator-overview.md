@@ -1,18 +1,18 @@
 ---
 title: What is Azure AI Translator?
 titlesuffix: Azure AI services
-description: Integrate Translator into your applications, websites, tools, and other solutions to provide multi-language user experiences.
+description: Integrate Translator into your applications, websites, tools, and other solutions for multi-language user experiences.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 01/29/2024
+ms.date: 02/12/2024
 ms.author: lajanuar
 ---
 
 # What is Azure AI Translator?
 
-Translator Service is a cloud-based neural machine translation service that is part of the [Azure AI services](../what-are-ai-services.md) family and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
+Translator Service is a cloud-based neural machine translation service that is part of the [Azure AI services](../what-are-ai-services.md) family and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide for language translation and other language-related operations. In this overview, you learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
 
 ## Translator features and development options
 
@@ -29,7 +29,7 @@ For detailed information regarding Azure AI Translator Service request limits, *
 
 ## Try the Translator service for free
 
-First, you need a Microsoft account; if you don't have one, you can sign up for free at the [**Microsoft account portal**](https://account.microsoft.com/account).  Select **Create a Microsoft account** and follow the steps to create and verify your new account.
+First, you need a Microsoft account; if you don't have one, you can sign up for free at the [**Microsoft account portal**](https://account.microsoft.com/account). Select **Create a Microsoft account** and follow the steps to create and verify your new account.
 
 Next, you need to  have an Azure account—navigate to the [**Azure sign-up page**](https://azure.microsoft.com/free/ai/), select the **Start free** button, and create a new Azure account using your Microsoft account credentials.
 
@@ -43,4 +43,4 @@ Now, you're ready to get started! [**Create a Translator service**](create-trans
   * [**Document Translation**](document-translation/overview.md)
   * [**Custom Translator**](custom-translator/overview.md)
 
-* Review [**Translator pricing**](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
+* Review [**Translator pricing**](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

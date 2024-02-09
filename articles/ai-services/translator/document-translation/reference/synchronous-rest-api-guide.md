@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 01/31/2024
+ms.date: 02/12/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -53,7 +53,7 @@ Query string parameters:
 |**api-version** | _Required parameter_.<br>Version of the API requested by the client. Current value is `2023-11-01-preview`. |
 |**targetLanguage**|_Required parameter_.<br>Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|
 |&bull; **document=**<br> &bull; **type=**|_Required parameters_.<br>&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|
-|**--output**|_Required parameter_.<br> &bull; Path to the target file location for the translated file.</br> &bull; Ex: **"C:\Test\Test-file-output.txt"**. The file extension should be the same as the source file.|
+|**--output**|_Required parameter_.<br> &bull; File path for the target file location. Your translated file is printed to the output file.</br> &bull; Ex: **"C:\Test\Test-file-output.txt"**. The file extension should be the same as the source file.|
 
 ### Optional parameters
 
@@ -61,7 +61,7 @@ Query string parameters:
 | --- | --- |
 |**sourceLanguage**|Specifies the language of the input document. If the `sourceLanguage` parameter isn't specified, automatic language detection is applied to determine the source language.|
 |&bull; **glossary=**<br> &bull; **type=**|&bull; Path to the file location for your custom glossary and file format type.</br> &bull; Ex:**"glossary=@D:\Test\SDT\test-simple-glossary.csv;type=text/csv**|
-|**category**|&bull; A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with Custom Translator. Add the Category ID from your Custom Translator project details to this parameter to use your deployed customized system.<br>&bull; Default value is `generalnn` |
+|**category**|&bull; A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with Custom Translator. Add the Category ID from your Custom Translator project details to this parameter for your deployed customized system.<br>&bull; Default value is `generalnn` |
 |**allowFallback**|&bull; A boolean specifying that the service is allowed to fall back to a `generalnn` system when a custom system doesn't exist. Possible values are: `true` (default) or `false`. <br>&bull; `allowFallback=false` specifies that the translation should only use systems trained for the category specified  by the request.<br>&bull; If no system is found with the specific category, the request returns a 400 status code. <br>&bull; `allowFallback=true` specifies that the service is allowed to fall back to a `generalnn` system when a custom system doesn't exist.|
 
 ### Request Body

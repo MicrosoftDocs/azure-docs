@@ -67,7 +67,7 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 |`-X` or `--request` `POST`|The -X flag specifies the request method to access the API.|***Required*** |
 |`{endpoint}`  |The URL for your Document Translation resource endpoint|***Required*** |
 |`targetLanguage`|Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|***Required*** |
-|`sourceLanguage`|Specifies the language of the input document. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language. |***Optional***|
+|`sourceLanguage`|Specifies the language of the input document. If the `sourceLanguage` parameter isn't specified, automatic language detection is applied to determine the source language. |***Optional***|
 |`-H` or `--header` `"Ocp-Apim-Subscription-Key:{KEY}`    | Request header that specifies the Document Translation resource key authorizing access to the API.|***Required***|
 |`-F` or `--form` |The filepath to the document that you want to include with your request. Only one source document is allowed.|***Required***|
 |&bull; `document=`<br> &bull; `type={contentType}/fileExtension` |&bull; Path to the file location for your source document.</br> &bull; Content type and file extension.</br></br>  Ex: **"document=@C:\Test\test-file.md;type=text/markdown**|***Required***|

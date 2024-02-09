@@ -21,7 +21,7 @@ recommendations: false
 
 # What is Document Translation?
 
-Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
+Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service. You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
 
 * [Asynchronous batch](#asynchronous-batch-translation) document translation supports asynchronous processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
 
@@ -145,7 +145,7 @@ For detailed information regarding Azure AI Translator Service request limits, *
 Document Translation data residency depends on the Azure region where your Translator resource was created:
 
 * Translator resources **created** in any region in Europe (except Switzerland) are **processed** at data center in North Europe and West Europe.
-* Translator resources **created** in any region in Switzerland are **processed** at data center in Switzerland North and Switzerland West
+* Translator resources **created** in any region in Switzerland are **processed** at data center in Switzerland North and Switzerland West.
 * Translator resources **created** in any region in Asia Pacific or Australia are **processed** at data center in Southeast Asia and Australia East.
 * Translator resource **created** in all other regions including Global, North America, and South America are **processed** at data center in East US and West US 2.
 
@@ -161,7 +161,7 @@ Document Translation data residency depends on the Azure region where your Trans
 
 ## Next steps
 
-In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
+In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
 > [Get Started with Asynchronous batch translation](./quickstarts/asynchronous-rest-api.md) [Get started with synchronous translation](quickstarts/synchronous-rest-api.md)
