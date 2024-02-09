@@ -75,7 +75,9 @@ Next, create the following two schedules:
    |DecreaseMin |	Additional cost to the customer for the (unintended) capacity that is provisioned for those hours. Next run of IncreaseMin should be no-op because the count doesn’t need to be adjusted. | 
 
 - Can the autoscale configurations be changed multiple times per day?
-Frequent adjustments to autoscale configurations are not advised. For optimal balance, consider scheduling updates twice daily to coincide with peak and non-peak usage pattern.
+  
+  Frequent adjustments to autoscale configurations are not advised. For optimal balance, consider scheduling updates twice 
+  daily to coincide with peak and non-peak usage pattern.
    
 > [!NOTE]
 > Send email to agschedule-autoscale@microsoft.com if you have questions or need help to set up managed and scheduled autoscale for your deployments. 
