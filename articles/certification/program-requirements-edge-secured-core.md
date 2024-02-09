@@ -37,8 +37,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the device identity is rooted in hardware. |
-|Requirements dependency|TPM v2.0 device|
+|Description|The device identity must be rooted in hardware.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust.|
+|Dependencies|TPM v2.0 device|
 
 ---
 </br>
@@ -46,8 +47,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that DMA isn't enabled on externally accessible ports. If DMA capable external ports exist, IOMMU or SMMU must be enabled and configured for those ports. |
-|Requirements dependency|Only if DMA capable ports exist|
+|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured IOMMU or SMMU.|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
+|Dependencies|Enabled and appropriately configured IOMMU or SMMU|
 
 ---
 </br>
@@ -55,9 +57,10 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that device has adequate mitigations from firmware security threats through DRTM + UEFI Management mode.|
-|Requirements dependency|DRTM + UEFI|
-|Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul> |
+|Description|The device boot sequence must support DRTM alongside UEFI Management Mode mitigations.|
+|Purpose|Protects against firmware weaknesses, untrusted code and rootkits that seeks to exploit early and privileged boot stages to bypass OS protections.|
+|Dependencies|DRTM + UEFI|
+|Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul>|
 
 ---
 </br>
@@ -65,8 +68,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the boot integrity of the device. UEFI Secure boot must be enabled to validate the firmware and kernel signatures every time the device boots.|
-|Requirements dependency|UEFI|
+|Description|UEFI Secure Boot must be enabled.|
+|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority.|
+|Dependencies|UEFI|
 
 ---
 </br>
@@ -74,9 +78,10 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that the device can remotely attest to Microsoft Azure Attestation Service with collected platform boot logs and measurements of boot activity.|
-|Requirements dependency|Azure Attestation Service|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
+|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) Service.|
+|Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
+|Dependencies|Microsoft Azure Attestation service|
+|Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
 
 ---
 
@@ -87,7 +92,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that sensitive data can be encrypted on nonvolatile storage.|
+|Description|Sensitive and private data must be encrypted at rest using BitLocker or similar, with encryption keys backed by hardware protection.|
+|Purpose|Protects against exfiltration of sensitive or private data by unauthorized actors or tampered software.|
 
 ---
 </br>
@@ -95,9 +101,10 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate support for a minimum TLS version of 1.2 and for the required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Requirements dependency|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements might require greater versions for other services. |
-|Resources| [TLS Cipher suites in Windows 10](/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
+|Description|The OS must support a minimum TLS version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses.|
+|Dependencies|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements might require greater versions for other services.|
+|Resources| [TLS Cipher suites in Windows 10](/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903)|
 
 ---
 </br>
@@ -105,9 +112,10 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate that virtualization-based security is enabled to prevent unsigned drivers and software from getting into memory.|
-|Requirements dependency|HVCI is enabled on the device.|
-|Resources| [Hypervisor-protected Code Integrity enablement](/windows-hardware/design/device-experiences/oem-hvci-enablement) |
+|Description|The OS must have virtualization-based code integrity features enabled (VBS + HVCI).|
+|Purpose|Protects against modified/malicious code from within the kernel by ensuring that only signed and immutable code is able to run.|
+|Dependencies|VBS + HVCI is enabled on the device.|
+|Resources| [Hypervisor-protected Code Integrity enablement](/windows-hardware/design/device-experiences/oem-hvci-enablement)|
 
 ---
 </br>
@@ -115,7 +123,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Protection.NetworkServices|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that services listening for input from the network aren't running with elevated privileges. Exceptions may apply for security-related services.|
+|Description|Services listening for input from the network must not run with elevated privileges. Exceptions may apply for security-related services.|
+|Purpose|Limits the exploitability of compromised networked services.|
 
 ---
 
@@ -126,7 +135,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint. |
+|Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
+|Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
 |Resources|[Defender for Endpoint]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
@@ -135,13 +145,15 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Protection.Baselines|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that the system is able to apply a baseline security configuration.|
-|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
+|Description|The system is able to successfully apply a baseline security configuration.|
+|Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
+|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/|
 
 |Name|SecuredCore.Protection.Update Resiliency|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that the device can be restored to the last known good state in the case of an update causing issues.|
+|Description|The device must be restorable to the last known good state in the case of an update causing issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure and updatable state.|
 
 
 
@@ -150,7 +162,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that debug functionality on the device is disabled.|
+|Description|Debug functionality on the device must be disabled or require authorization to enable.|
+|Purpose|Ensures that software protections can not be bypassed through debugger intervention and back-channels.|
 
 ---
 </br>
@@ -158,7 +171,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate the device against ability to perform a reset (remove user data, remove user configs).|
+|Description|It must be possible to reset the device (remove user data, remove user configs).|
+|Purpose|Protects against exfiltration of sensitive or private data during device ownership or lifecycle transitions.|
 
 ---
 </br>
@@ -166,7 +180,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Updates.Duration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that software updates will be provided for at least 60 months from date of submission.|
+|Description|Software updates must be provided for at least 60 months from date of submission.|
+|Purpose|Ensures a minimum period of continuous security.|
 
 ---
 </br>
@@ -174,8 +189,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
-|Resources| https://msrc.microsoft.com/report/vulnerability/new |
+|Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
+|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed and disclosed, enabling effective risk management and timely fixes.|
+|Resources|https://msrc.microsoft.com/report/vulnerability/new|
 
 ---
 </br>
@@ -183,7 +199,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
+|Description|Vulnerabilities that are high/critical (using CVSS 3.0) must be addressed within 180 days of the fix being available.|
+|Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
 
 ---
 </br>
@@ -201,8 +218,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the device identity is rooted in hardware.|
-|Requirements dependency|TPM v2.0 </br><sup>or *other supported method</sup>|
+|Description|The device identity must be rooted in hardware.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust.|
+|Dependencies|TPM v2.0 </br><sup>or *other supported method</sup>|
 
 ---
 </br>
@@ -210,7 +228,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that memory integrity helps protect the device from vulnerable peripherals. Memory regions for peripherals must be gated with hardware/firmware such as memory region domain controllers or SMMU (System Memory Management Unit).|
+|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured IOMMU or SMMU.|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
+|Dependencies|Enabled and appropriately configured IOMMU or SMMU|
 
 ---
 </br>
@@ -219,7 +239,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that the device has adequate mitigations from firmware security threats through one of the following approaches: <ul><li>Approved firmware that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul>|
+|Description|The device boot sequence must support either: <ul><li>Approved firmware with SRTM support + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul>|
+|Purpose|Protects against firmware weaknesses, untrusted code and rootkits that seeks to exploit early and privileged boot stages to bypass OS protections.|
+|Dependencies||
 |Resources| [Trusted Computing Group](https://trustedcomputinggroup.org/) |
 
 ---
@@ -228,7 +250,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the boot integrity of the device. Firmware and kernel signatures need to be validated every time the device boots.<ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
+|Description|Either:<ul><li>UEFI: Secure boot must be enabled</li><li>Uboot: Verified boot must be enabled</li></ul>|
+|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority.|
 
 ---
 </br>
@@ -236,8 +259,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service through collected platform boot logs and applicable runtime measurements.|
-|Dependency|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
+|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) Service.|
+|Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
+|Dependencies|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
 
 ---
@@ -245,8 +269,9 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 
 |Name|SecuredCore.Hardware.SecureEnclave|
 |:---|:---|
-|Status|Required|
-|Description|The purpose of the requirement to validate the existence of a secure enclave and that the enclave can be used for security functions.|
+|Status|Optional|
+|Description|The device must feature a secure enclave capable of performing security functions.|
+
 
 ## Linux Configuration Requirements
 
@@ -254,7 +279,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement to validate that sensitive data can be encrypted on nonvolatile storage. Storage encryption needs to be enabled and default algorithm is XTS-AES with key length 128 bits or higher.|
+|Description|Sensitive and private data must be encrypted at rest using dm-crypt or similar, supporting XTS-AES as the default algorithm with a key length of 128 bits or higher, with encryption keys backed by hardware protection.|
+|Purpose|Protects against exfiltration of sensitive or private data by unauthorized actors or tampered software.|
 
 ---
 </br>
@@ -262,7 +288,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate support for a minimum TLS version of 1.2 and for the required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Description|The OS must support a minimum TLS version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses.|
 
 ---
 </br>
@@ -270,7 +297,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate that authorized code runs with least privilege. Code integrity is enabled by dm-verity and IMA.|
+|Description|The OS must have dm-verity and IMA code integrity features enabled, with code operating under least privilege.|
+|Purpose|Protects against modified/malicious code, ensuring that only signed/hashed code is able to run.|
 
 ---
 </br>
@@ -278,15 +306,17 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Protection.NetworkServices|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that applications accepting input from the network aren't running with elevated privileges such as SYSTEM or root privileges.|
+|Description|Services listening for input from the network must not run with elevated privileges, such as SYSTEM or root. Exceptions may apply for security-related services.|
+|Purpose|Limits the exploitability of compromised networked services.|
 
 ## Linux Software/Service Requirements
 ---
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint.|
-|Resources|[Defender for Endpoint](../defender-for-iot/how-to-configure-agent-based-solution.md)|
+|Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
+|Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
+|Resources|[Defender for Endpoint]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
 </br>
@@ -294,7 +324,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that device supports auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (for example, Ansible, etc.) by operators are not prohibited, but the device must include the azure-osconfig agent such that it's ready to be managed from Azure.|
+|Description|The device must support auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (for example, Ansible, etc.) by operators are not prohibited, but the device must include the azure-osconfig agent such that it's ready to be managed from Azure.|
+|Purpose|Enables the application of security baselines as part of a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
 |Dependency|azure-osconfig|
 
 ---
@@ -303,7 +334,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Update|
 |:---|:---|
 |Status|Audit|
-|Description|The purpose of the requirement is to validate the device can receive and update its firmware and software through Azure Device Update or other approved services.|
+|Description|The device must be able to receive and update its firmware and software through Azure Device Update or other approved services.|
+|Purpose|Enables continuous security.|
 
 ---
 </br>
@@ -311,7 +343,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.UpdateResiliency|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the device can be restored to the last known good state in the case of an update causing issues.|
+|Description|The device must be restorable to the last known good state in the case of an update causing issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure and updatable state.|
 
 ---
 </br>
@@ -319,8 +352,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Protection.Baselines|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that the system is able to apply a baseline security configuration.|
-|Dependency|azure-osconfig|
+|Description|The system is able to successfully apply a baseline security configuration.|
+|Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
 |Resources|<ul><li>https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines</li><li>https://www.cisecurity.org/cis-benchmarks/</li><li>https://learn.microsoft.com/en-us/azure/governance/policy/samples/guest-configuration-baseline-linux</li></ul>|
 
 ---
@@ -329,7 +362,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that updates to the operating system, drivers, application software, libraries, packages and firmware must be signed.|
+|Description|Updates to the operating system, drivers, application software, libraries, packages and firmware must be signed.|
+|Purpose|Prevents unauthorized or malicious code from being installed during the update process.|
 
 
 ## Linux Policy Requirements
@@ -337,7 +371,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate that debug functionality on the device is disabled or requires authorization to enable.|
+|Description|Debug functionality on the device must be disabled or require authorization to enable.|
+|Purpose|Ensures that software protections can not be bypassed through debugger intervention and back-channels.|
 
 ---
 </br>
@@ -345,7 +380,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate the device against the ability to perform a reset (remove user data, remove user configs).|
+|Description|It must be possible to reset the device (remove user data, remove user configs).|
+|Purpose|Protects against exfiltration of sensitive or private data during device ownership or lifecycle transitions.|
 
 ---
 </br>
@@ -353,7 +389,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Updates.Duration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that updates will be provided for at least 60 months from date of submission.|
+|Description|Software updates must be provided for at least 60 months from date of submission.|
+|Purpose|Ensures a minimum period of continuous security.|
 
 ---
 </br>
@@ -361,7 +398,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
+|Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
+|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed and disclosed, enabling effective risk management and timely fixes.|
 
 ---
 </br>
@@ -369,7 +407,8 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
+|Description|Vulnerabilities that are high/critical (using CVSS 3.0) must be addressed within 180 days of the fix being available.|
+|Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
 
 </br>
 ::: zone-end
