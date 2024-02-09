@@ -2,7 +2,7 @@
 title: Cloud Security Posture Management (CSPM)
 description: Learn more about CSPM in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ms.date: 01/02/2024
 ---
 
@@ -49,10 +49,8 @@ The following table summarizes each plan and their cloud availability.
 | EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [Permissions management (Preview)](enable-permissions-management.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 
-
 > [!NOTE]
 > Starting March 7, 2024, Defender CSPM must be enabled to have premium DevOps security capabilities that include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See DevOps security [support and prerequisites](devops-support.md) to learn more.
-
 
 ## Integrations (preview)
 

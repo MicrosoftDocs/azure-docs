@@ -1,6 +1,8 @@
 ---
 title: Resource Manager template samples for log query alerts
 description: Sample Azure Resource Manager templates to deploy Azure Monitor log query alerts.
+ms.author: abbyweisberg
+ms.reviewer: yalavi
 ms.topic: sample
 ms.custom: devx-track-arm-template
 ms.date: 11/07/2023

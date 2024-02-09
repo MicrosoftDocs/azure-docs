@@ -6,7 +6,6 @@ description: This article contains phone number prebuilt entity information in L
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference

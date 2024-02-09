@@ -6,10 +6,8 @@ author: asudbring
 manager: Gerald DeGrace
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/24/2023
 ms.author: allensu
-
 ---
 
 # Optimize network throughput for Azure virtual machines

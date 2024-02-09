@@ -6,8 +6,6 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.custom:
-  - event-tier1-build-2022
-  - ignite-2022
   - engagement-fy23
   - ignite-2023
 ms.topic: conceptual

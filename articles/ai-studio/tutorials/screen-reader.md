@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 2/6/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-This article is for people who use screen readers such as Microsoft's Narrator, JAWS, NVDA or Apple's Voiceover, and provides guidance on how to use the Azure AI Studio with a screen reader.   
+This article is for people who use screen readers such as Microsoft's Narrator, JAWS, NVDA or Apple's Voiceover. You learn how to use the Azure AI Studio with a screen reader.   
 
 ## Getting started in the Azure AI Studio 
 
@@ -34,17 +34,17 @@ For efficient navigation, it might be helpful to navigate by landmarks to move b
 
 ## Explore 
 
-In **Explore** you can explore the different capabilities of Azure AI before creating a project. You can find this in the primary navigation landmark.
+In **Explore** you can explore the different capabilities of Azure AI before creating a project. You can find this page in the primary navigation landmark.
 
-Within **Explore**, you can explore many capabilities found within the secondary navigation. These include model catalog, model leaderboard, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
-- Model catalog contains three main areas: Announcements, Models and Filters. You can use Search and Filters to narrow down model selection 
+Within **Explore**, you can [explore many capabilities](../how-to/models-foundation-azure-ai.md) found within the secondary navigation. These include [model catalog](../how-to/model-catalog.md), model leaderboard, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
+- [Model catalog](../how-to/model-catalog.md) contains three main areas: Announcements, Models and Filters. You can use Search and Filters to narrow down model selection 
 - Azure AI service pages such as Speech consist of many cards containing links. These cards lead you to demo experiences where you can sample our AI capabilities and might link out to another webpage. 
 
 ## Projects 
 
 To work within the Azure AI Studio, you must first [create a project](../how-to/create-projects.md): 
-1. Navigate to the Build tab in the primary navigation.
-1. Press the Tab key until you hear *New project* and select this button.  
+1. In [Azure AI Studio](https://ai.azure.com), navigate to the **Build** tab in the primary navigation.
+1. Press the **Tab** key until you hear *New project* and select this button.  
 1. Enter the information requested in the **Create a new project** dialog.  
 
 You then get taken to the project details page. 
@@ -59,20 +59,20 @@ From the **Build** tab, navigate to the secondary navigation landmark and press 
 
 ### Playground structure 
 
-When you first arrive the playground mode dropdown is set to **Chat** by default. In this mode the playground is composed of the command toolbar and three main panes: **Assistant setup**, **Chat session**, and **Configuration**. If you have added your own data in the playground, the **Citations** pane will also appear when selecting a citation as part of the model response. 
+When you first arrive, the playground mode dropdown is set to **Chat** by default. In this mode, the playground is composed of the command toolbar and three main panes: **Assistant setup**, **Chat session**, and **Configuration**. If you added your own data in the playground, the **Citations** pane also appears when selecting a citation as part of the model response. 
 
 You can navigate by heading to move between these panes, as each pane has its own H2 heading. 
 
 ### Assistant setup pane 
 
-This is where you can set up the chat assistant according to your organization's needs. 
+The assistant setup pane is where you can set up the chat assistant according to your organization's needs. 
 
 Once you edit the system message or examples, your changes don't save automatically. Press the **Save changes** button to ensure your changes are saved. 
 
 ### Chat session pane  
 
-This is where you can chat to the model and test out your assistant 
-- After you send a message, the model might take some time to respond, especially if the response is long. You hear a screen reader announcement "Message received from the chatbot" when the model has finished composing a response.  
+The chat session pane is where you can chat to the model and test out your assistant 
+- After you send a message, the model might take some time to respond, especially if the response is long. You hear a screen reader announcement "Message received from the chatbot" when the model finishes composing a response.  
 - Content in the chatbot follows this format: 
 
     ```
@@ -134,9 +134,9 @@ There's also a dashboard view provided to allow you to compare evaluation runs. 
  
 ## Technical support for customers with disabilities 
 
-Microsoft wants to provide the best possible experience for all our customers. If you have a disability or questions related to accessibility, please contact the Microsoft Disability Answer Desk for technical assistance. The Disability Answer Desk support team is trained in using many popular assistive technologies and can offer assistance in English, Spanish, French, and American Sign Language. Go to the Microsoft Disability Answer Desk site to find out the contact details for your region. 
+Microsoft wants to provide the best possible experience for all our customers. If you have a disability or questions related to accessibility, contact the Microsoft Disability Answer Desk for technical assistance. The Disability Answer Desk support team is trained in using many popular assistive technologies. They can offer assistance in English, Spanish, French, and American Sign Language. Go to the Microsoft Disability Answer Desk site to find out the contact details for your region. 
 
-If you're a government, commercial, or enterprise customer, please contact the enterprise Disability Answer Desk. 
+If you're a government, commercial, or enterprise customer, contact the enterprise Disability Answer Desk. 
 
 ## Next steps
 * Learn how you can build generative AI applications in the [Azure AI Studio](../what-is-ai-studio.md).

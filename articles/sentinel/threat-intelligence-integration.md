@@ -14,7 +14,7 @@ Microsoft Sentinel gives you a few different ways to [use threat intelligence fe
 - Use one of many available integrated [threat intelligence platform (TIP) products](connect-threat-intelligence-tip.md).
 - [Connect to TAXII servers](connect-threat-intelligence-taxii.md) to take advantage of any STIX-compatible threat intelligence source.
 - Connect directly to the [Microsoft Defender Threat Intelligence](connect-mdti-data-connector.md) feed.
-- Make use of any custom solutions that can communicate directly with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). 
+- Make use of any custom solutions that can communicate directly with the [Threat Intelligence Upload Indicators API](connect-threat-intelligence-upload-api.md). 
 - You can also connect to threat intelligence sources from playbooks, in order to enrich incidents with TI information that can help direct investigation and response actions.
 
 > [!TIP]

@@ -6,7 +6,6 @@ ms.service: azure-disk-storage
 ms.topic: conceptual
 ms.date: 10/12/2023
 ms.author: rogarana
-ms.custom: contperf-fy21q1
 ---
 # Introduction to Azure managed disks
 

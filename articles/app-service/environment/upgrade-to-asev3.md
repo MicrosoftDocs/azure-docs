@@ -4,13 +4,15 @@ description: Take the first steps toward upgrading to App Service Environment v3
 ms.author: jordanselig
 author: seligj95
 ms.topic: overview
-ms.date: 1/31/2024
+ms.date: 2/2/2024
 ---
 
 # Upgrade to App Service Environment v3
 
 > [!IMPORTANT]
 > If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Failure to migrate by that date will result in loss of the environments, running applications, and all application data.
+>
+> As of [29 January 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/), you can no longer create new App Service Environment v1 and v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API.
 >
 
 This page is your one-stop shop for guidance and resources to help you upgrade successfully with minimal downtime. Follow the guidance to plan and complete your upgrade as soon as possible. This page will be updated with the latest information as it becomes available.

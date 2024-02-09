@@ -3,7 +3,7 @@ title: Azure AI Extension
 description: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server.
 author: mulander
 ms.author: adamwolk
-ms.date: 01/02/2024
+ms.date: 02/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -44,6 +44,15 @@ The extension also allows calling Azure OpenAI and Azure Cognitive Services.
 ## Configure the `azure_ai` extension
 
 Configuring the extension requires you to provide the endpoints to connect to the Azure AI services and the API keys required for authentication. Service settings are stored using following functions:
+
+### permissions
+
+Your Azure AI access keys are similar to a root password for your account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely.
+To manage service keys used by the extension, users require the `azure_ai_settings_manager` role granted to them. The following functions require the role:
+* azure_ai.set_setting
+* azure_ai.get_setting
+
+The `azure_ai_settings_manager` role is by default granted to the `azure_pg_admin` role.
 
 ### `azure_ai.set_setting`
 

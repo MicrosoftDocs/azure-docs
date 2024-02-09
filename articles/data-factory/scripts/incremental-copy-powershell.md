@@ -6,7 +6,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: article
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 01/05/2024
 ---
 
