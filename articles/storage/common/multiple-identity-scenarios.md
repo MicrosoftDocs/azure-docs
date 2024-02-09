@@ -238,7 +238,7 @@ npm install @azure/storage-blob
 npm install @azure/keyvault-keys
 ```
 
-At the top of your `index.js` file, add the following using statements:
+At the top of your `index.js` file, add the following `import` statements:
 
 ```javascript
 import { DefaultAzureCredential } from "@azure/identity";
