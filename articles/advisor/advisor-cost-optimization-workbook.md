@@ -9,17 +9,17 @@ ms.author: pesousa
 ---
 
 # Understand and optimize your Azure costs using the Cost Optimization workbook
-The Azure Cost Optimization workbook is designed to provide an overview and help you optimize costs of your Azure environment. It offers a set of cost-relevant insights and recommendations aligned with the WAF Cost Optimization pillar.
+The Azure Cost Optimization workbook is designed to provide an overview and help you optimize costs of your Azure environment. It offers a set of cost-relevant insights and recommendations aligned with the Well-Architected Framework Cost Optimization pillar.
 
 ## Overview
-The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides recommendations for leveraging Azure Reservations and Savings Plan for Compute for further cost savings and insights into using Azure Hybrid benefit options for Windows, Linux and SQL databases. The workbook template is available in Azure Advisor gallery.
+The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides recommendations for applying Azure Reservations and Savings Plan for Compute and insights into using Azure Hybrid benefit options. The workbook template is available in Azure Advisor gallery.
 
 Here’s how to get started:
 
 1. Navigate to [Workbooks gallery](https://aka.ms/advisorworkbooks) in Azure Advisor.
 1. Open **Cost Optimization (Preview)** workbook template.
 
-The workbook is organized into different tabs and sub-tabs, each focusing on a specific area to help you reduce the cost of your Azure environment.
+The workbook is organized into different tabs and subtabs, each focusing on a specific area to help you reduce the cost of your Azure environment.
 
 * Overview
 * Rate Optimization
@@ -36,7 +36,7 @@ The workbook is organized into different tabs and sub-tabs, each focusing on a s
     * Other popular Azure services
 
 Each tab supports the following capabilities:
-*	**Filters** - use subscription, resource group and tag filters to focus on a specific workload.
+*	**Filters** - use subscription, resource group, and tag filters to focus on a specific workload.
 *	**Export** - export the recommendations to share the insights and collaborate with your team more effectively.
 *	**Quick Fix** - apply the recommended optimization directly from the workbook page, streamlining the optimization process.
 
@@ -50,7 +50,7 @@ Each tab supports the following capabilities:
 The home page of the workbook highlights the goal and prerequisites. It also provides a way to submit feedback and raise issues.
 
 ### Resource overview
-This image shows the resources distribution per region. Here, you should review where most of the resources are located and understand if there is data being transferred to other regions and if this is expected, since data transfer costs might apply. It is important to notice that the cost of an Azure service can vary between locations based on on-demand and local infrastructure costs and replication costs.
+This image shows the resources distribution per region. Here, you should review where most of the resources are located and understand if there's data being transferred to other regions and if this behavior is expected, since data transfer costs might apply. It's important to notice that the cost of an Azure service can vary between locations based on on-demand and local infrastructure costs and replication costs.
 
 ### Security Recommendations
 
@@ -71,7 +71,7 @@ The Rate Optimization tab focuses on reviewing potential savings related to the 
 
 ### Azure Hybrid Benefit
 
-Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines operating system costs. Using the workbook, you can identify the opportunities to leverage the AHUB for VM/VMSS (Windows and Linux), SQL (SQL Server VMs, SQL DB and SQL MI) and Azure Stack HCI (VMs and AKS).
+Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines (VMs) operating system costs. Using the workbook, you can identify the opportunities to leverage the Azure Hybrid Benefit for VM/VMSS (Windows and Linux), SQL (SQL Server VMs, SQL DB and SQL MI), and Azure Stack HCI (VMs and AKS).
 
 > NOTE
 > If you select a Dev/Test subscription in the scope of the workbook, then you should already have discounts on Windows and SQL licenses. So, any recommendations shown on the page don’t apply to the subscription.
@@ -100,11 +100,11 @@ Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure 
 
 ### Azure Reservations
 
-Review Azure Reservations cost saving opportunities. Use filters for subscriptions, a look back period (7, 30 or 60 days), a term (1 year or 3 years) and a resource type. Learn more about [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md) and how much you can [save with Reservations](https://azure.microsoft.com/pricing/reservations).
+Review Azure Reservations cost saving opportunities. Use filters for subscriptions, a look back period (7, 30 or 60 days), a term (1 year or 3 years), and a resource type. Learn more about [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md) and how much you can [save with Reservations](https://azure.microsoft.com/pricing/reservations).
 
 ### Azure savings plan for compute
 
-Review Azure savings plan for compute cost saving opportunities. Use filters for subscriptions, a look back period (7, 30 or 60 days) and a term (1 year or 3 years). Learn more about [What is Azure savings plans for compute?](https://azure.microsoft.com/pricing/offers/savings-plan-compute) and how much you can [save with Savings Plan for Compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute).
+Review Azure savings plan for compute cost saving opportunities. Use filters for subscriptions, a look back period (7, 30 or 60 days), and a term (1 year or 3 years). Learn more about [What is Azure savings plans for compute?](https://azure.microsoft.com/pricing/offers/savings-plan-compute) and how much you can [save with Savings Plan for Compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute).
 
 ## Usage Optimization
 
@@ -118,7 +118,7 @@ The following queries show compute resources that you can optimize to save money
 
 #### Virtual Machines in a Stopped State
 
-This query identifies Virtual Machines that are not properly deallocated. If a virtual machine’s status is Stopped rather than Stopped (Deallocated), you are still billed for the resource as the hardware remains allocated for you. Learn more about [States and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
+This query identifies Virtual Machines that aren't properly deallocated. If a virtual machine’s status is Stopped rather than Stopped (Deallocated), you're still billed for the resource as the hardware remains allocated for you. Learn more about [States and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
 
 #### Deallocated virtual machines
 
@@ -126,13 +126,13 @@ A virtual machine in a deallocated state is not only powered off, but the underl
 
 #### Virtual Machine Scale Sets
 
-This query focuses on cost optimization opportunities specific to Virtual Machine Scale Sets (VMSS). It provides recommendations such as:
+This query focuses on cost optimization opportunities specific to Virtual Machine Scale Sets. It provides recommendations such as:
 
 * Consider using Azure Spot VMs for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates for scheduling on a spot node pool.
 * Spot priority mix: Azure provides the flexibility of running a mix of uninterruptible standard VMs and interruptible Spot VMs for Virtual Machine Scale Set deployments. You can use the Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to workload requirements.
 
 #### Advisor Recommendations
-Review the advisor recommendations for Compute. Some of the recommendations available in this tile could be "Optimize virtual machine spend by resizing or shutting down underutilized instances" or "Buy reserved virtual machine instances to save money over pay-as-you-go costs."
+Review the advisor recommendations for Compute. Some of the recommendations available in this tile could be "Optimize virtual machine spend by resizing or shutting down underutilized instances", or "Buy reserved virtual machine instances to save money over pay-as-you-go costs."
 
 ### Storage
 
@@ -177,7 +177,7 @@ By default, when you configure backup for resources, geo-redundant storage (GRS)
 
 #### Advisor Recommendations
 
-Review the advisor recommendations for Storage. Some of the recommendations available in this tile could be "Blob storage reserved capacity" or "Use lifecycle management".
+Review the advisor recommendations for Storage. Some of the recommendations available in this tile could be "Blob storage reserved capacity", or "Use lifecycle management".
 
 ### Networking
 
@@ -196,7 +196,7 @@ Optimize the use of Azure Firewall by having a central instance of Azure Firewal
 Review the Application Gateways with empty backend pools.
 App gateways are considered idle if there isn't any backend pool with targets.
 
-#### Load Balancer with empty backendpool
+#### Load Balancer with empty backend pool
 
 Review the Standard Load Balancers with empty backend pools. Load Balancers are considered idle if there isn’t any backend pool with targets.
 
@@ -210,7 +210,7 @@ Review idle Virtual Network Gateways that have no connections defined, as they m
 
 #### Advisor Recommendations
 
-Review the advisor recommendations for Networking. Some of the recommendations available in this tile could be "Reduce costs by deleting or reconfiguring idle virtual network gateways" or "Reduce costs by eliminating unprovisioned ExpressRoute circuits."
+Review the advisor recommendations for Networking. Some of the recommendations available in this tile could be "Reduce costs by deleting or reconfiguring idle virtual network gateways", or "Reduce costs by eliminating unprovisioned ExpressRoute circuits."
 
 ### Top 10 services
 
@@ -232,7 +232,7 @@ Review the App Service list.
 
 Review the AKS list. Some of the cost optimization opportunities are:
 
-* Enable cluster autoscaler to automatically adjust the number of agent nodes in response to resource constraints
+* Enable cluster autoscaler to automatically adjust the number of agent nodes in response to resource constraints.
 * Consider using Azure Spot VMs for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates for scheduling on a spot node pool.
 * Utilize the Horizontal pod autoscaler to adjust the number of pods in a deployment depending on CPU utilization or other select metrics.
 * Use the Start/Stop feature in Azure Kubernetes Services (AKS).
