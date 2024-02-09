@@ -48,6 +48,8 @@ When you create a new Azure AI hub resource, a set of dependent Azure resources 
 
 [!INCLUDE [Dependent Azure resources](../includes/dependent-resources.md)]
 
+For information on registering resource providers, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+
 
 ## Control plane proxy
 
