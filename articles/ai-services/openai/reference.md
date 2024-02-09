@@ -386,7 +386,7 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 
 #### Example request
 
-You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data), [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), [Pinecone](https://www.pinecone.io/), and [Elasticsearch](https://www.elastic.co/).
+You can make requests using Azure AI Search, Azure Cosmos DB for MongoDB vCore, Pinecone, and Elasticsearch. For more information, see [Azure OpenAI on your data](./concepts/use-your-data.md#supported-data-sources).
 
 ##### Azure AI Search
 

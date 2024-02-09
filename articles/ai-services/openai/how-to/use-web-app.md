@@ -2,14 +2,12 @@
 title: 'Using the Azure OpenAI web app'
 titleSuffix: Azure OpenAI
 description: Use this article to learn about using the available web app to chat with Azure OpenAI models.
-services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
-ms.topic: quickstart
+ms.service: azure-ai-openai
+ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 09/13/2023
+ms.date: 02/09/2024
 recommendations: false
 ---
 
@@ -68,5 +66,5 @@ Once you've enabled chat history, your users will be able to show and hide it in
 Deleting your web app does not delete your Cosmos DB instance automatically. To delete your Cosmos DB instance, along with all stored chats, you need to navigate to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option enabled on the studio, your users will be notified of a connection error, but can continue to use the web app without access to the chat history.
 
 ## Next steps
-* [Prompt engineering](../how-to/prompt-engineering.md)
-* [Azure openAI on your data](../how-to/use-your-data.md)
+* [Prompt engineering](./prompt-engineering.md)
+* [Azure openAI on your data](../concepts/use-your-data.md)
