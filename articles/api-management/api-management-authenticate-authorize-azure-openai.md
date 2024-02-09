@@ -33,7 +33,7 @@ Prior to following the steps in this article, you must have:
 
 ## Authenticate with API key
 
-A default way to authenticate to an Azure OpenAI API API is by using an API key. For this type of authentication, all API requests must include a valid API key in the `api-key` HTTP header.
+A default way to authenticate to an Azure OpenAI API is by using an API key. For this type of authentication, all API requests must include a valid API key in the `api-key` HTTP header.
 
 Following are steps to use this API key authentication method in your API Management instance:
 
@@ -81,7 +81,7 @@ Following are steps to configure your API Management instance to use a managed i
 To enable more fine-grained access to OpenAPI APIs by particular users or clients, you can preauthorize access to the Azure OpenAI API using OAuth 2.0 authorization with Microsoft Entra ID. For background, see [Protect an API in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
 
 > [!NOTE]
-> Use OAuth 2.0 authorization as part of a defense-in-depth strategy. It's not a replacement for API key authentication or managed identity authentication.
+> Use OAuth 2.0 authorization as part of a defense-in-depth strategy. It's not a replacement for API key authentication or managed identity authentication to an Azure OpenAI API.
 
 Following are high level steps to restrict API access to users or apps using a Microsoft Entra ID identity in the appropriate tenant.  
 
@@ -91,7 +91,7 @@ Following are high level steps to restrict API access to users or apps using a M
 
 1. Set the following `inbound` policy snippet in your API Management instance to validate requests that present a JSON web token (JWT) in the `Authorization` header. Place this snippet *before* other `inbound` policies that you set to authenticate to the Azure OpenAI API.
 
-    The following example [`validate-jwt`](validate-jwt-policy.md) policy validates the JWT presented in the `Authorization` header of the request. A valid JWT is issued by the Microsoft Entra ID tenant that is identified using a named value, and includes an `aud` claim of the API represented in the app registration. Optionally add other claims if they are presented in the JWT. If the request doesn't include a valid JWT, the user receives a `401` error.
+    The following example [`validate-jwt`](validate-jwt-policy.md) policy validates that the JWT is issued by the required Microsoft Entra ID tenant, and includes the `aud` claim of the API represented in the app registration. Optionally add other claims if they are presented in the JWT. If the request doesn't include a valid JWT, the user receives a `401` error.
 
     ```xml
     <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -117,4 +117,4 @@ Following are high level steps to restrict API access to users or apps using a M
 * https://github.com/galiniliev/apim-azure-openai-sample
 * [Authenticate requests to Azure AI services](../ai-services/authentication.md#authenticate-with-microsoft-entra-id)
 * [Protect Azure OpenAI keys](/semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
-* [Azure OpenAI Service as a central capability with Azure API Management](https://learn.microsoft.com/en-us/samples/azure/enterprise-azureai/enterprise-azureai/)
+* [Azure OpenAI Service as a central capability with Azure API Management](https://learn.microsoft.com/samples/azure/enterprise-azureai/enterprise-azureai/)

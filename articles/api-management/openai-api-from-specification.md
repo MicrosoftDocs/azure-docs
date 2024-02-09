@@ -22,37 +22,34 @@ This article shows how to import an [Azure OpenAI](/azure/ai-services/openai/ove
 
     Make a note of the deployment ID (name). You'll need it when you test the imported API in API Management.
 
-## Import OpenAI API from OpenAPI specification
+## Download the OpenAPI specification
 
-### Download the OpenAPI specification
+Download the OpenAPI specification for an endpoint that's supported by your model. For example, download the OpenAPI specification for the [chat completion endpoint](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json) of the GPT-35-Turbo and GPT-4 models.
 
-Download the OpenAPI specification for an endpoint supported by a model deployed in your service. For example, download the OpenAPI specification for the [chat completion endpoint](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2023-05-15/inference.json) of the GPT-35-Turbo and GPT-4 models.
-
-1. Open the specification file that you downloaded in a text editor.
-1. In the `servers` element in the specification, substitute the name of your Azure OpenAI resource endpoint for the placeholder values shows. The following example `servers` element shows the `contoso.openai.azure.com` resource endpoint.:
-
-```json
-[...]
-"servers": [
-    {
-      "url": "https://contoso.openai.azure.com/openai",
-      "variables": {
-        "endpoint": {
-          "default": "contoso.openai.azure.com"
+1. In a text editor, open the specification file that you downloaded.
+1. In the `servers` element in the specification, substitute the name of your Azure OpenAI resource endpoint for the placeholder values in the specification. The following example `servers` element is updated with the `contoso.openai.azure.com` resource endpoint.
+    ```json
+    [...]
+    "servers": [
+        {
+          "url": "https://contoso.openai.azure.com/openai",
+          "variables": {
+            "endpoint": {
+              "default": "contoso.openai.azure.com"
+            }
+          }
         }
-      }
-    }
-  ],
-[...]
-```
-1. Make a note of the value of the API `version` in the specification. You'll need it for testing the API. Example: `2023-05-15`.
+      ],
+    [...]
+    ```
+1. Make a note of the value of the API `version` in the specification. You'll need it to test the API. Example: `2023-05-15`.
 
 ## Add OpenAPI specification to API Management
 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, select **APIs** > **+ Add API**.
-1. Under **Define a new API**, select **OpenAPI**. Enter a **Display name** and **Name** for the API.  
+1. Under **Define a new API**, select **OpenAPI**. Enter a **Display name** and **Name** for the API and and **API URL suffix**.  
 1. Select **Create**.
 
 The API is imported and displays operations from the OpenAPI specification.
@@ -60,7 +57,7 @@ The API is imported and displays operations from the OpenAPI specification.
 [!INCLUDE [api-management-test-api-portal](../../includes/api-management-test-api-portal.md)]
 
 > [!IMPORTANT]
-> Access to the OpenAI API requires an API key or a managed identity. For more information, see [Authenticate to Azure OpenAI API](api-management-authenticate-authorize-azure-openai.md).
+> Authentication to the OpenAI API requires an API key or a managed identity. To configure authentication using API Management policies, see [Authenticate and authorize to Azure OpenAI API](api-management-authenticate-authorize-azure-openai.md).
 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
