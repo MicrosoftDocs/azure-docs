@@ -79,24 +79,24 @@ Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Mach
 #### Windows VM/VMSS
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs.
-If you have Software Assurance, you can enable [Hybrid Benefit](../windows-server/get-started/azure-hybrid-benefit.md). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
+If you have Software Assurance, you can enable [Hybrid Benefit](../windows-server/get-started/azure-hybrid-benefit). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
 
 > [!NOTE]
 > The query has a Quick Fix column that helps you to apply Azure Hybrid Benefit to Windows VMs.
 
 #### Linux VM/VMSS
 
-[Azure Hybrid Benefit for Linux](https://learn.microsoft.com/windows-server/get-started/azure-hybrid-benefit) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
+[Azure Hybrid Benefit for Linux](../virtual-machines/linux/azure-hybrid-benefit-linux.md) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
 
 #### SQL
 
 Azure Hybrid Benefit represents an excellent opportunity to save costs on SQL instances.
-If you have Software Assurance, you can enable [SQL Hybrid Benefit](https://learn.microsoft.com/azure/azure-sql/azure-hybrid-benefit).
+If you have Software Assurance, you can enable [SQL Hybrid Benefit](../azure/azure-sql/azure-hybrid-benefit.md).
 You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
 
 #### Azure Stack HCI
 
-Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](https://learn.microsoft.com/azure-stack/hci/concepts/azure-hybrid-benefit-hci).
+Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](../azure-stack/hci/concepts/azure-hybrid-benefit-hci.md).
 
 ### Azure Reservations
 
@@ -189,7 +189,7 @@ The Azure Firewall Premium query identifies Azure Firewalls with Premium SKU and
 
 #### Azure Firewall instances per region
 
-Optimize the use of Azure Firewall by having a central instance of Azure Firewall in the hub virtual network or Virtual WAN secure hub. Share the same firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure there's no unexpected cross-region traffic as part of the hub-spoke topology, nor multiple Azure firewall instances deployed to the same region. To learn more about Azure Firewall design principles, check [Azure Well-Architected Framework review - Azure Firewall](https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall#cost-optimization).
+Optimize the use of Azure Firewall by having a central instance of Azure Firewall in the hub virtual network or Virtual WAN secure hub. Share the same firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure there's no unexpected cross-region traffic as part of the hub-spoke topology, nor multiple Azure firewall instances deployed to the same region. To learn more about Azure Firewall design principles, check [Azure Well-Architected Framework review - Azure Firewall](../azure/well-architected/service-guides/azure-firewall#cost-optimization.md).
 
 #### Application Gateway with empty backend pool
 
