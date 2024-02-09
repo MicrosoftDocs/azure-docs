@@ -10,5 +10,4 @@
  ms.custom: include file
 ---
 > [!IMPORTANT]
-> Azure Internet Analyzer will be retired on **March 15, 2024**. To avoid any service disruption, it is important that you delete your Azure Internet Analyzer profiles and tests by March 2024. For detailed information, see 
-[Azure Internet Analyzer retirement](https://azure.microsoft.com/en-us/updates/azure-internet-analyzer-will-be-retired-on-15-march-2024-delete-profiles/).
+> Azure Internet Analyzer will be retired on **March 15, 2024**. To avoid any service disruption, it is important that you delete your Azure Internet Analyzer profiles and tests by March 2024. For detailed information, see [**Azure Internet Analyzer retirement**](https://azure.microsoft.com/en-us/updates/azure-internet-analyzer-will-be-retired-on-15-march-2024-delete-profiles/).
