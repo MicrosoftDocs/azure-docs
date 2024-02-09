@@ -105,7 +105,7 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 ***Upon successful completion***:
 
 * The translated document is returned with the response.
-* The successful POST method returns a `202 Accepted` response code indicating that the service created the request.
+* The successful POST method returns a `200 OK` response code indicating that the service created the request.
 
 That's it, congratulations! You just learned to synchronously translate a document using the Azure AI Translator service.
 
