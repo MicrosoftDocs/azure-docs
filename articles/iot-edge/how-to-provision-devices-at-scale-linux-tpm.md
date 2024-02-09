@@ -165,6 +165,11 @@ Sign in to your device, and install the `tpm2-tools` package.
    sudo yum install tpm2-tools
    ```
 
+# [Ubuntu Core snaps](#tab/snaps)
+
+   ```bash
+   sudo snap install tpm2-tools
+   ```
 ---
 
 Run the following script to read the endorsement key, creating one if it does not already exist.
