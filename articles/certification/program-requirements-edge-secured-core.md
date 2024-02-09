@@ -127,7 +127,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint. |
-|Resources|[Azure Docs Defender for Endpoint]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
+|Resources|[Defender for Endpoint]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
 </br>
@@ -136,12 +136,13 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to validate that the system is able to apply a baseline security configuration.|
+|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
 
 |Name|SecuredCore.Protection.Update Resiliency|
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to validate that the device can be restored to the last known good state in the case of an update causing issues.|
-|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
+
 
 
 ## Windows IoT Policy Requirements
@@ -200,7 +201,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to validate the device identify is rooted in hardware.|
+|Description|The purpose of the requirement is to validate the device identity is rooted in hardware.|
 |Requirements dependency|TPM v2.0 </br><sup>or *other supported method</sup>|
 
 ---
@@ -237,7 +238,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Status|Required|
 |Description|The purpose of the requirement is to ensure the device can remotely attest to the Microsoft Azure Attestation service through collected platform boot logs and applicable runtime measurements.|
 |Dependency|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) </br> Certification portal test includes an attestation client that when combined with the TPM 2.0 can validate the Microsoft Azure Attestation service.|
+|Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
 
 ---
 </br>
@@ -269,7 +270,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to validate that authorized code runs with least privilege. Code integrity is enabled by dm-verify and IMA.|
+|Description|The purpose of this requirement is to validate that authorized code runs with least privilege. Code integrity is enabled by dm-verity and IMA.|
 
 ---
 </br>
@@ -285,7 +286,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The purpose of the requirement is to make sure devices can report security information and events by sending security logs and alerts to a cloud-native security monitoring solution such as Microsoft Defender for Endpoint.|
-|Resources|[Azure Docs Defender for Endpoint](../defender-for-iot/how-to-configure-agent-based-solution.md)|
+|Resources|[Defender for Endpoint](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
 </br>
