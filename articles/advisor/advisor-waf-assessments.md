@@ -110,7 +110,7 @@ You can choose to:
   
   * **SAP On Azure (Preview)**: For detailed information on the different types of storage and their capability and usability with SAP workloads and SAP components, see [Azure Storage types for SAP workload](/azure/sap/workloads/planning-guide-storage). 
 
-  * **Azure Stack Hub (Preview)**: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your workloads running on Azure Stack Hub. The Manage methodology of the Cloud Adoption Framework suggests Azure Stack hub operations management activities focusing on the following list of core responsibilities:
+  * **Azure Stack Hub (Preview)**: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your workloads running on Azure Stack Hub. The manage methodology of the Cloud Adoption Framework suggests Azure Stack hub operations management activities focusing on the following list of core responsibilities:
 
     * **Inventory and visibility**: Create an inventory of assets across multiple clouds. Develop visibility into the run state of each asset.
 
@@ -168,6 +168,8 @@ From the recommendations list page, you can:
   * Select a recommendation and see details about it in a pane that opens.
 
   * *Postpone* or *Dismiss* a recommendation, or mark as *In progress*. If you mark a recommendation as *In progress* and finish with it (take the recommended actions), it's important to then mark it as *Completed*. You mark the recommendation as *Completed* through the recommendation list in the **In progress** view, or through the detail pane of a recommendation that is in progress. 
+
+For full details on managing recommendations, see [Get recommendation details and solution options](/azure/advisor/advisor-get-started#get-recommendation-details-and-solution-options).
 
 > [!NOTE]
 > Assessment recommendations have no immediate impact on your existing Advisor score.
