@@ -180,7 +180,7 @@ Q. Can I edit previously taken assessments?
 A. In the "Most Valuable Professionals" (MVP) program scope, assessments can't be edited once completed.
 
 Q. Can I view recommendations for the assessments not taken by me?
-A. Sbscription role-based access control (RBAC) limits access to recommendations and assessments in Advisor. You can see recommendations for all completed assessments only if you have Reader/Contributor access to the subscription under which assessment is created.
+A. Subscription role-based access control (RBAC) limits access to recommendations and assessments in Advisor. You can see recommendations for all completed assessments only if you have Reader/Contributor access to the subscription under which assessment is created.
 
 Q. Can I take multiple assessments for a subscription?
 A. There's no limit on the number of assessments that can be taken for a subscription. However, while creating a new assessment, you're notified if an existing assessment of the same type is already created for the same subscription/workload. 
