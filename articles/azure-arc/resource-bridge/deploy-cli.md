@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge deployment command overview
 description: Learn about the Azure CLI commands that can be used to manage your Azure Arc resource bridge deployment.
-ms.date: 11/03/2023
+ms.date: 02/09/2024
 ms.topic: overview
 ms.custom: devx-track-azurecli
 ---
@@ -27,7 +27,7 @@ Three configuration files are generated: resource.yaml, appliance.yaml and infra
 This command also calls the `validate` command to check the configuration files.
 
 > [!NOTE]
-> Azure Stack HCI and Hybrid AKS use different commands to create the Arc resource bridge configuration files.
+> Azure Stack HCI uses different commands to create the Arc resource bridge configuration files.
 
 ## `az arcappliance validate`
 
@@ -59,15 +59,15 @@ While the Arc resource bridge is connecting the ARM resource to the on-premises 
 
 `Status` transitions between `WaitingForHeartbeat` -> `Validating` ->  `Connecting` -> `Connected` -> `Running`.
 
-- WaitingForHeartbeat: Azure is waiting to receive a signal from the appliance VM
+- `WaitingForHeartbeat`: Azure is waiting to receive a signal from the appliance VM.
 
-- Validating: Appliance VM is checking Azure services for connectivity and serviceability
+- `Validating`: Appliance VM is checking Azure services for connectivity and serviceability.
 
-- Connecting: Appliance VM is syncing on-premises resources to Azure
+- `Connecting`: Appliance VM is syncing on-premises resources to Azure.
 
-- Connected: Appliance VM completed sync of on-premises resources to Azure
+- `Connected`: Appliance VM completed sync of on-premises resources to Azure.
 
-- Running: Appliance VM and Azure have completed hybrid sync and Arc resource bridge is now operational. 
+- `Running`: Appliance VM and Azure have completed hybrid sync and Arc resource bridge is now operational.
 
 Successful Arc resource bridge creation results in `ProvisioningState = Succeeded` and `Status = Running`.
 
@@ -81,5 +81,3 @@ If a deployment fails, run this command to clean up the environment before you a
 
 - Explore the full list of [Azure CLI commands and required parameters](/cli/azure/arcappliance) for Arc resource bridge.
 - Get [troubleshooting tips for Arc resource bridge](troubleshoot-resource-bridge.md).
-
-
