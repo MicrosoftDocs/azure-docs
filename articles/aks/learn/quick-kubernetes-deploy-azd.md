@@ -26,9 +26,9 @@ There are two methods for the quickstart. Choosing Azure Developer CLI is a more
 
 ## Azure Developer CLI
 
-- An Azure account with an active subscription. Create an account for free.
+- An Azure account with an active subscription. Create an account for free
 - The Azure Developer CLI
-- The latest .NET 7.0 SDK.
+- The latest .NET 7.0 SDK
 - A Linux OS
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
@@ -38,7 +38,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
-- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- Check the identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 ## Sample Code
 
@@ -58,7 +58,7 @@ The quickstart application includes the following Kubernetes deployments and ser
 
 ### Template Command
 
-You can quickly clone the application with `azd init` with the name of the repo using the --template flag.
+You can quickly clone the application with `azd init` with the name of the repo using the template argument.
 
 For instance, our code sample is at: `azd init --template aks-store-demo`.
 
@@ -66,7 +66,7 @@ For instance, our code sample is at: `azd init --template aks-store-demo`.
 
 Alternatively, you can clone the application directly through GitHub, then run `azd init` from inside the directory to create configurations for the AZD CLI. 
 
-When prompted for an environment name you can chose anything, but our quickstart uses `aksqs`.
+When prompted for an environment name you can choose anything, but our quickstart uses `aksqs`.
 
 ## Sign in to your Azure Cloud account
 
@@ -74,13 +74,13 @@ The Azure Development Template contains all the code needed to create the servic
 
 Run `azd auth login` 
 
-1. You are shown a device code to copy.
+1. Copy the device code that appears.
 2. Hit enter to open in a new tab the auth portal.
-3. Type in your Microsoft Credentials in the new page.
-4. Verify that it is you trying to connect to Azure CLI If you encounter any issues, skip to the Troubleshooting section.
-5. Once it works, you should see the message "Device code authentication completed. Logged in to Azure." in your terminal
+3. Enter in your Microsoft Credentials in the new page.
+4. Confirm that it's you trying to connect to Azure CLI. If you encounter any issues, skip to the Troubleshooting section.
+5. Verify the message "Device code authentication completed. Logged in to Azure." appears in your original terminal.
 
-### Troubleshooting: Cannot Connect to Localhost
+### Troubleshooting: Can't Connect to Localhost
 
 Certain Azure security policies cause conflicts when trying to sign in. As a workaround, you can perform a curl request to the localhost url you were redirected to after you logged in.
 
@@ -134,13 +134,17 @@ In the AZD Template, there are files ready for deployment to start your service.
 
 When your application is created, a Kubernetes service exposes the application's front end service to the internet. This process can take a few minutes to complete. Once completed, follow these steps verify and test the application by opening up the store-front page.
 
-1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make sure all pods are `Running` before proceeding.
+1. View the status of the deployed pods with the [kubectl get pods][kubectl-get] command. 
+
+    Check that all pods are in the `Running` state before proceeding:
 
     ```console
     kubectl get pods
     ```
 
-1. Check for a public IP address for the front end store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
+1. Search for a public IP address for the front end store-front application. 
+
+    Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument:
 
     ```azurecli
     kubectl get service store-front --watch
@@ -153,7 +157,7 @@ When your application is created, a Kubernetes service exposes the application's
     store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
     ```
 
-1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+1. When the **EXTERNAL-IP** address changes from *pending* to a public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
     The following sample output shows a valid public IP address assigned to the service:
 
@@ -162,7 +166,7 @@ When your application is created, a Kubernetes service exposes the application's
     store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
     ```
 
-1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
+1. Open a web browser using the external IP address of your service to view the Azure Store app in action.
 
     :::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
