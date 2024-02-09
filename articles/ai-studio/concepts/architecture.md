@@ -37,24 +37,23 @@ An AI hub can have multiple child AI projects. Each AI project can have its own 
 
 ## Azure resource providers
 
-Since Azure AI Studio is built from other Azure services, the resource providers for these services must be registered in your Azure subscription. The following table lists the resource providers used and, if applicable, the kind of the resource.
+Since Azure AI Studio is built from other Azure services, the resource providers for these services must be registered in your Azure subscription. The following table lists the resource , provider and resource provider kinds:
 
-| Service/Resource           | Type                                         | Kind      |
-|----------------------------|----------------------------------------------|-----------|
-| AI hub                     | `Microsoft.MachineLearningServices/workspaces` | `Hub`     |
-| AI project                 | `Microsoft.MachineLearningServices/workspaces` | `Project` |
-| Azure OpenAI               | `Microsoft.CognitiveServices/accounts`        | `OpenAI`  |
-| Azure AI Services          | `Microsoft.CognitiveServices/accounts`        | `AIServices` |
-| Azure AI Search (optional)           | `Microsoft.Search/searchServices`             |           |
-| Azure Storage              | `Microsoft.Storage/storageAccounts`           |           |
-| Azure Key Vault            | `Microsoft.KeyVault/vaults`                   |           |
-| Azure Container Registry   | `Microsoft.ContainerRegistry/registries`      |           |
-| Azure Application Insights | `Microsoft.Insights/components`               |           |
-| Azure Analytics Workspace  | `Microsoft.OperationalInsights/workspaces`    |           |
+[!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
+
+When you create a new Azure AI hub resource, a set of dependent Azure resources are required to store data, manage security, and provide compute resources. The following table lists the dependent Azure resources and their resource providers:
+
+> [!TIP]
+> If you don't provide a dependent resource when creating an AI hub, and it's a required dependency, AI Studio creates the resource for you.
+
+[!INCLUDE [Dependent Azure resources](../includes/dependent-resources.md)]
+
 
 ## Control plane proxy
 
 Azure AI Services and Azure OpenAI provide control plane endpoints for operations such as listing model deployments. These endpoints are secured using a separate Azure RBAC configuration that the one used for Azure AI hub. To reduce the complexity of Azure RBAC management, AI Studio provides a *control plane proxy* that allows you to perform operations on connected Azure AI Services and Azure OpenAI resources. Performing operations on these resources through the control plane proxy only requires Azure RBAC permissions on the AI hub. The Azure AI Studio service then performs the call to the Azure AI Services or Azure OpenAI control plane endpoint on the user's behalf.
+
+For more information on Azure RBAC permissions, see [Role-based access control in Azure AI Studio](rback-ai-studio.md).
 
 ## Virtual network
 
@@ -63,5 +62,8 @@ Azure AI hub can be configured to use a *managed* virtual network. The managed v
 > [!NOTE]
 > If you want to secure communications between your clients and the AI hub or AI project, you must use an Azure Virtual Network that you create and manage. For example, an Azure Virtual Network that uses a VPN or ExpressRoute connection to your on-premises network.
 
+For more information on how to configure a managed virtual network, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
 
+## Next steps
 
+- [Create an AI hub from Azure AI Studio](../how-to/create-azure-ai-resource.md#create-an-azure-ai-resource-in-ai-studio-for-getting-started)
