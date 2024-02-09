@@ -264,7 +264,7 @@ You can use the following parameter to change how your data is ingested in Azure
 
 After ingesting your data, you can start chatting with the model on your data using the chat playground in Azure OpenAI studio, or the following methods:
 * [Web app](../how-to/use-web-app.md)
-* [Microsoft Copilot Studio copilot](#deploy-to-microsoft-copilot-studio)
+* [Microsoft Copilot Studio copilot](#deploy-to-a-copilot-preview)
 * [REST API](../reference.md#azure-ai-search)
 * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/AzureOnYourData.cs)
 * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)

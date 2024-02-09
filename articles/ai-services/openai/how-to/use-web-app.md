@@ -66,5 +66,5 @@ Once you've enabled chat history, your users will be able to show and hide it in
 Deleting your web app does not delete your Cosmos DB instance automatically. To delete your Cosmos DB instance, along with all stored chats, you need to navigate to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option enabled on the studio, your users will be notified of a connection error, but can continue to use the web app without access to the chat history.
 
 ## Next steps
-* [Prompt engineering](./prompt-engineering.md)
+* [Prompt engineering](../concepts/prompt-engineering.md)
 * [Azure openAI on your data](../concepts/use-your-data.md)
