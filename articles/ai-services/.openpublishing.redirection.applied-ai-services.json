@@ -189,6 +189,11 @@
             "source_path_from_root": "/articles/ai-services/custom-vision-service/release-notes.md",
             "redirect_url": "/azure/ai-services/custom-vision-service/whats-new",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/luis/luis-migration-authoring.md",
+            "redirect_url": "/azure/ai-services/language-service/conversational-language-understanding/how-to/migrate-from-luis",
+            "redirect_document_id": false
           }
      ]
 }
