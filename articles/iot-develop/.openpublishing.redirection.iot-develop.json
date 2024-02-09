@@ -564,6 +564,11 @@
       "source_path_from_root": "/articles/iot-develop/tutorial-service.md",
       "redirect_url": "/azure/iot/tutorial-service",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-central.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device",
+      "redirect_document_id": false
     }
   ]
 }

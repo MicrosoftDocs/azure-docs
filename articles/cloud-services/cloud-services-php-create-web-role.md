@@ -13,13 +13,13 @@ ms.author: msangapu
 # Create PHP web and worker roles
 ## Overview
 
-[!INCLUDE [Cloud Services (classic) deprecation announcement](cloud-services/includes/deprecation-announcement.md)]
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, deploy to Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 
 Azure provides three compute models for running applications: Azure App Service, Azure Virtual Machines, and Azure Cloud Services. All three models support PHP. Cloud Services, which includes web and worker roles, provides *platform as a service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications. A worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
-For more information about these options, see [Compute hosting options provided by Azure](cloud-services/cloud-services-choose-me.md).
+For more information about these options, see [Compute hosting options provided by Azure](cloud-services-choose-me.md).
 
 ## Download the Azure SDK for PHP
 
@@ -144,7 +144,7 @@ To configure a worker role to use a PHP runtime that you provide, follow these s
 
 ## Run your application in the compute and storage emulators
 
-The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure Storage Emulator for development and testing](storage/common/storage-use-emulator.md).
+The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure Storage Emulator for development and testing](../storage/common/storage-use-emulator.md).
 
 Note that you must have PHP installed locally to use the compute emulator. The compute emulator will use your local PHP installation to run your application.
 

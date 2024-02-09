@@ -89,9 +89,9 @@ This section lists sample advanced hunting queries that you can use in Microsoft
 Use the following query to identify devices that exist in your corporate network by type of device, such as routers:  
 
 ```kusto
-| DeviceInfo  
-| summarize arg_max(Timestamp, *) by DeviceId  
-| where DeviceType == "NetworkDevice" and DeviceSubtype  == "Router"  
+DeviceInfo
+| summarize arg_max(Timestamp, *) by DeviceId
+| where DeviceType == "NetworkDevice" and DeviceSubtype == "Router"  
 ```
 
 ### Find and export vulnerabilities for your IoT devices
@@ -99,8 +99,9 @@ Use the following query to identify devices that exist in your corporate network
 Use the following query to list all vulnerabilities on your IoT devices:
 
 ```kusto
+DeviceInfo
 | where DeviceCategory =~ "iot"
-| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId 
+| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId
 ```
 
 For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).
