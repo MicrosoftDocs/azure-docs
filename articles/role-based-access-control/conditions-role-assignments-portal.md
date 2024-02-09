@@ -106,7 +106,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Attribute source** list, select where the attribute can be found.
 
-    - **Environment** (preview) indicates that the attribute is associated with the network environment over which the resource is accessed such as a private link, or the current date and time.
+    - **Environment** indicates that the attribute is associated with the network environment over which the resource is accessed such as a private link, or the current date and time.
     - **Resource** indicates that the attribute is on the resource, such as container name.
     - **Request** indicates that the attribute is part of the action request, such as setting the blob index tag.
     - **Principal** indicates that the attribute is a Microsoft Entra custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.
