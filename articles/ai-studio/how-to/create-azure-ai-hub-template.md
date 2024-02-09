@@ -67,7 +67,7 @@ The Bicep template is made up of the following files:
 >
 > Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
 >
-> To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version. The following example is an entry for the Azure Machine Learning workspace that uses an API version of `2023-08-01-preview`:
+> To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version. The following example is an entry for the Azure AI hub that uses an API version of `2023-08-01-preview`:
 >
 >```bicep
 >resource aiResource 'Microsoft.MachineLearningServices/workspaces@2023-08-01-preview' = {
