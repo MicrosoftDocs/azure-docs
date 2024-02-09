@@ -50,12 +50,11 @@ When you create a new Azure AI hub resource, a set of dependent Azure resources 
 
 For information on registering resource providers, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
-
 ## Control plane proxy
 
 Azure AI Services and Azure OpenAI provide control plane endpoints for operations such as listing model deployments. These endpoints are secured using a separate Azure RBAC configuration that the one used for Azure AI hub. To reduce the complexity of Azure RBAC management, AI Studio provides a *control plane proxy* that allows you to perform operations on connected Azure AI Services and Azure OpenAI resources. Performing operations on these resources through the control plane proxy only requires Azure RBAC permissions on the AI hub. The Azure AI Studio service then performs the call to the Azure AI Services or Azure OpenAI control plane endpoint on the user's behalf.
 
-For more information on Azure RBAC permissions, see [Role-based access control in Azure AI Studio](rback-ai-studio.md).
+For more information on Azure RBAC permissions, see [Role-based access control in Azure AI Studio](rbac-ai-studio.md).
 
 ## Virtual network
 
@@ -71,4 +70,4 @@ For more information on how to configure a managed virtual network, see [Configu
 Create an AI hub using one of the following methods:
 
 - [Azure AI Studio](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-ai-studio): Create an AI hub for getting started.
-- [Azure portal](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-the-azure-portal): Create an AI hub with your own networking, encryption, identity and access management, dependent resources, and resource tag settings.
+- [Azure portal](../how-to/create-azure-ai-resource.md#create-a-secure-azure-ai-hub-resource-in-the-azure-portal): Create an AI hub with your own networking, encryption, identity and access management, dependent resources, and resource tag settings.
