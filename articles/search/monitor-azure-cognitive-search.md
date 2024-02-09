@@ -47,7 +47,7 @@ At a minimum your service should have the following two articles:
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-For more information about the resource types for AI Search, see [AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md).
+For more information about the resource types for Azure AI Search, see [Azure AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md).
 
 <!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-data-storage.md)]
@@ -59,7 +59,7 @@ For more information about the resource types for AI Search, see [AI Search moni
   - If your service doesn't collect platform metrics, use the following include: [!INCLUDE [horz-monitor-no-platform-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-no-platform-metrics.md)]
   - If your service collects platform metrics, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
-In AI Search, platform metrics measure query performance, indexing volume, and skillset invocation. For a list of available metrics for AI Search, see [AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#metrics).
+In Azure AI Search, platform metrics measure query performance, indexing volume, and skillset invocation. For a list of available metrics for Azure AI Search, see [Azure AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#metrics).
 
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
@@ -67,7 +67,7 @@ In AI Search, platform metrics measure query performance, indexing volume, and s
 
 Because Azure portal pages are refreshed every few minutes, the numbers reported are approximate, intended to give you a general sense of how well your system is handling requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page. If precision is a requirement, consider using APIs.
 
-AI Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service, which you can obtain programmatically:
+Azure AI Search REST APIs provide the **Usage** data that's visible in the portal. This information is retrieved from your search service, which you can obtain programmatically:
 
 + [Service Statistics (REST)](/rest/api/searchservice/get-service-statistics)
 + [Index Statistics (REST)](/rest/api/searchservice/get-index-statistics)
@@ -100,16 +100,16 @@ For REST calls, use an [admin API key](search-security-api-keys.md) and [Postman
   - If your service doesn't collect resource logs, use the following include [!INCLUDE [horz-monitor-no-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
   - If your service collects resource logs, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
-For the available resource log categories, their associated Log Analytics tables, and the logs schemas for AI Search, see [AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#resource-logs).
+For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure AI Search, see [Azure AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#resource-logs).
 <!-- Resource logs service-specific information. Add service-specific information about your resource logs here.
 NOTE: Azure Monitor already has general information on how to configure and route resource logs. See https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings. Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
 
 <!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 <!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
-In AI Search, activity logs reflect control plane activity such as service creation and configuration, or API key usage or management. Entries often include **Get Admin Key**, one entry for every call that [provided an admin API key](search-security-api-keys.md) on the request. There are no details about the call itself, just a notification that the admin key was used.
+In Azure AI Search, activity logs reflect control plane activity such as service creation and configuration, or API key usage or management. Entries often include **Get Admin Key**, one entry for every call that [provided an admin API key](search-security-api-keys.md) on the request. There are no details about the call itself, just a notification that the admin key was used.
 
-The following screenshot shows AI Search activity log signals you can configure in an alert.
+The following screenshot shows Azure AI Search activity log signals you can configure in an alert.
 
 :::image type="content" source="media/search-monitor-usage/activity-log-signals.png" alt-text="Screenshot of the activity log signals that can be used in an alert." border="true":::
 
@@ -194,8 +194,8 @@ Add short information or links to specific articles that outline how to analyze 
 Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
 Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
-### AI Search alert rules
-The following table lists common and recommended alert rules for AI Search. On a search service, throttling or query latency that exceeds a given threshold are the most commonly used alerts, but you might also want to be notified if a search service is deleted.
+### Azure AI Search alert rules
+The following table lists common and recommended alert rules for Azure AI Search. On a search service, throttling or query latency that exceeds a given threshold are the most commonly used alerts, but you might also want to be notified if a search service is deleted.
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
@@ -212,7 +212,7 @@ The following table lists common and recommended alert rules for AI Search. On a
 ## Related content
 <!-- You can change the wording and add more links if useful. -->
 
-- [AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md)
+- [Azure AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md)
 - [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
 - [Analyze performance in Azure AI Search](search-performance-analysis.md)
 - [Monitor queries](search-monitor-queries.md)

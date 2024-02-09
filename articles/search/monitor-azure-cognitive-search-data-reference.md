@@ -39,7 +39,7 @@ At a minimum your service should have the following two articles:
 <!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor AI Search](monitor-azure-cognitive-search.md) for details on the data you can collect for Azure AI Search and how to use it.
+See [Monitor Azure AI Search](monitor-azure-cognitive-search.md) for details on the data you can collect for Azure AI Search and how to use it.
 
 <!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
@@ -57,7 +57,7 @@ For example, within one minute, you might have a pattern like this: one second o
 <!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-AI Search has the following dimensions associated with the metrics that capture a count of documents or skills that were executed, "Document processed count" and "Skill execution invocation count".
+Azure AI Search has the following dimensions associated with the metrics that capture a count of documents or skills that were executed, "Document processed count" and "Skill execution invocation count".
 
 | Dimension Name | Description |
 | -------------- | ----------- |
@@ -92,7 +92,7 @@ Queries against the AzureDiagnostics table in Log Analytics can include the comm
 <!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
-The following table lists common operations related to AI Search that may be recorded in the activity log. For a complete listing of all Microsoft.Search operations, see [Microsoft.Search resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftsearch).
+The following table lists common operations related to Azure AI Search that may be recorded in the activity log. For a complete listing of all Microsoft.Search operations, see [Microsoft.Search resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftsearch).
 
 | Operation | Description |
 |:----------|:------------|
@@ -111,7 +111,7 @@ If there are other operations not in the link, list them here in table form. -->
 <a name="schemas"></a>
 [!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
 <!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
-If you're building queries or custom reports, the data structures that contain AI Search resource logs conform to the following schemas.
+If you're building queries or custom reports, the data structures that contain Azure AI Search resource logs conform to the following schemas.
 
 For resource logs sent to blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
@@ -119,7 +119,7 @@ For resource logs sent to blob storage, each blob has one root object called **r
 
 ### Resource log schema
 
-All resource logs available through Azure Monitor share a [common top-level schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). AI Search supplements with [more properties](#resource-log-search-props) and [operations](#resource-log-search-ops) that are unique to a search service.
+All resource logs available through Azure Monitor share a [common top-level schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). Azure AI Search supplements with [more properties](#resource-log-search-props) and [operations](#resource-log-search-ops) that are unique to a search service.
 
 The following example illustrates a resource log that includes common properties (TimeGenerated, Resource, Category, and so forth) and search-specific properties (OperationName and OperationVersion).
 
@@ -139,7 +139,7 @@ The following example illustrates a resource log that includes common properties
 
 #### Properties schema
 
-The following properties are specific to AI Search.
+The following properties are specific to Azure AI Search.
 
 | Name | Type | Description and example |
 | ---- | ---- | ----------------------- |
@@ -175,5 +175,5 @@ The following operations can appear in a resource log.
 
 ## Related content
 
-- See [Monitor AI Search](monitor-azure-cognitive-search.md) for a description of monitoring AI Search.
+- See [Monitor Azure AI Search](monitor-azure-cognitive-search.md) for a description of monitoring Azure AI Search.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
