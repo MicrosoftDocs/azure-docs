@@ -32,7 +32,7 @@ Each data type contains data from a specific source. The primary source for a da
       - `agg-enrichment-5m`: contains enriched Event Data Records aggregated over five-minute intervals.
       - `agg-enrichment-1h`: contains enriched Event Data Records aggregated over one-hour intervals.
       - `enriched-flow-dcount`: contains precomputed counts used to report the unique IMSIs, MCCs, and Applications over time.
-  - `location`: This optional data type contains data enriched with location information, if you have a source of location data. This covers below sub data types:
+  - `location`: This optional data type contains data enriched with location information, if you have a source of location data. This covers the following sub data types.
       - `agg-location-1h`: contains enriched location data aggregated over one-hour intervals.
       - `enriched-loc-dcount`: contains precomputed counts used to report location data over time.
  
