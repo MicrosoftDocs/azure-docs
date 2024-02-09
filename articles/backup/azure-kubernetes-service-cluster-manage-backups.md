@@ -6,7 +6,7 @@ ms.service: backup
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 04/26/2023
+ms.date: 02/09/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -133,7 +133,7 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
    -g <aksclusterrg> \
    --cluster-name <aksclustername> \
    -n <randomRoleBindingName> \
-   --source-resource-id $(az dataprotection backup-vault show -g <vaultrg> -v <VaultName> --query id -o tsv) \
+   --source-resource-id $(az dataprotection backup-vault show -g <vaultrg> --vault <VaultName> --query id -o tsv) \
    --roles Microsoft.DataProtection/backupVaults/backup-operator   
    ```
 
