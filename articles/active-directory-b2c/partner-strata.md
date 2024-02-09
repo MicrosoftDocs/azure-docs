@@ -13,6 +13,9 @@ ms.subservice: B2C
 
 # Customer intent: As an IT admin, I want to integrate Azure Active Directory B2C with StrataMaverics Identity Orchestrator. I need to protect on-premises applications and enable customer single sign-on (SSO) to hybrid apps.
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 ---
 
 # Tutorial to configure Azure Active Directory B2C with Strata
