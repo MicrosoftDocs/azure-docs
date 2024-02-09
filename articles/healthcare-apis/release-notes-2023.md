@@ -74,7 +74,7 @@ Learn more:
 
 #### Import operation supports soft deleted resources
 
-The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. See [FPR#3530](https://github.com/microsoft/fhir-server/pull/3530)
+The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. See [PR#3530](https://github.com/microsoft/fhir-server/pull/3530)
 
 #### Performance improvement for queries
 
