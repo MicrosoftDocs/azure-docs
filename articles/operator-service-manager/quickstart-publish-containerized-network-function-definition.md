@@ -27,35 +27,53 @@ Create an input file for publishing the Network Function Definition. Execute the
 ```azurecli
 az aosm nfd generate-config --definition-type cnf
 ```
+
 Execution of the preceding command generates an input.json file.
 
 > [!NOTE]
-> Edit the input.json file. Replace it with the values shown in the following sample. Save the file as **input-cnf-nfd.json**.
-
+> Edit the cnf-input.jsonc file. Replace it with the values shown in the following sample. Save the file as **input-cnf-nfd.jsonc**.
 > [!NOTE]
-> For this quickstart, we use source_local_docker_image. For further CNFs you may make in future, you have the option of using a reference to an existing Azure Container Registry which contains the images for your CNF. Currently, only one ACR and namespace is supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. To use this option in future, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file. You must have Reader/AcrPull permissions on this ACR.
+> Currently, only one ACR and namespace is supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. To do this, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file. You must have Reader/AcrPull permissions on this ACR.
 
-Here's sample input-cnf-nfd.json file:
+Here's sample input-cnf-nfd.jsonc file:
 
 ```json
 {
-    "publisher_name": "nginx-publisher",
-    "publisher_resource_group_name": "nginx-publisher-rg",
-    "nf_name": "nginx",
-    "version": "1.0.0",
-    "acr_artifact_store_name": "nginx-nsd-acr",
-    "location": "uksouth",
-    "images": {
-        "source_local_docker_image": "nginx:stable"
-    },
-    "helm_packages": [
+  // Azure location to use when creating resources e.g uksouth
+  "location": "uksouth",
+  // Name of the Publisher resource you want your definition published to.
+  // Will be created if it does not exist.
+  "publisher_name": "nginx-publisher",
+  // Resource group for the Publisher resource.
+  // You should create this before running the publish command
+  "publisher_resource_group_name": "nginx-publisher-rg",
+  // Name of the ACR Artifact Store resource.
+  // Will be created if it does not exist.
+  "acr_artifact_store_name": "nginx-nsd-acr",
+  // Name of NF definition.
+  "nf_name": "nginx",
+  // Version of the NF definition in 1.1.1 format.
+  "version": "1.0.0",
+  // Source of images to be included in the CNF.
+  "images": {
+    // Login server of the source acr registry from which to pull the image(s).
+    // For example sourceacr.azurecr.io. 
+    "source_registry": "uploadacr.azurecr.io",
+    // Optional. Namespace of the repository of the source acr registry from which to pull.
+    // For example if your repository is samples/prod/nginx then set this to samples/prod.
+    // Leave blank if the image is in the root namespace.
+    // See https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#repository-namespaces for further details.
+    "source_registry_namespace": "samples"
+  },
+  // List of Helm packages to be included in the CNF.
+  "helm_packages": [
         {
-            "name": "nginxdemo",
-            "path_to_chart": "nginxdemo-0.1.0.tgz",
-            "path_to_mappings": "",
-            "depends_on": []
+          "name": "nginxdemo",
+          "path_to_chart": "nginxdemo-0.1.0.tgz",
+          "default_values": "",
+          "depends_on": []
         }
-    ]
+  ]
 }
 ```
 - **publisher_name** - Name of the Publisher resource you want your definition published to. Created if it doesn't already exist.
@@ -69,7 +87,7 @@ Here's sample input-cnf-nfd.json file:
 - **helm_packages**:
   - *name* - The name of the Helm package.
   - *path_to_chart* - The file path of Helm Chart on the local disk. Accepts .tgz, .tar or .tar.gz. Use Linux slash (/) file separator even if running on Windows. The path should be an absolute path or the path relative to the location of the `input.json` file. 
-  - *path_to_mappings* - The file path (absolute or relative to `input.json`) of value mappings on the local disk where chosen values are replaced with deploymentParameter placeholders. Accepts .yaml or .yml. If left as a blank string, a value mappings file is generated with every value mapped to a deployment parameter. Use a blank string and `--interactive` on the build command to interactively choose which values to map.
+  - *default_values* - The file path (absolute or relative to `input.json`) of value mappings on the local disk where chosen values are replaced with deploymentParameter placeholders. Accepts .yaml or .yml. If left as a blank string, a value mappings file is generated with every value mapped to a deployment parameter. Use a blank string and `--interactive` on the build command to interactively choose which values to map.
   - *depends_on* - Names of the Helm packages this package depends on. Leave as an empty array if there are no dependencies.
 
 ## Build the Network Function Definition (NFD)
