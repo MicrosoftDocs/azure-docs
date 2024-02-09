@@ -13,6 +13,9 @@ ms.custom:  [amqp, mqtt]
 
 # Solutions to common issues for Azure IoT Edge
 
+> [!CAUTION]
+> This articles references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Use this article to identify and resolve common issues when using IoT Edge solutions. If you need information on how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
