@@ -19,7 +19,11 @@ Azure Operator 5G Core provides network function health check information using 
 
 :::image type="content" source="media/how-to-monitor-deployment-status/monitor-deployments.png" alt-text="screenshot displaying the Azure Operator 5G Core health check and network functions inventory. A column listing deployment status indicates the status of each resource deployed.":::
 
+You can also view the status of pods in each cluster.
+
+:::image type="content" source="media/how-to-monitor-deployment-status/monitor-pod-status.png" alt-text="screenshot displaying the Azure Operator 5G Core health check and network functions inventory. A detail shows operational status of pods in a cluster.":::
+
 ## Related content
 
-- [Observability analytics in Azure Operator 5G Core](concept-observability-analytics.md)
+- [Observability and analytics in Azure Operator 5G Core](concept-observability-analytics.md)
 - [Perform health and configuration checks post-deployment in Azure Operator 5G Core](how-to-perform-checks-post-deployment.md)
