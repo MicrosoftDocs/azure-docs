@@ -53,6 +53,11 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 
 - You can now set the [chunk size](./concepts/use-your-data.md#ingestion-parameters) parameter when your data is ingested. Adjusting the chunk size can enhance the model's responses by setting the maximum number of tokens for any given chunk of your data in the search index.
 
+### New regional support for Azure OpenAI on your data
+
+You can now use Azure OpenAI on your data in the following Azure region:
+* South Africa North
+
 ## December 2023
 
 ### Azure OpenAI on your data
