@@ -23,6 +23,9 @@ Grafana supports data source, panel, and app plugins. When you create a new Graf
 
 To install Grafana plugins, follow the process below.
 
+> [!IMPORTANT]
+> Before adding plugins to your Grafana instance, we recommend that you evaluate these plugins to ensure that they meet your organizational standards for quality, compliance, and security. Third-party plugins have their own release frequency, security implications, testing and update processes that are outside of Microsoft control. Ultimately, it is up to you to determine which plugins meet your requirements and security needs.
+
 1. Open your Azure Managed Grafana instance in the Azure portal.
 1. Select **Plugin management**. This page shows a table with three columns containing checkboxes, plugin names, and plugin IDs. Review the checkboxes. A checked box indicates that the corresponding plugin is already installed and can be removed, an unchecked box indicates that the corresponding plugin isn't installed and can be added.
 
