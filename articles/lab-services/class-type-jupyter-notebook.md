@@ -48,11 +48,11 @@ This lab uses one of the Data Science Virtual Machine Azure Marketplace images a
 
     | Lab settings | Value |
     | ------------ | ------------------ |
-    | Virtual machine size | Select **Small** or **Medium** for a basic setup accessing Jupyter Notebooks. Select **Small GPU (Compute)** for compute-intensive and network-intensive applications used in Artificial Intelligence and Deep Learning classes. |
+    | Virtual machine size | Select **Small** or **Medium** for a basic setup accessing Jupyter Notebooks. Select **Alternative Small GPU (Compute)** for compute-intensive and network-intensive applications used in Artificial Intelligence and Deep Learning classes. |
     | Virtual machine image | Choose **[Data Science Virtual Machine – Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019)** or **[Data Science Virtual Machine – Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux)** depending on your OS needs. |
     | Template virtual machine settings | Select **Use virtual machine without customization.**.
 
-1. When you create a lab with the **Small GPU (Compute)** size, follow these steps to [install GPU drivers](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).
+1. When you create a lab with the **Alternative Small GPU (Compute)** size, follow these steps to [install GPU drivers](./how-to-setup-lab-gpu.md#ensure-that-the-appropriate-gpu-drivers-are-installed).
 
     These process installs recent NVIDIA drivers and the Compute Unified Device Architecture (CUDA) toolkit, which you need to enable high-performance computing with the GPU. For more information, see [Set up a lab with GPU virtual machines](./how-to-setup-lab-gpu.md).
 
@@ -69,7 +69,7 @@ The **Data Science Virtual Machine – Ubuntu** image is already provisioned wit
 
 ### Enabling tools to use GPUs
 
-If you're using the **Small GPU (Compute)** size, we recommend that you verify that the Data Science frameworks and libraries are properly set up to use GPUs. You might need to install a different version of the NVIDIA drivers and CUDA toolkit. To configure the GPUs, you should consult the framework's or library's documentation.
+If you're using the **Alternative Small GPU (Compute)** size, we recommend that you verify that the Data Science frameworks and libraries are properly set up to use GPUs. You might need to install a different version of the NVIDIA drivers and CUDA toolkit. To configure the GPUs, you should consult the framework's or library's documentation.
 
 For example, to validate that TensorFlow uses the GPU, connect to the template VM and run the following Python-TensorFlow code in Jupyter Notebooks:
 
@@ -191,7 +191,7 @@ Follow these steps to configure an SSH tunnel between a user's local machine and
 
 ## Cost estimate
 
-This section provides a cost estimate for running this class for 25 lab users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The VM size we chose was small GPU (compute), which is 139 lab units. If you want to use the Small (20 lab units) or Medium size (42 lab units), you can replace the lab unit part in the equation below with the correct number.  
+This section provides a cost estimate for running this class for 25 lab users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The VM size we chose was alternative small GPU (compute), which is 139 lab units. If you want to use the Small (20 lab units) or Medium size (42 lab units), you can replace the lab unit part in the equation below with the correct number.  
 
 Here's an example of a possible cost estimate for this class:
 25 lab users \* (20 scheduled hours + 10 quota hours) \* 139 lab units \* 0.01 USD per hour = 1042.5 USD
