@@ -40,7 +40,7 @@ Each tab supports the following capabilities:
 *	**Export** - export the recommendations to share the insights and collaborate with your team more effectively.
 *	**Quick Fix** - apply the recommended optimization directly from the workbook page, streamlining the optimization process.
 
-:::image type="content" source="./media/advisor-cost-optimization-workbook-overview.png" alt-text=" Sample Advisor Workbook showing the different available tabs on the main screen and highlighting the goal of the workbook." lightbox="./media/advisor-cost-optimization-workbook-overview.png"::: 
+:::image type="content" source="./media/advisor-cost-optimization-workbook-overview.png" alt-text="Screenshot of Sample Advisor Workbook showing the different available tabs on the main screen and highlighting the goal of the workbook." lightbox="./media/advisor-cost-optimization-workbook-overview.png"::: 
 
 > [!NOTE]
 > The workbook serves as guidance and doesn't guarantee cost reduction.
@@ -66,7 +66,7 @@ Potentially, you could enhance the reliability of your workloads by reinvesting 
 
 The Rate Optimization tab focuses on reviewing potential savings related to the rate optimization of your Azure services.
 
-:::image type="content" source="./media/advisor-cost-optimization-workbook-rate-optimization.png" alt-text=" Advisor Cost Optimization Workbook with the Rate Optimization tab selected." lightbox="./media/advisor-cost-optimization-workbook-rate-optimization.png" :::
+:::image type="content" source="./media/advisor-cost-optimization-workbook-rate-optimization.png" alt-text="Screenshot of Advisor Cost Optimization Workbook with the Rate Optimization tab selected." lightbox="./media/advisor-cost-optimization-workbook-rate-optimization.png" :::
 
 ### Azure Hybrid Benefit
 
@@ -109,7 +109,7 @@ Review Azure savings plan for compute cost saving opportunities. Use filters for
 
 The Usage Optimization tab focuses on reviewing potential savings related to usage optimization of your Azure services.
 
-:::image type="content" source="./media/advisor-cost-optimization-workbook-usage-optimization.png" alt-text=" Advisor Cost Optimization Workbook with the Usage Optimization tab selected." lightbox="./media/advisor-cost-optimization-workbook-usage-optimization.png" :::
+:::image type="content" source="./media/advisor-cost-optimization-workbook-usage-optimization.png" alt-text="Screenshot of Advisor Cost Optimization Workbook with the Usage Optimization tab selected." lightbox="./media/advisor-cost-optimization-workbook-usage-optimization.png" :::
 
 ### Compute
 
@@ -247,7 +247,7 @@ Review [Azure Monitor - Best Practices](../azure-monitor/best-practices-cost.md)
 
 **Log Analytics**
 
-Review costs related to data ingestion on Log Analytics. The following advices could be of help in cost optimization:
+Review costs related to data ingestion on Log Analytics. The following advice could be of help in cost optimization:
 
 * Adopt commitment tiers where applicable.
 * Adopt Azure Monitor Logs dedicated cluster if a single workspace does not ingest enough data as per the minimum commitment tier (100 GB/day) or if it is possible to aggregate ingestion costs from more than one workspace in the same region.
