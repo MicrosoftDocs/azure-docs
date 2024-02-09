@@ -12,7 +12,7 @@ services: iot-edge
 # Azure IoT Edge supported platforms
 
 > [!CAUTION]
-> This articles references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
