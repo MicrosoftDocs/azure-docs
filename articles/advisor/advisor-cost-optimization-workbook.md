@@ -73,7 +73,7 @@ The Rate Optimization tab focuses on reviewing potential savings related to the 
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines (VMs) operating system costs. Using the workbook, you can identify the opportunities to leverage the Azure Hybrid Benefit for VM/VMSS (Windows and Linux), SQL (SQL Server VMs, SQL DB and SQL MI), and Azure Stack HCI (VMs and AKS).
 
-> NOTE
+> [!NOTE]
 > If you select a Dev/Test subscription in the scope of the workbook, then you should already have discounts on Windows and SQL licenses. So, any recommendations shown on the page don’t apply to the subscription.
 
 #### Windows VM/VMSS
