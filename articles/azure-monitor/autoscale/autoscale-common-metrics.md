@@ -9,6 +9,17 @@ ms.subservice: autoscale
 ms.reviewer: akkumari
 ---
 
+---
+title: Autoscale common metrics
+description: Learn which metrics are commonly used for autoscaling your cloud services, virtual machines, and web apps.
+author: EdB-MSFT
+ms.author: edbaynash
+ms.topic: conceptual
+ms.date: 04/17/2023
+ms.subservice: autoscale 
+ms.reviewer: akkumari
+---
+
 # Azure Monitor autoscaling common metrics
 
 Azure Monitor autoscaling allows you to scale the number of running instances in or out, based on telemetry data or metrics. Scaling can be based on any metric, even metrics from a different resource. For example, scale a Virtual Machine Scale Set based on the amount of traffic on a firewall.
@@ -170,11 +181,11 @@ For a (non-classic) Storage account, the `metricTrigger` setting would include:
 
 You can scale by Azure Service Bus queue length, which is the number of messages in the Service Bus queue. Service Bus queue length is a special metric, and the threshold is the number of messages per instance. For example, if there are two instances, and if the threshold is set to 100, scaling occurs when the total number of messages in the queue is 200. That amount can be 100 messages per instance, 120 plus 80, or any other combination that adds up to 200 or more.
 
-For Virtual Machine Scale Sets, you can update the autoscale setting in the Resource Manager template to use `metricName` as `ApproximateMessageCount` and pass the ID of the storage queue as `metricResourceUri`.
+For Virtual Machine Scale Sets, you can update the autoscale setting in the Resource Manager template to use `metricName` as `ActiveMessageCount` and pass the ID of the Service Bus Queue as `metricResourceUri`.
 
 ```
-"metricName": "ApproximateMessageCount",
- "metricNamespace": "",
+"metricName": "ActiveMessageCount",
+"metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```
 
