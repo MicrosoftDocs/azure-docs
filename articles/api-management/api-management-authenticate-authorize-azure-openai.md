@@ -116,5 +116,5 @@ Following are high level steps to restrict API access to users or apps using a M
 * [Manage users and groups assignment to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal)  
 * https://github.com/galiniliev/apim-azure-openai-sample
 * [Authenticate requests to Azure AI services](../ai-services/authentication.md#authenticate-with-microsoft-entra-id)
+* [Protect Azure OpenAI keys](/semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 * [Azure OpenAI Service as a central capability with Azure API Management](https://learn.microsoft.com/en-us/samples/azure/enterprise-azureai/enterprise-azureai/)
-* 
