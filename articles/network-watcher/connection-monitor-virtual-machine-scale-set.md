@@ -10,9 +10,10 @@ ms.date: 01/25/2023
 
 #CustomerIntent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
 
+---
+
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
----
 
 # Tutorial: Monitor network communication with a virtual machine scale set using the Azure portal
 
