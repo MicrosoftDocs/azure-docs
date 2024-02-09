@@ -55,9 +55,8 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 
 ### New regional support for Azure OpenAI on your data
 
-You can now use Azure OpenAI on your data in the following Azure regions:
+You can now use Azure OpenAI on your data in the following Azure region:
 * South Africa North
-* UAE North
 
 ## December 2023
 

@@ -633,7 +633,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
 | Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. Maximum of three. |
+| destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. |
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
