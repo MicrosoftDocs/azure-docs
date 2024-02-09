@@ -141,9 +141,9 @@ The following queries show storage resources that you can optimize to save money
 
 The Storage accounts which are not v2 query focuses on identifying the storage accounts which are configured as v1. There are several reasons to justify upgrading to v2, such as:
 
-* Ability to enable Storage lifecycle Management;
+* Ability to enable Storage Lifecycle Management;
 * Storage Reserved Instances;
-* Access tiers - you can transition data from a hotter access tier to a cooler access tier if there's no access for a period
+* Access tiers - you can transition data from a hotter access tier to a cooler access tier if there's no access for a period.
 
 Upgrading a v1 storage account to a general-purpose v2 account is free. You can specify the desired account tier during the upgrade process. If an account tier isn't specified on the upgrade, the default account tier of the upgraded account will be Hot. However, changing the storage access tier after the upgrade may result in changes to your bill, so we recommend that you specify the new account tier during an upgrade.
 
