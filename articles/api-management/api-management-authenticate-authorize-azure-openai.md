@@ -11,9 +11,9 @@ ms.author: danlep
 
 # Authenticate and authorize access to Azure OpenAI APIs using Azure API Management 
 
-In this article, you'll learn about ways to authenticate and authorize to Azure OpenAI endpoints that are managed using Azure API Management. This article shows the following methods:
+In this article, you'll learn about ways to authenticate and authorize to Azure OpenAI API endpoints that are managed using Azure API Management. This article shows the following common methods:
 
-* **Authentication** - Authenticate to an Azure OpenAI API using either API key authentication or a Microsoft Entra ID managed identity and Azure role-base access control
+* **Authentication** - Authenticate to an Azure OpenAI API using either API key authentication or a Microsoft Entra ID managed identity 
 
 * **Authorization** - Enable more fine-grained access control to an Azure OpenAI API using OAuth 2.0 authorization with Microsoft Entra ID 
 
@@ -27,13 +27,13 @@ For background, see:
 
 Prior to following the steps in this article, you must have:
 
-- An API Management instance
+- An API Management instance. For example steps, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 - An Azure OpenAI resource and model added to your API Management instance. For example steps, see [Import an Azure OpenAI API from OpenAPI specification](openai-api-from-specification.md)
 - Permissions to create an app registration in a Microsoft Entra tenant associated with your Azure subscription (for OAuth 2.0 authorization using Microsoft Entra ID)
 
 ## Authenticate with API key
 
-A default way to authenticate to an Azure OpenAI API API is by using an API key. For this type of authentication, all API requests must include the API key in the `api-key` HTTP header.
+A default way to authenticate to an Azure OpenAI API API is by using an API key. For this type of authentication, all API requests must include a valid API key in the `api-key` HTTP header.
 
 Following are steps to use this API key authentication method in your API Management instance:
 
@@ -53,14 +53,14 @@ Following are steps to use this API key authentication method in your API Manage
 
 ## Authenticate with managed identity
 
-You can also authenticate to an Azure OpenAI API by using a managed identity in Microsoft Entra ID. For background information, see
+An alternative way to authenticate to an Azure OpenAI API by using a managed identity in Microsoft Entra ID. For background, see
 [How to configure Azure OpenAI Service with managed identity](../ai-services/openai/how-to/managed-identity.md).
 
-Following are steps to configure your API Management instance to use a managed identity to authenticate requests to the Azure OpenAI Service. 
+Following are steps to configure your API Management instance to use a managed identity to authenticate requests to an Azure OpenAI API. 
 
-1. [Enable](api-management-howto-use-managed-service-identity.md) a system-assigned or user-assigned managed identity for your API Management instance. The following example assumes that you have enabled a system-assigned managed identity for your API Management instance.
+1. [Enable](api-management-howto-use-managed-service-identity.md) a system-assigned or user-assigned managed identity for your API Management instance. The following example assumes that you've enabled the instance's system-assigned managed identity.
 
-1. Assign the managed identity the **Cognitive Services OpenAI User** role, scoped to the appropriate resource. For example, assign the managed identity the **Cognitive Services OpenAI User** role on the Azure OpenAI resource. For details, see [Role-based access control for Azure OpenAI service](../ai-services/openai/how-to/role-based-access-control.md).
+1. Assign the managed identity the **Cognitive Services OpenAI User** role, scoped to the appropriate resource. For example, assign the system-assigned managed identity the **Cognitive Services OpenAI User** role on the Azure OpenAI resource. For details, see [Role-based access control for Azure OpenAI service](../ai-services/openai/how-to/role-based-access-control.md).
 
 1. Add the following `inbound` policy snippet in your API Management instance to authenticate requests to the Azure OpenAI API using the managed identity. 
 
@@ -78,56 +78,43 @@ Following are steps to configure your API Management instance to use a managed i
 
 ### OAuth 2.0 authorization using Microsoft Entra ID
 
-To enable more fine-grained access to OpenAPI APIs by particular users or clients, you can preauthorize access to the Azure OpenAI API using OAuth 2.0 authorization with Microsoft Entra ID. 
+To enable more fine-grained access to OpenAPI APIs by particular users or clients, you can preauthorize access to the Azure OpenAI API using OAuth 2.0 authorization with Microsoft Entra ID. For background, see [Protect an API in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
 
-For background, see [Protect an API in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
+> [!NOTE]
+> Use OAuth 2.0 authorization as part of a defense-in-depth strategy. It's not a replacement for API key authentication or managed identity authentication.
 
-Following are high level steps to configure your API Management instance to use OAuth 2.0 authorization with Microsoft Entra ID to access an Azure OpenAI API managed in API Management. These example steps restrict API access to users or apps using a Microsoft Entra ID identity in the appropriate tenant, and that the identity is authorized for the Cognitive Services OAuth scope, which Azure OpenAI falls under.  
+Following are high level steps to restrict API access to users or apps using a Microsoft Entra ID identity in the appropriate tenant.  
 
 1. [Register](api-management-howto-protect-backend-with-aad.md#register-an-application-in-microsoft-entra-id-to-represent-the-api) an application in your Microsoft Entra ID tenant to represent the OpenAI API in Azure API Management.
 
-    Configure the application to have roles, scopes, or claims that represent the permissions that the application needs to access the OpenAI API. For example, you can assign the application the **Cognitive Services OpenAI User** role on the Azure OpenAI resource.
+    As needed, configure the application to have roles or scopes that represent the fine-grained permissions needed to access the Azure OpenAI API.
 
-1. Add one of the following `inbound` policy snippets in your API Management instance to validate requests that present a JSON web token (JWT) in the `Authorization` header. You can use the [`validate-jwt`](validate-jwt-policy.md) policy or the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy.
+1. Set the following `inbound` policy snippet in your API Management instance to validate requests that present a JSON web token (JWT) in the `Authorization` header. Place this snippet *before* other `inbound` policies that you set to authenticate to the Azure OpenAI API.
 
-    Use the following `validate-jwt` policy to validate the JWT in the `Authorization` header of the request. The policy checks that the token is intended for the Cognitive Services OAuth scope, which Azure OpenAI falls under, and that the token is issued by the Microsoft Entra ID tenant identified using a named value. If the request doesn’t include a valid JWT, the user receives a `403` error.
+    The following example [`validate-jwt`](validate-jwt-policy.md) policy validates the JWT presented in the `Authorization` header of the request. A valid JWT is issued by the Microsoft Entra ID tenant that is identified using a named value, and includes an `aud` claim of the API represented in the app registration. Optionally add other claims if they are presented in the JWT. If the request doesn't include a valid JWT, the user receives a `401` error.
 
     ```xml
-    <validate-jwt header-name="Authorization" failed-validation-httpcode="403" failed-validation-error-message="Forbidden">
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
             <openid-config url="https://login.microsoftonline.com/{{TENANT_ID}}/v2.0/.well-known/openid-configuration" />
             <issuers>
                 <issuer>https://sts.windows.net/{{TENANT_ID}}/</issuer>
             </issuers>
             <required-claims>
                 <claim name="aud">
-                    <value>https://cognitiveservices.azure.com</value>
+                    <value>api://{{CLIENT_APP_ID}}</value>
                 </claim>
             </required-claims>
     </validate-jwt>
     ```
 
-    Alternatively, use the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy in the `inbound` section to validate the Microsoft Entra ID token pin the `Authorization` header of the request. In this policy example, the Microsoft Entra ID tenant ID and the client application ID are specified as named values. If the request doesn’t include a valid JWT, the user receives a `403` error.
-
-    ```xml
-    <validate-azure-ad-token tenant-id={{TENANT_ID}} header-name="Authorization" failed-validation-httpcode="403" failed-validation-error-message="Forbidden">
-        <client-application-ids>
-            <application-id>{{CLIENT_APP_ID}}</application-id>            
-        </client-application-ids>
-        <required-claims>
-            <claim name="aud">
-                <value>https://cognitiveservices.azure.com</value>
-            </claim>
-        </required-claims>
-    </validate-azure-ad-token>
-    ```
-
-
+    > [!TIP]
+    > Azure API Management also provides the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy, which is tailored for validating tokens issued by Microsoft Entra ID specifically.
+    
 ## Related content
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 * [Manage users and groups assignment to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal)  
 * https://github.com/galiniliev/apim-azure-openai-sample
 * [Authenticate requests to Azure AI services](../ai-services/authentication.md#authenticate-with-microsoft-entra-id)
-* [](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/protecting-apis-in-azure-api-management-using-oauth-2-0-client/ba-p/3054130)
-* https://github.com/pascalvanderheiden/ais-apim-oauth-flow
-
+* [Azure OpenAI Service as a central capability with Azure API Management](https://learn.microsoft.com/en-us/samples/azure/enterprise-azureai/enterprise-azureai/)
+* 
