@@ -66,5 +66,8 @@ For more information on how to configure a managed virtual network, see [Configu
 
 ## Next steps
 
-- [Create an AI hub from Azure AI Studio](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-ai-studio)
-- 
+Create an AI hub using one of the following methods:
+
+- [Azure AI Studio](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-ai-studio): Create an AI hub for getting started.
+- [Azure portal](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-the-azure-portal): Create an AI hub with your own networking, encryption, identity and access management, dependent resources, and resource tag settings.
+- [Template]
