@@ -30,7 +30,7 @@ Azure Arc-enabled Open Service Mesh can be deployed through Azure portal, Azure 
 - The following Kubernetes distributions are currently supported:
   - AKS (Azure Kubernetes Service) Engine
   - AKS clusters on Azure Stack HCI
-  - AKS hybrid clusters provisioned from Azure
+  - AKS enabled by Azure Arc
   - Cluster API Azure
   - Google Kubernetes Engine
   - Canonical Kubernetes Distribution
@@ -39,9 +39,6 @@ Azure Arc-enabled Open Service Mesh can be deployed through Azure portal, Azure 
   - Amazon Elastic Kubernetes Service
   - VMware Tanzu Kubernetes Grid
 - Azure Monitor integration with Azure Arc-enabled Open Service Mesh is available [in preview with limited support](#monitoring-application-using-azure-monitor-and-applications-insights-preview).
-
-> [!TIP]
-> When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ## Basic installation using Azure portal
 
