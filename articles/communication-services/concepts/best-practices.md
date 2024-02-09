@@ -10,7 +10,7 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: devx-track-js
-zone_pivot_groups: acs-plat-web-mobile
+zone_pivot_groups: acs-plat-web-native
 ---
 
 # Best practices: Azure Communication Services calling SDKs
@@ -20,7 +20,7 @@ This article provides information about best practices related to the Azure Comm
 [!INCLUDE [Web](includes/best-practices-web.md)]
 ::: zone-end
 
-::: zone pivot="platform-mobile"
+::: zone pivot="platform-native"
 [!INCLUDE [Native](includes/best-practices-native.md)]
 ::: zone-end
 

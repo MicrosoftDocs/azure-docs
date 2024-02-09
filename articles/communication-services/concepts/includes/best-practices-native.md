@@ -17,29 +17,40 @@ This section provides information about best practices associated with the Azure
 
 ## Supported platforms
 
-### Android Calling SDK support
+These are the minimum OS requirements for each platform to ensure optimal functionality of the Calling Native SDKs.
+
+# [iOS](#tab/ios)
+
+- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time.
+- Xcode 12.0+.
+- Support for **iPadOS** 13.0+.
+
+# [Android](#tab/android)
 
 - Support for Android API Level 21 or Higher.
 - Support for Java 7 or higher.
 - Support for Android Studio 2.0.
 - **Android Auto** and **IoT devices running Android** are currently not supported.
 
-### iOS Calling SDK support
-
-- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time.
-- Xcode 12.0+.
-- Support for **iPadOS** 13.0+.
-
-### Windows SDK
+# [Windows](#tab/windows)
 
 - Support for UWP (Universal Windows Platform).
 - Support for WinUI 3.
 
+---
+
 ## App request device permissions
 
-### Android permission
+To use the Calling Native SDKs for making or receiving calls, it's necessary to authorize each platform to access device resources. As a developer, you should prompt the user for access and ensure that it is enabled. The consumer will authorize these access rights, so it's important to verify that they have been granted permission previously.
 
-In order to request permissions required to make a call, they must be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following code:
+# [iOS](#tab/ios)
+
+- `NSMicrophoneUsageDescription` for microphone access.
+- `NSCameraUsageDescription` for camera access.
+
+# [Android](#tab/android)
+
+In the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following code:
 
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -52,18 +63,15 @@ In order to request permissions required to make a call, they must be declared i
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
 ```
 
-### iOS permissions
-
-- `NSMicrophoneUsageDescription` for microphone access.
-- `NSCameraUsageDescription` for camera access.
-
-### Windows permissions
+# [Windows](#tab/windows)
 
 Go to `Package.appxmanifest` and select capabilities:
 
 - `Internet (Client)` & `Internet (Client & Server)` for network access.
 - `Microphone` to access the audio feed of the microphone.
 - `Webcam` to access the video feed of the camera.
+
+---
 
 ## Configure the logs
 
