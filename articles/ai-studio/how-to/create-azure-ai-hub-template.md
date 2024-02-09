@@ -26,7 +26,7 @@ The template used in this article can be found at [https://github.com/Azure/azur
 - Azure Key Vault
 - Azure Container Registry
 - Azure Application Insights
-- Azure AI Services (created by the template)
+- Azure AI services (created by the template)
 
 ## Prerequisites
 
