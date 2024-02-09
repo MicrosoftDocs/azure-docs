@@ -61,7 +61,7 @@ To create a network connection, you need an existing virtual network and subnet.
     :::image type="content" source="./media/how-to-manage-network-connection/example-basics-tab.png" alt-text="Screenshot of the Basics tab on the pane for creating a virtual network in the Azure portal." lightbox="./media/how-to-manage-network-connection/example-basics-tab.png":::
 
    > [!IMPORTANT]
-   > The region you select for the virtual network is the where Azure deploys the dev boxes.
+   > The region you select for the virtual network is where Azure deploys the dev boxes.
 
 1. On the **IP Addresses** tab, accept the default settings.
 
