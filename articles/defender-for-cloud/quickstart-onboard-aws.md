@@ -10,8 +10,6 @@ ms.date: 01/03/2024
 
 Workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Amazon Web Services (AWS), but you need to set up the connection between them and Defender for Cloud.
 
-If you're connecting an AWS account that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account connected by both the classic and native connectors can produce duplicate recommendations.
-
 The following screenshot shows AWS accounts displayed in the Defender for Cloud [overview dashboard](overview-page.md).
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Screenshot that shows four AWS projects listed on the overview dashboard in Defender for Cloud." lightbox="./media/quickstart-onboard-aws/aws-account-in-overview.png":::
@@ -302,4 +300,3 @@ Connecting your AWS account is part of the multicloud experience available in Mi
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [GCP projects](quickstart-onboard-gcp.md).
 - Get answers to [common questions](faq-general.yml) about onboarding your AWS account.
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshoot-connectors).
-

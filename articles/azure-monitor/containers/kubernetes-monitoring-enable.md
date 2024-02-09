@@ -3,7 +3,7 @@ title: Enable monitoring for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights and Managed Prometheus on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 11/14/2023
-ms.custom: ignite-2022
+ms.custom: devx-track-azurecli
 ms.reviewer: aul
 ---
 
@@ -371,8 +371,9 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 ### Use advanced configuration settings
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  amalogs.resources.daemonset.limits.cpu=150m amalogs.resources.daemonset.limits.memory=600Mi amalogs.resources.deployment.limits.cpu=1 amalogs.resources.deployment.limits.memory=750Mi
 
-### On Azure Stack Edge
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.logsettings.custommountpath=/home/data/docker
+### With custom mount path for container stdout & stderr logs
+### Custom mount path not required for Azure Stack Edge version > 2318. Custom mount path must be /home/data/docker for Azure Stack Edge cluster with version <= 2318
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.logsettings.custommountpath=<customMountPath>
 
 ```
 
@@ -652,7 +653,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
 
    * If onboarding using the CLI, include the option `--enable-windows-recording-rules`.
    * If onboarding using an ARM template, Bicep, or Azure Policy, set `enableWindowsRecordingRules` to `true` in the parameters file.
-   * If the cluster is already onboarded, use [this ARM template](https://github.com/Azure/prometheus-collector/blob/kaveesh/windows_recording_rules/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRules.json) and [this parameter file](https://github.com/Azure/prometheus-collector/blob/kaveesh/windows_recording_rules/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRulesParameters.json) to create the rule groups.
+   * If the cluster is already onboarded, use [this ARM template](https://github.com/Azure/prometheus-collector/blob/main/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRules.json) and [this parameter file](https://github.com/Azure/prometheus-collector/blob/main/AddonArmTemplate/WindowsRecordingRuleGroupTemplate/WindowsRecordingRulesParameters.json) to create the rule groups.
 
 
 

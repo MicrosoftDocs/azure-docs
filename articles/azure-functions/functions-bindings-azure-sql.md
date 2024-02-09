@@ -4,7 +4,6 @@ description: Understand how to use Azure SQL bindings in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
 ms.custom:
-  - event-tier1-build-2022
   - build-2023
   - devx-track-extended-java
   - devx-track-js

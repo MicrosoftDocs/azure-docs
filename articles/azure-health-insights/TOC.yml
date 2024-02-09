@@ -9,7 +9,9 @@ items:
     - name: OncoPhenotype
       href: ./oncophenotype/index.yml
     - name: Trial Matcher 
-      href: ./trial-matcher/index.yml     
+      href: ./trial-matcher/index.yml    
+    - name: Radiology Insights 
+      href: ./radiology-insights/index.yml   
 - name: Quickstarts
   expanded: true
   items:

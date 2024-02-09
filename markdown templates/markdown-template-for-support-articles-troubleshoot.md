@@ -1,18 +1,11 @@
 ---
 title: 42 characters followed by | Microsoft Docs
 description: Displayed in search engines under the title. You have more room here, use more keywords and a more descriptive explanation than the title
-services: service-name
-documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: editor-alias
 tags: top-support-issue
-
 ms.service: required
-ms.devlang: may be required
 ms.topic: article
-ms.tgt_pltfrm: may be required
-ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 

@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 08/22/2023
 ms.topic: how-to
-ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: subject-rbac-steps, cliv2, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # Tutorial: How to create a secure workspace with an Azure Virtual Network

@@ -10,7 +10,6 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Transfer billing ownership of an MOSP Azure subscription to another account

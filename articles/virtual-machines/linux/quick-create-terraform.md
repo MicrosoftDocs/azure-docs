@@ -5,7 +5,6 @@ author: tomarchermsft
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 07/24/2023
 ms.author: tarcher
 ms.custom: devx-track-terraform

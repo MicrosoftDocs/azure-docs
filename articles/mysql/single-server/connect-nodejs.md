@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.devlang: javascript
 author: SudheeshGH
 ms.author: sunaray
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, linux-related-content
+ms.custom: mvc, devx-track-js, mode-api, linux-related-content
 ms.date: 05/03/2023
 ---
 

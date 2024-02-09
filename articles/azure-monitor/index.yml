@@ -8,7 +8,6 @@ metadata:
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
   ms.topic: landing-page
   ms.service: azure-monitor
-  ms.custom: ignite-2022
   author: rboucher
   ms.author: robb
   ms.date: 03/14/2023

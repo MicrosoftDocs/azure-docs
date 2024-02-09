@@ -43,9 +43,9 @@ Before you begin:
 ### Enabling in the Defender for Cloud portal
 
 1. Go to **Defender for Cloud** > **Environment Settings** > **Direct onboarding**.
-2. Switch the **Direct onboarding** toggle to **On**.
-3. Select the subscription you would like to use for servers onboarded directly with Defender for Endpoint
-4. Select **Save**.
+1. Switch the **Direct onboarding** toggle to **On**.
+1. Select the subscription you would like to use for servers onboarded directly with Defender for Endpoint
+1. Select **Save**.
 
 :::image type="content" source="media/onboard-machines-with-defender-for-endpoint/onboard-with-defender-for-endpoint.png" alt-text="Screenshot of Onboard non-Azure servers with Defender for Endpoint.":::
 

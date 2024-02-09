@@ -10,8 +10,6 @@ metadata:
   author: jonburchel
   ms.author: jburchel
   ms.date: 01/05/2024
-  ms.custom: contperf-fy21q4
-
 landingContent:
   - title: What's New in Azure Data Factory
     linkLists:

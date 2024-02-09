@@ -137,7 +137,7 @@ For each new commitment you need to create, follow these steps:
 
 ### Adding Provisioned Throughput Units to existing commitments
 
-The steps are the same as in the previous example, but you'll increase the **amount to commit (PTU)** value.
+The steps are the same as in the previous example, but you'll increase the **amount to commit (PTU)** value. The value shown here is the total amount of PTUs purchased not incremental. The additional price charge displayed will represent a pro-rated amount to pay for the added PTUs over the remaining time in the time period. 
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/increase-commitment.png" alt-text="Screenshot of commitment purchase UI with an increase in the amount to commit value." lightbox="../media/how-to/provisioned-onboarding/increase-commitment.png":::
 

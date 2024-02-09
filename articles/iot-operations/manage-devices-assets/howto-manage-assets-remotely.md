@@ -1,6 +1,6 @@
 ---
 title: Manage asset configurations remotely
-description: Use the Azure IoT Operations portal to manage your asset configurations remotely and enable data to flow from your assets to an MQTT broker.
+description: Use the Azure IoT Operations portal or the Azure CLI to manage your asset configurations remotely and enable data to flow from your assets to an MQTT broker.
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
@@ -21,25 +21,22 @@ _OPC UA servers_ are software applications that communicate with assets. OPC UA 
 
 An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to OPC UA connector modules. This connection enables an OPC UA connector to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the Azure IoT OPC UA Broker (preview) instance and Azure IoT MQ (preview) instance. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the OPC UA Broker instance.
 
-This article describes how to use the Azure IoT Operations (preview) portal to:
+This article describes how to use the Azure IoT Operations (preview) portal and the Azure CLI to:
 
 - Define asset endpoints
 - Add assets, and define tags and events.
 
 These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor (preview) pipelines.
 
-You can also use the Azure CLI to manage assets and asset endpoints. To learn more, see:
-
-- [az iot ops asset](/cli/azure/iot/ops/asset)
-- [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint).
-
 ## Prerequisites
 
 To configure an assets endpoint, you need a running instance of Azure IoT Operations.
 
-## Sign in to the Azure IoT Operations portal
+## Sign in
 
-Navigate to the [Azure IoT Operations portal](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
+# [Azure IoT Operations portal](#tab/portal)
+
+To sign in to the Azure IoT Operations portal, navigate to the [Azure IoT Operations portal](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
 
 ## Select your cluster
 
@@ -53,9 +50,21 @@ When you sign in, the portal displays a list of the Azure Arc-enabled Kubernetes
 > [!TIP]
 > You can use the filter box to search for clusters.
 
+# [Azure CLI](#tab/cli)
+
+Before you use the `az az iot ops asset` commands, sign in to the subscription that contains your Azure IoT Operations deployment:
+
+```azurecli
+az login
+```
+
+---
+
 ## Create an asset endpoint
 
 By default, an Azure IoT Operations deployment includes a built-in OPC PLC simulator. To create an asset endpoint that uses the built-in OPC PLC simulator:
+
+# [Azure IoT Operations portal](#tab/portal)
 
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
@@ -75,13 +84,30 @@ By default, an Azure IoT Operations deployment includes a built-in OPC PLC simul
 
 1. To save the definition, select **Create**.
 
-This configuration deploys a new module called `opc-ua-connector-0` to the cluster. After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
+# [Azure CLI](#tab/cli)
+
+Run the following command:
+
+```azurecli
+az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} 
+```
+
+> [!TIP]
+> Use `az connectedk8s list` to list the clusters you have access to.
+
+To learn more, see [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint).
+
+---
+
+This configuration deploys a new `assetendpointprofile` resource called `opc-ua-connector-0` to the cluster. After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
 
 When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
 ### Configure an asset endpoint to use a username and password
 
 The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
+
+# [Azure IoT Operations portal](#tab/portal)
 
 To use the `UsernamePassword` authentication mode, complete the following steps:
 
@@ -93,18 +119,50 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 | Username reference | `aio-opc-ua-broker-user-authentication/username` |
 | Password reference | `aio-opc-ua-broker-user-authentication/password` |
 
+# [Azure CLI](#tab/cli)
+
+To use the `UsernamePassword` authentication mode, complete the following steps:
+
+1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+
+1. Use a command like the following example to create your asset endpoint:
+
+    ```azurecli
+    az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
+    ```
+
+---
+
 ### Configure an asset endpoint to use a transport authentication certificate
 
 To configure the asset endpoint to use a transport authentication certificate, complete the following steps:
 
+# [Azure IoT Operations portal](#tab/portal)
+
 1. Follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
 2. In Azure IoT Operations portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
 
+# [Azure CLI](#tab/cli)
+
+1. Follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+
+1. Use a command like the following example to create your asset endpoint:
+
+    ```azurecli
+    az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password" --cert secret=aio-opc-ua-broker-client-certificate thumbprint=000000000000000000 password=aio-opc-ua-broker-client-certificate-password
+    ```
+
+To learn more, see [az iot ops asset](/cli/azure/iot/ops/asset).
+
+---
+
 ## Add an asset, tags, and events
+
+# [Azure IoT Operations portal](#tab/portal)
 
 To add an asset in the Azure IoT Operations portal:
 
-1. Select the **Assets** tab. If you haven't created any assets yet, you see the following screen:
+1. Select the **Assets** tab. Before you create any assets, you see the following screen:
 
     :::image type="content" source="media/howto-manage-assets-remotely/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the Azure IoT Operations portal.":::
 
@@ -166,7 +224,7 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
 
     - **Sampling interval (milliseconds)**: The sampling interval indicates the fastest rate at which the OPC UA Server should sample its underlying source for data changes.
     - **Publishing interval (milliseconds)**: The rate at which OPC UA Server should publish data.
-    - **Queue size**: The depth of the queue to hold the sampling data before it's published.
+    - **Queue size**: The depth of the queue to hold the sampling data before publishing it.
 
 ### Add tags in bulk to an asset
 
@@ -199,7 +257,37 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
 > [!TIP]
 > You can use the filter box to search for tags.
 
+# [Azure CLI](#tab/cli)
+
+Use the following command to add a "thermostat" asset by using the Azure CLI. The command adds two tags to the asset by using the `--data` parameter:
+
+```azurecli
+az iot ops asset create --name thermostat -g {your resource group name} --cluster {your cluster name} --endpoint opc-ua-connector-0 --description 'A simulated thermostat asset' --data  data_source='ns=3;s=FastUInt10', name=temperature --data data_source='ns=3;s=FastUInt100', name='Tag 10'
+```
+
+When you create an asset by using the Azure CLI, you can define:
+
+- Multiple tags by using the `--data` parameter multiple times.
+- Multiple events by using the `--event` parameter multiple times.
+- Optional information for the asset such as:
+  - Manufacturer
+  - Manufacturer URI
+  - Model
+  - Product code
+  - Hardware version
+  - Software version
+  - Serial number
+  - Documentation URI
+- Default values for sampling interval, publishing interval, and queue size.
+- Tag specific values for sampling interval, publishing interval, and queue size.
+- Event specific values for sampling publishing interval, and queue size.
+- The observability mode for each tag and event
+
+---
+
 ### Add individual events to an asset
+
+# [Azure IoT Operations portal](#tab/portal)
 
 Now you can define the events associated with the asset. To add OPC UA events:
 
@@ -222,7 +310,7 @@ Now you can define the events associated with the asset. To add OPC UA events:
 1. Select **Manage default settings** to configure default event settings for the asset. These settings apply to all the OPC UA events that belong to the asset. You can override these settings for each event that you add. Default event settings include:
 
     - **Publishing interval (milliseconds)**: The rate at which OPC UA Server should publish data.
-    - **Queue size**: The depth of the queue to hold the sampling data before it's published.
+    - **Queue size**: The depth of the queue to hold the sampling data before publishing it.
 
 ### Add events in bulk to an asset
 
@@ -241,7 +329,26 @@ Review your asset and OPC UA tag and event details and make any adjustments you 
 
 :::image type="content" source="media/howto-manage-assets-remotely/review-asset.png" alt-text="A screenshot that shows how to review your asset, tags, and events in the Azure IoT Operations portal.":::
 
+# [Azure CLI](#tab/cli)
+
+When you create an asset by using the Azure CLI, you can define multiple events by using the `--event` parameter multiple times. The syntax for the `--event` parameter is similar to the `--data` parameter:
+
+```azurecli
+az iot ops asset create --name thermostat -g {your resource group name} --cluster {your cluster name} --endpoint opc-ua-connector-0 --description 'A simulated thermostat asset' --event event_notifier='ns=3;s=FastUInt12', name=warning
+```
+
+For each event that you define, you can specify the:
+
+- Event notifier. This value is the event notifier from the OPC UA server.
+- Event name. This value is the friendly name that you want to use for the event. If you don't specify an event name, the event notifier is used as the event name.
+- Observability mode.
+- Queue size.
+
+---
+
 ## Update an asset
+
+# [Azure IoT Operations portal](#tab/portal)
 
 Find and select the asset you created previously. Use the **Properties**, **Tags**, and **Events** tabs to make any changes:
 
@@ -261,15 +368,74 @@ You can also add, update, and delete events and properties in the same way.
 
 When you're finished making changes, select **Save** to save your changes.
 
+# [Azure CLI](#tab/cli)
+
+To list your assets, use the following command:
+
+```azurecli
+az iot ops asset query -g {your resource group name}
+```
+
+> [!TIP]
+> You can refine the query command to search for assets that match specific criteria. For example, you can search for assets by manufacturer.
+
+To view the details of the thermostat asset, use the following command:
+
+```azurecli
+az iot ops asset show --name thermostat -g {your resource group}
+```
+
+To update an asset, use the `az iot ops asset update` command. For example, to update the asset's description, use a command like the following example:
+
+```azurecli
+az iot ops asset update --name thermostat --description 'A simulated thermostat asset' -g {your resource group}
+```
+
+To list the thermostat asset's tags, use the following command:
+
+```azurecli
+az iot ops asset data-point list --asset thermostat -g {your resource group}
+```
+
+To list the thermostat asset's events, use the following command:
+
+```azurecli
+az iot ops asset event list --asset thermostat -g {your resource group}
+```
+
+To add a new tag to the thermostat asset, use a command like the following example:
+
+```azurecli
+az iot ops asset data-point add --asset thermostat -g {your resource group} --data-source 'ns=3;s=FastUInt1002' --name 'humidity'
+```
+
+To delete a tag, use the `az iot ops asset data-point remove` command.
+
+You can manage an asset's events by using the `az iot ops asset event` commands.
+
+---
+
 ## Delete an asset
+
+# [Azure IoT Operations portal](#tab/portal)
 
 To delete an asset, select the asset you want to delete. On the **Asset**  details page, select **Delete**. Confirm your changes to delete the asset:
 
 :::image type="content" source="media/howto-manage-assets-remotely/asset-delete.png" alt-text="A screenshot that shows how to delete an asset from the Azure IoT Operations portal.":::
 
+# [Azure CLI](#tab/cli)
+
+To delete an asset, use a command that looks like the following example:
+
+```azurecli
+az iot ops asset delete --name thermostat -g {your resource group name}
+```
+
+---
+
 ## Notifications
 
-Whenever you make a change to asset, you see a notification in the Azure IoT Operations portal that reports the status of the operation:
+Whenever you make a change to asset in the Azure IoT Operations portal, you see a notification that reports the status of the operation:
 
 :::image type="content" source="media/howto-manage-assets-remotely/portal-notifications.png" alt-text="A screenshot that shows the notifications in the Azure IoT Operations portal.":::
 
@@ -277,3 +443,5 @@ Whenever you make a change to asset, you see a notification in the Azure IoT Ope
 
 - [Azure OPC UA Broker overview](overview-opcua-broker.md)
 - [Azure IoT Akri overview](overview-akri.md)
+- [az iot ops asset](/cli/azure/iot/ops/asset)
+- [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint)

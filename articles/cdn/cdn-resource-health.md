@@ -2,17 +2,13 @@
 title: Monitor the health of Azure CDN resources| Microsoft Docs
 description: Learn how to monitor the health of your Azure CDN resources using Azure Resource Health.
 services: cdn
-documentationcenter: .net
 author: duongau
 manager: kumudd
 ms.assetid: bf23bd89-35b2-4aca-ac7f-68ee02953f31
 ms.service: azure-cdn
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 02/27/2023
 ms.author: duau
-
 ---
 
 # Monitor the health of Azure CDN resources

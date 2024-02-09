@@ -6,21 +6,23 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-custom-vision
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/22/2024
 ms.author: pafarley
 ---
 
 # Copy and back up your Custom Vision projects
 
-After you've created and trained a Custom Vision project, you may want to copy your project to another resource. If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
+After you've created and trained a Custom Vision project, you may want to copy your project to another resource. If your app or business depends on a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
 
 The **[ExportProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** and **[ImportProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** APIs enable this scenario by allowing you to copy projects from one Custom Vision account into others. This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
 > [!TIP]
 > For an example of this scenario using the Python client library, see the [Move Custom Vision Project](https://github.com/Azure-Samples/custom-vision-move-project/tree/master/) repository on GitHub.
 
+> [!TIP]
+> If you want to move your Custom Vision project to [Azure AI Vision Image Analysis 4.0](/azure/ai-services/computer-vision/how-to/model-customization), see the [Migration guide](/azure/ai-services/computer-vision/how-to/migrate-from-custom-vision). To compare the two services, see the [Comparison page](/azure/ai-services/custom-vision-service/concepts/compare-alternatives).
 
-##  Prerequisites
+## Prerequisites
 
 - Two Azure AI Custom Vision resources. If you don't have them, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - The training keys and endpoint URLs of your Custom Vision resources. You can find these values on the resource's **Overview** tab on the Azure portal.

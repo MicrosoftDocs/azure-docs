@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: sidandrews
-author: seesharprun 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
+author: seesharprun
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure IP firewall in Azure Cosmos DB

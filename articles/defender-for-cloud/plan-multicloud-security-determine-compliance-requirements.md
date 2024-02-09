@@ -4,7 +4,6 @@ description: Learn about determining compliance requirements in multicloud envir
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
 

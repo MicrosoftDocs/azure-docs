@@ -6,7 +6,6 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 04/20/2023
 ---

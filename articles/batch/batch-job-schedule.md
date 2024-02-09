@@ -3,7 +3,6 @@ title: Schedule Batch jobs for efficiency
 description: Learn how to schedule Batch jobs to manage your tasks, prioritize jobs to run first, and minimize resource usage.
 ms.topic: how-to
 ms.date: 04/10/2023
-ms.custom: seodec18
 ---
 
 # Schedule Batch jobs for efficiency

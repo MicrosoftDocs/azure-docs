@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 11/01/2023
 ms.author: helohr
-manager: femila
 ms.custom: references_regions
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop

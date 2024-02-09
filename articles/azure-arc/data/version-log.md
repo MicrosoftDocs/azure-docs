@@ -8,7 +8,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.custom:
-  - event-tier1-build-2022
   - ignite-2023
 ms.date: 10/10/2023
 ms.topic: conceptual

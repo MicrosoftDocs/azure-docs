@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/28/2023
+ms.date: 1/29/2024
 ---
 
 # Known issues: Azure VMware Solution
@@ -23,6 +23,7 @@ Refer to the table to find details about resolution dates or possible workaround
 | When I build a VMware HCX Service Mesh with the Enterprise license, the Replication Assisted vMotion Migration option isn't available. | 2023  | The default VMware HCX Compute Profile doesn't have the Replication Assisted vMotion Migration option enabled. From the Azure VMware Solution vSphere Client, select the VMware HCX option and edit the default Compute Profile to enable Replication Assisted vMotion Migration. | 2023 |
 | [VMSA-2023-023](https://www.vmware.com/security/advisories/VMSA-2023-0023.html) VMware vCenter Server Out-of-Bounds Write Vulnerability (CVE-2023-34048) publicized in October 2023 | October 2023  | Microsoft is currently working with its security teams and partners to evaluate the risk to Azure VMware Solution and its customers. Initial investigations show that controls in place within Azure VMware Solution reduce the risk of CVE-2023-03048. However Microsoft is working on a plan to roll out security fixes soon to completely remediate the security vulnerability. | October 2023 |
 | The AV64 SKU currently supports RAID-1 FTT1, RAID-5 FTT1, and RAID-1 FTT2 vSAN storage policies. For more information, see [AV64 supported RAID configuration](introduction.md#av64-supported-raid-configuration) | Nov 2023 | Use AV36, AV36P, or AV52 SKUs when RAID-6 FTT2 or RAID-1 FTT3 storage policies are needed. | N/A |
+| VMware HCX version 4.8.0 Network Extension (NE) Appliance VMs running in High Availability (HA) mode may experience intermittent Standby to Active failover. For more information, see [HCX - NE appliances in HA mode experience intermittent failover (96352)](https://kb.vmware.com/s/article/96352) | Jan 2024 | Avoid upgrading to VMware HCX 4.8.0 if you are using NE appliances in a HA configuration. | N/A |
 
 In this article, you learned about the current known issues with the Azure VMware Solution.
 

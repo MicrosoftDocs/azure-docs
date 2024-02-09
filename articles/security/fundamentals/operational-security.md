@@ -2,17 +2,13 @@
 title: Azure Operational Security | Microsoft Docs
 description: Introduce yourself to Microsoft Azure Monitor logs, its services, and how it works by reading this overview.
 services: security
-documentationcenter: na
 author: UnifyCloud
 manager: barbkess
 editor: TomSh
 
-ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article 
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 

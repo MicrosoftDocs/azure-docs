@@ -36,8 +36,10 @@ In this article, you learn about the steps that you and your onboarding team mus
 
     |Configuration portal  |Required permissions |
     |---------|---------|
-    |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenancy))|
+    |[Operator Connect portal](https://operatorconnect.microsoft.com/) | `Admin` role or `PartnerSettings.Read` and `NumberManagement.Write` roles (configured on the Project Synergy enterprise application that you set up when [you connected to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#add-the-project-synergy-application-to-your-azure-tenant))|
     |[Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant |User management|
+
+[!INCLUDE [communications-gateway-oc-configuration-ownership](includes/communications-gateway-oc-configuration-ownership.md)]
 
 ## Methods
 
@@ -61,7 +63,7 @@ Integration testing requires setting up your test tenant for Operator Connect or
 > [!IMPORTANT]
 > Do not assign the service verification numbers to test users. Your onboarding team arranges configuration of your service verification numbers.
 
-1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `commsgw`. This Calling Profile was created for you during the Azure Communications Gateway deployment process.
+1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `CommsGw`. We created this Calling Profile for you during the Azure Communications Gateway deployment process.
 1. In your test tenant, request service from your company.
     1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.

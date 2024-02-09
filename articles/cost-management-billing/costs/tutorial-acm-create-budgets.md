@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18, devx-track-arm-template, devx-track-azurepowershell
+ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ---
 
 # Tutorial: Create and manage budgets

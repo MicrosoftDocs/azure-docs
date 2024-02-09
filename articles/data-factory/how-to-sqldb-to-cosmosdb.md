@@ -5,7 +5,6 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/20/2023
 ---

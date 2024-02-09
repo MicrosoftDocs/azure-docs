@@ -9,7 +9,7 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 01/16/2024
 ---
 
 # How to optimize performance when using `pgvector` on Azure Database for PostgreSQL - Flexible Server

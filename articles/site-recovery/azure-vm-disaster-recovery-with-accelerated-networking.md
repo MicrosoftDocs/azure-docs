@@ -2,7 +2,6 @@
 title: Enable accelerated networking for Azure VM disaster recovery with Azure Site Recovery
 description: Describes how to enable Accelerated Networking with Azure Site Recovery for Azure virtual machine disaster recovery
 services: site-recovery
-documentationcenter: ''
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery

@@ -4,10 +4,7 @@ description: Azure CDN supports the use of Shared Access Signature (SAS) to gran
 services: cdn
 author: duongau
 manager: danielgi
-ms.assetid: 
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: duau

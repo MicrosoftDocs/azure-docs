@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/12/2023
+ms.date: 01/04/2024
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
