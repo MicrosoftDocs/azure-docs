@@ -3,7 +3,6 @@ title: Cancel your Azure subscription
 description: Describes how to cancel your Azure subscription, like the Free Trial subscription
 author: bandersmsft
 ms.reviewer: sgautam
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual

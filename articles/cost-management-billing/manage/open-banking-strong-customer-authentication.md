@@ -3,7 +3,6 @@ title: Open Banking (PSD2) and Strong Customer Authentication (SCA) for Azure cu
 description: This article explains why multi-factor authentication is required for some Azure purchases and how to complete authentication.
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual

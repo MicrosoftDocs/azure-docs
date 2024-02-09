@@ -3,7 +3,6 @@ title: Azure Enterprise Reporting APIs
 description: Learn about the Azure Enterprise Reporting APIs that enable customers to pull consumption data programmatically.
 author: bandersmsft
 ms.reviewer: adwise
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: reference

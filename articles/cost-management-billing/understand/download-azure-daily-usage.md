@@ -5,7 +5,6 @@ keywords: billing usage, usage charges, usage download, view usage, azure invoic
 author: bandersmsft
 ms.author: banders
 ms.reviewer: adwise
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual

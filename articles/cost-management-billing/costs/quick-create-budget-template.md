@@ -4,7 +4,6 @@ description: Quickstart showing how to Create a budget with an Azure Resource Ma
 author: bandersmsft
 ms.author: banders
 ms.reviewer: nitinarora
-tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
