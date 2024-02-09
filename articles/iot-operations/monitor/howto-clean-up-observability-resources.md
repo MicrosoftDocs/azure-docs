@@ -25,7 +25,7 @@ To uninstall the observability resources, navigate to the resource group where y
 
 For a resource group with a single cluster connected, the following screenshot shows what the list of resources looks like:
 
-:::image type="content" source="media/howto-configure-observability/shared-resource-delete.png" alt-text="Screenshot that lists shared resources."  lightbox="media/howto-configure-observability/shared-resource-delete-expanded.png":::
+:::image type="content" source="media/howto-clean-up-observability-resources/shared-resource-delete.png" alt-text="Screenshot that lists shared resources."  lightbox="media/howto-clean-up-observability-resources/shared-resource-delete-expanded.png":::
 
 ## Delete data collection resources
 
@@ -41,7 +41,7 @@ Delete the following five resources to complete the cleanup without removing the
 
 For a typical cluster resource group, the following screenshot shows what the list of resources looks like. The resources to delete are selected. 
 
-:::image type="content" source="media/howto-configure-observability/cluster-resource-delete.png" alt-text="Screenshot that lists shared resources to delete."  lightbox="media/howto-configure-observability/cluster-resource-delete-expanded.png":::
+:::image type="content" source="media/howto-clean-up-observability-resources/cluster-resource-delete.png" alt-text="Screenshot that lists shared resources to delete."  lightbox="media/howto-clean-up-observability-resources/cluster-resource-delete-expanded.png":::
 
 ## Delete the configuration from your cluster
 Finally, you can remove the configuration that was installed on your cluster. To do that, run the following command:
