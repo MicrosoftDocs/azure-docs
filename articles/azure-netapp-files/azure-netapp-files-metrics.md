@@ -55,7 +55,10 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
    The size of all snapshots in a volume.  
 - *Throughput limit reached*
     
-    Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. The value 1 means that the volume has reached its maximum throughput, and throughput for this volume will be throttled. The value 0 means this limit has not yet been reached. 
+    Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. The value 1 means that the volume has reached its maximum throughput, and throughput for this volume will be throttled. The value 0 means this limit has not yet been reached.
+
+     > [!NOTE] 
+     > The Throughput limit reached metrics is collected every 5 minutes.
     
     If the volume is hitting the throughput limit, it's not sized appropriately for the application's demands. To resolve throughput issues:
 
