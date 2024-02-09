@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 12/20/2023
+ms.date: 12/21/2023
 ---
 
 # Tutorial: Create a chat app with Azure Web PubSub service

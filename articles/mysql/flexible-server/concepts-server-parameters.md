@@ -6,7 +6,6 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 author: code-sidd
 ms.author: sisawant
-ms.custom: event-tier1-build-2022
 ms.date: 04/26/2023
 ---
 # Server parameters in Azure Database for MySQL - Flexible Server

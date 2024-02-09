@@ -12,7 +12,7 @@ ms.author: larryfr
 
 |Resource type|Resource provider|Kind|
 |---|---|---|
-|Azure AI resources|`Microsoft.MachineLearningServices/workspace`|hub|
+|Azure AI hub resources|`Microsoft.MachineLearningServices/workspace`|hub|
 |Azure AI project|`Microsoft.MachineLearningServices/workspace`|project|
 |Azure AI services|`Microsoft.CognitiveServices/account`|AIServices|
 |Azure AI OpenAI Service|`Microsoft.CognitiveServices/account`|OpenAI|

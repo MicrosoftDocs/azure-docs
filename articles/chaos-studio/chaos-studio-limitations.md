@@ -5,7 +5,8 @@ services: chaos-studio
 author: prasha-microsoft 
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: carlsonr
 ms.service: chaos-studio
 ---
 

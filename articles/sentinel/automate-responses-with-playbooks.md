@@ -234,10 +234,7 @@ There are circumstances, though, that call for running playbooks manually. For e
 - When creating a new playbook, you'll want to test it before putting it in production. 
 - There may be situations where you'll want to have more control and human input into when and whether a certain playbook runs. 
 
-
     You [run a playbook manually](tutorial-respond-threats-playbook.md#run-a-playbook-on-demand) by opening an incident, alert, or entity and selecting and running the associated playbook displayed there. Currently this feature is generally available for alerts, and in preview for incidents and entities.
-
-
 
 ### Set an automated response
 

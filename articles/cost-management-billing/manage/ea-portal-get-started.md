@@ -9,7 +9,6 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 12/16/2022
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Get started with the Azure Enterprise portal

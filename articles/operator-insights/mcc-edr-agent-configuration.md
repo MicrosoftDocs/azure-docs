@@ -19,8 +19,7 @@ site_id: london-lab01
 # The identifier for this agent 
 agent_id: mcc-edr-agent01 
 # Config for secrets providers. We currently support reading secrets from Azure Key Vault and from the local filesystem. 
-# Multiple secret providers can be defined and each must be given 
-# a unique name. 
+# Multiple secret providers can be defined and each must be given a unique name. 
 # The name can then be referenced for secrets later in the config. 
 secret_providers: 
   - name: dp_keyvault
@@ -31,26 +30,21 @@ secret_providers:
         tenant_id: ad5421f5-99e4-44a9-8a46-cc30f34e8dc7
         identity_name: 98f3263d-218e-4adf-b939-eacce6a590d2
         cert_path: /path/to/local/certkey.pkcs
-# Source configuration. This controls how EDRs are ingested from  
-# MCC. 
+# Source configuration. This controls how EDRs are ingested from MCC. 
 source: 
-  # The TCP port to listen on.  Must match the port MCC is  
-  # configured to send to. 
+  # The TCP port to listen on.  Must match the port MCC is configured to send to. 
   listen_port: 36001 
-  # The maximum amount of data to buffer in memory before     uploading. 
+  # The maximum amount of data to buffer in memory before uploading. 
   message_queue_capacity_in_bytes: 33554432 
-  # The maximum size of a single blob (file) to  store in the input
-  # storage account in Azure. 
+  # The maximum size of a single blob (file) to  store in the input storage account in Azure. 
   maximum_blob_size_in_bytes: 134217728 
   # Quick check on the maximum RAM that the agent should use.   
-  # This is a guide to check the other tuning parameters, rather  
-  # than a hard limit. 
+  # This is a guide to check the other tuning parameters, rather than a hard limit. 
   maximum_overall_capacity_in_bytes: 1275068416 
-  # The maximum time to wait when no data is received before  
-  # uploading pending batched data to Azure.  
+  # The maximum time to wait when no data is received before uploading pending batched data to Azure.  
   blob_rollover_period_in_seconds: 300 
-  # EDRs greater than this size are dropped. Subsequent EDRs continue to be processed. This
-  # condition likely indicates MCC sending larger than expected EDRs. MCC is not normally expected
+  # EDRs greater than this size are dropped. Subsequent EDRs continue to be processed. 
+  # This condition likely indicates MCC sending larger than expected EDRs. MCC is not normally expected
   # to send EDRs larger than the default size. If EDRs are being dropped because of this limit,
   # investigate and confirm that the EDRs are valid, and then increase this value.
   soft_maximum_edr_size_in_bytes: 20480
@@ -59,9 +53,9 @@ source:
   # corrupt EDRs to Azure. You should not need to change this value.
   hard_maximum_edr_size_in_bytes: 100000
 sink: 
-  # The container within the ingestion account.  This *must* be in 
-  # the format Azure Operator Insights expects.  Do not adjust 
-  # without consulting your support representative. 
+  # The container within the ingestion account. 
+  # This *must* be in the format Azure Operator Insights expects. 
+  # Do not adjust without consulting your support representative. 
   container_name: edr
   # Optional. How often, in hours, the agent should refresh its ADLS token. Defaults to 1.
   adls_token_cache_period_hours: 1
@@ -72,8 +66,8 @@ sink:
     # The name of a secret in the corresponding provider. 
     # This will be the name of a secret in the Key Vault.   
     # This is created by the Data Product and should not be changed. 
-    secret_name: adls-sas-token   
-# Optional. The maximum size of each block that is uploaded to Azure. 
-# Each blob is composed of one or more blocks. Defaults to 32MiB (=33554432 bytes).
-  block_size_in_bytes  : 33554432
+    secret_name: input-storage-sas
+  # Optional. The maximum size of each block that is uploaded to Azure. 
+  # Each blob is composed of one or more blocks. Defaults to 32MiB (=33554432 bytes).
+  block_size_in_bytes: 33554432
 ```

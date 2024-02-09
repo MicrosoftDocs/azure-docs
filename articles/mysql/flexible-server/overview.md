@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: overview
 author: SudheeshGH
 ms.author: sunaray
-ms.custom: mvc, references_regions, event-tier1-build-2022
+ms.custom: mvc, references_regions
 ms.date: 01/10/2024
 ---
 

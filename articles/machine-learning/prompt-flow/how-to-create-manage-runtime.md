@@ -157,6 +157,8 @@ Submit this run via CLI:
 pfazure run create --file run.yml
 ```
 
+---
+
 # [Python SDK](#tab/python)
 
 ```python
@@ -184,6 +186,8 @@ print(base_run)
 ```
 
 Learn full end to end code first example: [Integrate prompt flow with LLM-based application DevOps](./how-to-integrate-with-llm-app-devops.md)
+
+---
 
 ### Reference files outside of the flow folder - automatic runtime only
 Sometimes, you might want to reference a `requirements.txt` file that is outside of the flow folder. For example, you might have complex project that includes multiple flows, and they share the same `requirements.txt` file. To do this, You can add this field `additional_includes` into the `flow.dag.yaml`. The value of this field is a list of the relative file/folder path to the flow folder. For example, if requirements.txt is in the parent folder of the flow folder, you can add `../requirements.txt` to the `additional_includes` field.

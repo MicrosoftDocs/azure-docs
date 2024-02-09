@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022, build-2023
+ms.custom: cliv2, build-2023
 author: dem108
 ms.author: sehan
 ms.date: 10/19/2023

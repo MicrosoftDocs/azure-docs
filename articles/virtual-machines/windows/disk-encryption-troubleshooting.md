@@ -8,9 +8,6 @@ ms.collection: windows
 ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 01/04/2023
-
-ms.custom: seodec18
-
 ---
 # Azure Disk Encryption troubleshooting guide
 

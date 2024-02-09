@@ -4,7 +4,6 @@ description: Learn how to create and automate workflows in Microsoft Defender fo
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022
 ms.date: 06/18/2023
 ---
 # Automate remediation responses

@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled Open Service Mesh
 description: Deploy the Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
-ms.custom: ignite-2022, devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.date: 01/11/2024
 ms.topic: tutorial
 ---

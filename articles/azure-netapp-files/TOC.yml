@@ -41,6 +41,8 @@
             href: nfs-access-control-lists.md
       - name: Understand dual-protocol security style and permission behaviors
         href: dual-protocol-permission-behaviors.md
+      - name: Understand data encryption 
+        href: understand-data-encryption.md
       - name: Understand guidelines for Active Directory Domain Services
         href: understand-guidelines-active-directory-domain-service-site.md
       - name: Understand the use of LDAP

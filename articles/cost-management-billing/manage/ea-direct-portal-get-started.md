@@ -9,7 +9,6 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/06/2023
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Get started with your Enterprise Agreement billing account

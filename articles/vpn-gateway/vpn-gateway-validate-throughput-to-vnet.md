@@ -13,6 +13,9 @@ ms.reviewer: chadmat;genli
 
 # How to validate VPN throughput to a virtual network
 
+> [!CAUTION]
+> This articles references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.
 
 This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine (VM).

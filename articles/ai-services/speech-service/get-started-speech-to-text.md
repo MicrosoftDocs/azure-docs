@@ -10,7 +10,7 @@ ms.date: 01/30/2024
 ms.author: eur
 ms.devlang: cpp
 # ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-services
 keywords: speech to text, speech to text software
 #customer intent: As a developer, I want to use Speech services to covert speech to text, from either a microphone or a file using my choice of technology.

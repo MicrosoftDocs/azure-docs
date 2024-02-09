@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment, ignite-2022
+ms.custom: mode-other, devx-track-azurecli, kr2b-contr-experiment
 ms.devlang: azurecli
 ---
 

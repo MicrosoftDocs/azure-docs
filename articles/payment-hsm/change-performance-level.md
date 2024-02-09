@@ -11,7 +11,7 @@ ms.author: mbaldwin
 ---
 # How to change the performance level of a payment HSM
 
-Azure Payment HSM supports several SKUs; for a list, see [Azure Payment HSM overview: supported SKUs](overview.md#supported-skus). The performance license level of your payment HSM is initially determined by the SKU you specify during the creation process.
+Azure Payment HSM supports several SKUs; for a list, see [Azure Payment HSM overview: supported SKUs](support-guide.md#supported-skus). The performance license level of your payment HSM is initially determined by the SKU you specify during the creation process.
 
 You can change performance level of an existing payment HSM by changing its SKU. There will be no interruption in your production payment HSMs while performance level is being updated.
 
