@@ -81,12 +81,6 @@ Repeat this section for each resource type/namespace in your service. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 ### Search Services
 Microsoft.Search/searchServices
-- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity)
-- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics)
-- [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics)
-
-#### AzureActivity table
-
 
 | Table | Description |
 |-------|-------------|
