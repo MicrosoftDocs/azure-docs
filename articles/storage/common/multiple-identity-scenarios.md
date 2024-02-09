@@ -517,7 +517,7 @@ public class ExampleService {
     npm install mssql
     ```
 
-2. Use the following code to create instances of the necessary services your app will connect to. 
+2. Use the following code to create client objects for the necessary services your app will connect to:
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
