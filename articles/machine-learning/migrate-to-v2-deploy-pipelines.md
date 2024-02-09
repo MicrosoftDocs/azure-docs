@@ -70,7 +70,7 @@ Compare how publishing a pipeline has changed from v1 to v2:
 
 # [SDK v2](#tab/v2)
 
-1. First, we need to get the pipeline we want to publish. However, batch endpoints can't deploy pipelines but pipeline components. We need to convert the pipeline to a component.
+1. First, we need to define the pipeline we want to publish.
 
     ```python
     @pipeline()
@@ -80,8 +80,12 @@ Compare how publishing a pipeline has changed from v1 to v2:
         return {
             (..)
         }
+    ```
 
-    pipeline_component = pipeline.pipeline_builder.build()
+1. Batch endpoints don't deploy pipelines but pipeline components. Components propose a more reliable way for having source control of the assets that are being deployed under an endpoint. We can convert any pipeline definition into a pipeline component as follows:
+
+    ```python
+    pipeline_component = pipeline().component
     ```
 
 1. As a best practice, we recommend registering pipeline components so you can keep versioning of them in a centralized way inside the workspace or even the shared registries.
@@ -133,6 +137,17 @@ run_id = pipeline_endpoint.submit("PipelineEndpointExperiment")
 ```python
 job = ml_client.batch_endpoints.invoke(
     endpoint_name=batch_endpoint, 
+)
+```
+
+Use `inputs` to indicate the inputs of the job if needed. See [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md) for a more detailed explanation about how to indicate inputs and outputs.
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=batch_endpoint,
+    inputs={
+        "input_data": Input(type=AssetTypes.URI_FOLDER, path="./my_local_data")
+    }
 )
 ```
 ---
@@ -210,7 +225,7 @@ response = requests.post(
 
 # [SDK v2](#tab/v2)
 
-Batch endpoints support multiple inputs types. The following example shows how to indicate two different inputs of type `string` and `numeric`:
+Batch endpoints support multiple inputs types. The following example shows how to indicate two different inputs of type `string` and `numeric`. See [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md#tabs=rest) for more detailed examples:
 
 ```python
 batch_endpoint = ml_client.batch_endpoints.get(endpoint_name)
@@ -235,8 +250,6 @@ response = requests.post(
     }
 )
 ```
-
-To know how to indicate inputs and outputs in batch endpoints and all the supported types see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
 
 ---
 
