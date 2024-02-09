@@ -1,7 +1,7 @@
 ---
-title: Configure observability
+title: Get started with observability
 titleSuffix: Azure IoT Operations
-description: How to configure observability features in Azure IoT Operations so that you can monitor your solution.
+description: How to get started with configuring observability features in Azure IoT Operations so that you can monitor your solution.
 author: timlt
 ms.author: timlt
 ms.topic: how-to

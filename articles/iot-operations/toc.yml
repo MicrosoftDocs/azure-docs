@@ -163,7 +163,7 @@ items:
 
     - name: Monitor service and asset health
       items:
-      - name: Configure observability
+      - name: Get started with observability
         href: monitor/howto-configure-observability.md
       - name: Configure observability manually
         href: monitor/howto-configure-observability-manual.md

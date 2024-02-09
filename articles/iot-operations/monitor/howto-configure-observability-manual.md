@@ -15,11 +15,7 @@ ms.date: 02/04/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article shows how to install and configure Azure IoT Operations observability components manually. 
-
-## Prerequisites
-
-- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+This article shows how to install and configure Azure IoT Operations observability components manually. This approach provides more options and control over your environment. For a simplified setup process that installs all the components you need to get started, see [Get started: configure observability](howto-configure-observability.md).
 
 ## Configure your subscription
 
