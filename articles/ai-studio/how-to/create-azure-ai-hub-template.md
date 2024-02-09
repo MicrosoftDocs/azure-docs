@@ -1,5 +1,5 @@
 ---
-title: Create an AI hub using a template
+title: Create an AI hub using a Bicep template
 titleSuffix: Azure AI Studio
 description: Use a Microsoft Bicep template to create a new Azure AI Studio hub.
 manager: scottpolly
@@ -18,7 +18,7 @@ author: Blackmist
 
 Learn how to create an AI hub resource using a [Microsoft Bicep](/azure/azure-resource-manager/bicep/overview) template. A template makes it easy to create resources as a single, coordinated operation. A Bicep template is a text document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
-The template used in this article can be found at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics). Both the source `main.bicep` file and the compiled `main.json` file are available. This template creates the following resources:
+The template used in this article can be found at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics). Both the source `main.bicep` file and the compiled Azure Resource Manager template (`main.json`) file are available. This template creates the following resources:
 
 - An Azure Resource Group (if one doesn't already exist)
 - An Azure AI Studio hub
@@ -26,6 +26,7 @@ The template used in this article can be found at [https://github.com/Azure/azur
 - Azure Key Vault
 - Azure Container Registry
 - Azure Application Insights
+- Azure AI Services (created by the template)
 
 ## Prerequisites
 
@@ -71,6 +72,17 @@ The Bicep template is made up of the following files:
 >```bicep
 >resource aiResource 'Microsoft.MachineLearningServices/workspaces@2023-08-01-preview' = {
 >```
+
+### Azure Resource Manager template
+
+While the Bicep domain-specific language (DSL) is used to define the resources, the Bicep file is compiled into an Azure Resource Manager template when you deploy the template. The `main.json` file included in the github repository is a compiled Azure Resource Manager version of the template. This file is generated from the `main.bicep` file using the Bicep command-line tools. For example, when you deploy the Bicep template it generates the `main.json` file. You can also manually create the `main.json` file using the `bicep build` command without deploying the template.
+
+```azurecli
+bicep build main.bicep
+```
+
+For more information, see the [Bicep CLI](/azure/azure-resource-manager/bicep/cli) article.
+
 
 ## Configure the template
 
