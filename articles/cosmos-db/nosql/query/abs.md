@@ -8,6 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
+ms.devlang: nosql
 ms.date: 02/08/2024
 ms.custom: query-reference
 ---
