@@ -19,21 +19,20 @@ This article shows how to install and configure Azure IoT Operations observabili
 
 ## Configure your subscription
 
-1. Run the following code to register providers with the subscription where your
-   cluster is located:
+Run the following code to register providers with the subscription where your cluster is located:
 
-   ```azurecli
-   az account set -s <subscription-id>
-   az provider register -n "Microsoft.Insights"
-   az provider register -n "Microsoft.AlertsManagement"
-   ```
+```azurecli
+az account set -s <subscription-id>
+az provider register -n "Microsoft.Insights"
+az provider register -n "Microsoft.AlertsManagement"
+```
 
 ## Install Azure Monitor managed service for Prometheus
 Azure Monitor managed service for Prometheus is a component of Azure Monitor Metrics. This managed service provides flexibility in the types of metric data that you can collect and analyze with Azure Monitor. Prometheus metrics share some features with platform and custom metrics. Prometheus metrics also use some different features to better support open source tools such as PromQL and Grafana.
 
 Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution.  This fully managed service is based on the Prometheus project from the Cloud Native Computing Foundation (CNCF). The service allows you to use the Prometheus query language (PromQL) to analyze and alert on the performance of monitored infrastructure and workloads, without having to operate the underlying infrastructure.
 
-To set up Prometheus metrics collection for the new Arc enabled cluster, follow the steps in [Configure Prometheus metrics collection](howto-configure-observability.md#configure-prometheus-metrics-collection).
+To set up Prometheus metrics collection for the new Arc-enabled cluster, follow the steps in [Configure Prometheus metrics collection](howto-configure-observability.md#configure-prometheus-metrics-collection).
 
 ## Install Container Insights
 Container Insights monitors the performance of container workloads deployed to the cloud. It gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, metrics and container logs are automatically collected through a containerized version of the Log Analytics agent for Linux. Metrics are sent to the metrics database in Azure Monitor. Log data is sent to your Log Analytics workspace.
