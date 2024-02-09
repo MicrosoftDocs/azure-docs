@@ -28,5 +28,3 @@ The following domains are only necessary if you're using a relevant OS. For exam
 
 You'll also need to validate the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
 
-> [!TIP]
-> When using the Arc connected cluster security extension with [AKS hybrid clusters provisioned from Azure](../../azure-arc/kubernetes/extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
