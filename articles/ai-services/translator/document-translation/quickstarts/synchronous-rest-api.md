@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 02/05/2024
+ms.date: 02/12/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -90,13 +90,13 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 
     ```bash
 
-    curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"
+    curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"
     ```
 
     ***PowerShell***
 
     ```powershell
-    cmd /c curl "{your-document-translation-endpoint}/translator/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  -H "Ocp-Apim-Subscription-Key: {your-key}" -F "{path-to-your-document-with-file-extension};type=text/{file-extension}" -o "{path-to-output-file}
+    cmd /c curl "{your-document-translation-endpoint}/translator/document:translate?sourceLanguage=en&targetLanguage=es&api-version=2023-11-01-preview" -i -X POST  -H "Ocp-Apim-Subscription-Key: {your-key}" -F "{path-to-your-document-with-file-extension};type=text/{file-extension}" -o "{path-to-output-file}
 
     ```
 
