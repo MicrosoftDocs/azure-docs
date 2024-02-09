@@ -437,7 +437,10 @@ When customizing the app, we recommend:
 
 - When you rotate API keys for your Azure OpenAI or Azure AI Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
-- Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements. Note that after February 1, 2024, the web app requires the App startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the App Service Configuration page.
+- Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements. 
+
+> [!NOTE]
+> After February 1, 2024, the web app requires the app startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the **App Service Configuration** page.
 
 ##### Important considerations
 
