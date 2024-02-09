@@ -55,7 +55,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats through DRTM + UEFI Management mode.|
+|Description|The purpose of the requirement is to ensure that device has adequate mitigations from firmware security threats through DRTM + UEFI Management mode.|
 |Requirements dependency|DRTM + UEFI|
 |Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul> |
 
@@ -218,7 +218,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that the device has adequate mitigations from Firmware security threats through one of the following approaches: <ul><li>Approved firmware that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul>|
+|Description|The purpose of the requirement is to ensure that the device has adequate mitigations from firmware security threats through one of the following approaches: <ul><li>Approved firmware that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul>|
 |Resources| [Trusted Computing Group](https://trustedcomputinggroup.org/) |
 
 ---
@@ -404,7 +404,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the requirement is to ensure that device has adequate mitigations from Firmware security threats. This requirement is met by Microsoft for Azure Sphere based products.|
+|Description|The purpose of the requirement is to ensure that device has adequate mitigations from firmware security threats. This requirement is met by Microsoft for Azure Sphere based products.|
 
 ---
 </br>
