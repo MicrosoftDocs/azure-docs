@@ -230,34 +230,35 @@ public class ExampleService {
 
 #### [JavaScript](#tab/javascript)
 
-Inside of your project, add a reference to the `@azure/identity` npm package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `@azure/storage-blob` and `@azure/keyvault-keys` packages are added in order to connect to Blob Storage and Key Vault.
+1. Inside of your project, use [NPM](https://docs.npmjs.com/) to add a reference to the `@azure/identity` npm package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app. 
 
-```bash
-npm install @azure/identity
-npm install @azure/storage-blob
-npm install @azure/keyvault-keys
-```
+    ```bash
+    npm install --save @azure/identity @azure/storage-blob @azure/keyvault-keys
+    ```
 
-At the top of your `index.js` file, add the following `import` statements:
+2. At the top of your `index.js` file, add the following `import` statements to import the necessary client classes for the services your app will connect to:
 
-```javascript
-import { DefaultAzureCredential } from "@azure/identity";
-import { BlobServiceClient } from "@azure/storage-blob";
-import { KeyClient  } from "@azure/keyvault-keys";
-```
+    ```javascript
+    import { DefaultAzureCredential } from "@azure/identity";
+    import { BlobServiceClient } from "@azure/storage-blob";
+    import { KeyClient } from "@azure/keyvault-keys";
+    ```
 
-In the `index.js` file, create client objects for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding SDK classes.
+3. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Key Vault using the corresponding SDK classes.
 
-```javascript
+    ```javascript
+    // Resource names
+    const storageAccount = "<STORAGE-ACCOUNT-NAME>";
+    const keyVaultName = "<KEYVAULT-NAME>";
 
-const blobServiceClient = new BlobServiceClient(
-  "https://<your-storage-account>.blob.core.windows.net",
-  new DefaultAzureCredential()
-);
-
-const keyClient = new KeyClient(`https://<YOUR KEYVAULT NAME>.vault.azure.net`, new DefaultAzureCredential());
-const result = await keyClient.createKey("<keyName>", "RSA");
-```
+    const blobServiceClient = new BlobServiceClient(
+      `https://${storageAccount}.blob.core.windows.net`,
+      new DefaultAzureCredential()
+    );
+    
+    const keyClient = new KeyClient(`https://${keyVaultName}.vault.azure.net`, new DefaultAzureCredential());
+    const result = await keyClient.createKey(keyVaultName, "RSA");
+    ```
 
 ---
 
@@ -282,7 +283,7 @@ To configure this setup in your code, make sure your application registers separ
 
 ```csharp
 // Get the first user-assigned managed identity ID to connect to shared storage
-var clientIDstorage = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Storage");
+constclientIDstorage = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Storage");
 
 // First blob storage client that using a managed identity
 BlobServiceClient blobServiceClient = new BlobServiceClient(
@@ -508,55 +509,55 @@ public class ExampleService {
 
 #### [JavaScript](#tab/javascript)
 
-1. Install the npm packages:
+1. Inside of your project, use [NPM](https://docs.npmjs.com/) to add a reference to the `@azure/identity` npm package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
 
     ```bash
-    npm install @azure/identity
-    npm install @azure/storage-blob
-    npm install @azure/cosmos
-    npm install mssql
+    npm install --save @azure/identity @azure/storage-blob @azure/cosmos mssql
     ```
 
-2. Use the following code to create client objects for the necessary services your app will connect to:
+2. At the top of your `index.js` file, add the following `import` statements to import the necessary client classes for the services your app will connect to:
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
     import { BlobServiceClient } from "@azure/storage-blob";
-    import { CosmosClient  } from "@azure/cosmos";
-    import sql from "mssql";
+    import { KeyClient } from "@azure/keyvault-keys";
+    ```
 
+3. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage, Cosmos DB, and Azure SQL using the corresponding SDK classes.
 
+    ```javascript
     // Get the first user-assigned managed identity ID to connect to shared storage
-    let clientIdStorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
-    
+    const clientIdStorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
+
     // First blob storage client that using a managed identity
-    let blobServiceClient = new BlobServiceClient(
-      "https://<receipt-storage-account>.blob.core.windows.net",
+    const blobServiceClient = new BlobServiceClient(
+      `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME_1}.blob.core.windows.net`,
       new DefaultAzureCredential({
         managedIdentityClientId: clientIdStorage
       })
     );
     
     // Second blob storage client that using a managed identity
-    let blobServiceClient2 = new BlobServiceClient(
-      "https://<contract-storage-account>.blob.core.windows.net",
+    const blobServiceClient2 = new BlobServiceClient(
+      `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME_1}.blob.core.windows.net`,
       new DefaultAzureCredential({
         managedIdentityClientId: clientIdStorage
       })
     );
     
     // Get the second user-assigned managed identity ID to connect to shared databases
-    let clientIdDatabases = process.env.MANAGED_IDENTITY_CLIENT_ID_DATABASES;
+    const clientIdDatabases = process.env.MANAGED_IDENTITY_CLIENT_ID_DATABASES;
     
     // Create an Azure Cosmos DB client
-    let client = new CosmosClient({
-      endpoint: process.env["COSMOS_ENDPOINT"],
+    const client = new CosmosClient({
+      endpoint: process.env.COSMOS_ENDPOINT,
       credential: new DefaultAzureCredential({
         managedIdentityClientId: clientIdDatabases
       })
     });
     
     // Open a connection to Azure SQL using a managed identity with mssql package
+    // mssql reads the environment variables to get the managed identity
     const server = process.env.AZURE_SQL_SERVER;
     const database = process.env.AZURE_SQL_DATABASE;
     const port = parseInt(process.env.AZURE_SQL_PORT);
@@ -567,7 +568,7 @@ public class ExampleService {
         port,
         database,
         authentication: {
-            type                      // <---- Passwordless connection
+            type                // <---- Passwordless connection
         },
         options: {
             encrypt: true
