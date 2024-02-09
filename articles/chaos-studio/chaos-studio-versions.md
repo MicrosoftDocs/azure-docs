@@ -12,6 +12,9 @@ ms.service: chaos-studio
 
 # Azure Chaos Studio version compatibility
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 The following reference shows relevant version support and compatibility for features within Chaos Studio. 
 
 ## Operating systems supported by the agent
