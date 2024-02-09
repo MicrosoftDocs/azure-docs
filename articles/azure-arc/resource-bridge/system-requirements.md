@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge system requirements
 description: Learn about system requirements for Azure Arc resource bridge.
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 02/08/2024
 ---
 
 # Azure Arc resource bridge system requirements
