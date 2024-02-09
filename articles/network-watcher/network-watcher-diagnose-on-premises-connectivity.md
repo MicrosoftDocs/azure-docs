@@ -13,7 +13,7 @@ ms.date: 02/09/2024
 
 # Diagnose on-premises VPN connectivity with Azure
 
-In this article, you learn how to use Azure Network Watcher VPN troubleshoot capability to diagnose and troubleshoot your VPN gateway and its connection to your on-premises VPN device. For a list of validated VPN devices and their configuration guides, see [VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#?toc=/azure/network-watcher/toc.jsondevicetable).
+In this article, you learn how to use Azure Network Watcher VPN troubleshoot capability to diagnose and troubleshoot your VPN gateway and its connection to your on-premises VPN device. For a list of validated VPN devices and their configuration guides, see [VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=/azure/network-watcher/toc.json#devicetable).
 
 VPN troubleshoot allows you to quickly diagnose issues with your gateway and connections. It checks for common issues and returns a list of diagnostic logs that can be used to further troubleshoot the issue. The logs are stored in a storage account that you specify.
 
