@@ -237,7 +237,7 @@ Debian 11 | [9.54](https://support.microsoft.com/topic/update-rollup-67-for-azur
 
 #### Supported SUSE Linux Enterprise Server 12 kernel versions for Azure virtual machines
 
-> ![!NOTE]
+> [!NOTE]
 > Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
 
 
@@ -252,7 +252,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.54](https://suppo
 
 #### Supported SUSE Linux Enterprise Server 15 kernel versions for Azure virtual machines
 
-> ![!NOTE]
+> [!NOTE]
 > Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
  
 
@@ -271,15 +271,14 @@ s
 > Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
  
 
+**Release** | **Mobility service version** | **Red Hat kernel version** |
+--- | --- | --- |
+Rocky Linux 9.0 <br> Rocky Linux 9.1  | [9.60]() |  5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br>  <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64  |
+
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 Rocky Linux  | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | Rocky Linux 8.8 <br> Rocky Linux 8.9 |
 Rocky Linux  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 |
-
-
-**Release** | **Mobility service version** | **Red Hat kernel version** |
---- | --- | --- |
-Rocky Linux 9.0 <br> Rocky Linux 9.1  | [9.60]() |  5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br>  <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64  |
 
 
 > [!IMPORTANT] 
