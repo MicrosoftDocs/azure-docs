@@ -12,7 +12,7 @@ author: Blackmist
 #Customer intent: As a DevOps person, I need to automate or customize the creation of an AI hub by using templates.
 ---
 
-# Use an Azure Resource Manager template to create an AI hub
+# Use an Azure Resource Manager template to create an Azure AI hub
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
