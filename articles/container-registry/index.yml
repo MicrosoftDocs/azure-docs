@@ -111,21 +111,14 @@ landingContent:
         links:
           - text: Automate image builds     
             url: container-registry-tutorial-quick-task.md
-  - title: Connected registry (Preview)
+  - title: Tutorials
     linkLists:
-      - linkListType: overview
+      - linkListType: tutorial
         links:
-          - text: About connected registry
-            url: intro-connected-registry.md
-          - text: Connected registry and IoT Edge
-            url: overview-connected-registry-and-iot-edge.md
-      - linkListType: quickstart
-        links:
-          - text: Create a connected registry - CLI
-            url: quickstart-connected-registry-cli.md
-          - text: Create a connected registry - Portal
-            url: quickstart-connected-registry-portal.md
-
+          - text: Geo-replication
+            url: container-registry-tutorial-geo-replication.md
+          - text: Artifact Cache
+            url: tutorial-artifact-cache.md
 
   - title: Security
     linkLists:
@@ -135,3 +128,10 @@ landingContent:
             url: container-registry-oras-artifacts.md
           - text: Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
             url: container-registry-tutorial-sign-build-push.md
+  # Card   
+  - title: What's new
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Artifact Streaming
+            url: container-registry-artifact-streaming.md
