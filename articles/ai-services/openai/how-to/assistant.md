@@ -373,14 +373,6 @@ print(image_file_id)  # Outputs: assistant-1YGVTvNzc2JXajI5JU9F0HMD
 ### Download image
 
 ```python
-from openai import AzureOpenAI
-    
-client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2024-02-15-preview",
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    )
-
 content = client.files.content(image_file_id)
 
 image= content.write_to_file("sinewave.png")
