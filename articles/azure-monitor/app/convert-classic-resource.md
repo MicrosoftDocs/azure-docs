@@ -324,11 +324,11 @@ No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-
 
 ### What happens with continuous export after migration?
 
-To continue with automated exports, you will need to migrate to [diagnostic settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) before migrating to workspace-based resource.  The diagnostic setting will carry over in the migration to workspace-based Application Insights.
+To continue with automated exports, you'll need to migrate to [diagnostic settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) before migrating to workspace-based resource.  The diagnostic setting carries over in the migration to workspace-based Application Insights.
 
 ### How do I ensure a successful migration of my App Insights resource using Terraform?
 
-If you are using Terraform to manage your Azure resources, it is important to use the latest version of the Terraform azurerm provider before attempting to upgrade your App Insights resource. Using an older version of the provider, such as version 3.12, may result in the deletion of the classic component before creating the replacement workspace-based Application Insights resource. This can cause the loss of previous data and require updating the configurations in your monitored apps with new connection string and instrumentation key values.
+If you're using Terraform to manage your Azure resources, it's important to use the latest version of the Terraform azurerm provider before attempting to upgrade your App Insights resource. Using an older version of the provider, such as version 3.12, may result in the deletion of the classic component before creating the replacement workspace-based Application Insights resource. It can cause the loss of previous data and require updating the configurations in your monitored apps with new connection string and instrumentation key values.
 
 To avoid this issue, make sure to use the latest version of the Terraform [azurerm provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest), version 3.89 or higher, which performs the proper migration steps by issuing the appropriate ARM call to upgrade the App Insights classic resource to a workspace-based resource while preserving all the old data and connection string/instrumentation key values.
 
@@ -336,7 +336,7 @@ To avoid this issue, make sure to use the latest version of the Terraform [azure
 Yes, calls to the old API for creating Application Insights resources continue to work as before. The old API version doesn't include a reference to the Log Analytics resource. However, when you trigger a legacy API call, it automatically creates a resource and the required association between Application Insights and Log Analytics.
 
 ### Should I migrate diagnostic settings on classic Application Insights before moving to a workspace-based AI?
-Yes, we recommend migrating diagnostic settings on classic Application Insights resources before transitioning to a workspace-based Application Insights. This ensures continuity and compatibility of your diagnostic settings.
+Yes, we recommend migrating diagnostic settings on classic Application Insights resources before transitioning to a workspace-based Application Insights. It ensures continuity and compatibility of your diagnostic settings.
 
 ### What is the migration process for Application Insights resources?
 The migration of Application Insights resources to the new format isn't instantaneous on the day of deprecation. Instead, it occurs over time. We'll gradually migrate all Application Insights resources, ensuring a smooth transition with minimal disruption to your services.
@@ -347,7 +347,7 @@ This section offers troubleshooting tips for common issues.
 
 ### Access mode
 
-**Error message:** "The selected workspace is configured with workspace-based access mode. Some APM features may be impacted. Select another workspace or allow resource-based access in the workspace settings. You can override this error by using CLI."
+**Error message:** "The selected workspace is configured with workspace-based access mode. Some Application Performance Monitoring (APM) features may be impacted. Select another workspace or allow resource-based access in the workspace settings. You can override this error by using CLI."
 
 For your workspace-based Application Insights resource to operate properly, you need to change the access control mode of your target Log Analytics workspace to the **Resource or workspace permissions** setting. This setting is located in the Log Analytics workspace UI under **Properties** > **Access control mode**. For instructions, see the [Log Analytics configure access control mode guidance](../logs/manage-access.md#access-control-mode). If your access control mode is set to the exclusive **Require workspace permissions** setting, migration via the portal migration experience remains blocked.
 
@@ -357,9 +357,9 @@ If you can't change the access control mode for security reasons for your curren
 
 **Error message:** "Continuous Export needs to be disabled before continuing. After migration, use Diagnostic Settings for export."
 
-The legacy **Continuous export** functionality isn't supported for workspace-based resources. Prior to migrating, you need to enable diagnostic settings and disable continuous export.
+The legacy **Continuous export** functionality isn't supported for workspace-based resources. Before migrating, you need to enable diagnostic settings and disable continuous export.
 
-1. [Enable Diagnostic Settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) on you classic Application Insights resource.
+1. [Enable Diagnostic Settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) on your classic Application Insights resource.
 1. From your Application Insights resource view, under the **Configure** heading, select **Continuous export**.
 
     :::image type="content" source="./media/convert-classic-resource/continuous-export.png" lightbox="./media/convert-classic-resource/continuous-export.png" alt-text="Screenshot that shows the Continuous export menu item.":::
