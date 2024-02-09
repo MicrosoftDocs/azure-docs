@@ -1,6 +1,6 @@
 ---
 title: Azure Operator 5G Core Deployment ordering for clusters, network functions and observability 
-description: Outlines the deployment order for components on Azure Kubernetes Services or Nexus Advanced Kubernetes Services
+description: Outlines the deployment order for components on Azure Kubernetes Services or Nexus Azure Kubernetes Services
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure
@@ -35,5 +35,5 @@ Use the following Azure CLI commands to deploy resources.
 
 ## Related content
 
-- [Complete the prerequisites to deploy Azure Operator 5G Core on Advanced Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md)
+- [Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md)
 

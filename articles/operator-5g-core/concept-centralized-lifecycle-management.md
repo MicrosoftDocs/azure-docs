@@ -33,18 +33,12 @@ The Azure Resource Manager (ARM) model that is used for lifecycle management is 
 
 :::image type="content" source="media/concept-centralized-lifecycle-management/lifecycle-management-model.png" alt-text="Diagram showing the containerized network functions and virtualized network functions responsible for lifecycle management in Azure Operator 5G Core.":::
 
-Network function federated deployments require fully deployed local Platform as a Service (PaaS) components (cluster). Any attempt to deploy a network function prior to PaaS deployment fails. ARM templates are serial in nature and don't proceed until dependent templates are complete. This process prevents network function templates from being deployed prior to PaaS completion.  Observability deployments also fail if local PaaS deployment is incomplete.
+Network function federated deployments require fully deployed local Platform as a Service (PaaS) components (ClusterServices resource). Any attempt to deploy a network function resource prior to the ClusterServices deployment will fail. ARM templates are serial in nature and don't proceed until dependent templates are complete. This process prevents network function templates from being deployed prior to completion of the ClusterServices template. Observability deployments also fail if local PaaS deployment is incomplete.
 
-The federated network functions include:
-- fed-smf
-- fed-amf-mme
-- fed-upf
-- fed-nrf
-- fed-nssf
 
-The deployments for cMME and AnyG are variations on the existing helm charts. Creation of these functions is a matter of specifying different input Helm values. The AO5GC RP uses the Network Function Manager (NFM) Resource Provider to perform this activity. 
+The deployments for cMME and AnyG are variations on the existing helm charts. Creation of these functions is a matter of specifying different input Helm values. The Azure Operator 5G Core RP uses the Network Function Manager (NFM) Resource Provider to perform this activity. 
 
-AO5GC network function images and Helm charts are Azure-managed and accessed by the AO5GC Resource Provider for lifecycle management operations.  
+Azure Operator 5G Core network function images and Helm charts are Azure-managed and accessed by the Azure Operator 5G Core Resource Provider for lifecycle management operations.  
 
 Local Observability is provided by Azure Operator 5G Core Observability components listed in the diagram. Because the Observability function is local, it also available in break-glass scenarios for Nexus where the interfaces can be accessed locally.
  

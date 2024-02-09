@@ -9,9 +9,9 @@ ms.date: 01/30/2024
 
 ---
 
-# Deploy Azure Operator 5G Core on Advanced Kubernetes Service
+# Deploy Azure Operator 5G Core on Azure Kubernetes Service
 
-This article shows you how to deploy Azure Operator 5G Core on the Advanced Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
+This article shows you how to deploy Azure Operator 5G Core on the Azure Kubernetes Service. The first portion discusses the initial cluster creation; the second shows you how to modify the cluster to add the data plane ports.
 
 ## Prerequisites
 
@@ -38,8 +38,8 @@ Topology and quantity of Vnets and Subnets can differ based on your custom requi
 
 A reference deployment of Azure Operator 5G Core, per cluster, has one virtual network and three constituent subnets, all part of the same virtual network.
 
-- One for Advanced Kubernetes Services itself – a /24
-- One for the VIPs that the Advanced Kubernetes Services creates – a /25
+- One for Azure Kubernetes Services itself – a /24
+- One for the VIPs that the Azure Kubernetes Services creates – a /25
 - A utility subnet that points to the data plane ports - /26
 
 User defined routes (UDRs) are added to other virtual networks that point to this virtual network. Traffic is then pointed to the cluster for data plane and signaling traffic.
@@ -124,7 +124,7 @@ Protocol: TCP, intervalInSeconds: 5, numberOfProbes: 1, probeThreshold: 1, Probe
 
 ## Create a Network Function Service server 
 
-AO5GC requires NFS storage. Follow [these instructions](../storage/files/storage-files-quick-create-use-linux.md) to create this storage.
+Azure Operator 5G Core requires Network Function Service (NFS) storage. Follow [these instructions](../storage/files/storage-files-quick-create-use-linux.md) to create this storage.
 
 ```azurecli
 $RG_NAME – The name of your resource group
@@ -153,4 +153,4 @@ $ az network private-endpoint create --resource-group $RG_NAME --name $PRIVATE_E
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).
 - [Deploy Azure Operator 5G Core observability on Azure Kubernetes Services (AKS)](quickstart-deploy-observability.md).
-- [Deploy a network function on Advanced Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
+- [Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)

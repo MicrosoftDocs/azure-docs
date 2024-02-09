@@ -40,5 +40,5 @@ Refer to the section "Configuration Management."
 ## Related content
 
 - [Quickstart: Configure a network function in Azure Operator 5G Core](quickstart-configure-network-function.md)
-- [Quickstart: Deploy a network function on Advanced Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
+- [Quickstart: Deploy a network function on Azure Kubernetes Services (AKS)](quickstart-deploy-network-functions.md)
 
