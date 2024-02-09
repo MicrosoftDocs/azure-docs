@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 09/06/2022
+ms.date: 01/31/2024
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks
@@ -19,7 +19,7 @@ In this article, you learn how to secure inferencing environments (online endpoi
 * Azure Machine Learning managed online endpoints
 
    > [!TIP]
-   > Microsoft recommends using an Azure Machine Learning **managed virtual networks** (preview) instead of the steps in this article when securing managed online endpoints. With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
+   > Microsoft recommends using an Azure Machine Learning **managed virtual networks** instead of the steps in this article when securing managed online endpoints. With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
 
 * Azure Kubernetes Service 
 

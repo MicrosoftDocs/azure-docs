@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, contperf-fy21q1, mode-other, engagement-fy23
+ms.custom: devx-track-csharp, mode-other, engagement-fy23
 ms.topic: quickstart
 ms.date: 03/27/2023
 ms.author: zhenlwa

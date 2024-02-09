@@ -96,7 +96,7 @@ If you stripe volumes across multiple disks, ensure the backup software or disas
 
 To understand how well a single AVS VM scales as more virtual disks are added, tests were performed with one, two, four, and eight datastores (each containing a single VMDK). The following diagram shows a single disk averaged around 73,040 IOPS (scaling from 100% write / 0% read, to 0% write / 100% read). When this test was increased to two drives, performance increased by 75.8% to 128,420 IOPS. Increasing to four drives began to show diminishing returns of what a single VM, sized as tested, could push.  The peak IOPS observed were 147,000 IOPS with 100% random reads. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-multiple.png" alt-text="Diagram that shows single VM scaling to multiple datastores." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-multiple.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-multiple.png" alt-text="Diagram that shows single VM scaling to multiple datastores." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-multiple.png":::
 
 ### Single-host scaling – Single datastore 
 
@@ -104,35 +104,35 @@ It scales poorly to increase the number of VMs driving IO to a single datastore 
 
 Increasing the block size (to 64 KB) for large block workloads had comparable results, reaching a peak of 2148 MiB/s (single VM, single VMDK) and 2138 MiB/s (4 VMs, 16 VMDKs). 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-host.png" alt-text="Diagram that shows scaling VMs on a single datastore host." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-host.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host.png" alt-text="Diagram that shows scaling VMs on a single datastore host." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host.png":::
 
 ### Single-host scaling – Multiple datastores
 
 From the context of a single AVS host, while a single datastore allowed the VMs to drive about 76,000 IOPS, spreading the workloads across two datastores increased total throughput by 76% on average. Moving beyond two datastores to four resulted in a 163% increase (over one datastore, a 49% increase from two to four) as shown in the following diagram. Even though there were still performance gains, increasing beyond eight datastores showed diminishing returns.
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-host-four-vm.png" alt-text="Diagram that shows scaling VMs on a single datastore host with four VMs." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-scale-single-host-four-vm.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host-four-vm.png" alt-text="Diagram that shows scaling VMs on a single datastore host with four VMs." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host-four-vm.png":::
 
 ### Multi-host scaling – Single datastore 
 
 A single datastore from a single host produced over 2000 MiB/s of sequential 64-KB throughput. Distributing the same workload across all four hosts produced a peak gain of 135% driving over 5000 MiB/s. This outcome likely represents the upper ceiling of a single Azure NetApp Files volume throughput performance.
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-throughput-single-volume.png" alt-text="Diagram that shows throughput scaling on a single Azure NetApp Files volume." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-throughput-single-volume.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-throughput-single-volume.png" alt-text="Diagram that shows throughput scaling on a single Azure NetApp Files volume." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-throughput-single-volume.png":::
 
 Decreasing the block size from 64 KB to 8 KB and rerunning the same iterations resulted in four VMs producing 195,000 IOPS, as shown the following diagram. Performance scales as both the number of hosts and the number of datastores increase, because the number of network flows increases. The performance increases by scaling the number of hosts multiplied by the number of datastores, because the count of network flows is a factor of hosts times datastores. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-datastore-network-flows.png" alt-text="Formula that shows the calculation of total network flows." lightbox="../media/azure-netapp-files/performance-azure-vmware-datastore-network-flows.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-network-flows.png" alt-text="Formula that shows the calculation of total network flows." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-network-flows.png":::
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-scale-single-datastore.png" alt-text="Diagram that shows IOPS scaling on a single Azure NetApp Files datastore." lightbox="../media/azure-netapp-files/performance-azure-vmware-scale-single-datastore.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-single-datastore.png" alt-text="Diagram that shows IOPS scaling on a single Azure NetApp Files datastore." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-single-datastore.png":::
 
 ### Multi-host scaling – Multiple datastores
 
 A single datastore with four VMs spread across four hosts produced over 5000 MiB/s of sequential 64-KB IO. For more demanding workloads, each VM is moved to a dedicated datastore, producing over 10,500 MiB/s in total, as shown in the following diagram. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-scale-four-hosts.png" alt-text="Diagram that shows scaling datastores on four hosts." lightbox="../media/azure-netapp-files/performance-azure-vmware-scale-four-hosts.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-four-hosts.png" alt-text="Diagram that shows scaling datastores on four hosts." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-four-hosts.png":::
 
 For small-block, random workloads, a single datastore produced 195,000 random 8-KB IOPS.  Scaling to four datastores produced over 530,000 random 8K IOPS. 
 
-:::image type="content" source="../media/azure-netapp-files/performance-azure-vmware-scale-four-hosts-8k.png" alt-text="Diagram that shows scaling datastores on four hosts with 8k block size." lightbox="../media/azure-netapp-files/performance-azure-vmware-scale-four-hosts-8k.png":::
+:::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-four-hosts-8k.png" alt-text="Diagram that shows scaling datastores on four hosts with 8k block size." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-scale-four-hosts-8k.png":::
 
 ## Implications and recommendations
 

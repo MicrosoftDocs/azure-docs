@@ -98,7 +98,10 @@ As you work with the node resource group, keep in mind that you can't:
 
 You might get unexpected scaling and upgrading errors if you modify or delete Azure-created tags and other resource properties in the node resource group. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](manage-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. Another option is to create Azure Policies with a scope on the managed resource group.
 
-However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
+Azure-created tags are created for their respective Azure Services and should always be allowed. For AKS, there are the `aks-managed` and `k8s-azure` tags. Modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
+
+> [!NOTE]
+> In the past, the tag name "Owner" was reserved for AKS to manage the public IP that is assigned on front end IP of the loadbalancer. Now, services follow use the `aks-managed` prefix. For legacy resources, don't use Azure policies to apply the "Owner" tag name. Otherwise, all resources on your AKS cluster deployment and update operations will break. This does not apply to newly created resources.
 
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 
@@ -315,7 +318,7 @@ The following example shows an ip route setup of Transparent mode. Each Pod's in
 
 ## How to avoid permission ownership setting slow issues when the volume has numerous files?
 
-Traditionally if your pod is running as a nonroot user (which you should), you must specify a `fsGroup` inside the pod’s security context so the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+Traditionally if your pod is running as a nonroot user (which you should), you must specify a `fsGroup` inside the pod's security context so the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
 
 A side effect of setting `fsGroup` is that each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume (with a few exceptions noted below). This scenario happens even if group ownership of the volume already matches the requested `fsGroup`. It can be expensive for larger volumes with lots of small files, which can cause pod startup to take a long time. This scenario has been a known problem before v1.20, and the workaround is setting the Pod run as root:
 
@@ -353,7 +356,7 @@ Any patch, including a security patch, is automatically applied to the AKS clust
 The AKS Linux Extension is an Azure VM extension that installs and configures monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:
 
 - [Node-exporter](https://github.com/prometheus/node_exporter): Collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. Then, a monitoring tool, such as Prometheus, is able to scrap these metrics.
-- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): Aims to make various node problems visible to upstream layers in the cluster management stack. It's a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
+- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): Aims to make various node problems visible to upstream layers in the cluster management stack. It's a systemd unit that runs on each node, detects node problems, and reports them to the cluster's API server using Events and NodeConditions.
 - [ig](https://inspektor-gadget.io/docs/latest/ig/): An eBPF-powered open-source framework for debugging and observing Linux and Kubernetes systems. It provides a set of tools (or gadgets) designed to gather relevant information, allowing users to identify the cause of performance issues, crashes, or other anomalies. Notably, its independence from Kubernetes enables users to employ it also for debugging control plane issues.
 
 These tools help provide observability around many node health related problems, such as:
