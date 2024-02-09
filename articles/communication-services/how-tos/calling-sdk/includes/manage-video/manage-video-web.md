@@ -51,7 +51,7 @@ const defaultSpeaker = deviceManager.selectedSpeaker;
 await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
-Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. It is recommended that different `CallAgents` use different microphones and speakers. They should not share the same microphones nor speakers. In case of sharing them, Microphone UFDs may be triggered and microphone will stop working depending on the browser / os.
+Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. It is recommended that different `CallAgents` use different microphones and speakers. They should not share the same microphones nor speakers. In case of sharing them, Microphone UFDs may be triggered and the microphone stops working depending on the browser / os.
 
 ### Local video stream properties
 
