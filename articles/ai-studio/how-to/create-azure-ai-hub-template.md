@@ -16,7 +16,7 @@ author: Blackmist
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Learn how to create an AI hub resource using a [Microsoft Bicep](/azure/azure-resource-manager/bicep/overview) template. A template makes it easy to create resources as a single, coordinated operation. A Bicep template is a text document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
+Learn how to create an AI hub resource using a [Microsoft Bicep](/azure/azure-resource-manager/bicep/overview) template. A template makes it easy to create resources as a single, coordinated operation. A Bicep template is a text document that defines the resources that are needed for a deployment. It might also specify deployment parameters. Parameters are used to provide input values when using the template.
 
 The template used in this article can be found at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics). Both the source `main.bicep` file and the compiled Azure Resource Manager template (`main.json`) file are available. This template creates the following resources:
 
@@ -32,7 +32,7 @@ The template used in this article can be found at [https://github.com/Azure/azur
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/).
 
-- A copy of the template files from the github repo. To clone the github repo to your local machine, you can use [Git](https://git-scm.com/). Use the following command to clone the quickstart repository to your local machine and navigate to the `aistudio-basics` directory:
+- A copy of the template files from the GitHub repo. To clone the GitHub repo to your local machine, you can use [Git](https://git-scm.com/). Use the following command to clone the quickstart repository to your local machine and navigate to the `aistudio-basics` directory.
 
     # [Azure CLI](#tab/cli)
 
@@ -75,7 +75,7 @@ The Bicep template is made up of the following files:
 
 ### Azure Resource Manager template
 
-While the Bicep domain-specific language (DSL) is used to define the resources, the Bicep file is compiled into an Azure Resource Manager template when you deploy the template. The `main.json` file included in the github repository is a compiled Azure Resource Manager version of the template. This file is generated from the `main.bicep` file using the Bicep command-line tools. For example, when you deploy the Bicep template it generates the `main.json` file. You can also manually create the `main.json` file using the `bicep build` command without deploying the template.
+While the Bicep domain-specific language (DSL) is used to define the resources, the Bicep file is compiled into an Azure Resource Manager template when you deploy the template. The `main.json` file included in the GitHub repository is a compiled Azure Resource Manager version of the template. This file is generated from the `main.bicep` file using the Bicep command-line tools. For example, when you deploy the Bicep template it generates the `main.json` file. You can also manually create the `main.json` file using the `bicep build` command without deploying the template.
 
 ```azurecli
 bicep build main.bicep
