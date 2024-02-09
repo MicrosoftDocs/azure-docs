@@ -19,15 +19,15 @@ Azure Container Registry (ACR) allows you to enable the *soft delete policy* to 
 
 ## Aspects of soft delete policy
 
-The soft delete policy can be enabled/disabled at any time. Once you enable the soft-delete policy in ACR it manages the deleted artifacts as soft deleted artifacts with a set retention period. Thereby you have ability to list, filter, and restore the soft deleted artifacts. 
+The soft delete policy can be enabled/disabled at any time. Once you enable the soft-delete policy in ACR, it manages the deleted artifacts as soft deleted artifacts with a set retention period. Thereby you have ability to list, filter, and restore the soft deleted artifacts. 
 
 ### Retention period
 
-The default retention period for soft deleted artifacts is seven days, but it’s possible to set the retention period value between one to 90 days. You can set, update, and change the retention policy value. The soft deleted artifacts will expire once the retention period is complete. 
+The default retention period for soft deleted artifacts is seven days, but it’s possible to set the retention period value between one to 90 days. You can set, update, and change the retention policy value. The soft deleted artifacts expire once the retention period is complete. 
 
-### Auto-purge
+### Autopurge
 
-The auto-purge runs every 24 hours and always considers the current value of retention days before permanently deleting the soft deleted artifacts. For example, after five days of soft deleting the artifact, if you change the value of retention days from seven to 14 days, the artifact will only expire after 14 days from the initial soft delete.
+The autopurge runs every 24 hours and always considers the current value of retention days before permanently deleting the soft deleted artifacts. For example, after five days of soft deleting the artifact, if you change the value of retention days from seven to 14 days, the artifact will only expire after 14 days from the initial soft delete.
 
 
 
@@ -55,14 +55,14 @@ This feature is available in all the service tiers (also known as SKUs). For inf
 
 ## Prerequisites
 
-* The user will require following permissions (at registry level) to perform soft delete operations:
+* The user requires following permissions (at registry level) to perform soft delete operations:
 
 | Permission                                                    | Description                   |
 | ------------------------------------------------------------- | ----------------------------- |
 | Microsoft.ContainerRegistry/registries/deleted/read           | List soft-deleted artifacts   |
 | Microsoft.ContainerRegistry/registries/deleted/restore/action | Restore soft-deleted artifact |
 
-* You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` for the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * Sign in to the [Azure portal](https://ms.portal.azure.com/). 
 
@@ -128,7 +128,7 @@ The `az acr manifest restore` commands restore a single image by tag and digest.
     az acr manifest restore -r MyRegistry -n hello-world:latest
     ```
 
-Force restore will overwrite the existing tag with the same name in the repository. If the soft delete policy is enabled during force restore. The overwritten tag will be soft deleted. You can force restore with specific arguments `--force, -f`.  
+Force restore overwrites the existing tag with the same name in the repository. If the soft delete policy is enabled during force restore. The overwritten tag is soft deleted. You can force restore with specific arguments `--force, -f`.  
 
 3. Force restore the image of a `hello-world` repository by tag `latest`and digest `sha256:abc123` in a given `MyRegistry` ACR.
 
@@ -155,7 +155,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 4. Select the checkbox to **Enable Soft Delete**.
-5. Select the number of days between `0` and `90` days to retain the soft deleted artifacts.
+5. Select the number of days between `0` and `90` days for retaining the soft deleted artifacts.
 6.  Select **Save** to save your changes.
 
 
@@ -169,7 +169,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 1. Navigate to your Azure Container Registry.
 2. In the **Menu** section, Select **Services**, and Select **Repositories**.
 3. In the **Repositories**, Select your preferred **Repository**.
-4. Click on the **Manage deleted artifacts** to see all the soft deleted artifacts.
+4. Select on the **Manage deleted artifacts** to see all the soft deleted artifacts.
 
 > [!NOTE]
 > Once you enable the soft delete policy and perform actions such as untag a manifest or delete an artifact, You will be able to find these tags and artifacts in the Managed delete artifacts before the number of retention days expire.
@@ -180,8 +180,8 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 
-5.  Filter the deleted artifact you have to restore
-6.  Select the artifact, and Click on the **Restore** in the right column.
+5.  Filter the deleted artifact you have to restore.
+6.  Select the artifact, and select on the **Restore** in the right column.
 7.  A **Restore Artifact** window pops up.
 
 
@@ -191,7 +191,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 8. Select the tag to restore, here you have an option to choose, and recover any additional tags.
-9. Click on **Restore**. 
+9. Select on **Restore**. 
 
 
 
@@ -204,7 +204,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 1. Navigate to your Azure Container Registry.
 2. In the **Menu** section, Select **Services**,
 3. In the **Services** tab, Select **Repositories**.
-4. In the **Repositories** tab, Click on **Manage Deleted Repositories**.
+4. In the **Repositories** tab, select on **Manage Deleted Repositories**.
 
 
 
@@ -221,7 +221,7 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 6. Select the deleted repository, filter the deleted artifact from  on the **Manage deleted artifacts**.
-7. Select the artifact, and Click on the **Restore** in the right column.
+7. Select the artifact, and select on the **Restore** in the right column.
 8.  A **Restore Artifact** window pops up.
 
 
@@ -230,8 +230,8 @@ You can also enable a registry's soft delete policy in the [Azure portal](https:
 
 
 
-9. Select the tag to restore, here you have an option to choose, and recover any additional tags.
-10. Click on **Restore**. 
+9. Select the tag to restore, here you have an option to choose, and recover any other tags.
+10. Select on **Restore**. 
 
 
 
