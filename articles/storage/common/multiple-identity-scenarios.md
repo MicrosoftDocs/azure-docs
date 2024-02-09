@@ -247,16 +247,20 @@ public class ExampleService {
 3. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Key Vault using the corresponding SDK classes.
 
     ```javascript
-    // Resource names
-    const storageAccount = "<STORAGE-ACCOUNT-NAME>";
-    const keyVaultName = "<KEYVAULT-NAME>";
+    // Azure Resource names
+    const storageAccount = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+    const keyVaultName = process.env.AZURE_KEYVAULT_NAME;
 
+    // Create client for Blob Storage using managed identity
     const blobServiceClient = new BlobServiceClient(
       `https://${storageAccount}.blob.core.windows.net`,
       new DefaultAzureCredential()
     );
     
+    // Create client for Key Vault using managed identity
     const keyClient = new KeyClient(`https://${keyVaultName}.vault.azure.net`, new DefaultAzureCredential());
+
+    // Create a new key in Key Vault
     const result = await keyClient.createKey(keyVaultName, "RSA");
     ```
 
@@ -529,9 +533,13 @@ public class ExampleService {
     // Get the first user-assigned managed identity ID to connect to shared storage
     const clientIdStorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
 
+    // Storage account names
+    const storageAccountName1 = process.env.AZURE_STORAGE_ACCOUNT_NAME_1;
+    const storageAccountName2 = process.env.AZURE_STORAGE_ACCOUNT_NAME_2;
+
     // First blob storage client that using a managed identity
     const blobServiceClient = new BlobServiceClient(
-      `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME_1}.blob.core.windows.net`,
+      `https://${storageAccountName1}.blob.core.windows.net`,
       new DefaultAzureCredential({
         managedIdentityClientId: clientIdStorage
       })
@@ -539,7 +547,7 @@ public class ExampleService {
     
     // Second blob storage client that using a managed identity
     const blobServiceClient2 = new BlobServiceClient(
-      `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME_1}.blob.core.windows.net`,
+      `https://${storageAccountName2}.blob.core.windows.net`,
       new DefaultAzureCredential({
         managedIdentityClientId: clientIdStorage
       })
@@ -547,10 +555,13 @@ public class ExampleService {
     
     // Get the second user-assigned managed identity ID to connect to shared databases
     const clientIdDatabases = process.env.MANAGED_IDENTITY_CLIENT_ID_DATABASES;
+
+    // Cosmos DB Account endpoint
+    const cosmosDbAccountEndpoint = process.env.COSMOS_ENDPOINT;
     
     // Create an Azure Cosmos DB client
     const client = new CosmosClient({
-      endpoint: process.env.COSMOS_ENDPOINT,
+      endpoint: cosmosDbAccountEndpoint,
       credential: new DefaultAzureCredential({
         managedIdentityClientId: clientIdDatabases
       })
