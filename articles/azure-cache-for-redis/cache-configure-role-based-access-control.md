@@ -118,9 +118,9 @@ The following list contains some examples of permission strings for various scen
 
 1. To add a user to the access policy using Microsoft Entra ID, you must first enable Microsoft Entra ID by selecting **Authentication** from the Resource menu.
 
-1. Select **(PREVIEW) Enable Microsoft Entra Authorization** as the tab in the working pane.
+1. Select **(PREVIEW) Enable Microsoft Entra Authentication** as the tab in the working pane.
 
-1. If not checked already, check the box labeled **(PREVIEW) Enable Microsoft Entra Authorization** and select **OK**. Then, select **Save**.
+1. If not checked already, check the box labeled **(PREVIEW) Enable Microsoft Entra Authentication** and select **OK**. Then, select **Save**.
 
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
 

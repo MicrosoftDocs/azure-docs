@@ -47,9 +47,9 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. Select **Authentication** from the Resource menu.
 
-1. In the working pane, select **(PREVIEW) Enable Microsoft Entra Authorization**.
+1. In the working pane, select **(PREVIEW) Enable Microsoft Entra Authentication**.
 
-1. Select **Enable Microsoft Entra Authorization**, and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
+1. Select **Enable Microsoft Entra Authentication**, and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
 
     :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the enable Microsoft Entra authentication checked.":::
 
@@ -72,7 +72,7 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-new-redis-user.png" alt-text="Screenshot showing the available Access Policies.":::
 
-1. Choose either the **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal**,and you want to add a _user_, you must first [enable Microsoft Entra Authorization](#enable-microsoft-entra-id-authentication-on-your-cache).
+1. Choose either the **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal**,and you want to add a _user_, you must first [enable Microsoft Entra Authentication](#enable-microsoft-entra-id-authentication-on-your-cache).
 
 1. Then, select **Select members** and select  **Select**. Then, select **Next : Review + Assign**.
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-select-members.png" alt-text="Screenshot showing members to add as New Redis Users.":::
