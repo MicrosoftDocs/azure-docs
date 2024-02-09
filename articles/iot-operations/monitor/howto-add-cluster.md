@@ -1,25 +1,30 @@
 ---
-title: Add cluster
+title: Add a cluster
 titleSuffix: Azure IoT Operations
-description: Add Arc enabled cluster to previously setup Observabilty infrastructure.
+description: How to add an Arc-enabled cluster to existing observability infrastructure in Azure IoT Operations.
 author: timlt
 ms.author: timlt
 ms.topic: how-to
 ms.date: 02/04/2024
 
-# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
-# on the health of my industrial assets and edge environment.
+# CustomerIntent: As an IT admin or operator, I want to add more Arc-enabled clusters
+# to my existing observability infrastructure. 
 ---
 
-# Add Arc enabled cluster to previously setup Observability infrastructure
+# Add an Arc-enabled cluster to existing observability infrastructure
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-## Add another Arc Enabled Cluster
+You can share observability resources across multiple Arc-enabled clusters that run Azure IoT Operations. This article shows how to add another Arc-enabled cluster to the observability infrastructure that you created in [Get started: configure observability](howto-configure-observability.md).
 
-The observability resources that you configured using the Quickstart can be shared across mutliple Arc Enabled Clusters running AIO. 
+## Prerequisites
 
-To get this setup, run the following command. Specify the resource IDs for the observability components that were output from the quickstart for the `azureMonitorId` and `logAnalyticsId` parameters. Specify the resource group and name of the new Arc enabled cluster in the `resource-group` and `cluster-name` parameters:
+- Azure IoT Operations Preview installed. For more information, see [Get started: configure observability](howto-configure-observability.md).
+
+## Add an Arc-enabled cluster
+To create this setup, run the following command. Specify the two resource IDs for the observability components that were output when you ran the steps in [Install observability components](howto-configure-observability.md#install-observability-components). 
+
+Specify the resource group and name of the new Arc enabled cluster in the `resource-group` and `cluster-name` parameters:
 
 ```azurecli
 az deployment group create \
@@ -31,7 +36,7 @@ az deployment group create \
                   logAnalyticsId=<log-analytics-resource-id>
 ```
 
-If your Azure Monitor or Log Analytics are in a different region from your cluster, the previous command produces an error. To resolve the error, pass the extra `azureMonitorLocation` and `logAnalyticsLocation` parameters:
+If Azure Monitor or Log Analytics is in a different region from your cluster, the previous command produces an error. To resolve the error, pass the extra `azureMonitorLocation` and `logAnalyticsLocation` parameters:
 
 ```azurecli
 az deployment group create \
@@ -45,8 +50,8 @@ az deployment group create \
                   logAnalyticsLocation=<log-analytics-location>
 ```
 
-Next, setup Prometheus metrics collection for the new Arc enabled cluster, using the steps in the TODO: Link to the configure prometheus section
+To set up Prometheus metrics collection for the new Arc enabled cluster, follow the steps in [Configure Prometheus metrics collection](howto-configure-observability.md#configure-prometheus-metrics-collection).
 
 ## Access Grafana dashboards
 
-Navigate to the endpoint for the Grafana instance that you created previously in the quickstart deployment. If you didn't already do so, create the relevant dashboards by going to the [dashboard list](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboards). In the dashboards, you will see the name of the new Arc enabled cluster in the Cluster selector dropdown. 
+Navigate to the endpoint for the Grafana instance that you created previously in [Get started: configure observability](howto-configure-observability.md). If you didn't already do so, create the relevant dashboards by going to the [dashboard list](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboards). In the dashboards, you see the name of the new Arc-enabled cluster in the **Cluster** selector dropdown. 

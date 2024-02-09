@@ -167,6 +167,10 @@ items:
         href: monitor/howto-configure-observability.md
       - name: Configure observability manually
         href: monitor/howto-configure-observability-manual.md
+      - name: Add a cluster to observability infrastructure
+        href: monitor/howto-add-cluster.md
+      - name: Clean up observability resources
+        href: monitor/howto-clean-up-observability-resources.md
       - name: Configure MQ diagnostic service settings
         href: monitor/howto-configure-diagnostics.md
     - name: Manage layered network
