@@ -45,7 +45,7 @@ Since Azure AI Studio is built from other Azure services, the resource providers
 | AI project                 | `Microsoft.MachineLearningServices/workspaces` | `Project` |
 | Azure OpenAI               | `Microsoft.CognitiveServices/accounts`        | `OpenAI`  |
 | Azure AI Services          | `Microsoft.CognitiveServices/accounts`        | `AIServices` |
-| Azure AI Search            | `Microsoft.Search/searchServices`             |           |
+| Azure AI Search (optional)           | `Microsoft.Search/searchServices`             |           |
 | Azure Storage              | `Microsoft.Storage/storageAccounts`           |           |
 | Azure Key Vault            | `Microsoft.KeyVault/vaults`                   |           |
 | Azure Container Registry   | `Microsoft.ContainerRegistry/registries`      |           |
@@ -55,6 +55,13 @@ Since Azure AI Studio is built from other Azure services, the resource providers
 ## Control plane proxy
 
 Azure AI Services and Azure OpenAI provide control plane endpoints for operations such as listing model deployments. These endpoints are secured using a separate Azure RBAC configuration that the one used for Azure AI hub. To reduce the complexity of Azure RBAC management, AI Studio provides a *control plane proxy* that allows you to perform operations on connected Azure AI Services and Azure OpenAI resources. Performing operations on these resources through the control plane proxy only requires Azure RBAC permissions on the AI hub. The Azure AI Studio service then performs the call to the Azure AI Services or Azure OpenAI control plane endpoint on the user's behalf.
+
+## Virtual network
+
+Azure AI hub can be configured to use a *managed* virtual network. The managed virtual network secures communications between the AI hub, AI projects, and managed resources such as computes. If your dependency services (Azure Storage, Key Vault, and Container Registry) have public access disabled, a private endpoint for each dependency service is created to secure communication between the AI hub/project and the dependency service.
+
+> [!NOTE]
+> If you want to secure communications between your clients and the AI hub or AI project, you must use an Azure Virtual Network that you create and manage. For example, an Azure Virtual Network that uses a VPN or ExpressRoute connection to your on-premises network.
 
 
 
