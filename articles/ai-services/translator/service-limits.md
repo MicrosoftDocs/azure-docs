@@ -70,7 +70,7 @@ The Translator has a maximum latency of 15 seconds using standard models and 120
 > * Document Translation doesn't support translating secured documents such as those with an encrypted password or with restricted access to copy content.
 > * When translating documents with content in multiple languages (batch operations only), the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 
-***Asynchronous (batch) operation limits***
+##### Asynchronous (batch) operation limits
 
 |Attribute | Limit|
 |---|---|
@@ -80,7 +80,7 @@ The Translator has a maximum latency of 15 seconds using standard models and 120
 |Number of target languages in a batch| ≤ 10 |
 |Size of Translation memory file| ≤ 10 MB|
 
-***Synchronous operation limits***
+##### Synchronous operation limits
 
 |Attribute | Limit|
 |---|---|
