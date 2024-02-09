@@ -104,7 +104,10 @@ The Azure Backup service uses the credentials mentioned in the key-vault to acce
 
 ## UserErrorMissingDBPermissions
 
-The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Grant appropriate permissions to the relevant backup or the database user to perform this operation on the database.
+
+The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). The key-vault associated with this backup instance can be found by accessing the backup instance and selecting the JSON view. You'll see the key-vault name and secret details listed under the **datasourceAuthCredentials** section as shown in the below screenshot.
+
+:::image type="content" source="./media/backup-azure-database-postgresql-troubleshoot/key-vault-secret-name.png" alt-text="Screenshot showing how to search for key vault by using secret name." lightbox="./media/backup-azure-database-postgresql-troubleshoot/key-vault-secret-name.png":::
 
 ## UserErrorSecretValueInUnsupportedFormat
 
