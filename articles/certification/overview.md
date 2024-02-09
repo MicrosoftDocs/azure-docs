@@ -9,7 +9,7 @@ ms.custom: template-overview
 ms.service: certification
 ---
 
-
+_Note: As for February 2024, the Azure Certified Device program has been retired. This page has been updated as a new home for the Edge Secured-core program._
 
 # What is the Edge Secured-core program?
 This program enables device partners to differentiate their devices by meeting an additional set of security criteria. It validates devices meet additional security requirements around device identity, secure boot, operating system hardening, device updates, data protection, and vulnerability disclosures. Customers can confidently purchase devices that meet this additional set of security criteria.
