@@ -116,7 +116,7 @@ client = AzureOpenAI(
 
 assistant_file = client.beta.assistants.files.create(
   assistant_id="asst_abc123",
-  file_id="file-abc123"
+  file_id="assistant-abc123"
 )
 print(assistant_file)
 ```
@@ -128,7 +128,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id
   -H "api-key: $AZURE_OPENAI_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-       "file_id": "file-abc123"
+       "file_id": "assistant-abc123"
      }'
 ```
 
@@ -317,7 +317,7 @@ client = AzureOpenAI(
 
 assistant_file = client.beta.assistants.files.retrieve(
   assistant_id="asst_abc123",
-  file_id="file-abc123"
+  file_id="assistant-abc123"
 )
 print(assistant_file)
 ```
