@@ -6,7 +6,7 @@ ms.author: sboris
 ms.service: azure
 ms.topic: concept-article #required; leave this attribute/value as-is.
 
-ms.date: 01/31/2024
+ms.date: 02/09/2024
 ---
 
 # Security in Azure Operator 5G Core
