@@ -47,7 +47,7 @@ At a minimum your service should have the following two articles:
 
 <!-- ## Resource types. Required section. -->
 [!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-For more information about the resource types for Azure AI Search, see [AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md).
+For more information about the resource types for AI Search, see [AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md).
 
 <!-- ## Data storage. Required section. Optionally, add service-specific information about storing your monitoring data after the include. -->
 [!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-data-storage.md)]
@@ -59,7 +59,7 @@ For more information about the resource types for Azure AI Search, see [AI Searc
   - If your service doesn't collect platform metrics, use the following include: [!INCLUDE [horz-monitor-no-platform-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-no-platform-metrics.md)]
   - If your service collects platform metrics, add the following include, statement, and service-specific information as appropriate. -->
 [!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
-In Azure AI Search, platform metrics measure query performance, indexing volume, and skillset invocation. For a list of available metrics for AI Search, see [AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#metrics).
+In AI Search, platform metrics measure query performance, indexing volume, and skillset invocation. For a list of available metrics for AI Search, see [AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#metrics).
 
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
@@ -107,7 +107,7 @@ NOTE: Azure Monitor already has general information on how to configure and rout
 <!-- ## Activity log. Required section. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 <!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
-In Azure AI Search, activity logs reflect control plane activity such as service creation and configuration, or API key usage or management. Entries often include **Get Admin Key**, one entry for every call that [provided an admin API key](search-security-api-keys.md) on the request. There are no details about the call itself, just a notification that the admin key was used.
+In AI Search, activity logs reflect control plane activity such as service creation and configuration, or API key usage or management. Entries often include **Get Admin Key**, one entry for every call that [provided an admin API key](search-security-api-keys.md) on the request. There are no details about the call itself, just a notification that the admin key was used.
 
 The following screenshot shows AI Search activity log signals you can configure in an alert.
 
@@ -135,6 +135,8 @@ If your service has other logs that aren't resource logs or in the activity log,
 <!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 <!-- Add sample Kusto queries for your service here. -->
+The following queries can get you started. See [Analyze performance in Azure AI Search](search-performance-analysis.md) for more examples and guidance specific to search service.
+
 #### List metrics by name
 
 Return a list of metrics and the associated aggregation. The query is scoped to the current search service over the time range that you specify.

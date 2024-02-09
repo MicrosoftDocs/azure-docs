@@ -34,7 +34,7 @@ At a minimum your service should have the following two articles:
    - Filename: "monitor-azure-cognitive-search-data-reference.md".
 -->
 
-# AI Search monitoring data reference
+# Azure AI Search monitoring data reference
 
 <!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
@@ -50,11 +50,14 @@ The following table lists the metrics available for the Microsoft.Search/searchS
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-search-searchservices-metrics-include.md)]
 
-SearchQueriesPerSecond shows the average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in a metric like QPS. The minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average is the aggregate across the entire minute. For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
+SearchQueriesPerSecond shows the average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds appear in a metric like QPS. The minimum is the lowest value for search queries per second that was registered during that minute. Maximum is the highest value. Average is the aggregate across the entire minute.
+
+For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
 <!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
-AI Search has the following dimensions associated with its metrics that capture a count of documents or skills that were executed ("Document processed count" and "Skill execution invocation count").
+
+AI Search has the following dimensions associated with the metrics that capture a count of documents or skills that were executed, "Document processed count" and "Skill execution invocation count".
 
 | Dimension Name | Description |
 | -------------- | ----------- |
@@ -93,21 +96,22 @@ The following table lists common operations related to AI Search that may be rec
 
 | Operation | Description |
 |:----------|:------------|
-| Get Admin Key | Any operation that requires administrative rights will be logged as a "Get Admin Key" operation.  |
+| Get Admin Key | Any operation that requires administrative rights is logged as a "Get Admin Key" operation.  |
 | Get Query Key | Any read-only operation against the documents collection of an index.  |
 | Regenerate Admin Key | A request to regenerate either the primary or secondary admin API key. |
 
 Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure resource logging. 
 
-Alternatively, you might gain some insight through change history. In Azure portal, select the activity to open the detail page and then select "Change history" for information about the underlying operation.
+Alternatively, you might gain some insight through change history. In the Azure portal, select the activity to open the detail page and then select "Change history" for information about the underlying operation.
 
 <!-- Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and link to the possible operations for your service, using the format - [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#<namespace>).
 If there are other operations not in the link, list them here in table form. -->
 
 <!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. -->
+<a name="schemas"></a>
 [!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
 <!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
-If you are building queries or custom reports, the data structures that contain Azure AI Search resource logs conform to the schema below.
+If you are building queries or custom reports, the data structures that contain AI Search resource logs conform to the following schemas.
 
 For resource logs sent to blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
@@ -115,7 +119,7 @@ For resource logs sent to blob storage, each blob has one root object called **r
 
 ### Resource log schema
 
-All resource logs available through Azure Monitor share a [common top-level schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Azure AI Search supplements with [additional properties](#resource-log-search-props) and [operations](#resource-log-search-ops) that are unique to a search service.
+All resource logs available through Azure Monitor share a [common top-level schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). AI Search supplements with [more properties](#resource-log-search-props) and [operations](#resource-log-search-ops) that are unique to a search service.
 
 The following example illustrates a resource log that includes common properties (TimeGenerated, Resource, Category, and so forth) and search-specific properties (OperationName and OperationVersion).
 
@@ -124,7 +128,7 @@ The following example illustrates a resource log that includes common properties
 | TimeGenerated | Datetime | Timestamp of the operation. For example: `2021-12-07T00:00:43.6872559Z` |
 | Resource | String | Resource ID. For example: `/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Search/searchServices/<your-search-service-name>` |
 | Category | String | "OperationLogs". This value is a constant. OperationLogs is the only category used for resource logs. |
-| OperationName | String |  The name of the operation (see the [full list of operations](#resource-log-search-ops) below). An example is `Query.Search` |
+| OperationName | String |  The name of the operation (see the [full list of operations](#resource-log-search-ops)). An example is `Query.Search` |
 | OperationVersion | String | The api-version used on the request. For example: `2020-06-30` |
 | ResultType | String |"Success". Other possible values: Success or Failure |
 | ResultSignature | Int | An HTTP result code. For example: `200` |
@@ -135,7 +139,7 @@ The following example illustrates a resource log that includes common properties
 
 #### Properties schema
 
-The properties below are specific to Azure AI Search.
+The following properties are specific to AI Search.
 
 | Name | Type | Description and example |
 | ---- | ---- | ----------------------- |
@@ -148,7 +152,7 @@ The properties below are specific to Azure AI Search.
 
 #### OperationName values (logged operations)
 
-The operations below can appear in a resource log.
+The following operations can appear in a resource log.
 
 | OperationName | Description |
 |:------------- |:------------|
@@ -159,7 +163,7 @@ The operations below can appear in a resource log.
 | DebugSessions.RetrieveProjectedIndexerExecutionHistoricalData  | Execution history for enrichments projected to a knowledge store. |
 | Indexers.* | Applies to an indexer. Can be Create, Delete, Get, List, and Status. |
 | Indexes.* | Applies to a search index. Can be Create, Delete, Get, List.  |
-| indexes.Prototype | This is an index created by the Import Data wizard. |
+| indexes.Prototype | This index is created by the Import Data wizard. |
 | Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents). |
 | Metadata.GetMetadata | A request for search service system data.  |
 | Query.Autocomplete | An autocomplete query against an index. See [Query types and composition](search-query-overview.md). |
