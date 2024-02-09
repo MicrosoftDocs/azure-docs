@@ -209,7 +209,7 @@ Retrieves a message file.
 
 ### Returns
 
-The [message file](#message-file-object) object.
+The [message](#message-object) object matching the specified ID.
 
 ### Example retrieve message request
 
@@ -317,7 +317,7 @@ Modifies a message.
 
 ### Returns
 
-The modified message object.
+The modified [message](#message-object) object.
 
 # [Python 1.x](#tab/python)
 

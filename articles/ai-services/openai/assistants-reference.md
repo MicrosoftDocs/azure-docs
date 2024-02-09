@@ -254,7 +254,7 @@ Retrieves an assistant.
 
 |Parameter| Type | Required | Description |
 |---|---|---|--|
-| `assistant_id` | string | Required | The ID of the assistant the file belongs to. |
+| `assistant_id` | string | Required | The ID of the assistant to retrieve. |
 
 **Returns**
 
@@ -354,7 +354,7 @@ Modifies an assistant.
 | `name` | string or null | Optional | The name of the assistant. The maximum length is 256 characters. |
 | `description` | string or null | Optional | The description of the assistant. The maximum length is 512 characters. |
 | `instructions` | string or null | Optional | The system instructions that the assistant uses. The maximum length is 32768 characters. |
-| `tools` | array | Optional | Defaults to []. A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function. |
+| `tools` | array | Optional | Defaults to []. A list of tools enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function. |
 | `file_ids` | array | Optional | Defaults to []. A list of File IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order. If a file was previously attached to the list but does not show up in the list, it will be deleted from the assistant. |
 | `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long. |
 
