@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/06/2021
 ms.author: jushiman
 ---

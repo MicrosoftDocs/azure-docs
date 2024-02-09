@@ -5,10 +5,9 @@ author: msftrobiro
 ms.author: robiro
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/16/2024
-ms.custom: template-how-to-pattern 
+ms.custom: template-how-to-pattern
 ---
 
 # Add HSR third site to HANA Pacemaker cluster

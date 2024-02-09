@@ -1,7 +1,7 @@
 ---
-title: Create and access an environment in the developer portal
+title: Create a deployment environment
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and access an environment in an Azure Deployment Environments project through the developer portal.
+description: Learn how to create and access an environment in Azure Deployment Environments through the developer portal. An environment has all Azure resource preconfigured for deploying your application.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
@@ -12,7 +12,9 @@ ms.date: 12/01/2023
 
 # Quickstart: Create and access an environment in Azure Deployment Environments
 
-This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project.
+This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in Azure Deployment Environments by using the developer portal.
+
+As a developer, you can create environments associated with a [project](concept-environments-key-concepts.md#projects) in Azure Deployment Environments. An environment has all Azure resource preconfigured for deploying your application.
 
 ## Prerequisites
 

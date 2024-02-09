@@ -3,7 +3,6 @@ title: Update tax details for an Azure billing account
 description: This article describes how to update your Azure billing account tax details.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to

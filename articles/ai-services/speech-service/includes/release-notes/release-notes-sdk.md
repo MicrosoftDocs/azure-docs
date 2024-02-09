@@ -11,6 +11,25 @@ ms.author: eur
 * With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This streamlines usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
 * **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
 
+### Speech SDK 1.35.0: February 2024 release
+
+#### New features
+
+* Change the default text-to-speech voice from en-US-JennyMultilingualNeural to en-US-AvaNeural.
+* Support word-level detail in embedded speech translation results using the detailed output format.
+
+#### Bug fixes
+
+*  Fix the AudioDataStream position getter API in Python.
+*  Fix speech translation using v2 endpoints without language detection.
+*  Fix a random crash and duplicate word boundary events in embedded text-to-speech.
+*  Return a correct cancellation error code for an internal server error on WebSocket connections.
+*  Fix the failure to load FPIEProcessor.dll library when MAS is used with C#.
+
+#### Samples
+
+* Minor formatting updates for Embedded recognition samples.
+
 ### Speech SDK 1.34.1: January 2024 release
 
 #### Breaking changes

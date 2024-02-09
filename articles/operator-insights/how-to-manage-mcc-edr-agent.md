@@ -20,9 +20,6 @@ The MCC EDR agent is a software package that is installed onto a Linux Virtual M
 
 To upgrade to a new release of the agent, repeat the following steps on each VM that has the old agent.
 
-> [!WARNING]
-> When the agent restarts, a small number of EDRs being handled may be dropped.  It is not possible to gracefully upgrade without dropping any data.  For safety, upgrade agents one at a time, only upgrading the next when you are sure the previous was successful.
-
 1. Copy the RPM to the VM.  In an SSH session, change to the directory where the RPM was copied.
 
 1. Save a copy of the existing */etc/az-mcc-edr-uploader/config.yaml* configuration file.

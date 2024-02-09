@@ -6,7 +6,6 @@ author: msmbaldwin
 
 tags: azure-resource-manager
 ms.service: payment-hsm
-ms.workload: security
 ms.topic: article
 ms.date: 01/25/2024
 ms.author: mbaldwin

@@ -77,9 +77,9 @@ Examples of telemetry received from a device can include sensor data such as spe
 
 Properties can be read or set from the IoT hub and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. Temperature can be a writable property that can be updated on the device or read from a temperature sensor attached to the device.
 
-You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-device-twins.md) or [Plug and Play](../iot-develop/overview-iot-plug-and-play.md).
+You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-device-twins.md) or [Plug and Play](../iot/overview-iot-plug-and-play.md).
 
-To learn more about the differences between device twins and Plug and Play, see [Plug and Play](../iot-develop/concepts-digital-twin.md#device-twins-and-digital-twins).
+To learn more about the differences between device twins and Plug and Play, see [Plug and Play](../iot/concepts-digital-twin.md#device-twins-and-digital-twins).
 
 ## Device commands
 

@@ -1215,6 +1215,7 @@
   ".openpublishing.redirection.container-service.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
+  ".openpublishing.redirection.guidance.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.key-vault.json",
   ".openpublishing.redirection.machine-configuration.json",
