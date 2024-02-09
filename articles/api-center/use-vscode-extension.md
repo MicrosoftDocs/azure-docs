@@ -23,6 +23,7 @@ To discover, try, and consume APIs in your [API center](overview.md), you can us
 > [!NOTE]
 > The API Center extension for Visual Studio Code is in preview. Learn more about the [extension preview](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center).
 
+
 > [!VIDEO https://www.youtube.com/embed/62X0NALedCc]
 
 ## Prerequisites

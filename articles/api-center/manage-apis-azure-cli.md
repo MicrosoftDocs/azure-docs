@@ -16,6 +16,7 @@ This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in t
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
+
 > [!VIDEO https://www.youtube.com/embed/Dvar8Dg25s0]
 
 ## Prerequisites

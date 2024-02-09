@@ -16,6 +16,7 @@ This article shows how to enable your *API Center portal*, an automatically gene
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
+
 > [!VIDEO https://www.youtube.com/embed/7Z45FdCLFbA]
 
 ## Prerequisites
