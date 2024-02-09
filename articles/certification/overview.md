@@ -38,4 +38,4 @@ Ready to get started with your certification journey? View our resources below t
 
 - [Edge Secured-core program requirements](program-requirements-edge-secured-core.md)
 - [Starting the certification process](edge-secured-core-get-certified.md)
-- If you have other questions or feedback, contact [the Edge Secured-core team](mailto:esc-contacts@microsoft.com).
+- If you have other questions or feedback, [contact](https://forms.office.com/r/HSAtk0Ghru) the Edge Secured-core team.
