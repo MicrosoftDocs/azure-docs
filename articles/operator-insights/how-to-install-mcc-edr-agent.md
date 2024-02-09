@@ -134,7 +134,7 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
     ````
-1. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+1. Add the public IP address of the URL *login.microsoftonline.com* to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
 
     ```
     <Public IP>   login.microsoftonline.com
