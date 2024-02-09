@@ -104,7 +104,7 @@ console.log(result.video);
 #### Notes
 - The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
 - The 'audioDevicesUpdated' event fires when audio devices are plugged
-- When the DeviceManager is created, at first it doesn't know about any devices if permissions are not granted yet, so initially its device list is empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user clicks on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager will be able to learn about devices because user has already previously granted access. It will initially it will have its device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- When the DeviceManager is created, at first it doesn't know about any devices if permissions are not granted yet, so initially its device list is empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user clicks on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager is able to learn about devices because user has already previously granted access. It will initially it will have its device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection isn't supported on Android Chrome, iOS Safari, nor macOS Safari.
 
 ## Place a call with video camera
@@ -160,8 +160,8 @@ const camera = cameras[1];
 localVideoStream.switchSource(camera);
 ```
 
-If the specified video device is being used by another process, or if it's disabled in the system:
-- While in a call, if your video is off and you start video using `call.startVideo()`, this method throws a `SourceUnavailableError` and `cameraStartFiled` will be set to true.
+If the specified video device is being used by another process, or if it is not enabled in the system:
+- While in a call, if your video is off and you start video using `call.startVideo()`, this method throws a `SourceUnavailableError` and `cameraStartFiled` user facing diagnostic is set to true.
 - A call to the `localVideoStream.switchSource()` method causes `cameraStartFailed` to be set to true.
 Our Call Diagnostics guide provides additional information on how to diagnose call related issues.
 
