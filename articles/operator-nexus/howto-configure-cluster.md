@@ -244,7 +244,7 @@ The Cluster deployment is complete when detailedStatus is set to `Running` and d
 View the management version of the cluster:
 
 ```azurecli
-az k8s-extension list --cluster-name <cluster> --resource-group "$CLUSTER_RG" --cluster-type connectedClusters --query "[?name=='nc-platform-extension'].{name:name, extensionType:extensionType, releaseNamespace:scope.cluster.releaseNamespace,provisioningState:provisioningState,version:version}" -o table --subscription "$SUBSCRIPTION_ID"
+az k8s-extension list --cluster-name <cluster> --resource-group "$MANAGED_CLUSTER_RG" --cluster-type connectedClusters --query "[?name=='nc-platform-extension'].{name:name, extensionType:extensionType, releaseNamespace:scope.cluster.releaseNamespace,provisioningState:provisioningState,version:version}" -o table --subscription "$SUBSCRIPTION_ID"
 ```
 
 ## Cluster deployment Logging
