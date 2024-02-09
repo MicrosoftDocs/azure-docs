@@ -3,9 +3,9 @@ title: Runtime environment in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/22/2024
+ms.date: 01/24/2024
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Runtime environment in Azure Automation
@@ -83,7 +83,7 @@ You can't edit these Runtime environments. However, any changes that are made in
 - RBAC permissions cannot be assigned to Runtime environment.
 - Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
 - Deleted Runtime environments cannot be recovered.  
-- The feature is only supported through Azure portal and REST API.
+- The feature is only supported through Azure portal and [REST API](/rest/api/automation/runtime-environments?view=rest-automation-2023-05-15-preview&preserve-view=true).
 
 ## Switch between new and old experience
 
@@ -96,4 +96,3 @@ While the new Runtime environment experience is recommended, you can also switch
 
 * To work with runbooks and Runtime environment, see [Manage Runtime environment](manage-runtime-environment.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
-

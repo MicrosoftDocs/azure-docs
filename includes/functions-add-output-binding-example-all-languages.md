@@ -11,11 +11,25 @@ The following example shows the function definition after adding a [Queue Storag
 ### [Isolated process](#tab/isolated-process)
 Because an HTTP triggered function also returns an HTTP response, the function returns a `MultiResponse` object, which represents both the HTTP and queue output.
 
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-14":::
+```csharp
+[Function("HttpExample")]
+public static MultiResponse Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req,
+    FunctionContext executionContext)
+{
+```
 
 This example is the definition of the `MultiResponse` object that includes the output binding:
 
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38" highlight="3":::
+```csharp
+public class MultiResponse
+{
+    [QueueOutput("outqueue",Connection = "AzureWebJobsStorage")]
+    public string[] Messages { get; set; }
+    public IActionResult HttpResponse { get; set; }
+}
+```
+
+When applying that example to your own project, you might need to change `HttpRequest` to `HttpRequestData` and `IActionResult` to `HttpResponseData`, depending on if you are using [ASP.NET Core integration](../articles/azure-functions/dotnet-isolated-process-guide.md#aspnet-core-integration) or not.
 
 ### [In-process](#tab/in-process)
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18" highlight="4":::

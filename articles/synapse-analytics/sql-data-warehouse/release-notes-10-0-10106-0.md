@@ -8,7 +8,6 @@ ms.date: 3/24/2022
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 tags: azure-synapse
 ---
 

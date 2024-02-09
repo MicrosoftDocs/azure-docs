@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 1/18/2024
 ms.author: hasshah
 ms.devlang: cpp
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-csharp
 ---
 
 # Use the Microsoft Audio Stack (MAS)

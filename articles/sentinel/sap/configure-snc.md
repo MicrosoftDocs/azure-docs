@@ -4,7 +4,7 @@ description: This article shows you how to deploy the Microsoft Sentinel for SAP
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 05/03/2022
 ---
 

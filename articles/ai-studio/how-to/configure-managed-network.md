@@ -25,8 +25,8 @@ You need to configure following network isolation configurations.
 
 - Choose network isolation mode. You have two options: allow internet outbound mode or allow only approved outbound mode.
 - Create private endpoint outbound rules to your private Azure resources. Note that private Azure AI Services and Azure AI Search are not supported yet. 
-- If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described [here](#scenario-use-visual-studio-code).
-- If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described [here](#scenario-use-huggingface-models).
+- If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described in the [use Visual Studio Code](#scenario-use-visual-studio-code) section.
+- If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described in the [use HuggingFace models](#scenario-use-huggingface-models) section.
 
 ## Network isolation architecture and isolation modes
 
@@ -44,7 +44,7 @@ There are three different configuration modes for outbound traffic from the mana
 
 * Always use private endpoints to access Azure resources. 
 * You must add rules for each outbound connection you need to allow.
-* Adding FQDN outbound rules increase your costs as this rule type uses Azure Firewall.
+* Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall.
 * The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add might increase your risk.
 
 The managed VNet is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your Azure AI, Azure AI's default storage, container registry and key vault __if they're configured as private__ or __the Azure AI isolation mode is set to allow only approved outbound__. After choosing the isolation mode, you only need to consider other outbound requirements you might need to add.
@@ -259,7 +259,6 @@ If you plan to use __Visual Studio Code__ with Azure AI, add outbound _FQDN_ rul
 * `update.code.visualstudio.com`
 * `*.vo.msecnd.net`
 * `marketplace.visualstudio.com`
-* `ghcr.io`
 * `pkg-containers.githubusercontent.com`
 * `github.com`
 
@@ -324,3 +323,4 @@ The Azure AI managed VNet feature is free. However, you're charged for the follo
 * Managed VNet uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
 * The managed VNet is deleted when the Azure AI is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
+* Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/15/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: references_regions, cosmos-db-video, ignite-2022, build-2023
+ms.custom: references_regions, cosmos-db-video, build-2023
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
@@ -54,6 +54,7 @@ You can choose to restore any combination of provisioned throughput containers, 
 
 The following configurations aren't restored after the point-in-time recovery:
 
+* A subset of containers under a shared throughput database cannot be restored. The entire database can be restored as a whole.
 * Firewall, VNET, Data plane RBAC or private endpoint settings. 
 * All the Regions from the source account.
 * Stored procedures, triggers, UDFs.
@@ -162,5 +163,3 @@ Currently the point in time restore functionality has the following limitations:
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
-
-
