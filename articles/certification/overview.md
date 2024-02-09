@@ -12,6 +12,7 @@ ms.service: certification
 _Note: As of February 2024, the Azure Certified Device program has been retired. This page has been updated as a new home for the Edge Secured-core program._
 
 
+
 # What is the Edge Secured-core program?
 Edge Secured-Core is Microsoft's recommended standard for highly secured embedded devices. Such devices must include hardware security features (secure by design), must be shipped in a secured state (secure by default), and must be able to connect to services that enable that security to be monitored and maintained (e.g. through software updates) for the lifetime of the device. 
 
