@@ -2,7 +2,7 @@
 title: Collect logs from a text or JSON file with Azure Monitor Agent 
 description: Configure a data collection rule to collect log data from a text or JSON file on a virtual machine using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 01/23/2024
+ms.date: 02/9/2024
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: jeffwo
