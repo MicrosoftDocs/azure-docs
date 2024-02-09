@@ -99,7 +99,7 @@ Create an assistant file by attaching a `File` to an `assistant`.
 
 ### Returns
 
-An [assistant](#assistant-object) object.
+An [assistant file](#assistant-file-object) object.
 
 ### Example create assistant file request
 
