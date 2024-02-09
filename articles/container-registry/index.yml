@@ -116,7 +116,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Geo-replication
-            url: container-registry-tutorial-geo-replication.md
+            url: container-registry-tutorial-prepare-registry.md
           - text: Artifact Cache
             url: tutorial-artifact-cache.md
 
