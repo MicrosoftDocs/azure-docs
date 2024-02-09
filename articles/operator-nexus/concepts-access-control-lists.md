@@ -36,9 +36,9 @@ This table summarises the resources that can be associated with an ACL:
 
 | Resource Name                         | Supported                            | Default               |
 |--|--|--|
-| NNF SKU                               | Yes                                  | All Production SKU    |
+| NNF                              | Yes                                  | All Production SKUs    |
 | Isolation Domain                      | Yes on External Network with optionA | NA                    |
-| Network to network interconnect( NNI) | Yes                                  | NA                    |
+| Network to network interconnect(NNI) | Yes                                  | NA                    |
 
 ## Traffic Policy
 
