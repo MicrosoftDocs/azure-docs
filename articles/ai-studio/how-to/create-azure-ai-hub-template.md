@@ -81,7 +81,7 @@ While the Bicep domain-specific language (DSL) is used to define the resources, 
 bicep build main.bicep
 ```
 
-For more information, see the [Bicep CLI](/azure/azure-resource-manager/bicep/cli) article.
+For more information, see the [Bicep CLI](/azure/azure-resource-manager/bicep/bicep-cli) article.
 
 
 ## Configure the template
