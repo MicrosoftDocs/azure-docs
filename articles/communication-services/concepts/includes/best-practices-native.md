@@ -17,22 +17,22 @@ This section provides information about best practices associated with the Azure
 
 ## Supported platforms
 
-These are the minimum OS requirements for each platform to ensure optimal functionality of the Calling Native SDKs.
+Here are the minimum OS platform requirements to ensure optimal functionality of the Calling Native SDKs.
 
-# [iOS](#tab/ios)
+### [iOS](#tab/ios)
 
 - Support for iOS 10.0+ at build time, and iOS 12.0+ at run time.
 - Xcode 12.0+.
 - Support for **iPadOS** 13.0+.
 
-# [Android](#tab/android)
+### [Android](#tab/android)
 
 - Support for Android API Level 21 or Higher.
 - Support for Java 7 or higher.
 - Support for Android Studio 2.0.
 - **Android Auto** and **IoT devices running Android** are currently not supported.
 
-# [Windows](#tab/windows)
+### [Windows](#tab/windows)
 
 - Support for UWP (Universal Windows Platform).
 - Support for WinUI 3.
@@ -41,16 +41,16 @@ These are the minimum OS requirements for each platform to ensure optimal functi
 
 ## App request device permissions
 
-To use the Calling Native SDKs for making or receiving calls, it's necessary to authorize each platform to access device resources. As a developer, you should prompt the user for access and ensure that it is enabled. The consumer will authorize these access rights, so it's important to verify that they have been granted permission previously.
+To use the Calling Native SDKs for making or receiving calls, it's necessary to authorize each platform to access device resources. As a developer, you should prompt the user for access and ensure that it's enabled. The consumer authorizes these access rights, so verify that they have been granted permission previously.
 
-# [iOS](#tab/ios)
+### [iOS](#tab/ios)
 
 - `NSMicrophoneUsageDescription` for microphone access.
 - `NSCameraUsageDescription` for camera access.
 
-# [Android](#tab/android)
+### [Android](#tab/android)
 
-In the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following code:
+In the Application Manifest (`app/src/main/AndroidManifest.xml`). Verify the following lines:
 
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -63,7 +63,7 @@ In the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the co
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
 ```
 
-# [Windows](#tab/windows)
+### [Windows](#tab/windows)
 
 Go to `Package.appxmanifest` and select capabilities:
 
@@ -79,7 +79,7 @@ Implementing **logging** as per the [logs file retrieval tutorial](../../tutoria
 
 ## Track Call ID
 
-When troubleshooting happens for voice or video calls, you will be asked to provide a **CallID**; this ID is used to identify Communication Services calls. You **should** track the CallID in the telemetry that you codnfiugure in your app, you can follow the guidelines in the [troubleshooting guide](../troubleshooting-info.md).
+When troubleshooting happens for voice or video calls, you're asked to provide a **`CallID`**; this ID is used to identify Communication Services calls. You **should** track the `CallID` in the telemetry that you configure in your app, you can follow the guidelines in the [troubleshooting guide](../troubleshooting-info.md).
 
 ## Subscribe to UFD (User Facing Diagnostics) and media quality statistics
 

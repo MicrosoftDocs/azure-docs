@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services - best practices
-description: Learn more about Azure Communication Service best practices
+description: Learn more about Azure Communication Service best practices.
 author: srahaman
 manager: akania
 services: azure-communication-services
@@ -30,4 +30,4 @@ For more information, see the following articles:
 - [Improve and manage call quality](./voice-video-calling/manage-call-quality.md)
 - [Call Diagnostics](./voice-video-calling/call-diagnostics.md)
 - [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
-- [UI Library for calling experiences](./ui-library/ui-library-overview.md)
+- [Use the UI Library for enhance calling experiences](./ui-library/ui-library-overview.md)
