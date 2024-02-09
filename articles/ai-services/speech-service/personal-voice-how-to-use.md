@@ -28,7 +28,9 @@ You need to use [speech synthesis markup language (SSML)](./speech-synthesis-mar
   > [!NOTE]
   > The voice names labeled with the `Latest`, such as `DragonLatestNeural` or `PhoenixLatestNeural`, will be updated from time to time; its performance may vary with updates for ongoing improvements. If you would like to use a fixed version, select one labeled with a version number, such as `PhoenixV2Neural`.
 
-- `DragonLatestNeural` is a base model with superior voice cloning similarity compared to `PhoenixLatestNeural`. `PhoenixLatestNeural` is a base model with more accurate pronunciation and lower latency than `DragonLatestNeural`.  
+- `DragonLatestNeural` is a base model with superior voice cloning similarity compared to `PhoenixLatestNeural`. `PhoenixLatestNeural` is a base model with more accurate pronunciation and lower latency than `DragonLatestNeural`.
+
+- `Dragon` model doesn't support `<lang xml:lang>` element in SSML.  
   
 Here's example SSML in a request for text to speech with the voice name and the speaker profile ID. 
 
