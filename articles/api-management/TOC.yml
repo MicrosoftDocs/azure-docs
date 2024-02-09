@@ -10,10 +10,10 @@
       href: api-management-key-concepts.md
     - name: API Management features availability
       href: api-management-features.md
-    - name: What's new?
-      href: https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
     - name: v2 service tiers
       href: v2-service-tiers-overview.md
+    - name: What's new?
+      href: https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
     - name: Terminology
       href: api-management-terminology.md
     - name: Service limits
