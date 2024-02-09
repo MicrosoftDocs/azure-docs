@@ -79,7 +79,7 @@ Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Mach
 #### Windows VM/VMSS
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs.
-If you have Software Assurance, you can enable [Hybrid Benefit](../windows-server/get-started/azure-hybrid-benefit). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
+If you have Software Assurance, you can enable [Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
 
 > [!NOTE]
 > The query has a Quick Fix column that helps you to apply Azure Hybrid Benefit to Windows VMs.
