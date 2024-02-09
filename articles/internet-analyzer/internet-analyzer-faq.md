@@ -11,6 +11,8 @@ ms.author: kumud
 ---
 # Azure Internet Analyzer FAQ (Preview)
 
+[!INCLUDE [Azure Internet Analyzer retirement notice](includes/internet-analyzer-retirement.md)
+
 This is the FAQ for Azure Internet Analyzer- if you have additional questions, go to the [feedback forum](https://aka.ms/internetAnalyzerFeedbackForum) and post your question. When a question is frequently asked, we add it to this article so it can be found quickly and easily.
 
 ## How do I participate in the preview?

@@ -11,6 +11,8 @@ ms.author: dibotero
 ---
 # Azure Internet Analyzer troubleshooting
 
+[!INCLUDE [Azure Internet Analyzer retirement notice](includes/internet-analyzer-retirement.md)
+
 This article contains troubleshooting steps for common Internet Analyzer issues.
 
 ## Things to keep in mind
