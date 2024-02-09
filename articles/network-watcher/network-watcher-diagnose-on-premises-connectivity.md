@@ -6,14 +6,14 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 02/09/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn how to use VPN troubleshoot so I can troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises resources over a VPN connection.
 ---
 
 # Diagnose on-premises VPN connectivity with Azure
 
-In this article, you learn how to use Azure Network Watcher VPN troubleshoot capability to diagnose and troubleshoot your VPN gateway and its connection to your on-premises VPN device. For a list of validated VPN devices and their configuration guides, see [VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). To review 
+In this article, you learn how to use Azure Network Watcher VPN troubleshoot capability to diagnose and troubleshoot your VPN gateway and its connection to your on-premises VPN device. For a list of validated VPN devices and their configuration guides, see [VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#?toc=/azure/network-watcher/toc.jsondevicetable).
 
 VPN troubleshoot allows you to quickly diagnose issues with your gateway and connections. It checks for common issues and returns a list of diagnostic logs that can be used to further troubleshoot the issue. The logs are stored in a storage account that you specify.
 
@@ -21,9 +21,9 @@ VPN troubleshoot allows you to quickly diagnose issues with your gateway and con
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A VPN device in your on-premises network represented by a local network gateway in Azure. For more information about local network gateways, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway). For a list of validated VPN devices, see [Validated VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.mdtoc=/azure/network-watcher/toc.json#devicetable). 
+- A VPN device in your on-premises network represented by a local network gateway in Azure. For more information about local network gateways, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway). For a list of validated VPN devices, see [Validated VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=/azure/network-watcher/toc.json#devicetable). 
 
-- A VPN virtual network gateway in Azure with a site-to-site connection. For more information about virtual network gateways, see [Create a VPN gateway](../vpn-gateway/tutorial-site-to-site-portal.mdtoc=/azure/network-watcher/toc.json#VNetGateway) and [Default IPsec/IKE parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.mdtoc=/azure/network-watcher/toc.json#ipsec)
+- A VPN virtual network gateway in Azure with a site-to-site connection. For more information about virtual network gateways, see [Create a VPN gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/network-watcher/toc.json#VNetGateway) and [Default IPsec/IKE parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=/azure/network-watcher/toc.json#ipsec)
 
 
 ## Troubleshoot using Network Watcher VPN troubleshoot
@@ -72,4 +72,4 @@ For a detailed list of fault types that Network Watcher can diagnose and their l
 Learn how to monitor VPN gateways using Azure Automation:
 
 > [!div class="nextstepaction"]
-> [Monitor VPN gateways with VPN troubleshoot and Azure automation](network-watcher-monitor-with-azure-automation.md)
+> [Monitor VPN gateways using VPN troubleshoot and Azure automation](network-watcher-monitor-with-azure-automation.md)
