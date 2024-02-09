@@ -1,7 +1,7 @@
 ---
 title: Upgrade pipeline endpoints to SDK v2
 titleSuffix: Azure Machine Learning
-description: Upgrade pipeline endpoints from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade pipeline endpoints from v1 to v2 of Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -22,7 +22,7 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
 
 ## What has changed?
 
-[Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment).
+[Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API, which is why the Published pipelines functionality was moved to [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment).
 
 [Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
 
@@ -94,7 +94,7 @@ Compare how publishing a pipeline has changed from v1 to v2:
     ml_client.components.create(pipeline_component)
     ```
 
-1. Then, we need to create the endpoint that will host all the pipeline deployments:
+1. Then, we need to create the endpoint hosting all the pipeline deployments:
 
     ```python
     endpoint_name = "PipelineEndpointTest"
@@ -162,9 +162,9 @@ run_id = pipeline_endpoint.submit(endpoint_name, pipeline_version="0")
 
 # [SDK v2](#tab/v2)
 
-In batch endpoints, deployments are not versioned. However, you can deploy multiple pipeline components versions under the same endpoint. In this sense, each pipeline version in v1 will correspond to a different pipeline component version and its corresponding deployment under the endpoint.
+In batch endpoints, deployments aren't versioned. However, you can deploy multiple pipeline components versions under the same endpoint. In this sense, each pipeline version in v1 corresponds to a different pipeline component version and its corresponding deployment under the endpoint.
 
-Then, you can deploy a specific deployment running under the endpoint if that deployment runs the version you are interested in.
+Then, you can deploy a specific deployment running under the endpoint if that deployment runs the version yo're interested in.
 
 ```python
 job = ml_client.batch_endpoints.invoke(
@@ -225,7 +225,7 @@ response = requests.post(
 
 # [SDK v2](#tab/v2)
 
-Batch endpoints support multiple inputs types. The following example shows how to indicate two different inputs of type `string` and `numeric`. See [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md#tabs=rest) for more detailed examples:
+Batch endpoints support multiple inputs types. The following example shows how to indicate two different inputs of type `string` and `numeric`. See [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest) for more detailed examples:
 
 ```python
 batch_endpoint = ml_client.batch_endpoints.get(endpoint_name)
