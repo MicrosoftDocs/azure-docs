@@ -78,7 +78,7 @@ Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of
 
 * *Completed*: All accepted-state recommendations are implemented, postponed, or dismissed
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-m-2.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews opening page." lightbox="./media/resiliency-reviews/resiliency-reviews-main-m-2.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews opening page." lightbox="./media/resiliency-reviews/resiliency-reviews-main-m.png":::
 
 At the top of the reviews page: 
 
@@ -88,6 +88,8 @@ At the top of the reviews page:
 ### Review recommendations
 
 The triage process includes reviewing recommendations and making decisions on which to implement. Use *Accept* and *Reject* actions to capture your decision. Accepted recommendations are available to your engineering team under the Advisor **Reliability** menu item.
+
+:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-reliability-m.png" alt-text="Screenshot of the Azure Advisor Reliability menu highlight." lightbox="./media/resiliency-reviews/resiliency-reviews-main-reliability-m.png":::
 
 1. From the **Reviews** page, select a review name to open the recommendations list page. For new reviews, recommendations are in *Pending* state.
 
