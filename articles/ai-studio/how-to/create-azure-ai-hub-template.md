@@ -21,7 +21,7 @@ Learn how to create an Azure AI hub resource using a [Microsoft Bicep](/azure/az
 The template used in this article can be found at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics). Both the source `main.bicep` file and the compiled Azure Resource Manager template (`main.json`) file are available. This template creates the following resources:
 
 - An Azure Resource Group (if one doesn't already exist)
-- An Azure AI Studio hub
+- An Azure AI hub resource
 - Azure Storage Account
 - Azure Key Vault
 - Azure Container Registry
