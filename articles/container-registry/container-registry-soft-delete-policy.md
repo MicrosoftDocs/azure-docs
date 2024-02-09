@@ -30,7 +30,9 @@ The default retention period for soft deleted artifacts is seven days, but it’
 The auto-purge runs every 24 hours and always considers the current value of retention days before permanently deleting the soft deleted artifacts. For example, after five days of soft deleting the artifact, if you change the value of retention days from seven to 14 days, the artifact will only expire after 14 days from the initial soft delete.
 
 
+
 :::image type="content" source="./media/container-registry-delete/02-soft-delete.png" alt-text="Diagram of soft delete artifacts lifecycle.":::
+
 
 
 ## Availability and pricing information
@@ -50,11 +52,6 @@ This feature is available in all the service tiers (also known as SKUs). For inf
 * The soft delete policy doesn't support a geo-replicated registry.
 * ACR doesn't allow enabling both the retention policy and the soft delete policy. See [retention policy for untagged manifests.](container-registry-retention-policy.md)
 
-## Known issues
-
-* Enabling the soft delete policy with Availability Zones through ARM template leaves the registry stuck in the `creation` state. If you see this error, please delete and recreate the registry disabling Geo-replication on the registry.
-* Accessing the manage deleted artifacts blade after disabling the soft delete policy will throw an error message with 405 status.
-* The customers with restrictions on permissions to restore, will see an issue as File not found. Please check the permissions and try again.
 
 ## Prerequisites
 
