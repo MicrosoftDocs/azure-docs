@@ -23,4 +23,5 @@ Access is currently limited. For now, we're working with customers that have an 
 ## Next step
 
 [Deployment order for clusters, network functions, and observability](concept-deployment-order.md)
+
 [Deploy Azure Operator 5G Core](how-to-deploy-5g-core.md)

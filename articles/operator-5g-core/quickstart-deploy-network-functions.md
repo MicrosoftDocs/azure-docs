@@ -14,6 +14,8 @@ ms.date: 02/09/2024
 
 This quickstart shows you how to deploy various network functions, including SMF, UPF, NRF, NSSF, AMF, MME, and a VNF_Agent in Azure Operator 5G Core.
 
+## Deploy network function using Azure CLI
+
 Use the following Azure CLI commands to deploy the network function:
 
 ```azurecli

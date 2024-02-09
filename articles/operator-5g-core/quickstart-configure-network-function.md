@@ -18,6 +18,8 @@ Azure Operator 5G Core supports  direct configuration of the 1P Packet Core Netw
    
 Note that many concurrent config user sessions are supported. 
 
+## Additional information
+
 For more information, see the documentation for the [Configuration Manager](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/Microservices/Shared/Microservices/Config_Manager.htm  ).
 
 > [!NOTE]
