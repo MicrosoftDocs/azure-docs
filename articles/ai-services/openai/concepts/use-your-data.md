@@ -232,13 +232,14 @@ When you add your Azure Cosmos DB for MongoDB vCore data source, you can specify
 
 :::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
 
+<!--
 # [Pinecone (preview)](#tab/pinecone)
 TBD
 
 # [Elasticsearch (preview)](#tab/elasticsearch)
 
 TBD
-
+-->
 ---
 
 ## How data is ingested into Azure AI search
