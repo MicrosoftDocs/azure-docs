@@ -48,7 +48,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### December 2020
 
-* All LUIS users are required to [migrate to a LUIS authoring resource](luis-migration-authoring.md)
+* All LUIS users are required to migrate to a LUIS authoring resource.
 * New [evaluation endpoints](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) that allow you to submit batch tests using the REST API, and get accuracy results for your intents and entities. Available starting with the v3.0-preview LUIS Endpoint.
 
 ### June 2020
@@ -113,7 +113,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### September 3, 2019
 
-* Azure authoring resource - [migrate now](luis-migration-authoring.md).
+* Azure authoring resource - migrate now.
     * 500 apps per Azure resource
     * 100 versions per app
 * Turkish support for prebuilt entities

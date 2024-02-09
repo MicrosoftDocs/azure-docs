@@ -151,6 +151,8 @@
         href: manage/mpa-request-ownership.md
   - name: Perform key billing administration tasks
     items:
+    - name: Enable Azure Marketplace purchases
+      href: manage/enable-marketplace-purchases.md
     - name: Create subscriptions programmatically
       items:
       - name: Create subscriptions programmatically
