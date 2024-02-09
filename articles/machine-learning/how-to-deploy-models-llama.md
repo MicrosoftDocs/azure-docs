@@ -400,7 +400,7 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
     > If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**.
 
 1. Select the **Virtual machine** and the **Instance count** that you want to assign to the deployment.
-1. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resources configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
+1. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resource configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
 1. Indicate if you want to enable **Inferencing data collection (preview)**.
 1. Indicate if you want to enable **Package Model (preview)**.
 1. Select **Deploy**. After a few moments, the endpoint's **Details** page opens up.

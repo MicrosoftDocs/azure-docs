@@ -79,7 +79,7 @@ To create a deployment:
 
     Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select the **Deployments** option, then select **+ Create**.
 
-1. On the detail page, select **Deploy** and then **Pay-as-you-go**.
+1. On the model's **Details** page, select **Deploy** and then **Pay-as-you-go**.
 
     :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
 
@@ -377,87 +377,96 @@ The following is an example response:
     
 ## Deploy Llama 2 models to real-time endpoints
 
-Llama 2 models can be deployed to real-time endpoints in AI Studio. When deployed to real-time endpoints, you can select all the details about on the infrastructure running the model including the virtual machines used to run it and the number of instances to handle the load you're expecting. Models deployed in this modality consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
+Apart from deploying with the pay-as-you-go managed service, you can also deploy Llama 2 models to real-time endpoints in AI Studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to real-time endpoints consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
 
 ### Create a new deployment
 
 # [Studio](#tab/azure-studio)
 
-Follow the steps below to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
+Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
 
-1. Choose a model you want to deploy from AI Studio [model catalog](./model-catalog.md). Alternatively, you can initiate deployment by selecting **Create** from `your project`>`deployments` 
+1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
-1. On the detail page, select **Deploy** and then **Real-time endpoint**.
+    Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select the **Deployments** option, then select **+ Create**.
 
-1. Select if you want to enable **Azure AI Content Safety (preview)**.
+1. On the model's **Details** page, select **Deploy** and then **Real-time endpoint**.
+
+    :::image type="content" source="../media/deploy-monitor/llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the real-time endpoint option." lightbox="../media/deploy-monitor/llama/deploy-real-time-endpoint.png":::
+
+1. On the **Deploy with Azure AI Content Safety (preview)** page, select **Skip Azure AI Content Safety** so that you can continue to deploy the model using the UI.
 
     > [!TIP]
-    > Deploying Llama 2 models with Azure AI Content Safety (preview) is currently only supported using the Python SDK.
+    > In general, we recommend that you select **Enable Azure AI Content Safety (Recommended)** for deployment of the Llama model. This deployment option is currently only supported using the Python SDK and it happens in a notebook.
 
-1. Select **Proceed**. 
- 
+1. Select **Proceed**.
 1. Select the project where you want to create a deployment.
 
     > [!TIP]
-    > If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**. 
+    > If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**.
+ 
+1. Select the **Virtual machine** and the **Instance count** that you want to assign to the deployment.
 
-1. Select the **Virtual machine** and the instance count you want to assign to the deployment.
-
-1. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resources configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
-
+1. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resource configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
+ 
 1. Indicate if you want to enable **Inferencing data collection (preview)**.
 
-1. Select **Deploy**. 
+1. Select **Deploy**. After a few moments, the endpoint's **Details** page opens up.
 
-1. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
+1. Wait for the endpoint creation and deployment to finish. This step can take a few minutes.
+
+1. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application.
+1. Select the endpoint's **Consume** page to obtain code samples that you can use to consume the deployed model in your application.
 
 
 # [Python SDK](#tab/python)
 
-You can use the Azure AI Generative SDK to deploy an open model. In this example, you deploy a `Llama-2-7b-chat` model.
+Follow these steps to deploy an open model such as `Llama-2-7b-chat` to a real-time endpoint, using the Azure AI Generative SDK.
 
-```python
-# Import the libraries
-from azure.ai.resources.client import AIClient
-from azure.ai.resources.entities.deployment import Deployment
-from azure.ai.resources.entities.models import PromptflowModel
-from azure.identity import DefaultAzureCredential
-```
+1. Import required libraries
 
-Credential info can be found under your project settings on Azure AI Studio. You can go to Settings by selecting the gear icon on the bottom of the left navigation UI.
+    ```python
+    # Import the libraries
+    from azure.ai.resources.client import AIClient
+    from azure.ai.resources.entities.deployment import Deployment
+    from azure.ai.resources.entities.models import PromptflowModel
+    from azure.identity import DefaultAzureCredential
+    ```
 
-```python
-credential = DefaultAzureCredential()
-client = AIClient(
-    credential=credential,
-    subscription_id="<xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>",
-    resource_group_name="<YOUR_RESOURCE_GROUP_NAME>",
-    project_name="<YOUR_PROJECT_NAME>",
-)
-```
+1. Provide your credentials. Credentials can be found under your project settings in Azure AI Studio. You can go to Settings by selecting the gear icon on the bottom of the left navigation UI.
 
-Define the model and the deployment. `The model_id` can be found on the model card in the Azure AI Studio [model catalog](../how-to/model-catalog.md).
+    ```python
+    credential = DefaultAzureCredential()
+    client = AIClient(
+        credential=credential,
+        subscription_id="<xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>",
+        resource_group_name="<YOUR_RESOURCE_GROUP_NAME>",
+        project_name="<YOUR_PROJECT_NAME>",
+    )
+    ```
 
-```python
-model_id = "azureml://registries/azureml/models/Llama-2-7b-chat/versions/12"
-deployment_name = "my-llam27bchat-deployment"
+1. Define the model and the deployment. `The model_id` can be found on the model card in the Azure AI Studio [model catalog](../how-to/model-catalog.md).
 
-deployment = Deployment(
-    name=deployment_name,
-    model=model_id,
-)
-```
+    ```python
+    model_id = "azureml://registries/azureml/models/Llama-2-7b-chat/versions/12"
+    deployment_name = "my-llam27bchat-deployment"
+    
+    deployment = Deployment(
+        name=deployment_name,
+        model=model_id,
+    )
+    ```
 
-Deploy the model.
+1. Deploy the model.
 
-```python
-client.deployments.create_or_update(deployment)
-```
+    ```python
+    client.deployments.create_or_update(deployment)
+    ```
+
 ---
 
-### Consuming Llama 2 models deployed to real-time endpoints
+### Consume Llama 2 models deployed to real-time endpoints
 
-For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model card in the Azure AI Studio [model catalog](../how-to/model-catalog.md).
+For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
 ## Cost and quotas
 
@@ -465,23 +474,24 @@ For reference about how to invoke Llama 2 models deployed to real-time endpoints
 
 Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or [fine-tuning the models](./fine-tune-model-llama.md). 
 
-Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine tuning, However, multiple meters are available to track each scenario independently. 
+Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
-See [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
+For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don't suffice your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
 ### Cost and quota considerations for Llama 2 models deployed as real-time endpoints
 
-Deploying Llama models and inferencing with real-time endpoints can be done by consuming Virtual Machine (VM) core quota that is assigned to your subscription a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for quota increase.  
+For deployment and inferencing of Llama models with real-time endpoints, you consume virtual machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once you reach this limit, you can request a quota increase.  
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out for this capability. Both the prompt and completion are run through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
+Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
 
 ## Next steps
 
-- Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
-- Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)
+- [What is Azure AI Studio?](../what-is-ai-studio.md)
+- [Fine-tune a Llama 2 model in Azure AI Studio](fine-tune-model-llama.md)
+- [Azure AI FAQ article](../faq.yml)
