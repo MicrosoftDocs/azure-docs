@@ -20,7 +20,7 @@ Defender EASM provides seven dashboards:
 - **GDPR compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
 - **OWASP Top 10**: this dashboard surfaces any assets that are vulnerable according to OWASP’s list of the most critical web application security risks. On this dashboard, organizations can quickly identify assets with broken access control, cryptographic failures, injections, insecure designs, security misconfigurations and other critical risks as defined by OWASP.
 - **CWE top 25 software weaknesses**: this dashboard is based on the Top 25 Common Weakness Enumeration (CWE) list provided annually by MITRE. These CWEs represent the most common and impactful software weaknesses that are easy to find and exploit. 
-- **CISA known exploits**: this dashboard displays any assets that are potentially impacted by vulnerabilities that have led to known exploits as defined by CISA. This dashboard helps you prioritize remediation efforts based on vulnerabilities that have been exploited in the past, indicating a higher level of risk for your organization.  
+- **CISA known exploits**: this dashboard displays any assets that are potentially impacted by vulnerabilities that led to known exploits as defined by CISA. This dashboard helps you prioritize remediation efforts based on vulnerabilities that were exploited in the past, indicating a higher level of risk for your organization.  
 
 ## Accessing dashboards
 
