@@ -414,9 +414,7 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 1. Wait for the endpoint creation and deployment to finish. This step can take a few minutes.
 
-1. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application.
-1. Select the endpoint's **Consume** page to obtain code samples that you can use to consume the deployed model in your application.
-
+1. Select the **Consume** tab of the deployment to obtain code samples that can be used to consume the deployed model in your application.
 
 # [Python SDK](#tab/python)
 
