@@ -188,4 +188,4 @@ Add a `semanticConfiguration` to an index schema to specify field prioritization
 Test your semantic configuration by running a semantic query.
 
 > [!div class="nextstepaction"]
-> [Create a semantic query](semantic-how-to-query-request.md).
+> [Create a semantic query](semantic-how-to-query-request.md)
