@@ -178,20 +178,29 @@ For full details on managing recommendations, see [Get recommendation details an
 
 Some common questions and answers.
 
-Q. Can I edit previously taken assessments?
-A. In the "Most Valuable Professionals" (MVP) program scope, assessments can't be edited once completed.
+**Q**. Can I edit previously taken assessments?
 
-Q. Can I view recommendations for the assessments not taken by me?
-A. Subscription role-based access control (RBAC) limits access to recommendations and assessments in Advisor. You can see recommendations for all completed assessments only if you have Reader/Contributor access to the subscription under which assessment is created.
+**A**. In the "Most Valuable Professionals" (MVP) program scope, assessments can't be edited once completed.
 
-Q. Can I take multiple assessments for a subscription?
-A. There's no limit on the number of assessments that can be taken for a subscription. However, while creating a new assessment, you're notified if an existing assessment of the same type is already created for the same subscription/workload. 
 
-Q. How do assessment-based recommendations affect my Advisor score?
-A. We're working on score strategy that will include the resolution of assessment-based recommendations as well.
+**Q**. Can I view recommendations for the assessments not taken by me?
 
-Q. I completed my assessment, but I don't see the recommendations and the assessment shows "In progress," why? 
-A. Currently, it could take up to a maximum of eight hours, for the recommendations to sync into Advisor after we complete the assessment in the Learn platform. We're working on fixing it. 
+**A**. Subscription role-based access control (RBAC) limits access to recommendations and assessments in Advisor. You can see recommendations for all completed assessments only if you have Reader/Contributor access to the subscription under which assessment is created.
+
+
+**Q**. Can I take multiple assessments for a subscription?
+
+**A**. There's no limit on the number of assessments that can be taken for a subscription. However, while creating a new assessment, you're notified if an existing assessment of the same type is already created for the same subscription/workload. 
+
+
+**Q**. How do assessment-based recommendations affect my Advisor score?
+
+**A**. We're working on score strategy that will include the resolution of assessment-based recommendations as well.
+
+
+**Q**. I completed my assessment, but I don't see the recommendations and the assessment shows "In progress," why? 
+
+**A**. Currently, it could take up to a maximum of eight hours, for the recommendations to sync into Advisor after we complete the assessment in the Learn platform. We're working on fixing it. 
 
 
 ## Related content
