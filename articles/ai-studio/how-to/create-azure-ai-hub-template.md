@@ -1,7 +1,7 @@
 ---
 title: Create an AI hub using a Bicep template
 titleSuffix: Azure AI Studio
-description: Use a Microsoft Bicep template to create a new Azure AI Studio hub.
+description: Use a Microsoft Bicep template to create a new Azure AI hub.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
@@ -12,7 +12,7 @@ author: Blackmist
 #Customer intent: As a DevOps person, I need to automate or customize the creation of an AI hub by using templates.
 ---
 
-# Use an Azure Resource Manager template to create an AI hub
+# Use an Azure Resource Manager template to create an Azure AI hub
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
@@ -21,12 +21,12 @@ Use a [Microsoft Bicep](/azure/azure-resource-manager/bicep/overview) template t
 The template used in this article can be found at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/aistudio-basics). Both the source `main.bicep` file and the compiled Azure Resource Manager template (`main.json`) file are available. This template creates the following resources:
 
 - An Azure Resource Group (if one doesn't already exist)
-- An Azure AI Studio hub
+- An Azure AI hub resource
 - Azure Storage Account
 - Azure Key Vault
 - Azure Container Registry
 - Azure Application Insights
-- Azure AI Services (created by the template)
+- Azure AI services (created by the template)
 
 ## Prerequisites
 
@@ -59,8 +59,8 @@ The Bicep template is made up of the following files:
 | File | Description |
 | ---- | ----------- |
 | [main.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/main.bicep) | The main Bicep file that defines the parameters and variables. Passing parameters & variables to other modules in the `modules` subdirectory. |
-| [ai-resource.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/modules/ai-resource.bicep)  | Defines the Azure AI Studio hub resource. |
-| [dependent-resources.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/modules/dependent-resources.bicep) | Defines the dependent resources for the Azure AI Studio hub. Azure Storage Account, Container Registry, Key Vault, and Application Insights. |
+| [ai-resource.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/modules/ai-resource.bicep)  | Defines the Azure AI hub resource. |
+| [dependent-resources.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/modules/dependent-resources.bicep) | Defines the dependent resources for the Azure AI hub. Azure Storage Account, Container Registry, Key Vault, and Application Insights. |
 
 > [!IMPORTANT]
 > The example templates may not always use the latest API version for Azure Studio AI hub. Before using the template, we recommend modifying it to use the latest API versions. The AI hub is based on Azure Machine Learning. For information on the latest API versions, see the [Azure Machine Learning REST API reference](/rest/api/azureml/).
@@ -122,7 +122,7 @@ To run the Bicep template, use the following commands from the `aistudio-basics`
 
     ---
 
-    Once the operation completes, you can use your Azure AI Studio hub to create AI projects, manage resources, and collaborate with others.
+    Once the operation completes, you can use your Azure AI hub to create AI projects, manage resources, and collaborate with others.
 
 ## Next steps
 
