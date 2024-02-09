@@ -1471,7 +1471,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | ---- | --- |
 | Capability name | IncrementCertificateVersion-1.0 |
 | Target type | Microsoft-KeyVault |
-| Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. |
+| Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. Certificate version is not reverted after the fault duration. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
 | Fault type | Discrete. |
