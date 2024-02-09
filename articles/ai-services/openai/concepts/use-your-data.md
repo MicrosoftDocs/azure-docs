@@ -14,15 +14,15 @@ recommendations: false
 
 # Azure OpenAI on your data 
 
-Azure OpenAI on your data enables you to run supported chat models such as GPT-35-Turbo and GPT-4 on your data without needing to train or fine-tune models. Running models on your data enables you to chat on top of, and analyze your data with greater accuracy and speed.
+Azure OpenAI on your data enables you to run advanced AI models such as GPT-35-Turbo and GPT-4 on your own enterprise data without needing to train or fine-tune models. Running models on your data enables you to chat on top of, and analyze your data with greater accuracy. You can create personalized copilots with your data to enhance user comprehension, expedite task completion, and aid decision making.
 
 Because the model has access to, and can reference specific sources to support its responses, answers are not only based on its pretrained knowledge but also on the latest information available in the designated data source. This grounding data also helps the model avoid generating responses based on outdated or incorrect information.
 
 ## What is Azure OpenAI on your data
 
-One of the key features of Azure OpenAI on your data is its ability to retrieve and utilize data in a way that enhances the model's output.  Azure OpenAI on your data determines what data to retrieve from the designated data source based on the user input and provided conversation history. This data is then augmented and resubmitted as a prompt to the OpenAI model, with retrieved  information being appended to the original prompt. The model uses this information to provide a completion. See the [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) article for more information. 
+One of the key features of Azure OpenAI on your data is its ability to retrieve and utilize data in a way that enhances the model's output. This data is then augmented and resubmitted as a prompt to the OpenAI model, with retrieved  information being appended to the original prompt. The model uses this information to provide a completion. See the [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) article for more information. 
 
-You can access Azure OpenAI on your data using a REST API or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/) and [Azure AI Studio](https://ai.azure.com/) to create a solution that connects to your data to enable an enhanced chat experience.
+You can access Azure OpenAI on your data using a REST API or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/) and [Azure AI Studio](https://ai.azure.com/) to create a copilot that connects to your data to enable an enhanced chat solution.
 
 ## Get started
 
@@ -42,9 +42,9 @@ Azure OpenAI on your data supports the following filetypes:
 * `.txt`
 * `.md`
 * `.html`
-* Microsoft Word files
-* Microsoft PowerPoint files
-* PDF
+* `.docx`
+* `.pptx`
+* `.pdf`
 
 There is an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
 
@@ -83,6 +83,9 @@ You might want to consider using an Azure AI Search index when you either want t
 * Customize the index creation process. 
 * Reuse an index created before by ingesting data from other data sources.
 
+> [!NOTE]
+> To use an existing index, it must have at least one searchable field.
+
 Azure OpenAI on your data provides several search options you can use when you add your data source, leveraging the following types of search.
 
 * [Keyword search](/azure/search/search-lucene-query-architecture)
@@ -90,7 +93,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 * [Semantic search](/azure/search/semantic-search-overview)
 * [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models). 
 
-    To enable vector search, you will need a `text-embedding-ada-002` deployment in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.  
+    To enable vector search, you will need an existing embedding model deployed in your Azure OpenAI resource. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**. If you're using Azure AI Search as a data source, make sure you have a vector column in the index.
 
 > [!IMPORTANT]
 > * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
@@ -374,21 +377,21 @@ After you connect Azure OpenAI to your data, you can deploy it using the **Deplo
 
 :::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
-### Deploy to Microsoft Copilot Studio
+### Deploy to a copilot (preview)
 
-You can deploy your model to [Microsoft Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various Microsoft Teams, Websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). Microsfot Copilot Studio acts as a conversational and generative AI platform, making the process of creating, publishing and deploying a bot to any number of channels simple and accessible.
+You can deploy your model to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The Copilot Studio acts as a conversational and generative AI platform, making the process of creating, publishing and deploying a bot to any number of channels simple and accessible.
 
-While Microsoft Copilot Studio has features that leverage Azure OpenAI such as [generative answers](/microsoft-copilot-studio/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. The tenant used in the Azure OpenAI service and Microsoft Copilot Studio should be the same. For more information, see [Use a connection to Azure OpenAI on your data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
+While a copilot in Copilot Studio has features that leverage Azure OpenAI such as [generative answers](/microsoft-copilot-studio/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. The tenant used in the Azure OpenAI service and Copilot Studio should be the same. For more information, see [Use a connection to Azure OpenAI on your data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RW18YwQ]
 
 > [!NOTE]
-> Deploying to Microsoft Copilot Studio from Azure OpenAI is only available to US regions.
-> Microsoft Copilot Studio supports Azure AI Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
+> Deploying to a copilot in Copilot Studio is only available to US regions.
+> Copilot Studio supports Azure AI Search indexes with keyword or semantic search only. Other data sources and advanced features might not be supported.
 
 ### Deploy a web app
 
-Along with Azure OpenAI Studio, Power Virtual Agents, and the API, you can also use the available standalone web app to interact with chat models using a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
+Along with Azure OpenAI Studio, Copilot Studio, and the API, you can also use the available standalone web app to interact with chat models using a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
 
 #### Streaming data
 
@@ -543,6 +546,16 @@ You can use Azure OpenAI on your data with an Azure OpenAI resource in the follo
 * UK South
 * West Europe
 * West US
+
+## Supported models
+
+* `gpt-4` (0314)
+* `gpt-4` (0613)
+* `gpt-4-32k` (0314)
+* `gpt-4-32k` (0613)
+* `gpt-4` (1106-preview)
+* `gpt-35-turbo-16k` (0613)
+* `gpt-35-turbo` (1106)
 
 If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI on your data.
 
