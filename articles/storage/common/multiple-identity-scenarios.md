@@ -247,7 +247,7 @@ public class ExampleService {
 3. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Key Vault using the corresponding SDK classes.
 
     ```javascript
-    // Azure Resource names
+    // Azure resource names
     const storageAccount = process.env.AZURE_STORAGE_ACCOUNT_NAME;
     const keyVaultName = process.env.AZURE_KEYVAULT_NAME;
 
