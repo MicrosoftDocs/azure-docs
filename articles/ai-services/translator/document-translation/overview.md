@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 01/31/2024
+ms.date: 02/12/2024
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -122,7 +122,7 @@ Document Translation supports the following glossary file types:
 |**OfficeOpenXml**|`application/vnd.openxmlformats-officedocument`|`.xml`, `.ooxml`|An XML-based file format used for Microsoft Word, Microsoft Excel, and Microsoft PowerPoint documents.|
 |**OpenXmlPresentation**|`application/vnd.openxmlformats-officedocument.presentationml.presentation` |`.pptx`|An XML-based file format used for Microsoft PowerPoint slideshow presentations.|
 |**OpenXmlSpreadsheet**|`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`| `.xlsx`| An XML-based file format used for Microsoft Excel spreadsheets.|
-|**OpenXmlWord**|`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`|`.docx`| An XML-based file format used for Microsoft Word documents.|
+|**OpenXmlWord**|`application/vnd.openxmlformats-officedocument.wordprocessingml.document`|`.docx`| An XML-based file format used for Microsoft Word documents.|
 |**OutlookMailMessage**|`application/vnd.ms-outlook`|`.msg`|A file format used for stored Outlook mail message objects.|
 |**XmlLocalizationInterchange**|`application/xliff+xml` |`.xlf`, `xliff`|A standardized XML-based file format widely used in translation and localization software processing.|
 
