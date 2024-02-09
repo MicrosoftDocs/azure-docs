@@ -35,6 +35,9 @@ Users can either consume the metric programmatically via the [Azure Monitor REST
 
 Once on the Azure portal, navigate to the VM overview blade. The new metric is displayed as VM Availability (Preview), along with other platform metrics under the Monitoring tab.
 
+   :::image type="content" source="media/flash/virtual-machine-availability-metric.png" alt-text="Screenshot of virtual machine availability metric on a virtual machine's overview page on the Azure portal." lightbox="media/flash/virtual-machine-availability-metric.png" :::
+
+Select (single click) the VM availability metric chart on the overview page, to navigate to [Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for further analysis.
 Select the VM availability metric chart on the overview page, to navigate to [Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for further analysis.
 
    :::image type="content" source="media/flash/metrics-explorer-virtual-machine-availability.png" alt-text="Screenshot of the newly added VM availability Metric on Metrics Explorer on Azure portal." lightbox="media/flash/metrics-explorer-virtual-machine-availability.png" :::

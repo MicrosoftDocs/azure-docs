@@ -37,9 +37,9 @@ The default cluster size is four driver nodes and four worker nodes (small). As 
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | Small |
 | 8 | 8 | 16 | Medium |
-| 16 | 16 | 32 | |
+| 16 | 16 | 32 | Large|
 | 32 | 16 | 48 | |
-| 64 | 16 | 80 | Large |
+| 64 | 16 | 80 | |
 | 128 | 16 | 144 | |
 | 256 | 16 | 272 | |
 
