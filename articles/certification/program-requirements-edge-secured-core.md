@@ -78,7 +78,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) Service.|
+|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
 |Dependencies|Microsoft Azure Attestation service|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
@@ -259,7 +259,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) Service.|
+|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
 |Dependencies|TPM 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
@@ -515,7 +515,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this requirement is to make sure devices can report security information and events by sending data to a Microsoft telemetry service. This requirement is met by Microsoft for Azure Sphere based products.|
+|Description|The purpose of this requirement is to make sure devices can report security information and events by sending data to a Microsoft telemetry service. |
 |Resources|[Collect and interpret error data - Azure Sphere](/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](/azure-sphere/deployment/configure-crash-dumps)|
 
 ---
@@ -545,6 +545,15 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 ---
 </br>
 
+|Name|SecuredCore.Protection.Update Resiliency|
+|:---|:---|
+|Status|Required|
+|Description|The device must be restorable to the last known good state in the case of an update causing issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure and updatable state.|
+
+---
+</br>
+
 |Name|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |Status|Required|
@@ -555,7 +564,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the policy requires that debug functionality on the device is disabled. This requirement is met by Microsoft for Azure Sphere based products.|
+|Description|The purpose of the policy requires that debug functionality on the device is disabled. |
 
 ---
 </br>
@@ -563,7 +572,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The policy requires that the device can execute two use cases: a) Ability to perform a reset (remove user data, remove user configurations), b) Restore device to last known good in the case of an update causing issues. This requirement is met by Microsoft for Azure Sphere based products.|
+|Description|The policy requires that the device can execute the ability to perform a reset (remove user data, remove user configurations). |
 
 ---
 </br>
@@ -571,7 +580,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Policy.Updates.Duration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that the device remains secure. This requirement is met by Microsoft for Azure Sphere based products.|
+|Description|The purpose of this policy is to ensure that the device remains secure. Software updates must be provided for at least 60 months from date of submission. This requirement is met by Microsoft for Azure Sphere based products.|
 
 ---
 </br>
