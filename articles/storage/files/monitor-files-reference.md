@@ -80,7 +80,7 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
-- [Microsoft.Storage/storageAccounts/StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs)
+- [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs)
 
 <!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
