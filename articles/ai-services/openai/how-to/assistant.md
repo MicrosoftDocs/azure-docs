@@ -365,7 +365,13 @@ We had requested that the model generate an image of a sine wave. In order to do
 
 ```python
 data = json.loads(messages.model_dump_json(indent=2))  # Load JSON data into a Python object
-image_file_id = data['data'][1]['content'][0]['image_file']['file_id']
+
+image_file_id = None
+for msg in data["data"]:
+    for content in msg["content"]:
+        if content["type"] == "image_file":
+            image_file_id = content["image_file"]["file_id"]
+            break
 
 print(image_file_id)  # Outputs: assistant-1YGVTvNzc2JXajI5JU9F0HMD
 ```
