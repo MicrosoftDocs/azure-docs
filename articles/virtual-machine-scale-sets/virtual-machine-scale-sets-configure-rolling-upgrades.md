@@ -1,6 +1,6 @@
 ---
 title: Configure Rolling Upgrades on Virtual Machine Scale Sets
-description: Learn about to configure Rolling Upgrades on Virtual Machine Scale Sets
+description: Learn about how to configure Rolling Upgrades on Virtual Machine Scale Sets
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
@@ -29,9 +29,9 @@ Rolling Upgrade Policy is best suited for production workloads.
 
 ## Requirements
 
-- When using a Rolling Upgrade Policy, the scale set must have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. Virtual Machine Scale Sets using Uniform Orchestration can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration, an Application Health Extension is required.
+- If using a Rolling Upgrade Policy, the scale set must have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. Virtual Machine Scale Sets using Uniform Orchestration can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration, an Application Health Extension is required.
 
-- If using Rolling Upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. Because these are new VMs, they will each have new instance Ids and IP addresses. Additionally, you need to have enough core quota and address space in your subnet to accommodate these new VMs. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
+- If using Rolling Upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Additionally, you need to have enough core quota and address space in your subnet to accommodate these new VMs. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 
 ## Concepts
 
@@ -44,7 +44,7 @@ Rolling Upgrade Policy is best suited for production workloads.
 | **Max unhealthy upgrade %**| Specifies the total number of instances allowed to be marked as unhealthy after being upgraded. <br><br>Example: A max unhealthy upgrade % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy after being upgraded, the Rolling Upgrade is canceled. <br><br>This is an important setting because it allows the scale set to catch unstable or poor updates before they roll out to the entire scale set. |
 |**Prioritize unhealthy instances** | Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. <br><br>Example: If some instances in your scale set that show as failed or unhealthy when a Rolling Upgrade begins, the scale set updates those instances first. |
 | **Enable cross-zone upgrade** | Allows the scale set to ignore Availability Zone boundaries when determining batches. |
-| **MaxSurge** | MaxSurge is currently in preview for Virtual Machine Scale Sets with Flexible Orchestration and Uniform Orchestration. To use this preview feature, register the provider feature using `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`.<br><br> With MaxSurge enabled, new instances are created  in batches using the latest scale model. Once the batch of new instances are successfully created and marked as healthy they will begin taking traffic. The scale set will then delete instances in batches matching the old scale set model. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. <br><br>With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. |
+| **MaxSurge** | MaxSurge is currently in preview for Virtual Machine Scale Sets with Flexible Orchestration and Uniform Orchestration. To use this preview feature, register the provider feature using `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`.<br><br> With MaxSurge enabled, new instances are created  in batches using the latest scale model. Once the batch of new instances are successfully created and marked as healthy, they will begin taking traffic. The scale set will then delete instances in batches matching the old scale set model. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. <br><br>With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again, and the next batch will begin. This continues until all instances brought up-to-date. |
 
 
 ## Setting or updating the Rolling Upgrade Policy
