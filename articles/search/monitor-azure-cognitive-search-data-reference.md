@@ -100,7 +100,7 @@ The following table lists common operations related to AI Search that may be rec
 | Get Query Key | Any read-only operation against the documents collection of an index.  |
 | Regenerate Admin Key | A request to regenerate either the primary or secondary admin API key. |
 
-Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure resource logging. 
+Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but don't show the request itself. For information of this grain, you must configure resource logging. 
 
 Alternatively, you might gain some insight through change history. In the Azure portal, select the activity to open the detail page and then select "Change history" for information about the underlying operation.
 
@@ -111,7 +111,7 @@ If there are other operations not in the link, list them here in table form. -->
 <a name="schemas"></a>
 [!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
 <!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
-If you are building queries or custom reports, the data structures that contain AI Search resource logs conform to the following schemas.
+If you're building queries or custom reports, the data structures that contain AI Search resource logs conform to the following schemas.
 
 For resource logs sent to blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
@@ -170,7 +170,7 @@ The following operations can appear in a resource log.
 | Query.Lookup |  A lookup query against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Search |  A full text search request against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Suggest |  Type ahead query against an index. See [Query types and composition](search-query-overview.md). |
-| ServiceStats | This operation is a routine call to [Get Service Statistics](/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
+| ServiceStats | This operation is a routine call to [Get Service Statistics](/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it's loaded or refreshed. |
 | Skillsets.* | Applies to a skillset. Can be Create, Delete, Get, List. |
 
 ## Related content
