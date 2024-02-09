@@ -98,11 +98,12 @@ The workaround requires the Azure CLI for authentication. If you don't have it o
 
 ## Create resources for your cluster
 
-Quickly create all your resources with the `azd up` command. The demo app can take longer depending on your internet speed.
+The step can take longer depending on your internet speed.
 
-azd up runs the commands for the two hooks for pre-provision and post-provision. During this process, you're prompted to select which Azure subscription and region for your AKS Cluster.
-
-At the end, your output shows the newly created deployments and services:
+1. Create all your resources with the `azd up` command.
+2. Select which Azure subscription and region for your AKS Cluster.
+3. Wait as azd automatically runs the commands for pre-provision and post-provision steps.
+4. At the end, your output shows the newly created deployments and services.
 
     ```output
     deployment.apps/rabbitmq created
