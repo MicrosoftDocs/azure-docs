@@ -1,5 +1,5 @@
 ---
-title: Azure Operator 5G Core Deployment ordering for clusters, network functions and observability 
+title: Azure Operator 5G Core Deployment ordering for clusters, network functions, and observability 
 description: Outlines the deployment order for components on Azure Kubernetes Services or Nexus Azure Kubernetes Services
 author: HollyCl
 ms.author: HollyCl
@@ -10,7 +10,7 @@ ms.date: 01/31/2024
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-# Deployment order for clusters, network functions and observability 
+# Deployment order for clusters, network functions, and observability 
 
 Mobile Packet Core resources have minimal ordering constraints. The only restriction is you MUST deploy the ClusterServices resource before any network function or observability resources are deployed. Azure Operator 5G Core's Resource Provider doesn't allow network functions or observability to be deployed until ClusterServices successfully completes. Once ClusterServices is deployed, the network functions and observability resources can be deployed in any order and in parallel. 
 

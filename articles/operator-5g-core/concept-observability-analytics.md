@@ -76,7 +76,7 @@ Azure Operator 5G Core provides a default set of Helm values that you can use to
 
 ### Observability
 
-This section describes the observability features (dashboards, statistics, logs, and alarms) of the EFK logging framework
+This section describes the observability features (dashboards, statistics, logs, and alarms) of the EFK logging framework.
 
 #### Dashboards
 
@@ -143,7 +143,7 @@ The metrics framework supports the following features:
 - Multiple modes of graphing and dashboarding support. 
 
 For more information about Prometheus, see [Prometheus documentation](https://prometheus.io/docs/introduction/overview/).
-For ore information about Grafana, see [Grafana open source documentation](https://grafana.com/docs/grafana/latest/)
+For more information about Grafana, see [Grafana open source documentation](https://grafana.com/docs/grafana/latest/)
 
 ### Observability
 
@@ -199,7 +199,7 @@ Azure Operator 5G Core uses the OpenTelemetry Protocol (OTLP) in Jaeger tracing.
 
 Jaeger tracing uses the following workflow:
 
-1. The application with the OTLP client library sends traces to the OTEL Collector on the OTLP GRPC protocol. The OTEL Collector has three components:  receivers, processors and exporters.  
+1. The application with the OTLP client library sends traces to the OTEL Collector on the OTLP GRPC protocol. The OTEL Collector has three components:  receivers, processors, and exporters.  
 1. The OTLP GRPC receiver in the OTEL Collector receives traces and sends them to the Jaeger exporter.  
 1. The Jaeger exporter sends traces to the Jaeger collector running as part of fed-jaeger.  
 1. The Jaeger collector stores the traces in Elastic backend storage (fed-elastic). 

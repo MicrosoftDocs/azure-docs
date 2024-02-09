@@ -1,6 +1,6 @@
 ---
 title: How to Deploy Azure Operator 5G Core
-description: Learn how to deploy Azure Operator 5G core using Bicep Scripts, PowerShell, and Azure CLI
+description: Learn how to deploy Azure Operator 5G core using Bicep Scripts, PowerShell, and Azure CLI.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure
@@ -19,13 +19,13 @@ Azure Operator 5G Core is deployed using the Azure Operator 5G Core Resource Pro
 - Microsoft.MobilePacketCore/nrfDeployments - NRF network function
 - Microsoft.MobilePacketCore/nssfDeployments - NSSF network function
 - Microsoft.MobilePacketCore/upfDeployments - UPF network function
-- Microsoft.MobilePacketCore/observabilityServices - per cluster observability PaaS services (elastic/elastalert/kargo/kafka/etc.)
+- Microsoft.MobilePacketCore/observabilityServices - per cluster observability PaaS services (elastic/elastalert/kargo/kafka/etc)
 
 ## Prerequisites
 
 Before you can successfully deploy Azure Operator 5G Core, you must:
 - [register your resource provider](../azure-resource-manager/management/resource-providers-and-types.md) for the HybridNetwork and MobilePacketCore namespaces.
-- [Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md)
+- [Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service](how-to-complete-prerequisites-deploy-azure-kubernetes-service.md).
 
 ## Post cluster creation 
 
@@ -64,7 +64,7 @@ Enter the following Azure CLI command to create an Azure custom location:
 
 The empty parameter files that were bundled with the Bicep scripts must be populated with values suitable for the cluster being deployed. Open each parameter file and add IP addresses, subnets, and storage account information. 
 
-You can also modify the parameterized values yaml file to change tuning parameters such as cpu, memory limits and requests. You can also add new parameters manually.
+You can also modify the parameterized values yaml file to change tuning parameters such as cpu, memory limits, and requests. You can also add new parameters manually.
 
 The Bicep scripts read these parameter files to produce a JSON object. The object is passed to Azure Resource Manager and used to deploy the Azure Operator 5G Core resource.
 
