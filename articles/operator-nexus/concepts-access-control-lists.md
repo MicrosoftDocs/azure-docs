@@ -31,6 +31,15 @@ ACLs can be either static or dynamic. Static ACLs are processed in order, beginn
 
 ACLs can be applied to Network to Network interconnect (NNI) or External Network resources. An NNI is a child resource of a Network Fabric. ACLs can be created and linked to an NNI before the Network Fabric is provisioned. ACLs can be updated or deleted after the Network Fabric is deprovisioned.
 
+This table summarises the resources that can be associated with an ACL:
+
+
+| Resource Name                         | Supported                            | Default               |
+|--|--|--|
+| NNF SKU                               | Yes                                  | All Production SKU    |
+| Isolation Domain                      | Yes on External Network with optionA | NA                    |
+| Network to network interconnect( NNI) | Yes                                  | NA                    |
+
 ## Traffic Policy
 
 A traffic policy is a set of rules that control the flow of packets in and out of a network interface. This section explains the match criteria and actions available for distinct types of network resources.
