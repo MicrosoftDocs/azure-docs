@@ -115,7 +115,14 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
     export PRINCIPAL_ID=$(az identity show --name "ai-toolchain-operator-${CLUSTER_NAME}" --resource-group "${MC_RESOURCE_GROUP}" --query 'principalId' -o tsv)
     export KAITO_IDENTITY_NAME="ai-toolchain-operator-${CLUSTER_NAME}"
     ```
-4.  Create a new role assignment for the service principal using the [`az role assignment create`][az-role-assignment-create] command.
+## Get the AKS OpenID Connect (OIDC) Issuer
+* Get the AKS OIDC Issuer URL and export it as an environment variable:
+
+    ```azurecli-interactive
+    export AKS_OIDC_ISSUER=$(az aks show --resource-group "${AZURE_RESOURCE_GROUP}" --name "${CLUSTER_NAME}" --query "oidcIssuerProfile.issuerUrl" -o tsv)
+    ```
+## Create role assignment for the service principal
+* Create a new role assignment for the service principal using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az role assignment create --role "Contributor" --assignee "${PRINCIPAL_ID}" --scope "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourcegroups/${AZURE_RESOURCE_GROUP}"
@@ -123,12 +130,8 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 
 ## Establish a federated identity credential
 
-1. Get the AKS OIDC Issuer URL and export it as an environment variable:
 
-    ```azurecli-interactive
-    export AKS_OIDC_ISSUER=$(az aks show --resource-group "${AZURE_RESOURCE_GROUP}" --name "${CLUSTER_NAME}" --query "oidcIssuerProfile.issuerUrl" -o tsv)
-    ```
-2. Create the federated identity credential between the managed identity, AKS OIDC issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
+* Create the federated identity credential between the managed identity, AKS OIDC issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
 
     ```azurecli-interactive
     az identity federated-credential create --name "kaito-federated-identity" --identity-name "${KAITO_IDENTITY_NAME}" -g "${MC_RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"kube-system:kaito-gpu-provisioner" --audience api://AzureADTokenExchange
