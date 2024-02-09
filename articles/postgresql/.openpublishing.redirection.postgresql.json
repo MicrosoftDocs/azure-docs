@@ -1567,7 +1567,7 @@
     },
     {
         "source_path_from_root": "/articles/postgresql/flexible-server/concepts-high-availability.md",
-        "redirect_url": "../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json",
+        "redirect_url": "https://learn.microsoft.com/azure/reliability/reliability-postgresql-flexible-server",
         "redirect_document_id": false
     }
     ]
