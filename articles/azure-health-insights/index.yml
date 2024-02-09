@@ -65,3 +65,19 @@ landingContent:
         links:
           - text: Get started
             url: trial-matcher/get-started.md
+  - title: Radiology Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Radiology Insights
+            url: radiology-insights/overview.md
+      - linkListType: concept
+        links:
+          - text: Model configuration
+            url: radiology-insights/model-configuration.md
+          - text: Inference information
+            url: radiology-insights/inferences.md
+      - linkListType: quickstart
+        links:
+          - text: Get started
+            url: radiology-insights/get-started.md

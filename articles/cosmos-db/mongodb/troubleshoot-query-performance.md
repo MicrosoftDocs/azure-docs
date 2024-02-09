@@ -4,7 +4,6 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB's
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy

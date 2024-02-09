@@ -5,7 +5,6 @@ author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/01/2023
 ms.reviewer: cynthn
@@ -236,5 +235,3 @@ Spot VMs, and therefore Spot Priority Mix, are available in all global Azure reg
 
 > [!div class="nextstepaction"]
 > [Learn more about Spot virtual machines](../virtual-machines/spot-vms.md)
-
-

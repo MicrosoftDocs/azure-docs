@@ -8,7 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/05/2023
 ms.author: eur
-ms.custom: devx-track-dotnet, ignite-fall-2021
+ms.custom: devx-track-dotnet
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for a .NET Framework (Windows) console app.

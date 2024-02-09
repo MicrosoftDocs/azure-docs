@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 
-#customer intent: I'm a developer integrating Azure AD B2C, and I want to configure an identity verification and proofing provider. I need to combat identity fraud and create a trusted user experience for account registration.
+# Customer intent: I'm a developer integrating Azure AD B2C, and I want to configure an identity verification and proofing provider. I need to combat identity fraud and create a trusted user experience for account registration.
 ---
 
 # Identity verification and proofing partners

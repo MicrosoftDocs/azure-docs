@@ -6,13 +6,17 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 12/07/2023
+ms.date: 01/24/2024
 ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (January 2024)
+
+- Public preview: Using the RVTools XLSX, you can import on-premises servers' configuration into a VMware environment and create quick business case by assessing the cost of Azure and Azure VMware Solution (AVS) environments. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview). 
 
 ## Update (December 2023)
 

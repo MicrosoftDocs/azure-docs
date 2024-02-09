@@ -2,7 +2,7 @@
 title: Manage node pools in Azure Kubernetes Service (AKS)
 description: Learn how to manage node pools for a cluster in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023
 ms.date: 07/19/2023
 ---
 

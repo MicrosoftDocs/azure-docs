@@ -645,7 +645,7 @@ There are 5 ARM deployment resources in this template guide which house the 4 CC
                         //},
                         //"apikey": {
                         //    "defaultValue": "API Key",
-                        //    "type": "string",
+                        //    "type": "securestring",
                         //    "minLength": 1
                         //}
                     },

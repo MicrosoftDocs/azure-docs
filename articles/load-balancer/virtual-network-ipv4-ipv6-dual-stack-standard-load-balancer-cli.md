@@ -6,7 +6,6 @@ services: virtual-network
 author: mbender-ms
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/17/2023
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, engagement-fy23

@@ -9,7 +9,6 @@ ms.subservice: azure-ai-qna-maker
 ms.topic: overview
 ms.date: 01/19/2024
 keywords: "qna maker, low code chat bots, multi-turn conversations"
-ms.custom: ignite-fall-2021
 ---
 
 # What is QnA Maker?

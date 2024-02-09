@@ -6,7 +6,6 @@ ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2022
-ms.custom: event-tier1-build-2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
 

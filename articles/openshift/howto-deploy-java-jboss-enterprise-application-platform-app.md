@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-tr
 
 This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal.
 
-This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to ARO. The offer automatically provisions a number of resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
+This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to ARO. The offer automatically provisions resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
 
 ## Prerequisites
 
@@ -20,14 +20,14 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 - A Red Hat account with complete profile. If you don't have one, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register).
 
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment. Be sure the Azure CLI version is 2.43.0 or higher.
+- A local developer command line with a UNIX command environment and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-  [![Image of button to launch Cloud Shell in a new window.](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+- The `mysql` CLI. For instructions see [How To Install MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04).
 
-  > [!NOTE]
-  > You can also execute this guidance from a local developer command line with the Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-  > 
-  > If you are using a local developer command line, you must install the `mysql` CLI. For instructions see [How To Install MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04).
+> [!NOTE]
+> You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed.
+>
+> [![Image of button to launch Cloud Shell in a new window.](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
@@ -36,7 +36,7 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional) section in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
+The Azure Marketplace offer used in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional) section in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
 
 Use the following steps to get the pull secret.
 
@@ -88,7 +88,7 @@ Use the following steps to deploy a service principal and get its Application (c
    1. Provide a description of the secret and a duration. When you're done, select **Add**.
    1. After the client secret is added, the value of the client secret is displayed. Copy this value because you can't retrieve it later. Be sure to copy the **Value** and not the **Secret ID**.
 
-You've now created your Microsoft Entra application, service principal, and client secret.
+You've created your Microsoft Entra application, service principal, and client secret.
 
 ## Create a Red Hat Container Registry service account
 
@@ -106,7 +106,7 @@ Use the following steps to create a Red Hat Container Registry service account a
    - Note down the **username**, including the prepended string (that is, `XXXXXXX|username`). Use this username when you sign in to `registry.redhat.io`.
    - Note down the **password**. Use this password when you sign in to `registry.redhat.io`.
 
-You've now created your Red Hat Container Registry service account.
+You've created your Red Hat Container Registry service account.
 
 ## Deploy JBoss EAP on Azure Red Hat OpenShift
 
@@ -169,18 +169,18 @@ While you wait, you can set up the database.
 
 The following sections show you how to set up Azure Database for MySQL - Flexible Server.
 
-### Set environment variables in the Azure Cloud Shell
+### Set environment variables in the command line shell
 
 The application is a Jakarta EE application backed by a MySQL database, and is deployed to the OpenShift cluster using Source-to-Image (S2I). For more information about S2I, see the [S2I Documentation](http://red.ht/eap-aro-s2i).
 
-Continuing in the Azure Cloud Shell, use the following command to set up some environment variables:
+Open a shell, or Cloud Shell, and set the following environment variables. Replace the substitutions as appropriate.
 
 ```azurecli-interactive
 RG_NAME=<resource-group-name>
 SERVER_NAME=<database-server-name>
 DB_DATABASE_NAME=testdb
 ADMIN_USERNAME=myadmin
-ADMIN_PASSWORD=<mysql-admin-password>
+ADMIN_PASSWORD=Secret123456
 DB_USERNAME=testuser
 DB_PASSWORD=Secret123456
 PROJECT_NAME=eaparo-sample
@@ -195,12 +195,12 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<resource-group-name>`: The name of resource group you created previously - for example, `eaparo033123rg`.
 - `<database-server-name>`: The name of your MySQL server, which should be unique across Azure - for example, `eaparo033123mysql`.
-- `<mysql-admin-password>`: The admin password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `ADMIN_PASSWORD`: The admin password of your MySQL database server. This article was tested using the password shown. Consult the database documentation for password rules.
 - `<red-hat-container-registry-service-account-username>` and `<red-hat-container-registry-service-account-password>`: The username and password of the Red Hat Container Registry service account you created before.
 
-It's a good idea to save the fully filled out name/value pairs in a text file, in case the Azure Cloud Shell times out before you're done executing the commands. That way, you can paste them into a new instance of the Cloud Shell and easily continue.
+It's a good idea to save the fully filled out name/value pairs in a text file, in case the shell exits or the Azure Cloud Shell times out before you're done executing the commands. That way, you can paste them into a new instance of the shell or Cloud Shell and easily continue.
 
-These name/value pairs are essentially "secrets". For a production-ready way to secure Azure Red Hat OpenShift, including secret management, see [Security for the Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
+These name/value pairs are essentially "secrets." For a production-ready way to secure Azure Red Hat OpenShift, including secret management, see [Security for the Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/security).
 
 ### Create and initialize the database
 
@@ -285,7 +285,7 @@ You now have a MySQL database server running and ready to connect with your app.
 
 ## Verify the functionality of the deployment
 
-The steps in this section show you how to verify that the deployment has successfully completed.
+The steps in this section show you how to verify that the deployment completes successfully.
 
 If you navigated away from the **Deployment is in progress** page, the following steps show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5.
 
@@ -301,7 +301,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information.
 
-1. Open Azure Cloud Shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
+1. Open the shell or Azure Cloud Shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
 
    ```azurecli
    az aro list-credentials --resource-group eaparo033123rg --name clusterf9e8b9
@@ -322,7 +322,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 Next, use the following steps to connect to the OpenShift cluster using the OpenShift CLI:
 
-1. In the Azure Cloud Shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux.  If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
+1. In the shell or Azure Cloud Shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux.  If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
 
    ```azurecli-interactive
    cd ~
@@ -333,7 +333,7 @@ Next, use the following steps to connect to the OpenShift cluster using the Open
    echo 'export PATH=$PATH:~/openshift' >> ~/.bashrc && source ~/.bashrc
    ```
 
-1. Paste the value from the **cmdToLoginWithKubeadmin** field into the Azure Cloud Shell, and execute it. You should see the `login successful` message and the project you're using. The following content is an example of the command to connect to the OpenShift cluster using the OpenShift CLI.
+1. Paste the value from the **cmdToLoginWithKubeadmin** field into the shell or Azure Cloud Shell, and execute it. You should see the `login successful` message and the project you're using. The following content is an example of the command to connect to the OpenShift cluster using the OpenShift CLI.
 
    ```azurecli-interactive
    oc login \
@@ -372,7 +372,7 @@ The steps in this section show you how to deploy an app on the cluster.
 
 Use the following steps to deploy the app to the cluster. The app is hosted in the GitHub repo [rhel-jboss-templates/eap-coffee-app](https://github.com/Azure/rhel-jboss-templates/tree/main/eap-coffee-app).
 
-1. In the Azure Cloud Shell, run the following commands to create a project, apply a permission to enable S2I to work, image the pull secret, and link the secret to the relative service accounts in the project for image pulling. Disregard the git warning about "'detached HEAD' state".
+1. In the shell or Azure Cloud Shell, run the following commands. The commands create a project, apply a permission to enable S2I to work, image the pull secret, and link the secret to the relative service accounts in the project to enable the image pull. Disregard the git warning about "'detached HEAD' state."
 
    ```azurecli-interactive
    git clone https://github.com/Azure/rhel-jboss-templates.git

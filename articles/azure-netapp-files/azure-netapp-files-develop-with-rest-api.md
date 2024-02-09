@@ -4,7 +4,6 @@ description: The REST API for the Azure NetApp Files service defines HTTP operat
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 09/30/2022
 ms.author: anfdocs
