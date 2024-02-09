@@ -104,7 +104,7 @@ console.log(result.video);
 #### Notes
 - The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
 - The 'audioDevicesUpdated' event fires when audio devices are plugged
-- When the DeviceManager is created, at first it doesn't know about any devices if permissions are not granted yet so initially its device list will be empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user clicks on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have its device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- When the DeviceManager is created, at first it doesn't know about any devices if permissions are not granted yet so initially its device list will be empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user clicks on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager will be able to learn about devices because user has already previously granted access. It will initially it will have its device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection isn't supported on Android Chrome, iOS Safari, nor macOS Safari.
 
 ## Place a call with video camera
@@ -261,7 +261,7 @@ const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 
 To render `RemoteVideoStream`, you have to subscribe to its `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
 
-Whenever availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or a specific `VideoStreamRendererView`. If you do decided to keep them will result in displaying blank video frame.
+Whenever availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or a specific `VideoStreamRendererView`. If you do decided to keep them, then the view will result in displaying blank video frame.
 
 ```js
 // Reference to the html's div where we would display a grid of all remote video stream from all participants.
