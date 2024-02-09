@@ -60,13 +60,13 @@ Microsoft provides a quick start catalog to help you get started with customizat
 
 The following example shows a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined. Notice that each folder contains a task.yaml file and at least one PowerShell script. Task.yaml files cache scripts and the input parameters needed to reference them from devbox.yaml files. 
 
-:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png" alt-text="Screenshot showing a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined, with a tasks.yaml for each task.":::
+:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png" alt-text="Screenshot showing a catalog with choco, git-clone, install-vs-extension, and PowerShell tasks defined, with a tasks.yaml for each task." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-catalog-tasks.png":::
 
 ### What is a devbox.yaml file?
 
 Dev Box customizations use a configuration script called *devbox.yaml* to specify which task to apply from the catalog when creating a new dev box. A devbox.yaml file includes one or more setupTasks, which identify the catalog task and provide input parameters like the name of the software to install. The following example uses a choco task to install the Azure Developer CLI using the Chocolatey package manager and adds the GitHub Copilot extension to Visual Studio 2022.
 
-:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-devboxyaml-setup-tasks.png" alt-text="Screenshot showing an example that uses a choco task to install the Azure Developer CLI using the Chocolatey package manager and adds the GitHub Copilot extension to Visual Studio 2022.":::
+:::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-devboxyaml-setup-tasks.png" alt-text="Screenshot showing an example that uses a choco task to install the Azure Developer CLI using the Chocolatey package manager and adds the GitHub Copilot extension to Visual Studio 2022." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-devboxyaml-setup-tasks.png":::
 
 The devbox.yaml file is then made available to the developers creating new dev boxes.
 
@@ -123,7 +123,7 @@ Now that you have a catalog that defines the tasks your developers can use, you 
    | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for least latency.|
    | **Uploaded customization files** | Select **Upload a customization file** and upload the devbox.yaml file you downloaded in step 1. |
 
-   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-upload.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Uploaded customization files highlighted.":::
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-upload.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Uploaded customization files highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-upload.png":::
 
 1. Select **Create**.
 
@@ -143,11 +143,11 @@ Before you can create and test your own configuration script, there must be a ca
 1. Download an [example yaml configuration file](https://azure.github.io/dev-box/reference/devbox.yaml) from the samples repository and open it in Visual Studio Code.
 1. Discover tasks available in the catalog by using the command palette. From **View** > **Command Palette**, select **Dev Box: List available tasks for this dev box**.
  
-   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/dev-box-command-list-tasks.png" alt-text="Screenshot of Visual Studio Code showing the command palette with Dev Box List available tasks for this dev box highlighted."::: 
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/dev-box-command-list-tasks.png" alt-text="Screenshot of Visual Studio Code showing the command palette with Dev Box List available tasks for this dev box highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/dev-box-command-list-tasks.png"::: 
  
 1. Test configuration in Visual Studio Code by using f5/command palette. From **View** > **Command Palette**, select **Dev Box: Apply customizations tasks**.
  
-   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/dev-box-command-apply-tasks.png" alt-text="Screenshot of Visual Studio Code showing the command palette with Dev Box Apply customizations tasks highlighted."::: 
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/dev-box-command-apply-tasks.png" alt-text="Screenshot of Visual Studio Code showing the command palette with Dev Box Apply customizations tasks highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/dev-box-command-apply-tasks.png"::: 
  
 1. The devbox.yaml runs immediately, applying the specified tasks to your test dev box. Inspect the changes and check the Visual Studio Code terminal for any errors or warnings generated during the task execution.
 1. When the devbox.yaml runs successfully, share it developers to upload when they create a new dev box.
@@ -173,7 +173,7 @@ Make your devbox.yaml file seamlessly available to your developers by uploading 
    | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for least latency.|
    | **Repository clone URL** | Enter the URL for the repository that contains the devbox.yaml file and your code. |
 
-   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-clone.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Repository clone URL highlighted.":::
+   :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-clone.png" alt-text="Screenshot showing the dev box customization options in the developer portal with Repository clone URL highlighted." lightbox="media/how-to-customize-dev-box-setup-tasks/developer-portal-customization-clone.png":::
 
 1. Select **Create**.
 
