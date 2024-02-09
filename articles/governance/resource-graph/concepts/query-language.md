@@ -1,10 +1,8 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 12/15/2023
+ms.date: 01/22/2023
 ms.topic: conceptual
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 
 # Understanding the Azure Resource Graph query language
@@ -28,39 +26,65 @@ This article covers the language components supported by Resource Graph:
 
 ## Resource Graph tables
 
-Resource Graph provides several tables for the data it stores about Azure Resource Manager resource
-types and their properties. Some tables can be used with `join` or `union` operators to get
-properties from related resource types. Here's the list of tables available in Resource Graph:
+Resource Graph provides several tables for the data it stores about Azure Resource Manager resource types and their properties. Resource Graph tables can be used with the `join` operator to get properties from related resource types.
 
-|Resource Graph table |Can `join` other tables? |Description |
-|---|---|---|
-|Resources | Yes |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
-|ResourceContainers | Yes |Includes management group (`Microsoft.Management/managementGroups`), subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
-|AdvisorResources | Yes |Includes resources _related_ to `Microsoft.Advisor`. |
-|AlertsManagementResources | Yes |Includes resources _related_ to `Microsoft.AlertsManagement`. |
-|DesktopVirtualizationResources | Yes |Includes resources _related_ to `Microsoft.DesktopVirtualization`. |
-|ExtendedLocationResources | Yes |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
-|GuestConfigurationResources | Yes |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
-|HealthResources| Yes |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
-|IoTSecurityResources | Yes |Includes resources _related_ to `Microsoft.IoTSecurity`. |
-|KubernetesConfigurationResources | Yes |Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
-|MaintenanceResources | Yes |Includes resources _related_ to `Microsoft.Maintenance`. |
-|PatchAssessmentResources| Yes |Includes resources _related_ to Azure Virtual Machines patch assessment. |
-|PatchInstallationResources| Yes |Includes resources _related_ to Azure Virtual Machines patch installation. |
-|PolicyResources | Yes |Includes resources _related_ to `Microsoft.PolicyInsights`. |
-|RecoveryServicesResources | Yes |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
-|SecurityResources | Yes |Includes resources _related_ to `Microsoft.Security`. |
-|ServiceHealthResources | Yes |Includes resources _related_ to `Microsoft.ResourceHealth/events`. |
-|WorkloadMonitorResources | Yes |Includes resources _related_ to `Microsoft.WorkloadMonitor`. |
+Resource Graph tables support the `join` flavors:
+- [innerunique](/azure/data-explorer/kusto/query/join-innerunique)
+- [inner](/azure/data-explorer/kusto/query/join-inner)
+- [leftouter](/azure/data-explorer/kusto/query/join-leftouter)
+- [fullouter](/azure/data-explorer/kusto/query/join-fullouter)
 
-For a complete list, including resource types, go to [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
+| Resource Graph table | Can `join` other tables? | Description |
+| --- | --- | --- |
+| AdvisorResources | Yes | Includes resources _related_ to `Microsoft.Advisor`. |
+| AlertsManagementResources | Yes | Includes resources _related_ to `Microsoft.AlertsManagement`. |
+| AppServiceResources | Yes | Includes resources _related_ to `Microsoft.Web`. |
+| AuthorizationResources | Yes | Includes resources _related_ to `Microsoft.Authorization`. |
+| AWSResources | Yes | Includes resources _related_ to `Microsoft.AwsConnector`. |
+| AzureBusinessContinuityResources | Yes | Includes resources _related_ to `Microsoft.AzureBusinessContinuity`. |
+| ChaosResources | Yes | Includes resources _related_ to `Microsoft.Chaos`. |
+| CommunityGalleryResources | Yes | Includes resources _related_ to `Microsoft.Compute`. |
+| DesktopVirtualizationResources | Yes | Includes resources _related_ to `Microsoft.DesktopVirtualization`. |
+| DnsResources | Yes | Includes resources _related_ to `Microsoft.Network`. |
+| EdgeOrderResources | Yes | Includes resources _related_ to `Microsoft.EdgeOrder`. |
+| ElasticsanResources | Yes | Includes resources _related_ to `Microsoft.ElasticSan`. |
+| ExtendedLocationResources | Yes | Includes resources _related_ to `Microsoft.ExtendedLocation`. |
+| FeatureResources | Yes | Includes resources _related_ to `Microsoft.Features`. |
+| GuestConfigurationResources | Yes | Includes resources _related_ to `Microsoft.GuestConfiguration`. |
+| HealthResourceChanges | Yes | Includes resources _related_ to `Microsoft.Resources`. |
+| HealthResources| Yes | Includes resources _related_ to `Microsoft.ResourceHealth`. |
+| InsightsResources | Yes | Includes resources _related_ to `Microsoft.Insights`. |
+| IoTSecurityResources | Yes | Includes resources _related_ to `Microsoft.IoTSecurity` and `Microsoft.IoTFirmwareDefense`. |
+| KubernetesConfigurationResources | Yes | Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
+| KustoResources | Yes | Includes resources _related_ to `Microsoft.Kusto`. |
+| MaintenanceResources | Yes | Includes resources _related_ to `Microsoft.Maintenance`. |
+| ManagedServicesResources | Yes | Includes resources _related_ to `Microsoft.ManagedServices`. |
+| MigrateResources | Yes | Includes resources _related_ to `Microsoft.OffAzure`. |
+| NetworkResources | Yes | Includes resources _related_ to `Microsoft.Network`. |
+| OrbitalResources | Yes | Includes resources _related_ to `Microsoft.Orbital`. |
+| PatchAssessmentResources| Yes | Includes resources _related_ to Azure Virtual Machines patch assessment `Microsoft.Compute` and `Microsoft.HybridCompute`. |
+| PatchInstallationResources| Yes | Includes resources _related_ to Azure Virtual Machines patch installation `Microsoft.Compute` and `Microsoft.HybridCompute`. |
+| PolicyResources | Yes | Includes resources _related_ to `Microsoft.PolicyInsights`. |
+| RecoveryServicesResources | Yes | Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
+| ResourceChanges | Yes | Includes resources _related_ to `Microsoft.Resources`. |
+| ResourceContainerChanges | Yes | Includes resources _related_ to `Microsoft.Resources`. |
+| ResourceContainers | Yes | Includes management group (`Microsoft.Management/managementGroups`), subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+| Resources | Yes | The default table if a table isn't defined in the query. Most Resource Manager resource types and properties are here. |
+| SecurityResources | Yes | Includes resources _related_ to `Microsoft.Security`. |
+| ServiceFabricResources | Yes | Includes resources _related_ to `Microsoft.ServiceFabric`. |
+| ServiceHealthResources | Yes | Includes resources _related_ to `Microsoft.ResourceHealth/events`. |
+| SpotResources | Yes | Includes resources _related_ to `Microsoft.Compute`. |
+| SupportResources | Yes | Includes resources _related_ to `Microsoft.Support`. |
+| TagsResources | Yes | Includes resources _related_ to `Microsoft.Resources/tagnamespaces`. |
+
+For a list of tables that includes resource types, go to [Azure Resource Graph table and resource type reference](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Resources_ is the default table. While querying the _Resources_ table, it isn't required to
-> provide the table name unless `join` or `union` are used. However, the recommended practice is to
+> provide the table name unless `join` or `union` are used. But the recommended practice is to
 > always include the initial table in the query.
 
-Use Resource Graph Explorer in the portal to discover what resource types are available in each
+Use Resource Graph Explorer in the portal to discover which resource types are available in each
 table. As an alternative, use a query such as `<tableName> | distinct type` to get a list of
 resource types the given Resource Graph table supports that exist in your environment.
 
@@ -167,23 +191,23 @@ Here's the list of KQL tabular operators supported by Resource Graph with specif
 
 |KQL |Resource Graph sample query |Notes |
 |---|---|---|
-|[count](/azure/data-explorer/kusto/query/countoperator) |[Count key vaults](../samples/starter.md#count-keyvaults) | |
-|[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
-|[extend](/azure/data-explorer/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
-|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). Limit of three `join` in a single query, one of which might be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
-|[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
+|[count](/azure/data-explorer/kusto/query/countoperator) |[Count key vaults](../samples/starter.md#count-key-vault-resources) | |
+|[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[Show resources that contain storage](../samples/starter.md#show-resources-that-contain-storage) | |
+|[extend](/azure/data-explorer/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type) | |
+|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#key-vaults-with-subscription-name) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join), and [fullouter](/azure/data-explorer/kusto/query/join-fullouter). Limit of three `join` in a single query, one of which might be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
+|[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-all-public-ip-addresses) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 400. The default is 128. |
-|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
-|[order](/azure/data-explorer/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `sort` |
-|[parse](/azure/data-explorer/kusto/query/parseoperator) |[Get virtual networks and subnets of network interfaces](../samples/advanced.md#parse-subnets) |It's optimal to access properties directly if they exist instead of using `parse`. |
-|[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources) | |
-|[project-away](/azure/data-explorer/kusto/query/projectawayoperator) |[Remove columns from results](../samples/advanced.md#remove-column) | |
-|[sort](/azure/data-explorer/kusto/query/sort-operator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `order` |
-|[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Simplified first page only |
-|[take](/azure/data-explorer/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `limit`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
-|[top](/azure/data-explorer/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
-|[union](/azure/data-explorer/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#unionresults) |Single table allowed: ```| union [kind= inner|outer] [withsource=ColumnName] Table```. Limit of three `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. Might be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
-|[where](/azure/data-explorer/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
+|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#list-azure-cosmos-db-with-specific-write-locations) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
+|[order](/azure/data-explorer/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources-sorted-by-name) |Synonym of `sort` |
+|[parse](/azure/data-explorer/kusto/query/parseoperator) |[Get virtual networks and subnets of network interfaces](../samples/advanced.md#get-virtual-networks-and-subnets-of-network-interfaces) |It's optimal to access properties directly if they exist instead of using `parse`. |
+|[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources-sorted-by-name) | |
+|[project-away](/azure/data-explorer/kusto/query/projectawayoperator) |[Remove columns from results](../samples/advanced.md#remove-columns-from-results) | |
+|[sort](/azure/data-explorer/kusto/query/sort-operator) |[List resources sorted by name](../samples/starter.md#list-resources-sorted-by-name) |Synonym of `order` |
+|[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-azure-resources) |Simplified first page only |
+|[take](/azure/data-explorer/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-all-public-ip-addresses) |Synonym of `limit`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
+|[top](/azure/data-explorer/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-first-five-virtual-machines-by-name-and-their-os-type) | |
+|[union](/azure/data-explorer/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#combine-results-from-two-queries-into-a-single-result) |Single table allowed: ```| union [kind= inner|outer] [withsource=ColumnName] Table```. Limit of three `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. Might be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
+|[where](/azure/data-explorer/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-resources-that-contain-storage) | |
 
 There's a default limit of three `join` and three `mv-expand` operators in a single Resource Graph SDK query. You can request an increase in these limits for your tenant through **Help + support**.
 

@@ -3,12 +3,12 @@ title: Azure VM Image Builder service DevOps task (preview)
 description: In this article, you use an Azure DevOps task to inject build artifacts into a VM image so that you can install and configure your application and operating system.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 07/31/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 ---
 
@@ -68,7 +68,7 @@ Before you begin, you must:
 
 1. Select **Release Pipeline** > **Edit**.
 
-1. On the User Agent, select the plus sign (+) to add and search for **Image Builder**. 
+1. On the User Agent, select the plus sign (+) to add and search for **Image Builder**.
 
 1. Select **Add**.
 
@@ -112,7 +112,7 @@ The source images must be of the supported VM Image Builder operating systems. Y
 
     If you need to get the latest Compute Gallery version, use an Azure PowerShell or Azure CLI task to get it and set a DevOps variable. Use the variable in the VM Image Builder DevOps task. For more information, see the examples in [Get the latest image version resource ID](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery).
 
-* (Marketplace) Base image: Use the dropdown list of popular images, which always uses the latest version of the supported operating systems. 
+* (Marketplace) Base image: Use the dropdown list of popular images, which always uses the latest version of the supported operating systems.
 
     If the base image isn't in the list, you can specify the exact image by using `Publisher:Offer:Sku`.
 
@@ -210,9 +210,9 @@ The following example explains how this works:
     ```azurepowershell-interactive
     # Clean up buildArtifacts directory
     Remove-Item -Path "C:\buildArtifacts\*" -Force -Recurse
-    
+
     # Delete the buildArtifacts directory
-    Remove-Item -Path "C:\buildArtifacts" -Force 
+    Remove-Item -Path "C:\buildArtifacts" -Force
     ```
 
 * For Linux: The build artifacts are put into the */tmp* directory. However, on many Linux operating systems, the */tmp* directory contents are deleted on reboot. We suggest that you use code to remove the contents and not rely on the operating system to remove the contents. For example:
@@ -277,7 +277,7 @@ The task uses the properties that are passed to the task to create the VM Image 
 
 * Downloads the build artifact zip file and any other associated scripts. The files are saved in a storage account in the temporary VM Image Builder resource group `IT_<DestinationResourceGroup>_<TemplateName>`.
 
-* Creates a template that's prefixed with *t_* and a 10-digit monotonic integer. The template is saved to the resource group that you selected, and it exists for the duration of the build in the resource group. 
+* Creates a template that's prefixed with *t_* and a 10-digit monotonic integer. The template is saved to the resource group that you selected, and it exists for the duration of the build in the resource group.
 
 Example output:
 
@@ -350,7 +350,7 @@ You'll see an error in the DevOps log for the VM Image Builder task, and the mes
 
 :::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Screenshot of an example DevOps task error that describes the failure and provides the location of the customization.log file.":::
 
-For more information, see [Troubleshoot the VM Image Builder service](image-builder-troubleshoot.md). 
+For more information, see [Troubleshoot the VM Image Builder service](image-builder-troubleshoot.md).
 
 After you've investigated the failure, you can delete the staging resource group. First, delete the VM Image Builder template resource artifact. The artifact is prefixed with *t_*, and you can find it in the DevOps task build log:
 

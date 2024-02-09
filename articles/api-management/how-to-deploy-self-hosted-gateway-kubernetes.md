@@ -4,7 +4,6 @@ description: Learn how to deploy a self-hosted gateway component of Azure API Ma
 author: dlepow
 manager: gwallace
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.author: danlep
 ms.date: 05/22/2023

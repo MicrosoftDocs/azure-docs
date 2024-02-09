@@ -6,7 +6,6 @@ author: heidilohr
 ms.topic: conceptual
 ms.date: 11/12/2021
 ms.author: helohr
-manager: femila
 ---
 
 # Tag Azure Virtual Desktop resources to manage costs

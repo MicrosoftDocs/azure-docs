@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 06/28/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a web app developer, I want to configure Azure AD B2C authentication in my Azure Web App, so that users can securely sign in to the app using their Azure AD B2C credentials and access protected resources.
+
 ---
 
 # Configure authentication in an Azure Web App by using Azure AD B2C

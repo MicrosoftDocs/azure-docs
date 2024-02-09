@@ -5,8 +5,7 @@ services: frontdoor
 author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 09/06/2022
+ms.date: 12/28/2023
 ms.author: jodowns
 ---
 
@@ -28,7 +27,7 @@ For Azure Front Door pricing information, see [Azure Front Door pricing](https:/
 
 ## Base fees
 
-Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door SKU that you deploy.
+Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door tier that you deploy.
 
 A single Front Door profile can contain multiple [endpoints](endpoint.md). You're not billed extra for each endpoint.
 
@@ -44,7 +43,7 @@ Each part of the request process is billed separately:
 
 1. Number of requests from client to Front Door
 1. Data transfer from Front Door edge to origin
-1. Data transfer from origin to Front Door (non-billable)
+1. Data transfer from origin to Front Door (nonbillable)
 1. Data transfer from Front Door to client
 
 The following sections describe each of these request components in more detail.
@@ -65,7 +64,7 @@ If the request can be served from the Front Door edge location's cache, Front Do
 
 ### Data transfer from origin to Front Door
 
-When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic is not billed by Front Door, even if the origin is in a different region to the Front Door edge location for the request.
+When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic doesn't get billed by Front Door, even if the origin is in a different region to the Front Door edge location for the request.
 
 If your origin is within Azure, the data egress from the Azure origin to Front Door isn't charged. However, you should determine whether those Azure services might bill you to process your requests.
 
@@ -79,11 +78,11 @@ If a response is compressed, Front Door only charges for the compressed data.
 
 ## Private Link origins
 
-When you use the Premium SKU, Front Door can [connect to your origin by using Private Link](private-link.md).
+When you use the Premium tier, Front Door can [connect to your origin by using Private Link](private-link.md).
 
 Front Door Premium has a higher base fee and request processing fee. You don't pay extra for Private Link traffic compared to traffic that uses an origin's public endpoint.
 
-When you configure a Private Link origin, you select a region for the private endpoint to use. A [subset of Azure regions support Private Link traffic for Front Door](private-link.md#region-availability). If the region you select is different to the region the origin is deployed to, you won't be charged extra for cross-region traffic. However, the request latency will likely be greater.
+When you configure a Private Link origin, you select a region for the private endpoint to use. A [subset of Azure regions support Private Link traffic for Front Door](private-link.md#region-availability). If the region you select is different to the region the origin is deployed to, there isn't an extra charge for cross-region traffic. However, the request latency likely is greater.
 
 ## Cross-region traffic
 
@@ -95,9 +94,9 @@ Front Door charges for traffic from the edge location to the origin. Traffic is 
 
 ### Example 1: Azure origin without caching
 
-Contoso hosts their website on Azure App Service, which runs in the West US region. Contoso has deployed Front Door with the standard SKU. They have disabled caching.
+Contoso hosts their website on Azure App Service, which runs in the West US region. Contoso deployed Front Door with the standard tier. They disabled caching.
 
-Suppose a request from a client in California is sent to the Contoso website, sending a 1 KB request and receiving a 100 KB response:
+Suppose a request from a client in California is sent to the Contoso website, sending a 1-KB request and receiving a 100-KB response:
 
 :::image type="content" source="./media/billing/scenario-1.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, without caching or compression." border="false":::
 
@@ -136,9 +135,9 @@ Suppose a second request arrives at the same Front Door edge location and a vali
 The following billing meters are incremented:
 
 | Meter | Incremented by | Billing region |
-|-|-|-|
+|--|--|--|
 | Number of requests from client to Front Door | 1 | North America |
-| Data transfer from Front Door edge to origin | *none when request is served from cache* | |
+| Data transfer from Front Door edge to origin | *none when request is served from cache* |  |
 | Data transfer from Front Door to client | 30 KB | North America |
 
 ### Example 4: Cross-region traffic
@@ -157,9 +156,9 @@ The following billing meters are incremented:
 
 ### Example 5: Non-Azure origin
 
-Fabrikam runs an eCommerce site on another cloud provider. Their site is hosted in Europe. They Azure Front Door to serve the traffic. They haven't enabled caching or compression.
+Fabrikam runs an eCommerce site on another cloud provider. Their site is hosted in Europe. They configured Azure Front Door to serve the traffic without caching or compression.
 
-Suppose a request from a client is sent to the Fabrikam website from a client in New York. The client sends a 2 KB request and receives a 350 KB response:
+Suppose a request from a client is sent to the Fabrikam website from a client in New York. The client sends a 2-KB request and receives a 350-KB response:
 
 :::image type="content" source="./media/billing/scenario-5.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to an origin outside of Azure." border="false":::
 
@@ -175,11 +174,11 @@ The external cloud provider might charge other fees.
 
 ### Example 6: Request blocked by web application firewall
 
-When a request is blocked by the web application firewall (WAF), it isn't sent to the origin. However, Front Door charges the request, and also charges to send a response.
+When a request gets blocked by the web application firewall (WAF), it isn't sent to the origin. However, Front Door charges the request, and also charges to send a response.
 
-Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address in South America. The WAF is configured with a custom error response page, which is 1 KB in size. If a client from the blocked IP address sends a 1 KB request:
+Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address in South America. The WAF is configured with a custom error response page, which is 1 KB in size. If a client from the blocked IP address sends a 1-KB request:
 
-:::image type="content" source="./media/billing/scenario-6.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door, where the request is blocked by the WAF." border="false":::
+:::image type="content" source="./media/billing/scenario-6.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door, where the request gets blocked by the WAF." border="false":::
 
 The following billing meters are incremented:
 

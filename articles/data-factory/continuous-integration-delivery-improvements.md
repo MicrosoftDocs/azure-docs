@@ -145,9 +145,9 @@ Follow these steps to get started:
    
    # Installs Node and the npm packages saved in your package.json file in the build
    
-   - task: NodeTool@0
+   - task: UseNode@1
      inputs:
-       versionSpec: '14.x'
+       version: '18.x'
      displayName: 'Install Node.js'
    
    - task: Npm@1
@@ -187,8 +187,6 @@ Follow these steps to get started:
        artifact: 'ArmTemplates'
        publishLocation: 'pipeline'
    ```
-> [!NOTE]
-> Node version 10.x is currently still supported but may be deprected in the future. We highly recommend upgrading to the latest version.
 
 4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
 

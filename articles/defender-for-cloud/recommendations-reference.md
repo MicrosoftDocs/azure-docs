@@ -1,41 +1,28 @@
 ---
-title: Reference table for all recommendations 
-description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
+title: Reference table for all security recommendations 
+description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your resources.
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 09/27/2023
+ms.date: 10/05/2023
 ms.author: dacurwin
 ms.custom: generated
 ---
 
-# Security recommendations - a reference guide
+# Security recommendations
 
-This article lists the recommendations you might see in Microsoft Defender for Cloud. The recommendations
-shown in your environment depend on the resources you're protecting and your customized
-configuration.
+This article lists all the security recommendations you might see in Microsoft Defender for Cloud. The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
-Recommendations in Defender for Cloud are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
-the Microsoft cloud security benchmark is the Microsoft-authored set of guidelines for security
-and compliance best practices based on common compliance frameworks. This widely respected benchmark
-builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/)
-and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on
-cloud-centric security.
+Recommendations in Defender for Cloud are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). The Microsoft cloud security benchmark is the Microsoft-authored set of guidelines for security and compliance best practices. This widely respected benchmark builds on controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/), with a focus on cloud-centric security.
 
-To learn about how to respond to these recommendations, see
-[Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
+To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
 
-Your secure score is based on the number of security recommendations you've completed. To
-decide which recommendations to resolve first, look at the severity of each one and its potential
-impact on your secure score.
+Your secure score is based on the number of security recommendations you've completed. To decide which recommendations to resolve first, look at the severity of each recommendation and its potential impact on your secure score.
 
 > [!TIP]
-> If a recommendation's description says "No related policy", it's usually because that
-> recommendation is dependent on a different recommendation and _its_ policy. For example, the
-> recommendation "Endpoint protection health failures should be remediated...", relies on the
-> recommendation that checks whether an endpoint protection solution is even _installed_ ("Endpoint
-> protection solution should be installed..."). The underlying recommendation _does_ have a policy.
-> Limiting the policies to only the foundational recommendation simplifies policy management.
+> If a recommendation's description says _No related policy_, usually it's because that recommendation is dependent on a different recommendation and _its_ policy.
+>
+> For example, the recommendation _Endpoint protection health failures should be remediated_ relies on the recommendation that checks whether an endpoint protection solution is even installed (_Endpoint protection solution should be installed_). The underlying recommendation _does_ have a policy. Limiting the policies to only the foundational recommendation simplifies policy management.
 
 ## <a name='recs-appservices'></a>AppServices recommendations
 
@@ -72,7 +59,7 @@ impact on your secure score.
 |Microsoft Defender for APIs should be enabled|Enable the Defender for APIs plan to discover and protect API resources against attacks and security misconfigurations. [Learn more](defender-for-apis-deploy.md)|High|
 |Azure API Management APIs should be onboarded to Defender for APIs. | Onboarding APIs to Defender for APIs requires compute and memory utilization on the Azure API Management service. Monitor performance of your Azure API Management service while onboarding APIs, and scale out your Azure API Management resources as needed.|High|
 |API endpoints that are unused should be disabled and removed from the Azure API Management service|As a security best practice, API endpoints that haven't received traffic for 30 days are considered unused, and should be removed from the Azure API Management service. Keeping unused API endpoints might pose a security risk. These might be APIs that should have been deprecated from the Azure API Management service, but have accidentally been left active. Such APIs typically do not receive the most up-to-date security coverage.|Low|
-|API endpoints in Azure API Management should be authenticated|API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses authentication though verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating [JWT](/azure/api-management/validate-jwt-policy), [client certificates](/azure/api-management/validate-client-certificate-policy), and [Microsoft Entra](/azure/api-management/validate-azure-ad-token-policy) tokens. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.|High|
+|API endpoints in Azure API Management should be authenticated|API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses authentication through verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating [JWT](/azure/api-management/validate-jwt-policy), [client certificates](/azure/api-management/validate-client-certificate-policy), and [Microsoft Entra](/azure/api-management/validate-azure-ad-token-policy) tokens. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.|High|
 
 ## API management recommendations
 
@@ -110,20 +97,15 @@ impact on your secure score.
 |The rules for web applications on IaaS NSGs should be hardened|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regard to web application ports.<br>(Related policy: The NSGs rules for web applications on IaaS should be hardened)|High|
 |Pod Security Policies should be defined to reduce the attack vector by removing unnecessary application privileges (Preview)|Define Pod Security Policies to reduce the attack vector by removing unnecessary application privileges. It is recommended to configure pod security policies so pods can only access resources which they are allowed to access.<br>(Related policy: [Preview]: Pod Security Policies should be defined on Kubernetes Services)|Medium|
 |Install Azure Security Center for IoT security module to get more visibility into your IoT devices|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|
-|Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. (Related policy: System updates should be installed on your machines)|Medium|
-|Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. (No related policy)|High|
-|Java should be updated to the latest version for web apps|Periodically, newer versions are released for Java software either due to security flaws or to include additional functionality.<br>Using the latest Java version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Java version' is the latest, if used as a part of the Web app) |Medium |
-|Python should be updated to the latest version for function apps |Periodically, newer versions are released for Python software either due to security flaws or to include additional functionality.<br>Using the latest Python version for function apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Python version' is the latest, if used as a part of the Function app) |Medium |
-|Python should be updated to the latest version for web apps |Periodically, newer versions are released for Python software either due to security flaws or to include additional functionality.<br>Using the latest Python version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Python version' is the latest, if used as a part of the Web app) |Medium |
-|Java should be updated to the latest version for function apps |Periodically, newer versions are released for Java software either due to security flaws or to include additional functionality.<br>Using the latest Java version for function apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'Java version' is the latest, if used as a part of the Function app) |Medium |
-|PHP should be updated to the latest version for web apps |Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality.<br>Using the latest PHP version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br />(Related policy: Ensure that 'PHP version' is the latest, if used as a part of the WEB app) |Medium |
-||||
+|Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. <br>(Related policy: System updates should be installed on your machines)|Medium|
+|Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. <br>(No related policy)|High|
+|Java should be updated to the latest version for web apps|Periodically, newer versions are released for Java software either due to security flaws or to include additional functionality.<br>Using the latest Java version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br>(Related policy: Ensure that 'Java version' is the latest, if used as a part of the Web app) |Medium |
+|Python should be updated to the latest version for function apps |Periodically, newer versions are released for Python software either due to security flaws or to include additional functionality.<br>Using the latest Python version for function apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br>(Related policy: Ensure that 'Python version' is the latest, if used as a part of the Function app) |Medium |
+|Python should be updated to the latest version for web apps |Periodically, newer versions are released for Python software either due to security flaws or to include additional functionality.<br>Using the latest Python version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br>(Related policy: Ensure that 'Python version' is the latest, if used as a part of the Web app) |Medium |
+|Java should be updated to the latest version for function apps |Periodically, newer versions are released for Java software either due to security flaws or to include additional functionality.<br>Using the latest Java version for function apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br>(Related policy: Ensure that 'Java version' is the latest, if used as a part of the Function app) |Medium |
+|PHP should be updated to the latest version for web apps |Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality.<br>Using the latest PHP version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.<br>(Related policy: Ensure that 'PHP version' is the latest, if used as a part of the WEB app) |Medium |
 
-## Next steps
-
-To learn more about recommendations, see the following:
+## Related content
 
 - [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
 - [Review your security recommendations](review-security-recommendations.md)
-
-

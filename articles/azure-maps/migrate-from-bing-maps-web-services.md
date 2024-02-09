@@ -7,7 +7,6 @@ ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: 
 ---
 
 # Tutorial: Migrate web service from Bing Maps
@@ -689,20 +688,20 @@ Learn more about the Azure Maps REST services.
 [Best practices for Azure Maps Route service]: how-to-use-best-practices-for-routing.md
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
 [free account]: https://azure.microsoft.com/free/
-[fuzzy search]: /rest/api/maps/search/get-search-fuzzy
+[fuzzy search]: /rest/api/maps/search/get-search-fuzzy?view=rest-maps-1.0
 [Geolocation API]: /rest/api/maps/geolocation/get-ip-to-location
-[Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
-[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Static Image]: /rest/api/maps/render/get-map-static-image
+[Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Get Route Range]: /rest/api/maps/route/get-route-range
-[Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street
-[Get Search Address Reverse]: /rest/api/maps/search/get-search-address-reverse
-[Get Search Address Structured]: /rest/api/maps/search/get-search-address-structured
-[Get Search Address]: /rest/api/maps/search/get-search-address
-[Get Search Fuzzy]: /rest/api/maps/search/get-search-fuzzy
-[Get Search POI Category]: /rest/api/maps/search/get-search-poi-category
-[Get Search POI]: /rest/api/maps/search/get-search-poi
-[Get Search Polygon]: /rest/api/maps/search/get-search-polygon
+[Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street?view=rest-maps-1.0
+[Get Search Address Reverse]: /rest/api/maps/search/get-search-address-reverse?view=rest-maps-1.0
+[Get Search Address Structured]: /rest/api/maps/search/get-search-address-structured?view=rest-maps-1.0
+[Get Search Address]: /rest/api/maps/search/get-search-address?view=rest-maps-1.0
+[Get Search Fuzzy]: /rest/api/maps/search/get-search-fuzzy?view=rest-maps-1.0
+[Get Search POI Category]: /rest/api/maps/search/get-search-poi-category?view=rest-maps-1.0
+[Get Search POI]: /rest/api/maps/search/get-search-poi?view=rest-maps-1.0
+[Get Search Polygon]: /rest/api/maps/search/get-search-polygon?view=rest-maps-1.0
 [Get Timezone By Coordinates]: /rest/api/maps/timezone/get-timezone-by-coordinates
 [Get Timezone By ID]: /rest/api/maps/timezone/get-timezone-by-id
 [Get Timezone Enum IANA]: /rest/api/maps/timezone/get-timezone-enum-iana
@@ -717,22 +716,22 @@ Learn more about the Azure Maps REST services.
 [Localization support in Azure Maps]: supported-languages.md
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
-[nearby search]: /rest/api/maps/search/getsearchnearby
+[nearby search]: /rest/api/maps/search/getsearchnearby?view=rest-maps-1.0
 [NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
 [Post Route Directions Batch]: /rest/api/maps/route/post-route-directions-batch
 [Post Route Directions]: /rest/api/maps/route/post-route-directions
 [Post Route Matrix]: /rest/api/maps/route/post-route-matrix
-[Post Search Address Batch]: /rest/api/maps/search/post-search-address-batch
-[Post Search Address Reverse Batch]: /rest/api/maps/search/post-search-address-reverse-batch
-[Post Search Along Route]: /rest/api/maps/search/post-search-along-route
-[Post Search Fuzzy Batch]: /rest/api/maps/search/post-search-fuzzy-batch
-[Post Search Inside Geometry]: /rest/api/maps/search/post-search-inside-geometry
+[Post Search Address Batch]: /rest/api/maps/search/post-search-address-batch?view=rest-maps-1.0
+[Post Search Address Reverse Batch]: /rest/api/maps/search/post-search-address-reverse-batch?view=rest-maps-1.0
+[Post Search Along Route]: /rest/api/maps/search/post-search-along-route?view=rest-maps-1.0
+[Post Search Fuzzy Batch]: /rest/api/maps/search/post-search-fuzzy-batch?view=rest-maps-1.0
+[Post Search Inside Geometry]: /rest/api/maps/search/post-search-inside-geometry?view=rest-maps-1.0
 [quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
 [Render custom data on a raster map]: how-to-render-custom-data.md
 [Route]: /rest/api/maps/route
 [Search for a location using Azure Maps Search services]: how-to-search-for-address.md
-[Search within geometry]: /rest/api/maps/search/post-search-inside-geometry
-[Search]: /rest/api/maps/search
+[Search within geometry]: /rest/api/maps/search/post-search-inside-geometry?view=rest-maps-1.0
+[Search]: /rest/api/maps/search?view=rest-maps-1.0
 [Snap points to logical route path]: https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path
 [Spatial operations]: /rest/api/maps/spatial
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

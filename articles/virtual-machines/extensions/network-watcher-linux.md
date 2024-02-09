@@ -1,5 +1,5 @@
 ---
-title: Network Watcher Agent VM extension - Linux 
+title: Network Watcher Agent VM extension - Linux
 description: Deploy the Network Watcher Agent virtual machine extension on Linux virtual machines.
 ms.topic: conceptual
 ms.service: virtual-machines
@@ -8,7 +8,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.collection: linux
 ms.date: 06/29/2023
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Network Watcher Agent virtual machine extension for Linux

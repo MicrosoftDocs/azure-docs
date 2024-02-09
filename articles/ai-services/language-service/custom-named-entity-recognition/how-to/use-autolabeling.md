@@ -6,9 +6,8 @@ description: Learn how to use autolabeling in custom named entity recognition.
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ---
 

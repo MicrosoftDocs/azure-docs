@@ -33,7 +33,7 @@ Here are a few examples of the kinds of prompts you can use with Code Optimizati
 
 ## Examples
 
-In this example, Microsoft Copilot for Azure (preview) responds to the prompt, "Any code performance optimizations?" The response notes that there are 6 recommendations, providing the option to view either the top recommendation or all recommendations at once.
+In this example, Microsoft Copilot for Azure (preview) responds to the prompt, "**Any code performance optimizations?**" The response notes that there are 6 recommendations, providing the option to view either the top recommendation or all recommendations at once.
 
 :::image type="content" source="media/optimize-code-application-insights/code-optimizations-show-recommendations.png" lightbox="media/optimize-code-application-insights/code-optimizations-show-recommendations.png" alt-text="Screenshot of Microsoft Copilot for Azure responding to a question about code optimizations.":::
 

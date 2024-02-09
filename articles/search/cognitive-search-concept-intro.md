@@ -10,19 +10,21 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/27/2023
+ms.date: 01/30/2024
 ---
 # AI enrichment in Azure AI Search
 
-In Azure AI Search, *AI enrichment* calls the APIs of [Azure AI services](/azure/ai-services/what-are-ai-services) to process content that isn't full text searchable in its raw form. Through enrichment, analysis and inference are used to create searchable content and structure where none previously existed. 
+In Azure AI Search, *AI enrichment* refers to integration with [Azure AI services](/azure/ai-services/what-are-ai-services) to process content that isn't searchable in its raw form. Through enrichment, analysis and inference are used to create searchable content and structure where none previously existed. 
 
-Because Azure AI Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
+Because Azure AI Search is a text and vector search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios. Source content must be textual (you can't enrich vectors), but the content created by an enrichment pipeline can be vectorized and indexed in a vector store using skills like [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAiEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) for encoding.
 
-+ Apply translation and language detection for multi-lingual search
-+ Apply entity recognition to extract people names, places, and other entities from large chunks of text
-+ Apply key phrase extraction to identify and output important terms
-+ Apply Optical Character Recognition (OCR) to recognize printed and handwritten text in binary files
-+ Apply image analysis to describe image content, and output the descriptions as searchable text fields
+Built-in skills apply the following transformation and processing to raw content:
+
++ Translation and language detection for multi-lingual search
++ Entity recognition to extract people names, places, and other entities from large chunks of text
++ Key phrase extraction to identify and output important terms
++ Optical Character Recognition (OCR) to recognize printed and handwritten text in binary files
++ Image analysis to describe image content, and output the descriptions as searchable text fields
 
 AI enrichment is an extension of an [**indexer pipeline**](search-indexer-overview.md) that connects to Azure data sources. An enrichment pipeline has all of the components of an indexer pipeline (indexer, data source, index), plus a [**skillset**](cognitive-search-working-with-skillsets.md) that specifies atomic enrichment steps.
 

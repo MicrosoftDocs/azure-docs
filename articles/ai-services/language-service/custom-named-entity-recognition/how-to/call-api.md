@@ -7,10 +7,11 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 12/19/2023
 ms.author: aahi
-ms.devlang: csharp, python
-ms.custom: language-service-custom-ner, event-tier1-build-2022
+ms.devlang: csharp
+# ms.devlang: csharp, python
+ms.custom: language-service-custom-ner
 ---
 
 # Query your custom model

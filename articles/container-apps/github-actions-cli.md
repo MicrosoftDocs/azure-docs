@@ -4,7 +4,7 @@ description: Learn to automatically create GitHub Actions workflow in Azure Cont
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: cshoe

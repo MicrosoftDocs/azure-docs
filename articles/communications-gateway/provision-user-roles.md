@@ -10,7 +10,7 @@ ms.date: 11/27/2023
 
 # Set up user roles for Azure Communications Gateway
 
-This article will guide you through how to configure the permissions required for staff in your organization to:
+This article guides you through how to configure the permissions required for staff in your organization to:
 
 - Deploy Azure Communications Gateway through the portal
 - Raise customer support requests (support tickets)
@@ -29,12 +29,12 @@ A list of all available defined Azure roles is available in [Azure built-in role
 
 Your staff might need different user roles, depending on the tasks they need to carry out.
 
-|Task  | Required user roles or access |
+|Task  | Minimum required user role or access |
 |---------|---------|
-| Deploying Azure Communications Gateway |**Contributor** access to your subscription|
+| Deploying Azure Communications Gateway or changing its configuration |**Contributor** access to the resource group|
 | Raising support requests |**Owner**, **Contributor** or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level|
-|Monitoring logs and metrics | **Reader** access to your subscription|
-| Using the Number Management Portal for Operator Connect or Teams Phone Mobile | **Reader** access to your subscription and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br> - To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**<br>- To configure your relationship to an enterprise (a _consent_) and numbers:  **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**|
+|Monitoring logs and metrics | **Reader** access to the Azure Communications Gateway resource|
+| Using the Number Management Portal for Operator Connect or Teams Phone Mobile | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br> - To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**<br>- To configure your relationship to an enterprise (a _consent_) and numbers:  **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**|
 
 > [!TIP]
 > To allow staff to  manage consents in the Number Management Portal without managing numbers, assign the **NumberManagement.Read**, **TrunkManagement.Read** and **PartnerSettings.Write** roles.
@@ -54,7 +54,7 @@ You need to use the Azure portal to configure user roles.
 ### Assign a user role
 
 1. Follow the steps in [Assign a user role using the Azure portal](../role-based-access-control/role-assignments-portal.md) to assign the permissions you determined in [Understand the user roles required for Azure Communications Gateway](#understand-the-user-roles-required-for-azure-communications-gateway).
-1. If you're managing access to the Number Management Portal, follow [Assign users and groups to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal?pivots=portal) to assign suitable roles for each user in the Project Synergy application.
+1. If you're managing access to the Number Management Portal, also follow [Assign users and groups to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal?pivots=portal) to assign suitable roles for each user in the Project Synergy application.
     <!-- Must be kept in sync with step 1 and with manage-enterprise-operator-connect.md  -->
     * To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**
     * To make changes to consents and numbers: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**

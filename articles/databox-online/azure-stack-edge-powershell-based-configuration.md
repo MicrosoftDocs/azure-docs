@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/08/2023
+ms.date: 12/21/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -555,7 +555,7 @@ Run the following cmdlets in PowerShell:
                                    "vSwitches":  [
                                                      {
                                                          "name":  "vSwitch1",
-                                                         "interfaceName":  "Port2",
+                                                         "interfaceName":  [ "Port2" ],
                                                          "enabledForCompute":  true,
                                                          "enabledForStorage":  false,
                                                          "enabledForMgmt":  true,
@@ -575,7 +575,7 @@ Run the following cmdlets in PowerShell:
                                                      },
                                                      {
                                                          "name":  "vSwitch2",
-                                                         "interfaceName":  "Port3",
+                                                         "interfaceName":  [ "Port3" ],
                                                          "enabledForCompute":  false,
                                                          "enabledForStorage":  true,
                                                          "enabledForMgmt":  false,
@@ -588,7 +588,7 @@ Run the following cmdlets in PowerShell:
                                                      },
                                                      {
                                                          "name":  "TestvSwitch",
-                                                         "interfaceName":  "Port5",
+                                                         "interfaceName":  [ "Port5" ],
                                                          "enabledForCompute":  false,
                                                          "enabledForStorage":  false,
                                                          "enabledForMgmt":  false,

@@ -5,7 +5,7 @@ author: vinnieangel
 ms.author: vangellotti
 ms.topic: quickstart
 ms.service: azure-education
-ms.date: 12/08/2023
+ms.date: 1/2/2024
 ms.custom: mode-other
 ---
 
@@ -19,7 +19,7 @@ This article describes the process for enrolling in Azure Dev Tools for Teaching
 1. Select the **Sign up** button. 
 1. Select **Enroll or Renew** on the Azure Dev Tools for Teaching banner.
 1. Select the type of subscription you're enrolling:
-    - Apply for a new subscription
+    - Apply for a new plan
  
     :::image type="content" source="media/enroll-renew-subscription/adt4t.png" alt-text="Screenshot of Sign in error message." border="false":::
 
@@ -29,19 +29,19 @@ This article describes the process for enrolling in Azure Dev Tools for Teaching
 
     :::image type="content" source="media/enroll-renew-subscription/adt4t-order.png" alt-text="Screenshot of Enter institution information." border="false":::
 
-4. Select the **Subscription Plan** and confirm the **Subscription Administrator** for the subscription. The email domain of the Subscription Administrator will enable students on the same domain to get easy access to download their software benefits.
+4. The plan name will be automatically populated and the duration will be set to 1 year. Please populate the **Plan Administrator** information and Department for the plan. You can also choose to enable Azure for Students for all students who sign up for the plan. Finally, include the Domain or Domains that are to be associated with the plan. This will enable students on the same domain to get easy access to download software benefits.
 
     :::image type="content" source="media/enroll-renew-subscription/adt4t-confirm.png" alt-text="Screenshot of Select subscription plan." border="false":::
     
-5. Confirm all enrollment information and click **Place Order**. Confirmation emails will be sent to your inbox, with updates on enrollment status and any possible next steps.
+5. Confirm all enrollment information and click **Confirm and Place Order**. Confirmation emails will be sent to your inbox, with updates on enrollment status and any possible next steps.
 
     :::image type="content" source="media/enroll-renew-subscription/adt4t-final-confirmation.png" alt-text="Screenshot of Confirm your order." border="false":::
 
 ## Renew an existing subscription
 
-Your subscription doesn't renew automatically. To see if it's time to renew, go to the 
+Your plan doesn't renew automatically. To see if it's time to renew, go to the 
 [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/Order) 
-and look under **Subscriptions**.
+and look under **Renew an existing plan**.
 
 Sixty days before your membership expires, you'll receive email reminders to renew your subscription. In a renewal email, you can select the [renewal link](https://azureforeducation.microsoft.com/Order).
 
@@ -49,15 +49,13 @@ You can complete the renewal process as early as 90 days before the expiration d
 
 1. Navigate to the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/Order).
 
-1. Select **Enroll or Renew** on the Azure Dev Tools for Teaching banner.
+1. Select **Renew an existing plan** on the Azure Dev Tools for Teaching banner.
 
-1. Select **Renew an existing subscription** on the Azure Dev Tools for Teaching banner.
+2. Search for your institution name and find the subscription ID you want to renew.
 
-1. Search for your institution name and find the subscription ID you want to renew.
+3. Select the **Plan** and confirm the **Administrator** for the subscription.
 
-1. Select the **Subscription Plan** and confirm the **Subscription Administrator** for the subscription.
-
-1. Confirm all enrollment information and click **Place Order**. Confirmation emails will be sent to your inbox with updates on enrollment status and any possible next steps.
+4. Confirm all enrollment information and click **Confirm and Place Order**. Confirmation emails will be sent to your inbox with updates on enrollment status and any possible next steps.
 
 
 ## Next steps

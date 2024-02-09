@@ -2,7 +2,6 @@
 title: Azure API Management - API version retirements (September 2023) | Microsoft Docs
 description: The Azure API Management service is retiring all API versions prior to 2021-08-01. If you use one of these API versions, you must update your tools, scripts, or programs to use the latest versions.
 services: api-management
-documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference

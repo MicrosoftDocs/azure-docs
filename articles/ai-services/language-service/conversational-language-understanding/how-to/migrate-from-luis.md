@@ -7,9 +7,9 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu
 ---
 
 # Migrate from Language Understanding (LUIS) to conversational language understanding (CLU)

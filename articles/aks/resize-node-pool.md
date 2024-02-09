@@ -2,7 +2,7 @@
 title: Resize node pools in Azure Kubernetes Service (AKS)
 description: Learn how to resize node pools for a cluster in Azure Kubernetes Service (AKS) by cordoning and draining.
 ms.topic: how-to
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 02/08/2023
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
 ---
@@ -66,14 +66,14 @@ kube-system   metrics-server-774f99dbf4-h52hn       1/1     Running   1         
 Use the [az aks nodepool add][az-aks-nodepool-add] command to create a new node pool called `mynodepool` with three nodes using the `Standard_DS3_v2` VM SKU:
 
 ```azurecli-interactive
-az aks nodepool add \ 
-    --resource-group myResourceGroup \ 
-    --cluster-name myAKSCluster \ 
-    --name mynodepool \ 
-    --node-count 3 \ 
-    --node-vm-size Standard_DS3_v2 \ 
-    --mode System \ 
-    --no-wait 
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --node-vm-size Standard_DS3_v2 \
+    --mode System \
+    --no-wait
 ```
 
 > [!NOTE]
@@ -240,9 +240,6 @@ By default, your cluster has AKS_managed pod disruption budgets (such as `coredn
 ### [Azure CLI](#tab/azure-cli)
 
 To delete the existing node pool, use the Azure portal or the [az aks nodepool delete][az-aks-nodepool-delete] command:
-
-> [!IMPORTANT]
-> When you delete a node pool, AKS doesn't perform cordon and drain. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting.
 
 ```azurecli-interactive
 az aks nodepool delete \

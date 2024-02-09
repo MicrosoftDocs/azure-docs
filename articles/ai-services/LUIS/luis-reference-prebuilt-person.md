@@ -6,11 +6,10 @@ description: This article contains personName prebuilt entity information in Lan
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 05/07/2019
+ms.date: 01/19/2024
 ---
 
 # PersonName prebuilt entity for a LUIS app

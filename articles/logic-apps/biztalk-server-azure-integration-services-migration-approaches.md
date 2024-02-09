@@ -8,8 +8,8 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/15/2022
-# As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Integration Services.
+ms.date: 01/04/2024
+# Customer intent: As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Integration Services.
 ---
 
 # Migration approaches for BizTalk Server to Azure Integration Services

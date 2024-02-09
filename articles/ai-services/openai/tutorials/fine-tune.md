@@ -258,14 +258,14 @@ for file in files:
 Processing file: training_set.jsonl
 
 #### Distribution of total tokens:
-min / max: 47, 57
-mean / median: 50.8, 50.0
-p5 / p95: 47.9, 55.2
+min / max: 47, 62
+mean / median: 52.1, 50.5
+p5 / p95: 47.9, 57.5
 
 #### Distribution of assistant tokens:
-min / max: 13, 21
-mean / median: 16.3, 15.5
-p5 / p95: 13.0, 20.1
+min / max: 13, 30
+mean / median: 17.6, 15.5
+p5 / p95: 13.0, 21.9
 **************************************************
 Processing file: validation_set.jsonl
 

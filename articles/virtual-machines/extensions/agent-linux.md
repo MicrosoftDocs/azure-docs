@@ -1,12 +1,12 @@
 ---
-title: Azure Linux VM Agent overview 
+title: Azure Linux VM Agent overview
 description: Learn how to install and configure the Azure Linux VM Agent (waagent) to manage your virtual machine's interaction with the Azure fabric controller.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
-ms.custom: GGAL-freshness822, devx-track-linux
+ms.custom: GGAL-freshness822, linux-related-content
 ms.collection: linux
 ms.date: 03/28/2023
 ---
@@ -103,9 +103,11 @@ Ensure that your VM has access to IP address 168.63.129.16. For more information
 
 ## Installation
 
-The preferred method of installing and upgrading the Azure Linux VM Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux VM Agent package into their images and repositories.
+The supported method of installing and upgrading the Azure Linux VM Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux VM Agent package into their images and repositories.
+Some Linux distributions might disable the Azure Linux VM Agent **Auto Update** feature and some of the repositories might also contain older versions, those might have issues with modern extensions so, we recommend to have the latest stable version installed.
+To make sure the Azure Linux VM Agent is updating properly we recommend having the option `AutoUpdate.Enabled=Y` in the `/etc/waagent.conf` file or simply commenting out that option will result in its defaults too. Having `AutoUpdate.Enabled=N` will not allow the Azure Linux VM Agent to update properly.
 
-For advanced installation options, such as installing from a source or to custom locations or prefixes, see [Microsoft Azure Linux VM Agent](https://github.com/Azure/WALinuxAgent).
+For advanced installation options, such as installing from a source or to custom locations or prefixes, see [Microsoft Azure Linux VM Agent](https://github.com/Azure/WALinuxAgent). Other than these scenarios, we do not support or recommend upgrading or reinstalling the Azure Linux VM Agent from source.
 
 ## Command-line options
 
@@ -122,7 +124,7 @@ For advanced installation options, such as installing from a source or to custom
   - `Nameserver` configuration in */etc/resolv.conf*.
   - The root password from */etc/shadow*, if `Provisioning.DeleteRootPassword` is `y` in the configuration file.
   - Cached DHCP client leases.
-  
+
   The client resets the host name to `localhost.localdomain`.
 
   > [!WARNING]
@@ -169,7 +171,7 @@ Configuration options are of three types: `Boolean`, `String`, or `Integer`. You
 ### Provisioning.Enabled
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: y
 ```
 
@@ -181,7 +183,7 @@ This option allows the user to enable or disable the provisioning functionality 
 ### Provisioning.DeleteRootPassword
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: n
 ```
 
@@ -190,7 +192,7 @@ If the value is `y`, the agent erases the root password in the */etc/shadow* fil
 ### Provisioning.RegenerateSshHostKeyPair
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: y
 ```
 
@@ -201,7 +203,7 @@ Configure the encryption type for the fresh key pair by using the `Provisioning.
 ### Provisioning.SshHostKeyPairType
 
 ```txt
-Type: String  
+Type: String
 Default: rsa
 ```
 
@@ -210,7 +212,7 @@ You can set this option to an encryption algorithm type that the SSH daemon supp
 ### Provisioning.MonitorHostName
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: y
 ```
 
@@ -219,7 +221,7 @@ If the value is `y`, waagent monitors the Linux VM for a host name change, as re
 ### Provisioning.DecodeCustomData
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: n
 ```
 
@@ -228,7 +230,7 @@ If the value is `y`, waagent decodes `CustomData` from Base64.
 ### Provisioning.ExecuteCustomData
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: n
 ```
 
@@ -246,21 +248,21 @@ This option allows the password for the system user to be reset. It's disabled b
 ### Provisioning.PasswordCryptId
 
 ```txt
-Type: String  
+Type: String
 Default: 6
 ```
 
 This option specifies the algorithm that `crypt` uses when it's generating a password hash. Valid values are:
 
-- `1`: MD5  
-- `2a`: Blowfish  
-- `5`: SHA-256  
-- `6`: SHA-512  
+- `1`: MD5
+- `2a`: Blowfish
+- `5`: SHA-256
+- `6`: SHA-512
 
 ### Provisioning.PasswordCryptSaltLength
 
 ```txt
-Type: String  
+Type: String
 Default: 10
 ```
 
@@ -269,7 +271,7 @@ This option specifies the length of random salt used in generating a password ha
 ### ResourceDisk.Format
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: y
 ```
 
@@ -278,7 +280,7 @@ If the value is `y`, waagent formats and mounts the resource disk that the platf
 ### ResourceDisk.Filesystem
 
 ```txt
-Type: String  
+Type: String
 Default: ext4
 ```
 
@@ -287,8 +289,8 @@ This option specifies the file system type for the resource disk. Supported valu
 ### ResourceDisk.MountPoint
 
 ```txt
-Type: String  
-Default: /mnt/resource 
+Type: String
+Default: /mnt/resource
 ```
 
 This option specifies the path at which the resource disk is mounted. The resource disk is a *temporary* disk and might be emptied when the VM is deprovisioned.
@@ -296,7 +298,7 @@ This option specifies the path at which the resource disk is mounted. The resour
 ### ResourceDisk.MountOptions
 
 ```txt
-Type: String  
+Type: String
 Default: None
 ```
 
@@ -305,7 +307,7 @@ This option specifies disk mount options to be passed to the `mount -o` command.
 ### ResourceDisk.EnableSwap
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: n
 ```
 
@@ -314,7 +316,7 @@ If you set this option, the agent creates a swap file (*/swapfile*) on the resou
 ### ResourceDisk.SwapSizeMB
 
 ```txt
-Type: Integer  
+Type: Integer
 Default: 0
 ```
 
@@ -323,7 +325,7 @@ This option specifies the size of the swap file in megabytes.
 ### Logs.Verbose
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: n
 ```
 
@@ -332,7 +334,7 @@ If you set this option, log verbosity is boosted. Waagent logs to */var/log/waag
 ### OS.EnableRDMA
 
 ```txt
-Type: Boolean  
+Type: Boolean
 Default: n
 ```
 
@@ -341,7 +343,7 @@ If you set this option, the agent attempts to install and then load an RDMA kern
 ### OS.RootDeviceScsiTimeout
 
 ```txt
-Type: Integer  
+Type: Integer
 Default: 300
 ```
 
@@ -350,7 +352,7 @@ This option configures the SCSI timeout in seconds on the OS disk and data drive
 ### OS.OpensslPath
 
 ```txt
-Type: String  
+Type: String
 Default: None
 ```
 
@@ -359,7 +361,7 @@ You can use this option to specify an alternate path for the *openssl* binary to
 ### HttpProxy.Host, HttpProxy.Port
 
 ```txt
-Type: String  
+Type: String
 Default: None
 ```
 
@@ -388,7 +390,7 @@ Ubuntu Cloud Images use [cloud-init](https://launchpad.net/ubuntu/+source/cloud-
 
 - `Provisioning.Enabled` defaults to `n` on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
 - The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
-  
+
   - `ResourceDisk.Format`
   - `ResourceDisk.Filesystem`
   - `ResourceDisk.MountPoint`
@@ -396,6 +398,6 @@ Ubuntu Cloud Images use [cloud-init](https://launchpad.net/ubuntu/+source/cloud-
   - `ResourceDisk.SwapSizeMB`
 
 To configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning, see the following resources:
-  
+
 - [Ubuntu wiki: AzureSwapPartitions](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
 - [Deploy applications to a Windows virtual machine in Azure with the Custom Script Extension](../windows/tutorial-automate-vm-deployment.md)

@@ -3,14 +3,15 @@ title: Configure vRealize Operations for Azure VMware Solution
 description: Learn how to set up vRealize Operations for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/18/2022
+ms.date: 12/20/2023
+ms.custom: engagement-fy23
 ---
 
 # Configure vRealize Operations for Azure VMware Solution
 
-vRealize Operations is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual) objects. Most VMware administrators have used vRealize Operations to monitor and manage the VMware private cloud components – vCenter Server, ESXi, NSX-T Data Center, vSAN, and VMware HCX. Each provisioned Azure VMware Solution private cloud includes a dedicated vCenter Server, NSX-T Data Center, vSAN, and HCX deployment.
+vRealize Operations is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual) objects. Most VMware administrators use vRealize Operations to monitor and manage the VMware private cloud components – vCenter Server, ESXi, NSX-T Data Center, vSAN, and VMware HCX. Each provisioned Azure VMware Solution private cloud includes a dedicated vCenter Server, NSX-T Data Center, vSAN, and HCX deployment.
 
-Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through the two typical deployment topologies:
+Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we walk you through the two typical deployment topologies:
 
 > [!div class="checklist"]
 > * [On-premises vRealize Operations managing Azure VMware Solution deployment](#on-premises-vrealize-operations-managing-azure-vmware-solution-deployment)
@@ -24,7 +25,7 @@ Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#pre
 ## Prerequisites
 * [vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) installed.
 * A VPN or an Azure ExpressRoute configured between on-premises and Azure VMware Solution SDDC.
-* An Azure VMware Solution private cloud has been deployed in Azure.
+* An Azure VMware Solution private cloud is deployed in Azure.
 
 ## On-premises vRealize Operations managing Azure VMware Solution deployment
 Most customers have an existing on-premises deployment of vRealize Operations to manage one or more on-premises vCenter Server domains. When they provision an Azure VMware Solution private cloud, they connect their on-premises environment with their private cloud using an Azure ExpressRoute or a Layer 3 VPN solution.
@@ -50,13 +51,13 @@ VMware vRealize Operations Cloud supports the Azure VMware Solution, including t
 - You can't sign in to vRealize Operations Manager using your Azure VMware Solution vCenter Server credentials.
 - Azure VMware Solution doesn't support the vRealize Operations Manager plugin.
 
-When you connect the Azure VMware Solution vCenter Server to vRealize Operations Manager using a vCenter Server Cloud Account, you'll see a warning:
+When you connect the Azure VMware Solution vCenter Server to vRealize Operations Manager using a vCenter Server Cloud Account, you see a warning:
 
-:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Screenshot showing a Warning message that states the adapter instance was created successfully.":::
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Screenshot shows a Warning message that states the adapter instance was created successfully.":::
 
-The warning occurs because the **cloudadmin@vsphere.local** user in Azure VMware Solution doesn't have sufficient privileges to do all vCenter Server actions required for registration. However, the privileges are sufficient for the adapter instance to do data collection, as seen below:
+The warning occurs because the **cloudadmin@vsphere.local** user in Azure VMware Solution doesn't have sufficient privileges to do all vCenter Server actions required for registration. However, the privileges are sufficient for the adapter instance to do data collection, as seen in the following example:
 
-:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Screenshot showing the adapter instance to collect data.":::
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Screenshot shows the adapter instance to collect data.":::
 
 For more information, see [Privileges Required for Configuring a vCenter Server Adapter Instance](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 

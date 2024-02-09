@@ -8,7 +8,7 @@ ms.date: 03/05/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-terraform
+ms.custom:
 ---
 
 # Configure the control plane

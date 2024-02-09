@@ -1,11 +1,10 @@
 ---
-title: Supported FHIR features in Azure - Azure API for FHIR 
+title: Supported FHIR features in Azure - Azure API for FHIR
 description: This article explains which features of the FHIR specification that are implemented in Azure API for FHIR
 services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 06/03/2022
 ms.author: kesheth
@@ -84,6 +83,8 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 * **Data size** - Data/Documents must each be slightly less than 2 MB.
 
 * **Subscription limit** - By default, each subscription is limited to a maximum of 10 FHIR server instances. If you need more instances per subscription, open a support ticket and provide details about your needs.
+
+* **Resource size** - Individual resource size including history should not exceed 20GB.
 
 ## Next steps
 

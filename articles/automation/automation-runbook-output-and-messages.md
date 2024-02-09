@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 08/28/2023
 ms.topic: conceptual 
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure runbook output and message streams

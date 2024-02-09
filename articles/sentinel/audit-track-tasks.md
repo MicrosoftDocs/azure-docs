@@ -15,10 +15,6 @@ Your analysts can see the list of tasks they need to perform for a particular in
 
 This article explains how you, as a SOC manager, can audit the history of Microsoft Sentinel incident tasks, and track the changes made to them throughout their life cycle, in order to gauge the efficacy of your task assignments and their contribution to your SOC's efficiency and proper functioning.
 
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Structure of Tasks array in the SecurityIncident table
 
 The *SecurityIncident* table is an audit table&mdash;it stores not the incidents themselves, but rather records of the life of an incident: its creation and any changes made to it. Any time an incident is created or a change is made to an incident, a record is generated in this table showing the now-current state of the incident.
@@ -81,7 +77,7 @@ Apart from the **Incident tasks workbook**, you can audit task activity by query
 1. Let's add a task to the incident, and then we'll come back here, run the query again, and see the changes in the results.
 
     1. On the **Incidents** page, enter the incident ID number in the Search bar.
-    1. Open the incident details page and select **Tasks (Preview)** from the toolbar.
+    1. Open the incident details page and select **Tasks** from the toolbar.
     1. Add a new task, give it the name "This task is a test task!", then select **Save**. The last task shown below is what you should end up with:
 
         :::image type="content" source="media/audit-track-tasks/incident-task-list-task-added.png" alt-text="Screenshot shows incident tasks panel.":::

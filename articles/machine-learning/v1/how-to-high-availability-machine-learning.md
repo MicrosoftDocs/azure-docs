@@ -5,7 +5,7 @@ description: Learn how to plan for disaster recovery and maintain business conti
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: UpdateFrequency5, event-tier1-build-2022
+ms.custom: UpdateFrequency5
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
@@ -206,4 +206,3 @@ Even if your workspace cannot be recovered, you may still be able to retrieve yo
 ## Next steps
 
 To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](../tutorial-create-secure-workspace-template.md).
-

@@ -2,15 +2,8 @@
 title: Add volumes for an SAP HANA system as a secondary database in HSR using Azure NetApp Files | Microsoft Docs
 description: Describes using application volume group to add volumes for an SAP HANA system as a secondary database in HANA System Replication (HSR).
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/19/2021
 ms.author: anfdocs
@@ -29,7 +22,7 @@ The HANA System Replication (HSR) functionality enables SAP HANA databases to sy
 
 The following diagram illustrates the concept of HSR: 
 
- ![Diagram that explains HANA System Replication.](../media/azure-netapp-files/application-hana-system-replication.png) 
+ ![Diagram that explains HANA System Replication.](./media/application-volume-group-add-volume-secondary/application-hana-system-replication.png) 
 
 
 To enable HSR, the configuration of the secondary SAP HANA system must be identical to the primary SAP HANA system. That is, if the primary system is a single-host HANA system, then the secondary SAP HANA system also needs to be a single-hosts system. The same applies for multiple host systems.
@@ -67,7 +60,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     Click **Next: Volume Group** to continue.
 
-    [ ![Screenshot that shows the HANA section in HSR configuration.](../media/azure-netapp-files/application-secondary-sap-hana.png) ](../media/azure-netapp-files/application-secondary-sap-hana.png#lightbox)
+    [ ![Screenshot that shows the HANA section in HSR configuration.](./media/application-volume-group-add-volume-secondary/application-secondary-sap-hana.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-sap-hana.png#lightbox)
 
 3.	In the **Volume group** tab, provide information for creating the volume group:  
 
@@ -98,19 +91,19 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     Click **Next: Volumes**.
 
-    [ ![Screenshot that shows the Tags section of the Volume Group tab.](../media/azure-netapp-files/application-secondary-volume-group-tags.png) ](../media/azure-netapp-files/application-secondary-volume-group-tags.png#lightbox)
+    [ ![Screenshot that shows the Tags section of the Volume Group tab.](./media/application-volume-group-add-volume-secondary/application-secondary-volume-group-tags.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volume-group-tags.png#lightbox)
 
 6. The **Volumes** tab displays information about the volumes that are being created.  
 
     The volume naming convention includes an `"HA-"` prefix to indicate that the volume belongs to the secondary system of an HSR setup.
 
-    [ ![Screenshot that shows the Volume Group tab.](../media/azure-netapp-files/application-secondary-volumes-tags.png) ](../media/azure-netapp-files/application-secondary-volumes-tags.png#lightbox)
+    [ ![Screenshot that shows the Volume Group tab.](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags.png#lightbox)
 
 7. In the **Volumes** tab, you can select each volume to view or change the volume details, including the protocol and tag for the volume.
 
     In the **Tags** section of a volume, you can populate the `HSRPartnerStorageResourceId` tag with the resource ID of the corresponding primary volume. This action only marks the primary volume; it does not validate the provided resource ID.
 
-    [ ![Screenshot that shows the tag details.](../media/azure-netapp-files/application-secondary-volumes-tag-details.png) ](../media/azure-netapp-files/application-secondary-volumes-tag-details.png#lightbox)
+    [ ![Screenshot that shows the tag details.](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tag-details.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tag-details.png#lightbox)
 
     Click **Volumes** to return to the Volumes overview page.  
 

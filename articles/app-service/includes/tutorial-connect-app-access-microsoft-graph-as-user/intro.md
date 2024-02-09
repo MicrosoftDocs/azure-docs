@@ -7,14 +7,14 @@ manager: CelesteDG
 
 ms.service: app-service
 ms.topic: include
-ms.workload: identity
 ms.date: 09/15/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: azureday1
-#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ms.subservice: web-apps
+#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 
 Learn how to access Microsoft Graph from a web app running on Azure App Service.

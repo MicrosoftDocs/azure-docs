@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 05/17/2022
-ms.custom: references_regions, language-service-custom-ner, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: references_regions, language-service-custom-ner
 ms.author: aahi
 ---
 

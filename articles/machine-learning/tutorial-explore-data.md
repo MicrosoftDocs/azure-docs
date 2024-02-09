@@ -27,6 +27,10 @@ In this tutorial you learn how to:
 
 The start of a machine learning project typically involves exploratory data analysis (EDA), data-preprocessing (cleaning, feature engineering), and the building of Machine Learning model prototypes to validate hypotheses. This _prototyping_ project phase is highly interactive. It lends itself to development in an IDE or a Jupyter notebook, with a _Python interactive console_. This tutorial describes these ideas.
 
+This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial. The video shows how to create a notebook, clone the notebook, create a compute instance, and download the data needed for the tutorial. The steps are also described in the following sections.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=514a29e2-0ae7-4a5d-a537-8f10681f5545]
+
 ## Prerequisites
 
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
@@ -56,13 +60,13 @@ For data ingestion, the Azure Data Explorer handles raw data in [these formats](
 1. The terminal window opens in a new tab. 
 1. Make sure you `cd` to the same folder where this notebook is located.  For example, if the notebook is in a folder named **get-started-notebooks**:
 
-    ```
+    ```bash
     cd get-started-notebooks    #  modify this to the path where your notebook is located
     ```
 
 1. Enter these commands in the terminal window to copy the data to your compute instance:
 
-    ```
+    ```bash
     mkdir data
     cd data                     # the sub-folder where you'll store the data
     wget https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv
@@ -175,7 +179,7 @@ An Azure Machine Learning datastore is a *reference* to an *existing* storage ac
 
 Pandas directly support URIs - this example shows how to read a CSV file from an Azure Machine Learning Datastore:
 
-```
+```python
 import pandas as pd
 
 df = pd.read_csv("azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/<filename>.csv")

@@ -26,7 +26,7 @@ The **TimeGenerated**  column contains the date and time that the record was cre
 **TimeGenerated** provides a common column to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses **TimeGenerated** to filter the results. 
 
 > [!NOTE]
-> Tables supporting classic Application Insights resources use the **timestamp** column instead of the **TimeGenerated** column.
+> Tables supporting classic Application Insights resources use the **Timestamp** column instead of the **TimeGenerated** column.
 
 > [!NOTE]
 > The **TimeGenerated** value cannot be older than 2 days before received time or more than a day in the future. If in some situation, the value is older than 2 days or more than a day in the future, it would be replaced with the actual recieved time.

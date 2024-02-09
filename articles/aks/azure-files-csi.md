@@ -2,8 +2,8 @@
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-linux
-ms.date: 11/30/2023
+ms.custom: linux-related-content
+ms.date: 01/11/2024
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -193,6 +193,8 @@ You can request a larger volume for a PVC. Edit the PVC object, and specify a la
 
 > [!NOTE]
 > A new PV is never created to satisfy the claim. Instead, an existing volume is resized.
+>
+> Shrinking persistent volumes is currently not supported.
 
 In AKS, the built-in `azurefile-csi` storage class already supports expansion, so use the [PVC created earlier with this storage class](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes). The PVC requested a 100 GiB file share. We can confirm that by running:
 
@@ -251,7 +253,7 @@ allowVolumeExpansion: true
 parameters:
   resourceGroup: <resourceGroup>
   storageAccount: <storageAccountName>
-  server: <storageAccountName>.file.core.windows.net 
+  server: <storageAccountName>.file.core.windows.net
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 mountOptions:
@@ -276,9 +278,9 @@ The output of the command resembles the following example:
 ```output
 storageclass.storage.k8s.io/private-azurefile-csi created
 ```
-  
+
 Create a file named `private-pvc.yaml`, and then paste the following example manifest in the file:
-  
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -292,9 +294,9 @@ spec:
     requests:
       storage: 100Gi
 ```
-  
+
 Create the PVC by using the [kubectl apply][kubectl-apply] command:
-  
+
 ```bash
 kubectl apply -f private-pvc.yaml
 ```

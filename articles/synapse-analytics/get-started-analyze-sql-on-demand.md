@@ -6,7 +6,6 @@ ms.author: saveenr
 ms.reviewer: sngun, wiassaf
 ms.service: synapse-analytics
 ms.subservice: sql
-ms.custom: 
 ms.topic: tutorial
 ms.date: 02/15/2023
 ---

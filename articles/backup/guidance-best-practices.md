@@ -133,7 +133,7 @@ Review the default settings for Storage Replication type and Security settings t
 
   * Geo-Redundant Storage (GRS) is recommended for mission-critical workloads, such as the ones running in production environment, to prevent permanent data loss, and protect it in case of complete regional outage or a disaster in which the primary region isn’t recoverable.
 
-* *Soft delete* by default is Enabled on newly created vaults to protect backup data from accidental or malicious deletes. Follow [these](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) steps to review and modify the settings.
+* *Soft delete* by default is Enabled on newly created vaults to protect backup data from accidental or malicious deletes. Follow [these](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete) steps to review and modify the settings.
 
 * *Cross Region Restore* allows you to restore Azure VMs in a secondary region, which is an Azure paired region. This option allows you to conduct drills to meet audit or compliance requirements, and to restore the VM or its disk if there's a disaster in the primary region. CRR is an opt-in feature for any GRS vault. [Learn more here](backup-create-rs-vault.md#set-cross-region-restore).
 

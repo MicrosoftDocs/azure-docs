@@ -3,7 +3,7 @@ title: Prepare Linux for imaging
 description: Learn how to prepare a Linux system to be used for an image in Azure.
 author: srijang
 ms.service: virtual-machines
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/14/2022
@@ -107,7 +107,7 @@ In this case, resize the VM by using either the Hyper-V Manager console or the [
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
     rounded_size=$(((($size+$MB-1)/$MB)*$MB))
-    
+
     echo "Rounded Size = $rounded_size"
     ```
 
@@ -209,10 +209,10 @@ Here are some considerations for using the Azure Linux Agent:
 
    ```bash
    cd /boot
-   sudo cp initramfs-<kernel-version>.img <kernel-version>.img.bak 
+   sudo cp initramfs-<kernel-version>.img <kernel-version>.img.bak
    sudo dracut -f -v initramfs-<kernel-version>.img <kernel-version> --add-drivers "hv_vmbus hv_netvsc hv_storvsc"
-   sudo grub-mkconfig -o /boot/grub/grub.cfg 
-   sudo grub2-mkconfig -o /boot/grub2/grub.cfg 
+   sudo grub-mkconfig -o /boot/grub/grub.cfg
+   sudo grub2-mkconfig -o /boot/grub2/grub.cfg
    ```
 
    Add the Hyper-V module for initrd by using `mkinitramfs`:
@@ -221,7 +221,7 @@ Here are some considerations for using the Azure Linux Agent:
    cd /boot
    sudo cp initrd.img-<kernel-version>  initrd.img-<kernel-version>.bak
    sudo mkinitramfs -o initrd.img-<kernel-version> <kernel-version>  --with=hv_vmbus,hv_netvsc,hv_storvsc
-   sudo update-grub 
+   sudo update-grub
    ```
 
 4. Ensure that the SSH server is installed and configured to start at boot time. This configuration is usually the default.
@@ -376,7 +376,7 @@ Here are some considerations for using the Azure Linux Agent:
    sudo waagent -force -deprovision+user
    sudo rm -f ~/.bash_history
    sudo export HISTSIZE=0
-   ```  
+   ```
 
    On VirtualBox, you might see an error message after you run `waagent -force -deprovision` that says `[Errno 5] Input/output error`. This error message is not critical, and you can ignore it.
 

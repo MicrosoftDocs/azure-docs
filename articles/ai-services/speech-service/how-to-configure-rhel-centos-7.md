@@ -6,7 +6,7 @@ author: pankopon
 manager: jhakulin
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 1/18/2024
 ms.author: pankopon
 ---
 
@@ -48,7 +48,7 @@ make -j$(nproc)
 sudo make install-strip
 ```
 
-If the updated compiler and libraries need to be deployed on several machines, you can simply copy them from under `/usr/local` to other machines. If only the runtime libraries are needed then the files in `/usr/local/lib64` will be enough.
+If the updated compiler and libraries need to be deployed on several machines, you can copy them from under `/usr/local` to other machines. If only the runtime libraries are needed, then the files in `/usr/local/lib64` are enough.
 
 ## Environment settings
 

@@ -13,14 +13,23 @@
       href: concepts-compute.md
     - name: Storage overview
       href: concepts-storage.md
-    - name: Network Fabric overview
-      href: concepts-network-fabric.md
+    - name: Network Fabric
+      expanded: false
+      items:
+        - name: Network Fabric overview
+          href: concepts-network-fabric.md
+        - name: Network Fabric Controller
+          href: concepts-network-fabric-controller.md
+        - name: Network Fabric Services
+          href: concepts-network-fabric-services.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
       href: concepts-observability.md 
     - name: Security
       href: concepts-security.md
+    - name: Control Plane Resiliency
+      href: concepts-rack-resiliency.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -77,6 +86,10 @@
                   href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
+                - name: Credential Rotation
+                  href: howto-credential-rotation.md
+                - name: Service Principal Rotation
+                  href: howto-service-principal-rotation.md
         - name: Network Fabric
           expanded: false
           items:
@@ -107,6 +120,8 @@
           href: howto-kubernetes-cluster-action-restart.md
         - name: Customize cluster DNS
           href: how-to-customize-kubernetes-cluster-dns.md
+        - name: Customize Worker Nodes
+          href: howto-kubernetes-cluster-customize-workers.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -150,6 +165,10 @@
       href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
+    - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
+      href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
+    - name: Troubleshoot Hardware Validation Failure
+      href: troubleshoot-hardware-validation-failure.md
     - name: Enable node down cleaner
       href: troubleshoot-enable-node-down-cleaner.md
     - name: BareMetal Actions
@@ -165,6 +184,8 @@
           href: howto-baremetal-run-read.md
         - name: BareMetal Run-Data-Extract Execution
           href: howto-baremetal-run-data-extract.md
+    - name: Troubleshoot Control Plane Quorum
+      href: troubleshoot-control-plane-quorum.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference
@@ -176,6 +197,8 @@
           href: reference-nexus-kubernetes-cluster-sku.md
         - name: Supported Kubernetes versions
           href: reference-nexus-kubernetes-cluster-supported-versions.md
+    - name: Platform Cluster runtime versioning
+      href: reference-nexus-platform-runtime-upgrades.md
     - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected

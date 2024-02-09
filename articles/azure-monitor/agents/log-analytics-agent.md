@@ -75,7 +75,7 @@ This section explains how to install the Log Analytics agent on different types 
 
 ## Data collected
 
-The following table lists the types of data you can configure a Log Analytics workspace to collect from all connected agents. For a list of insights and solutions that use the Log Analytics agent to collect other kinds of data, see [What is monitored by Azure Monitor?](../monitor-reference.md).
+The following table lists the types of data you can configure a Log Analytics workspace to collect from all connected agents. 
 
 | Data Source | Description |
 | --- | --- |

@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: conceptual
 ms.date: 10/19/2023
 ms.author: rogarana
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ---
 
 # Scale targets for Elastic SAN Preview
@@ -40,11 +40,11 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 |Resource  |France Central   |Southeast Asia |Australia East |North Europe | West Europe | UK South | East US | East US 2 | South Central US| West US 2   | West US 3 | Sweden Central |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |5        |5        |5        |5        |5        |5        | 5 | 5|5|
-|Maximum total capacity (TiB)     |100         |100         |600        |600|600|600|        |600        |600        |600        | 100 | 100 |
-|Maximum base capacity (TiB)    |100         |100         |400        |400 | 400|400       |400        |400        |400        |400        | 100 |100 |
-|Minimum total capacity (TiB)    |1         |1         |1        |1        |1        |1        |1        |1        | 1 | 1 | 1 |1|
+|Maximum capacity units (TiB)     |100         |100         |600        |600|600|600|   600     |600        |600        |600        | 100 | 100 |
+|Maximum base capacity units (TiB)    |100         |100         |400        |400 | 400|400       |400        |400        |400        |400        | 100 |100 |
+|Minimum total SAN capacity (TiB)    |1         |1         |1        |1        |1        |1        |1        |1        | 1 | 1 | 1 |1|
 |Maximum total IOPS     |500,000         |500,000         |2,000,000        |2,000,000|2,000,000   |2,000,000        |2,000,000        |2,000,000        |2,000,000        |2,000,000        | 500,000 |500,000 |
-|Maximum total throughput (MB/s)    |8,000         |8,000         |32,000        |32,000 |32,000|32,000        |32,000        |32,000        |32,000        |32,000        | 8,000|8,000|
+|Maximum total throughput (MB/s)    |20,000         |20,000         |80,000        |80,000 |80,000|80,000        |80,000        |80,000        |80,000        |80,000        | 20,000|20,000|
 
 
 #### ZRS
@@ -54,14 +54,16 @@ ZRS is only available in France Central, North Europe, West Europe and West US 2
 |Resource  |France Central  |North Europe | West Europe |West US 2    |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5        |5        |5        |
-|Maximum total capacity (TiB)     |200         |200        |200        |200        |
-|Maximum base capacity (TiB)    |100         |100        |100        |100        |
-|Minimum total capacity (TiB)    |1         |1        |1        |1        |
+|Maximum capacity units (TiB)     |200         |200        |200        |200        |
+|Maximum base capacity units (TiB)    |100         |100        |100        |100        |
+|Minimum total SAN capacity (TiB)    |1         |1        |1        |1        |
 |Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |
-|Maximum total throughput (MB/s)    |8,000         |8,000        |8,000        |8,000        |
+|Maximum total throughput (MB/s)    |20,000         |20,000        |20,000        |20,000        |
 
-#### Quota Increases
+#### Quota and Capacity Increases
 To increase quota, raise a support ticket with the subscription ID and region information to request for an increase in quota for the “Maximum number of Elastic SAN that can be deployed per subscription per region”.
+
+For capacity increase requests, please raise a support ticket with the subscription ID and the region information and it will be evaluated.
 
 ## Volume group
 

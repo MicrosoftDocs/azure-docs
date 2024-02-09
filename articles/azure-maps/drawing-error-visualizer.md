@@ -95,7 +95,7 @@ Learn more by reading:
 > [Creator for indoor maps]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Conversion API]: /rest/api/maps/v2/conversion
+[Azure Maps Conversion API]: /rest/api/maps-creator/conversion
 [Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator resource]: how-to-manage-creator.md

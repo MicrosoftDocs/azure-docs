@@ -1,6 +1,6 @@
 ---
-title: "Migrate Azure Database for MySQL - Single Server to Flexible Server using Azure MySQL Import CLI"
-description: This tutorial describes how to use the Azure MySQL Import CLI to migrate an Azure Database for MySQL Single Server to Flexible Server.
+title: "Migrate Azure Database for MySQL - Single Server to Flexible Server using Azure Database for MySQL Import CLI"
+description: This tutorial describes how to use the Azure Database for MySQL Import CLI to migrate an Azure Database for MySQL Single Server to Flexible Server.
 author: adig
 ms.author: adig
 ms.reviewer: maghan
@@ -14,17 +14,17 @@ ms.custom:
   - mode-api
 ms.devlang: azurecli
 ---
-# Migrate Azure Database for MySQL - Single Server to Flexible Server using Azure MySQL Import CLI
+# Migrate Azure Database for MySQL - Single Server to Flexible Server using Azure Database for MySQL Import CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-Azure MySQL Import (Generally Available) enables you to migrate your Azure Database for MySQL seamlessly - Single Server to Flexible Server. It uses snapshot backup and restores technology to offer a simple and fast migration path to restore the source server's physical data files to the target server. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
+Azure Database for MySQL Import CLI (Generally Available) enables you to migrate your Azure Database for MySQL seamlessly - Single Server to Flexible Server. It uses snapshot backup and restores technology to offer a simple and fast migration path to restore the source server's physical data files to the target server. Post import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
  Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then taking the backup of the source server and restoring the target. It copies the data files, server parameters, compatible firewall rules and server properties - tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password from Single to Flexible Server instance.
 
-Azure MySQL Import supports a near-zero downtime migration by first performing an offline import operation and consequently users can set up data-in replication between source and target to perform an online migration.
+Azure Database for MySQL Import CLI supports a near-zero downtime migration by first performing an offline import operation and consequently users can set up data-in replication between source and target to perform an online migration.
 
-This tutorial shows how to use the Azure MySQL Import CLI command to migrate your Azure Database for MySQL Single Server to Flexible Server.
+This tutorial shows how to use the Azure Database for MySQL Import CLI command to migrate your Azure Database for MySQL Single Server to Flexible Server.
 
 ## Launch Azure Cloud Shell
 
@@ -51,23 +51,23 @@ az account set --subscription <subscription id>
 ## Limitations and pre-requisites
 
 - If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
-- The source Azure Database for MySQL - Single Server and the target Azure Database for MySQL - Flexible Server must be in the same subscription, resource group, region, and on the same MySQL version. MySQL Import across subscriptions, resource groups, regions, and versions isn't possible.
-- MySQL versions supported by Azure MySQL Import are 5.7 and 8.0. If you are on a different major MySQL version on Single Server, make sure to upgrade your version on your Single Server instance before triggering the import command.
-- If the Azure Database for MySQL - Single Server instance has server parameter 'lower_case_table_names' set to 2 and your application used partition tables, MySQL Import will result in corrupted partition tables. The recommendation is to set 'lower_case_table_names' to 1 for your Azure Database for MySQL - Single Server instance in order to proceed with corruption-free MySQL Import operation.
-- MySQL Import for Single Servers with Legacy Storage architecture (General Purpose storage V1) isn't supported. You must upgrade your storage to the latest storage architecture (General Purpose storage V2) to trigger a MySQL Import operation. Find your storage type and upgrade steps by following directions [here](../single-server/concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on).
-- MySQL Import to an existing Azure MySQL Flexible Server isn't supported. The CLI command initiates the import of a new Azure MySQL Flexible Server.
+- The source Azure Database for MySQL - Single Server and the target Azure Database for MySQL - Flexible Server must be in the same subscription, resource group, region, and on the same MySQL version. Import across subscriptions, resource groups, regions, and versions isn't possible.
+- MySQL versions supported by Azure Database for MySQL Import CLI are 5.7 and 8.0. If you are on a different major MySQL version on Single Server, make sure to upgrade your version on your Single Server instance before triggering the import command.
+- If the Azure Database for MySQL - Single Server instance has server parameter 'lower_case_table_names' set to 2 and your application used partition tables, Import operation will result in corrupted partition tables. The recommendation is to set 'lower_case_table_names' to 1 for your Azure Database for MySQL - Single Server instance in order to proceed with corruption-free MySQL Import operation.
+- Import operation for Single Servers with Legacy Storage architecture (General Purpose storage V1) isn't supported. You must upgrade your storage to the latest storage architecture (General Purpose storage V2) to trigger an Import operation. Find your storage type and upgrade steps by following directions [here](../single-server/concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on).
+- Import to an existing Azure MySQL Flexible Server isn't supported. The CLI command initiates the import of a new Azure MySQL Flexible Server.
 - If the flexible target server is provisioned as non-HA (High Availability disabled) when updating the CLI command parameters, it can later be switched to Same-Zone HA but not Zone-Redundant HA.
-- For CMK enabled Single Server instances, MySQL Import command requires you to provide mandatory input parameters for enabling CMK on target Flexible Server.
-- If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with MySQL Import CLI input parameters or post migration as well.
+- For CMK enabled Single Server instances, Azure Database for MySQL Import command requires you to provide mandatory input parameters for enabling CMK on target Flexible Server.
+- If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with Azure Database for MySQL Import CLI input parameters or post migration as well.
 - Only instance-level import is supported. No option to import selected databases within an instance is provided.
-- Below items should be copied from source to target by the user post MySQL Import operation:
+- Below items should be copied from source to target by the user post the Import operation:
   - Read-Replicas
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
   - Any Terraform/CLI scripts hosted by you to manage your Single Server instance should be updated with Flexible Server references
 
-## Trigger a MySQL Import operation to migrate from Azure Database for MySQL - Single Server to Flexible Server
+## Trigger an Azure Database for MySQL Import operation to migrate from Azure Database for MySQL - Single Server to Flexible Server
 
-Trigger a MySQL Import operation with the `az mysql flexible-server import create` command. The following command creates a target Flexible Server and performs instance-level import from source to target destination using service defaults and values from your Azure CLI's local context:
+Trigger an Azure Database for MySQL Import operation with the `az mysql flexible-server import create` command. The following command creates a target Flexible Server and performs instance-level import from source to target destination using service defaults and values from your Azure CLI's local context:
 
 ```azurecli
 az mysql flexible-server import create --data-source-type
@@ -104,7 +104,7 @@ az mysql flexible-server import create --data-source-type
                                 [--zone]
 ```
 
-The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target. MySQL Import command maps over the corresponding tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password  properties from Single Server to Flexible Server as smart defaults if no inputs are provided to the CLI command. You can chose to override the smart defaults by providing inputs for these optional parameters.
+The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target. Azure Database MySQL Import command maps over the corresponding tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password  properties from Single Server to Flexible Server as smart defaults if no inputs are provided to the CLI command. You can chose to override the smart defaults by providing inputs for these optional parameters.
 
 ```azurecli-interactive
 az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server"
@@ -126,7 +126,7 @@ az network private-dns zone create -g testGroup -n myserver.private.contoso.com
 az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server" --high-availability ZoneRedundant --zone 1 --standby-zone 3  --vnet "myVnet" --subnet "mySubnet" --private-dns-zone "myserver.private.contoso.com"
 ```
 
-The following example takes in the data source information for Single Server named 'test-single-server' with Customer Managed Key (CMK) enabled and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` and performs an import from source to target. For CMK enabled Single Server instances, MySQL Import command requires you to provide mandatory input parameters for enabling CMK : --key keyIdentifierOfTestKey --identity testIdentity.
+The following example takes in the data source information for Single Server named 'test-single-server' with Customer Managed Key (CMK) enabled and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` and performs an import from source to target. For CMK enabled Single Server instances, Azure Database for MySQL Import command requires you to provide mandatory input parameters for enabling CMK : --key keyIdentifierOfTestKey --identity testIdentity.
 
 ```azurecli-interactive
 # create keyvault
@@ -145,7 +145,7 @@ identityPrincipalId=$(az identity create -g testGroup --name testIdentity \
 az keyvault set-policy -g testGroup -n testVault --object-id $identityPrincipalId \
   --key-permissions wrapKey unwrapKey get list
 
-# trigger mysql import for CMK enabled single server
+# trigger azure database for mysql import for CMK enabled single server
 az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server" --key $keyIdentifier --identity testIdentity
 ```
 
@@ -153,10 +153,10 @@ Here are the details for the arguments above:
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-data-source-type | mysql_single | The type of data source that serves as the source destination for triggering MySQL Import. Accepted values: [mysql_single]. Description of accepted values- mysql_single: Azure Database for MySQL Single Server.
+data-source-type | mysql_single | The type of data source that serves as the source destination for triggering Azure Database for MySQL Import. Accepted values: [mysql_single]. Description of accepted values- mysql_single: Azure Database for MySQL Single Server.
 data-source | test-single-server | The name or resource ID of the source Azure Database for MySQL Single Server.
 resource-group | test-rg | The name of the Azure resource group of the source Azure Database for MySQL Single Server.
-mode | Offline | The mode of MySQL import. Accepted values: [Offline]; Default value: Offline.
+mode | Offline | The mode of Azure Database for MySQL import. Accepted values: [Offline]; Default value: Offline.
 location | westus | The Azure location for the source Azure Database for MySQL Single Server.
 name | test-flexible-server | Enter a unique name for your target Azure Database for MySQL Flexible Server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters. Note: This server is deployed in the same subscription, resource group, and region as the source.
 admin-user | adminuser | The username for the administrator sign-in for your target Azure Database for MySQL Flexible Server. It can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
@@ -180,9 +180,9 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 ## Steps for online migration
 
-After completing the above-stated MySQL Import operation :
+After completing the above-stated Azure Database for MySQL Import operation :
 
-- Log in to the target Azure Database for MySQL Flexible Server and run the following command to get the bin-log filename and position corresponding to the backup snapshot used by Azure MySQL Import to restore to the target server.
+- Log in to the target Azure Database for MySQL Flexible Server and run the following command to get the bin-log filename and position corresponding to the backup snapshot used by Azure Database for MySQL Import CLI to restore to the target server.
 
 ```sql
 CALL mysql.az_show_binlog_file_and_pos_for_mysql_import();
@@ -190,9 +190,9 @@ CALL mysql.az_show_binlog_file_and_pos_for_mysql_import();
 
 - Set up data-in replication between the source and target server instances using bin-log position by following steps listed [here](../flexible-server/how-to-data-in-replication.md) and when replication status reflects that the target server has caught up with the source, stop replication and perform cutover.
 
-## Best practices for configuring Azure MySQL Import CLI command parameters
+## Best practices for configuring Azure Database for MySQL Import CLI command parameters
 
- Before you trigger the Azure MySQL Import command, consider the following parameter configuration guidance to help ensure faster data loads using Azure MySQL Import.
+ Before you trigger the Azure Database for MySQL Import CLI command, consider the following parameter configuration guidance to help ensure faster data loads using Azure Database for MySQL Import CLI.
 
 - If you want to override smart defaults, select the compute tier and SKU name for the target flexible server based on the source single server’s pricing tier and VCores based on the detail in the following table.
 
@@ -212,13 +212,13 @@ CALL mysql.az_show_binlog_file_and_pos_for_mysql_import();
 
 - The MySQL version, region, subscription and resource for the target flexible server must be equal to that of the source single server.
 - The storage size for target flexible server should be equal to or greater than on the source single server.
-- If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with MySQL Import CLI input parameters or post migration as well.
+- If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with Azure Database for MySQL Import CLI input parameters or post migration as well.
 
-## How long does MySQL Import take to migrate my Single Server instance?
+## How long does Azure Database for MySQL Import take to migrate my Single Server instance?
 
 Below is the benchmarked performance based on storage size.
 
-  | Single Server Storage Size | MySQL Import time |
+  | Single Server Storage Size | Import time |
   | ------------- |:-------------:|
   | 1 GiB | 0 min 23 secs |
   | 10 GiB | 4 min 24 secs |
@@ -231,7 +231,7 @@ From the table above, as the storage size increases, the time required for data 
 
 Below is the benchmarked performance based on varying number of tables for 10 GiB storage size.
 
-  | Number of tables in Single Server instance | MySQL Import time |
+  | Number of tables in Single Server instance | Import time |
   | ------------- | :-------------: |
   | 100 | 4 min 24 secs |
   | 200 | 4 min 40 secs |
@@ -240,11 +240,11 @@ Below is the benchmarked performance based on varying number of tables for 10 Gi
   | 28,800 | 19 min 18 secs |
   | 38,400 | 22 min 50 secs |
   
- As the number of files increases, each file/table in the database may become very small. This will result in a consistent amount of data being transferred, but there will be more frequent file-related operations, which may impact the performance of Mysql Import.
+ As the number of files increases, each file/table in the database may become very small. This will result in a consistent amount of data being transferred, but there will be more frequent file-related operations, which may impact the performance of Azure Database for Mysql Import.
 
 ## Post-import steps
 
-- Copy the following properties from the source Single Server to target Flexible Server post MySQL Import operation is completed successfully:
+- Copy the following properties from the source Single Server to target Flexible Server post Azure Database for MySQL Import operation is completed successfully:
   - Read-Replicas
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
   - Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.

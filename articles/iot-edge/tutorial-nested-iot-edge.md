@@ -7,6 +7,7 @@ ms.author: patricka
 ms.date: 05/10/2023
 ms.topic: tutorial
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
 content_well_notification: 
   - AI-contribution

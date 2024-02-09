@@ -189,5 +189,5 @@ With [Azure Monitor managed service for Prometheus](../essentials/prometheus-met
 
 ## Next steps
 
- - [Get started with Azure Workbooks](workbooks-getting-started.md)
+ - [Get started with Azure Workbooks](workbooks-overview.md)
  - [Create an Azure workbook](workbooks-create-workbook.md)

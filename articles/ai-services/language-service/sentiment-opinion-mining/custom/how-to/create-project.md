@@ -7,9 +7,9 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021, event-tier1-build-2022
+ms.custom: language-service-custom-classification, references_regions
 ---
 
 # How to create Custom sentiment analysis project

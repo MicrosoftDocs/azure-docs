@@ -7,7 +7,7 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 02/16/2023
 ms.author: franlanglois
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, engagement-fy23
+ms.custom: mvc, devx-track-js, mode-api, engagement-fy23
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis in Node.js

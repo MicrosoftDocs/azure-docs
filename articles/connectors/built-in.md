@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: engagement-fy23
-ms.date: 09/14/2022
+ms.date: 01/04/2024
 ---
 
 # Built-in connectors in Azure Logic Apps

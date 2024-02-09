@@ -7,8 +7,9 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: reference
-ms.date: 01/12/2021
-ms.devlang: csharp, javascript
+ms.date: 01/19/2024
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
 ---
 

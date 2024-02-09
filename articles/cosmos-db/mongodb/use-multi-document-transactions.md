@@ -1,6 +1,6 @@
 ---
 title: Use multi-document transactions in Azure Cosmos DB for MongoDB
-description: Learn how to create a sample Mongo shell app that can execute a multi-document transaction (all-or-nothing semantic) on a fixed collection in Azure Cosmos DB for MongoDB 4.0. 
+description: Learn how to create a sample Mongo shell app that can execute a multi-document transaction (all-or-nothing semantic) on a fixed collection in Azure Cosmos DB for MongoDB 4.0.
 author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: mongodb
@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
 ms.devlang: javascript
-ms.custom: ignite-2022
 ---
 
 # Use Multi-document transactions in Azure Cosmos DB for MongoDB
