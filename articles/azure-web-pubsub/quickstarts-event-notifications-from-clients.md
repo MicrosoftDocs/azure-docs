@@ -55,8 +55,7 @@ A client can have a few ways to obtain the Client Access URL. For this quick sta
 Create a file with name `client.js` and add the following code
 
 ```javascript
-import { WebPubSubClient } from "@azure/web-pubsub-client";
-
+const { WebPubSubClient } = require("@azure/web-pubsub-client");
 // Instantiates the client object 
 // <client-access-url> is copied from Azure portal mentioned above.
 const client = new WebPubSubClient("<client-access-url>");
@@ -88,7 +87,7 @@ npm install --save @azure/web-pubsub-express
 #### 2. Create a new file named "server.js" that sets up an empty express app
 
 ```javascript
-import express from "express";
+const express = require("express");
 
 const app = express();
 
@@ -104,8 +103,8 @@ With Web PubSub, when there are certain activities happening at the client side 
 - when a client sends a message to your Web PubSub resource, you can persist the message in a database of your choice
 
 ```javascript
-import express from "express";
-import { WebPubSubEventHandler } from ('@azure/web-pubsub-express');
+const express = require("express");
+const { WebPubSubEventHandler } = require("@azure/web-pubsub-express");
 
 const app = express();
 
@@ -131,23 +130,22 @@ As configured in the code above, when a client connects with your Web PubSub res
 ## Expose localhost
 Run the program, it should be running on `localhost` at port `8080`. For our purposes, it means your local express app can't be reached on the internet. So, Web PubSub can't invoke the Webhook served at the path `/eventhandler`.
 
-What we need is to expose localhost to be accessible on the internet. There are several tools available for this. 
-> [!div class="checklist"]
-> * [ngrok](https://ngrok.com)
-> * [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay)
+There are two ways to route the traffic to your localhost, one is to expose localhost to be accessible on the internet using tools such as [ngrok](https://ngrok.com) and [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay). Another way, and also the recommended way is to use [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) to tunnel the traffic from Web PubSub service through the tool to your local server.
 
-# [ngrok](#tab/ngrok)
+# [awps-tunnel](#tab/awps-tunnel)
 
-#### 1. Download and install ngrok 
-You can download ngrok from https://ngrok.com/download
+#### 1. Download and install awps-tunnel
+The tool runs on [Node.js](https://nodejs.org/) version 16 or higher.
 
-#### 2. Start ngrok and expose port 8080
 ```bash
-ngrok http 8080
+npm install -g @azure/web-pubsub-tunnel-tool
 ```
-#### 3. Make note of the generated URL 
-"ngrok" outputs a URL like this `https://<domain-name>.ngrok.io`. Now your port `8080` is accessible on the internet.
 
+#### 2. Use the service connection string and run
+```bash
+export WebPubSubConnectionString="<your connection string>"
+awps-tunnel run --hub myHub1 --upstream http://localhost:8080
+```
 ---
 
 ## Set event handler on your Web PubSub resource
@@ -159,7 +157,7 @@ Now, we need to let your Web PubSub resource know about this Webhook URL. You ca
 
 1. Enter a hub name. For our purposes, enter "**myHub1**" and select "**Add**"
 
-1. In the event handler page, configure the following fields
+1. In the event handler page, configure the following fields, when using `awps-tunnel` tool, the URL template uses `tunnel` scheme followed by the path: `tunnel:///eventhandler`
 :::image type="content" source="media/quickstarts-event-notifications-from-clients/configure-event-handler-details.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - details.":::
 
 1. Save configuration
@@ -177,8 +175,6 @@ az webpubsub hub update --group "<your-resource-group-name>" --name "<your-uniqu
 ## Run the programs
 # [JavaScript](#tab/javascript)
 #### Start the application server
-> [!Important]
-> Make sure your localhost is exposed to the internet.
 
 ```bash
 node server.js

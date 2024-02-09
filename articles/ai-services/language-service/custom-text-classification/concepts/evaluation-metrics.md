@@ -2,7 +2,7 @@
 title: Custom text classification evaluation metrics
 titleSuffix: Azure AI services
 description: Learn about evaluation metrics in custom text classification.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

@@ -2,7 +2,7 @@
 title: "Quickstart: Use the OpenAI Service via PowerShell"
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with PowerShell.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -117,7 +117,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 1. Run the script using PowerShell:
 
-   ```powershell
+   ```powershell-interactive
    ./quickstart.ps1
    ```
 
@@ -125,7 +125,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 The output will include response text following the `Once upon a time` prompt. Azure OpenAI returned `There was a world beyond the mist...where a` in this example.
 
-```powershell
+```output
 Once upon a time...
  There was a world beyond the mist...where a
 ```

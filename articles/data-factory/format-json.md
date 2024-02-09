@@ -441,7 +441,7 @@ Here are some common connectors and formats related to the JSON format:
 - OData connector(connector-odata.md)
 - Parquet format(format-parquet.md)
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)

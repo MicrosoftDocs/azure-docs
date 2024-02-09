@@ -980,7 +980,7 @@ project_table    2017-10-01 00:00:00.000
 
 Notice that the watermark values for both tables were updated.
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

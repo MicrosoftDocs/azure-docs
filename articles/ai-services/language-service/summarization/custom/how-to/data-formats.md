@@ -2,7 +2,7 @@
 title: Prepare data for custom summarization
 titleSuffix: Azure AI services
 description: Learn about how to select and prepare data, to be successful in creating custom summarization projects.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language

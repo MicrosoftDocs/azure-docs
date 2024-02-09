@@ -58,7 +58,9 @@ The filter and group by functionalities are designed to work in tandem. They pro
 ---
 
 ## Query properties
-Each query has multiple properties that help you group and find them. These properties are available for sorting and filtering. You can define several of them when you [save your own query](save-query.md). The types of properties are:
+Each query has multiple properties that help you group and find them. These properties are available for sorting and filtering. For more information, see [Find and filter queries](#find-and-filter-queries).
+
+You can define several of them when you [save your own query](save-query.md). The types of properties are:
 
 | Query property | Description |
 | :--- | :--- |
@@ -70,6 +72,12 @@ Each query has multiple properties that help you group and find them. These prop
 | Labels | Custom labels that you can define and assign when you [save your own query](save-query.md). |
 | Tags | Custom properties that you can define when you [create a query pack](query-packs.md). You can use tags to create your own taxonomies for organizing queries. |
 
+### View query properties
+
+From the **Queries** pane on the left sidebar of Log Analytics, hover over a query name to see its properties.
+
+:::image type="content" source="media/queries/query-properties.png" lightbox="media/queries/query-properties.png" alt-text="Screenshot that shows the query properties for a query.":::
+
 ## Favorites
 You can identify frequently used queries as favorites to give you quicker access. Select the star next to the query to add it to **Favorites**. View your favorite queries from the **Favorites** option in the query interface.
 
@@ -79,7 +87,7 @@ The query interface is populated with the following types of queries:
 | Type | Description |
 | :--- | :--- |
 | Example queries | Example queries can provide instant insight into a resource and offer a way to start learning and using Kusto Query Language (KQL). They can help you shorten the time it takes to start using Log Analytics. We've collected and curated more than 500 example queries to provide you with instant value. The number of example queries is continually growing. |
-| Query packs | A [query pack](query-packs.md) holds a collection of log queries. Queries that you save yourself, the [default query pack](query-packs.md#default-query-pack), and query packs that your organization might have created in the subscription are included. |
+| Query packs | A [query pack](query-packs.md) holds a collection of log queries. Queries that you save yourself, the [default query pack](query-packs.md#default-query-pack), and query packs that your organization might have created in the subscription are included. To view and manage query packs, see [View query packs](./query-packs.md#view-query-packs). To add query packs to your Log Analytics workspace. see [Use multiple query packs](./query-packs.md#use-multiple-query-packs). |
 | Legacy queries | Log queries previously saved in the query explorer experience are legacy queries. Also, queries associated with Azure solutions that are installed in the workspace are legacy queries. These queries are listed in the **Queries** dialog under **Legacy queries**. |
 
 >[!TIP]

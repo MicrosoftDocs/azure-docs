@@ -57,7 +57,7 @@ Otherwise, specific troubleshooting information for each extension can be found 
 | microsoft.azure.security.azurediskencryptionforlinux | [Azure Disk Encryption for Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
 | microsoft.azure.security.azurediskencryption | [Azure Disk Encryption for Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
 | microsoft.compute.customscriptextension | [Custom Script for Windows](custom-script-windows.md#troubleshoot-and-support) |
-| microsoft.ostcextensions.customscriptforlinux | [Desired State Configuration for Linux](dsc-linux.md#troubleshoot-and-support) |
+| microsoft.ostcextensions.customscriptforlinux |
 | microsoft.powershell.dsc | [Desired State Configuration for Windows](dsc-windows.md#troubleshoot-and-support) |
 | microsoft.hpccompute.nvidiagpudriverlinux | [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
 | microsoft.hpccompute.nvidiagpudriverwindows | [NVIDIA GPU Driver Extension for Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
@@ -65,7 +65,7 @@ Otherwise, specific troubleshooting information for each extension can be found 
 | microsoft.enterprisecloud.monitoring.omsagentforlinux | [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
 | microsoft.enterprisecloud.monitoring.microsoftmonitoringagent | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
 | stackify.linuxagent.extension.stackifylinuxagentextension | [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
-| vmaccessforlinux.microsoft.ostcextensions | [Reset password for Linux](vmaccess.md#troubleshoot-and-support) |
+| vmaccessforlinux.microsoft.ostcextensions | [VMAccess for Linux](vmaccess-linux.md#troubleshoot-and-support) |
 | microsoft.recoveryservices.vmsnapshot | [Snapshot for Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
 | microsoft.recoveryservices.vmsnapshot | [Snapshot for Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 

@@ -145,12 +145,8 @@
     items:
     - name: Enable soft delete
       href: storage-files-enable-soft-delete.md
-    - name: Manage data redundancy
-      items:
-      - name: Change how data is replicated
-        href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
-      - name: Design highly available applications
-        href: ../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json
+    - name: Change how data is replicated
+      href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
     - name: Manage disaster recovery
       items:
       - name: Check the Last Sync Time property

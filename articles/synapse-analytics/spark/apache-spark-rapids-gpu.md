@@ -165,8 +165,7 @@ resultDF.Show();
 
 ## How to tune your application for GPUs
 
-Most Spark jobs can see improved performance through tuning configuration settings from defaults, and the same holds true for jobs leveraging the RAPIDS accelerator plugin for Apache Spark. [This documentation](https://nvidia.github.io/spark-rapids/docs/tuning-guide.html) provides guidelines on how to tune a Spark job to run on GPUs using the RAPIDS plugin.
-
+Most Spark jobs can see improved performance through tuning configuration settings from defaults, and the same holds true for jobs leveraging the RAPIDS accelerator plugin for Apache Spark.
 ## Quotas and resource constraints in Azure Synapse GPU-enabled pools
 
 ### Workspace level

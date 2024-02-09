@@ -3,15 +3,11 @@ title: Azure Virtual Desktop scaling plans for host pools in Azure Virtual Deskt
 description: How to assign scaling plans to new or existing host pools in your deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ---
 # Assign scaling plans to host pools in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Autoscale for personal host pools is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can assign a scaling plan to any existing host pools in your deployment. When you assign a scaling plan to your host pool, the plan will apply to all session hosts within that host pool. The scaling plan also automatically applies to any new session hosts you create in the assigned host pool.
 

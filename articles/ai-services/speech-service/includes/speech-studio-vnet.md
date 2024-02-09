@@ -8,7 +8,7 @@ ms.author: alexeyo
 
 ## Use of Speech Studio
 
-[Speech Studio](../speech-studio-overview.md) is a web portal with tools for building and integrating Azure AI Speech service in your application. When you work in Speech Studio projects, network connections and API calls to the corresponding Speech resource are made on your behalf. Working with [private endpoints](../speech-services-private-link.md), [virtual network service endpoints](../speech-service-vnet-service-endpoint.md), and other network security options can limit the availability of Speech Studio features. You normally use Speech Studio when working with features, like [Custom Speech](../custom-speech-overview.md), [Custom Neural Voice](../how-to-custom-voice.md) and [Audio Content Creation](../how-to-audio-content-creation.md).
+[Speech Studio](../speech-studio-overview.md) is a web portal with tools for building and integrating Azure AI Speech service in your application. When you work in Speech Studio projects, network connections and API calls to the corresponding Speech resource are made on your behalf. Working with [private endpoints](../speech-services-private-link.md), [virtual network service endpoints](../speech-service-vnet-service-endpoint.md), and other network security options can limit the availability of Speech Studio features. You normally use Speech Studio when working with features, like [Custom Speech](../custom-speech-overview.md), [Custom neural voice](../professional-voice-create-project.md) and [Audio Content Creation](../how-to-audio-content-creation.md).
 
 
 ### Reaching Speech Studio web portal from a Virtual network
@@ -47,6 +47,6 @@ To use custom speech without relaxing network access restrictions on your produc
 * Create another Speech resource for development that can be used on a public network. Prepare your custom model in Speech Studio on the development resource, and then copy the model to your production resource. See the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) REST request with [Speech to text REST API](../rest-speech-to-text.md).
 * You have the option to not use Speech Studio for custom speech. Use the [Speech to text REST API](../rest-speech-to-text.md) for all custom speech operations. 
 
-#### Custom Voice and Audio Content Creation
+#### Custom voice and Audio Content Creation
 
-You can use Custom Voice and Audio Content Creation Speech Studio projects only when the Speech resource network security setting is **All networks**.
+You can use custom voice and Audio Content Creation Speech Studio projects only when the Speech resource network security setting is **All networks**.

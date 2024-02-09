@@ -1,14 +1,16 @@
 ---
-title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites 
+title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.service: backup
+ms.custom:
+  - ignite-2023
 ms.date: 08/17/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Prerequisites for Azure Kubernetes Service backup using Azure Backup (preview)
+# Prerequisites for Azure Kubernetes Service backup using Azure Backup
 
 This article describes the prerequisites for Azure Kubernetes Service (AKS) backup.
 
@@ -104,8 +106,8 @@ Also, as part of the backup and restore operations, the following roles are assi
 
 ## Next steps
 
-- [About Azure Kubernetes Service backup (preview)](azure-kubernetes-service-backup-overview.md)
-- [Supported scenarios for Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-support-matrix.md)
-- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
-- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
-- [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
+- [About Azure Kubernetes Service backup](azure-kubernetes-service-backup-overview.md)
+- [Supported scenarios for Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-support-matrix.md)
+- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)

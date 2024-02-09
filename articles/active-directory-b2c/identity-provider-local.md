@@ -2,12 +2,12 @@
 title: Set up Azure AD B2C local account identity provider
 titleSuffix: Azure AD B2C
 description: Define the identity types uses can use to sign-up or sign-in (email, username, phone number) in your Azure Active Directory B2C tenant.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/02/2022
 ms.author: godonnell

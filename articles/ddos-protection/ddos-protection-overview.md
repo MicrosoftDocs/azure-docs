@@ -1,12 +1,12 @@
 ---
 title: Azure DDoS Protection Overview
-description: Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks.
+description: Get always-on traffic monitoring, adaptive real-time tuning, and DDoS mitigation analytics with Azure DDoS Protection. Sign up now.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
 ms.workload: infrastructure-services
-ms.date: 08/28/2023
+ms.date: 11/08/2023
 ms.author: abell
 ms.custom: ignite-2022, references_regions
 ---
@@ -21,7 +21,7 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
 
-## Azure DDoS Protection: Tiers
+## Tiers
 
 ### DDoS Network Protection
 
@@ -33,7 +33,7 @@ DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection contains 
 
 
 For more information about the tiers, see [DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
-## Azure DDoS Protection: Key Features  
+## Key Features  
 
 - **Always-on traffic monitoring:**
  Your application traffic patterns are monitored 24 hours a day, 7 days a week, looking for indicators of DDoS attacks. Azure DDoS Protection instantly and automatically mitigates the attack, once it's detected.
@@ -54,7 +54,7 @@ Get detailed reports in five-minute increments during an attack, and a complete 
 ](alerts.md) to learn more.
 
 - **Azure DDoS Rapid Response:**
- During an active attack, Azure DDoS Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
+ During an active attack, customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
  
 - **Native platform integration:**
  Natively integrated into Azure. Includes configuration through the Azure portal. Azure DDoS Protection understands your resources and resource configuration.
@@ -71,7 +71,7 @@ When deployed with a web application firewall (WAF), Azure DDoS Protection prote
 - **Cost guarantee:**
  Receive data-transfer and application scale-out service credit for resource costs incurred as a result of documented DDoS attacks.
 
-## Azure DDoS Protection: Architecture
+## Architecture
 
 Azure DDoS Protection is designed for [services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). For other services, the default infrastructure-level DDoS protection applies, which defends against common network-layer attacks. To learn more about supported architectures, see [DDoS Protection reference architectures](./ddos-protection-reference-architectures.md).
 
@@ -82,8 +82,8 @@ For DDoS IP Protection, there's no need to create a DDoS protection plan. Custom
 
 To learn about Azure DDoS Protection pricing, see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). 
 
-## Best Practices for DDoS Protection  
-Maximize the effectiveness of your DDoS protection strategy by following these best practices:  
+## Best Practices
+Maximize the effectiveness of your DDoS protection and mitigation strategy by following these best practices:  
    
 - Design your applications and infrastructure with redundancy and resilience in mind.  
 - Implement a multi-layered security approach, including network, application, and data protection.  
@@ -91,7 +91,7 @@ Maximize the effectiveness of your DDoS protection strategy by following these b
 
 To learn more about best practices, see [Fundamental best practices](./fundamental-best-practices.md). 
 
-## DDoS Protection FAQ
+## FAQ
 
 For frequently asked questions, see the [DDoS Protection FAQ](ddos-faq.yml).
 

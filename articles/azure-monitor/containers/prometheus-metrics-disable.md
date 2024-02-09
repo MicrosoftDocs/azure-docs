@@ -15,7 +15,7 @@ Currently, the Azure CLI is the only option to remove the metrics add-on from yo
 
 The `az aks update --disable-azure-monitor-metrics` command:
 
-+ Removes the agent from the cluster nodes. 
++ Removes the ama-metrics agent from the cluster nodes. 
 + Deletes the recording rules created for that cluster.  
 + Deletes the data collection endpoint (DCE).  
 + Deletes the data collection rule (DCR).

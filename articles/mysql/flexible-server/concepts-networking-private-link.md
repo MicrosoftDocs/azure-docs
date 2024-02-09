@@ -20,6 +20,7 @@ A private endpoint is a private IP address within a specific [VNet](../../virtua
 
 > [!NOTE]
 > Enabling Private Link is exclusively possible for Azure Database for MySQL - Flexible Server instances that are created with public access. Learn how to enable private endpoint using the [Azure portal](how-to-networking-private-link-portal.md) or [Azure CLI](how-to-networking-private-link-azure-cli.md).
+
 ## Benefits of Private Link for MySQL flexible server
 
 Here are some benefits for using the networking private link feature with MySQL flexible server.
@@ -106,8 +107,8 @@ When a user tries to delete both the MySQL flexible server and Private Endpoint 
 
 To learn more about Azure Database for MySQL security features, see the following articles:
 
-- To configure a firewall for Azure Database for MySQL, see [firewall support](../single-server/concepts-firewall-rules.md).
+- To configure a firewall for Azure Database for MySQL, see [firewall support](../flexible-server/concepts-networking-public.md).
 
-- For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](../single-server/concepts-connectivity-architecture.md)
+- For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](../flexible-server/concepts-networking.md)
 
 

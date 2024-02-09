@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 10/19/2022
+ms.date: 11/23/2023
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 

@@ -5,7 +5,8 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Restrict access to a container registry using a service endpoint in an Azure virtual network

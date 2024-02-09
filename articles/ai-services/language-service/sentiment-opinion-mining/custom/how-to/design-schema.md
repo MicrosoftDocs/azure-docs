@@ -2,7 +2,7 @@
 title: How to prepare data and define a custom sentiment analysis schema
 titleSuffix: Azure AI services
 description: Learn about data selection and preparation for custom sentient analysis projects.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

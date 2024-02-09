@@ -23,7 +23,6 @@ This article provides an overview of Azure VM extensions, prerequisites for usin
 
 Each Azure VM extension has a specific use case. Examples include:
 
-- Apply PowerShell desired state configurations (DSCs) to a VM by using the [DSC extension for Linux](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Configure monitoring of a VM by using the [Microsoft Monitoring Agent VM extension](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
 - Configure monitoring of your Azure infrastructure by using the [Chef](https://docs.chef.io/) or [Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/) extension.
 
@@ -402,7 +401,7 @@ The following troubleshooting actions apply to all VM extensions:
 
 ### Common reasons for extension failures
 
-- Extensions have 20 minutes to run. (Exceptions are Custom Script, Chef, and DSC, which have 90 minutes.) If your deployment exceeds this time, it's marked as a timeout. The cause of this can be low-resource VMs, or other VM configurations or startup tasks are consuming large amounts of resources while the extension is trying to provision.
+- Extensions have 20 minutes to run. (Exceptions are Custom Script, and Chef, which have 90 minutes.) If your deployment exceeds this time, it's marked as a timeout. The cause of this can be low-resource VMs, or other VM configurations or startup tasks are consuming large amounts of resources while the extension is trying to provision.
 
 - Minimum prerequisites aren't met. Some extensions have dependencies on VM SKUs, such as HPC images. Extensions might have certain networking access requirements, such as communicating with Azure Storage or public services. Other examples might be access to package repositories, running out of disk space, or security restrictions.
 

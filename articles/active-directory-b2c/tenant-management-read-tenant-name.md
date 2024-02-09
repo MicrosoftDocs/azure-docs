@@ -2,23 +2,25 @@
 title: Find tenant name and tenant ID
 titleSuffix: Azure Active Directory B2C
 description: Learn how to find tenant name and tenant ID 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: tutorial
-ms.date: 01/30/2023
-ms.custom: project-no-code, b2c-docs-improvements
+ms.date: 12/13/2023
+ms.custom: b2c-docs-improvements
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+#Customer intent: As a developer or IT administrator, I want to find my Azure AD B2C tenant details
 ---
 
 # Find tenant name and tenant ID in Azure Active Directory B2C
 
-When you create an Azure Active Directory B2C (Azure AD B2C) for your organization, it's assigned a default domain name (name) and an ID. The tenant ID is same as the organization ID. 
+When you create an Azure Active Directory B2C (Azure AD B2C) for your organization, it's assigned a default domain name (name) and a directory (tenant) ID. The tenant ID is same as the organization ID. 
 
 In this article, you learn how to:
 

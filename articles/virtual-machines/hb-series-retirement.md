@@ -2,9 +2,9 @@
 title: HB-series retirement
 description: HB-series retirement started September 1, 2021.
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 12/7/2023
 ---
 
 # Migrate your HB-series virtual machines by August 31, 2024
@@ -22,7 +22,7 @@ After August 31, 2024, any remaining HB-size VM subscriptions will be set to a d
 
 ## What actions should I take?
 
-You'll need to resize or deallocate your H-series VMs. We recommend that you migrate workloads from the original H-series VMs and the H-series Promo VMs to our newer offerings.
+You'll need to resize or deallocate your H-series VMs. We recommend that you migrate workloads from the original H-series VMs and the HB-series Promo VMs to our newer offerings.
 
 [HBv2](hbv2-series.md) and [HBv3](hbv3-series.md) VMs offer substantially higher levels of HPC workload performance and cost efficiency because of:
 

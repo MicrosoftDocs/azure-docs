@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 06/11/2023
+ms.date: 11/30/2023
 ms.custom: generated
 ---
 
@@ -48,7 +48,6 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.Storage](#microsoftstorage) |
 | [Microsoft.StorageCache](#microsoftstoragecache) |
 | [Microsoft.StorageSync](#microsoftstoragesync) |
-| [Microsoft.StorSimple](#microsoftstorsimple) |
 | **Web** |
 | [Microsoft.AppPlatform](#microsoftappplatform) |
 | [Microsoft.CertificateRegistration](#microsoftcertificateregistration) |
@@ -106,6 +105,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.DataBoxEdge](#microsoftdataboxedge) |
 | [Microsoft.DataCatalog](#microsoftdatacatalog) |
 | [Microsoft.EventGrid](#microsofteventgrid) |
+| [Microsoft.HealthcareApis](#microsofthealthcareapis) |
 | [Microsoft.Logic](#microsoftlogic) |
 | [Microsoft.Relay](#microsoftrelay) |
 | [Microsoft.ServiceBus](#microsoftservicebus) |
@@ -156,6 +156,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.Management](#microsoftmanagement) |
 | [Microsoft.PolicyInsights](#microsoftpolicyinsights) |
 | [Microsoft.Portal](#microsoftportal) |
+| [Microsoft.Purview](#microsoftpurview) |
 | [Microsoft.RecoveryServices](#microsoftrecoveryservices) |
 | [Microsoft.ResourceGraph](#microsoftresourcegraph) |
 | [Microsoft.Resources](#microsoftresources) |

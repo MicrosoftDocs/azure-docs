@@ -19,8 +19,7 @@ This document explains how to enhance security of your data stores and resources
 > Importing DAGs is currently not supported using blob storage with IP allow listing or using private endpoints. We suggest using Git-sync instead.
 
 ### Step 1: Retrieve the bearer token for the Airflow API.
-- Similar to the authentication process used in the standard Azure REST API, acquiring an access token from Azure AD is required before making a call to the Airflow REST API. A guide on how to obtain the token from Azure AD can be found at https://learn.microsoft.com/rest/api/azure.
-- It should be noted that to obtain an access token for Data Factory, the resource to be used is **https://datafactory.azure.com**. 
+- Similar to the authentication process used in the standard Azure REST API, acquiring an access token from Azure AD is required before making a call to the Airflow REST API. A guide on how to obtain the token from Azure AD can be found at [https://learn.microsoft.com/rest/api/azure](/rest/api/azure).
 - Additionally, the service principal used to obtain the access token needs to have atleast a **contributor role** on the Data Factory where the Airflow Integration Runtime is located.
  
 For more information, see the below screenshots.
@@ -58,7 +57,7 @@ For more information, see the below screenshots.
 - To add managed Airflow Cluster IP address into Azure SQL Database, refer to [Configure Azure Key Vault firewalls and virtual networks](/azure/azure-sql/database/firewall-configure)
 - To add managed Airflow Cluster IP address into Azure PostgreSQL Database, refer to [Create and manage firewall rules for Azure Database for PostgreSQL - Single Server using the Azure portal](/azure/postgresql/single-server/how-to-manage-firewall-using-portal)
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

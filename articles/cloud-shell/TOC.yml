@@ -7,7 +7,7 @@ items:
         href: features.md
   - name: Get started with Cloud Shell
     href: get-started.md
-  - name: How-to guides
+  - name: How to use Cloud Shell
     items:
       - name: Persist files in storage
         href: persisting-shell-storage.md
@@ -19,10 +19,8 @@ items:
         href: cloud-shell-predictive-intellisense.md
       - name: Use the Cloud Shell editor
         href: using-cloud-shell-editor.md
-      - name: Troubleshooting
-        href: troubleshooting.md
-      - name: Limitations
-        href: limitations.md
+      - name: FAQ & Troubleshooting
+        href: faq-troubleshooting.md
   - name: Deploy Cloud Shell in a virtual network
     items:
       - name: Overview

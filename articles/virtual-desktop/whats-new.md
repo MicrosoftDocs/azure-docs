@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 10/31/2023
+ms.date: 12/14/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -22,6 +22,46 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## November 2023
+
+Here's what changed in November 2023:
+
+### Administrators can now easily start, stop, and restart session hosts
+
+You can now stop, start and restart session hosts directly in the Azure portal. You can also choose whether to perform the operation on a single session host or on multiple session hosts in your host pool at the same time.
+
+### Use community image and directed shared images when deploying session hosts
+
+You can now select community images and directed shared images to use for your session hosts when [creating a host pool](deploy-azure-virtual-desktop.md#create-a-host-pool).
+
+Community images and associated publisher information aren't verified or tested by Microsoft, so make sure to verify any custom images you deploy using this method. 
+
+For more information on preparing, storing and sharing images to be used to create virtual machines, see [Store and share VM images in a compute gallery](../virtual-machines/shared-image-galleries.md).
+
+### Windows 11 version 23H2 and 22H2 images added to the Azure Marketplace 
+
+Windows 11 Enterprise multi-session, versions 23H2 and 22H2 with Microsoft 365 apps preinstalled are now available in the Azure Marketplace. You can use these images when you [deploy Azure Virtual Desktop in the Azure portal](deploy-azure-virtual-desktop.md?tabs=portal), [add session hosts to a host pool](add-session-hosts-host-pool.md), or [create custom images](custom-image-templates.md).
+
+### Autoscale for personal host pools is now generally available
+
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+
+### Updated preview of Azure Virtual Desktop on Azure Stack HCI
+
+We've updated the preview of Azure Virtual Desktop on Azure Stack HCI. You can now deploy Azure Virtual Desktop with your session hosts on Azure Stack HCI as an integrated experience with Azure Virtual Desktop in the Azure portal. For more information, see [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md) and [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).
+
+### Single sign-on using Microsoft Entra authentication is now generally available
+
+Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
+
+### In-session passwordless authentication is now generally available
+
+In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
+
+### Windows App preview
+
+Windows App is available in preview for Windows, macOS, iOS and iPadOS, and in a web browser. You can use it to connect to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PCs, securely connecting you to Windows devices and apps. For more information, see [Windows App](/windows-app/overview).
 
 ## October 2023
 

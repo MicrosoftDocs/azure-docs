@@ -1,5 +1,5 @@
 ---
-title: How to enable Microsoft Defender for Containers components
+title: Enable Microsoft Defender for Containers components
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: how-to
 author: dcurwin
@@ -9,7 +9,7 @@ zone_pivot_groups: k8s-host
 ms.date: 06/29/2023
 ---
 
-# How to enable Microsoft Defender for Containers components
+# Enable Microsoft Defender for Containers components
 
 Microsoft Defender for Containers is the cloud-native solution for securing your containers.
 

@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: article
 ms.date: 10/24/2023
 ms.author: rezar
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
+ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
 # What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?
 

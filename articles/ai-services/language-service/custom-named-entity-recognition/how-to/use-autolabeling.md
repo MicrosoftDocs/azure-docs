@@ -2,7 +2,7 @@
 title: How to use autolabeling in custom named entity recognition
 titleSuffix: Azure AI services
 description: Learn how to use autolabeling in custom named entity recognition.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

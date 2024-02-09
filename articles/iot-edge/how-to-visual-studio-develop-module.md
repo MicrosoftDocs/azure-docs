@@ -15,7 +15,12 @@ zone_pivot_groups: iotedge-dev
 
 This article shows you how to use Visual Studio 2022 to develop, debug, and deploy custom Azure IoT Edge modules. Visual Studio 2022 provides templates for IoT Edge modules written in C and C#. The supported device architectures are Windows x64, Linux x64, ARM32, and ARM64 (preview). For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 
-You can choose either the **Azure IoT Edge Dev Tool** CLI or the **Azure IoT Edge tools for Visual Studio** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article. Both tools provide the following benefits:
+This article includes steps for two IoT Edge development tools.
+
+* **Azure IoT Edge Dev Tool** CLI. This tool is preferred for development.
+* **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+
+Use the tool selector button at the beginning to choose your tool option for this article. Both tools provide the following benefits:
 
 * Create, edit, build, run, and debug IoT Edge solutions and modules on your local development computer.
 * Code your Azure IoT modules in C or C# with the benefits of Visual Studio development.
@@ -27,9 +32,12 @@ This article assumes that you use a machine running Windows as your development 
 
 * Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workloads options.
 
-<!-- ::: zone pivot="iotedge-dev-ext" -->
+::: zone pivot="iotedge-dev-ext"
 
 * Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
+
+    > [!IMPORTANT]
+    > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
 
     * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
     * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup opens. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
@@ -39,23 +47,16 @@ This article assumes that you use a machine running Windows as your development 
    > [!TIP]
    > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
 
-<!-- >::: zone-end
+::: zone-end
 
-::: zone pivot="iotedge-dev-cli" -->
+::: zone pivot="iotedge-dev-cli"
 
-* Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
+* Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to create your IoT Edge solution. There are two options:
 
-    ```cmd
-    pip3 install iotedgedev
-    ```
+    * Use the prebuilt [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
+    * Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
 
-    > [!NOTE]
-    >
-    > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
-    >
-    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
-
-<!-- ::: zone-end -->
+::: zone-end
 
 * Install the **Vcpkg** library manager
 
@@ -236,7 +237,7 @@ Typically, you want to test and debug each module before running it within an en
    * If developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
-1. Test the module by sending a message. When debugging a single module, the simulator listens on the default port 53000 for messages. To send a message to your module, run the following curl command from a command shell like **Git Bash** or **WSL Bash**.
+1. Test the module by sending a message. When you're debugging a single module, the simulator listens on the default port 53000 for messages. To send a message to your module, run the following curl command from a command shell like **Git Bash** or **WSL Bash**.
 
    ```bash
    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages

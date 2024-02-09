@@ -2,12 +2,12 @@
 title: Set up sign-up and sign-in with OpenID Connect
 titleSuffix: Azure AD B2C
 description: Set up sign-up and sign-in with any OpenID Connect identity provider (IdP) in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 12/28/2022
 ms.author: godonnell

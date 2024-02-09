@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 11/03/2023
+ms.date: 11/30/2023
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
@@ -238,7 +238,7 @@ $targetDNS2 = New-AzDnsResolverTargetDnsServerObject -IPAddress 192.168.1.3 -Por
 $targetDNS3 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.0.0.4 -Port 53
 $targetDNS4 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.5.5.5 -Port 53
 $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Internal" -DomainName "internal.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer @($targetDNS1,$targetDNS2)
-$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "azure.contoso.com" -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "azure.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
 $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Wildcard" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS4
 ```
 

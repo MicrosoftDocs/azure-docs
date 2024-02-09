@@ -209,7 +209,7 @@ In this step, you fork a demo project to deploy.
 
 This quickstart uses the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) both to create Azure resources and deploy code to it. For more information about Azure Developer CLI, visit the [documentation](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) or [training path](/training/paths/azure-developer-cli/).
 
-Retrieve and initialize [the ASP.NET Core web app template](https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git) for this quickstart using the following steps:
+Retrieve and initialize [the ASP.NET Core web app template](https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service) for this quickstart using the following steps:
 
 1. Open a terminal window on your machine to an empty working directory. Initialize the `azd` template using the `azd init` command.
 

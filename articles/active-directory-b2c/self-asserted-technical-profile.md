@@ -2,12 +2,12 @@
 title: Define a self-asserted technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a self-asserted technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 11/07/2022
 ms.author: kengaderdus

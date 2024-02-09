@@ -2,8 +2,11 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
-ms.custom: devx-track-extended-java, devx-track-python
-ms.date: 12/15/2022
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-python
+  - ignite-2023
+ms.date: 11/08/2023
 ---
 
 # App settings reference for Azure Functions
@@ -36,7 +39,7 @@ When using app settings, you should be aware of the following considerations:
 
 + You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). 
 
-+ This article documents the settings that are most relevant to your function apps. Because Azure Functions runs on App Service, other application settings might also be supported. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
++ This article documents the settings that are most relevant to your function apps. Because Azure Functions runs on App Service, other application settings are also supported. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
 
 + Some scenarios also require you to work with settings documented in [App Service site settings](#app-service-site-settings). 
 
@@ -304,7 +307,7 @@ Dictates whether editing in the Azure portal is enabled. Valid values are `readw
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~3`). When new versions for the same major version are available, they're automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, `3.0.12345`). Default is `~3`. A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime, which supports .NET 6.0.
+The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~3`). When new versions for the same major version are available, they're automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, `3.0.12345`). Default is `~3`. A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime.
 
 |Key|Sample value|
 |---|------------|
@@ -315,9 +318,9 @@ The following major runtime version values are supported:
 | Value | Runtime target | Comment |
 | ------ | -------- | --- |
 | `~4` | 4.x | Recommended |
-| `~3` | 3.x | Support ends December 13, 2022 |
+| `~3` | 3.x | No longer supported |
 | `~2` | 2.x | No longer supported |
-| `~1` | 1.x | Supported |
+| `~1` | 1.x | Support ends September 14, 2026 |
 
 ## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
 

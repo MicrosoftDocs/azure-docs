@@ -29,7 +29,7 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
-- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - The table must already have some data.
 - The table can't already be linked to the [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
 

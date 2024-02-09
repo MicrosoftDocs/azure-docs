@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Connected Machine agent to manage Windows and Linux machines
 description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 10/31/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika

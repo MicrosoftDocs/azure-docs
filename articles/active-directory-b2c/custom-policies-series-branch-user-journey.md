@@ -2,15 +2,15 @@
 title: Create branching in user journey by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
 description: Learn how to enable or disable Technical Profiles based on claims values. Learn how to branch in user journeys by enabling and disabling Azure AD B2C custom policy technical profiles.      
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/30/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -28,8 +28,7 @@ In [Validate user inputs by using Azure AD B2C custom policy](custom-policies-se
 
 :::image type="content" source="media/custom-policies-series-branch-in-user-journey-using-pre-conditions/screenshot-of-branching-in-user-journey.png" alt-text="A flowchart of branching in user journey.":::
 
-In this article, you'll learn how to use `EnabledForUserJourneys` element inside a technical profile to create different user experiences based on a claim value. First, the user selects their account type, which determines 
-
+In this article, you learn how to use `EnabledForUserJourneys` element inside a technical profile to create different user experiences based on a claim value. 
 ## Prerequisites
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
@@ -232,7 +231,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 ## Next steps
 
-In [step 3](#step-3---configure-or-update-technical-profiles), we enabled or disabled the technical profile by using the `EnabledForUserJourneys` element. Alternatively, you can use [Preconditions](userjourneys.md#preconditions) inside the user journey orchestration steps to execute or skip an orchestration step as we'll learn later in this series.
+In [step 3](#step-3---configure-or-update-technical-profiles), we enable or disable  the technical profile by using the `EnabledForUserJourneys` element. Alternatively, you can use [Preconditions](userjourneys.md#preconditions) inside the user journey orchestration steps to execute or skip an orchestration step as we learn later in this series.
 
 Next, learn: 
 

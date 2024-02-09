@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with WhoIAM 
 titleSuffix: Azure AD B2C
 description: In this tutorial, learn how to integrate Azure AD B2C authentication with WhoIAM for user verification. 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: gasinh

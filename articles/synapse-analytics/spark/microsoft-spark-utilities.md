@@ -230,7 +230,7 @@ mssparkutils.fs provides utilities for working with various FileSystems.
 Below is overview about the available methods:
 
 cp(from: String, to: String, recurse: Boolean = false): Boolean -> Copies a file or directory, possibly across FileSystems
-mv(from: String, to: String, recurse: Boolean = false): Boolean -> Moves a file or directory, possibly across FileSystems
+mv(src: String, dest: String, create_path: Boolean = False, overwrite: Boolean = False): Boolean -> Moves a file or directory, possibly across FileSystems
 ls(dir: String): Array -> Lists the contents of a directory
 mkdirs(dir: String): Boolean -> Creates the given directory if it does not exist, also creating any necessary parent directories
 put(file: String, contents: String, overwrite: Boolean = false): Boolean -> Writes the given String out to a file, encoded in UTF-8

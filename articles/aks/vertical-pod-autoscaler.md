@@ -87,7 +87,7 @@ A Vertical Pod Autoscaler resource is inserted for each controller that you want
 
 A common deployment pattern recommended for you if you're unfamiliar with VPA is to perform the following steps during application development in order to identify its unique resource utilization characteristics, test VPA to verify it is functioning properly, and test alongside other Kubernetes components to optimize resource utilization of the cluster.
 
-1. Set `updateMode = off` in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. `UpdateMode = off` can avoid introducing a misconfiguration that can cause an outage.
+1. Set UpdateMode = "Off" in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. UpdateMode = "Off" can avoid introducing a misconfiguration that can cause an outage.
 
 2. Establish observability first by collecting actual resource utilization telemetry over a given period of time. This helps you understand the behavior and signs of symptoms or issues from container and pod resources influenced by the workloads running on them.
 

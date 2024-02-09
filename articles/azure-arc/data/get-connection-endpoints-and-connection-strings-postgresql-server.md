@@ -153,5 +153,5 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
 ```
 
-## Next steps
+## Related content
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-server-using-cli.md) your server group

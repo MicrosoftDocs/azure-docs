@@ -44,7 +44,7 @@ This section describes the two Microsoft Entra ID-based technologies that can be
 
 [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) give you fine-grained access control over your Azure resources. Azure roles and permissions can be managed from the Azure portal.
 
-Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, and Queues. If you need access to File Shares or Tables, you'll need to assign Azure roles that grant permission to list storage account keys.
+Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, Queues, and Tables. If you need access to File Shares, you'll need to assign Azure roles that grant permission to list storage account keys.
 
 #### Access control lists (ACLs)
 

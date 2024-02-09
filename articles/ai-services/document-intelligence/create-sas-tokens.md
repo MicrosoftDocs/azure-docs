@@ -5,15 +5,18 @@ ms.topic: how-to
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Create SAS tokens for storage containers
 
-[!INCLUDE [applies to v3.1, v3.0, v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+::: moniker range="<=doc-intel-4.0.0"
+ [!INCLUDE [applies to v4.0 v3.1 v3.0 v2.1](includes/applies-to-v40-v31-v30-v21.md)]
+::: moniker-end
 
  In this article, learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
@@ -165,7 +168,7 @@ The SAS URL includes a special set of [query parameters](/rest/api/storageservic
 
 ### REST API
 
-To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentModel), add the SAS URL to the request body:
+To use your SAS URL with the [REST API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP), add the SAS URL to the request body:
 
   ```json
   {

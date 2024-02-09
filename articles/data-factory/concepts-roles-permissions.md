@@ -92,7 +92,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
   Assign the built-in **contributor** role on the data factory resource for the user. This role lets the user see the resources in the Azure portal, but the user can't access the  **Publish** and **Publish All** buttons.
 
 
-## Next steps
+## Related content
 
 - Learn more about roles in Azure - [Understand role definitions](../role-based-access-control/role-definitions.md)
 

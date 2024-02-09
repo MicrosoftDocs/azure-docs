@@ -31,7 +31,7 @@ This article provides suggestions to troubleshoot common problems with the SAP T
     
     ```
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

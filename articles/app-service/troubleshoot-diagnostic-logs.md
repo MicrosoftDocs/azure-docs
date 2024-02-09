@@ -197,17 +197,17 @@ With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you c
 
 The following table shows the supported log types and descriptions: 
 
-| Log type | Windows | Windows Container | Linux | Linux Container | Description |
-|-|-|-|-|-|-|
-| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
-| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
-| AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
-| AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
-| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
-| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
-| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
+| Log Name| Log type | Windows | Windows Container | Linux | Linux Container | Description |
+|-|-|-|-|-|-|-|
+| App Service Console Logs | AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
+| HTTP logs | AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
+| App Service Environment Platform Logs | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
+| Access Audit Logs | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
+| Site Content Change Audit Logs | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
+| App Service Application Logs | AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
+| IPSecurity Audit logs | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
+| App Service Platform logs | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
+| Report Antivirus Audit Logs | AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
 <sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
 

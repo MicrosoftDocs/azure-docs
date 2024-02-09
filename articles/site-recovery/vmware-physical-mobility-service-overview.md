@@ -232,6 +232,7 @@ See information about [upgrading the mobility services](upgrade-mobility-service
 
 - Ensure that all server configurations meet the criteria in the [Support matrix for disaster recovery of VMware VMs and physical servers to Azure](vmware-physical-azure-support-matrix.md).
 - [Locate the installer](#locate-installer-files) for the server's operating system.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as C:\Program Files (x86)\Microsoft Azure Site Recovery.
 
 >[!IMPORTANT]
 > Don't use the UI installation method if you're replicating an Azure Infrastructure as a Service (IaaS) VM from one Azure region to another. Use the [command prompt](#install-the-mobility-service-using-command-prompt-classic) installation.

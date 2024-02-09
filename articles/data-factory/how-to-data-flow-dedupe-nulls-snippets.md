@@ -59,6 +59,6 @@ By using code snippets in mapping data flows, you can easily perform common task
 
   You have now created a working data flow with generic deduping and null checks by taking existing code snippets from the Data Flow Script library and adding them into your existing design.
 
-## Next steps
+## Related content
 
 * Build the rest of your data flow logic by using mapping data flows [transformations](concepts-data-flow-overview.md).

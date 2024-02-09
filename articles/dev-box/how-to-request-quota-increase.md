@@ -25,8 +25,6 @@ Dev Box vCPU - you might encounter this quota error in the [developer portal](ht
 
 - Dev Centers
 - Network connections 
-- Projects 
-- Pools 
 - Dev Box Definitions 
 
 When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Microsoft Dev Box team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
@@ -65,8 +63,6 @@ Submitting a support request for an increase in quota is quicker if you gather t
    - Dev box definitions
    - Dev centers
    - Network settings
-   - Pools
-   - Projects
    - Network connections
    - Dev Box general cores
    - Other

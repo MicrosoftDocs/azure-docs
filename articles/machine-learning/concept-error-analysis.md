@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Assess model error distributions in different cohorts of your dataset with the Responsible AI dashboard's integration of error analysis.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki

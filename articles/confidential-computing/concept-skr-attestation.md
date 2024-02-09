@@ -71,7 +71,7 @@ Example
 Exact details of the type of key and other attributes associated can be found [here](../key-vault/general/quick-create-cli.md).
 
 ```azurecli
-az keyvault key create --exportable true --vault-name "vault name from step 1" --kty RSA-HSM --name "keyname" --policy "jsonpolicyfromstep3 -can be a path to JSON" --protection hsm --vault-name "name of vault created from step1"               
+az keyvault key create --exportable true --vault-name "vault name from step 1" --kty RSA-HSM --name "keyname" --policy "jsonpolicyfromstep3 -can be a path to JSON"
 ```
 
 ### Step 4: Application running within a TEE doing a remote attestation

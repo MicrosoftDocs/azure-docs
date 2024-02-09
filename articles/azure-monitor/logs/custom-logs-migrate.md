@@ -28,7 +28,7 @@ The Log Ingestion API provides the following advantages over the Data Collector 
 The migration procedure described in this article assumes you have:
 
 - A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
-- [Permissions to create data collection rules](../essentials/data-collection-rule-overview.md#permissions) in the Log Analytics workspace.
+- [Permissions to create data collection rules](../essentials/data-collection-rule-create-edit.md#permissions) in the Log Analytics workspace.
 - [A Microsoft Entra application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
 
 ## Create new resources required for the Log ingestion API

@@ -26,7 +26,7 @@ This Amazon RDS for SQL Server connector is supported for the following capabili
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
 |[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -439,5 +439,5 @@ When you copy data from/to Amazon RDS for SQL Server with [Always Encrypted](/sq
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port. 
 6. **Verify connection**: To connect to Amazon RDS for SQL Server by using a fully qualified name, use Amazon RDS for SQL Server Management Studio from a different machine. An example is `"<machine>.<domain>.corp.<company>.com,1433"`.
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

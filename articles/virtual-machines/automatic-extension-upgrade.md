@@ -74,7 +74,6 @@ Automatic Extension Upgrade supports the following extensions (and more are adde
 - [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md)
 - [Log Analytics Agent for Linux](../azure-monitor/agents/log-analytics-agent.md)
 - [Azure Diagnostics extension for Linux](../azure-monitor/agents/diagnostics-extension-overview.md)
-- [DSC extension for Linux](extensions/dsc-linux.md)
 
 
 ## Enabling Automatic Extension Upgrade

@@ -21,7 +21,7 @@ This tutorial walks through developing and deploying your own code to an IoT Edg
 
 This article includes steps for two IoT Edge development tools.
 
- * *Azure IoT Edge Dev Tool* command-line tool (CLI). This tool is preferred for development.
+ * *Azure IoT Edge Dev Tool* command-line (CLI). This tool is preferred for development.
  * *Azure IoT Edge tools for Visual Studio Code* extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning of this article to select the tool version.
@@ -112,6 +112,9 @@ Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iote
 ::: zone-end
 
 ::: zone pivot="iotedge-dev-ext"
+
+> [!IMPORTANT]
+> The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
 
 Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These extensions offer project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio Code and the IoT extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio Code.
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 12/11/2023
 ms.custom: fasttrack-edit
 ---
 
@@ -156,6 +156,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumPartitionsInJobDefinitionsTable` | `4` job partitions | Sets the number of job partitions in the job definition table. This value controls how much execution throughput is affected by partition storage limits. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
+| `Jobs.BackgroundJobs.StatelessNumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core, per stateless run. This value affects the number of concurrent workflow actions that are processed per run. |
 
 <a name="recurrence-triggers"></a>
 
@@ -174,7 +175,7 @@ The following settings work only for workflows that start with a recurrence-base
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Trigger.MaximumRunConcurrency` | `100` runs | Sets the maximum number of concurrent runs that a trigger can start. This value appears in the trigger's concurrency definition. |
-| `Runtime.Trigger.MaximumWaitingRuns` | `200` runs | Sets the maximum number of runs that can wait after concurrent runs meet the maximum. This value appears in the trigger's concurrency definition. |
+| `Runtime.Trigger.MaximumWaitingRuns` | `200` runs | Sets the maximum number of runs that can wait after concurrent runs meet the maximum. This value appears in the trigger's concurrency definition. For more information, see [Change waiting runs limit](logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 
 <a name="run-duration-history"></a>
 

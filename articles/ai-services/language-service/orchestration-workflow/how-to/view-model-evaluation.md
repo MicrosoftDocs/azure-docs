@@ -2,7 +2,7 @@
 title: How to view orchestration workflow models details
 description: Learn how to view details for your model and evaluate its performance.
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

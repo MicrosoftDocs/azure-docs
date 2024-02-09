@@ -5,14 +5,14 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: release-notes
-ms.date: 11/07/2023
+ms.date: 11/30/2023
 ---
 
 # Azure Private 5G Core 2310 release notes
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2308 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
 
-This article applies to the AP5GC 2310 release (2310.0-X). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2309 release and supports the 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
+This article applies to the AP5GC 2310 release (2310.0-8). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2309 release and supports the 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
 For more information about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
 
@@ -47,14 +47,19 @@ This feature categorizes a few metrics based on the RAN identifier, for example 
 ### Combined 4G/5G on a single packet core
 This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network site. You can deploy a RAN network with both 4G and 5G radios and connect to a single packet core.
 
-
 ## Issues fixed in the AP5GC 2310 release
 
 The following table provides a summary of issues fixed in this release.
 
-  |No.  |Feature  | Issue |
-  |-----|-----|-----|
-  | 1 | Packet Forwarding  | In scenarios of sustained high load (for example, continuous setup of 100s of TCP flows per second) in 4G setups, AP5GC might encounter an internal error, leading to a short period of service disruption resulting in some call failures. |
+  |No.  |Feature  | Issue |  SKU Fixed In |
+  |-----|-----|-----|-----|----|
+  | 1 | Packet Forwarding  | In scenarios of sustained high load (for example, continuous setup of 100s of TCP flows per second) in 4G setups, AP5GC might encounter an internal error, leading to a short period of service disruption resulting in some call failures. | 2310.0-4 | 
+  | 2 | Packet Forwarding | An intermittent fault at the network layer causes an outage of packet forwarding | 2310.0-8 |
+  | 3 | Diagnosability | During packet capture, uplink userplane packets can be omitted from packet captures | 2310.0-8 |
+  | 4 | Packet Forwarding | Errors in userplane packet detection rules can cause incorrect packet handling | 2310.0-8 |
+  | 5 | Diagnosability | Procedures from different subscribers appear in the same trace | 2310.0-8 |
+
+
 
 
 ## Known issues in the AP5GC 2310 release

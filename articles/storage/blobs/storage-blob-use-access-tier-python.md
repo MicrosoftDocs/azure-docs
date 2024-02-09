@@ -36,7 +36,7 @@ You can set a blob's access tier on upload by passing the `standard_blob_tier` k
 
 The following code example shows how to set the access tier when uploading a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_access_tier":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_access_tier":::
 
 To learn more about uploading a blob with Python, see [Upload a blob with Python](storage-blob-upload-python.md).
 
@@ -48,7 +48,7 @@ You can change the access tier of an existing block blob by using the following 
 
 The following code example shows how to change the access tier for an existing blob to `Cool`:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-access-tiers.py" id="Snippet_change_blob_access_tier":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers.py" id="Snippet_change_blob_access_tier":::
 
 If you're rehydrating an archived blob, you can optionally pass the `rehydrate_priority` keyword argument as `HIGH` or `STANDARD`.
 
@@ -58,7 +58,7 @@ You can change the access tier of an existing block blob by specifying an access
 
 The following code example shows how to rehydrate an archived blob to the `Hot` tier using a copy operation:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-access-tiers.py" id="Snippet_rehydrate_using_copy":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers.py" id="Snippet_rehydrate_using_copy":::
 
 To learn more about copying a blob with Python, see [Copy a blob with Python](storage-blob-copy-python.md).
 
@@ -76,7 +76,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-access-tiers.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers.py)
 
 ### See also
 

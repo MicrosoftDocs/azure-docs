@@ -21,7 +21,7 @@ To complete this procedure, you need:
 
     For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
 
-- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that runs IIS. 
     - An IIS log file in W3C format must be stored on the local drive of the machine on which Azure Monitor Agent is running. 
     - Each entry in the log file must be delineated with an end of line. 
@@ -73,7 +73,7 @@ To create the data collection rule in the Azure portal:
     :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
 
 1. Specify a file pattern to identify the directory where the log files are located. 
-1. On the **Destination** tab, add a destinations for the data source.
+1. On the **Destination** tab, add a destination for the data source.
     <!-- convertborder later -->
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
 

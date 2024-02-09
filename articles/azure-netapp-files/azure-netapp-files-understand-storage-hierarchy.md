@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 02/23/2023
+ms.date: 07/27/2023
 ms.author: anfdocs
 ---
 # Storage hierarchy of Azure NetApp Files

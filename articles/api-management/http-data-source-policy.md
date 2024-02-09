@@ -203,7 +203,7 @@ type User {
             <value>application/json</value>
         </set-header>
         <set-body>@{
-            var args = context.Request.Body.As<JObject>(true)["arguments"];  
+            var args = context.GraphQL.Arguments;  
             JObject jsonObject = new JObject();
             jsonObject.Add("name", args["name"])
             return jsonObject.ToString();

@@ -3,8 +3,8 @@ title: Use Azure Image Builder & Azure Compute Gallery for Linux VMs
 description: Learn how to use the Azure Image Builder, and the Azure CLI, to create an image version in an Azure Compute Gallery, and then distribute the image globally.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 04/11/2023
+ms.reviewer: erd
+ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -17,11 +17,11 @@ ms.custom: devx-track-azurecli, devx-track-linux
 
 This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
-We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/azure/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+We'll be using a sample .json template to configure the image. The .json file we're using is here: [helloImageTemplateforSIG.json](https://github.com/azure/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-## Register the features
+## Register the providers
 
 To use Azure Image Builder, you need to register the feature.
 
@@ -33,9 +33,10 @@ az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 az provider show -n Microsoft.Network | grep registrationState
+az provider show -n Microsoft.ContainerInstance | grep registrationState
 ```
 
-If they do not say registered, run the following:
+If they don't say registered, run the following:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -43,11 +44,12 @@ az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
+az provider register -n Microsoft.ContainerInstance
 ```
 
 ## Set variables and permissions
 
-We will be using some pieces of information repeatedly, so we will create some variables to store that information.
+We'll be using some pieces of information repeatedly, so we'll create some variables to store that information.
 
 Image Builder only supports creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
@@ -80,7 +82,7 @@ az group create -n $sigResourceGroup -l $location
 
 ## Create a user-assigned identity and set permissions on the resource group
 
-Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Compute Gallery. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the gallery. The role definition will then be assigned to the user-identity.
+Image Builder uses the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Compute Gallery. In this example, you'll create an Azure role definition that has the granular actions to perform distributing the image to the gallery. The role definition will then be assigned to the user-identity.
 
 ```azurecli-interactive
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -115,7 +117,7 @@ az role assignment create \
 
 ## Create an image definition and gallery
 
-To use Image Builder with an Azure Compute Gallery, you need to have an existing gallery and image definition. Image Builder will not create the gallery and image definition for you.
+To use Image Builder with an Azure Compute Gallery, you need to have an existing gallery and image definition. Image Builder won't create the gallery and image definition for you.
 
 If you don't already have a gallery and image definition to use, start by creating them. First, create a gallery.
 
@@ -213,9 +215,9 @@ You should see the image was customized with a *Message of the Day* as soon as y
 
 ## Clean up resources
 
-If you want to now try re-customizing the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
+If you want to now try recustomizing the image version to create a new version of the same image, skip the next steps and go on to [Use Azure Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
-This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
+This deletes the image that was created, along with all of the other resource files. Make sure you're finished with this deployment before deleting the resources.
 
 When deleting gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 

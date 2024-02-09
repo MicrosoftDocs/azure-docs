@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article covers common scenarios for Cost Management automation and options available based on your situation.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 11/17/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Cost Management automation overview

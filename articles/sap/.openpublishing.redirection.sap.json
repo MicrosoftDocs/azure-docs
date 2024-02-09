@@ -1178,6 +1178,12 @@
     },
 
     {
+      "source_path_from_root": "/articles/sap/workloads/disaster-recovery-sap-hana-suse.md",
+      "redirect_url": "/azure/sap/workloads/disaster-recovery-sap-hana",
+      "redirect_document_id": false
+    },
+
+    {
       "source_path_from_root": "/articles/center-sap-solutions/deploy-s4hana.md",
       "redirect_url": "/azure/sap/center-sap-solutions/deploy-s4hana",
       "redirect_document_id": true

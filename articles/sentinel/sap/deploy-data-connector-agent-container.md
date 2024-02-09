@@ -231,6 +231,9 @@ In this section, you deploy the data connector agent. After you deploy the agent
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
 1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**.
+
+   The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl). You can supply additional parameters to the script to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+   
 1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
 
     The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**. 

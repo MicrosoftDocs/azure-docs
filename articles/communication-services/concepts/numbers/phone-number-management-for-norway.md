@@ -45,12 +45,19 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Norway phone numbers are available
 | Country/Region |
 | :---------- |
-|Norway|
-|France|
-|Sweden|
-|United States|
+|Australia|
 |Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
+|Norway|
+|Spain|
+|Sweden|
 |United Kingdom|
+|United States|
+
 
 
 ## Find information about other countries/regions

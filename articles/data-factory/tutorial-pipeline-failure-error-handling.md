@@ -202,7 +202,7 @@ You can add multiple activities for error handling.
 
 
 
-## Next steps
+## Related content
 
 [Data Factory metrics and alerts](monitor-metrics-alerts.md)
 

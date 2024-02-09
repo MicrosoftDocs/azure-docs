@@ -41,7 +41,7 @@ The QnA Maker service provides configuration for the following users to collabor
 
 Learn [how to add collaborators](./index.yml) to your service.
 
-## Change Azure Cognitive Search
+## Change Azure AI Search
 
 Learn [how to change the Cognitive Search service](./how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) linked to your QnA Maker service.
 

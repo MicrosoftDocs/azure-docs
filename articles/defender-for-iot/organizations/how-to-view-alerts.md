@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md).
+This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md).
 
 For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 

@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022, devx-track-python
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/21/2023
+ms.date: 11/13/2023
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -19,6 +19,17 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2023-11-13
+  + **azureml-automl-core, azureml-automl-runtime, azureml-contrib-automl-dnn-forecasting, azureml-train-automl-client, azureml-train-automl-runtime, azureml-training-tabular**
+    +  statsmodels, pandas and scipy were upgraded to versions 1.13, 1.3.5 and 1.10.1 - fbprophet 0.7.1 was replaced by prophet 1.1.4 When loading a model in a local environment, the versions of these packages should match what the model was trained on.
+  + **azureml-core, azureml-pipeline-core, azureml-pipeline-steps**
+    + AzureML-Pipeline - Add a warning for the `init_scripts` parameter in the Databricks step, alerting you to its upcoming deprecation.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.30.*
+  + **azureml-mlflow**
+    + feat: Add `AZUREML_BLOB_MAX_SINGLE_PUT_SIZE` to control the size in bytes of upload chunks. Lowering this from the default (`64*1024*1024` i.e 64MB) can remedy issues where write operations fail due to time outs.
+    + Support for uploading and downloading models from AzureML registries is currently experimental
+    + Adding support for users that want to download or upload model from AML registries
 
 ## 2023-08-21
 

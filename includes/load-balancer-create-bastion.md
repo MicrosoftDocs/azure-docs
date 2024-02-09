@@ -5,14 +5,14 @@
  author: mbender-ms
  ms.service: load-balancer
  ms.topic: include
- ms.date: 10/31/2023
+ ms.date: 11/29/2023
  ms.author: mbender
  ms.custom: include file
 ---
 
 ## Create a virtual network and bastion host
 
-The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
+In this section, you creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
 
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](bastion-pricing.md)]

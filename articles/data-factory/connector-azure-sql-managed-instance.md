@@ -23,14 +23,14 @@ This Azure SQL Managed Instance connector is supported for the following capabil
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Public preview |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ <small> Public preview |
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Public preview |
-|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Public preview |
-|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ <small> Public preview |
-|[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ <small> Public preview |
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ Public preview |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ Public preview |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ Public preview |
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ Public preview |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ Public preview |
+|[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ Public preview |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For Copy activity, this Azure SQL Database connector supports these functions:
 
@@ -506,7 +506,7 @@ To copy data to SQL Managed Instance, the following properties are supported in 
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL MI. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
 | upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
 | ***Under `upsertSettings`:*** | | |
-| useTempDB | Specify whether to use the a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
+| useTempDB | Specify whether to use a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
 | interimSchemaName | Specify the interim schema for creating interim table if physical table is used. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. <br/> Apply when the useTempDB option is `False`. | No |
 | keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
 
@@ -781,7 +781,7 @@ The below table lists the properties supported by Azure SQL Managed Instance sou
 | Table | If you select Table as input, data flow fetches all the data from the table specified in the dataset. | No | - |- |
 | Query | If you select Query as input, specify a SQL query to fetch data from source, which overrides any table you specify in dataset. Using queries is a great way to reduce rows for testing or lookups.<br><br>**Order By** clause is not supported, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table that you can use in data flow.<br>Query example: `Select * from MyTable where customerId > 1000 and customerId < 2000`| No | String | query |
 | Batch size | Specify a batch size to chunk large data into reads. | No | Integer | batchSize |
-| Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
+| Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE |isolationLevel |
 | Enable incremental extract | Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed. | No | - |- |
 | Incremental column | When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table. | No | - |- |
 | Enable native change data capture(Preview) | Use this option to tell ADF to only process delta data captured by [SQL change data capture technology](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) since the last time that the pipeline executed. With this option, the delta data including row insert, update and deletion will be loaded automatically without any incremental column required. You need to [enable change data capture](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) on Azure SQL MI before using this option in ADF. For more information about this option in ADF, see [native change data capture](#native-change-data-capture). | No | - |- |
@@ -983,5 +983,5 @@ derivedColumn1 sink(allowSchemaDrift: true,
 *    Only **net changes** from SQL CDC will be loaded by ADF via [cdc.fn_cdc_get_net_changes_](/sql/relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql?source=recommendations).
 
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

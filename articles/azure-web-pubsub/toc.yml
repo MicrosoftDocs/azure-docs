@@ -11,6 +11,8 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -48,6 +50,8 @@
           href: howto-generate-client-access-url.md
         - name: Configure event handler
           href: howto-develop-eventhandler.md
+        - name: Develop with local tunnel tool
+          href: howto-web-pubsub-tunnel-tool.md
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
         - name: Use server SDK with Azure Identity
@@ -130,7 +134,7 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
-- name: Socket.IO (preview)
+- name: Socket.IO
   expanded: false
   items: 
     - name: Overview

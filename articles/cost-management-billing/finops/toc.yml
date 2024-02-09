@@ -69,5 +69,11 @@
   items:
   - name: FinOps with Azure e-book
     href: https://aka.ms/finops/ebook
+  - name: FinOps review assessment
+    href: /assessments/ad1c0f6b-396b-44a4-924b-7a4c778a13d3
+  - name: FinOps toolkit
+    href: https://aka.ms/finops/toolkit
   - name: FinOps Foundation
     href: https://finops.org/
+  - name: FinOps events
+    href: https://www.finops.org/community/events/

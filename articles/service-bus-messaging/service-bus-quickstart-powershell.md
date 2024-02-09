@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 # Use Azure PowerShell to create a Service Bus namespace and a queue
 This quickstart shows you how to create a Service Bus namespace and a queue using the Azure PowerShell. It also shows you how to get authorization credentials that a client application can use to send/receive messages to/from the queue. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+[!INCLUDE [service-bus-queues](./includes/service-bus-queues.md)]
 
 
 ## Prerequisites
@@ -61,6 +61,5 @@ In this article, you created a Service Bus namespace and a queue in the namespac
 - [Java](service-bus-java-how-to-use-queues.md)
 - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
-- [PHP](service-bus-php-how-to-use-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

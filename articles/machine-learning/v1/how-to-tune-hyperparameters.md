@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, contperf-fy21q1, event-tier1-build-2022
 
 [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
      
-[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-v1-deprecation.md)]
 
 Automate efficient hyperparameter tuning by using Azure Machine Learning (v1) [HyperDrive package](/python/api/azureml-train-core/azureml.train.hyperdrive). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
 

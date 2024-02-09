@@ -17,7 +17,7 @@ To enable hybrid VMs, first enable [Azure Arc for servers](../../azure-arc/serve
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).
+- [Create a Log Analytics workspace](../logs/quick-create-workspace.md).
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
 
 ## Overview

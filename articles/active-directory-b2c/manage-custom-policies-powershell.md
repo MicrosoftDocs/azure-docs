@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 02/14/2020

@@ -2,6 +2,8 @@
 title: How to target Azure Functions runtime versions
 description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 05/17/2023
 ---
 
@@ -28,12 +30,16 @@ The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each majo
 
 | Major version  | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
 | -------------  | ----------------------------------- | ------------------------- |
-| 4.x            | `~4`                                | [On Windows, enable .NET 6](./migrate-version-3-version-4.md#upgrade-your-function-app-in-azure) |
-| 3.x<sup>*</sup>| `~3`                                |                           |
-| 2.x<sup>*</sup>| `~2`                                |                           |
-| 1.x            | `~1`                                |                           |
+| 4.x            | `~4`                                | [On Windows, enable .NET 6](./migrate-version-3-version-4.md#upgrade-your-function-app-in-azure)<sup>1</sup> |
+| 3.x<sup>2</sup>| `~3`                                |                           |
+| 2.x<sup>2</sup>| `~2`                                |                           |
+| 1.x<sup>3</sup>| `~1`                                |                           |
 
-<sup>*</sup>Reached the end of life (EOL) for extended support on December 13, 2022. For a detailed support statement about end-of-life versions, see [this migration article](migrate-version-3-version-4.md).
+<sup>1</sup> If using a later version with the .NET Isolated worker model, instead enable that version.
+
+<sup>2</sup>Reached the end of life (EOL) for extended support on December 13, 2022. For a detailed support statement about end-of-life versions, see [this migration article](migrate-version-3-version-4.md).
+
+<sup>3</sup>[Support for version 1.x of the Azure Functions runtime ends on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). Before that date, [migrate your version 1.x apps to version 4.x](./migrate-version-1-version-4.md) to maintain full support.
 
 A change to the runtime version causes a function app to restart. 
 

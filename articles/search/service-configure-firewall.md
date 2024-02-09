@@ -1,19 +1,21 @@
 ---
 title: Configure an IP firewall
-titleSuffix: Azure Cognitive Search
-description: Configure IP control policies to restrict access to your Azure Cognitive Search service to specific IP addresses.
+titleSuffix: Azure AI Search
+description: Configure IP control policies to restrict access to your Azure AI Search service to specific IP addresses.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 02/08/2023
 ---
 
-# Configure an IP firewall for Azure Cognitive Search
+# Configure an IP firewall for Azure AI Search
 
-Azure Cognitive Search supports IP rules for inbound access through a firewall, similar to the IP rules you'll find in an Azure virtual network security group. By applying IP rules, you can restrict search service access to an approved set of machines and cloud services. Access to data stored in your search service from the approved sets of machines and services will still require the caller to present a valid authorization token.
+Azure AI Search supports IP rules for inbound access through a firewall, similar to the IP rules you'll find in an Azure virtual network security group. By applying IP rules, you can restrict search service access to an approved set of machines and cloud services. Access to data stored in your search service from the approved sets of machines and services will still require the caller to present a valid authorization token.
 
 You can set IP rules in the Azure portal, as described in this article, or use the [Management REST API](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
@@ -28,7 +30,7 @@ You can set IP rules in the Azure portal, as described in this article, or use t
 
 ## Set IP ranges in Azure portal
 
-1. Sign in to Azure portal and go to your Azure Cognitive Search service page.
+1. Sign in to Azure portal and go to your Azure AI Search service page.
 
 1. Select **Networking** on the left navigation pane. 
 
@@ -42,7 +44,7 @@ You can set IP rules in the Azure portal, as described in this article, or use t
 
 1. Add other client IP addresses for other machines, devices, and services that will send requests to a search service.
 
-After you enable the IP access control policy for your Azure Cognitive Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. 
+After you enable the IP access control policy for your Azure AI Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. 
 
 ### Rejected requests
 

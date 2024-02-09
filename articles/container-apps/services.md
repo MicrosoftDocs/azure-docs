@@ -4,23 +4,40 @@ description: Learn how to use runtime services in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 11/02/2023
 ms.author: cshoe
 ---
 
 # Connect to services in Azure Container Apps (preview)
 
-As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "add-ons".
+As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as add-ons.
 
 Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration.
 
+Once you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
+
 Services available as an add-on include:
 
-- Open-source Redis
-- Open-source PostgreSQL
+| Title | Service name |
+|---|---|
+| [Kafka](https://kafka.apache.org/) | `kafka` |
+| [MariaDB](https://mariadb.org/) | `mariadb` |
+| [Milvus](https://milvus.io/) | `milvus` |
+| [PostgreSQL](https://www.postgresql.org/) (open source) | `postgres` |
+| [Qdrant](https://qdrant.tech/) | `qdrant` |
+| [Redis](https://redis.io/) (open source) | `redis` |
+| [Weaviate](https://weaviate.io/) | `weaviate` |
 
-Once you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
+You can get most recent list of add-on services by running the following command:
+
+```azurecli
+az containerapp service --help
+```
+
+See the section on how to [manage a service](#manage-a-service) for usage instructions.
 
 ## Features
 
@@ -36,7 +53,7 @@ See the service-specific features for managed services.
 
 ## Binding
 
-Both add-ons and managed services connect to a container via a "binding".
+Both add-ons and managed services connect to a container via a binding.
 
 The Container Apps runtime binds a container app to a service by:
 
@@ -64,7 +81,7 @@ You're responsible for data continuity between development and production enviro
 
 To connect a service to an application, you first need to create the service.
 
-Use the `service` command with `containerapp create` to create a new service.
+Use the `containerapp service <SERVICE_TYPE> create` command with the service type and name to create a new service.
 
 ``` CLI
 az containerapp service redis create \
@@ -104,9 +121,9 @@ For more information on the service commands and arguments, see the
 
 ## Limitations
 
-- Add ons are in public preview.
-- Any container app created before May 23, 2023 isn't eligible to use add ons.
-- Add ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
+- Add-ons are in public preview.
+- Any container app created before May 23, 2023 isn't eligible to use add-ons.
+- Add-ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
 
 ## Next steps
 

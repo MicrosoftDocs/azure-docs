@@ -7,8 +7,10 @@ ms.author: gahllevy
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 10/24/2023
 # CustomerIntent: As a database owner, I want to use the native tools in MongoDB Core so that I can migrate an existing dataset to Azure Cosmos DB for MongoDB vCore.
 ---
 
@@ -54,42 +56,44 @@ Migrate a collection from the source MongoDB instance to the target Azure Cosmos
 
 ### [mongoexport/mongoimport](#tab/export-import)
 
-1. To export the data from the source MongoDB instance, open a terminal and use any of three methods listed below.
-   
-	1.  Specify the ``--host``, ``--username``, and ``--password`` arguments to connect to and export JSON records.
-	  
-	      ```bash
-	      mongoexport \
-	          --host <hostname><:port> \
-	          --username <username> \
-	          --password <password> \
-	          --db <database-name> \
-	          --collection <collection-name> \
-	          --out <filename>.json
-	      ```
-	  
-	2. Export a subset of the MongoDB data by adding a ``--query`` argument. This argument ensures that the tool only exports documents that match the filter.
-	    
-	      ```bash
-	      mongoexport \
-	          --host <hostname><:port> \
-	          --username <username> \
-	          --password <password> \
-	          --db <database-name> \
-	          --collection <collection-name> \
-	          --query '{ "quantity": { "$gte": 15 } }' \
-	          --out <filename>.json
-	      ```
-	3. Export data from Azure Cosmos DB for MongoDB vCore.
-	    
-	      ```bash
-	      mongoexport \
-	          --uri <target-connection-string>
-	          --db <database-name> \
-	          --collection <collection-name> \
-	          --query '{ "quantity": { "$gte": 15 } }' \
-	          --out <filename>.json
-	      ```
+1. To export the data from the source MongoDB instance, open a terminal and use any of three methods listed here.
+
+    - Specify the ``--host``, ``--username``, and ``--password`` arguments to connect to and export JSON records.
+
+        ```bash
+        mongoexport \
+            --host <hostname><:port> \
+            --username <username> \
+            --password <password> \
+            --db <database-name> \
+            --collection <collection-name> \
+            --out <filename>.json
+        ```
+
+    - Export a subset of the MongoDB data by adding a ``--query`` argument. This argument ensures that the tool only exports documents that match the filter.
+
+        ```bash
+        mongoexport \
+            --host <hostname><:port> \
+            --username <username> \
+            --password <password> \
+            --db <database-name> \
+            --collection <collection-name> \
+            --query '{ "quantity": { "$gte": 15 } }' \
+            --out <filename>.json
+        ```
+
+    - Export data from Azure Cosmos DB for MongoDB vCore.
+
+        ```bash
+        mongoexport \
+            --uri <target-connection-string>
+            --db <database-name> \
+            --collection <collection-name> \
+            --query '{ "quantity": { "$gte": 15 } }' \
+            --out <filename>.json
+        ```
+
 1. Import the previously exported file into the target Azure Cosmos DB for MongoDB vCore account.
 
     ```bash
@@ -106,44 +110,47 @@ Migrate a collection from the source MongoDB instance to the target Azure Cosmos
 
 ### [mongodump/mongorestore](#tab/dump-restore)
 
-1. To create a data dump of all data in your MongoDB instance, open a terminal and use any of three methods listed below.
-	1.  Specify the ``--host``, ``--username``, and ``--password`` arguments to dump the data as native BSON.
-	
-	    ```bash
-	    mongodump \
-	        --host <hostname><:port> \
-	        --username <username> \
-	        --password <password> \
-	        --out <dump-directory>
-	    ```
-	
-	1. Specify the ``--db`` and ``--collection`` arguments to narrow the scope of the data you wish to dump:
-	
-	    ```bash
-	    mongodump \
-	        --host <hostname><:port> \
-	        --username <username> \
-	        --password <password> \    
-	        --db <database-name> \
-	        --out <dump-directory>
-	    ```
-	
-	    ```bash
-	    mongodump \
-	        --host <hostname><:port> \
-	        --username <username> \
-	        --password <password> \    
-	        --db <database-name> \
-	        --collection <collection-name> \
-	        --out <dump-directory>
-	    ```
-	1.  Create a data dump of all data in your Azure Cosmos DB for MongoDB vCore.
-	
-	    ```bash
-	    mongodump \
-	        --uri <target-connection-string> \
-	        --out <dump-directory>
-	    ```
+1. To create a data dump of all data in your MongoDB instance, open a terminal and use any of three methods listed here.
+
+    - Specify the ``--host``, ``--username``, and ``--password`` arguments to dump the data as native BSON.
+
+        ```bash
+        mongodump \
+            --host <hostname><:port> \
+            --username <username> \
+            --password <password> \
+            --out <dump-directory>
+        ```
+
+    - Specify the ``--db`` and ``--collection`` arguments to narrow the scope of the data you wish to dump:
+
+        ```bash
+        mongodump \
+            --host <hostname><:port> \
+            --username <username> \
+            --password <password> \    
+            --db <database-name> \
+            --out <dump-directory>
+        ```
+
+        ```bash
+        mongodump \
+            --host <hostname><:port> \
+            --username <username> \
+            --password <password> \    
+            --db <database-name> \
+            --collection <collection-name> \
+            --out <dump-directory>
+        ```
+
+    - Create a data dump of all data in your Azure Cosmos DB for MongoDB vCore.
+
+        ```bash
+        mongodump \
+            --uri <target-connection-string> \
+            --out <dump-directory>
+        ```
+
 1. Observe that the tool created a directory with the native BSON data dumped. The files and folders are organized into a resource hierarchy based on the database and collection names. Each database is a folder and each collection is a `.bson` file.
 
 1. Restore the contents of any specific collection into an Azure Cosmos DB for MongoDB vCore account by specifying the collection's specific BSON file. The filename is constructed using this syntax: `<dump-directory>/<database-name>/<collection-name>.bson`.

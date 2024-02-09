@@ -7,7 +7,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 11/02/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Integrate Azure OpenAI

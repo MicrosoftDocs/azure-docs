@@ -39,6 +39,8 @@ The updated set of commands are management orientated. Consider using managed ru
 
 See [Managed Run Command for Linux](./linux/run-command-managed.md) and [Managed Run Command for Windows](./windows/run-command-managed.md) to learn how to use them.
 
+> [!NOTE]
+> The maximum number of allowed Managed Run Commands is currently limited to 25.
 
 ## Compare feature support
 

@@ -74,6 +74,7 @@ Communication Services offers the following types of logs that you can enable:
 | `BccRecipientsCount` | The total # of unique email addresses on the Bcc line. |
 | `UniqueRecipientsCount` | This is the deduplicated total recipient count for the To, Cc, and Bcc address fields. |
 | `AttachmentsCount` | The total # of attachments. |
+| `TrafficSource` | The name of the client where the email request originated from. |
 
 **Samples**
 
@@ -86,7 +87,8 @@ Communication Services offers the following types of logs that you can enable:
   "CcRecipientsCount":3, 
   "BccRecipientsCount":1, 
   "UniqueRecipientsCount":6, 
-  "AttachmentsCount":0
+  "AttachmentsCount":0,
+  "TrafficSource":"Email .NET SDK"
 }
 ```
 

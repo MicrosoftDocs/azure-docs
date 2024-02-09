@@ -19,15 +19,9 @@ The Data Science Virtual Machine is an easy way to explore data and do machine l
 
 The Data Science Virtual Machine comes with the most useful data-science tools pre-installed.
 
-
-> [!IMPORTANT]
-> This feature is currently in public preview.
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Build deep learning and machine learning solutions
 
-| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM (Preview) | Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM | Ubuntu 20.04 DSVM | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | <span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> | [CUDA, cuDNN, NVIDIA Driver on the DSVM](./dsvm-tools-deep-learning-frameworks.md#cuda-cudnn-nvidia-driver) |
 | [Horovod](https://github.com/horovod/horovod) | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | [Horovod on the DSVM](./dsvm-tools-deep-learning-frameworks.md#horovod) |
@@ -54,7 +48,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 
 ## Store, retrieve, and manipulate data
 
-| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM (Preview)| Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM | Ubuntu 20.04 DSVM | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | Relational databases | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) <br/> Developer Edition | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) <br/> Developer Edition | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) <br/> Developer Edition | [SQL Server on the DSVM](./dsvm-tools-data-platforms.md#sql-server-developer-edition) |
 | Database tools |  SQL Server Management Studio<br/> SQL Server Integration Services<br/> [bcp, sqlcmd](/sql/tools/command-prompt-utility-reference-database-engine) | SQL Server Management Studio<br/> SQL Server Integration Services<br/> [bcp, sqlcmd](/sql/tools/command-prompt-utility-reference-database-engine) | [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (querying tool), <br /> bcp, sqlcmd <br /> ODBC/JDBC drivers | |
@@ -68,7 +62,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 
 ## Program in Python, R, Julia, and Node.js
 
-| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM (Preview) | Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM | Ubuntu 20.04 DSVM | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | [CRAN-R](https://cran.r-project.org/) with popular packages pre-installed | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | |
 | [Anaconda Python](https://www.continuum.io/) with popular packages pre-installed | <span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span><br/> (Miniconda) | <span class='green-check'>&#9989;</span></br> (Miniconda) | |
@@ -82,7 +76,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | &nbsp;&nbsp;&nbsp;&nbsp; Julia |  |  |  | [Julia Jupyter Samples](./dsvm-samples-and-walkthroughs.md#julia-language) |
 | &nbsp;&nbsp;&nbsp;&nbsp; PySpark |  |  |  | [pySpark Jupyter Samples](./dsvm-samples-and-walkthroughs.md#sparkml) |
 
-**Ubuntu 20.04 DSVM, Windows Server 2019 DSVM, and Windows Server 2022 DSVM (Preview)** have the following Jupyter Kernels:-</br> 
+**Ubuntu 20.04 DSVM, Windows Server 2019 DSVM, and Windows Server 2022 DSVM** have the following Jupyter Kernels:-</br> 
 * Python3.8-default</br>
 * Python3.8-Tensorflow-Pytorch</br>
 * Python3.8-AzureML</br>
@@ -93,14 +87,14 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 * Scala Spark – HDInsight</br>
 * Python 3 Spark – HDInsight</br>
 
-**Ubuntu 20.04 DSVM, Windows Server 2019 DSVM, and Windows Server 2022 DSVM (Preview)** have the following conda environments:-</br> 
+**Ubuntu 20.04 DSVM, Windows Server 2019 DSVM, and Windows Server 2022 DSVM** have the following conda environments:-</br> 
 * Python3.8-default  </br>
 * Python3.8-Tensorflow-Pytorch </br> 
 * Python3.8-AzureML  </br>
 
 ## Use your preferred editor or IDE
 
-| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM (Preview)| Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM | Ubuntu 20.04 DSVM | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | [Notepad++](https://notepad-plus-plus.org/) | <span class='green-check'>&#9989;</span></br>  | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span></br> | |
 | [Nano](https://www.nano-editor.org/) | <span class='green-check'>&#9989;</span></br>  | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span></br> | |
@@ -117,7 +111,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 
 ## Organize & present results
 
-| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM (Preview) | Ubuntu 20.04 DSVM | Usage notes |
+| Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM | Ubuntu 20.04 DSVM | Usage notes |
 |--|:-:|:-:|:-:|:-:|
 | [Microsoft 365](https://www.microsoft.com/microsoft-365) (Word, Excel, PowerPoint) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> |  |
 | [Microsoft Teams](https://www.microsoft.com/microsoft-teams) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | |

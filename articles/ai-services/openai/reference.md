@@ -2,7 +2,7 @@
 title: Azure OpenAI Service REST API reference
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -11,6 +11,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom:
+  - ignite-2023
 ---
 
 # Azure OpenAI Service REST API reference
@@ -182,7 +183,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 
 ## Chat completions
 
-Create completions for chat messages with the GPT-35-Turbo and GPT-4  models. 
+Create completions for chat messages with the GPT-35-Turbo and GPT-4 models. 
 
 **Create chat completions**
 
@@ -205,15 +206,46 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
 - `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
 - `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
+- `2023-12-01-preview` (required for Vision scenarios) [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview)
+
+**Request body**
+
+The request body consists of a series of messages. The model will generate a response to the last message, using earlier messages as context.
+
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `messages` | array | Yes | N/A | The series of messages associated with this chat completion request. It should include previous messages in the conversation. Each message has a `role` and `content`. |
+| `role`| string | Yes | N/A | Indicates who is giving the current message. Can be `system`,`user`,`assistant`,`tool`, or `function`.|
+| `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario. If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then `content` must be an array of structures, where each item represents either text or an image: <ul><li> `text`: input text is represented as a structure with the following properties: </li> <ul> <li> `type` = "text" </li> <li> `text` = the input text </li> </ul> <li> `images`: an input image is represented as a structure with the following properties: </li><ul> <li> `type` = "image_url" </li> <li> `image_url` = a structure with the following properties: </li> <ul> <li> `url` = the image URL </li> <li>(optional) `detail` = "high", "low", or "auto" </li> </ul> </ul> </ul>|
+| `contentPart` | object | No | N/A | Part of a user's multi-modal message. It can be either text type or image type. If text, it will be a text string. If image, it will be a `contentPartImage` object. |
+| `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base 64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|
+| `enhancements` | object | No | N/A | Represents the Vision enhancement features requested for the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service.|
+| `dataSources` | object | No | N/A | Represents additional resource data. Computer Vision resource data is needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property which has an `endpoint` and `key` property. These strings should be set to the endpoint URL and access key of your Computer Vision resource.|
 
 #### Example request
 
+**Text-only chat**
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2023-05-15 \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d '{"messages":[{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},{"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},{"role": "user", "content": "Do other Azure AI services support this too?"}]}'
+```
 
+**Chat with vision**
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2023-12-01-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d '{"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":[{"type":"text","text":"Describe this picture:"},{ "type": "image_url", "image_url": { "url": https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png, "detail": "high" } }]}]}'
+```
+
+**Enhanced chat with vision**
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-12-01-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d '{"enhancements":{"ocr":{"enabled":true},"grounding":{"enabled":true}},"dataSources":[{"type":"AzureComputerVision","parameters":{"endpoint":" <Computer Vision Resource Endpoint> ","key":"<Computer Vision Resource Key>"}}],"messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":[{"type":"text","text":"Describe this picture:"},{"type":"image_url","image_url":"https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png"}]}]}'
 ```
 
 #### Example response
@@ -233,6 +265,9 @@ In the example response, `finish_reason` equals `stop`. If `finish_reason` equal
 
 Output formatting adjusted for ease of reading, actual output is a single block of text without line breaks.
 
+> [!IMPORTANT]
+> The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the `tools` parameter. The replacement for `function_call` is the `tool_choice` parameter. Parallel function calling which was introduced as part of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) is only supported with `gpt-35-turbo` (1106) and `gpt-4` (1106-preview) also known as GPT-4 Turbo Preview.  
+
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | ```messages``` | array | Required |  | The collection of context messages associated with this chat completions request. Typical usage begins with a [chat message](#chatmessage) for the System role that provides instructions for the behavior of the assistant, followed by alternating messages between the User and Assistant roles.|
@@ -245,8 +280,10 @@ Output formatting adjusted for ease of reading, actual output is a single block 
 | ```frequency_penalty``` | number | Optional | 0 | Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.|
 | ```logit_bias``` | object | Optional | null | Modify the likelihood of specified tokens appearing in the completion. Accepts a json object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.|
 | ```user``` | string | Optional | | A unique identifier representing your end-user, which can help Azure OpenAI to monitor and detect abuse.|
-|```function_call```|  | Optional | | Controls how the model responds to function calls. "none" means the model does not call a function, and responds to the end-user. "auto" means the model can pick between an end-user or calling a function. Specifying a particular function via {"name": "my_function"} forces the model to call that function. "none" is the default when no functions are present. "auto" is the default if functions are present. This parameter requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json) |
-|```functions``` | [`FunctionDefinition[]`](#functiondefinition) | Optional | | A list of functions the model can generate JSON inputs for. This parameter requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json)|
+|```function_call```|  | Optional | | `[Deprecated in 2023-12-01-preview replacement paremeter is tools_choice]`Controls how the model responds to function calls. "none" means the model does not call a function, and responds to the end-user. "auto" means the model can pick between an end-user or calling a function. Specifying a particular function via {"name": "my_function"} forces the model to call that function. "none" is the default when no functions are present. "auto" is the default if functions are present. This parameter requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json) |
+|```functions``` | [`FunctionDefinition[]`](#functiondefinition-deprecated) | Optional | | `[Deprecated in 2023-12-01-preview replacement paremeter is tools]` A list of functions the model can generate JSON inputs for. This parameter requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json)|
+|```tools```| string (The type of the tool. Only [`function`](#function) is supported.)  | Optional | |A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. This parameter requires API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/generated.json) |
+|```tool_choice```| string or object | Optional | none is the default when no functions are present. auto is the default if functions are present. | Controls which (if any) function is called by the model. none means the model will not call a function and instead generates a message. auto means the model can pick between generating a message or calling a function. Specifying a particular function via {"type: "function", "function": {"name": "my_function"}} forces the model to call that function. This parameter requires API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)|
 
 ### ChatMessage
 
@@ -255,7 +292,7 @@ A single, role-attributed message within a chat completion interaction.
 | Name | Type | Description |
 |---|---|---|
 | content | string | The text associated with this message payload.|
-| function_call | [FunctionCall](#functioncall)| The name and arguments of a function that should be called, as generated by the model. |
+| function_call | [FunctionCall](#functioncall-deprecated)| The name and arguments of a function that should be called, as generated by the model. |
 | name | string | The `name` of the author of this message. `name` is required if role is `function`, and it should be the name of the function whose response is in the `content`. Can contain a-z, A-Z, 0-9, and underscores, with a maximum length of 64 characters.|
 |role | [ChatRole](#chatrole) | The role associated with this message payload |
 
@@ -270,7 +307,17 @@ A description of the intended purpose of a message within a chat completions int
 | system | string | The role that instructs or sets the behavior of the assistant. |
 | user | string | The role that provides input for chat completions. |
 
-### FunctionCall
+### Function
+
+This is used with the `tools` parameter that was added in API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json).
+
+|Name | Type | Description |
+|---|---|---|
+| description | string | A description of what the function does, used by the model to choose when and how to call the function |
+| name | string | The name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64 |
+| parameters | object | The parameters the functions accepts, described as a JSON Schema object. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format."|
+
+### FunctionCall-Deprecated
 
 The name and arguments of a function that should be called, as generated by the model. This requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json)
 
@@ -279,7 +326,7 @@ The name and arguments of a function that should be called, as generated by the 
 | arguments | string | The arguments to call the function with, as generated by the model in JSON format. Note that the model does not always generate valid JSON, and might fabricate parameters not defined by your function schema. Validate the arguments in your code before calling your function. |
 | name | string | The name of the function to call.|
 
-### FunctionDefinition
+### FunctionDefinition-Deprecated
 
 The definition of a caller-specified function that chat completions can invoke in response to matching user input. This requires API version [`2023-07-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/generated.json)
 
@@ -314,6 +361,10 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 
 #### Example request
 
+You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data) and [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data).
+
+##### Azure AI Search
+
 ```Console
 curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-06-01-preview \
 -H "Content-Type: application/json" \
@@ -338,6 +389,52 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
         {
             "role": "user",
             "content": "What are the differences between Azure Machine Learning and Azure AI services?"
+        }
+    ]
+}
+'
+```
+
+##### Azure Cosmos DB for MongoDB vCore
+
+```json
+curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-06-01-preview \
+-H "Content-Type: application/json" \
+-H "api-key: YOUR_API_KEY" \
+-d \
+'
+{
+    "temperature": 0,
+    "top_p": 1.0,
+    "max_tokens": 800,
+    "stream": false,
+    "messages": [
+        {
+            "role": "user",
+            "content": "What is the company insurance plan?"
+        }
+    ],
+    "dataSources": [
+        {
+            "type": "AzureCosmosDB",
+            "parameters": {
+                "authentication": {
+                    "type": "ConnectionString",
+                    "connectionString": "mongodb+srv://onyourdatatest:{password}$@{cluster-name}.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000"
+                },
+                "databaseName": "vectordb",
+                "containerName": "azuredocs",
+                "indexName": "azuredocindex",
+                "embeddingDependency": {
+                    "type": "DeploymentName",
+                    "deploymentName": "{embedding deployment name}"
+                },
+                "fieldsMapping": {
+                    "vectorFields": [
+                        "contentvector"
+                    ]
+                }
+            }
         }
     ]
 }
@@ -384,16 +481,14 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 
 The following parameters can be used inside of the `parameters` field inside of `dataSources`.
 
+
 |  Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure Cognitive search the value is `AzureCognitiveSearch`. |
-| `endpoint` | string | Required | null | The data source endpoint. |
-| `key` | string | Required | null | One of the Azure Cognitive Search admin keys for your service. |
+| `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. |
 | `indexName` | string | Required | null | The search index to be used. |
-| `fieldsMapping` | dictionary | Optional | null | Index data column mapping.   |
+| `fieldsMapping` | dictionary | Optional for Azure AI Search. Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
 | `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
-| `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure Cognitive Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
 | `semanticConfiguration` | string | Optional | null |  The semantic search configuration. Only required when `queryType` is set to `semantic` or  `vectorSemanticHybrid`.  |
 | `roleInformation` | string | Optional | null |  Gives the model instructions about how it should behave and the context it should reference when generating a response. Corresponds to the "System Message" in Azure OpenAI Studio. See [Using your data](./concepts/use-your-data.md#system-message) for more information. There’s a 100 token limit, which counts towards the overall token limit.|
 | `filter` | string | Optional | null | The filter pattern used for [restricting access to sensitive documents](./concepts/use-your-data.md#document-level-access-control)
@@ -402,7 +497,30 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `embeddingDeploymentName` | string | Optional | null | The Ada embedding model deployment name within the same Azure OpenAI resource. Used instead of `embeddingEndpoint` and `embeddingKey` for [vector search](./concepts/use-your-data.md#search-options). Should only be used when both the `embeddingEndpoint` and `embeddingKey` parameters are defined. When this parameter is provided, Azure OpenAI on your data will use an internal call to evaluate the Ada embedding model, rather than calling  the Azure OpenAI endpoint. This enables you to use vector search in private networks and private endpoints. Billing remains the same whether this parameter is defined or not. Available in regions where embedding models are [available](./concepts/models.md#embeddings-models) starting in API versions `2023-06-01-preview` and later.|
 | `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
+
+**The following parameters are used for Azure AI Search only**
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `endpoint` | string | Required | null | Azure AI Search only. The data source endpoint. |
+| `key` | string | Required | null | Azure AI Search only. One of the Azure AI Search admin keys for your service. |
+| `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
+
+**The following parameters are used for Azure Cosmos DB for MongoDB vCore**
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `type` (found inside of `authentication`) | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The authentication to be used For. Azure Cosmos Mongo vCore, the value is `ConnectionString` |
+| `connectionString` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The connection string to be used for authenticate Azure Cosmos Mongo vCore Account. |
+| `databaseName` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The Azure Cosmos Mongo vCore database name. |
+| `containerName` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The Azure Cosmos Mongo vCore container name in the database. |
+| `type` (found inside of`embeddingDependencyType`) | string | Required | null | Indicates the embedding model dependency. |
+| `deploymentName` (found inside of`embeddingDependencyType`) | string | Required | null | The embedding model deployment name. |
+
 ### Start an ingestion job 
+
+> [!TIP]
+> The `JOB_NAME` you choose will be used as the index name. Be aware of the [constraints](/rest/api/searchservice/create-index#uri-parameters) for the *index name*.
 
 ```console
 curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/JOB_NAME?api-version=2023-10-01-preview \ 
@@ -416,6 +534,10 @@ curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 ```
 
 ### Example response 
+
+
+
+
 
 ```json
 { 
@@ -441,16 +563,25 @@ curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 } 
 ```
 
+**Header Parameters**
+
 |  Parameters | Type | Required? | Default | Description |
 |---|---|---|---|---|
-| `dataRefreshIntervalInMinutes` | string | Required | 0 | The data refresh interval in minutes. If you want to run a single ingestion job without a schedule, set this parameter to `0`. |
-| `completionAction` | string | Optional | `cleanUpAssets` | What should happen to the assets created during the ingestion process upon job completion. Valid values are `cleanUpAssets` or `keepAllAssets`. `keepAllAssets` leaves all the intermediate assets for users interested in reviewing the intermediate results, which can be helpful for debugging assets. `cleanUpAssets` removes the assets after job completion. |
-| `searchServiceEndpoint` | string | Required |null | The endpoint of the search resource in which the data will be ingested. |
+| `searchServiceEndpoint` | string | Required |null | The endpoint of the search resource in which the data will be ingested.|
 | `searchServiceAdminKey` | string | Optional | null | If provided, the key will be used to authenticate with the `searchServiceEndpoint`. If not provided, the system-assigned identity of the Azure OpenAI resource will be used. In this case, the system-assigned identity must have "Search Service Contributor" role assignment on the search resource. |
 | `storageConnectionString` | string | Required | null | The connection string for the storage account where the input data is located. An account key has to be provided in the connection string. It should look something like `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` |
 | `storageContainer` | string | Required | null | The name of the container where the input data is located. | 
 | `embeddingEndpoint` | string | Optional | null | Not required if you use semantic or only keyword search. It is required if you use vector, hybrid, or hybrid + semantic search |
 | `embeddingKey` | string | Optional | null | The key of the embedding endpoint. This is required if the embedding endpoint is not empty. |
+| `url` | string | Optional | null | If URL is not null, the provided url will be crawled into the provided storage container and then ingested accordingly.|
+
+**Body Parameters**
+
+|  Parameters | Type | Required? | Default | Description |
+|---|---|---|---|---|
+| `dataRefreshIntervalInMinutes` | string | Required | 0 | The data refresh interval in minutes. If you want to run a single ingestion job without a schedule, set this parameter to `0`. |
+| `completionAction` | string | Optional | `cleanUpAssets` | What should happen to the assets created during the ingestion process upon job completion. Valid values are `cleanUpAssets` or `keepAllAssets`. `keepAllAssets` leaves all the intermediate assets for users interested in reviewing the intermediate results, which can be helpful for debugging assets. `cleanUpAssets` removes the assets after job completion. |
+| `chunkSize` | int | Optional |1024 |This number defines the maximum number of tokens in each chunk produced by the ingestion flow. |
 
 
 ### List ingestion jobs
@@ -508,7 +639,75 @@ curl -i -X GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 
 ## Image generation
 
-### Request a generated image
+### Request a generated image (DALL-E 3)
+
+Generate and retrieve a batch of images from a text caption.
+
+```http
+POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/images/generations?api-version={api-version} 
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```deployment-id``` | string | Required | The name of your DALL-E 3 model deployment such as *MyDalle3*. You're required to first deploy a DALL-E 3 model before you can make calls. |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+
+**Supported versions**
+
+- `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+
+**Request body**
+
+| Parameter | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 4000 characters. |
+| `n` | integer | Optional | 1 | The number of images to generate. Only `n=1` is supported for DALL-E 3. |
+| `size` | string | Optional | `1024x1024` | The size of the generated images. Must be one of `1792x1024`, `1024x1024`, or `1024x1792`. |
+| `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
+| `response_format` | string | Optional | `url` | The format in which the generated images are returned Must be `url` (a URL pointing to the image) or `b64_json` (the base 64 byte code in JSON format). |
+| `style` | string | Optional | `vivid` | The style of the generated images. Must be `natural` or `vivid` (for hyper-realistic / dramatic images). |
+
+
+#### Example request
+
+
+```console
+curl -X POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/images/generations?api-version=2023-12-01-preview \
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d '{
+    "prompt": "An avocado chair",
+    "size": "1024x1024",
+    "n": 3,
+    "quality": "hd", 
+    "style": "vivid"
+  }'
+```
+
+#### Example response
+
+The operation returns a `202` status code and an `GenerateImagesResponse` JSON object containing the ID and status of the operation.
+
+```json
+{ 
+    "created": 1698116662, 
+    "data": [ 
+        { 
+            "url": "url to the image", 
+            "revised_prompt": "the actual prompt that was used" 
+        }, 
+        { 
+            "url": "url to the image" 
+        },
+        ...
+    ]
+} 
+```
+
+### Request a generated image (DALL-E 2)
 
 Generate a batch of images from a text caption.
 
@@ -561,7 +760,7 @@ The operation returns a `202` status code and an `GenerateImagesResponse` JSON o
 }
 ```
 
-### Get a generated image result
+### Get a generated image result (DALL-E 2)
 
 
 Use this API to retrieve the results of an image generation operation. Image generation is currently only available with `api-version=2023-06-01-preview`.
@@ -569,7 +768,6 @@ Use this API to retrieve the results of an image generation operation. Image gen
 ```http
 GET https://{your-resource-name}.openai.azure.com/openai/operations/images/{operation-id}?api-version={api-version}
 ```
-
 
 **Path parameters**
 
@@ -616,7 +814,7 @@ Upon success the operation returns a `200` status code and an `OperationResponse
 }
 ```
 
-### Delete a generated image from the server
+### Delete a generated image from the server (DALL-E 2)
 
 You can use the operation ID returned by the request to delete the corresponding image from the Azure server. Generated images are automatically deleted after 24 hours by default, but you can trigger the deletion earlier if you want to.
 

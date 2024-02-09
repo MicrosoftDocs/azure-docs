@@ -278,8 +278,6 @@ except ComputeTargetException:
 
 When the creation process finishes, you train your model. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
-[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
-
 ## Azure Databricks
 
 * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.

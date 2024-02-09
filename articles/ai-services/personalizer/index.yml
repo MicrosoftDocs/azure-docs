@@ -9,7 +9,7 @@ metadata:
   ms.author: jacodel
   author: jcodella
   ms.service: azure-ai-personalizer
-  services: cognitive-services
+  #services: cognitive-services
   title: Personalizer documentation
   titleSuffix: Azure AI services
   description:  Azure AI Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.

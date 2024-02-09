@@ -77,5 +77,5 @@ The scenario we  walk through here's to deploy VNet with a Network Security Grou
 
 1. Save the release pipeline and trigger a release.
 
-## Next steps
+## Related content
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

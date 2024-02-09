@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 11/14/2023
 ---
 # Understand and adjust Stream Analytics streaming units
 
@@ -156,7 +156,7 @@ User can configure the out of order buffer size in the Event Ordering configurat
 To remediate overflow of the out of order buffer, scale out query using **PARTITION BY**. Once the query is partitioned out, it's spread out over multiple nodes. As a result, the number of events coming into each node is reduced thereby reducing the number of events in each reorder buffer. 
 
 ## Input partition count 
-Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each streaming unit, Azure Stream Analytics can process roughly 1 MB/s of input. Therefore, you can optimize by matching the number of Stream Analytics streaming units with the number of partitions in your event hub. 
+Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each streaming unit, Azure Stream Analytics can process roughly 7 MB/s of input. Therefore, you can optimize by matching the number of Stream Analytics streaming units with the number of partitions in your event hub. 
 
 Typically, a job configured with 1/3 streaming unit is sufficient for an event hub with two partitions (which is the minimum for event hub). If the event hub has more partitions, your Stream Analytics job consumes more resources, but not necessarily uses the extra throughput provided by Event Hubs. 
 

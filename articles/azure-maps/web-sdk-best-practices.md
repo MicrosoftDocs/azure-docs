@@ -45,7 +45,7 @@ When a web page is loading, one of the first things you want to do is start rend
 
 Similarly, when the map initially loads often it's desired to load data on it as quickly as possible, so the user isn't looking at an empty map. Since the map loads resources asynchronously, you have to wait until the map is ready to be interacted with before trying to render your own data on it. There are two events you can wait for, a `load` event and a `ready` event. The load event will fire after the map has finished completely loading the initial map view and every map tile has loaded. If you see a "Style is not done loading" error, you should use the `load` event and wait for the style to be fully loaded.
 
-The ready event fires when the minimal map resources needed to start interacting with the map. More precisely, the `ready` event is triggered when the map is loading the style data for the first time. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner.
+The ready event fires when the minimal map resources needed to start interacting with the map. More precisely, the `ready` event is triggered when the map is loading the style data for the first time. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner. Avoid making changes to the map's style or language at this moment, as doing so can trigger a style reload.
 
 ### Lazy load the Azure Maps Web SDK
 

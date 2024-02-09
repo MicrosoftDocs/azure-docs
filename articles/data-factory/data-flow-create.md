@@ -60,7 +60,7 @@ You can also add data flows directly to your workspace without using a template.
 
 ---
 
-## Next steps
+## Related content
 
 * [Tutorial: Transform data using mapping data flows](tutorial-data-flow.md)
 * Begin building your data transformation with a [source transformation](data-flow-source.md).

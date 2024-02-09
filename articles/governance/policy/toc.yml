@@ -150,6 +150,8 @@
         href: ./samples/rmit-malaysia.md
       - name: SWIFT CSP-CSCF 2021
         href: ./samples/swift-csp-cscf-2021.md
+      - name: SWIFT CSP-CSCF 2022
+        href: ./samples/swift-csp-cscf-2022.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins

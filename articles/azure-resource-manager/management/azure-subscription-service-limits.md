@@ -85,15 +85,16 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
+
 ## Azure Cloud Services limits
 
 [!INCLUDE [azure-cloud-services-limits](../../../includes/azure-cloud-services-limits.md)]
 
-## Azure Cognitive Search limits
+## Azure AI Search limits
 
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
-* **Free** multi-tenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
+* **Free** multitenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
 * **Basic** provides dedicated computing resources for production workloads at a smaller scale, with up to three replicas for highly available query workloads.
 * **Standard**, which includes S1, S2, S3, and S3 High Density, is for larger production workloads. Multiple levels exist within the Standard tier so that you can choose a resource configuration that best matches your workload profile.
 
@@ -105,13 +106,17 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](../../../includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Cognitive Search](../../search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
 
 <a name='azure-cognitive-services-limits'></a>
 
 ## Azure AI services limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
+
+## Azure Chaos Studio limits
+
+For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](../../chaos-studio/chaos-studio-service-limits.md).
 
 ## Azure Communications Gateway limits
 
@@ -124,6 +129,8 @@ Azure Communications Gateway also has limits on the SIP signaling.
 [!INCLUDE [communications-gateway-sip-size-restrictions](../../communications-gateway/includes/communications-gateway-sip-size-restrictions.md)]
 
 [!INCLUDE [communications-gateway-sip-behavior-restrictions](../../communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
+
+[!INCLUDE [limits on the Provisioning API](../../communications-gateway/includes/communications-gateway-provisioning-api-restrictions.md)]
 
 ## Azure Container Apps limits
 
@@ -268,6 +275,10 @@ To learn more about the creation limits for Azure subscriptions, see [Billing ac
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
+## Azure Web PubSub limits
+
+[!INCLUDE [azure-web-pubsub-limits](../../../includes/azure-web-pubsub-limits.md)]
+
 ## Backup limits
 
 [!INCLUDE [azure-backup-limits](../../../includes/azure-backup-limits.md)]
@@ -367,7 +378,7 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 [!INCLUDE [mobile-services-limits](../../../includes/mobile-services-limits.md)]
 
-## Multi-Factor Authentication limits
+## Multifactor authentication limits
 
 [!INCLUDE [azure-mfa-service-limits](../../../includes/azure-mfa-service-limits.md)]
 
@@ -522,6 +533,10 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 100 compute galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
+
+### Managed Run Command limit
+
+The maximum number of allowed Managed Run Commands is currently limited to 25.
 
 ## Virtual Machine Scale Sets limits
 

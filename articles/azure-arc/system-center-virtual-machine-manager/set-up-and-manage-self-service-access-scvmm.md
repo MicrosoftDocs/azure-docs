@@ -1,13 +1,13 @@
 ---
 title: Set up and manage self-service access to SCVMM resources
-description: Learn how to switch to the new preview version and use its capabilities
+description: This article describes how to use built-in roles to manage granular access to SCVMM resources through Azure Role-based Access Control (RBAC).
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
 ms.topic: how-to 
-ms.date: 10/18/2023
+ms.date: 11/15/2023
 keywords: "VMM, Arc, Azure"
 ---
 
@@ -27,7 +27,7 @@ To provision SCVMM VMs and change their size, add disks, change network interfac
 
 You must assign this role to an individual cloud, VM network, and VM template that a user or a group needs to access.
 
-1. Go to the [SCVMM management servers (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/scVmmManagementServer) list in Arc center.
+1. Go to the [SCVMM management servers](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/scVmmManagementServer) list in Arc center.
 2. Search and select your SCVMM management server.
 3. Navigate to the **Clouds** in **SCVMM inventory** section in the table of contents.
 4. Find and select the cloud for which you want to assign permissions. 

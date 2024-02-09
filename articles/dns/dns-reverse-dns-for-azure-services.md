@@ -8,7 +8,7 @@ ms.service: dns
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -35,7 +35,7 @@ A third party shouldn't have access to create reverse DNS records for Azure serv
 
 This validation is only done when the reverse DNS record is set or modified. Periodic revalidation isn't done.
 
-For example, suppose the Public Ip address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `23.96.52.53`. The reverse FQDN for the Public IP address can be specified as:
+For example, suppose the Public IP address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `23.96.52.53`. The reverse FQDN for the Public IP address can be specified as:
 
 * The DNS name for the Public IP address: `contosoapp1.northus.cloudapp.azure.com`.
 * The DNS name for a different PublicIpAddress in the same subscription, such as: `contosoapp2.westus.cloudapp.azure.com`.

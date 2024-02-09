@@ -2,11 +2,11 @@
 title: Migrate applications to Azure AD B2C with Grit's app proxy 
 titleSuffix: Azure AD B2C
 description: Learn how Grit's app proxy can migrate your applications to Azure AD B2C with no code change
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 1/25/2023
 ms.author: gasinh

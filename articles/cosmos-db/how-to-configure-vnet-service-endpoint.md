@@ -77,7 +77,7 @@ Here are the directions for registering subscription with resource provider.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Screenshot of the dialog to create a new Azure Virtual Network, configure a subnet, and then enable the Azure Cosmos DB service endpoint.":::
 
-If your Azure Cosmos DB account is used by other Azure services like Azure Cognitive Search, or is accessed from Stream analytics or Power BI, you allow access by selecting **Accept connections from within global Azure datacenters**.
+If your Azure Cosmos DB account is used by other Azure services like Azure AI Search, or is accessed from Stream analytics or Power BI, you allow access by selecting **Accept connections from within global Azure datacenters**.
 
 To ensure that you have access to Azure Cosmos DB metrics from the portal, you need to enable **Allow access from Azure portal** options. To learn more about these options, see the [Configure an IP firewall](how-to-configure-firewall.md) article. After you enable access, select **Save** to save the settings.
 
@@ -369,10 +369,10 @@ No, Only Azure Resource Manager virtual networks can have service endpoint enabl
 
 ### When should I accept connections from within global Azure datacenters for an Azure Cosmos DB account?
 
-This setting should only be enabled when you want your Azure Cosmos DB account to be accessible to any Azure service in any Azure region. Other Azure first party services such as Azure Data Factory and Azure Cognitive Search provide documentation for how to secure access to data sources including Azure Cosmos DB accounts, for example:
+This setting should only be enabled when you want your Azure Cosmos DB account to be accessible to any Azure service in any Azure region. Other Azure first party services such as Azure Data Factory and Azure AI Search provide documentation for how to secure access to data sources including Azure Cosmos DB accounts, for example:
 
 - [Azure Data Factory Managed Virtual Network](../data-factory/managed-virtual-network-private-endpoint.md)
-- [Azure Cognitive Search Indexer access to protected resources](../search/search-indexer-securing-resources.md)
+- [Azure AI Search Indexer access to protected resources](../search/search-indexer-securing-resources.md)
 
 ## Next steps
 

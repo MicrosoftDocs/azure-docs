@@ -120,7 +120,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 If you use the express/standard virtual network injection method, this command takes 5/20-30 minutes to finish, respectively.
 
-## Next steps
+## Related content
 
 - [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)

@@ -2,7 +2,7 @@
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 11/09/2023
 ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-linux
 ---
@@ -32,6 +32,8 @@ Using a Shared Image configured for your scenario can provide several advantages
 ## Prerequisites
 
 > [!NOTE]
+> Currently, Azure Batch does not support the ‘TrustedLaunch’ feature. You must use the standard security type to create a custom image instead.
+> 
 > You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.  
 
 - **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).

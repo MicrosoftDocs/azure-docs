@@ -15,6 +15,8 @@ ms.topic: how-to
 
 In this article, you learn how to manage network connections for a dev center in Microsoft Dev Box. Network connections enable dev boxes to connect to existing virtual networks. In addition, you can configure the network settings to enable connecting to on-premises resources from your dev box. The location, or Azure region, of the network connection determines where associated dev boxes are hosted.
 
+You can choose to deploy dev boxes to a Microsoft-hosted network associated with a [dev box pool](how-to-manage-dev-box-pools.md#create-a-dev-box-pool) or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first configure a network connection.
+
 You need to add at least one network connection to a dev center in Microsoft Dev Box.
 
 When you're planning network connectivity for your dev boxes, you must:
@@ -31,7 +33,7 @@ To manage a network connection, you need the following permissions:
 |Action|Permissions required|
 |-----|-----|
 |Create and configure a virtual network and subnet|Network Contributor permissions on an existing virtual network (Owner or Contributor), or permission to create a new virtual network and subnet.|
-|Create or delete a network connection|Owner or Contributor permissions on an Azure subscription or on a specific resource group.|
+|Create or delete a network connection|Owner or Contributor permissions on an Azure subscription or on a specific resource group, which includes permission to create a resource group.|
 |Add or remove a network connection |Write permission on the dev center.|
 
 ## Create a virtual network and subnet
@@ -160,6 +162,9 @@ Follow the steps on the relevant tab to create your network connection.
 1. When the deployment is complete, select **Go to resource**. Confirm that the connection appears on the **Network connections** page.
 
 ---
+
+>[!NOTE]
+> Microsoft Dev Box automatically creates a resource group for each network connection, which holds the network interface cards (NICs) that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
 
 ## Attach a network connection to a dev center
 

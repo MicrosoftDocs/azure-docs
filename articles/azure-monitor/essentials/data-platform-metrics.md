@@ -61,7 +61,7 @@ For a complete list of data sources that can send data to Azure Monitor Metrics,
 ## REST API 
 Azure Monitor provides REST APIs that allow you to get data in and out of Azure Monitor Metrics.
 - **Custom metrics API** - [Custom metrics](./metrics-custom-overview.md) allow you to load your own metrics into the Azure Monitor Metrics database. Those metrics can then be used by the same analysis tools that process Azure Monitor platform metrics. 
-- **Azure Monitor Metrics REST API** - Allows you to access Azure Monitor platform metrics definitions and values. For more information, see [Azure Monitor REST API](/rest/api/monitor/).  For information on how to use the API, see the [Azure monitoring REST API walkthrough](./rest-api-walkthrough.md).
+- **Azure Monitor Metrics REST API** - Allows you to access Azure Monitor platform metrics definitions and values. For more information, see [Azure Monitor REST API](/rest/api/monitor/metrics/list).  For information on how to use the API, see the [Azure monitoring REST API walkthrough](./rest-api-walkthrough.md).
 - **Azure Monitor Metrics Batch REST API**  - [Azure Monitor Metrics Batch API](/rest/api/monitor/metrics-batch/) is a high-volume API designed for customers with large volume metrics queries. It's similar to the existing standard Azure Monitor Metrics REST API, but provides the capability to retrieve metric data for up to 50 resource IDs in the same subscription and region in a single batch API call. This improves query throughput and reduces the risk of throttling.   
 
 ## Security
@@ -145,6 +145,8 @@ Platform and custom metrics are stored for **93 days** with the following except
 
 While platform and custom metrics are stored for 93 days, you can only query (in the **Metrics** tile) for a maximum of 30 days' worth of data on any single chart. This limitation doesn't apply to log-based metrics. If you see a blank chart or your chart displays only part of metric data, verify that the difference between start and end dates in the time picker doesn't exceed the 30-day interval. After you've selected a 30-day interval, you can [pan](./metrics-charts.md#pan) the chart to view the full retention window.
 
+> [!NOTE]
+> Moving or renaming an Azure Resource may result in a lost of metric history for that resource.
 
 ### Prometheus metrics
 Prometheus metrics are stored for **18 months**, but a PromQL query can only span a maximum of 32 days.

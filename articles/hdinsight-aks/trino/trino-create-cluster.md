@@ -33,7 +33,6 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
 1. On the specific cluster pool page, click **+ New cluster** at the top left and then provide the following information:
   
-   :::image type="content" source="./media/trino-create-cluster/trino-create-cluster-basic-details.png" alt-text="Screenshot showing basic tab of create Trino cluster.":::
    :::image type="content" source="./media/trino-create-cluster/trino-create-cluster-more-basic-details.png" alt-text="Screenshot showing more details of basic tab of create Trino cluster."::: 
 
      | Property| Description|

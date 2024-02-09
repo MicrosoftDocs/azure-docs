@@ -300,7 +300,7 @@ After completing this tutorial, you can choose which resources you want to remov
 
 * If you plan to continue to the next tutorial, you can keep the resources you set up here and reuse the Azure Digital Twins instance without clearing anything in between.
 
-* If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships, you can use the [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az-dt-twin-relationship-delete), [az dt twin delete](/cli/azure/dt/twin#az-dt-twin-delete), and [az dt model delete](/cli/azure/dt/model#az-dt-model-delete) commands to clear the relationships, twins, and models in your instance, respectively.
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

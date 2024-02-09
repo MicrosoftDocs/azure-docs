@@ -106,7 +106,7 @@ source1, source2 assert(expectTrue(CountryRegion == 'United States', false, 'non
 
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Select transformation](data-flow-select.md) to select and validate columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform column values.

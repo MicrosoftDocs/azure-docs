@@ -2,7 +2,7 @@
 title: "Quickstart: Content Safety Studio"
 titleSuffix: "Azure AI services"
 description: In this quickstart, get started with the Content Safety service using Content Safety Studio in your browser.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # QuickStart: Azure AI Content Safety Studio
 
-In this quickstart, get started with the Content Safety service using Content Safety Studio in your browser. 
+In this quickstart, get started with the Azure AI Content Safety service using Content Safety Studio in your browser. 
 
 > [!CAUTION]
 > Some of the sample content provided by Content Safety Studio may be offensive. Sample images are blurred by default. User discretion is advised.
@@ -33,11 +33,29 @@ The [Moderate text content](https://contentsafety.cognitive.azure.com/text) page
 
 1. Select the **Moderate text content** panel.
 1. Add text to the input field, or select sample text from the panels on the page.
+    > [!TIP]
+    > Text size and granularity
+    >
+    > The default maximum length for text submissions is **10K** characters.
 1. Select **Run test**.
 
 The service returns all the categories that were detected, with the severity level for each(0-Safe, 2-Low, 4-Medium, 6-High). It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
 
 The **Use blocklist** tab on the right lets you create, edit, and add a blocklist to the moderation workflow. If you have a blocklist enabled when you run the test, you get a **Blocklist detection** panel under **Results**. It reports any matches with the blocklist.
+
+## Detect jailbreak risk
+
+The **Jailbreak risk detection** panel lets you try out jailbreak risk detection. Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. These attacks can vary from intricate role-play to subtle subversion of the safety objective. 
+
+:::image type="content" source="media/jailbreak-panel.png" alt-text="Screenshot of content safety studio with jailbreak risk detection panel selected.":::
+
+1. Select the **Jailbreak risk detection** panel.
+1. Select a sample text on the page, or input your own content for testing. You can also upload a CSV file to do a batch test.
+1. Select Run test.
+
+The service returns the jailbreak risk level and type for each sample. You can also view the details of the jailbreak risk detection result by selecting the **Details** button.
+
+For more information, see the [Jailbreak risk detection conceptual guide](./concepts/jailbreak-detection.md).
 
 ## Analyze image content
 The [Moderate image content](https://contentsafety.cognitive.azure.com/image) page provides capability for you to quickly try out image moderation.
@@ -84,7 +102,7 @@ If you want to clean up and remove an Azure AI services resource, you can delete
 
 ## Next steps
 
-Next, get started using Content Safety through the REST APIs or a client SDK, so you can seamlessly integrate the service into your application.
+Next, get started using Azure AI Content Safety through the REST APIs or a client SDK, so you can seamlessly integrate the service into your application.
 
 > [!div class="nextstepaction"]
 > [Quickstart: REST API and client SDKs](./quickstart-text.md)

@@ -2,16 +2,19 @@
 title: 'Topic Spaces'
 description: 'An overview of Topic Spaces and how to configure them.'
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
+ms.subservice: mqtt
 ---
 # Topic Spaces in Azure Event Grid’s MQTT broker feature
 
 A topic space represents multiple topics through a set of topic templates. Topic templates are an extension of MQTT filters that support variables, along with the MQTT wildcards. Each topic space represents the MQTT topics that the same set of clients need to use to communicate. 
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 Topic spaces are used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of managing access for each individual topic. To publish or subscribe to any MQTT topic, you need to:
 
@@ -56,9 +59,9 @@ Topic Spaces can group up to 10 topic templates. Topic templates support MQTT wi
 - A variable can represent a portion of a segment or an entire segment but can't cover more than one segment. For example, a topic template could include "machines/${client.authenticationName|.factory1}/temp" matches topics "machines/machine1.factory1/temp", "machines/machine2.factory1/temp", etc.
 - Topic templates use special characters \$ and | and these need to be escaped differently based on the shell being used. In PowerShell, \$ can be escaped with vehicles/${dollar}telemetry/#. If you’re using PowerShell, you can escape these special characters as shown in the following examples:
 
-    - '"vehicles/${client.authenticationName|dollar}/#"'
+    - `"vehicles/${client.authenticationName|dollar}/#"`
 
-    - 'vehicles/${client.authenticationName"|"dollar}/#'
+    - `vehicles/${client.authenticationName"|"dollar}/#`
 
 ### Azure portal configuration:
 

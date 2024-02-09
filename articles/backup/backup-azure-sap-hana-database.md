@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 11/29/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -252,6 +252,12 @@ Backups run in accordance with the policy schedule. Learn how to [run an on-dema
 ## Run SAP HANA native clients backup on a database with Azure Backup
 
 You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
+
+## Configure multistreaming data backups for higher throughput using Backint
+
+To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
+
+Learn about the [supported scenarios](sap-hana-backup-support-matrix.md#support-for-multistreaming-data-backups).
 
 ## Next steps
 

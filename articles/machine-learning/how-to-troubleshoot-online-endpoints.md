@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 09/19/2023
+ms.date: 10/24/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -86,15 +86,15 @@ Generally, issues with MLflow deployment stem from issues with the installation 
 
 To debug conda installation problems, try the following steps:
 
-1. Check the logs for conda installation. If the container crashed or taking too long to start up, it's likely that conda environment update has failed to resolve correctly.
+1. Check the logs for conda installation. If the container crashed or taking too long to start up, it's likely that conda environment update failed to resolve correctly.
 
 1. Install the mlflow conda file locally with the command `conda env create -n userenv -f <CONDA_ENV_FILENAME>`. 
 
 1. If there are errors locally, try resolving the conda environment and creating a functional one before redeploying. 
 
-1. If the container crashes even if it resolves locally, the SKU size used for deployment may be too small. 
-    1. Conda package installation occurs at runtime, so if the SKU size is too small to accommodate all of the packages detailed in the `conda.yaml` environment file, then the container may crash. 
-    1. A Standard_F4s_v2 VM is a good starting SKU size, but larger ones may be needed depending on which dependencies are specified in the conda file.
+1. If the container crashes even if it resolves locally, the SKU size used for deployment might be too small. 
+    1. Conda package installation occurs at runtime, so if the SKU size is too small to accommodate all of the packages detailed in the `conda.yaml` environment file, then the container might crash. 
+    1. A Standard_F4s_v2 VM is a good starting SKU size, but larger ones might be needed depending on which dependencies are specified in the conda file.
     1. For Kubernetes online endpoint, the Kubernetes cluster must have minimum of 4 vCPU cores and 8-GB memory.
 
 ## Get container logs
@@ -121,7 +121,7 @@ az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deploym
 
 Add `--resource-group` and `--workspace-name` to these commands if you have not already set these parameters via `az configure`.
 
-To see information about how to set these parameters, and if you have already set current values, run:
+To see information about how to set these parameters, and if you currently have set values, run:
 
 ```azurecli
 az ml online-deployment get-logs -h
@@ -213,7 +213,7 @@ If you're creating or updating a Kubernetes online deployment, you can see [Comm
 
 ### ERROR: ImageBuildFailure
 
-This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, `"the build log under the storage account '[storage-account-name]' in the container '[container-name]' at the path '[path-to-the-log]'"`.
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location might be returned as part of the error. For example, `"the build log under the storage account '[storage-account-name]' in the container '[container-name]' at the path '[path-to-the-log]'"`.
 
 The following list contains common image build failure scenarios:
 
@@ -227,9 +227,9 @@ We also recommend reviewing the default [probe settings](reference-yaml-deployme
 
 If the error message mentions `"container registry authorization failure"` that means you can't access the container registry with the current credentials.
 The desynchronization of a workspace resource's keys can cause this error and it takes some time to automatically synchronize.
-However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys), which may resolve the authorization failure.
+However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys), which might resolve the authorization failure.
 
-Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network that you have set up properly.
+Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network is set up properly.
 
 #### Image build compute not set in a private workspace with VNet
 
@@ -238,7 +238,7 @@ If the error message mentions `"failed to communicate with the workspace's conta
 #### Generic image build failure
 
 As stated previously, you can check the build log for more information on the failure.
-If no obvious error is found in the build log and the last line is `Installing pip dependencies: ...working...`, then a dependency may cause the error. Pinning version dependencies in your conda file can fix this problem.
+If no obvious error is found in the build log and the last line is `Installing pip dependencies: ...working...`, then a dependency might cause the error. Pinning version dependencies in your conda file can fix this problem.
 
 We also recommend [deploying locally](#deploy-locally) to test and debug your models locally before deploying to the cloud.
 
@@ -263,13 +263,13 @@ Additionally, the following list is of common resources that might run out of qu
 
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
-A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases).
+A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-and-limit-increases).
 
 #### Cluster quota
 
-This issue occurs when you don't have enough Azure ML Compute cluster quota. This quota defines the total number of clusters that may be in use at one time per subscription to deploy CPU or GPU nodes in Azure Cloud.
+This issue occurs when you don't have enough Azure Machine Learning Compute cluster quota. This quota defines the total number of clusters that might be in use at one time per subscription to deploy CPU or GPU nodes in Azure Cloud.
 
-A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases). Make sure to select `Machine Learning Service: Cluster Quota` as the quota type for this quota increase request.
+A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-and-limit-increases). Make sure to select `Machine Learning Service: Cluster Quota` as the quota type for this quota increase request.
 
 #### Disk quota
 
@@ -280,17 +280,15 @@ This issue happens when the memory footprint of the model is larger than the ava
 
 #### Role assignment quota
 
-When you're creating a managed online endpoint, role assignment is required for the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to access workspace resources. If you've reached the [role assignment limit](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by navigating to the Access Control menu.
+When you're creating a managed online endpoint, role assignment is required for the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to access workspace resources. If the [role assignment limit](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits) is hit, try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by navigating to the Access Control menu.
 
 #### Endpoint quota
 
-Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases).
-
-For Kubernetes online endpoints, there's the endpoint quota boundary at the cluster level as well, you can check the [Kubernetes online endpoint quota](how-to-manage-quotas.md#azure-machine-learning-kubernetes-online-endpoints) section for more details. 
+Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint limit increase](how-to-manage-quotas.md#endpoint-limit-increases). To learn more about the endpoint limit, see [Endpoint quota with Azure Machine Learning online endpoints and batch endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 
 #### Kubernetes quota
 
-This issue happens when the requested CPU or memory couldn't be satisfied due to all nodes are unschedulable for this deployment, such as nodes are cordoned or nodes are unavailable.
+This issue happens when the requested CPU or memory is not able to be provided due to nodes being unschedulable for this deployment. For example, nodes may be cordoned or otherwise unavailable.
 
 The error message typically indicates the resource insufficient in cluster, for example, `OutOfQuota: Kubernetes unschedulable. Details:0/1 nodes are available: 1 Too many pods...`, which means that there are too many pods in the cluster and not enough resources to deploy the new model based on your request.
 
@@ -303,7 +301,7 @@ You can try the following mitigation to address this issue:
 
 #### Region-wide VM capacity
 
-Due to a lack of Azure Machine Learning capacity in the region, the service has failed to provision the specified VM size. Retry later or try deploying to a different region.
+Due to a lack of Azure Machine Learning capacity in the region, the service failed to provision the specified VM size. Retry later or try deploying to a different region.
 
 #### Other quota
 
@@ -349,6 +347,7 @@ The following list is of reasons you might run into this error when using either
 * [Invalid template function specification](#invalid-template-function-specification)
 * [Unable to download user container image](#unable-to-download-user-container-image)
 * [Unable to download user model](#unable-to-download-user-model)
+* [MLFlow model format with private network is unsupported](#mlflow-model-format-with-private-network-is-unsupported)
 
 
 The following list is of reasons you might run into this error only when using Kubernetes online endpoint:
@@ -377,7 +376,7 @@ For more information, please see [Container Registry Authorization Error](#conta
 
 #### Invalid template function specification
 
-This error occurs when a template function has been specified incorrectly. Either fix the policy or remove the policy assignment to unblock. The error message may include the policy assignment name and the policy definition to help you debug this error, and the [Azure policy definition structure article](https://aka.ms/policy-avoiding-template-failures), which discusses tips to avoid template failures.
+This error occurs when a template function was specified incorrectly. Either fix the policy or remove the policy assignment to unblock. The error message may include the policy assignment name and the policy definition to help you debug this error, and the [Azure policy definition structure article](https://aka.ms/policy-avoiding-template-failures), which discusses tips to avoid template failures.
 
 #### Unable to download user container image
 
@@ -448,6 +447,10 @@ You can also check if the blobs are present in the workspace storage account.
 
   ---
 
+#### MLFlow model format with private network is unsupported
+
+This error happens when you try to deploy an MLflow model with a no-code deployment approach in conjunction with the [legacy network isolation method for managed online endpoints](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method). This private network feature cannot be used in conjunction with an MLFlow model format if you are using the **legacy** network isolation method. If you need to deploy an MLflow model with the no-code deployment approach, try using [workspace managed VNet](concept-secure-online-endpoint.md#secure-outbound-access-with-workspace-managed-virtual-network).
+
 #### Resource requests greater than limits
 
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
@@ -516,9 +519,9 @@ Retrying the operation might allow it to be performed without cancellation.
 
 #### Operation canceled waiting for lock confirmation
 
-Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation. And the other operation is currently waiting for confirmation that it has received the lock to proceed. It may indicate that you've submitted a similar request too soon after the initial request.
+Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation. The other operation is currently waiting for confirmation that it has received the lock to proceed. It may indicate that you've submitted a similar request too soon after the initial request.
 
-Retrying the operation after waiting several seconds up to a minute may allow it to be performed without cancellation.
+Retrying the operation after waiting several seconds up to a minute might allow it to be performed without cancellation.
 
 ### ERROR: InternalServerError
 
@@ -559,11 +562,11 @@ Others:
 
 The following list is of reasons you might run into this error when creating/updating the Kubernetes online deployments:
 
-* Role assignment hasn't yet been completed. In this case, wait for a few seconds and try again later. 
+* Role assignment has not been completed. In this case, wait for a few seconds and try again later. 
 * The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) isn't properly installed or configured. Try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, check the proxy, network policy or certificate.
   * If you're using a private AKS cluster, it's necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
-* Make sure your Azure machine learning extension version is greater than v1.1.25.
+* Make sure your Azure Machine Learning extension version is greater than v1.1.25.
 
 ### ERROR: TokenRefreshFailed
 
@@ -572,7 +575,7 @@ The following list is of reasons you might run into this error when creating/upd
 
 ### ERROR: GetAADTokenFailed
 
-This error is because the Kubernetes cluster request AAD token failed or timed out, check your network accessibility then try again. 
+This error is because the Kubernetes cluster request Azure AD token failed or timed out, check your network accessibility then try again. 
 
 * You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute) to check the outbound proxy, make sure the cluster can connect to workspace. 
 * The workspace endpoint url can be found in online endpoint CRD in cluster. 
@@ -590,9 +593,9 @@ You can follow the troubleshooting steps in [GetAADTokenFailed](#error-getaadtok
 
 ### ERROR: ACRTokenExchangeFailed
 
-This error is because the Kubernetes cluster exchange ACR token failed because AAD token is unauthorized yet. Since the role assignment takes some time, so you can wait a moment then try again.
+This error is because the Kubernetes cluster exchange ACR token failed because Azure AD token is not yet authorized. Since the role assignment takes some time, so you can wait a moment then try again.
 
-This failure may also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
+This failure might also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
 
 ### ERROR: KubernetesUnaccessible
 
@@ -681,7 +684,7 @@ The reason you might run into this error when creating/updating Kubernetes onlin
 
 In this case, you can check the error message.
 * Make sure the `instance count` is valid.
-* If you have enabled auto scaling, make sure the `minimum instance count` and `maximum instance count` are both valid.
+* If you enabled auto-scaling, make sure the `minimum instance count` and `maximum instance count` are both valid.
 
 ### ERROR: PodUnschedulable
 
@@ -729,7 +732,7 @@ The following list is of common model consumption errors resulting from the endp
 
 ### Bandwidth limit issues
 
-Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). If your bandwidth usage exceeds the limit, your request is delayed. To monitor the bandwidth delay:
+Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). If your bandwidth usage exceeds the limit, your request is delayed. To monitor the bandwidth delay:
 
 - Use metric "Network bytes" to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers returned if the bandwidth limit enforced: 
@@ -752,7 +755,7 @@ The following table contains common error codes when consuming managed online en
 | 408         | Request timeout           | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | 424         | Model Error               | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. If 424 comes with liveness or readiness probe failing, consider adjusting [probe settings](reference-yaml-deployment-managed-online.md#probesettings) to allow longer time to probe liveness or readiness of the container. |
 | 429         | Too many pending requests | Your model is currently getting more requests than it can handle. Azure Machine Learning has implemented a system that permits a maximum of `2 * max_concurrent_requests_per_instance * instance_count requests` to be processed in parallel at any given moment to guarantee smooth operation. Other requests that exceed this maximum are rejected. You can review your model deployment configuration under the request_settings and scale_settings sections to verify and adjust these settings. Additionally, as outlined in the [YAML definition for RequestSettings](reference-yaml-deployment-managed-online.md#requestsettings), it's important to ensure that the environment variable `WORKER_COUNT` is correctly passed. <br><br> If you're using autoscaling and get this error, it means your model is getting requests quicker than the system can scale up. In this situation, consider resending requests with an [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) to give the system the time it needs to adjust. You could also increase the number of instances by using [code to calculate instance count](#how-to-calculate-instance-count). These steps, combined with setting autoscaling, help ensure that your model is ready to handle the influx of requests. |
-| 429         | Rate-limiting             | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| 429         | Rate-limiting             | The number of requests per second reached the [limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints) of managed online endpoints.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | 500         | Internal server error     | Azure Machine Learning-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 #### Common error codes for kubernetes online endpoints
@@ -763,8 +766,8 @@ The following table contains common error codes when consuming Kubernetes online
 | ----------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 409         | Conflict error                                                                | When an operation is already in progress, any new operation on that same online endpoint responds with 409 conflict error. For example, If create or update online endpoint operation is in progress and if you trigger a new Delete operation it throws an error.                                                                                                                             |
 | 502         | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example an imported package doesn't exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file.                                                                                                                                                                   |
-| 503         | Receive large spikes in requests per second                                   | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.                                    |
-| 504         | Request has timed out                                                         | A 504 status code indicates that the request has timed out. The default timeout setting is 5 seconds. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a nonresponsive state or an infinite loop. |
+| 503         | Receive large spikes in requests per second                                   | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients might receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.                                    |
+| 504         | Request has timed out                                                         | A 504 status code indicates that the request has timed out. The default timeout setting is 5 seconds. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code might be in a nonresponsive state or an infinite loop. |
 | 500         | Internal server error                                                         | Azure Machine Learning-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                        |
 
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ---
 # Create and manage users on an OT network sensor
 
-Microsoft Defender for IoT provides tools for managing on-premises user access in the [OT network sensor](manage-users-sensor.md), and the on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
+Microsoft Defender for IoT provides tools for managing on-premises user access in the OT network sensor, and the legacy on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
 
 This article describes how to manage on-premises users directly on an OT network sensor.
 
@@ -229,7 +229,4 @@ By default, on-premises users are signed out of their sessions after 30 minutes 
 
 ## Next steps
 
-For more information, see:
-
-- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
-- [Audit user activity](track-user-activity.md)
+For more information, see [Audit user activity](track-user-activity.md).

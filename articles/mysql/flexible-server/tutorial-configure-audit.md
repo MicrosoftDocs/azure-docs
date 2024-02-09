@@ -104,7 +104,6 @@ Audit logs are integrated with Azure Monitor diagnostics settings to allow you t
 
 1. After you've configured the data sinks to pipe the audit logs to, select **Save**.
 
-    :::image type="content" source="./media/tutorial-configure-audit/save-diagnostic-setting.png" alt-text="Screenshot of the 'Save' button at the top of the 'Diagnostics settings' pane.":::
 
 ## View audit logs by using Log Analytics 
 

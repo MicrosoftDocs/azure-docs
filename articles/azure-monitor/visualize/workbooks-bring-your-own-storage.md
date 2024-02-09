@@ -38,10 +38,6 @@ There are times when you might have a query or some business logic that you want
 
 - When you save to custom storage, you can't pin individual parts of the workbook to a dashboard because the individual pins would contain protected information in the dashboard itself. When you use custom storage, you can only pin links to the workbook itself to dashboards.
 - After a workbook has been saved to custom storage, it will always be saved to custom storage, and this feature can't be turned off. To save elsewhere, you can use **Save As** and elect to not save the copy to custom storage.
-- Workbooks in an Application Insights resource are "legacy" workbooks and don't support custom storage. The latest feature for workbooks in an Application Insights resource is the **More** selection. Legacy workbooks don't have **Subscription** options when you save them.
-
-   <!-- convertborder later -->
-   :::image type="content" source="./media/workbooks-bring-your-own-storage/legacy-workbooks.png" lightbox="./media/workbooks-bring-your-own-storage/legacy-workbooks.png" alt-text="Screenshot that shows a legacy workbook." border="false":::
 
 ## Next steps
 

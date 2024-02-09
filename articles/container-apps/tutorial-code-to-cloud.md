@@ -4,7 +4,10 @@ description: Build and deploy your app to Azure Container Apps with az container
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 05/11/2022
 ms.author: cshoe
@@ -88,6 +91,21 @@ Use the following git command to clone your forked repo into the *code-to-cloud*
 ```git
 git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-go.git code-to-cloud
 ```
+
+# [Java](#tab/java)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-java) to fork the repo to your account.
+
+Now you can clone your fork of the sample repository.
+
+Use the following git command to clone your forked repo into the *code-to-cloud* folder:
+
+```git
+git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-java.git code-to-cloud
+```
+
+> [!NOTE]
+> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
 
 # [JavaScript](#tab/javascript)
 

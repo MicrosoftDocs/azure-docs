@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -172,27 +172,42 @@ Azure service: [Azure Elastic SAN](../../../storage/elastic-san/index.yml)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.ElasticSan/register/action | Registers the subscription for the ElasticSan resource provider and enables the creation of san accounts. |
+> | Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action |  |
 > | Microsoft.ElasticSan/elasticSans/read | List ElasticSans by Resource Group |
 > | Microsoft.ElasticSan/elasticSans/read | List ElasticSans by Subscription |
 > | Microsoft.ElasticSan/elasticSans/delete | Delete ElasticSan |
 > | Microsoft.ElasticSan/elasticSans/read | Get Elastic San |
 > | Microsoft.ElasticSan/elasticSans/write | Create/Update Elastic San |
+> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionProxies/write |  |
+> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionProxies/validate/action |  |
+> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionProxies/delete |  |
+> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionProxies/read |  |
+> | Microsoft.ElasticSan/elasticSans/privateEndpointConnections/write |  |
+> | Microsoft.ElasticSan/elasticSans/privateEndpointConnections/delete |  |
+> | Microsoft.ElasticSan/elasticSans/privateEndpoints/move/action |  |
+> | Microsoft.ElasticSan/elasticSans/privateLinkResources/read |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/PrivateEndpointConnectionsApproval/action |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/read | List VolumeGroups by ElasticSan |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/delete | Delete Volume Group |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/read | Get Volume Group |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/write | Create/Update Volume Group |
-> | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnectionProxies/validate/action |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnectionProxies/read |  |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnectionProxies/validate/action |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnectionProxies/delete |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnectionProxies/write |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnections/delete |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnections/write |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateLinkResources/read |  |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/snapshots/beginGetAccess/action |  |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/snapshots/read |  |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/snapshots/delete | Delete Volume Snapshot |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/snapshots/write |  |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/snapshots/read | Get Volume Snapshot |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/delete | Delete Volume |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read | List Volumes by Volume Group |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write | Create/Update Volume |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read | Get Volume |
+> | Microsoft.ElasticSan/locations/deleteVirtualNetworkOrSubnets/action |  |
 > | Microsoft.ElasticSan/locations/asyncoperations/read | Polls the status of an asynchronous operation. |
 > | Microsoft.ElasticSan/operations/read | List the operations supported by Microsoft.ElasticSan |
 > | Microsoft.ElasticSan/skus/read | Get Sku |
@@ -210,17 +225,15 @@ Azure service: [Azure NetApp Files](../../../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/locations/checknameavailability/action | Check if resource name is available |
 > | Microsoft.NetApp/locations/checkfilepathavailability/action | Check if file path is available |
 > | Microsoft.NetApp/locations/checkquotaavailability/action | Check if a quota is available. |
+> | Microsoft.NetApp/locations/queryNetworkSiblingSet/action | Query Network sibling set. |
+> | Microsoft.NetApp/locations/updateNetworkSiblingSet/action | Query Network sibling set. |
 > | Microsoft.NetApp/locations/operationresults/read | Reads an operation result resource. |
 > | Microsoft.NetApp/locations/quotaLimits/read | Reads a Quotalimit resource type. |
-> | Microsoft.NetApp/locations/RegionInfo/read | Reads a regionInfo resource. |
+> | Microsoft.NetApp/locations/regionInfo/read | Reads a regionInfo resource. |
 > | Microsoft.NetApp/netAppAccounts/read | Reads an account resource. |
 > | Microsoft.NetApp/netAppAccounts/write | Writes an account resource. |
 > | Microsoft.NetApp/netAppAccounts/delete | Deletes an account resource. |
-> | Microsoft.NetApp/netAppAccounts/RenewCredentials/action | Renews MSI credentials of account, if account has MSI credentials that are due for renewal. |
-> | Microsoft.NetApp/netAppAccounts/MigrateBackups/action | Migrate Account Backups to BackupVault. |
-> | Microsoft.NetApp/netAppAccounts/accountBackups/read | Reads an account backup resource. |
-> | Microsoft.NetApp/netAppAccounts/accountBackups/write | Writes an account backup resource. |
-> | Microsoft.NetApp/netAppAccounts/accountBackups/delete | Deletes an account backup resource. |
+> | Microsoft.NetApp/netAppAccounts/renewCredentials/action | Renews MSI credentials of account, if account has MSI credentials that are due for renewal. |
 > | Microsoft.NetApp/netAppAccounts/backupPolicies/read | Reads a backup policy resource. |
 > | Microsoft.NetApp/netAppAccounts/backupPolicies/write | Writes a backup policy resource. |
 > | Microsoft.NetApp/netAppAccounts/backupPolicies/delete | Deletes a backup policy resource. |
@@ -234,59 +247,46 @@ Azure service: [Azure NetApp Files](../../../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read | Reads a volume resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write | Writes a volume resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete | Deletes a volume resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/Revert/action | Revert volume to specific snapshot |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ResetCifsPassword/action | Reset cifs password from specific volume. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/BreakReplication/action | Break volume replication relations |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ReplicationStatus/action | Reads the statuses of the Volume Replication. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ListReplications/action | A list of replications |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ReInitializeReplication/action | Attempts to re-initialize an uninitialized replication |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/AuthorizeReplication/action | Authorize the source volume replication |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ResyncReplication/action | Resync the replication on the destination volume |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/DeleteReplication/action | Delete the replication on the destination volume |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/PoolChange/action | Moves volume to another pool. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/Relocate/action | Relocate volume to a new stamp. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/FinalizeRelocation/action | Finalize relocation by cleaning up the old volume. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/RevertRelocation/action | Revert the relocation and revert back to the old volume. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/BreakFileLocks/action | Breaks file locks on a volume |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/MigrateBackups/action | Migrate Volume Backups to BackupVault. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/PopulateAvailabilityZone/action | Populates logical availability zone for a volume in a zone aware region and storage. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/GetGroupIdListForLdapUser/action | Get group Id list for a given user for an Ldap enabled volume |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ReestablishReplication/action | Re-establish a previously deleted replication between 2 volumes that have a common ad-hoc or policy-based snapshots |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/read | Reads a backup resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/write | Writes a backup resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/delete | Deletes a backup resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/RestoreFiles/action | Restores files from a backup resource |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/BackupStatus/read | Get the status of the backup for a volume |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/MountTargets/read | Reads a mount target resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/revert/action | Revert volume to specific snapshot |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/resetCifsPassword/action | Reset cifs password from specific volume. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/breakReplication/action | Break volume replication relations |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/listReplications/action | A list of replications |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/reInitializeReplication/action | Attempts to re-initialize an uninitialized replication |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/authorizeReplication/action | Authorize the source volume replication |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/resyncReplication/action | Resync the replication on the destination volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/deleteReplication/action | Delete the replication on the destination volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/poolChange/action | Moves volume to another pool. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/relocate/action | Relocate volume to a new stamp. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/finalizeRelocation/action | Finalize relocation by cleaning up the old volume. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/revertRelocation/action | Revert the relocation and revert back to the old volume. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/breakFileLocks/action | Breaks file locks on a volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/populateAvailabilityZone/action | Populates logical availability zone for a volume in a zone aware region and storage. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/getGroupIdListForLdapUser/action | Get group Id list for a given user for an Ldap enabled volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/reestablishReplication/action | Re-establish a previously deleted replication between 2 volumes that have a common ad-hoc or policy-based snapshots |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/mountTargets/read | Reads a mount target resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Volume resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ReplicationStatus/read | Reads the statuses of the Volume Replication. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/RestoreStatus/read | Get the status of the restore for a volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/replicationStatus/read | Reads the statuses of the Volume Replication. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/restoreStatus/read | Get the status of the restore for a volume |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/read | Reads a snapshot resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write | Writes a snapshot resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete | Deletes a snapshot resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/RestoreFiles/action | Restores files from a snapshot resource |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/read | Read a subvolume resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/write | Write a subvolume resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/delete | Delete a subvolume resource. |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/GetMetadata/action | Read subvolume metadata resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/restoreFiles/action | Restores files from a snapshot resource |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/read | Read a sub volume resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/write | Write a sub volume resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/delete | Delete a sub volume resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/getMetadata/action | Read sub volume metadata resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/volumeQuotaRules/read | Reads a Volume quota rule resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/volumeQuotaRules/write | Writes Volume quota rule resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/volumeQuotaRules/delete | Deletes a Volume quota rule resource. |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/read | Reads a snapshot policy resource. |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/write | Writes a snapshot policy resource. |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/delete | Deletes a snapshot policy resource. |
-> | Microsoft.NetApp/netAppAccounts/snapshotPolicies/Volumes/action | List volumes connected to snapshot policy |
-> | Microsoft.NetApp/netAppAccounts/snapshotPolicies/ListVolumes/action | List volumes connected to snapshot policy |
-> | Microsoft.NetApp/netAppAccounts/vaults/read | Reads a vault resource. |
+> | Microsoft.NetApp/netAppAccounts/snapshotPolicies/volumes/read | List volumes connected to snapshot policy |
 > | Microsoft.NetApp/netAppAccounts/volumeGroups/read | Reads a volume group resource. |
 > | Microsoft.NetApp/netAppAccounts/volumeGroups/write | Writes a volume group resource. |
 > | Microsoft.NetApp/netAppAccounts/volumeGroups/delete | Deletes a volume group resource. |
-> | Microsoft.NetApp/netAppIPSecPolicies/read | Reads an IPSec policy resource. |
-> | Microsoft.NetApp/netAppIPSecPolicies/write | Writes an IPSec policy resource. |
-> | Microsoft.NetApp/netAppIPSecPolicies/delete | Deletes an IPSec policy resource. |
-> | Microsoft.NetApp/netAppIPSecPolicies/Apply/action |  |
 > | Microsoft.NetApp/Operations/read | Reads an operation resources. |
 
 ### Microsoft.Storage
@@ -297,12 +297,15 @@ Azure service: [Storage](../../../storage/index.yml)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Storage/register/action | Registers the subscription for the storage resource provider and enables the creation of storage accounts. |
+> | Microsoft.Storage/register/action |  |
 > | Microsoft.Storage/checknameavailability/read | Checks that account name is valid and is not in use. |
 > | Microsoft.Storage/deletedAccounts/read |  |
 > | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.Storage that virtual network or subnet is being deleted |
 > | Microsoft.Storage/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action |  |
+> | Microsoft.Storage/locations/previewActions/action |  |
 > | Microsoft.Storage/locations/checknameavailability/read | Checks that account name is valid and is not in use. |
 > | Microsoft.Storage/locations/usages/read | Returns the limit and the current usage count for resources in the specified subscription |
+> | Microsoft.Storage/operations/read |  |
 > | Microsoft.Storage/operations/read | Polls the status of an asynchronous operation. |
 > | Microsoft.Storage/resilienciesProgressions/read |  |
 > | Microsoft.Storage/skus/read | Lists the Skus supported by Microsoft.Storage. |
@@ -311,7 +314,6 @@ Azure service: [Storage](../../../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/hnsonmigration/action | Customer is able to abort an ongoing Hns migration on the storage account |
 > | Microsoft.Storage/storageAccounts/hnsonmigration/action | Customer is able to migrate to hns account type |
 > | Microsoft.Storage/storageAccounts/networkSecurityPerimeterConfigurations/action |  |
-> | Microsoft.Storage/storageAccounts/privateEndpointConnections/action |  |
 > | Microsoft.Storage/storageAccounts/restoreBlobRanges/action | Restore blob ranges to the state of the specified time |
 > | Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | Microsoft.Storage/storageAccounts/failover/action | Customer is able to control the failover in case of availability issues |
@@ -360,7 +362,8 @@ Azure service: [Storage](../../../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/dataSharePolicies/write |  |
 > | Microsoft.Storage/storageAccounts/encryptionScopes/read |  |
 > | Microsoft.Storage/storageAccounts/encryptionScopes/write |  |
-> | Microsoft.Storage/storageAccounts/fileServices/shares/action | Restore file share |
+> | Microsoft.Storage/storageAccounts/encryptionScopes/hoboConfigurations/read |  |
+> | Microsoft.Storage/storageAccounts/encryptionScopes/hoboConfigurations/write |  |
 > | Microsoft.Storage/storageAccounts/fileServices/read | List file services |
 > | Microsoft.Storage/storageAccounts/fileServices/write | Put file service properties |
 > | Microsoft.Storage/storageAccounts/fileServices/read | Get file service properties |
@@ -373,6 +376,9 @@ Azure service: [Storage](../../../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/fileServices/shares/lease/action |  |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/read | List file shares |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/write | Create or update file share |
+> | Microsoft.Storage/storageAccounts/fileServices/shares/restore/action | Restore file share |
+> | Microsoft.Storage/storageAccounts/hoboConfigurations/read |  |
+> | Microsoft.Storage/storageAccounts/hoboConfigurations/write |  |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/delete |  |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/read |  |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/write |  |
@@ -402,6 +408,7 @@ Azure service: [Storage](../../../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/privateEndpointConnections/delete | Delete Private Endpoint Connection |
 > | Microsoft.Storage/storageAccounts/privateEndpointConnections/read | Get Private Endpoint Connection |
 > | Microsoft.Storage/storageAccounts/privateEndpointConnections/write | Put Private Endpoint Connection |
+> | Microsoft.Storage/storageAccounts/privateEndpoints/move/action |  |
 > | Microsoft.Storage/storageAccounts/privateLinkResources/read | Get StorageAccount groupids |
 > | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
@@ -421,15 +428,15 @@ Azure service: [Storage](../../../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
+> | Microsoft.Storage/storageAccounts/reports/read |  |
 > | Microsoft.Storage/storageAccounts/restorePoints/delete | Delete object replication restore point |
 > | Microsoft.Storage/storageAccounts/restorePoints/read | Get object replication restore point |
 > | Microsoft.Storage/storageAccounts/restorePoints/read | List object replication restore points |
 > | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | Create/Update storage account diagnostic settings. |
-> | Microsoft.Storage/storageAccounts/storageTasks/delete |  |
-> | Microsoft.Storage/storageAccounts/storageTasks/read |  |
-> | Microsoft.Storage/storageAccounts/storageTasks/executionsummary/action |  |
-> | Microsoft.Storage/storageAccounts/storageTasks/assignmentexecutionsummary/action |  |
-> | Microsoft.Storage/storageAccounts/storageTasks/write |  |
+> | Microsoft.Storage/storageAccounts/storageTaskAssignments/delete |  |
+> | Microsoft.Storage/storageAccounts/storageTaskAssignments/read |  |
+> | Microsoft.Storage/storageAccounts/storageTaskAssignments/write |  |
+> | Microsoft.Storage/storageAccounts/storageTaskAssignments/reports/read |  |
 > | Microsoft.Storage/storageAccounts/tableServices/read |  |
 > | Microsoft.Storage/storageAccounts/tableServices/read | Get Table service properties |
 > | Microsoft.Storage/storageAccounts/tableServices/write |  |
@@ -445,10 +452,13 @@ Azure service: [Storage](../../../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/tableServices/tables/read | Query tables |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/write | Create tables |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/delete | Delete tables |
-> | Microsoft.Storage/storageTasks/read |  |
-> | Microsoft.Storage/storageTasks/delete |  |
-> | Microsoft.Storage/storageTasks/promote/action |  |
-> | Microsoft.Storage/storageTasks/write |  |
+> | Microsoft.Storage/storageTasks/delete | Deletes an existing storage task |
+> | Microsoft.Storage/storageTasks/read | Gets the properties for the specified storage task |
+> | Microsoft.Storage/storageTasks/promote/action | Promote specific version of storage task to current version |
+> | Microsoft.Storage/storageTasks/write | Creates or updates storage task |
+> | Microsoft.Storage/storageTasks/reports/read | List run statuses of a storage task |
+> | Microsoft.Storage/storageTasks/storageTaskAssignments/read | List all storage task assignments of a storage task |
+> | Microsoft.Storage/storageTasks/versions/read | List all versions of a storage task |
 > | Microsoft.Storage/usages/read | Returns the limit and the current usage count for resources in the specified subscription |
 > | **DataAction** | **Description** |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
@@ -590,18 +600,3 @@ Azure service: [Storage](../../../storage/index.yml)
 > | Microsoft.StorageSync/storageSyncServices/workflows/read | Read Workflows |
 > | Microsoft.StorageSync/storageSyncServices/workflows/operationresults/read | Gets the status of an asynchronous operation |
 > | Microsoft.StorageSync/storageSyncServices/workflows/operations/read | Gets the status of an asynchronous operation |
-
-### Microsoft.StorSimple
-
-Azure service: [StorSimple](../../../storsimple/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.StorSimple/Managers/write | Create Vault operation creates an Azure resource of type 'vault' |
-> | Microsoft.StorSimple/Managers/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
-> | Microsoft.StorSimple/Managers/delete | The Delete Vault operation deletes the specified Azure resource of type 'vault' |
-> | Microsoft.StorSimple/Managers/certificates/write | The Update Resource Certificate operation updates the resource/vault credential certificate. |
-> | Microsoft.StorSimple/Managers/extendedInformation/read | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
-> | Microsoft.StorSimple/Managers/extendedInformation/write | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
-> | Microsoft.StorSimple/Managers/extendedInformation/delete | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |

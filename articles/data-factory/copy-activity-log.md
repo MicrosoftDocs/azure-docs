@@ -204,7 +204,7 @@ select top 1 OperationItem, CopyDuration=DATEDIFF(SECOND, min(TIMESTAMP), max(TI
 ```
 
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

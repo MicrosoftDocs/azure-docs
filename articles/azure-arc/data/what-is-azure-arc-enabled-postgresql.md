@@ -46,7 +46,7 @@ Microsoft offers PostgreSQL database services in Azure in two ways:
 Azure Arc-enabled PostgreSQL server is the community version of the [PostgreSQL 14](https://www.postgresql.org/) server with a curated set of available extensions. Most PostgreSQL applications workloads should be capable of running against Azure Arc-enabled PostgreSQL server using standard drivers.
 
 
-## Next steps
+## Related content
 
 ### Try it out
 

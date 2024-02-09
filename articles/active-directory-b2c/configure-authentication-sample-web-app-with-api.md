@@ -1,11 +1,11 @@
 ---
 title: Configure authentication in a sample web application that calls a web API by using Azure Active Directory B2C
 description:  This article discusses using Azure Active Directory B2C to sign in and sign up users in an ASP.NET web application that calls a web API.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 07/05/2021
 ms.author: kengaderdus

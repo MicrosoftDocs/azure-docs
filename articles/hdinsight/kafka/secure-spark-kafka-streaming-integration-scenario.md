@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 11/03/2022
+ms.date: 11/23/2023
 ---
 
 # Secure Spark and Kafka – Spark streaming integration scenario
 
-In this document, you'll learn how to execute a Spark job in a secure Spark cluster that reads from a topic in secure Kafka cluster, provided the virtual networks are same/peered.
+In this document, you learn how to execute a Spark job in a secure Spark cluster that reads from a topic in secure Kafka cluster, provided the virtual networks are same/peered.
 
 **Pre-requisites**
 
@@ -64,7 +64,7 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
        
 1. Add a Ranger policy for `bobadmin` with all accesses to all topics with wildcard pattern `*`
    
-1. Execute the commands below based on your parameter values
+1. Execute the following commands based on your parameter values
 
     ```
     sshuser@hn0-umasec:~$ sudo apt -y install jq 
@@ -141,7 +141,7 @@ In the Spark cluster, add entries in `/etc/hosts` in spark worker nodes, for Kaf
  
 1. Create a keytab for user `alicetest` using ktutil tool. Let's call this file `alicetest.keytab`
  
-1. Create a `bobadmin_jaas.conf` as shown in below sample
+1. Create a `bobadmin_jaas.conf` as shown in following sample
 
     ```
     KafkaClient {
@@ -154,7 +154,7 @@ In the Spark cluster, add entries in `/etc/hosts` in spark worker nodes, for Kaf
       principal="bobadmin@SECUREHADOOPRC.ONMICROSOFT.COM";
     };
     ```
-1. Create an `alicetest_jaas.conf` as shown in below sample
+1. Create an `alicetest_jaas.conf` as shown in following sample
     ```
     KafkaClient {
       com.sun.security.auth.module.Krb5LoginModule required
@@ -207,7 +207,7 @@ From Spark cluster, read from kafka topic `alicetopic2` as user `alicetest` is a
     sshuser@hn0-umaspa:~$ spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.3.2.3.1.0.4-1 --repositories http://repo.hortonworks.com/content/repositories/releases/ --files alicetest_jaas.conf#alicetest_jaas.conf,alicetest.keytab#alicetest.keytab --driver-java-options "-Djava.security.auth.login.config=./alicetest_jaas.conf" --class com.cloudera.spark.examples.DirectKafkaWordCount --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./alicetest_jaas.conf" /home/sshuser/spark-secure-kafka-app/target/spark-secure-kafka-app-1.0-SNAPSHOT.jar 10.3.16.118:9092 alicetopic2 false
     ```
 
-    If you see the below error, which denotes the DNS (Domain Name Server) issue. Make sure to check Kafka worker nodes entry in `/etc/hosts` file in Spark cluster.
+    If you see the following error, which denotes the DNS (Domain Name Server) issue. Make sure to check Kafka worker nodes entry in `/etc/hosts` file in Spark cluster.
     
     ```
     Caused by: GSSException: No valid credentials provided (Mechanism level: Server not found in Kerberos database (7))
@@ -219,13 +219,13 @@ From Spark cluster, read from kafka topic `alicetopic2` as user `alicetest` is a
 
 1. From YARN UI, access the YARN job output you can see the `alicetest` user is able to read from `alicetopic2`. You can see the word count in the output.
 
-1. Below are the detailed steps on how to check the application output from YARN UI.
+1. Following are the detailed steps on how to check the application output from YARN UI.
 
-    1. Go to YARN UI and open your application. Wait for the job to go to RUNNING state. You'll see the application details as below.
+    1. Go to YARN UI and open your application. Wait for the job to go to RUNNING state. You'll see the following application details.
                   
-    1. Click on Logs. You'll see the list of logs as shown below.
+    1. Click Logs. You'll see the following list of logs.
            
-    1. Click on 'stdout'. You'll see the output with the count of words from your Kafka topic.
+    1. Click 'stdout'. You'll see the following output with the count of words from your Kafka topic.
           
     1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
     

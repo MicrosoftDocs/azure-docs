@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/30/2023
 ms.service: confidential-ledger
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-js
 ---
 
 # Build, test and deploy a TypeScript and JavaScript application

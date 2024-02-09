@@ -123,6 +123,8 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
 
 The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, PublicNetworkAccess and timestamp:
 
+
+
 ```azurepowershell
 
 Restore-AzCosmosDBAccount `
@@ -130,7 +132,7 @@ Restore-AzCosmosDBAccount `
   -TargetDatabaseAccountName "RestoredAccountName" `
   -SourceDatabaseAccountName "SourceDatabaseAccountName" `
   -RestoreTimestampInUtc "UTCTime" `
-  -Location "AzureRegionName"
+  -Location "AzureRegionName" ` 
   -PublicNetworkAccess Disabled
 
 ```
@@ -144,14 +146,14 @@ Restore-AzCosmosDBAccount `
   -TargetDatabaseAccountName "Pitracct" `
   -SourceDatabaseAccountName "source-sql" `
   -RestoreTimestampInUtc "2021-01-05T22:06:00" `
-  -Location "West US"
+  -Location "West US" `
   -PublicNetworkAccess Disabled
 
 ```
-If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `PublicNetworkAccess` option to disable public network access for restored account.
+If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account.
 
 > [!NOTE]
-> For restoring with public network access disabled, you'll need to install the preview of powershell module of CosmosDB by executing `Install-Module -Name Az.CosmosDB -AllowPrerelease`. You would also require version 5.1 of the Powershell.
+> For restoring with public network access disabled, the minimum stable version of Az.CosmosDB required is 1.12.0.
 
 **Example 2:** Restoring specific collections and databases. This example restores the collections *MyCol1*, *MyCol2* from *MyDB1* and the entire database *MyDB2*, which, includes all the containers under it.
 
@@ -194,7 +196,7 @@ Restore-AzCosmosDBAccount `
   -TargetDatabaseAccountName "Pitracct" `
   -SourceDatabaseAccountName "SourceTable" `
   -RestoreTimestampInUtc "2022-04-06T22:06:00" `
-  -TablesToRestore $tablesToRestore
+  -TablesToRestore $tablesToRestore ` 
   -Location "West US"
 ```
 ### To restore a continuous account that is configured with managed identity using CLI
@@ -372,8 +374,8 @@ Use the following command to list all the versions of tables. This command only 
 
 ```azurepowershell
 Get-AzCosmosdbTableRestorableTable ` 
-   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68"   
-   ` -Location "West US" 
+   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68"   ` 
+   -Location "West US" 
 ```
 #### Find tables that can be restored at any given timestamp 
 
@@ -411,8 +413,6 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
 #### Create a new Azure Cosmos DB account by restoring from an existing account
 
-
-
 ```azurecli-interactive
 
 az cosmosdb restore \
@@ -428,11 +428,7 @@ az cosmosdb restore \
 If `--public-network-access` is not set, restored account is accessible from public network. Please ensure to pass `Disabled` to the `--public-network-access` option to prevent public network access for restored account.
 
  > [!NOTE]
- > For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
-
-
-
-
+ > For restoring with public network access disabled, the minimum stable version of azure-cli is 2.52.0.
 
 #### Create a new Azure Cosmos DB account by restoring only selected databases and containers from an existing database account
 
@@ -668,16 +664,6 @@ az cosmosdb mongodb restorable-resource list \
     --restore-location "West US" \
     --restore-timestamp "2020-07-20T16:09:53+0000"
 ```
-
-
-
-
-
-
-
-
-
-
 
 #### List all the versions of databases in a live database account
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and graph resources. These commands only work for live accounts.

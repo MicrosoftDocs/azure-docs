@@ -2,7 +2,6 @@
 title: Game development with Azure AI Speech - Speech service
 titleSuffix: Azure AI services
 description: Concepts for game development with Azure AI Speech.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -34,7 +33,7 @@ Help bring everyone into the conversation by converting text messages to audio u
 
 When enabling this functionality in your game, keep in mind the following benefits:
 
-- Voices and languages supported - A large portfolio of [locales and voices](language-support.md?tabs=tts#supported-languages) are supported. You can also [specify multiple languages](speech-synthesis-markup-voice.md#adjust-speaking-languages) for Text to speech output. For [custom neural voice](custom-neural-voice.md), you can [choose to create](how-to-custom-voice-create-voice.md?tabs=neural#choose-a-training-method) different languages from single language training data.
+- Voices and languages supported - A large portfolio of [locales and voices](language-support.md?tabs=tts#supported-languages) are supported. You can also [specify multiple languages](speech-synthesis-markup-voice.md#adjust-speaking-languages) for Text to speech output. For [custom neural voice](custom-neural-voice.md), you can [choose to create](professional-voice-train-voice.md?tabs=neural#choose-a-training-method) different languages from single language training data.
 - Emotional styles supported - [Emotional tones](language-support.md?tabs=tts#voice-styles-and-roles), such as cheerful, angry, sad, excited, hopeful, friendly, unfriendly, terrified, shouting, and whispering. You can [adjust the speaking style](speech-synthesis-markup-voice.md#use-speaking-styles-and-roles), style degree, and role at the sentence level.
 - Visemes supported - You can use visemes during real-time synthesizing to control the movement of 2D and 3D avatar models, so that the mouth movements are perfectly matched to synthetic speech. For more information, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md).
 - Fine-tuning Text to speech output with Speech Synthesis Markup Language (SSML) - With SSML, you can customize Text to speech outputs, with richer voice tuning supports. For more information, see [Speech Synthesis Markup Language (SSML) overview](speech-synthesis-markup.md).

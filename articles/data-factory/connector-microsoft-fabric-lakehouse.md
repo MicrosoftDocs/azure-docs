@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/03/2023
+ms.date: 12/08/2023
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse (Preview) using Azure Data Factory or Azure Synapse Analytics
@@ -29,9 +29,9 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |- |
 
-<small>*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
 ## Get started
 
@@ -514,17 +514,7 @@ For more information, see the [source transformation](data-flow-source.md) and [
 
 To use Microsoft Fabric Lakehouse Files dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
 
-#### Microsoft Fabric Lakehouse Files as a source type
-
-Microsoft Fabric Lakehouse connector supports the following file formats. Refer to each article for format-based settings.
-
-- [Avro format](format-avro.md)
-- [Delimited text format](format-delimited-text.md)
-- [JSON format](format-json.md)
-- [ORC format](format-orc.md)
-- [Parquet format](format-parquet.md)
-
-#### Microsoft Fabric Lakehouse Files as a sink type
+#### Microsoft Fabric Lakehouse Files as a source or sink type
 
 Microsoft Fabric Lakehouse connector supports the following file formats. Refer to each article for format-based settings.
 
@@ -589,6 +579,6 @@ sink(allowSchemaDrift: true,
 
 ```
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

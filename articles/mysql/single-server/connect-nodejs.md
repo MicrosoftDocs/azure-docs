@@ -155,7 +155,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
     **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to DigiCertGlobalRootCA.crt.pem.
 
-    See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Microsoft Azure operated by 21Vianet](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+    See the following links for certificates for servers in sovereign clouds: [Azure Government](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem), [Microsoft Azure operated by 21Vianet](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 1. In the `ssl` config option, replace the `ca-cert` filename with the path to this local file.
 1. Open the command prompt or bash shell, and then change directory into your project folder `cd nodejsmysql`.
 1. To run the application, enter the node command followed by the file name, such as `node createtable.js`.

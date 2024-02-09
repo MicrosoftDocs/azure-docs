@@ -1,16 +1,17 @@
 ---
-title: Enable SCVMM inventory resources in Azure Arc center (preview)
-description: This article helps you enable SCVMM inventory resources from Azure portal (preview)
+title: Enable SCVMM inventory resources in Azure Arc center
+description: This article helps you enable SCVMM inventory resources from Azure portal
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
-author: jyothisuri
-ms.reviewer: jsuri
-ms.date: 10/31/2023
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
+ms.date: 11/15/2023
 ms.topic: how-to
 keywords: "VMM, Arc, Azure"
 ---
 
-# Enable SCVMM inventory resources from Azure portal (preview)
+# Enable SCVMM inventory resources from Azure portal
 
 The article describes how you can view SCVMM management servers and enable SCVMM inventory from Azure portal, after connecting to the SCVMM management server.
 
@@ -29,7 +30,7 @@ You can further use the Azure resource to assign permissions or perform manageme
 
 To enable the SCVMM inventory resources, follow these steps:
 
-1. From Azure home > **Azure Arc** center,  go to **SCVMM management servers (preview)** blade and go to inventory resources blade.
+1. From Azure home > **Azure Arc** center,  go to **SCVMM management servers** blade and go to inventory resources blade.
 
     :::image type="content" source="media/enable-scvmm-inventory-resources/scvmm-server-blade-inline.png" alt-text="Screenshot of how to go to SCVMM management servers blade." lightbox="media/enable-scvmm-inventory-resources/scvmm-server-blade-expanded.png":::
 
@@ -49,7 +50,7 @@ To enable the SCVMM inventory resources, follow these steps:
 
 To enable the existing virtual machines in Azure, follow these steps:
 
-1. From Azure home > **Azure Arc** center,  go to **SCVMM management servers (preview)** blade and go to inventory resources blade.
+1. From Azure home > **Azure Arc** center,  go to **SCVMM management servers** blade and go to inventory resources blade.
 
 1. Go to **SCVMM inventory** resource blade, select **Virtual machines** and then select the VMs you want to enable and select **Enable in Azure**.
 

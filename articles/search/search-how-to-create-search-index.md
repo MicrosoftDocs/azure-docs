@@ -1,6 +1,6 @@
 ---
 title: Create a search index
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Create a search index using the Azure portal, REST APIs, or an Azure SDK.
 
 manager: nitinme
@@ -8,13 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 09/25/2023
 ---
 
-# Create an index in Azure Cognitive Search
+# Create an index in Azure AI Search
 
-In Azure Cognitive Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
+In Azure AI Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
 
 In this article, learn the steps for defining and publishing a search index. Creating an index establishes the physical data structures on your search service. Once the index definition exists, [**loading the index**](search-what-is-data-import.md) follows as a separate task. 
 
@@ -32,7 +34,7 @@ In this article, learn the steps for defining and publishing a search index. Cre
 
 ## Document keys
 
-A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure Cognitive Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service doesn't generate key values, but in some scenarios (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it synthesizes existing values to create a unique key for the documents being indexed.
+A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure AI Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service doesn't generate key values, but in some scenarios (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it synthesizes existing values to create a unique key for the documents being indexed.
 
 During incremental indexing, where new and updated content is indexed, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated.
 
@@ -152,11 +154,11 @@ SearchIndex index = new SearchIndex(indexName)
 await indexClient.CreateIndexAsync(index);
 ```
 
-For more examples, see[azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11).
+For more examples, see[azure-search-dotnet-samples/quickstart/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/quickstart/v11).
 
 ### [**Other SDKs**](#tab/index-other-sdks)
 
-For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create a search index. All of them provide a **SearchIndexClient** that has methods for creating and updating indexes.
+For Azure AI Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create a search index. All of them provide a **SearchIndexClient** that has methods for creating and updating indexes.
 
 | Azure SDK | Client | Examples |
 |-----------|--------|----------|

@@ -30,7 +30,7 @@ This Azure SQL Database connector is supported for the following capabilities:
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
 |[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For Copy activity, this Azure SQL Database connector supports these functions:
 
@@ -998,6 +998,6 @@ derivedColumn1 sink(allowSchemaDrift: true,
 *    Only **net changes** from SQL CDC will be loaded by ADF via [cdc.fn_cdc_get_net_changes_](/sql/relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql?source=recommendations).
 
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

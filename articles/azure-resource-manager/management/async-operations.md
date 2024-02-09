@@ -42,6 +42,9 @@ If `Azure-AsyncOperation` isn't one of the header values, then look for:
 > [!NOTE]
 > Your REST client must accept a minimum URL size of 4 KB for `Azure-AsyncOperation` and `Location`.
 
+> [!NOTE]
+> When the `Retry-after` header is not returned, implement your own retry logic by following the Azure guidelines in [this](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines) document.
+
 ## Azure-AsyncOperation request and response
 
 If you have a URL from the `Azure-AsyncOperation` header value, send a GET request to that URL. Use the value from `Retry-After` to schedule how often to check the status. You'll get a response object that indicates the status of the operation. A different response is returned when checking the status of the operation with the `Location` URL. For more information about the response from a location URL, see [Create storage account (202 with Location and Retry-After)](#create-storage-account-202-with-location-and-retry-after).

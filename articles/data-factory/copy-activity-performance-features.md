@@ -195,7 +195,7 @@ You're charged based on two steps: copy duration and copy type.
 * When you use staging during a cloud copy, which is copying data from a cloud data store to another cloud data store, both stages empowered by Azure integration runtime, you're charged the [sum of copy duration for step 1 and step 2] x [cloud copy unit price].
 * When you use staging during a hybrid copy, which is copying data from an on-premises data store to a cloud data store, one stage empowered by a self-hosted integration runtime, you're charged for [hybrid copy duration] x [hybrid copy unit price] + [cloud copy duration] x [cloud copy unit price].
 
-## Next steps
+## Related content
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

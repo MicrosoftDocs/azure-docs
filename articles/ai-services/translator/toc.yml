@@ -22,11 +22,10 @@ items:
   - name: Translator Service FAQ
     displayName: character,count,usage,attribution, cognitive
     href: translator-faq.md
-- name: Text Translation
-  expanded: true
+- name: Text Translator
   items:
   - name: What is Text Translation?
-    displayName: deploy, deployment
+    displayName: features,develop,development,free
     href: text-translation-overview.md
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
@@ -90,23 +89,6 @@ items:
     - name: Translate behind firewalls
       displayName: domain,IP,filtering,tag,endpoints,CognitiveServicesManagement
       href: firewalls.md
-    - name: Use the Translator container
-      items:
-      - name: Install and run containers
-        displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
-        href: containers/translator-how-to-install-container.md
-      - name: Configure containers
-        displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
-        href: containers/translator-container-configuration.md
-      - name: Use containers in disconnected environments
-        displayName: text,docker,pull,mcr,registry,commitment,parameters
-        href: containers/translator-disconnected-containers.md
-      - name: Deploy user-managed glossary
-        displayName: dynamic, glossary, dictionary, case-sensitive, match
-        href: containers/deploy-user-managed-glossary.md
-      - name: "Container: Translate"
-        displayName: textType,text type,preview,POST,parameters,request,
-        href: containers/translator-container-supported-parameters.md
   - name: Reference
     items:
     - name: v3 Translator reference
@@ -132,64 +114,81 @@ items:
       href: reference/v3-0-dictionary-examples.md
 - name: Document Translation
   items:
-    - name: What is Document Translation?
-      displayName: ocr,batch,features,development,formats,file types
-      href: document-translation/overview.md
-    - name: Document Translation SDK overview
+  - name: What is Document Translation?
+    displayName: ocr,batch,features,development,formats,file types
+    href: document-translation/overview.md
+  - name: Document Translation SDK overview
+    displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
+    href: document-translation/document-sdk-overview.md
+  - name: Document Translation REST APIs
+    displayName: get,post,cancel,delete
+    href: document-translation/reference/rest-api-guide.md
+  - name: Authentication and authorization
+    items:
+    - name: Create and use managed identities
+      displayName: batch,azure active directory,azure ad,azure role-based access control,azure RBAC,sas,assignment,role,owner,user access administrator,contributor
+      href: document-translation/how-to-guides/create-use-managed-identities.md
+    - name: Create SAS tokens for storage containers
+      displayName: user,delegation,shared access,tokens,storage explorer,azure,portal,blob,url
+      href: document-translation/how-to-guides/create-sas-tokens.md
+  - name: Quickstarts
+    items:
+    - name: Document Translation SDKs
       displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-      href: document-translation/document-sdk-overview.md
-    - name: Document Translation REST APIs
+      href: document-translation/quickstarts/document-translation-sdk.md
+    - name:  Document Translation REST APIs
+      displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
+      href: document-translation/quickstarts/document-translation-rest-api.md
+  - name: How-to guides
+    items:
+    - name: Use REST APIs programmatically
+      displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage
+      href: document-translation/how-to-guides/use-rest-api-programmatically.md
+    - name: Create and use glossaries
+      displayName: glossary, dictionary, case-sensitive, match
+      href: document-translation/how-to-guides/create-use-glossaries.md
+  - name: Reference
+    items:
+    - name: Document Translation REST API guide
       displayName: get,post,cancel,delete
       href: document-translation/reference/rest-api-guide.md
-    - name: Authentication and authorization
-      items:
-      - name: Create and use managed identities
-        displayName: batch,azure active directory,azure ad,azure role-based access control,azure RBAC,sas,assignment,role,owner,user access administrator,contributor
-        href: document-translation/how-to-guides/create-use-managed-identities.md
-      - name: Create SAS tokens for storage containers
-        displayName: user,delegation,shared access,tokens,storage explorer,azure,portal,blob,url
-        href: document-translation/how-to-guides/create-sas-tokens.md
-    - name: Quickstarts
-      items:
-      - name: Document Translation SDKs
-        displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-        href: document-translation/quickstarts/document-translation-sdk.md
-      - name:  Document Translation REST APIs
-        displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
-        href: document-translation/quickstarts/document-translation-rest-api.md
-    - name: How-to guides
-      items:
-      - name: Use REST APIs programmatically
-        displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage
-        href: document-translation/how-to-guides/use-rest-api-programmatically.md
-      - name: Create and use glossaries
-        displayName: glossary, dictionary, case-sensitive, match
-        href: document-translation/how-to-guides/create-use-glossaries.md
-    - name: Reference
-      items:
-      - name: Document Translation REST API guide
-        displayName: get,post,cancel,delete
-        href: document-translation/reference/rest-api-guide.md
-      - name: Get supported document formats
-        href: document-translation/reference/get-supported-document-formats.md
-      - name: Get supported glossary formats
-        href: document-translation/reference/get-supported-glossary-formats.md
-      - name: Get supported storage sources
-        href: document-translation/reference/get-supported-storage-sources.md
-      - name: Start translation
-        href: document-translation/reference/start-translation.md
-      - name: Get documents status
-        href: document-translation/reference/get-documents-status.md
-      - name: Get document status
-        href: document-translation/reference/get-document-status.md
-      - name: Get translations status
-        href: document-translation/reference/get-translations-status.md
-      - name: Get translation status
-        href: document-translation/reference/get-translation-status.md
-      - name: Cancel translation
-        href: document-translation/reference/cancel-translation.md
-    - name: Document Translation FAQ
-      href: document-translation/faq.md
+    - name: Get supported document formats
+      href: document-translation/reference/get-supported-document-formats.md
+    - name: Get supported glossary formats
+      href: document-translation/reference/get-supported-glossary-formats.md
+    - name: Get supported storage sources
+      href: document-translation/reference/get-supported-storage-sources.md
+    - name: Start translation
+      href: document-translation/reference/start-translation.md
+    - name: Get documents status
+      href: document-translation/reference/get-documents-status.md
+    - name: Get document status
+      href: document-translation/reference/get-document-status.md
+    - name: Get translations status
+      href: document-translation/reference/get-translations-status.md
+    - name: Get translation status
+      href: document-translation/reference/get-translation-status.md
+    - name: Cancel translation
+      href: document-translation/reference/cancel-translation.md
+  - name: Document Translation FAQ
+    href: document-translation/faq.md
+- name: Containers
+  items:
+  - name: Install and run containers
+    displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
+    href: containers/translator-how-to-install-container.md
+  - name: Configure containers
+    displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
+    href: containers/translator-container-configuration.md
+  - name: Use containers in disconnected environments
+    displayName: text,docker,pull,mcr,registry,commitment,parameters
+    href: containers/translator-disconnected-containers.md
+  - name: Deploy user-managed glossary
+    displayName: dynamic, glossary, dictionary, case-sensitive, match
+    href: containers/deploy-user-managed-glossary.md
+  - name: "Container: Translate"
+    displayName: textType,text type,preview,POST,parameters,request,
+    href: containers/translator-container-supported-parameters.md
 - name: Custom Translator
   items:
   - name: What is Custom Translator?
@@ -231,7 +230,8 @@ items:
     - name: Enable private virtual networks
       displayName: vnet, service endpoints, private network, global, backbone
       href: custom-translator/how-to/enable-vnet-service-endpoint.md
-
+    - name: Use the neural dictionary feature
+      href: neural-dictionary.md
   - name: Concepts
     items:
     - name: Customization

@@ -32,13 +32,17 @@ Create a resource group with [az group create](/cli/azure/group) as follows:
 az group create --name myResourceGroup --location eastus
 ```
 ## Create a Virtual Machine Scale Set
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). The following example creates a scale set with an instance count of *2*, and generates SSH keys.
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --orchestration-mode Flexible \
   --image <SKU Linux Image> \
   --upgrade-policy-mode automatic \
   --instance-count 2 \

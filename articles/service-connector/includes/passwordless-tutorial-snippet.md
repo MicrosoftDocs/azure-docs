@@ -1,6 +1,7 @@
 ---
 author: xiaofanzhou
 ms.service: service-connector
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 05/21/2023
 ms.author: xiaofanzhou

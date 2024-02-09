@@ -1,22 +1,23 @@
 ---
 title: Debug a skillset
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Investigate skillset errors and issues by starting a debug session in Azure portal.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 10/19/2022
 ---
 
-# Debug an Azure Cognitive Search skillset in Azure portal
+# Debug an Azure AI Search skillset in Azure portal
 
-Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
+Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure AI Search service.
 
-A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
+A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure AI Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
 ## Prerequisites
 
@@ -115,7 +116,7 @@ Enriched documents are internal, but a debug session gives you access to the con
 
 If the field mappings are correct, check individual skills for configuration and content. If a skill fails to produce output, it might be missing a property or parameter, which can be determined through error and validation messages. 
 
-Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 The following steps show you how to get information about a skill.
 
@@ -150,17 +151,37 @@ If skills produce output but the search index is empty, check the field mappings
 
 ## Debug a custom skill locally
 
-Custom skills can be more challenging to debug because the code runs externally, so the debug session can't be used to debug them. This section describes how to locally debug your Custom Web API skill, debug session, Visual Studio Code and [ngrok](https://ngrok.com/docs). This technique works with custom skills that execute in [Azure Functions](../azure-functions/functions-overview.md) or any other Web Framework that runs locally (for example, [FastAPI](https://fastapi.tiangolo.com/)).
+Custom skills can be more challenging to debug because the code runs externally, so the debug session can't be used to debug them. This section describes how to locally debug your Custom Web API skill, debug session, Visual Studio Code and [ngrok](https://ngrok.com/docs) or [Tunnelmole](https://github.com/robbie-cahill/tunnelmole-client). This technique works with custom skills that execute in [Azure Functions](../azure-functions/functions-overview.md) or any other Web Framework that runs locally (for example, [FastAPI](https://fastapi.tiangolo.com/)).
 
-### Run ngrok
+### Get a public URL
 
-[**ngrok**](https://ngrok.com/docs) is a cross-platform application that can create a tunneling or forwarding URL, so that internet requests reach your local machine. Use ngrok to forward requests from an enrichment pipeline in your search service to your machine to allow local debugging.
+#### Using Tunnelmole
+Tunnelmole is an open source tunneling tool that can create a public URL that forwards requests to your local machine through a tunnel.
+
+1. Install Tunnelmole:
+   - npm:  `npm install -g tunnelmole`
+   - Linux: `curl -s https://tunnelmole.com/sh/install-linux.sh | sudo bash`
+   - Mac:  `curl -s https://tunnelmole.com/sh/install-mac.sh --output install-mac.sh && sudo bash install-mac.sh`
+   - Windows: Install by using npm. Or if you don't have NodeJS installed, download the [precompiled .exe file for Windows](https://tunnelmole.com/downloads/tmole.exe) and put it somewhere in your PATH.
+
+2. Run this command to create a new tunnel:
+   ```console
+   ➜  ~ tmole 7071
+   http://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
+   https://m5hdpb-ip-49-183-170-144.tunnelmole.net is forwarding to localhost:7071
+   ```
+
+In the preceding example, `https://m5hdpb-ip-49-183-170-144.tunnelmole.net` forwards to port `7071` on your local machine, which is the default port where Azure functions are exposed.
+
+#### Using ngrok
+
+[**ngrok**](https://ngrok.com/docs) is a popular, closed source, cross-platform application that can create a tunneling or forwarding URL, so that internet requests reach your local machine. Use ngrok to forward requests from an enrichment pipeline in your search service to your machine to allow local debugging.
 
 1. Install ngrok.
 
-1. Open a terminal and go to the folder with the ngrok executable.
+2. Open a terminal and go to the folder with the ngrok executable.
 
-1. Run ngrok with the following command to create a new tunnel:
+3. Run ngrok with the following command to create a new tunnel:
 
     ```console
     ngrok http 7071 
@@ -169,13 +190,13 @@ Custom skills can be more challenging to debug because the code runs externally,
     > [!NOTE]
     > By default, Azure functions are exposed on 7071. Other tools and configurations might require that you provide a different port.
 
-1. When ngrok starts, copy and save the public forwarding URL for the next step. The forwarding URL is randomly generated.
+4. When ngrok starts, copy and save the public forwarding URL for the next step. The forwarding URL is randomly generated.
 
    :::image type="content" source="media/cognitive-search-debug/ngrok.png" alt-text="Screenshot of ngrok terminal." border="false":::
 
 ### Configure in Azure portal
 
-Within the debug session, modify your Custom Web API Skill URI to call the ngrok forwarding URL. Ensure that you append "/api/FunctionName" when using Azure Function for executing the skillset code.
+Within the debug session, modify your Custom Web API Skill URI to call the Tunnelmole or ngrok forwarding URL. Ensure that you append "/api/FunctionName" when using Azure Function for executing the skillset code.
 
 You can edit the skill definition in the portal.
 

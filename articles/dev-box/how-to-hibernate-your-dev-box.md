@@ -4,6 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to hibernate a dev box in Microsoft Dev Box. Use hibernation to shut down your VM, while preserving your active work.
 services: dev-box
 ms.service: dev-box
+ms.custom: devx-track-azurecli
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 07/05/2023

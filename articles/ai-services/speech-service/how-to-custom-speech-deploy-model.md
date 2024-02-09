@@ -2,7 +2,6 @@
 title: Deploy a Custom Speech model - Speech service
 titleSuffix: Azure AI services
 description: Learn how to deploy Custom Speech models. 
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

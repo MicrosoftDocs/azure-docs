@@ -13,7 +13,7 @@ Get started with [Azure Arc-enabled servers](../overview.md) to manage and gover
 In this quickstart, you'll deploy and configure the Azure Connected Machine agent on a Windows or Linux machine hosted outside of Azure, so that it can be managed through Azure Arc-enabled servers.
 
 > [!TIP]
-> If you prefer to try out things in a sample/practice experience, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/).
+> If you prefer to try out things in a sample/practice experience, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers).
 
 ## Prerequisites
 

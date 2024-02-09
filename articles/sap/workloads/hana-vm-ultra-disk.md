@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/30/2023
+ms.date: 1/17/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -57,13 +57,17 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 | M32ts | 192 GiB | 500 MBps | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1,800 |
 | M32ls | 256 GiB | 500 MBps | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1,800 |
 | M64ls | 512 GiB | 1,000 MBps | 620 GB | 400 MBps | 3,500 | 256 GB | 250 MBps  | 1,800 |
-| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
-| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
-| M192idms_v2, M192ims_v2 | 4,096 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M32(d)ms_v2, | 875 GiB | 500 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64ms, M64(d)ms_v2| 1,792 GiB | 1,000 MBps | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
+| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
+| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |

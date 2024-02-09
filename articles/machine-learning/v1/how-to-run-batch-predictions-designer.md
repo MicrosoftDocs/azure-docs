@@ -30,7 +30,8 @@ To learn how to set up batch scoring services using the SDK, see the accompanyin
 
 This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
+> [!IMPORTANT]
+> If you do not see graphical elements mentioned in this document, such as buttons in studio or designer, you may not have the right level of permissions to the workspace. Please contact your Azure subscription administrator to verify that you have been granted the correct level of access. For more information, see [Manage users and roles](../how-to-assign-roles.md).
 
 ## Create a batch inference pipeline
 

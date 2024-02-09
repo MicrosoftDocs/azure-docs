@@ -144,7 +144,7 @@ watch -n 1200 ./myuploadscript.sh
 
 You could also use a job scheduler like cron or Windows Task Scheduler or an orchestrator like Ansible, Puppet, or Chef.
 
-## Next steps
+## Related content
 
 [Upload metrics, and logs to Azure Monitor](upload-metrics.md)
 

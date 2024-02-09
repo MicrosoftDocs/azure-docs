@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: devx-track-azurecli
 ms.workload: identity
-ms.date: 04/05/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -26,7 +26,7 @@ For a step-by-step tutorial on how to create a custom role, see [Tutorial: Creat
 
 To create custom roles, you need:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- Permissions to create custom roles, such as [User Access Administrator](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure/install-azure-cli)
 
 ## List custom roles

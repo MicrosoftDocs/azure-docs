@@ -17,8 +17,6 @@
   items:
   - name: Deploy Bastion with manual settings
     href: tutorial-create-host-portal.md
-  - name: Deploy Bastion with DDoS protection
-    href: tutorial-protect-bastion-host.md
 - name: Concepts
   items:
   - name: Support for working remotely

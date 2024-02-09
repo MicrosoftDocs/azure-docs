@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 05/25/2023
+ms.date: 11/14/2023
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 zone_pivot_groups: python-mode-functions
@@ -51,11 +51,8 @@ Python v1 programming model:
 
 You can also create Python v1 functions in the Azure portal.
 
-The following considerations apply for local Python development:
-
-+ Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
-
-+ Functions doesn't currently support local Python function development on ARM64 devices, including on a Mac with an M1 chip. To learn more, see [x86 emulation on ARM64](functions-run-local.md#x86-emulation-on-arm64).
+> [!TIP]
+> Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
 
 ## Programming model
 
@@ -973,6 +970,10 @@ requests==2.19.1
 ```bash
 pip install -r requirements.txt
 ```
+
+When running your functions in an [App Service plan](./dedicated-plan.md), dependencies that you define in requirements.txt are given precedence over built-in Python modules, such as `logging`. This precedence can cause conflicts when built-in modules have the same names as directories in your code. When running in a [Consumption plan](./consumption-plan.md) or an [Elastic Premium plan](./functions-premium-plan.md), conflicts are less likely because your dependencies aren't prioritized by default. 
+
+To prevent issues running in an App Service plan, don't name your directories the same as any Python native modules and don't include Python native libraries in your project's requirements.txt file.
 
 ## Publishing to Azure
 

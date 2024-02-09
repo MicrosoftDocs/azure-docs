@@ -34,7 +34,7 @@ Azure Machine Learning allows you to perform real-time inferencing on data by us
 
 To define an endpoint, you need to specify:
 
-- **Endpoint name**: This name must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+- **Endpoint name**: This name must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 - **Authentication mode**: You can choose between key-based authentication mode and Azure Machine Learning token-based authentication mode for the endpoint. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 
 Azure Machine Learning provides the convenience of using **managed online endpoints** for deploying your ML models in a turnkey manner. This is the _recommended_ way to use online endpoints in Azure Machine Learning. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. These endpoints also take care of serving, scaling, securing, and monitoring your models, to free you from the overhead of setting up and managing the underlying infrastructure. 
@@ -118,7 +118,7 @@ The following table describes the key attributes of a deployment:
 | Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
 | Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. Note: Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your own image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployments](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment).                                |
 
 To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM template, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 
@@ -146,6 +146,13 @@ The following table highlights key aspects about the online deployment options:
 
 Azure Machine Learning provides various ways to debug online endpoints locally and by using container logs.
 
+#### Local debugging with the Azure Machine Learning inference HTTP server
+
+You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
+You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
+
+To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server](how-to-inference-server-http.md).
+
 #### Local debugging
 
 For **local debugging**, you need a local deployment; that is, a model that is deployed to a local Docker environment. You can use this local deployment for testing and debugging before deployment to the cloud. To deploy locally, you'll need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running. Azure Machine Learning then creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally and cache the image for rapid iterations.
@@ -165,15 +172,6 @@ To learn more about local debugging, see [Deploy and debug locally by using loca
 As with local debugging, you first need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running and then deploy a model to the local Docker environment. Once you have a local deployment, Azure Machine Learning local endpoints use Docker and Visual Studio Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of Visual Studio Code features, such as interactive debugging, from inside a Docker container.
 
 To learn more about interactively debugging online endpoints in VS Code, see [Debug online endpoints locally in Visual Studio Code](/azure/machine-learning/how-to-debug-managed-online-endpoints-visual-studio-code).
-
-#### Local debugging with the Azure Machine Learning inference HTTP server (preview)
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
-
-You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
-You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
-
-To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server (preview)](how-to-inference-server-http.md).
 
 #### Debugging with container logs
 
@@ -256,4 +254,4 @@ For more information on monitoring, see [Monitor online endpoints](how-to-monito
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view managed online endpoint costs](how-to-view-online-endpoints-costs.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)

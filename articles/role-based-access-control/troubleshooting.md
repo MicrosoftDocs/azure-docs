@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 09/20/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -29,7 +29,7 @@ You're currently signed in with a user that doesn't have permission to assign ro
 
 **Solution**
 
-Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you're trying to assign the role.
+Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) at the scope you're trying to assign the role.
 
 ### Symptom - Roles or principals are not listed
 
@@ -63,7 +63,7 @@ You are currently signed in with a user that does not have permission to assign 
 
 **Solution 1**
 
-Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
+Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) at the scope you are trying to assign the role.
 
 **Cause 2**
 
@@ -365,7 +365,7 @@ You're currently signed in with a user that doesn't have permission to update or
 
 **Solution 1**
 
-Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission such as [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 **Cause 2**
 
@@ -390,7 +390,7 @@ This error usually indicates that you don't have permissions to one or more of t
 Try the following:
 
 - Review [Who can create, delete, update, or view a custom role](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role) and check that you have permissions to create or update the custom role for all assignable scopes.
-- If you don't have permissions, ask your administrator to assign you a role that has the `Microsoft.Authorization/roleDefinitions/write` action, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator), at the scope of the assignable scope.
+- If you don't have permissions, ask your administrator to assign you a role that has the `Microsoft.Authorization/roleDefinitions/write` action, such as [User Access Administrator](built-in-roles.md#user-access-administrator), at the scope of the assignable scope.
 - Check that all the assignable scopes in the custom role are valid. If not, remove any invalid assignable scopes.
 
 For more information, see the custom role tutorials using the [Azure portal](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md), or [Azure CLI](tutorial-custom-role-cli.md).

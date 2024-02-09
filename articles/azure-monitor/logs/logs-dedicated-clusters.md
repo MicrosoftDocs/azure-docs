@@ -3,13 +3,13 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 07/01/2023
+ms.date: 12/01/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create and manage a dedicated cluster in Azure Monitor Logs 
 
-Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provides advanced capabilities and higher query utilization. Clusters require a minimum ingestion commitment of 500 GB per day. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
+Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provides advanced capabilities and higher query utilization. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
 
 ## Advanced capabilities
 Capabilities that require dedicated clusters:
@@ -26,16 +26,26 @@ eligible for commitment tier discount.
 ## Cluster pricing model
 Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
 
+## Prerequisites
+
+- Dedicated clusters require a minimum ingestion commitment of 500 GB per day.
+- When creating a dedicated cluster, you can't name it with the same name as a cluster that was deleted within the past two weeks.
+
 ## Required permissions
 
 To perform cluster-related actions, you need these permissions:
 
 | Action | Permissions or role needed |
 |-|-|
-| Create a dedicate cluster |`Microsoft.Resources/deployments/*`and `Microsoft.OperationalInsights/clusters/write`| 
-| Change cluster properties |`Microsoft.OperationalInsights/clusters/write`| 
-| Link workspaces to a cluster | `Microsoft.OperationalInsights/clusters/write` and `Microsoft.OperationalInsights/workspaces/write`| 
-| Grant the required permissions | Owner or Contributor role that has `*/write` permissions, or a Log Analytics Contributor role that has `Microsoft.OperationalInsights/*` permissions.| 
+| Create a dedicated cluster |`Microsoft.Resources/deployments/*`and `Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
+| Change cluster properties |`Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
+| Link workspaces to a cluster | `Microsoft.OperationalInsights/clusters/write`, `Microsoft.OperationalInsights/workspaces/write`, and `Microsoft.OperationalInsights/workspaces/linkedservices/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
+| Check workspace link status | `Microsoft.OperationalInsights/workspaces/read` permissions to the workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
+| Get clusters or check a cluster's provisioning status | `Microsoft.OperationalInsights/clusters/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example | 
+| Update commitment tier or billingType in a cluster | `Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Grant the required permissions | Owner or Contributor role that has `*/write` permissions, or the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), which has `Microsoft.OperationalInsights/*` permissions | 
+| Unlink a workspace from cluster | `Microsoft.OperationalInsights/workspaces/linkedServices/delete` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Delete a dedicated cluster | `Microsoft.OperationalInsights/clusters/delete` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 
 For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
 
@@ -81,6 +91,10 @@ Deleted clusters take two weeks to be completely removed. You can have up to sev
 > Dedicated cluster is billed once provisioned regardless data ingestion and it's recommended to prepare the deployment to expedite the provisioning and workspaces link to cluster. Verify the following:
 > - A list of initial workspace to be linked to cluster is identified
 > - You have permissions to subscription intended for the cluster and any workspace to be linked
+
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
 
@@ -138,6 +152,10 @@ Should be 202 (Accepted) and a header.
 ### Check cluster provisioning status
 
 The provisioning of the Log Analytics cluster takes a while to complete. Use one of the following methods to check the *ProvisioningState* property. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
 
@@ -201,31 +219,37 @@ The managed identity service generates the *principalId* GUID when you create th
 
 ---
 
-
 ## Link a workspace to a cluster
 
-When a Log Analytics workspace is linked to a dedicated cluster, the workspace billing plan in workspace is changed to cluster plan, new data ingested to the workspace is routed to your dedicated cluster, and existing data remains in Log Analytics cluster. Linking a workspace has no effect on data ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete and accurate. 
- 
-When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
-
-A cluster can be linked to up to 1,000 workspaces. Linked workspaces must be located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
+> [!NOTE]
+> - Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
+> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
+> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove sku in workspace template to prevent conflict during workspace deployment.
+> - Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged during and after the link.
 
 You need 'write' permissions to both the workspace and the cluster resource for workspace link operation:
 
 - In the workspace: *Microsoft.OperationalInsights/workspaces/write*
 - In the cluster resource: *Microsoft.OperationalInsights/clusters/write*
 
-Other than the billing aspects that is governed by the cluster plan, the linked workspace configuration remain.
+Once Log Analytics workspace linked to a dedicated cluster, new data sent to workspace is ingested to your dedicated cluster, while previously ingested data remains in Log Analytics cluster. Linking a workspace has no effect on workspace operation, including ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete. 
+ 
+When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
+
+A cluster can be linked to up to 1,000 workspaces located in the same region with cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
 The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
 
-> [!NOTE]
-> Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-> Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
+Use the following steps to link a workspace to a cluster. You can automated for linking multiple workspaces:
 
-Use the following commands to link a workspace to a cluster:
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
+
+> [!NOTE]
+> Use **cluster** value for linked-service ```name```.
 
 ```azurecli
 # Find cluster resource ID
@@ -243,6 +267,9 @@ az resource wait --deleted --ids $workspaceResourceId --include-response-body tr
 
 #### [PowerShell](#tab/powershell)
 
+> [!NOTE]
+> Use **cluster** value for ```LinkedServiceName```.
+
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
 
@@ -258,7 +285,7 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" 
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
-#### [REST API](#tab/restapi)
+#### [REST API](#tab/restapi)
 
 Use the following REST call to link to a cluster:
 
@@ -282,9 +309,15 @@ Content-type: application/json
 
 ---
 
+
 ### Check workspace link status
   
 When a cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state by sending Get request to workspace and observe if *clusterResourceId* property is present in the response under *features*.
+
+#### [Portal](#tab/azure-portal)
+
+1. Open the **Log Analytics workspaces** menu and then select your workspace.
+1. On the **Overview** page, select **JSON View**.
 
 #### [CLI](#tab/cli)
 
@@ -365,6 +398,10 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 
 ## Get all clusters in resource group
 
+#### [Portal](#tab/azure-portal)
+
+N/A
+
 #### [CLI](#tab/cli)
 
 ```azurecli
@@ -433,6 +470,10 @@ Authorization: Bearer <token>
 
 ## Get all clusters in subscription
 
+#### [Portal](#tab/azure-portal)
+
+N/A
+
 #### [CLI](#tab/cli)
 
 ```azurecli
@@ -469,6 +510,10 @@ The same as for 'clusters in a resource group', but in subscription scope.
 When the data volume to linked workspaces changes over time, you can update the Commitment Tier level appropriately to optimize cost. The tier is specified in units of Gigabytes (GB) and can have values of 500, 1000, 2000 or 5000 GB per day. You don't have to provide the full REST request body, but you must include the sku.
 
 During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
+
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
 
@@ -512,9 +557,17 @@ The *billingType* property determines the billing attribution for the cluster an
 - *Cluster* (default) -- billing is attributed to the Cluster resource
 - *Workspaces* -- billing is attributed to linked workspaces proportionally. When data volume from all linked workspaces is below Commitment Tier level, the bill for the remaining volume is attributed to the cluster
 
-#### [CLI](#tab/cli)
+#### [Portal](#tab/azure-portal)
 
 N/A
+
+#### [CLI](#tab/cli)
+
+```azurecli
+az account set --subscription "cluster-subscription-id"
+
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --billing-type {Cluster, Workspaces}
+```
 
 #### [PowerShell](#tab/powershell)
 
@@ -558,6 +611,10 @@ Queries aren't affected when workspace is unlinked and service performs cross-cl
 
 Use the following commands to unlink a workspace from cluster:
 
+#### [Portal](#tab/azure-portal)
+
+N/A
+
 #### [CLI](#tab/cli)
 
 ```azurecli
@@ -577,7 +634,9 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 
 #### [REST API](#tab/restapi)
 
-N/A
+```rest
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}?api-version=2020-08-01
+```
 
 ---
 
@@ -597,6 +656,10 @@ If you delete a cluster that has linked workspaces, workspaces get automatically
 > - Cluster's name remain reserved two weeks after deletion, and can't be used for creating a new cluster.
 
 Use the following commands to delete a cluster:
+
+#### [Portal](#tab/azure-portal)
+
+N/A
 
 #### [CLI](#tab/cli)
 

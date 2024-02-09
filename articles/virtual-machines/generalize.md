@@ -103,7 +103,7 @@ To generalize your Windows VM, follow these steps:
 
 5. Then change the directory to %windir%\system32\sysprep, and then run:
    ```
-   sysprep.exe /oobe /generalize /shutdown
+   sysprep.exe /generalize /shutdown
    ```
 6. The VM will shut down when Sysprep is finished generalizing the VM. Do not restart the VM.
  

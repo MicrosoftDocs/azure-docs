@@ -189,7 +189,7 @@ Your on-premises machines or servers need to be able to resolve the private link
 
 If you set up private DNS zones for Azure Arc-enabled servers and Guest Configuration when creating the private endpoint, your on-premises machines or servers need to be able to forward DNS queries to the built-in Azure DNS servers to resolve the private endpoint addresses correctly. You need a DNS forwarder in Azure (either a purpose-built VM or an Azure Firewall instance with DNS proxy enabled), after which you can configure your on-premises DNS server to forward queries to Azure to resolve private endpoint IP addresses.
 
-The private endpoint documentation provides guidance for configuring [on-premises workloads using a DNS forwarder](../../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+The private endpoint documentation provides guidance for configuring [on-premises workloads using a DNS forwarder](../../private-link/private-endpoint-dns-integration.md#on-premises-workloads-using-a-dns-forwarder).
 
 ### Manual DNS server configuration
 
@@ -270,7 +270,7 @@ The Windows agent can be downloaded from [https://aka.ms/AzureConnectedMachineAg
 The script will return status messages letting you know if onboarding was successful after it completes.
 
 > [!TIP]
-> Network traffic from the Azure Connected Machine agent to Microsoft Entra ID and Azure Resource Manager will continue to use public endpoints. If your server needs to communicate through a proxy server to reach these endpoints, [configure the agent with the proxy server URL](manage-agent.md#update-or-remove-proxy-settings) before connecting it to Azure. You might also need to [configure a proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) for the Azure Arc services if your private endpoint is not accessible from your proxy server.
+> [Network traffic from the Azure Connected Machine agent](network-requirements.md#urls) to Microsoft Entra ID (login.windows.net, login.microsoftonline.com, pas.windows.net) and Azure Resource Manager (management.azure.com) will continue to use public endpoints. If your server needs to communicate through a proxy server to reach these endpoints, [configure the agent with the proxy server URL](manage-agent.md#update-or-remove-proxy-settings) before connecting it to Azure. You might also need to [configure a proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) for the Azure Arc services if your private endpoint is not accessible from your proxy server.
 
 ### Configure an existing Azure Arc-enabled server
 

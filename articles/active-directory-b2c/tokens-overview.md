@@ -1,12 +1,12 @@
 ---
 title: Overview of tokens - Azure Active Directory B2C
 description: Learn about the tokens used in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 04/24/2023
 ms.author: kengaderdus

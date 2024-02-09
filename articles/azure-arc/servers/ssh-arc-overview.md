@@ -47,7 +47,7 @@ SSH access to Arc-enabled servers is currently supported in all regions supporte
 
 Check if the HybridConnectivity resource provider (RP) has been registered:
 
-```az provider show -n Microsoft.HybridConnectivity```
+```az provider show -n Microsoft.HybridConnectivity -o tsv --query registrationState```
 
 If the RP hasn't been registered, run the following:
 

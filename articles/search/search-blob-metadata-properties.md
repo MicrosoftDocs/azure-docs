@@ -1,22 +1,24 @@
 ---
 title: Content metadata properties
-titleSuffix: Azure Cognitive Search
-description: Metadata properties can provide content to fields in a search index. This article lists metadata properties supported in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Metadata properties can provide content to fields in a search index. This article lists metadata properties supported in Azure AI Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 02/08/2023
 ---
 
-# Content metadata properties used in Azure Cognitive Search
+# Content metadata properties used in Azure AI Search
 
 Several of the indexer-supported data sources, including Azure Blob Storage, Azure Data Lake Storage Gen2, and SharePoint, contain standalone files or embedded objects of various content types. Many of those content types have metadata properties that can be useful to index. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields in a search index for metadata properties that are specific to a document format.
 
 ## Supported document formats
 
-Cognitive Search supports blob indexing and SharePoint document indexing for the following document formats:
+Azure AI Search supports blob indexing and SharePoint document indexing for the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
@@ -56,7 +58,7 @@ The following table summarizes processing done for each document format, and des
 
 ## See also
 
-* [Indexers in Azure Cognitive Search](search-indexer-overview.md)
+* [Indexers in Azure AI Search](search-indexer-overview.md)
 * [AI enrichment overview](cognitive-search-concept-intro.md)
 * [Blob indexing overview](search-blob-storage-integration.md)
 * [SharePoint indexing](search-howto-index-sharepoint-online.md)

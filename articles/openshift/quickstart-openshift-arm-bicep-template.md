@@ -371,7 +371,7 @@ More Azure Red Hat OpenShift templates can be found on the [Red Hat OpenShift we
 
 Create the following Bicep file containing the definition for the Azure Red Hat OpenShift cluster. The following example shows how your Bicep file should look when configured.
 
-Save the following file as *azuredeploy.json*:
+Save the following file as *azuredeploy.bicep*:
 
 ```bicep
 @description('Location')
@@ -700,7 +700,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams 
 
 ::: zone-end
 
-### Connect to your cluster -  PowerShell
+### Connect to your cluster
 
 To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
 

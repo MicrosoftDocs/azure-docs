@@ -371,7 +371,7 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 ## <a name="list-subnets"></a>List all Azure virtual network subnets
 
-This query returns a list of Azure virtual networks (VNets) including subnet names and address prefixes. Thanks to [Saul Dolgin](https://github.com/sdolgin) for the contribution.
+This query returns a list of Azure virtual networks (VNets) including subnet names and address prefixes.
 
 ```kusto
 Resources
@@ -659,41 +659,112 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ## List Azure Monitor alerts ordered by severity
 
-```kusto
-alertsmanagementresources  
-| where type =~ 'microsoft.alertsmanagement/alerts'   
-| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
-| project Severity = tostring(properties.essentials.severity) 
-| summarize AlertsCount = count() by Severity
- 
-```
-## List Azure Monitor alerts ordered by severity and alert state
+This query uses the `alertsmanagementresources` table to return Azure Monitor alerts ordered by severity.
 
 ```kusto
 alertsmanagementresources
-| where type =~ 'microsoft.alertsmanagement/alerts'   
-| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
-| project Severity = tostring(properties.essentials.severity), 
-    AlertState= tostring(properties.essentials.alertState) 
+| where type =~ 'microsoft.alertsmanagement/alerts'
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()
+| project Severity = tostring(properties.essentials.severity)
+| summarize AlertsCount = count() by Severity
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "alertsmanagementresources | where type =~ 'microsoft.alertsmanagement/alerts' | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now() | project Severity = tostring(properties.essentials.severity) | summarize AlertsCount = count() by Severity"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "alertsmanagementresources | where type =~ 'microsoft.alertsmanagement/alerts' | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now() | project Severity = tostring(properties.essentials.severity) | summarize AlertsCount = count() by Severity"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity" target="_blank">portal.azure.us</a>
+- Microsoft Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity" target="_blank">portal.azure.cn</a>
+
+---
+
+## List Azure Monitor alerts ordered by severity and alert state
+
+This query uses the `alertsmanagementresources` table to return Azure Monitor alerts ordered by severity and alert state.
+
+```kusto
+alertsmanagementresources
+| where type =~ 'microsoft.alertsmanagement/alerts'
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()
+| project Severity = tostring(properties.essentials.severity), AlertState = tostring(properties.essentials.alertState)
 | summarize AlertsCount = count() by Severity, AlertState
 ```
 
-## List Azure Monitor alerts ordered by severity, monitor service, and target resource type 
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "alertsmanagementresources | where type =~ 'microsoft.alertsmanagement/alerts' | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now() | project Severity = tostring(properties.essentials.severity), AlertState = tostring(properties.essentials.alertState) | summarize AlertsCount = count() by Severity, AlertState"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "alertsmanagementresources | where type =~ 'microsoft.alertsmanagement/alerts' | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now() | project Severity = tostring(properties.essentials.severity), AlertState = tostring(properties.essentials.alertState) | summarize AlertsCount = count() by Severity, AlertState"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%20AlertState%20%3D%20tostring%28properties.essentials.alertState%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20AlertState" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%20AlertState%20%3D%20tostring%28properties.essentials.alertState%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20AlertState" target="_blank">portal.azure.us</a>
+- Microsoft Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%20AlertState%20%3D%20tostring%28properties.essentials.alertState%29%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20AlertState" target="_blank">portal.azure.cn</a>
+
+---
+
+## List Azure Monitor alerts ordered by severity, monitor service, and target resource type
+
+This query uses the `alertsmanagementresources` table to return Azure Monitor alerts ordered by severity, monitor service, and target resource type.
 
 ```kusto
-alertsmanagementresources  
-| where type =~ 'microsoft.alertsmanagement/alerts'   
-| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
-| project Severity = tostring(properties.essentials.severity),  
-MonitorCondition = tostring(properties.essentials.monitorCondition),  
-ObjectState = tostring(properties.essentials.alertState),  
-MonitorService = tostring(properties.essentials.monitorService),  
-AlertRuleId = tostring(properties.essentials.alertRule),  
-SignalType = tostring(properties.essentials.signalType),  
-TargetResource = tostring(properties.essentials.targetResourceName), 
-TargetResourceType = tostring(properties.essentials.targetResourceName), id 
+alertsmanagementresources
+| where type =~ 'microsoft.alertsmanagement/alerts'
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()
+| project Severity = tostring(properties.essentials.severity),
+MonitorCondition = tostring(properties.essentials.monitorCondition),
+ObjectState = tostring(properties.essentials.alertState),
+MonitorService = tostring(properties.essentials.monitorService),
+AlertRuleId = tostring(properties.essentials.alertRule),
+SignalType = tostring(properties.essentials.signalType),
+TargetResource = tostring(properties.essentials.targetResourceName),
+TargetResourceType = tostring(properties.essentials.targetResourceName), id
 | summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "alertsmanagementresources | where type =~ 'microsoft.alertsmanagement/alerts' | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now() | project Severity = tostring(properties.essentials.severity), MonitorCondition = tostring(properties.essentials.monitorCondition), ObjectState = tostring(properties.essentials.alertState), MonitorService = tostring(properties.essentials.monitorService), AlertRuleId = tostring(properties.essentials.alertRule), SignalType = tostring(properties.essentials.signalType), TargetResource = tostring(properties.essentials.targetResourceName), TargetResourceType = tostring(properties.essentials.targetResourceName), id | summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "alertsmanagementresources | where type =~ 'microsoft.alertsmanagement/alerts' | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now() | project Severity = tostring(properties.essentials.severity), MonitorCondition = tostring(properties.essentials.monitorCondition), ObjectState = tostring(properties.essentials.alertState), MonitorService = tostring(properties.essentials.monitorService), AlertRuleId = tostring(properties.essentials.alertRule), SignalType = tostring(properties.essentials.signalType), TargetResource = tostring(properties.essentials.targetResourceName), TargetResourceType = tostring(properties.essentials.targetResourceName), id | summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%0D%0AMonitorCondition%20%3D%20tostring%28properties.essentials.monitorCondition%29%2C%0D%0AObjectState%20%3D%20tostring%28properties.essentials.alertState%29%2C%0D%0AMonitorService%20%3D%20tostring%28properties.essentials.monitorService%29%2C%0D%0AAlertRuleId%20%3D%20tostring%28properties.essentials.alertRule%29%2C%0D%0ASignalType%20%3D%20tostring%28properties.essentials.signalType%29%2C%0D%0ATargetResource%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%0D%0ATargetResourceType%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%20id%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20MonitorService%20%2C%20TargetResourceType" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%0D%0AMonitorCondition%20%3D%20tostring%28properties.essentials.monitorCondition%29%2C%0D%0AObjectState%20%3D%20tostring%28properties.essentials.alertState%29%2C%0D%0AMonitorService%20%3D%20tostring%28properties.essentials.monitorService%29%2C%0D%0AAlertRuleId%20%3D%20tostring%28properties.essentials.alertRule%29%2C%0D%0ASignalType%20%3D%20tostring%28properties.essentials.signalType%29%2C%0D%0ATargetResource%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%0D%0ATargetResourceType%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%20id%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20MonitorService%20%2C%20TargetResourceType" target="_blank">portal.azure.us</a>
+- Microsoft Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/alertsmanagementresources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.alertsmanagement%2Falerts%27%0D%0A%7C%20where%20todatetime%28properties.essentials.startDateTime%29%20%3E%3D%20ago%282h%29%20and%20todatetime%28properties.essentials.startDateTime%29%20%3C%20now%28%29%0D%0A%7C%20project%20Severity%20%3D%20tostring%28properties.essentials.severity%29%2C%0D%0AMonitorCondition%20%3D%20tostring%28properties.essentials.monitorCondition%29%2C%0D%0AObjectState%20%3D%20tostring%28properties.essentials.alertState%29%2C%0D%0AMonitorService%20%3D%20tostring%28properties.essentials.monitorService%29%2C%0D%0AAlertRuleId%20%3D%20tostring%28properties.essentials.alertRule%29%2C%0D%0ASignalType%20%3D%20tostring%28properties.essentials.signalType%29%2C%0D%0ATargetResource%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%0D%0ATargetResourceType%20%3D%20tostring%28properties.essentials.targetResourceName%29%2C%20id%0D%0A%7C%20summarize%20AlertsCount%20%3D%20count%28%29%20by%20Severity%2C%20MonitorService%20%2C%20TargetResourceType" target="_blank">portal.azure.cn</a>
+
+---
 
 ## Next steps
 

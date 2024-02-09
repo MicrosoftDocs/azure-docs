@@ -241,14 +241,15 @@ The `context` variable is implicitly available in every policy [expression](api-
 |`bool VerifyNoRevocation(input: this System.Security.Cryptography.X509Certificates.X509Certificate2)`|Performs an X.509 chain validation without checking certificate revocation status.<br /><br />`input` - certificate object<br /><br />Returns `true` if the validation succeeds; `false` if the validation fails.|
 
 
-## Next steps
+## Related content
 
 For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
-+ [Transform APIs](transform-api.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
++ [Tutorial: Transform and protect APIs](transform-api.md)
++ [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
++ [Author policies using Microsoft Copilot for Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 For more information:
 

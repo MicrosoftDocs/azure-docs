@@ -2,12 +2,12 @@
 title: Tutorial to configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication
 titleSuffix: Azure AD B2C
 description: Configure Nok Nok Passport with Azure AD B2C to enable passwordless FIDO2 authentication
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/13/2023
 ms.author: gasinh

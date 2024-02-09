@@ -1,12 +1,14 @@
 ---
 title: VNet flow logs (preview)
 titleSuffix: Azure Network Watcher
-description: Learn about VNet flow logs feature of Azure Network Watcher. 
+description: Learn about Azure Network Watcher VNet flow logs feature and how to use them to record your virtual networks traffic. 
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 08/16/2023
+ms.date: 11/30/2023
+
+#CustomerIntent: As an Azure administrator, I want to learn about VNet flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
 
 # VNet flow logs (preview)
@@ -208,8 +210,9 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 ### Storage account
 
-- **Location**: The storage account used must be in the same region as the virtual network.
-- **Performance tier**: Currently, only standard-tier storage accounts are supported.
+- **Location**: The storage account must be in the same region as the virtual network.
+- **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription associated with the same Microsoft Entra tenant of the virtual network's subscription.
+- **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, VNet flow logs stop working. To fix this problem, you must disable and then re-enable VNet flow logs.
 
 ### Cost

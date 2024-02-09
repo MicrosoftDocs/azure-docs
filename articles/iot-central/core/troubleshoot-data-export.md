@@ -44,6 +44,12 @@ Before you configure or enable the export destination, make sure that you comple
 
 To learn more, see [Export data](howto-export-data.md?tabs=managed-identity).
 
+## Destination connection issues
+
+The export definition page shows information about failed connections to the export destination:
+
+:::image type="content" source="media/troubleshoot-data-export/export-error.png" alt-text="Screenshot that shows example export error.":::
+
 ## Next steps
 
 If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).

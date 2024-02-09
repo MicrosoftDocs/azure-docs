@@ -6,8 +6,11 @@ ms.author: adamwolk
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: include
-ms.date: 05/10/2023
-ms.custom: include file, build-2023
+ms.date: 11/03/2023
+ms.custom:
+  - include file
+  - build-2023
+  - ignite-2023
 ---
 
 ## Performance
@@ -31,11 +34,11 @@ Third party sites, like [explain.depesz.com](https://explain.depesz.com/) can be
 * [Did I use the same condition in the WHERE clause as in a partial index definition?](#partial-indexes)
 * [If I use partitioning, were not-needed partitions pruned?](#partitioning)
 
-If your vectors are normalized to length 1, like OpenAI embeddings. You should consider using inner product (`<=>`) for best performance.
+If your vectors are normalized to length 1, like OpenAI embeddings. You should consider using inner product (`<#>`) for best performance.
 
 ## Parallel execution
 
-In the output of your explain plan, look for `Workers Planned` and `Workers Launched` (latter only when `ANALYZE` keyword was used). The `max_parallel_workers_per_gather` PostgreSQL parameter defines how many background workers the database may launch for every `Gather` and `Gather Merge` plan node. Increasing this value may speed up your exact search queries without having to create indexes. Note however, that the database may not decide to run the plan in parallel even when this value is high.
+In the output of your explain plan, look for `Workers Planned` and `Workers Launched` (latter only when `ANALYZE` keyword was used). The `max_parallel_workers_per_gather` PostgreSQL parameter defines how many background workers the database can launch for every `Gather` and `Gather Merge` plan node. Increasing this value might speed up your exact search queries without having to create indexes. Note however, that the database might not decide to run the plan in parallel even when this value is high.
 
 
 ```postgresql
@@ -62,14 +65,20 @@ In order to perform approximate nearest neighbor search you can create indexes o
 
 When possible, always load your data before indexing it. It's both faster to create the index this way and the resulting layout is more optimal.
 
+There are two supported index types:
+* [Inverted File with Flat Compression (IVVFlat)](#inverted-file-with-flat-compression-ivvflat)
+* [Hierarchical Navigable Small Worlds (HNSW)](#hierarchical-navigable-small-worlds-hnsw)
+
+The `IVFFlat` index has faster build times and uses less memory than `HNSW`, but has lower query performance (in terms of speed-recall tradeoff).
+
 ### Limits
 
 * In order to index a column, it has to have dimensions defined. Attempting to index a column defined as `col vector` results in the error: `ERROR:  column does not have dimensions`.
-* You can only index a column that has up to 2000 dimensions. Attempting to index a column with more dimensions results in the error: `ERROR:  column cannot have more than 2000 dimensions for ivfflat index`.
+* You can only index a column that has up to 2000 dimensions. Attempting to index a column with more dimensions results in the error: `ERROR:  column cannot have more than 2000 dimensions for INDEX_TYPE index` where `INDEX_TYPE` is either `ivfflat` or `hnsw`.
 
 While you can store vectors with more than 2000 dimensions, you can't index them. You can use dimensionality reduction to fit within the limits. Alternatively rely on partitioning and/or sharding with Azure Cosmos DB for PostgreSQL to achieve acceptable performance without indexing.
 
-#### Lists & Probes
+#### Inverted File with Flat Compression (IVVFlat)
 
 The `ivfflat` is an index for approximate nearest neighbor (ANN) search. This method uses an inverted file index to partition the dataset into multiple lists. The probes parameter controls how many lists are searched, which can improve the accuracy of the search results at the cost of slower search speed.
 
@@ -77,7 +86,9 @@ If the probes parameter is set to the number of lists in the index, then all lis
 
 The indexing method partitions the dataset into multiple lists using the k-means clustering algorithm. Each list contains vectors that are closest to a particular cluster center. During a search, the query vector is compared to the cluster centers to determine which lists are most likely to contain the nearest neighbors. If the probes parameter is set to 1, then only the list corresponding to the closest cluster center would be searched.
 
-Selecting the correct value for the number of probes to perform and the sizes of the lists may affect search performance. Good places to start are:
+##### Index options
+
+Selecting the correct value for the number of probes to perform and the sizes of the lists might affect search performance. Good places to start are:
 
 1. Use `lists` equal to `rows / 1000` for tables with up to 1 million rows and `sqrt(rows)` for larger datasets.
 1. For `probes` start with `lists / 10` for tables up to 1 million rows and `sqrt(lists)` for larger datasets.
@@ -108,9 +119,80 @@ SELECT * FROM t_test ORDER BY embedding <=> '[1,2,3]' LIMIT 5; -- uses default, 
 
 ```
 
-### Selecting the index type
+##### Indexing progress
 
-The `vector` type allows you to perform three types of searches on the stored vectors. You need to select the correct access function for your index in order to have the database consider your index when executing your queries.
+With PostgreSQL 12 and newer, you can use `pg_stat_progress_create_index` to check indexing progress.
+
+```postgresql
+SELECT phase, round(100.0 * tuples_done / nullif(tuples_total, 0), 1) AS "%" FROM pg_stat_progress_create_index;
+```
+
+Phases for building IVFFlat indexes are:
+1. `initializing`
+1. `performing k-means`
+1. `assigning tuples`
+1. `loading tuples`
+
+> [!NOTE]
+> Progress percentage (`%`) is only populated during `loading tuples` phase.
+
+#### Hierarchical Navigable Small Worlds (HNSW)
+
+The `hnsw` is an index for approximate nearest neighbor (ANN) search using the Hierarchical Navigable Small Worlds algorithm. It works by creating a graph around randomly selected entry points finding their nearest neighbors, the graph is then extended with multiple layers, each lower layer containing more points. This multilayered graph when searched starts at the top, narrowing down until it hits the lowest layer that contains the nearest neighbors of the query.
+
+Building this index takes more time and memory than IVFFlat, however it has better speed-recall tradeoff. Additionally, there's no training step like with IVFFlat, so the index can be created on an empty table.
+
+##### Index options
+
+When creating the index, you can tune two parameters:
+1. `m` - maximum number of connections per layer (defaults to 16)
+1. `ef_construction` - size of the dynamic candidate list used for graph construction (defaults to 64)
+
+```postgresql
+CREATE INDEX t_test_hnsw_l2_idx ON t_test USING hnsw (embedding vector_l2_ops) WITH (m = 16, ef_construction = 64);
+```
+
+During queries, you can specify the dynamic candidate list for search (defaults to 40).
+
+```postgresql
+```
+
+The dynamic candidate list for search can be set for the whole connection or per transaction (using `SET LOCAL` within a transaction block):
+
+```postgresql
+SET hnsw.ef_search = 100;
+SELECT * FROM t_test ORDER BY embedding <=> '[1,2,3]' LIMIT 5; -- uses 100 candidates
+SELECT * FROM t_test ORDER BY embedding <=> '[1,2,3]' LIMIT 5; -- uses 100 candidates
+```
+
+```postgresql
+BEGIN;
+
+SET hnsw.ef_search = 100;
+SELECT * FROM t_test ORDER BY embedding <=> '[1,2,3]' LIMIT 5; -- uses 100 candidates
+
+COMMIT;
+
+SELECT * FROM t_test ORDER BY embedding <=> '[1,2,3]' LIMIT 5; -- uses default, 40 candidates
+
+```
+
+
+##### Indexing progress
+
+With PostgreSQL 12 and newer, you can use `pg_stat_progress_create_index` to check indexing progress.
+
+```postgresql
+SELECT phase, round(100.0 * blocks_done / nullif(blocks_total, 0), 1) AS "%" FROM pg_stat_progress_create_index;
+```
+
+Phases for building HNSW indexes are:
+1. `initializing`
+1. `loading tuples`
+
+### Selecting the index access function
+
+The `vector` type allows you to perform three types of searches on the stored vectors. You need to select the correct access function for your index in order to have the database consider your index when executing your queries. The examples demonstrate on `ivfflat` index types, however the same can be done for `hnsw` indexes. The `lists` option only applies to `ivfflat` indexes.
 
 #### Cosine distance
 
@@ -183,7 +265,7 @@ EXPLAIN SELECT * FROM t_test ORDER BY embedding <#> '[1,2,3]' LIMIT 5;
 
 ## Partial indexes
 
-In some scenarios, it's beneficial to have an index that covers only a partial set of the data. We may, for example,  build an index just for our premium users:
+In some scenarios, it's beneficial to have an index that covers only a partial set of the data. We can, for example,  build an index just for our premium users:
 
 ```postgresql
 CREATE INDEX t_premium ON t_test USING ivfflat (vec vector_ip_ops) WITH (lists = 100) WHERE tier = 'premium';
@@ -221,8 +303,8 @@ explain select * from t_test where tier = 'free' order by vec <#> '[2,2,2]';
 
 Having only a subset of data indexed, means the index takes less space on disk and is faster to search through.
 
-PostgreSQL may fail to recognize that the index is safe to use if the form used in the `WHERE` clause of the partial index definition doesn't match the one used in your queries.
-In our example dataset, we only have the exact values 'free','test' and 'premium' as the distinct values of the tier column. Even with a query using `tier LIKE 'premium'` PostgreSQL isn't using the index.
+PostgreSQL might fail to recognize that the index is safe to use if the form used in the `WHERE` clause of the partial index definition doesn't match the one used in your queries.
+In our example dataset, we only have the exact values `'free'`, `'test'` and `'premium'` as the distinct values of the tier column. Even with a query using `tier LIKE 'premium'` PostgreSQL isn't using the index.
 
 ```postgresql
 explain select * from t_test where tier like 'premium' order by vec <#> '[2,2,2]';
@@ -285,8 +367,7 @@ To manually create a partition:
 CREATE TABLE t_test_partitioned_p2019 PARTITION OF t_test_partitioned FOR VALUES FROM ('2019-01-01') TO ('2020-01-01');
 ```
 
-Then make sure that your queries actually filter down to a subset of available partitions. For example in the query below we have
-filtered down to two partitions:
+Then make sure that your queries actually filter down to a subset of available partitions. For example in the query below we filtered down to two partitions:
 
 ```postgresql
 explain analyze select * from t_test_partitioned where vec_date between '2022-01-01' and '2024-01-01';

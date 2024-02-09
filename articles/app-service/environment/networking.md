@@ -12,7 +12,7 @@ ms.author: madsd
 App Service Environment is a single-tenant deployment of Azure App Service that hosts Windows and Linux containers, web apps, API apps, logic apps, and function apps. When you install an App Service Environment, you pick the Azure virtual network that you want it to be deployed in. All of the inbound and outbound application traffic is inside the virtual network you specify. You deploy into a single subnet in your virtual network, and nothing else can be deployed into that subnet.
 
 > [!NOTE]
-> This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
+> This article is about App Service Environment v3, which is used with Isolated v2 App Service plans.
 
 ## Subnet requirements
 

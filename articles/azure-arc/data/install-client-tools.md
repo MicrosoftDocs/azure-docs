@@ -46,6 +46,6 @@ The following table lists common tools required for creating and managing Azure 
 
 <sup>3</sup> For PowerShell, `curl` is an alias to the Invoke-WebRequest cmdlet.
 
-## Next steps
+## Related content
 
 [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)

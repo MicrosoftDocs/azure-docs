@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Azure SQL server and private endpoint.
+> * Create an Azure SQL server and private endpoint.
 > * Test connectivity to the SQL server private endpoint.
 
 ## Prerequisites

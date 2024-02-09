@@ -51,18 +51,16 @@ Drawbacks:
 
 ## Sharding tradeoffs
 
-<br />
-
-|| Schema-based sharding | Row-based sharding|
-|---|---|---|
-|Multi-tenancy model|Separate schema per tenant|Shared tables with tenant ID columns|
-|Citus version|12.0+|All versions|
-|Extra steps compared to vanilla PostgreSQL|None, only a config change|Use create_distributed_table on each table to distribute & colocate tables by tenant ID|
-|Number of tenants|1-10k|1-1 M+|
-|Data modeling requirement|No foreign keys across distributed schemas|Need to include a tenant ID column (a distribution column, also known as a sharding key) in each table, and in primary keys, foreign keys|
-|SQL requirement for single node queries|Use a single distributed schema per query|Joins and WHERE clauses should include tenant_id column|
-|Parallel cross-tenant queries|No|Yes|
-|Custom table definitions per tenant|Yes|No|
-|Access control|Schema permissions|Schema permissions|
-|Data sharing across tenants|Yes, using reference tables (in a separate schema)|Yes, using reference tables|
-|Tenant to shard isolation|Every tenant has its own shard group by definition|Can give specific tenant IDs their own shard group via isolate_tenant_to_new_shard|
+| | Schema-based sharding | Row-based sharding |
+| --- | --- | --- |
+| **Multi-tenancy model** | Separate schema per tenant | Shared tables with tenant ID columns |
+| **Citus version** | 12.0+ | All versions |
+| **Extra steps compared to vanilla PostgreSQL** | None, only a config change | Use create_distributed_table on each table to distribute & colocate tables by tenant ID |
+| **Number of tenants** | 1-10k | 1-1 M+ |
+| **Data modeling requirement** | No foreign keys across distributed schemas | Need to include a tenant ID column (a distribution column, also known as a sharding key) in each table, and in primary keys, foreign keys |
+| **SQL requirement for single node queries** | Use a single distributed schema per query | Joins and WHERE clauses should include tenant_id column |
+| **Parallel cross-tenant queries** | No | Yes |
+| **Custom table definitions per tenant** | Yes | No |
+| **Access control** | Schema permissions | Schema permissions |
+| **Data sharing across tenants** | Yes, using reference tables (in a separate schema) | Yes, using reference tables |
+| **Tenant to shard isolation** | Every tenant has its own shard group by definition | Can give specific tenant IDs their own shard group via isolate_tenant_to_new_shard |

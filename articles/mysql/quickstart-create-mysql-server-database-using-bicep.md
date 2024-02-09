@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 05/02/2022
+ms.date: 12/01/2023
 ---
 
 # Quickstart: Use Bicep to create an Azure Database for MySQL server
@@ -52,9 +52,8 @@ The Bicep file defines five Azure resources:
 
 ## Deploy the Bicep file
 
-
 1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+2. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
 

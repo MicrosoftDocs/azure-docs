@@ -23,8 +23,10 @@
     href: concept-data-types.md
   - name: Data visualization
     href: concept-data-visualization.md 
-  - name: MCC Data Product
+  - name: Quality of Experience - Affirmed MCC Data Products
     href: concept-mcc-data-product.md
+  - name: Monitoring - Affirmed MCC Data Product
+    href: concept-monitoring-mcc-data-product.md
 - name: How-to guides
   expanded: false
   items:
@@ -43,5 +45,24 @@
       href: how-to-manage-mcc-edr-agent.md
     - name: Monitor and troubleshoot MCC EDR Ingestion Agents
       href: troubleshoot-mcc-edr-agent.md
-    - name: MCC EDR Ingestion Agent Configuration Reference
+    - name: MCC EDR Ingestion Agent configuration reference
       href: mcc-edr-agent-configuration.md
+  - name: Deploy Ingestion Agents for SFTP files
+    expanded: true
+    items:
+    - name: Overview
+      href: sftp-agent-overview.md
+    - name: Create and configure SFTP Ingestion Agents
+      href: how-to-install-sftp-agent.md
+    - name: Manage SFTP Ingestion Agents
+      href: how-to-manage-sftp-agent.md
+    - name: Monitor and troubleshoot SFTP Ingestion Agents
+      href: troubleshoot-sftp-agent.md
+    - name: SFTP Ingestion Agent configuration reference
+      href: sftp-agent-configuration.md
+  - name: Monitor Azure Operator Insights
+    href: monitor-operator-insights.md
+- name: Reference
+  items:
+    - name: Monitoring data
+      href: monitor-operator-insights-data-reference.md

@@ -1,8 +1,8 @@
 ---
 title: Model conversion
 description: Describes the process of converting a model for rendering
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ---

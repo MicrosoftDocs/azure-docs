@@ -85,7 +85,7 @@ In this example, the execution time of each HDInsight activity is rounded up to 
 :::image type="content" source="./media/integration-runtime-pricing/self-hosted-integration-runtime-example-3.png" alt-text="Screenshot of calculation formula for Self-hosted integration runtime example 3.":::
 
 
-## Next steps
+## Related content
 
 Now that you understand the pricing for Azure Data Factory, you can get started!
 

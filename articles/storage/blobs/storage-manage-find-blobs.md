@@ -315,7 +315,7 @@ The following table summarizes the differences between metadata and blob index t
 
 ## Pricing
 
-You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
+You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blob Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 <a id="regional-availability-and-storage-account-support"></a>
 

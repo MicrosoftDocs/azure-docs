@@ -2,7 +2,7 @@
 title: Migrating to the Read v3.x containers
 titleSuffix: Azure AI services
 description: Learn how to migrate to the v3 Read OCR containers
-services: cognitive-services 
+#services: cognitive-services 
 author: aahill
 manager: nitinme
 ms.service: azure-ai-vision

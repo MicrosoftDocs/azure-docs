@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 06/21/2023
+  ms.date: 12/04/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -30,6 +30,39 @@ landingContent:
       links:
       - text: Conduct a FinOps iteration
         url: conduct-finops-iteration.md
+
+# Card (optional)
+  - title: More from Microsoft
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: FinOps with Azure e-book
+        url: https://aka.ms/finops/ebook
+      - text: Azure FinOps guide
+        url: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/the-azure-finops-guide/ba-p/3704132
+      - text: FinOps review assessment
+        url: https://learn.microsoft.com/assessments/ad1c0f6b-396b-44a4-924b-7a4c778a13d3
+      - text: FinOps toolkit
+        url: https://aka.ms/finops/toolkit
+    - linkListType: video
+      links:
+      - text: Implement FinOps for Azure
+        url: https://info.microsoft.com/ww-ondemand-implement-finops-for-azure.html
+
+# Card (optional)
+  - title: FinOps Foundation
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: FinOps Foundation
+        url: https://finops.org/
+      - text: FinOps Open Cost and Usage Specification
+        url: https://finops.org/
+      - text: FinOps community Slack workspace
+        url: https://finopsfoundation.slack.com/
+      - text: FinOps events
+        url: https://www.finops.org/community/events/
+
 
 # Card (optional)
 
@@ -98,18 +131,3 @@ landingContent:
         url: capabilities-culture.md
       - text: FinOps and intersecting frameworks
         url: capabilities-frameworks.md
-
-# Card (optional)
-
-  - title: Resources
-    linkLists:
-    - linkListType: reference
-      links:
-      - text: FinOps with Azure e-book
-        url: https://aka.ms/finops/ebook
-      - text: FinOps Foundation
-        url: https://finops.org/
-    - linkListType: video
-      links:
-      - text: FinOps The operating model for the cloud
-        url: https://www.youtube.com/watch?v=VDrcgEne6lU

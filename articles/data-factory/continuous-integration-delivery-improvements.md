@@ -197,7 +197,7 @@ Follow these steps to get started:
 > [!NOTE]
 > The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually. However, when deploying one would still need to reference the [documentation on stopping and starting triggers](continuous-integration-delivery-sample-script.md#script-execution-and-parameters) to execute the provided script.
 
-## Next steps
+## Related content
 
 Learn more information about continuous integration and delivery in Data Factory:
 [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md).

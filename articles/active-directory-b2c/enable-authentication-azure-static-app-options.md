@@ -1,11 +1,11 @@
 ---
 title: Enable Azure Static Web App authentication options using Azure Active Directory B2C
 description:  This article discusses several ways to enable Azure Static Web App authentication options.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 06/28/2022
 ms.author: kengaderdus

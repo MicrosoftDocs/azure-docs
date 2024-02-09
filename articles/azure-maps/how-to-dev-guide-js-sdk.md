@@ -126,7 +126,7 @@ const client = MapsSearch(credential, process.env.MAPS_CLIENT_ID);
 
 You can authenticate with your Azure Maps subscription key. Your subscription key can be found in the **Authentication** section in the Azure Maps account as shown in the following screenshot:
 
-:::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 You need to pass the subscription key to the `AzureKeyCredential` class provided by the [Azure Core Authentication Package]. For security reasons, it's better to specify the key as an environment variable than to include it in your source code.
 
@@ -403,7 +403,7 @@ main().catch(console.error);
 [Node.js]: https://nodejs.org/en/download/
 [search package]: https://www.npmjs.com/package/@azure-rest/maps-search
 [search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
-[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v1-beta
+[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v2-beta
 [Search service]: /rest/api/maps/search
 [searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

@@ -23,13 +23,12 @@ Here are the troubleshooting sections for common issues in Python functions:
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
-* [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
+* [Sync triggers failed](#sync-triggers-failed)
 ::: zone-end
 
 ::: zone pivot="python-mode-decorators" 
 Specifically with the v2 model, here are some known issues and their workarounds:
 
-* [Multiple Python workers not supported](#multiple-python-workers-not-supported)
 * [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
 * [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-azure-storage-connection)
 * [Issues with deployment](#issue-with-deployment)
@@ -40,7 +39,7 @@ General troubleshooting guides for Python Functions include:
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
-* [Troubleshoot errors with Protocol Buffers](#troubleshoot-errors-with-protocol-buffers)
+* [Sync triggers failed](#sync-triggers-failed)
 ::: zone-end
 
 
@@ -238,41 +237,13 @@ If your function app is using the popular ODBC database driver [pyodbc](https://
 
 ---
 
-## Troubleshoot errors with Protocol Buffers
+## Sync triggers failed
 
-Version 4.x.x of the Protocol Buffers (Protobuf) package introduces breaking changes. Because the Python worker process for Azure Functions relies on v3.x.x of this package, pinning your function app to use v4.x.x can break your app. At this time, you should also avoid using any libraries that require Protobuf v4.x.x. 
-
-Example error logs:
-```bash
- [Information] File "/azure-functions-host/workers/python/3.8/LINUX/X64/azure_functions_worker/protos/shared/NullableTypes_pb2.py", line 38, in <module>
- [Information] _descriptor.FieldDescriptor(
- [Information] File "/home/site/wwwroot/.python_packages/lib/site-packages/google/protobuf/descriptor.py", line 560, in __new__
- [Information] _message.Message._CheckCalledFromGeneratedFile()
- [Error] TypeError: Descriptors cannot be created directly.
- [Information] If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
- [Information] If you cannot immediately regenerate your protos, some other possible workarounds are:
- [Information] 1. Downgrade the protobuf package to 3.20.x or lower.
- [Information] 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
- [Information] More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
-```
-
-You can mitigate this issue in either of two ways:
-
-* Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies) to a value of `1`. 
-
-* Pin Protobuf to a non-4.x.x. version, as in the following example:
-
-    ```
-    protobuf >= 3.19.3, == 3.*
-    ```
+The error `Sync triggers failed` can be caused by several issues. One potential cause is a conflict between customer-defined dependencies and Python built-in modules when your functions run in an App Service plan. For more information, see [Package management](functions-reference-python.md#package-management).
 
 ---
 
 ::: zone pivot="python-mode-decorators"  
-## Multiple Python workers not supported
-
-The multiple Python workers setting isn't supported in the v2 programming model at this time. More specifically, enabling intelligent concurrency by setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than `1` isn't supported for functions that are developed by using the v2 model.
-
 ## Troubleshoot "could not load file or assembly"
 
 If you receive this error, it might be because you're using the v2 programming model. This error results from a known issue that will be resolved in an upcoming release.

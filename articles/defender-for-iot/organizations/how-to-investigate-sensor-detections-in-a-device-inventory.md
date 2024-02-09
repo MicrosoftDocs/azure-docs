@@ -12,7 +12,7 @@ Use the **Device inventory** page from a sensor console to manage all OT and IT 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
-> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 >
 
 ## View the device inventory

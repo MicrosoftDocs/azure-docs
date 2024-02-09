@@ -3,7 +3,7 @@ title: Connect Azure IoT Edge for Linux on Windows (EFLOW)
 description: Learn how to connect an Azure IoT Edge for Linux on Windows (EFLOW) device to an IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/11/2022
+ms.date: 11/27/2023
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -161,7 +161,7 @@ You've now finished configuring your IoT Central application to enable an IoT Ed
 
 To install and provision your EFLOW device:
 
-1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
+1. In an elevated PowerShell session, run the following commands to download IoT Edge for Linux on Windows.
 
     ```powershell
     $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))

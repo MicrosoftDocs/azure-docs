@@ -22,7 +22,7 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Restricted Support<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>

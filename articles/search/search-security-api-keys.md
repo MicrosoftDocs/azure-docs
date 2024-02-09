@@ -1,22 +1,24 @@
 ---
 title: Connect using API keys
-titleSuffix: Azure Cognitive Search
-description: Learn how to use an admin or query API key for inbound access to an Azure Cognitive Search service endpoint.
+titleSuffix: Azure AI Search
+description: Learn how to use an admin or query API key for inbound access to an Azure AI Search service endpoint.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 01/14/2023
 ---
 
-# Connect to Cognitive Search using key authentication
+# Connect to Azure AI Search using key authentication
 
-Cognitive Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint will be accepted if both the request and the API key are valid.
+Azure AI Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint will be accepted if both the request and the API key are valid.
 
 > [!NOTE]
-> A quick note about how "key" terminology is used in Cognitive Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A separate term, "document key", refers to a unique string in your indexed content that's used to uniquely identify documents in a search index.
+> A quick note about how "key" terminology is used in Azure AI Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A separate term, "document key", refers to a unique string in your indexed content that's used to uniquely identify documents in a search index.
 
 ## Types of API keys
 
@@ -49,7 +51,7 @@ Best practices for using hard-coded keys in source files include:
 
 Key authentication is built in so no action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
 
-In Cognitive Search, most tasks can be performed in Azure portal, including object creation, indexing through the Import data wizard, and queries through Search explorer.
+In Azure AI Search, most tasks can be performed in Azure portal, including object creation, indexing through the Import data wizard, and queries through Search explorer.
 
 ### [**PowerShell**](#tab/azure-ps-use)
 
@@ -62,11 +64,11 @@ $headers = @{
 'Accept' = 'application/json' }
 ```
 
-A script example showing API key usage for various operations can be found at [Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs](search-get-started-powershell.md).
+A script example showing API key usage for various operations can be found at [Quickstart: Create an Azure AI Search index in PowerShell using REST APIs](search-get-started-powershell.md).
 
 ### [**REST API**](#tab/rest-use)
 
-Set an admin key in the request header using the syntax `api-key` equal to your key. Admin keys are used for most operations, including create, delete, and update. Admin keys are also used on requests issued to the search service itself, such as listing objects or requesting service statistics. see [Connect to Azure Cognitive Search using REST APIs](search-get-started-rest.md#connect-to-azure-cognitive-search) for a more detailed example.
+Set an admin key in the request header using the syntax `api-key` equal to your key. Admin keys are used for most operations, including create, delete, and update. Admin keys are also used on requests issued to the search service itself, such as listing objects or requesting service statistics. see [Connect to Azure AI Search using REST APIs](search-get-started-rest.md#connect-to-azure-ai-search) for a more detailed example.
 
 :::image type="content" source="media/search-security-api-keys/rest-headers.png" alt-text="Screenshot of the Headers section of a request in Postman." border="true":::
 
@@ -79,7 +81,7 @@ In search solutions, a key is often specified as a configuration setting and the
 ---
 
 > [!NOTE]  
-> It's considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Cognitive Search only accepts a query key as an `api-key` in the query string. As a general rule, we recommend passing your `api-key` as a request header.
+> It's considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure AI Search only accepts a query key as an `api-key` in the query string. As a general rule, we recommend passing your `api-key` as a request header.
 
 ## Permissions to view or manage API keys
 
@@ -140,12 +142,12 @@ az search query-key list --resource-group <myresourcegroup> --service-name <myse
 
 ### [**REST API**](#tab/rest-find)
 
-Use [List Admin Keys](/rest/api/searchmanagement/2022-09-01/admin-keys) or [List Query Keys](/rest/api/searchmanagement/2022-09-01/query-keys/list-by-search-service) in the Management REST API to return API keys.
+Use [List Admin Keys](/rest/api/searchmanagement/admin-keys/get) or [List Query Keys](/rest/api/searchmanagement/query-keys/list-by-search-service) in the Management REST API to return API keys.
 
-You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to return or update API keys. See [Manage your Azure Cognitive Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
+You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to return or update API keys. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2022-09-01
+POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2023-11-01
 ```
 
 ---
@@ -176,12 +178,12 @@ A script example showing query key usage can be found at [Create or delete query
 
 ### [**REST API**](#tab/rest-query)
 
-Use [Create Query Keys](/rest/api/searchmanagement/2022-09-01/query-keys/create) in the Management REST API.
+Use [Create Query Keys](/rest/api/searchmanagement/query-keys/create) in the Management REST API.
 
-You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to create or manage API keys. See [Manage your Azure Cognitive Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
+You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to create or manage API keys. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}?api-version=2022-09-01
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}?api-version=2023-11-01
 ```
 
 ---
@@ -222,6 +224,6 @@ Note that it's not possible to use [customer-managed key encryption](search-secu
 
 ## See also
 
-+ [Security in Azure Cognitive Search](search-security-overview.md)
-+ [Azure role-based access control in Azure Cognitive Search](search-security-rbac.md)
++ [Security in Azure AI Search](search-security-overview.md)
++ [Azure role-based access control in Azure AI Search](search-security-rbac.md)
 + [Manage using PowerShell](search-manage-powershell.md) 

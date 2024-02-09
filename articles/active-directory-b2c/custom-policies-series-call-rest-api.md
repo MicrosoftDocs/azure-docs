@@ -2,15 +2,15 @@
 title: Call a REST API by using Azure Active Directory B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to make an HTTP call to external API by using Azure Active Directory B2C custom policy.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements, devx-track-js
-ms.date: 03/16/2023
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -18,9 +18,9 @@ ms.subservice: B2C
 
 # Call a REST API by using Azure Active Directory B2C custom policy
 
-Azure Active Directory B2C (Azure AD B2C) custom policy allows you to interact with application logic that's implemented outside of Azure AD B2C. To do so, you make an HTTP call to an endpoint. Azure AD B2C custom policies provide RESTful technical profile for this purpose. By using this capability, you can implement features that aren't available within Azure AD B2C custom policy.   
+Azure Active Directory B2C (Azure AD B2C) custom policy allows you to interact with application logic that you implement outside of Azure AD B2C. To do so, you make an HTTP call to an endpoint. Azure AD B2C custom policies provide RESTful technical profile for this purpose. By using this capability, you can implement features that aren't available within Azure AD B2C custom policy.   
 
-In this article, you'll learn how to: 
+In this article, you learn how to: 
 
 - Create and deploy a sample Node.js app for use as a RESTful service.
 
@@ -31,7 +31,7 @@ In this article, you'll learn how to:
 
 ## Scenario overview 
 
-In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the user must re-enter an access code. 
+In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP `409 Conflict` response, and the user must reenter an access code. 
 
 :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
@@ -51,7 +51,7 @@ In [Create branching in user journey by using Azure AD B2C custom policies](cust
 
 ## Step 1 - Create and deploy a Node.js app
 
-You need to deploy an app, which will serve as your external app. Your custom policy then makes an HTTP call to this app. 
+You need to deploy an app, which serves as your external app. Your custom policy then makes an HTTP call to this app. 
 
 ### Step 1.1 - Create the Node.js app 
 
@@ -104,7 +104,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
 
 1. To test the app works as expected, use the following steps:
     1. In your terminal, run the `node index.js` command to start your app server. 
-    1. To make a POST request similar to the one shown below, you can use an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/):
+    1. To make a POST request similar to the one shown in this example, you can use an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/):
     
     ```http
         POST http://localhost/validate-accesscode HTTP/1.1
@@ -142,7 +142,7 @@ At this point, you're ready to deploy your Node.js app.
 
 ### Step 1.2 - Deploy the Node.js app in Azure App Service
 
-For your custom policy to reach your Node.js app, it needs to be reachable, so, you need deploy it. In this article, you'll deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
+For your custom policy to reach your Node.js app, it needs to be reachable, so, you need deploy it. In this article, you deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
 
 Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.md#deploy-to-azure) to deploy your Node.js app to Azure. For the **Name** of the app, use a descriptive name such as `custompolicyapi`. Hence:
 
@@ -192,7 +192,7 @@ From the protocol, you can observe that we configure the Technical Profile to us
 
 - `AuthenticationType` specifies the type of authentication that the RESTful claims provider performs. Our RESTful claims provider calls an unprotected endpoint, so we set our `AuthenticationType` to *None*. If you set authentication type to `Bearer`, you need to add a *CryptographicKeys* element, which specifies the storage for your access token. Learn more about [the types of authentication that the RESTful claims provider supports](restful-technical-profile.md#metadata). 
 
-- The *PartnerClaimType* attribute in the `InputClaim` specifies how you'll receive your data in the API. 
+- The *PartnerClaimType* attribute in the `InputClaim` specifies how you receive your data in the API. 
    
 ### Step 2.2 - Update validation technical profile
 
@@ -222,8 +222,8 @@ Make sure your Node.js app is running, and then follow the steps in [Upload cust
 Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-6---test-the-custom-policy) to test your custom policy:
 
 1. For **Account Type**, select **Personal Account**
-1. Enter the rest of the details as required, and then select **Continue**. You'll see a new screen.
-1. For **Access Code**, enter *88888*, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. If you repeat the procedure, and enter a different **Access Code**, other than *88888*, you'll see an error, **The access code you entered is incorrect. Please try again.**
+1. Enter the rest of the details as required, and then select **Continue**. You see a new screen.
+1. For **Access Code**, enter *88888*, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. If you repeat the procedure, and enter a different **Access Code**, other than *88888*, you see an error, **The access code you entered is incorrect. Please try again.**
 
 ## Step 5 - Enable debug mode
 
@@ -236,7 +236,7 @@ In development, you may want to see detailed errors sent by the API, such as *de
     ```
 1. Save the changes and [upload your policy file](#step-3---upload-custom-policy-file). 
 
-1. [Test your custom policy](#step-4---test-the-custom-policy). Make sure you use a wrong input for your **Access Code**. You'll see an error similar to the one shown in the screenshot below.
+1. [Test your custom policy](#step-4---test-the-custom-policy). Make sure you use a wrong input for your **Access Code**. You see an error similar to the one shown in this screenshot:
 
 
     :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-error-enable-debug-mode.png" alt-text="A screenshot error when you enable debug mode."::: 

@@ -4,7 +4,7 @@ description: This quickstart describes how to create an Azure Front Door Standar
 services: front-door
 author: duongau
 ms.author: duau
-ms.date: 07/08/2022
+ms.date: 12/04/2023
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -35,7 +35,7 @@ In this quickstart, you'll create a Front Door Standard/Premium, an App Service,
 
 Multiple Azure resources are defined in the Bicep file:
 
-* [**Microsoft.Network/frontDoors**](/azure/templates/microsoft.network/frontDoors)
+* [**Microsoft.Cdn/profiles**](/azure/templates/microsoft.cdn/profiles) (Azure Front Door Standard/Premium profile)
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms) (App service plan to host web apps)
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) (Web app origin servicing request for Front Door)
 

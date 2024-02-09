@@ -23,7 +23,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure Blob Storage|✔|✔|-|
 |Azure Cache for Redis|✔|-|-|
 |Azure Cloud Services|✔|-|-|
-|Azure Cognitive Search|✔|-|-|
+|Azure AI Search|✔|-|-|
 |Azure Container Registry|✔|✔|[Defender for Containers](defender-for-containers-introduction.md)|
 |Azure Cosmos DB*|✔|✔|-|
 |Azure Data Lake Analytics|✔|-|-|

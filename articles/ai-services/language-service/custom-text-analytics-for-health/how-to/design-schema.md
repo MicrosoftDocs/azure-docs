@@ -2,7 +2,7 @@
 title: Preparing data and designing a schema for custom Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn about how to select and prepare data, to be successful in creating custom TA4H projects.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

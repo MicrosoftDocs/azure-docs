@@ -1,9 +1,9 @@
 ---
-title: 'Quickstart: Create an Azure API Management service using Terraform'
-description: 'In this article, you create an Azure API Management service using Terraform.'
+title: Quickstart - Create Azure API Management instance - Terraform
+description: Use this quickstart to create an Azure API Management instance using Terraform.
 ms.topic: quickstart
 ms.service: api-management
-ms.date: 4/14/2023
+ms.date: 12/12/2023
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
@@ -11,9 +11,11 @@ content_well_notification:
   - AI-contribution
 ---
 
-# Quickstart: Create an Azure API Management service using Terraform
+# Quickstart: Create an Azure API Management instance using Terraform
 
-This article shows how to use [Terraform](/azure/terraform) to create an [API Management service instance](./api-management-key-concepts.md) on Azure. API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. API Management enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Azure API Management - Overview and key concepts](api-management-key-concepts.md).
+This article shows how to use [Terraform](/azure/terraform) to create an API Management instance on Azure. You can also use Terraform for common management tasks such as importing APIs in your API Management instance. 
+
+[!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -27,7 +29,18 @@ In this article, you learn how to:
 
 ## Prerequisites
 
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+
+- For Azure CLI:
+
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- For Azure PowerShell:
+
+    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+
 
 ## Implement the Terraform code
 

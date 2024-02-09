@@ -176,7 +176,7 @@ BreakingPoint Cloud offers:
 - A simplified user interface and an “out-of-the-box” experience.
 - Pay-per-use model.
 - Predefined DDoS test sizing and test duration profiles enable safer validations by eliminating the potential of configuration errors.
-- A free trail account. 
+- A free trial account. 
 
 > [!NOTE]
 > For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud).  

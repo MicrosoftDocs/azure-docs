@@ -33,6 +33,8 @@ When you create an Azure subscription programmatically, the subscription is gove
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
+
 ## Create subscriptions for an EA billing account
 
 Use the information in the following sections to create EA subscriptions.

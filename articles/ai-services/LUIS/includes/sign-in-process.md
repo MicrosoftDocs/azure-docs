@@ -1,7 +1,7 @@
 ---
 title: include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.custom: seodec18
 ms.service: azure-ai-language

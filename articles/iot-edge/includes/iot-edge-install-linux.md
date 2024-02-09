@@ -36,14 +36,6 @@ Installing can be done with a few commands.  Open a terminal and run the followi
    rm packages-microsoft-prod.deb
    ```
 
-* **18.04**:
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/18.04/multiarch/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-   sudo dpkg -i packages-microsoft-prod.deb
-   rm packages-microsoft-prod.deb
-   ```
-
 # [Debian](#tab/debian)
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
@@ -168,7 +160,7 @@ Install the latest version of IoT Edge and the IoT identity service package (if 
      sudo apt-get install aziot-edge
    ```
 
-* **20.04 or 18.04**:
+* **20.04**:
    ```bash
    sudo apt-get update; \
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge

@@ -4,8 +4,9 @@ description: Overview of how Azure Monitor is billed and how to analyze billable
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 10/20/2023
+ms.date: 11/13/2023
 ---
+
 # Azure Monitor cost and usage
 This article describes the different ways that Azure Monitor charges for usage and how to evaluate charges on your Azure bill.
 
@@ -34,12 +35,12 @@ Sending data to Azure Monitor can incur data bandwidth charges. As described in 
 > Data sent to a different region using [Diagnostic Settings](essentials/diagnostic-settings.md) does not incur data transfer charges
 
 ## View Azure Monitor usage and charges
-There are two primary tools to view and analyze your Azure Monitor billing and estimated charges. Each is described in detail in the following sections.
+There are two primary tools to view, analyze and optimize your Azure Monitor costs. Each is described in detail in the following sections.
 
 | Tool | Description |
 |:---|:---|
-| [Azure Cost Management + Billing](#azure-cost-management--billing) | The primary tool that you use to analyze your usage and costs. It gives you multiple options to analyze your monthly charges for different Azure Monitor features and their projected cost over time. |
-| [Usage and Estimated Costs](#usage-and-estimated-costs) | Provides a listing of monthly charges for different Azure Monitor features. This is particularly useful for Log Analytics workspaces where it helps you to select your pricing tier by showing how your cost would change at different pricing tiers. |
+| [Azure Cost Management + Billing](#azure-cost-management--billing) | Gives you powerful capabilities use to understand your billed costs. There are multiple options to analyze your charges for different Azure Monitor features and their projected cost over time. |
+| [Usage and Estimated Costs](#usage-and-estimated-costs) | Provides estimates of log data ingestion costs based on your daily usage patterns to help you optimize to use the most cost-effective logs pricing tier. |
 
 
 ## Azure Cost Management + Billing
@@ -95,7 +96,7 @@ Add a filter on the **Instance ID** column for **contains workspace** or **conta
 You can get additional usage details about Log Analytics workspaces and Application Insights resources from the **Usage and Estimated Costs** option for each.
 
 ### Log Analytics workspace
-To learn about your usage trends and choose the most cost-effective [commitment tier](logs/cost-logs.md#commitment-tiers) for your Log Analytics workspace, select **Usage and Estimated Costs** from the **Log Analytics workspace** menu in the Azure portal. 
+To learn about your usage trends and optimize your costs using the most cost-effective [commitment tier](logs/cost-logs.md#commitment-tiers) for your Log Analytics workspace, select **Usage and Estimated Costs** from the **Log Analytics workspace** menu in the Azure portal. 
 
 :::image type="content" source="media/cost-usage/usage-estimated-cost-dashboard-01.png" lightbox="media/cost-usage/usage-estimated-cost-dashboard-01.png" alt-text="Screenshot of usage and estimated costs screen in Azure portal.":::
 

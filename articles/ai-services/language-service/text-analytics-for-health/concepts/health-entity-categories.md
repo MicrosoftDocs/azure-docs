@@ -2,7 +2,7 @@
 title: Entity categories recognized by Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn about categories recognized by Text Analytics for health
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language

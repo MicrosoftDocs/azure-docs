@@ -1,7 +1,7 @@
 ---
 title: Container support
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector

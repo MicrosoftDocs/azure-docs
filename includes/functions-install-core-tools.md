@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/02/2023
+ms.date: 11/14/2023
 ms.author: glenga
 ---
 
@@ -22,8 +22,6 @@ Download and run the Core Tools installer, based on your version of Windows:
 If you previously used Windows installer (MSI) to install Core Tools on Windows, you should uninstall the old version from Add Remove Programs before installing the latest version.
 
 ### [macOS](#tab/macos)
-
-[!INCLUDE [functions-x86-emulation-on-arm64-note](functions-x86-emulation-on-arm64-note.md)]
 
 The following steps use Homebrew to install the Core Tools on macOS.
 

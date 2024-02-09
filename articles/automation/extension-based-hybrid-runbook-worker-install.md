@@ -1015,7 +1015,7 @@ Follow the steps mentioned below as an example:
    ```powershell-interactive
        New-AzAutomationHybridRunbookWorkerGroup -AutomationAccountName "Contoso17" -Name "RunbookWorkerGroupName" -ResourceGroupName "ResourceGroup01" 
    ```
-1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as `hybridRunbookWorkerGroupName`. To fetch `vmResourceId`, go to the **Properties** tab of the VM on Azure portal.
+1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as the name of the Hybrid Worker. To fetch `vmResourceId`, go to the **Properties** tab of the VM on Azure portal.
 
     ```azurepowershell
       New-AzAutomationHybridRunbookWorker -AutomationAccountName "Contoso17" -Name "RunbookWorkerName" -HybridRunbookWorkerGroupName "RunbookWorkerGroupName" -VmResourceId "VmResourceId" -ResourceGroupName "ResourceGroup01" 

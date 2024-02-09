@@ -398,7 +398,7 @@ In the previous section, you created an Azure Automation runbook that can either
 
 6. When you finish testing, disable your schedules by editing them. Select **Schedules** on the left menu, select **Start IR daily/Stop IR daily**, and then select **No** for **Enabled**.
 
-## Next steps
+## Related content
 
 See the following blog post:
 

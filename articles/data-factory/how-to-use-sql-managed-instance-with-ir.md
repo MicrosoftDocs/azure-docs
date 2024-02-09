@@ -165,7 +165,7 @@ SSISDB logs retention policy are defined by below properties in [catalog.catalog
 
 To remove SSISDB logs that are outside the retention window set by the administrator, you can trigger the stored procedure `[internal].[cleanup_server_retention_window_exclusive]`. Optionally, you can schedule SQL Managed Instance agent job execution to trigger the stored procedure.
 
-## Next steps
+## Related content
 
 - [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Set up Business continuity and disaster recovery (BCDR)](configure-bcdr-azure-ssis-integration-runtime.md)

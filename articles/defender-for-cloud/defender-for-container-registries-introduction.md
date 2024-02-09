@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for container registries.
-ms.date: 06/18/2023
+ms.date: 12/06/2023
 ms.topic: overview
 ms.custom: ignite-2022
 author: dcurwin
@@ -10,7 +10,7 @@ ms.author: dacurwin
 # Introduction to Microsoft Defender for container registries (deprecated)
 
 > [!IMPORTANT]
-> We have started a public preview of Azure Vulnerability Assessment powered by MDVM. For more information see [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-container-registry-vulnerability-assessment.md).
+> We have started a public preview of Azure Vulnerability Assessment powered by MDVM. For more information see [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md).
 
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 

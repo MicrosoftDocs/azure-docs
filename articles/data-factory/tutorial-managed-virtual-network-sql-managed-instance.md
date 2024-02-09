@@ -290,7 +290,7 @@ link service list.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-mi-3.png" alt-text="Screenshot that shows the SQL MI linked service creation page.":::
 
-## Next steps
+## Related content
 
 Advance to the following tutorial to learn about accessing on premises SQL Server from Data Factory 
 Managed VNET using Private Endpoint：

@@ -31,24 +31,33 @@ When a scale set is created or scaled, two disks are automatically attached to e
 
 **Operating system disk** - Operating system disks can be sized up to 2 TB, and hosts the VM instance's operating system. The OS disk is labeled */dev/sda* by default. The disk caching configuration of the OS disk is optimized for OS performance. Because of this configuration, the OS disk **should not** host applications or data. For applications and data, use data disks, which are detailed later in this article. 
 
-**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. These are high-performance disks and may be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
+**Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. These are high-performance disks and can be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
 
 ## Azure data disks
 Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached.
 
 ## VM disk types
-Azure provides two types of disk.
 
-### Standard disk
-Standard Storage is backed by HDDs, and delivers cost-effective storage and performance. Standard disks are ideal for a cost effective dev and test workload.
+The following table provides a comparison of the five disk types to help you decide which to use.
 
-### Premium disk
-Premium disks are backed by SSD-based high-performance, low-latency disks. These disks are recommended for VMs that run production workloads. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. When you select a disk size, the value is rounded up to the next type. For example, if the disk size is less than 128 GB, the disk type is P10. If the disk size is between 129 GB and 512 GB, the size is a P20. Over 512 GB, the size is a P30.
+|         | Ultra disk | Premium SSD v2 | Premium SSD | Standard SSD | <nobr>Standard HDD</nobr> |
+| ------- | ---------- | ----------- | ------------ | ------------ | ------------ |
+| **Disk type** | SSD | SSD |SSD | SSD | HDD |
+| **Scenario**  | IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
+| **Max disk size** | 65,536 GiB | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
+| **Max throughput** | 4,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
+| **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000, 3,000* |
+| **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
+
+*Only applies to disks with performance plus (preview) enabled.
+
+For a video that covers some high level differences for the different disk types, as well as some ways for determining what impacts your workload requirements, see [Block storage options with Azure Disk Storage and Elastic SAN](https://youtu.be/igfNfUvgaDw).
+
 
 ## Create and attach disks
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
-As of API version `2019-07-01`, you can set the size of the OS disk in a Virtual Machine Scale Set with the [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) property. After provisioning, you may have to expand or repartition the disk to make use of the whole space. Learn more about how to expand the volume in your OS in either [Windows](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-in-the-operating-system) or [Linux](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
+As of API version `2019-07-01`, you can set the size of the OS disk in a Virtual Machine Scale Set with the [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) property. After provisioning, you might have to expand or repartition the disk to make use of the whole space. Learn more about how to expand the volume in your OS in either [Windows](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-in-the-operating-system) or [Linux](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
 
 ### Attach disks at scale set creation
 Create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). When prompted, provide a username and password for the VM instances. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985.
@@ -63,7 +72,6 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "East US"
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
-  -OrchestrationMode "Flexible" `
   -VMScaleSetName "myScaleSet" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `

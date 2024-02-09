@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 11/06/2023
+ms.date: 12/13/2023
 ---
 
 # Azure Policy built-in definitions for Data Factory
@@ -23,7 +23,7 @@ the link in the **Version** column to view the source on the
 
 [!INCLUDE [azure-policy-reference-rp-datafactory](../../includes/policy/reference/byrp/microsoft.datafactory.md)]
 
-## Next steps
+## Related content
 
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 - Review the [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).

@@ -2,7 +2,7 @@
 title: Test and evaluate models in custom summarization
 titleSuffix: Azure AI services
 description: Learn about how to test and evaluate custom summarization models.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language

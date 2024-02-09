@@ -263,7 +263,7 @@ Applications can use the Render - Get Map Tile API to request tilesets. The tile
 
 ### Web Feature service API
 
-You can use the [Web Feature service] (WFS) to query datasets. WFS follows the [Open Geospatial Consortium API Features]. You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+You can use the [Web Feature service] (WFS) to query datasets. WFS follows the Open Geospatial Consortium API Features. You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
 ### Alias API
 
@@ -360,7 +360,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 <!--- HTTP Links ------------>
 [Azure Maps pricing]: https://aka.ms/CreatorPricing
 [havok]: https://www.havok.com/
-[Open Geospatial Consortium API Features]: https://docs.opengeospatial.org/DRAFTS/17-069r4.html
 [sprites]: https://docs.mapbox.com/help/glossary/sprite/
 [style layers]: https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layout
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor

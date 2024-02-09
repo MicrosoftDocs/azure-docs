@@ -20,7 +20,7 @@ The Azure reliability documentation offers reliability guidance for Azure servic
 
 For detailed service-specific reliability guidance, including availability zones, disaster recovery, or high availability, see [Azure service-specific reliability guidance overview](./reliability-guidance-overview.md).
 
-For more detailed information on reliability and reliability principles and architecture in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
+For information on reliability and reliability principles and architecture in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
 
 
 ## Reliability requirements
@@ -86,10 +86,11 @@ Azure services are built for reliability including high availability and disaste
 
 If you need to understand dependencies between Azure services to help better architect your applications and services, you can request the **Azure service dependency documentation** by contacting your Microsoft sales or customer representative. This document lists the dependencies for Azure services, including dependencies on any common major internal services such as control plane services. To obtain this documentation, you must be a Microsoft customer and have the appropriate non-disclosure agreement (NDA) with Microsoft.
 
-For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md). For disaster recovery guides, see [Disaster Recovery guidance by service](./disaster-recovery-guidance-overview.md). 
 
 ## Next steps
 
+- For service specific guides on availability zone support and disaster recovery, see [Reliability guidance](./reliability-guidance-overview.md).
+- For service migration guides to availability zone support, see [Availability zone migration guidance](./availability-zones-migration-overview.md).
 - [Business continuity management in Azure](business-continuity-management-program.md)
 - [Availability of service by category](availability-service-by-category.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

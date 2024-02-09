@@ -30,15 +30,13 @@ The node resource group of the AKS cluster contains resources that you will requ
 ## Get the client ID of the user assigned identity
 You will require the client ID of the identity that you're going to use. Note this value for use in later steps in this process.
 
-Get the **Client ID** from the **Overview** page of your [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
-
-:::image type="content" source="media/prometheus-remote-write-managed-identity/client-id.png" alt-text="Screenshot showing client ID on overview page of managed identity." lightbox="media/prometheus-remote-write-managed-identity/client-id.png":::
-
-Instead of creating your own ID, you can use one of the identities created by AKS, which are listed in [Use a managed identity in Azure Kubernetes Service](../../aks/use-managed-identity.md). This article uses the `Kubelet` identity. The name of this identity is `<AKS-CLUSTER-NAME>-agentpool` and located in the node resource group of the AKS cluster.
+Instead of creating your own ID, you can use one of the identities created by AKS, which are listed in [Use a managed identity in Azure Kubernetes Service](../../aks/use-managed-identity.md). This article uses the `Kubelet` identity. The name of this identity is `<AKS-CLUSTER-NAME>-agentpool` and is located in the node resource group of the AKS cluster.
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/resource-group-details.png" alt-text="Screenshot showing list of resources in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details.png":::
 
+Click on the `<AKS-CLUSTER-NAME>-agentpool` managed identity and copy the **Client ID** from the **Overview** page. To learn more about managed identity, visit [Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
+:::image type="content" source="media/prometheus-remote-write-managed-identity/client-id.png" alt-text="Screenshot showing client ID on overview page of managed identity." lightbox="media/prometheus-remote-write-managed-identity/client-id.png":::
 
 ## Assign Monitoring Metrics Publisher role on the data collection rule to the managed identity
 The managed identity requires the *Monitoring Metrics Publisher* role on the data collection rule associated with your Azure Monitor workspace.
@@ -82,71 +80,11 @@ This step isn't required if you're using an AKS identity since it will already h
     az vmss identity assign -g <AKS-NODE-RESOURCE-GROUP> -n <AKS-VMSS-NAME> --identities <USER-ASSIGNED-IDENTITY-RESOURCE-ID>
     ```
 
-
 ## Deploy Side car and configure remote write on the Prometheus server
 
-1. Copy the YAML below and save to a file. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
+1. Copy the YAML below and save to a file. This YAML uses 8081 as the listening port but you can modify that value if you wish to use a different port.
 
-    ```yml
-    prometheus:
-      prometheusSpec:
-        externalLabels:
-          cluster: <AKS-CLUSTER-NAME>
-    
-      ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
-      remoteWrite:
-      - url: 'http://localhost:8081/api/v1/write'
-      
-      ## Azure Managed Prometheus currently exports some default mixins in Grafana. 
-      ## These mixins are compatible with Azure Monitor agent on your Azure Kubernetes Service cluster. 
-      ## However, these mixins aren't compatible with Prometheus metrics scraped by the Kube Prometheus stack. 
-      ## In order to make these mixins compatible, uncomment remote write relabel configuration below:
-      
-      ## writeRelabelConfigs:
-      ##   - sourceLabels: [metrics_path]
-      ##     regex: /metrics/cadvisor
-      ##     targetLabel: job
-      ##     replacement: cadvisor
-      ##     action: replace
-      ##   - sourceLabels: [job]
-      ##     regex: 'node-exporter'
-      ##     targetLabel: job
-      ##     replacement: node
-      ##     action: replace
-      
-      containers:
-      - name: prom-remotewrite
-        image: <CONTAINER-IMAGE-VERSION>
-        imagePullPolicy: Always
-        ports:
-        - name: rw-port
-          containerPort: 8081
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: rw-port
-            initialDelaySeconds: 10
-            timeoutSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /ready
-            port: rw-port
-            initialDelaySeconds: 10
-            timeoutSeconds: 10
-        env:
-        - name: INGESTION_URL
-          value: <INGESTION_URL>
-        - name: LISTENING_PORT
-          value: '8081'
-        - name: IDENTITY_TYPE
-          value: userAssigned
-        - name: AZURE_CLIENT_ID
-          value: <MANAGED-IDENTITY-CLIENT-ID>
-          # Optional parameter
-        - name: CLUSTER
-          value: <CLUSTER-NAME>
-    ```
-
+    [!INCLUDE[managed-identity-yaml](../includes/prometheus-sidecar-remote-write-managed-identity-yaml.md)]
 
 2. Replace the following values in the YAML.
 
@@ -158,12 +96,11 @@ This step isn't required if you're using an AKS identity since it will already h
     | `<MANAGED-IDENTITY-CLIENT-ID>` | **Client ID** from the **Overview** page for the managed identity |
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
 
-    
-
-
+> [!IMPORTANT]
+> For Azure Government cloud, use *"https://monitor.azure.us//.default"* as the value for *INGESTION_AAD_AUDIENCE* in the yaml.
 
 3. Open Azure Cloud Shell and upload the YAML file.
-4. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands. 
+4. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands.
 
     ```azurecli
     # set context to your cluster 

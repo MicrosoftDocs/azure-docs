@@ -11,7 +11,7 @@ ms.date: 11/03/2023
 Rather than passing parameters as inline values in your script, you can use a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter values. This article shows how to create parameters files.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, and [Azure CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) version 2.47.0 or newer.
+> The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or newer, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or newer.
 
 A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. This relationship is established using the [`using` statement](./bicep-using.md) within the Bicep parameters file.
 

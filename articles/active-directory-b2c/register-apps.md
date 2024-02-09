@@ -2,12 +2,12 @@
 title: Register apps in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to register different apps types such as web app, web API, single-page apps, mobile and desktop apps, daemon apps, Microsoft Graph apps and SAML app in Azure Active Directory B2C 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/30/2022
 ms.author: kengaderdus

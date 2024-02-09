@@ -2,7 +2,7 @@
 title: "Call the Detect API - Face"
 titleSuffix: Azure AI services
 description: This guide demonstrates how to use face detection to extract attributes like age, emotion, or head pose from a given image.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

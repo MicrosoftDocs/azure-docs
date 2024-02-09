@@ -2,9 +2,10 @@
 title: Get started with Azure Native Qumulo Scalable File Service
 description: In this quickstart, learn how to create an instance of Azure Native Qumulo Scalable File Service.
 
-ms.topic: quickstart 
-ms.date: 01/18/2023
-
+ms.topic: quickstart
+ms.custom:
+  - ignite-2023
+ms.date: 11/13/2023
 ---
 
 # Quickstart: Get started with Azure Native Qumulo Scalable File Service
@@ -12,9 +13,9 @@ ms.date: 01/18/2023
 In this quickstart, you create an instance of Azure Native Qumulo Scalable File Service. When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace:
 
 - A delegated subnet that enables the Qumulo service to inject service endpoints (eNICs) into your virtual network.
-- A managed resource group that has internal networking and other resources required for the Qumulo service. 
+- A managed resource group that has internal networking and other resources required for the Qumulo service.
 - A Qumulo resource in the region of your choosing. This entity stores and manages your data.
-- A software as a service (SaaS) resource, based on the plan that you select in the Azure Marketplace offer for Qumulo. This resource is used for billing.
+- A Software as a Service (SaaS) resource, based on the plan that you select in the Azure Marketplace offer for Qumulo. This resource is used for billing.
 
 ## Prerequisites
 
@@ -26,15 +27,15 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
    For more information about permissions and how to check access, see [Troubleshoot Azure Native Qumulo Service](qumulo-troubleshoot.md).
 
 1. Create a [delegated subnet](../../virtual-network/subnet-delegation-overview.md) to the Qumulo service:
-        
+
     1. Identify the region where you want to subscribe to the Qumulo service.
     1. Create a new virtual network, or select an existing virtual network in the same region where you want to create the Qumulo service.
     1. Create a subnet in the newly created virtual network. Use the default configuration, or update the subnet network configuration based on your network policy.
     1. Delegate the newly created subnet as a Qumulo-only subnet.
 
    > [!NOTE]
-   > The selected subnet address range should have at least 256 IP addresses: 251 free and 5 Azure reserved addresses. 
-   > 
+   > The selected subnet address range should have at least 256 IP addresses: 251 free and 5 Azure reserved addresses.
+   >
    > Your Qumulo subnet should be in the same region as that of the Qumulo service. The subnet must be delegated to `Qumulo.Storage/fileSystems`.
 
    :::image type="content" source="media/qumulo-create/qumulo-vnet-properties.png" alt-text="Screenshot that shows virtual network properties in the Azure portal.":::
@@ -53,7 +54,7 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
 
 ## Create an Azure Native Qumulo Scalable File Service resource
 
-1. The **Basics** tab provides a form to create an Azure Native Qumulo Scalable File Service resource on the working pane. Provide the following values:   
+1. The **Basics** tab provides a form to create an Azure Native Qumulo Scalable File Service resource on the working pane. Provide the following values:
   
    | **Property** | **Description** |
    |--|--|
@@ -63,22 +64,23 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
    |**Region** | Select one of the available regions from the dropdown list. |
    |**Availability Zone** | Select an availability zone to pin the Qumulo file system resources to that zone in a region. |
    |**Password** | Create an initial password to set the Qumulo administrator access. |
-   |**Storage** | Choose either **Standard** or **Performance** for your storage configuration, based on your workload requirements.|
+   |**Service** | Choose the required Azure Native Qumulo (ANQ) version - ANQ V1 or ANQ V2. The default selection is ANQ V2. |
+   |**Storage** | This is option is only available for ANQ V1 Scalable File Service. Choose either **Standard** or **Performance** for your storage configuration, based on your workload requirements.  |
    |**Capacity (TB)** | Specify the size of the file system that needs to be created.|
-   |**Pricing Plan** | A pay-as-you-go plan is selected by default. For upfront pricing plans or free trials, contact azure@qumulo.com. |
+   |**Pricing Plan** | A pay-as-you-go plan is selected by default. For upfront pricing plans or free trials, contact <azure@qumulo.com>. |
 
-   :::image type="content" source="media/qumulo-create/qumulo-create.png" alt-text="Screenshot of the Basics tab for creating a Qumulo resource on the working pane."::: 
+   :::image type="content" source="media/qumulo-create/qumulo-create.png" alt-text="Screenshot of the Basics tab for creating a Qumulo resource on the working pane.":::
 
 1. On the **Networking** tab, provide the following values:
 
    |**Property** |**Description** |
    |--|--|
    | **Virtual network** | Select the appropriate virtual network from your subscription where the Qumulo file system should be hosted.|
-   | **Subnet** | Select a subnet from a list of pre-created delegated subnets in the virtual network. One delegated subnet can be associated with only one Qumulo file system.|
+   | **Subnet** | Select a subnet from a list of delegated subnets already created in the virtual network. One delegated subnet can be associated with only one Qumulo file system.|
 
    :::image type="content" source="media/qumulo-create/qumulo-networking.png" alt-text="Screenshot of the Networking tab for creating a Qumulo resource on the working pane.":::
-    
-    Only virtual networks in the specified region with subnets delegated to `Qumulo.Storage/fileSystems` appear on this page. If an expected virtual network is not listed, verify that it's in the chosen region and that the virtual network includes a subnet delegated to Qumulo.
+
+    Only virtual networks in the specified region with subnets delegated to `Qumulo.Storage/fileSystems` appear on this page. If an expected virtual network isn't listed, verify that it's in the chosen region and that the virtual network includes a subnet delegated to Qumulo.
 
 1. Select **Review + Create** to create the resource.
 

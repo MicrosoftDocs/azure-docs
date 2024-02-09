@@ -2,18 +2,20 @@
 title: Configure password complexity requirements
 titleSuffix: Azure AD B2C
 description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 01/10/2023
-ms.custom: project-no-code
+ms.date: 12/13/2023
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer or IT admin, I want to configure the complexity requirements for passwords, so that I can enforce strong password policies and customize password complexity rules for my user flows and custom policies.
 ---
 
 # Configure complexity requirements for passwords in Azure Active Directory B2C

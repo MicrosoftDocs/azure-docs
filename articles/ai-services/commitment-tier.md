@@ -3,7 +3,10 @@ title: Create an Azure AI services resource with commitment tier pricing
 description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing.
 author: aahill
 ms.author: aahi
-ms.custom: subject-cost-optimization, mode-other
+ms.custom:
+  - subject-cost-optimization
+  - mode-other
+  - ignite-2023
 ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 12/01/2022
@@ -21,6 +24,7 @@ Azure AI offers commitment tier pricing, each offering a discounted rate compare
   * Sentiment Analysis
   * Key Phrase Extraction
   * Language Detection
+  * Named Entity Recognition (NER)
 
 Commitment tier pricing is also available for the following Azure AI service:
 
@@ -28,6 +32,7 @@ Commitment tier pricing is also available for the following Azure AI service:
   * Sentiment Analysis
   * Key Phrase Extraction
   * Language Detection
+  * Named Entity Recognition (NER)
 
 * Azure AI Vision - OCR
 

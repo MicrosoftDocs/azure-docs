@@ -2,7 +2,6 @@
 title: Voice Assistants on Windows - Get Started
 titleSuffix: Azure AI services
 description: The steps to begin developing a windows voice agent, including a reference to the sample code quickstart.
-services: cognitive-services
 author: cfogg6
 manager: trrwilson
 ms.service: azure-ai-speech

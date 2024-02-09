@@ -38,7 +38,7 @@ The following steps enable Azure Firewall to filter traffic using either network
 
 ### Network rules:
 
-1. Deploy a [DNS forwarder](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) virtual machine in a virtual network connected to the secured virtual hub and linked to the Private DNS Zones hosting the A record types for the private endpoints.
+1. Deploy a [DNS forwarder](../private-link/private-endpoint-dns-integration.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) virtual machine in a virtual network connected to the secured virtual hub and linked to the Private DNS Zones hosting the A record types for the private endpoints.
 
 2. Configure [custom DNS servers](../virtual-network/manage-virtual-network.md#change-dns-servers) for the virtual networks connected to the secured virtual hub:
    - **FQDN-based network rules** - configure [custom DNS settings](../firewall/dns-settings.md#configure-custom-dns-servers---azure-portal) to point to the DNS forwarder virtual machine IP address and enable DNS proxy in the firewall policy associated with the Azure Firewall. Enabling DNS proxy is required if you want to do FQDN filtering in network rules.

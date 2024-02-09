@@ -1,7 +1,7 @@
 ---
 title: Identification entities
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
@@ -684,7 +684,7 @@ The following entities are grouped and listed by country/region:
 :::row:::
     :::column span="":::
 
-        EU GPU coordinates
+        EU GPS coordinates
 
     :::column-end:::
     :::column span="2":::

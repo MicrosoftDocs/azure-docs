@@ -133,6 +133,9 @@ The following table lists the differences between different types of TTL：
 > [!NOTE]
 > You can't enable TTL in default auto-resolve Azure integration runtime. You can create a new Azure integration runtime for it.
 
+> [!NOTE]
+> When Copy/Pipeline/External compute scale TTL is activated, the billing is determined by the reserved compute resources. As a result, the output of the activity does not include the **billingReference**, as this is exclusively relevant in non-TTL scenarios.
+
 ## Create a managed virtual network via Azure PowerShell
 
 ```powershell
@@ -178,7 +181,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 ```
 
-> [!Note]
+> [!NOTE]
 > You can get the **groupId** of other data sources from a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource).
 
 
@@ -233,7 +236,7 @@ You're unable to access each PaaS resource when both sides are exposed to Privat
 
 For example, you have a managed private endpoint for storage account A. You can also access storage account B through public network in the same managed virtual network. But when storage account B has a private endpoint connection from other managed virtual network or customer virtual network, then you can't access storage account B in your managed virtual network through public network.
 
-## Next steps
+## Related content
 
 See the following tutorials:
 

@@ -4,7 +4,7 @@ description: In this article, you learn how to create a Windows VM by using VM I
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 06/12/2023
+ms.date: 11/10/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -30,7 +30,7 @@ Use the following sample JSON template to configure the image: [helloImageTempla
 > [!NOTE]
 > Windows users can run the following Azure CLI examples on [Azure Cloud Shell](https://shell.azure.com) by using Bash.
 
-## Register the features
+## Register the providers
 
 To use VM Image Builder, you need to register the feature. Check your registration by running the following commands:
 
@@ -40,6 +40,7 @@ az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 az provider show -n Microsoft.Network | grep registrationState
+az provider show -n Microsoft.ContainerInstance -o json | grep registrationState
 ```
 
 If the output doesn't say *registered*, run the following commands:
@@ -50,6 +51,7 @@ az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 az provider register -n Microsoft.Network
+az provider register -n Microsoft.ContainerInstance
 ```
 
 ## Set variables

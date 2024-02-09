@@ -2,7 +2,7 @@
 title: Relation extraction in Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn about relation extraction
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language

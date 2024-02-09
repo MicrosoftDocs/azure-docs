@@ -11,7 +11,9 @@ ms.reviewer: scottpolly
 reviewer: s-polly
 ms.topic: how-to
 ms.date: 09/06/2023
-ms.custom: devplatv2
+ms.custom:
+  - devplatv2
+  - ignite-2023
 ---
 
 
@@ -20,7 +22,7 @@ ms.custom: devplatv2
 Monitoring models in production is an essential part of the AI lifecycle. Changes in data and consumer behavior can influence your generative AI application over time, resulting in outdated systems that negatively affect business outcomes and expose organizations to compliance, economic, and reputational risks. 
 
 > [!IMPORTANT]
-> Monitoring and Promptflow features are currently in public preview. These previews are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Monitoring is currently in public preview. These previews are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Machine Learning model monitoring for generative AI applications makes it easier for you to monitor your LLM applications in production for safety and quality on a cadence to ensure it's delivering maximum business impact. Monitoring ultimately helps maintain the quality and safety of your generative AI applications. Capabilities and integrations include: 
@@ -60,7 +62,7 @@ The following metrics are supported. For more detailed information about each me
 The following inputs (data column names) are required to measure generation safety & quality: 
 - **prompt text** - the original prompt given (also known as "inputs" or "question")
 - **completion text** - the final completion from the API call that is returned (also known as "outputs" or "answer")
-- **context text** - any context data that is sent to the API call, together with original prompt. For example, if you hope to get search results only from certain certified information sources/website, you can define in the evaluation steps. This is an optional step that can be configured through PromptFlow.
+- **context text** - any context data that is sent to the API call, together with original prompt. For example, if you hope to get search results only from certain certified information sources/website, you can define in the evaluation steps. This is an optional step that can be configured through prompt flow.
 - **ground truth text** - the user-defined text as the "source of truth" (optional)
 
 What parameters are configured in your data asset dictates what metrics you can produce, according to this table:  
@@ -87,8 +89,8 @@ What parameters are configured in your data asset dictates what metrics you can 
         - **Inputs (required):** "prompt" 
         - **Outputs (required):** "completion" 
             - **Outputs (optional):** "context" | "ground truth" 
-    - **Data collection:** in the "Deployment" _(Step #2 of the PromptFlow deployment wizard)_, the 'inference data collection' toggle must be enabled using [Model Data Collector](../concept-data-collection.md) 
-    - **Outputs:** In the Outputs _(Step #3 of the PromptFlow deployment wizard)_, confirm you have selected the required outputs listed above (for example, completion | context | ground_truth) that meet your [metric configuration requirements](#metric-configuration-requirements) 
+    - **Data collection:** in the "Deployment" _(Step #2 of the prompt flow deployment wizard)_, the 'inference data collection' toggle must be enabled using [Model Data Collector](../concept-data-collection.md) 
+    - **Outputs:** In the Outputs _(Step #3 of the prompt flow deployment wizard)_, confirm you have selected the required outputs listed above (for example, completion | context | ground_truth) that meet your [metric configuration requirements](#metric-configuration-requirements) 
 
 > [!NOTE]
 > If your compute instance is behind a VNet, see [Network isolation in prompt flow](how-to-secure-prompt-flow.md).
@@ -161,6 +163,6 @@ It's only possible to adjust signal thresholds. The acceptable score is fixed at
 ## Next Steps
 - [Model monitoring overview](../concept-model-monitoring.md)
 - [Model data collector](../concept-data-collection.md)
-- [Get started with Prompt flow](get-started-prompt-flow.md)
+- [Get started with prompt flow](get-started-prompt-flow.md)
 - [Submit bulk test and evaluate a flow (preview)](how-to-bulk-test-evaluate-flow.md)
 - [Create evaluation flows](how-to-develop-an-evaluation-flow.md)

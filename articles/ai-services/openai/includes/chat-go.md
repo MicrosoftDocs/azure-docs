@@ -1,15 +1,13 @@
 ---
 title: 'Quickstart: Use Azure OpenAI Service with the JavaScript SDK and the completions API'
-titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Go SDK. 
-services: cognitive-services
+description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Go SDK.
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/30/2023
-keywords: 
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)| [Samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#pkg-examples)
@@ -18,7 +16,7 @@ keywords:
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
+  Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [Go 1.21.0](https://go.dev/dl/) or higher installed locally.
 - An Azure OpenAI Service resource with the `gpt-35-turbo` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
@@ -30,7 +28,7 @@ keywords:
 
 ## Create a sample application
 
- Create a new file named chat_completions.go. Copy the following code into the chat_completions.go file.
+Create a new file named *chat_completions.go*. Copy the following code into the *chat_completions.go* file.
 
 ```go
 package main
@@ -122,9 +120,6 @@ Next run:
 
 ```cmd
 go mod tidy
-```
-
-```cmd
 go run chat_completions.go
 ```
 
@@ -143,4 +138,4 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)
+For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

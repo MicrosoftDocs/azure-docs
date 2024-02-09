@@ -2,7 +2,7 @@
 title: Orchestration workflow data formats
 titleSuffix: Azure AI services
 description: Learn about the data formats accepted by orchestration workflow.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

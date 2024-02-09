@@ -2,7 +2,6 @@
 title: Display text formatting with speech to text - Speech service
 titleSuffix: Azure AI services
 description: An overview of key concepts for display text formatting with speech to text.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

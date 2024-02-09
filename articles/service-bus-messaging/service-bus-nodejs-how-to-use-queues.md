@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus queues (JavaScript)
 description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the JavaScript programming language.
 author: spelluru
 ms.author: spelluru
-ms.date: 11/17/2022
+ms.date: 12/08/2023
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
@@ -96,7 +96,8 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 1. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
 
-    The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
+    > [!IMPORTANT]
+    > The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
