@@ -137,6 +137,10 @@ END LOOP;
 END;
 $do$
 ```
+ )
+
+ > [!NOTE]  
+  > If a database for which backup was already configured is failing with **UserErrorMissingDBPermissions** Please refer to this [troubleshooting guide](backup-azure-database-postgresql-troubleshoot.md) for assistance in resolving the issue.
 
 ## Use the PG admin tool
 
