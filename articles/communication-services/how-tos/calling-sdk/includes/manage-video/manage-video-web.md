@@ -71,7 +71,7 @@ const type: MediaStreamType = localVideoStream.mediaStreamType;
 
 ### Local camera preview
 
-You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera. This stream will not be sent to other participants; it's a local preview feed.
+You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera. This stream is not sent to other participants; it's a local preview feed.
 
 ```js
 // To start viewing local camera preview
