@@ -12,7 +12,7 @@ ms.author: pesousa
 The Azure Cost Optimization workbook is designed to provide an overview and help you optimize costs of your Azure environment. It offers a set of cost-relevant insights and recommendations aligned with the Well-Architected Framework Cost Optimization pillar.
 
 ## Overview
-The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides recommendations for applying Azure Reservations and Savings Plan for Compute and insights into using Azure Hybrid benefit options. The workbook template is available in Azure Advisor gallery.
+The Azure Cost Optimization workbook serves as a centralized hub for some of the most commonly used tools that can help you drive utilization and efficiency goals. It offers a range of recommendations, including Azure Advisor cost recommendations, identification of idle resources, and management of improperly deallocated Virtual Machines. Additionally, it provides recommendations for applying Azure Reservations and Savings Plan for Compute and insights into using Azure Hybrid Benefit options. The workbook template is available in Azure Advisor gallery.
 
 Here’s how to get started:
 
@@ -62,16 +62,15 @@ Potentially, you could enhance the security of your workloads by reinvesting som
 The Reliability Recommendations query focuses on reviewing the Azure Advisor reliability recommendations.
 Potentially, you could enhance the reliability of your workloads by reinvesting some of the cost savings identified from the workbook assessment.
 
-
 ## Rate Optimization
 
 The Rate Optimization tab focuses on reviewing potential savings related to the rate optimization of your Azure services.
 
-:::image type="content" source="./media/advisor-cost-optimization-workbook-rate-optimization.png" alt-text=" Advisor Cost Optimization Workbook with the Rate Optimization tab selected." lightbox="./media/advisor-cost-optimization-workbook-rate-optimization.png" ::: 
+:::image type="content" source="./media/advisor-cost-optimization-workbook-rate-optimization.png" alt-text=" Advisor Cost Optimization Workbook with the Rate Optimization tab selected." lightbox="./media/advisor-cost-optimization-workbook-rate-optimization.png" :::
 
 ### Azure Hybrid Benefit
 
-Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines (VMs) operating system costs. Using the workbook, you can identify the opportunities to leverage the Azure Hybrid Benefit for VM/VMSS (Windows and Linux), SQL (SQL Server VMs, SQL DB and SQL MI), and Azure Stack HCI (VMs and AKS).
+Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines (VMs) operating system costs. Using the workbook, you can identify the opportunities to use the Azure Hybrid Benefit for VM/VMSS (Windows and Linux), SQL (SQL Server VMs, SQL DB and SQL MI), and Azure Stack HCI (VMs and AKS).
 
 > [!NOTE]
 > If you select a Dev/Test subscription in the scope of the workbook, then you should already have discounts on Windows and SQL licenses. So, any recommendations shown on the page don’t apply to the subscription.
@@ -79,7 +78,7 @@ Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Mach
 #### Windows VM/VMSS
 
 Azure Hybrid Benefit represents an excellent opportunity to save on Virtual Machines OS costs.
-If you have Software Assurance, you can enable [Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
+If you have Software Assurance, you can enable the [Azure Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md). You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
 
 > [!NOTE]
 > The query has a Quick Fix column that helps you to apply Azure Hybrid Benefit to Windows VMs.
@@ -132,7 +131,7 @@ This query focuses on cost optimization opportunities specific to Virtual Machin
 * Spot priority mix: Azure provides the flexibility of running a mix of uninterruptible standard VMs and interruptible Spot VMs for Virtual Machine Scale Set deployments. You can use the Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to workload requirements.
 
 #### Advisor Recommendations
-Review the advisor recommendations for Compute. Some of the recommendations available in this tile could be "Optimize virtual machine spend by resizing or shutting down underutilized instances", or "Buy reserved virtual machine instances to save money over pay-as-you-go costs."
+Review the Advisor recommendations for Compute. Some of the recommendations available in this tile could be "Optimize virtual machine spend by resizing or shutting down underutilized instances", or "Buy reserved virtual machine instances to save money over pay-as-you-go costs."
 
 ### Storage
 
@@ -177,7 +176,7 @@ By default, when you configure backup for resources, geo-redundant storage (GRS)
 
 #### Advisor Recommendations
 
-Review the advisor recommendations for Storage. Some of the recommendations available in this tile could be "Blob storage reserved capacity", or "Use lifecycle management".
+Review the Advisor recommendations for Storage. Some of the recommendations available in this tile could be "Blob storage reserved capacity", or "Use lifecycle management".
 
 ### Networking
 
@@ -210,7 +209,7 @@ Review idle Virtual Network Gateways that have no connections defined, as they m
 
 #### Advisor Recommendations
 
-Review the advisor recommendations for Networking. Some of the recommendations available in this tile could be "Reduce costs by deleting or reconfiguring idle virtual network gateways", or "Reduce costs by eliminating unprovisioned ExpressRoute circuits."
+Review the Advisor recommendations for Networking. Some of the recommendations available in this tile could be "Reduce costs by deleting or reconfiguring idle virtual network gateways", or "Reduce costs by eliminating unprovisioned ExpressRoute circuits."
 
 ### Top 10 services
 
