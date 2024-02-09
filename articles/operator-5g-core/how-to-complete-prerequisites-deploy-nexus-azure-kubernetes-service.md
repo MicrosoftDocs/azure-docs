@@ -1,6 +1,6 @@
 ---
 title: Prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service
-description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core on the Nexus Azure Kubernetes Service
+description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core on the Nexus Azure Kubernetes Service.
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure
@@ -35,7 +35,7 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 -->
 
 # Complete the prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service
-TODO: Add your heading
+TODO: Add your heading.
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
@@ -51,7 +51,7 @@ Example: In this article, you will migrate your user databases from IBM Db2 to S
 
 -->
 
-TODO: Add your introductory paragraph
+TODO: Add your introductory paragraph.
 
 <!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
 
@@ -91,25 +91,25 @@ For portal-based procedures, minimize bullets and numbering.
 -->
 
 ## Verb \ Noun heading 1
-TODO: Add introduction sentence(s)
+TODO: Add introduction sentences
 [Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
+TODO: Add ordered list of procedure steps.
 1. Step 1
 1. Step 2
 1. Step 3
 
 ## Verb \ Noun heading 2
-TODO: Add introduction sentence(s)
+TODO: Add introduction sentences
 [Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
+TODO: Add ordered list of procedure steps.
 1. Step 1
 1. Step 2
 1. Step 3
 
 ## Verb \ Noun heading 3
-TODO: Add introduction sentence(s)
+TODO: Add introduction sentences
 [Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
+TODO: Add ordered list of procedure steps.
 1. Step 1
 1. Step 2
 1. Step 3
@@ -124,7 +124,7 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 ## Next step
 
-TODO: Add your next step link(s)
+TODO: Add your next step links.
 
 > [!div class="nextstepaction"]
 >
@@ -132,7 +132,7 @@ TODO: Add your next step link(s)
 
 ## Related content
 
-TODO: Add your next step link(s)
+TODO: Add your next step links.
 
 - 
 
