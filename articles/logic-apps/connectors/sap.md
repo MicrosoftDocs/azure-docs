@@ -664,7 +664,7 @@ For a Consumption workflow in an ISE, the ISE provides access to resources that 
 
 ### [Consumption](#tab/consumption)
 
-For a Consumption workflow that runs in multitenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=multitenant#prerequisites) and [SNC prerequisites](sap.md?tabs=multitenant#snc-prerequisites).
+For a Consumption workflow that runs in multitenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=consumption#prerequisites) and [SNC prerequisites](sap.md?tabs=consumption#snc-prerequisites).
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
@@ -1078,7 +1078,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 ### [ISE](#tab/ise)
 
-See the steps for [SAP logging for Consumption logic apps in multitenant workflows](?tabs=multitenant#test-workflow-logging).
+See the steps for [SAP logging for Consumption logic apps in multitenant workflows](?tabs=consumption#test-workflow-logging).
 
 ---
 
