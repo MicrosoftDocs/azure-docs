@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 
@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 Attestation policy is used to process the attestation evidence and determine whether Azure Attestation will issue an attestation token. Attestation token generation can be controlled with custom policies. Below are some examples of an attestation policy. 
 
-## Sample custom policy for an SGX enclave 
+## Sample custom policy for an Software Guard Extensions (SGX) enclave
 
 ```
 version= 1.0;

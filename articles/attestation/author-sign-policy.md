@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 
@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 Attestation policy is a file uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation-specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence, which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
 
-The policy contains rules that determine the authorization criteria, properties, and the contents of the attestation token. A sample policy file looks as below:
+The policy contains rules that determine the authorization criteria, properties, and the contents of the attestation token:
 
 ```
 version=1.0;
@@ -30,8 +30,8 @@ issuancerules
   c:[type="notSafeMode", issuer=="AttestationService"]=> issue(claim=c)
 };
 ```
- 
-A policy file has three segments, as seen above:
+
+A policy file has three segments:
 
 - **version**:  The version is the version number of the grammar that is followed. 
 
@@ -41,12 +41,11 @@ A policy file has three segments, as seen above:
 
     Currently the only version supported is version 1.0.
 
-- **authorizationrules**: A collection of claim rules that will be checked first, to determine if Azure Attestation should proceed to **issuancerules**. The claim rules apply in the order they are defined.
+- **authorizationrules**: A collection of claim rules that are checked first, to determine if Azure Attestation should proceed to **issuancerules**. The claim rules apply in the order they are defined.
+- **issuancerules**: A collection of claim rules that are evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
-- **issuancerules**: A collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
+For more information, see [Claim and claim rules](claim-rule-grammar.md).
 
-See [claim and claim rules](claim-rule-grammar.md) for more information.
-   
 ## Drafting the policy file
 
 1. Create a new file.
@@ -81,7 +80,7 @@ See [claim and claim rules](claim-rule-grammar.md) for more information.
   };
   ```
 
-  If the incoming claim set contains a claim matching the type, value, and issuer, the permit() action will tell the policy engine to process the **issuancerules**.
+  If the incoming claim set contains a claim matching the type, value, and issuer, the permit() action tells the policy engine to process the **issuancerules**.
   
 5. Add claim rules to **issuancerules**.
 
@@ -98,7 +97,7 @@ See [claim and claim rules](claim-rule-grammar.md) for more information.
   };
   ```
   
-  The outgoing claim set will contain a claim with:
+  The outgoing claim set contains a claim with:
 
   ```
   [type="SecurityLevelValue", value=100, valueType="Integer", issuer="AttestationPolicy"]
@@ -110,27 +109,25 @@ See [claim and claim rules](claim-rule-grammar.md) for more information.
 
 ## Creating the policy file in JSON Web Signature format
 
-After creating a policy file, to upload a policy in JWS format, follow the below steps.
+After creating a policy file, to upload a policy in JSON Web Signature (JWS) format, follow the below steps.
 
-1. Generate the JWS, RFC 7515 with policy (utf-8 encoded) as the payload
-     - The payload identifier for the Base64Url encoded policy should be "AttestationPolicy".
+1. Generate the JWS, RFC7515 with policy (utf-8 encoded) as the payload. The payload identifier for the Base64Url encoded policy should be "AttestationPolicy".
      
-     Sample JWT:
-     ```
-     Header: {"alg":"none"}
-     Payload: {"AttestationPolicy":" Base64Url (policy)"}
-     Signature: {}
+  Sample JWT:
 
-     JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
-     ```
-
-2. (Optional) Sign the policy. Azure Attestation supports the following algorithms:
-     - **None**: Don't sign the policy payload.
-     - **RS256**: Supported algorithm to sign the policy payload
-
-3. Upload the JWS and validate the policy.
-     - If the policy file is free of syntax errors, the policy file is accepted by the service.
-     - If the policy file contains syntax errors, the policy file is rejected by the service.
+  ```
+  Header: {"alg":"none"}
+  Payload: {"AttestationPolicy":" Base64Url (policy)"}
+  Signature: {}
+  
+  JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
+  ```
+1. (Optional) Sign the policy. Azure Attestation supports the following algorithms:
+  - **None**: Don't sign the policy payload.
+  - **RS256**: Supported algorithm to sign the policy payload.
+1. Upload the JWS and validate the policy.
+  - If the policy file is free of syntax errors, the service accepts the policy file.
+  - If the policy file contains syntax errors, the service rejects the policy file.
 
 ## Next steps
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
