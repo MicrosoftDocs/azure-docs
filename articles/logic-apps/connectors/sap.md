@@ -17,7 +17,7 @@ tags: connectors
 
 This multipart how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps using the SAP connector. You can use the SAP connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multi-tenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps. If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps. If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](#connector-technical-reference).
 
 ## SAP compatibility
 
@@ -53,7 +53,7 @@ The SAP connector has different versions, based on [logic app type and host envi
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
 
@@ -165,7 +165,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 * The logic app workflow from where you want to access your SAP server.
 
-  * For a Consumption workflow in multi-tenant Azure Logic Apps, see [Multi-tenant prerequisites](#multi-tenant-prerequisites).
+  * For a Consumption workflow in multitenant Azure Logic Apps, see [Multitenant prerequisites](#multitenant-prerequisites).
 
   * For a Standard workflow in single-tenant Azure Logic Apps, see [Single-tenant prerequisites](#single-tenant-prerequisites).
 
@@ -228,7 +228,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 The SAP system requires network connectivity from the host of the SAP .NET Connector (NCo) library:
 
-* For Consumption logic app workflows in multi-tenant Azure Logic Apps, the on-premises data gateway hosts the SAP .NET Connector (NCo) library. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system.
+* For Consumption logic app workflows in multitenant Azure Logic Apps, the on-premises data gateway hosts the SAP .NET Connector (NCo) library. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system.
 
 * For Standard logic app workflows in single-tenant Azure Logic Apps, the logic app resource hosts the SAP .NET Connector (NCo) library. So, the logic app resource itself must enable virtual network integration, and that virtual network must have network connectivity to the SAP system.
 
@@ -283,7 +283,7 @@ To use the SAP connector, you have to install the SAP Connector NCo client libra
 
 * From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The ISE zip archive and SAP built-in connector currently doesn't support GAC registration.
 
-  * For a Consumption workflow that runs in multi-tenant Azure Logic Apps and uses your on-premises data gateway, copy the following assembly (.dll) files to the on-premises data gateway installation folder, for example, **C:\Program Files\On-Premises Data Gateway**. The SAP NCo 3.0 client library contains the following assemblies:
+  * For a Consumption workflow that runs in multitenant Azure Logic Apps and uses your on-premises data gateway, copy the following assembly (.dll) files to the on-premises data gateway installation folder, for example, **C:\Program Files\On-Premises Data Gateway**. The SAP NCo 3.0 client library contains the following assemblies:
 
     - **libicudecnumber.dll**
     - **rscp4n.dll**
@@ -316,7 +316,7 @@ The following relationships exist between the SAP NCo client library, the .NET F
 
 <a name="snc-prerequisites-consumption"></a>
 
-For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway, and optionally SNC, you must also configure the following settings.
+For Consumption workflows in multitenant Azure Logic Apps that use the on-premises data gateway, and optionally SNC, you must also configure the following settings.
 
 * Make sure that your SNC library version and its dependencies are compatible with your SAP environment. To troubleshoot any library compatibility issues, you can use your on-premises data gateway and data gateway logs. 
 
@@ -499,9 +499,9 @@ After you delete the SAP connections, you must delete the SAP connector from you
 
 ### [Consumption](#tab/consumption)
 
-<a name="multi-tenant-prerequisites"></a>
+<a name="multitenant-prerequisites"></a>
 
-For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed connector integrates with SAP systems through an [on-premises data gateway](../connect-on-premises-data-sources.md). For example, in scenarios where your workflow sends a message to the SAP system, the data gateway acts as an RFC client and forwards the requests received from your workflow to SAP. Likewise, in scenarios where your workflow receives a message from SAP, the data gateway acts as an RFC server that receives requests from SAP and forwards them to your workflow.
+For a Consumption workflow in multitenant Azure Logic Apps, the SAP managed connector integrates with SAP systems through an [on-premises data gateway](../connect-on-premises-data-sources.md). For example, in scenarios where your workflow sends a message to the SAP system, the data gateway acts as an RFC client and forwards the requests received from your workflow to SAP. Likewise, in scenarios where your workflow receives a message from SAP, the data gateway acts as an RFC server that receives requests from SAP and forwards them to your workflow.
 
 1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](../install-on-premises-data-gateway.md).
 
@@ -611,7 +611,7 @@ For a Consumption workflow in an ISE, the ISE provides access to resources that 
 > before this date are supported through August 31, 2024. For more information, see the following resources:
 >
 > - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
-> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](../single-tenant-overview-compare.md)
+> - [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](../single-tenant-overview-compare.md)
 > - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 > - [Export ISE workflows to a Standard logic app](../export-from-ise-to-standard-logic-app.md)
 > - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
@@ -664,7 +664,7 @@ For a Consumption workflow in an ISE, the ISE provides access to resources that 
 
 ### [Consumption](#tab/consumption)
 
-For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=multi-tenant#prerequisites) and [SNC prerequisites](sap.md?tabs=multi-tenant#snc-prerequisites).
+For a Consumption workflow that runs in multitenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=multitenant#prerequisites) and [SNC prerequisites](sap.md?tabs=multitenant#snc-prerequisites).
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
@@ -1050,7 +1050,7 @@ To work with the resulting ETL files, you can use [PerfView](https://github.com/
 
 ### Test your workflow
 
-Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Consumption](#tab/consumption)
 
@@ -1078,7 +1078,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### [ISE](#tab/ise)
 
-See the steps for [SAP logging for Consumption logic apps in multi-tenant workflows](?tabs=multi-tenant#test-workflow-logging).
+See the steps for [SAP logging for Consumption logic apps in multitenant workflows](?tabs=multitenant#test-workflow-logging).
 
 ---
 
@@ -1136,7 +1136,7 @@ You can control this tracing capability at the application level by adding the f
 
    After you open the **$SAP_RFC_TRACE_DIRECTORY** folder, you'll find a file named **dev_nco_rfc.log**, one or multiple files named **dev_nco_rfcNNNN.log**, and one or multiple files named **dev_nco_rfcNNNN.trc** where **NNNN** is a thread identifier.
 
-1. To view the contant in a log or trace file, select the **Edit** button next to a file.
+1. To view the content in a log or trace file, select the **Edit** button next to a file.
 
    > [!NOTE]
    >
