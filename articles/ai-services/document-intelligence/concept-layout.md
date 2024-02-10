@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 02/09/2024
 ms.author: lajanuar
 ---
 
@@ -95,9 +95,9 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+* Supported file formats: JPEG, PNG, PDF, and TIFF.
+* Supported number of pages: For PDF and TIFF, up to 2,000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* Supported file size: the file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 
@@ -105,7 +105,7 @@ Document Intelligence v2.1 supports the following tools, applications, and libra
 
 See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Document Intelligence. You need the following resources:
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
 * A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
@@ -120,16 +120,16 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of `Layout` processing a newspaper page in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Layout**
+1. On the Document Intelligence Studio home page, select **Layout**.
 
 1. You can analyze the sample document or upload your own files.
 
-1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options**:
 
     :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
    > [!div class="nextstepaction"]
-   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout).
 
 ::: moniker-end
 
@@ -149,7 +149,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 1. In the **Source** field, select **URL** from the dropdown menu You can use our sample document:
 
-    * [**Sample document**](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg)
+    * [**Sample document**](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg).
 
     * Select the **Fetch** button.
 
@@ -157,7 +157,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
     :::image type="content" source="media/fott-layout.png" alt-text="Screenshot of `Layout` dropdown window.":::
 
-1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
+1. View the results - see the highlighted extracted text, detected selection marks, and detected tables.
 
     :::image type="content" source="media/label-tool/layout-3.jpg" alt-text="Screenshot of connection settings for the Document Intelligence Sample Labeling tool.":::
 
@@ -212,7 +212,8 @@ The pages collection is the first object you see in the service response. The pa
     }
 ]
 ```
-### Extract selected page(s) from documents
+
+### Extract selected pages from documents
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
@@ -240,8 +241,8 @@ The new machine-learning based page object detection extracts logical roles like
 
 | **Predicted role**   | **Description**   | **Supported file types** | 
 | --- | --- | --- |
-| `title`  | The main heading(s) in the page | pdf, image, docx, pptx, xlsx, html |
-| `sectionHeading`  | One or more subheading(s) on the page  | pdf, image, docx, xlsx, html |
+| `title`  | The main headings in the page | pdf, image, docx, pptx, xlsx, html |
+| `sectionHeading`  | One or more subheadings on the page  | pdf, image, docx, xlsx, html |
 | `footnote`  | Text near the bottom of the page  | pdf, image |
 | `pageHeader`  | Text near the top edge of the page  | pdf, image, docx |
 | `pageFooter`  | Text near the bottom edge of the page  | pdf, image, docx, pptx, html |
@@ -267,9 +268,11 @@ The new machine-learning based page object detection extracts logical roles like
 
 ```
 
-### Text lines and words
+### Text, lines and words
 
-The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+
+For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence version 2023-10-31-preview the Layout model extracts all embedded text as is. For embedded images, it uses OCR technology to extract text from each image and the extraction as an added entry to the `pages` collection. Added entries include the extracted text, lines, and words, their bounding polygons, confidences, and the spans pointing to the associated text.
 
 ```json
 "words": [
@@ -341,7 +344,7 @@ Extracting tables is a key requirement for processing documents containing large
 
 ### Handwritten style for text lines
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *see*, [Handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *See*, [Handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
 
 ```json
 "styles": [
@@ -421,7 +424,7 @@ The second step is to call the [Get Analyze Layout Result](https://westcentralus
 |:-----|:----:|:----|
 |status | string | `notStarted`: The analysis operation isn't started.</br></br>`running`: The analysis operation is in progress.</br></br>`failed`: The analysis operation failed.</br></br>`succeeded`: The analysis operation succeeded.|
 
-Call this operation iteratively until it returns the `succeeded` value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+Call this operation iteratively until it returns the `succeeded` value. To avoid exceeding the requests per second (RPS) rate, use an interval of 3 to 5 seconds.
 
 When the **status** field has the `succeeded` value, the JSON response includes the extracted layout, text, tables, and selection marks. The extracted data includes extracted text lines and words, bounding boxes, text appearance with handwritten indication, tables, and selection marks with selected/unselected indicated.
 
@@ -466,7 +469,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
@@ -474,7 +477,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range="doc-intel-2.1.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

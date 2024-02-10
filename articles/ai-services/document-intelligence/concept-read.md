@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 02/09/2024
 ms.author: lajanuar
 ---
 
@@ -77,7 +77,7 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 
 Try extracting text from forms and documents using the Document Intelligence Studio. You need the following assets:
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
 * A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
@@ -90,16 +90,16 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 :::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot of Read processing in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Read**
+1. On the Document Intelligence Studio home page, select **Read**.
 
 1. You can analyze the sample document or upload your own files.
 
-1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options**:
 
     :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
    > [!div class="nextstepaction"]
-   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout).
 
 ## Supported languages and locales
 
@@ -121,7 +121,6 @@ The pages collection is the first object you see in the service response. The pa
 |PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides | 
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
-
 ```json
 "pages": [
     {
@@ -138,7 +137,7 @@ The pages collection is the first object you see in the service response. The pa
 ]
 ```
 
-### Select page(s) for text extraction
+### Select pages for text extraction
 
 For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
@@ -159,9 +158,12 @@ The Read OCR model in Document Intelligence extracts all identified blocks of te
 ]
 ```
 
-### Text lines and words
+### Text, lines, and words
 
 The Read OCR model extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+
+For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence version 2023-10-31-preview the Read model extracts all embedded text as is. For embedded images, it uses OCR technology to extract text from each image and the extraction as an added entry to the `pages` collection. Added entries include the extracted text, lines, and words, their bounding polygons, confidences, and the spans pointing to the associated text.
+
 
 ```json
 "words": [
