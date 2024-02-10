@@ -8,7 +8,7 @@ ms.date: 05/04/2023
 
 # Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 
-This article addresses upgrade experiences for Istio-based service mesh add-on for Azure Kubernetes Service (preview).
+This article addresses upgrade experiences for Istio-based service mesh add-on for Azure Kubernetes Service (AKS).
 
 ## Minor version upgrade
 
@@ -90,7 +90,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
 
 1. Check your monitoring tools and dashboards to determine whether your workloads are all running in a healthy state after the restart. Based on the outcome, you have two options:
 
-    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, you can complete the canary upgrade. This will remove the previous revision's control plane and leave behind the new revision's control plane on the cluster. Run the following command to complete the canary upgrade:
+    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, you can complete the canary upgrade. This removes the previous revision's control plane and leave behind the new revision's control plane on the cluster. Run the following command to complete the canary upgrade:
 
       ```bash
       az aks mesh upgrade complete --resource-group $RESOURCE_GROUP --name $CLUSTER
@@ -151,7 +151,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
     productpage-v1-979d4d9fc-p4764:	docker.io/istio/examples-bookinfo-productpage-v1:1.17.0, mcr.microsoft.com/oss/istio/proxyv2:1.17.1-distroless
     ```
 
-  * Restart the workloads to trigger reinjection. For example:
+  * To trigger reinjection, restart the workloads. For example:
 
     ```bash
     kubectl rollout restart deployments/productpage-v1 -n default
