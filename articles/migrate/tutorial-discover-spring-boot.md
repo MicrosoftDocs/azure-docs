@@ -11,6 +11,9 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy23, references_regions
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article describes how to discover Spring Boot applications running on servers in your datacenter, using Azure Migrate: Discovery and assessment tool. The discovery process is completely agentless; no agents are installed on the target servers.
 
 In this tutorial, you learn how to:
