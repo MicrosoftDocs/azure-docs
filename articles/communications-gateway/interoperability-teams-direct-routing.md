@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Overview of interoperability of Azure Communications Gateway with Microsoft Teams Direct Routing
 
-Azure Communications Gateway is a certified SBC for Microsoft Teams Direct Routing, allowing telecommunications operators and service providers to provide their customers with PSTN connectivity from Microsoft Teams. Azure Communications Gateway can manipulate signaling and media to meet the requirements of your networks and the Microsoft Phone System, which powers Microsoft Teams Direct Routing.
+Azure Communications Gateway is a certified SBC for Microsoft Teams Direct Routing, allowing telecommunications operators to provide their customers with PSTN connectivity from Microsoft Teams. Azure Communications Gateway can manipulate signaling and media to meet the requirements of your networks and the Microsoft Phone System, which powers Microsoft Teams Direct Routing.
 
 In this article, you learn:
 
@@ -20,7 +20,7 @@ In this article, you learn:
 - Which signaling and media interworking features it offers.
 
 > [!IMPORTANT]
-> You must be a telecommunications operator or service provider to use Azure Communications Gateway.
+> You must be a telecommunications operator to use Azure Communications Gateway.
 
 ## Role and position in the network
 

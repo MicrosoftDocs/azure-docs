@@ -13,7 +13,7 @@
       href: distributed-nosql.md
     - name: Distributed relational
       href: distributed-relational.md
-    - name: Vector search
+    - name: Vector database
       href: vector-database.md
     - name: Azure AI Advantage offer
       href: ai-advantage.md

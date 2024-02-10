@@ -67,6 +67,10 @@
       href: supported-region-traffic-analytics.md
     - name: Usage scenarios
       href: usage-scenarios-traffic-analytics.md
+    - name: Schema and data aggregation
+      href: traffic-analytics-schema.md
+    - name: Schema update (March 2020)
+      href: traffic-analytics-schema-update.md
     - name: Frequently asked questions
       href: traffic-analytics-faq.yml
   - name: RBAC permissions
@@ -143,22 +147,24 @@
       href: network-watcher-diagnose-on-premises-connectivity.md
   - name: Capture and analyze packets
     items:
-    - name: Manage a packet capture
+    - name: Manage packet captures for VMs
       items:
-      - name: Virtual machine - Portal
-        href: network-watcher-packet-capture-manage-portal.md
-      - name: Virtual Machine Scale Set - Portal
+      - name: Azure Portal
+        href: packet-capture-vm-portal.md
+      - name: Azure PowerShell
+        href: packet-capture-vm-powershell.md
+      - name: Azure CLI
+        href: packet-capture-vm-cli.md
+    - name: Manage packet captures for scale sets
+      items:
+      - name: Azure Portal
         href: network-watcher-packet-capture-manage-portal-vmss.md
-      - name: Virtual machine - PowerShell
-        href: network-watcher-packet-capture-manage-powershell.md
-      - name: Virtual Machine Scale Set - PowerShell
+      - name: Azure PowerShell
         href: network-watcher-packet-capture-manage-powershell-vmss.md
-      - name: Virtual machine - Azure CLI
-        href: network-watcher-packet-capture-manage-cli.md
     - name: Analyze a packet capture
       items:
-      - name: Find anomalies
-        href: network-watcher-deep-packet-inspection.md
+      - name: Inspect to find anomalies
+        href: packet-capture-inspect.md
       - name: Proactive network monitoring with Azure Functions
         href: network-watcher-alert-triggered-packet-capture.md
       - name: Perform intrusion detection using open source tools
@@ -203,12 +209,6 @@
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics using Azure policy
       href: traffic-analytics-policy-portal.md
-    - name: Traffic analytics schema
-      items:
-      - name: Schema and data aggregation
-        href: traffic-analytics-schema.md
-      - name: Schema update (March 2020)
-        href: traffic-analytics-schema-update.md
     - name: View network security groups
       items:
       - name: PowerShell

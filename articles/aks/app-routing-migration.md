@@ -4,7 +4,7 @@ description: Learn how to migrate from the HTTP application routing feature to t
 ms.topic: how-to
 ms.author: nickoman
 author: nickomang
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 11/03/2023
 ---
 
@@ -47,9 +47,9 @@ In this article, you learn how to migrate your Azure Kubernetes Service (AKS) cl
           - path: /
             pathType: Prefix
             backend:
-              service: 
+              service:
                 name: aks-helloworld
-                port: 
+                port:
                   number: 80
     ```
 
@@ -69,9 +69,9 @@ In this article, you learn how to migrate your Azure Kubernetes Service (AKS) cl
           - path: /
             pathType: Prefix
             backend:
-              service: 
+              service:
                 name: aks-helloworld
-                port: 
+                port:
                   number: 80
     ```
 
@@ -121,7 +121,7 @@ After migrating to the application routing add-on, learn how to [monitor Ingress
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[app-routing-dns-create]: ./app-routing-dns-ssl.md#create-a-global-azure-dns-zone
+[app-routing-dns-create]: ./app-routing-dns-ssl.md#create-a-public-azure-dns-zone
 [app-routing-dns-configure]: ./app-routing-dns-ssl.md#attach-azure-dns-zone-to-the-application-routing-add-on
 
 <!-- EXTERNAL LINKS -->

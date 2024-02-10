@@ -2,7 +2,6 @@
 title: Azure Monitor workbooks and Azure Resource Manager templates 
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor workbooks deployed via Azure Resource Manager templates.
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
@@ -300,9 +299,6 @@ In this example, the following steps facilitate the customization of an exported
     1. Serialize the new JSON content back into a new string variable, `reserializedData`.
 1. Use the new `reserializedData` variable in place of the original `serializedData` property.
 1. Deploy the new workbook resource by using the updated ARM template.
-
-### Limitations
-Currently, this mechanism can't be used to create workbook instances in the **Workbooks** gallery of Application Insights. We're working on addressing this limitation. In the meantime, we recommend that you use the **Troubleshooting Guides** gallery (workbookType: `tsg`) to deploy Application Insights-related workbooks.
 
 ## Next steps
 

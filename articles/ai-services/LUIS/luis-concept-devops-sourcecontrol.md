@@ -4,7 +4,7 @@ description: How to maintain your Language Understanding (LUIS) app under source
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 01/19/2024
 author: aahill
 manager: nitinme
 ms.author: aahi

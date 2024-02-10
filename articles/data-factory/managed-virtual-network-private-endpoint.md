@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell
 ms.date: 08/02/2023
 ---
 
@@ -236,7 +236,7 @@ You're unable to access each PaaS resource when both sides are exposed to Privat
 
 For example, you have a managed private endpoint for storage account A. You can also access storage account B through public network in the same managed virtual network. But when storage account B has a private endpoint connection from other managed virtual network or customer virtual network, then you can't access storage account B in your managed virtual network through public network.
 
-## Next steps
+## Related content
 
 See the following tutorials:
 

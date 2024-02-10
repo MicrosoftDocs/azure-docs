@@ -104,7 +104,7 @@ In this example, the pipeline has two activities: **Until** and **Wait**. The Wa
 
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)

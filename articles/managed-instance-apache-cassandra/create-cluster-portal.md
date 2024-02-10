@@ -7,7 +7,6 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom:
-  - ignite-fall-2021
   - mode-ui
   - ignite-2023
 ---

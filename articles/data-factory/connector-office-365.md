@@ -5,7 +5,7 @@ description: Learn how to copy and transform data from Microsoft 365 (Office 365
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2023
 ms.author: jianleishen
@@ -361,5 +361,5 @@ To create a mapping data flow using the Microsoft 365 connector as a source, com
 
 6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

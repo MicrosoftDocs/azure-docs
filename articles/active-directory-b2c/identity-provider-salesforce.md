@@ -2,18 +2,17 @@
 title: Set up sign-up and sign-in with a Salesforce account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Salesforce accounts in your applications using Azure Active Directory B2C.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating Salesforce with Azure Active Directory B2C, I want to set up sign-up and sign-in with a Salesforce account using Azure AD B2C, so that users can authenticate with their Salesforce credentials in my application.
+
 ---
 
 # Set up sign-up and sign-in with a Salesforce account using Azure Active Directory B2C

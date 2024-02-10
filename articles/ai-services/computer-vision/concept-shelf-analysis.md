@@ -27,6 +27,12 @@ Try out the capabilities of Product Recognition quickly and easily in your brows
 > [!NOTE]
 > The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
 
+> [!IMPORTANT]
+> You can train a custom model for product recognition using either the [Custom Vision service](/azure/ai-services/custom-vision-service/overview) or the Image Analysis 4.0 Product Recognition APIs. The following table compares the two services.
+>
+> [!INCLUDE [custom-vision-shelf-compare](includes/custom-vision-shelf-compare.md)]
+
+
 ## Product Recognition features
 
 ### Shelf Image Composition

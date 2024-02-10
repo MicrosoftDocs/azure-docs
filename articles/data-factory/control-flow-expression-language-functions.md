@@ -240,7 +240,7 @@ To work with strings, you can use these string functions and also some [collecti
 | [indexOf](control-flow-expression-language-functions.md#indexof) | Return the starting position for a substring. |
 | [lastIndexOf](control-flow-expression-language-functions.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [replace](control-flow-expression-language-functions.md#replace) | Replace a substring with the specified string, and return the updated string. |
-| [split](control-flow-expression-language-functions.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. |
+| [split](control-flow-expression-language-functions.md#split) | Split a string at each occurrence of a specified delimiter, returning the resulting substrings as elements of an array. |
 | [startsWith](control-flow-expression-language-functions.md#startswith) | Check whether a string starts with a specific substring. |
 | [substring](control-flow-expression-language-functions.md#substring) | Return characters from a string, starting from the specified position. |
 | [toLower](control-flow-expression-language-functions.md#toLower) | Return a string in lowercase format. |
@@ -2665,8 +2665,8 @@ And returns this array with the remaining items: `[1,2,3]`
 
 ### split
 
-Return an array that contains substrings, separated by commas,
-based on the specified delimiter character in the original string.
+Split a string at each occurrence of a specified delimiter, returning the resulting substrings as elements of an array.
+A delimiter is typically a single character, but multicharacter delimiters are supported.
 
 ```
 split('<text>', '<delimiter>')
@@ -2674,25 +2674,25 @@ split('<text>', '<delimiter>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Yes | String | The string to separate into substrings based on the specified delimiter in the original string |
-| <*delimiter*> | Yes | String | The character in the original string to use as the delimiter |
+| <*text*> | Yes | String | The string to separate into substrings  |
+| <*delimiter*> | Yes | String | The string to use as the delimiter |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
+| [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings of the original string  |
 ||||
 
 *Example*
 
-This example creates an array with substrings from the specified
-string based on the specified character as the delimiter:
+This example returns an array containing substrings of the string "a_b_c" 
+based on the delimiter "_":
 
 ```
 split('a_b_c', '_')
 ```
 
-And returns this array as the result: `["a","b","c"]`
+The array returned is: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 
@@ -3457,5 +3457,5 @@ And returns this result: `"Paris"`
 > [!NOTE]
 > One can add comments to data flow expressions, but not in pipeline expressions.
 
-## Next steps
+## Related content
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

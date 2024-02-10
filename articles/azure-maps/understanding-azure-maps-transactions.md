@@ -66,6 +66,10 @@ The following table summarizes the Azure Maps services that generate transaction
 | Web feature      | 1k transactions         | $21    |
 -->
 
+## Understand billing transactions
+
+[!INCLUDE [Understand billing transactions](./includes/understand-billing-transactions.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -80,29 +84,29 @@ The following table summarizes the Azure Maps services that generate transaction
 > [!div class="nextstepaction"]
 > [View Azure Maps API usage metrics]
 
-[Alias]: /rest/api/maps/v2/alias
+[Alias]: /rest/api/maps-creator/alias
 [Azure Maps pricing]: https://azure.microsoft.com/pricing/details/azure-maps/
 [Azure Maps Services]: index.yml
 [Azure portal]: https://portal.azure.com
-[Conversion]: /rest/api/maps/v2/conversion
+[Conversion]: /rest/api/maps-creator/conversion
 [Creator table]: #azure-maps-creator
 [Data registry]: /rest/api/maps/data-registry
-[v1]: /rest/api/maps/data
-[v2]: /rest/api/maps/data-v2
+[v1]: /rest/api/maps/data?view=rest-maps-1.0
+[v2]: /rest/api/maps/data
 [How to create data registry]: how-to-create-data-registries.md
-[Dataset]: /rest/api/maps/v2/dataset
-[Feature State]: /rest/api/maps/v2/feature-state
+[Dataset]: /rest/api/maps-creator/dataset
+[Feature State]: /rest/api/maps-creator/feature-state
 [Geolocation]: /rest/api/maps/geolocation
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
-[Render]: /rest/api/maps/render-v2
+[Render]: /rest/api/maps/render
 [Route]: /rest/api/maps/route
-[Search v1]: /rest/api/maps/search
-[Search v2]: /rest/api/maps/search-v2
+[Search v1]: /rest/api/maps/search?view=rest-maps-1.0
+[Search v2]: /rest/api/maps/search
 [Spatial]: /rest/api/maps/spatial
-[Tileset]: /rest/api/maps/v2/tileset
+[Tileset]: /rest/api/maps-creator/tileset
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
 [View Azure Maps API usage metrics]: how-to-view-api-usage.md
 [Weather]: /rest/api/maps/weather
-[WFS]: /rest/api/maps/v2/wfs
+[WFS]: /rest/api/maps-creator/wfs

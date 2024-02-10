@@ -381,7 +381,7 @@ Group Managed Service Accounts (gMSAs) are currently not supported in Windows co
 
 Secure Shell (SSH) is commonly used to execute administrative commands remotely from a command-line terminal. In order to enable the Azure portal SSH console feature with custom containers, the following steps are required:
 
-1. Create a standard [sshd_config](https://man.openbsd.org/sshd_config) file with the following example contents and place it on the application project root directory:
+1. Create a standard `sshd_config` file with the following example contents and place it on the application project root directory:
     
     ```
     Port 			2222

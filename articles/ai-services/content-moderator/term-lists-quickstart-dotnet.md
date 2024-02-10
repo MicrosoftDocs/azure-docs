@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 01/18/2024
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-dotnet
 #Customer intent: As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 # Check text against a custom term list in C#
 
-The default global list of terms in Azure AI Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization.
+The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization.
 
 You can use the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to create custom lists of terms to use with the Text Moderation API.
 

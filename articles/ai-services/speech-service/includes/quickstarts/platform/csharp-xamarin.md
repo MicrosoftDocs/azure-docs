@@ -2,14 +2,13 @@
 title: 'Speech SDK for C# (Xamarin) platform setup - Speech service'
 titleSuffix: Azure AI services
 description: 'Use this guide to set up your platform for C# Xamarin with the Speech SDK.'
-#services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/05/2023
 ms.author: eur
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-csharp
 ---
 
 This guide shows how to create a [Xamarin](/xamarin/get-started/what-is-xamarin) forms project and install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md). Xamarin is an open-source platform for building modern and performant applications for iOS, Android, and Windows by using .NET.

@@ -3,7 +3,6 @@ title: Set up billing for Microsoft Customer Agreement - Azure
 description: Learn how to set up your billing account for a Microsoft Customer Agreement. See prerequisites for the setup and view other available resources.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
@@ -199,6 +198,10 @@ Otherwise, you see an error message saying:
 ## View replaced features
 
 The following Enterprise Agreement's features are replaced with new features in the billing account for a Microsoft Customer Agreement.
+
+### Cost Management Power BI template app
+
+When you convert an EA enrollment to MCA, you can’t use the Cost Management Power BI template app any longer because the app doesn’t support MCA. However, the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) supports MCA accounts.
 
 ### Enterprise Agreement accounts
 

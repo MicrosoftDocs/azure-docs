@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 11/10/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a web developer, I want to enable Azure AD B2C authentication in my ASP.NET web application that calls a web API, so that I can secure access to my application and protect user data.
+
 ---
 
 # Enable authentication in web apps that call a web API by using Azure AD B2C

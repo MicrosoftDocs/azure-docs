@@ -1,7 +1,7 @@
 ---
-title: Enable or disable semantic ranking
+title: Enable or disable semantic ranker
 titleSuffix: Azure AI Search
-description: Steps for turning semantic ranking on or off in Azure AI Search.
+description: Steps for turning semantic ranker on or off in Azure AI Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,34 +10,32 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/04/2023
+ms.date: 02/08/2024
 ---
 
-# Enable or disable semantic ranking
+# Enable or disable semantic ranker
 
-Semantic ranking is a premium feature that's billed by usage. By default, semantic ranking is disabled on all services. 
+Semantic ranker is a premium feature that's billed by usage. By default, semantic ranker is disabled on all services. 
+
+## Check availability
+
+Check the [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page on the Azure web site to see if your region is listed.
 
 ## Enable semantic ranking
 
-Follow these steps to enable [semantic ranking](semantic-search-overview.md) at the service level. Once enabled, it's available to all indexes. You can't turn it on or off for specific indexes.
+Follow these steps to enable [semantic ranker](semantic-search-overview.md) at the service level. Once enabled, it's available to all indexes. You can't turn it on or off for specific indexes.
 
 ### [**Azure portal**](#tab/enable-portal)
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your search service. The service must be a billable tier.
-
-1. Determine whether the service region supports semantic ranking:
-
-   1. Find your service region in the overview page in the Azure portal.
-
-   1. Check the [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page on the Azure web site to see if your region is listed.
+1. Navigate to your search service. On the **Overview** page, make sure the service is a billable tier, Basic or higher.
 
 1. On the left-nav pane, select **Semantic ranking**.
 
 1. Select either the **Free plan** or the **Standard plan**. You can switch between the free plan and the standard plan at any time.
 
-:::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic ranking in the Azure portal." border="true":::
+   :::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic ranking in the Azure portal." border="true":::
 
 The free plan is capped at 1,000 queries per month. After the first 1,000 queries in the free plan, you'll receive an error message letting you know you've exhausted your quota the next time you issue a semantic query. When this happens, you need to upgrade to the standard plan to continue using semantic ranking.
 
@@ -84,4 +82,4 @@ To re-enable semantic ranking, rerun the above request, setting "semanticSearch"
 
 ## Next steps
 
-[Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic ranking on your content.
+[Configure semantic ranking](semantic-how-to-configure.md) so that you can test out semantic ranking on your content.

@@ -70,7 +70,7 @@ az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
   --template-file $templateFile \
-  --parameters storagePrefix=store storageSKU=Standard_LRS
+  --parameters '{"storagePrefix": {"value":"store"}}' '{"storageSKU": {"value":"Standard_LRS"}}'
 ```
 
 ---

@@ -5,9 +5,10 @@ description: Learn how to upgrade a basic internal load balancer to a standard p
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 12/07/2023
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
+ROBOTS: NOINDEX
 ---
 
 # Upgrade an internal basic load balancer - Outbound connections required

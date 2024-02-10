@@ -81,17 +81,19 @@ Note the following important changes to make before you upgrade to any of the av
 
 | Kubernetes Version | Version Bundle | Components      | OS components | Breaking Changes | Notes           |
 |--------------------|----------------|-----------------|---------------|------------------|-----------------|
-| 1.25.4             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.4             | 2              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.4             | 3              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.4             | 4              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.4             | 5              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.4<br>etcd v3.5.6-5<br>sriov-dp v3.6.0   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.6             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.25.6             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5<br>sriov-dp v3.6.0   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.26.3             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
-| 1.26.3             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.8.6<br>etcd v3.5.6-5<br>sriov-dp v3.6.0   | Azure Linux 2.0  |  No breaking changes    |                 |
+| 1.25.6             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
+| 1.25.6             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
+| 1.25.6             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
+| 1.25.11             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
+| 1.26.3             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  No breaking changes    |                 |
+| 1.26.3             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
+| 1.26.3             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
+| 1.26.6             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes    |                 |
 | 1.27.1             | 1              | Calico v3.24.0<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.5.1   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
-| 1.27.1             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.6.0   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
+| 1.27.1             | 2              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
+| 1.27.1             | 3              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
+| 1.27.3             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  Cgroupv2               | Steps to disable cgroupv2 can be found [here](./howto-disable-cgroupsv2.md)  |
+| 1.28.0             | 1              | Calico v3.26.1<br>metrics-server v0.6.3<br>Multus v3.8.0<br>CoreDNS v1.9.3<br>etcd v3.5.6-5<br>sriov-dp v3.7.0-48   | Azure Linux 2.0  |  No breaking changes               |   |
 
 ## Upgrading Kubernetes versions
 

@@ -25,6 +25,8 @@ The Top flows log (known in the industry as Fat Flows), shows the top connection
 > Activate Top flows logs only when troubleshooting a specific issue to avoid excessive CPU usage of Azure Firewall.
 > 
 
+The flow rate is defined as the data transmission rate (in Megabits per second units). In other words, it is a measure of the amount of digital data that can be transmitted over a network in a period of time through the firewall. The Top Flows protocol runs periodically every three minutes. The minimum threshold to be considered a Top Flow is 1 Mbps.
+
 ### Prerequisites
 
 - Enable [structured logs](firewall-structured-logs.md#enable-structured-logs)
@@ -40,6 +42,20 @@ $firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <Firewal
 $firewall.EnableFatFlowLogging = $true
 Set-AzFirewall -AzureFirewall $firewall
 ```
+
+### Disable the log
+
+To disable the logs, use the same previous Azure PowerShell command and set the value to *False*. 
+
+For example:
+
+```azurepowershell
+Set-AzContext -SubscriptionName <SubscriptionName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall.EnableFatFlowLogging = $false
+Set-AzFirewall -AzureFirewall $firewall
+```
+
 ### Verify the update
 
 There are a few ways to verify the update was successful, but you can navigate to firewall **Overview** and select **JSON view** on the top right corner. Here’s an example:
@@ -88,7 +104,13 @@ The following additional properties can be added:
 
 - INVALID (flows)
 
-   Indicates packet can’t be identified or don't have any state; TCP packet is landing on a Virtual Machine Scale Sets instance, which doesn't have any prior history to this packet.
+   Indicates packet can’t be identified or don't have any state. 
+
+   For example: 
+   - A TCP packet lands on a Virtual Machine Scale Sets instance, which doesn't have any prior history for this packet
+   - Bad CheckSum packets
+   - Connection Tracking table entry is full and new connections cannot be accepted
+   - Overly delayed ACK packets
 
 ### Prerequisites
 
@@ -97,7 +119,9 @@ The following additional properties can be added:
 
 ### Enable the log
 
-Enable the log using the following Azure PowerShell commands:
+Enable the log using the following Azure PowerShell commands or navigate to the Preview features in the portal and search for **Enable TCP Connection Logging**:
+
+:::image type="content" source="media/enable-top-ten-and-flow-trace/preview-features.png" alt-text="Screenshot showing Azure portal preview features.":::
 
 ```azurepowershell
 Connect-AzAccount 
@@ -111,6 +135,13 @@ It can take several minutes for this to take effect. Once the feature is complet
 To check the status of the AzResourceProvider registration, you can run the Azure PowerShell command:
 
 `Get-AzProviderFeature -FeatureName "AFWEnableTcpConnectionLogging" -ProviderNamespace "Microsoft.Network"`
+
+### Disable the log
+
+To disable the log, you can unregister it using the following command or select unregister in the previous portal example.
+ 
+`Get-AzProviderFeature -FeatureName "AFWEnableTcpConnectionLogging" -ProviderNamespace "Microsoft.Network"`
+
 
 ### Create a diagnostic setting and enable Resource Specific Table
 
@@ -133,4 +164,4 @@ To check the status of the AzResourceProvider registration, you can run the Azur
 
 ## Next steps
 
-- [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md)
+- [Azure Structured Firewall Logs](firewall-structured-logs.md)

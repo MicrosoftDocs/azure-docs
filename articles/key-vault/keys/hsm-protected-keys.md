@@ -30,7 +30,7 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 
 |Vendor Name|Vendor Type|Supported HSM models|Supported HSM-key transfer method|
 |---|---|---|---|
-|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/azurebyok)|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/)|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Entrust|Manufacturer,<br/>HSM as a Service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Fortanix|Manufacturer,<br/>HSM as a Service|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |IBM|Manufacturer|IBM 476x, CryptoExpress|[Use new BYOK method](hsm-protected-keys-byok.md)|

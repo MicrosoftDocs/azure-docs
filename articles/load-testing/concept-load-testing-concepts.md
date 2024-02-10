@@ -85,6 +85,8 @@ A test contains a test plan, which describes the steps to invoke the application
 
 Azure Load Testing supports all communication protocols that JMeter supports, not only HTTP-based endpoints. For example, you might want to read from or write to a database or message queue in the test script.
 
+Azure Load Testing currently does not support other testing frameworks than Apache JMeter.
+
 The test also specifies the configuration settings for running the load test:
 
 - [Load test parameters](./how-to-parameterize-load-tests.md), such as environment variables, secrets, and certificates.
@@ -140,4 +142,4 @@ You now know the key concepts of Azure Load Testing to start creating a load tes
 - Learn how [Azure Load Testing works](./overview-what-is-azure-load-testing.md#how-does-azure-load-testing-work).
 - Learn how to [Create and run a load test for a website](./quickstart-create-and-run-load-test.md).
 - Learn how to [Identify a performance bottleneck in an Azure application](./tutorial-identify-bottlenecks-azure-portal.md).
-- Learn how to [Set up automated regression testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [Set up automated regression testing with CI/CD](./quickstart-add-load-test-cicd.md).

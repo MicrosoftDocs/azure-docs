@@ -1,18 +1,17 @@
 ---
 title: 'Using Azure ExpressRoute to support remote users'
-description: This page describes how you can leverage Azure ExpressRoute to enable working remotely due to the COVID-19 pandemic.
+description: This page describes how you can use Azure ExpressRoute to enable working remotely due to the COVID-19 pandemic.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/22/2020
+ms.date: 12/28/2023
 ms.author: duau
-
 ---
+
 # Using Azure ExpressRoute to create hybrid connectivity to support remote users
 
-This article describes how you can leverage ExpressRoute, Azure, Microsoft network, and the Azure partner ecosystem to work remotely.
+This article describes how you can use ExpressRoute, Azure, Microsoft network, and the Azure partner ecosystem to work remotely.
 
 ## Connecting to Azure services with ExpressRoute
 
@@ -20,7 +19,7 @@ This article describes how you can leverage ExpressRoute, Azure, Microsoft netwo
 >This article describes how you can leverage ExpressRoute, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you are facing because of COVID-19 crisis.
 >
 
-[ExpressRoute](expressroute-introduction.md) is an Azure service that enables private connectivity between Microsoft datacenters and infrastructure that's on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet. They offer secure connectivity, reliability, and speeds, with lower and consistent latencies than typical connections over the Internet.
+[ExpressRoute](expressroute-introduction.md) is an Azure service that enables private connectivity between Microsoft datacenters and infrastructure that's on your premises or in a colocation facility. ExpressRoute connections don't go over the public Internet. They offer secure connectivity, reliability, and speeds, with lower and consistent latencies than typical connections over the Internet.
 
 ## Useful links
 

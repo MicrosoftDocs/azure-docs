@@ -2,14 +2,12 @@
 title: 'Speech SDK for C# .NET Core platform setup - Speech service'
 titleSuffix: Azure AI services
 description: 'Use this guide to set up your platform for C# under .NET Core on Windows or macOS with the Speech SDK.'
-#services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/05/2023
 ms.author: eur
-ms.custom: ignite-fall-2021
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for a .NET Core console app. .NET Core is an open-source, cross-platform .NET platform that implements the .NET Standard specification.

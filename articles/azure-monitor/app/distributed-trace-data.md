@@ -4,7 +4,8 @@ description: This article provides information about distributed tracing and tel
 ms.topic: conceptual
 ms.date: 10/14/2023
 ms.reviewer: rijolly
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
 ---
 

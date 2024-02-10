@@ -2,13 +2,13 @@
 title: 'Speech to text with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Use the Azure OpenAI Whisper model for speech to text.
-#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: quickstart
-author: eric-urban
+ms.date: 2/1/2024
+ms.reviewer: v-baolianzou
 ms.author: eur
-ms.date: 09/15/2023
+author: eric-urban
 recommendations: false
 zone_pivot_groups: openai-whisper
 ---
@@ -17,14 +17,16 @@ zone_pivot_groups: openai-whisper
 
 In this quickstart, you use the Azure OpenAI Whisper model for speech to text. 
 
-The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to transcribe a file larger than 25 MB, you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#using-whisper-models) API.
+The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to transcribe a file larger than 25 MB, you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) API.
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
 - Access granted to Azure OpenAI Service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - An Azure OpenAI resource created in the North Central US or West Europe regions with the `whisper` model deployed. For more information, see [Create a resource and deploy a model with Azure OpenAI](how-to/create-resource.md).
+
+> [!NOTE]
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). 
 
 ## Set up
 
@@ -76,15 +78,22 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+
+::: zone pivot="rest-api"
+
+[!INCLUDE [REST API quickstart](includes/whisper-rest.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-powershell"
 
 [!INCLUDE [PowerShell quickstart](includes/whisper-powershell.md)]
 
 ::: zone-end
 
-::: zone pivot="rest-api"
+::: zone pivot="programming-language-python"
 
-[!INCLUDE [REST API quickstart](includes/whisper-rest.md)]
+[!INCLUDE [REST API quickstart](includes/whisper-python.md)]
 
 ::: zone-end
 

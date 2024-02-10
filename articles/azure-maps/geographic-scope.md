@@ -55,4 +55,4 @@ For information on limiting what regions a SAS token can use in, see [Authentica
 [Authentication with Azure Maps]: azure-maps-authentication.md#create-sas-tokens
 [Azure geographies]: https://azure.microsoft.com/global-infrastructure/geographies
 [Azure Government cloud support]: how-to-use-map-control.md#azure-government-cloud-support
-[Search - Get Search Address]: /rest/api/maps/search/get-search-address
+[Search - Get Search Address]: /rest/api/maps/search/get-search-address?view=rest-maps-1.0

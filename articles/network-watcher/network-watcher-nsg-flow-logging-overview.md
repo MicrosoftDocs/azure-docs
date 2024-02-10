@@ -6,7 +6,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 11/30/2023
+ms.date: 02/07/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -472,11 +472,11 @@ When you delete a network security group, the associated flow log resource is de
 
 ### Cost
 
-NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large-flow log volume and the associated costs.
+NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow-log volume which increases the associated costs. 
 
-Pricing of NSG flow logs doesn't include the underlying costs of storage. Using the retention policy feature with NSG flow logs means incurring separate storage costs for extended periods of time.
+NSG flow log pricing doesn't include the underlying costs of storage. Using the retention policy feature with NSG flow logs means incurring separate storage costs for extended periods of time.
 
-If you want to retain data forever and don't want to apply any retention policy, set retention days to 0. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+If you want to retain data forever and don't want to apply a retention policy, set retention days to 0. For more information, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### Non-default inbound TCP rules
 
@@ -502,9 +502,9 @@ Although Azure doesn't allow these flows to the VM, the attempt is logged and ap
 
 We don't recommend that you log flows on an Azure ExpressRoute gateway subnet because traffic can bypass that type of gateway (for example, [FastPath](../expressroute/about-fastpath.md)). If an NSG is linked to an ExpressRoute gateway subnet and NSG flow logs are enabled, then outbound flows to virtual machines might not be captured. Such flows must be captured at the subnet or NIC of the VM.
 
-### Traffic across a private link
+### Traffic to a private endpoint
 
-To log traffic while accessing platform as a service (PaaS) resources via private link, enable NSG flow logs on the network security group of the subnet that contains the private link. Because of platform limitations, only traffic at the source VMs can be captured. Traffic at the destination PaaS resource can't be captured.
+Traffic to private endpoints can only be captured at source VM, the traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. Traffic can't be recorded at the private endpoint itself due to platform limitations. 
 
 ### Support for network security groups associated to Application Gateway v2 subnet
 
@@ -558,9 +558,9 @@ This problem might be related to:
 
 ## Pricing
 
-NSG flow logs are charged per gigabyte of logs collected and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+NSG flow logs are charged per gigabyte of *Network flow logs collected* and come with a free tier of 5 GB/month per subscription. If traffic analytics is enabled with NSG flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
-Storage of logs is charged separately. For relevant prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Related content
 

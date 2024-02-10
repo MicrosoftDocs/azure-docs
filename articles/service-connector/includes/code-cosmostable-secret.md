@@ -3,7 +3,7 @@ author: wchigit
 description: code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 11/01/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
@@ -67,9 +67,29 @@ ms.author: wchi
     table_service = TableServiceClient.from_connection_string(conn_str) 
     ```
 
-### [NodeJS](#tab/node)
+### [Go](#tab/go)
+1. Install dependency.
+    ```bash
+    go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
+    ```
+2. Get the connection string from the environment variable added by Service Connector.
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/data/aztables"
+    )
 
-1. Install dependencies.
+    func main() {
+        connStr := os.Getenv("AZURE_COSMOS_CONNECTIONSTRING")
+        serviceClient, err := aztables.NewServiceClientFromConnectionString(connStr, nil)
+        if err != nil {
+            panic(err)
+        }
+    }
+    ```
+
+### [NodeJS](#tab/nodejs)
+
+1. Install dependency.
 
     ```bash
     npm install @azure/data-tables
@@ -82,3 +102,6 @@ ms.author: wchi
 
     const serviceClient = TableClient.fromConnectionString(process.env.AZURE_COSMOS_CONNECTIONSTRING);
     ```
+
+### [Other](#tab/none)
+For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for Table. For environment variable details, see [Integrate Azure Cosmos DB for Table with Service Connector](../how-to-integrate-cosmos-table.md).

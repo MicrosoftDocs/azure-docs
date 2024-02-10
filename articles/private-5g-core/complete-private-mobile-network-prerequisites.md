@@ -161,8 +161,9 @@ DNS allows the translation between human-readable domain names and their associa
 ## Prepare your networks
 
 For each site you're deploying, do the following.
-    - Ensure you have at least one network switch with at least three ports available. You'll connect each Azure Stack Edge Pro device to the switch(es) in the same site as part of the instructions in [Order and set up your Azure Stack Edge Pro device(s)](#order-and-set-up-your-azure-stack-edge-pro-devices).
-    - For every network where you decided not to enable NAPT (as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools)), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated to the packet core instance's user plane interface on the data network.
+
+- Ensure you have at least one network switch with at least three ports available. You'll connect each Azure Stack Edge Pro device to the switch(es) in the same site as part of the instructions in [Order and set up your Azure Stack Edge Pro device(s)](#order-and-set-up-your-azure-stack-edge-pro-devices).
+- For every network where you decided not to enable NAPT (as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools)), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated to the packet core instance's user plane interface on the data network.
 
 ### Configure ports for local access
 
@@ -249,9 +250,9 @@ The following table contains the URL patterns for Azure Private 5G Core's outbou
 | `https://*.azurecr.io` | Required to pull container images for Azure Private 5G Core workloads. |
 | `https://*.microsoftmetrics.com` </br> `https://*.hot.ingestion.msftcloudes.com`| Required for monitoring and telemetry for the Azure Private 5G Core service. |
 
-## Register resource providers and features
+## Register resource providers
 
-To use Azure Private 5G Core, you need to register some additional resource providers and features with your Azure subscription.
+To use Azure Private 5G Core, you need to register some additional resource providers with your Azure subscription.
 
 > [!TIP]
 > If you do not have the Azure CLI installed, see installation instructions at [How to install the Azure CLI](/cli/azure/install-azure-cli). Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) on the portal.
@@ -286,16 +287,6 @@ To use Azure Private 5G Core, you need to register some additional resource prov
     az provider register --namespace Microsoft.ExtendedLocation
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
-    ```
-
-1. Register the following features:
-
-    ```azurecli
-    az feature register --name allowVnfCustomer --namespace Microsoft.HybridNetwork
-    az feature register --name previewAccess --namespace  Microsoft.Kubernetes
-    az feature register --name sourceControlConfiguration --namespace  Microsoft.KubernetesConfiguration
-    az feature register --name extensions --namespace  Microsoft.KubernetesConfiguration
-    az feature register --name CustomLocations-ppauto --namespace  Microsoft.ExtendedLocation
     ```
 
 ## Retrieve the Object ID (OID)

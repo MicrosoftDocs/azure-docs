@@ -5,7 +5,7 @@ description: Learn how to create a route-based virtual network gateway for a VPN
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 12/07/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,7 +24,7 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. If you are running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. If you're running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS
@@ -52,7 +52,6 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 ```
 
 Set the subnet configuration for the virtual network using the [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) cmdlet.
-
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
@@ -85,7 +84,7 @@ $vnet | Set-AzVirtualNetwork
 A VPN gateway must have an allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. Use the following example to request a public IP address:
 
 ```azurepowershell-interactive
-$gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static -Sku Standard
+$gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static
 ```
 
 ## <a name="GatewayIPConfig"></a>Create the gateway IP address configuration
@@ -124,7 +123,7 @@ Get-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 
 ## Clean up resources
 
-When you no longer need the resources you created, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to delete the resource group. This will delete the resource group and all of the resources it contains.
+When you no longer need the resources you created, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to delete the resource group. This deletes the resource group and all of the resources it contains.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name TestRG1

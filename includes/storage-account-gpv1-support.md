@@ -2,12 +2,12 @@
 title: "include file"
 description: "include file"
 services: storage
-author: jimmart-dev
+author: stevenmatthew
 ms.service: azure-storage
 ms.subservice: common-concepts
 ms.topic: "include"
 ms.date: 08/17/2023
-ms.author: jammart
+ms.author: shaas
 ms.custom: "include file", engagement
 ---
 

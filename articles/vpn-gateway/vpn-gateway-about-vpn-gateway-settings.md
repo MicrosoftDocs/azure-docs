@@ -4,11 +4,10 @@ description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 01/23/2024
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell
 ms.devlang: azurecli
-
 ---
 # About VPN Gateway configuration settings
 
@@ -97,8 +96,6 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 Considerations:
 
 [!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
-
-* When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet might cause your virtual network gateway (VPN and Express Route gateways) to stop functioning as expected. For more information about network security groups, see [What is a network security group?](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="lng"></a>Local network gateways
 

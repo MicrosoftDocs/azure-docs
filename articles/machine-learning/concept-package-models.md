@@ -8,8 +8,9 @@ ms.reviewer: mopeakande
 reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 10/04/2023
+ms.date: 12/08/2023
 ms.topic: concept-article
+ms.custom: update-code
 ---
 
 # Model packages for deployment (preview)

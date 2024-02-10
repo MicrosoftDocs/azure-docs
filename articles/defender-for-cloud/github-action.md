@@ -3,7 +3,6 @@ title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
 ms.date: 06/18/2023
 ms.topic: how-to
-ms.custom: ignite-2022
 ---
 
 # Configure the Microsoft Security DevOps GitHub action
@@ -102,8 +101,9 @@ Microsoft Security DevOps uses the following Open Source tools:
             name: alerts
             path: ${{ steps.msdo.outputs.sarifFile }}
     ```
+    > [!NOTE]
+    >  For additional tool configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
-    For additional configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
 1. Select **Start commit**
 
@@ -142,4 +142,3 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
 
 Learn how to [connect your GitHub Organizations](quickstart-onboard-github.md) to Defender for Cloud.
-

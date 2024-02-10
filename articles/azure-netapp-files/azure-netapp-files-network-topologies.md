@@ -2,15 +2,8 @@
 title: Guidelines for Azure NetApp Files network planning | Microsoft Docs
 description: Describes guidelines that can help you design an effective network architecture by using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: ram-kakani
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/10/2023
 ms.author: ramakk
@@ -55,6 +48,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Japan East
 *   Japan West
 *   Korea Central
+*   Korea South 
 *	North Central US
 *   North Europe
 *   Norway East
@@ -79,7 +73,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   West US 2
 *	West US 3 
 
-<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
+<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes (preview)](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
 
 * Australia Central
 * Australia Central 2
@@ -92,7 +86,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Central India
 * Central US
 * East Asia
-* East US 
+* East US* 
 * East US 2 
 * France Central 
 * Germany North
@@ -100,13 +94,14 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Japan East 
 * Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe 
 * Norway East
 * Norway West 
 * Qatar Central 
 * South Africa North
-* South Central US 
+* South Central US* 
 * South India
 * Southeast Asia 
 * Sweden Central
@@ -115,11 +110,16 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * UAE Central
 * UAE North 
 * UK South
+* UK West
+* US Gov Arizona
+* US Gov Texas 
+* US Gov Virginia
 * West Europe 
 * West US 
-* West US 2  
+* West US 2*  
 * West US 3 
 
+\* Not all volume in this region are available for conversion. All volumes will be available for conversion in the future. 
 
 ## Considerations
 
@@ -173,7 +173,7 @@ This section explains concepts that help you with virtual network planning.
 
 ### Azure virtual networks
 
-Before provisioning an Azure NetApp Files volume, you need to create an Azure virtual network (VNet) or use one that already exists in your subscription. The VNet defines the network boundary of the volume.  For more information on creating virtual networks, see the [Azure Virtual Network documentation](../virtual-network/virtual-networks-overview.md).
+Before provisioning an Azure NetApp Files volume, you need to create an Azure virtual network (VNet) or use one that already exists in the same subscription. The VNet defines the network boundary of the volume.  For more information on creating virtual networks, see the [Azure Virtual Network documentation](../virtual-network/virtual-networks-overview.md).
 
 ### Subnets
 
@@ -211,7 +211,7 @@ Configuring UDRs on the source VM subnets with the address prefix of delegated s
 
 The following diagram illustrates an Azure-native environment:
 
-:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png" alt-text="Diagram depicting Azure native environment setup." lightbox="../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png":::
+:::image type="content" source="./media/azure-netapp-files-network-topologies/azure-netapp-files-network-azure-native-environment.png" alt-text="Diagram depicting Azure native environment setup." lightbox="./media/azure-netapp-files-network-topologies/azure-netapp-files-network-azure-native-environment.png":::
 
 ### Local VNet
 
@@ -231,7 +231,7 @@ In the diagram above, although VM 3 can connect to Volume 1, VM 4 can't connect 
 
 The following diagram illustrates an Azure-native environment with cross-region VNet peering. 
 
-:::image type="content" source="../media/azure-netapp-files/azure-native-cross-region-peering.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="../media/azure-netapp-files/azure-native-cross-region-peering.png":::
+:::image type="content" source="./media/azure-netapp-files-network-topologies/azure-native-cross-region-peering.png" alt-text="Diagram depicting Azure native environment setup with cross-region VNet peering." lightbox="./media/azure-netapp-files-network-topologies/azure-native-cross-region-peering.png":::
 
 With Standard network features, VMs are able to connect to volumes in another region via global or cross-region VNet peering. The above diagram adds a second region to the configuration in the [local VNet peering section](#vnet-peering). For VNet 4 in this diagram, an Azure NetApp Files volume is created in a delegated subnet and can be mounted on VM5 in the application subnet.
 
@@ -241,7 +241,7 @@ In the diagram, VM2 in Region 1 can connect to Volume 3 in Region 2. VM5 in Regi
 
 The following diagram illustrates a hybrid environment: 
 
-:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png" alt-text="Diagram depicting hybrid networking environment." lightbox="../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png":::
+:::image type="content" source="./media/azure-netapp-files-network-topologies/azure-netapp-files-network-hybrid-environment.png" alt-text="Diagram depicting hybrid networking environment." lightbox="./media/azure-netapp-files-network-topologies/azure-netapp-files-network-hybrid-environment.png":::
 
 In the hybrid scenario, applications from on-premises datacenters need access to the resources in Azure. This is the case whether you want to extend your datacenter to Azure or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) for information on how to connect multiple resources on-premises to resources in Azure through a site-to-site VPN or an ExpressRoute.
 

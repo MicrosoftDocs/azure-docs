@@ -1,11 +1,11 @@
 ---
 title: Use Azure Firewall to protect Azure Virtual Desktop
-description: Learn how to use Azure Firewall to protect Azure Virtual Desktop deployments
+description: Learn how to use Azure Firewall to protect Azure Virtual Desktop deployments.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 12/14/2023
 ms.author: victorh
 ---
 
@@ -29,7 +29,66 @@ To learn more about Azure Virtual Desktop terminology, see [Azure Virtual Deskto
 
 The Azure virtual machines you create for Azure Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall uses the Azure Virtual Desktop FQDN tag `WindowsVirtualDesktop` to simplify this configuration. You need to create an Azure Firewall Policy and create Rule Collections for Network Rules and Applications Rules. Give the Rule Collection a priority and an *allow* or *deny* action.
 
-You need to create rules for each of the required FQDNs and endpoints. The list is available at [Required FQDNs and endpoints for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md). In order to identify a specific host pool as *Source*, you can create an [IP Group](../firewall/ip-groups.md) with each session host to represent it. 
+You need to create an Azure Firewall Policy and create Rule Collections for Network Rules and Applications Rules. Give the Rule Collection a priority and an allow or deny action.
+In order to identify a specific AVD Host Pool as "Source" in the tables below, [IP Group](../firewall/ip-groups.md) can be created to represent it. 
+
+### Create network rules
+
+The following table lists the ***mandatory*** rules to allow outbound access to the control plane and core dependent services. For more information, see [Required FQDNs and endpoints for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
+
+# [Azure cloud](#tab/azure)
+
+| Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
+| --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| Rule Name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | FQDN             | `login.microsoftonline.com` |
+| Rule Name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | Service Tag      | `WindowsVirtualDesktop`, `AzureFrontDoor.Frontend`, `AzureMonitor` |
+| Rule Name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | FQDN             | `gcs.prod.monitoring.core.windows.net` |
+| Rule Name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | [Address of the DNS server used]  |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 1688              | IP address       | `azkms.core.windows.net` |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 1688              | IP address       | `kms.core.windows.net` |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | FQDN             | `mrsglobalsteus2prod.blob.core.windows.net` |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | FQDN             | `wvdportalstorageblob.blob.core.windows.net` |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 80                | FQDN             | `oneocsp.microsoft.com` |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 80                | FQDN             | `www.microsoft.com` |
+
+# [Azure for US Government](#tab/azure-for-us-government)
+
+| Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
+| --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| Rule Name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | FQDN             | `login.microsoftonline.us` |
+| Rule Name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | Service Tag      | `WindowsVirtualDesktop`, `AzureMonitor` |
+| Rule Name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | FQDN             | `gcs.monitoring.core.usgovcloudapi.net` |
+| Rule Name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 1688              | IP address       | `kms.core.usgovcloudapi.net`|
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | FQDN             | `mrsglobalstugviffx.blob.core.usgovcloudapi.net` |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 443               | FQDN             | `wvdportalstorageblob.blob.core.usgovcloudapi.net` |
+| Rule name | IP Address or Group  | IP Group, VNet or Subnet IP Address | TCP      | 80                | FQDN             | `ocsp.msocsp.com` |
+
+---
+
+> [!NOTE]
+> Some deployments might not need DNS rules. For example, Microsoft Entra Domain Services domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
+
+Depending on usage and scenario, **optional** Network rules can be used: 
+
+| Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
+| ----------| -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | UDP      | 123               | FQDN             | `time.windows.com` |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `login.windows.net` |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `www.msftconnecttest.com` |
+
+
+### Create application rules
+
+Depending on usage and scenario, **optional** Application rules can be used: 
+
+| Name      | Source type          | Source                    | Protocol   | Destination type | Destination                                                                                 |
+| --------- | -------------------- | --------------------------| ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN Tag         | `WindowsUpdate`, `Windows Diagnostics`, `MicrosoftActiveProtectionService` |
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | `*.events.data.microsoft.com`|
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | `*.sfx.ms` |
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | `*.digicert.com` |
+| Rule Name | IP Address or Group  | VNet or Subnet IP Address | Https:443  | FQDN             | `*.azure-dns.com`, `*.azure-dns.net` |
 
 > [!IMPORTANT]
 > We recommend that you don't use TLS inspection with Azure Virtual Desktop. For more information, see the [proxy server guidelines](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).
@@ -49,6 +108,6 @@ If you want to filter outbound user internet traffic by using an existing on-pre
 
 Admins can allow or deny user access to different website categories. Add a rule to your Application Collection from your specific IP address to web categories you want to allow or deny. Review all the [web categories](web-categories.md).
 
-## Next steps
+## Next step
 
 - Learn more about Azure Virtual Desktop: [What is Azure Virtual Desktop?](../virtual-desktop/overview.md)

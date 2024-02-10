@@ -21,6 +21,8 @@ An _asset_ is a physical device or logical entity that represents a device, a ma
 
 _OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
 
+In this quickstart, you use the Azure IoT Operations portal to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
+
 ## Prerequisites
 
 Complete [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) before you begin this quickstart.
@@ -33,7 +35,7 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 ## Sign into the Azure IoT Operations portal
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 > [!IMPORTANT]
 > You must use a work or school account to sign in to the Azure IoT Operations portal. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
@@ -68,9 +70,19 @@ To add an asset endpoint:
 
 1. To save the definition, select **Create**.
 
-This configuration deploys a new module called `opc-ua-connector-0` to the cluster. After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
+    This configuration deploys a new asset endpoint called `opc-ua-connector-0` to the cluster. You can use `kubectl` to view the asset endpoints:
 
-When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
+    ```console
+    kubectl get assetendpointprofile -n azure-iot-operations
+    ```
+
+    After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server. You can use `kubectl` to view the discovery pod that was created when you added the asset endpoint. The pod name looks like `aio-opc-opc.tcp-1-8f96f76-kvdbt`:
+
+    ```console
+    kubectl get pods -n azure-iot-operations
+    ```
+
+    When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
 To enable the asset endpoint to use an untrusted certificate:
 
@@ -159,40 +171,15 @@ Review your asset and tag details and make any adjustments you need before you s
 
 ## Verify data is flowing
 
-To verify data is flowing from your assets by using the **mqttui** tool. In this quickstart you run the **mqttui** tool inside your Kubernetes cluster:
+[!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
 
-1. Run the following command to deploy a pod that includes the **mqttui** and **mosquitto** tools that are useful for interacting with the MQ broker in the cluster:
+To verify that the thermostat asset you added is publishing data, view the telemetry in the `azure-iot-operations/data` topic:
 
-    ```console
-    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
-    ```
+:::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
 
-    The following snippet shows the YAML file that you applied:
+If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
 
-    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/mqtt-client.yaml":::
-
-    > [!CAUTION]
-    > This configuration isn't secure. Don't use this configuration in a production environment.
-
-1. When the **mqtt-client** pod is running, run the following command to create a shell environment in the pod you created:
-
-    ```console
-    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
-    ```
-
-1. At the shell in the **mqtt-client** pod, run the following command to connect to the MQ broker using the **mqttui** tool:
-
-    ```console
-    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
-    ```
-
-1. Verify that the thermostat asset you added is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
-
-    :::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
-
-    If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod.
-
-    First, find the name of your `aio-opc-opc.tcp-1` pod by using the following command:
+1. Find the name of your `aio-opc-opc.tcp-1` pod by using the following command:
 
     ```console
     kubectl get pods -n azure-iot-operations
@@ -200,7 +187,7 @@ To verify data is flowing from your assets by using the **mqttui** tool. In this
 
     The name of your pod looks like `aio-opc-opc.tcp-1-849dd78866-vhmz6`.
 
-    Then restart the `aio-opc-opc.tcp-1` pod by using a command that looks like the following example. Use the `aio-opc-opc.tcp-1` pod name from the previous step:
+1. Restart the `aio-opc-opc.tcp-1` pod by using a command that looks like the following example. Use the `aio-opc-opc.tcp-1` pod name from the previous step:
 
     ```console
     kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
@@ -264,6 +251,8 @@ To verify the configuration, run the following command to view the Akri instance
 ```console
 kubectl get akrii -n azure-iot-operations
 ```
+
+Note that it may take a few minutes for the instance to show up.
 
 The output from the previous command looks like the following example. You may need to wait for a few seconds for the Akri instance to be created:
 

@@ -28,19 +28,20 @@ This walkthrough is an example of deploying Azure IoT Operations to a special en
 
 In this example, you Arc-enable AKS Edge Essentials or K3S clusters in the isolated layer of an ISA-95 network environment using the Layered Network Management service running in one level above.
 The network and cluster architecture are described as follows:
-- A level 4 single-node cluster running on a host machine with:
-    - Direct access to the internet.
-    - A secondary network interface card (NIC) connected to the local network. The secondary NIC makes the level 4 cluster visible to the level 3 local network.
+- A level 4 single-node cluster running on a host machine with direct access to the internet.
 - A custom DNS in the local network. See the [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns) for the options. To set up the environment quickly, you should use the *CoreDNS* approach instead of a DNS server.
-- The level 3 cluster connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
+- The level 3 cluster that is blocked from accessing internet. It connects to the Layered Network Management service as a proxy for all the Azure Arc related traffic.
 
-![Diagram showing a level 4 and level 3 AKS Edge Essentials network.](./media/howto-configure-aks-edge-essentials-layered-network/arc-enabled-aks-edge-essentials-cluster.png)
+For more information, see [Example of logical segmentation with minimum hardware](howto-configure-layered-network.md#example-of-logical-segmentation-with-minimum-hardware).
 
-### Configure level 4 AKS Edge Essentials and Layered Network Management
+![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
+
+
+### Configure level 4 Kubernetes cluster and Layered Network Management
 
 After you configure the network, you need to configure the level 4 Kubernetes cluster. Complete the steps in [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md). In the article, you:
 
-- Set up a Windows 11 machine and configure AKS Edge Essentials.
+- Set up a Windows 11 machine and configure AKS Edge Essentials or set up K3S Kubernetes on an Ubuntu machine.
 - Deploy and configure the Layered Network Management service to run on the cluster.
 
 You need to identify the **local IP** of the host machine. In later steps, you direct traffic from level 3 to this IP address with a custom DNS.
@@ -49,9 +50,9 @@ After you complete this section, the Layered Network Management service is ready
 
 ### Configure the custom DNS
 
-In the local network, you need to set up the mechanism to redirect all the network traffic to the Layered Network Management service. Use the steps in [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns). In the article:
-    - If you choose the *CoreDNS* approach, you can skip to *Configure and Arc enable level 3 cluster* and configure the CoreDNS before your Arc-enable the level 3 cluster.
-    - If you choose to use a *DNS server*, follow the steps to set up the DNS server before you move to the next section in this article.
+In the local network, you need to set up the mechanism to redirect all the network traffic to the Layered Network Management service. Use the steps in [Configure custom DNS](howto-configure-layered-network.md#configure-custom-dns). In the article: 
+- If you choose the *CoreDNS* approach, you can skip to *Configure and Arc enable level 3 cluster* and configure the CoreDNS before your Arc-enable the level 3 cluster.
+- If you choose to use a *DNS server*, follow the steps to set up the DNS server before you move to the next section in this article.
 
 ### Configure and Arc enable level 3 cluster
 
@@ -75,7 +76,7 @@ For more information, see [Access Kubernetes resources from Azure portal](/azure
 
 Once your level 3 cluster is Arc-enabled, you can deploy IoT Operations to the cluster. All IoT Operations components are deployed to the level 3 cluster and connect to Arc through the Layered Network Management service. The data pipeline also routes through the Layered Network Management service.
 
-![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-aks-edge-essentials-layered-network/iot-operations-level-3-cluster.png)
+![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-layered-network/logical-network-segmentation-2.png)
 
 Follow the steps in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to deploy IoT Operations to the level 3 cluster.
 

@@ -2,7 +2,6 @@
 title: Microsoft Defender for Cloud integration with Defender External attack surface management (EASM)
 description: Learn about Defender for Cloud integration with Defender External attack surface management (EASM)
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 03/05/2023
 ---
 
@@ -28,4 +27,4 @@ EASM collects data for publicly exposed assets (“outside-in”). Defender for 
 
 - Learn about [cloud security explorer and attack paths](concept-attack-path.md) in Defender for Cloud.
 - Learn about [Defender EASM](../external-attack-surface-management/index.md).
-- Learn how [deploy Defender for EASM](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md).
+- Learn how to [deploy Defender for EASM](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md).

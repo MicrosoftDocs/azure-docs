@@ -1,9 +1,9 @@
 ---
 title: HC-series VM overview - Azure Virtual Machines| Microsoft Docs
-description: Learn about the preview support for the HC-series VM size in Azure. 
+description: Learn about the preview support for the HC-series VM size in Azure.
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 04/18/2023
 ms.reviewer: wwilliams
@@ -54,7 +54,7 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 | OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+  |
 | Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)  |
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
 
 ## Next steps

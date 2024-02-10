@@ -1,5 +1,5 @@
 ---
-title: Delete operations on Azure Cosmos DB for Apache Cassandra from Spark 
+title: Delete operations on Azure Cosmos DB for Apache Cassandra from Spark
 description: This article details how to delete data in tables in Azure Cosmos DB for Apache Cassandra from Spark
 author: TheovanKraay
 ms.author: thvankra
@@ -8,8 +8,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.devlang: scala
-ms.custom: ignite-2022
+ms.devlang: spark-scala
 ---
 
 # Delete data in Azure Cosmos DB for Apache Cassandra tables from Spark

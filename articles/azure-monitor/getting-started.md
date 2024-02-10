@@ -21,7 +21,7 @@ To enable Azure Monitor to monitor all of your Azure resources, you need to both
 - Configure Azure resources to generate monitoring data for Azure Monitor to collect.
 
 > [!IMPORTANT]
-> If you're new to Azure Monitor or are want to monitor a single Azure resource, start with the [Monitor Azure resources with Azure Monitor tutorial](essentials/monitor-azure-resource.md). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This article provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
+> If you're new to Azure Monitor or want to monitor a single Azure resource, start with the [Monitor Azure resources with Azure Monitor tutorial](essentials/monitor-azure-resource.md). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This article provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
 
 ## Getting started workflow
 These articles provide detailed information about each of the main steps you'll need to do when getting started with Azure Monitor.
@@ -40,7 +40,7 @@ This section provides answers to common questions.
 
 ### How do I enable Azure Monitor?
 
-Azure Monitor is enabled the moment that you create a new Azure subscription, and [activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
+Azure Monitor is enabled the moment that you create a new Azure subscription, and [activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add monitoring solutions to provide extra analysis on collected data for particular services.
 
 ### How do I access Azure Monitor?
 

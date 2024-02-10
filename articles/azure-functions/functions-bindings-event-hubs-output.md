@@ -3,7 +3,7 @@ title: Azure Event Hubs output binding for Azure Functions
 description: Learn to write messages to Azure Event Hubs streams using Azure Functions.
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
-ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/03/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -195,6 +195,27 @@ def eventhub_output(req: func.HttpRequest, event: func.Out[str]):
     return 'ok'
 ```
 
+Here's Python code that sends multiple messages:
+```python
+import logging
+import azure.functions as func
+from typing import List
+
+app = func.FunctionApp()
+
+@app.function_name(name="eventhub_output")
+@app.route(route="eventhub_output")
+@app.event_hub_output(arg_name="event",
+                      event_hub_name="<EVENT_HUB_NAME>",
+                      connection="<CONNECTION_SETTING>")
+
+def eventhub_output(req: func.HttpRequest, event: func.Out[List[str]]) -> func.HttpResponse:
+    my_messages=["message1", "message2","message3"]
+    event.set(my_messages)
+    return func.HttpResponse(f"Messages sent")
+```
+
+
 # [v1](#tab/python-v1)
 
 The following examples show Event Hubs binding data in the *function.json* file.
@@ -221,6 +242,19 @@ def main(timer: func.TimerRequest) -> str:
     timestamp = datetime.datetime.utcnow()
     logging.info('Message created at: %s', timestamp)
     return 'Message created at: {}'.format(timestamp)
+```
+
+Here's Python code that sends multiple messages:
+```python
+import logging
+from typing import List
+import azure.functions as func
+
+
+def main(req: func.HttpRequest, messages:func.Out[List[str]]) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+    messages.set([{"message1"}, {"message2"}])
+    return func.HttpResponse(f"Messages sent")
 ```
 
 ---

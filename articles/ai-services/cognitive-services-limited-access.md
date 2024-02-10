@@ -25,8 +25,8 @@ Limited Access services are made available to customers under the terms governin
 
 The following services are Limited Access: 
 
-- [Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context): Pro features and personal voice features
-- [Custom Text to speech avatar](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context): All features
+- [Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context): Pro features 
+- [Custom text to speech avatar](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context): All features
 - [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/ai-services/speech-service/context/context): All features 
 - [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context): Identify and Verify features, face ID property
 - [Azure AI Vision](/legal/cognitive-services/computer-vision/limited-access?context=/azure/ai-services/computer-vision/context/context): Celebrity Recognition feature 
@@ -42,6 +42,7 @@ Features of these services that aren't listed above are available without regist
 Submit a registration form for each Limited Access service you would like to use: 
 
 - [Custom Neural Voice](https://aka.ms/customneural): Pro features 
+- [Custom text to speech avatar](https://aka.ms/customneural): All features 
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features
 - [Azure AI Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
@@ -67,15 +68,6 @@ Managed customers work with Microsoft account teams. We invite you to submit a r
 ### What happens if I'm an existing customer and I don't register? 
 
 Existing customers have until June 30, 2023 to submit a registration form and be approved to continue using Limited Access services after June 30, 2023. We recommend allowing 10 business days for review. Without an approved application, you will be denied access after June 30, 2023.  
-
-The registration forms can be found here: 
-
-- [Custom Neural Voice](https://aka.ms/customneural): Pro features 
-- [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
-- [Face API](https://aka.ms/facerecognition): Identify and Verify features
-- [Azure AI Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
-- [Azure AI Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features
-- [Azure OpenAI: [Azure OpenAI service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu), modified abuse monitoring, and modified content filters
 
 ### I'm an existing customer who applied for access to Custom Neural Voice or Speaker Recognition, do I have to register to keep using these services? 
 

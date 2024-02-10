@@ -8,6 +8,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
+ms.subservice: mqtt
 ---
 # MQTT Clients Life Cycle Events 
 
@@ -272,13 +273,13 @@ The sequence number on the MQTTClientSessionConnected and MQTTClientSessionDisco
 - MQTTClientSessionConnected > "sequenceNumber": 2
 - MQTTClientSessionDisconnected > "sequenceNumber": 2
 
-Here is a sample logic to order the events:
+Here's a sample logic to order the events:
 For each client:
 - Store the sequence number and the connection status from the first event.
 - For every new MQTTClientSessionConnected event:
     - if the new sequence number is greater than the previous one, update the sequence number and the connection status to match the new event.
 - For every new MQTTClientSessionDisconnected event:
-    - if the new sequence number is equal than or greater than the previous one, update the sequence number and the connection status to match the new event.
+    - if the new sequence number is equal or greater than the previous one, update the sequence number and the connection status to match the new event.
 
 ## Next steps
 - To learn more about system topics, go to [System topics in Azure Event Grid](system-topics.md)

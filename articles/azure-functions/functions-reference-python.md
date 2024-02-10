@@ -212,6 +212,65 @@ The main project folder, *<project_root>*, can contain the following files:
 
 When you deploy your project to a function app in Azure, the entire contents of the main project folder, *<project_root>*, should be included in the package, but not the folder itself, which means that *host.json* should be in the package root. We recommend that you maintain your tests in a folder along with other functions (in this example, *tests/*). For more information, see [Unit testing](#unit-testing).
 
+## Connect to a database
+
+[Azure Cosmos DB](../cosmos-db/introduction.md) is a fully managed NoSQL and relational database for modern app development including AI, digital commerce, Internet of Things, booking management, and other types of solutions. It offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Its various APIs can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
+
+To connect to Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you may connect Functions to Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md). You may also use the Python library for Cosmos DB, like so:
+
+```python
+pip install azure-cosmos
+
+from azure.cosmos import CosmosClient, exceptions
+from azure.cosmos.partition_key import PartitionKey
+
+# Replace these values with your Cosmos DB connection information
+endpoint = "https://azure-cosmos-nosql.documents.azure.com:443/"
+key = "master_key"
+database_id = "cosmicwerx"
+container_id = "cosmicontainer"
+partition_key = "/partition_key"
+
+# Set the total throughput (RU/s) for the database and container
+database_throughput = 1000
+
+# Initialize the Cosmos client
+client = CosmosClient(endpoint, key)
+
+# Create or get a reference to a database
+try:
+    database = client.create_database_if_not_exists(id=database_id)
+    print(f'Database "{database_id}" created or retrieved successfully.')
+
+except exceptions.CosmosResourceExistsError:
+    database = client.get_database_client(database_id)
+    print('Database with id \'{0}\' was found'.format(database_id))
+
+# Create or get a reference to a container
+try:
+    container = database.create_container(id=container_id, partition_key=PartitionKey(path='/partitionKey'))
+    print('Container with id \'{0}\' created'.format(container_id))
+
+except exceptions.CosmosResourceExistsError:
+    container = database.get_container_client(container_id)
+    print('Container with id \'{0}\' was found'.format(container_id))
+
+# Sample document data
+sample_document = {
+    "id": "1",
+    "name": "Doe Smith",
+    "city": "New York",
+    "partition_key": "NY"
+}
+
+# Insert a document
+container.create_item(body=sample_document)
+
+# Query for documents
+query = "SELECT * FROM c where c.id = 1"
+items = list(container.query_items(query, enable_cross_partition_query=True))
+```
+
 ::: zone pivot="python-mode-decorators"
 ## Blueprints
 
@@ -604,13 +663,9 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ::: zone pivot="python-mode-decorators"  
 
-The HTTP trigger is defined in the *function.json* file. The `name` of the binding must match the named parameter in the function.
+The HTTP trigger is defined as a method that takes a named binding parameter, which is an [HttpRequest] object, and returns an [HttpResponse] object. You apply the `function_name` decorator to the method to define the function name, while the HTTP endpoint is set by applying the `route` decorator. 
 
-In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
-
-From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body.
-
-The following example is from the HTTP trigger template for the Python v2 programming model. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
+This example is from the HTTP trigger template for the Python v2 programming model, where the binding parameter name is `req`. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
 
 ```python
 @app.function_name(name="HttpTrigger1")
@@ -636,7 +691,7 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-In this function, you obtain the value of the `name` query parameter from the `params` parameter of the [HttpRequest] object. You read the JSON-encoded message body by using the `get_json` method.
+From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body. In this function, you obtain the value of the `name` query parameter from the `params` parameter of the [HttpRequest] object. You read the JSON-encoded message body by using the `get_json` method.
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
@@ -720,7 +775,7 @@ async def get_name(name: str):
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
     return func.AsgiMiddleware(app).handle(req, context)
 ```
-For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/).
+<!-- For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/). -->
 
 # [WSGI](#tab/wsgi)
 
@@ -970,6 +1025,10 @@ requests==2.19.1
 ```bash
 pip install -r requirements.txt
 ```
+
+When running your functions in an [App Service plan](./dedicated-plan.md), dependencies that you define in requirements.txt are given precedence over built-in Python modules, such as `logging`. This precedence can cause conflicts when built-in modules have the same names as directories in your code. When running in a [Consumption plan](./consumption-plan.md) or an [Elastic Premium plan](./functions-premium-plan.md), conflicts are less likely because your dependencies aren't prioritized by default. 
+
+To prevent issues running in an App Service plan, don't name your directories the same as any Python native modules and don't include Python native libraries in your project's requirements.txt file.
 
 ## Publishing to Azure
 

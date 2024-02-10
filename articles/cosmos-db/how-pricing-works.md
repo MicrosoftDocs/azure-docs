@@ -1,13 +1,13 @@
 ---
-title: Pricing model of Azure Cosmos DB 
+title: Pricing model of Azure Cosmos DB
 description: This article explains the pricing model of Azure Cosmos DB and how it simplifies your cost management and cost planning.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2022
-ms.custom: cosmos-db-video, ignite-2022
+ms.date: 01/05/2024
+ms.custom: cosmos-db-video
 ---
 
 # Pricing model in Azure Cosmos DB
@@ -27,7 +27,7 @@ The pricing model of Azure Cosmos DB simplifies the cost management and planning
 
   - **Serverless**: In [serverless](serverless.md) mode, you don't have to provision any throughput when creating resources in your Azure Cosmos DB account. At the end of your billing period, you get billed for the number of Request Units that has been consumed by your database operations.
 
-- **Storage**: You're billed a flat rate for the total amount of storage (in GBs) consumed by your data and indexes for a given hour. Storage is billed on a consumption basis, so you don't have to reserve any storage in advance. You're billed only for the storage you consume.
+- **Storage**: You're billed a flat rate for the total amount of storage (in GBs) consumed by your data and indexes for a given hour. Storage is billed on a consumption basis, so you don't have to reserve any storage in advance. You're billed only for the storage you consume. The smallest amount of data billed for any non empty container is 1 GB.
 
 The pricing model in Azure Cosmos DB is consistent across all APIs. For more information, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/), [Understanding your Azure Cosmos DB bill](understand-your-bill.md) and [How Azure Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md).
 

@@ -6,14 +6,14 @@ ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 12/08/2023
 ms.author: banders
 ms.custom: references_regions
 ---
 
 # Save on select VMs in US West for a limited time
 
-Save up to 50 percent compared to pay-as-you-go pricing when you purchase one-year [Azure Reserved Virtual Machine (VM) Instances](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3) for `Dv3s` VMs in US West for a limited time. This offer is available between September 1, 2023 – November 30, 2023.
+Save up to 50 percent compared to pay-as-you-go pricing when you purchase one-year [Azure Reserved Virtual Machine (VM) Instances](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3) for `Dv3s` VMs in US West for a limited time. This offer is available between September 1, 2023 – February 29, 2024.
 
 ## Purchase the limited time offer
 
@@ -25,7 +25,7 @@ Enterprise Agreement and Microsoft Customer Agreement billing readers can view a
 
 ## Terms and conditions of the limited time offer
 
-These terms and conditions (hereinafter referred to as "terms") govern the limited time offer ("offer") provided by Microsoft to customers purchasing a one-year Azure Reserved VM Instance in US West between September 1, 2023 (12 AM Pacific Standard Time) – November 30, 2023 (11:59 PM Pacific Standard Time), for any of the following VM series:
+These terms and conditions (hereinafter referred to as "terms") govern the limited time offer ("offer") provided by Microsoft to customers purchasing a one-year Azure Reserved VM Instance in US West between September 1, 2023 (12 AM Pacific Standard Time) – February 29, 2024 (11:59 PM Pacific Standard Time), for any of the following VM series:
 
 - D2v3
 - D4v3
@@ -52,7 +52,7 @@ The offer provides them with a discount up to 50% compared to pay-as-you-go pric
 - Payment will be processed using the payment method on file for the selected subscriptions.
 - Estimated savings are calculated based on your current on-demand rate.
 
-**Qualifying purchase** - To be eligible for the 50% discount, customers must make a purchase of the one-year Azure Reserved Virtual Machine Instances. The purchase must be for one of the following qualified VMs in US West between September 1, 2023, and November 30, 2023:
+**Qualifying purchase** - To be eligible for the 50% discount, customers must make a purchase of the one-year Azure Reserved Virtual Machine Instances. The purchase must be for one of the following qualified VMs in US West between September 1, 2023, and February 29, 2024:
 
 - D2v3
 - D4v3
@@ -83,7 +83,7 @@ Instance size flexibility is available for these VMs. For more information about
 
 **Termination or modification** - Microsoft reserves the right to modify, suspend, or terminate the offer at any time without prior notice.
 
-If you have purchased the one-year Azure Reserved Virtual Machine Instances for the qualified VMs in US West between September 1, 2023, and November 30, 2023, you'll continue to get the discount throughout the one-year term, even if the offer is canceled.
+If you have purchased the one-year Azure Reserved Virtual Machine Instances for the qualified VMs in US West between September 1, 2023, and February 29, 2024, you'll continue to get the discount throughout the one-year term, even if the offer is canceled.
 
 By participating in the offer, customers agree to be bound by these terms and the decisions of Microsoft. Microsoft reserves the right to disqualify any customer who violates these terms or engages in any fraudulent or harmful activities related to the offer.
 

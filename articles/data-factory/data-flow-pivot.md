@@ -105,6 +105,6 @@ BasketballPlayerStats pivot(groupBy(Tm),
 
 ```
 
-## Next steps
+## Related content
 
 Try the [unpivot transformation](data-flow-unpivot.md) to turn column values into row values. 

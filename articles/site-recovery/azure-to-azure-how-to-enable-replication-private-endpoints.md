@@ -4,7 +4,7 @@ description: This article describes how to configure replication for VMs with pr
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/23/2022
 ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---

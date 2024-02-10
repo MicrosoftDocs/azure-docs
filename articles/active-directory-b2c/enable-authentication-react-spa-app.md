@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a React developer, I want to enable Azure Active Directory B2C authentication in my React application, so that users can sign in using Azure AD B2C and access protected resources.
+
 ---
 
 # Enable authentication in your own React Application by using Azure Active Directory B2C

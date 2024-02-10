@@ -69,13 +69,7 @@ Enter a name that:
 
 The user has successfully created an Azure Managed Grafana instance but can't access their Managed Grafana instance, when going to the endpoint URL.
 
-<a name='solution-1-use-an-azure-ad-account'></a>
-
-### Solution 1: use a Microsoft Entra account
-
-Managed Grafana doesn't support Microsoft accounts. Sign in with a Microsoft Entra account.
-
-### Solution 2: check the provisioning state
+### Solution 1: check the provisioning state
 
 If you get a page with an error message such as "can't reach this page", stating that the page took too long to respond, follow the process below:
 
@@ -89,7 +83,7 @@ If you get a page with an error message such as "can't reach this page", stating
 
 1. If you have a firewall blocking outbound traffic, allow access to your instance, to your URL ending in grafana.azure.com, and Microsoft Entra ID.
 
-### Solution 3: fix access role issues
+### Solution 2: fix access role issues
 
 If you get an error page stating "No Roles Assigned":
 

@@ -6,9 +6,8 @@ description: Data and service limitations for Azure AI Language features.
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 10/05/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ---
 

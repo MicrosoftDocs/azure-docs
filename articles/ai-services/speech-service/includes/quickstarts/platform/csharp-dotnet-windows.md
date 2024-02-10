@@ -2,14 +2,13 @@
 title: 'Speech SDK for .NET Framework (Windows) platform setup - Speech service'
 titleSuffix: Azure AI services
 description: 'Use this guide to set up your platform for C# under the .NET Framework for Windows with the Speech SDK.'
-#services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 09/05/2023
 ms.author: eur
-ms.custom: devx-track-dotnet, ignite-fall-2021
+ms.custom: devx-track-dotnet
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for a .NET Framework (Windows) console app.

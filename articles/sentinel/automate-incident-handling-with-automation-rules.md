@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 06/27/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Automate threat response in Microsoft Sentinel with automation rules
@@ -19,7 +18,7 @@ Automation rules are a way to centrally manage automation in Microsoft Sentinel,
 Automation rules apply to the following categories of use cases:
 
 - Perform basic automation tasks for incident handling without using playbooks. For example:
-    - [Add incident tasks](incident-tasks.md) (in Preview) for analysts to follow.
+    - [Add incident tasks](incident-tasks.md) for analysts to follow.
     - Suppress noisy incidents.
     - Triage new incidents by changing their status from New to Active and assigning an owner.
     - Tag incidents to classify them.
@@ -52,7 +51,7 @@ The following table shows the different possible scenarios that will cause an au
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
+| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft Defender XDR.<br>- A new incident is created manually. |
 | **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 | **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
 
@@ -106,7 +105,7 @@ One of these properties is **Updated by**. This property lets you track the type
 - an alert grouping (that added alerts to the incident)
 - a playbook
 - an automation rule
-- Microsoft 365 Defender
+- Microsoft Defender XDR
 
 Using this condition, for example, you can instruct this automation rule to run on any change made to an incident, except if it was made by another automation rule.
 
@@ -133,7 +132,7 @@ Currently the only condition that can be configured for the alert creation trigg
 
 Actions can be defined to run when the conditions (see above) are met. You can define many actions in a rule, and you can choose the order in which they’ll run (see below). The following actions can be defined using automation rules, without the need for the [advanced functionality of a playbook](automate-responses-with-playbooks.md):
 
-- Adding a task to an incident - you can create a [checklist of tasks for analysts to follow](incident-tasks.md) throughout the processes of triage, investigation, and remediation of the incident, to ensure that no critical steps are missed.
+- Adding a task to an incident – you can create a [checklist of tasks for analysts to follow](incident-tasks.md) throughout the processes of triage, investigation, and remediation of the incident, to ensure that no critical steps are missed.
 
 - Changing the status of an incident, keeping your workflow up to date.
 

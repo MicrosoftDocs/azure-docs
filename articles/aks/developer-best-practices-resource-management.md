@@ -31,7 +31,7 @@ Use pod requests and limits to manage compute resources within an AKS cluster. P
 
 *Pod requests* define a set amount of CPU and memory the pod needs regularly.
 
-In your pod specifications, it's important you define these requests and limits based on the above information. If you don't include these values, the Kubernetes scheduler can't consider the resources your applications requires to help with scheduling decisions.
+In your pod specifications, it's important you define these requests and limits based on the above information. If you don't include these values, the Kubernetes scheduler can't consider the resources your applications require to help with scheduling decisions.
 
 Monitor the performance of your application to adjust pod requests. If you underestimate pod requests, your application may receive degraded performance due to over-scheduling a node. If requests are overestimated, your application may have increased scheduling difficulty.
 
@@ -47,7 +47,7 @@ Monitor the performance of your application at different times during the day or
 
 > [!IMPORTANT]
 >
-> In your pod specifications, define these requests and limits based on the above information. Failing to include these values prevents the Kubernetes scheduler from accounting for resources your applications requires to help with scheduling decisions.
+> In your pod specifications, define these requests and limits based on the above information. Failing to include these values prevents the Kubernetes scheduler from accounting for resources your applications require to help with scheduling decisions.
 
 If the scheduler places a pod on a node with insufficient resources, application performance is degraded. Cluster administrators **must set *resource quotas*** on a namespace that requires you to set resource requests and limits. For more information, see [resource quotas on AKS clusters][resource-quotas].
 

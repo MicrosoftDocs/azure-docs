@@ -32,7 +32,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
 
-3. No [NSG rules](../virtual-network/network-security-groups-overview.md#outbound) or [UDRs](./troubleshoot-nat-connectivity.md#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../virtual-network/network-security-groups-overview.md#outbound) or UDRs are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
@@ -54,7 +54,7 @@ Refer to the table below for which tools to use to validate NAT gateway connecti
 
 ### How to analyze outbound connectivity
 
-To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the NSG flow log will be that of the virtual machine and not of the NAT gateway.
+To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the NSG flow log is for the virtual machine and not the NAT gateway.
 
 * To learn more about NSG flow logs, see [NSG flow log overview](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
@@ -104,7 +104,7 @@ NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a
 
 ### Can't attach NAT gateway to a subnet that contains a virtual machine NIC in a failed state
 
-When associating a NAT gateway to a subnet that contains a virtual machine network interface (NIC) in a failed state, you'll receive an error message indicating that this action can't be performed. You must first resolve the VM NIC failed state before you can attach a NAT gateway to the subnet.
+When associating a NAT gateway to a subnet that contains a virtual machine network interface (NIC) in a failed state, you receive an error message indicating that this action can't be performed. You must first resolve the VM NIC failed state before you can attach a NAT gateway to the subnet.
 
 To get your virtual machine NIC out of a failed state, you can use one of the two following methods. 
 
@@ -156,17 +156,17 @@ NAT gateway can't be associated with more than 16 public IP addresses. You can u
 
 The following IP prefix sizes can be used with NAT gateway: 
 
-* /28 (sixteen addresses) 
+* /28 (16 addresses) 
 
-* /29 (eight addresses) 
+* /29 (8 addresses) 
 
-* /30 (four addresses) 
+* /30 (4 addresses) 
 
-* /31 (two addresses) 
+* /31 (2 addresses) 
 
 ### IPv6 coexistence
 
-[NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but will still only use IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources. See [Configure dual stack outbound connectivity with NAT gateway and public Load balancer](/azure/virtual-network/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer?tabs=dual-stack-outbound-portal) to learn how to provide IPv4 and IPv6 outbound connectivity from your dual stack subnet.
+[NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but only uses IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources. See [Configure dual stack outbound connectivity with NAT gateway and public Load balancer](/azure/virtual-network/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer?tabs=dual-stack-outbound-portal) to learn how to provide IPv4 and IPv6 outbound connectivity from your dual stack subnet.
 
 ### Can't use basic SKU public IPs with NAT gateway 
 
@@ -176,7 +176,7 @@ NAT gateway is a standard SKU resource and can't be used with basic SKU resource
 
 NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to ‘no zone’. When NAT gateway is placed in ‘no zone’, Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
 
-NAT gateway can be used with public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration. Follow guidance below: 
+NAT gateway can be used with public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration.
 
 | NAT gateway availability zone designation | Public IP address / prefix designation that can be used |
 |---|---|
@@ -185,6 +185,12 @@ NAT gateway can be used with public IP addresses designated to a specific zone, 
 
 >[!NOTE]
 >If you need to know the zone that your NAT gateway resides in, make sure to designate it to a specific availability zone. 
+
+## More troubleshooting guidance
+
+If the issue you're experiencing isn't covered by this article, refer to the other NAT gateway troubleshooting articles:
+* [Troubleshoot outbound connectivity with NAT Gateway](/azure/nat-gateway/troubleshoot-nat-connectivity)
+* [Troubleshoot outbound connectivity with NAT Gateway and other Azure services](/azure/nat-gateway/troubleshoot-nat-and-azure-services)
 
 ## Next steps
 

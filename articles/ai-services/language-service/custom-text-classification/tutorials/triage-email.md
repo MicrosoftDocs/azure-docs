@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: tutorial
-ms.date: 01/27/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ---
 

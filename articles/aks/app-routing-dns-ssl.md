@@ -1,13 +1,13 @@
 ---
-title: Set up advanced Ingress configurations on Azure Kubernetes Service 
-description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service. 
+title: Set up a custom domain name and SSL certificate with the application routing add-on for Azure Kubernetes Service (AKS)
+description: Understand the advanced configuration options that are supported with the application routing add-on for Azure Kubernetes Service (AKS). 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 12/04/2023
 ---
 
-#  Set up advanced Ingress configurations with the application routing add-on
+# Set up a custom domain name and SSL certificate with the application routing add-on
 
 An Ingress is an API object that defines rules, which allow external access to services in an Azure Kubernetes Service (AKS) cluster. When you create an Ingress object that uses the application routing add-on nginx Ingress classes, the add-on creates, configures, and manages one or more Ingress controllers in your AKS cluster.
 
@@ -18,14 +18,14 @@ This article shows you how to set up an advanced Ingress configuration to encryp
 The application routing add-on with nginx delivers the following:
 
 * Easy configuration of managed nginx Ingress controllers.
-* Integration with an external DNS such as [Azure DNS][azure-dns-overview] for public and private zone management
+* Integration with an external DNS such as [Azure DNS][azure-dns-overview] for global and private zone management
 * SSL termination with certificates stored in a key vault, such as [Azure Key Vault][azure-key-vault-overview].
 
 ## Prerequisites
 
 - An AKS cluster with the [application routing add-on][app-routing-add-on-basic-configuration].
 - Azure Key Vault if you want to configure SSL termination and store certificates in the vault hosted in Azure.
-- Azure DNS if you want to configure public and private zone management and host them in Azure.
+- Azure DNS if you want to configure global and private zone management and host them in Azure.
 - To attach an Azure Key Vault or Azure DNS Zone, you need the [Owner][rbac-owner], [Azure account administrator][rbac-classic], or [Azure co-administrator][rbac-classic] role on your Azure subscription.
 
 ## Connect to your AKS cluster
@@ -57,9 +57,11 @@ az keyvault create -g <ResourceGroupName> -l <Location> -n <KeyVaultName> --enab
 
 ### Create and export a self-signed SSL certificate
 
-> [!NOTE]
-> If you already have a certificate, you can skip this step.
-> 
+For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. If you already have a certificate, you can skip this step.
+
+> [!CAUTION]
+> Self-signed certificates are digital certificates that are not signed by a trusted third-party CA. Self-signed certificates are created, issued, and signed by the company or developer who is responsible for the website or software being signed. This is why self-signed certificates are considered unsafe for public-facing websites and applications. Azure Key Vault has a [trusted partnership with the some Certificate Authorities](../key-vault/certificates/how-to-integrate-certificate-authority.md).
+
 1. Create a self-signed SSL certificate to use with the Ingress using the `openssl req` command. Make sure you replace *`<Hostname>`* with the DNS name you're using.
 
     ```bash
@@ -106,11 +108,12 @@ az aks approuting update -g <ResourceGroupName> -n <ClusterName> --enable-kv --a
 
 ## Enable Azure DNS integration
 
-To enable support for DNS zones, see the following prerequisites:
+To enable support for DNS zones, review the following prerequisite:
 
-* The app routing add-on can be configured to automatically create records on one or more Azure public and private DNS zones for hosts defined on Ingress resources. All global Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
+* The app routing add-on can be configured to automatically create records on one or more Azure global and private DNS zones for hosts defined on Ingress resources. All global Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
 
-### Create a global Azure DNS zone
+
+### Create a public Azure DNS zone
 
 > [!NOTE]
 > If you already have an Azure DNS Zone, you can skip this step.
@@ -148,11 +151,17 @@ The application routing add-on creates an Ingress class on the cluster named *we
     az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
     ```
 
+   The following example output shows the certificate URI returned from the command:
+
+    ```output
+    https://KeyVaultName.vault.azure.net/certificates/KeyVaultCertificateName/ea62e42260f04f17a9309d6b87aceb44
+    ```
+
 2. Copy the following YAML manifest into a new file named **ingress.yaml** and save the file to your local computer.
 
-    > [!NOTE]
-    > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault.
-    > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, secretName will need to be equal to `keyvault-<your Ingress name>`.
+   Update *`<Hostname>`* with the name of your DNS host and *`<KeyVaultCertificateUri>`* with the URI returned from the command to query Azure Key Vault in step 1 above. The string value for `*<KeyVaultCertificateUri>*` should only include `https://yourkeyvault.vault.azure.net/certificates/certname`. The *Certificate Version* at the end of the URI string should be omitted in order to get the current version.
+
+   The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate is presented in the browser when a client browses to the URL specified in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, `secretName` needs to be equal to `keyvault-<your Ingress name>`.
 
     ```yml
     apiVersion: networking.k8s.io/v1
@@ -233,7 +242,7 @@ Learn about monitoring the Ingress-nginx controller metrics included with the ap
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [create-and-export-a-self-signed-ssl-certificate]: #create-and-export-a-self-signed-ssl-certificate
-[create-an-azure-dns-zone]: #create-a-global-azure-dns-zone
+[create-an-azure-dns-zone]: #create-a-public-azure-dns-zone
 [azure-dns-overview]: ../dns/dns-overview.md
 [az-keyvault-certificate-show]: /cli/azure/keyvault/certificate#az-keyvault-certificate-show
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md

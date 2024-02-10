@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 08/10/2023
 ---
 
@@ -567,7 +567,7 @@ This pipeline performs two steps:
 
 3. Connect to your sink Azure Synapse Analytics and confirm that data has been copied from Azure SQL Database properly.
 
-## Next steps
+## Related content
 
 You performed the following steps in this tutorial: 
 

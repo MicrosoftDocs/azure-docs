@@ -6,14 +6,13 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 07/14/2021
+ms.date: 1/22/2024
 ms.author: eur
-#Customer intent: As a user of the Translator service, I want to learn how encryption at rest works.
 ---
 
 # Speech service encryption of data at rest
 
-Speech service automatically encrypts your data when it is persisted it to the cloud. Speech service encryption protects your data and to help you to meet your organizational security and compliance commitments.
+Speech service automatically encrypts your data when it's persisted it to the cloud. Speech service encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
 ## About Azure AI services encryption
 
@@ -21,12 +20,12 @@ Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki
 
 ## About encryption key management
 
-When you use Custom Speech and Custom Voice, Speech service may store following data in the cloud:  
+When you use custom speech and custom voice, Speech service might store the following data in the cloud:  
 
 * Speech trace data - only if your turn the trace on for your custom endpoint
 * Uploaded training and test data
 
-By default, your data are stored in Microsoft's storage and your subscription uses Microsoft-managed encryption keys. You also have an option to prepare your own storage account. Access to the store is managed by the Managed Identity, and Speech service cannot directly access to your own data, such as speech trace data, customization training data and custom models.
+By default, your data are stored in Microsoft's storage and your subscription uses Microsoft-managed encryption keys. You also have an option to prepare your own storage account. Access to the store is managed by the Managed Identity, and Speech service can't directly access to your own data, such as speech trace data, customization training data and custom models.
 
 For more information about Managed Identity, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
 

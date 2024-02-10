@@ -149,6 +149,8 @@ To configure the custom OPC UA discovery handler with asset detection, first you
     kubectl get akrii -n azure-iot-operations
     ```
 
+    Note that it may take a few minutes for the instance to show up.
+
     You can inspect the instance custom resource by using an editor such as OpenLens, under `CustomResources/akri.sh/Instance`.
 
     You can also view the custom resource definition YAML of the instance that was created:

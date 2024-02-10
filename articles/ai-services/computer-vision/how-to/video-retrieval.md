@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 10/16/2023
 ms.author: pafarley
-ms.custom: 
 ---
 
 # Do video retrieval using vectorization (version 4.0 preview)
@@ -20,7 +19,7 @@ Azure AI Spatial Analysis Video Retrieval APIs are part of Azure AI Vision and e
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-- Once you have your Azure subscription, [create a Vision resource using the portal](/azure/cognitive-services/cognitive-services-apis-create-account). For this preview, you must create your resource in the East US region.
+- Once you have your Azure subscription, [create a Vision resource using the portal](/azure/cognitive-services/cognitive-services-apis-create-account). For this preview, you must create your resource in the one of the following regions - Australia East, Switzerland North, Sweden Central, or East US.
 - An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 
 ## Input requirements
@@ -207,7 +206,7 @@ Connection: close
 After you add video files to the index, the ingestion process starts. It might take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **[Get Ingestion](../reference-video-search.md)** API to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
 
 ```bash
-curl.exe -v _X GET "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: <YOUR_SUBSCRIPTION_KEY>"
+curl.exe -v -X GET "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: <YOUR_SUBSCRIPTION_KEY>"
 ```
 
 **Response:**
@@ -242,7 +241,7 @@ After you add video files to the index, you can search for specific videos using
 To perform a search using the "vision" feature, use the [Search By Text](../reference-video-search.md) API with the `vision` filter, specifying the query text and any other desired filters.
 
 ```bash
-POST -v -X "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
+curl.exe -v -X POST "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
 {
   'queryText': 'a man with black hoodie',
   'filters': {

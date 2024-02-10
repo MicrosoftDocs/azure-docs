@@ -6,11 +6,8 @@ summary: Learn how to use Event Hubs to ingest millions of events per second fro
 metadata:
   title: Azure Event Hubs documentation
   description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications.
-  services: event-hubs
   ms.service: event-hubs
-  ms.subservice: 
   ms.topic: landing-page
-  ms.collection: collection
   author: spelluru
   ms.author: spelluru
   ms.date: 01/12/2023

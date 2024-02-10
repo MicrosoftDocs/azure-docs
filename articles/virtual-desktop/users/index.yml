@@ -7,7 +7,6 @@ metadata:
   title: Azure Virtual Desktop user documentation
   description: Access your Windows desktop and applications from virtually anywhere, fully optimized for Windows 11 and Microsoft 365.
   ms.service: virtual-desktop
-  services: virtual-desktop
   ms.topic: landing-page
   author: dknappettmsft
   ms.author: daknappe

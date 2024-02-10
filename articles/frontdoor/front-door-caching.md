@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 11/08/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
@@ -193,6 +192,8 @@ If the `Cache-Control` header isn't present on the response from the origin, by 
 > [!NOTE]
 > Cache expiration can't be greater than **366 days**.
 > 
+
+You may see `REVALIDATED_HIT` in the `Cache-Control` response header. This indicates that the cached content in Azure Front Door was revalidated with the origin server before being served to the client. This can happen when the cached content has expired, but the origin server indicates that the content hasn't changed. In this case, the cached content is served to the client, and the cache expiration is reset.
 
 ## Request headers
 

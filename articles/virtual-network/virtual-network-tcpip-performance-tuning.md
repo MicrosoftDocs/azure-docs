@@ -1,12 +1,11 @@
 ---
 title: TCP/IP performance tuning for Azure VMs
-description: Learn various common TCP/IP performance tuning techniques and their relationship to Azure VMs. 
+description: Learn various common TCP/IP performance tuning techniques and their relationship to Azure VMs.
 services: virtual-network
 author: asudbring
 manager: paragk
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: allensu
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
@@ -155,7 +154,7 @@ The scale factor is also a setting that you can configure in an operating system
 
 Here's the calculation for a window scale factor of 3 and a window size of 65,535:
 
-`65,535 * (2^3) = 262,140 bytes`
+`65,535 * (2^3) = 524,280 bytes`
 
 A scale factor of 14 results in a TCP window size of 14 (the maximum offset allowed). The TCP window size will be 1,073,725,440 bytes (8.5 gigabits).
 

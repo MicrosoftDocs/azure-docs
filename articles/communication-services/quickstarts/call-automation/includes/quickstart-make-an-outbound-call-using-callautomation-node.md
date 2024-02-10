@@ -53,7 +53,7 @@ Then update your `.env` file with following values:
 - `CALLBACK_URI`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `TARGET_PHONE_NUMBER`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `ACS_RESOURCE_PHONE_NUMBER`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
-- `COGNITIVE_SERVICES_ENDPOINT`: update field with your cognitive services endpoint.
+- `COGNITIVE_SERVICES_ENDPOINT`: update field with your Azure AI services endpoint.
 
 ```dosini
 CONNECTION_STRING="<YOUR_CONNECTION_STRING>" 
@@ -66,7 +66,7 @@ COGNITIVE_SERVICES_ENDPOINT="<COGNITIVE_SERVICEs_ENDPOINT>"
 
 ## Make an outbound call and play media
 
-To make the outbound call from ACS, you use the phone number you provided to the environment. Ensure that the phone number is in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+To make the outbound call from Azure Communication Services, you use the phone number you provided to the environment. Ensure that the phone number is in the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 
 The code makes an outbound call using the target_phone_number you've provided and place an outbound call to that number: 
 

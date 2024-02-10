@@ -29,7 +29,7 @@ Complete the following tutorial to create a new function app a secured storage a
 
 # [Deployment templates](#tab/templates)
 
-Use Bicep or Azure Resource Manager (ARM) [quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints) to create secured function app and storage account resources.
+Use Bicep files or Azure Resource Manager (ARM) templates to create a secured function app and storage account resources. When you create a secured storage account in an automated deployment, you must also specifically set the `WEBSITE_CONTENTSHARE` setting and create the file share as part of your deployment. For more information, including links to example deployments, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). 
 
 ---
 
@@ -62,8 +62,8 @@ To secure the storage for an existing function app:
     | Setting name | Value | Comment |
     |----|----|----|
     | `AzureWebJobsStorage`| Storage connection string | This is the connection string for a secured storage account. |
-    | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |  Storage connection string | This is the connection string for a secured storage account. This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
-    | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside. This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
+    | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |  Storage connection string | This is the connection string for a secured storage account. This setting is required for Consumption and Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
+    | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside. This setting is required for Consumption and Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. |
     | `WEBSITE_CONTENTOVERVNET` | 1 | A value of 1 enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. |
 
 1. Select **Save** to save the application settings. Changing app settings causes the app to restart.  

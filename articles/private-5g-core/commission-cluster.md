@@ -230,9 +230,6 @@ Collect each of the values in the table below.
 
 The Azure Private 5G Core private mobile network requires a custom location and specific Kubernetes extensions that you need to configure using the Azure CLI in Azure Cloud Shell.
 
-> [!TIP]
-> The commands in this section require the `k8s-extension` and `customlocation` extensions to the Azure CLI tool to be installed. If you do not already have them, a prompt will appear to install these when you run commands that require them. See [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview) for more information on automatic extension installation.
-
 1. Sign in to the Azure CLI using Azure Cloud Shell and select **Bash** from the dropdown menu.
 
 1. Set the following environment variables using the required values for your deployment:
@@ -250,6 +247,8 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 
     ```azurecli
     az account set --subscription "$SUBSCRIPTION_ID"
+    az extension add --upgrade --name k8s-extension
+    az extension add --upgrade --name customlocation
     ```
 
 1. Create the Network Function Operator Kubernetes extension:

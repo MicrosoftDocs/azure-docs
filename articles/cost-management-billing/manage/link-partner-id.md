@@ -139,12 +139,6 @@ Any user from the partner organization who manages a customer's Azure resources 
 
 Yes. A linked partner ID can be changed, added, or removed.
 
-**What if a user has an account in more than one customer tenant?**
-
-The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
-
-However, if you're managing customer resources through Azure Lighthouse, you should create the link in your service provider tenant, using an account that has access to the customer resources. For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
-
 **Can other partners or customers edit or remove the link to the partner ID?**
 
 The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
@@ -165,13 +159,25 @@ You can't see the customer in the reports due to following reasons
 
 2. The Azure subscription where the user has [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) access doesn't have any usage.
 
-**Does link partner ID works with Azure Stack?**
+**What if a user has an account in more than one customer tenant?**
 
-Yes, You can link your partner ID for Azure Stack.
+The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
+
+However, if you're managing customer resources through [Azure Lighthouse](../../lighthouse/overview.md), you should create the link in your service provider tenant, using an account that has access to the customer resources.
 
 **How do I link my partner ID if my company uses [Azure Lighthouse](../../lighthouse/overview.md) to access customer resources?**
 
-In order for Azure Lighthouse activities to be recognized, you need to associate your Partner ID with at least one user account that has access to each of your onboarded subscriptions. The association is needed in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your Partner ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
+For Azure Lighthouse activities to be recognized, you need to associate your Partner ID with at least one user account that has access to each of your onboarded customer subscriptions. The association is needed in your service provider tenant, rather than in each customer tenant.
+
+For simplicity, we recommend creating a service principal account in your tenant, associating it with your Partner ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec).
+
+If you've already onboarded a customer, you can link the partner ID to a user account that already has permission to work in that customer's tenant so that you don't have to perform another deployment.
+
+For more information, see [Onboard a customer to Azure Lighthouse](../../lighthouse/how-to/onboard-customer.md).
+
+**Does linking a partner ID work with Azure Stack?**
+
+Yes, you can link your partner ID for Azure Stack.
 
 **How do I explain Partner Admin Link (PAL) to my Customer?**
 

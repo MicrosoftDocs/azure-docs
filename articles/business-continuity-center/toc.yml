@@ -16,6 +16,8 @@
     href: tutorial-review-security-posture.md
   - name: Monitor jobs
     href: tutorial-monitor-operate.md
+  - name: Monitor alerts and metrics
+    href: tutorial-monitor-alerts-metrics.md  
   - name: Monitoring protection summary
     href: tutorial-monitor-protection-summary.md
   - name: Govern and view compliance

@@ -6,9 +6,8 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
-ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 06/01/2023
+ms.date: 01/05/2024
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -1283,7 +1282,7 @@ You may encounter the following issues before the improvement, but after the imp
  After the improvement, the parsed column result should be:<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
-## Next steps
+## Related content
 
 For more help with troubleshooting, see these resources:
 

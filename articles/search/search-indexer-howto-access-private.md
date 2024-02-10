@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/24/2023
+ms.date: 01/16/2024
 ---
 
 # Make outbound connections through a shared private link
@@ -62,7 +62,16 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network.
 
-+ You should have a minimum of Contributor permissions on both Azure AI Search and the Azure PaaS resource for which you're creating the shared private link.
++ To create a shared private link you must ensure that you have the following minimum permissions on both Azure AI Search and the data source:
+
+  a) For the data source, you should have the permission to approve private endpoint connections. For instance, if you're using an Azure Storage account as your data source (such as Blob container, Azure Files share, Azure table), you need to assign the permission `Microsoft.Storage/storageAccounts/privateEndpointConnectionsApproval/action`.
+
+  b) For the AI Search service, you need to have the permissions to read and write shared private link resources and read operation statuses. Specifically, you should have the permissions 
+     - `Microsoft.Search/searchServices/sharedPrivateLinkResources/write`
+     - `Microsoft.Search/searchServices/sharedPrivateLinkResources/read`
+     - `Microsoft.Search/searchServices/sharedPrivateLinkResources/operationStatuses/read`
+
+
 
 <a name="group-ids"></a>
 
@@ -79,6 +88,7 @@ You can create a shared private link for the following resources.
 | Microsoft.DBforMySQL/servers (preview) | `mysqlServer`|
 | Microsoft.Web/sites (preview) <sup>3</sup> | `sites` |
 | Microsoft.Sql/managedInstances (preview) <sup>4</sup>| `managedInstance` |
+| Microsoft.CognitiveServices/accounts (preview) <sup>5</sup>| `openai_account` |
 
 <sup>1</sup> If Azure Storage and Azure AI Search are in the same region, the connection to storage is made over the Microsoft backbone network, which means a shared private link is redundant for this configuration. However, if you already set up a private endpoint for Azure Storage, you should also set up a shared private link or the connection is refused on the storage side. Also, if you're using multiple storage formats for various scenarios in search, make sure to create a separate shared private link for each sub-resource.
 
@@ -87,6 +97,8 @@ You can create a shared private link for the following resources.
 <sup>3</sup> The `Microsoft.Web/sites` resource type is used for App service and Azure functions. In the context of Azure AI Search, an Azure function is the more likely scenario. An Azure function is commonly used for hosting the logic of a custom skill. Azure Function has Consumption, Premium and Dedicated [App Service hosting plans](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) aren't supported at this time.
 
 <sup>4</sup> See [Create a shared private link for a SQL Managed Instance](search-indexer-how-to-access-private-sql.md) for instructions.
+
+<sup>5</sup> The `Microsoft.CognitiveServices/accounts` resource type is used for indexer connections to Azure OpenAI when implementing [integrated Vectorization](vector-search-integrated-vectorization.md).
 
 ## 1 - Create a shared private link
 

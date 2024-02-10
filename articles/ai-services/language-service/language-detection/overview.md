@@ -7,9 +7,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 07/27/2022
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-language-detection, ignite-fall-2021
+ms.custom: language-service-language-detection
 ---
 
 # What is language detection in Azure AI Language?

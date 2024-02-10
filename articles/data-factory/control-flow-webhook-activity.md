@@ -150,7 +150,7 @@ When you use the **Report status on callback** property, you must add the follow
 }
 ```
 
-## Next steps
+## Related content
 
 See the following supported control flow activities:
 

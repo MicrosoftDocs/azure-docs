@@ -56,5 +56,5 @@ Next, you connect to the lab VM by using the remote desktop application. You can
 
 ## Next steps
 
-- As an educator, [configure RDP for Linux VMs](how-to-enable-remote-desktop-linux.md#rdp-setup)
+- As an educator, [configure RDP for Linux VMs](how-to-enable-remote-desktop-linux.md)
 - As a student, [stop the VM](how-to-use-lab.md#start-or-stop-the-vm)
