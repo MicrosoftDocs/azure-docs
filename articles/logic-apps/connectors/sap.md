@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 02/10/2024
 tags: connectors
 ---
 
@@ -273,11 +273,11 @@ To use the SAP connector, you have to install the SAP Connector NCo client libra
     
   * For Standard logic app workflows, you can install the latest 64-bit or 32-bit version for [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.3.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html). However, make sure that you install the version that matches the configuration in your Standard logic app resource. To check the version used by your logic app, follow these steps:
 
-    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app.
+    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
     1. On the logic app resource menu, under **Settings**, select **Configuration**.
 
-    1. On the **Configuration** pane, under **Platform settings**, check whether the **Platform** value is set to 64-bit or 32-bit.
+    1. On the **Configuration** page, select the **General settings** tab. Under **Platform settings**, check whether the **Platform** value is set to **64 Bit** or **32 Bit**.
 
     1. Make sure to install the version of the [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.3.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html) that matches your platform configuration.
 
@@ -706,9 +706,9 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 1. To specify your SNC Personal Security Environment (PSE) and PSE password, follow these steps:
 
-   1. On your logic app resource menu, under **Settings**, select **Configuration**.
+   1. On your logic app resource menu, under **Settings**, select **Environment variables**.
 
-   1. On the **Application settings** tab, check whether the settings named **SAP_PSE** and **SAP__PSE_Password** already exist. If they don't exist, you have to add both settings. To add a new setting, select **New application setting**, provide the following required information, and select **OK** for each setting:
+   1. On the **App settings** tab, check whether the settings named **SAP_PSE** and **SAP__PSE_Password** already exist. If they don't exist, you have to add each setting at the end of the settings list, provide the following required information, and select **Apply** for each setting:
 
       | Name | Value | Description |
       |------|-------|-------------|
@@ -1086,13 +1086,13 @@ See the steps for [SAP logging for Consumption logic apps in multi-tenant workfl
 
 When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
 
-You can control this tracing capability at the application level by using the following settings:
+You can control this tracing capability at the application level by adding the following settings:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource menu, under **Settings**, select **Configuration** to review the application settings.
+1. On the logic app menu, under **Settings**, select **Environment variables** to review the application settings.
 
-1. On the **Configuration** page, add the following application settings:
+1. On the **Environment variables** page, on the **App settings** tab, add the following application settings:
 
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
