@@ -90,9 +90,9 @@ You can choose to:
 
 4. Select **Create** or **Click here to start a new assessment** at the top of the page. The **Learn > Assessments** question pages open to the **Assessment overview** page. The **Progress** bar shows how many questions are part of this assessment. The **Milestones** table includes the assessment by default, as the initial milestone. Adding milestones can help you keep track of progress as you implement the assessment recommendations. To learn more about milestones, see [Microsoft Assessments - Milestones](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/microsoft-assessments-milestones/ba-p/3975841).
 
-:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn.png" alt-text="Sreenshot of Azure Advisor **Resume assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn.png":::
-
 5. To begin the assessment creation process, select **Continue**. The assessment begins. The steps change depending on the chosen review type.
+
+:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn-m.png" alt-text="Sreenshot of Azure Advisor **Resume assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn-m.png":::
 
 6. If you chose **Azure Well-Architected Review**: The page shown in the following image opens. On that page, select a workload type. Each workload type results in a list of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
 
@@ -128,11 +128,11 @@ When ready, select **Next**.
 
 7. For **Azure Well-Architected** reviews only. Select a Core Pillar of WAF to be used in the assessment. To learn more about well architected pillars, see [Introducing the Microsoft Azure Well-Architected Framework](https://azure.microsoft.com/blog/introducing-the-microsoft-azure-wellarchitected-framework/). When ready, select **Next**.
 
-:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar.png":::
+:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-m.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-m.png":::
 
 8. The assessment begins, the number of questions vary based on the selected assessment type. Your answers to the questions are essential to the quality of the assessment recommendations. Respond to the different question and continue clicking on **Next** until you reach a page with **View guidance**.
 
-:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-detail-2-populated.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment detail** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-detail-2-populated.png":::
+:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-detail-2-populated-m.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment detail** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-detail-2-populated-m.png":::
 
 9. Select **View guidance** to navigate to the results page. The assessment recommendations are available in Azure Advisor after a maximum of 8 hours of after completion. You can also download the recommendations immediately.
 
@@ -154,15 +154,15 @@ To learn more about permissions, see [Permissions in Azure Advisor](/azure/advis
 
 1. Open the **Assessments** main page and then any completed assessment. The recommendations list page for that assessment opens. 
 
-:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list.png" alt-text="Sreenshot of Azure Advisor **Recommendations list** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list.png":::
+:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-m.png" alt-text="Sreenshot of Azure Advisor **Recommendations list** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-m.png":::
 
-2. You can sort the recommendations based on Priority, Recommendation, and Category. You can also Group the recommendations by Category or Priority.
+2. You can sort the recommendations based on **Priority**, **Recommendation**, and **Category**. You can also use **Actions** > **Group** to group the recommendations by category or priority.
  
-:::image type="content" source="./media/advisor-waf-assessments/recommendation-list-filtered.png" alt-text="Sreenshot of Azure Advisor **Recommendations list, filtered** page." lightbox="./media/advisor-waf-assessments/recommendation-list-filtered.png":::
+:::image type="content" source="./media/advisor-waf-assessments/recommendation-list-filtered-m.png" alt-text="Sreenshot of Azure Advisor **Recommendations list, filtered** page." lightbox="./media/advisor-waf-assessments/recommendation-list-filtered-m.png":::
 
 3. Managing Advisor assessment recommendations is slightly different than managing regular Advisor recommendations.
 
-:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane.png" alt-text="Sreenshot of Azure Advisor **Recommendations list** page, detail pane." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane.png":::
+:::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane-m.png" alt-text="Sreenshot of Azure Advisor **Recommendations list** page, detail pane." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-recommendation-list-detail-pane-m.png":::
 
 From the recommendations list page, you can:
   * Select a recommendation and see details about it in a pane that opens.
@@ -178,30 +178,20 @@ For full details on managing recommendations, see [Get recommendation details an
 
 Some common questions and answers.
 
-**Q**. Can I edit previously taken assessments?
-
+**Q**. Can I edit previously taken assessments?\
 **A**. In the "Most Valuable Professionals" (MVP) program scope, assessments can't be edited once completed.
 
-
-**Q**. Can I view recommendations for the assessments not taken by me?
-
+**Q**. Can I view recommendations for the assessments not taken by me?\
 **A**. Subscription role-based access control (RBAC) limits access to recommendations and assessments in Advisor. You can see recommendations for all completed assessments only if you have Reader/Contributor access to the subscription under which assessment is created.
 
-
-**Q**. Can I take multiple assessments for a subscription?
-
+**Q**. Can I take multiple assessments for a subscription?\
 **A**. There's no limit on the number of assessments that can be taken for a subscription. However, while creating a new assessment, you're notified if an existing assessment of the same type is already created for the same subscription/workload. 
 
-
-**Q**. How do assessment-based recommendations affect my Advisor score?
-
+**Q**. How do assessment-based recommendations affect my Advisor score?\
 **A**. We're working on score strategy that will include the resolution of assessment-based recommendations as well.
 
-
-**Q**. I completed my assessment, but I don't see the recommendations and the assessment shows "In progress," why? 
-
+**Q**. I completed my assessment, but I don't see the recommendations and the assessment shows "In progress," why?\
 **A**. Currently, it could take up to a maximum of eight hours, for the recommendations to sync into Advisor after we complete the assessment in the Learn platform. We're working on fixing it. 
-
 
 ## Related content
 
