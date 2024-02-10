@@ -34,7 +34,7 @@ Condition
 ConditionVersion
 ```
 
-The following shows an example of the properties in a role definition when displayed using the [Azure portal](role-definitions-list.md#azure-portal), [Azure CLI](role-definitions-list.md#azure-cli), or the [REST API](role-definitions-list.md#rest-api):
+The following shows an example of the properties in a role definition when displayed using the [Azure CLI](role-definitions-list.md#azure-cli) or [REST API](role-definitions-list.md#rest-api):
 
 ```
 roleName
@@ -43,11 +43,11 @@ id
 roleType
 type
 description
-assignableScopes []
 actions []
 notActions []
 dataActions []
 notDataActions []
+assignableScopes []
 condition
 conditionVersion
 createdOn
@@ -62,8 +62,8 @@ The following table describes what the role properties mean.
 | --- | --- |
 | `Name`</br>`roleName` | Display name of the role. |
 | `Id`</br>`name` | Unique ID of the role. Built-in roles have the same role ID across clouds. |
-| `id` | Fully-qualified unique ID of the role. |
-| `IsCustom`</br>`roleType` | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
+| `id` | Fully qualified unique ID of the role. |
+| `IsCustom`</br>`roleType` | Indicates whether this role is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
 | `type` | Type of object. Set to `Microsoft.Authorization/roleDefinitions`.  |
 | `Description`</br>`description` | Description of the role. |
 | `Actions`</br>`actions` | Array of strings that specifies the control plane actions that the role allows to be performed. |
@@ -398,7 +398,7 @@ Examples of valid assignable scopes include:
 
 You can define only one management group in `AssignableScopes` of a custom role.
 
-Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
+Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5,000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
 
 For more information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
 
