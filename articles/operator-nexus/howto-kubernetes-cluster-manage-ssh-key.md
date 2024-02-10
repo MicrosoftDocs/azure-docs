@@ -18,7 +18,7 @@ This article describes how to configure the SSH key on your Nexus Kubernetes age
 Before proceeding with this how-to guide, it's recommended that you:
 
 * Refer to the Operator Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
-* Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
+* Ensure that you meet the outlined prerequisites in the quickstart to ensure smooth implementation of the guide.
 
 ## Configure Operator Nexus Kubernetes cluster node SSH keys
 
@@ -27,15 +27,71 @@ When you're setting up an Operator Nexus Kubernetes cluster, you need to provide
 There are a few different ways that you can provide SSH keys for your cluster nodes.
 
 * If you want to use the same SSH key for all nodes in your cluster, you can provide an array of public keys when you create the cluster. These keys are inserted into all agent pool nodes and control plane nodes.
-* If you want to use different SSH keys for different agent pools or control plane nodes, you can provide a unique public key for each pool, allows you to manage SSH access more granularly. Any new agent pool gets added to the cluster later will inherit the cluster wide keys.
-* Here are the Bicep and ARM template properties to provide SSH keys for your cluster nodes:
-  * `properties.administratorConfiguration.sshPublicKeys` - For the cluster wide keys.
-  * `initialAgentPoolConfigurations[].administratorConfiguration.sshPublicKeys` - For each agent pool, you can provide public keys that are inserted into the nodes in that pool.
-  * `controlPlaneNodeConfiguration.administratorConfiguration.sshPublicKeys` - For the control plane, you can provide public keys that are inserted into the control plane nodes.
+* If you want to use different SSH keys for different agent pools or control plane nodes, you can provide a unique public key for each pool, allows you to manage SSH access more granularly, this overrides the cluster wide keys. Any new agent pool gets added to the cluster later without keys use the cluster wide keys, if it has key then it uses the provided key.
 * If you don't provide any SSH keys when creating your cluster, no SSH keys are inserted into the nodes. This means that users can't SSH into the nodes. You can add SSH keys later by updating the cluster configuration, but can't remove those keys once it's added.
 
-Refer the [Disconnected mode access](./howto-kubernetes-cluster-connect.md#disconnected-mode-access) guide for insight into when you might need SSH keys and how to locate the node IP address.
-  
+Refer the [Disconnected mode access](./howto-kubernetes-cluster-connect.md#disconnected-mode-access) guide for steps to find the cluster node IP address.
+
+### [Azure CLI](#tab/azure-cli)
+
+Following are the variables you need to set, along with the [quickstart guide](./quickstarts-kubernetes-cluster-deployment-cli.md#create-an-azure-nexus-kubernetes-cluster) default values you can use for certain variables.
+
+`SSH_PUBLIC_KEY` -  For the cluster wide keys.
+`CONTROL_PLANE_SSH_PUBLIC_KEY` - For the control plane, you can provide public keys that are inserted into the control plane nodes.
+`INITIAL_AGENT_POOL_SSH_PUBLIC_KEY` - For each agent pool, you can provide public keys that are inserted into the nodes in that pool.
+
+```azurecli
+    az networkcloud kubernetescluster create \
+      --name "${CLUSTER_NAME}" \
+      --resource-group "${RESOURCE_GROUP}" \
+      --subscription "${SUBSCRIPTION_ID}" \
+      --extended-location name="${CUSTOM_LOCATION}" type=CustomLocation \
+      --location "${LOCATION}" \
+      --kubernetes-version "${K8S_VERSION}" \
+      --aad-configuration admin-group-object-ids="[${AAD_ADMIN_GROUP_OBJECT_ID}]" \
+      --admin-username "${ADMIN_USERNAME}" \
+      --ssh-key-values "${SSH_PUBLIC_KEY}" \
+      --control-plane-node-configuration \
+        count="${CONTROL_PLANE_COUNT}" \
+        vm-sku-name="${CONTROL_PLANE_VM_SIZE}" \
+        ssh-key-values='["${CONTROL_PLANE_SSH_PUBLIC_KEY}"]' \
+      --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE},ssh-key-values:['${INITIAL_AGENT_POOL_SSH_PUBLIC_KEY}']}]"\
+      --network-configuration \
+        cloud-services-network-id="${CSN_ARM_ID}" \
+        cni-network-id="${CNI_ARM_ID}" \
+        pod-cidrs="[${POD_CIDR}]" \
+        service-cidrs="[${SERVICE_CIDR}]" \
+        dns-service-ip="${DNS_SERVICE_IP}"
+```
+
+### [Azure ARM/Bicep](#tab/other)
+
+The `administratorConfiguration` can be inserted into the `properties` object for the cluster wide keys, and into the `initialAgentPoolConfigurations[].administratorConfiguration` object for each agent pool. The `controlPlaneNodeConfiguration.administratorConfiguration` object is used for the control plane. Update the quickstart ARM template and Bicep templates with the required keys, and in required object.
+
+```arm
+    "administratorConfiguration": {
+      "adminUsername": "[parameters('adminUsername')]",
+      "sshPublicKeys": [
+        {
+          "keyData": "[parameters('sshPublicKey')]"
+        }
+      ]
+    }
+```
+
+```bicep
+  administratorConfiguration: {
+    adminUsername: adminUsername
+    sshPublicKeys: [
+      {
+        keyData: sshPublicKey
+      }
+    ]
+  }
+```
+
+---
+
 ## Manage Operator Nexus Kubernetes cluster node SSH keys
 
 You can manage the SSH keys for the nodes in your Operator Nexus Kubernetes cluster after the cluster has been created. Updating the SSH keys is possible, but removing all SSH keys from the cluster node isn't an option. Instead, any new keys provided will replace all existing keys.
