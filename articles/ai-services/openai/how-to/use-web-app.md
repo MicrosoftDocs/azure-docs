@@ -39,7 +39,7 @@ When customizing the app, we recommend:
 
 - Resetting the chat session (clear chat) if the user changes any settings. Notify the user that their chat history will be lost.
 
-- Clearly communicating how each setting you implement will effect the user experience.
+- Clearly communicating how each setting you implement will affect the user experience.
 
 - When you rotate API keys for your Azure OpenAI or Azure Cognitive Search resource, be sure to update the app settings for each of your deployed apps to use the new keys.
 
@@ -48,7 +48,7 @@ When customizing the app, we recommend:
 
 ### Chat history
 
-You can enable chat history for your users of the web app. By enabling the feature, your users will have access to their individual previous queries and responses. 
+You can enable chat history for your users of the web app. When you enable the feature, your users will have access to their individual previous queries and responses. 
 
 To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
 
