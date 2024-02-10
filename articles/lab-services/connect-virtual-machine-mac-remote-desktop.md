@@ -12,6 +12,9 @@ ms.date: 02/16/2023
 
 # Connect to a VM using Remote Desktop Protocol on a Mac
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 In this article, you learn how to connect to a lab VM in Azure Lab Services from a Mac by using Remote Desktop Protocol (RDP).
 
 ## Install Microsoft Remote Desktop on a Mac

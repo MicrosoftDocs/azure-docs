@@ -719,6 +719,8 @@
           href: windows-aks-customer-stories.md
         - name: Migration and modernization solutions for Windows containers on AKS
           href: windows-aks-migration-modernization-solutions.md
+        - name: Use Azure Hybrid Benefit
+          href: azure-hybrid-benefit.md
     - name: Develop and run applications
       items:
         - name: Install existing applications with Helm
