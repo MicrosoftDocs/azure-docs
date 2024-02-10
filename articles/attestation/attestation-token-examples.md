@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 Attestation policy is used to process the attestation evidence and determines whether Azure Attestation issues an attestation token. Attestation token generation can be controlled with custom policies. Here are some examples of an attestation token.
 
-## Sample JSON Web Token (JWT) generated for SGX attestation
+## Sample JSON Web Token (JWT) generated for Software Guard Extensions (SGX) attestation
 
 ```
 {
@@ -71,7 +71,7 @@ Attestation policy is used to process the attestation evidence and determines wh
 }.[Signature]
 ```
 
-Some of the claims used here are considered deprecated but are fully supported.  It is recommended that all future code and tooling use the nondeprecated claim names. For more information, see [claims issued by Azure Attestation](claim-sets.md).
+Some of the claims used here are considered deprecated but are fully supported. It is recommended that all future code and tooling use the nondeprecated claim names. For more information, see [claims issued by Azure Attestation](claim-sets.md).
 
 The below claims appear only in the attestation token generated for Intel® Xeon® Scalable processor-based server platforms. The claims do not appear if the SGX enclave is not configured with [Key Separation and Sharing Support](https://github.com/openenclave/openenclave/issues/3054).
 
