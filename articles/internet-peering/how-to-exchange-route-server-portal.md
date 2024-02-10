@@ -1,23 +1,23 @@
 ---
 title: Create or modify an Exchange peering with Route Server - Azure portal
 description: Create or modify an Exchange peering with Route Server using the Azure portal.
-services: internet-peering
+ms.author: halkazwini
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 01/23/2023
-ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.date: 02/11/2024
+
+#CustomerIntent: As an administrator, I want to learn how to create or modify an an Exchange peering with Route Server using the Azure portal so I can manage my Exchange peerings.
 ---
 
 # Create or modify an Exchange peering with Route Server using the Azure portal
 
-This article describes how to create a Microsoft Exchange peering with a route server using the Azure portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
+In this article, you learn how to create a Microsoft Exchange peering with a route server using the Azure portal. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
 
+## Prerequisites
 
-## Before you begin
-* Review the [prerequisites](prerequisites.md) and the [Exchange peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.
-* If you already have Exchange peerings with Microsoft that aren't converted to Azure resources, see [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).
+- Review the [Prerequisites to set up peering with Microsoft](prerequisites.md) and the [Exchange peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.
+- If you already have Exchange peerings with Microsoft that aren't converted to Azure resources, see [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).
 
 ## Create and provision an Exchange peering
 
