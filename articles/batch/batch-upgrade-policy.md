@@ -124,7 +124,89 @@ Request Body
 
 ### SDK (C#)
 The following example describes how to create a pool with Auto OS Upgrade via C# codes:
-
+```
+public async Task CreateUpgradePolicyPool()
+{
+     // Authenticate
+     var clientId = Environment.GetEnvironmentVariable("CLIENT_ID");
+     var clientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
+     var tenantId = Environment.GetEnvironmentVariable("TENANT_ID");
+     var subscriptionId = Environment.GetEnvironmentVariable("SUBSCRIPTION_ID");
+     ClientSecretCredential credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+     ArmClient client = new ArmClient(credential, subscriptionId);
+ 
+     // Get an existing Batch account
+     string resourceGroupName = "testrg";
+     string accountName = "testaccount";
+     ResourceIdentifier batchAccountResourceId = BatchAccountResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, accountName);
+     BatchAccountResource batchAccount = client.GetBatchAccountResource(batchAccountResourceId);
+ 
+     // get the collection of this BatchAccountPoolResource
+     BatchAccountPoolCollection collection = batchAccount.GetBatchAccountPools();
+ 
+     // Define the pool
+     string poolName = "testpool";
+     BatchAccountPoolData data = new BatchAccountPoolData()
+     {
+         VmSize = "Standard_d4s_v3",
+         DeploymentConfiguration = new BatchDeploymentConfiguration()
+         {
+             VmConfiguration = new BatchVmConfiguration(new BatchImageReference()
+             {
+                 Publisher = "MicrosoftWindowsServer",
+                 Offer = "WindowsServer",
+                 Sku = "2019-datacenter-smalldisk",
+                 Version = "latest",
+             },
+             nodeAgentSkuId: "batch.node.windows amd64")
+             {
+                 NodePlacementPolicy = BatchNodePlacementPolicyType.Zonal,
+                 IsAutomaticUpdateEnabled = false
+             },
+         },
+         ScaleSettings = new BatchAccountPoolScaleSettings()
+         {
+             FixedScale = new BatchAccountFixedScaleSettings()
+             {
+                 TargetDedicatedNodes = 2,
+                 TargetLowPriorityNodes = 0,
+             },
+         },
+         UpgradePolicy = new UpgradePolicy()
+         {
+             Mode = UpgradeMode.Automatic,
+             AutomaticOSUpgradePolicy = new AutomaticOSUpgradePolicy()
+             {
+                 DisableAutomaticRollback = true,
+                 EnableAutomaticOSUpgrade = true,
+                 UseRollingUpgradePolicy = true,
+                 OSRollingUpgradeDeferral = true
+             },
+             RollingUpgradePolicy = new RollingUpgradePolicy()
+             {
+                 EnableCrossZoneUpgrade = true,
+                 MaxBatchInstancePercent = 20,
+                 MaxUnhealthyInstancePercent = 20,
+                 MaxUnhealthyUpgradedInstancePercent = 20,
+                 PauseTimeBetweenBatches = "PT0S",
+                 PrioritizeUnhealthyInstances = false,
+                 RollbackFailedInstancesOnPolicyBreach = false,
+             }
+         }
+     };
+ 
+     ArmOperation<BatchAccountPoolResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, poolName, data);
+     BatchAccountPoolResource result = lro.Value;
+ 
+     // the variable result is a resource, you could call other operations on this instance as well
+     // but just for demo, we get its data from this resource instance
+     BatchAccountPoolData resourceData = result.Data;
+     // for demo we just print out the id
+     Console.WriteLine($"Succeeded on id: {resourceData.Id}");
+}
+```
 
 ## Next steps
 
+- Learn how to use a [managed image](batch-custom-images.md) to create a pool.
+- Learn how to use the [Azure Compute Gallery](batch-sig-images.md) to create a pool.
