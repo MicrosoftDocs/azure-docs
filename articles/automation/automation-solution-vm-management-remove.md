@@ -3,15 +3,15 @@ title: Remove Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes how to remove the Start/Stop VMs during off-hours feature and unlink an Automation account from the Log Analytics workspace.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2023
+ms.date: 02/14/2023
 ms.topic: conceptual
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 ---
 
 # Remove Start/Stop VMs during off-hours from Automation account
 
 > [!NOTE]
-> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
+> Start/Stop VMs v1 is retired and we recommend you to start using [Start/Stop VMs v2](../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance.
 
 After you enable the Start/Stop VMs during off-hours feature to manage the running state of your Azure VMs, you may decide to stop using it. Removing this feature can be done using one of the following methods based on the supported deployment models:
 

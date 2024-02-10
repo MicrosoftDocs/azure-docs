@@ -3,15 +3,15 @@ title: Configure Azure Automation Start/Stop VMs during off-hours
 description: This article tells how to configure the Start/Stop VMs during off-hours feature to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2023
+ms.date: 02/10/2024
 ms.topic: conceptual
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 ---
 
 # Configure Start/Stop VMs during off-hours
 
 > [!NOTE]
-> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
+> Start/Stop VMs v1 is retired and we recommend you to start using [Start/Stop VMs v2](../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance.
 
 This article describes how to configure the [Start/Stop VMs during off-hours](automation-solution-vm-management.md) feature to support the described scenarios. You can also learn how to:
 
