@@ -84,7 +84,7 @@ After the appliance is connected, it gathers configuration and performance data 
 
 Support | Details
 --- | ---
-Supported servers | Supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and physical/bare-metal environments and infrastructure as a service (IaaS) servers of other public clouds, such as Amazon Web Services (AWS) and Google Cloud Platform () GCP). <br /><br /> You can discover up to 750 SQL Server instances or 15,000 SQL databases, whichever is less, from a single appliance. We recommend that you ensure that an appliance is scoped to discover less than 600 servers running SQL to avoid scaling issues.
+Supported servers | Supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and physical/bare-metal environments and infrastructure as a service (IaaS) servers of other public clouds, such as Amazon Web Services (AWS) and Google Cloud Platform (GCP). <br /><br /> You can discover up to 750 SQL Server instances or 15,000 SQL databases, whichever is less, from a single appliance. We recommend that you ensure that an appliance is scoped to discover less than 600 servers running SQL to avoid scaling issues.
 Windows servers | Windows Server 2008 and later are supported.
 Linux servers | Currently not supported.
 Authentication mechanism | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
@@ -97,7 +97,7 @@ Supported SQL services | Only SQL Server Database Engine is supported. <br /><br
 > [!NOTE]
 > By default, Azure Migrate and Modernize uses the most secure way of connecting to SQL instances. That is, Azure Migrate and Modernize encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the `TrustServerCertificate` property to `true`. Also, the transport layer uses Secure Socket Layer to encrypt the channel and bypass the certificate chain to validate trust. For this reason, the appliance server must be set up to trust the certificate's root authority.
 >
-> However, you can modify the connection settings by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+> However, you can modify the connection settings by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
 ### Configure the custom login for SQL Server discovery
 
@@ -291,7 +291,7 @@ After the appliance is connected, it gathers configuration data for ASP.NET web 
 
 Support | ASP.NET web apps | Java web apps
 --- | --- | ---
-Stack |VMware, Hyper-V, and Physical servers | VMware, Hyper-V, and physical servers.
+Stack |VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
 Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, and Red Hat Enterprise Linux 5/6/7.
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
@@ -354,7 +354,7 @@ This section discusses limitations to consider.
 If you're importing servers by using an RVTools XLSX file and building a business case, here are a few limitations:
 
 - Performance history duration in Azure settings aren't applicable.
-- Servers are classified as unknown in the business case utilization insights chart and are sized as-is without right sizing for Azure or Azure VMware Solution cost.
+- Servers are classified as unknown in the business case utilization insights chart and are sized as is without right sizing for Azure or Azure VMware Solution cost.
 
 #### [Assessment considerations](#tab/assessmentcase)
 
