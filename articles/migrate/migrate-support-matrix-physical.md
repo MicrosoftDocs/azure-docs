@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 # Support matrix for physical server discovery and assessment
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life (EOL) status. Please consider your use and plan accordingly.
+> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly.
 
 This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. If you want to migrate physical servers to Azure, see the [migration support matrix](migrate-support-matrix-physical-migration.md).
 
@@ -57,12 +57,12 @@ Create an account that has administrator privileges on the servers. Use this acc
 ### Option 2
 
 - Add the user account to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
-- If the Remote Management Users group isn't present, add the following user account to the group: **WinRMRemoteWMIUsers_**.
+- If the Remote Management Users group isn't present, add the following user account to the group **WinRMRemoteWMIUsers_**.
 - The account needs these permissions for the appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the Windows Management Instrumentation (WMI) classes listed here.
-- In some cases, adding the account to these groups might not return the required data from WMI classes. The account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, the user account needs to have the necessary permissions on CIMV2 Namespace and subnamespaces on the target server. To enable the required permissions, see [Troubleshoot the Azure Migrate appliance](troubleshoot-appliance.md).
+- In some cases, adding the account to these groups might not return the required data from WMI classes. The account might be filtered by [User Account Control (UAC)](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, the user account needs to have the necessary permissions on CIMV2 Namespace and subnamespaces on the target server. To enable the required permissions, see [Troubleshoot the Azure Migrate appliance](troubleshoot-appliance.md).
 
 > [!Note]
-> For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
+> For Windows Server 2008 and 2008 R2, ensure that Windows Management Framework 3.0 is installed on the servers.
 
 To discover SQL Server databases on Windows servers, both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager. Azure Migrate requires a Windows user account that's a member of the sysadmin server role.
 
@@ -136,7 +136,7 @@ Supported servers | You can perform software inventory on up to 1,000 servers di
 Operating systems | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on the OS type and the type of package manager used, here are some more commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
 Windows server access | A guest user account for Windows servers.
-Linux server access | A standard user account (non-`sudo` access) for all Linux servers.
+Linux server access | A standard user account (non-sudo access) for all Linux servers.
 Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).
 Discovery | Software inventory is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the information about the software inventory from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> Software inventory is agentless. No agent is installed on the servers.
 
@@ -253,7 +253,7 @@ Use the following sample scripts to create a login and provision it with the nec
    ```sql
   --- Create a login to run the assessment
   use master;
-  -- NOTE: SQL instances that host replicas of Always On Availability Groups must use the same SID for the SQL login.
+  -- NOTE: SQL instances that host replicas of Always On availability groups must use the same SID for the SQL login.
     -- After the account is created in one of the members, copy the SID output from the script and include this value
     -- when executing against the remaining replicas.
     -- When the SID needs to be specified, add the value to the @SID variable definition below.
@@ -375,7 +375,7 @@ Operating systems | Servers running all Windows and Linux versions that meet the
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
 Windows server access | A user account (local or domain) with administrator permissions on servers.
 Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked. <br/> <br/> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files set by using the following commands: <br/><br/> <code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/ls</code><br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/netstat</code>
-Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22(TCP).
+Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).
 Discovery method |  Agentless dependency analysis is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
 
 ## Agent-based dependency analysis requirements

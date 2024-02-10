@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 # Support matrix for VMware discovery
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly.
 
 This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to discover and assess servers in a VMware environment for migration to Azure.
 
@@ -72,7 +72,7 @@ Supported servers | You can perform software inventory on up to 10,000 servers r
 Operating systems | Servers running all Windows and Linux versions are supported.
 Server requirements | For software inventory, VMware Tools must be installed and running on your servers. The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>Windows Management Instrumentation (WMI) must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
 vCenter Server account | To interact with the servers for software inventory, the vCenter Server read-only account used for assessment must have privileges for guest operations on VMware VMs.
-Server access | You can add multiple domain and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
+Server access | You can add multiple domain and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-sudo access) for all Linux servers.
 Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory. <br /><br /> If you use domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /> <br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 Discovery | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers.<br/><br/> The appliance gathers the information about the software inventory from the server running vCenter Server through vSphere APIs.<br/><br/> Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers.
 
@@ -184,12 +184,12 @@ Use the following sample scripts to create a login and provision it with the nec
   --GO
   ```
 
-#### SQL Server Authentication
+#### SQL Server authentication
   
    ```sql
   --- Create a login to run the assessment
   use master;
-  -- NOTE: SQL instances that host replicas of Always On Availability Groups must use the same SID for the SQL login.
+  -- NOTE: SQL instances that host replicas of Always On availability groups must use the same SID for the SQL login.
     -- After the account is created in one of the members, copy the SID output from the script and include this value
     -- when executing against the remaining replicas.
     -- When the SID needs to be specified, add the value to the @SID variable definition below.
