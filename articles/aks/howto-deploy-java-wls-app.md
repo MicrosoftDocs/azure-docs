@@ -682,9 +682,9 @@ Use the following steps to verify the functionality of the deployment by viewing
 
 1. In the **Settings for weblogic-cafe** panel, select the **Testing** tab.
 
-1. Expand the **+** icon next to **weblogic-cafe**. You should see values similar to the ones in the following screenshot:
+1. Expand the **+** icon next to **weblogic-cafe**. You should see values similar to the ones in the following screenshot. In particular, look for *index.xhtml* in the **Test Point** column.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-deployment.png" alt-text="Screenshot of WLS admin login screen." border="false":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-deployment.png" alt-text="Screenshot of weblogic-cafe test points." border="false":::
 
    > [!NOTE]
    > The hyperlinks in the **Test Point** column are not selectable because we did notconfigure the admin console with the external URL on which it is running. This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
