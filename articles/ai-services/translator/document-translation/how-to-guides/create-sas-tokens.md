@@ -6,7 +6,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 01/31/2024
+ms.date: 02/12/2024
 ---
 
 # Create SAS tokens for your storage containers
@@ -25,11 +25,11 @@ In this article, you learn how to create user delegation, shared access signatur
 
 At a high level, here's how SAS tokens work:
 
-* Your application submits the SAS token to Azure Storage as part of a REST API request.
+* An application submits the SAS token to Azure Storage as part of a REST API request.
 
-* If the storage service verifies that the SAS is valid, the request is authorized.
+* The storage service verifies that the SAS is valid. If so, the request is authorized.
 
-* If the SAS token is deemed invalid, the request is declined, and the error code 403 (Forbidden) is returned.
+* The request is declined If the SAS token is deemed invalid. If so, error code 403 (Forbidden) is returned.
 
 Azure Blob Storage offers three resource types:
 
@@ -64,7 +64,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your co
 
 | Create SAS token for a container| Create SAS token for a specific file|
 |:-----:|:-----:|
-**Your storage account** → **containers** → **your container** |**Your storage account** → **containers** → **your container**→ **your file** |
+|**Your storage account** → **containers** → **your container** |**Your storage account** → **containers** → **your container**→ **your file** |
 
 1. Right-click the container or file and select **Generate SAS** from the drop-down menu.
 

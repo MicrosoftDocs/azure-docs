@@ -5,7 +5,7 @@ description: During the training execution, sentences present in parallel docume
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 01/31/2024
+ms.date: 02/12/2024
 ms.author: lajanuar
 ms.topic: conceptual
 ms.custom: cogserv-non-critical-translator
@@ -31,7 +31,7 @@ and upload with an `.align` extension. The `.align` extension signals Custom
 Translator that it should skip sentence alignment.
 
 For best results, try to make sure that you have one sentence per line in your
- files. Don't have newline characters within a sentence, it causes poor
+ files. Don't have newline characters within a sentence—it causes poor
 alignments.
 
 ## Suggested minimum number of sentences

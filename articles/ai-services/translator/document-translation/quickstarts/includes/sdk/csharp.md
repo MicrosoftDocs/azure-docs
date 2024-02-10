@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 02/09/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -73,12 +73,12 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
       * **targetUri** The URL for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
-        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers** and follow these steps to retrieve your source document(s) and target container URLS.
+        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers**, and follow these steps to retrieve your source documents and target container `URLS`.
 
           |Source|Target|
           |------|-------|
           |1. Select the checkbox next to the source container|1. Select the checkbox next to the target container.|
-          | 2. From the main window area, select a file or document(s) for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
+          | 2. From the main window area, select a file or documents for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
           | 3. The source URL is located at the top of the Properties list.|3. The target URL is located at the top of the Properties list.|
 
     * For [**Shared Access Signature (SAS) authorization**](../../../how-to-guides/create-sas-tokens.md) create these variables
@@ -233,12 +233,12 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
       * **targetUri** The URL for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
-        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers** and follow these steps to retrieve your source document(s) and target container URLS.
+        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers**, and follow these steps to retrieve your source documents and target container `URLS`.
 
           |Source|Target|
           |------|-------|
           |1. Select the checkbox next to the source container|1. Select the checkbox next to the target container.|
-          | 2. From the main window area, select a file or document(s) for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
+          | 2. From the main window area, select a file or documents for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
           | 3. The source URL is located at the top of the Properties list.|3. The target URL is located at the top of the Properties list.|
 
     * For [**Shared Access Signature (SAS) authorization**](../../../how-to-guides/create-sas-tokens.md) create these variables

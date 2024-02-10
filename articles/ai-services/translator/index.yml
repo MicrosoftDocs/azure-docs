@@ -10,7 +10,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-translator
   ms.topic: landing-page
-  ms.date: 01/31/2024
+  ms.date: 02/09/2024
   ms.author: lajanuar
 
 
@@ -83,7 +83,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-         - text: Client-library SDKs
+         - text: Client-libraries
            url: document-translation/document-sdk-overview.md
          - text: Document Translation REST APIs
            url: document-translation/reference/rest-api-guide.md

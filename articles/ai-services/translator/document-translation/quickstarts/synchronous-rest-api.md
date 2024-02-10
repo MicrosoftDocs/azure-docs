@@ -19,7 +19,7 @@ recommendations: false
 
 # Get started with synchronous translation
 
-Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format.
+Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../../translator-overview.md) service. You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format.
 
 Synchronous translation supports immediate-response processing of single-page files. The synchronous translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
@@ -27,7 +27,7 @@ Synchronous translation supports immediate-response processing of single-page fi
 
 ## Prerequisites
 
-You need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+You need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
 * Once you have your Azure subscription, create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
 
@@ -46,14 +46,14 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
     > [!NOTE]
     > The cURL package is pre-installed on most Windows 10 and Windows 11 and most macOS and Linux distributions. You can check the package version with the following commands:
-    > Windows: `curl.exe -V`.
+    > Windows: `curl.exe -V`
     > macOS `curl -V`
     > Linux: `curl --version`
 
 * If cURL isn't installed, here are installation links for your platform:
 
-  * [Windows](https://curl.haxx.se/windows/).
-  * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).
+  * [Windows](https://curl.haxx.se/windows/)
+  * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
 
 ## Headers and parameters
 
@@ -70,10 +70,10 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 |`sourceLanguage`|Specifies the language of the input document. If the `sourceLanguage` parameter isn't specified, automatic language detection is applied to determine the source language. |***Optional***|
 |`-H` or `--header` `"Ocp-Apim-Subscription-Key:{KEY}`    | Request header that specifies the Document Translation resource key authorizing access to the API.|***Required***|
 |`-F` or `--form` |The filepath to the document that you want to include with your request. Only one source document is allowed.|***Required***|
-|&bull; `document=`<br> &bull; `type={contentType}/fileExtension` |&bull; Path to the file location for your source document.</br> &bull; Content type and file extension.</br></br>  Ex: **"document=@C:\Test\test-file.md;type=text/markdown**|***Required***|
+|&bull; `document=`<br> &bull; `type={contentType}/fileExtension` |&bull; Path to the file location for your source document.</br> &bull; Content type and file extension.</br></br> Ex: **"document=@C:\Test\test-file.md;type=text/markdown**|***Required***|
 |`-o` or `--output`|The filepath to the response results.|***Required***|
 |`-F` or `--form` |The filepath to an optional glossary to include with your request. The glossary requires a separate `--form` flag.|***Optional***|
-| &bull; `glossary=`<br> &bull; `type={contentType}/fileExtension`|&bull; Path to the file location for your optional glossary file.</br> &bull; Content type and file extension.</br></br>  Ex: **"glossary=@C:\Test\glossary-file.txt;type=text/plain**|***Optional***|
+| &bull; `glossary=`<br> &bull; `type={contentType}/fileExtension`|&bull; Path to the file location for your optional glossary file.</br> &bull; Content type and file extension.</br></br> Ex: **"glossary=@C:\Test\glossary-file.txt;type=text/plain**|***Optional***|
 
 ✔️ For more information on **`contentType`**, *see* [**Supported document formats**](../overview.md#synchronous-supported-document-formats).
 

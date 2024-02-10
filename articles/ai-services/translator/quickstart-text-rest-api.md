@@ -1,13 +1,13 @@
 ---
 title: "Quickstart: Azure AI Translator REST APIs"
 titleSuffix: Azure AI services
-description: "Learn to translate text with the Translator service REST APIs. Examples are provided in C#, Go, Java, JavaScript and Python."
+description: "Learn to translate text with the Translator service REST APIs. Examples are provided in C#, Go, Java, JavaScript, and Python."
 #services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 09/06/2023
+ms.date: 02/09/2024
 ms.author: lajanuar
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, python
@@ -26,7 +26,7 @@ Try the latest version of Azure AI Translator. In this quickstart, get started u
 
 ## Prerequisites
 
-You need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+You need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
 * Once you have your Azure subscription, create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
 
@@ -104,7 +104,7 @@ For detailed information regarding Azure AI Translator service request limits, *
 
     :::image type="content" source="media/quickstarts/newtonsoft.png" alt-text="Screenshot of the NuGet package install window.":::
 
-1. Select install from the right package manager window to add the package to your project.
+1. To add the package to your project, select install from the right package manager window.
 
     :::image type="content" source="media/quickstarts/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
 <!-- checked -->
@@ -356,7 +356,7 @@ After a successful call, you should see the following response:
   > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
   > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
 
-* If you aren't using VS Code, make sure you have the following installed in your development environment:
+* If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
   * A [**Java Development Kit** (OpenJDK)](/java/openjdk/download#openjdk-17) version 8 or later.
 

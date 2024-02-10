@@ -122,7 +122,7 @@ items:
     href: document-translation/overview.md
   - name: Asynchronous Batch Translation
     items:
-    - name: "Quickstart: Try Batch Translation SDKs"
+    - name: "Quickstart: Try Batch Translation client libraries"
       displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
       href: document-translation/quickstarts/asynchronous-sdk.md
     - name:  "Quickstart: Try Batch Translation REST APIs"
@@ -262,7 +262,7 @@ items:
     - name: Model training
       displayName: tuning
       href: custom-translator/concepts/model-training.md
-    - name: BLEU score
+    - name: Bilingual Evaluation Understudy (BLEU) score
       href: custom-translator/concepts/bleu-score.md
     - name: Encrypt data at rest
       displayName: encryption,key vault,revoke

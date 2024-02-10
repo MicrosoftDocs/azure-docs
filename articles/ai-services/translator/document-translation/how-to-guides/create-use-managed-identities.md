@@ -1,13 +1,13 @@
 ---
 title: Create and use managed identities for Document Translation
 titleSuffix: Azure AI services
-description: Understand how to create and use managed identities in the Azure portal
+description: Understand how to create and use managed identities in the Azure portal.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 02/12/2024
 ms.author: lajanuar
 ---
 
@@ -64,11 +64,11 @@ To get started, you need:
         > [!NOTE]
         > It may take up to 5 min for the network changes to propagate.
 
-    Although network access is now permitted, your Translator resource is still unable to access the data in your Storage account. You need to [create a managed identity](#managed-identity-assignments) for and [assign a specific access role](#grant-storage-account-access-for-your-translator-resource) to your Translator resource. 
+    Although network access is now permitted, your Translator resource is still unable to access the data in your Storage account. You need to [create a managed identity](#managed-identity-assignments) for and [assign a specific access role](#grant-storage-account-access-for-your-translator-resource) to your Translator resource.
 
 ## Managed identity assignments
 
-There are two types of managed identities: **system-assigned** and **user-assigned**.  Currently, Document Translation supports **system-assigned managed identity**:
+There are two types of managed identities: **system-assigned** and **user-assigned**. Currently, Document Translation supports **system-assigned managed identity**:
 
 * A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting.
 
