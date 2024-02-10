@@ -63,7 +63,7 @@ Open a console window and create a new folder for your quickstart application.
         </dependency>
       </dependencies>
     </project>
-        ```
+    ```
 
 1. Update the version value (`1.0.0-beta.2`) based on the latest available version of the [azure-ai-vision-imageanalysis](https://aka.ms/azsdk/image-analysis/package/maven) package in the Maven repository.
 1. Install the SDK and dependencies by running the following in the project directory:
