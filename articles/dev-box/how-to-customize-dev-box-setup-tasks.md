@@ -186,7 +186,7 @@ Creating new tasks in a catalog allows you to create customizations tailored to 
 1.	Create a copy of the [quick start catalog](https://github.com/microsoft/devcenter-catalog) in your own repository.
 2.	Create tasks in your repository by modifying existing PowerShell scripts, or creating new scripts. Use the examples given in the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples) and [PowerShell documentation](/powershell/) to get started.
 3.	[Attach your repository to your dev center as a catalog](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI).
-4.	Create a devbox.yaml file for those tasks by following the steps in [Create your own setup tasks in devbox.yaml](#create-setup-tasks-in-devboxyaml). 
+4.	Create a devbox.yaml file for those tasks by following the steps in [Write a configuration script](#write-a-devboxyaml-configuration-script). 
 
 ## Related content
 
