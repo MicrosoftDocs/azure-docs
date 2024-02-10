@@ -27,9 +27,9 @@ By using customizations, you can automate common setup steps, save time, and red
 You can implement customizations in stages, building from a simple but functional configuration to an automated process. The stages are as follows:
 
 1. [Create a customized dev box](#create-a-customized-dev-box)
-1. [Write a configuration script](#create-setup-tasks-in-devboxyaml) 
-1. [Create new tasks in a catalog](#create-tasks-in-a-catalog) 
+1. [Write a configuration script](#write-a-devboxyaml-configuration-script) 
 1. [Add a configuration script to a code repository](#add-a-configuration-script-to-a-code-repository) 
+1. [Create new tasks in a catalog](#create-new-tasks-in-a-catalog) 
 
 > [!IMPORTANT]
 > Customizations in Microsoft Dev Box are currently in PREVIEW.
@@ -132,7 +132,7 @@ When the creation process is complete, the new dev box has nodejs and Visual Stu
 For more examples, see the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples).
 
 
-## Create setup tasks in devbox.yaml
+## Write a devbox.yaml configuration script
 
 You can define new customization tasks to apply to your dev boxes by creating your own devbox.yaml file. You can test your devbox.yaml customization script in Visual Studio Code and make any required changes without the need to create a separate dev box for each test.
 
@@ -179,7 +179,7 @@ Make your devbox.yaml file seamlessly available to your developers by uploading 
 
 The new dev box has the AzDO repository cloned, and all instructions from devbox.yaml applied. 
 
-### Create tasks in a catalog
+### Create new tasks in a catalog
 
 Creating new tasks in a catalog allows you to create customizations tailored to your development teams. You can create tasks by modifying existing PowerShell scripts and task.yaml files or creating new ones. Use the examples given in the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples) as a guide.
 
