@@ -90,7 +90,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
 
 1. Check your monitoring tools and dashboards to determine whether your workloads are all running in a healthy state after the restart. Based on the outcome, you have two options:
 
-    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, you can complete the canary upgrade. This removes the previous revision's control plane and leave behind the new revision's control plane on the cluster. Run the following command to complete the canary upgrade:
+    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, you can complete the canary upgrade. Completion of the upgrade removes the previous revision's control plane and leaves behind the new revision's control plane on the cluster. Run the following command to complete the canary upgrade:
 
       ```bash
       az aks mesh upgrade complete --resource-group $RESOURCE_GROUP --name $CLUSTER
