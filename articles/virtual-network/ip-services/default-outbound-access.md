@@ -90,6 +90,16 @@ There are multiple ways to turn off default outbound access. The following secti
 * Using CLI, when creating a subnet with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create), use the `--default-outbound` option and choose "false"
  
 * Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false"
+
+#### Private subnet limitations
+ 
+* In order to utilize to activate/update virtual machine operation systems, including Windows, it is a requirement to have an explict outbound connectivity method.
+
+* Delegated subnets cannot be marked as Private.
+
+* Existing subnets cannot currently be converted to Private.
+
+* In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (e.g. to Service Tagged destinations) will break in a Private subnet.
  
 ### Add an explicit outbound connectivity method
  
