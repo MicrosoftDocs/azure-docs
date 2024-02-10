@@ -31,7 +31,7 @@ For most nonautomated use-cases, we recommend using the Az CLI Extension if poss
 
 Create an ExportPipeline resource for your source container registry using Azure Resource Manager template deployment.
 
-Copy ExportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/ExportPipelines) to a local folder.
+Copy ExportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/main/docs/image-transfer/ExportPipelines) to a local folder.
 
 Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
@@ -96,7 +96,7 @@ EXPORT_RES_ID=$(az deployment group show \
 
 Create an ImportPipeline resource in your target container registry using Azure Resource Manager template deployment. By default, the pipeline is enabled to import automatically when the storage account in the target environment has an artifact blob.
 
-Copy ImportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/ImportPipelines) to a local folder.
+Copy ImportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/main/docs/image-transfer/ImportPipelines) to a local folder.
 
 Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
@@ -161,7 +161,7 @@ IMPORT_RES_ID=$(az deployment group show \
 
 Create a PipelineRun resource for your source container registry using Azure Resource Manager template deployment. This resource runs the ExportPipeline resource you created previously, and exports specified artifacts from your container registry as a blob to your source storage account.
 
-Copy PipelineRun Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Export) to a local folder.
+Copy PipelineRun Resource Manager [template files](https://github.com/Azure/acr/tree/main/docs/image-transfer/PipelineRun/PipelineRun-Export) to a local folder.
 
 Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
@@ -234,7 +234,7 @@ If you didn't enable the `sourceTriggerStatus` parameter of the import pipeline,
 
 You can also use a PipelineRun resource to trigger an ImportPipeline for artifact import to your target container registry.
 
-Copy PipelineRun Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Import) to a local folder.
+Copy PipelineRun Resource Manager [template files](https://github.com/Azure/acr/tree/main/docs/image-transfer/PipelineRun/PipelineRun-Import) to a local folder.
 
 Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
