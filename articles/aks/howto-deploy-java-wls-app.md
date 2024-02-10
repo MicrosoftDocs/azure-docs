@@ -15,11 +15,20 @@ This article demonstrates how to:
 - Run your Java, Java EE, or Jakarta EE on Oracle WebLogic Server (WLS).
 - Stand up a WLS cluster using the Azure Marketplace offer.
 - Build the application Docker image to serve as auxiliary image to provide WebLogic Deploy Tooling (WDT) models and applications.
-- Deploy the containerized application to the existing WLS cluster on AKS with connection to Microsoft Azure SQL
+- Deploy the containerized application to the existing WLS cluster on AKS with connection to Microsoft Azure SQL.
 
-This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
+This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions several Azure resources, including the following resources:
 
-For full automation, you can select your appliation and configure datasource connetion from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks).
+- An Azure Container Registry instance
+- An AKS cluster
+- An Azure App Gateway Ingress Controller (AGIC) instance
+- The WebLogic Operator
+- A container image including the WebLogic runtime
+- A WLS cluster without an application
+
+Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image provides application and WDT models.
+
+For full automation, you can select your application and configure datasource connection from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks).
 
 For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Service, see the official documentation from Oracle at [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
@@ -42,7 +51,7 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
   - A Java JDK compatible with the version of WLS you intend to run. The article directs you to install a version of WLS that uses JDK 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Ensure that you have the zip/unzip utility installed. Use `zip/unzip -v` to test whether `zip/unzip` works.
-- All of the steps in this article, with the exception of those involving Docker, can also be executed in the Azure Cloud Shell. To learn more about Azure Cloud Shell, see [What is Azure Cloud Shell?](/azure/cloud-shell/overview)
+- All of the steps in this article, except for those involving Docker, can also be executed in the Azure Cloud Shell. To learn more about Azure Cloud Shell, see [What is Azure Cloud Shell?](/azure/cloud-shell/overview)
 
 ## Deploy WLS on AKS
 
@@ -52,14 +61,14 @@ The following steps show you how to find the WLS on AKS offer and fill out the *
 
 1. In the search bar at the top of the Azure portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **WebLogic Server on AKS**.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/marketplace-search-results.png" alt-text="Screenshot of the Azure portal showing WLS in search results." lightbox="media/howto-deploy-java-wls-app/marketplace-search-results.png":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/marketplace-search-results.png" alt-text="Screenshot of the Azure portal that shows WLS in the search results." lightbox="media/howto-deploy-java-wls-app/marketplace-search-results.png":::
 
    You can also go directly to the [WebLogic Server on AKS](https://aka.ms/wlsaks) offer.
 
 1. On the offer page, select **Create**.
 1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that you logged into in Azure. Make sure you have the roles listed in the prerequisites section.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/portal-start-experience.png" alt-text="Screenshot of the Azure portal showing WebLogic Server on AKS." lightbox="media/howto-deploy-java-wls-app/portal-start-experience.png":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/portal-start-experience.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server on AKS." lightbox="media/howto-deploy-java-wls-app/portal-start-experience.png":::
 
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and then fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `ejb0723wls`.
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where AKS is available, see [AKS region availability](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
@@ -72,11 +81,11 @@ The following steps show you how to start the deployment process.
 
 1. Scroll to the section labeled **Provide an Oracle Single Sign-On (SSO) account**. Fill in your Oracle SSO credentials from the preconditions.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/configure-single-sign-on.png" alt-text="Screenshot of the Azure portal showing the configure sso pane." lightbox="media/howto-deploy-java-wls-app/configure-single-sign-on.png":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/configure-single-sign-on.png" alt-text="Screenshot of the Azure portal that shows the configured SSO pane." lightbox="media/howto-deploy-java-wls-app/configure-single-sign-on.png":::
 
 1. Follow the steps in the info box starting with **Before moving forward, you must accept the Oracle Standard Terms and Restrictions.**
 
-1. Depending on whether or not the Oracle SSO account has an Oracle support entitlement, select the appropriate option for **Select the type of WebLogic Server Images.**. If the account has a support entititlement, select **Patched WebLogic Server Images**. Otherwise, select **General WebLogic Server Images**.
+1. Depending on whether or not the Oracle SSO account has an Oracle support entitlement, select the appropriate option for **Select the type of WebLogic Server Images.**. If the account has a support entitlement, select **Patched WebLogic Server Images**. Otherwise, select **General WebLogic Server Images**.
 
 1. Leave the value in **Select desired combination of WebLogic Server...** at its default value. You have a broad range of choices for WLS, JDK, and OS version.
 
@@ -84,39 +93,39 @@ The following steps show you how to start the deployment process.
 
 The following steps make it so the WLS admin console and the sample app are exposed to the public Internet with a built-in Application Gateway ingress add-on. For a more information, see [What is Application Gateway Ingress Controller?](/azure/application-gateway/ingress-controller-overview)
 
-:::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of the Azure portal showing the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
+:::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of the Azure portal that shows the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
 
 1. Select **Next** to see the **TLS/SSL** pane.
 1. Select **Next** to see the **Load balancing** pane.
 1. Next to **Load Balancing Options**, select **Application Gateway Ingress Controller**.
-1. Under the **Application Gateway Ingress Controller**, you should see all fields pre-populated with the defaults for **Virtual network** and **Subnet**. Leave the default values.
+1. Under the **Application Gateway Ingress Controller**, you should see all fields prepopulated with the defaults for **Virtual network** and **Subnet**. Leave the default values.
 1. For **Create ingress for Administration Console**, select **Yes**.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal showing Application Gateway Ingress Controllor configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal that shows the Application Gateway Ingress Controller configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png":::
 
 1. Leave the default values for other fields.
-1. Select **Review + create**. Ensure the validation does not fail. If it fails, fix any validation problems, then select **Review + create** again.
+1. Select **Review + create**. Ensure the validation doesn't fail. If it fails, fix any validation problems, then select **Review + create** again.
 1. Select **Create**.
 1. Track the progress of the deployment on the **Deployment is in progress** page.
 
-Depending on network conditions and other activity in your selected region, the deployment may take up to 50 minutes to complete.
+Depending on network conditions and other activity in your selected region, the deployment might take up to 50 minutes to complete.
 
-You can perform the steps in the section [Create an Azure SQL Database](#create-an-azure-sql-database) while you wait. Return to this section when you have completed creating the database.
+You can perform the steps in the section [Create an Azure SQL Database](#create-an-azure-sql-database) while you wait. Return to this section when you finish creating the database.
 
 ## Examine the deployment output
 
-The steps in this section show you how to verify that the deployment has successfully completed.
+Use the steps in this section to verify that the deployment was successful.
 
-If you navigated away from the **Deployment is in progress** page, the following steps will show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to the steps after the image below.
+If you navigated away from the **Deployment is in progress** page, the following steps show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5 after the next screenshot.
 
-1. In the upper left of any portal page, select the hamburger menu and select **Resource groups**.
+1. In the corner of any Azure portal page, select the hamburger menu and select **Resource groups**.
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
-1. In the left navigation pane, in the **Settings** section, select **Deployments**. You'll see an ordered list of the deployments to this resource group, with the most recent one first.
+1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown in the following screenshot.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/resource-group-deployments.png" alt-text="Screenshot of the Azure portal showing the resource group deployments list." lightbox="media/howto-deploy-java-wls-app/resource-group-deployments.png":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/resource-group-deployments.png" alt-text="Screenshot of the Azure portal that shows the resource group deployments list." lightbox="media/howto-deploy-java-wls-app/resource-group-deployments.png":::
 
-1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
+1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin console for this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **shellCmdtoOutputWlsImageModelYaml** value is the base64 string of WDT model that built in the container image. Save this value aside for later.
@@ -138,19 +147,19 @@ The other values in the outputs are beyond the scope of this article, but are ex
 
    After a successful run, you should see the message **Query succeeded: Affected rows: 0**. If you don't see this message, troubleshoot and resolve the problem before proceeding.
 
-The database, tables, AKS cluster and WLS cluster are created. If you want, you can explore the admin console by opening a browser and navigating to the address of **adminConsoleExternalUrl**. Sign in with the values you entered during the WLS on AKS deployment.
+The database, tables, AKS cluster, and WLS cluster are created. If you want, you can explore the admin console by opening a browser and navigating to the address of **adminConsoleExternalUrl**. Sign in with the values you entered during the WLS on AKS deployment.
 
 You can proceed to preparing AKS to host your WebLogic application.
 
 ## Configure and deploy the sample application
 
-The offer provisions WLS cluster via [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/). While, currently, the WLS cluster has no application deployed.
+The offer provisions the WLS cluster via [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/). Currently, the WLS cluster has no application deployed.
 
 This section updates the WLS cluster by deploying a sample application using [auxiliary image](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/#using-docker-to-create-an-auxiliary-image).
 
 ### Check out the application
 
-In this section, you clone the sample code for this guide. The sample is on GitHub in the [weblogic-on-azure](https://github.com/microsoft/weblogic-on-azure) repository. You'll use *javaee/weblogic-cafe/*. Here's the file structure of the application.
+In this section, you clone the sample code for this guide. The sample is on GitHub in the [weblogic-on-azure](https://github.com/microsoft/weblogic-on-azure) repository in the *javaee/weblogic-cafe/* folder. Here's the file structure of the application.
 
 ```text
 weblogic-cafe
@@ -221,7 +230,7 @@ Use the following steps to build the image:
    cd ${BASE_DIR}/mystaging/models
    ```
 
-1. Copy the **shellCmdtoOutputWlsImageModelYaml** value that you saved from the deployment outputs, paste it into the Bash window, and run the command. The command will look similar to the following example:
+1. Copy the **shellCmdtoOutputWlsImageModelYaml** value that you saved from the deployment outputs, paste it into the Bash window, and run the command. The command should look similar to the following example:
 
    ```bash
    echo -e IyBDb3B5cmlna...Cgo= | base64 -d > model.yaml
@@ -282,7 +291,7 @@ Use the following steps to build the image:
            MaxThreadsConstraint: "SampleMaxThreads"
    ```
 
-1. In a similar way, copy the **shellCmdtoOutputWlsImageProperties** value, paste it into the Bash window, and run the command. The command will look similar to the following example:
+1. In a similar way, copy the **shellCmdtoOutputWlsImageProperties** value, paste it into the Bash window, and run the command. The command should look similar to the following example:
 
    ```bash
    echo -e IyBDb3B5cml...pFPTUK | base64 -d > model.properties
@@ -367,7 +376,7 @@ Use the following steps to build the image:
    EOF
    ```
 
-1. Use the following commands to create an application archive file and remove the *wlsdeploy* folder, which you won't need anymore.
+1. Use the following commands to create an application archive file and then remove the *wlsdeploy* folder, which you don't need anymore:
 
    ```bash
    cd ${BASE_DIR}/mystaging/models
@@ -473,7 +482,8 @@ Use the following steps to build the image:
 
    1. Open the Azure portal and go to the resource group that you provisioned in the [Deploy WSL on AKS](#deploy-wls-on-aks) section.
    1. Select the resource of type **Container registry** from the resource list.
-   1. Hover the mouse over the value next to **Login server** and select the copy icon to the right of the text. Set this as the value of the `ACR_LOGIN_SERVER` environment variable by using the following command:
+   1. Hover the mouse over the value next to **Login server** and select the copy icon next to the text.
+   1. Save the value in the `ACR_LOGIN_SERVER` environment variable by using the following command:
 
       ```bash
       export ACR_LOGIN_SERVER=<value-from-clipboard>
@@ -517,38 +527,36 @@ Use the following steps to build the image:
 
 In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WLS cluster, use the following steps to create the secret for the datasource URL, username, and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
 
-1. Connect to the AKS cluster.
+1. Connect to the AKS cluster. Copy the **shellCmdtoConnectAks** value that you saved aside previously, paste it into the Bash window, then run the command. The command should look similar to the following example:
 
-   - Copy the **shellCmdtoConnectAks** value that you saved aside previously, paste it into the Bash window, then run the command. The command should look similar to the following example:
+   ```bash
+   az account set --subscription <subscription>; 
+   az aks get-credentials \
+       --resource-group <resource-group> \
+       --name <name>
+   ```
 
-      ```bash
-      az account set --subscription <subscription>
-      az aks get-credentials \
-          --resource-group <resource-group> \
-          --name <name>
-      ```
+   You should see output similar to the following example. If you don't see this output, troubleshoot and resolve the problem before continuing.
 
-      You should see output similar to the following example. If you don't see this output, troubleshoot and resolve the problem before continuing.
+   ```output
+   Merged "<name>" as current context in /Users/<username>/.kube/config
+   ```
 
-      ```output
-      Merged "wlsonaks2mkgvjqpy4cl4" as current context in /Users/<username>/.kube/config
-      ```
+1. Use the following steps to create the secret for the datasource connection.
 
-1. Create secret for datasource connection.
+   This article uses the secret name `sqlserver-secret` for the secret of the datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same as the one in *dbmodel.yaml*. Make sure the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` for the database connection are set correctly.
 
-   This article uses secret name `sqlserver-secret` for the secret of the datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*. Make sure variable **DB_CONNECTION_STRING**, **DB_USER** and **DB_PASSWORD** for database connection are set correctly.
+   | Variable               | Value                                                                         | Example                                                                                       |
+   |------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+   | `DB_CONNECTION_STRING` | The connection string of SQL server. You can obtain it from the Azure portal. | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125` |
+   | `DB_USER`              | The username to sign in to the SQL server.                                    | `welogic@sqlserverforwlsaks`                                                                  |
+   | `DB_PASSWORD`          | The password to sign in to the sQL server.                                    | `Secret123456`                                                                                |
 
-   | Variable               | Value                                                               | Example                                                                                       |
-   |------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-   | `DB_CONNECTION_STRING` | The connection string of SQL server. You can obtain it from portal. | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125` |
-   | `DB_USER`              | The username to login the SQL server.                               | `welogic@sqlserverforwlsaks`                                                                  |
-   | `DB_PASSWORD`          | The password to login the sQL server.                               | `Secret123456`                                                                                |
+   Use the following steps to get the values for the variables:
 
-   Follow these steps to get the values for the variables.
+   1. Visit the SQL database resource in the Azure portal.
 
-   1. Visit the SQL database resource in the portal.
-
-   1. In the left navigation panel, under **Settings**, select **Connection strings**.
+   1. In the navigation pane, under **Settings**, select **Connection strings**.
 
    1. Select the **JDBC** tab.
 
@@ -560,7 +568,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    1. The `DB_PASSWORD` value is the value you entered when you created the database.
 
-   Be sure to enclose the value of the `DB_` variables in double quotes to prevent the shell from interferring with the values.
+   Be sure to enclose the value of the `DB_` variables in double quotes to prevent the shell from interfering with the values.
 
    ```bash
    export DB_CONNECTION_STRING="<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>"
@@ -581,7 +589,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
      weblogic.domainUID=${WLS_DOMAIN_UID}
    ```
 
-   You must see the following output before continuing. If you do not see this output, troubleshoot and resolve the problem before continuing.
+   You must see the following output before continuing. If you don't see this output, troubleshoot and resolve the problem before continuing.
 
    ```output
    secret/sqlserver-secret created
@@ -641,12 +649,12 @@ In the previous steps, you created the auxiliary image including models and WDT.
    kubectl get pod -n ${WLS_DOMAIN_NS} -w
    ```
 
-   Wait until the admin server and managed servers show the following values before proceeding. It may take a five - ten minutes for the system to reach this state. Here is a high level overview of what is happening while you wait.
+   Wait until the admin server and managed servers show the following values before proceeding. It might take 5-10 minutes for the system to reach this state. The following list provides an overview of what's happening while you wait:
 
-   - You'll see the `sample-domain1-introspector-zbtbz` running first. This software looks for changes to the domain custom resource so it can take the necessary actions on the Kubernetes cluster.
+   - You should see the `sample-domain1-introspector-zbtbz` running first. This software looks for changes to the domain custom resource so it can take the necessary actions on the Kubernetes cluster.
    - When changes are detected, the domain introspector kills and starts new pods to roll out the changes.
-   - Next, you'll see the `sample-domain1-admin-server` pod terminate and restart.
-   - Then, you'll see the two managed servers terminate and restart.
+   - Next, you should see the `sample-domain1-admin-server` pod terminate and restart.
+   - Then, you should see the two managed servers terminate and restart.
    - Only when all three pods show the `1/1 Running` state, is it ok to proceed.
 
    ```bash
@@ -658,15 +666,15 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
 ## Verify the functionality of the deployment
 
-The following steps show you how to verify the functionality of the deployment by viewing the WLS admin console and the sample app.
+Use the following steps to verify the functionality of the deployment by viewing the WLS admin console and the sample app:
 
-1. Paste the value for **adminConsoleExternalUrl** in an Internet-connected web browser. You should see the familiar WLS admin console login screen.
+1. Paste the **adminConsoleExternalUrl** value into the address bar of an Internet-connected web browser. You should see the familiar WLS admin console login screen.
 
-1. Sign in with the username `weblogic` and the password you entered when deploying WLS from the portal. Recall this was `wlsAksCluster2022`.
+1. Sign in with the username `weblogic` and the password you entered when deploying WLS from the Azure portal. Recall that this value is `wlsAksCluster2022`.
 
 1. In the **Domain Structure** box, select **Deployments**.
 
-1. In the **Deployments** table, there should be one row. The name should be the same value as the `Application` in your `appmodel.yaml` file. Select the name.
+1. In the **Deployments** table, there should be one row. The name should be the same value as the `Application` value in your *appmodel.yaml* file. Select the name.
 
 1. In the **Settings** panel, select the **Testing** tab.
 
@@ -674,22 +682,22 @@ The following steps show you how to verify the functionality of the deployment b
 
 1. In the **Settings for weblogic-cafe** panel, select the **Testing** tab.
 
-1. Expand the `+` icon next to **weblogic-cafe**. You should see values similar to these.
+1. Expand the **+** icon next to **weblogic-cafe**. You should see values similar to the ones in the following screenshot:
 
    :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-deployment.png" alt-text="Screenshot of WLS admin login screen." border="false":::
 
    > [!NOTE]
    > The hyperlinks in the **Test Point** column are not selectable because we did notconfigure the admin console with the external URL on which it is running. This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
 
-1. Understand the `context-path` of the sample app you deployed. If you deployed the recommended sample app, the `context-path` is `weblogic-cafe`.
-1. Construct a fully qualified URL for the sample app by appending the `context-path` to the value of **clusterExternalUrl**. If you deployed the recommended sample app, the fully qualified URL will be something like `http://wlsgw202401-wls-aks-domain1.eastus.cloudapp.azure.com/weblogic-cafe/`.
-1. Paste the fully qualified URL in an Internet-connected web browser. If you deployed the recommended sample app, you should see results similar to the following screenshot.
+1. Understand the `context-path` value of the sample app you deployed. If you deployed the recommended sample app, the `context-path` is `weblogic-cafe`.
+1. Construct a fully qualified URL for the sample app by appending the `context-path` to the **clusterExternalUrl** value. If you deployed the recommended sample app, the fully qualified URL should be something like `http://wlsgw202401-wls-aks-domain1.eastus.cloudapp.azure.com/weblogic-cafe/`.
+1. Paste the fully qualified URL in an Internet-connected web browser. If you deployed the recommended sample app, you should see results similar to the following screenshot:
 
    :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-app.png" alt-text="Screenshot of test web app." border="false":::
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command. The following command will remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command. The following command removes the resource group, container service, container registry, and all related resources:
 
 ```azurecli
 az group delete --name <resource-group-name> --yes --no-wait
