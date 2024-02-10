@@ -21,7 +21,7 @@ Please complete the prerequisites outlined [here](./container-registry-transfer-
 - You have a recent version of Az CLI installed in both clouds.
 
 > [!IMPORTANT]
-- The ACR Transfer supports artifacts with the layer size limits to 8 GB due to the technical limitations.
+> The ACR Transfer supports artifacts with the layer size limits to 8 GB due to the technical limitations.
 
 ## Consider using the Az CLI extension
 
