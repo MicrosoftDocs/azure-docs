@@ -11,7 +11,7 @@ ms.custom: engagement-fy24
 # Troubleshoot Start/Stop VMs during off-hours issues
 
 > [!NOTE]
-> Start/Stop VMs v1 is retired and we recommend you to start using [Start/Stop VMs v2](../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. 
+> Start/Stop VMs v1 is retired and we recommend you to start using [Start/Stop VMs v2](../../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. 
 
 This article provides information on troubleshooting and resolving issues that arise when you deploy the Azure Automation Start/Stop VMs during off-hours feature on your VMs. 
 
