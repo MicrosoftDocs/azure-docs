@@ -304,7 +304,7 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 
     :::image type="content" source="media/connect-google-cloud-platform/new-collector-dialog.png" alt-text="Screenshot of new collector side panel.":::
 
-1. Make sure that the values in all the fields match their counterparts in your GCP project, and select **Connect**. 
+1. Make sure that the values in all the fields match their counterparts in your GCP project (the values in the screenshot are samples, not literals), and select **Connect**. 
 
 # [Google Security Command Center](#tab/scc)
 
@@ -328,7 +328,7 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 
     :::image type="content" source="media/connect-google-cloud-platform/new-collector-dialog.png" alt-text="Screenshot of new collector side panel.":::
 
-1. Make sure that the values in all the fields match their counterparts in your GCP project, and select **Connect**. 
+1. Make sure that the values in all the fields match their counterparts in your GCP project (the values in the screenshot are samples, not literals), and select **Connect**. 
 
 ---
 
