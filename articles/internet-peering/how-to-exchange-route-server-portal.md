@@ -1,5 +1,6 @@
 ---
 title: Create or modify an Exchange peering with Route Server - Azure portal
+titleSuffix: Internet Peering
 description: Create or modify an Exchange peering with Route Server using the Azure portal.
 ms.author: halkazwini
 author: halkazwini
