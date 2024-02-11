@@ -165,11 +165,11 @@ val call: Call = callAgent.startCall(
 )
 ```
 
-#### Connect to a team call
+#### Connect to a Teams call
 
 ##### With External Identity
 
-Connecting to a team call is almost identical to connecting to a call. Instead of using StartCallOptions, the client application uses JoinCallOptions with a TeamsMeetingLocator.
+Connecting to a Teams call is almost identical to connecting to a call. Instead of using StartCallOptions, the client application uses JoinCallOptions with a TeamsMeetingLocator.
 
 The Teams meeting link can be retrieved using Graph APIs. The retrieval process is detailed in the [graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 
@@ -567,32 +567,32 @@ room.getStats { statsReports ->
 }
 ```
 ### Azure Communication Services
-To access media statistics, instantiate the MediaStatsCallFeature from the Call object.
+To access media statistics, instantiate the MediaStatisticsCallFeature from the Call object.
 
 **Java**
 ``` java
-MediaStatsCallFeature mediaStatsCallFeature = call.feature(Features.MEDIA_STATS);
+MediaStatisticsCallFeature mediaStatisticsCallFeature = call.feature(Features.MEDIA_STATISTICS);
 ```
 **Kotlin**
 ```kotlin
-val mediaStatsCallFeature = call.feature(Features.MEDIA_STATS)
+val mediaStatisticsCallFeature = call.feature(Features.MEDIA_STATISTICS)
 ```
 
-Subscribe to the `sampleReported` event to receive updates on media statistics. The default sampling interval is set to one second. Adjust the interval by using the `setSampleIntervalInSeconds` method within the MediaStatsCallFeature.
+Subscribe to the `reportReceived` event to receive updates on media statistics. The default sampling interval is set to one second. Adjust the interval by using the `updateReportIntervalInSeconds` method within the MediaStatsCallFeature.
 **Java**
 ```java
-mediaStatsCallFeature.setSampleIntervalInSeconds(5);
+mediaStatisticsCallFeature.updateReportIntervalInSeconds(15);
 
-mediaStatsCallFeature.addOnSampleReportedListener(event -> {
+mediaStatisticsCallFeature.addOnReportReceivedListener(event -> {
     // Stats are available
 });
 
 ```
 **Kotlin**
 ```kotlin
-mediaStatsCallFeature.apply {
-        sampleIntervalInSeconds = 5
-        addOnSampleReportedListener { event ->
+mediaStatisticsCallFeature.apply {
+        updateReportIntervalInSeconds(15)
+        addOnReportReceivedListener { event ->
              // Stats are available
         }
 }

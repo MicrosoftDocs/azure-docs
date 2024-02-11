@@ -18,6 +18,10 @@ The web UI lets you quickly connect devices, monitor device conditions, create r
 
 This article provides an overview of the features of Azure IoT Central.
 
+## Pricing
+
+Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/).
+
 ## Create an IoT Central application
 
 You can quickly deploy a new IoT Central application and then customize it to your specific requirements. Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use application templates for everything from getting a feel for what is possible, to fully customizing your application to fit your scenario.
@@ -118,10 +122,6 @@ Build IoT solutions such as:
 ## Administer your application
 
 IoT Central applications are fully hosted by Microsoft, which reduces the administration overhead of managing your applications. Administrators manage access to your application with [user roles and permissions](howto-administer.md) and track activity by using [audit logs](howto-use-audit-logs.md).
-
-## Pricing
-
-Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## User roles
 

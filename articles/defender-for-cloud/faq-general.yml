@@ -7,7 +7,7 @@ metadata:
   ms.author: dacurwin
   manager: raynew
   ms.topic: faq
-  ms.date: 06/18/2023
+  ms.date: 02/08/2024
 title: Common questions - General questions
 summary: |
 
@@ -27,7 +27,11 @@ sections:
         answer: |
           Microsoft Defender for Cloud is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To access it, [sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Defender for Cloud**.
           
-          
+      - question: |
+          Is there a trial version of Defender for Cloud?
+        answer: |
+          Defender for Cloud is free for the first 30 days. Any usage beyond 30 days is automatically charged as per the pricing scheme. [Learn more](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Note that malware scanning in Defender for Storage is not included for free in the first 30 day trial and will be charged from the first day.
+  
       - question: |
           Which Azure resources are monitored by Microsoft Defender for Cloud?
         answer: |
