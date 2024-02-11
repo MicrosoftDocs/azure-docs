@@ -13,7 +13,9 @@ ms.custom: references_regions
 This article summarizes support information for Container capabilities in Microsoft Defender for Cloud.
 
 > [!NOTE]
-> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> - Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - Only the versions of AKS, EKS and GKE supported by the cloud vendor are officially supported by Defender for Cloud.
 
 ## Azure
 
@@ -123,7 +125,7 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12)<br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows server 2016, 2019, 2022|
 | Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
-### Kubernetes distributions/configurations support - AWS
+### Kubernetes distributions/configurations support for AWS - Runtime threat protection
 
 | Aspect | Details |
 |--|--|
@@ -167,7 +169,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12)<br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows server 2016, 2019, 2022|
 | Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
-### Kubernetes distributions/configurations support - GCP
+### Kubernetes distributions/configurations support for GCP - Runtime threat protection
 
 | Aspect | Details |
 |--|--|
