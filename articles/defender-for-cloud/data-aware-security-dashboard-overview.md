@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/11/2024
 ---
 
-# Data security dashboard
+# Data security dashboard (Preview)
 
 Microsoft Defender for Cloud's data security dashboard provides an interactive view of significant risks to sensitive data. It prioritizes alerts and potential attack paths across multicloud data resources, making data protection management more effective.
 
@@ -19,14 +19,6 @@ With the data security dashboard you can:
 - Explore potential threats data by highlighting [attack paths](concept-attack-path.md) that lead to sensitive data.
 - Explore useful data insights by highlighting useful data queries in the [security explorer](how-to-manage-cloud-security-explorer.md).
 
-You can select any element on the page to get more detailed information.
-
-| Aspect | Details |
-|---------|---------|
-|Release state: | Public Preview |
-| Required roles and permissions: | Security explorer. |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png":::  Commercial clouds <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
-
 ## Prerequisites
 
 **To view the dashboard**:
@@ -37,22 +29,22 @@ You can select any element on the page to get more detailed information.
 **To receive the alerts for data sensitivity**:
 - You must [enable Defender for Storage](tutorial-enable-storage-plan.md).
 
-> [!NOTE]
-> The data security dashboard feature is turned on at the subscription level.
-
 ## Required permissions and roles
 
 To view the dashboard you must have either of the following:
 
 **Permissions**:
 
-  - Microsoft.Security/assessments/read
-  - Microsoft.Security/assessments/subassessments/read
-  - Microsoft.Security/alerts/read
+- Microsoft.Security/assessments/read
+- Microsoft.Security/assessments/subassessments/read
+- Microsoft.Security/alerts/read
 
-- **Role** - the minimum required privileged RBAC role of **Security Reader**.
+**Role** - the minimum required privileged RBAC role of **Security explorerr**.
 
-Register each relevant Azure subscription to the [Microsoft.Security resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+- Register each relevant Azure subscription to the [Microsoft.Security resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+
+> [!NOTE]
+> The data security dashboard feature is turned on at the subscription level.
 
 ## Data security overview section
 
@@ -60,19 +52,24 @@ The data security overview section provides a general overview of your cloud dat
 
 :::image type="content" source="media/data-aware-security-dashboard/data-security-overview.png" alt-text="Screenshot that shows the overview section of the data security view." lightbox="media/data-aware-security-dashboard/data-security-overview.png":::
 
-**By coverage status** - displays the limited data coverage for resources without Defender CSPM workload protection:
+- **Coverage status** - displays the limited data coverage for resources without Defender CSPM workload protection:
 
-- **Covered** – resources that have the necessary Defender CSPM, or Defender for Storage, or Defender for Databases enabled.
-- **Partially covered** – missing either the Defender CSPM, Defender for Storage, or Defender for Storage plan. Select the tooltip to present a detailed view of what is missing.
+    - **Covered** – resources that have the necessary Defender CSPM, or Defender for Storage, or Defender for Databases enabled.
+    - **Partially covered** – missing either the Defender CSPM, Defender for Storage, or Defender for Storage plan. Select the tooltip to present a detailed view of what is missing.
+    -** Not covered** - resources that are not covered by Defender CSPM, or Defender for Storage, or Defender for Databases.
+
 - **Sensitive resources** – displays how many resources are sensitive.
-- **Sensitive resources requiring attention** - displays the number of sensitive resources that have either high severity security alerts or attack paths.
+
+  - **Sensitive resources requiring attention** - displays the number of sensitive resources that have either high severity security alerts or attack paths.
 
 ## Top issues
 
 The **Top issues** section provides a highlighted view of top active and potential risks to sensitive data.
 
 - **Sensitive data resources with high severity alerts** - summarizes the active threats to sensitive data resources and which data types are at risk.
+
 - **Sensitive data resources in attack paths** - summarizes the potential threats to sensitive data resources  by presenting attack paths leading to sensitive data resources and which data types are at potential risk.
+
 - **Data queries in security explorer** - presents the top data-related queries in security explorer that helps focus on multicloud risks to sensitive data.
 
     :::image type="content" source="media/data-aware-security-dashboard/top-issues.png" alt-text="Screenshot that shows the top issues section of the data security view." lightbox="media/data-aware-security-dashboard/top-issues.png":::
