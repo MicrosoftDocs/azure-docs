@@ -20,7 +20,7 @@ In this article, you learn how to open a packet capture file provided by Network
 
 ## Prerequisites
 
-- A packet capture file created using Network Watcher. For more information, see [Manage packet captures for virtual machines using the Azure portal](network-watcher-packet-capture-manage-portal.md).
+- A packet capture file created using Network Watcher. For more information, see [Manage packet captures for virtual machines using the Azure portal](packet-capture-vm-portal.md).
 
 - Wireshark. For more information, see [https://www.wireshark.org/](https://www.wireshark.org/).
 

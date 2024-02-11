@@ -4,7 +4,6 @@ description: In this article, you create and configure Azure DDoS Network Protec
 author: TomArcherMsft
 ms.service: ddos-protection
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.custom: devx-track-terraform
 ms.author: tarcher
 ms.date: 4/14/2023

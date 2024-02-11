@@ -6,7 +6,6 @@ ms.author: jushiman
 ms.date: 12/10/2021
 ms.topic: quickstart
 ms.service: automanage
-ms.workload: infrastructure
 ms.custom: mode-ui
 ---
 
