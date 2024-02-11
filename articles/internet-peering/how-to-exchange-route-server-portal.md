@@ -90,7 +90,7 @@ In this section, you learn how to view a peering to verify its configuration and
 
 1. Select **Connections** to view the PeerAsn information.
 
-    :::image type="content" source="./media/how-to-exchange-route-server-portal/peering-connections.png" alt-text="Screenshot shows the connections of a peering in the Azure portal.":::
+    :::image type="content" source="./media/how-to-exchange-route-server-portal/peering-connections.png" alt-text="Screenshot shows the connections of a peering in the Azure portal." lightbox="./media/how-to-exchange-route-server-portal/peering-connections.png":::
 
     At the top of the screen, you see a summary of peering connections between your ASN and Microsoft, across different facilities within the metro.
 
@@ -113,7 +113,7 @@ In this section, you learn how to modify an Exchange peering.
 
 1. Select the **+ Add connections** button to add and configure a new peering connection.
 
-    :::image type="content" source="./media/how-to-exchange-route-server-portal/add-connection.png" alt-text="Screenshot shows how to add a new peering connection in the Azure portal.":::
+    :::image type="content" source="./media/how-to-exchange-route-server-portal/add-connection.png" alt-text="Screenshot shows how to add a new peering connection in the Azure portal." lightbox="./media/how-to-exchange-route-server-portal/add-connection.png":::
 
 1. In **Exchange Peering Connection**, enter or select the required information and then select **Save**. For more information, see [Create and provision an Exchange peering](#create-and-provision-an-exchange-peering).
 
@@ -123,7 +123,7 @@ In this section, you learn how to modify an Exchange peering.
 
 1. Right-click the peering connection you want to delete, and then select **Delete connection**.
 
-    :::image type="content" source="./media/how-to-exchange-route-server-portal/delete-connection.png" alt-text="Screenshot shows how to delete a peering connection in the Azure portal.":::
+    :::image type="content" source="./media/how-to-exchange-route-server-portal/delete-connection.png" alt-text="Screenshot shows how to delete a peering connection in the Azure portal." lightbox="./media/how-to-exchange-route-server-portal/delete-connection.png":::
 
 1. Confirm the delete by entering **yes** and then select **Delete**.
 
@@ -133,7 +133,7 @@ In this section, you learn how to modify an Exchange peering.
 
 1. Right-click the peering connection you want to delete, and then select **Edit connection**.
 
-    :::image type="content" source="./media/how-to-exchange-route-server-portal/edit-connection.png" alt-text="Screenshot shows how to edit a peering connection in the Azure portal.":::
+    :::image type="content" source="./media/how-to-exchange-route-server-portal/edit-connection.png" alt-text="Screenshot shows how to edit a peering connection in the Azure portal." lightbox="./media/how-to-exchange-route-server-portal/edit-connection.png":::
 
 1. Modify the **IPv4 address** or **IPv6 address** information, and select **Save**.
 
