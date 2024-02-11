@@ -4,17 +4,17 @@ description: Learn about the capabilities and functions of the data-aware securi
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: conceptual
-ms.date: 12/18/2023
+ms.date: 02/11/2024
 ---
 
 # Data security dashboard
 
-The data security dashboard addresses the need for an interactive, data-centric security dashboard that illuminates significant risks to customers' sensitive data.  This tool effectively prioritizes alerts and potential attack paths for data across multicloud data resources, making data protection management less overwhelming and more effective.
+Microsoft Defender for Cloud's data security dashboard provides an interactive view of significant risks to sensitive data. It prioritizes alerts and potential attack paths across multicloud data resources, making data protection management more effective.
 
-## Capabilities
+With the data security dashboard you can:
 
-- You can view a centralized summary of your cloud data estate that identifies the location of sensitive data, so that you can discover the most critical data resources affected.
-- You can identify the data resources that are at risk and that require attention, so that you can prioritize actions that explore, prevent and respond to sensitive data breaches.
+- Easily locate and summarize sensitive data resources in your cloud data estate.
+- Identify and prioritize data resources at risk to prevent and respond to sensitive data breaches.
 - Investigate active high severity threats that lead to sensitive data
 - Explore potential threats data by highlighting [attack paths](concept-attack-path.md) that lead to sensitive data.
 - Explore useful data insights by highlighting useful data queries in the [security explorer](how-to-manage-cloud-security-explorer.md).
@@ -24,42 +24,35 @@ You can select any element on the page to get more detailed information.
 | Aspect | Details |
 |---------|---------|
 |Release state: | Public Preview |
-| Prerequisites: | Defender for CSPM fully enabled, including sensitive data discovery <br/> Workload protection for database and storage to explore active risks |
-| Required roles and permissions: | No other roles needed on top of what is required for the security explorer. |
+| Required roles and permissions: | Security explorer. |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png":::  Commercial clouds <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government <br/> :::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
 
 ## Prerequisites
 
-In order to view the dashboard, you must enable Defender CSPM and also enable the sensitive data discovery extensions button underneath.  In addition, to receive the alerts for data sensitivity, you must also enable the Defender for Storage plan.
+**To view the dashboard**:
 
-:::image type="content" source="media/data-aware-security-dashboard/select-sensitive-data-discovery.png" alt-text="Screenshot that shows where to turn on the sensitive data discovery extension." lightbox="media/data-aware-security-dashboard/select-sensitive-data-discovery.png":::
+- You must [enable Defender CSPM](tutorial-enable-cspm-plan.md).
+- [Enable sensitive data discovery](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan) within the Defender CSPM plan.  
 
-The feature is turned on at the subscription level.
+**To receive the alerts for data sensitivity**:
+- You must [enable Defender for Storage](tutorial-enable-storage-plan.md).
+
+> [!NOTE]
+> The data security dashboard feature is turned on at the subscription level.
 
 ## Required permissions and roles
 
-- To view the dashboard you must have either one of the following:
+To view the dashboard you must have either of the following:
 
-  - permissions:
+**Permissions**:
 
-    - Microsoft.Security/assessments/read
-    - Microsoft.Security/assessments/subassessments/read
-    - Microsoft.Security/alerts/read
+  - Microsoft.Security/assessments/read
+  - Microsoft.Security/assessments/subassessments/read
+  - Microsoft.Security/alerts/read
 
-  - the minimum required privileged RBAC role of **Security Reader**.
+- **Role** - the minimum required privileged RBAC role of **Security Reader**.
 
-- Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
-
-    1. Sign-in to the Azure portal.
-    1. Select the affected subscription.
-    1. In the left-side menu, select the resource provider.
-
-        :::image type="content" source="media/data-aware-security-dashboard/select-resource-provider.png" alt-text="Screenshot that shows where to select the resource provider." lightbox="media/data-aware-security-dashboard/select-resource-provider.png":::
-
-    1. Search for and select the **Microsoft.Security** resource provider from the list.
-    1. Select **Register**.
-
-Learn more about [how to register for Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+Register each relevant Azure subscription to the [Microsoft.Security resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ## Data security overview section
 
