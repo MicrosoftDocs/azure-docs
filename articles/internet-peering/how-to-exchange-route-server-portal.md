@@ -18,7 +18,7 @@ In this article, you learn how to create a Microsoft Exchange peering with a rou
 ## Prerequisites
 
 - Review the [Prerequisites to set up peering with Microsoft](prerequisites.md) and the [Exchange peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.
-- If you already have Exchange peerings with Microsoft that aren't converted to Azure resources, see [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).
+- If you already have an Exchange peering with Microsoft that isn't converted to Azure resources, see [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).
 - Associate your public ASN with your Azure subscription. For more information, see [Associate peer ASN to Azure subscription using the Azure portal](howto-subscription-association-portal.md).
 
 ## Create and provision an Exchange peering
@@ -35,12 +35,12 @@ In this section, you learn how to create an Exchange peering with a route server
 
     :::image type="content" source="./media/how-to-exchange-route-server-portal/peerings-portal.png" alt-text="Screenshot of internet peerings page in the Azure portal." lightbox="./media/how-to-exchange-route-server-portal/peerings-portal.png":::
 
-1. In the **Basics** tab of **Create a peering**, enter or select your Azure subscription, resource group, name and ASN of the peering:
+1. In the **Basics** tab of **Create a peering**, enter or select your Azure subscription, resource group, name, and ASN of the peering:
 
     :::image type="content" source="./media/how-to-exchange-route-server-portal/create-peering-basics.png" alt-text="Screenshot of the Basics tab of creating a peering in the Azure portal.":::
 
     > [!IMPORTANT] 
-    > You can only choose an ASN with ValidationState as Approved before you submit a peering request. After submitting a PeerAsn request, wait for about 12 hours for the ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn. For more information, see [Associate peer ASN to Azure subscription using the Azure portal](howto-subscription-association-portal.md).
+    > You can only choose an ASN with ValidationState as Approved before you submit a peering request. After submitting a PeerAsn request, wait for about 12 hours for the ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you needed to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn. For more information, see [Associate peer ASN to Azure subscription using the Azure portal](howto-subscription-association-portal.md).
 
 1. Select **Next: Configuration** to continue. In the **Configuration** tab, you MUST choose the following required configurations to create a peering for Peering Service Exchange with Route Server:
 
