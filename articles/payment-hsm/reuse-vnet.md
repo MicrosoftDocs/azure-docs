@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: payment-hsm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: overview
-ms.date: 01/31/2024
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 # How to reuse an existing virtual network
