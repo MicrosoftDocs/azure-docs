@@ -23,9 +23,14 @@ The listed features were released in the last three months. For information abou
 
 ## February 2024
 
+- [New Google Pub/Sub-based connector for ingesting Security Command Center findings](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings)
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### New Google Pub/Sub-based connector for ingesting Security Command Center findings
+
+
 
 ### Incident tasks now generally available (GA)
 
