@@ -29,7 +29,7 @@ The following steps describe the process to configure your container app to use 
 
 1. Create a container app with a public image.
 1. Add the user-assigned managed identity to the container app.
-1. Create a container app revision with a private image and the system-assigned managed identity.
+1. Create a container app revision with a private image and the user-assigned managed identity.
 
 ### Prerequisites
 
@@ -117,6 +117,16 @@ You can verify that the role was added by checking the identity from the **Ident
 1. Select the user-assigned managed identity.
 1. Select **Azure role assignments** from the menu on the managed identity resource page.
 1. Verify that the `acrpull` role is assigned to the user-assigned managed identity.
+
+### Create a container app with a private image
+
+If you don't want to start by creating a container app with a public image, you can also do the following.
+
+1. Create a user-assigned managed identity.
+1. Add the `acrpull` role to the user-assigned managed identity.
+1. Create a container app with a private image and the user-assigned managed identity.
+
+This method is typical in Infrastructure as Code (IaC) scenarios.
 
 ### Clean up resources
 
