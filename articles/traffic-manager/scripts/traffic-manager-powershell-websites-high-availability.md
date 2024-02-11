@@ -8,9 +8,8 @@ tags: azure-infrastructure
 ms.service: traffic-manager
 ms.devlang: powershell
 ms.topic: article
-ms.workload: traffic-manager
 ms.date: 04/27/2023
-ms.author: greglin 
+ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
 
