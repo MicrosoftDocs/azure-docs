@@ -4,7 +4,7 @@ description: Use the SentinelHealth data table and the Health Monitoring workboo
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/02/2024
+ms.date: 02/11/2024
 ms.service: microsoft-sentinel
 ---
 
@@ -14,7 +14,7 @@ To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel s
 
 The following features allow you to perform this monitoring from within Microsoft Sentinel:
 
-- **Data connectors health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
+- **Data collection health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
 - ***SentinelHealth* data table (Preview)**: Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
 
