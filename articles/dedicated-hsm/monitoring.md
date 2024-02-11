@@ -7,7 +7,7 @@ manager: rkarlin
 ms.custom: mvc
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
