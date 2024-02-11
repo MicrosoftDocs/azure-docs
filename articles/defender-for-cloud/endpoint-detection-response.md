@@ -13,7 +13,7 @@ Microsoft Defender for Cloud provides recommendations to secure and configure yo
 
 The recommendations allow you to: 
 
-- Identify if an endpoint detection and response solution is installed on your machines.  
+- Identify if endpoint detection and response solution are installed on your multicloud machines.  
 
 - Identify gaps in the security configurations on any of the discovered endpoint detection and response solutions.
 
@@ -72,11 +72,15 @@ Defender for Cloud has the ability to detect several endpoint detection and resp
 
 ### Enable MDE integration
 
-This recommended action is present if an endpoint detection and response solution wasn't detected on the affected VM.
+This recommended action is available when:
+
+- One of the [supported endpoint detection and response solutions](#detect-endpoint-detection-and-response-solution-on-your-virtual-machine) wasn't detected on the VM.
+
+- The VM can have Microsoft Defender for Endpoint installed on it as part of the offerings included with Defender for Cloud.
 
 **To enable the Defender for Endpoint integration on the affected VM**:
 
-1. Select the affected machine. 
+1. Select the affected machine.
 
 1. (Optional) Select multiple affected machines that have the `Enable MDE integration` recommended action.
 
@@ -88,11 +92,15 @@ This recommended action is present if an endpoint detection and response solutio
 
     :::image type="content" source="media/endpoint-detection-response/enable-endpoint.png" alt-text="Screenshot that shows the pop-up window from which to enable the Defender for Endpoint integration on.":::
 
-After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
+Defender for endpoint is applied to all Windows and Linux servers within your subscription. After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
 ### Upgrade defender plan
 
-This recommended action is available if the affected VM doesn't have Defender for Servers Plan 1 or Plan 2 enabled on it.
+This recommended action is available when:
+
+- One of the [supported endpoint detection and response solutions](#detect-endpoint-detection-and-response-solution-on-your-virtual-machine) wasn't detected on the VM.
+
+- Defender for Servers plan 2 isn't enabled on the VM.
 
 **To enable the Defender for Servers on the affected VM**:
 
@@ -114,7 +122,9 @@ After the process is completed, it can take up to 24 hours until your machine ap
 
 ### Troubleshoot issues
 
-This recommended action is available if an endpoint detection and response solution was detected, but Defender for Endpoint failed to install successfully on the affected machine.
+This recommended action is available when:
+
+- Defender for Endpoint is detected on your machine, but the installation was unsuccessful.
 
 **To troubleshoot issues on your VM**:
 
@@ -128,7 +138,7 @@ This recommended action is available if an endpoint detection and response solut
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
-## Identify misconfigurations in endpoint detection and response solution
+## Detect misconfigurations in endpoint detection and response solution
 
 When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page that correct misconfigurations on your Azure VM, AWS EC2 instances, and GCP VM instances. These recommendations are only available if you have the Defender for Endpoint enabled on the VM. These recommendations check for the following security checks:
 
@@ -136,7 +146,7 @@ When Defender for Cloud detects misconfigurations in your endpoint detection and
 - `Signature out of date`
 - `Anti-virus is off or partially configured`
 
-**To identify misconfigurations in endpoint detection and response solution**:
+**To detect misconfigurations in endpoint detection and response solution**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -186,3 +196,4 @@ To determine the enabled endpoint detection and response solution on your machin
 
 ## Next steps
 
+[Prepare for the retirement of the Log Analytics agent.](prepare-deprecation-log-analytics-mma-agent.md)
