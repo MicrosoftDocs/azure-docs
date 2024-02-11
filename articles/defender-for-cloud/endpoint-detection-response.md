@@ -9,13 +9,11 @@ ms.date: 02/08/2024
 
 # Detect and configure endpoint detection and response solutions
 
-Microsoft Defender for Cloud's integration with Microsoft Defender for Endpoint provides automatic agent deployment to your servers and the ability to detect misconfigurations in previously installed endpoint detection and response solutions.
+Microsoft Defender for Cloud provides recommendations to secure and configure your endpoint detection and response solutions. By remediating these recommendations, you can ensure that your endpoint detection and response solution are compliant and secure across all environments.
 
-Defender for Cloud provides recommendations to secure and configure your endpoint detection and response solutions. By remediating these recommendations, you can ensure that your endpoint detection and response solution are compliant and secure across all environments.
+The recommendations allow you to: 
 
-The recommendations associated with Defender for Endpoint allow you to: 
-
-- Identify if an endpoint detection and response solution are installed on your machines.  
+- Identify if an endpoint detection and response solution is installed on your machines.  
 
 - Identify gaps in the security configurations on any of the discovered endpoint detection and response solutions.
 
@@ -25,30 +23,23 @@ The recommendations associated with Defender for Endpoint allow you to:
 
 - [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
 
-| Feature | Requirements |
-|--|--|
-| Detect endpoint detection and response solutions | You must have either of the following plans enabled on Defender for Cloud: <br> - [Defender for Servers plan 1 or plan 2](tutorial-enable-servers-plan.md) <br> - Enable [Defender CSPM](tutorial-enable-cspm-plan.md) <br> <br> - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) |
-| Identify misconfigurations in endpoint detection and response solutions | You must have either of the following plans enabled on Defender for Cloud: <br> - [Defender for Servers plan 2](tutorial-enable-servers-plan.md) <br> - Enable [Defender CSPM](tutorial-enable-cspm-plan.md) <br> <br> - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines) |
-
-- Supported endpoint detection and response solutions:
-
-    - **Microsoft Defender for Endpoint for Windows**
-    - **Microsoft Defender for Endpoint for Linux** - Linux machines must have Microsoft Defender for Endpoint enabled. These types of machines appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is disabled to avoid clashes with other anti-virus software.
-    - **Microsoft Defender for Endpoint Unified Solution** - *Windows Server 2012 R2*, *Windows 2016* - The Defender for Endpoint unified solution on Server 2012 R2 automatically installs Microsoft Defender Antivirus in `Active mode`. For Windows Server 2016, Microsoft Defender Antivirus is built into the operating system.
+- You must have either of the following plans enabled on Defender for Cloud: 
+    - [Defender for Servers plan 2](tutorial-enable-servers-plan.md)
+    - [Defender CSPM](tutorial-enable-cspm-plan.md) 
+    - 
+- You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
     
-## Detect an endpoint detection and response solutions on virtual machines
+## Detect endpoint detection and response solution on your virtual machine
 
-When Defender for Cloud can't detect an endpoint detection and response solution on Azure virtual machines (VM), AWS EC2 instances and GCP VM instances, it presents recommendations that help you install Defender for Endpoint as your endpoint detection and response solution.
-
-Defender for Cloud has the ability to detect several endpoint detection and response solutions on various supported platforms. The following table contains the currently supported solutions and platforms: 
+Defender for Cloud has the ability to detect several endpoint detection and response solutions on various supported platforms. The following table contains the supported solutions and platforms: 
 
 | Endpoint detection and response solution | Supported platforms |
 |--|--|
 | Microsoft Defender for Endpoint for Windows | Windows |
-| Microsoft Defender for Endpoint for Linux1  | Linux (GA) |
-| Microsoft Defender for Endpoint Unified Solution2  | Windows Server 2012 R2 and Windows 2016 |
+| Microsoft Defender for Endpoint for Linux  | Linux (GA) |
+| Microsoft Defender for Endpoint Unified Solution  | Windows Server 2012 R2 and Windows 2016 |
 | CrowdStrike (Falcon) | Windows and Linux |
-| McAfee | Windows and Linux |
+| Trellix | Windows and Linux |
 | Symantec | Windows and Linux |
 | Sophos |  Windows and Linux |
 
@@ -75,6 +66,9 @@ Defender for Cloud has the ability to detect several endpoint detection and resp
     - [Enable MDE integration](#enable-mde-integration).
     - [Upgrade defender plan](#upgrade-defender-plan).
     - [Troubleshoot issues](#troubleshoot-issues).
+
+> [!NOTE]
+> This recommendation can also be remediated by installing any of the [supported endpoint detection and response solutions](#detect-endpoint-detection-and-response-solution-on-your-virtual-machine) on your virtual machine.
 
 ### Enable MDE integration
 
