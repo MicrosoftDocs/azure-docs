@@ -1,6 +1,6 @@
 ---
 title: The data-aware security dashboard
-description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud
+description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud.
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: conceptual
@@ -15,9 +15,13 @@ With the data security dashboard you can:
 
 - Easily locate and summarize sensitive data resources in your cloud data estate.
 - Identify and prioritize data resources at risk to prevent and respond to sensitive data breaches.
-- Investigate active high severity threats that lead to sensitive data
+- Investigate active high severity threats that lead to sensitive data.
 - Explore potential threats data by highlighting [attack paths](concept-attack-path.md) that lead to sensitive data.
 - Explore useful data insights by highlighting useful data queries in the [security explorer](how-to-manage-cloud-security-explorer.md).
+
+To access the data security dashboard in Defender for Cloud, select **Data Security**.
+
+:::image type="content" source="media/data-aware-security-dashboard/data-security.png" alt-text="Screenshot that shows you how to navigate to the data security dashboard." lightbox="media/data-aware-security-dashboard/data-security.png":::
 
 ## Prerequisites
 
@@ -31,15 +35,13 @@ With the data security dashboard you can:
 
 ## Required permissions and roles
 
-To view the dashboard you must have either of the following:
-
 **Permissions**:
 
 - Microsoft.Security/assessments/read
 - Microsoft.Security/assessments/subassessments/read
 - Microsoft.Security/alerts/read
 
-**Role** - the minimum required privileged RBAC role of **Security explorerr**.
+**Role** - the minimum required privileged role-based access control role of **Security explorer**.
 
 - Register each relevant Azure subscription to the [Microsoft.Security resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
@@ -56,7 +58,7 @@ The data security overview section provides a general overview of your cloud dat
 
     - **Covered** – resources that have the necessary Defender CSPM, or Defender for Storage, or Defender for Databases enabled.
     - **Partially covered** – missing either the Defender CSPM, Defender for Storage, or Defender for Storage plan. Select the tooltip to present a detailed view of what is missing.
-    -** Not covered** - resources that are not covered by Defender CSPM, or Defender for Storage, or Defender for Databases.
+    - **Not covered** - resources that aren't covered by Defender CSPM, or Defender for Storage, or Defender for Databases.
 
 - **Sensitive resources** – displays how many resources are sensitive.
 
@@ -83,7 +85,7 @@ The **Closer look** section provides a more detailed view into the sensitive dat
   
     :::image type="content" source="media/data-aware-security-dashboard/closer-look.png" alt-text="Screenshot that shows the closer look section of the data security dashboard." lightbox="media/data-aware-security-dashboard/closer-look.png":::
 
-You can select the **Manage data sensitivity settings** to get to the **Data sensitivity** page.  The **Data sensitivity** page allows you to manage the data sensitivity settings of cloud resources at the tenant level, based on selective info types and labels originating from the Purview compliance portal, and [customize sensitivity settings](data-sensitivity-settings.md) such as creating your own customized info types and labels, and setting sensitivity label thresholds.
+You can select the **Manage data sensitivity settings** to get to the **Data sensitivity** page. The **Data sensitivity** page allows you to manage the data sensitivity settings of cloud resources at the tenant level, based on selective info types and labels originating from the Purview compliance portal, and [customize sensitivity settings](data-sensitivity-settings.md) such as creating your own customized info types and labels, and setting sensitivity label thresholds.
 
 :::image type="content" source="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png" alt-text="Screenshot that shows where to access managing data sensitivity settings." lightbox="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png":::
 
