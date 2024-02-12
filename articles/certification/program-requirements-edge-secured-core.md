@@ -437,6 +437,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured IOMMU or SMMU.|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: A securely configurable peripheral firewall.</li></ul>|
 </br>
 
@@ -445,7 +446,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The device boot sequence must protect against firmware security threats.|
-|Purpose|Protects against firmware weaknesses, untrusted code and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
+|Purpose|Protects against firmware weaknesses, persistent untrusted code and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: A Microsoft-managed, hardened, and approved authenticated boot chain.</li></ul>|
 
 ---
@@ -455,7 +456,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The device boot sequence must be authenticated.|
-|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority.|
+|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority and retain integrity.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: A Microsoft-managed authenticated boot chain.</li></ul>|
 
 ---
@@ -464,7 +465,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
+|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to a Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device, allowing for reliable security posture monitoring and other trust scenarios, such as the release of access credentials.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Device Authentication and Attestation (DAA) as part of the Azure Sphere Security Service (AS3).</li></ul>|
 
@@ -485,6 +486,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|Sensitive and private data must be encrypted at rest using dm-crypt or similar, supporting XTS-AES as the default algorithm with a key length of 128 bits or higher, with encryption keys backed by hardware protection.|
+|Purpose|Protects against exfiltration of sensitive or private data by unauthorized actors or tampered software.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: The Pluton Security Processor, in-package NVM storage, and customer-exposed wolfCrypt APIs.</li></ul>|
 
 ---
@@ -494,6 +496,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The OS must support a minimum TLS version of 1.2 and have secure TLS cipher suites available.|
+|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed wolfSSL library using only secure TLS cipher suites, backed by Device Authentication and Attestation (DAA) certificates.</li></ul>|
 |Resources| [TLS Cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
 
@@ -504,7 +507,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The OS must feature code integrity support, with code operating under least privilege.|
-|Purpose|Protects against modified/malicious code, ensuring that only signed/hashed code is able to run.|
+|Purpose|Protects against modified/malicious code, ensuring that only code with verifiable integrity is able to run.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed and hardened OS with read-only filesystem stored on in-package NVM storage and executed in on-die RAM, with restricted/contained and least-privilaged workloads.</li></ul>|
 
 ---
@@ -554,7 +557,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The device must be able to receive and update its firmware and software through Azure Device Update or other approved services.|
-|Purpose|Enables continuous security.|
+|Purpose|Enables continuous security and renewable trust.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed and automatically updated OS, with customer application updates delivered remotely via the Azure Sphere Security Service (AS3).</li></ul>|
 
 ---
@@ -593,7 +596,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|Debug functionality on the device must be disabled or require authorization to enable.|
-|Purpose|Ensures that software protections can not be bypassed through debugger intervention and back-channels.|
+|Purpose|Ensures that the security model cannot be bypassed through debugger intervention and back-channels.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Debug locked-down for production state devices and further restricted through the authenticated 'capabilities' mechanism.</li></ul>|
 
 ---
