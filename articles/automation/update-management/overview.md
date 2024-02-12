@@ -9,6 +9,9 @@ ms.topic: conceptual
 
 # Update Management overview
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 > [!Important]
 > - Azure Automation Update Management will  retire on **31 August 2024**. Follow the guidelines for [migration to Azure Update Manager](../../update-manager/guidance-migration-automation-update-management-azure-update-manager.md).
 > - Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) will be [retired in August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Azure Automation Update Management solution relies on this agent and may encounter issues once the agent is retired as it does not work with Azure Monitoring Agent (AMA). Therefore, if you are using the Azure Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. All the capabilities of Azure Automation Update management solution will be available on Azure Update Manager before the retirement date. Follow the [guidance](../../update-center/guidance-migration-automation-update-management-azure-update-manager.md) to move your machines and schedules from Automation Update Management to Azure Update Manager.
