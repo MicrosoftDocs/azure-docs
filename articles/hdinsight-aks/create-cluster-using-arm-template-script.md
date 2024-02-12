@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/12/2024
 ---
 
-# Export cluster ARM template
+# Export cluster ARM template - Azure portal
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
