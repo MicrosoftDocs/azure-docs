@@ -9,7 +9,6 @@ ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
 ms.date: 04/20/2022
 ms.author: allensu
 ms.custom: devx-track-azurecli, linux-related-content

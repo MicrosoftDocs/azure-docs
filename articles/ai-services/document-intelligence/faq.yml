@@ -520,6 +520,14 @@ sections:
 
           Yes. The labeling experience from Studio is open sourced in the [Toolkit repo](https://github.com/microsoft/Form-Recognizer-Toolkit)
 
+      - question: |
+          Why am I receiving 'Form Recognizer Not Found' error when opening my custom project?
+        answer: |
+          Your Document Intelligence resource bound to this custom project may have been deleted or moved to another resource group.  There are two ways to resolve this issue:
+          
+            - Re-create the Document Intelligence resource under the same subscription/resource group with the same name.
+          
+            - Re-create a custom project with the migrated Document Intelligence resource and specify the very same storage account.
 
   - name: Containers
     questions:

@@ -17,7 +17,18 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
 
 ## Prerequisites
 
+Cloud resources: 
+
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Azure access permissions. At a minimum, have **Contributor** permissions in your Azure subscription. Depending on the deployment method and feature flag status you select, you may also need **Microsoft/Authorization/roleAssignments/write** permissions. If you *don't* have role assignment write permissions, take the following additional steps when deploying:
+
+  * If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter to `false`.
+  * If deploying with the Azure CLI, include the `--disable-rsync-rules`.
+
+* An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
+
+Development resources:
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.46.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
@@ -27,9 +38,13 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
   az extension add --upgrade --name azure-iot-ops
   ```
 
-* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu). Using Ubuntu in Windows Subsystem for Linux (WSL) is the simplest way to get a Kubernetes cluster for testing.
+A cluster host:
 
-  Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
+* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu). 
+
+  If you've already deployed Azure IoT Operations to your cluster, uninstall those resources before continuing. For more information, see [Update a deployment](#update-a-deployment).
+
+  Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows. Using Ubuntu in Windows Subsystem for Linux (WSL) is the simplest way to get a Kubernetes cluster for testing.
 
   Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
 
@@ -37,7 +52,6 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
   az iot ops verify-host
   ```
 
-* An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
 
 ## Deploy extensions
 
@@ -128,6 +142,8 @@ az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvau
 >[!TIP]
 >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 
+If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in your Azure subscription, include the `--disable-rsync-rules` feature flag.
+
 Use optional flags to customize the `az iot ops init` command. To learn more, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
 #### [GitHub Actions](#tab/github)
@@ -208,6 +224,7 @@ Now, you can deploy Azure IoT Operations to your cluster.
    | `dataProcessorSecrets` | object | Pass a secret to an Azure IoT Data Processor resource. |
    | `mqSecrets` | object | Pass a secret to an Azure IoT MQ resource. |
    | `opcUaBrokerSecrets` | object | Pass a secret to an Azure OPC UA Broker resource. |
+   | `deployResourceSyncRules` | Set to `false` if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in your Azure subscription. |
 
 1. Save your changes to the parameters file.
 
@@ -268,6 +285,12 @@ To view your cluster on the Azure portal, use the following steps:
    You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
 
    There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
+
+## Update a deployment
+
+Currently, there is no support for updating an existing Azure IoT Operations deployment. Instead, start with a clean cluster for a new deployment.
+
+If you want to delete the Azure IoT Operations deployment on your cluster so that you can redeploy to it, navigate to your cluster on the Azure portal. Select the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Keep the secrets provider on your cluster, as that is a prerequisite for deployment and not included in a fresh deployment. 
 
 ## Next steps
 

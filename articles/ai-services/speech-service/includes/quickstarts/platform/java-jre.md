@@ -6,7 +6,7 @@ author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.custom: devx-track-java
 ms.author: eur
 ---
@@ -78,7 +78,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
 
 1. In a moment, the main window of the Eclipse IDE appears. Close the **Welcome** screen if one is present.
 
-1. From the Eclipse menu, create a new project by selecting **File** > **New** > **Project**.
+1. From the Eclipse menu, select **File** > **New** > **Project**.
 
 1. The **New Project** dialog box appears. Select **Java Project**, and then select **Next**.
 
