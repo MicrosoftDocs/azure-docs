@@ -9,17 +9,6 @@ ms.subservice: autoscale
 ms.reviewer: akkumari
 ---
 
----
-title: Autoscale common metrics
-description: Learn which metrics are commonly used for autoscaling your cloud services, virtual machines, and web apps.
-author: EdB-MSFT
-ms.author: edbaynash
-ms.topic: conceptual
-ms.date: 04/17/2023
-ms.subservice: autoscale 
-ms.reviewer: akkumari
----
-
 # Azure Monitor autoscaling common metrics
 
 Azure Monitor autoscaling allows you to scale the number of running instances in or out, based on telemetry data or metrics. Scaling can be based on any metric, even metrics from a different resource. For example, scale a Virtual Machine Scale Set based on the amount of traffic on a firewall.
