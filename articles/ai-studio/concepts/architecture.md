@@ -78,7 +78,7 @@ Azure monitor and Azure Log Analytics provides monitoring and logging for the un
 | Resource | Monitoring and logging |
 | --- | --- |
 | Azure AI hub and AI project | [Monitor Azure Machine Learning](/azure/machine-learning/monitor-azure-machine-learning) |
-| Azure OpenAI | [Monitor Azure OpenAI](/azure/ai-services/openai/how-to-monitoring) |
+| Azure OpenAI | [Monitor Azure OpenAI](/azure/ai-services/openai/how-to/monitoring) |
 | Azure AI Services | [Monitor Azure AI (training)](/training/modules/monitor-ai-services/) |
 | Azure AI Search | [Monitor Azure AI Search](/azure/search/monitor-azure-cognitive-search) |
 
