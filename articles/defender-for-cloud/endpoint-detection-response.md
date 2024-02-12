@@ -36,7 +36,7 @@ Defender for Cloud has the ability to detect several endpoint detection and resp
 | Endpoint detection and response solution | Supported platforms |
 |--|--|
 | Microsoft Defender for Endpoint for Windows | Windows |
-| Microsoft Defender for Endpoint for Linux  | Linux (GA) |
+| Microsoft Defender for Endpoint for Linux  | Linux |
 | Microsoft Defender for Endpoint Unified Solution  | Windows Server 2012 R2 and Windows 2016 |
 | CrowdStrike (Falcon) | Windows and Linux |
 | Trellix | Windows and Linux |
@@ -76,7 +76,7 @@ This recommended action is available when:
 
 - One of the [supported endpoint detection and response solutions](#detect-endpoint-detection-and-response-solution-on-your-virtual-machine) wasn't detected on the VM.
 
-- The VM can have Microsoft Defender for Endpoint installed on it as part of the offerings included with Defender for Cloud.
+- The VM can have Microsoft Defender for Endpoint installed on it as part of the offerings included with Defender for Servers.
 
 **To enable the Defender for Endpoint integration on the affected VM**:
 
@@ -207,4 +207,4 @@ To determine the enabled endpoint detection and response solution on your machin
 
 ## Next steps
 
-[Prepare for the retirement of the Log Analytics agent.](prepare-deprecation-log-analytics-mma-agent.md)
+[Prepare for the retirement of the Log Analytics agent](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience)
