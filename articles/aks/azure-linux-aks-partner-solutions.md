@@ -1,18 +1,18 @@
 ---
 title: Azure Linux AKS Container Host Partner Solutions
 titleSuffix: Azure Linux AKS Container Host Partner Solutions
-description: Discover partner-tested solutions that enable you to build, test, deploy, manage and monitor your AKS environment using Azure Linux Container Host.
+description: Discover partner-tested solutions that enable you to build, test, deploy, manage, and monitor your AKS environment using Azure Linux Container Host.
 ms.author: schaffererin
 author: schaffererin
 ms.topic: article
-ms.date: 02/07/2024
+ms.date: 02/12/2024
 ---
 
 # Azure Linux AKS Container Host Partner Solutions
 
 Microsoft collaborates with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Azure Linux Container Host on AKS.
 
-Our third party partners featured in this article have published introduction guides to start using their solutions with your applications running on Azure Linux Container Host on AKS.
+Our third party partners featured in this article have introduction guides to help you start using their solutions with your applications running on Azure Linux Container Host on AKS.
 
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
@@ -31,7 +31,6 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 ### Advantech
 
 <img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Advantech.png" alt="advantech logo" width="20%" height="auto">
-
 
 | Solution | Categories |
 |----------|------------|
@@ -63,7 +62,6 @@ For more information, see [Hashicorp solutions](https://hashicorp.com/) and [Has
 
 <img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Akuity.png" alt="akuity logo" width="35%" height="auto">
 
-
 | Solution | Categories |
 |----------|------------|
 | Akuity Platform | DevOps |
@@ -84,7 +82,6 @@ For more information, see [Akuity Solutions](https://akuity.io/).
 
 <img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Kong.png" alt="kong logo" width="35%" height="auto">
 
-
 | Solution | Categories |
 |----------|------------|
 | Kong Connect | DevOps <br> Security |
@@ -95,13 +92,14 @@ Kong Konnect is the unified cloud-native API lifecycle platform to optimize any 
 
 A unified Konnect control plane empowers businesses to:
 
-* Define a collection of API Data Plane Nodes that share the same configuration and provide a single control plane to catalog, connect to, and monitor the status of all control planes and instances as well as manage group configuration.
-* Browse APIs, reference documentation, test endpoints, and register to create applications using specific APIs through a customizable and unified API portal for developers.
+* Define a collection of API Data Plane Nodes that share the same configuration.
+* Provide a single control plane to catalog, connect to, and monitor the status of all control planes and instances and manage group configuration.
+* Browse APIs, reference documentation, test endpoints, and create applications using specific APIs through a customizable and unified API portal for developers.
 * Create a single source of truth by cataloging all services with the Service Hub.
 * Access key statistics, monitor vital signs, and spot patterns in real time to see how your APIs and gateways are performing.
 * Deliver a fully Kubernetes-centric operational lifecycle model through the integration of DevOps-ready config-driven API management layer and KIC’s unrivaled runtime performance.
 
-Kong’s extensive ecosystem of community and enterprise plugins delivers critical functionality, including authentication, authorization, rate limiting, request enforcement, caching and more, without increasing API platform’s footprint.
+Kong’s extensive ecosystem of community and enterprise plugins delivers critical functionality, including authentication, authorization, rate limiting, request enforcement, and caching, without increasing API platform’s footprint.
 
 </details>
 
@@ -109,12 +107,11 @@ For more information, see [Kong Solutions](https://konghq.com/) and [Kong on Azu
 
 ## Networking
 
-Ensure efficient traffic management, enhanced security, and optimal network performance with these solutions to achieve smooth application connectivity and communication.
+Ensure efficient traffic management, enhanced security, and optimal network performance.
 
 ### Buoyant
 
 <img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Buoyant.png" alt="buoyant logo" width="35%" height="auto">
-
 
 | Solution | Categories |
 |----------|------------|
@@ -138,7 +135,7 @@ Isovalent Enterprise for Cilium provides advanced network policy capabilities, i
 
 Isovalent also provides multi-cluster connectivity via Cluster Mesh, seamless networking and security across multiple clouds, including public cloud providers like AWS, Azure, and Google Cloud Platform, as well as on-premises environments. With free service-to-service communication and advanced load balancing, Isovalent makes it easy to deploy and manage complex microservices architectures.
 
-The Hubble flow observability + User Interface feature provides real-time network traffic flow and policy visualization, as well as a powerful User Interface for easy troubleshooting and network management. Tetragon provides advanced security capabilities such as protocol enforcement, IP and port allow lists, and automatic application-aware policy generation to protect against the most sophisticated threats. Tetragon is built on eBPF, enabling scaling to meet the needs of the most demanding cloud-native environments with ease.
+The Hubble flow observability + User Interface feature provides real-time network traffic flow and policy visualization, as well as a powerful User Interface for easy troubleshooting and network management. Tetragon provides advanced security capabilities such as protocol enforcement, IP and port allowlists, and automatic application-aware policy generation to protect against the most sophisticated threats. Tetragon is built on eBPF, enabling scaling to meet the needs of the most demanding cloud-native environments with ease.
 
 Isovalent provides enterprise-grade support from their experienced team of experts, ensuring that any issues are resolved in a timely and efficient manner. Additionally, professional services help organizations deploy and manage Cilium in production environments.
 
@@ -154,7 +151,6 @@ Observability provides deep insights into your systems, enabling rapid issue det
 
 <img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Dynatrace.png" alt="dynatrace logo" width="35%" height="auto">
 
-
 | Solution | Categories |
 |----------|------------|
 | Dynatrace Azure Monitoring | Observability |
@@ -165,12 +161,11 @@ For more information, see [Dynatrace Solutions](https://www.dynatrace.com/techno
 
 ## Security
 
-Ensure the integrity and confidentiality of applications, thereby fostering trust and compliance across your infrastructure.
+Ensure the integrity and confidentiality of applications and foster trust and compliance across your infrastructure.
 
 ### Tetrate
 
 <img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Tetrate.png" alt="tetrate logo" width="35%" height="auto">
-
 
 | Solution | Categories |
 |----------|------------|
@@ -210,7 +205,6 @@ Automate and standardize the system settings across your environments to enhance
 
 <img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Corent.png" alt="corent logo" width="35%" height="auto">
 
-
 | Solution | Categories |
 |----------|------------|
 | Corent MaaS | Config Management |
@@ -227,7 +221,6 @@ Migrate workloads to Azure Linux Container Host on AKS with confidence.
 
 <img src="https://github.com/shthomps/azure-docs-pr/blob/azureLinuxAksPartnerSolutions/articles/aks/media/azure-linux-aks-partner-solutions/Catalogic.png" alt="catalogic logo" width="30%" height="auto">
 
-
 | Solution | Categories |
 |----------|------------|
 | CloudCasa | Migration |
@@ -238,7 +231,7 @@ CloudCasa is a Kubernetes backup, recovery, and migration solution that is fully
 
 Install the CloudCasa agent and let it do all the hard work of protecting and recovering your cluster resources and persistent data from human error, security breaches, and service failures, including providing the business continuity and compliance that your business requires.
 
-From a single dashboard, CloudCasa makes cross-cluster, cross-tenant, cross-region and cross-cloud recoveries easy. Recovery and migration from backups includes recovering an entire cluster along with your vNETs, add-ons, load balancers and more. During recovery, users can migrate to Azure Linux, and migrate storage resources from Azure Disk to Azure Container Storage.
+From a single dashboard, CloudCasa makes cross-cluster, cross-tenant, cross-region, and cross-cloud recoveries easy. Recovery and migration from backups includes recovering an entire cluster along with your vNETs, add-ons, load balancers and more. During recovery, users can migrate to Azure Linux, and migrate storage resources from Azure Disk to Azure Container Storage.
 
 CloudCasa can also centrally manage Azure Backup or Velero backup installations across multiple clusters and cloud providers, with migration of resources to different environments.
 
