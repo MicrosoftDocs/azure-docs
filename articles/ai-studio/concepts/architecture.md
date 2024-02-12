@@ -37,7 +37,7 @@ An AI hub can have multiple child AI projects. Each AI project can have its own 
 
 ## Azure resource providers
 
-Since Azure AI Studio is built from other Azure services, the resource providers for these services must be registered in your Azure subscription. The following table lists the resource , provider and resource provider kinds:
+Since Azure AI Studio is built from other Azure services, the resource providers for these services must be registered in your Azure subscription. The following table lists the resource, provider, and resource provider kinds:
 
 [!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
 
