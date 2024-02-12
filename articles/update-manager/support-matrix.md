@@ -6,13 +6,13 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 12/19/2023
 ms.topic: overview
-ms.custom: references_regions 
+ms.custom: references_regions
 ---
 
 # Support matrix for Azure Update Manager
 
 > [!CAUTION]
-> This articles references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure virtual machines (VMs) or machines managed by Azure Arc-enabled servers.
 
@@ -59,8 +59,8 @@ Use one of the following options to perform the settings change at scale:
 > Run the following PowerShell script on the server to disable first-party updates:
 >
 > ```powershell
-> $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")  
-> $ServiceManager.Services 
+> $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+> $ServiceManager.Services
 > $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 > $ServiceManager.RemoveService($ServiceId)
 > ```
@@ -101,9 +101,9 @@ Korea | Korea Central
 Norway | Norway East
 Sweden | Sweden Central
 Switzerland | Switzerland North
-UAE | UAE North 
+UAE | UAE North
 United Kingdom | UK South </br> UK West
-United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
+United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3
 
 ---
 
@@ -212,13 +212,13 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    | Windows Server 2012 R2 and higher (including Server Core) |
    | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
    | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
-   | CentOS Linux 7 and 8 (x64) |   
+   | CentOS Linux 7 and 8 (x64) |
    | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
-   | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |    
+   | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |
    | Amazon Linux 2 (x64)   |
    | Oracle 7.x, 8.x|
    | Debian 10 and 11|
-   | Rocky Linux 8|        
+   | Rocky Linux 8|
 
 ---
 

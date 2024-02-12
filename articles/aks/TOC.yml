@@ -33,6 +33,8 @@
       items:
         - name: Use the Azure CLI
           href: learn/quick-kubernetes-deploy-cli.md
+        - name: Use the Azure Developer CLI
+          href: learn/quick-kubernetes-deploy-azd.md
         - name: Use Azure PowerShell
           href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
@@ -719,6 +721,8 @@
           href: windows-aks-customer-stories.md
         - name: Migration and modernization solutions for Windows containers on AKS
           href: windows-aks-migration-modernization-solutions.md
+        - name: Use Azure Hybrid Benefit
+          href: azure-hybrid-benefit.md
     - name: Develop and run applications
       items:
         - name: Install existing applications with Helm
