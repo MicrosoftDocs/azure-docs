@@ -436,7 +436,7 @@ items:
     - name: Route
       href: /rest/api/maps/route
     - name: Route V2 (Preview)
-      href: /rest/api/maps/route?view=rest-maps-2023-10-01-preview
+      href: /rest/api/maps/route?view=rest-maps-2023-10-01-preview&preserve-view=true
     - name: Search
       href: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
     - name: Search V2
