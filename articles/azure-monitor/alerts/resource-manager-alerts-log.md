@@ -1,6 +1,6 @@
 ---
-title: Resource Manager template samples for log query alerts
-description: Sample Azure Resource Manager templates to deploy Azure Monitor log query alerts.
+title: Resource Manager template samples for log search alerts
+description: Sample Azure Resource Manager templates to deploy Azure Monitor log search alerts.
 ms.author: abbyweisberg
 ms.reviewer: yalavi
 ms.topic: sample
@@ -8,9 +8,9 @@ ms.custom: devx-track-arm-template
 ms.date: 11/07/2023
 ---
 
-# Resource Manager template samples for log alert rules in Azure Monitor
+# Resource Manager template samples for log search alert rules in Azure Monitor
 
-This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure log search alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -493,10 +493,10 @@ param location string = ''
 param actionGroupId string = ''
 
 resource logQueryAlert 'Microsoft.Insights/scheduledQueryRules@2018-04-16' = {
-  name: 'Sample log query alert'
+  name: 'Sample log search alert'
   location: location
   properties: {
-    description: 'Sample log query alert'
+    description: 'Sample log search alert'
     enabled: 'true'
     source: {
       query: 'Event | where EventLevelName == "Error" | summarize count() by Computer'
@@ -557,10 +557,10 @@ resource logQueryAlert 'Microsoft.Insights/scheduledQueryRules@2018-04-16' = {
     {
       "type": "Microsoft.Insights/scheduledQueryRules",
       "apiVersion": "2018-04-16",
-      "name": "Sample log query alert",
+      "name": "Sample log search alert",
       "location": "[parameters('location')]",
       "properties": {
-        "description": "Sample log query alert",
+        "description": "Sample log search alert",
         "enabled": "true",
         "source": {
           "query": "Event | where EventLevelName == \"Error\" | summarize count() by Computer",
@@ -631,7 +631,7 @@ param location string = ''
 param actionGroupId string = ''
 
 resource metricMeasurementLogQueryAlert 'Microsoft.Insights/scheduledQueryRules@2018-04-16' = {
-  name: 'Sample metric measurement log query alert'
+  name: 'Sample metric measurement log search alert'
   location: location
   properties: {
     description: 'Sample metric measurement query alert rule'
@@ -701,7 +701,7 @@ resource metricMeasurementLogQueryAlert 'Microsoft.Insights/scheduledQueryRules@
     {
       "type": "Microsoft.Insights/scheduledQueryRules",
       "apiVersion": "2018-04-16",
-      "name": "Sample metric measurement log query alert",
+      "name": "Sample metric measurement log search alert",
       "location": "[parameters('location')]",
       "properties": {
         "description": "Sample metric measurement query alert rule",

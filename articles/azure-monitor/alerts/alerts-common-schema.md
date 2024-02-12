@@ -417,7 +417,7 @@ For sample alerts that use the common schema, see [Sample alert payloads](alerts
 ### Sample log search alert when the monitoringService = Log Alerts V2
 
 > [!NOTE]
-> log search alert rules from API version 2020-05-01 use this payload type, which only supports common schema. Search results aren't embedded in the log search alerts payload when you use this version. Use [dimensions](./alerts-unified-log.md#split-by-alert-dimensions) to provide context to fired alerts. You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get). If you must embed the results, use a logic app with the provided links to generate a custom payload.
+> Log search alert rules from API version 2020-05-01 use this payload type, which only supports common schema. Search results aren't embedded in the log search alerts payload when you use this version. Use [dimensions](./alerts-unified-log.md#split-by-alert-dimensions) to provide context to fired alerts. You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get). If you must embed the results, use a logic app with the provided links to generate a custom payload.
 
 ```json
 {
@@ -463,6 +463,7 @@ For sample alerts that use the common schema, see [Sample alert payloads](alerts
 ## Alert context fields for activity log alerts
 
 See [Azure activity log event schema](../essentials/activity-log-schema.md) for detailed information about the fields in activity log alerts.
+
 ### Sample activity log alert when the monitoringService = Activity Log - Administrative
 
 ```json

@@ -53,7 +53,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log search alert rule.":::
 
-    For sample log search alert queries that query ARG or ADX, see [log search alert query samples](./alerts-log-alert-query-samples.md) 
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md) 
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
 1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.
@@ -64,7 +64,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     |Field  |Description  |
     |---------|---------|
-    |Measure|log search alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
+    |Measure|Log search alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
     |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value by using the aggregation granularity. Examples are Total, Average, Minimum, or Maximum.    |
     |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
@@ -111,7 +111,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     > * The query uses the **adx** pattern
     > * The query calls a function that calls other tables
 
-    For sample log search alert queries that query ARG or ADX, see [log search alert query samples](./alerts-log-alert-query-samples.md)
+    For sample log search alert queries that query ARG or ADX, see [Log search alert query samples](./alerts-log-alert-query-samples.md)
 
 1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. Your application business policy determines this setting.
 
@@ -190,5 +190,5 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 
 ## Next steps
-- [log search alert query samples](./alerts-log-alert-query-samples.md) 
+- [Log search alert query samples](./alerts-log-alert-query-samples.md) 
 - [View and manage your alert instances](alerts-manage-alert-instances.md)

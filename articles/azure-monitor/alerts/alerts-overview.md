@@ -112,13 +112,13 @@ For metric alert rules for Azure services that don't support multiple resources,
 
 Each metric alert rule is charged based on the number of time series that are monitored.
 
-### Log alerts
+### Log search alerts
 
-Use [log search alert rules](alerts-create-log-alert-rule.md) to monitor all resources that send data to the Log Analytics workspace. These resources can be from any subscription or region. Use data collection rules when setting up your Log Analytics workspace to collect the required data for your log alerts rule. 
+Use [log search alert rules](alerts-create-log-alert-rule.md) to monitor all resources that send data to the Log Analytics workspace. These resources can be from any subscription or region. Use data collection rules when setting up your Log Analytics workspace to collect the required data for your log search alert rule. 
 
 You can also create resource-centric alerts instead of workspace-centric alerts by using **Split by dimensions**. When you split on the resourceId column, you will get one alert per resource that meets the condition.
 
-Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to a Log Analytics workspace, there is no additional cost. 
+Log search alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to a Log Analytics workspace, there is no additional cost. 
 
 If you use metric data at scale in the Log Analytics workspace, pricing will change based on the data ingestion.
 
