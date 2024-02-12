@@ -40,7 +40,7 @@ There are no extra registration steps required.
 
 1. Select **Next : Volume groups**.
 
-    :::image type="content" source="media/elastic-san-create/elastic-create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/elastic-create-flow.png":::
+    :::image type="content" source="media/elastic-san-create/elastic-san-create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/elastic-san-create-flow.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
