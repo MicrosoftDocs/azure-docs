@@ -28,13 +28,21 @@ The top level AI Studio resources (AI hub and AI projects) are based on Azure Ma
 - **AI project**: An AI project is a child resource of the AI hub. The Azure resource provider for an AI project is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Project`. It inherits the AI hub's connections, and compute resources. When a new AI project is created from the AI hub, the security settings of the AI hub are applied to it. The AI project provides the following features:
     - Groups of components such as datasets, models, and indexes.
     - An isolated data container (within the storage inherited from the AI hub).
-    - Project-scoped connections. For example, a project may need access to data stored in a separate Azure Storage account.
+    - Project-scoped connections. For example, a project might need access to data stored in a separate Azure Storage account.
     - Fine-tuned model endpoints.
  
 An AI hub can have multiple child AI projects. Each AI project can have its own set of project-scoped connections.
 
 :::image type="content" source="../media/concepts/azureai-hub-project-resource-providers.png" alt-text="Diagram of the relationship between AI Studio resources.":::
 
+### Tenant separation
+
+While most of the resources used by Azure AI Studio live in your Azure subscription, some resources exist in the Azure AI Studio tenant. The Azure AI Studio tenant is a separate Microsoft Entra ID tenant that provides some of the services used by Azure AI Studio. The following resources are in the Azure AI Studio tenant:
+
+- **Managed compute resources**: Provided by Azure Batch resources in the Azure AI Studio tenant.
+- **Managed virtual network**: Provided by Azure Virtual Network resources in the Azure AI Studio tenant. If FQDN rules are enabled, an Azure Firewall (standard) is added and charged to your subscription. For more information, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
+- **Metadata storage**: Provided by Azure Cosmos DB, Azure AI Search, and Azure Storage Account in the Azure AI Studio tenant. If you use customer-managed keys, these resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
+ 
 ## Azure resource providers
 
 Since Azure AI Studio is built from other Azure services, the resource providers for these services must be registered in your Azure subscription. The following table lists the resource, provider, and resource provider kinds:
@@ -56,7 +64,7 @@ Azure AI Services and Azure OpenAI provide control plane endpoints for operation
 
 To reduce the complexity of Azure RBAC management, AI Studio provides a *control plane proxy* that allows you to perform operations on connected Azure AI Services and Azure OpenAI resources. Performing operations on these resources through the control plane proxy only requires Azure RBAC permissions on the AI hub. The Azure AI Studio service then performs the call to the Azure AI Services or Azure OpenAI control plane endpoint on your behalf.
 
-For more information on Azure RBAC permissions, see [Role-based access control in Azure AI Studio](rbac-ai-studio.md).
+For more information, see [Role-based access control in Azure AI Studio](rbac-ai-studio.md).
 
 ## Encryption
 
