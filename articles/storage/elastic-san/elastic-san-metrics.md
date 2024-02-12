@@ -1,6 +1,6 @@
 ---
 title: Metrics for Azure Elastic SAN
-description: Learn about the available metrics and diagnostic logging options for an Azure Elastic SAN.
+description: Learn about the available metrics for an Azure Elastic SAN.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
@@ -8,9 +8,9 @@ ms.date: 02/13/2024
 ms.author: rogarana
 ---
 
-# Elastic SAN Metrics and Diagnostic Logging 
+# Elastic SAN Metrics
 
-Azure offers metrics and diagnostic logging in the Azure portal that provide insight into your Elastic SAN resources. This article provides definitions of the specific metrics and logging categories you can select to monitor. 
+Azure offers metrics in the Azure portal that provide insight into your Elastic SAN resources. This article provides definitions of the specific metrics you can select to monitor. 
 
 ## Metrics Definitions 
 The following metrics are currently available for your Elastic SAN resource. You can configure and view them in the Azure portal: 
