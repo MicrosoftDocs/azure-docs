@@ -31,7 +31,7 @@ To create an Elastic SAN with an availability zone enabled, see [Deploy an Elast
 
 ### Zone down experience
 
-When deploying an Elastic SAN, if you select ZRS for your SAN's redundancy option, zonal failover is supported by the platform without manual intervention. An elastic SAN using ZRS is designed to self-heal and re-balance itself to take advantage of healthy zones automatically.
+When deploying an Elastic SAN, if you select ZRS for your SAN's redundancy option, zonal failover is supported by the platform without manual intervention. An elastic SAN using ZRS is designed to self-heal and rebalance itself to take advantage of healthy zones automatically.
 
 If you deployed an LRS elastic SAN, you may need to deploy a new SAN, using snapshots exported to managed disks.
 
@@ -49,7 +49,7 @@ To migrate an elastic SAN on LRs to ZRS, you must snapshot your elastic SAN's vo
 
 ### Single and Multi-region disaster recovery
 
-For Azure Elastic SAN, you are responsible for the DR experience. You can [take snapshots](../storage/elastic-san/elastic-san-snapshots.md) of your volumes and [export them](../storage/elastic-san/elastic-san-snapshots.md#export-volume-snapshot) to managed disk snapshots. Then, you can [copy an incremental snapshot to a new region](../virtual-machines/disks-copy-incremental-snapshot-across-regions.md) to store your data is in a region other than the region your elastic SAN is in. You should export to regions that are geographically distant from your primary region to reduce the possibility of multiple regions being affected due to a disaster.
+For Azure Elastic SAN, you're responsible for the DR experience. You can [take snapshots](../storage/elastic-san/elastic-san-snapshots.md) of your volumes and [export them](../storage/elastic-san/elastic-san-snapshots.md#export-volume-snapshot) to managed disk snapshots. Then, you can [copy an incremental snapshot to a new region](../virtual-machines/disks-copy-incremental-snapshot-across-regions.md) to store your data is in a region other than the region your elastic SAN is in. You should export to regions that are geographically distant from your primary region to reduce the possibility of multiple regions being affected due to a disaster.
 
 #### Outage detection, notification, and management
 
@@ -57,7 +57,7 @@ You can find outage declarations in [Service Health - Microsoft Azure](https://p
 
 ### Capacity and proactive disaster recovery resiliency
 
-Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service you deploy and control. You should pre-validate any service you deploy will work in conjunction with Elastic SAN. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
+Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service you deploy and control. You should prevalidate any service you deploy will work with Elastic SAN. To ensure that recovery is proactive, you should always predeploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
 
 ## Next steps
 
