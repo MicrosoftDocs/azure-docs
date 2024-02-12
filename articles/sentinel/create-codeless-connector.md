@@ -127,6 +127,71 @@ To learn from an example, see the [Data connector connection rules reference exa
 
 Use Postman to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
+## Secure confidential input
+
+Whatever authentication is used by your CCP data connector, take these steps to ensure confidential information is kept secure. For example, if your data connector authenticates to a log source with OAuth, your data connector definition section includes the `OAuthForm` type in the instructions. This sets up the ARM template to prompt for the credentials.  
+
+```json
+"instructions": [
+    {
+        "type": "OAuthForm",
+        "parameters": {
+        "UsernameLabel": "Username",
+        "PasswordLabel": "Password",
+        "connectButtonLabel": "Connect",
+        "disconnectButtonLabel": "Disconnect"
+        }
+    }
+],
+```
+
+A section of the ARM deployment template provides a place for the administrator deploying the data connector to enter the password. Use `securestring` to keep the confidential information secured in an object that isn't readable after deployment. For more information, see [Security recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
+
+```json
+"mainTemplate": {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "[variables('dataConnectorCCPVersion')]",
+    "parameters": {
+        "Username": {
+            "type": "securestring",
+            "minLength": 1,
+            "metadata": {
+                "description": "Enter the username to connect to data source."
+        },
+        "Password": {
+            "type": "securestring",
+            "minLength": 1,
+            "metadata": {
+                "description": "Enter the API key or password required to connect."
+            }
+        },
+    // more deployment template information
+    }
+}
+```
+
+Finally, the CCP utilizes the credential objects in the data connector. 
+
+```json
+"auth": {
+    "type": "OAuth2",
+    "ClientSecret": "[[parameters('Password')]",
+    "ClientId": "[[parameters('Username')]",
+    "GrantType": "client_credentials",
+    "TokenEndpoint": "https://api.contoso.com/oauth/token",
+    "TokenEndpointHeaders": {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "TokenEndpointQueryParameters": {
+        "grant_type": "client_credentials"
+    }
+},
+```
+
+The strange syntax for the credential object, `"ClientSecret": "[[parameters('Password')]",` isn't a typo! In order to create the deployment template which also uses parameters, you need to escape the parameters in that section with an extra starting`[`. This allows the parameters to assign a value based on the user interaction with the connector. 
+- For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
+  
+
 ## Create the deployment template
 
 Manually package an Azure Resource Management (ARM) template using the [example template](#example-arm-template) as your guide.
@@ -368,7 +433,12 @@ Consider using the ARM template test toolkit (arm-ttk) to validate the template 
 
 #### Example ARM template - parameters
 
-For more information, see [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md) and [Security recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
+For more information, see [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md).
+
+>[!Warning]
+> Use `securestring` for all passwords and secrets in objects readable after resource deployment.
+> For more information, see [Secure confidential input](#secure-confidential-input) and [Security recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
+
 
 ```json
 {
@@ -649,7 +719,7 @@ There are 5 ARM deployment resources in this template guide which house the 4 CC
                         //    "minLength": 1
                         //},
                         //"apikey": {
-                        //    "defaultValue": "API Key",
+                        //    "defaultValue": "",
                         //    "type": "securestring",
                         //    "minLength": 1
                         //}
