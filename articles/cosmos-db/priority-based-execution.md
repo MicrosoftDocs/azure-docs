@@ -52,8 +52,8 @@ To get started using priority-based execution, navigate to the **Features** page
 using Microsoft.Azure.Cosmos.PartitionKey;
 using Microsoft.Azure.Cosmos.PriorityLevel;
 
-Using Mircosoft.Azure.Cosmos.PartitionKey; 
-Using Mircosoft.Azure.Cosmos.PriorityLevel; 
+using Microsoft.Azure.Cosmos.PartitionKey; 
+using Microsoft.Azure.Cosmos.PriorityLevel; 
 
 //update products catalog with low priority
 RequestOptions catalogRequestOptions = new ItemRequestOptions{PriorityLevel = PriorityLevel.Low}; 
