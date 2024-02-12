@@ -203,7 +203,7 @@ export BASE_DIR=$PWD
 git clone --single-branch https://github.com/microsoft/weblogic-on-azure.git --branch 20240201 $BASE_DIR/weblogic-on-azure
 ```
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
 
 Use the following command to build *javaee/weblogic-cafe/*:
 
@@ -215,9 +215,14 @@ The package should be successfully generated and located at *$BASE_DIR/weblogic-
 
 ### Use Docker to create an auxiliary image
 
-The steps in this section show you how to build an auxiliary image, including *Model in Image* model files, your application, the JDBC driver archive file, and the WebLogic Deploy Tooling installation.
+The steps in this section show you how to build an auxiliary image. This image includes the following components:
 
-An *auxiliary image* is a Docker container image containing your app and configuration. The WebLogic Kubernetes Operator combines your auxiliary image with the `domain.spec.image` in the AKS cluster which contains the WebLogic Server, JDK, and operating system. For more information about auxiliary images, see [Auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/) in the Oracle documentation.
+- The *Model in Image* model files
+- Your application
+- The JDBC driver archive file
+- The WebLogic Deploy Tooling installation
+
+An *auxiliary image* is a Docker container image containing your app and configuration. The WebLogic Kubernetes Operator combines your auxiliary image with the `domain.spec.image` in the AKS cluster that contains the WebLogic Server, JDK, and operating system. For more information about auxiliary images, see [Auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/) in the Oracle documentation.
 
 This section requires a Linux terminal with Azure CLI and kubectl installed.
 
@@ -527,7 +532,7 @@ Use the following steps to build the image:
 
 In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WLS cluster, use the following steps to create the secret for the datasource URL, username, and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
 
-1. Connect to the AKS cluster. Copy the **shellCmdtoConnectAks** value that you saved aside previously, paste it into the Bash window, then run the command. The command should look similar to the following example:
+1. Connect to the AKS cluster by copying the **shellCmdtoConnectAks** value that you saved aside previously, pasting it into the Bash window, then running the command. The command should look similar to the following example:
 
    ```bash
    az account set --subscription <subscription>; 
@@ -542,17 +547,13 @@ In the previous steps, you created the auxiliary image including models and WDT.
    Merged "<name>" as current context in /Users/<username>/.kube/config
    ```
 
-1. Use the following steps to create the secret for the datasource connection.
+1. Use the following steps to get values for the variables shown in the following table. You use these values later to create the secret for the datasource connection.
 
-   This article uses the secret name `sqlserver-secret` for the secret of the datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same as the one in *dbmodel.yaml*. Make sure the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` for the database connection are set correctly.
-
-   | Variable               | Value                                                                         | Example                                                                                       |
-   |------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-   | `DB_CONNECTION_STRING` | The connection string of SQL server. You can obtain it from the Azure portal. | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125` |
-   | `DB_USER`              | The username to sign in to the SQL server.                                    | `welogic@sqlserverforwlsaks`                                                                  |
-   | `DB_PASSWORD`          | The password to sign in to the sQL server.                                    | `Secret123456`                                                                                |
-
-   Use the following steps to get the values for the variables:
+   | Variable               | Description                                | Example                                                                                       |
+   |------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------|
+   | `DB_CONNECTION_STRING` | The connection string of SQL server.       | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125` |
+   | `DB_USER`              | The username to sign in to the SQL server. | `welogic@sqlserverforwlsaks`                                                                  |
+   | `DB_PASSWORD`          | The password to sign in to the sQL server. | `Secret123456`                                                                                |
 
    1. Visit the SQL database resource in the Azure portal.
 
@@ -560,15 +561,17 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    1. Select the **JDBC** tab.
 
-   1. Select the copy icon.
+   1. Select the copy icon to copy the connection string to the clipboard.
 
-   1. For `DB_CONNECTION_STRING`, replace the value `{your_password_here}` with your database password.
+   1. For `DB_CONNECTION_STRING`, use the entire connection string, but replace the placeholder `{your_password_here}` with your database password.
 
-   1. The `DB_USER` value is the portion of the string from `azureuser` up to but not including `;password={your_password_here}`.
+   1. For `DB_USER`, use the portion of the connection string from `azureuser` up to but not including `;password={your_password_here}`.
 
-   1. The `DB_PASSWORD` value is the value you entered when you created the database.
+   1. For `DB_PASSWORD`, use the value you entered when you created the database.
 
-   Be sure to enclose the value of the `DB_` variables in double quotes to prevent the shell from interfering with the values.
+1. Use the following commands to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). This article uses the secret name `sqlserver-secret` for the secret of the datasource connection. If you use a different name, make sure the value is the same as the one in *dbmodel.yaml*.
+
+   In the following commands, be sure to set the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` correctly by replacing the placeholder examples with the values described in the previous steps. Be sure to enclose the value of the `DB_` variables in double quotes to prevent the shell from interfering with the values.
 
    ```bash
    export DB_CONNECTION_STRING="<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>"
@@ -579,26 +582,26 @@ In the previous steps, you created the auxiliary image including models and WDT.
    export SECRET_NAME=sqlserver-secret
 
    kubectl -n ${WLS_DOMAIN_NS} create secret generic \
-     ${SECRET_NAME} \
-     --from-literal=password="${DB_PASSWORD}" \
-     --from-literal=url="${DB_CONNECTION_STRING}" \
-     --from-literal=user="${DB_USER}"
+       ${SECRET_NAME} \
+       --from-literal=password="${DB_PASSWORD}" \
+       --from-literal=url="${DB_CONNECTION_STRING}" \
+       --from-literal=user="${DB_USER}"
 
    kubectl -n ${WLS_DOMAIN_NS} label secret \
-     ${SECRET_NAME} \
-     weblogic.domainUID=${WLS_DOMAIN_UID}
+       ${SECRET_NAME} \
+       weblogic.domainUID=${WLS_DOMAIN_UID}
    ```
 
-   You must see the following output before continuing. If you don't see this output, troubleshoot and resolve the problem before continuing.
+   You must see the following output before you continue. If you don't see this output, troubleshoot and resolve the problem before you continue.
 
    ```output
    secret/sqlserver-secret created
    secret/sqlserver-secret labeled
    ```
 
-1. Apply the auxiliary image by patching the domain custom resource definition (CRD).
+1. Apply the auxiliary image by patching the domain custom resource definition (CRD) using the `kubectl patch` command.
 
-   The auxiliary image is defined in `spec.configuration.model.auxiliaryImages`, as the following snippet shows. For more information, see [auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/).
+   The auxiliary image is defined in `spec.configuration.model.auxiliaryImages`, as shown in the following example. For more information, see [auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/).
 
    ```yaml
    spec:
@@ -613,7 +616,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
            sourceWDTInstallHome: /auxiliary/weblogic-deploy
    ```
 
-   Run `kubectl patch` command increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
+   Run the `kubectl patch` command increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
 
    ```bash
    export VERSION=$(kubectl -n ${WLS_DOMAIN_NS} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
@@ -649,20 +652,22 @@ In the previous steps, you created the auxiliary image including models and WDT.
    kubectl get pod -n ${WLS_DOMAIN_NS} -w
    ```
 
-   Wait until the admin server and managed servers show the following values before proceeding. It might take 5-10 minutes for the system to reach this state. The following list provides an overview of what's happening while you wait:
+1. Wait until the admin server and managed servers show the values in the following output block before you proceed:
+
+   ```output
+   NAME                             READY   STATUS    RESTARTS   AGE
+   sample-domain1-admin-server      1/1     Running   0          20m
+   sample-domain1-managed-server1   1/1     Running   0          19m
+   sample-domain1-managed-server2   1/1     Running   0          18m
+   ```
+
+   It might take 5-10 minutes for the system to reach this state. The following list provides an overview of what's happening while you wait:
 
    - You should see the `sample-domain1-introspector-zbtbz` running first. This software looks for changes to the domain custom resource so it can take the necessary actions on the Kubernetes cluster.
    - When changes are detected, the domain introspector kills and starts new pods to roll out the changes.
    - Next, you should see the `sample-domain1-admin-server` pod terminate and restart.
    - Then, you should see the two managed servers terminate and restart.
    - Only when all three pods show the `1/1 Running` state, is it ok to proceed.
-
-   ```bash
-   NAME                             READY   STATUS    RESTARTS   AGE
-   sample-domain1-admin-server      1/1     Running   0          20m
-   sample-domain1-managed-server1   1/1     Running   0          19m
-   sample-domain1-managed-server2   1/1     Running   0          18m
-   ```
 
 ## Verify the functionality of the deployment
 
