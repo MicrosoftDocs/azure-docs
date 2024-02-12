@@ -16,8 +16,9 @@ This article describes how to ingest GCP data into Microsoft Sentinel to get ful
 
 With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
 
-- Google Cloud Platform (GCP) Audit Logs record audit trails of access to GCP resources that analysts can use to monitor access and detect potential threats across the GCP environment.
-- The Google Cloud Platform (GCP) Security Command Center is a robust security and risk management platform for Google Cloud. It provides features such as asset inventory and discovery, vulnerability, and threat detection, as well as risk mitigation and remediation to help you gain insights into your organization's security posture and data attack surface. Its integration with Microsoft Sentinel enhances your ability to efficiently handle tasks related to findings and assets.
+- The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
+
+- The **Google Cloud Platform (GCP) Security Command Center connector** collects findings from Google Security Command Center, a robust security and risk management platform for Google Cloud. Analysts can view these findings to gain insights into the organization's security posture, including asset inventory and discovery, detections of vulnerabilities and threats, and risk mitigation and remediation.
 
 > [!IMPORTANT]
 > The GCP Pub/Sub connectors are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
@@ -59,7 +60,7 @@ You can set up the environment in one of two ways:
   > There is no Terraform script available for creating GCP Pub/Sub resources for log collection from **Security Command Center**. You must create these resources manually. You can still use the Terraform script to create the GCP IAM resources for authentication.
 
   > [!IMPORTANT]
-  > If you're creating resources manually, you must create *all* the resources, IAM *and* Pub/Sub, in the **same GCP project**, otherwise it won't work.
+  > If you're creating resources manually, you must create *all* the authentication (IAM) resources in the **same GCP project**, otherwise it won't work. (Pub/Sub resources can be in a different project.)
 
 ### GCP Authentication Setup
 
