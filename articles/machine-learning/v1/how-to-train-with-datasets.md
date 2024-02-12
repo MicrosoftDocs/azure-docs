@@ -14,11 +14,10 @@ ms.custom: UpdateFrequency5, data4ml, sdkv1
 #Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 ---
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
-
 # Train models with Azure Machine Learning datasets 
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
