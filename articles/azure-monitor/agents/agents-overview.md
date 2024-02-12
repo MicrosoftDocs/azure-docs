@@ -179,9 +179,6 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows Server 2016 Core                                 | ✓ |   | ✓ |
 | Windows Server 2012 R2                                   | ✓ | ✓ | ✓ |
 | Windows Server 2012                                      | ✓ | ✓ | ✓ |
-| Windows Server 2008 R2 SP1                               | ✓ | ✓ | ✓ |
-| Windows Server 2008 R2                                   |   |   | ✓ |
-| Windows Server 2008 SP2                                  |   | ✓ |   |
 | Windows 11 Client and Pro                                | ✓<sup>2</sup>, <sup>3</sup> |  |  |
 | Windows 11 Enterprise<br>(including multi-session)       | ✓ |  |  |
 | Windows 10 1803 (RS4) and higher                         | ✓<sup>2</sup> |  |  |

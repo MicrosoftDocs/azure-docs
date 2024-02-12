@@ -147,22 +147,24 @@
       href: network-watcher-diagnose-on-premises-connectivity.md
   - name: Capture and analyze packets
     items:
-    - name: Manage a packet capture
+    - name: Manage packet captures for VMs
       items:
-      - name: Virtual machine - Portal
-        href: network-watcher-packet-capture-manage-portal.md
-      - name: Virtual Machine Scale Set - Portal
+      - name: Azure Portal
+        href: packet-capture-vm-portal.md
+      - name: Azure PowerShell
+        href: packet-capture-vm-powershell.md
+      - name: Azure CLI
+        href: packet-capture-vm-cli.md
+    - name: Manage packet captures for scale sets
+      items:
+      - name: Azure Portal
         href: network-watcher-packet-capture-manage-portal-vmss.md
-      - name: Virtual machine - PowerShell
-        href: network-watcher-packet-capture-manage-powershell.md
-      - name: Virtual Machine Scale Set - PowerShell
+      - name: Azure PowerShell
         href: network-watcher-packet-capture-manage-powershell-vmss.md
-      - name: Virtual machine - Azure CLI
-        href: network-watcher-packet-capture-manage-cli.md
     - name: Analyze a packet capture
       items:
-      - name: Find anomalies
-        href: network-watcher-deep-packet-inspection.md
+      - name: Inspect to find anomalies
+        href: packet-capture-inspect.md
       - name: Proactive network monitoring with Azure Functions
         href: network-watcher-alert-triggered-packet-capture.md
       - name: Perform intrusion detection using open source tools

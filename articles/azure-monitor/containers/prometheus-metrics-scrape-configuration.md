@@ -2,7 +2,6 @@
 title: Customize scraping of Prometheus metrics in Azure Monitor
 description: Customize metrics scraping for a Kubernetes cluster with the metrics add-on in Azure Monitor.
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---

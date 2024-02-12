@@ -1,10 +1,10 @@
 ---
 title: Legacy Log Analytics Alert REST API
 description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics. This article provides details about the API and examples for performing different operations.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 06/20/2023
 ms.reviewer: nolavime
-
 ---
 
 # Legacy Log Analytics alerts REST API

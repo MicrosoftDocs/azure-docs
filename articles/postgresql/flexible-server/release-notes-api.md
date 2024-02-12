@@ -23,6 +23,7 @@ This page provides latest news and updates regarding the recommended API version
 
 | API Version | Stable/Preview | Comments |
 | --- | --- | --- |
+| 2023-06-01-preview| Preview | Earlier GA features   +<br>Migration Pre-validation<br>Read replicas - Switchover (Site swap)<br>Read replicas - Virtual Endpoints<br>Private Endpoints<br>Azure Defender\Threat Protection APIs<br>PG 16 support<br>PremiumV2_LRS storage type support<br>Location capability changes for SSDv2<br>Quota Usage API<br> |
 | 2023-03-01-preview | Preview | New GA version features (2022-12-01) +<br>Geo + CMK<br>Storage auto growth<br>IOPS scaling<br>New location capability api<br>Azure Defender<br>Server Logs<br>Migrations<br> |
 | [2022-12-01](/rest/api/postgresql/) | Stable (GA) | Earlier GA features +<br>AAD<br>CMK<br>Backups<br>Administrators<br>Replicas<br>GeoRestore<br>MVU<br> |
 | 2022-05-01-preview | Preview | CheckMigrationNameAvailability<br>Migrations<br> |
