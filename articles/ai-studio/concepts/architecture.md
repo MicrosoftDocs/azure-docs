@@ -33,7 +33,7 @@ The top level AI Studio resources (AI hub and AI projects) are based on Azure Ma
  
 An AI hub can have multiple child AI projects. Each AI project can have its own set of project-scoped connections.
 
-:::image type="content" source="../media/concepts/azureai-hub-project-resource-providers.png" alt-text="Diagram of the relationship between AI Studio resources.":::
+:::image type="content" source="../media/concepts/azureai-hub-project-relationship.png" alt-text="Diagram of the relationship between AI Studio resources." lightbox="../media/concepts/azureai-hub-project-relationship.png":::
 
 ### Tenant separation
 
