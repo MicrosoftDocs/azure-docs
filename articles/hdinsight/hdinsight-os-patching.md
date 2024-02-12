@@ -4,7 +4,7 @@ description: Learn how to configure OS patching schedule for Linux-based HDInsig
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/01/2023
+ms.date: 02/12/2024
 ---
 
 # Configure the OS patching schedule for Linux-based HDInsight clusters
