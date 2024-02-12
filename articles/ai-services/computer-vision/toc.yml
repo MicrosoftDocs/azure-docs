@@ -378,9 +378,9 @@ items:
         href: https://aka.ms/liveness-sdk-java
       - name: Swift (iOS)
         href: https://aka.ms/liveness-sdk-ios
-- name: Spatial Analysis
+- name: Video Analysis
   items:
-  - name: Spatial Analysis overview
+  - name: Video Analysis overview
     href: intro-to-spatial-analysis-public-preview.md
   - name: Responsible use of AI
     items:
