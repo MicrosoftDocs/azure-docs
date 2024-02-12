@@ -19,7 +19,7 @@ In this article, you learn how to enable [Azure Peering Service](../peering-serv
 
 - Complete the [Prerequisites to set up peering with Microsoft](prerequisites.md) before you begin configuration.
 
-- A Direct peering in your subscription for which you want to enable Peering Service. If you don't have one, either convert a legacy Direct peering or create a new Direct peering. For more information, see [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md) or [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
+- A Direct peering in your subscription for which you want to enable Peering Service. If you don't have one, either convert a legacy Direct peering or create a new Direct peering. For more information, see [Convert a legacy Direct peering to an Azure resource](howto-legacy-direct-portal.md) or [Create or modify a Direct peering](howto-direct-portal.md).
 
 ## Enable Peering Service on a Direct peering
 
