@@ -131,6 +131,11 @@ Use Postman to call the data connector API to create the data connector which co
 
 Manually package an Azure Resource Management (ARM) template using the [example template](#example-arm-template) as your guide.
 
+In addition to the example template, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connector. Review the following solutions as more examples of how to stitch the components together into an ARM template.
+
+- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
+- [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
+
 ## Deploy the connector
 
 Deploy your codeless connector as a custom template. 
