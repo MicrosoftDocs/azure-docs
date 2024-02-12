@@ -4,7 +4,6 @@ description: Resolving an issue when trying to sign up for a new account in the 
 services: cost-management-billing
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
