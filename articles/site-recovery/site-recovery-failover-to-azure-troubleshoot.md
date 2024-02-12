@@ -11,6 +11,9 @@ ms.author: ankitadutta
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 
 ## Failover failed with Error ID 28031
