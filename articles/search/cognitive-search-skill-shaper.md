@@ -1,11 +1,12 @@
 ---
 title: Shaper cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure Cognitive Search.
-
-author: LiamCavanagh
-ms.author: liamca
+titleSuffix: Azure AI Search
+description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure AI Search.
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 08/12/2021
 ---
@@ -19,7 +20,7 @@ Additionally, the **Shaper** skill illustrated in [scenario 3](#nested-complex-t
 The output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" as shown in the examples below, but the **Shaper** skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
 > [!NOTE]
-> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
+> This skill isn't bound to Azure AI services. It is non-billable and has no Azure AI services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill
@@ -103,7 +104,7 @@ An incoming JSON document providing usable input for this **Shaper** skill could
 
 ###	Skill output
 
-The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. This output conforms to the index schema. It will be imported and indexed in an Azure Cognitive Search index.
+The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. This output conforms to the index schema. It will be imported and indexed in an Azure AI Search index.
 
 ```json
 {

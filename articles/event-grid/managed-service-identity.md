@@ -1,13 +1,13 @@
 ---
 title: Event delivery, managed service identity, and private link 
-description: This article describes how to enable managed service identity for an Azure event grid topic. Use it to forward events to supported destinations. 
+description: This article describes how to enable managed service identity for an Azure Event Grid topic. Use it to forward events to supported destinations. 
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.custom: devx-track-azurecli
+ms.date: 12/12/2023
 ---
 
 # Event delivery with a managed identity
-This article describes how to use a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for an Azure event grid system topic, custom topic, or domain. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
-
+This article describes how to use a [managed service identity](/entra/identity/managed-identities-azure-resources/overview) for an Azure Event Grid system topic, custom topic, or domain. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
 
 
 ## Prerequisites
@@ -20,27 +20,26 @@ This article describes how to use a [managed service identity](../active-directo
     > Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). For more information, see the [Private endpoints](#private-endpoints) section at the end of this article. 
 
 ## Create event subscriptions that use an identity
-After you have an event grid custom topic or system topic or domain with a system-managed identity and have added the identity to the appropriate role on the destination, you're ready to create subscriptions that use the identity. 
+After you have an Event Grid custom topic or system topic or domain with a managed identity and have added the identity to the appropriate role on the destination, you're ready to create subscriptions that use the identity. 
 
 ### Use the Azure portal
 When you create an event subscription, you see an option to enable the use of a system-assigned identity or user-assigned identity for an endpoint in the **ENDPOINT DETAILS** section. 
 
 Here's an example of enabling system-assigned identity while creating an event subscription with a Service Bus queue as a destination. 
 
-![Enable identity while creating an event subscription for a Service Bus queue](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
+:::image type="content" source="./media/managed-service-identity/service-bus-queue-subscription-identity.png" alt-text="Screenshot that shows how to enable an identity when creating an event subscription for a Service Bus queue.":::
 
 You can also enable using a system-assigned identity to be used for dead-lettering on the **Additional Features** tab. 
 
-![Enable system-assigned identity for dead-lettering](./media/managed-service-identity/enable-deadletter-identity.png)
+![Screenshot that shows how to enable a system-assigned identity for dead-lettering.](./media/managed-service-identity/enable-deadletter-identity.png)
 
-You can also enable a managed identity on an event subscription after it's created. On the **Event Subscription** page for the event subscription, switch to the **Additional Features** tab to see the option. 
+You can enable a managed identity on an event subscription after it's created. On the **Event Subscription** page for the event subscription, switch to the **Additional Features** tab to see the option. You can also enable identity for dead-lettering on this page.
 
-![Enable system-assigned identity on an existing event subscription](./media/managed-service-identity/event-subscription-additional-features.png)
+:::image type="content" source="./media/managed-service-identity/event-subscription-additional-features.png" alt-text="Screenshot that shows how to enable a system-assigned identity on an existing event subscription.":::
 
-If you had enabled user-assigned identities for the topic, you will see user-assigned identity option enabled in the drop-down list for **Manged Identity Type**. If you select **User Assigned** for **Managed Identity Type**, you can then select the user-assigned identity that you want to use to deliver events. 
+If you had enabled user-assigned identities for the topic, you'll see user-assigned identity option enabled in the drop-down list for **Manged Identity Type**. If you select **User Assigned** for **Managed Identity Type**, you can then select the user-assigned identity that you want to use to deliver events. 
 
-![Enable user-assigned identity on an event subscription](./media/managed-service-identity/event-subscription-user-identity.png)
-
+:::image type="content" source="./media/managed-service-identity/event-subscription-user-identity.png" alt-text="Screenshot that shows how to enable a user-assigned identity on an event subscription.":::
 
 ### Use the Azure CLI - Service Bus queue 
 In this section, you learn how to use the Azure CLI to enable the use of a system-assigned identity to deliver events to a Service Bus queue. The identity must be a member of the **Azure Service Bus Data Sender** role. It must also be a member of the **Storage Blob Data Contributor** role on the storage account that's used for dead-lettering. 
@@ -59,7 +58,7 @@ sb_esname = "<Specify a name for the event subscription>"
 ```
 
 #### Create an event subscription by using a managed identity for delivery 
-This sample command creates an event subscription for an event grid custom topic with an endpoint type set to **Service Bus queue**. 
+This sample command creates an event subscription for an Event Grid custom topic with an endpoint type set to **Service Bus queue**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -71,7 +70,7 @@ az eventgrid event-subscription create
 ```
 
 #### Create an event subscription by using a managed identity for delivery and dead-lettering
-This sample command creates an event subscription for an event grid custom topic with an endpoint type set to **Service Bus queue**. It also specifies that the system-managed identity is to be used for dead-lettering. 
+This sample command creates an event subscription for an Event Grid custom topic with an endpoint type set to **Service Bus queue**. It also specifies that the system-managed identity is to be used for dead-lettering. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -101,7 +100,7 @@ eh_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>"
 ```
 
 #### Create an event subscription by using a managed identity for delivery 
-This sample command creates an event subscription for an event grid custom topic with an endpoint type set to **Event Hubs**. 
+This sample command creates an event subscription for an Event Grid custom topic with an endpoint type set to **Event Hubs**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -113,7 +112,7 @@ az eventgrid event-subscription create
 ```
 
 #### Create an event subscription by using a managed identity for delivery + deadletter 
-This sample command creates an event subscription for an event grid custom topic with an endpoint type set to **Event Hubs**. It also specifies that the system-managed identity is to be used for dead-lettering. 
+This sample command creates an event subscription for an Event Grid custom topic with an endpoint type set to **Event Hubs**. It also specifies that the system-managed identity is to be used for dead-lettering. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -176,12 +175,12 @@ az eventgrid event-subscription create
 ```
 
 ## Private endpoints
-Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, there is no support if you have strict network isolation requirements where your delivered events traffic must not leave the private IP space. 
+Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, there's no support if you have strict network isolation requirements where your delivered events traffic must not leave the private IP space. 
 
-However, if your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure event grid custom topic or a domain with system-managed identity configured as shown in this article. Then, you can use a private link configured in Azure Functions or your webhook deployed on your virtual network to pull events. See the sample: [Connect to private endpoints with Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+However, if your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure Event Grid custom topic or a domain with a managed identity as shown in this article. Then, you can use a private link configured in Azure Functions or your webhook deployed on your virtual network to pull events. See the tutorial: [Connect to private endpoints with Azure Functions](../azure-functions/functions-create-vnet.md).
 
 Under this configuration, the traffic goes over the public IP/internet from Event Grid to Event Hubs, Service Bus, or Azure Storage, but the channel can be encrypted and a managed identity of Event Grid is used. If you configure your Azure Functions or webhook deployed to your virtual network to use an Event Hubs, Service Bus, or Azure Storage via private link, that section of the traffic will evidently stay within Azure.
 
 
 ## Next steps
-To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+To learn about managed identities, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).

@@ -6,7 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 11/28/2022
+ms.date: 10/20/2023
 ---
 
 # Replicate multiple objects from SAP via SAP CDC
@@ -40,7 +40,7 @@ A sample control file is as below:
 ```json
 [
   {
-    "checkPointKey":"cba2acf0-d5e2-4d84-a552-e0a059b6d320",
+    "checkPointKey":"CheckPointFor_ZPERFCDPOS$F",
     "sapContext": "ABAP_CDS",
     "sapObjectName": "ZPERFCDPOS$F",
     "sapRunMode": "fullAndIncrementalLoad",
@@ -68,7 +68,7 @@ A sample control file is as below:
     "stagingStorageFolder":"stagingcontainer/stagingfolder"
   },
   {
-    "checkPointKey":"fgaeca7f-d3d4-406f-bb48-a17faa83f76c",
+    "checkPointKey":"CheckPointFor_Z0131",
     "sapContext": "SAPI",
     "sapObjectName": "Z0131",
     "sapRunMode": "incrementalLoad",
@@ -102,7 +102,8 @@ A sample control file is as below:
 
 	:::image type="content" source="media/solution-template-replicate-multiple-objects-sap-cdc/sap-cdc-template-pipeline.png" alt-text="Screenshot of SAP CDC pipeline.":::
 	   
-## Next steps
+## Related content
 
 - [Azure Data Factory SAP CDC](sap-change-data-capture-introduction-architecture.md)
+- [SAP CDC advanced topics](sap-change-data-capture-advanced-topics.md)
 - [Azure Data Factory change data capture](concepts-change-data-capture.md)

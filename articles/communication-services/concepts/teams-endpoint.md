@@ -1,5 +1,5 @@
 ---
-title: Communication as Teams user
+title: Communication as a Microsoft 365 user
 titleSuffix: An Azure Communication Services concept document
 description: This article discusses how to integrate communication as Teams user with Azure Communication Services and Graph API.
 author: tomaschladek
@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
-# Communication as Teams user
+# Communication as a Microsoft 365 user
 
-You can use Azure Communication Services and Graph API to integrate communication as Teams users into your products. Teams users can communicate with other people in and outside their organization. The benefits for enterprises are:
+You can use Azure Communication Services and Graph API to integrate communication as Microsoft 365 users into your products. Microsoft 365 users can communicate with other people in and outside their organization. The benefits for enterprises are:
 - No requirement to download Teams desktop, mobile or web clients for Teams users
 - Teams users don't lose context by switching between applications for day-to-day work and Teams client for communication
 - Teams is a single source for chat messages and call history within the organization
@@ -55,7 +55,7 @@ The diagrams in the next sections demonstrate multi-tenant use cases where the f
 
 Voice, video, and screen-sharing capabilities are provided via [Azure Communication Services Calling SDKs](./interop/teams-user-calling.md). The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with Azure Communication Services support Teams identities. 
 
-You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) access tokens of Teams users for Communication Identity access tokens. 
+You can use the Azure Communication Services Identity SDK to exchange Microsoft Entra access tokens of Teams users for Communication Identity access tokens. 
 
 ![Diagram of the process to integrate the calling capabilities into your product with Azure Communication Services.](./media/teams-identities/teams-identity-calling-overview.svg)
 
@@ -109,4 +109,4 @@ Teams users can join the Teams meeting experience, manage calls, and manage chat
 Find more details in the following articles:
 - [Teams interoperability](./teams-interop.md)
 - [Issue a Teams access token](../quickstarts/manage-teams-identity.md)
-- [Start a call to Teams user as a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
+- [Start a call to Teams user as a Microsoft 365 user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)

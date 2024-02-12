@@ -1,14 +1,13 @@
 ---
 title: Path selection with Azure Route Server
 description: Learn about how Azure Route Server enables path selection for your network virtual appliance (NVA).
-services: route-server
 author: halkazwini
-ms.service: route-server
-ms.topic: conceptual
-ms.date: 02/23/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
-#Customer intent: As a network administrator, I want to control how traffic is routed from Azure to my on-premises network.
+ms.service: route-server
+ms.topic: concept-article
+ms.date: 12/13/2023
+
+#CustomerIntent: As a network administrator, I want to control how traffic is routed from Azure to my on-premises network.
 ---
 
 # Path selection with Azure Route Server
@@ -17,7 +16,7 @@ Azure Route Server simplifies dynamic routing between Azure virtual network and 
 
 ## How does it work?
 
-:::image type="content" source="./media/path-selection/routing-preference.png" alt-text="Diagram of Azure Route Server and an SDWAN with Internet routing IP.":::
+:::image type="content" source="./media/path-selection/ip-routing-preference.png" alt-text="Diagram of Azure Route Server with an SDWAN appliance and a virtual network gateway showing the two paths from Azure to the customer premises.":::
 
 ### Cold potato routing
 
@@ -29,13 +28,13 @@ As a way to optimize for cost, you can use the *Internet* routing preference to 
 
 ## How to enable internet routing preference?
 
-To enable internet routing preference for your NVA, create a new zone-redundant standard SKU Public IP address and select **Internet** as the **Routing preference**. Then, assign the public IP address to the NVA.
+To enable internet routing preference for your NVA, create a new standard SKU Public IP address and select **Internet** as the **Routing preference**. Then, assign the public IP address to the NVA.
 
-:::image type="content" source="./media/path-selection/internet-ip.png" alt-text="Screenshot of the internet routing preference of a public IP address in the Azure portal.":::
+:::image type="content" source="./media/path-selection/ip-routing-preference-internet.png" alt-text="Screenshot of the internet routing preference of a public IP address in the Azure portal.":::
 
 Microsoft recommends implementing a connectivity solution using both the Microsoft network and the internet to provide your environment with an extra layer of resiliency.
 
-## Next steps
+## Related content
 
 - Learn more about [Azure Route Server](route-server-faq.md).
 - Learn how to [configure Azure Route Server](quickstart-configure-route-server-portal.md).

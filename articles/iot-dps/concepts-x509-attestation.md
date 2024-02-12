@@ -1,12 +1,13 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - X.509 certificate attestation
+title: X.509 certificate attestation with Azure DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes concepts specific to using X.509 certificate attestation with Device Provisioning Service (DPS) and IoT Hub
 author: kgremban
+
 ms.author: kgremban
 ms.date: 09/14/2020
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # X.509 certificate attestation
@@ -43,7 +44,7 @@ An intermediate certificate is an X.509 certificate, which has been signed by th
 
 Intermediate certificates are used in a variety of ways. For example, intermediate certificates can be used to group devices by product lines, customers purchasing devices, company divisions, or factories. 
 
-Imagine that Contoso is a large corporation with its own Public Key Infrastructure (PKI) using the root certificate named *ContosoRootCert*. Each subsidiary of Contoso has their own intermediate certificate that is signed by *ContosoRootCert*. Each subsidiary will then use their intermediate certificate to sign their leaf certificates for each device. In this scenario, Contoso can use a single DPS instance where *ContosoRootCert* has been verified with [proof-of-possession](./how-to-verify-certificates.md). They can have an enrollment group for each subsidiary. This way each individual subsidiary will not have to worry about verifying certificates.
+Imagine that Contoso is a large corporation with its own Public Key Infrastructure (PKI) using the root certificate named *ContosoRootCert*. Each subsidiary of Contoso has their own intermediate certificate that is signed by *ContosoRootCert*. Each subsidiary will then use their intermediate certificate to sign their leaf certificates for each device. In this scenario, Contoso can use a single DPS instance where *ContosoRootCert* is a [verified certificate](./how-to-verify-certificates.md). They can have an enrollment group for each subsidiary. This way each individual subsidiary will not have to worry about verifying certificates.
 
 ### End-entity "leaf" certificate
 
@@ -70,7 +71,7 @@ When DPS enrollments are configured for X.509 attestation, mutual TLS (mTLS) is 
 
 ### DPS device chain requirements
 
-When a device is attempting registration through DPS using an enrollment group, the device must send the certificate chain from the leaf certificate to a certificate verified with [proof-of-possession](how-to-verify-certificates.md). Otherwise, authentication will fail.
+When a device is attempting registration through DPS using an enrollment group, the device must send the certificate chain from the leaf certificate to a [verified certificate](how-to-verify-certificates.md). Otherwise, authentication will fail.
 
 For example, if only the root certificate is verified and an intermediate certificate is uploaded to the enrollment group, the device should present the certificate chain from leaf certificate all the way to the verified root certificate. This certificate chain would include any intermediate certificates in-between. Authentication will fail if DPS cannot traverse the certificate chain to a verified certificate.
 
@@ -78,7 +79,7 @@ For example, consider a corporation using the following device chain for a devic
 
 ![Example device certificate chain](./media/concepts-x509-attestation/example-device-cert-chain.png) 
 
-Only the root certificate is verified, and *intermediate2* certificate is uploaded on the enrollment group.
+In this example, only the root certificate is verified, and *intermediate2* certificate is uploaded on the enrollment group.
 
 ![Example root verified](./media/concepts-x509-attestation/example-root-verified.png) 
 
@@ -89,9 +90,6 @@ If the device only sends the following device chain during provisioning, authent
 If the device sends the full device chain as follows during provisioning, then DPS can attempt authentication of the device.
 
 ![Example device certificate chain](./media/concepts-x509-attestation/example-device-cert-chain.png) 
-
-> [!NOTE]
-> Intermediate certificates can also be verified with [proof-of-possession](how-to-verify-certificates.md)..
 
 ### DPS order of operations with certificates
 

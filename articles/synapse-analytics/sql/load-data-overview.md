@@ -2,13 +2,12 @@
 title: Design a PolyBase data loading strategy for dedicated SQL pool
 description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data with dedicated SQL.
 author: joannapea
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 09/20/2022
 ms.author: joanpo
 ms.reviewer: wiassaf
+ms.date: 09/20/2022
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 # Design a PolyBase data loading strategy for dedicated SQL pool in Azure Synapse Analytics

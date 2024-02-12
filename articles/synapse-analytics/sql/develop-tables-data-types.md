@@ -1,15 +1,13 @@
 ---
 title: Table data types in Synapse SQL
-description: Recommendations for defining table data types in Synapse SQL. 
+description: Recommendations for defining table data types in Synapse SQL.
 author: filippopovic
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: sngun
-ms.custom: 
+ms.date: 04/15/2020
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 # Table data types in Synapse SQL
@@ -25,7 +23,7 @@ Synapse SQL Dedicated Pool supports the most commonly used data types. For a lis
 Minimizing the size of data types shortens the row length, which leads to better query performance. Use the smallest data type that works for your data.
 
 - Avoid defining character columns with a large default length. For example, if the longest value is 25 characters, then define your column as VARCHAR(25).
-- Avoid using [NVARCHAR][NVARCHAR] when you only need VARCHAR.
+- Avoid using NVARCHAR when you only need VARCHAR.
 - When possible, use NVARCHAR(4000) or VARCHAR(8000) instead of NVARCHAR(MAX) or VARCHAR(MAX).
 - Avoid using floats and decimals with 0 (zero) scale.  These should be TINYINT, SMALLINT, INT or BIGINT.
 

@@ -2,10 +2,10 @@
 title: Record a call when it starts
 titleSuffix: An Azure Communication Services how-to document
 description: In this how-to document, you can learn how to record a call through Azure Communication Services once it starts.
-author: ddematheu2
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
-ms.author: dademath
+ms.author: chpalm
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.date: 03/01/2023
@@ -55,6 +55,9 @@ The Call Started event when a call start is formatted in the following way:
 ]
 
 ```
+
+> [!NOTE] 
+> Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Pre-requisites
 

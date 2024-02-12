@@ -2,7 +2,8 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.custom: devx-track-arm-template
+ms.date: 01/11/2024
 ---
 
 # Object functions for ARM templates
@@ -168,7 +169,7 @@ The output from the preceding example with the default values is:
 
 `items(object)`
 
-Converts a dictionary object to an array.
+Converts a dictionary object to an array. See [toObject](template-functions-lambda.md#toobject) about converting an array to an object.
 
 In Bicep, use the [items](../bicep/bicep-functions-object.md#items).
 
@@ -326,7 +327,7 @@ The JSON data type from the specified string, or an empty value when **null** is
 
 ### Remarks
 
-If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
+If you need to include a parameter value or variable in the JSON object, use the [format](template-functions-string.md#format) function to create the string that you pass to the function.
 
 You can also use [null()](#null) to get a null value.
 
@@ -432,9 +433,11 @@ An array or object.
 
 The union function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
+
+The union function merges not only the top-level elements but also recursively merging any nested arrays and objects within them. See the second example in the following section.
 
 ### Example
 
@@ -448,6 +451,77 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
+
+The following example shows the deep merge capability:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "firstObject": {
+      "property": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      },
+      "nestedArray": [
+        1,
+        2
+      ]
+    },
+    "secondObject": {
+      "property": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      },
+      "nestedArray": [
+        3,
+        4
+      ]
+    },
+    "firstArray": [
+      [
+        "one",
+        "two"
+      ],
+      [
+        "three"
+      ]
+    ],
+    "secondArray": [
+      [
+        "three"
+      ],
+      [
+        "four",
+        "two"
+      ]
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "objectOutput": {
+      "type": "Object",
+      "value": "[union(variables('firstObject'), variables('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "Array",
+      "value": "[union(variables('firstArray'), variables('secondArray'))]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
+| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+
+If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 

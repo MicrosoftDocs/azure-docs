@@ -8,7 +8,7 @@ metadata:
   ms.author: malev
   ms.service: azure-app-configuration
   ms.topic: landing-page
-  ms.date: 02/03/2020
+  ms.date: 03/20/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -28,8 +28,6 @@ landingContent:
         links:
         - text: Getting started with Azure App Configuration
           url: /Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
-        - text: Feature management
-          url: /Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
         - text: Making centralized configuration easy
           url: /Events/dotnetConf/NET-Conf-2019/B210
         - text: Azure App Configuration on Cloud Native Show
@@ -46,7 +44,9 @@ landingContent:
         links:
         - text: Keys and values
           url: concept-key-value.md
-        - text: Point-in-time snapshot
+        - text: Snapshots
+          url: concept-snapshots.md
+        - text: Point-in-time key-values
           url: concept-point-time-snapshot.md
         - text: Feature Management
           url: concept-feature-management.md
@@ -64,9 +64,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+        - text: Create an Azure App Configuration store
+          url: quickstart-azure-app-configuration-create.md
         - text: Code an ASP.NET Core app
           url: quickstart-aspnet-core-app.md
-        - text: Code a .NET Core app
+        - text: Code a .NET app
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
           url: quickstart-dotnet-app.md
@@ -88,7 +90,7 @@ landingContent:
           url: enable-dynamic-configuration-aspnet-core.md
         - text: Use dynamic config in ASP.NET (.NET Framework)
           url: enable-dynamic-configuration-aspnet-netfx.md
-        - text: Use dynamic config in .NET Core
+        - text: Use dynamic config in .NET
           url: enable-dynamic-configuration-dotnet-core.md
         - text: Use dynamic config in .NET Framework
           url: enable-dynamic-configuration-dotnet.md
@@ -96,7 +98,9 @@ landingContent:
           url: enable-dynamic-configuration-azure-functions-csharp.md
         - text: Use dynamic config in Spring Boot
           url: enable-dynamic-configuration-java-spring-app.md
-        - text: Integrating dynamic config using the push model in .NET Core
+        - text: Use dynamic config in Python
+          url: enable-dynamic-configuration-python.md
+        - text: Integrating dynamic config using the push model in .NET
           url: enable-dynamic-configuration-dotnet-core-push-refresh.md
         - text: Integrating dynamic config using the push model in Java Spring
           url: enable-dynamic-configuration-java-spring-push-refresh.md
@@ -132,7 +136,7 @@ landingContent:
         links:
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
-        - text: .NET Core app
+        - text: .NET app
           url: use-feature-flags-dotnet-core.md
         - text: .NET Framework app
           url: quickstart-feature-flag-dotnet.md
@@ -150,10 +154,8 @@ landingContent:
           url: howto-targetingfilter-aspnet-core.md
       - linkListType: reference
         links:
-        - text: .NET Core library
-          url: https://www.nuget.org/packages/Microsoft.FeatureManagement/
-        - text: .NET Core filter library
-          url: /dotnet/api/microsoft.azure.management.storsimple8000series.models.featurefilter
+        - text: .NET library
+          url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - text: Java Spring Library
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
 
@@ -171,7 +173,7 @@ landingContent:
           url: /powershell/module/az.appconfiguration/
         - text: Terraform
           url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html          
-        - text: .NET Core provider
+        - text: .NET provider
           url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - text: Spring Boot provider
           url: https://github.com/microsoft/spring-cloud-azure/tree/master/

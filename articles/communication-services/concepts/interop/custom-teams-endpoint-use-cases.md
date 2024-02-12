@@ -15,7 +15,7 @@ ms.subservice: teams-interop
 
 # Azure Communication Services support for Teams identities — Use cases
 
-Microsoft Teams provides identities managed by Azure Active Directory and calling experiences controlled by Teams Admin Center and policies. Users might have assigned licenses to enable phone calls and advanced calling capabilities of Microsoft Teams Phone. Azure Communication Services support for Teams identities allows managing Teams voice over IP (VoIP) calls, Teams phone calls, and join Teams meetings. Developers might extend the Azure Communication Services with Graph API to provide contextual data from Microsoft 365 ecosystem. This page is providing inspiration on how to use existing Microsoft technologies to provide an end-to-end experience for calling scenarios with Teams users and Azure Communication Services calling SDKs. 
+Microsoft Teams provides identities managed by Microsoft Entra ID and calling experiences controlled by Teams Admin Center and policies. Users might have assigned licenses to enable phone calls and advanced calling capabilities of Microsoft Teams Phone. Azure Communication Services support for Teams identities allows managing Teams voice over IP (VoIP) calls, Teams phone calls, and join Teams meetings. Developers might extend the Azure Communication Services with Graph API to provide contextual data from Microsoft 365 ecosystem. This page is providing inspiration on how to use existing Microsoft technologies to provide an end-to-end experience for calling scenarios with Teams users and Azure Communication Services calling SDKs. 
 
 ## Use case 1: Make outbound Teams PSTN call
 This scenario is showing a multi-tenant use case, where company Contoso is providing SaaS to company Fabrikam. SaaS allows Fabrikam's users to make Teams phone calls via a custom website that takes the identity of the Teams user and configuration of the PSTN connectivity assigned to that Teams user.
@@ -161,7 +161,7 @@ var teamsUser = { microsoftTeamsUserId: 'e8b753b5-4117-464e-9a08-713e1ff266b3'};
 const oneToOneCall = callAgent.startCall([teamsUser], { threadId: '19:8c0a1a67-50ce-4114-bb6c-da9c5dbcf6ca_e8b753b5-4117-464e-9a08-713e1ff266b3@unq.gbl.spaces' });
 ```
 
-4. Connecting VoIP call to Megan: The call is routed through the Teams and ringing Teams clients associated with Megan. Megan sees an incoming call from Alice with the name defined in the Azure AD. 
+4. Connecting VoIP call to Megan: The call is routed through the Teams and ringing Teams clients associated with Megan. Megan sees an incoming call from Alice with the name defined in the Microsoft Entra ID. 
 5. Megans accepts the call: Megan accepts the call and the connection between Alice and Megan is established.
 
 

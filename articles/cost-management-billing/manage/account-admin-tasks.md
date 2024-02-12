@@ -3,13 +3,11 @@ title: Account Administrator tasks in the Azure portal
 description: Describes how to perform payment operations in Azure portal
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 04/26/2023
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Account Administrator tasks in the Azure portal
@@ -100,7 +98,7 @@ If your credit card is the active payment method for any of your Microsoft subsc
 
 ### Switch to invoice payment
 
-If you are eligible to pay by invoice (check/wire transfer), you can switch your subscription to invoice payment (check/wire transfer) in the Azure portal.
+If you are eligible to pay by invoice (wire transfer), you can switch your subscription to invoice payment (wire transfer) in the Azure portal.
 
 1. Select **Pay by invoice** in the command bar.
 

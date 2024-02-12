@@ -2,10 +2,10 @@
 title: Troubleshoot Azure Database for PostgreSQL backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL.
 ms.topic: troubleshooting
-ms.date: 06/07/2022
+ms.date: 02/09/2024
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot PostgreSQL database backup using Azure Backup
@@ -40,15 +40,15 @@ Steps:
 
 ## UserErrorBackupUserAuthFailed
 
-Create a database backup user that can authenticate with Azure Active Directory:
+Create a database backup user that can authenticate with Microsoft Entra ID:
 
-This error may come from an absence of an Azure Active Directory admin for the PostgreSQL server, or in absence of a backup user that can authenticate using Azure Active Directory.
+This error may come from an absence of a Microsoft Entra admin for the PostgreSQL server, or in absence of a backup user that can authenticate using Microsoft Entra ID.
 
 Steps:
 
 Add an Active Directory Admin to the OSS server:
 
-This step is required to connect to the database through a user that can authenticate with Azure Active Directory instead of a password. The Azure AD Admin user in Azure Database for PostgreSQL will have the role **azure_ad_admin**. Only an **azure_ad_admin** role can create new database users that can authenticate with Azure AD.
+This step is required to connect to the database through a user that can authenticate with Microsoft Entra ID instead of a password. The Microsoft Entra Admin user in Azure Database for PostgreSQL will have the role **azure_ad_admin**. Only an **azure_ad_admin** role can create new database users that can authenticate with Microsoft Entra ID.
 
 1. Go to the Active Directory Admin tab in the left navigation pane of the server view, and add yourself (or someone else) as the Active Directory admin.
 
@@ -104,7 +104,10 @@ The Azure Backup service uses the credentials mentioned in the key-vault to acce
 
 ## UserErrorMissingDBPermissions
 
-The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Grant appropriate permissions to the relevant backup or the database user to perform this operation on the database.
+
+The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). The key-vault associated with this backup instance can be found by accessing the backup instance and selecting the JSON view. You'll see the key-vault name and secret details listed under the **datasourceAuthCredentials** section as shown in the below screenshot.
+
+:::image type="content" source="./media/backup-azure-database-postgresql-troubleshoot/key-vault-secret-name.png" alt-text="Screenshot showing how to search for key vault by using secret name." lightbox="./media/backup-azure-database-postgresql-troubleshoot/key-vault-secret-name.png":::
 
 ## UserErrorSecretValueInUnsupportedFormat
 

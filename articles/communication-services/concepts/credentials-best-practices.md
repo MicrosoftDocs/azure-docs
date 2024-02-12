@@ -96,7 +96,7 @@ const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
 
 ### Example 2: Refreshing a token for a Teams User
 
-Let's assume we have a Node.js application built on Express with the `/getTokenForTeamsUser` endpoint allowing to exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.
+Let's assume we have a Node.js application built on Express with the `/getTokenForTeamsUser` endpoint allowing to exchange a Microsoft Entra access token of a Teams user for a new Communication Identity access token with a matching expiration time.
 
 ```javascript
 app.post('/getTokenForTeamsUser', async (req, res) => {
@@ -108,8 +108,8 @@ app.post('/getTokenForTeamsUser', async (req, res) => {
 
 Next, we need to implement a token refresher callback in the client application, whose responsibility will be to:
 
-1. Refresh the Azure AD access token of the Teams User
-2. Exchange the Azure AD access token of the Teams User for a Communication Identity access token
+1. Refresh the Microsoft Entra access token of the Teams User
+2. Exchange the Microsoft Entra access token of the Teams User for a Communication Identity access token
 
 ```javascript
 const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
@@ -132,7 +132,7 @@ const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
 }
 ```
 
-In this example, we use the Microsoft Authentication Library (MSAL) to refresh the Azure AD access token. Following the guide to [acquire an Azure AD token to call an API](../../active-directory/develop/scenario-spa-acquire-token.md), we first try to obtain the token without the user's interaction. If that's not possible, we trigger one of the interactive flows.
+In this example, we use the Microsoft Authentication Library (MSAL) to refresh the Microsoft Entra access token. Following the guide to [acquire a Microsoft Entra token to call an API](../../active-directory/develop/scenario-spa-acquire-token.md), we first try to obtain the token without the user's interaction. If that's not possible, we trigger one of the interactive flows.
 
 ```javascript
 const refreshAadToken = async function (abortSignal, username) {
@@ -195,7 +195,7 @@ If you want to cancel scheduled refresh tasks, [dispose](#cleaning-up-resources)
 
 ### Proactively refreshing a token for a Teams User
 
-To minimize the number of roundtrips to the Azure Communication Identity API, make sure the Azure AD token you're passing for an [exchange](../quickstarts/manage-teams-identity.md#step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token) has long enough validity (> 10 minutes). In case that MSAL returns a cached token with a shorter validity, you have the following options to bypass the cache:
+To minimize the number of roundtrips to the Azure Communication Identity API, make sure the Microsoft Entra token you're passing for an [exchange](../quickstarts/manage-teams-identity.md#step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token) has long enough validity (> 10 minutes). In case that MSAL returns a cached token with a shorter validity, you have the following options to bypass the cache:
 
 1. Refresh the token forcibly
 2. Increase the MSAL's token renewal window to more than 10 minutes

@@ -1,111 +1,75 @@
 ---
-title: Diagnose on-premises connectivity via VPN gateway
+title: Diagnose on-premises VPN connectivity with Azure
 titleSuffix: Azure Network Watcher
-description: This article describes how to diagnose on-premises connectivity via VPN gateway with Azure Network Watcher resource troubleshooting.
-services: network-watcher
+description: Learn how to diagnose on-premises VPN connectivity with Azure using Azure Network Watcher VPN troubleshoot tool.
+ms.author: halkazwini
 author: halkazwini
-ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 01/20/2021
-ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.date: 02/09/2024
+
+#CustomerIntent: As an Azure administrator, I want to learn how to use VPN troubleshoot so I can troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises resources over a VPN connection.
 ---
 
-# Diagnose on-premises connectivity via VPN gateways
+# Diagnose on-premises VPN connectivity with Azure
 
-Azure VPN Gateway enables you to create hybrid solution that address the need for a secure connection between your on-premises network and your Azure virtual network. As your requirements are unique, so is the choice of on-premises VPN device. Azure currently supports [several VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) that are constantly validated in partnership with the device vendors. Review the device-specific configuration settings before configuring your on-premises VPN device. Similarly, Azure VPN Gateway is configured with a set of [supported IPsec parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) that are used for establishing connections. Currently, there's no way for you to specify or select a specific combination of IPsec parameters from the Azure VPN Gateway. For establishing a successful connection between on-premises and Azure, the on-premises VPN device settings must be in accordance with the IPsec parameters prescribed by Azure VPN Gateway. If the settings are incorrect, there's a loss of connectivity and until now troubleshooting these issues wasn't trivial and usually took hours to identify and fix the issue.
+In this article, you learn how to use Azure Network Watcher VPN troubleshoot capability to diagnose and troubleshoot your VPN gateway and its connection to your on-premises VPN device. For a list of validated VPN devices and their configuration guides, see [VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=/azure/network-watcher/toc.json#devicetable).
 
-With the Azure Network Watcher troubleshoot feature, you're able to diagnose any issues with your Gateway and Connections and within minutes have enough information to make an informed decision to rectify the issue.
+VPN troubleshoot allows you to quickly diagnose issues with your gateway and connections. It checks for common issues and returns a list of diagnostic logs that can be used to further troubleshoot the issue. The logs are stored in a storage account that you specify.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- A VPN device in your on-premises network represented by a local network gateway in Azure. For more information about local network gateways, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway). For a list of validated VPN devices, see [Validated VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=/azure/network-watcher/toc.json#devicetable). 
+
+- A VPN virtual network gateway in Azure with a site-to-site connection. For more information about virtual network gateways, see [Create a VPN gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/network-watcher/toc.json#VNetGateway) and [Default IPsec/IKE parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=/azure/network-watcher/toc.json#ipsec)
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## Troubleshoot using Network Watcher VPN troubleshoot
 
-## Scenario
+Use the VPN troubleshoot capability of Network Watcher to diagnose and troubleshoot your VPN gateway and its connection to your on-premises network. 
 
-You want to configure a site-to-site connection between Azure and on-premises using FortiGate as the on-premises VPN Gateway. To achieve this scenario, you would require the following setup:
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** in the search results.
 
-1. Virtual Network Gateway - The VPN Gateway on Azure
-1. Local Network Gateway - The [on-premises (FortiGate) VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway) representation in Azure cloud
-1. Site-to-site connection (route based) - [Connection between the VPN Gateway and the on-premises router](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection)
-1. [Configuring FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
+    :::image type="content" source="./media/network-watcher-diagnose-on-premises-connectivity/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/packet-capture-vm-portal/portal-search.png":::
 
-Detailed step by step guidance for configuring a Site-to-Site configuration can be found by visiting: [Create a VNet with a Site-to-Site connection using the Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md).
+1. Under **Network diagnostic tools**, select **VPN troubleshoot**.
 
-One of the critical configuration steps is configuring the IPsec communication parameters, any misconfiguration leads to loss of connectivity between the on-premises network and Azure. Currently, Azure VPN Gateways are configured to support the following IPsec parameters for Phase 1. As you can see in the table below, the encryption algorithms supported by Azure VPN Gateway are AES256, AES128, and 3DES.
+1. In the **VPN troubleshoot**, select **Select storage account** to choose or create a Standard storage account to save the diagnostic files to.
 
-### IKE phase 1 setup
+1. Select the virtual network gateway and connection that you want to troubleshoot.
 
-| **Property** | **PolicyBased** | **RouteBased and Standard or High-Performance VPN gateway** |
-| --- | --- | --- |
-| IKE Version |IKEv1 |IKEv2 |
-| Diffie-Hellman Group |Group 2 (1024 bit) |Group 2 (1024 bit) |
-| Authentication Method |Pre-Shared Key |Pre-Shared Key |
-| Encryption Algorithms |AES256 AES128 3DES |AES256 3DES |
-| Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Phase 1 Security Association (SA) Lifetime (Time) |28,800 seconds |28,800 seconds |
+1. Select **Start troubleshooting**. 
 
-As a user, you would be required to configure your FortiGate, a sample configuration can be found on [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Unknowingly you configured your FortiGate to use SHA-512 as the hashing algorithm. As this algorithm isn't a supported algorithm for policy-based connections, your VPN connection does work.
+1. Once the check is completed, the troubleshooting status of the gateway and connection is displayed. The **Unhealthy** status indicates that there's an issue with the resource.
 
-These issues are hard to troubleshoot and root causes are often non-intuitive. In this case, you can open a support ticket to get help on resolving the issue. But with Azure Network Watcher troubleshoot API, you can identify these issues on your own.
+1. Go to the **vpn** container in the storage account that you previously specified and download the zip file that was generated during the VPN troubleshoot check session. Network Watcher creates a zip folder that contains the following diagnostic log files:
 
-## Troubleshooting using Azure Network Watcher
+    :::image type="content" source="./media/network-watcher-diagnose-on-premises-connectivity/vpn-troubleshoot-logs.png" alt-text="Screenshot shows log files created after running VPN troubleshoot check on a virtual network gateway.":::
 
-To diagnose your connection, connect to Azure PowerShell and initiate the `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. You can find the details on using this cmdlet at [Troubleshoot Virtual Network Gateway and connections - PowerShell](network-watcher-troubleshoot-manage-powershell.md). This cmdlet may take up to few minutes to complete.
+    > [!NOTE]
+    > - In some cases, only a subset of the log files is generated.
+    > - For newer gateway versions, the IKEErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by an IkeLogs.txt file that contains the whole IKE activity including any errors.
 
-Once the cmdlet completes, you can navigate to the storage location specified in the cmdlet to get detailed information on about the issue and logs. Azure Network Watcher creates a zip folder that contains the following log files:
+A common misconfiguration error is due to using incorrect shared keys where you can check the IKEErrors.txt to see the following error message:
 
-![1][1]
+```
+Error: Authentication failed. Check shared key.
+```
 
-Open the file called IKEErrors.txt and it displays the following error, indicating an issue with on-premises IKE setting misconfiguration.
+Another common error is due the misconfiguration of the IPsec parameters, where you can find the following error message in the IKEErrors.txt file:
 
 ```
 Error: On-premises device rejected Quick Mode settings. Check values.
-	 based on log : Peer sent NO_PROPOSAL_CHOSEN notify
+		based on log : Peer sent NO_PROPOSAL_CHOSEN notify
 ```
 
-You can get detailed information from the Scrubbed-wfpdiag.txt about the error, as in this case it mentions that there was `ERROR_IPSEC_IKE_POLICY_MATCH` that lead to connection not working properly.
+For a detailed list of fault types that Network Watcher can diagnose and their logs, see [Gateway faults](vpn-troubleshoot-overview.md#gateway) and [Connection faults](vpn-troubleshoot-overview.md#connection). 
 
-Another common misconfiguration is the specifying incorrect shared keys. If in the preceding example you had specified different shared keys, the IKEErrors.txt shows the following error: `Error: Authentication failed. Check shared key`.
+## Next step
 
-Azure Network Watcher troubleshoot feature enables you to diagnose and troubleshoot your VPN Gateway and Connection with the ease of a simple PowerShell cmdlet. Currently, we support diagnosing the following conditions and are working towards adding more condition.
+Learn how to monitor VPN gateways using Azure Automation:
 
-### Gateway
-
-| Fault Type | Reason | Log|
-|---|---|---|
-| NoFault | No error is detected |Yes|
-| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
-| PlannedMaintenance |  Gateway instance is under maintenance.  |No|
-| UserDrivenUpdate | A user update is in progress. This could be a resize operation. | No |
-| VipUnResponsive | Cannot reach the primary instance of the Gateway. This happens when the health probe fails. | No |
-| PlatformInActive | There is an issue with the platform. | No|
-| ServiceNotRunning | The underlying service is not running. | No|
-| NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
-| ConnectionsNotConnected | None of the Connections is connected. This is only a warning.| Yes|
-| GatewayCPUUsageExceeded | The current Gateway usage CPU usage is > 95%. | Yes |
-
-### Connection
-
-| Fault Type | Reason | Log|
-|---|---|---|
-| NoFault | No error is detected. |Yes|
-| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
-| PlannedMaintenance | Gateway instance is under maintenance.  |No|
-| UserDrivenUpdate | A user update is in progress. This could be a resize operation.  | No |
-| VipUnResponsive | Cannot reach the primary instance of the Gateway. It happens when the health probe fails. | No |
-| ConnectionEntityNotFound | Connection configuration is missing. | No |
-| ConnectionIsMarkedDisconnected | The Connection is marked "disconnected." |No|
-| ConnectionNotConfiguredOnGateway | The underlying service does not have the Connection configured. | Yes |
-| ConnectionMarkedStandby | The underlying service is marked as standby.| Yes|
-| Authentication | Preshared Key mismatch. | Yes|
-| PeerReachability | The peer gateway is not reachable. | Yes|
-| IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
-| WfpParse Error | An error occurred parsing the WFP log. |Yes|
-
-## Next steps
-
-Learn to check VPN Gateway connectivity with PowerShell and Azure Automation by visiting [Monitor VPN gateways with Azure Network Watcher troubleshooting](network-watcher-monitor-with-azure-automation.md)
-
-[1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
+> [!div class="nextstepaction"]
+> [Monitor VPN gateways using VPN troubleshoot and Azure automation](network-watcher-monitor-with-azure-automation.md)

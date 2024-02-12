@@ -13,7 +13,7 @@ services: azure-maps
 
 # Best practices for Azure Maps Search service
 
-Azure Maps [Search service] includes API that offer various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
+Azure Maps [Search service] includes API that offers various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
 
 This article explains how to apply sound practices when you call data from Azure Maps Search service. You'll learn how to:
 > [!div class="checklist"]
@@ -25,8 +25,8 @@ This article explains how to apply sound practices when you call data from Azure
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
+* An [Azure Maps account]
+* A [subscription key]
 
 This article uses the [Postman] application to build REST calls, but you can choose any API development environment.
 
@@ -972,21 +972,21 @@ To learn more, please see:
 > [How to build Azure Maps Search service requests](./how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Search service API documentation](/rest/api/maps/search)
+> [Search service API documentation](/rest/api/maps/search?view=rest-maps-1.0)
 
-[Search service]: /rest/api/maps/search
-[Search Fuzzy]: /rest/api/maps/search/getsearchfuzzy
+[Search service]: /rest/api/maps/search?view=rest-maps-1.0
+[Search Fuzzy]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Postman]: https://www.postman.com/downloads/
 [Geocoding coverage]: geocoding-coverage.md
-[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse
-[POI category search]: /rest/api/maps/search/getsearchpoicategory
-[Search Nearby]: /rest/api/maps/search/getsearchnearby
-[Get Search Address]: /rest/api/maps/search/getsearchaddress
+[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0
+[POI category search]: /rest/api/maps/search/getsearchpoicategory?view=rest-maps-1.0
+[Search Nearby]: /rest/api/maps/search/getsearchnearby?view=rest-maps-1.0
+[Get Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0
 
 [Azure Maps supported languages]: supported-languages.md
-[Search Address]: /rest/api/maps/search/getsearchaddress
-[Search Polygon service]: /rest/api/maps/search/getsearchpolygon
+[Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0
+[Search Polygon service]: /rest/api/maps/search/getsearchpolygon?view=rest-maps-1.0
 [Set up a geofence]: tutorial-geofence.md
-[Search POIs inside the geometry]: /rest/api/maps/search/postsearchinsidegeometry
+[Search POIs inside the geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0

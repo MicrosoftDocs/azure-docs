@@ -2,14 +2,12 @@
 title: Create and update statistics using Azure Synapse SQL resources
 description: Recommendations and examples for creating and updating query-optimization statistics in Azure Synapse SQL.
 author: filippopovic
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 10/11/2022
 ms.author: fipopovi
 ms.reviewer: sngun, wiassaf
-ms.custom: 
+ms.date: 10/11/2022
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 # Statistics in Synapse SQL
 
@@ -572,13 +570,13 @@ Serverless SQL pool analyzes incoming user queries for missing statistics. If st
 The SELECT statement will trigger automatic creation of statistics.
 
 > [!NOTE]
-> Automatic creation of statistics is turned on for Parquet files. For CSV files, statistics will be automatically created if you use OPENROWSET. You need to create statistics manually you use CSV external tables.
+> For automatic creation of statistics sampling is used and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic creation of statistics will not happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That basically means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0.
 
 Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted.
 
 ### Manual creation of statistics
 
-Serverless SQL pool lets you create statistics manually. For CSV external tables, you have to create statistics manually because automatic creation of statistics isn't turned on for CSV external tables.
+Serverless SQL pool lets you create statistics manually. In case you are using parser version 1.0 with CSV, you will probably have to create statistics manually, because this parser version does not support sampling. Automatic creation of statistics in case of parser version 1.0 will not happen, unless the sampling percent is 100%.
 
 See the following examples for instructions on how to manually create statistics.
 
@@ -593,7 +591,7 @@ When statistics are stale, new ones will be created. The algorithm goes through 
 Manual stats are never declared stale.
 
 > [!NOTE]
-> Automatic recreation of statistics is turned on for Parquet files. For CSV files, statistics will be recreated if you use OPENROWSET. You need to drop and create statistics manually for CSV external tables. Check the examples below on how to drop and create statistics.
+> For automatic recreation of statistics sampling is used and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic recreation of statistics will not happen with sampling percentage less than 100%. In that case you need to drop and recreate statistics manually. Check the examples below on how to drop and create statistics. For small tables with estimated low cardinality (number of rows) automatic statistics recreation will be triggered with sampling percentage of 100%. That basically means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0.
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
@@ -639,7 +637,7 @@ Specifies a Transact-SQL statement that will return column values to be used for
 ```
 
 > [!NOTE]
-> CSV sampling does not work at this time, only FULLSCAN is supported for CSV.
+> CSV sampling does not work if you are using parser version 1.0, only FULLSCAN is supported for CSV with parser version 1.0.
 
 #### Create single-column statistics by examining every row
 
@@ -767,7 +765,7 @@ Specifies the approximate percentage or number of rows in the table or indexed v
 SAMPLE can't be used with the FULLSCAN option.
 
 > [!NOTE]
-> CSV sampling does not work at this time, only FULLSCAN is supported for CSV.
+> CSV sampling does not work if you are using parser version 1.0, only FULLSCAN is supported for CSV with parser version 1.0.
 
 #### Create single-column statistics by examining every row
 

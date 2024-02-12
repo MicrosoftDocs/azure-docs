@@ -18,7 +18,7 @@ Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you h
 ## Prerequisites
 
 - An Azure subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- a Bash and PowerShell command shell. The Python, Javascript and Java samples require a Bash command shell.
+- a Bash and PowerShell command shell. The Python, JavaScript and Java samples require a Bash command shell.
 - A file editor such as VSCode.
 - Azure CLI: [install the Azure CLI](/cli/azure/install-azure-cli)
 
@@ -48,7 +48,7 @@ Install both the .NET Core SDK and the `aspnetcore` and dotnet runtime.
 
 ## 1. Setup
 
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.  If you are using Cloud Shell it is not necessary to sign in.
+To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.  If you're using Cloud Shell, it isn't necessary to sign in.
 
 ```azurecli
 az login
@@ -190,17 +190,17 @@ The connection to the Web PubSub service is established when you see a JSON mess
 ## 4. Publish messages using service SDK
 
 You'll use the Azure Web PubSub SDK to publish a message to all the clients connected to the hub. 
-You can choose between C#, JavaScript, Python and Java. The dependencies for each language are installed in the steps for that language.  Note that Python, JavaScript and Java require a bash shell to run the commands in this quickstart.
+You can choose between C#, JavaScript, Python and Java. The dependencies for each language are installed in the steps for that language.  Python, JavaScript and Java require a bash shell to run the commands in this quickstart.
 
 ### Set up the project to publish messages
 
 1. Open a new command shell for this project.
-1. Save the connection string from the client shell:
+1. Save the connection string from the client shell.  Replace the `<your_connection_string>` placeholder with the connection string you displayed in an earlier step.
     
     # [Bash](#tab/bash)
 
     ```azurecli
-    Connection_String="<your_connection_string>"
+    connection_string="<your_connection_string>"
     ```
 
     # [Azure PowerShell](#tab/azure-powershell)

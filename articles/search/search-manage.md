@@ -1,17 +1,20 @@
 ---
-title: Service administration in the portal
-titleSuffix: Azure Cognitive Search
-description: Manage an Azure Cognitive Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
+title: Portal administration
+titleSuffix: Azure AI Search
+description: Manage an Azure AI Search resource using the Azure portal.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 tags: azure-portal
+ms.custom:
+  - ignite-2023
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/12/2023
+ms.date: 01/12/2024
 ---
-# Service administration for Azure Cognitive Search in the Azure portal
+
+# Service administration for Azure AI Search in the Azure portal
 
 > [!div class="op_single_selector"]
 >
@@ -22,9 +25,9 @@ ms.date: 01/12/2023
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created.
+This article covers the Azure AI Search administration tasks that you can perform in the [Azure portal](https://portal.azure.com).
 
-Depending on your permission level, the portal covers virtually all aspects of search service operations, including:
+Depending on your permission level, the portal provides coverage of most search service operations, including:
 
 * [Service administration](#management-tasks)
 * Content management
@@ -34,16 +37,16 @@ Each search service is managed as a standalone resource. The following image sho
 
 ## Overview (home) page
 
-The overview page is the "home" page of each service. In the following screenshot, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
+The overview page is the "home" page of each service. In the following screenshot, the red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
 
 :::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
 
 | Area | Description |
 |------|-------------|
-| 1  | The **Essentials** section lists service properties, such as the service endpoint, service tier, and replica and partition counts. |
-| 2 | A command bar at the top of the page includes [Import data](search-get-started-portal.md) and [Search explorer](search-explorer.md), used for prototyping and exploration. |
-| 3 | Tabbed pages in the center provide quick access to usage statistics, service health metrics, and access to all of the existing indexes, indexers, data sources, and skillsets.|
-| 4 | Navigation links to other pages. |
+| 1 | A command bar at the top of the page includes [Import data wizard](search-get-started-portal.md) and [Search explorer](search-explorer.md), used for prototyping and exploration. |
+| 2 | The **Essentials** section lists service properties, such as the service endpoint, service tier, and replica and partition counts. |
+| 3 | Tabbed pages in the center provide quick access to usage statistics and service health metrics.|
+| 4 | Navigation links to existing indexes, indexers, data sources, and skillsets. |
 
 ### Read-only service properties
 
@@ -53,7 +56,7 @@ Several aspects of a search service are determined when the service is provision
 * Service location <sup>1</sup>
 * Service tier <sup>2</sup>
 
-<sup>1</sup> Although there are ARM and bicep templates for service deployment, moving content is a manual job.
+<sup>1</sup> Although there are ARM and bicep templates for service deployment, moving content is a manual effort.
 
 <sup>2</sup> Switching a tier requires creating a new service or filing a support ticket to request a tier upgrade.
 
@@ -78,9 +81,9 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Because Azure Cognitive Search is a [monitored resource](../azure-monitor/monitor-reference.md), you can review the built-in [**activity logs**](../azure-monitor/essentials/activity-log.md) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) for insights into service operations. Activity logs and the data used to report on platform metrics are retained for the periods described in the following table.
+Because Azure AI Search is a [monitored resource](../azure-monitor/monitor-reference.md), you can review the built-in [**activity logs**](../azure-monitor/essentials/activity-log.md) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) for insights into service operations. Activity logs and the data used to report on platform metrics are retained for the periods described in the following table.
 
-If you opt in for [**resource logging**](../azure-monitor/essentials/resource-logs.md), you'll specify durable storage over which you'll have full control over data retention and data access through Kusto queries. For more information on how to set up resource logging in Cognitive Search, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+If you opt in for [**resource logging**](../azure-monitor/essentials/resource-logs.md), you'll specify durable storage over which you'll have full control over data retention and data access through Kusto queries. For more information on how to set up resource logging in Azure AI Search, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
 Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
 

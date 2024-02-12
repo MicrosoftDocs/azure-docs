@@ -5,8 +5,8 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: sample
 ms.devlang: azurecli
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: mvc, devx-track-azurecli, seo-azure-cli
 ms.date: 06/20/2022
 ---

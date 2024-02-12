@@ -5,9 +5,8 @@ description: In this quickstart, learn how to create an Azure Content Delivery N
 services: cdn
 author: duongau
 ms.service: azure-cdn
-ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 03/14/2022
 ms.author: duau
 ---

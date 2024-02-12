@@ -1,23 +1,25 @@
 ---
-title: Azure Stack Edge Pro FPGA power cord technical specifications by location
-description: Learn about the technical specifications for your Azure Stack Edge Pro FPGA power cords.
+title: Azure Stack Edge power cord specifications
+description: Learn about the technical specifications for Azure Stack Edge power cords.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/10/2021
+ms.date: 03/09/2023
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro FPGA power cord specifications
+# Azure Stack Edge power cord specifications
 
-Your Azure Stack Edge Pro FPGA device will need a power cord that will vary depending on your Azure region.
+[!INCLUDE [applies-to-gpu-and-pro-fpga-sku](../../includes/azure-stack-edge-applies-to-gpu-pro-fpga-sku.md)]
+
+Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
 
 ## Supported power cords
 
-You can use the following table to find the correct cord specifications for your region:
+Use the following table to find the correct cord specifications for your region:
 
 | Country    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
@@ -46,7 +48,7 @@ You can use the following table to find the correct cord specifications for your
 |China|250|10|RVV300/500 3X0.75|GB 2099.1|C13|2000|
 |Colombia|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Costa Rica|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
-|Côte D'Ivoire (Ivory Coast)|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
+|Côte D'Ivoire|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Croatia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Cyprus|250|5|H05VV-F 3x0.75|BS1363  SS145/A|C13|1800|
 |Czech Republic|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
@@ -66,7 +68,7 @@ You can use the following table to find the correct cord specifications for your
 |Greece|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Guatemala|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Honduras|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
-|Hong Kong|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
+|Hong Kong Special Administrative Region|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Hungary|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Iceland|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |India|250|10|IS694 3x0.75|IS 1293|C13|1830|
@@ -86,8 +88,7 @@ You can use the following table to find the correct cord specifications for your
 |Liechtenstein|250|10|H05VV-F 3x0.75|SEV 1011|C13|1800|
 |Lithuania|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Luxembourg|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
-|Macau|2250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
-|Macedonia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
+|Macao Special Administrative Region|2250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Malaysia|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Malta|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Mauritius|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
@@ -103,6 +104,7 @@ You can use the following table to find the correct cord specifications for your
 |New Zealand|250|10|H05VV-F 3x1.00|AS/NZS 3112|C13|2438|
 |Nicaragua|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Nigeria|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
+|North Macedonia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Norway|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Oman|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Pakistan|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
@@ -137,7 +139,7 @@ You can use the following table to find the correct cord specifications for your
 |Thailand|250|10|H05VV-F 3x0.75|TI16S3|C13|1829|
 |Trinidad and Tobago|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Tunisia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
-|Turkey|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
+|Türkiye|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Turkmenistan|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Uganda|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Ukraine|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
@@ -154,4 +156,4 @@ You can use the following table to find the correct cord specifications for your
 
 ## Next steps
 
-[Azure Stack Edge Pro FPGA technical specifications](./azure-stack-edge-technical-specifications-compliance.md)
+- [Azure Stack Edge Pro GPU technical specifications](./azure-stack-edge-gpu-technical-specifications-compliance.md).

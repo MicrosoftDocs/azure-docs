@@ -1,6 +1,6 @@
 ---
 title: Connect a Node.js Mongoose application to Azure Cosmos DB
-description: Learn how to use the Mongoose Framework to store and manage data in Azure Cosmos DB. 
+description: Learn how to use the Mongoose Framework to store and manage data in Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: seodec18, devx-track-js, ignite-2022
+ms.custom: devx-track-js
 ---
 # Connect a Node.js Mongoose application to Azure Cosmos DB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
@@ -27,7 +27,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 ## Create an Azure Cosmos DB account
 
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to Set up your Node.js application. If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](../local-emulator.md) to set up the emulator and skip ahead to Set up your Node.js application.
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to Set up your Node.js application. If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](../emulator.md) to set up the emulator and skip ahead to Set up your Node.js application.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -56,10 +56,10 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 3. Install the necessary packages using one of the ```npm install``` options:
 
-   * **Mongoose**: ```npm install mongoose@5.13.15 --save```
+   * **Mongoose**: ```npm install mongoose --save```
 
-     > [!IMPORTANT]
-     > The Mongoose example connection below is based on Mongoose 5+, which has changed since earlier versions. Azure Cosmos DB for MongoDB is compatible with up to version `5.13.15` of Mongoose. For more information, please see the [issue discussion](https://github.com/Automattic/mongoose/issues/11072) in the Mongoose GitHub repository.
+    > [!NOTE]
+    > For more information on which version of mongoose is compatible with your API for MongoDB server version, see [Mongoose compatability](https://mongoosejs.com/docs/compatibility.html).
     
    * **Dotenv** *(if you'd like to load your secrets from an .env file)*: ```npm install dotenv --save```
 

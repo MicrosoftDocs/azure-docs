@@ -7,18 +7,20 @@ ms.author: bozhlin
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/31/2022
+ms.date: 01/18/2024
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: build-spring-2022, cliv2, sdkv2
 ---
 
 # Attach a Kubernetes cluster to Azure Machine Learning workspace
+
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Once Azure Machine Learning extension is deployed on AKS or Arc Kubernetes cluster, you can attach the Kubernetes cluster to Azure Machine Learning workspace and create compute targets for ML professionals to use. 
 
 ## Prerequisites
 
-Attaching a Kubernetes cluster to Azure Machine Learning workspace can flexibly support many different scenarios, such as the shared scenarios with multiple attachments, model training scripts accessing Azure resources, and the authentication configuration of the workspace. But you need to pay attention to the following prerequisites.
+Attaching a Kubernetes cluster to Azure Machine Learning workspace can flexibly support many different scenarios. For example, the shared scenarios with multiple attachments, model training scripts accessing Azure resources, and the authentication configuration of the workspace. 
 
 #### Multi-attach and workload isolation
 
@@ -66,9 +68,7 @@ We support two ways to attach a Kubernetes cluster to Azure Machine Learning wor
 
 ### [Azure CLI](#tab/cli)
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
-
-The following commands show how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
+The following CLI v2 commands show how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
 
 **AKS cluster**
 
@@ -103,7 +103,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 1. Enter a compute name and select your Kubernetes cluster from the dropdown.
 
-    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace automatically or validate whether the kubernetes namespace exists. You need to verify that the specified namespace exists in your cluster, otherwise, any Azure Machine Learning workloads submitted to this compute will fail.  
+    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads are sent to the specified Kubernetes namespace in the cluster. Compute attach doesn't create the Kubernetes namespace automatically or validate whether the kubernetes namespace exists. You need to verify that the specified namespace exists in your cluster, otherwise, any Azure Machine Learning workloads submitted to this compute would fail.  
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see the [Assign managed identity](#assign-managed-identity-to-the-compute-target) section of this article.
 
@@ -114,6 +114,45 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
     In the Kubernetes clusters tab, the initial state of your cluster is *Creating*. When the cluster is successfully attached, the state changes to *Succeeded*. Otherwise, the state changes to *Failed*.
 
     :::image type="content" source="media/how-to-attach-arc-kubernetes/kubernetes-creating.png" alt-text="Screenshot of attached settings for configuration of Kubernetes cluster.":::
+
+### [Azure SDK](#tab/sdk)
+
+The following python SDK v2 code shows how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
+
+**AKS cluster**
+
+```python
+from azure.ai.ml import load_compute
+
+# for AKS cluster, the resource_id should be something like '/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/managedClusters/<CLUSTER_NAME>''
+compute_params = [
+    {"name": "<COMPUTE_NAME>"},
+    {"type": "kubernetes"},
+    {
+        "resource_id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/managedClusters/<CLUSTER_NAME>"
+    },
+]
+k8s_compute = load_compute(source=None, params_override=compute_params)
+ml_client.begin_create_or_update(k8s_compute).result()
+```
+
+**Arc Kubernetes cluster**
+
+```python
+from azure.ai.ml import load_compute
+
+# for arc connected cluster, the resource_id should be something like '/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/connectedClusters/<CLUSTER_NAME>''
+compute_params = [
+    {"name": "<COMPUTE_NAME>"},
+    {"type": "kubernetes"},
+    {
+        "resource_id": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/connectedClusters/<CLUSTER_NAME>"
+    },
+]
+k8s_compute = load_compute(source=None, params_override=compute_params)
+ml_client.begin_create_or_update(k8s_compute).result()
+
+```
    
 ---
 
@@ -141,7 +180,7 @@ Azure offers a couple of ways to assign roles to a managed identity.
 - [Use Azure CLI to assign roles](../role-based-access-control/role-assignments-cli.md)
 - [Use Azure PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md)
 
-If you are using the Azure portal to assign roles and have a **system-assigned managed identity**, **Select User**, **Group Principal** or **Service Principal**, you can search for the identity name by selecting **Select members**. The identity name needs to be formatted as: `<workspace name>/computes/<compute target name>`.
+If you're using the Azure portal to assign roles and have a **system-assigned managed identity**, **Select User**, **Group Principal** or **Service Principal**, you can search for the identity name by selecting **Select members**. The identity name needs to be formatted as: `<workspace name>/computes/<compute target name>`.
 
 If you have user-assigned managed identity, select **Managed identity** to find the target identity.
 

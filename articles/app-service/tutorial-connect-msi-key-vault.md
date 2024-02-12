@@ -1,12 +1,15 @@
 ---
 title: 'Tutorial: .NET connect to Azure services securely with Key Vault'
 description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively from a .NET web app.
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
+# ms.devlang: csharp, azurecli
 ms.topic: tutorial
 ms.date: 10/26/2021
+author: cephalin
+ms.author: cephalin
 
 ms.reviewer: madsd 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
 
 # Tutorial: Secure Cognitive Service connection from .NET App Service using Key Vault

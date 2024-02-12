@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create a new Azure Cloud Service (extended Support)
-These samples cover various ways to to create a new Azure Cloud Service (extended support) deployment.
+These samples cover various ways to create a new Azure Cloud Service (extended support) deployment.
 
 ## Create new Cloud Service with single role
 

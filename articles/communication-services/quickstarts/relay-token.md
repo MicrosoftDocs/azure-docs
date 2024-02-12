@@ -9,11 +9,13 @@ ms.date: 09/28/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 # Quickstart: Access TURN relays
 
 This quickstart shows how to retrieve a network relay token to access Azure Communication Services TURN servers.
+
+[!INCLUDE [TURN retirment](../includes/turn-retirement.md)]
 
 ## Prerequisites
 

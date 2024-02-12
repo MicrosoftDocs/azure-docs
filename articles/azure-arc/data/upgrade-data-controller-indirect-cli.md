@@ -4,8 +4,9 @@ description: Article describes how to upgrade an indirectly connected Azure Arc 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+ms.custom: devx-track-azurecli
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 07/07/2022
 ms.topic: how-to

@@ -1,8 +1,7 @@
 ---
 title: Service Bus asynchronous messaging | Microsoft Docs
-description: Learn how Azure Service Bus supports asynchronism via a store and forward mechanism with queues, topics, and subscriptions. 
+description: Learn how Azure Service Bus supports asynchronism via a store and forward mechanism with queues, topics, and subscriptions.
 ms.topic: article
-ms.custom: ignite-2022
 ms.date: 04/23/2021
 ---
 
@@ -39,7 +38,7 @@ Service Bus contains a number of mitigations for these issues. The following sec
 ### Throttling
 With Service Bus, throttling enables cooperative message rate management. Each individual Service Bus node houses many entities. Each of those entities makes demands on the system in terms of CPU, memory, storage, and other facets. When any of these facets detects usage that exceeds defined thresholds, Service Bus can deny a given request. The caller receives a server busy exception and retries after 10 seconds.
 
-As a mitigation, the code must read the error and halt any retries of the message for at least 10 seconds. Since the error can happen across pieces of the customer application, it is expected that each piece independently executes the retry logic. The code can reduce the probability of being throttled by enabling partitioning on a namespace, queue or topic.
+As a mitigation, the code must read the error and halt any retries of the message for at least 10 seconds. Since the error can happen across pieces of the customer application, it is expected that each piece independently executes the [retry logic](/azure/architecture/best-practices/retry-service-specific#service-bus). The code can reduce the probability of being throttled by enabling partitioning on a namespace, queue or topic.
 
 For more information on how application code should handle throttling concerns, see the [documentation on the Throttling Pattern](/azure/architecture/patterns/throttling).
 

@@ -2,23 +2,19 @@
 title: Data tiering and extension nodes for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about data tiering and extension nodes for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
-author: lauradolan
+author: ju-shim
 manager: bburns
-editor: ''
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 05/17/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 # Use SAP HANA data tiering and extension nodes
 
-SAP supports a data tiering model for SAP Business Warehouse (BW) with different SAP NetWeaver releases and SAP BW/4HANA. For more information about the data tiering model, see [SAP BW/4HANA and SAP BW on HANA with SAP HANA extension nodes](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
+SAP supports a data tiering model for SAP Business Warehouse (BW) with different SAP NetWeaver releases and SAP BW/4HANA. For more information about the data tiering model, see [SAP BW/4HANA and SAP BW on HANA with SAP HANA extension nodes](https://www.sap.com/documents/2018/05/9878c71f-037d-0010-87a3-c30de2ffd8ff.html).
 
 With HANA Large Instance, you can use the option 1 configuration of SAP HANA extension nodes, as explained in the FAQ and SAP blog documents. Option 2 configurations can be set up with the following HANA Large Instance SKUs: S72m, S192, S192m, S384, and S384m.
 

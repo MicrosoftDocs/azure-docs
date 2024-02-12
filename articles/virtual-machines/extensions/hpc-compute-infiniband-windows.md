@@ -1,20 +1,16 @@
 ---
-title: InfiniBand driver extension - Azure Windows VMs 
+title: InfiniBand driver extension - Azure Windows VMs
 description: Microsoft Azure Extension for installing InfiniBand Drivers on H- and N-series compute VMs running Windows.
 services: virtual-machines
-documentationcenter: ''
-editor: ''
-ms.assetid:
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 1/13/2022
 ms.custom: devx-track-azurepowershell
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # InfiniBand Driver Extension for Windows
@@ -31,10 +27,10 @@ This extension supports the following OS distros, depending on driver support fo
 
 | Distribution | InfiniBand NIC drivers |
 |---|---|
-| Windows 10 | CX3-Pro, CX5, CX6 |
-| Windows Server 2019 | CX3-Pro, CX5, CX6 |
-| Windows Server 2016 | CX3-Pro, CX5, CX6 |
-| Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |
+| Windows 10 | CX5, CX6 |
+| Windows Server 2019 | CX5, CX6 |
+| Windows Server 2016 | CX5, CX6 |
+| Windows Server 2012 R2 | CX5, CX6 |
 
 For latest list of supported OS and driver versions, refer to [resources.json](https://github.com/Azure/azhpc-extensions/blob/master/InfiniBand/resources.json)
 
@@ -184,6 +180,3 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Next steps
 For more information about InfiniBand-enabled ('r' sizes), see [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
-
-> [!div class="nextstepaction"]
-> [Learn more about Linux VMs extensions and features](features-linux.md)

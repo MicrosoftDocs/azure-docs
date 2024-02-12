@@ -8,8 +8,6 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 
 # Use drain mode to isolate session hosts and apply patches

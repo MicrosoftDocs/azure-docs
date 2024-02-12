@@ -1,15 +1,8 @@
 ---
 title: Debug Azure API Management policies in Visual Studio Code | Microsoft Docs
-description: Learn how to debug Azure API Management Policies using the Azure API Management Visual Studio Code extension 
-services: api-management
-documentationcenter: ''
+description: Learn how to debug Azure API Management Policies using the Azure API Management Visual Studio Code extension
 author: dlepow
-manager: cfowler
-editor: ''
- 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: danlep
@@ -32,7 +25,7 @@ This article describes how to debug API Management policies using the [Azure API
 
 * This feature is only available in the **Developer** tier of API Management. Each API Management instance supports only one concurrent debugging session.
 
-* This feature uses the built-in (service-level) all-access subscription for debugging. The [**Allow tracing**](api-management-howto-api-inspector.md#verify-allow-tracing-setting) setting must be enabled in this subscription.
+* This feature uses the built-in (service-level) all-access subscription (display name "Built-in all-access subscription") for debugging. The [**Allow tracing**](api-management-howto-api-inspector.md#verify-allow-tracing-setting) setting must be enabled in this subscription.
 
 [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
 
@@ -78,4 +71,3 @@ If there is an error during policy execution, you will see the details of the er
 
 + Learn more about the [API Management extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
 + Report issues in the [GitHub repository](https://github.com/Microsoft/vscode-apimanagement)
-

@@ -1,12 +1,11 @@
 ---
-title: Understand Azure IoT Hub device twins | Microsoft Docs
+title: Understand Azure IoT Hub device twins
 description: This article describes how to use device twins to synchronize state and configuration data between IoT Hub and your devices
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/27/2022
 ms.custom: [mqtt, 'Role: Cloud Development']
 ---
@@ -36,7 +35,7 @@ Refer to [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.
 
 Refer to [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md) for guidance on using desired properties, direct methods, or cloud-to-device messages.
 
-To learn how device twins relate to the device model used by an Azure IoT Plug and Play device, see [Understand IoT Plug and Play digital twins](../iot-develop/concepts-digital-twin.md).
+To learn how device twins relate to the device model used by an Azure IoT Plug and Play device, see [Understand IoT Plug and Play digital twins](../iot/concepts-digital-twin.md).
 
 ## Device twins
 
@@ -147,7 +146,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
 > The preceding snippets are examples, optimized for readability, of one way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the device twin desired and reported properties in the device twins.
 
 > [!IMPORTANT]
-> IoT Plug and Play defines a schema that uses several additional properties to synchronize changes to desired and reported properties. If your solution uses IoT Plug and Play, you must follow the Plug and Play conventions when updating twin properties. For more information and an example, see [Writable properties in IoT Plug and Play](../iot-develop/concepts-convention.md#writable-properties).
+> IoT Plug and Play defines a schema that uses several additional properties to synchronize changes to desired and reported properties. If your solution uses IoT Plug and Play, you must follow the Plug and Play conventions when updating twin properties. For more information and an example, see [Writable properties in IoT Plug and Play](../iot/concepts-convention.md#writable-properties).
 
 You can use twins to synchronize long-running operations such as firmware updates. For more information on how to use properties to synchronize and track a long running operation across devices, see [Use desired properties to configure devices](tutorial-device-twins.md).
 
@@ -353,7 +352,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 * The [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) article describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
-* The [IoT Hub MQTT support](iot-hub-mqtt-support.md) article provides more information about IoT Hub support for the MQTT protocol.
+* The [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) article provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
@@ -365,6 +364,6 @@ Now you have learned about device twins, you may be interested in the following 
 
 To try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
-* [How to use the device twin](iot-hub-node-node-twin-getstarted.md)
+* [How to use the device twin](device-twins-node.md)
 * [How to use device twin properties](tutorial-device-twins.md)
-* [Device management with Azure IoT Tools for VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Device management with the Azure IoT Hub extension for VS Code](iot-hub-device-management-iot-toolkit.md)

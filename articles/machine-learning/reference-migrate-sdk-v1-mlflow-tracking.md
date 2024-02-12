@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022, ignite-2022
+ms.custom: cliv2
 
-author: Abeomor
-ms.author: osomorog
-ms.date: 05/04/2022
+author: fkriti
+ms.author: kritifaujdar
+ms.date: 01/16/2024
 ms.reviewer: larryfr
 ---
 
@@ -22,22 +22,19 @@ If you're migrating from SDK v1 to SDK v2, use the information in this section t
 
 ## Why MLflow?
 
-MLflow, with over 13 million monthly downloads, has become the standard platform for end-to-end MLOps, enabling teams of all sizes to track, share, package and deploy any model for batch or real-time inference. By integrating with MLflow, your training code will not need to hold any specific code related to Azure Machine Learning, achieving true portability and seamless integration with other open-source platforms.
+MLflow, with over 13 million monthly downloads, has become the standard platform for end-to-end MLOps, enabling teams of all sizes to track, share, package and deploy any model for batch or real-time inference. Azure Machine Learning integrates with MLflow, which enables your training code to achieve true portability and seamless integration with other platforms since it doesn't hold any Azure Machine Learning specific instructions.
 
 ## Prepare for migrating to MLflow
 
-To use MLflow tracking, you will need to install `mlflow` and `azureml-mlflow` Python packages. All Azure Machine Learning environments have these packages already available for you but you will need to include them if creating your own environment.
+To use MLflow tracking, you need to install Mlflow SDK package `mlflow` and Azure Machine Learning plug-in for MLflow `azureml-mlflow`. All Azure Machine Learning environments have these packages already available for you but you need to include them if creating your own environment.
 
 ```bash
 pip install mlflow azureml-mlflow
 ```
 
-> [!TIP]
-> You can use the [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
-
 ## Connect to your workspace
 
-Azure Machine Learning allows users to perform tracking in training jobs running on your workspace or running remotely (tracking experiments running outside Azure Machine Learning). If performing remote tracking, you will need to indicate the workspace you want to connect MLflow to.
+Azure Machine Learning allows users to perform tracking in training jobs running on your workspace or running remotely (tracking experiments running outside Azure Machine Learning). If performing remote tracking, you need to indicate the workspace you want to connect MLflow to.
 
 # [Azure Machine Learning compute](#tab/aml)
 
@@ -47,13 +44,13 @@ You are already connected to your workspace when running on Azure Machine Learni
 
 **Configure tracking URI**
 
-[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
+[!INCLUDE [configure-mlflow-tracking](includes/machine-learning-mlflow-configure-tracking.md)]
 
 **Configure authentication**
 
-Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) for more ways to configure authentication for MLflow in Azure Machine Learning workspaces.
+Once the tracking is configured, you also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow performs interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) for more ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
+[!INCLUDE [configure-mlflow-auth](includes/machine-learning-mlflow-configure-auth.md)]
 
 ---
 
@@ -121,7 +118,7 @@ __SDK v2 with MLflow__
 mlflow.log_text("sample_string_text", "string.txt")
 ```
 
-* The string will be logged as an _artifact_, not as a metric. In Azure Machine Learning studio, the value will be displayed in the __Outputs + logs__ tab.
+* The string is logged as an _artifact_, not as a metric. In Azure Machine Learning studio, the value is displayed in the __Outputs + logs__ tab.
 
 ### Log an image to a PNG or JPEG file
 
@@ -137,7 +134,7 @@ __SDK v2 with MLflow__
 mlflow.log_artifact("Azure.png")
 ```
 
-The image is logged as an artifact and will appear in the __Images__ tab in Azure Machine Learning Studio.
+The image is logged as an artifact and it appears in the __Images__ tab in Azure Machine Learning Studio.
 
 ### Log a matplotlib.pyplot
 
@@ -161,9 +158,7 @@ ax.plot([0, 1], [2, 3])
 mlflow.log_figure(fig, "sample_pyplot.png")
 ```
 
-* The image is logged as an artifact and will appear in the __Images__ tab in Azure Machine Learning Studio.
-* The `mlflow.log_figure` method is __experimental__.
-
+* The image is logged as an artifact and it appears in the __Images__ tab in Azure Machine Learning Studio.
 
 ### Log a list of metrics
 
@@ -344,7 +339,10 @@ mlflow.log_dict(RESIDUALS, 'mlflow_residuals.json')
 
 ## View run info and data
 
-You can access run information using the MLflow run object's `data` and `info` properties. For more information, see [mlflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) reference.
+You can access run information using the properties `data` and `info` of the MLflow [run (mlflow.entities.Run)](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) object.
+
+> [!TIP]
+> Experiments and runs tracking information in Azure Machine Learning can be queried using MLflow, which provides a comprehensive search API to query and search for experiments and runs easily, and quickly compare results. For more information about all the capabilities in MLflow in this dimension, see [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md)
 
 The following example shows how to retrieve a finished run:
 
@@ -353,7 +351,7 @@ from mlflow.tracking import MlflowClient
 
 # Use MlFlow to retrieve the run that was just completed
 client = MlflowClient()
-finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
+finished_mlflow_run = MlflowClient().get_run("<RUN_ID>")
 ```
 
 The following example shows how to view the `metrics`, `tags`, and `params`:
@@ -396,12 +394,16 @@ To view the artifacts of a run, use [MlFlowClient.list_artifacts](https://mlflow
 client.list_artifacts(finished_mlflow_run.info.run_id)
 ```
 
-To download an artifact, use [MlFlowClient.download_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.download_artifacts):
+To download an artifact, use [mlflow.artifacts.download_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.download_artifacts):
 
 ```python
-client.download_artifacts(finished_mlflow_run.info.run_id, "Azure.png")
+mlflow.artifacts.download_artifacts(run_id=finished_mlflow_run.info.run_id, artifact_path="Azure.png")
 ```
+
 ## Next steps
 
-* [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md)
-* [Log and view metrics](how-to-log-view-metrics.md)
+* [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md).
+* [Log metrics, parameters and files with MLflow](how-to-log-view-metrics.md).
+* [Logging MLflow models](how-to-log-mlflow-models.md).
+* [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
+* [Manage models registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md).

@@ -22,7 +22,7 @@ This article describes how to use the Microsoft Sentinel **Zero Trust (TIC 3.0)*
 
 Zero Trust and TIC 3.0 are not the same, but they share many common themes and together provide a common story. The Microsoft Sentinel solution for **Zero Trust (TIC 3.0)** offers detailed crosswalks between Microsoft Sentinel and the Zero Trust model with the TIC 3.0 framework. These crosswalks help users to better understand the overlaps between the two.
 
-While the Microsoft Sentinel solution for **Zero Trust (TIC 3.0)** provides best practice guidance, Microsoft does not guarantee nor imply compliance. All Trusted Internet Connection (TIC) requirements, validations, and controls are governed by the [Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/trusted-internet-connections).
+While the Microsoft Sentinel solution for **Zero Trust (TIC 3.0)** provides best practice guidance, Microsoft does not guarantee nor imply compliance. All Trusted Internet Connection (TIC) requirements, validations, and controls are governed by the [Cybersecurity & Infrastructure Security Agency](https://www.cisa.gov/resources-tools/programs/trusted-internet-connections-tic).
 
 The **Zero Trust (TIC 3.0)** solution provides visibility and situational awareness for control requirements delivered with Microsoft technologies in predominantly cloud-based environments. Customer experience will vary by user, and some panes may require additional configurations and query modification for operation.
 
@@ -52,9 +52,9 @@ Before installing the **Zero Trust (TIC 3.0)** solution, make sure you have the 
 
 The **Zero Trust (TIC 3.0)** solution is also enhanced by integrations with other Microsoft Services, such as:
 
-- [Microsoft 365 Defender](https://www.microsoft.com/microsoft-365/security/microsoft-365-defender)
+- [Microsoft Defender XDR](https://www.microsoft.com/microsoft-365/security/microsoft-365-defender)
 - [Microsoft Information Protection](https://azure.microsoft.com/services/information-protection/)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/)
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/active-directory/)
 - [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender)
 - [Microsoft Defender for Identity](https://www.microsoft.com/microsoft-365/security/identity-defender)

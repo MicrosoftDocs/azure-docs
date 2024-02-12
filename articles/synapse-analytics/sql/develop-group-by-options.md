@@ -2,14 +2,12 @@
 title: Use GROUP BY options in Synapse SQL
 description: Synapse SQL allows for developing solutions by implementing different GROUP BY options.
 author: filippopovic
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: sngun
-ms.custom: 
+ms.date: 04/15/2020
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 

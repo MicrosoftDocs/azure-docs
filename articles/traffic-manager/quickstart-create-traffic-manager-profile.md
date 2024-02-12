@@ -4,13 +4,11 @@ description: This quickstart article describes how to create a Traffic Manager p
 services: traffic-manager
 author: greg-lindsay
 ms.author: greglin
-manager: twooley
+
 ms.date: 02/18/2023
 ms.topic: quickstart
 ms.service: traffic-manager
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.custom: mode-ui
+ms.custom: template-quickstart, mode-ui
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 

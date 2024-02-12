@@ -2,15 +2,14 @@
 title: Create and list blob versions in .NET
 titleSuffix: Azure Storage
 description: Learn how to use the .NET client library to create a previous version of a blob.
-author: tamram
+author: akashdubey-ms
 
-ms.author: tamram
-ms.service: storage
+ms.author: akashdubey
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/14/2023
-ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Create and list blob versions in .NET
@@ -35,7 +34,21 @@ The following code example shows how to list blob versions.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
-## See also
+## Copy a previous blob version over the base blob
+
+You can perform a copy operation to promote a version over its base blob, as long as the base blob is in an online tier (hot or cool). The version remains, but its destination is overwritten with a copy that can be read and written to.
+
+The following code example shows how to copy a blob version over the base blob:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyVersion.cs" id="Snippet_CopyVersion":::
+
+## Resources
+
+To learn more about managing blob versions using the Azure Blob Storage client library for .NET, see the following resources.
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
 
 - [Blob versioning](versioning-overview.md)
 - [Enable and manage blob versioning](versioning-enable.md)

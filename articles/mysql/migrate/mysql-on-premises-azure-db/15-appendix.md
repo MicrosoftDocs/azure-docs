@@ -7,7 +7,7 @@ ms.topic: how-to
 author: rothja
 ms.author: jroth
 ms.reviewer: maghan
-ms.custom:
+ms.custom: devx-track-arm-template
 ms.date: 06/21/2021
 ---
 

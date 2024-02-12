@@ -7,7 +7,6 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
 ---
 
 # What is the Azure Cloud Service model and how do I package it?

@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 08/02/2022
+ms.date: 09/29/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL distributed SQL API
@@ -30,8 +30,11 @@ configuration options for:
 |------|-------------|
 | [alter_distributed_table](reference-functions.md#alter_distributed_table) | Change the distribution column, shard count or colocation properties of a distributed table |
 | [citus_copy_shard_placement](reference-functions.md#master_copy_shard_placement) | Repair an inactive shard placement using data from a healthy placement |
+| [citus_schema_distribute](reference-functions.md#) | Turn a PostgreSQL schema into a distributed schema |
+| [citus_schema_undistribute](reference-functions.md#) | Undo the action of citus_schema_distribute |
 | [create_distributed_table](reference-functions.md#create_distributed_table) | Turn a PostgreSQL table into a distributed (sharded) table |
 | [create_reference_table](reference-functions.md#create_reference_table) | Maintain full copies of a table in sync across all nodes |
+| [citus_add_local_table_to_metadata](reference-functions.md#citus_add_local_table_to_metadata) | Add a local table to metadata to enable querying it from any node |
 | [isolate_tenant_to_new_shard](reference-functions.md#isolate_tenant_to_new_shard) | Create a new shard to hold rows with a specific single value in the distribution column |
 | [truncate_local_data_after_distributing_table](reference-functions.md#truncate_local_data_after_distributing_table) | Truncate all local rows after distributing a table |
 | [undistribute_table](reference-functions.md#undistribute_table) | Undo the action of create_distributed_table or create_reference_table |

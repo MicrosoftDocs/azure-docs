@@ -4,9 +4,7 @@ description: Learn what to do in the event of an Azure service disruption impact
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.custom: ignite-2022
-ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ms.author: abell
 ms.topic: conceptual
 ---
@@ -43,4 +41,4 @@ To create a virtual network, see [Create a virtual network](../virtual-network/m
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+- Learn how to [configure diagnostic logging](diagnostic-logging.md).

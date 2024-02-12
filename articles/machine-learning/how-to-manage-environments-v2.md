@@ -2,24 +2,20 @@
 title: 'Manage Azure Machine Learning environments with the CLI & SDK (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning environments using Python SDK and Azure CLI extension for Machine Learning.
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: ositanachi  
+author: ositanachi
 ms.author: osiotugo
 ms.reviewer: larryfr
-ms.date: 09/27/2022
-ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
+ms.date: 01/03/2024
+ms.custom: devx-track-azurecli, devplatv2, devx-track-python
 ---
 
 # Manage Azure Machine Learning environments with the CLI & SDK (v2)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/how-to-use-environments.md)
-> * [v2 (current version)](how-to-manage-environments-v2.md)
 
 
 
@@ -30,14 +26,14 @@ In this article, learn how to create and manage Azure Machine Learning environme
 
 ## Prerequisites
 
-[!INCLUDE [sdk/cliv2](../../includes/machine-learning-cli-sdk-v2-prereqs.md)]
+[!INCLUDE [sdk/cliv2](includes/machine-learning-cli-sdk-v2-prereqs.md)]
 
 > [!TIP]
 > For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ### Clone examples repository
 
-To run the training examples, first clone the examples repository. For the CLI examples, change into the `cli` directory. For the SDK examples, change into the `SDK` directory:
+To run the training examples, first clone the examples repository. For the CLI examples, change into the `cli` directory. For the SDK examples, change into the `sdk/python/assets/environment` directory:
 
 ```azurecli
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -63,22 +59,11 @@ az configure --defaults workspace=<Azure Machine Learning workspace name> group=
 
 To connect to the workspace, you need identifier parameters - a subscription, resource group, and workspace name. You'll use these details in the `MLClient` from the `azure.ai.ml` namespace to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true). Check this [example](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
-```python
-#import required libraries for workspace
-from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredential
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=libraries)]
 
-#import required libraries for environments examples
-from azure.ai.ml.entities import Environment, BuildContext
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=workspace_details)]
 
-#Enter details of your Azure Machine Learning workspace
-subscription_id = '<SUBSCRIPTION_ID>'
-resource_group = '<RESOURCE_GROUP>'
-workspace = '<AZUREML_WORKSPACE_NAME>'
-
-#connect to the workspace
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=get_workspace)]
 
 ---
 
@@ -90,7 +75,7 @@ Curated environments are provided by Azure Machine Learning and are available in
 
 You can use these curated environments out of the box for training or deployment by referencing a specific environment using the `azureml:<curated-environment-name>:<version>` or `azureml:<curated-environment-name>@latest` syntax. You can also use them as reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
 
-You can see the set of available curated environments in the Azure Machine Learning studio UI, or by using the CLI (v2) via `az ml environments list`.
+You can see the set of available curated environments in the Azure Machine Learning studio UI, or by using the CLI (v2) via `az ml environment list`.
 
 ## Create an environment
 
@@ -116,14 +101,7 @@ az ml environment create --file assets/environment/docker-image.yml
 
 The following example creates an environment from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property.
 
-```python
-env_docker_image = Environment(
-    image="pytorch/pytorch:latest",
-    name="docker-image-example",
-    description="Environment created from a Docker image.",
-)
-ml_client.environments.create_or_update(env_docker_image)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_image)]
 
 ---
 
@@ -134,7 +112,7 @@ ml_client.environments.create_or_update(env_docker_image)
 
 ### Create an environment from a Docker build context
 
-Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed to build the image.
+Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile (not larger than 1MB) and any other files needed to build the image.
 
 # [Azure CLI](#tab/cli)
 
@@ -152,16 +130,9 @@ az ml environment create --file assets/environment/docker-context.yml
 
 # [Python SDK](#tab/python)
 
-In the following example, the local path to the build context folder is specified in the `path' parameter. Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
+In the following example, the local path to the build context folder is specified in the `path` parameter. Azure Machine Learning will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
-```python
-env_docker_context = Environment(
-    build=BuildContext(path="docker-contexts/python-and-pip"),
-    name="docker-context-example",
-    description="Environment created from a Docker context.",
-)
-ml_client.environments.create_or_update(env_docker_context)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_context)]
 
 ---
 
@@ -177,27 +148,19 @@ You must also specify a base Docker image for this environment. Azure Machine Le
 
 The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure Machine Learning environment YAML file is specified via the `conda_file` property. You can alternatively define the conda specification inline using the `conda_file` property, rather than defining it in a separate file.
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yaml":::
 
 To create the environment:
 
 ```cli
-az ml environment create --file assets/environment/docker-image-plus-conda.yml
+az ml environment create --file assets/environment/docker-image-plus-conda.yaml
 ```
 
 ## [Python SDK](#tab/python)
 
 The relative path to the conda file is specified using the `conda_file` parameter.
 
-```python
-env_docker_conda = Environment(
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04",
-    conda_file="conda-yamls/pydata.yml",
-    name="docker-image-plus-conda-example",
-    description="Environment created from a Docker image plus Conda environment.",
-)
-ml_client.environments.create_or_update(env_docker_conda)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/environment/environment.ipynb?name=create_from_docker_with_conda)]
 
 ---
 
@@ -225,6 +188,7 @@ for env in envs:
     print(env.name)
 ```
 
+
 ---
 
 List all the environment versions under a given name:
@@ -242,6 +206,7 @@ envs = ml_client.environments.list(name="docker-image-example")
 for env in envs:
     print(env.version)
 ```
+
 
 ---
 
@@ -261,6 +226,7 @@ az ml environment show --name docker-image-example --version 1
 env = ml_client.environments.get(name="docker-image-example", version="1")
 print(env)
 ```
+
 ---
 
 ### Update
@@ -279,6 +245,7 @@ az ml environment update --name docker-image-example --version 1 --set descripti
 env.description="This is an updated description."
 ml_client.environments.create_or_update(environment=env)
 ```
+
 ---
 
 > [!IMPORTANT]
@@ -304,6 +271,7 @@ az ml environment archive --name docker-image-example
 ml_client.environments.archive(name="docker-image-example")
 ```
 
+
 ---
             
 Archive a specific environment version:
@@ -320,7 +288,9 @@ az ml environment archive --name docker-image-example --version 1
 ml_client.environments.archive(name="docker-image-example", version="1")
 ```
 
+
 ---
+
 
 
 ## Use environments for training

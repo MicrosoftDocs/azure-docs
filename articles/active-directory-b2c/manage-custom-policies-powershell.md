@@ -6,11 +6,16 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to manage custom policies using Azure PowerShell, so that I can review, update, and delete policies in my Azure AD B2C tenant.
+
 ---
 
 # Manage Azure AD B2C custom policies with Azure PowerShell
@@ -187,7 +192,7 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 ...
 ```
 
-For information about troubleshooting custom policies, see [Troubleshoot Azure AD B2C custom policies and Identity Experience Framework](./troubleshoot-custom-policies.md).
+For information about troubleshooting custom policies, see [Troubleshoot Azure AD B2C custom policies and Identity Experience Framework](./troubleshoot.md).
 
 ## Next steps
 

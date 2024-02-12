@@ -1,7 +1,6 @@
 ---
 title: Connect an IoT Edge transparent gateway to an application
 description: How to connect devices through an IoT Edge transparent gateway to an IoT Central application. The article shows how to use the IoT Edge 1.4 runtime.
-titleSuffix: Azure IoT Central
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/10/2023
@@ -203,7 +202,7 @@ Your transparent gateway is now configured and ready to start forwarding telemet
 
 ## Provision a downstream device
 
-IoT Central relies on the Device Provisioning Service (DPS) to provision devices in IoT Central. Currently, IoT Edge can't use DPS provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device manually. To complete these steps, you need an environment with Python 3.6 (or higher) installed and internet connectivity. The [Azure Cloud Shell](https://shell.azure.com/) has Python 3.7 pre-installed:
+IoT Central relies on the Device Provisioning Service (DPS) to provision devices in IoT Central. Currently, IoT Edge can't use DPS provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device manually. To complete these steps, you need an environment with Python installed and internet connectivity. Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. The [Azure Cloud Shell](https://shell.azure.com/) has Python pre-installed:
 
 1. Run the following command to install the `azure.iot.device` module:
 

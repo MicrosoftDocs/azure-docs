@@ -69,7 +69,7 @@ The following diagram shows how services are deployed at the Azure public MEC lo
 
 Azure public MEC solutions are available in partnership with mobile network operators. The current operator partnerships are as follows:
 
-- AT&T: Atlanta, Dallas
+- AT&T: Atlanta, Dallas, Detroit
 
 ## Next steps
 

@@ -3,13 +3,11 @@ title: Review your individual Azure subscription bill
 description: Learn how to understand your bill and resource usage and to verify charges for your individual Azure subscription, including pay-as-you-go.
 author: bandersmsft
 ms.reviewer: judupont
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 04/05/2023
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Tutorial: Review your individual Azure subscription bill
@@ -36,7 +34,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Compare billed charges with your usage file
 

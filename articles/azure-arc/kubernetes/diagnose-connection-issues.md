@@ -1,9 +1,9 @@
 ---
 title: "Diagnose connection issues for Azure Arc-enabled Kubernetes clusters"
-ms.date: 12/06/2022
+ms.date: 12/15/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues when connecting Kubernetes clusters to Azure Arc."
-
 ---
 
 # Diagnose connection issues for Azure Arc-enabled Kubernetes clusters
@@ -27,7 +27,7 @@ Review the [prerequisites for connecting a cluster](quickstart-connect-cluster.m
 
 Make sure you [have the latest version installed](/cli/azure/install-azure-cli).
 
-If you connected your cluster by using Azure PowerShell, make sure you are [running the latest version](/powershell/azure/install-az-ps).
+If you connected your cluster by using Azure PowerShell, make sure you are [running the latest version](/powershell/azure/install-azure-powershell).
 
 ### Is the `connectedk8s` extension the latest version?
 

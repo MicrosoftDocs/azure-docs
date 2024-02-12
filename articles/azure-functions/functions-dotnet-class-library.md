@@ -4,9 +4,8 @@ description: Understand how to use C# to develop and publish code as class libra
 
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 10/12/2022
-
 ---
 # Develop C# class library functions using Azure Functions
 
@@ -283,10 +282,10 @@ You can't use `out` parameters in async functions. For output bindings, use the 
 
 A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-Consider the case when you have a function that processes messages in batches. The following Azure Service Bus-triggered function processes an array of [Message](/dotnet/api/microsoft.azure.servicebus.message) objects, which represents a batch of incoming messages to be processed by a specific function invocation:
+Consider the case when you have a function that processes messages in batches. The following Azure Service Bus-triggered function processes an array of [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) objects, which represents a batch of incoming messages to be processed by a specific function invocation:
 
 ```csharp
-using Microsoft.Azure.ServiceBus;
+using Azure.Messaging.ServiceBus;
 using System.Threading;
 
 namespace ServiceBusCancellationToken
@@ -295,7 +294,7 @@ namespace ServiceBusCancellationToken
     {
         [FunctionName("servicebus")]
         public static void Run([ServiceBusTrigger("csharpguitar", Connection = "SB_CONN")]
-               Message[] messages, CancellationToken cancellationToken, ILogger log)
+               ServiceBusReceivedMessage[] messages, CancellationToken cancellationToken, ILogger log)
         {
             try
             { 

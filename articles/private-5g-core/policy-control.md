@@ -2,8 +2,8 @@
 title: Policy control
 titleSuffix: Azure Private 5G Core
 description: Information on Azure Private 5G Core's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 01/16/2022
@@ -94,6 +94,8 @@ Each SIM policy includes:
   - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions (or EPS bearer for PDN connections in 4G networks).
 
 You can create multiple SIM policies to offer different QoS policy settings to separate groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
+
+A SIM policy takes effect on a UE when it attaches or re-attaches to the network. Therefore, changes to the policy are not dynamically implemented on existing UE sessions. However, if a SIM policy is removed from a UE's SIM, then Azure Private 5G Core will perform a network-initiated detach, disconnecting the UE from the network.
 
 ## Network slicing
 

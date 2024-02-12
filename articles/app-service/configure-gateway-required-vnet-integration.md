@@ -3,7 +3,7 @@ title: Configure gateway-required virtual network integration for your app
 description: Integrate your app in Azure App Service with Azure virtual networks using gateway-required virtual network integration.
 author: madsd
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 10/17/2023
 ms.author: madsd
 
 ---
@@ -90,6 +90,14 @@ The routes that are defined in your virtual network are used to direct traffic i
 When gateway-required virtual network integration is enabled, there's a required exchange of certificates to ensure the security of the connection. Along with the certificates are the DNS configuration, routes, and other similar things that describe the network.
 
 If certificates or network information is changed, select **Sync Network**. When you select **Sync Network**, you cause a brief outage in connectivity between your app and your virtual network. Your app isn't restarted, but the loss of connectivity could cause your site to not function properly.
+
+### Certificate renewal
+
+The certificate used by the gateway-required virtual network integration has a lifespan of 8 years. If you have apps with gateway-required virtual network integrations that live longer you will have to renew the certificate. You can validate if your certificate has expired or has less than 6 month to expiry by visiting the VNet Integration page in Azure portal.
+
+:::image type="content" source="./media/overview-vnet-integration/vnetint-gateway-cert-expiry.png" alt-text="Screenshot that shows a near expiry gateway-required virtual network integration certificate.":::
+
+You can renew your certificate when the portal shows a near expiry or expired certificate. To renew the certificate you need to disconnect and reconnect the virtual network. Reconnecting will cause a brief outage in connectivity between your app and your virtual network. Your app isn't restarted, but the loss of connectivity could cause your site to not function properly.
 
 ## Pricing details
 

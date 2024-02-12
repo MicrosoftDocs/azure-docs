@@ -6,8 +6,8 @@ ms.subservice: data-movement
 ms.topic: article
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 02/08/2023
+ms.custom: devx-track-azurepowershell
+ms.date: 01/05/2024
 ---
 
 # Use PowerShell to create a data factory pipeline to copy data from SQL Server to Azure
@@ -83,7 +83,7 @@ This script uses the following commands:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
-## Next steps
+## Related content
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 

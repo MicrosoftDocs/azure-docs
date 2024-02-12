@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Distributed training with Horovod and Tensorflow'
-description: Tutorial on how to run distributed training with the Horovod Runner and Tensorflow
+title: 'Tutorial: Distributed training with Horovod and TensorFlow'
+description: Tutorial on how to run distributed training with the Horovod Runner and TensorFlow
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -9,11 +9,11 @@ author: midesa
 ms.author: midesa
 ---
 
-# Tutorial: Distributed Training with Horovod Runner and Tensorflow (Preview)
+# Tutorial: Distributed Training with Horovod Runner and TensorFlow (Preview)
 
 [Horovod](https://github.com/horovod/horovod) is a distributed training framework for libraries like TensorFlow and PyTorch. With Horovod, users can scale up an existing training script to run on hundreds of GPUs in just a few lines of code. 
 
-Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime.For Spark ML pipeline applications using Tensorflow, users can use ```HorovodRunner```. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial leverages Tensorflow and the ```HorovodRunner``` to run the training process.
+Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime.For Spark ML pipeline applications using TensorFlow, users can use ```HorovodRunner```. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial leverages TensorFlow and the ```HorovodRunner``` to run the training process.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Within Azure Synapse Analytics, users can quickly get started with Horovod using
 
 ## Configure the Apache Spark session
 
-At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only needs to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. For very large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For Tensorflow models, users will need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
+At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only needs to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. For very large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For TensorFlow models, users will need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
 
 In the example below, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html). The values provided below are the suggested, best practice values for Azure Synapse GPU-large pools.  
 
@@ -126,7 +126,7 @@ def get_dataset(rank=0, size=1):
 
 ## Define DNN model
 
-Once we have finished processing our dataset, we can now define our Tensorflow model. The same code could also be used to train a single-node Tensorflow model.
+Once we have finished processing our dataset, we can now define our TensorFlow model. The same code could also be used to train a single-node TensorFlow model.
 
 ```python
 # Define the TensorFlow model without any Horovod-specific parameters
@@ -153,7 +153,7 @@ def get_model():
 
 ## Define a training function for a single node
 
-First, we will train our Tensorflow model on the driver node of the Apache Spark pool. Once we have finished the training process, we will evaluate the model and print the loss and accuracy scores.
+First, we will train our TensorFlow model on the driver node of the Apache Spark pool. Once we have finished the training process, we will evaluate the model and print the loss and accuracy scores.
 
 ```python
 

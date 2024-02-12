@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 08/09/2022
+ms.date: 02/28/2023
 ms.custom: template-tutorial
 ---
 
@@ -108,7 +108,7 @@ Once you have successfully completed migration, you may explore the following st
 - [Security recommendations](../app-service/security-recommendations.md).
 - [Networking features](../app-service/networking-features.md).
 - [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
-- [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad.md).
+- [Configure Microsoft Entra authentication](../app-service/configure-authentication-provider-aad.md).
 
 
 ## Next steps

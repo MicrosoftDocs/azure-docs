@@ -2,7 +2,7 @@
  title: include file
  author: cherylmc
  ms.service: vpn-gateway
- ms.date: 01/30/2023
+ ms.date: 10/18/2023
  ms.author: cherylmc
 ---
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
@@ -87,7 +87,7 @@ No. The Basic SKU doesn't support this.
 No. Once the connection is created, IKEv1/IKEv2 protocols can't be changed. You must delete and recreate a new connection with the desired protocol type.
 
 ### Why is my IKEv1 connection frequently reconnecting?
-If your static routing or route based IKEv1 connection is disconnecting at routine intervals, it's likely due to VPN gateways not supporting in-place rekeys. When Main mode is getting rekeyed, your IKEv1 tunnels will disconnect and take up to 5 seconds to reconnect. Your Main mode negotiation time out value will determine the frequency of rekeys. To prevent these reconnects, you can switch to using IKEv2, which supports in-place rekeys.
+If your static routing or route based IKEv1 connection is disconnecting at routine intervals, it's likely due to VPN gateways not supporting in-place rekeys. When Main mode is getting rekeyed, your IKEv1 tunnels will disconnect and take up to 5 seconds to reconnect. Your Main mode negotiation time out value determines the frequency of rekeys. To prevent these reconnects, you can switch to using IKEv2, which supports in-place rekeys.
 
 If your connection is reconnecting at random times, follow our [troubleshooting guide](../articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md).
 

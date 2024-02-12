@@ -1,9 +1,9 @@
 ---
-author: tamram
-ms.service: storage
+author: stevenmatthew
+ms.service: azure-storage
 ms.topic: include
-ms.date: 01/17/2023
-ms.author: tamram
+ms.date: 01/04/2024
+ms.author: shaas
 ---
 
 ZRS for standard general-purpose v2 storage accounts is available for a subset of Azure regions:
@@ -17,12 +17,15 @@ ZRS for standard general-purpose v2 storage accounts is available for a subset o
 - (Asia Pacific) Southeast Asia
 - (Europe) France Central
 - (Europe) Germany West Central
+- (Europe) Italy North
 - (Europe) North Europe
 - (Europe) Norway East
+- (Europe) Poland Central
 - (Europe) Sweden Central
 - (Europe) Switzerland North
 - (Europe) UK South
 - (Europe) West Europe
+- (Middle East) Israel Central
 - (Middle East) Qatar Central
 - (Middle East) UAE North
 - (North America) Canada Central

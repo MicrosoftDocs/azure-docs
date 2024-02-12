@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.'
-ms.date: 11/18/2022
+ms.date: 01/31/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
 
-[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications using events. Events are delivered by Event Grid to  [supported event handlers](event-handlers.md) and Azure Event Hubs is one of them. In this article, you use  Azure CLI for the following steps:
+[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications using events. Event Grid delivers events to  [supported event handlers](event-handlers.md) and Azure Event Hubs is one of them. In this article, you use  Azure CLI for the following steps:
 
 1. Create an Event Grid custom topic.
 1. Create an Azure Event Hubs subscription for the custom topic.
@@ -30,11 +30,11 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 az group create --name gridResourceGroup --location westus2
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](./includes/register-provider-cli.md)]
 
 ## Create a custom topic
 
-An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The Event Grid topic name must be unique because it's represented by a DNS entry.
+An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The Event Grid topic name must be unique because it's represented by a Domain Name System (DNS) entry.
 
 1. Specify a name for the topic. 
 
@@ -96,7 +96,7 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-To simplify this article, you use sample event data to send to the custom topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the custom topic.  The following example sends three events to the Event Grid topic:
+To simplify this article, you use sample event data to send to the custom topic. Typically, an application or Azure service would send the event data. CURL is a utility that sends HTTP requests. In this article, use CURL to send the event to the custom topic. The following example sends three events to the Event Grid topic:
 
 ```azurecli-interactive
 for i in 1 2 3
@@ -106,7 +106,7 @@ do
 done
 ```
 
-On the **Overview** page for your Event Hubs namespace in the Azure portal, notice that Event Grid sent those three events to the event hub. You'll see the same chart on the **Overview** page for the `demohub` Event Hubs instance page. 
+On the **Overview** page for your Event Hubs namespace in the Azure portal, notice that Event Grid sent those three events to the event hub. You see the same chart on the **Overview** page for the `demohub` Event Hubs instance page. 
 
 :::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="Image showing the portal page with incoming message count as 3.":::
 
@@ -129,8 +129,8 @@ Now that you know how to create topics and event subscriptions, learn more about
 
 - [About Event Grid](overview.md)
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
+- [Stream big data into a data warehouse](event-hubs-integration.md)
 
 See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
 

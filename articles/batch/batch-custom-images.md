@@ -2,7 +2,7 @@
 title: Use a managed image to create a custom image pool
 description: Create a Batch custom image pool from a managed image to provision compute nodes with the software and data for your application.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 04/06/2023
 ms.devlang: csharp
 ---
 
@@ -10,8 +10,10 @@ ms.devlang: csharp
 
 To create a custom image pool for your Batch pool's virtual machines (VMs), you can use a managed image to create an [Azure Compute Gallery image](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01.
 
-> [!IMPORTANT]
-> In most cases, you should create custom images using the Azure Compute Gallery. By using the Azure Compute Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Azure Compute Gallery to create a custom pool](batch-sig-images.md).
+> [!WARNING]
+> Support for creating a Batch pool using a managed image is being retired after **31 March 2026**. Please migrate to
+> hosting custom images in Azure Compute Gallery to use for creating a [custom image pool in Batch](batch-sig-images.md).
+> For more information, see the [migration guide](batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md).
 
 This topic explains how to create a custom image pool using only a managed image.
 
@@ -22,7 +24,7 @@ This topic explains how to create a custom image pool using only a managed image
   - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`.
   - The managed image resource should exist for the lifetime of the pool to allow scale-up and can be removed after the pool is deleted.
 
-- **Azure Active Directory (Azure AD) authentication**. The Batch client API must use Azure AD authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- **Microsoft Entra authentication**. The Batch client API must use Microsoft Entra authentication. Azure Batch support for Microsoft Entra ID is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 ## Prepare a managed image
 
@@ -36,17 +38,17 @@ To scale Batch pools reliably with a managed image, we recommend creating the ma
 
 ### Prepare a VM
 
-If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
+If you're creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
 
 > [!NOTE]
 > You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties)VMs.
 
 - Ensure the VM is created with a managed disk. This is the default storage setting when you create a VM.
-- Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
+- Don't install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a preinstalled extension, Azure may encounter problems when deploying the Batch pool.
 - When using attached data disks, you need to mount and format the disks from within a VM to use them.
 - Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
-- Ensure that the OS disk is not encrypted.
-- Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.  
+- Ensure that the OS disk isn't encrypted.
+- Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.
 
 ### Create a VM snapshot
 
@@ -61,7 +63,7 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 Once you have found the resource ID of your managed image, create a custom image pool from that image. The following steps show you how to create a custom image pool using either Batch Service or Batch Management.
 
 > [!NOTE]
-> Make sure that the identity you use for Azure AD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+> Make sure that the identity you use for Microsoft Entra authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 >
 > The resource for the managed image must exist for the lifetime of the pool. If the underlying resource is deleted, the pool cannot be scaled.
 
@@ -123,7 +125,7 @@ Request Body
 
 ## Considerations for large pools
 
-If you plan to create a pool with hundreds of VMs or more using a custom image, it is important to follow the preceding guidance to use an image created from a VM snapshot.
+If you plan to create a pool with hundreds of VMs or more using a custom image, it's important to follow the preceding guidance to use an image created from a VM snapshot.
 
 Also note the following considerations:
 
@@ -136,16 +138,17 @@ Also note the following considerations:
 - **Resize timeout** - If your pool contains a fixed number of nodes (doesn't autoscale), increase the resizeTimeout property of the pool to a value such as 20-30 minutes. If your pool doesn't reach its target size within the timeout period, perform another [resize operation](/rest/api/batchservice/pool/resize).
 
   If you plan a pool with more than 300 compute nodes, you might need to resize the pool multiple times to reach the target size.
-  
-By using the [Azure Compute Gallery](batch-sig-images.md), you can create larger pools with your customized images along with more Shared Image replicas. Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
+
+By using the [Azure Compute Gallery](batch-sig-images.md), you can create larger pools with your customized images along
+with more Shared Image replicas along with improved performance benefits such as decreased time for nodes to become ready.
 
 ## Considerations for using Packer
 
-Creating a managed image resource directly with Packer can only be done with user subscription mode Batch accounts. For Batch service mode accounts, you need to create a VHD first, then import the VHD to a managed image resource. Depending on your pool allocation mode (user subscription, or Batch service), your steps to create a managed image resource will vary.
+Creating a managed image resource directly with Packer can only be done with user subscription mode Batch accounts. For Batch service mode accounts, you need to create a VHD first, then import the VHD to a managed image resource. Depending on your pool allocation mode (user subscription, or Batch service), your steps to create a managed image resource varies.
 
 Ensure that the resource used to create the managed image exists for the lifetimes of any pool referencing the custom image. Failure to do so can result in pool allocation failures and/or resize failures.
 
-If the image or the underlying resource is removed, you may get an error similar to: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. If you get this error, ensure that the underlying resource has not been removed.
+If the image or the underlying resource is removed, you may get an error similar to: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. If you get this error, ensure that the underlying resource hasn't been removed.
 
 For more information on using Packer to create a VM, see [Build a Linux image with Packer](../virtual-machines/linux/build-image-with-packer.md) or [Build a Windows image with Packer](../virtual-machines/windows/build-image-with-packer.md).
 

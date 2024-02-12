@@ -96,7 +96,7 @@ it's important to prepare the infrastructure before you set up disaster recovery
 
 1.	In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select the vault. 
 2.	On the vault home page, select **Enable Site Recovery**.
-3.	Navigate to the bottom of the page, and select **Prepare infrastructure (Classic)** under the **VMware machines to Azure** section. This opens the Prepare infrastructure pane.
+3.	Navigate to the bottom of the page, and select **Prepare infrastructure** under the **VMware machines to Azure** section. This opens the Prepare infrastructure pane.
 
 In the **Prepare infrastructure** pane, under **Deployment planning** tab do the following:
   > [!TIP]
@@ -135,8 +135,8 @@ Make sure the machine can access these URLs based on your environment:
 
 IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it's recommended that URL filtering is done.
 
-- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the Azure AD, Backup, Replication, and Storage URLs.  
-- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support Azure AD, Backup, Replication, and Storage URLs.  
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the Microsoft Entra ID, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support Microsoft Entra ID, Backup, Replication, and Storage URLs.  
 
 #### Run setup
 Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.

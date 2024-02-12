@@ -9,7 +9,7 @@ keywords: batch, azure cli samples, azure cli examples, azure cli code samples
 
 # CLI example: Create a Batch account in user subscription mode
 
-This script creates an Azure Batch account in user subscription mode. An account that allocates compute nodes into your subscription must be authenticated via an Azure Active Directory token. The compute nodes allocated count toward your subscription's vCPU (core) quota.
+This script creates an Azure Batch account in user subscription mode. An account that allocates compute nodes into your subscription must be authenticated via a Microsoft Entra token. The compute nodes allocated count toward your subscription's vCPU (core) quota.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -5,12 +5,12 @@ titleSuffix: Azure Machine Learning
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 10/21/2021
+ms.date: 09/21/2023
 ms.topic: how-to
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: automl
+ms.custom: automl, devx-track-dotnet
 ---
 
 # Make predictions with an AutoML ONNX model in .NET
@@ -25,7 +25,7 @@ ONNX is an open-source format for AI models. ONNX supports interoperability betw
 
 - [.NET Core SDK 3.1 or greater](https://dotnet.microsoft.com/download)
 - Text Editor or IDE (such as [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/Download))
-- ONNX model. To learn how to train an AutoML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+- ONNX model. To learn how to train an AutoML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing.ipynb).
 - [Netron](https://github.com/lutzroeder/netron) (optional)
 
 ## Create a C# console application
@@ -67,7 +67,7 @@ In this sample, you use the .NET Core CLI to build your application but you can 
 
 ## Add a reference to the ONNX model
 
-A way for the console application to access the ONNX model is to add it to the build output directory.  To learn more about MSBuild common items, see the [MSBuild guide](/visualstudio/msbuild/common-msbuild-project-items).
+A way for the console application to access the ONNX model is to add it to the build output directory.  To learn more about MSBuild common items, see the [MSBuild guide](/visualstudio/msbuild/common-msbuild-project-items). If you do not already have a model, follow [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb) to create an example model.
 
 Add a reference to your ONNX model file in your application
 

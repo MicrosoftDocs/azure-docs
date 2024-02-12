@@ -3,8 +3,7 @@ title: Apache Oozie workflows & Enterprise Security - Azure HDInsight
 description: Secure Apache Oozie workflows using the Azure HDInsight Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: seoapr2020
-ms.date: 04/08/2022
+ms.date: 05/11/2023
 ---
 
 # Run Apache Oozie in Azure HDInsight clusters with Enterprise Security Package

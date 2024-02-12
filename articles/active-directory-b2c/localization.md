@@ -1,16 +1,20 @@
 ---
 title: Localization - Azure Active Directory B2C
 description: Specify the Localization element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 03/06/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer implementing localization in Azure Active Directory B2C policies, I want to understand how to use the Localization element to support multiple languages and locales in user journeys, so that I can provide a localized experience for users in different regions.
+
 ---
 
 # Localization element

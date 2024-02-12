@@ -3,7 +3,7 @@ title: Tutorial - python
 description: Create a virtual machine and assign an automanage best practices configuration profile to it.
 author: andrsmith
 ms.service: automanage
-ms.workload: infrastructure
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 08/25/2022
 ms.author: andrsmith
@@ -16,7 +16,7 @@ In this tutorial, you'll create a resource group and a virtual machine. You'll t
 ## Prerequisites 
 
 - [Python](https://www.python.org/downloads/)
-- [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create resources
 

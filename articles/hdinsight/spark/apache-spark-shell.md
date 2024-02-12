@@ -4,7 +4,7 @@ description: An interactive Spark Shell provides a read-execute-print process fo
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 08/30/2022
+ms.date: 09/13/2023
 ---
 
 # Run Apache Spark from the Spark Shell
@@ -101,10 +101,10 @@ The Spark Shell command (`spark-shell`, or `pyspark`) supports many command-line
 
 | switch | description | example |
 | --- | --- | --- |
-| --master MASTER_URL | Specifies the master URL. In HDInsight, this value is always `yarn`. | `--master yarn`|
-| --jars JAR_LIST | Comma-separated list of local jars to include on the driver and executor classpaths. In HDInsight, this list is composed of paths to the default filesystem in Azure Storage or Data Lake Storage. | `--jars /path/to/examples.jar` |
-| --packages MAVEN_COORDS | Comma-separated list of maven coordinates of jars to include on the driver and executor classpaths. Searches the local maven repo, then maven central, then any additional remote repositories specified with `--repositories`. The format for the coordinates is *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
-| --py-files LIST | For Python only, a comma-separated list of .zip, .egg, or .py files to place on the PYTHONPATH. | `--pyfiles "samples.py"` |
+| `--master MASTER_URL` | Specifies the master URL. In HDInsight, this value is always `yarn`. | `--master yarn`|
+| `--jars JAR_LIST` | Comma-separated list of local jars to include on the driver and executor classpaths. In HDInsight, this list is composed of paths to the default filesystem in Azure Storage or Data Lake Storage. | `--jars /path/to/examples.jar` |
+| `--packages MAVEN_COORDS` | Comma-separated list of maven coordinates of jars to include on the driver and executor classpaths. Searches the local maven repo, then maven central, then any additional remote repositories specified with `--repositories`. The format for the coordinates is *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| `--py-files LIST` | For Python only, a comma-separated list of `.zip`, `.egg`, or `.py` files to place on the PYTHONPATH. | `--pyfiles "samples.py"` |
 
 ## Next steps
 

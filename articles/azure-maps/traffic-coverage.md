@@ -42,11 +42,11 @@ The following tables provide information about what kind of traffic information 
 |----------------|:---------:|:----:|
 | Australia      |     ✓     |  ✓  |
 | Brunei         |     ✓     |  ✓  |
-| Hong Kong      |     ✓     |  ✓  |
+| Hong Kong SAR  |     ✓     |  ✓  |
 | India          |     ✓     |  ✓  |
 | Indonesia      |     ✓     |  ✓  |
 | Kazakhstan     |     ✓     |  ✓  |
-| Macao          |     ✓     |  ✓  |
+| Macao SAR      |     ✓     |  ✓  |
 | Malaysia       |     ✓     |  ✓  |
 | New Zealand    |     ✓     |  ✓  |
 | Philippines    |     ✓     |  ✓  |
@@ -59,7 +59,6 @@ The following tables provide information about what kind of traffic information 
 
 | Country/Region         | Incidents | Flow |
 |------------------------|:---------:|:----:|
-| Belarus                |     ✓     |  ✓  |
 | Belgium                |     ✓     |  ✓  |
 | Bosnia and Herzegovina |     ✓     |  ✓  |
 | Bulgaria               |     ✓     |  ✓  |
@@ -88,7 +87,6 @@ The following tables provide information about what kind of traffic information 
 | Poland                 |     ✓     |  ✓  |
 | Portugal               |     ✓     |  ✓  |
 | Romania                |     ✓     |  ✓  |
-| Russian Federation     |     ✓     |  ✓  |
 | San Marino             |     ✓     |  ✓  |
 | Serbia                 |     ✓     |  ✓  |
 | Slovakia               |     ✓     |  ✓  |
@@ -96,8 +94,7 @@ The following tables provide information about what kind of traffic information 
 | Spain                  |     ✓     |  ✓  |
 | Sweden                 |     ✓     |  ✓  |
 | Switzerland            |     ✓     |  ✓  |
-| Turkey                 |     ✓     |  ✓  |
-| Ukraine                |     ✓     |  ✓  |
+| Türkiye                |     ✓     |  ✓  |
 | United Kingdom         |     ✓     |  ✓  |
 
 ## Middle East & Africa
@@ -106,7 +103,6 @@ The following tables provide information about what kind of traffic information 
 |----------------------|:---------:|:----:|
 | Bahrain              |     ✓     |  ✓  |
 | Egypt                |     ✓     |  ✓  |
-| Israel               |     ✓     |  ✓  |
 | Kenya                |     ✓     |  ✓  |
 | Kuwait               |     ✓     |  ✓  |
 | Lesotho              |     ✓     |  ✓  |

@@ -31,7 +31,7 @@ The following descriptions correspond to the green lettered steps in the precedi
 4. Your chosen CA responds with an X509 Certificate.
 5. Your application completes the new certificate creation with a merger of the X509 Certificate from your CA.
 
-- **Create a certificate with a known issuer provider:** This method requires you to do a one-time task of creating an issuer object. Once an issuer object is created in you key vault, its name can be referenced in the policy of the KV certificate. A request to create such a KV certificate will create a key pair in the vault and communicate with the issuer provider service using the information in the referenced issuer object to get an x509 certificate. The x509 certificate is retrieved from the issuer service and is merged with the key pair to complete the KV certificate creation.  
+- **Create a certificate with a known issuer provider:** This method requires you to do a one-time task of creating an issuer object. Once an issuer object is created in your key vault, its name can be referenced in the policy of the KV certificate. A request to create such a KV certificate will create a key pair in the vault and communicate with the issuer provider service using the information in the referenced issuer object to get an x509 certificate. The x509 certificate is retrieved from the issuer service and is merged with the key pair to complete the KV certificate creation.  
 
 ![Create a certificate with a Key Vault partnered certificate authority](../media/certificate-authority-2.png)  
 
@@ -75,6 +75,7 @@ When a request to create a KV certificate completes, the status of the pending o
 ```  
 
 ## Partnered CA Providers
+
 Certificate creation can be completed manually or using a "Self" issuer. Key Vault also partners with certain issuer providers to simplify the creation of certificates. The following types of certificates can be ordered for key vault with these partner issuer providers.  
 
 |Provider|Certificate type|Configuration setup  

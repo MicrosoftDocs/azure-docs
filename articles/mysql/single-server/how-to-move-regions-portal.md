@@ -3,8 +3,8 @@ title: Move Azure regions - Azure portal - Azure Database for MySQL
 description: Move an Azure Database for MySQL server from one Azure region to another using a read replica and the Azure portal.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/20/2022
@@ -34,7 +34,7 @@ You can use an Azure Database for MySQL [cross-region read replica](concepts-rea
 
 To create a cross-region read replica server in the target region using the Azure portal, use the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the existing Azure Database for MySQL server that you want to use as the source server. This action opens the **Overview** page.
 1. Select **Replication** from the menu, under **SETTINGS**.
 1. Select **Add Replica**.

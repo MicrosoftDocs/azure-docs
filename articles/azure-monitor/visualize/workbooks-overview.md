@@ -5,7 +5,7 @@ services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ms.reviewer: gardnerjr 
 ---
 
@@ -25,9 +25,23 @@ Workbooks are helpful for scenarios such as:
 Watch this video to see how you can use Azure Workbooks to get insights and visualize your data.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5a1su]
 
+## Accessing Azure Workbooks
+
+You can get to Azure workbooks in a few ways:
+
+- In the [Azure portal](https://portal.azure.com), select **Monitor** > **Workbooks** from the menu bars on the left.
+
+   :::image type="content" source="./media/workbooks-overview/workbooks-menu.png" alt-text="Screenshot that shows Workbooks in the menu.":::
+
+- In a **Log Analytics workspaces** page, select **Workbooks** at the top of the page.
+
+  :::image type="content" source="media/workbooks-overview/workbooks-log-analytics-icon.png" alt-text="Screenshot of Workbooks on the Log Analytics workspaces page.":::
+
+When the gallery opens, select a saved workbook or a template. You can also search for a name in the search box.
+
 ## The gallery
 
-The gallery lists all the saved workbooks and templates for your workspace. You can easily organize, sort, and manage workbooks of all types.
+The gallery lists all the saved workbooks and templates in your current environment. Select **Browse across galleries** to see the workbooks for all your resources.
 
 :::image type="content" source="media/workbooks-overview/workbooks-gallery.png" alt-text="Screenshot that shows the Workbooks gallery.":::
 
@@ -68,6 +82,7 @@ Standard Azure roles that provide access to workbooks:
 
 For custom roles, you must add `microsoft.insights/workbooks/write` to the user's permissions to edit and save a workbook. For more information, see the [Workbook Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role.
 
+
 ## Next steps
 
-[Get started with Azure Workbooks](workbooks-getting-started.md)
+[Create an Azure Workbook](workbooks-create-workbook.md)

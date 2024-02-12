@@ -1,7 +1,7 @@
 ---
 title: Recognize Action
 titleSuffix: An Azure Communication Services concept document
-description: Conceptual information gathering user voice input using Call Automation and Azure Cognitive Services
+description: Conceptual information gathering user voice input using Call Automation and Azure AI services
 author: Kunaal
 ms.service: azure-communication-services
 ms.topic: include
@@ -14,11 +14,11 @@ ms.custom: private_preview
 
 
 
-With the release of ACS Call Automation Recognize action, developers can now enhance their IVR or contact center applications to recognize user input. One of the most common scenarios of recognition is playing a message for the user which prompts them to provide a response that then gets recognized by the application, once recognized the application then carries out a corresponding action. Input from callers can be received in several ways which include DTMF (user input via the digits on their calling device), speech or a combination of both DTMF and speech.
+With the release of Azure Communication Services Call Automation Recognize action, developers can now enhance their IVR or contact center applications to recognize user input. One of the most common scenarios of recognition is playing a message for the user which prompts them to provide a response that then gets recognized by the application, once recognized the application then carries out a corresponding action. Input from callers can be received in several ways which include DTMF (user input via the digits on their calling device), speech or a combination of both DTMF and speech.
 
 **Voice recognition with speech-to-text**
 
-[Azure Communications services integration with Azure Cognitive Services](./azure-communication-services-azure-cognitive-services-integration.md), allows you through the Recognize action to analyze audio in real-time to transcribe spoken word into text. Out of the box Microsoft utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This model is pre-trained with dialects and phonetics representing a variety of common domains. For more information about support languages please see [Languages and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md). 
+[Azure Communications services integration with Azure AI services](./azure-communication-services-azure-cognitive-services-integration.md), allows you through the Recognize action to analyze audio in real-time to transcribe spoken word into text. Out of the box Microsoft utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This model is pre-trained with dialects and phonetics representing a variety of common domains. For more information about support languages please see [Languages and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md). 
 
 
 **DTMF**

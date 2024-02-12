@@ -5,7 +5,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ms.author: yexu
 ---
 #  Session log in a Copy activity
@@ -58,42 +58,46 @@ See below for details of the log output format.
 The following example provides a JSON definition to enable session log in Copy Activity: 
 
 ```json
-"typeProperties": {
+{
+  "name": "CopyActivityLog",
+  "type": "Copy",
+  "typeProperties": {
     "source": {
-        "type": "BinarySource",
-        "storeSettings": {
-            "type": "AzureDataLakeStoreReadSettings",
-            "recursive": true
-        },
-        "formatSettings": {
-            "type": "BinaryReadSettings"
-        }
+      "type": "BinarySource",
+      "storeSettings": {
+        "type": "AzureDataLakeStoreReadSettings",
+        "recursive": true
+      },
+      "formatSettings": {
+        "type": "BinaryReadSettings"
+      }
     },
     "sink": {
-        "type": "BinarySink",
-        "storeSettings": {
-            "type": "AzureBlobFSWriteSettings"
-        }
-    },                    
+      "type": "BinarySink",
+      "storeSettings": {
+        "type": "AzureBlobFSWriteSettings"
+      }
+    },
     "skipErrorFile": {
-        "fileForbidden": true,
-        "dataInconsistency": true
+      "fileForbidden": true,
+      "dataInconsistency": true
     },
     "validateDataConsistency": true,
     "logSettings": {
-        "enableCopyActivityLog": true,
-        "copyActivityLogSettings": {
-            "logLevel": "Warning",
-            "enableReliableLogging": false
+      "enableCopyActivityLog": true,
+      "copyActivityLogSettings": {
+        "logLevel": "Warning",
+        "enableReliableLogging": false
+      },
+      "logLocationSettings": {
+        "linkedServiceName": {
+          "referenceName": "ADLSGen2",
+          "type": "LinkedServiceReference"
         },
-        "logLocationSettings": {
-            "linkedServiceName": {
-               "referenceName": "ADLSGen2",
-               "type": "LinkedServiceReference"
-            },
-            "path": "sessionlog/"
-        }
+        "path": "sessionlog/"
+      }
     }
+  }
 }
 ```
 
@@ -200,7 +204,7 @@ select top 1 OperationItem, CopyDuration=DATEDIFF(SECOND, min(TIMESTAMP), max(TI
 ```
 
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

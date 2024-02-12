@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 01/10/2024
 ---
 
 # Block connector usage in Azure Logic Apps
@@ -101,7 +101,7 @@ To block creating a connection altogether in a logic app workflow, follow these 
    | **Policy enforcement** | Yes | **Enabled** | This setting specifies whether to enable or disable the policy definition when you save your work. |
    |||||
 
-1. Under **POLICY RULE**, the JSON edit box is pre-populated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the table below and by following this syntax:
+1. Under **POLICY RULE**, the JSON edit box is prepopulated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the table below and by following this syntax:
 
    ```json
    {
@@ -222,7 +222,7 @@ When you create a connection in a logic app workflow, this connection exists as 
    | **Policy enforcement** | Yes | **Enabled** | This setting specifies whether to enable or disable the policy definition when you save your work. |
    |||||
 
-1. Under **POLICY RULE**, the JSON edit box is pre-populated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the table below and by following this syntax:
+1. Under **POLICY RULE**, the JSON edit box is prepopulated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the table below and by following this syntax:
 
    ```json
    {
@@ -286,7 +286,7 @@ For more information about Azure Policy definitions, see these topics:
 
 ## Create policy assignment
 
-Next, you need to assign the policy definition where you want to enforce the policy, for example, to a single resource group, multiple resource groups, Azure Active Directory (Azure AD) tenant, or Azure subscription. For this task, follow these steps to create a policy assignment:
+Next, you need to assign the policy definition where you want to enforce the policy, for example, to a single resource group, multiple resource groups, Microsoft Entra tenant, or Azure subscription. For this task, follow these steps to create a policy assignment:
 
 1. In the [Azure portal](https://portal.azure.com), portal search box, enter **policy**, and select **Policy**.
 
@@ -320,7 +320,7 @@ Next, you need to assign the policy definition where you want to enforce the pol
 
 1. After the policy takes effect, you can [test your policy](#test-policy).
 
-For more information, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
+For more information, see [Quickstart: Create a policy assignment to identify noncompliant resources](../governance/policy/assign-policy-portal.md).
 
 <a name="test-policy"></a>
 

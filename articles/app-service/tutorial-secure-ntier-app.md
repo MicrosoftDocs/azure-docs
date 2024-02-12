@@ -3,6 +3,7 @@ title: 'Tutorial: Create a secure N-tier web app'
 description: Learn how to securely deploy your N-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
+ms.custom: devx-track-azurecli
 ms.date: 2/25/2023
 ms.author: jordanselig
 ---
@@ -13,8 +14,8 @@ Many applications have more than a single component. For example, you may have a
 
 In this tutorial, you learn how to deploy a secure N-tier application, with a front-end web app that connects to another network-isolated web app. All traffic is isolated within your Azure Virtual Network using [Virtual Network integration](overview-vnet-integration.md) and [private endpoints](networking/private-endpoint.md). For more comprehensive guidance that includes other scenarios, see: 
 
-- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server.md)
-- [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview.md).
+- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+- [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview).
 
 ## Scenario architecture
 
@@ -207,7 +208,7 @@ Now that the back-end SCM site is publicly accessible, you need to lock it down 
     az resource update --resource-group $groupName --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<backend-app-name> --set properties.allow=false
     ```
 
-[Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html) limits access to the FTP and SCM endpoints to users that are backed by Azure Active Directory, which further secures your apps. For more information on disabling basic auth including how to test and monitor logins, see [Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html).
+[Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html) limits access to the FTP and SCM endpoints to users that are backed by Microsoft Entra ID, which further secures your apps. For more information on disabling basic auth including how to test and monitor logins, see [Disabling basic auth on App Service](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html).
 
 ## 6. Configure continuous deployment using GitHub Actions
 
@@ -266,7 +267,7 @@ Now that the back-end SCM site is publicly accessible, you need to lock it down 
 
 ## 7. Use a service principal for GitHub Actions deployment
 
-Your Deployment Center configuration has created a default workflow file in each of your sample repositories, but it uses a publish profile by default, which uses basic auth. Since you've disabled basic auth, if you check the **Logs** tab in Deployment Center, you'll see that the automatically triggered deployment results in an error. You must modify the workflow file to use the service principal to authenticate with App Service. For sample workflows, see [Deploy to App Service](deploy-github-actions.md?tabs=userlevel#deploy-to-app-service).
+Your Deployment Center configuration has created a default workflow file in each of your sample repositories, but it uses a publish profile by default, which uses basic auth. Since you've disabled basic auth, if you check the **Logs** tab in Deployment Center, you'll see that the automatically triggered deployment results in an error. You must modify the workflow file to use the service principal to authenticate with App Service. For sample workflows, see [Add the workflow file to your GitHub repository](deploy-github-actions.md?tabs=userlevel#3-add-the-workflow-file-to-your-github-repository).
 
 1. Open one of your forked GitHub repositories and go to the `<repo-name>/.github/workflows/` directory.
 
@@ -401,7 +402,7 @@ This command may take a few minutes to run.
 
 #### Is there an alternative to deployment using a service principal?
 
-Since in this tutorial you've [disabled basic auth](#5-lock-down-ftp-and-scm-access), you can't authenticate with the back end SCM site with a username and password, and neither can you with a publish profile. Instead of a service principal, you can also use [OpenID Connect](deploy-github-actions.md?tabs=openid#deploy-to-app-service).
+Since in this tutorial you've [disabled basic auth](#5-lock-down-ftp-and-scm-access), you can't authenticate with the back end SCM site with a username and password, and neither can you with a publish profile. Instead of a service principal, you can also use [OpenID Connect](deploy-github-actions.md?tabs=openid).
 
 #### What happens when I configure GitHub Actions deployment in App Service?
 
@@ -411,7 +412,7 @@ A default workflow file that uses a publish profile to authenticate to App Servi
 
 #### Is it safe to leave the back-end SCM publicly accessible?
 
-When you [lock down FTP and SCM access](#5-lock-down-ftp-and-scm-access), it ensures that only Azure AD backed principals can access the SCM endpoint even though it's publicly accessible. This setting should reassure you that your backend web app is still secure.
+When you [lock down FTP and SCM access](#5-lock-down-ftp-and-scm-access), it ensures that only Microsoft Entra backed principals can access the SCM endpoint even though it's publicly accessible. This setting should reassure you that your backend web app is still secure.
 
 #### Is there a way to deploy without opening up the back-end SCM site at all?
 
@@ -430,4 +431,4 @@ To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bi
 > [!div class="nextstepaction"]
 > [App Service networking features](networking-features.md)
 > [!div class="nextstepaction"]
-> [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview.md)
+> [Reliable web app pattern planning (.NET)](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview)

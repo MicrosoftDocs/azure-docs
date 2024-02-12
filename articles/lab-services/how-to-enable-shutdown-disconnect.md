@@ -12,7 +12,7 @@ ms.date: 03/01/2023
 
 # Configure automatic shutdown of VMs for a lab
 
-This article shows you how you can configure [automatic shut-down](classroom-labs-concepts.md#automatic-shut-down) of VMs for a lab.  To learn more about the benefits of auto-shutdown policies, see [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
+This article shows you how you can configure automatic shutdown of VMs for a lab.  To learn more about the benefits of auto-shutdown policies, see [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 
 A lab plan administrator can configure automatic shutdown policies for the lab plan that you use create labs. For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md). As a lab owner, you can override the settings when creating a lab or after the lab is created.
 
@@ -46,6 +46,6 @@ Shutdown settings are not supported by the [Data Science Virtual Machine - Ubunt
 
 ## Next steps
 
-- As an educator, learn about the different [shut-down policies](classroom-labs-concepts.md#automatic-shut-down) available.
+- As an educator, learn how to [maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 - As an educator, see the [dashboard for labs](use-dashboard.md).
 - As an admin, [maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).

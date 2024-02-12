@@ -1,10 +1,10 @@
 ---
 title: Azure Kubernetes Service as Event Grid source
 description: This article describes how to use Azure Kubernetes Service as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
-author: zr-msft
+author: spelluru
+ms.author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2022
-ms.author: zarhoads
 ---
 
 # Azure Kubernetes Service (AKS) as an Event Grid source
@@ -18,7 +18,11 @@ AKS emits the following event types
 |    Event Type                                             |    Description                                                       |
 |-----------------------------------------------------------|----------------------------------------------------------------------|
 | Microsoft.ContainerService.NewKubernetesVersionAvailable  | Triggered when the list of available Kubernetes versions is updated. |
-
+| Microsoft.ContainerService.ClusterSupportEnded  | Triggered when the cluster goes out of support |
+| Microsoft.ContainerService.ClusterSupportEnding | Triggered when the clusters kubernetes version is soon going out of support |
+| Microsoft.ContainerService.NodePoolRollingFailed  | Triggered when NodepoolRolling fails as a result of upgrade or update |
+| Microsoft.ContainerService.NodePoolRollingStarted  | Triggered when NodepoolRolling started as a result of upgrade or an update |
+| Microsoft.ContainerService.NodePoolRollingSucceeded| Triggered when NodepoolRolling succeeded as a result of upgrade or an update |
 ## Properties common to all events
 
 # [Event Grid event schema](#tab/event-grid-event-schema)

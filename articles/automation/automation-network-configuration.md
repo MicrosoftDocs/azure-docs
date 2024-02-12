@@ -2,7 +2,7 @@
 title: Azure Automation network configuration details
 description: This article provides details of network information required by Azure Automation State Configuration, Azure Automation Hybrid Runbook Worker, Update Management, and Change Tracking and Inventory
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 08/01/2023
 ---
 
 # Azure Automation network configuration details
@@ -28,9 +28,9 @@ If you have an Automation account that's defined for a specific region, you can 
 
 If your nodes are located in a private network, the port and URLs defined above are required. These resources provide network connectivity for the managed node and allow DSC to communicate with Azure Automation.
 
-If you are using DSC resources that communicate between nodes, such as the [WaitFor* resources](/powershell/dsc/reference/resources/windows/waitForAllResource), you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
+If you are using DSC resources that communicate between nodes, such as the [WaitFor resources](/powershell/dsc/reference/resources/windows/waitForAllResource), you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
 
-To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](automation-managing-data.md#tls-12-or-higher-for-azure-automation).
 
 ## Update Management and Change Tracking and Inventory
 

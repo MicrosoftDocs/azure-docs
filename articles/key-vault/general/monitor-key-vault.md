@@ -60,7 +60,7 @@ To create a diagnostic setting for you key vault, see [Enable Key Vault logging]
 
 ## Analyzing metrics
 
-You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of the platform metrics collected for Key Vault, see [Monitoring Key Vault data reference metrics](monitor-key-vault-reference.md#metrics)  
 

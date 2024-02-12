@@ -2,12 +2,14 @@
 title: Auto grow storage - Azure portal - Azure Database for MariaDB
 description: This article describes how you can enable auto grow storage for Azure Database for MariaDB using Azure portal
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/24/2022
 ---
 # Auto grow storage in Azure Database for MariaDB using the Azure portal
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This article describes how you can configure an Azure Database for MariaDB server storage to grow without impacting the workload.
 

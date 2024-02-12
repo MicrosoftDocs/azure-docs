@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Internet-facing load balancer with IPv6 - Azure PowerShell
 titleSuffix: Azure Load Balancer
 description: Learn how to create an Internet facing load balancer with IPv6 using PowerShell for Resource Manager.
@@ -7,10 +7,9 @@ author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 05/30/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Get started creating an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
@@ -34,7 +33,7 @@ The following diagram illustrates the load balancing solution being deployed in 
 
 ![Load balancer scenario](./media/load-balancer-ipv6-internet-ps/lb-ipv6-scenario.png)
 
-In this scenario you will create the following Azure resources:
+In this scenario you'll create the following Azure resources:
 
 * an Internet-facing Load Balancer with an IPv4 and an IPv6 Public IP address
 * two load balancing rules to map the public VIPs to the private endpoints
@@ -153,7 +152,7 @@ This example creates the following items:
     $RDPprobe = New-AzLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-    For this example, we are going to use the TCP probes.
+    For this example, we're going to use the TCP probes.
 
 3. Create a load balancer rule.
 

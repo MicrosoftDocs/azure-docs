@@ -1,35 +1,23 @@
 ---
-title: Manage Azure AD token-based users in Azure confidential ledger
-description: Learn how to manage Azure AD token-based users in Azure confidential ledger
+title: Manage Microsoft Entra token-based users in Azure confidential ledger
+description: Learn how to manage Microsoft Entra token-based users in Azure confidential ledger
 author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
 ms.service: confidential-ledger
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
+zone_pivot_groups: azure-confidential-ledger-programming-languages
 ---
 
-# Manage Azure AD token-based users in Azure confidential ledger
+# Manage Microsoft Entra token-based users in Azure confidential ledger
 
-Azure AD-based users are identified by their Azure AD object ID.
+Microsoft Entra ID-based users are identified by their Microsoft Entra object ID.
 
 Users with Administrator privileges can manage users of the confidential ledger. Available roles are Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users).
 
-The following client libraries are available to manage users:
-
-- [Python](#python-client-library)
-- [.NET](#net-client-library)
-- [Java](#java-client-library)
-- [TypeScript](#typescript-client-library)
-
-## Sign in to Azure
-
-[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
-
-Get the confidential ledger's name and the identity service URI from the Azure portal as it is needed to create a client to manage the users. This image shows the appropriate properties in the Azure portal.
-
-:::image type="content" source="./media/ledger-properties.png" alt-text="A screenshot showing ledger properties in the Azure portal.":::
-
-Replace instances of `contoso` and  `https://contoso.confidential-ledger.azure.com` in the following code snippets with the respective values from the Azure portal.
+::: zone pivot="programming-language-python"
+[!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
 
 ## Python Client Library
 
@@ -80,11 +68,14 @@ assert user["assignedRole"] == "Contributor"
 # Delete the user
 ledger_client.delete_user(user_id)
 ```
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
 
 ## .NET Client Library
 
 ### Install the packages
-
 
 ```
 dotnet add package Azure.Security.ConfidentialLedger
@@ -127,6 +118,10 @@ internal class ACLUserManagement
     }
 }
 ```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
 
 ## Java Client Library
 
@@ -249,6 +244,10 @@ public class CreateOrUpdateUserSample {
 	}
 }
 ```
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+[!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
 
 ## TypeScript Client Library
 
@@ -348,8 +347,22 @@ main().catch((err) => {
   console.error(err);
 });
 ```
+::: zone-end
+
+::: zone pivot="programming-language-portal"
+## Azure portal
+
+Navigate to the Azure portal and access the `Manage users` blade. You can add, update, and delete users from this blade.
+![Screenshot of the Manage Users blade.](./media/portal-manage-users/manage-users-blade.png)
+
+To add a user, click on the `Add/Remove` button, pick a user and select the role for the user, and `Apply` the changes. The user will be added to the list of users with the selected role.
+
+![Screenshot of the select role dropdown.](./media/portal-manage-users/select-role-dropdown.png)
+
+To remove a user from the ledger, select the `Not Assigned` role, and click on the `Apply` button. The user will be removed from the list of users.
+::: zone-end
 
 ## Next steps
 
-- [Register an ACL app with Azure AD](register-application.md)
+- [Register an ACL app with Microsoft Entra ID](register-application.md)
 - [Manage certificate-based users](manage-certificate-based-users.md)

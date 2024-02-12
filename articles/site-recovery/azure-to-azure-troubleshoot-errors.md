@@ -12,6 +12,9 @@ ms.custom: engagement-fy23
 
 # Troubleshoot Azure-to-Azure VM replication errors
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
 ## Azure resource quota issues (error code 150097)
@@ -201,7 +204,7 @@ A connection can't be established to Microsoft 365 authentication and identity I
 #### Fix the problem
 
 Azure Site Recovery required access to Microsoft 365 IP ranges for authentication.
-If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
+If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Microsoft Entra service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to Microsoft Entra ID. We no longer support IP address-based NSG rules.
 
 ### Issue 3: Site Recovery configuration failed (151197)
 

@@ -8,7 +8,7 @@ ms.reviewer: euang
 ms.topic: overview
 ms.subservice: spark
 ms.date: 02/15/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-python
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
@@ -990,5 +990,5 @@ For more information, see [Delta Lake Project](https://github.com/delta-io/delta
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](/dotnet/spark)
+* [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 * [Azure Synapse Analytics](../index.yml)

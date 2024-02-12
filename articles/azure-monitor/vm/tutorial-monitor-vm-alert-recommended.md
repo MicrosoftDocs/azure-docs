@@ -4,7 +4,7 @@ description: Enable set of recommended metric alert rules for an Azure virtual m
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 12/03/2022
+ms.date: 01/14/2024
 ms.reviewer: Xema Pathak
 ---
 
@@ -26,26 +26,20 @@ To complete the steps in this article you need the following:
 
 - An Azure virtual machine to monitor.
 
-> [!IMPORTANT]
-> If the VM has any other alert rules associate with it, then recommended alerts will not be available. You can access recommended alerts by removing any alert rules targeted to the VM.
-
-
 ## Create recommended alert rules
-From the menu for the VM, select **Alerts**. You'll see a brief description of recommended alerts and the option to enable them. Click **Enable recommended alert rules**.
 
-:::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-enable.png" alt-text="Screenshot of option to enable recommended alerts for a virtual machine." lightbox="media/tutorial-monitor-vm/recommended-alerts-enable.png":::
+1. From the menu for the VM, select **Alerts** in the **Monitoring** section. Select **View + set up**.
 
+    :::image type="content" source="media/tutorial-monitor-vm/enable-recommended-alerts.png" alt-text="Screenshot of option to enable recommended alerts for a virtual machine." lightbox="media/tutorial-monitor-vm/enable-recommended-alerts.png":::
 
-A list of recommended alert rules is displayed. You can select which ones to create and change their recommended threshold if you want. Ensure that **Email** is enabled and provide an email address to be notified when any of the alerts fire. An [action group](../alerts/action-groups.md) will be created with this address. If you already have an action group that you want to use, you can specify it instead.
+    A list of recommended alert rules is displayed. You can select which rules to create. You can also change the recommended threshold. Ensure that **Email** is enabled and provide an email address to be notified when any of the alerts fire. An [action group](../alerts/action-groups.md) will be created with this address. If you already have an action group that you want to use, you can specify it instead.
 
+    :::image type="content" source="media/tutorial-monitor-vm/set-up-recommended-alerts.png" alt-text="Screenshot of recommended alert rule configuration." lightbox="media/tutorial-monitor-vm/set-up-recommended-alerts.png":::
+1. Expand each of the alert rules to see its details. By default, the severity for each is **Informational**. You might want to change to another severity such as **Error**.
 
-:::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-configure.png" alt-text="Screenshot of recommended alert rule configuration." lightbox="media/tutorial-monitor-vm/recommended-alerts-configure.png":::
+    :::image type="content" source="media/tutorial-monitor-vm/configure-alert-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/tutorial-monitor-vm/configure-alert-severity.png":::
 
-Expand each of the alert rules to inspect its details. By default, the severity for each is **Informational**. You may want to change to another severity such as **Error**.
-
-:::image type="content" source="media/tutorial-monitor-vm/recommended-alerts-configure-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/tutorial-monitor-vm/recommended-alerts-configure-severity.png":::
-
-Click **Enable** to create the alert rules.
+1. Select **Save** to create the alert rules.
 
 ## View created alert rules
 

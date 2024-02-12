@@ -12,11 +12,13 @@ IoT Plug and Play simplifies IoT by enabling you to interact with a device's mod
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
+To complete this tutorial, you need Python installed on your development machine. Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. You can check your Python version with the following command:  
 
 ```cmd/sh
 python --version
 ```
+
+You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/).
 
 In your local Python environment, install the **azure-iot-device** package as follows:
 
@@ -34,14 +36,14 @@ pip install azure-iot-hub
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/pnp/README.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/pnp/README.md).
 
 In this tutorial, you use a sample thermostat device, written in Python, as the IoT Plug and Play device. To run the sample device:
 
-1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Device Python SDK](https://github.com/Azure/azure-iot-sdk-python) GitHub repository into this location:
+1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Device Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v2/) GitHub repository into this location:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python
+    git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
     ```
 
 1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the *azure-iot-sdk-python/samples/pnp* folder.
@@ -71,7 +73,7 @@ In this tutorial, you use a sample IoT solution in Python to interact with the s
 1. Open the *registry_manager_pnp_sample.py* file and review the code. This sample shows how to use the **IoTHubRegistryManager** class to interact with your IoT Plug and Play device.
 
 > [!NOTE]
-> These service samples use the **IoTHubRegistryManager** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot-develop/concepts-developer-guide-service.md).
+> These service samples use the **IoTHubRegistryManager** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot/concepts-developer-guide-service.md).
 
 ### Get the device twin
 

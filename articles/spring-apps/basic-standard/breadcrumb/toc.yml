@@ -1,0 +1,12 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure Spring Apps
+    tocHref: /azure/spring-apps
+    topicHref: /azure/spring-apps/index
+    items:
+    - name: Basic/Standard plan
+      tocHref: /
+      topicHref: /azure/spring-apps/basic-standard/index

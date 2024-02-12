@@ -2,8 +2,10 @@
 title: Enable a customer-managed key
 description: In this tutorial, learn how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault.
 ms.topic: tutorial
-ms.date: 08/5/2022
+ms.custom: devx-track-azurecli
+ms.date: 10/31/2023
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Enable a customer-managed key

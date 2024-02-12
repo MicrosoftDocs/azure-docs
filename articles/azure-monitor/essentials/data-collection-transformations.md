@@ -2,9 +2,10 @@
 title: Data collection transformations
 description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
 ms.topic: conceptual
-ms.date: 06/29/2022
+author: bwren
+ms.author: bwren
+ms.date: 07/17/2023
 ms.reviwer: nikeist
-
 ---
 
 # Data collection transformations in Azure Monitor
@@ -23,14 +24,14 @@ The following table describes the different goals that you can achieve by using 
 You can apply transformations to the following tables in a Log Analytics workspace:
 
 - Any Azure table listed in [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md)
-- Any custom table
+- Any custom table created for the Azure Monitor Agent. (MMA custom table can't use transformations)
 
 ## How transformations work
 Transformations are performed in Azure Monitor in the [data ingestion pipeline](../essentials/data-collection.md) after the data source delivers the data and before it's sent to the destination. The data source might perform its own filtering before sending data but then rely on the transformation for further manipulation before it's sent to the destination.
 
 Transformations are defined in a [data collection rule (DCR)](data-collection-rule-overview.md) and use a [Kusto Query Language (KQL) statement](data-collection-transformations-structure.md) that's applied individually to each entry in the incoming data. It must understand the format of the incoming data and create output in the structure expected by the destination.
 
-For example, a DCR that collects data from a virtual machine by using Azure Monitor Agent would specify particular data to collect from the client operating system. It could also include a transformation that would get applied to that data after it's sent to the data ingestion pipeline that further filters the data or adds a calculated column. The following diagram shows this workflow.
+For example, a DCR that collects data from a virtual machine by using Azure Monitor Agent would specify particular data to collect from the client operating system. It could also include a transformation that would get applied to that data after it's sent to the data ingestion pipeline that further filters the data or adds a calculated column. See [Creating Agent Transforms](../agents/azure-monitor-agent-transformation.md). The following diagram shows this workflow.
 
 :::image type="content" source="media/data-collection-transformations/transformation-azure-monitor-agent.png" lightbox="media/data-collection-transformations/transformation-azure-monitor-agent.png" alt-text="Diagram that shows ingestion-time transformation for Azure Monitor Agent." border="false":::
 
@@ -67,14 +68,24 @@ There are multiple methods to create transformations depending on the data colle
 |:---|:---|
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs by using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs by using REST API (Azure Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
 | Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs by using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
+| Agent Transformations in a DCR | [Add transformation to Azure Monitor Log](../agents/azure-monitor-agent-transformation.md)
 
 ## Cost for transformations
-There's no direct cost for transformations, but you might incur charges for the following changes:
+While transformations themselves don't incur direct costs, the following scenarios can result in additional charges:
 
-- If your transformation increases the size of the incoming data, like by adding a calculated column, for example, you're charged at the normal rate for ingestion of that extra data.
-- If your transformation reduces the incoming data by more than 50%, you're charged for ingestion of the amount of filtered data above 50%.
+- If a transformation increases the size of the incoming data, such as by adding a calculated column, you'll be charged the standard ingestion rate for the extra data.
+- If a transformation reduces the ingested data by more than 50%, you'll be charged for the amount of filtered data above 50%.
 
-The formula to determine the filter ingestion charge from transformations is `[GB filtered out by transformations] - ( [Total GB ingested] / 2 )`. For example, suppose that you ingest 100 GB on a particular day, and transformations remove 70 GB. You would be charged for 70 GB - (100 GB / 2) or 20 GB. To avoid this charge, you should use other methods to filter incoming data before the transformation is applied.
+To calculate the data processing charge resulting from transformations, use the following formula:<br>[GB filtered out by transformations] - ([GB data ingested by pipeline] / 2). The following table shows examples.
+
+| Data ingested by pipeline | Data dropped by transformation | Data ingested by Log Analytics workspace | Data processing charge | Ingestion charge |
+|:---|:-:|:-:|:-:|:-:|
+| 20 GB | 12 GB | 8 GB | 2 GB <sup>1</sup> | 8 GB |
+| 20 GB | 8 GB | 12 GB | 0 GB | 12 GB |
+
+<sup>1</sup> This charge excludes the charge for data ingested by Log Analytics workspace.
+
+To avoid this charge, you should filter ingested data using alternative methods before applying transformations. By doing so, you can reduce the amount of data processed by transformations and, therefore, minimize any additional costs.
 
 See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor) for current charges for ingestion and retention of log data in Azure Monitor.
 
@@ -140,7 +151,7 @@ The following example is a DCR for Azure Monitor Agent that sends data to the `S
                   "streams": [ 
                     "Microsoft-Syslog" 
                   ], 
-                  "transformKql": "source | where message contains 'error'", 
+                  "transformKql": "source | where message has 'error'", 
                   "destinations": [ 
                     "centralWorkspace" 
                   ] 
@@ -212,7 +223,7 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
                         "destinations": [ 
                             "clv2ws1" 
                         ], 
-                        "transformKql": "source | where (AdditionalContext contains 'malicious traffic!' | project TimeGenerated = Time, Computer, Subject = AdditionalContext", 
+                        "transformKql": "source | where (AdditionalContext has 'malicious traffic!' | project TimeGenerated = Time, Computer, Subject = AdditionalContext", 
                         "outputStream": "Microsoft-SecurityEvent" 
                     } 
                 ] 
@@ -224,7 +235,7 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
 
 ### Combination of Azure and custom tables
 
-The following example is a DCR for data from the Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This DCR requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each.
+The following example is a DCR for data from the Logs Ingestion API that sends data to both the `Syslog` table and a custom table with the data in a different format. This DCR requires a separate `dataFlow` for each with a different `transformKql` and `OutputStream` for each. When using custom tables, it is important to ensure that the schema of the destination (your custom table) contains the custom columns ([how-to add or delete custom columns](../logs/create-custom-table.md#add-or-delete-a-custom-column)) that match the schema of the records you are sending. For instance, if your record has a field called SyslogMessage, but the destination custom table only has TimeGenerated and RawData, you’ll receive an event in the custom table with only the TimeGenerated field populated and the RawData field will be empty. The SyslogMessage field will be dropped because the schema of the destination table doesn’t contain a string field called SyslogMessage.
 
 ```json
 { 
@@ -295,3 +306,4 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
 ## Next steps
 
 [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine by using Azure Monitor Agent.
+

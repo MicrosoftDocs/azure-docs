@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Configure workload isolation - T-SQL'
+title: "Quickstart: Configure workload isolation - T-SQL"
 description: Use T-SQL to configure workload isolation.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 04/27/2020
 ms.author: wiassaf
 ms.reviewer: sngun
-ms.custom: azure-synapse, mode-other
+ms.date: 04/27/2020
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: quickstart
+ms.custom:
+  - azure-synapse
+  - mode-other
 ---
 
 # Quickstart: Configure workload isolation in a dedicated SQL pool using T-SQL

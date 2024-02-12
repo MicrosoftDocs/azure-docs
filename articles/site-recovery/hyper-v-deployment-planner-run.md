@@ -95,7 +95,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|(Optional) The password to connect to the Hyper-V host. If you don't specify it as a parameter, you will be prompted for it when you run the command.|
 |-StorageAccountName|(Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput. The storage account must be General-purpose v1 (GPv1) type.|
 |-StorageAccountKey|(Optional) The key that's used to access the storage account. Go to the Azure portal > **Storage accounts** > *storage-account name* > **Settings** > **Access Keys** > **Key1** (or the primary access key for a classic storage account).|
-|-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, or AzureChinaCloud. The default is AzureCloud. Use the parameter when your target region is either Azure US Government or Azure China 21Vianet.|
+|-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, or AzureChinaCloud. The default is AzureCloud. Use the parameter when your target region is either Azure US Government or Microsoft Azure operated by 21Vianet.|
 
 We recommend that you profile your VMs for more than 7 days. If churn pattern varies in a month, we recommend that you profile during the week when you see the maximum churn. The best way is to profile for 31 days, to get a better recommendation. 
 
@@ -280,7 +280,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -StorageAccountName | The storage-account name that's used to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. The storage account must be General-purpose v1 (GPv1) type.|
 | -StorageAccountKey | The storage-account key that's used to access the storage account. Go to the Azure portal > **Storage accounts** > *storage-account name* > **Settings** > **Access Keys** > **Key1**.|
 | -VMListFile | The file that contains the list of VMs to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address, followed by the VM name (separated by a \ per line). The VM name specified in the file should be the same as the VM name on the Hyper-V host.<br><br>**Example:** VMList.txt contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, or AzureChinaCloud. The default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China 21Vianet.|
+|-Environment|(Optional) Your target environment for the Azure storage account. It can be one of three values: AzureCloud, AzureUSGovernment, or AzureChinaCloud. The default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Microsoft Azure operated by 21Vianet.|
 
 ### Example
 ```

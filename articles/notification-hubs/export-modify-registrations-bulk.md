@@ -1,14 +1,9 @@
 ---
 title: Export and import Azure Notification Hubs registrations in bulk | Microsoft Docs
 description: Learn how to use Notification Hubs bulk support to perform a large number of operations on a notification hub, or to export all registrations.
-services: notification-hubs
 author: sethmanheim
 manager: femila
-
 ms.service: notification-hubs
-ms.workload: mobile
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: sethm
@@ -22,6 +17,8 @@ ms.custom: devx-track-csharp
 There are scenarios in which it is required to create or modify large numbers of registrations in a notification hub. Some of these scenarios are tag updates following batch computations, or migrating an existing push implementation to use Azure Notification Hubs.
 
 This article explains how to perform a large number of operations on a notification hub, or to export all registrations, in bulk.
+
+> **_NOTE:_** Bulk import/export is only available for the 'standard' pricing tier
 
 ## High-level flow
 
@@ -42,7 +39,7 @@ This section assumes you have the following entities:
 An input file contains a list of registrations serialized in XML, one per row. Using the Azure SDK, the following code example shows how to serialize the registrations and upload them to blob container:
 
 ```csharp
-private static void SerializeToBlob(BlobContainerClient container, RegistrationDescription[] descriptions)
+private static async Task SerializeToBlobAsync(BlobContainerClient container, RegistrationDescription[] descriptions)
 {
      StringBuilder builder = new StringBuilder();
      foreach (var registrationDescription in descriptions)
@@ -53,7 +50,7 @@ private static void SerializeToBlob(BlobContainerClient container, RegistrationD
      var inputBlob = container.GetBlobClient(INPUT_FILE_NAME);
      using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(builder.ToString())))
      {
-         inputBlob.UploadAsync(stream);
+         await inputBlob.UploadAsync(stream);
      }
 }
 ```
@@ -72,16 +69,12 @@ static Uri GetOutputDirectoryUrl(BlobContainerClient container)
       BlobSasBuilder builder = new BlobSasBuilder(BlobSasPermissions.All, DateTime.UtcNow.AddDays(1));
       return container.GenerateSasUri(builder);
 }
-        
-        
-        
 
 static Uri GetInputFileUrl(BlobContainerClient container, string filePath)
 {
       Console.WriteLine(container.CanGenerateSasUri);
       BlobSasBuilder builder = new BlobSasBuilder(BlobSasPermissions.Read, DateTime.UtcNow.AddDays(1));
       return container.GenerateSasUri(builder);
-
 }
 ```
 
@@ -91,23 +84,19 @@ With the two input and output URLs, you can now start the batch job.
 
 ```csharp
 NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
-var createTask = client.SubmitNotificationHubJobAsync(
-new NotificationHubJob {
-        JobType = NotificationHubJobType.ImportCreateRegistrations,
-        OutputContainerUri = outputContainerSasUri,
-        ImportFileUri = inputFileSasUri
-    }
-);
-createTask.Wait();
+var job = await client.SubmitNotificationHubJobAsync(
+     new NotificationHubJob {
+             JobType = NotificationHubJobType.ImportCreateRegistrations,
+             OutputContainerUri = outputContainerSasUri,
+             ImportFileUri = inputFileSasUri
+         }
+     );
 
-var job = createTask.Result;
 long i = 10;
 while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 {
-    var getJobTask = client.GetNotificationHubJobAsync(job.JobId);
-    getJobTask.Wait();
-    job = getJobTask.Result;
-    Thread.Sleep(1000);
+    job = await client.GetNotificationHubJobAsync(job.JobId);
+    await Task.Delay(1000);
     i--;
 }
 ```
@@ -133,18 +122,9 @@ The following sample code imports registrations into a notification hub.
 
 ```csharp
 using Microsoft.Azure.NotificationHubs;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
+using Azure.Storage.Blobs;
+using Azure.Storage.Sas;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace ConsoleApplication1
 {
@@ -156,7 +136,7 @@ namespace ConsoleApplication1
         private static string STORAGE_ACCOUNT_CONNECTIONSTRING = "connectionstring";
         private static string CONTAINER_NAME = "containername";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var descriptions = new[]
             {
@@ -166,45 +146,41 @@ namespace ConsoleApplication1
                 new MpnsRegistrationDescription(@"http://dm2.notify.live.net/throttledthirdparty/01.00/12G9Ed13dLb5RbCii5fWzpFpAgAAAAADAQAAAAQUZm52OkJCMjg1QTg1QkZDMdUxREQFBlVTTkMwMQ"),
             };
 
-// Get a reference to a container named "sample-container" and then create it
+            // Get a reference to a container named "sample-container" and then create it
             BlobContainerClient container = new BlobContainerClient(STORAGE_ACCOUNT_CONNECTIONSTRING, CONTAINER_NAME);
 
-            container.CreateIfNotExistsAsync();
+            await container.CreateIfNotExistsAsync();
 
-            SerializeToBlob(container, descriptions);
+            await SerializeToBlobAsync(container, descriptions);
 
             // TODO then create Sas
             var outputContainerSasUri = GetOutputDirectoryUrl(container);
             
-            BlobContainerClient inputfilecontainer = new BlobContainerClient(STORAGE_ACCOUNT_CONNECTIONSTRING, STORAGE_ACCOUNT_CONNECTIONSTRING + "/" +         INPUT_FILE_NAME);
+            BlobContainerClient inputcontainer = new BlobContainerClient(STORAGE_ACCOUNT_CONNECTIONSTRING, STORAGE_ACCOUNT_CONNECTIONSTRING + "/" +         INPUT_FILE_NAME);
 
             var inputFileSasUri = GetInputFileUrl(inputcontainer, INPUT_FILE_NAME);
 
 
             // Import this file
             NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
-            var createTask = client.SubmitNotificationHubJobAsync(
+            var job = await client.SubmitNotificationHubJobAsync(
                 new NotificationHubJob {
                     JobType = NotificationHubJobType.ImportCreateRegistrations,
                     OutputContainerUri = outputContainerSasUri,
                     ImportFileUri = inputFileSasUri
                 }
             );
-            createTask.Wait();
 
-            var job = createTask.Result;
             long i = 10;
             while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
             {
-                var getJobTask = client.GetNotificationHubJobAsync(job.JobId);
-                getJobTask.Wait();
-                job = getJobTask.Result;
-                Thread.Sleep(1000);
+                job = await client.GetNotificationHubJobAsync(job.JobId);
+                await Task.Delay(1000);
                 i--;
             }
         }
 
-        private static void SerializeToBlob(BlobContainerClient container, RegistrationDescription[] descriptions)
+        private static async Task SerializeToBlobAsync(BlobContainerClient container, RegistrationDescription[] descriptions)
         {
             StringBuilder builder = new StringBuilder();
             foreach (var registrationDescription in descriptions)
@@ -215,7 +191,7 @@ namespace ConsoleApplication1
             var inputBlob = container.GetBlobClient(INPUT_FILE_NAME);
             using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(builder.ToString())))
             {
-                inputBlob.UploadAsync(stream);
+                await inputBlob.UploadAsync(stream);
             }
         }
 

@@ -25,7 +25,7 @@ Some of the benefits of these robust authentication mechanisms include:
 - SQL endpoints with [Multi-factor authentication](../sql/mfa-authentication.md).
 - Elimination of the need to manage credentials with [managed identity](../../data-factory/data-factory-service-identity.md).
 
-Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool currently support [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) authentication and [SQL authentication](../sql/sql-authentication.md), while Apache Spark pool supports only Azure AD authentication. Multi-factor authentication and managed identity are fully supported for Azure Synapse, dedicated SQL pool (formerly SQL DW), serverless SQL pool, and Apache Spark pool.
+Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool currently support [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) authentication and [SQL authentication](../sql/sql-authentication.md), while Apache Spark pool supports only Microsoft Entra authentication. Multi-factor authentication and managed identity are fully supported for Azure Synapse, dedicated SQL pool (formerly SQL DW), serverless SQL pool, and Apache Spark pool.
 
 ## Next steps
 

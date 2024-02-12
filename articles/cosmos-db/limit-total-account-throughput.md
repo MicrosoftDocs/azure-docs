@@ -6,7 +6,6 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: sidandrews
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Limit the total throughput provisioned on your Azure Cosmos DB account
@@ -94,7 +93,7 @@ Set this property to `-1` to disable the limit.
 
 #### Are there situations where the total provisioned throughput can exceed the limit?
 
-Azure Cosmos DB enforces a minimum throughput of 10 RU/s per GB of data stored. If you're ingesting data while already being at that minimum, the throughput provisioned on your resources will automatically increase to honor 10 RU/s per GB. In this case, and this case only, your total provisioned throughput may exceed the limit you've set.
+Azure Cosmos DB enforces a minimum throughput of 1 RU/s per GB of data stored. If you're ingesting data while already being at that minimum, the throughput provisioned on your resources will automatically increase to honor 1 RU/s per GB. In this case, and this case only, your total provisioned throughput may exceed the limit you've set.
 
 ## Next steps
 

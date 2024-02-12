@@ -6,10 +6,9 @@ services: virtual-network
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 06/25/2018
+ms.date: 05/30/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Load balancing on multiple IP configurations using Azure CLI

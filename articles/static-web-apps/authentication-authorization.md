@@ -12,7 +12,12 @@ ms.author: cshoe
 
 # Authenticate and authorize Static Web Apps
 
-Azure Static Web Apps provides a streamlined authentication experience, where no other actions or configurations are required to use GitHub, Twitter, and Azure Active Directory (Azure AD) for authentication.
+> [!WARNING]
+> Due to changes in X(formerly Twitter) API policy we can’t continue to support it as part of the pre-configured providers for your app.
+> If you want to continue to use X(formerly Twitter) for authentication/authorization with your app, update your app configuration to [register a custom provider](./authentication-custom.md).
+
+
+Azure Static Web Apps provides a streamlined authentication experience, where no other actions or configurations are required to use GitHub and Microsoft Entra ID for authentication.
 
 In this article, learn about default behavior, how to set up sign-in and sign-out, how to block an authentication provider, and more.
 
@@ -25,8 +30,7 @@ Be aware of the following defaults and resources for authentication and authoriz
 **Defaults:**
 - Any user can authenticate with a pre-configured provider
   - GitHub
-  - Twitter
-  - Azure Active Directory (Azure AD)
+  - Microsoft Entra ID
   - To restrict an authentication provider, [block access](#block-an-authentication-provider) with a custom route rule
 - After sign-in, users belong to the `anonymous` and `authenticated` roles. For more information about roles, see [Manage roles](authentication-custom.md#manage-roles)
 
@@ -35,7 +39,7 @@ Be aware of the following defaults and resources for authentication and authoriz
 - Assign users custom roles using the built-in [invitations system](authentication-custom.md#manage-roles)
 - Programmatically assign users custom roles at sign-in with an [API function](apis-overview.md)
 - Understand that authentication and authorization significantly overlap with routing concepts, which are detailed in the [Application configuration guide](configuration.md)
-- Restrict sign-in to a specific Azure AD tenant by [configuring a custom Azure AD provider](authentication-custom.md?tabs=aad). The pre-configured Azure AD provider allows any Microsoft account to sign in.
+- Restrict sign-in to a specific Microsoft Entra tenant by [configuring a custom Microsoft Entra provider](authentication-custom.md?tabs=aad). The pre-configured Microsoft Entra provider allows any Microsoft account to sign in.
 ## Set up sign-in
 
 Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than expose any of the routes under the `/.auth` folder directly to end users, create [routing rules](configuration.md#routes) for friendly URLs.
@@ -44,9 +48,8 @@ Use the following table to find the provider-specific route.
 
 | Authorization provider | Sign in route             |
 | ---------------------- | ----------------------- |
-| Azure AD | `/.auth/login/aad`      |
+| Microsoft Entra ID | `/.auth/login/aad`      |
 | GitHub                 | `/.auth/login/github`   |
-| Twitter                | `/.auth/login/twitter`  |
 
 For example, to sign in with GitHub, you could include something similar to the following link.
 
@@ -137,7 +140,7 @@ To prevent the platform from providing this information on future requests to in
 https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
-If you're using Azure AD, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
+If you're using Microsoft Entra ID, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
 
 > [!TIP]
 > For information about general restrictions and limitations, see [Quotas](quotas.md).

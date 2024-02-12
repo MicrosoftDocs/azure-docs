@@ -7,13 +7,13 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to 
-ms.date: 06/09/2022
-ms.custom: template-how-to 
+ms.date: 06/27/2023
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
 
 # Get Load Balancer metrics with Azure Monitor CLI 
 
-In this article, you'll learn some examples to list Load Balancer metrics using Azure Monitor CLI.
+In this article, you learn some examples to list Load Balancer metrics using Azure Monitor CLI.
 
 Complete reference documentation and other samples for retrieving metrics using Azure Monitor CLI are available in the [az monitor metrics reference](/cli/azure/monitor/metrics).
 
@@ -94,7 +94,7 @@ You can specify the aggregation type for a metric with the `–-aggregation` par
 
 az monitor metrics list --resource <resource_id> --metric DipAvailability --aggregation Average 
 ```
-To specify the interval to metrics, use the `--interval` parameter and specify a value in ##h##m format. The default interval is 1m.
+To specify the interval to metrics, use the `--interval` parameter and specify a value in ##h##m format. The default interval is 1 m.
 
 ```azurecli
 

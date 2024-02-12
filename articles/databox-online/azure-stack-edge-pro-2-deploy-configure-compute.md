@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/02/2023
+ms.date: 08/04/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -17,8 +17,9 @@ ms.author: alkohli
 
 This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro 2 device. 
 
-This procedure can take around 20 to 30 minutes to complete.
+This procedure can take 20 to 30 minutes to complete.
 
+[!INCLUDE [deprecation-notice-managed-iot-edge](../../includes/azure-stack-edge-deprecation-notice-managed-iot-edge.md)]
 
 In this tutorial, you learn how to:
 
@@ -26,7 +27,8 @@ In this tutorial, you learn how to:
 > * Configure compute
 > * Get Kubernetes endpoints
 
- 
+[!INCLUDE [configure-compute](../../includes/azure-stack-edge-gateway-configure-compute.md)]
+
 ## Prerequisites
 
 Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
@@ -35,6 +37,9 @@ Before you set up a compute role on your Azure Stack Edge Pro device, make sure 
 - Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches) and:
     - Enabled a network interface for compute.
     - Assigned Kubernetes node IPs and Kubernetes external service IPs.
+
+    > [!NOTE]
+    > If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are on the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
 
 ## Configure compute
 

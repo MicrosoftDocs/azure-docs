@@ -6,8 +6,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/11/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: blobs 
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurecli
 ---
 
@@ -74,7 +73,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your storage account
 

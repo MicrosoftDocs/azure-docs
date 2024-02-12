@@ -1,19 +1,19 @@
 ---
 title: Token enrichment  - Azure Active Directory B2C
 description: Enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
-services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-
 ms.date: 01/17/2023
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+# Customer intent: I want to enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
+
 ---
+
 # Enrich tokens with claims from external sources using API connectors
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API into their user flow using [API connectors](api-connectors-overview.md). It enables developers to dynamically retrieve data from external identity sources. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with APIs to enrich tokens with information from external sources.
@@ -33,7 +33,7 @@ You can create an API endpoint using one of our [samples](api-connector-samples.
 
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **API connectors**, and then select **New API connector**.
 
@@ -51,7 +51,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 Follow these steps to add an API connector to a sign-up user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **User flows**, and then select the user flow you want to add the API connector to.
 1. Select **API connectors**, and then select the API endpoint you want to invoke at the **Before sending the token (preview)** step in the user flow:
@@ -97,14 +97,16 @@ Additionally, these claims are typically sent in all requests for this step:
   
 > [!IMPORTANT]
 > If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
+
 ## Expected response types from the web API at this step
-When the web API receives an HTTP request from Azure AD during a user flow, it can return a "continuation response."
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return a "continuation response."
 ### Continuation response
 A continuation response indicates that the user flow should continue to the next step: issuing the token.
 In a continuation response, the API can return additional claims. A claim returned by the API that you wish to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and must be selected in the **Application claims** configuration of the user flow. 
 The claim value in the token will be that returned by the API, not the value in the directory. Some claim values cannot be overwritten by the API response. Claims that can be returned by the API correspond to the set found under **User attributes** with the exception of `email`.
 > [!NOTE]
 > The API is only invoked during an initial authentication. When using refresh tokens to silently get new access or ID tokens, the token will include the values evaluated during the initial authentication. 
+
 ## Example response
 ### Example of a continuation response
 ```http
@@ -131,6 +133,7 @@ You can also design the interaction as a validation technical profile. This is s
 ## Prerequisites
 - Complete the steps in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy). You should have a working custom policy for sign-up and sign-in with local accounts.
 - Learn how to [Integrate REST API claims exchanges in your Azure AD B2C custom policy](api-connectors-overview.md).
+
 ## Prepare a REST API endpoint
 For this walkthrough, you should have a REST API that validates whether a user's Azure AD B2C objectId is registered in your back-end system. 
 If registered, the REST API returns the user account balance. Otherwise, the REST API registers the new account in the directory and returns the starting balance `50.00`.
@@ -154,6 +157,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
 1. Add the following claims to the **ClaimsSchema** element.  
+
 ```xml
 <ClaimType Id="balance">
   <DisplayName>Your Balance</DisplayName>
@@ -204,6 +208,7 @@ After you deploy your REST API, set the metadata of the `REST-GetProfile` techni
 - **AuthenticationType**. Set the type of authentication being performed by the RESTful claims provider such as `Basic` or `ClientCertificate` 
 - **AllowInsecureAuthInProduction**. In a production environment, make sure to set this metadata to `false`.
 	
+
 See the [RESTful technical profile metadata](restful-technical-profile.md#metadata) for more configurations.
 The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure your RESTful API](secure-rest-api.md).
 ## Add an orchestration step
@@ -230,6 +235,7 @@ The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` spec
     <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
     ```
 1. Repeat the last two steps for the **ProfileEdit** and **PasswordReset** user journeys.
+
 ## Include a claim in the token 
 To return the `balance` claim back to the relying party application, add an output claim to the <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. Adding an output claim will issue the claim into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add `balance` as an output claim.
  
@@ -257,14 +263,14 @@ Repeat this step for the **ProfileEdit.xml**, and **PasswordReset.xml** user jou
 Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. 
 ## Test the custom policy
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the policy files that you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. 
 1. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
 1. You should be able to sign up using an email address or a Facebook account.
 1. The token sent back to your application includes the `balance` claim.
+
 ```json
 {
   "typ": "JWT",
@@ -324,21 +330,25 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * A 401 or 403 HTTP status code typically indicates there's an issue with your authentication. Double-check your API's authentication layer and the corresponding configuration in the API connector.
 * Use more aggressive levels of logging (for example "trace" or "debug") in development if needed.
 * Monitor your API for long response times. 
+
 Additionally, Azure AD B2C logs metadata about the API transactions that happen during user authentications via a user flow. To find these:
 1. Go to **Azure AD B2C**
 1. Under **Activities**, select **Audit logs**.
 1. Filter the list view: For **Date**, select the time interval you want, and for **Activity**, select **An API was called as part of a user flow**.
 1. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and a retry occurs, it's still represented as a single row. The `numberOfAttempts` indicates the number of times your API was called. This value can be `1`or `2`. Other information about the API call is detailed in the logs.
    ![Screenshot of an example audit log with API connector transaction.](media/add-api-connector-token-enrichment/example-anonymized-audit-log.png)
+
 ::: zone-end
 ## Next steps
 ::: zone pivot="b2c-user-flow"
 - Get started with our [samples](api-connector-samples.md#api-connector-rest-api-samples).
 - [Secure your API Connector](secure-rest-api.md)
+
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 To learn how to secure your APIs, see the following articles:
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](add-api-connector-token-enrichment.md)
 - [Secure your RESTful API](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
+
 ::: zone-end

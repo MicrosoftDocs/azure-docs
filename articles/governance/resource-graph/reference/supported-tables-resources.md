@@ -1,17 +1,14 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 10/26/2022
+ms.date: 01/29/2023
 ms.topic: reference
 ms.custom: generated
-ms.author: timwarner
-author: timwarner-msft
 ---
+
 # Azure Resource Graph table and resource type reference
 
-Azure Resource Graph supports the following **resource types** of
-[Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is
-part of a **table** in Resource Graph.
+Azure Resource Graph supports the following **resource types** of [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is part of a **table** in Resource Graph.
 
 ## advisorresources
 
@@ -32,6 +29,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.web/sites/config/web
 - microsoft.web/sites/slots/config/web
 - microsoft.web/sites/workflows
+
+## authorizationresources
+
+- microsoft.authorization/roleassignments
+- microsoft.authorization/roledefinitions
+- microsoft.authorization/classicadministrators
 
 ## chaosresources
 
@@ -118,6 +121,11 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.maintenance/maintenanceconfigurations/applyupdates
 - microsoft.maintenance/updates
 
+## managedservicesresources
+
+- microsoft.managedservices/registrationassignments
+- microsoft.managedservices/registrationdefinitions
+
 ## networkresources
 
 - microsoft.network/networkgroupmemberships
@@ -128,6 +136,12 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.network/securityadminconfigurations
 - microsoft.network/securityadminconfigurations/rulecollections
 - microsoft.network/securityadminconfigurations/rulecollections/rules
+
+## orbitalresources
+
+For sample queries for this table, see [Resource Graph sample queries for orbitalresources](../samples/samples-by-table.md#orbitalresources).
+
+- microsoft.orbital/spacecrafts/contacts
 
 ## patchassessmentresources
 
@@ -151,7 +165,9 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 
 - microsoft.authorization/policyassignments
 - microsoft.authorization/policydefinitions
+- microsoft.authorization/policyexemptions
 - microsoft.authorization/policysetdefinitions
+- microsoft.policyinsights/componentpolicystates
 - microsoft.policyinsights/policystates
   - Sample query: [Compliance by policy assignment](../samples/samples-by-category.md#compliance-by-policy-assignment)
   - Sample query: [Compliance by resource type](../samples/samples-by-category.md#compliance-by-resource-type)
@@ -238,8 +254,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.AppPlatform/Spring (Azure Spring Cloud)
 - microsoft.archive/collections
 - microsoft.Attestation/attestationProviders (Attestation providers)
-- microsoft.authorization/elevateaccessroleassignment
-- microsoft.Authorization/resourceManagementPrivateLinks (Resource management private links)
 - microsoft.automanage/accounts
 - microsoft.automanage/configurationprofilepreferences
 - microsoft.automanage/configurationprofiles
@@ -803,6 +817,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.scvmm/virtualnetworks
 - microsoft.ScVmm/vmmServers (SCVMM management servers)
 - microsoft.Search/searchServices (Search services)
+- microsoft.security/apicollections
+- microsoft.security/apicollections/apiendpoints
 - microsoft.security/assignments
 - microsoft.security/automations
 - microsoft.security/customassessmentautomations
@@ -848,7 +864,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
 - microsoft.SqlVirtualMachine/SqlVirtualMachines (SQL virtual machines)
 - microsoft.sqlvm/dwvm
-- microsoft.storage/datamovers
 - microsoft.Storage/StorageAccounts (Storage accounts)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
@@ -961,8 +976,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 
 For sample queries for this table, see [Resource Graph sample queries for securityresources](../samples/samples-by-table.md#securityresources).
 
-- microsoft.authorization/locks/providers/assessments/governanceassignments
-- microsoft.authorization/roleassignments/providers/assessments/governanceassignments
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
@@ -1009,10 +1022,6 @@ For sample queries for this table, see [Resource Graph sample queries for servic
 
 - microsoft.compute/skuspotevictionrate/location
 - microsoft.compute/skuspotpricehistory/ostype/location
-
-## workloadmonitorresources
-
-- microsoft.workloadmonitor/monitors
 
 ## Next steps
 

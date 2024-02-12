@@ -1,8 +1,8 @@
 ---
 title: Configure regions for labs
 description: Learn how to change the region of a lab. 
-author: RoseHJM
-ms.author: rosemalcolm
+author: ntrogh
+ms.author: nicktrog
 ms.service: lab-services
 ms.topic: how-to 
 ms.date: 06/17/2022

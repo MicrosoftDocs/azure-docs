@@ -13,7 +13,7 @@ Azure subscriptions and resource groups emit the same event types. The event typ
 
 Resource events are created for PUT, PATCH, POST, and DELETE operations that are sent to `management.azure.com`. GET operations don't create events. Operations sent to the data plane (like `myaccount.blob.core.windows.net`) don't create events. The action events provide event data for operations like listing the keys for a resource.
 
-When you subscribe to events for a resource group, your endpoint receives all events for that resource group. The events can include event you want to see, such as updating a virtual machine, but also events that maybe aren't important to you, such as writing a new entry in the deployment history. You can receive all events at your endpoint and write code that processes the events you want to handle. Or, you can set a filter when creating the event subscription.
+When you subscribe to events for a resource group, your endpoint receives all events for that resource group. The events can include event you want to see, such as updating a virtual machine, but also events that aren't important to you, such as writing a new entry in the deployment history. You can receive all events at your endpoint and write code that processes the events you want to handle. Or, you can set a filter when creating the event subscription.
 
 To programmatically handle events, you can sort events by looking at the `operationName` value. For example, your event endpoint might only process events for operations that are equal to `Microsoft.Compute/virtualMachines/write` or `Microsoft.Storage/storageAccounts/write`.
 
@@ -457,11 +457,11 @@ The data object has the following properties:
 ## Tutorials and how-tos
 |Title  |Description  |
 |---------|---------|
-| [Tutorial: monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | A logic app monitors changes to a virtual machine and sends emails about those changes. |
+| [Tutorial: monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md) | A logic app monitors changes to a virtual machine and sends emails about those changes. |
 | [Azure CLI: subscribe to events for a resource group](./scripts/event-grid-cli-resource-group.md)| Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
 | [Azure CLI: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-cli-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
-| [PowerShell: subscribe to events for a resource group](./scripts/event-grid-powershell-resource-group.md) | Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
-| [PowerShell: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-powershell-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
+| [PowerShell: subscribe to events for a resource group](./scripts/powershell-resource-group.md) | Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
+| [PowerShell: subscribe to events for a resource group and filter for a resource](./scripts/powershell-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
 | [Resource Manager template: resource subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-resource-events-to-webhook) | Subscribes to events for an Azure subscription or resource group. It sends events to a WebHook. |
 
 ## Next steps

@@ -12,7 +12,7 @@ ms.date: 12/17/2020
 Azure Automation uses a watcher task to look for events and trigger actions with PowerShell runbooks. The watcher task contains two parts, the watcher and the action. A watcher runbook runs at an interval defined in the watcher task, and outputs data to an action runbook.
 
 > [!NOTE]
-> Watcher tasks are not supported in Azure China Vianet 21.
+> Watcher tasks are not supported in Microsoft Azure operated by 21Vianet.
 
 > [!IMPORTANT]
 > Starting in May 2020, using Azure Logic Apps is the recommended and supported way to monitor for events, schedule recurring tasks, and trigger actions. See [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).

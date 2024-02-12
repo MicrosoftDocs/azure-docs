@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 02/20/2023
 ms.custom: references_regions
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure Blobs backup
@@ -23,7 +23,8 @@ Operational backup for blobs is available in all public cloud regions, except Fr
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Vaulted backup (preview) for blobs is currently available in the following regions: France Central, Canada Central, Canada East, US East, and US South.
+Vaulted backup (preview) for blobs is currently available in all public regions **except** South Africa West, Sweden Central, Sweden South, Israel Central, Poland Central, India Central, Italy North and Malaysia South.
+
 
 ---
 
@@ -33,7 +34,7 @@ Vaulted backup (preview) for blobs is currently available in the following regio
 
 # [Operational backup](#tab/operational-backup)
 
-Operational backup of blobs uses blob point-in-time restore, blob versioning, soft delete for blobs, change feed for blobs and delete lock to provide a local backup solution. So limitations that apply to these capabilities also apply to operational backup.
+Operational backup of blobs uses blob point-in-time restore, blob versioning, soft delete for blobs, change feed for blobs and delete lock to provide a local backup solution. Hence, the limitations that apply to these capabilities also apply to operational backup.
 
 **Supported scenarios:** Operational backup supports block blobs in standard general-purpose v2 storage accounts only. Storage accounts with hierarchical namespace enabled (that is, ADLS Gen2 accounts) aren't supported.   <br><br>   Also, any page blobs, append blobs, and premium blobs in your storage account won't be restored and only block blobs will be restored.
 
@@ -48,8 +49,6 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-The vaulted backup is currently in preview in the following regions: France Central, Canada Central, Canada East, US East, US South.
-
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - HNS-enabled storage accounts are currently not supported. This includes *ADLS Gen2 accounts*, *accounts using NFS 3.0*, and *SFTP protocols* for blobs.
 - You can back up storage accounts with *up to 100 containers*. You can also select a subset of containers to back up (up to 100 containers).
@@ -60,7 +59,9 @@ The vaulted backup is currently in preview in the following regions: France Cent
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
 - Cool and archived blobs are currently not supported.
 
+
 ---
 ## Next steps
 
 [Overview of Azure Blobs backup for Azure Blobs](blob-backup-overview.md)
+

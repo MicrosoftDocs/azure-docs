@@ -37,13 +37,13 @@ Before you select **Create**, review the properties of the **Basics** and **Addi
 
 ## Additional settings (optional)
 
-You can also select the **Additional settings** tab to view the authentication settings. The default configuration for Azure API for FHIR is to **use Azure RBAC for assigning data plane roles**. When it's configured in this mode, the "Authority" for FHIR service will be set to the Azure Active Directory tenant of the subscription.
+You can also select the **Additional settings** tab to view the authentication settings. The default configuration for Azure API for FHIR is to **use Azure RBAC for assigning data plane roles**. When it's configured in this mode, the "Authority" for FHIR service will be set to the Microsoft Entra tenant of the subscription.
 
 [ ![Additional settings FHIR service](media/fhir-service/additional-settings-tab.png) ](media/fhir-service/additional-settings-tab.png#lightbox)
 
 Notice that the box for entering **Allowed object IDs** is grayed out. This is because we use Azure RBAC for configuring role assignments in this case.
 
-If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server.
+If you wish to configure the FHIR service to use an external or secondary Microsoft Entra tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server.
 
 ## Fetch FHIR API capability statement
 

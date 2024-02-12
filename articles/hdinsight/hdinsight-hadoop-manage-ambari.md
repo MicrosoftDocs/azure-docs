@@ -1,10 +1,10 @@
 ---
-title: Monitor and manage Azure HDInsight using Ambari Web UI 
+title: Monitor and manage Azure HDInsight using Ambari Web UI
 description: Learn how to use Apache Ambari UI to monitor and manage HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/01/2022
+ms.custom: hdinsightactive
+ms.date: 04/25/2023
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari Web UI

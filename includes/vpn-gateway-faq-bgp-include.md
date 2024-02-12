@@ -2,7 +2,7 @@
  title: include file
  author: cherylmc
  ms.service: vpn-gateway
- ms.date: 05/25/2022
+ ms.date: 10/18/2023
  ms.author: cherylmc
 ---
 ### Is BGP supported on all Azure VPN Gateway SKUs?
@@ -18,6 +18,7 @@ No, BGP is supported on route-based VPN gateways only.
 You can use your own public ASNs or private ASNs for both your on-premises networks and Azure virtual networks. You can't use the ranges reserved by Azure or IANA.
 
 The following ASNs are reserved by Azure or IANA:
+
 * ASNs reserved by Azure:
 
   * Public ASNs: 8074, 8075, 12076
@@ -117,8 +118,8 @@ Add a host route of the Azure BGP peer IP address on your VPN device. This route
 
 No. Bidirectional Forwarding Detection (BFD) is a protocol that you can use with BGP to detect neighbor downtime quicker than you can by using standard BGP "keepalives." BFD uses subsecond timers designed to work in LAN environments, but not across the public internet or Wide Area Network connections.
 
-For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause routes to be dampened by BGP. As an alternative, you can configure your on-premises device with timers lower than the default, 60-second "keepalive" interval, and the 180-second hold timer. This results in a quicker convergence time.
+For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause routes to be dampened by BGP. As an alternative, you can configure your on-premises device with timers lower than the default, 60-second "keepalive" interval, and the 180-second hold timer. This results in a quicker convergence time. However, timers below the default 60-second "keepalive" interval or below the default 180-second hold timer aren't reliable. It's recommended to keep timers at or above the default values.
 
 ### Do Azure VPN gateways initiate BGP peering sessions or connections?
 
-The gateway will initiate BGP peering sessions to the on-premises BGP peer IP addresses specified in the local network gateway resources using the private IP addresses on the VPN gateways. This is irrespective of whether the on-premises BGP IP addresses are in the APIPA range or regular private IP addresses. If your on-premises VPN devices use APIPA addresses as BGP IP, you need to configure your BGP speaker to initiate the connections.
+The gateway initiates BGP peering sessions to the on-premises BGP peer IP addresses specified in the local network gateway resources using the private IP addresses on the VPN gateways. This is irrespective of whether the on-premises BGP IP addresses are in the APIPA range or regular private IP addresses. If your on-premises VPN devices use APIPA addresses as BGP IP, you need to configure your BGP speaker to initiate the connections.

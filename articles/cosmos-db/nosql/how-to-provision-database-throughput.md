@@ -1,14 +1,14 @@
 ---
 title: Provision database throughput in Azure Cosmos DB for NoSQL
-description: Learn how to provision throughput at the database level in Azure Cosmos DB for NoSQL using Azure portal, CLI, PowerShell and various other SDKs. 
+description: Learn how to provision throughput at the database level in Azure Cosmos DB for NoSQL using Azure portal, CLI, PowerShell and various other SDKs.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurecli, devx-track-csharp, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurecli, devx-track-csharp, devx-track-dotnet
 ---
 
 # Provision standard (manual) throughput on a database in Azure Cosmos DB - API for NoSQL
@@ -22,7 +22,7 @@ If you are using a different API, see [API for MongoDB](../mongodb/how-to-provis
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
+1. [Create a new Azure Cosmos DB account](how-to-create-account.md), or select an existing Azure Cosmos DB account.
 
 1. Open the **Data Explorer** pane, and select **New Database**. Provide the following details:
 

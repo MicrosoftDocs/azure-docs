@@ -8,7 +8,6 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
-ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -93,7 +92,11 @@ FROM
     ) AS nyc
 ```
 
-The partitioned views will perform folder partition elimination if you query this view with the filters on the partitioning columns. This might improve performance of your queries.
+Partitioned views can improve the performance of your queries by performing partition elimination when you query them with filters on the partitioning columns. However, not all queries support partition elimination, so it's important to follow some best practices.
+
+To ensure partition elimination, avoid using subqueries in filters, since they can interfere with the ability to eliminate partitions. Instead, pass the result of the subquery as a variable to the filter.
+
+When using JOINs in SQL queries, declare the filter predicate as NVARCHAR to reduce the complexity of the query plan and increase the probability of correct partition elimination. Partition columns are typically inferred as NVARCHAR(1024), so using the same type for the predicate avoids the need for an implicit cast, which can increase query plan complexity.
 
 ### Delta Lake partitioned views
 
@@ -185,6 +188,8 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+When you query the view, you may encounter errors or unexpected results. This probably means that the view references columns or objects that were modified or no longer exist. You need to manually adjust the view definition to align with the underlying schema changes.
 
 ## Next steps
 

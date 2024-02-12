@@ -1,9 +1,9 @@
 ---
-author: roygara
-ms.service: storage
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: include
 ms.date: 5/13/2022
-ms.author: rogarana
+ms.author: kendownie
 ---
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend updating the Azure File Sync agent as new versions are available.
 
@@ -23,6 +23,9 @@ There are five approved and tested ways to install the Azure File Sync agent upd
     Running an .msp executable will upgrade your Azure File Sync installation with the same method used automatically by Microsoft Update in the previous upgrade path. Applying a Microsoft Update patch will perform an in-place upgrade of an Azure File Sync installation.
 5. **Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).**  
     To upgrade an existing Azure File Sync agent installation, uninstall the older version and then install the latest version from the downloaded installer. The server registration, sync groups, and any other settings are maintained by the Azure File Sync installer.
+
+> [!Note]
+> The downgrade of Azure File Sync agent is not supported. The new versions often include breaking changes when compared to the old versions, making the downgrade process unsupported. In case you encounter any problems with your current agent version, reach out to support or upgrade to the latest available release.
 
 #### Automatic agent lifecycle management
 The Azure File Sync agent will auto-upgrade. You can select either of two modes and specify a maintenance window in which the upgrade shall be attempted on the server. This feature is designed to help you with the agent lifecycle management by either providing a guardrail preventing your agent from expiration or allowing for a no-hassle, stay current setting.

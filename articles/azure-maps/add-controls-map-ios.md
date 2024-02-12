@@ -2,8 +2,8 @@
 title: Add controls to an iOS map
 titleSuffix: Microsoft Azure Maps
 description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps iOS SDK.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/19/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -23,7 +23,7 @@ A zoom control adds buttons for zooming the map in and out. The following code s
 map.controls.add(ZoomControl())
 ```
 
-The screenshot below is of a zoom control loaded on a map.
+This screenshot shows a zoom control loaded on a map.
 
 :::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/zoom.png" alt-text="Screenshot showing the zoom control on a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/zoom.png":::
 
@@ -36,7 +36,7 @@ A pitch control adds buttons for tilting the pitch to map relative to the horizo
 map.controls.add(PitchControl())
 ```
 
-The screenshot below is of a pitch control loaded on a map.
+This screenshot shows a pitch control loaded on a map.
 
 :::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/pitch.png" alt-text="Screenshot showing the pitch control on a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/pitch.png":::
 
@@ -49,7 +49,7 @@ A rotation control adds a button for rotating the map. The following code sample
 map.controls.add(RotationControl())
 ```
 
-The screenshot below is of a rotation control loaded on a map.
+This screenshot shows a rotation control loaded on a map.
 
 :::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/rotation.png" alt-text="Screenshot showing the rotation control on a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/rotation.png":::
 
@@ -62,13 +62,13 @@ A traffic control adds a button for toggling the visibility of traffic data on t
 map.controls.add(TrafficControl())
 ```
 
-The screenshot below is of a traffic control loaded on a map.
+This screenshot shows a traffic control loaded on a map.
 
 :::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/traffic.png" alt-text="Screenshot showing the traffic control on a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/traffic.png":::
 
 ## A map with all controls
 
-Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following code adds the standard navigation controls to the map using this approach.
+Multiple controls can be added to an array and the map then positioned in the same area of the map to simplify development. The following code adds the standard navigation controls to the map using this approach.
 
 ```swift
 map.controls.add([
@@ -79,7 +79,7 @@ map.controls.add([
 ])
 ```
 
-The screenshot below shows all controls loaded on a map. The order they are added to the map, is the order they will appear.
+This screenshot shows all controls loaded on a map, appearing in the order they were added.
 
 :::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/all.png" alt-text="Screenshot showing a map with all controls added to it." lightbox="./media/ios-sdk/add-controls-to-map-ios/all.png":::
 

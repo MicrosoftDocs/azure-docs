@@ -3,8 +3,8 @@ title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
 ms.date: 12/07/2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore encrypted Azure virtual machines
 
@@ -29,7 +29,7 @@ Encrypted VMs can only be restored by restoring the VM disk and creating a virtu
  
 Follow below steps to restore encrypted VMs:
 
-### **Step 1**: Restore the VM disk
+### Step 1: Restore the VM disk
 
 1. In **Restore configuration** > **Create new** > **Restore Type** select **Restore disks**.
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
@@ -45,7 +45,7 @@ When your virtual machine uses unmanaged disks, they're restored as blobs to the
    > [!NOTE]
    > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
 
-### **Step 2**: Recreate the virtual machine instance 
+### Step 2: Recreate the virtual machine instance 
 
 Do one of the following actions:
 
@@ -54,7 +54,7 @@ Do one of the following actions:
    >While deploying the template, verify the storage account containers and the public/private settings.
 - Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-### **Step 3**: Restore an encrypted Linux VM
+### Step 3: Restore an encrypted Linux VM
 
 Reinstall the ADE extension so the data disks are open and mounted.
 

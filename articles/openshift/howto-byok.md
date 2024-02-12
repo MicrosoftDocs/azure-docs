@@ -6,8 +6,8 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: encryption, byok, deploy, openshift, red hat, key
 ms.topic: how-to
-ms.date: 10/18/2021
-ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.date: 05/05/2023
+ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -35,6 +35,16 @@ For details about using Disk Encryption Sets to manage your encryption keys, see
 ## Prerequisites
 * [Verify your permissions](tutorial-create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions or Owner permissions.
 * If you have multiple Azure subscriptions, register the resource providers. For registration details, see [Register the resource providers](tutorial-create-cluster.md#register-the-resource-providers).
+* You will need to have the EncryptionAtHost feature enabled on your subscription. You can enable it by running:
+
+    ```azurecli-interactive
+    az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
+* You can check the current status of the feature by running:
+
+    ```azurecli-interactive
+    az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
 
 ## Create a virtual network containing two empty subnets
 Create a virtual network containing two empty subnets. If you have an existing virtual network that meets your needs, you can skip this step. To review the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](tutorial-create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).

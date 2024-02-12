@@ -5,11 +5,11 @@ description: Learn how Azure Machine Learning's AutoML searches for and selects 
 services: machine-learning
 author: ctian-msft
 ms.author: chuantian
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.custom: automl, sdkv1
 ms.date: 12/15/2022
 ---
 
@@ -53,7 +53,7 @@ AutoML follows the usual cross-validation procedure, training a separate model o
 
 Cross-validation for forecasting jobs is configured by setting the number of cross-validation folds and, optionally, the number of time periods between two consecutive cross-validation folds. See the [custom cross-validation settings](./how-to-auto-train-forecast.md#custom-cross-validation-settings) guide for more information and an example of configuring cross-validation for forecasting.
 
-You can also bring your own validation data. Learn more in the [configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data) article.
+You can also bring your own validation data. Learn more in the [configure data splits and cross-validation in AutoML (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md#provide-validation-data) article.
 
 ## Next steps
 * Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).

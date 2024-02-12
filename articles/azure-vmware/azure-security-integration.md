@@ -3,7 +3,7 @@ title: Integrate Microsoft Defender for Cloud with Azure VMware Solution
 description: Learn how to protect your Azure VMware Solution VMs with Azure's native security tools from the workload protection dashboard.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/24/2022
+ms.date: 11/27/2023
 ms.custom: engagement-fy23
 ---
 
@@ -86,9 +86,9 @@ Recommendations and assessments provide you with the security health details of 
 
 ## Deploy a Microsoft Sentinel workspace
 
-Microsoft Sentinel provides security analytics, alert detection, and automated threat response across an environment. It's a cloud-native, security information event management (SIEM) solution  that's built on top of a Log Analytics workspace.
+Microsoft Sentinel provides security analytics, alert detection, and automated threat response across an environment. It's a cloud-native, security information event management (SIEM) solution built on top of a Log Analytics workspace.
 
-Since Microsoft Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
+Since Microsoft Sentinel is built on top of a Log Analytics workspace, you only need to select the workspace you want to use.
 
 1. In the Azure portal, search for **Microsoft Sentinel**, and select it.
 
@@ -124,7 +124,7 @@ Since Microsoft Sentinel is built on top of a Log Analytics workspace, you'll on
 
 ## Create rules to identify security threats
 
-After connecting data sources to Microsoft Sentinel, you can create rules to generate alerts for detected threats. In the following example, we'll create a rule for attempts to sign into Windows server with the wrong password.
+After connecting data sources to Microsoft Sentinel, you can create rules to generate alerts for detected threats. In the following example, we create a rule for attempts to sign in to Windows server with the wrong password.
 
 1. On the Microsoft Sentinel overview page, under Configurations, select **Analytics**.
 
@@ -166,7 +166,7 @@ After connecting data sources to Microsoft Sentinel, you can create rules to gen
 8. On the **Review and create** tab, review the information, and select **Create**.
 
 >[!TIP]
->After the third failed attempt to sign into Windows server, the created rule triggers an incident for every unsuccessful attempt.
+>After the third failed attempt to sign in to Windows server, the created rule triggers an incident for every unsuccessful attempt.
 
 ## View alerts
 
@@ -185,9 +185,9 @@ You can view generated incidents with Microsoft Sentinel. You can also assign in
 
 ## Hunt security threats with queries
 
-You can create queries or use the available pre-defined query in Microsoft Sentinel to identify threats in your environment. The following steps run a pre-defined query.
+You can create queries or use the available predefined query in Microsoft Sentinel to identify threats in your environment. The following steps run a predefined query.
 
-1. On the Microsoft Sentinel overview page, under Threat management, select **Hunting**. A list of pre-defined queries is displayed.
+1. On the Microsoft Sentinel overview page, under Threat management, select **Hunting**. A list of predefined queries is displayed.
 
    >[!TIP]
    >You can also create a new query by selecting **New Query**.
@@ -200,7 +200,7 @@ You can create queries or use the available pre-defined query in Microsoft Senti
 
 ## Next steps
 
-Now that you've covered how to protect your Azure VMware Solution VMs, you may want to learn about:
+Now that you covered how to protect your Azure VMware Solution VMs, you can learn more about:
 
 - [Using the workload protection dashboard](../security-center/azure-defender-dashboard.md)
 - [Advanced multistage attack detection in Microsoft Sentinel](../azure-monitor/logs/quick-create-workspace.md)

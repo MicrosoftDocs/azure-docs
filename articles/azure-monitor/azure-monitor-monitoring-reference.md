@@ -474,5 +474,5 @@ The following schemas are relevant to action groups, which are part of the notif
 
 ## See Also
 
-- See [Monitoring Azure Azure Monitor](monitor-azure-monitor.md) for a description of what Azure Monitor monitors in itself. 
+- See [Monitoring Azure Monitor](monitor-azure-monitor.md) for a description of what Azure Monitor monitors in itself. 
 - See [Monitoring Azure resources with Azure Monitor](./essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

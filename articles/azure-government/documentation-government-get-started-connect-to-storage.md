@@ -4,7 +4,7 @@ description: Guidance for getting started with Storage on Azure Government
 ms.service: azure-government
 ms.topic: article
 author: yujhongmicrosoft
-ms.author: stevevi
+ms.author: eliotgra
 ms.date: 10/01/2021
 ---
 

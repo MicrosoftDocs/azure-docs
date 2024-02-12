@@ -2,14 +2,15 @@
 title: Run Linux on virtual machine compute nodes
 description: Learn how to process parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 ms.topic: how-to
-ms.date: 12/13/2021
-ms.devlang: csharp, python
-ms.custom: "H1Hack27Feb2017, devx-track-python, devx-track-csharp"
+ms.date: 05/18/2023
+ms.devlang: csharp
+# ms.devlang: csharp, python
+ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp, devx-track-dotnet, linux-related-content
 zone_pivot_groups: programming-languages-batch-linux-nodes
 ---
 # Provision Linux compute nodes in Batch pools
 
-You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python](https://pypi.python.org/pypi/azure-batch) and [Batch .NET](/dotnet/api/microsoft.azure.batch) client libraries. 
+You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python](https://pypi.python.org/pypi/azure-batch) and [Batch .NET](/dotnet/api/microsoft.azure.batch) client libraries.
 
 ## Virtual Machine Configuration
 
@@ -25,7 +26,7 @@ When you create a virtual machine image reference, you must specify the followin
 | --- | --- |
 | Publisher |Canonical |
 | Offer |UbuntuServer |
-| SKU |18.04-LTS |
+| SKU |20.04-LTS |
 | Version |latest |
 
 > [!TIP]
@@ -90,7 +91,7 @@ new_pool.start_task = start_task
 ir = batchmodels.ImageReference(
     publisher="Canonical",
     offer="UbuntuServer",
-    sku="18.04-LTS",
+    sku="20.04-LTS",
     version="latest")
 
 # Create the VirtualMachineConfiguration, specifying
@@ -98,7 +99,7 @@ ir = batchmodels.ImageReference(
 # to install on the node
 vmc = batchmodels.VirtualMachineConfiguration(
     image_reference=ir,
-    node_agent_sku_id="batch.node.ubuntu 18.04")
+    node_agent_sku_id="batch.node.ubuntu 20.04")
 
 # Assign the virtual machine configuration to the pool
 new_pool.virtual_machine_configuration = vmc
@@ -118,7 +119,7 @@ image = None
 for img in images:
   if (img.image_reference.publisher.lower() == "canonical" and
         img.image_reference.offer.lower() == "ubuntuserver" and
-        img.image_reference.sku.lower() == "18.04-lts"):
+        img.image_reference.sku.lower() == "20.04-lts"):
     image = img
     break
 
@@ -158,7 +159,7 @@ foreach (var img in images)
 {
     if (img.ImageReference.Publisher == "Canonical" &&
         img.ImageReference.Offer == "UbuntuServer" &&
-        img.ImageReference.Sku == "18.04-LTS")
+        img.ImageReference.Sku == "20.04-LTS")
     {
         image = img;
         break;
@@ -188,7 +189,7 @@ Although the previous snippet uses the [PoolOperations.istSupportedImages](/dotn
 ImageReference imageReference = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    sku: "18.04-LTS",
+    sku: "20.04-LTS",
     version: "latest");
 ```
 ::: zone-end

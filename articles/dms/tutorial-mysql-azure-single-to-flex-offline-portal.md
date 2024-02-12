@@ -2,14 +2,14 @@
 title: "Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server offline using DMS via the Azure portal"
 titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an offline migration from Azure Database for MySQL - Single Server to Flexible Server by using Azure Database Migration Service."
-author: aditivgupta
-ms.author: adig
-ms.reviewer: "maghan"
-manager: "pariks"
+author: karlaescobar
+ms.author: karlaescobar
+ms.reviewer: maghan
 ms.date: 09/17/2022
 ms.service: dms
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom:
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server offline using DMS via the Azure portal
@@ -42,14 +42,19 @@ To complete this tutorial, you need to:
 
 * Create or use an existing instance of Azure Database for MySQL – Single Server (the source server).
 * To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:
-  * “READ” privilege on the source database.
-  * “SELECT” privilege for the ability to select objects from the database
-  * If migrating views, user must have the “SHOW VIEW” privilege.
-  * If migrating triggers, user must have the “TRIGGER” privilege.
-  * If migrating routines (procedures and/or functions), the user must be named in the definer clause of the routine. Alternatively, based on version, the user must have the following privilege:
-    * For 5.7, have “SELECT” access to the “mysql.proc” table.
-    * For 8.0, have “SHOW_ROUTINE” privilege or have the “CREATE ROUTINE,” “ALTER ROUTINE,” or “EXECUTE” privilege granted at a scope that includes the routine.
-  * If migrating events, the user must have the “EVENT” privilege for the database from which the event is to be shown.
+  * [“SELECT”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) privilege at the server level on the source.
+  * If migrating views, user must have the [“SHOW VIEW”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-view) privilege on the source server and the [“CREATE VIEW”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-view) privilege on the target server.
+  * If migrating triggers, user must have the [“TRIGGER”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_trigger) privilege on the source and target server.
+  * If migrating routines (procedures and/or functions), the user must have the [“CREATE ROUTINE”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-routine) and [“ALTER ROUTINE”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_alter-routine) privileges granted at the server level on the target.
+  * If migrating events, the user must have the [“EVENT”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_event) privilege on the source and target server.
+  * If migrating users/logins, the user must have the ["CREATE USER"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-user) privilege on the target server.
+  * ["DROP"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_drop) privilege at the server level on the target, in order to drop tables that might already exist. For example, when retrying a migration.
+  * ["REFERENCES"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_references) privilege at the server level on the target, in order to create tables with foreign keys.
+  * If migrating to MySQL 8.0, the user must have the ["SESSION_VARIABLES_ADMIN"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_session-variables-admin) privilege on the target server.
+  * ["CREATE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create) privilege at the server level on the target.
+  * ["INSERT"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_insert) privilege at the server level on the target.
+  * ["UPDATE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_update) privilege at the server level on the target.
+  * ["DELETE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_delete) privilege at the server level on the target.
 
 ## Limitations
 
@@ -109,6 +114,7 @@ With these best practices in mind, create your target flexible server and then c
     * Additionally, if migrating non-table objects, be sure to use the same name for the target schema as is used on the source.
   * Configure the server parameters on the target flexible server as follows:
     * Set the TLS version and require_secure_transport server parameter to match the values on the source server.
+    * Set the sql_mode server parameter to match the values on the source server.
     * Configure server parameters on the target server to match any non-default values used on the source server.
     * To ensure faster data loads when using DMS, configure the following server parameters as described.
       * max_allowed_packet – set to 1073741824 (i.e., 1 GB) to prevent any connection issues due to large rows.
@@ -189,6 +195,8 @@ To register the Microsoft.DataMigration resource provider, perform the following
 11. Select **Go to resource**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/9-1-go-to-resource.png" alt-text="Screenshot of a Select Go to resource.":::
 
+12. Identify the IP address of the DMS instance from the resource overview page and create a firewall rule for your source single server and target flexible server allow-listing the IP address of the DMS instance.
+
 ### Create a migration project
 
 To create a migration project, perform the following steps.  
@@ -212,15 +220,15 @@ To create a migration project, perform the following steps.
 
 To configure your DMS migration project, perform the following steps.
 
-1. To proceed with the offline migration, navigate to the source server on Azure portal and proceed to the **Server Parameters** blade. Configure the value of **read_only** server parameter for the source server as **ON** .
+1. To proceed with the offline migration, before you configure **Select source** on the screen, open a new window tab and navigate to your source server's overview page on Azure portal and proceed to the **Server Parameters** blade. Configure the value of **read_only** server parameter for the source server as **ON** .
 
     Setting the source server to read only mode by updating the server parameter before starting the migration prevents Write/Delete operations on the source server during migration, which ensures the data integrity of the target database as the source is migrated.
 
     > [!NOTE]
     > Alternately, if you were performing an online migration, you would select the **Enable Transactional Consistency** check box on the Select source screen. For more information about consistent backup, see [MySQL Consistent Backup](./migrate-azure-mysql-consistent-backup.md).
 
-2. On the **Select source** screen, specify the connection details for the source MySQL instance.
-       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/13-select-source-offline.png" alt-text="Screenshot of an Add source details screen.":::
+2. Navigate back to your migration project configuration screen and on the **Select source** screen, specify the connection details for the source MySQL instance.
+       :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/offline-migration-wizard-updated.png" alt-text="Screenshot of an Add source details screen.":::
 
 3. Select **Next : Select target>>**, and then, on the **Select target** screen, specify the connection details for the target flexible server.
        :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/15-select-target.png" alt-text="Screenshot of a Select target.":::

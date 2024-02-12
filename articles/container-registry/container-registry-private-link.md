@@ -2,15 +2,16 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
 
-Limit access to a registry by assigning virtual network private IP addresses to the registry endpoints and using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry's private endpoints traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. Private Link also enables private registry access from on-premises through [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) private peering or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Limit access to a registry by assigning virtual network private IP addresses to the registry endpoints and using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry's private endpoints traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. Private Link also enables private registry access from on-premises through [Azure ExpressRoute](../expressroute/expressroute-introduction.md), private peering, or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 You can [configure DNS settings](../private-link/private-endpoint-overview.md#dns-configuration) for the registry's private endpoints, so that the settings resolve to the registry's allocated private IP address. With DNS configuration, clients and services in the network can continue to access the registry at the registry's fully qualified domain name, such as *myregistry.azurecr.io*. 
 
@@ -335,13 +336,15 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 ## Execute the `az acr build` with private endpoint and private registry
 
-Consider the following options to execute the `az acr build` successfully.
 > [!NOTE]
 > Once you disable public network [access here](#disable-public-access), then `az acr build` commands will no longer work.
+> Unless you are utilizing dedicated agent pools, it's typically require the public IP's. Tasks reserve a set of public IPs in each region for outbound requests. If needed, we have the option to add these IPs to our firewall's allowed list for seamless communication.`az acr build` command uses the same set of IPs as the tasks.
 
-1. Assign a [dedicated agent pool.](./tasks-agent-pools.md) 
-2. If agent pool is not available in the region, add the regional [Azure Container Registry Service Tag IPv4](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to the [firewall access rules.](./container-registry-firewall-access-rules.md#allow-access-by-ip-address-range)
-3. Create an ACR task with a managed identity, and enable trusted services to [access network restricted ACR.](./allow-access-trusted-services.md#example-acr-tasks)
+Consider the following options to execute the `az acr build` successfully.
+
+* Assign a [dedicated agent pool.](./tasks-agent-pools.md) 
+* If agent pool is not available in the region, add the regional [Azure Container Registry Service Tag IPv4](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to the [firewall access rules.](./container-registry-firewall-access-rules.md#allow-access-by-ip-address-range). Tasks reserve a set of public IPs in each region (a.k.a. AzureContainerRegistry Service Tag) for outbound requests. You can choose to add the IPs in the firewall allowed list.
+* Create an ACR task with a managed identity, and enable trusted services to [access network restricted ACR.](./allow-access-trusted-services.md#example-acr-tasks)
 
 ## Disable access to a container registry using a service endpoint 
 
@@ -468,6 +471,19 @@ If you created all the Azure resources in the same resource group and no longer 
 az group delete --name $RESOURCE_GROUP
 ```
 
+## Integrating with a registry with private link enabled
+
+To pull content from a registry with private link enabled, clients must allow access to the registry REST endpoint, as well as all regional data endpoints. The client proxy or firewall must allow access to
+
+REST endpoint: `{REGISTRY_NAME}.azurecr.io`
+Data endpoint(s): `{REGISTRY_NAME}.{REGISTRY_LOCATION}.data.azurecr.io`
+
+For a geo-replicated registry, customer needs to configure access to the data endpoint for each regional replica.
+
+You have to update the routing configuration for the client proxy and client firewall with the data endpoints to handle the pull requests successfully. A client proxy will provide central traffic control to the [outbound requests][outbound-connection]. To handle local traffic a client proxy is not required, you can add into `noProxy` section to bypass the proxy. Learn more about [HTTP proxy doc](../aks/http-proxy.md) to integrate with AKS. 
+
+Requests to token server over private endpoint connection doesn't require the data endpoint configuration.
+
 ## Next steps
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
@@ -514,4 +530,4 @@ az group delete --name $RESOURCE_GROUP
 [az-network-nic-show]: /cli/azure/network/nic#az_network_nic_show
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
-[azure-portal]: https://portal.azure.com
+[outbound-connection]: /azure/firewall/rule-processing#outbound-connectivity

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 
@@ -26,7 +26,7 @@ This Hive connector is supported for the following capabilities:
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -236,11 +236,14 @@ source(
 
 * Complex types such as arrays, maps, structs, and unions are not supported for read. 
 * Hive connector only supports Hive tables in Azure HDInsight of version 4.0 or greater (Apache Hive 3.1.0)
+* By default, Hive driver provides "tableName.columnName" in sink. If you do not wish to see the table name in the column name, then there are two ways to fix this.
+  a. Check the setting "hive.resultset.use.unique.column.names" in Hive server side and set it to false.
+  b. Use column mapping to rename the column name.
 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

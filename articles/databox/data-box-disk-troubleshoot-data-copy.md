@@ -2,13 +2,13 @@
 title: Azure Data Box Disk troubleshooting data copy issues| Microsoft Docs 
 description: Describes how to troubleshoot issues seen during data copy in Azure Data Box Disk using logs.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 06/13/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Troubleshoot data copy issues in Azure Data Box Disk

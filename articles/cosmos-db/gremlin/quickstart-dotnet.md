@@ -1,174 +1,236 @@
 ---
-title: Build an Azure Cosmos DB .NET Framework, Core application using the Gremlin API
-description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
+title: 'Quickstart: Gremlin library for .NET'
+titleSuffix: Azure Cosmos DB for Apache Gremlin
+description: In this quickstart, connect to Azure Cosmos DB for Apache Gremlin using .NET. Then, create and traverse vertices and edges.
 author: manishmsfte
 ms.author: mansha
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
-ms.devlang: csharp
-ms.topic: quickstart
-ms.date: 05/02/2020
-ms.custom: devx-track-dotnet, mode-api, ignite-2022
+ms.custom: devx-track-azurecli, devx-track-dotnet
+ms.topic: quickstart-sdk
+ms.date: 09/27/2023
+# CustomerIntent: As a .NET developer, I want to use a library for my programming language so that I can create and traverse vertices and edges in code.
 ---
-# Quickstart: Build a .NET Framework or Core application using the Azure Cosmos DB for Gremlin account
+
+# Quickstart: Azure Cosmos DB for Apache Gremlin library for .NET
+
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
-> [!div class="op_single_selector"]
-> * [Gremlin console](quickstart-console.md)
-> * [.NET](quickstart-dotnet.md)
-> * [Java](quickstart-java.md)
-> * [Node.js](quickstart-nodejs.md)
-> * [Python](quickstart-python.md)
-> * [PHP](quickstart-php.md)
->  
+[!INCLUDE[Gremlin devlang](includes/quickstart-devlang.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases. All of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB for Apache Gremlin is a fully managed graph database service implementing the popular [`Apache Tinkerpop`](https://tinkerpop.apache.org/), a graph computing framework using the Gremlin query language. The API for Gremlin gives you a low-friction way to get started using Gremlin with a service that can grow and scale out as much as you need with minimal management.
 
-This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](introduction.md) account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+In this quickstart, you use the `Gremlin.Net` library to connect to a newly created Azure Cosmos DB for Gremlin account.
+
+[Library source code](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Package (NuGet)](https://www.nuget.org/packages/Gremlin.Net)
 
 ## Prerequisites
 
-Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
+- An Azure account with an active subscription.
+  - No Azure subscription? [Sign up for a free Azure account](https://azure.microsoft.com/free/).
+  - Don't want an Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no subscription required.
+- [.NET (LTS)](https://dotnet.microsoft.com/)
+  - Don't have .NET installed? Try this quickstart in [GitHub Codespaces](https://codespaces.new/github/codespaces-blank?quickstart=1).
+- [Azure Command-Line Interface (CLI)](/cli/azure/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
-## Create a database account
+## Setting up
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../includes/cosmos-db-create-dbaccount-graph.md)]
+This section walks you through creating an API for Gremlin account and setting up a .NET project to use the library to connect to the account.
 
-## Add a graph
+### Create an API for Gremlin account
 
-[!INCLUDE [cosmos-db-create-graph](../includes/cosmos-db-create-graph.md)]
+The API for Gremlin account should be created prior to using the .NET library. Additionally, it helps to also have the database and graph in place.
 
-## Clone the sample application
+[!INCLUDE[Create account, database, and graph](includes/create-account-database-graph-cli.md)]
 
-Now let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it's to work with data programmatically. 
+### Create a new .NET console application
 
-1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+Create a .NET console application in an empty folder using your preferred terminal.
 
-    ```bash
-    md "C:\git-samples"
-    ```
+1. Open your terminal in an empty folder.
 
-2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
-
-    ```bash
-    cd "C:\git-samples"
-    ```
-
-3. Run the following command to clone the sample repository. The ``git clone`` command creates a copy of the sample app on your computer.
+1. Use the `dotnet new` command specifying the **console** template.
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
+    dotnet new console
     ```
 
-4. Then open Visual Studio and open the solution file.
+### Install the NuGet package
 
-5. Restore the NuGet packages in the project. The restore operation should include the Gremlin.Net driver, and the Newtonsoft.Json package.
+Add the `Gremlin.NET` NuGet package to the .NET project.
 
-6. You can also install the Gremlin.Net@v3.4.13 driver manually using the NuGet package manager, or the [NuGet command-line utility](/nuget/install-nuget-client-tools): 
+1. Use the `dotnet add package` command specifying the `Gremlin.Net` NuGet package.
 
     ```bash
-    nuget install Gremlin.NET -Version 3.4.13
+    dotnet add package Gremlin.Net
     ```
-    
-> [!NOTE]
-> The supported Gremlin.NET driver version for Gremlin API  is available [here](support.md#compatible-client-libraries). Latest released versions of Gremlin.NET may see incompatibilities, so please check the linked table for compatibility updates.
 
-## Review the code
+1. Build the .NET project using `dotnet build`.
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
-
-The following snippets are all taken from the Program.cs file.
-
-* Set your connection parameters based on the account created above: 
-
-   :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="configureConnectivity":::
-
-* The Gremlin commands to be executed are listed in a Dictionary:
-
-   :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineQueries":::
-
-* Create a new `GremlinServer` and `GremlinClient` connection objects using the parameters provided above:
-
-   :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineClientandServerObjects":::
-
-* Execute each Gremlin query using the `GremlinClient` object with an async task. You can read the Gremlin queries from the dictionary defined in the previous step and execute them. Later get the result and read the values, which are formatted as a dictionary, using the `JsonSerializer` class from Newtonsoft.Json package:
-
-   :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="executeQueries":::
-
-## Update your connection string
-
-Now go back to the Azure portal to get your connection string information and copy it into the app.
-
-1. From the [Azure portal](https://portal.azure.com/), navigate to your graph database account. In the **Overview** tab, you can see two endpoints- 
- 
-   **.NET SDK URI** - This value is used when you connect to the graph account by using Microsoft.Azure.Graphs library. 
-
-   **Gremlin Endpoint** - This value is used when you connect to the graph account by using Gremlin.Net library.
-
-    :::image type="content" source="./media/quickstart-dotnet/endpoint.png" alt-text="Copy the endpoint":::
-
-   For this sample, record the *Host* value of the **Gremlin Endpoint**. For example, if the URI is ``https://graphtest.gremlin.cosmosdb.azure.com``, the *Host* value would be ``graphtest.gremlin.cosmosdb.azure.com``.
-
-1. Next, navigate to the **Keys** tab and record the *PRIMARY KEY* value from the Azure portal. 
-
-1. After you've copied the URI and PRIMARY KEY of your account, save them to a new environment variable on the local machine running the application. To set the environment variable, open a command prompt window, and run the following command. Make sure to replace ``<cosmos-account-name>`` and ``<cosmos-account-primary-key>`` values.
-
-    ### [Windows](#tab/windows)
-    
-    ```powershell
-    setx Host "<cosmos-account-name>.gremlin.cosmosdb.azure.com"
-    setx PrimaryKey "<cosmos-account-primary-key>"
-    ```
-    
-    ### [Linux / macOS](#tab/linux+macos)
-    
     ```bash
-    export Host=<cosmos-account-name>.gremlin.cosmosdb.azure.com
-    export PrimaryKey=<cosmos-account-primary-key>
+    dotnet build
     ```
+
+    Make sure that the build was successful with no errors. The expected output from the build should look something like this:
+
+    ```output
+    Determining projects to restore...
+      All projects are up-to-date for restore.
+      dslkajfjlksd -> \dslkajfjlksd\bin\Debug\net6.0\dslkajfjlksd.dll
     
-    ---
+    Build succeeded.
+        0 Warning(s)
+        0 Error(s)
+    ```
 
-1. Open the *Program.cs* file and update the "database and "container" variables with the database and container (which is also the graph name) names created above.
+### Configure environment variables
 
-    `private static string database = "your-database-name";`
-    `private static string container = "your-container-or-graph-name";`
+To use the *NAME* and *URI* values obtained earlier in this quickstart, persist them to new environment variables on the local machine running the application.
 
-1. Save the Program.cs file. 
+1. To set the environment variable, use your terminal to persist the values as `COSMOS_ENDPOINT` and `COSMOS_KEY` respectively.
 
-You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+    ```bash
+    export COSMOS_GREMLIN_ENDPOINT="<account-name>"
+    export COSMOS_GREMLIN_KEY="<account-key>"
+    ```
 
-## Run the console app
+1. Validate that the environment variables were set correctly.
 
-Select CTRL + F5 to run the application. The application will print both the Gremlin query commands and results in the console.
+    ```bash
+    printenv COSMOS_GREMLIN_ENDPOINT
+    printenv COSMOS_GREMLIN_KEY
+    ```
 
-   The console window displays the vertexes and edges being added to the graph. When the script completes, press ENTER to close the console window.
+## Code examples
 
-## Browse using the Data Explorer
+- [Authenticate the client](#authenticate-the-client)
+- [Create vertices](#create-vertices)
+- [Create edges](#create-edges)
+- [Query vertices &amp; edges](#query-vertices--edges)
 
-You can now go back to Data Explorer in the Azure portal and browse and query your new graph data.
+The code in this article connects to a database named `cosmicworks` and a graph named `products`. The code then adds vertices and edges to the graph before traversing the added items.
 
-1. In Data Explorer, the new database appears in the Graphs pane. Expand the database and container nodes, and then select **Graph**.
+### Authenticate the client
 
-2. Select the **Apply Filter** button to use the default query to view all the vertices in the graph. The data generated by the sample app is displayed in the Graphs pane.
+Application requests to most Azure services must be authorized. For the API for Gremlin, use the *NAME* and *URI* values obtained earlier in this quickstart.
 
-    You can zoom in and out of the graph, you can expand the graph display space, add extra vertices, and move vertices on the display surface.
+1. Open the **Program.cs** file.
 
-    :::image type="content" source="./media/quickstart-dotnet/graph-explorer.png" alt-text="View the graph in Data Explorer in the Azure portal":::
+1. Delete any existing content within the file.
 
-## Review SLAs in the Azure portal
+1. Add a using block for the `Gremlin.Net.Driver` namespace.
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="imports":::
+
+1. Create `accountName` and `accountKey` string variables. Store the `COSMOS_GREMLIN_ENDPOINT` and `COSMOS_GREMLIN_KEY` environment variables as the values for each respective variable.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="environment_variables":::
+
+1. Create a new instance of `GremlinServer` using the account's credentials.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="authenticate_client":::
+
+1. Create a new instance of `GremlinClient` using the remote server credentials and the **GraphSON 2.0** serializer.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="connect_client":::
+
+### Create vertices
+
+Now that the application is connected to the account, use the standard Gremlin syntax to create vertices.
+
+1. Use `SubmitAsync` to run a command server-side on the API for Gremlin account. Create a **product** vertex with the following properties:
+
+    | | Value |
+    | --- | --- |
+    | **label** | `product` |
+    | **id** | `68719518371` |
+    | **`name`** | `Kiama classic surfboard` |
+    | **`price`** | `285.55` |
+    | **`category`** | `surfboards` |
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_vertices_1":::
+
+1. Create a second **product** vertex with these properties:
+
+    | | Value |
+    | --- | --- |
+    | **label** | `product` |
+    | **id** | `68719518403` |
+    | **`name`** | `Montau Turtle Surfboard` |
+    | **`price`** | `600.00` |
+    | **`category`** | `surfboards` |
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_vertices_2":::
+
+1. Create a third **product** vertex with these properties:
+
+    | | Value |
+    | --- | --- |
+    | **label** | `product` |
+    | **id** | `68719518409` |
+    | **`name`** | `Bondi Twin Surfboard` |
+    | **`price`** | `585.50` |
+    | **`category`** | `surfboards` |
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_vertices_3":::
+
+### Create edges
+
+Create edges using the Gremlin syntax to define relationships between vertices.
+
+1. Create an edge from the `Montau Turtle Surfboard` product named **replaces** to the `Kiama classic surfboard` product.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_edges_1":::
+
+    > [!TIP]
+    > This edge defintion uses the `g.V(['<partition-key>', '<id>'])` syntax. Alternatively, you can use `g.V('<id>').has('category', '<partition-key>')`.
+
+1. Create another **replaces** edge from the same product to the `Bondi Twin Surfboard`.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_edges_2":::
+
+### Query vertices &amp; edges
+
+Use the Gremlin syntax to traverse the graph and discover relationships between vertices.
+
+1. Traverse the graph and find all vertices that `Montau Turtle Surfboard` replaces.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="query_vertices_edges":::
+
+1. Write to the console the static string `[CREATED PRODUCT]\t68719518403`. Then, iterate over each matching vertex using a `foreach` loop and write to the console a message that starts with `[REPLACES PRODUCT]` and includes the matching product `id` field as a suffix.
+
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="output_vertices_edges":::
+
+## Run the code
+
+Validate that your application works as expected by running the application. The application should execute with no errors or warnings. The output of the application includes data about the created and queried items.
+
+1. Open the terminal in the .NET project folder.
+
+1. Use `dotnet run` to run the application.
+
+    ```bash
+    dotnet run
+    ```
+
+1. Observe the output from the application.
+
+    ```output
+    [CREATED PRODUCT]       68719518403
+    [REPLACES PRODUCT]      68719518371
+    [REPLACES PRODUCT]      68719518409
+    ```
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
+When you no longer need the API for Gremlin account, delete the corresponding resource group.
 
-## Next steps
+[!INCLUDE[Delete account](includes/delete-account-cli.md)]
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
+## Next step
 
 > [!div class="nextstepaction"]
-> [Query using Gremlin](tutorial-query.md)
+> [Create and query data using Azure Cosmos DB for Apache Gremlin](tutorial-query.md)

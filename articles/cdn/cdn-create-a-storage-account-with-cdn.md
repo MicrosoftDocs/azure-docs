@@ -47,22 +47,24 @@ To create a storage account, you must be either the service administrator or a c
 
 ## Enable Azure CDN for the storage account
 
-1. On the page for your storage account, select **Blob service** > **Azure CDN** from the left menu. The **Azure CDN** page appears.
+1. On the page for your storage account, select **Security + Networking** > **Front Door and CDN** from the left menu. The **Front Door and CDN** page appears.
 
-    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png" alt-text="Screenshot of create a CDN endpoint.":::
+    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-endpoint-configuration.png" alt-text="Screenshot of create a CDN endpoint." lightbox="./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-endpoint-configuration.png":::
 	
 1. In the **New endpoint** section, enter the following information:
 
     | Setting  | Value |
     | -------- | ----- |
-    | **CDN profile** | Select **Create new** and enter your profile name, for example, *cdn-profile-123*. A profile is a collection of endpoints. |
-    | **Pricing tier** | Select one of the **Standard** options, such as **Microsoft CDN (classic)**. |
-	| **CDN endpoint name** | Enter your endpoint hostname, such as *cdn-endpoint-123*. This name must be globally unique across Azure because it's to access your cached resources at the URL _&lt;endpoint-name&gt;_.azureedge.net. |
-	| **Origin hostname** | By default, a new CDN endpoint uses the hostname of your storage account as the origin server. |
-
+    | **Service type** | **Azure CDN** |
+    | **Create new/use existing profile** | **Create new** |
+    | **Profile name** | Enter your profile name, for example, *cdn-profile-123*. A profile is a collection of endpoints. |
+    | **CDN endpoint name** | Enter your endpoint hostname, such as *cdn-endpoint-123*. This name must be globally unique across Azure because it's to access your cached resources at the URL _&lt;endpoint-name&gt;_.azureedge.net. |
+    | **Origin hostname** | By default, a new CDN endpoint uses the hostname of your storage account as the origin server. |
+    | **Pricing tier** | Select one of the options, such as **Microsoft CDN (classic)**. |
+	
 1. Select **Create**. After the endpoint is created, it appears in the endpoint list.
 
-	![Storage new CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
+	[ ![Screenshot of a storage new CDN endpoint.](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png) ](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png#lightbox)
 
 > [!TIP]
 > If you want to specify advanced configuration settings for your CDN endpoint, such as [large file download optimization](cdn-optimization-overview.md#large-file-download), you can instead use the [Azure CDN extension](cdn-create-new-endpoint.md) to create a CDN profile and endpoint.

@@ -4,8 +4,9 @@ description: In this tutorial, you learn how to configure an Azure Container Reg
 ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.date: 10/31/2023
+ms.service: container-registry
+ms.custom: mvc, devx-track-azurecli
 # Customer intent: As a developer or devops engineer, I want to trigger a multi-step container workflow automatically when I commit code to a Git repo.
 ---
 

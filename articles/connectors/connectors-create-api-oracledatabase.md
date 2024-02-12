@@ -5,11 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 01/04/2024
 tags: connectors
 ---
 
 # Connect to Oracle Database from Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Using the Oracle Database connector, you create organizational workflows that use data in your existing database. This connector can connect to an on-premises Oracle Database, or an Azure virtual machine with Oracle Database installed. With this connector, you can:
 
@@ -41,7 +43,6 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
     > [!TIP]
     > If the Oracle client is not installed, an error occurs when you try to create or use the connection. See the common errors in this article.
-
 
 ## Add the connector
 
@@ -120,6 +121,8 @@ The [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-log
 
 You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish).
 
-
 ## Next steps
-[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at [APIs list](apis-list.md).
+
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

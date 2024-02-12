@@ -9,13 +9,7 @@ ms.collection:
 
 # Zero Trust and your OT networks
 
-[Zero Trust](/security/zero-trust/zero-trust-overview) is a security strategy for designing and implementing the following sets of security principles:
-
-|Verify explicitly  |Use least privilege access  |Assume breach  |
-|---------|---------|---------|
-|Always authenticate and authorize based on all available data points.     | Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.        | Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses. 
-
-<!--add include file here after publishing-->
+[!INCLUDE [zero-trust-principles](../../../includes/security/zero-trust-principles.md)]
 
 Implement Zero Trust principles across your operational technology (OT) networks to help you with challenges, such as:
 
@@ -70,7 +64,7 @@ Assign each OT sensor to a specific site and zone to ensure that each OT sensor 
 
 Make sure to assign [site-based access policies](manage-users-portal.md#manage-site-based-access-control-public-preview) so that you can provide least-privileged access to Defender for IoT data and activities.
 
-For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might use segment your network as follows:
+For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might segment your network as follows:
 
 |Site  |Zones  |
 |---------|---------|
@@ -79,14 +73,6 @@ For example, if your growing company has factories and offices in Paris, Lagos, 
 |**Dubai office**     |     - Ground floor (Convention center) <br>- Floor 1 (Sales)<br>- Floor 2 (Offices)     |
 |**Tianjin office**     |   - Ground floor (Offices) <br>- Floors 1-2 (Factory)        |
 
-### Zero Trust and air-gapped environments
-
-If you're working with a large, air-gapped environment, we recommend that you [deploy an on-premises management console](ot-deploy/install-software-on-premises-management-console.md) for central maintenance and security monitoring. Use the on-premises management console to create sites and zones across all connected OT sensors.
-
-> [!NOTE]
-> Sites and zones configured on the Azure portal are not synchronized with sites and zones configured on an on-premises management console. 
->
-> If you're working with a large deployment, we recommend that you use the Azure portal to manage cloud-connected sensors, and the on-premises management console to manage locally-managed sensors.
 
 ## Next steps
 
@@ -99,7 +85,6 @@ Use built-in Defender for IoT workbooks and create custom workbooks of your own 
 For more information, see:
 
 - [Create sites and zones when onboarding an OT sensor](onboard-sensors.md)
-- [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md)
 - [Manage site-based access control](manage-users-portal.md#manage-site-based-access-control-public-preview)
 - [Monitor your OT network with Zero Trust principles](monitor-zero-trust.md)
 

@@ -126,6 +126,13 @@ These changes are visible immediately on the YARN Scheduler UI.
 - [Connect to HDInsight (Apache Hadoop) by using SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
+## How do I check Yarn Application Diagnostics Information?
+
+Diagnostics in Yarn UI is a feature that allows you to view the status and logs of your applications running on Yarn. Diagnostics can help you troubleshoot and debug your applications, as well as monitor their performance and resource usage.
+
+To view the diagnostics of a specific application, you can click on the application ID in the applications list. On the application details page, you can also see a list of all the attempts that have been made to run the application. You can click on any attempt to see more details, such as the attempt ID, container ID, node ID, start time, finish time, and diagnostics
+
+:::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-application-diagnostics.png" alt-text="Screenshot showing Yarn Application Diagnostics."::: 
 
 ## How do I troubleshoot YARN common issues?
 

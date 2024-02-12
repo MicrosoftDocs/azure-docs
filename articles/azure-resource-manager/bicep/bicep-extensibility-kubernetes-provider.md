@@ -2,12 +2,28 @@
 title: Bicep extensibility Kubernetes provider
 description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.custom: devx-track-bicep, devx-track-dotnet
+ms.date: 04/18/2023
 ---
 
 # Bicep extensibility Kubernetes provider (Preview)
 
 The Kubernetes provider allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+
+> [!NOTE]
+> Kubernetes provider is not currently supported for private clusters:
+> 
+> ```json
+> resource AKS 'Microsoft.ContainerService/managedClusters@2023-01-02-preview' = {
+>  properties: {
+>   "apiServerAccessProfile": {
+>     "enablePrivateCluster": "true"
+>     }
+>   }
+> }
+> 
+> ```
+> 
 
 ## Enable the preview feature
 
@@ -16,7 +32,7 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "extensibility": true,
+    "extensibility": true
   }
 }
 ```
@@ -35,7 +51,7 @@ param kubeConfig string
 import 'kubernetes@1.0.0' with {
   namespace: 'default'
   kubeConfig: kubeConfig
-}
+} as k8s
 ```
 
 - **namespace**: Specify the namespace of the provider.
@@ -65,4 +81,3 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 ## Next steps
 
 - [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep extensibility Kubernetes provider](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md)
-

@@ -1,17 +1,18 @@
 ---
 title: moreLikeThis (preview) query feature
-titleSuffix: Azure Cognitive Search
-description: Describes the moreLikeThis (preview) feature, which is available in preview versions of the Azure Cognitive Search REST API.
+titleSuffix: Azure AI Search
+description: Describes the moreLikeThis (preview) feature, which is available in preview versions of the Azure AI Search REST API.
 
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 10/06/2022
-
 ---
 
-# moreLikeThis (preview) in Azure Cognitive Search
+# moreLikeThis (preview) in Azure AI Search
 
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
@@ -66,4 +67,4 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 You can use any web testing tool to experiment with this feature.  We recommend using Postman for this exercise.
 
 > [!div class="nextstepaction"]
-> [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-rest.md)
+> [Explore Azure AI Search REST APIs using Postman](search-get-started-rest.md)

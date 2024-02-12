@@ -9,10 +9,6 @@ ms.date: 11/14/2022
 
 # Use tasks to manage incidents in Microsoft Sentinel
 
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 One of the most important factors in running your security operations (SecOps) effectively and efficiently is the **standardization of processes**. SecOps analysts are expected to perform a list of steps, or tasks, in the process of triaging, investigating, or remediating an incident. Standardizing and formalizing the list of tasks can help keep your SOC running smoothly, ensuring the same requirements apply to all analysts. This way, regardless of who is on-shift, an incident will always get the same treatment and SLAs. Analysts won't need to spend time thinking about what to do, or worry about missing a critical step. Those steps are defined by the SOC manager or senior analysts (tier 2/3) based on common security knowledge (such as NIST), their experience with past incidents, or recommendations provided by the security vendor that detected the incident. 
 
 ## Use cases
@@ -66,7 +62,7 @@ Use the **Action** filter on the **Automation rules** list to see only those rul
 
 Use the **Add task** action in a playbook (in the Microsoft Sentinel connector) to automatically add a task to the incident that triggered the playbook.
 
-Then, use other playbook actions - in their respective Logic Apps connectors - to complete the contents of the task.
+Then, use other playbook actions&mdash;in their respective Logic Apps connectors&mdash;to complete the contents of the task.
 
 Finally, use the **Mark task as completed** action (again in the Microsoft Sentinel connector) to automatically mark the task complete.
 
@@ -87,8 +83,8 @@ Consider the following scenarios as examples:
 
 What considerations should dictate which of these methods should be used to create incident tasks?
 
-- **Automation rules** - Use whenever possible. Use for plain, static tasks that don't require interactivity.
-- **Playbooks** - Use for advanced use cases: the creation of tasks based on conditions, tasks with integrated automated actions.
+- **Automation rules**: Use whenever possible. Use for plain, static tasks that don't require interactivity.
+- **Playbooks**: Use for advanced use cases&mdash;the creation of tasks based on conditions, or of tasks with integrated automated actions.
 
 ## Next steps
 

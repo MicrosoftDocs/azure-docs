@@ -20,7 +20,7 @@ ms.subservice: calling
 This tutorial is a continuation of a three part series of Call Readiness tutorials and follows on from the previous two parts:
 
 - [Ensure user is on a supported browser](./call-readiness-tutorial-part-1-browser-support.md).
-- [Request camera and microphone access](./call-readiness-tutorial-part-2-requesting-device-access.md ).
+- [Request camera and microphone access](./call-readiness-tutorial-part-2-requesting-device-access.md).
 
 ## Download code
 
