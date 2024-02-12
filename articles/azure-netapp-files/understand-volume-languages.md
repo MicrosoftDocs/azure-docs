@@ -16,13 +16,13 @@ Characters outside of the BMP sometimes exceed the 3-byte size supported by Azur
 
 Nonstandard encoding, such as [Shift-JIS](https://wikipedia.org/wiki/Shift_JIS) and less common [CJK characters](https://en.wikipedia.org/wiki/List_of_CJK_fonts), also don't display properly when UTF-8 is enforced in Azure NetApp Files. In general, it's recommended to send and receive text using UTF-8 to avoid situations where characters can't be translated properly, which can cause file creation/rename or copy error scenarios. 
 
-The volume language settings currently can't be modified in Azure NetApp Files. See [Protocol behaviors with special character sets](#protocol-behaviors-with-special-character-sets) for more information about character behavior across different protocols. 
+The volume language settings currently can't be modified in Azure NetApp Files. For more information, see [Protocol behaviors with special character sets](#protocol-behaviors-with-special-character-sets). 
 
 For best practices, see [Character set best practices](#character-set-best-practices). 
 
 ## Character encoding in Azure NetApp Files NFS and SMB volumes 
 
-In an Azure NetApp Files file sharing environment, file and folder names are represented by a series of characters that end users read and interpret. The way those characters are displayed depends on how the client sends and receives encoding of those characters. For instance, if a client is sending legacy [ASCII (American Standard Code for Information Interchange)](https://www.ascii-code.com/) encoding to the Azure NetApp Files volume when accessing it, then it is limited to displaying only characters that are supported in the ASCII format. 
+In an Azure NetApp Files file sharing environment, file and folder names are represented by a series of characters that end users read and interpret. The way those characters are displayed depends on how the client sends and receives encoding of those characters. For instance, if a client is sending legacy [ASCII (American Standard Code for Information Interchange)](https://www.ascii-code.com/) encoding to the Azure NetApp Files volume when accessing it, then it's limited to displaying only characters that are supported in the ASCII format. 
 
 For instance, the Japanese character for data is 資. Since this character can't be represented in ASCII, a client using ASCII encoding show a “?” instead of 資.
 
@@ -139,7 +139,7 @@ When file or directory names exceed the allowed character bytes or use unsupport
 
 - It truncates the original file or directory name.
 - It appends a tilde (~) and a numeral (1-5) to file or directory names that are no longer unique after being truncated.
-    If there are more than five files with nonunique names, Azure NetApp Files creates a unique name with no relation to the original name. In the case of files, Azure NetApp Files truncates the file name extension to three characters.
+    If there are more than five files with nonunique names, Azure NetApp Files creates a unique name with no relation to the original name. For files, Azure NetApp Files truncates the file name extension to three characters.
     
 For example, if an NFS client creates a file named `specifications.html`, Azure NetApp Files creates the file name `specif~1.htm` following the 8.3 format. If this name already exists, Azure NetApp Files uses a different number at the end of the file name. For example, if an NFS client then creates another file named `specifications\_new.html`, the 8.3 format of `specifications\_new.html` is `specif~2.htm`.
 
@@ -162,7 +162,7 @@ File names may not display as expected depending on the font used as some consol
 
 :::image type="content" source="./media/understand-volume-languages/nfsv3-directory.png" alt-text="Screenshot of dir output.":::
 
-This can be addressed on Windows clients by using [PowerShell ISE](/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-7.4), which provides more robust font changes. For instance, setting the PowerShell ISE to Segoe UI displays the file names with supported characters properly.
+This can be addressed on Windows clients by using [PowerShell ISE](/powershell/scripting/windows-powershell/ise/introducing-the-windows-powershell-ise), which provides more robust font changes. For instance, setting the PowerShell ISE to Segoe UI displays the file names with supported characters properly.
 
 :::image type="content" source="./media/understand-volume-languages/powershell-nfsv3-output.png" alt-text="Screenshot of dir output in PowerShell.":::
 
@@ -173,7 +173,7 @@ However, PowerShell ISE is designed for scripting, rather than managing shares. 
 
 :::image type="content" source="./media/understand-volume-languages/chcp-output.png" alt-text="Screenshot of command output.":::
 
-If the volume is enabled for dual-protocol (both NFS and SMB), you might observe different behaviors. For more information on dua-protocol, see [Dual protocol behaviors with special character sets](#dual-protocol-behaviors).
+If the volume is enabled for dual-protocol (both NFS and SMB), you might observe different behaviors. For more information, see [Dual protocol behaviors with special character sets](#dual-protocol-behaviors).
 
 
 ## NFS behaviors
@@ -437,7 +437,7 @@ For instance, a folder name created using SMB on an Azure NetApp Files volume wi
 - [Greek](https://unicodeplus.com/block/0370) "ͶΘΩ"
 - [Cyrillic](https://unicodeplus.com/block/0400) "ЁЄЊ"
 - [Runic](https://unicodeplus.com/block/16A0) "ᚠᚱᛯ"
-- [CJK Compatability Ideographs](https://unicodeplus.com/block/F900) "豈滑虜"
+- [CJK Compatibility Ideographs](https://unicodeplus.com/block/F900) "豈滑虜"
 
 This is how the name appears in SMB:
 
