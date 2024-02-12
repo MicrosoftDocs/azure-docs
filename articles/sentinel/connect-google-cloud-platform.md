@@ -54,8 +54,12 @@ You can set up the environment in one of two ways:
 - [Create GCP resources via the Terraform API](?tabs=terraform): Terraform provides APIs for resource creation and for Identity and Access Management (see [Prerequisites](#prerequisites)). Microsoft Sentinel provides Terraform scripts that issue the necessary commands to the APIs.
 
 - [Set up GCP environment manually](?tabs=manual), creating the resources yourself in the GCP console.
+
   > [!NOTE]
-  > A Terraform script is not yet available for creating GCP Pub/Sub resources for log collection from **Security Command Center**. In the meantime you must create these resources manually. You can still use the Terraform script to create the GCP IAM resources for authentication.
+  > There is no Terraform script available for creating GCP Pub/Sub resources for log collection from **Security Command Center**. You must create these resources manually. You can still use the Terraform script to create the GCP IAM resources for authentication.
+
+  > [!IMPORTANT]
+  > If you're creating resources manually, you must create *all* the resources, IAM *and* Pub/Sub, in the **same GCP project**, otherwise it won't work.
 
 ### GCP Authentication Setup
 
