@@ -31,6 +31,7 @@ To access the data security dashboard in Defender for Cloud, select **Data Secur
 - [Enable sensitive data discovery](tutorial-enable-cspm-plan.md#enable-the-components-of-the-defender-cspm-plan) within the Defender CSPM plan.  
 
 **To receive the alerts for data sensitivity**:
+
 - You must [enable Defender for Storage](tutorial-enable-storage-plan.md).
 
 ## Required permissions and roles
@@ -56,9 +57,9 @@ The data security overview section provides a general overview of your cloud dat
 
 - **Coverage status** - displays the limited data coverage for resources without Defender CSPM workload protection:
 
-    - **Covered** – resources that have the necessary Defender CSPM, or Defender for Storage, or Defender for Databases enabled.
-    - **Partially covered** – missing either the Defender CSPM, Defender for Storage, or Defender for Storage plan. Select the tooltip to present a detailed view of what is missing.
-    - **Not covered** - resources that aren't covered by Defender CSPM, or Defender for Storage, or Defender for Databases.
+  - **Covered** – resources that have the necessary Defender CSPM, or Defender for Storage, or Defender for Databases enabled.
+  - **Partially covered** – missing either the Defender CSPM, Defender for Storage, or Defender for Storage plan. Select the tooltip to present a detailed view of what is missing.
+  - **Not covered** - resources that aren't covered by Defender CSPM, or Defender for Storage, or Defender for Databases.
 
 - **Sensitive resources** – displays how many resources are sensitive.
 
@@ -91,7 +92,7 @@ You can select the **Manage data sensitivity settings** to get to the **Data sen
 
 ### Data resources security status
 
-**Sensitive resources status over time** - displays how data security evolves over time with a graph that shows the number of sensitive resources affected by alerts, attack paths, and recommendations within a defined period (last 30, 14, or 7 days). 
+**Sensitive resources status over time** - displays how data security evolves over time with a graph that shows the number of sensitive resources affected by alerts, attack paths, and recommendations within a defined period (last 30, 14, or 7 days).
 
 :::image type="content" source="media/data-aware-security-dashboard/data-resources-security-status.png" alt-text="Screenshot that shows the data resources security status section of the data security view." lightbox="media/data-aware-security-dashboard/data-resources-security-status.png":::
 
