@@ -41,7 +41,7 @@ Search-AzGraph -Query "ServiceHealthResources | where type == 'microsoft.resourc
 
 ### Confirmed impacted resources with more details
 
-Returns all impacted resources for all service issue (outage) Service Health events across all subscriptions to which the user has access. This query also provides more details from the 'resources' table.
+Returns all impacted resources for all service issue (outage) Service Health events across all subscriptions to which the user has access. This query also provides more details from the `resources` table.
 
 ```kusto
 servicehealthresources
