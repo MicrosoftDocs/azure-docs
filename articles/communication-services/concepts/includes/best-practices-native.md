@@ -86,11 +86,19 @@ When troubleshooting happens for voice or video calls, you're asked to provide a
 - [User Facing Diagnostics (UFD)](../voice-video-calling/user-facing-diagnostics.md) that can be used to examine various properties of a call to determine what the issue might be during the call that affects your customers.
 - [Media quality statistics](../voice-video-calling/media-quality-sdk.md) examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics. We recommend that you collect the data and send it to your pipeline ingestion after your call ends.
 
+## Error Handling
+
+If there are any errors during the call or implementation, the methods return error objects containing error codes. It's crucial to use these error objects for proper error handling and to display alerts. The call states also return error codes to help identify the reason behind call failure. You can refer to [the troubleshooting guide](../troubleshooting-info.md), to resolve any issues.
+
+### Managing Video Streams
+
+Make sure to dispose of the `VideoStreamRendererView` when the video is no longer displayed on the UI. Use `VideoStreamType` to determine the type of the stream.
+
 ## General memory management
 
 **Preallocate Resources**. Initialize your calling client and any necessary resources during your app's startup phase rather than on demand. This approach reduces latency when starting a call.
 
-**Dispose Properly**. Ensure that all call objects are correctly disposed of after use to free up system resources and avoid memory leaks.
+**Dispose Properly**. Ensure that all call objects are correctly disposed of after use to free up system resources and avoid memory leaks. Make sure to unsubscribe from *events* preventing memory leaks.
 
 ## Camera or microphone being used by another process
 
