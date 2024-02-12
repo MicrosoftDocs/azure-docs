@@ -9,7 +9,7 @@ ms.custom: template-overview
 ms.service: certification
 ---
 
-_Note: As of February 2024, the Azure Certified Device program has been retired. This page has been updated as a new home for the Edge Secured-core program._
+> _Note: As of February 2024, the Azure Certified Device program has been retired. This page has been updated as a new home for the Edge Secured-core program._
 
 
 
