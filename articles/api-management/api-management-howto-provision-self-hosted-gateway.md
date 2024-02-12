@@ -5,11 +5,9 @@ services: api-management
 author: dlepow
 manager: gwallace
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: danlep
-
 ---
 
 # Provision a self-hosted gateway in Azure API Management

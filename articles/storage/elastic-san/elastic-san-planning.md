@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 06/09/2023
 ms.author: rogarana
 ms.custom:
-  - ignite-2022
   - ignite-2023-elastic-SAN
 ---
 

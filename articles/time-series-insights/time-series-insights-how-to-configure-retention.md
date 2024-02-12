@@ -8,7 +8,6 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: conceptual
 ms.date: 09/29/2020
-ms.custom: seodec18
 ---
 
 # Configuring retention in Azure Time Series Insights Gen1

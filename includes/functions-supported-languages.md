@@ -2,16 +2,16 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/01/2023
+ms.date: 02/05/2024
 ms.author: glenga
 ms.custom:
   - include file
   - ignite-2023
 ---
 ::: zone pivot="programming-language-csharp"
-The following table shows the runtime and language versions supported for C# functions. Select your preferred development language at the top of the article. 
+The following table shows the .NET versions supported by Azure Functions. Select your preferred development language at the top of the article. 
 
-The supported version of .NET depends on both your Functions runtime version and your chosen .NET worker process model:
+The supported version of .NET depends on both your Functions runtime version and your chosen execution model:
 
 ### [Isolated worker model](#tab/isolated-process)
 
@@ -45,7 +45,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level<sup>1</sup> | Expected community EOL date |
 | ---- | ---- |--- |
-| .NET 8 | GA | [See policy][dotnet-policy] |
+| .NET 8 | GA | [November 10, 2026][dotnet-policy] |
 | .NET 7 | GA | [May 14, 2024][dotnet-policy] |
 | .NET 6 | GA | [November 12, 2024][dotnet-policy] |
 | .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
@@ -67,7 +67,7 @@ The following table shows the language versions supported for Java functions. Se
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux) | Preview | September 2028 |
+| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux-only) | Preview | September 2028 |
 | [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
@@ -107,9 +107,6 @@ The following table shows the language versions supported for Python functions. 
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
 | Python 3.8 | GA | October 2024 |
-| Python 3.7 | GA | June 27, 2023<sup>\*</sup> |
-
-<sup>\*</sup>Support on Functions extended until September 30, 2023.
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end

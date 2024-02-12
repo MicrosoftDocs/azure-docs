@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 01/16/2024
 ms.author: jboback
-ms.custom: language-service-language-detection, ignite-fall-2021
+ms.custom: language-service-language-detection
 ---
 
 # How to use language detection

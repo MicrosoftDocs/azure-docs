@@ -2,13 +2,11 @@
 title: Azure VMs high availability for SAP NetWeaver on SLES | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server for SAP applications
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/17/2024
 ms.author: radeltch

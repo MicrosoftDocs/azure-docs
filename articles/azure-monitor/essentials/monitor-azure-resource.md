@@ -93,7 +93,7 @@ To learn how to create a diagnostic setting, see [Collect and analyze resource l
 
 ## Insights
 
-The **Insights** menu item opens the insight for the resource if the Azure service has one. [Insights](../monitor-reference.md) provide a customized monitoring experience built on the Azure Monitor data platform and standard features.
+The **Insights** menu item opens the insight for the resource if the Azure service has one. [Insights](../insights/insights-overview.md) provide a customized monitoring experience built on the Azure Monitor data platform and standard features.
 
 For a list of insights that are available and links to their documentation, see [Insights](../insights/insights-overview.md) and [core solutions](/previous-versions/azure/azure-monitor/insights/solutions).
 <!-- convertborder later -->

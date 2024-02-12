@@ -5,10 +5,9 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.custom: ignite-2022
 ms.date: 02/17/2023
 ms.author: jovanpop
-ms.reviewer: sngun 
+ms.reviewer: sngun
 ---
 
 # Tutorial: Create Logical Data Warehouse with serverless SQL pool

@@ -205,7 +205,7 @@ In this section, you implement a `Login` API that authenticates clients using th
 
 ### Update the Hub class
 
-By default, web client connects to SignalR Service using an internal access token. This access token isn't associated with an authenticated identity.
+By default, web client connects to SignalR Service using an internal access. This access token isn't associated with an authenticated identity.
 Basically, it's anonymous access.
 
 In this section, you turn on real authentication by adding the `Authorize` attribute to the hub class, and updating the hub methods to read the username from the authenticated user's claim.
@@ -346,7 +346,7 @@ In this section, you turn on real authentication by adding the `Authorize` attri
 
    ![OAuth Complete hosted in Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-   You prompt to authorize the chat app's access to your GitHub account. Select the **Authorize** button.
+   You're prompted to authorize the chat app's access to your GitHub account. Select the **Authorize** button.
 
    ![Authorize OAuth App](media/signalr-concept-authenticate-oauth/signalr-authorize-oauth-app.png)
 

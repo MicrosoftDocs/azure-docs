@@ -8,7 +8,6 @@ ms.date: 12/19/2023
 ms.author: aahi
 ms.custom:
   - references_regions
-  - ignite-2022
   - ignite-2023
 ---
 

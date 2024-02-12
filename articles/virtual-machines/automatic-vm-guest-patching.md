@@ -4,7 +4,6 @@ description: Learn how to automatically patch virtual machines in Azure.
 author: maulikshah23
 ms.service: virtual-machines
 ms.subservice: maintenance
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: maulikshah

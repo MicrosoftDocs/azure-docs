@@ -368,7 +368,13 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 The current behavior is to prefer the ExpressRoute circuit path for standalone (non-Virtual WAN) VNet to Virtual WAN connectivity. It's recommended that the customer [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the standalone VNet to the Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN hub router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
 
+> [!NOTE]
+> As of February 1, 2024, the below toggle's backend functionality has not rolled out to all regions. As a result, you may see the toggle option, but enabling/disabling the toggle will not have any effect. The backend functionality is aimed to finish rolling out within the next several weeks. 
+>
+
 In Azure portal, the **Allow traffic from remote Virtual WAN networks** and **Allow traffic from non Virtual WAN networks** toggles allow connectivity between the standalone virtual network (VNet 4) and the spoke virtual networks directly connected to the Virtual WAN hub (VNet 2 and VNet 3). To allow this connectivity, both toggles need to be enabled: the **Allow traffic from remote Virtual WAN networks** toggle for the ExpressRoute gateway in the standalone virtual network and the **Allow traffic from non Virtual WAN networks** for the ExpressRoute gateway in the Virtual WAN hub. In the diagram below, if both of these toggles are enabled, then connectivity would be allowed between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3). If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
+
+Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 will not be impacted, VNet 2 to VNet 3 will not be impacted, etc). 
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 

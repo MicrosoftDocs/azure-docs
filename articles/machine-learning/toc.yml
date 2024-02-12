@@ -114,10 +114,6 @@
       href: ./v1/tutorial-train-deploy-notebook.md
     - name: "Build a training pipeline (Python)"
       href: "./v1/tutorial-pipeline-python-sdk.md"
-    - name: Microsoft Power BI integration
-      items:
-        - name: "Train and deploy models"
-          href: ./v1/tutorial-power-bi-custom-model.md
     # end v1
 - name: Interact with Azure Machine Learning
   items:
@@ -351,10 +347,13 @@
         href: how-to-create-image-labeling-projects.md
       - name: Create text labeling projects
         displayName: data, dataset
-        href: how-to-create-text-labeling-projects.md
+        href: how-to-create-text-labeling-projects.md 
       - name: Add users
         displayName: data, dataset, labeling
         href: how-to-add-users.md
+    - name: Manage labeling projects
+      displayName: data, dataset
+      href: how-to-manage-labeling-projects.md      
     - name: Label images and text
       displayName: data, dataset, labeling
       href: how-to-label-data.md

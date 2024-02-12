@@ -6,7 +6,6 @@ author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 02/18/2023
 ms.author: greglin
 ms.custom: template-quickstart, devx-track-azurecli, mode-api

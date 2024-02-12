@@ -8,7 +8,6 @@ ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 04/10/2023
 ms.author: jacobjaygbay
 ---

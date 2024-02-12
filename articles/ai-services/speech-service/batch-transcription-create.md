@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 1/26/2024
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
-#customer intent: As a user who implements audio transcription, I want create transcriptions in bulk so that I don't have to submit audio content repeatedly.
+# Customer intent: As a user who implements audio transcription, I want create transcriptions in bulk so that I don't have to submit audio content repeatedly.
 ---
 
 # Create a batch transcription

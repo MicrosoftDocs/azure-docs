@@ -1,15 +1,12 @@
 ---
 title: Use packet capture to do proactive network monitoring with alerts - Azure Functions
-description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
-services: network-watcher
+description: Learn how to create an alert triggered packet capture with Azure Network Watcher and Azure Functions.
 author: halkazwini
-ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
+ms.author: halkazwini 
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 01/09/2023
-ms.author: halkazwini 
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.date: 01/31/2024
+ms.custom: devx-track-azurepowershell
 ---
 # Monitor networks proactively with alerts and Azure Functions using Packet Capture
 
@@ -149,7 +146,7 @@ The client ID is the Application ID of an application in the Azure Active Direct
     ```
 
    > [!NOTE]
-   > The password that you use when creating the application should be the same password that you created earlier when saving the key file.
+   > The password that you used when creating the application should be the same password that you created earlier when saving the key file.
 
 1. In the Azure portal, select **Subscriptions**. Select the subscription to use and select **Access control (IAM)**.  
 
@@ -343,7 +340,6 @@ Go to an existing virtual machine and [add an alert rule](../azure-monitor/alert
    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/action-group.png" alt-text="Screenshot of the Create action group screen.":::
 7. Select **No** in **Enable the common alert schema** slider and select **OK**. 
 
-
 ## Review the results
 
 After the criteria for the alert triggers, a packet capture is created. Go to Network Watcher and select **Packet capture**. On this page, you can select the packet capture file link to download the packet capture.
@@ -354,6 +350,6 @@ For instructions on downloading files from Azure storage accounts, see [Get star
 
 After your capture has been downloaded, you can view it using tools like [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide) and [WireShark](https://www.wireshark.org/)that can read a **.cap** file. 
 
-## Next steps
+## Next step
 
 Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-deep-packet-inspection.md).

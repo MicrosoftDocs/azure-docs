@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating Azure AD B2C authentication with BioCatch technology. I need to configure the custom UI, policies, and user journey. My goal is to enhance the security of my Customer Identity and Access Management (CIAM) system by analyzing user physical and cognitive behaviors.
+# Customer intent: I'm a developer integrating Azure AD B2C authentication with BioCatch technology. I need to configure the custom UI, policies, and user journey. My goal is to enhance the security of my Customer Identity and Access Management (CIAM) system by analyzing user physical and cognitive behaviors.
 ---
 
 # Tutorial: Configure BioCatch with Azure Active Directory B2C

@@ -24,7 +24,7 @@ You get several Azure AI default resources in your resource group. You need to c
 
 - Disable public network access flag of Azure AI default resources such as Storage, Key Vault, Container Registry. Azure AI services and Azure AI Search should be public.
 - Establish private endpoint connection to Azure AI default resource. Note that you need to have blob and file PE for the default storage account.
-- [Managed identity configurations](#managed-identity-configuration) to allow Azure AI resources access your storage account if it's private.
+- [Managed identity configurations](#managed-identity-configuration) to allow Azure AI hub resources access your storage account if it's private.
 
 
 ## Prerequisites
@@ -38,11 +38,11 @@ You get several Azure AI default resources in your resource group. You need to c
 
 ## Create an Azure AI that uses a private endpoint
 
-Use one of the following methods to create an Azure AI resource with a private endpoint. Each of these methods __requires an existing virtual network__:
+Use one of the following methods to create an Azure AI hub resource with a private endpoint. Each of these methods __requires an existing virtual network__:
 
 # [Azure CLI](#tab/cli)
 
-Create your Azure AI resource with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
+Create your Azure AI hub resource with the Azure AI CLI. Run the following command and follow the prompts. For more information, see [Get started with Azure AI CLI](cli-install.md).
 
 ```azurecli-interactive
 ai init
@@ -276,5 +276,5 @@ See [this documentation](../../machine-learning/how-to-custom-dns.md#find-the-ip
 
 - [Create a project](create-projects.md)
 - [Learn more about Azure AI Studio](../what-is-ai-studio.md)
-- [Learn more about Azure AI resources](../concepts/ai-resources.md)
+- [Learn more about Azure AI hub resources](../concepts/ai-resources.md)
 - [Troubleshoot secure connectivity to a project](troubleshoot-secure-connection-project.md)

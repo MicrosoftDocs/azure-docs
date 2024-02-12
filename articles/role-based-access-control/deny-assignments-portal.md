@@ -8,7 +8,6 @@ manager: amycolannino
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 01/24/2022
 ms.author: rolyon
 ms.reviewer: bagovind

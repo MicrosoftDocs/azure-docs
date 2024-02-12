@@ -38,12 +38,12 @@ items:
   - name: Manage a dev box pool
     href: how-to-manage-dev-box-pools.md
   - name: Limit number of dev boxes per project
-    href: tutorial-dev-box-limits.md  
-      
+    href: tutorial-dev-box-limits.md      
   - name: Configure Visual Studio caches
     href: how-to-generate-visual-studio-caches.md
-  - name: Configure Azure Diagnostic Logs
-    href: how-to-configure-dev-box-azure-diagnostic-logs.md    
+  - name: Monitor Dev Box
+    displayName: diagnostic, logs
+    href: monitor-dev-box.md    
 - name: Prepare images
   items:
   - name: Configure an Azure compute gallery
@@ -56,6 +56,8 @@ items:
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Remote Desktop App 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+  - name: Use multiple monitors
+    href: tutorial-configure-multiple-monitors.md
   - name: Troubleshoot dev box connectivity issues
     href: how-to-troubleshoot-repair-dev-box.md
 - name: Security
@@ -91,7 +93,8 @@ items:
     - name: REST API
       href: /rest/api/devcenter/
     - name: Monitoring Microsoft DevCenter data reference
-      href: monitor-reference.md  
+      displayName: diagnostic, logs
+      href: monitor-dev-box-reference.md  
 - name: Resources
   items: 
     - name: Azure roadmap

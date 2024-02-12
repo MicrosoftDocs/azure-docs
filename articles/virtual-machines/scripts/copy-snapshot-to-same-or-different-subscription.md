@@ -1,12 +1,10 @@
 ---
 title: Copy managed disk snapshot to a subscription - CLI Sample
 description: Azure CLI Script Sample - Copy (or move) snapshot of a managed disk to same or different subscription with CLI
-documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 ms.service: azure-disk-storage
 ms.topic: sample
-ms.workload: infrastructure
 ms.date: 02/22/2023
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurecli

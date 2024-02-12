@@ -4,7 +4,6 @@ description: Learn about determining multicloud dependencies when planning multi
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.custom: ignite-2022
 ms.date: 12/13/2023
 ---
 

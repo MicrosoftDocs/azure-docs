@@ -5,8 +5,6 @@ description: Answers to the most frequently asked questions about Microsoft Azur
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.custom: ignite-2022
 ms.date: 06/26/2020
 ms.author: allensu
 ---
