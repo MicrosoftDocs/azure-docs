@@ -129,11 +129,11 @@ Use Postman to call the data connector API to create the data connector which co
 
 ## Secure confidential input
 
-Whatever authentication is used by your CCP data connector, take these steps to ensure confidential information is kept secure. The goal is to pass along credentials from the ARM deployment to the CCP without leaving readable confidential objects  
+Whatever authentication is used by your CCP data connector, take these steps to ensure confidential information is kept secure. The goal is to pass along credentials from the ARM template to the CCP without leaving readable confidential objects in your deployments history.
 
 ### Create label
 
-For example, if your data connector authenticates to a log source with OAuth, your data connector definition section includes the `OAuthForm` type in the instructions. This sets up the ARM template to prompt for the credentials.  
+The data connector definition creates a UI element to prompt for security credentials. For example, if your data connector authenticates to a log source with OAuth, your data connector definition section includes the `OAuthForm` type in the instructions. This sets up the ARM template to prompt for the credentials.  
 
 ```json
 "instructions": [
@@ -148,6 +148,8 @@ For example, if your data connector authenticates to a log source with OAuth, yo
     }
 ],
 ```
+
+### Store confidential input
 
 A section of the ARM deployment template provides a place for the administrator deploying the data connector to enter the password. Use `securestring` to keep the confidential information secured in an object that isn't readable after deployment. For more information, see [Security recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
 
@@ -174,7 +176,9 @@ A section of the ARM deployment template provides a place for the administrator 
 }
 ```
 
-Finally, the CCP utilizes the credential objects in the data connector. 
+### Use the securestring objects
+
+Finally, the CCP utilizes the credential objects in the data connector section. 
 
 ```json
 "auth": {
