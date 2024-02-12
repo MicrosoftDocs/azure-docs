@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 10/31/2023
 ms.author: duau
 ms.custom: devx-track-azurepowershell

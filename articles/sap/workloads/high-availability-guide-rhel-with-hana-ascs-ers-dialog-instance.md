@@ -8,7 +8,6 @@ tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.date: 08/16/2022
 ms.author: ampatel
 ---

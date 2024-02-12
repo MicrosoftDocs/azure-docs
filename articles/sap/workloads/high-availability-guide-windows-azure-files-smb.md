@@ -10,10 +10,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/01/2021
 ms.author: stmuelle
-
 ---
 
 # Install HA SAP NetWeaver with Azure Files SMB

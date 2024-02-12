@@ -7,7 +7,6 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: dedicated-hsm
-ms.workload: identity
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/25/2021

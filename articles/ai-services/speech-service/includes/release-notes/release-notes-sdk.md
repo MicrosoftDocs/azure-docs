@@ -8,6 +8,9 @@ ms.author: eur
 
 ### Upcoming plans for Linux and Android users:
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 * With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This streamlines usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
 * **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
 

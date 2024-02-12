@@ -36,14 +36,14 @@ Support | Details
 --- | ---
 Machine workload | Azure Migrate and Modernize supports migration of any workload (such as Microsoft Entra ID or SQL Server) running on a supported machine.
 Operating systems | For the latest information, see the [operating system (OS) support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Azure Site Recovery. Azure Migrate and Modernize provides identical OS support.
-Linux file system/guest storage | For the latest information, see the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate provides identical Linux file system support.
+Linux file system/guest storage | For the latest information, see the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate and Modernize provides identical Linux file system support.
 Network/Storage | For the latest information, see the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate and Modernize provides identical network/storage requirements.
-Azure requirements | For the latest information, see the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has identical requirements for physical server migration.
+Azure requirements | For the latest information, see the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate and Modernize has identical requirements for physical server migration.
 Mobility service | Install the Mobility service agent on each machine you want to migrate.
 UEFI boot | Supported. UEFI-based machines are migrated to Azure generation 2 VMs.  <br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 UEFI - Secure boot         | Not supported for migration.
 Target disk | Machines can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-Ultra disk | Ultra disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.
+Ultra disk | Ultra disk migration isn't supported from the Azure Migrate and Modernize portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.
 Disk size | Up to 2-TB OS disk for gen 1 VM. Up to 4-TB OS disk for gen 2 VM and 32 TB for data disks.
 Disk limits |  Up to 63 disks per machine.
 Encrypted disks/volumes |  Machines with encrypted disks/volumes aren't supported for migration.
@@ -60,7 +60,7 @@ PV drivers / XenServer tools | Not supported.
 
 ## Replication appliance requirements
 
-If you set up the replication appliance manually, make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as a VMware VM by using the OVA template provided in the Azure Migrate hub, the appliance is set up with Windows Server 2016 and complies with the support requirements.
+If you set up the replication appliance manually, make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as a VMware VM by using the Open Virtual Appliance template provided in the Azure Migrate and Modernize hub, the appliance is set up with Windows Server 2016 and complies with the support requirements.
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements).
 - Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
