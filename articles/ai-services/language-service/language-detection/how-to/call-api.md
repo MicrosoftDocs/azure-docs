@@ -183,7 +183,7 @@ The resulting output consists of the predominant language, with a score of less 
 }
 ```
 
-## Script name and code content
+## Script name and script code
 
 > [!NOTE]
 > * Script detection is currently limited to [select languages](../language-support.md#script-detection).  
