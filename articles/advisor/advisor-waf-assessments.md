@@ -33,23 +33,25 @@ To see all Microsoft assessment choices, go to the [Learn platform > Assessments
 You can manage access to Advisor reviews using built-in roles. The permissions vary by role. 
 
 > [!NOTE]
-> These roles must be configured for the subscription that was used to publish the review.
+> These roles must be configured for the subscription that was used to publish the assessment.
 
 | **Name** | **Description** |
 |---|:---:|
 |Advisor Reviews Reader|View assessments for a workload and recommendations linked to them|
 |Advisor Reviews Contributor|View assessments for a workload and triage recommendations linked to them|
 
+Additionally, this feature is in preview so you must have feature flag (*feature.isEngageAssessmentsEnabled=true*) in the Advisor URL.
+
 ## Access Azure Advisor WAF Assessments
 
-1. Sign in to the Azure portal and select Advisor from any page. The Advisor page opens.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page. The **Advisor** score dashboard page opens.
 
-1. Select **Assessments** in the left navigation menu. The **Assessments** page opens with a list of completed or in progress assessments.
+1. Select **Assessments** in the left navigation menu. The **Assessments** page opens with a list of completed or in progress assessments. 
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-main-m.png" alt-text="Sreenshot of Azure Advisor WAF assessments main page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-main-m.png":::
 
 > [!NOTE]
-> If you don't see the **New assessment** option, make sure you have Contributor access on at least one subscription, and make sure you have the feature flag (*feature.isEngageAssessmentsEnabled=true*) added in the URL.
+> If you don't see the **New assessment** option, make sure you have Contributor access on at least one subscription.
 
 ## Create Azure Advisor WAF Assessments
 
@@ -90,11 +92,13 @@ You can choose to:
 
 4. Select **Create** or **Click here to start a new assessment** at the top of the page. The **Learn > Assessments** question pages open to the **Assessment overview** page. The **Progress** bar shows how many questions are part of this assessment. The **Milestones** table includes the assessment by default, as the initial milestone. Adding milestones can help you keep track of progress as you implement the assessment recommendations. To learn more about milestones, see [Microsoft Assessments - Milestones](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/microsoft-assessments-milestones/ba-p/3975841).
 
-5. To begin the assessment creation process, select **Continue**. The assessment begins. The steps change depending on the chosen review type.
+5. To begin the assessment creation process, select **Continue**. The assessment begins. The steps change depending on the chosen assessment type.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn-m.png" alt-text="Sreenshot of Azure Advisor **Resume assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn-m.png":::
 
 6. If you chose **Azure Well-Architected Review**: The page shown in the following image opens. On that page, select a workload type. Each workload type results in a list of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
+
+If you chose **Mission Critical**, skip to step 8.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-workload.png" alt-text="Sreenshot of Azure Advisor **Choose assessment workload** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-workload.png":::
 
@@ -148,7 +152,7 @@ When ready, select **Next**.
 
 ## View Azure Advisor WAF assessment recommendations
 
-There are multiple avenues to access the recommendations. But you must have the correct permissions.
+There are multiple avenues to access the recommendations, but you must have the correct permissions.
 
 To learn more about permissions, see [Permissions in Azure Advisor](/azure/advisor/permissions). To find out what subscriptions you have permissions for, and what level of permissions, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription). If you have Contributor permissions, you can view the recommendations for assessments created by other users and the assessments that you created. 
 
