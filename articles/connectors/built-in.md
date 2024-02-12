@@ -15,7 +15,7 @@ Built-in connectors provide ways for you to control your workflow's schedule and
 
 For a smaller number of services, systems, and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multi-tenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type and not the other.
 
-For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server. A Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors.
+For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob Storage, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server. A Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors.
 
 Also, in Standard workflows, some [built-in connectors with specific attributes are informally known as *service providers*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Microsoft Entra ID, or a managed identity. All built-in connectors run in the same process as the Azure Logic Apps runtime. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
@@ -29,8 +29,7 @@ The following table lists the current and expanding galleries of built-in connec
 
 | Consumption | Standard |
 |-------------|----------|
-| Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | AS2 (v2) <br>Azure Automation* <br>Azure Blob* <br>Azure Cosmos DB* <br>Azure File Storage* <br>Azure Functions <br>Azure Queue* <br>Azure Table Storage* <br>Control <br>Data Operations <br>Date Time <br>DB2* <br>Event Hubs* <br>Flat File <br>FTP* <br>HTTP <br>IBM Host File* <br>Inline Code <br>Key Vault* <br>Liquid operations <br>MQ* <br>Request <br>Schedule <br>Service Bus* <br>SFTP* <br>SMTP* <br>SQL Server* <br>Variables <br>Workflow operations <br>XML operations |
-|||
+| Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | AS2 (v2) <br>Azure Automation* <br>Azure Blob Storage* <br>Azure Cosmos DB* <br>Azure File Storage* <br>Azure Functions <br>Azure Queue Storage* <br>Azure Table Storage* <br>Control <br>Data Operations <br>Date Time <br>DB2* <br>Event Grid Publisher* <br>Event Hubs* <br>File System* <br>Flat File <br>FTP* <br>HTTP <br>IBM Host File* <br>Inline Code <br>JDBC* <br>Key Vault* <br>Liquid operations <br>MQ* <br>Request <br>SAP* <br>Schedule <br>Service Bus* <br>SFTP* <br>SMTP* <br>SQL Server* <br>Variables <br>Workflow operations <br>XML operations |
 
 <a name="service-provider-interface-implementation"></a>
 
@@ -58,7 +57,7 @@ In contrast, a built-in connector that's *not a service provider* has the follow
 
 ## Custom built-in connectors
 
-For Standard workflows, you can create your own built-in connector with the same [built-in connector extensibility model](../logic-apps/custom-connector-overview.md#built-in-connector-extensibility-model) that's used by service provider-based built-in connectors, such as Azure Blob, Azure Event Hubs, Azure Service Bus, SQL Server, and more. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard workflows.
+For Standard workflows, you can create your own built-in connector with the same [built-in connector extensibility model](../logic-apps/custom-connector-overview.md#built-in-connector-extensibility-model) that's used by service provider-based built-in connectors, such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus, SQL Server, and more. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard workflows.
 
 For Consumption workflows, you can't create your own built-in connectors, but you create your own managed connectors.
 
@@ -145,28 +144,37 @@ You can use the following built-in connectors to perform general tasks, for exam
 :::row-end:::
 :::row:::
     :::column:::
-        ![FTP icon][ftp-icon]
+        [![File System icon][file-system-icon]][file-system-doc]
         \
         \
-        **FTP**<br>(*Standard workflow only*)
+        [**File System**][file-system-doc]<br>(*Standard workflow only*)
+        \
+        \
+        Connect to a file system on your network machine to create and manage files.
+    :::column-end:::
+    :::column:::
+        [![FTP icon][ftp-icon]][ftp-doc]
+        \
+        \
+        [**FTP**][ftp-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to FTP or FTPS servers that you can access from the internet so that you can work with your files and folders.
     :::column-end:::
     :::column:::
-        ![SFTP-SSH icon][sftp-ssh-icon]
+        [![SFTP-SSH icon][sftp-ssh-icon]][sftp-doc]
         \
         \
-        **SFTP**<br>(*Standard workflow only*)
+        [**SFTP**][sftp-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
     :::column-end:::
     :::column:::
-        ![SMTP icon][smtp-icon]
+        [![SMTP icon][smtp-icon]][smtp-doc]
         \
         \
-        **SMTP**<br>(*Standard workflow only*)
+        [**SMTP**][smtp-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to SMTP servers that you can send email.
@@ -204,39 +212,48 @@ You can use the following built-in connectors to access specific services and sy
         When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
-        ![Azure Blob icon][azure-blob-storage-icon]
+        [![Azure Automation icon][azure-automation-icon]][azure-automation-doc]
         \
         \
-        **Azure Blob**<br>(*Standard workflow only*)
+        [**Azure Automation**][azure-automation-doc]<br>(*Standard workflow only*)
+        \
+        \
+        Connect to your Azure Automation accounts so you can create and manage Azure Automation jobs.
+    :::column-end:::
+    :::column:::
+        [![Azure Blob Storage icon][azure-blob-storage-icon]][azure-blob-storage-doc]
+        \
+        \
+        [**Azure Blob Storage**][azure-blob-storage-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
-        ![Azure Cosmos DB icon][azure-cosmos-db-icon]
+        [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
         \
         \
-        **Azure Cosmos DB**<br>(*Standard workflow only*)
+        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
-        ![Azure Event Hubs icon][azure-event-hubs-icon]
+        [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
         \
-        **Azure Event Hubs**<br>(*Standard workflow only*)
+        [**Azure Event Hubs**][azure-event-hubs-doc]<br>(*Standard workflow only*)
         \
         \
         Consume and publish events through an event hub. For example, get output from your workflow with Event Hubs, and then send that output to a real-time analytics provider.
     :::column-end:::
     :::column:::
-        ![Azure File Storage icon][azure-file-storage-icon]
+        [![Azure File Storage icon][azure-file-storage-icon]][azure-file-storage-doc]
         \
         \
-        **Azure File Storage**<br>(*Standard workflow only*)
+        [**Azure File Storage**][azure-file-storage-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to your Azure Storage account so that you can create, update, and manage files.
@@ -250,17 +267,17 @@ You can use the following built-in connectors to access specific services and sy
         \
         Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
-        ![Azure Key Vault icon][azure-key-vault-icon]
+        [![Azure Key Vault icon][azure-key-vault-icon]][azure-key-vault-doc]
         \
         \
-        **Azure Key Vault**<br>(*Standard workflow only*)
+        [**Azure Key Vault**][azure-key-vault-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to Azure Key Vault to store, access, and manage secrets.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
@@ -280,51 +297,71 @@ You can use the following built-in connectors to access specific services and sy
         Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
     :::column-end:::
     :::column:::
-        ![Azure Table Storage icon][azure-table-storage-icon]
+        [![Azure Table Storage icon][azure-table-storage-icon]][azure-table-storage-doc]
         \
         \
-        **Azure Table Storage**<br>(*Standard workflow only*)
+        [**Azure Table Storage**][azure-table-storage-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
-        ![Azure Queue Storage][azure-queue-storage-icon]
+        [![Azure Queue Storage][azure-queue-storage-icon]][azure-queue-storage-doc]
         \
         \
-        **Azure Queue Storage**<br>(*Standard workflow only*)
+        [**Azure Queue Storage**][azure-queue-storage-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to your Azure Storage account so that you can create, update, and manage queues.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
-        ![IBM DB2 icon][ibm-db2-icon]
+        [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
         \
         \
-        **IBM DB2**<br>(*Standard workflow only*)
+        [**IBM DB2**][ibm-db2-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
     :::column:::
-        ![IBM Host File icon][ibm-host-file-icon]
+        [![IBM Host File icon][ibm-host-file-icon]][ibm-host-file-doc]
         \
         \
-        **IBM Host File**<br>(*Standard workflow only*)
+        [**IBM Host File**][ibm-host-file-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to IBM Host File and generate or parse contents.
     :::column-end:::
     :::column:::
-        ![IBM MQ icon][ibm-mq-icon]
+        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
         \
         \
-        **IBM MQ**<br>(*Standard workflow only*)
+        [**IBM MQ**][ibm-mq-doc]<br>(*Standard workflow only*)
         \
         \
         Connect to IBM MQ on-premises or in Azure to send and receive messages.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![JDBC icon][jdbc-icon]][jdbc-doc]
+        \
+        \
+        [**JDBC**][jdbc-doc]<br>(*Standard workflow only*)
+        \
+        \
+        Connect to a relational database using JDBC drivers.
+    :::column-end:::
+    :::column:::
+        [![SAP icon][sap-icon]][sap-doc]
+        \
+        \
+        [**SAP**][sap-doc]<br>(*Standard workflow only*)
+        \
+        \
+        Connect to SAP so you can send or receive messages and invoke actions.
     :::column-end:::
     :::column:::
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
@@ -334,6 +371,8 @@ You can use the following built-in connectors to access specific services and sy
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -638,6 +677,7 @@ For more information, review the following documentation:
 <!-- Built-in icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
+[azure-automation-icon]: ./media/apis-list/azure-automation.png
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
@@ -653,6 +693,7 @@ For more information, review the following documentation:
 [data-operations-icon]: ./media/apis-list/data-operations.png
 [date-time-icon]: ./media/apis-list/date-time.png
 [for-each-icon]: ./media/apis-list/for-each-loop.png
+[file-system-icon]: ./media/apis-list/file-system.png
 [ftp-icon]: ./media/apis-list/ftp.png
 [http-icon]: ./media/apis-list/http.png
 [http-request-icon]: ./media/apis-list/request.png
@@ -663,6 +704,8 @@ For more information, review the following documentation:
 [ibm-host-file-icon]: ./media/apis-list/ibm-host-file.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png
 [inline-code-icon]: ./media/apis-list/inline-code.png
+[jdbc-icon]: ./media/apis-list/jdbc.png
+[sap-icon]: ./media/apis-list/sap.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
 [sftp-ssh-icon]: ./media/apis-list/sftp.png
@@ -685,35 +728,45 @@ For more information, review the following documentation:
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic app workflows with App Service API Apps"
-[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure Blob storage connector"
-[azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"
-[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic app workflows and Event Hubs"
+[azure-automation-doc]: /azure/logic-apps/connectors/built-in/reference/azureautomation/ "Connect to your Azure Automation accounts so you can create and manage Azure Automation jobs"
+[azure-blob-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azureblob/ "Manage files in your blob container with Azure Blob storage"
+[azure-cosmos-db-doc]: /azure/logic-apps/connectors/built-in/reference/azurecosmosdb/ "Connect to Azure Cosmos DB so you can access and manage Azure Cosmos DB documents"
+[azure-event-hubs-doc]: /azure/logic-apps/connectors/built-in/reference/eventhub/ "Connect to Azure Event Hubs so that you can receive and send events between logic app workflows and Event Hubs"
+[azure-file-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azurefile/ "Connect to Azure File Storage so you can create and manage files in your Azure storage account"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic app workflows with Azure Functions"
-[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Manage messages from Service Bus queues, topics, and topic subscriptions"
-[azure-table-storage-doc]: /connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
+[azure-key-vault-doc]: /azure/logic-apps/connectors/built-in/reference/keyvault/ "Connect to Azure Key Vault to securely store, access, and manage secrets"
+[azure-queue-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azurequeues/ "Connect to Azure Storage so you can create and manage queue entries and queues"
+[azure-service-bus-doc]: /azure/logic-apps/connectors/built-in/reference/servicebus/ "Manage messages from Service Bus queues, topics, and topic subscriptions"
+[azure-table-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azuretables/ "Connect to Azure Storage so you can create, update, and query tables and more"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Process messages in groups, or as batches"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Perform data operations such as filtering arrays or creating CSV and HTML tables"
+[event-grid-publisher-doc]: /azure/logic-apps/connectors/built-in/reference/eventgridpublisher/ "Connect to Azure Event Grid for event-based programming using pub-sub semantics"
+[file-system-doc]: /azure/logic-apps/connectors/built-in/reference/filesystem/ "Connect to a file system on your network machine to create and manage files"
 [for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Perform the same actions on every item in an array"
-[ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP or FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
+[ftp-doc]: /azure/logic-apps/connectors/built-in/reference/ftp/ "Connect to an FTP or FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [http-doc]: ./connectors-native-http.md "Call HTTP or HTTPS endpoints from your logic app workflows"
 [http-request-doc]: ./connectors-native-reqres.md "Receive HTTP requests in your logic app workflows"
 [http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic app workflows"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Call REST endpoints from your logic app workflows"
 [http-webhook-doc]: ./connectors-native-webhook.md "Wait for specific events from HTTP or HTTPS endpoints"
-[ibm-db2-doc]: ./connectors-create-api-db2.md "Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more"
-[ibm-mq-doc]: ./connectors-create-api-mq.md "Connect to IBM MQ on-premises or in Azure to send and receive messages"
+[ibm-db2-doc]: /azure/logic-apps/connectors/built-in/reference/db2/ "Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more"
+[ibm-host-file-doc]: /azure/logic-apps/connectors/built-in/reference/hostfile/ "Connect to your IBM host to work with offline files"
+[ibm-mq-doc]: /azure/logic-apps/connectors/built-in/reference/mq/ "Connect to IBM MQ on-premises or in Azure to send and receive messages"
 [inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Add and run JavaScript code snippets from your logic app workflows"
+[jdbc-doc]: /azure/logic-apps/connectors/built-in/reference/jdbc/ "Connect to a relational database using JDBC drivers"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic app workflows with nested workflows"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Select and filter arrays with the Query action"
+[sap-doc]: /azure/logic-apps/connectors/built-in/reference/sap/ "Connect to SAP so you can send or receive messages and invoke actions"
 [schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Run logic app workflows based a schedule"
 [schedule-delay-doc]: ./connectors-native-delay.md "Delay running the next action"
 [schedule-delay-until-doc]: ./connectors-native-delay.md "Delay running the next action"
 [schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Run logic app workflows on a recurring schedule"
 [schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Run logic app workflows that need to handle data in contiguous chunks"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organize actions into groups, which get their own status after the actions in group finish running"
-[sftp-ssh-doc]: ./connectors-sftp-ssh.md "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in an SQL database table"
+[sftp-doc]: /azure/logic-apps/connectors/built-in/reference/sftp/ "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
+[smtp-doc]: /azure/logic-apps/connectors/built-in/reference/smtp/ "Connect to your SMTP server so you can send email"
+[sql-server-doc]: /azure/logic-apps/connectors/built-in/reference/sql/ "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in an SQL database table"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app workflow"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repeat actions until the specified condition is true or some state has changed"
