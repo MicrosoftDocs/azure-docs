@@ -32,11 +32,11 @@ This section shows the backup flow for Azure file share.
 
 **Choose a backup tier**:
 
-# [Snapshot tier](tabs/snapshot)
+# [Snapshot tier](#tab/snapshot)
 
 :::image type="content" source="./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png" alt-text="Diagram shows the Azure file share backup architecture for snapshot tier." lightbox="./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png":::
 
-# [Vault-standard tier](tabs/vault-standard)
+# [Vault-standard tier](#tab/vault-standard)
 
 :::image type="content" source="./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture-for-vault-standard.png" alt-text="Diagram shows the Azure file share backup architecture for vault-standard tier." lightbox="./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture-for-vault-standard.png":::
 
