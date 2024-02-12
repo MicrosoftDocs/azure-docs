@@ -63,11 +63,9 @@ The Bicep template is made up of the following files:
 | [dependent-resources.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/aistudio-basics/modules/dependent-resources.bicep) | Defines the dependent resources for the Azure AI hub. Azure Storage Account, Container Registry, Key Vault, and Application Insights. |
 
 > [!IMPORTANT]
-> The example templates may not always use the latest API version for Azure Studio AI hub. Before using the template, we recommend modifying it to use the latest API versions. The AI hub is based on Azure Machine Learning. For information on the latest API versions, see the [Azure Machine Learning REST API reference](/rest/api/azureml/).
+> The example templates may not always use the latest API version for the Azure resources it creates. Before using the template, we recommend modifying it to use the latest API versions. Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
 >
-> Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
->
-> To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version. The following example is an entry for the Azure AI hub that uses an API version of `2023-08-01-preview`:
+> The AI hub resource is based on Azure Machine Learning. For information on the latest API versions for Azure Machine Learning, see the [Azure Machine Learning REST API reference](/rest/api/azureml/). To update this API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version. The following example is an entry for the Azure AI hub that uses an API version of `2023-08-01-preview`:
 >
 >```bicep
 >resource aiResource 'Microsoft.MachineLearningServices/workspaces@2023-08-01-preview' = {
