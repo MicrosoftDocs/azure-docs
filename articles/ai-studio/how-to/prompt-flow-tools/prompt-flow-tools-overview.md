@@ -19,7 +19,7 @@ The following table provides an index of tools in prompt flow.
 
 | Tool name | Description | Environment | Package name |
 |------|-----------|-------------|--------------|
-| [LLM](./llm-tool.md) | Use Azure Open AI large language models (LLM) for tasks such as text completion or chat. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
+| [LLM](./llm-tool.md) | Use Azure OpenAI large language models (LLM) for tasks such as text completion or chat. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Prompt](./prompt-tool.md) | Craft a prompt by using Jinja as the templating language. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Python](./python-tool.md) | Run Python code. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Azure OpenAI GPT-4 Turbo with Vision](./azure-open-ai-gpt-4v-tool.md) | Use AzureOpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
@@ -28,7 +28,7 @@ The following table provides an index of tools in prompt flow.
 | [Vector Index Lookup](./vector-index-lookup-tool.md) | Search text or a vector-based query from a vector index. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Faiss Index Lookup](./faiss-index-lookup-tool.md) | Search a vector-based query from the Faiss index file. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Vector DB Lookup](./vector-db-lookup-tool.md) | Search a vector-based query from an existing vector database. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
-| [Embedding](./embedding-tool.md) | Use Azure Open AI embedding models to create an embedding vector that represents the input text. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
+| [Embedding](./embedding-tool.md) | Use Azure OpenAI embedding models to create an embedding vector that represents the input text. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Serp API](./serp-api-tool.md) | Use Serp API to obtain search results from a specific search engine. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 
 The following table shows an index of custom tools created by the community to extend prompt flow's capabilities for specific use cases. They aren't officially maintained or endorsed by prompt flow team. For questions or issues when using a tool, please see the support contact in the description.

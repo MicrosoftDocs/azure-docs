@@ -50,10 +50,6 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 - [Fine-tuning & function calling](./how-to/fine-tuning-functions.md)
 - [`gpt-35-turbo 1106` support](./concepts/models.md#fine-tuning-models)
 
-### Chunk size parameter for Azure OpenAI on your data
-
-- You can now set the [chunk size](./concepts/use-your-data.md#ingestion-parameters) parameter when your data is ingested. Adjusting the chunk size can enhance the model's responses by setting the maximum number of tokens for any given chunk of your data in the search index.
-
 ### New regional support for Azure OpenAI on your data
 
 You can now use Azure OpenAI on your data in the following Azure region:
