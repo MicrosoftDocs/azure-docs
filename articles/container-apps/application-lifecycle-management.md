@@ -34,6 +34,8 @@ As a container app is updated with a [revision scope-change](revisions.md#revisi
 
 When in single revision mode, Container Apps handles the automatic switch between revisions to support [zero downtime deployment](revisions.md#zero-downtime-deployment).
 
+Container Apps checks for a new revision whenever a container is started. In Docker or Kubernetes terminology, Container Apps sets each container's image pull policy to `always`.
+
 ## Deactivate
 
 Once a revision is no longer needed, you can deactivate a revision with the option to reactivate later. During deactivation, containers in the revision are [shut down](#shutdown).
