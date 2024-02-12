@@ -44,22 +44,22 @@ After you fill in the required details, select **Calculate** to view the suggest
 
 ### Understanding the provisioned throughput purchase model
 
-Unlike Azure services where you're charged based on usage, the Azure OpenAI Provisioned Throughput feature is purchased as a renewable, monthly commitment. This commitment is charged to your subscription upon creation and at each monthly renewal.  When you onboard to Provisioned Throughput, you need to create a commitment on each Azure OpenAI resource where you intend to create a provisioned deployment. The PTUs you purchase in this way are available for use when creating deployments on those resources.
+Unlike Azure services where you're charged based on usage, the Azure OpenAI Provisioned Throughput feature is purchased as a renewable, monthly commitment. This commitment is charged to your subscription upon creation and at each monthly renewal. When you onboard to Provisioned Throughput, you need to create a commitment on each Azure OpenAI resource where you intend to create a provisioned deployment. The PTUs you purchase in this way are available for use when creating deployments on those resources.
 
 The total number of PTUs you can purchase via commitments is limited to the amount of Provisioned Throughput quota that is assigned to your subscription. The following table compares other characteristics of Provisioned Throughput quota (PTUs) and Provisioned Throughput commitments.
 
 |Topic|Quota|Commitments|
 |---|---|---|
 |Purpose| Grants permission to create provisioned deployments, and provides the upper limit on the capacity that can be used|Purchase vehicle for Provisioned Throughput capacity|
-|Lifetime| Quota might be removed from your subscription if it isn't purchased via a commitment within five days of being granted|The minimum term is one month, with customer-selectable autorenewal behavior.  A commitment isn't cancelable, and can't be moved to a new resource while it's active|
-|Scope |Quota is specific to a subscription and region, and is shared across all Azure OpenAI resources | Commitments are an attribute of an Azure OpenAI resource, and are scoped to deployments within that resource.  A subscription might contain as many active commitments as there are resources.|
+|Lifetime| Quota might be removed from your subscription if it isn't purchased via a commitment within five days of being granted|The minimum term is one month, with customer-selectable autorenewal behavior. A commitment isn't cancelable, and can't be moved to a new resource while it's active|
+|Scope |Quota is specific to a subscription and region, and is shared across all Azure OpenAI resources | Commitments are an attribute of an Azure OpenAI resource, and are scoped to deployments within that resource. A subscription might contain as many active commitments as there are resources.|
 |Granularity| Quota is granted specific to a model family (for example, GPT-4) but is shareable across model versions within the family| Commitments aren't model or version specific. For example, a resource’s 1000 PTU commitment can cover deployments of both GPT-4 and GPT-35-Turbo|
 |Capacity guarantee| Having quota doesn't guarantee that capacity is available when you create the deployment| Capacity availability to cover committed PTUs is guaranteed as long as the commitment is active.|
 |Increases/Decreases| New quota can be requested and approved at any time, independent of your commitment renewal dates | The number of PTUs covered by a commitment can be increased at any time, but can't be decreased except at the time of renewal.|
 
-Quota and commitments work together to govern the creation of deployments within your subscriptions.  To create a provisioned deployment, two criteria must be met:
+Quota and commitments work together to govern the creation of deployments within your subscriptions. To create a provisioned deployment, two criteria must be met:
 
-- Quota must be available for the desired model within the desired region and subscription.  This means you can't exceed your subscription/region-wide limit for the model.
+- Quota must be available for the desired model within the desired region and subscription. This means you can't exceed your subscription/region-wide limit for the model.
 - Committed PTUs must be available on the resource where you create the deployment. (The capacity you assign to the deployment is paid-for).
 
 ### Commitment properties and charging model
@@ -78,17 +78,17 @@ A commitment includes several properties.
 
 Provisioned Throughput Commitments generate charges against your Azure subscription at the following times:
 
-- At commitment creation.  The charge is computed according to the current monthly PTU rate and the number of PTUs committed. You will receive a single up-front charge on your invoice.
+- At commitment creation. The charge is computed according to the current monthly PTU rate and the number of PTUs committed. You will receive a single up-front charge on your invoice.
 
-- At commitment renewal.  If the renewal policy is set to autorenew, a new monthly charge is generated based on the PTUs committed in the new term. This charge appears as a single up-front charge on your invoice.
+- At commitment renewal. If the renewal policy is set to autorenew, a new monthly charge is generated based on the PTUs committed in the new term. This charge appears as a single up-front charge on your invoice.
 
-- When new PTUs are added to an existing commitment.  The charge is computed based on the number of PTUs added to the commitment, pro-rated hourly to the end of the existing commitment term.  For example, if 300 PTUs are added to an existing commitment of 900 PTUs exactly halfway through its term, there is a charge at the time of the addition for the equivalent of 150 PTUs (300 PTUs pro-rated to the commitment expiration date).  If the commitment is renewed, the following month’s charge will be for the new PTU total of 1,200 PTUs.
+- When new PTUs are added to an existing commitment. The charge is computed based on the number of PTUs added to the commitment, pro-rated hourly to the end of the existing commitment term. For example, if 300 PTUs are added to an existing commitment of 900 PTUs exactly halfway through its term, there is a charge at the time of the addition for the equivalent of 150 PTUs (300 PTUs pro-rated to the commitment expiration date). If the commitment is renewed, the following month’s charge will be for the new PTU total of 1,200 PTUs.
 
-As long as the number of deployed PTUs in a resource is covered by the resource’s commitment, then you'll only see the charges.  However, if the number of deployed PTUs in a resource becomes greater than the resource’s committed PTUs, the excess PTUs will be charged as overage at an hourly rate.  Typically, the only way this overage will happen is if a commitment expires or is reduced at its renewal while the resource contains deployments.  For example, if a 300 PTU commitment is allowed to expire on a resource that has 300 PTUs deployed, the deployed PTUs is no longer be covered by any commitment.  Once the expiration date is reached, the subscription is charged an hourly overage fee based on the 300 excess PTUs.
+As long as the number of deployed PTUs in a resource is covered by the resource’s commitment, then you'll only see the charges. However, if the number of deployed PTUs in a resource becomes greater than the resource’s committed PTUs, the excess PTUs will be charged as overage at an hourly rate. Typically, the only way this overage will happen is if a commitment expires or is reduced at its renewal while the resource contains deployments. For example, if a 300 PTU commitment is allowed to expire on a resource that has 300 PTUs deployed, the deployed PTUs is no longer be covered by any commitment. Once the expiration date is reached, the subscription is charged an hourly overage fee based on the 300 excess PTUs.
 
-The hourly rate is higher than the monthly commitment rate and the charges exceed the monthly rate within a few days.  There are two ways to end hourly overage charges:
+The hourly rate is higher than the monthly commitment rate and the charges exceed the monthly rate within a few days. There are two ways to end hourly overage charges:
 
-- Delete or scale-down deployments so that they don’t use more PTUs than are committed
+- Delete or scale-down deployments so that they don’t use more PTUs than are committed.
 - Create a new commitment on the resource to cover the deployed PTUs.
 
 
@@ -98,27 +98,27 @@ The hourly rate is higher than the monthly commitment rate and the charges excee
 
 Upon receiving confirmation that Provisioned Throughput Unit (PTU) quota is assigned to a subscription, you must create commitments on the target resources (or extend existing commitments) to make the quota usable for deployments.
 
-Prior to creating commitments, plan how the provisioned deployments will be used and which Azure OpenAI resources will host them.  Commitments have a **one month minimum term and can't be decreased in size until the end of the term**.  They also can't be moved to new resources once created.  Finally, the sum of your committed PTUs can't be greater than your quota – PTUs committed on a resource are no longer available to commit to on a different resource until the commitment expires. Having a clear plan on which resources will be used for provisioned deployments and the capacity you intend to apply to them (for at least a month) will help ensure an optimal experience with your provisioned throughput setup.
+Prior to creating commitments, plan how the provisioned deployments will be used and which Azure OpenAI resources will host them. Commitments have a **one month minimum term and can't be decreased in size until the end of the term**. They also can't be moved to new resources once created. Finally, the sum of your committed PTUs can't be greater than your quota – PTUs committed on a resource are no longer available to commit to on a different resource until the commitment expires. Having a clear plan on which resources will be used for provisioned deployments and the capacity you intend to apply to them (for at least a month) will help ensure an optimal experience with your provisioned throughput setup.
 
 For example:
 
-- Don’t create a commitment and deployment on a “temporary” resource for the purpose of validation.  You’ll be locked into using that resource for at least month.  Instead, if the plan is to ultimately use the PTUs on a production resource, create the commitment and test deployment on that resource right from the start.
+- Don’t create a commitment and deployment on a *temporary* resource for the purpose of validation. You’ll be locked into using that resource for at least month. Instead, if the plan is to ultimately use the PTUs on a production resource, create the commitment and test deployment on that resource right from the start.
 
-- Calculate the number of PTUs to commit on a resource based on the number, model and size of the deployments you intend to create, keeping in mind the minimum number of PTUs each model requires create a deployment.  
+- Calculate the number of PTUs to commit on a resource based on the number, model, and size of the deployments you intend to create, keeping in mind the minimum number of PTUs each model requires create a deployment.  
 
-    - Example 1: GPT-4-32K requires a minimum of 200 PTUs to deploy.  If you create a commitment of only 100 PTUs on a resource, you won’t have enough committed PTUs to deploy GPT-4-32K there
+    - Example 1: GPT-4-32K requires a minimum of 200 PTUs to deploy. If you create a commitment of only 100 PTUs on a resource, you won’t have enough committed PTUs to deploy GPT-4-32K there
 
-    - Example 2: If you need to create multiple deployments on a resource, sum the PTUs required for each deployment.  A production resource hosting deployments for 300 PTUs of GPT-4, and 500 PTUs of GPT-4-32K will require a commitment of at least 800 PTUs to cover both deployments.
+    - Example 2: If you need to create multiple deployments on a resource, sum the PTUs required for each deployment. A production resource hosting deployments for 300 PTUs of GPT-4, and 500 PTUs of GPT-4-32K will require a commitment of at least 800 PTUs to cover both deployments.
 
-- Distribute or consolidate PTUs as needed.  For example, total quota of 1000 PTUs can be distributed across resources as needed to support your deployments.  It could be committed on a single resource to support one or more deployments adding up to 1000 PTUs, or distributed across multiple resources (for example, a dev and a prod resource) as long as the total number of committed PTUs is less than or equal to the quota of 1000.
+- Distribute or consolidate PTUs as needed. For example, total quota of 1000 PTUs can be distributed across resources as needed to support your deployments. It could be committed on a single resource to support one or more deployments adding up to 1000 PTUs, or distributed across multiple resources (for example, a dev and a prod resource) as long as the total number of committed PTUs is less than or equal to the quota of 1000.
 
-- Consider operational requirements in your plan.  For example:
+- Consider operational requirements in your plan. For example:
     - Organizationally required resource naming conventions
     - Business continuity policies that require multiple deployments of a model per region, perhaps on different Azure OpenAI resources
 
 ### Creating Provisioned Throughput commitments
 
-With the plan ready, the next step is to create the commitments.  Commitments are created manually via Azure OpenAI Studio and require the user creating the commitment to have either the [Contributor or Cognitive Services Contributor role](./role-based-access-control.md) at the subscription level.
+With the plan ready, the next step is to create the commitments. Commitments are created manually via Azure OpenAI Studio and require the user creating the commitment to have either the [Contributor or Cognitive Services Contributor role](./role-based-access-control.md) at the subscription level.
 
 For each new commitment you need to create, follow these steps:
 
@@ -126,18 +126,18 @@ For each new commitment you need to create, follow these steps:
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/quota.png" alt-text="Screenshot of the purchase dialog." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
 
-2. Select **Purchase commitment**
+2. Select **Purchase commitment**.
 
-3. Select the Azure OpenAI resource and purchase the commitment. You will see your resources divided into resources with existing commitments which you can edit and resources that do not currently have a commitment.
+3. Select the Azure OpenAI resource and purchase the commitment. You will see your resources divided into resources with existing commitments, which you can edit and resources that don't currently have a commitment.
 
 | Setting | Notes |
 |---------|-------|
-| **Select a resource** | Choose the resource where you will create the provisioned deployment. Once you have purchased the commitment, you will be unable to use the PTUs on another resource until the current commitment expires. |
+| **Select a resource** | Choose the resource where you'll create the provisioned deployment. Once you have purchased the commitment, you will be unable to use the PTUs on another resource until the current commitment expires. |
 | **Select a commitment type** | Select Provisioned. (Provisioned is equivalent to Provisioned Managed) |
-| **Current uncomitted provisioned quota** | The amount of PTUs currently available for you to commit to this resource. | 
+| **Current uncommitted provisioned quota** | The number of PTUs currently available for you to commit to this resource. | 
 | **Amount to commit (PTU)** | Choose the number of PTUs you're committing to. **This number can be increased later, but can't be decreased**. Enter values in increments of 50 for the commitment type Provisioned. |
 | **Commitment tier for current period** | The commitment period is set to one month. |
-| **Renewal settings** | Auto-renew at current PTU's <br> Auto-renew at lower PTUs <br> Do not auto-renew |
+| **Renewal settings** | Auto-renew at current PTUs <br> Auto-renew at lower PTUs <br> Do not auto-renew |
 
 4. Select Purchase. A confirmation dialog will be displayed. After you confirm, your PTUs will be committed, and you can use them to create a provisioned deployment. |
 
@@ -169,7 +169,7 @@ To end use of provisioned throughput, and stop any charges after the current com
 
 **Move a commitment/deployment to a new resource in the same subscription/region**
 
-It isn't possible in Azure OpenAI Studio to directly *move* a deployment or a commitment to a new resource.  Instead, a new deployment needs to be created on the target resource and traffic moved to it.  There will need to be a commitment purchased established on the new resource to accomplish this.  Because commitments are charged up-front for a 30-day period, it's necessary to time this move with the expiration of the original commitment to minimize overlap with the new commitment and “double-billing” during the overlap.
+It isn't possible in Azure OpenAI Studio to directly *move* a deployment or a commitment to a new resource. Instead, a new deployment needs to be created on the target resource and traffic moved to it. There will need to be a commitment purchased established on the new resource to accomplish this. Because commitments are charged up-front for a 30-day period, it's necessary to time this move with the expiration of the original commitment to minimize overlap with the new commitment and “double-billing” during the overlap.
 
 There are two approaches that can be taken to implement this transition.
 
@@ -180,13 +180,13 @@ This option requires some downtime, but requires no extra quota and generates no
 | Steps | Notes |
 |-------|-------|
 |Set the renewal policy on the existing commitment to expire| This will prevent the commitment from renewing and generating further charges |
-|Before expiration of the existing commitment, delete its deployment | Downtime will start at this point and will last until the new deployment is created and traffic is moved.  You'll minimize the duration by timing the deletion to happen as close to the expiration date/time as possible.|
+|Before expiration of the existing commitment, delete its deployment | Downtime will start at this point and will last until the new deployment is created and traffic is moved. You'll minimize the duration by timing the deletion to happen as close to the expiration date/time as possible.|
 |After expiration of the existing commitment, create the commitment on the new resource|Minimize downtime by executing this and the next step as soon after expiration as possible.|
 |Create the deployment on the new resource and move traffic to it||
 
 **Option 2: Overlapped Switchover**
 
-This option has no downtime by having both existing and new deployments live at the same time.  This requires having quota available to create the new deployment, and will generate extra costs for the duration of the overlapped deployments.
+This option has no downtime by having both existing and new deployments live at the same time. This requires having quota available to create the new deployment, and will generate extra costs for the duration of the overlapped deployments.
 
 | Steps | Notes |
 |-------|-------|
@@ -199,7 +199,7 @@ If the final step takes longer than expected and will finish after the existing 
 - **Pay overage**: Keep the original deployment and pay hourly until you have moved traffic off and deleted the deployment.
 - **Reset the original commitment** to renew one more time. This will give you time to complete the move with a known cost.  
 
-Both paying for an overage and resetting the original commitment will generate charges beyond the original expiration date.  Paying overage charges might be cheaper than a new one-month commitment if you only need a day or two to complete the move.  Compare the costs of both options to find the lowest-cost approach.
+Both paying for an overage and resetting the original commitment will generate charges beyond the original expiration date. Paying overage charges might be cheaper than a new one-month commitment if you only need a day or two to complete the move. Compare the costs of both options to find the lowest-cost approach.
 
 ### Move the deployment to a new region and or subscription
 
