@@ -77,4 +77,4 @@ If you would like to create your store using an ARM template, use the following 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize sign in and sign out](authentication#customize-sign-in-and-sign-out.md)
+> [Customize sign in and sign out](authentication.md#customize-sign-in-and-sign-out.md)
