@@ -31,7 +31,7 @@ This article describes how to generate an ARM template for your cluster automati
   
 1. Navigate to the "Export template" blade of your cluster and click "Download" to export the template.
   
-   :::image type="content" source="./media/create-cluster-using-arm-template-script/view-cost-json-view.png" alt-text="Screenshot showing how to view cost and JSON View buttons from the Azure portal." border="true" lightbox="./media/create-cluster-using-arm-template-script/view-cost-json-view.png":::
+   :::image type="content" source="./media/create-cluster-using-arm-template-script/export-template-download-view.png" alt-text="Screenshot showing export template option from the Azure portal." border="true" lightbox="./media/create-cluster-using-arm-template-script/export-template-download-view.png":::
   
 Now, your cluster ARM template is ready. You can update the properties of the cluster and finally deploy the ARM template to refresh the resources. To redeploy, you can either use the "Deploy" option in your cluster under "Export template" blade by replacing the existing template with the modified template or see [deploy an ARM template using Azure portal](/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
 
