@@ -1,11 +1,13 @@
 ---
-title: Deploy the Microsoft Sentinel for SAP data connector with Secure Network Communications
-description: This article shows you how to deploy the Microsoft Sentinel for SAP data connector to ingest NetWeaver/ABAP logs over a secure connection by using Secure Network Communications (SNC).
+title: Deploy Microsoft Sentinel for SAP data connector with SNC
+description: Deploy the Microsoft Sentinel for SAP data connector to ingest NetWeaver and ABAP logs over a secure connection by using Secure Network Communications (SNC).
 author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/03/2022
+
+# CustomerIntent: As an SAP admin and Microsoft Sentinel user, I want to know how to use SNC to deploy the Microsoft Sentinel for SAP data connector over a secure connection.
 ---
 
 # Deploy the Microsoft Sentinel for SAP data connector by using SNC
@@ -14,58 +16,52 @@ This article shows you how to deploy the Microsoft Sentinel for SAP data connect
 
 The SAP data connector agent typically connects to an SAP ABAP server by using a remote function call (RFC) connection and a username and password for authentication.
 
-However, some environments might require the connection to be made on an encrypted channel, and some environments might require client certificates be used for authentication. In these cases, you can use SAP Secure Network Communication (SNC) in your data connector. Complete the steps as they're outlined in this article.
+However, some environments might require the connection to be made on an encrypted channel, and some environments might require client certificates be used for authentication. In these cases, you can use SNC from SAP for your data connector. Complete the steps as they're outlined in this article.
 
 ## Prerequisites
 
-- The SAP Cryptographic Library. [Download the library](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html)
-- Network connectivity. SNC uses ports 48*xx* (where *xx* is the SAP instance number) to connect to the ABAP server.
+To deploy the Microsoft Sentinel for SAP data connector by using SNC, you need:
+
+- The [SAP Cryptographic Library](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html).
+- Network connectivity. SNC uses port 48*xx* (where *xx* is the SAP instance number) to connect to the ABAP server.
 - An SAP server configured to support SNC authentication.
-- A self-signed or enterprise Certificate Authority (CA)-issued certificate for user authentication.
+- A self-signed or enterprise certificate authority (CA)-issued certificate for user authentication.
 
 > [!NOTE]
-> This article describes a sample case for configuring SNC. In a production environment, we strongly recommended that you consult with SAP administrators to devise a deployment plan.
+> This article describes a sample case for configuring SNC. In a production environment, we strongly recommended that you consult with SAP administrators to create a deployment plan.
 
-## Configure your SNC deployment
+## Export the server certificate
 
-To set up your SNC deployment:
-
-1. Export the server certificate.
-1. Import your certificate.
-1. Associate the certificate with a user account.
-1. Grant logon rights using the certificate.
-1. Map users of the ABAP service provider to external user IDs.
-1. Set up the container.
-
-The steps are described in the next sections.
-
-### Export the server certificate
+To begin, export the server certificate:
 
 1. Sign in to your SAP client and run the **STRUST** transaction.
 
-1. Go to **SNC SAPCryptolib** in the left pane and expand the section.
+1. In the left pane, go to **SNC SAPCryptolib** and expand the section.
 
-1. Select the system, and then select the value of the **Subject** field.
+1. Select the system, and then select a value for **Subject**.
 
-    The server certificate information is shown in the **Certificate** section at the bottom of the page.
+    The server certificate information is shown in the **Certificate** section.
 
-1. Select the **Export certificate** button.
+1. Select **Export certificate**.
 
     ![Screenshot that shows how to export a server certificate.](./media/configure-snc/export-server-certificate.png)
 
 1. In the **Export Certificate** dialog:
+
    1. For file format, select **Base64**.
    1. Next to **File Path**, select the double boxes icon.
-   1. Select a filename to export the certificate to
+   1. Select a filename to export the certificate to.
    1. Select the green checkmark to export the certificate.
 
-### Import your certificate
+## Import your certificate
 
-This section explains how to import a certificate so that it's trusted by your ABAP server. It's important to understand which certificate needs to be imported into the SAP system. In any case, only public keys of the certificates need to be imported into the SAP system.
+This section explains how to import a certificate so that it's trusted by your ABAP server. It's important to understand which certificate needs to be imported into the SAP system. Only public keys of the certificates need to be imported into the SAP system.
 
 - **If the user certificate is self-signed**: Import a user certificate.
 
 - **If the user certificate is issued by an enterprise CA**: Import an enterprise CA certificate. If both root and subordinate CA servers are used, import both the root and the subordinate CA public certificates.
+
+To import your certificate:
 
 1. Run the **STRUST** transaction.
 
@@ -83,9 +79,11 @@ This section explains how to import a certificate so that it's trusted by your A
 
    1. Select **Add to Certificate List**.
 
-       The certificate appears in the **Certificate List** area.
+       The certificate appears in the **Certificate List** section.
 
-### Associate the certificate with a user account
+## Associate the certificate with a user account
+
+To associate the certificate with a user account:
 
 1. Run the **SM30** transaction.
 
@@ -95,11 +93,13 @@ This section explains how to import a certificate so that it's trusted by your A
 
     ![Screenshot that shows how to create a new entry in the USERACLEXT table.](./media/configure-snc/usraclext-new-entry.png)
 
-1. In **User**, enter the user's username. In **SNC Name**, enter the user's certificate subject name prefixed with **p:**. Select **Save**.
+1. For **User**, enter the user's username. For **SNC Name**, enter the user's certificate subject name prefixed with **p:**. Select **Save**.
 
     ![Screenshot that shows how to create a new user in USERACLEXT table.](./media/configure-snc/usraclext-new-user.png)
 
-### Grant logon rights by using the certificate
+## Grant logon rights by using the certificate
+
+To grant logon rights:
 
 1. Run the **SM30** transaction.
 
@@ -109,7 +109,7 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. In **Determine Work Area: Entry**, enter **E** for **Type of ACL entry**, and then select the green checkmark.
 
-1. Review the output, identify whether the target user already has an associated SNC name. If the user doesn't have an associated SNC name, select **New Entries**.
+1. Review the output and identify whether the target user already has an associated SNC name. If the user doesn't have an associated SNC name, select **New Entries**.
 
     ![Screenshot that shows how to create a new entry in the VSNCSYSACL table.](./media/configure-snc/vsncsysacl-new-entry.png)
 
@@ -117,9 +117,11 @@ This section explains how to import a certificate so that it's trusted by your A
 
     ![Screenshot that shows how to create a new user in the VSNCSYSACL table.](./media/configure-snc/vsncsysacl-new-user.png)
 
-1. Ensure that the **Entry for RFC activated** and **Entry for certificate activated** checkboxes are selected, and then select **Save**.
+1. Ensure that the checkboxes for **Entry for RFC activated** and **Entry for certificate activated** are selected, and then select **Save**.
 
-### Map users of the ABAP service provider to external user IDs
+## Map users of the ABAP service provider to external user IDs
+
+To map ABAP service provider users to external user IDs:
 
 1. Run the **SM30** transaction.
 
@@ -129,28 +131,30 @@ This section explains how to import a certificate so that it's trusted by your A
 
 1. Enter these details:
 
-    - **External ID**: *CN=Sentinel*, *C=US*
-    - **Seq. No**: *000*
-    - **User**: *SENTINEL*
+    - **External ID**: **CN=Sentinel**, **C=US**
+    - **Seq. No**: **000**
+    - **User**: **SENTINEL**
 
 1. Select **Save**, and then select **Enter**.
 
     :::image type="content" source="media/configure-snc/vusrextid-table-configuration.png" alt-text="Screenshot that shows how to set up the SAP VUSREXTID table.":::
 
-### Set up the container
+## Set up the container
 
 > [!NOTE]
-> If you set up the SAP data connector agent container by using the UI, don't complete the steps in this section. Instead, continue to set up the connector [on the connector page](deploy-data-connector-agent-container.md).
+> If you set up the SAP data connector agent container by using the UI, don't complete the steps that are described in this section. Instead, continue to set up the connector [on the connector page](deploy-data-connector-agent-container.md).
 
-1. Transfer the **libsapcrypto.so** and **sapgenpse** files to the target system where the container will be created.
+To set up the container:
+
+1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the target system where the container will be created.
 
 1. Transfer the client certificate (both private and public keys) to the target system where the container will be created.
 
-    The client certificate and key can be in .p12, .pfx, or Base-64 .crt and .key format.
+    The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
 
 1. Transfer the server certificate (public key only) to the target system where the container will be created.
 
-    The server certificate must be in Base-64 .crt format.
+    The server certificate must be in Base64 *.crt* format.
 
 1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the target system where the container will be created.
 
@@ -176,15 +180,15 @@ This section explains how to import a certificate so that it's trusted by your A
     --server-cert <path to server certificate public key> \
     ```
 
-    If the client certificate is in .crt or .key format, use the following switches:
+    If the client certificate is in *.crt* or *.key* format, use the following switches:
 
     ```bash
     --client-cert <path to client certificate public key> \
     --client-key <path to client certificate private key> \
     ```
-    
-    If the client certificate is in .pfx or .p12 format:
-    
+
+    If the client certificate is in *.pfx* or *.p12* format:
+
     ```bash
     --client-pfx <pfx filename>
     --client-pfx-passwd <password>
@@ -210,31 +214,25 @@ This section explains how to import a certificate so that it's trusted by your A
     --server-cert /home/azureuser/server.crt \
     ```
 
-For additional information on options available in the kickstart script, review [Reference: Kickstart script](reference-kickstart.md)
+For more information about options that are available in the kickstart script, see [Reference: Kickstart script](reference-kickstart.md).
 
-## Next steps
+## Troubleshoot and reference
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+For troubleshooting information, see these articles:
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Enable and configure SAP auditing](configure-audit.md)
-- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel solutions](../sentinel-solutions.md)
 
-Troubleshooting:
+For reference files, see these articles:
 
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-
-Reference files:
-
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 
-For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
+## Related content
+
+- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy SAP change requests and configure authorization](preparing-sap.md)
