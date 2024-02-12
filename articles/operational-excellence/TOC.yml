@@ -34,8 +34,6 @@
       items:
       - name: Azure Automation
         href: relocation-automation.md
-      - name: Microsoft Defender for Cloud
-        href: relocation-defender.md
 - name: Resources
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework
