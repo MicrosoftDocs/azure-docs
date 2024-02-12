@@ -294,7 +294,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
 ### Create a video retrieval index
 
 1. Get an Azure AI Vision resource in the same region as the Azure OpenAI resource you're using.
-1. To begin, you need to create an index to store and organize the video files and their metadata. The example below demonstrates how to create an index named "my-video-index" using the **[Create Index](../reference-video-search.md)** API.
+1. To begin, you need to create an index to store and organize the video files and their metadata. The example below demonstrates how to create an index named "my-video-index" using the **[Create Index](../reference-video-search.md)** API. For more detailed instructions, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
         
     ```bash
     curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
