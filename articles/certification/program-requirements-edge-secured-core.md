@@ -145,7 +145,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Status|Required|
 |Description|The system is able to successfully apply a baseline security configuration.|
 |Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
-|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/|
+|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks|
 
 |Name|SecuredCore.Protection.Update Resiliency|
 |:---|:---|
