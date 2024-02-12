@@ -5,7 +5,6 @@ author: dknappettmsft
 ms.topic: quickstart
 ms.date: 08/02/2022
 ms.author: daknappe
-manager: femila
 ms.custom: mode-portal
 ---
 

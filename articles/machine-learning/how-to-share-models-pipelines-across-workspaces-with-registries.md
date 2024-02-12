@@ -10,7 +10,7 @@ author: fkriti
 ms.reviewer: larryfr
 ms.date: 11/02/2023
 ms.topic: how-to
-ms.custom: ignite-2022, devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023
 ---
 
 # Share models, components, and environments across workspaces with registries

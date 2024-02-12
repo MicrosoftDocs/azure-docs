@@ -20,12 +20,12 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 - Generate the service principal access token that's needed to call the Entitlement APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 - Keep all the parameter values handy. They're needed to run different user management requests via the Entitlements API.
 
-## Fetch OID
+## Fetch object-id
 
-The object ID (OID) is the Microsoft Entra user OID.
+The Azure object ID (OID) is the Microsoft Entra user OID.
 
 1. Find the OID of the users first. If you're managing an application's access, you must find and use the application ID (or client ID) instead of the OID.
-1. Input the OID of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy instance.
+1. Input the OID of the users (or the application or client ID if managing access for an application) as parameters in the calls to the Entitlements API of your Azure Data Manager for Energy instance. You can not use user's email id in the parameter and must use object ID.
 
    :::image type="content" source="media/how-to-manage-users/azure-active-directory-object-id.png" alt-text="Screenshot that shows finding the object ID from Microsoft Entra ID.":::
 
@@ -39,11 +39,14 @@ The object ID (OID) is the Microsoft Entra user OID.
    If you try to directly use your own access token for adding entitlements, it results in a 401 error. The `client-id` access token must be used to add the first set of users in the system. Those users (with admin access) can then manage more users with their own access token.
 1. Use the `client-id` access token to do the following steps by using the commands outlined in the following sections:
    1. Add the user to the `users@<data-partition-id>.<domain>` OSDU group.
-   2. Add the user to the `users.datalake.ops@<data-partition-id>.<domain>` OSDU group.
+   2. Add the user to the `users.datalake.ops@<data-partition-id>.<domain>` OSDU group to give access of all the service groups.
+   3. Add the user to the `users.data.root@<data-partition-id>.<domain>` OSDU group to give access of all the data groups.
 1. The user becomes the admin of the data partition. The admin can then add or remove more users to the required entitlement groups:
    1. Get the admin's auth token by using [Generate user access token](how-to-generate-auth-token.md#generate-the-user-auth-token) and by using the same `client-id` and `client-secret` values.
    1. Get the OSDU group, such as `service.legal.editor@<data-partition-id>.<domain>`, to which you want to add more users by using the admin's access token.
    1. Add more users to that OSDU group by using the admin's access token.
+  
+To know more about the OSDU bootstrap groups, check out [here](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/master/docs/bootstrap/bootstrap-groups-structure.md).
 
 ## Get the list of all available groups in a data partition
 
@@ -61,7 +64,7 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
 1. The value to be sent for the parameter `email` is the OID of the user and not the user's email address.
 
     ```bash
-        curl --location --request POST 'https://<adme-url>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.dataservices.energy/members' \
+        curl --location --request POST 'https://<adme-url>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.<domain>/members' \
         --header 'data-partition-id: <data-partition-id>' \
         --header 'Authorization: Bearer <access_token>' \
         --header 'Content-Type: application/json' \
@@ -118,7 +121,7 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
 1. Run the following curl command in Azure Cloud Shell to get all the groups associated with the user.
 
     ```bash
-        curl --location --request GET 'https://<adme-url>/api/entitlements/v2/members/<OBJECT_ID>/groups?type=none' \
+        curl --location --request GET 'https://<adme-url>/api/entitlements/v2/members/<obejct-id>/groups?type=none' \
         --header 'data-partition-id: <data-partition-id>' \
         --header 'Authorization: Bearer <access_token>'
     ```
@@ -160,7 +163,7 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
 1. *Do not* delete the OWNER of a group unless you have another OWNER who can manage users in that group.
     
     ```bash
-        curl --location --request DELETE 'https://<adme-url>/api/entitlements/v2/members/<OBJECT_ID>' \
+        curl --location --request DELETE 'https://<adme-url>/api/entitlements/v2/members/<object-id>' \
         --header 'data-partition-id: <data-partition-id>' \
         --header 'Authorization: Bearer <access_token>'
     ```

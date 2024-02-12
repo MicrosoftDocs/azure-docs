@@ -8,7 +8,6 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 1/22/2024
 ms.author: eur
-ms.custom: cog-serv-seo-aug-2020
 ---
 
 # What is text to speech?

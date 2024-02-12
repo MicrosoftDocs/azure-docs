@@ -40,11 +40,11 @@ The policy validates the following content in the request or response against th
 ## Policy statement
 
 ```xml
-<validate-content unspecified-content-type-action="ignore | prevent | detect" max-size="size in bytes" size-exceeded-action="ignore | prevent | detect" errors-variable-name="variable name">
+<validate-content unspecified-content-type-action="ignore | prevent | detect" max-size="size in bytes" size-exceeded-action="ignore | prevent | detect" errors-variable-name="variable name">
     <content-type-map any-content-type-value="content type string" missing-content-type-value="content type string">
         <type from | when="content type string" to="content type string" />
     </content-type-map>
-    <content type="content type string" validate-as="json | xml | soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore | prevent | detect" allow-additional-properties="true | false" />
+    <content type="content type string" validate-as="json | xml | soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore | prevent | detect" allow-additional-properties="true | false" />
 </validate-content>
 ```
 

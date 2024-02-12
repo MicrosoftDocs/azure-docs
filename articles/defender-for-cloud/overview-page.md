@@ -44,6 +44,6 @@ The **Insights** pane offers customized items for your environment including:
 ## Next steps
 
 - [Learn more](concept-cloud-security-posture-management.md) about cloud security posture management.
-- [Learn more](security-policy-concept.md) about security standards and
+- [Learn more](security-policy-concept.md) about security standards and recommendations
 - [Review your asset inventory](asset-inventory.md)
 

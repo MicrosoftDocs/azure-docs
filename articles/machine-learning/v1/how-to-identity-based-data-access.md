@@ -1,7 +1,7 @@
 ---
 title: Identity-based data access to storage services (v1)
 titleSuffix: Machine Learning
-description: Learn how to use identity-based data access to connect to storage services on Azure with Azure Machine Learning datastores and the Machine Learning Python SDK v1.   
+description: Learn how to use identity-based data access to connect to storage services on Azure with Azure Machine Learning datastores and the Machine Learning Python SDK v1.
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
@@ -9,8 +9,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
 ms.date: 01/05/2023
-ms.custom: UpdateFrequency5, contperf-fy21q1, devx-track-python, data4ml
-
+ms.custom: UpdateFrequency5, devx-track-python, data4ml
 # Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute for training my machine learning models.
 ---
 

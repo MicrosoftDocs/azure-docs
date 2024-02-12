@@ -6,7 +6,6 @@ description: This article has datetimeV2 prebuilt entity information in Language
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
@@ -683,4 +682,3 @@ To replace `datetime` with `datetimeV2` in your LUIS app, complete the following
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md).
-

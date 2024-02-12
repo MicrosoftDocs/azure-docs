@@ -36,7 +36,7 @@ Firefox desktop browser support is now available in public preview. Known issues
 
 ### iOS Chrome Known Issues
 iOS Chrome browser support is now available in public preview. Known issues are:
-- No outgoing and incoming audio when switching browser to background or locking the device
+- No outgoing and incoming audio when switching browser to background or locking the device. This issue has been fixed in iOS version 16.4+.
 - No incoming/outgoing audio coming from bluetooth headset. When a user connects bluetooth headset in the middle of Azure Communication Services call, the audio still comes out from the speaker until the user locks and unlocks the phone. We have seen this issue on older iOS versions (15.6, 15.7), and it isn't reproducible on iOS 16.
 
 ### iOS 16 introduced bugs when putting browser in the background during a call

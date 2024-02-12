@@ -369,6 +369,8 @@ items:
             href: event-schema-service-bus.md
           - name: Azure SignalR
             href: event-schema-azure-signalr.md
+          - name: Azure Storage Actions
+            href: event-schema-storage-actions.md
           - name: Azure subscriptions
             href: event-schema-subscriptions.md
       - name: Partner Events

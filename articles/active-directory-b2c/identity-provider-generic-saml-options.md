@@ -10,6 +10,9 @@ ms.date: 03/20/2023
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating Azure AD B2C with a SAML identity provider, I want to understand how to configure the SAML identity provider options, so that I can enable sign-in with the identity provider and map the claims correctly.
+
 ---
 
 

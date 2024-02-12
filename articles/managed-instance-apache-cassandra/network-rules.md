@@ -6,7 +6,6 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: jroth
-ms.custom: ignite-fall-2021
 ---
 
 # Required outbound network rules

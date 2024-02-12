@@ -2,7 +2,7 @@
 title: Support Matrix for Azure file share backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: conceptual
-ms.date: 04/27/2023
+ms.date: 01/24/2024
 ms.custom: references_regions, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
@@ -60,7 +60,7 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
-| Maximum number of restore per day                           | 10      |
+| Maximum number of restore per day                           | 20      |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
 | Maximum duration of a restore job                           | 15 days

@@ -7,7 +7,7 @@ ms.service: iot-operations
 ms.topic: glossary #Don't change
 ms.date: 01/10/2024
 
-#customer intent: As a user of Azure IoT Operations, I want learn about the terminology associated with Azure IoT Operations so that I can use the terminology correctly.
+# Customer intent: As a user of Azure IoT Operations, I want learn about the terminology associated with Azure IoT Operations so that I can use the terminology correctly.
 
 ---
 

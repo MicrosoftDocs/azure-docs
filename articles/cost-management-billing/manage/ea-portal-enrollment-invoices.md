@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: sapnakeshari
-ms.custom: contperf-fy21q1
 ---
 
 # Azure Enterprise enrollment invoices

@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, update-code
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
