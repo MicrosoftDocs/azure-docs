@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 02/09/2024
+ms.date: 02/12/2024
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -84,17 +84,12 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | [Microsoft ECC TLS Issuing AOC CA 02](https://crt.sh/?d=4814787086) | 0x33000000290f8a6222ef6a5695000000000029<br>3709cd92105d074349d00ea8327f7d5303d729c8 |
 | [Microsoft ECC TLS Issuing EOC CA 01](https://crt.sh/?d=4814787088) | 0x330000002a2d006485fdacbfeb00000000002a<br>5fa13b879b2ad1b12e69d476e6cad90d01013b46 |
 | [Microsoft ECC TLS Issuing EOC CA 02](https://crt.sh/?d=4814787085) | 0x330000002be6902838672b667900000000002b<br>58a1d8b1056571d32be6a7c77ed27f73081d6e7a |
-| [*Microsoft IT TLS CA 1*](https://crt.sh/?d=21606064) | 08b87a501bbe9cda2d164d3e3951bf55<br>417e225037fbfaa4f95761d5ae729e1aea7e3a42 |
-| [*Microsoft IT TLS CA 2*](https://crt.sh/?d=21606056) | 0f2c10c95b06c0937fb8d449f83e8569<br>54d9d20239080c32316ed9ff980a48988f4adf2d |
-| [*Microsoft IT TLS CA 4*](https://crt.sh/?d=21606070) | 0b6ab3b03eb1a9f6c460926aa8cdfeb3<br>8a38755d0996823fe8fa3116a277ce446eac4e99 |
-| [*Microsoft IT TLS CA 5*](https://crt.sh/?d=21606058) | 0888cd525f1924444d14a58291deb952<br>ad898ac73df333eb60ac1f5fc6c4b2219ddb79b7 |
 | [Microsoft RSA TLS CA 01](https://crt.sh/?d=3124375355) | 0x0f14965f202069994fd5c7ac788941e2<br>703D7A8F0EBF55AAA59F98EAF4A206004EB2516A |
 | [Microsoft RSA TLS CA 02](https://crt.sh/?d=3124375356) | 0x0fa74722c53d88c80f589efb1f9d4a3a<br>B0C2D2D13CDD56CDAA6AB6E2C04440BE4A429C75 |
 | [Microsoft RSA TLS Issuing AOC CA 01](https://crt.sh/?d=4789678141) | 0x330000002ffaf06f6697e2469c00000000002f<br>4697fdbed95739b457b347056f8f16a975baf8ee |
 | [Microsoft RSA TLS Issuing AOC CA 02](https://crt.sh/?d=4814787092) | 0x3300000030c756cc88f5c1e7eb000000000030<br>90ed2e9cb40d0cb49a20651033086b1ea2f76e0e |
 | [Microsoft RSA TLS Issuing EOC CA 01](https://crt.sh/?d=4814787098) | 0x33000000310c4914b18c8f339a000000000031<br>a04d3750debfccf1259d553dbec33162c6b42737 |
 | [Microsoft RSA TLS Issuing EOC CA 02](https://crt.sh/?d=4814787087) | 0x3300000032444d7521341496a9000000000032<br>697c6404399cc4e7bb3c0d4a8328b71dd3205563 |
-| [*MSFT RS256 CA*](https://crt.sh/?d=6525333468) | 039387a81a2cc68df28ba21385d73b1b<br>628326914a50592332e4e12ace33531bd689b55d |
 
 # [Certificate Authority chains](#tab/certificate-authority-chains)
 
@@ -105,10 +100,6 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | [**Baltimore CyberTrust Root**](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | 020000b9<br>d4de20d05e66fc53fe1a50882c78db2852cae474 |
 | └ [Microsoft RSA TLS CA 01](https://crt.sh/?d=3124375355) | 0x0f14965f202069994fd5c7ac788941e2<br>703D7A8F0EBF55AAA59F98EAF4A206004EB2516A |
 | └ [Microsoft RSA TLS CA 02](https://crt.sh/?d=3124375356) | 0x0fa74722c53d88c80f589efb1f9d4a3a<br>B0C2D2D13CDD56CDAA6AB6E2C04440BE4A429C75 |
-| └ [*Microsoft IT TLS CA 1*](https://crt.sh/?d=21606064) | 08b87a501bbe9cda2d164d3e3951bf55<br>417e225037fbfaa4f95761d5ae729e1aea7e3a42 |
-| └ [*Microsoft IT TLS CA 2*](https://crt.sh/?d=21606056) | 0f2c10c95b06c0937fb8d449f83e8569<br>54d9d20239080c32316ed9ff980a48988f4adf2d |
-| └ [*Microsoft IT TLS CA 4*](https://crt.sh/?d=21606070) | 0b6ab3b03eb1a9f6c460926aa8cdfeb3<br>8a38755d0996823fe8fa3116a277ce446eac4e99 |
-| └ [*Microsoft IT TLS CA 5*](https://crt.sh/?d=21606058) | 0888cd525f1924444d14a58291deb952<br>ad898ac73df333eb60ac1f5fc6c4b2219ddb79b7 |
 | [**DigiCert Global Root CA**](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 |
 | └ [DigiCert Basic RSA CN CA G2](https://crt.sh/?d=2545289014) | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 |
 | └ [DigiCert Cloud Services CA-1](https://crt.sh/?d=12624881) | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 |
@@ -126,16 +117,15 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | └ [Microsoft Azure RSA TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2008%20-%20xsign.crt) | 0x0efb7e547edf0ff1069aee57696d7ba0<br>31600991ED5FEC63D355A5484A6DCC787EAD89BC |
 | └ [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005.cer) | 0x0d7bede97d8209967a52631b8bdd18bd<br>6C3AF02E7F269AA73AFD0EFF2A88A4A1F04ED1E5 |
 | └ [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer) | 0x02e79171fb8021e93fe2d983834c50c0<br>30E01761AB97E59A06B41EF20AF6F2DE7EF4F7B0 |
-| └ [*MSFT RS256 CA*](https://crt.sh/?d=6525333468) | 039387a81a2cc68df28ba21385d73b1b<br>628326914a50592332e4e12ace33531bd689b55d |
 | [**DigiCert Global Root G3**](https://cacerts.digicert.com/DigiCertGlobalRootG3.crt) | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E |
 | └ [Microsoft Azure ECC TLS Issuing CA 01](https://www.microsoft.com/pki/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2001.cer) | 0x09dc42a5f574ff3a389ee06d5d4de440<br>92503D0D74A7D3708197B6EE13082D52117A6AB0 |
 | └ [Microsoft Azure ECC TLS Issuing CA 02](https://www.microsoft.com/pki/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2002.cer) | 0x0e8dbe5ea610e6cbb569c736f6d7004b<br>1E981CCDDC69102A45C6693EE84389C3CF2329F1 |
 | └ [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003%20-%20xsign.crt) | 0x01529ee8368f0b5d72ba433e2d8ea62d<br>56D955C849887874AA1767810366D90ADF6C8536 |
 | └ [Microsoft Azure ECC TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2004%20-%20xsign.crt) | 0x02393d48d702425a7cb41c000b0ed7ca<br>FB73FDC24F06998E070A06B6AFC78FDF2A155B25 |
-| └ [Microsoft Azure ECC TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007%20-%20xsign.crt) | 0x0f1f157582cdcd33734bdc5fcd941a33<br>3BE6CA5856E3B9709056DA51F32CBC8970A83E28 |
-| └ [Microsoft Azure ECC TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2008%20-%20xsign.crt) | 0x0ef2e5d83681520255e92c608fbc2ff4<br>716DF84638AC8E6EEBE64416C8DD38C2A25F6630 |
 | └ [Microsoft Azure ECC TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2005.cer) | 0x0ce59c30fd7a83532e2d0146b332f965<br>C6363570AF8303CDF31C1D5AD81E19DBFE172531 |
 | └ [Microsoft Azure ECC TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2006.cer) | 0x066e79cd7624c63130c77abeb6a8bb94<br>7365ADAEDFEA4909C1BAADBAB68719AD0C381163 |
+| └ [Microsoft Azure ECC TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007%20-%20xsign.crt) | 0x0f1f157582cdcd33734bdc5fcd941a33<br>3BE6CA5856E3B9709056DA51F32CBC8970A83E28 |
+| └ [Microsoft Azure ECC TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2008%20-%20xsign.crt) | 0x0ef2e5d83681520255e92c608fbc2ff4<br>716DF84638AC8E6EEBE64416C8DD38C2A25F6630 |
 | [**Microsoft ECC Root Certificate Authority 2017**](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 |
 | └ [Microsoft Azure ECC TLS Issuing CA 01](https://crt.sh/?d=2616305805) | 0x330000001aa9564f44321c54b900000000001a<br>CDA57423EC5E7192901CA1BF6169DBE48E8D1268 |
 | └ [Microsoft Azure ECC TLS Issuing CA 02](https://crt.sh/?d=2616326233) | 0x330000001b498d6736ed5612c200000000001b<br>489FF5765030EB28342477693EB183A4DED4D2A6 |
