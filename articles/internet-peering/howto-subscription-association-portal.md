@@ -62,7 +62,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
     | Peer name | Enter your company name. This name must be as close as possible to your PeeringDB profile. |
     | Peer ASN | Enter your ASN. |
 
-    :::image type="content" source="./media/howto-subscription-association-portal/associate-peer-asn.png" alt-text="Screenshot shows how to register Peering provider in the Azure portal." lightbox="./media/howto-subscription-association-portal/associate-peer-asn.png":::
+    :::image type="content" source="./media/howto-subscription-association-portal/associate-peer-asn.png" alt-text="Screenshot shows how to associate a peer ASN in the Azure portal." lightbox="./media/howto-subscription-association-portal/associate-peer-asn.png":::
 
 1. Select **Create new** and enter **Email address** and **Phone number** of your Network Operations Center (NOC).
 
