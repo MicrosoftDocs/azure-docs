@@ -151,7 +151,7 @@ Agentless secrets scanning for GCP VM instances supports the following attack pa
 
 ## Remediate secrets with recommendations
 
-If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the Recommendations page. Depending on your resources, either one or more of the following recommendations appears:
+If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the Recommendations page. Depending on your resources, one or more of the following recommendations appears:
 
 - **Azure resources**: `Machines should have secrets findings resolved`
 
