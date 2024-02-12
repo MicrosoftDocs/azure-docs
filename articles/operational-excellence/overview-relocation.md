@@ -36,35 +36,35 @@ Each service specific guide can contain service-specific information on topics s
 
 ## Azure services relocation guides
 
-The following tables provide links to each Azure service relocation document.
+The following tables provide links to each Azure service relocation document. It also provides information on which kind of relocation method is supported.
 
 ### ![An icon that signifies this service is foundational.](./media/relocation/icon-foundational.svg) Foundational services 
 
-| **Product**  |
-| --- | 
-[Azure Event Hubs](relocation-event-hub.md)|
-[Azure Event Hubs Cluster](relocation-event-hub-cluster.md)|
-[Azure Key Vault](./relocation-key-vault.md)|
-[Azure Virtual Network](./relocation-virtual-network.md)|
-[Azure Virtual Network - Network Security Groups](./relocation-virtual-network-nsg.md)|
+| Product  | Relocation with data | Relocation without data | Resource Mover | 
+| --- | --- | --- | ---|
+[Azure Event Hubs](relocation-event-hub.md)| ❌ | ✅| ❌ |
+[Azure Event Hubs Cluster](relocation-event-hub-cluster.md)| ❌ | ✅| ❌ |
+[Azure Key Vault](./relocation-key-vault.md)| ✅ | ✅| ❌ |
+[Azure Virtual Network](./relocation-virtual-network.md)| ❌ | ✅| ✅ |
+[Azure Virtual Network - Network Security Groups](./relocation-virtual-network-nsg.md)| ❌ | ✅| ✅ |
 
 ### ![An icon that signifies this service is mainstream.](./media/relocation/icon-mainstream.svg) Mainstream services
 
-| **Product**  |
-| --- | 
-[Azure Monitor - Log Analytics](./relocation-log-analytics.md)|
-[Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)|
-[Azure Private Link Service](./relocation-private-link.md) |
-[Storage Account](relocation-storage-account.md)|
+| Product  | Relocation with data | Relocation without data | Resource Mover | 
+| --- | --- | --- | ---|
+[Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ❌ | ✅| ❌ |
+[Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)| ✅ | ✅| ❌ |
+[Azure Private Link Service](./relocation-private-link.md) | ❌ | ✅| ❌ |
+[Storage Account](relocation-storage-account.md)| ✅ | ✅| ❌ |
 
 
 
 ### ![An icon that signifies this service is strategic.](./media/relocation/icon-strategic.svg) Strategic services
 
-| **Product**  |
-| --- | 
-[Azure Automation](./relocation-automation.md)|
-[Microsoft Defender for Cloud](relocation-defender.md)
+| Product  | Relocation with data | Relocation without data | Resource Mover | 
+| --- | --- | --- | ---|
+[Azure Automation](./relocation-automation.md)| ✅ | ✅| ❌ |
+
 
 
 ## Additional information
