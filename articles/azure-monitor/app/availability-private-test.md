@@ -10,7 +10,17 @@ ms.reviewer: shyamala
 
 If you want to use availability tests on internal servers that run behind a firewall, you have two possible solutions: public availability test enablement and disconnected/no ingress scenarios.
 
+## Disconnected or no ingress scenarios
+
+To use this method, your test server must have outgoing access to the Application Insights ingestion endpoint. This is a much lower security risk than the alternative of permitting incoming requests. The results will appear in the availability web tests tab with a simplified experience from what is available for tests created via the Azure portal. Custom availability tests will also appear as availability results in **Analytics**, **Search**, and **Metrics**.
+
+1. Connect your Application Insights resource and disconnected environment by using [Azure Private Link](../logs/private-link-security.md).
+1. Write custom code to periodically test your internal server or endpoints. You can run the code by using [Azure Functions](availability-azure-functions.md) or a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using the `TrackAvailability()` API in the core SDK package.
+
 ## Public availability test enablement
+
+> [!WARNING]
+> Use availability tests for the public endpoints only. Testing private endpoints with service tags can make service accessible from other Azure Monitor Availability Tests.
 
 > [!NOTE]
 > If you don't want to allow any ingress to your environment, use the method in the [Disconnected or no ingress scenarios](#disconnected-or-no-ingress-scenarios) section.
@@ -33,13 +43,6 @@ Configure your firewall to permit incoming requests from our service.
     1. Next, select **IP Addresses** as your source. Then add your IP addresses in a comma-delimited list in source IP address/CIRD ranges.
 
          :::image type="content" source="media/availability-private-test/ip-addresses.png" alt-text="Screenshot that shows the Add inbound security rules tab with a source of IP addresses.":::
-
-## Disconnected or no ingress scenarios
-
-To use this method, your test server must have outgoing access to the Application Insights ingestion endpoint. This is a much lower security risk than the alternative of permitting incoming requests. The results will appear in the availability web tests tab with a simplified experience from what is available for tests created via the Azure portal. Custom availability tests will also appear as availability results in **Analytics**, **Search**, and **Metrics**.
-
-1. Connect your Application Insights resource and disconnected environment by using [Azure Private Link](../logs/private-link-security.md).
-1. Write custom code to periodically test your internal server or endpoints. You can run the code by using [Azure Functions](availability-azure-functions.md) or a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using the `TrackAvailability()` API in the core SDK package.
 
 ## Troubleshooting
 
