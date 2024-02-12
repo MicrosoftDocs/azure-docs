@@ -8,7 +8,7 @@ ms.author: lajanuar
 author: laujan
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 09/07/2023
+ms.date: 02/12/2024
 ---
 
 # Start translation
@@ -231,11 +231,11 @@ Make sure you specify the folder name (case sensitive) as prefix in filter.
 
 **Translating specific document in a container**
 
-* Specify "storageType": "File"
+* Specify "storageType": `File`.
 * Create source URL & SAS token for the specific blob/document.
 * Specify the target filename as part of the target URL – though the SAS token is still for the container.
 
-This sample request shows a single document translated into two target languages
+This sample request shows a single document translated into two target languages.
 
 ```json
 {
@@ -271,8 +271,8 @@ The following are the possible HTTP status codes that a request returns.
 |401|Unauthorized. Check your credentials.|
 |429|Request rate is too high.|
 |500|Internal Server Error.|
-|503|Service is currently unavailable.  Try again later.|
-|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
+|503|Service is currently unavailable. Try again later.|
+|Other Status Codes|&bullet; Too many requests<br>&bullet; Server temporary unavailable|
 
 ## Error response
 
@@ -280,7 +280,7 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|`string`|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|`string`|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(it can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties: ErrorCode, message, and optional properties target, details(key value pair), and inner error(it can be nested).|
 |inner.Errorcode|`string`|Gets code error string.|
 |innerError.message|`string`|Gets high-level error message.|
 |innerError.target|`string`|Gets the source of the error. For example, it would be `documents` or `document id` if the document is invalid.|

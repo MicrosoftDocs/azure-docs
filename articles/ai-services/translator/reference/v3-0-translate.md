@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 01/31/2024
+ms.date: 02/12/2024
 ms.author: lajanuar
 ---
 
@@ -43,8 +43,8 @@ Request parameters passed on the query string are:
 | --- | --- |
 | from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](../dynamic-dictionary.md) feature. **Note**: the dynamic dictionary feature is case-sensitive. |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
-| category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../custom-translator/concepts/customization.md). Add the Category ID from your Custom Translator [project details](../custom-translator/how-to/create-manage-project.md) to this parameter to use your deployed customized system. Default value is: `general`. |
-| profanityAction | _Optional parameter_.  <br>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked` or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
+| category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../custom-translator/concepts/customization.md). To use your deployed customized system, add the Category ID from your Custom Translator [project details](../custom-translator/how-to/create-manage-project.md) to the category parameter. Default value is: `general`. |
+| profanityAction | _Optional parameter_.  <br>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked`, or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
 | profanityMarker | _Optional parameter_.  <br>Specifies how profanities should be marked in translations. Possible values are: `Asterisk` (default) or `Tag`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
 | includeAlignment | _Optional parameter_.  <br>Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false` (default). |
 | includeSentenceLength | _Optional parameter_.  <br>Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: `true` or `false` (default). |
@@ -57,7 +57,7 @@ Request headers include:
 
 | Headers | Description |
 | --- | --- |
-| Authentication header(s) | _Required request header_.  <br>See [available options for authentication](./v3-0-reference.md#authentication). |
+| Authentication headers | _Required request header_.  <br>See [available options for authentication](./v3-0-reference.md#authentication). |
 | Content-Type | _Required request header_.  <br>Specifies the content type of the payload.  <br>Accepted value is `application/json; charset=UTF-8`. |
 | Content-Length | _Required request header_.  <br>The length of the request body. |
 | X-ClientTraceId | _Optional_.  <br>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
@@ -100,7 +100,7 @@ A successful response is a JSON array with one result for each string in the inp
 
     The `transliteration` object isn't included if transliteration doesn't take place.
 
-    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
+    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`. The colon separates start and end index, the dash separates the languages, and space separates the words. One word can align with zero, one, or multiple words in the other language, and the aligned words can be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
 
 * `sentLen`: An object returning sentence boundaries in the input and output texts.
 
@@ -261,9 +261,9 @@ The response body is:
 
 ### Handle profanity
 
-Normally, the Translator service retains profanity that is present in the source in the translation. The degree of profanity and the context that makes words profane differ between cultures, and as a result the degree of profanity in the target language may be amplified or reduced.
+Normally, the Translator service retains profanity that is present in the source in the translation. The degree of profanity and the context that makes words profane differ between cultures, and as a result the degree of profanity in the target language can be amplified or reduced.
 
-If you want to avoid getting profanity in the translation, regardless of the presence of profanity in the source text, you can use the profanity filtering option. The option allows you to choose whether you want to see profanity deleted, marked with appropriate tags (giving you the option to add your own post-processing), or with no action taken. The accepted values of `ProfanityAction` are `Deleted`, `Marked` and `NoAction` (default).
+If you want to avoid getting profanity in the translation, regardless of the presence of profanity in the source text, you can use the profanity filtering option. The option allows you to choose whether you want to see profanity deleted, marked with appropriate tags (giving you the option to add your own post-processing), or with no action taken. The accepted values of `ProfanityAction` are `Deleted`, `Marked`, and `NoAction` (default).
 
 
 | ProfanityAction | Action |
@@ -373,14 +373,14 @@ The alignment information starts with `0:2-0:1`, which means that the first thre
 
 Obtaining alignment information is an experimental feature that we enabled for prototyping research and experiences with potential phrase mappings. We may choose to stop supporting this feature in the future. Here are some of the notable restrictions where alignments aren't supported:
 
-* Alignment isn't available for text in HTML format that is, textType=html
+* Alignment isn't available for text in HTML format that is, textType=html.
 * Alignment is only returned for a subset of the language pairs:
   * English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
   * from Japanese to Korean or from Korean to Japanese.
   * from Japanese to Chinese Simplified and Chinese Simplified to Japanese.
   * from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified.
-* You don't alignment if the sentence is a canned translation. Example of a canned translation is `This is a test`, `I love you` and other high frequency sentences.
-* Alignment isn't available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
+* You don't alignment if the sentence is a canned translation. Example of a canned translation is `This is a test`, `I love you`, and other high frequency sentences.
+* Alignment isn't available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md).
 
 ### Obtain sentence boundaries
 
