@@ -88,6 +88,11 @@ This recommended action is available when:
 
     :::image type="content" source="media/endpoint-detection-response/enable-fix.png" alt-text="Screenshot that shows where the fix button is located." lightbox="media/endpoint-detection-response/enable-fix.png":::
 
+1. In the dropdown menu, select **Plan 2** 
+
+    > [!NOTE]
+    > Defender for Servers plan 2 comes with its own cost, learn more about the cost on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
 1. Select **Enable**.
 
     :::image type="content" source="media/endpoint-detection-response/enable-endpoint.png" alt-text="Screenshot that shows the pop-up window from which to enable the Defender for Endpoint integration on.":::
@@ -112,7 +117,10 @@ This recommended action is available when:
 
     :::image type="content" source="media/endpoint-detection-response/upgrade-fix.png" alt-text="Screenshot that shows where the fix button is located on the screen." lightbox="media/endpoint-detection-response/upgrade-fix.png":::
 
-1. In the plan selection drop-down menu, select **Plan 1** or **Plan 2**. Each plan comes with its own cost, learn more about the cost of each plan on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+1. In the dropdown menu, select **Plan 2**  
+
+    > [!NOTE]
+    > Defender for Servers plan 2 comes with its own cost, learn more about the cost on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 1. Select **Enable**.
 
