@@ -39,8 +39,16 @@ Analytics rules search for specific events or sets of events across your environ
 
     [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
-- Set the alert **Severity** as appropriate.
+- Set the alert **Severity** as appropriate, matching the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.
 
+    - **Low**. The immediate impact would be minimal. A threat actor would likely need to conduct multiple steps before achieving impact on an environment.
+    - **Medium**: The threat actor could perform some impact on the environment with this activity, but it would be limited in scope or require additional activity.
+    - **High**: The activity identified provides the threat actor with wide ranging access to conduct actions on the environment, or is triggered by impact on the environment.
+
+    Severity level defaults are not a guarrantee of current or environment impact level. In an API, use the [alertDetailsOverride](/rest/api/securityinsights/alert-rules/create-or-update?view=rest-securityinsights-2023-11-01&tabs=HTTP#alertdetailsoverride) property to provide a dynamic severity that defines a value based on an a query outcome.
+
+    Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for Microsoft Sentinel alerts. For alerts coming from other services, the severity is defined by the source security service. 
+  
 - When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
    :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Start creating a custom analytics rule":::
