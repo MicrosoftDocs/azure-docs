@@ -16,7 +16,7 @@ Azure Operator 5G Core is a carrier-grade, Any-G, hybrid mobile packet core with
  
 The power of Azure's global footprint ensures global coverage and operating infrastructure at scale, coupled with Microsoft’s Zero Trust security framework to provide secure and reliable connectivity to cloud applications.  
   
-Sophisticated management tools and automated lifecycle management simplify and streamline network operations. Operators can efficiently accelerate migration to 5G in standalone and non-standalone architectures, while continuing to support all legacy mobile network access technologies (2G, 3G, & 4G). 
+Sophisticated management tools and automated lifecycle management simplify and streamline network operations. Operators can efficiently accelerate migration to 5G in standalone and nonstandalone architectures, while continuing to support all legacy mobile network access technologies (2G, 3G, & 4G). 
  
 Streamlined in-service software upgrades at both the platform and application layer minimize downtime and complexity during version updates, and automated rollback mechanism ensures the system can revert to the previous stable state if needed. Preconfigured templates and blueprints simplify and standardize deployment.  
   
@@ -25,7 +25,7 @@ Azure Operator 5G Core's observability stack provides a rich set of insightful d
 
 ## Key Features and Benefits  
 
-Azure Operator 5G Core includes the following benefits for operating secure, carrier-grade network functions at scale.  
+Azure Operator 5G Core includes the following benefits for operating secure. Carrier-grade network functions at scale.  
 
 ### Any-G 
 
@@ -50,7 +50,7 @@ Azure Operator 5G Core offers the following network functions: 
 
 **4G / 5G NSA:**  
 - Mobility Management Entity (MME)  
-- PDN Gateway Control Plane Function (PGW-C)  
+- Packet Data Network (PDN) Gateway Control Plane Function (PGW-C)  
 - PDN Gateway User Plane Function (PGW-U)  
 - Serving Gateway Control Plane Function (SGW-C)  
 - Serving Gateway User Plane Function (SGW-U)  
@@ -61,7 +61,7 @@ Azure Operator 5G Core offers the following network functions: 
  
  :::image type="content" source="media/overview-product/all-g-network.png" alt-text="Diagram of text boxes showing the network functions supported by the all-g network offering of Azure Operator 5G Core.":::
 
-Any-G is built on top of Azure Operator Nexus and Azure – with flexible Network Function (NF) placement based on the operator use case. Different use cases drive  NF deployment topologies. Network Functions can be placed geographically closer to the users for scenarios such as consumer, low latency and MEC or centralized for machine to machine (Internet of Things) and enterprise scenarios. Deployment is API driven regardless of the placement of the network functions.  
+Any-G is built on top of Azure Operator Nexus and Azure – with flexible Network Function (NF) placement based on the operator use case. Different use cases drive  NF deployment topologies. Network Functions can be placed geographically closer to the users for scenarios such as consumer, low latency, and MEC or centralized for machine to machine (Internet of Things) and enterprise scenarios. Deployment is API driven regardless of the placement of the network functions.  
   
 
 ### Resiliency  
