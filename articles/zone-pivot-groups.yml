@@ -1198,7 +1198,7 @@ groups:
   - id: platform-linux
     title: Linux
   - id: platform-windows
-    title: Windows
+    title: Windows code
   - id: platform-windows-container
     title: Windows container
 # Owner: msangapu

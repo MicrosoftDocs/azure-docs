@@ -21,11 +21,17 @@ Get started with [Azure App Service](overview.md) by deploying an app to the clo
 
 A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. 
 
-If you already have an Azure subscription and you're familiar with using ARM templates, select the **Deploy to Azure** button to deploy an app. This button opens the ARM template in the Azure portal.
+To complete this quickstart, you'll need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
+
+## Skip to the end
+
+If you're familiar with using ARM templates, you can skip to the end by selecting the **Deploy to Azure** button. This button opens the ARM template in the Azure portal. 
 
 Use the following button to deploy on **Windows**:
-
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json)
+
+In the Azure portal, select **Create new** to create a new **Resource Group** and then select the **Review + create** button to deploy the app.
+
 ::: zone-end
 ::: zone pivot="platform-linux"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. You incur no costs to complete this quickstart because you use a free App Service tier.
@@ -49,10 +55,6 @@ Use the following button to deploy on **Windows container**:
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows-container%2Fazuredeploy.json)
 ::: zone-end
-
-## Prerequisites
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Review the template
 
