@@ -5,9 +5,8 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: greglin 
+ms.author: greglin
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 

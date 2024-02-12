@@ -6,20 +6,12 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 02/06/2024
 ---
 
 # Microsoft Entra ID and PostgreSQL authentication with Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra ID (formerly Azure Active Directory) authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained 
-> capabilities.
->
-> You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
 Azure Cosmos DB for PostgreSQL supports PostgreSQL authentication and integration with Microsoft Entra ID. Each Azure Cosmos DB for PostgreSQL cluster is created with native PostgreSQL authentication enabled and one built-in PostgreSQL role named `citus`. You can add more native PostgreSQL roles after cluster provisioning is completed.
 
@@ -62,8 +54,9 @@ Notably, the `citus` role has some restrictions:
 `citus` role can't be deleted but would be disabled if 'Microsoft Entra ID authentication only' authentication method is selected on cluster.
 
 <a name='azure-active-directory-authentication-preview'></a>
+<a name='microsoft-entra-id-authentication-preview'></a>
 
-## Microsoft Entra ID authentication (preview)
+## Microsoft Entra ID authentication
 
 [Microsoft Entra ID](/entra/fundamentals/whatis) (formerly Azure Active Directory) authentication is a mechanism of connecting to Azure Cosmos DB  for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra ID authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
@@ -79,9 +72,9 @@ Benefits of using Microsoft Entra ID include:
 
 ### Manage PostgreSQL access for Microsoft Entra ID principals
 
-When Microsoft Entra ID authentication is enabled and Microsoft Entra ID principal is added as a Microsoft Entra ID administrator, the account gets the same privileges as [the `citus` role](#the-citus-role). The Microsoft Entra ID administrator sign-in can be a Microsoft Entra ID user, Service Principal or Managed Identity. Multiple Microsoft Entra ID administrators can be configured at any time and you can optionally disable PostgreSQL (password) authentication to the Azure Cosmos DB for PostgreSQL cluster for better auditing and compliance needs.
+When Microsoft Entra ID authentication is enabled and Microsoft Entra ID principal is added as a Microsoft Entra ID administrator, the account gets the same privileges as [the `citus` role](#the-citus-role). The Microsoft Entra ID administrator sign-in can be a Microsoft Entra ID user, Service Principal, or Managed Identity. Multiple Microsoft Entra ID administrators can be configured at any time and you can optionally disable PostgreSQL (password) authentication to the Azure Cosmos DB for PostgreSQL cluster for better auditing and compliance needs.
 
-Additionally, any number of non-admin Microsoft Entra ID roles can be added to a cluster at any time once Microsoft Entra ID authentication is enabled. Database permissions for non-admin Microsoft Entra ID roles are managed similar to regular roles.
+Additionally, any number of nonadmin Microsoft Entra ID roles can be added to a cluster at any time once Microsoft Entra ID authentication is enabled. Database permissions for nonadmin Microsoft Entra ID roles are managed similar to regular roles.
 
 <a name='connect-using-azure-ad-identities'></a>
 
@@ -109,7 +102,7 @@ Once you've authenticated against the Microsoft Entra ID, you then retrieve a to
 
 ## Next steps
 
-- Check out [Microsoft Entra ID limits and limitations in Azure Cosmos DB for PostgreSQL](./reference-limits.md#azure-active-directory-authentication)
+- Check out [Microsoft Entra ID limits and limitations in Azure Cosmos DB for PostgreSQL](./reference-limits.md#microsoft-entra-id-authentication)
 - [Learn how to configure authentication for Azure Cosmos DB for PostgreSQL clusters](./how-to-configure-authentication.md)
 - Set up private network access to the cluster nodes, see [Manage private access](./howto-private-access.md)
 - Set up public network access to the cluster nodes, see [Manage public access](./howto-manage-firewall-using-portal.md)
