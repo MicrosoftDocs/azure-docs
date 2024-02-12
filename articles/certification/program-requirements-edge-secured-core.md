@@ -439,9 +439,10 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured IOMMU or SMMU.|
 |Purpose|Protects against drive-by and other attacks that seek to use other DMA masters to bypass CPU memory integrity protections.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: A securely configurable peripheral firewall.</li></ul>|
-</br>
 
 ---
+</br>
+
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
