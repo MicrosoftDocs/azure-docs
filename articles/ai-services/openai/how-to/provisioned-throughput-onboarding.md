@@ -120,28 +120,43 @@ With the plan ready, the next step is to create the commitments.  Commitments ar
 
 For each new commitment you need to create, follow these steps:
 
-1. Launch the Provisioned Throughput purchase dialog by selecting  **Quotas** > **Provisioned** > **Click here to purchase**.
+1. Launch the Provisioned Throughput purchase dialog by selecting  **Quotas** > **Provisioned** > **Manage Commitments**.
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/quota.png" alt-text="Screenshot of the purchase dialog." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
 
-2. Select the Azure OpenAI resource and purchase the commitment.
+2. Select **Purchase commitment**
+
+3. Select the Azure OpenAI resource and purchase the commitment. You will see your resources divided into resources with existing commitments which you can edit and resources that do not currently have a commitment.
 
 | Setting | Notes |
 |---------|-------|
 | **Select a resource** | Choose the resource where you will create the provisioned deployment. Once you have purchased the commitment, you will be unable to use the PTUs on another resource until the current commitment expires. |
-| **Amount to commit (PTU)** | Choose the number of PTUs you're committing to. This number can be increased later, but can't be decreased |
+| **Select a commitment type** | Select Provisioned. (Provisioned is equivalent to Provisioned Managed) |
+| **Current uncomitted provisioned quota** | The amount of PTUs currently available for you to commit to this resource. | 
+| **Amount to commit (PTU)** | Choose the number of PTUs you're committing to. **This number can be increased later, but can't be decreased**. Enter values in increments of 50 for the commitment type Provisioned. |
 | **Commitment tier for current period** | The commitment period is set to one month. |
-| **Renewal settings** | Select Purchase. A confirmation dialog will be displayed. After you confirm, your PTUs will be committed, and you can use them to create a provisioned deployment. |
+| **Renewal settings** | Auto-renew at current PTU's <br> Auto-renew at lower PTUs <br> Do not auto-renew |
+
+4. Select Purchase. A confirmation dialog will be displayed. After you confirm, your PTUs will be committed, and you can use them to create a provisioned deployment. |
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/commitment-tier.png" alt-text="Screenshot of commitment purchase UI." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
 
 ### Adding Provisioned Throughput Units to existing commitments
 
-The steps are the same as in the previous example, but you'll increase the **amount to commit (PTU)** value. The value shown here is the total amount of PTUs purchased not incremental. The additional price charge displayed will represent a pro-rated amount to pay for the added PTUs over the remaining time in the time period. 
+The steps are the same as in the previous example, but you'll select **edit commitment** and then increase the **add PTUs to current commitment** value. The additional price charge displayed will represent a pro-rated amount to pay for the added PTUs over the remaining time in the selected time period.
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/increase-commitment.png" alt-text="Screenshot of commitment purchase UI with an increase in the amount to commit value." lightbox="../media/how-to/provisioned-onboarding/increase-commitment.png":::
 
 ### Managing commitments
+
+### Track commitments
+
+The manage commitments pane provides a subscription wide overview of all resources with commitments and PTU usage within a given Azure Subscription. Of particular importance are:
+
+* Expiration policy - The current renewal settings for a commitment.
+* Notifications - Alerts regarding important conditions such as unused commitments, or situations when a commitment has expired and deployments are still present but have shifted to hourly billing. 
+
+:::image type="content" source="../media/how-to/provisioned-onboarding/notifications.png" alt-text="Screenshot of commitment purchase UI with notifications." lightbox="../media/how-to/provisioned-onboarding/notifications.png":::
 
 **Discontinue use of provisioned throughput**
 
@@ -154,7 +169,7 @@ To end use of provisioned throughput, and stop any charges after the current com
 
 It isn't possible in Azure OpenAI Studio to directly *move* a deployment or a commitment to a new resource.  Instead, a new deployment needs to be created on the target resource and traffic moved to it.  There will need to be a commitment purchased established on the new resource to accomplish this.  Because commitments are charged up-front for a 30-day period, it's necessary to time this move with the expiration of the original commitment to minimize overlap with the new commitment and “double-billing” during the overlap.
 
-There are two approaches that can be taken to implement this transition. 
+There are two approaches that can be taken to implement this transition.
 
 **Option 1: No-Overlap Switchover**
 
