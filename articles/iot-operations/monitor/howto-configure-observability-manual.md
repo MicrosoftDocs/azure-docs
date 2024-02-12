@@ -37,7 +37,7 @@ To set up Prometheus metrics collection for the new Arc-enabled cluster, follow 
 ## Install Container Insights
 Container Insights monitors the performance of container workloads deployed to the cloud. It gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, metrics and container logs are automatically collected through a containerized version of the Log Analytics agent for Linux. Metrics are sent to the metrics database in Azure Monitor. Log data is sent to your Log Analytics workspace.
 
-Complete the steps to [enable container insights](../../azure-monitor/containers/container-insights-onboard.md).
+To monitor container workload performance, complete the steps to [enable container insights](../../azure-monitor/containers/container-insights-onboard.md).
 
 ## Install Grafana
 Azure Managed Grafana is a data visualization platform built on top of the Grafana software by Grafana Labs. Azure Managed Grafana is a fully managed Azure service operated and supported by Microsoft. Grafana helps you bring together metrics, logs and traces into a single user interface. With its extensive support for data sources and graphing capabilities, you can view and analyze your application and infrastructure telemetry data in real-time.
