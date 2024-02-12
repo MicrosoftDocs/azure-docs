@@ -29,7 +29,7 @@ The top level AI Studio resources (AI hub and AI projects) are based on Azure Ma
     - Groups of components such as datasets, models, and indexes.
     - An isolated data container (within the storage inherited from the AI hub).
     - Project-scoped connections. For example, a project may need access to data stored in a separate Azure Storage account.
-    - Fine tuned model endpoints.
+    - Fine-tuned model endpoints.
  
 An AI hub can have multiple child AI projects. Each AI project can have its own set of project-scoped connections.
 
