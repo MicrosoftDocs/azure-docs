@@ -4,7 +4,7 @@ description: Learn how to use Defender for Cloud recommendations to identify if 
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 02/12/2024
 ---
 
 # Detect and configure endpoint detection and response solutions
