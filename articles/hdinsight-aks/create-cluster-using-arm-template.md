@@ -13,15 +13,13 @@ ms.date: 02/12/2024
 
 This article describes how to generate an ARM template using Azure CLI. 
 
-## Prerequisites
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 * An operational HDInsight on AKS cluster.
-* [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
   
 
 ## Steps to generate ARM template for the cluster
     
-1. Run the following command
+1. Run the following command.
 
    ```azurecli-interactive
 
