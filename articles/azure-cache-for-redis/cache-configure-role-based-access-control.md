@@ -116,12 +116,14 @@ The following list contains some examples of permission strings for various scen
 
 1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
 
-1. From the Resource menu, select **Advanced settings**.
+1. From the Resource menu, select **Authentication**.
 
-1. If not checked already, Check the box labeled **(PREVIEW) Enable Microsoft Entra Authorization** and select **OK**. Then, select **Save**.
+1. Click on **(PREVIEW) Enable Microsoft Entra Authorization** tab.
+  
+1. If not checked already, Check the box labeled **Enable Microsoft Entra Authorization** and select **Save**. In case you wish to add any user, managed identity or service principal with 'Data Owner Access Policy' assigned, you can enter its name in the text box provided and then select **Save**.
 
-   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-azure-ad-access-authorization.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
-
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-azure-entra-id-access-authorization.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
+   
 1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
 
    > [!IMPORTANT]
