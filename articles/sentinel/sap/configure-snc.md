@@ -223,7 +223,7 @@ For troubleshooting information, see these articles:
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
 - [Microsoft Sentinel solutions](../sentinel-solutions.md)
 
-For reference files, see these articles:
+For reference, see these articles:
 
 - [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
 - [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
