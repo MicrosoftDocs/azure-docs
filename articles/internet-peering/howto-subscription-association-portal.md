@@ -1,5 +1,5 @@
 ---
-title: Associate peer ASN to Azure subscription - Azure portal
+title: Associate your ASN to Azure subscription - Azure portal
 titleSuffix: Internet Peering
 description: Learn how to associate peer ASN to Azure subscription using the Azure portal.
 author: halkazwini
@@ -11,7 +11,7 @@ ms.date: 02/12/2024
 #CustomerIntent: As an administrator, I want to learn how to create a PeerASN resource so I can associate my peer ASN to Azure subscription and submit peering requests.
 ---
 
-# Associate peer ASN to Azure subscription using the Azure portal
+# Associate your ASN with an Azure subscription using the Azure portal
 
 In this article, you learn how to associate your Autonomous System Number (ASN) with an Azure subscription using the Azure portal. To learn how to associate your ASN with an Azure subscription using Azure PowerShell, see [Associate peer ASN to Azure subscription using PowerShell](howto-subscription-association-powershell.md).
 
