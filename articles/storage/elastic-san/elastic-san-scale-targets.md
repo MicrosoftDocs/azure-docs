@@ -21,7 +21,7 @@ An Elastic SAN has three attributes that determine its performance: total capaci
 
 The total capacity of your Elastic SAN is determined by two different capacities, the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.
 
-The maximum total capacity of your SAN is determined by the region where it's located and by its redundancy configuration. The minimum total capacity for an Elastic SAN is 1 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
+The region your SAN is located in and your SAN's redundancy determines its maximum total capacity. The minimum total capacity for an Elastic SAN is 1 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
 
 ### IOPS
 
@@ -37,11 +37,11 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 
 #### LRS
 
-Different regions have varying levels of base storage capacity available. We'll break them down into two sets, regions with a higher base storage capacity available, and regions with a lower base storage capacity available. Other than the base storage capacity differences, which directly affect the available performance that a SAN can distribute to its volumes and volume groups, there are no differences between these sets of regions.
+Different regions have varying levels of base storage capacity available. We break them down into two sets, regions with a higher base storage capacity available, and regions with a lower base storage capacity available. Other than the base storage capacity differences, which directly affect the available performance that a SAN can distribute to its volumes and volume groups, there are no differences between these sets of regions.
 
 ##### Higher available base storage capacity
 
-The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: Australia East,Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, and West US 2.
+The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: Australia East, Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, and West US 2.
 
 
 |Resource  |Values  |
