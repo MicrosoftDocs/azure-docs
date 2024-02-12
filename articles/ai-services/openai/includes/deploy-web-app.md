@@ -5,7 +5,7 @@ author: aahill
 ms.author: aahi
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 06/15/2023
+ms.date: 02/09/2024
 ---
 
 ## Deploy your model
@@ -26,6 +26,6 @@ Select your subscription, resource group, location, and pricing plan for the pub
 update an existing app, select **Publish to an existing web app** and choose the name of your previous 
 app from the dropdown menu.
 
-If you choose to deploy a web app, see the [important considerations](../concepts/use-your-data.md#important-considerations) for using it.
+If you choose to deploy a web app, see the [important considerations](../how-to/use-web-app.md#important-considerations) for using it.
 > [!div class="nextstepaction"]
 > [I ran into an issue with deploying the model.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Create-sample-app)

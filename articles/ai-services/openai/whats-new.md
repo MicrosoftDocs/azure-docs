@@ -55,6 +55,10 @@ Azure OpenAI Service now supports text to speech APIs with OpenAI's voices. Get 
 You can now use Azure OpenAI on your data in the following Azure region:
 * South Africa North
 
+### Azure OpenAI on your data general availability
+
+- [Azure OpenAI on your data](./concepts/use-your-data.md) is now generally available. It additionally provides public preview support for Pinecone and Elasticsearch databases.
+
 ## December 2023
 
 ### Azure OpenAI on your data
@@ -76,7 +80,7 @@ GPT-4 Turbo with Vision on Azure OpenAI service is now in public preview. GPT-4 
 
 ### New data source support in Azure OpenAI on your data
 
-- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db.md#ingesting-your-data) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
+- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md#supported-data-sources) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
 
 ### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
 
@@ -168,7 +172,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
-- [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
+- [View your chat history in the deployed web app](./how-to/use-web-app.md#chat-history)
 
 ## July 2023
 

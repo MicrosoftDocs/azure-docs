@@ -26,7 +26,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 
     > [!TIP]
     > * See the following resource for more information:
-    >    * [Data source options](../concepts/use-your-data.md#ingesting-your-data)
+    >    * [Data source options](../concepts/use-your-data.md#supported-data-sources)
     >        * You can connect an existing Azure AI search index or Azure Cosmos DB for MongoDB vCore as a data source.
     >    * [supported file types and formats](../concepts/use-your-data.md#data-formats-and-file-types)
     > *  For documents and datasets with long text, we recommend using the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395). 
