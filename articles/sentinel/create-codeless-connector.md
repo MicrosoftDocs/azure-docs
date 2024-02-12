@@ -129,7 +129,11 @@ Use Postman to call the data connector API to create the data connector which co
 
 ## Secure confidential input
 
-Whatever authentication is used by your CCP data connector, take these steps to ensure confidential information is kept secure. For example, if your data connector authenticates to a log source with OAuth, your data connector definition section includes the `OAuthForm` type in the instructions. This sets up the ARM template to prompt for the credentials.  
+Whatever authentication is used by your CCP data connector, take these steps to ensure confidential information is kept secure. The goal is to pass along credentials from the ARM deployment to the CCP without leaving readable confidential objects  
+
+### Create label
+
+For example, if your data connector authenticates to a log source with OAuth, your data connector definition section includes the `OAuthForm` type in the instructions. This sets up the ARM template to prompt for the credentials.  
 
 ```json
 "instructions": [
@@ -156,13 +160,13 @@ A section of the ARM deployment template provides a place for the administrator 
             "type": "securestring",
             "minLength": 1,
             "metadata": {
-                "description": "Enter the username to connect to data source."
+                "description": "Enter the username to connect to your data source."
         },
         "Password": {
             "type": "securestring",
             "minLength": 1,
             "metadata": {
-                "description": "Enter the API key or password required to connect."
+                "description": "Enter the API key, client secret or password required to connect."
             }
         },
     // more deployment template information
@@ -188,8 +192,11 @@ Finally, the CCP utilizes the credential objects in the data connector.
 },
 ```
 
-The strange syntax for the credential object, `"ClientSecret": "[[parameters('Password')]",` isn't a typo! In order to create the deployment template which also uses parameters, you need to escape the parameters in that section with an extra starting`[`. This allows the parameters to assign a value based on the user interaction with the connector. 
-- For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
+>[!Note]
+> The strange syntax for the credential object, `"ClientSecret": "[[parameters('Password')]",` isn't a typo! 
+> In order to create the deployment template which also uses parameters, you need to escape the parameters in that section with an extra starting`[`. This allows the parameters to assign a value based on the user interaction with the connector.
+>
+> For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
   
 
 ## Create the deployment template
