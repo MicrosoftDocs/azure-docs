@@ -18,7 +18,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-In ARM templates, you have the capability to reuse or modularize a template through nesting or linking templates using the `Microsoft.Resources/deployments` resource. Below is an illustration of a nested template:
+In ARM templates, you can reuse or modularize a template through nesting or linking templates using the `Microsoft.Resources/deployments` resource. For more information, see [Using linked and nested templates when deploying Azure resources](../templates/linked-templates.md) The following ARM template is a sample of a nested template:
 
 ```json
 {
@@ -63,7 +63,7 @@ In ARM templates, you have the capability to reuse or modularize a template thro
 }
 ```
 
-In Bicep, you can still use the `Microsoft.Resources/deployments` resource for nesting ARM templates or linking external ARM templates. But, it's not a great idea because it can lead to unsafe and tricky behaviors due to how it's evaluated multiple times. Also, there's hardly any validation and self completion from the Visual Studio Code editor, making it tough to work with. The following Bicep file fails this test because the template contains `Microsoft.Resources/deployments` resource on the root level.
+In Bicep, you can still use the `Microsoft.Resources/deployments` resource for nesting ARM templates or linking external ARM templates. But, it's not a great idea because it can lead to unsafe and tricky behaviors due to how it's evaluated multiple times. Also, there's hardly any validation and self completion from Visual Studio Code when you author the Bicep file, making it tough to work with. The following Bicep file fails this test because the template contains `Microsoft.Resources/deployments` resource on the root level.
 
 ```bicep
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
@@ -95,7 +95,7 @@ resource nestedTemplate1 'Microsoft.Resources/deployments@2023-07-01' = {
 
 To fix the issue, you can use the Bicep CLI [decompile](./bicep-cli.md#decompile) command. For example, the preceding ARM template can be decomplied into the following Bicep files:
 
-main.bicep:
+_main.bicep_:
 
 ```bicep
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
@@ -110,7 +110,7 @@ module nestedTemplate1 './nested_nestedTemplate1.bicep' = {
 }
 ```
 
-nested_nestedTemplate1.bicep:
+_nested_nestedTemplate1.bicep_:
 
 ```bicep
 param storageAccountName string
@@ -124,11 +124,11 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
   kind: 'StorageV2'
 }
-``` 
+```
 
-Additionally, you can also refence the nested json template using the [module](./modules.md) statement.
+Additionally, you can also refence ARM templates using the [module](./modules.md) statement.
 
-main.bicep:
+_main.bicep_:
 
 ```bicep
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
@@ -141,9 +141,9 @@ module nestedTemplate1 './createStorage.json' = {
     location: location
   }
 }
-```bicep
+```
 
-createStorage.json
+_createStorage.json_:
 
 ```json
 {
