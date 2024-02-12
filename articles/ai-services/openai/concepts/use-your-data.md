@@ -10,6 +10,7 @@ author: aahill
 ms.author: aahi
 ms.date: 01/09/2023
 recommendations: false
+ms.custom: references_regions 
 ---
 
 # Azure OpenAI on your data 
