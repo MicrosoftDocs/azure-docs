@@ -13,13 +13,13 @@ ms.author: kesheth
 
 [!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-The Bulk Export feature allows data to be exported from the FHIR Server per the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
+The Bulk Export feature allows data to be exported from the FHIR Server per the [FHIR specification](https://www.hl7.org/fhir/uv/bulkdata/). 
 
 Before using $export, you want to make sure that the Azure API for FHIR is configured to use it. For configuring export settings and creating Azure storage account, refer to [the configure export data page](configure-export-data.md).
 
 ## Using $export command
 
-After configuring the Azure API for FHIR for export, you can use the $export command to export the data out of the service. The data will be stored into the storage account you specified while configuring export. To learn how to invoke $export command in FHIR server, read documentation on the [HL7 FHIR $export specification](https://hl7.org/Fhir/uv/bulkdata/export/index.html).
+After configuring the Azure API for FHIR for export, you can use the $export command to export the data out of the service. The data will be stored into the storage account you specified while configuring export. To learn how to invoke $export command in FHIR server, read documentation on the [HL7 FHIR $export specification](https://www.hl7.org/fhir/uv/bulkdata/).
 
 
 **Jobs stuck in a bad state**
@@ -27,9 +27,9 @@ After configuring the Azure API for FHIR for export, you can use the $export com
 In some situations, there’s a potential for a job to be stuck in a bad state. This can occur especially if the storage account permissions haven’t been set up properly. One way to validate export is to check your storage account to see if the corresponding container (that is, `ndjson`) files are present. If they aren’t present, and there are no other export jobs running, then there’s a possibility the current job is stuck in a bad state. You should cancel the export job by sending a cancellation request and try requeuing the job again. Our default run time for an export in bad state is 10 minutes before it will stop and move to a new job or retry the export. 
 
 The Azure API For FHIR supports $export at the following levels:
-* [System](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET https://<<FHIR service base URL>>/$export>>`
-* [Patient](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET https://<<FHIR service base URL>>/Patient/$export>>`
-* [Group of patients*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) - Azure API for FHIR exports all related resources but doesn't export the characteristics of the group: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
+* [System](https://www.hl7.org/fhir/uv/bulkdata/): `GET https://<<FHIR service base URL>>/$export>>`
+* [Patient](https://www.hl7.org/fhir/uv/bulkdata/): `GET https://<<FHIR service base URL>>/Patient/$export>>`
+* [Group of patients*](https://www.hl7.org/fhir/uv/bulkdata/) - Azure API for FHIR exports all related resources but doesn't export the characteristics of the group: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
 With export, data is exported in multiple files each containing resources of only one type. The number of resources in an individual file will be limited. The maximum number of resources is based on system performance. It is currently set to 5,000, but can change. The result is that you may get multiple files for a resource type, which will be enumerated (for example, `Patient-1.ndjson`, `Patient-2.ndjson`).
 
@@ -49,7 +49,7 @@ Currently we support $export for ADLS Gen2 enabled storage accounts, with the fo
 ## Settings and parameters
 
 ### Headers
-There are two required header parameters that must be set for $export jobs. The values are defined by the current [$export specification](https://hl7.org/Fhir/uv/bulkdata/export/index.html#headers).
+There are two required header parameters that must be set for $export jobs. The values are defined by the current [$export specification](https://www.hl7.org/fhir/uv/bulkdata/).
 * **Accept** - application/fhir+json
 * **Prefer** - respond-async
 

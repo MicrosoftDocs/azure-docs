@@ -7,7 +7,6 @@ manager: cnovak
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.custom: seodec18
 ---
 
 # Manage Azure Time Series Insights Gen2

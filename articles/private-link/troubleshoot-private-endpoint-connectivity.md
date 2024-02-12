@@ -6,7 +6,6 @@ ms.service: private-link
 ms.topic: troubleshooting
 ms.date: 03/28/2023
 ms.author: allensu
-ms.custom: ignite-2022
 ---
 
 # Troubleshoot Azure Private Endpoint connectivity problems

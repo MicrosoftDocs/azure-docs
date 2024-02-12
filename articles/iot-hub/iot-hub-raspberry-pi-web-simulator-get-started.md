@@ -15,7 +15,7 @@ ms.custom: ['Role: Cloud Development', devx-track-js]
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi online simulator. You then learn how to seamlessly connect the Pi simulator to the cloud by using [Azure IoT Hub](about-iot-hub.md).
+In this article, you learn the basics of working with Raspberry Pi online simulator. You then learn how to seamlessly connect the Pi simulator to the cloud by using [Azure IoT Hub](about-iot-hub.md).
 
 :::image type="content" source="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt-text="Connect Raspberry Pi web simulator to Azure IoT Hub" border="false":::
 

@@ -10,7 +10,7 @@ displayName: chat history, history, chat logs, logs
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.custom: language-service-question-answering
 ---
 
 # Get analytics for your project
@@ -106,5 +106,3 @@ AzureDiagnostics
 ```
 
 ## Next steps
-
-

@@ -14,6 +14,8 @@ ms.author: danlep
 
 This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. Use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
 
+> [!VIDEO https://www.youtube.com/embed/Dvar8Dg25s0]
+
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 ## Prerequisites

@@ -1,10 +1,9 @@
 ---
 title: Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes | Microsoft Docs
-description: Describes the available security options, the tested performance vectors, and the expected performance impact of kerberos on Azure NetApp Files NFSv4.1 volumes.  
+description: Describes the available security options, the tested performance vectors, and the expected performance impact of kerberos on Azure NetApp Files NFSv4.1 volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/22/2022
 ms.author: anfdocs

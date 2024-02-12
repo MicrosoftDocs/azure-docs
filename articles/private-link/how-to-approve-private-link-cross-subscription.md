@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: how-to 
 ms.date: 01/11/2024
-#customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
+# Customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
 
 ---
 

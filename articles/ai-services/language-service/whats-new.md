@@ -9,7 +9,6 @@ ms.service: azure-ai-language
 ms.topic: whats-new
 ms.date: 01/31/2024
 ms.author: aahi
-ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # What's new in Azure AI Language?
@@ -19,6 +18,14 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 ## January 2024
 
 * [Native document support](native-document-support/use-native-documents.md) is now available in `2023-11-15-preview` public preview.
+
+## December 2023
+
+* [Text Analytics for health](./text-analytics-for-health/overview.md) new model 2023-12-01 is now available.
+* New Relation Type: `BodySiteOfExamination`
+ * Quality enhancements to support radiology documents
+ * Significant latency improvements
+ * Various bug fixes: Improvements across NER, Entity Linking, Relations and Assertion Detection
 
 ## November 2023
 

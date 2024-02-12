@@ -4,10 +4,9 @@ description: This article describes the compute and storage options in Azure Dat
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: code-sidd 
+author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.custom: event-tier1-build-2022, ignite-2022
 ms.date: 05/24/2022
 ---
 
@@ -214,5 +213,5 @@ If you would like to optimize server cost, you can consider following tips:
 
 ## Next steps
 
-- Learn how to [create a Azure Database for MySQL flexible server instance in the portal](quickstart-create-server-portal.md).
+- Learn how to [create an Azure Database for MySQL flexible server instance in the portal](quickstart-create-server-portal.md).
 - Learn about [service limitations](concepts-limitations.md).

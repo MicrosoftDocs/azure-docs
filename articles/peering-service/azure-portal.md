@@ -5,29 +5,22 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 02/08/2024
 
-#CustomerIntent: As an administrator, I want learn how to manage a Peering Service connection using Azure portal so that I can create, change, or delete a Peering Service connection when needed.
+#CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure portal so I can enhance the connectivity to Microsoft services over the public internet.
 ---
 
 # Create, change, or delete a Peering Service connection using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Portal](azure-portal.md)
-> * [PowerShell](powershell.md)
-> * [Azure CLI](cli.md)
-
 Azure Peering Service is a networking service that enhances connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-In this article, you learn how to create, change, and delete a Peering Service connection using the Azure portal.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this article, you learn how to create, change, and delete a Peering Service connection using the Azure portal. To learn how to manage a Peering Service connection using Azure PowerShell or the Azure CLI, see [Create or change a Peering Service connection using PowerShell](powershell.md) or [Create, change, or delete a Peering Service connection using the Azure CLI](cli.md).
 
 ## Prerequisites
 
-- An Azure subscription.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
+- A connectivity provider. For more information, see [Peering Service partners](location-partners.md).
 
 ## Sign in to Azure
 

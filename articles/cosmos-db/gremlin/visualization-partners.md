@@ -5,7 +5,6 @@ author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/22/2021
 ---

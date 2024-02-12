@@ -34,15 +34,6 @@ A native document refers to the file format used to create the original document
 
 * [Document summarization](../summarization/overview.md). Document summarization uses natural language processing to generate extractive (salient sentence extraction) or abstractive (contextual word extraction) summaries for documents. Both `AbstractiveSummarization` and `ExtractiveSummarization` APIs support native document processing.
 
-## Development options
-
-Native document support can be integrated into your applications using the [Azure AI Language REST API](/rest/api/language/). The REST API is a language agnostic interface that enables you to create HTTP requests for text-based data analysis.
-
-|Service|Description|API Reference (Latest GA version)|API Reference (Latest Preview version)|
-|--|--|--|--|
-| Text analysis - runtime | &bullet; Runtime prediction calls to extract **Personally Identifiable Information (PII)**.</br>&bullet; Custom redaction for native documents is supported in the latest **2023-04-14-preview**.|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime)|[`2023-04-15-preview`.](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
-| Summarization for documents - runtime|Runtime prediction calls to **query summarization for documents models**.|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime/submit-job)|[`2023-04-15-preview`](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
-
 ## Supported document formats
 
  Applications use native file formats to create, save, or open native documents.  Currently **PII** and **Document summarization** capabilities supports the following native document formats:
@@ -375,13 +366,13 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
   ***PowerShell***
 
   ```powershell
-  cmd /c curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
+   cmd /c curl "{your-language-resource-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
   ```
 
   ***command prompt / terminal***
 
   ```bash
-  curl -v -X POST "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
+  curl -v -X POST "{your-language-resource-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
   ```
 
 Here's a sample response:

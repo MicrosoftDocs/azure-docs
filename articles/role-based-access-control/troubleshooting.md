@@ -6,7 +6,6 @@ author: rolyon
 manager: amycolannino
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
-ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/26/2024
 ms.author: rolyon

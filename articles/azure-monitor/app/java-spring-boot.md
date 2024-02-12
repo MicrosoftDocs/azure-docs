@@ -24,17 +24,7 @@ java -javaagent:"path/to/applicationinsights-agent-3.4.19.jar" -jar <myapp.jar>
 
 ### Spring Boot via Docker entry point
 
-If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.4.19.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
-
-```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.4.19.jar", "-jar", "<myapp.jar>"]
-```
-
-If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.19.jar"` somewhere before `-jar`, for example:
-
-```
-ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.4.19.jar" -jar <myapp.jar>
-```
+See the [documentation related to containers](./java-get-started-supplemental.md).
 
 ### Configuration
 

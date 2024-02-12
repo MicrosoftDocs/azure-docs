@@ -7,7 +7,6 @@ ms.date: 04/30/2019
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 
 # Get started with Transparent Data Encryption (TDE)

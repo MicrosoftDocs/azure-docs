@@ -11,7 +11,7 @@ ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating Azure Active Directory B2C with a third-party authentication provider. I want to learn how to configure Nok Nok Passport as an identity provider (IdP) in Azure AD B2C. My goal is to enable passwordless FIDO authentication for my users.
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with a third-party authentication provider. I want to learn how to configure Nok Nok Passport as an identity provider (IdP) in Azure AD B2C. My goal is to enable passwordless FIDO authentication for my users.
 ---
 # Tutorial: Configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication
 
