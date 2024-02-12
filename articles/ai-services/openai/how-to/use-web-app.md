@@ -18,7 +18,7 @@ Along with Azure OpenAI Studio and the APIs, you can also use the available stan
 
 ![A screenshot of the web app interface.](../media/use-your-data/web-app.png)
 
-### Important considerations
+## Important considerations
 
 - Publishing creates an Azure App Service in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
 - By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
@@ -31,7 +31,7 @@ Along with Azure OpenAI Studio and the APIs, you can also use the available stan
     
     Now users will be asked to sign in with their Microsoft Entra ID account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign-in information in any other way other than verifying they are a member of your tenant.
 
-### Web app customization
+## Web app customization
 
 You can customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Contoso.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information [on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
 
@@ -46,7 +46,7 @@ When customizing the app, we recommend:
 - Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements.
 
 
-### Chat history
+## Chat history
 
 You can enable chat history for your users of the web app. When you enable the feature, your users will have access to their individual previous queries and responses. 
 
@@ -61,7 +61,7 @@ Once you've enabled chat history, your users will be able to show and hide it in
 
 :::image type="content" source="../media/use-your-data/web-app-chat-history.png" alt-text="A screenshot of the chat history in the web app." lightbox="../media/use-your-data/web-app-chat-history.png":::
 
-#### Deleting your Cosmos DB instance
+## Deleting your Cosmos DB instance
 
 Deleting your web app does not delete your Cosmos DB instance automatically. To delete your Cosmos DB instance, along with all stored chats, you need to navigate to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option enabled on the studio, your users will be notified of a connection error, but can continue to use the web app without access to the chat history.
 
