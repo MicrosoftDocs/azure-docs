@@ -55,7 +55,7 @@ An assessment done in Azure Migrate Discovery and assessment has three stages. A
 **Currency** | Billing currency.
 **Discount (%)** | Any subscription-specific discount you receive on top of the Azure offer.<br/> The default setting is 0%.
 **VM uptime** | If your VMs are not going to be running 24x7 in Azure, you can specify the duration (number of days per month and number of hours per day) for which they would be running and the cost estimations would be done accordingly.<br/> The default value is 31 days per month and 24 hours per day.
-**Azure Hybrid Benefit** | Specify whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are considered for Windows VMs. By default, Azure Hybrid Benefit is set to Yes.
+**Azure Hybrid Benefit** | Specify whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If the setting is enabled, Azure prices for selected operating systems are considered for VM costing.
 
 ## What's in an Azure VMware Solution (AVS) assessment?
 
