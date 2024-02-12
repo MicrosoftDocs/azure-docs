@@ -10,9 +10,7 @@ ms.service: certification
 zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 ---
 
-# Azure Certified Device - Edge Secured-core #
-
-## Edge Secured-Core certification requirements ##
+# Edge Secured-Core certification requirements
 
 ::: zone pivot="platform-windows"
 
