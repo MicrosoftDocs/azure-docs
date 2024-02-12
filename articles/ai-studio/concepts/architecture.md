@@ -50,20 +50,45 @@ When you create a new Azure AI hub resource, a set of dependent Azure resources 
 
 For information on registering resource providers, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
-## Control plane proxy
+## Role-based access control and control plane proxy
 
-Azure AI Services and Azure OpenAI provide control plane endpoints for operations such as listing model deployments. These endpoints are secured using a separate Azure RBAC configuration that the one used for Azure AI hub. To reduce the complexity of Azure RBAC management, AI Studio provides a *control plane proxy* that allows you to perform operations on connected Azure AI Services and Azure OpenAI resources. Performing operations on these resources through the control plane proxy only requires Azure RBAC permissions on the AI hub. The Azure AI Studio service then performs the call to the Azure AI Services or Azure OpenAI control plane endpoint on the user's behalf.
+Azure AI Services and Azure OpenAI provide control plane endpoints for operations such as listing model deployments. These endpoints are secured using a separate Azure role-based access control (RBAC) configuration than the one used for Azure AI hub. 
+
+To reduce the complexity of Azure RBAC management, AI Studio provides a *control plane proxy* that allows you to perform operations on connected Azure AI Services and Azure OpenAI resources. Performing operations on these resources through the control plane proxy only requires Azure RBAC permissions on the AI hub. The Azure AI Studio service then performs the call to the Azure AI Services or Azure OpenAI control plane endpoint on your behalf.
 
 For more information on Azure RBAC permissions, see [Role-based access control in Azure AI Studio](rbac-ai-studio.md).
+
+## Encryption
+
+Azure AI Studio uses encryption to protect data at rest and in transit. By default, Microsoft-managed keys are used for encryption, however you can use your own encryption keys. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
 
 ## Virtual network
 
 Azure AI hub can be configured to use a *managed* virtual network. The managed virtual network secures communications between the AI hub, AI projects, and managed resources such as computes. If your dependency services (Azure Storage, Key Vault, and Container Registry) have public access disabled, a private endpoint for each dependency service is created to secure communication between the AI hub/project and the dependency service.
 
 > [!NOTE]
-> If you want to secure communications between your clients and the AI hub or AI project through a virtual network, you must use an Azure Virtual Network that you create and manage. For example, an Azure Virtual Network that uses a VPN or ExpressRoute connection to your on-premises network.
+> If you want to use a virtual network to secure communications between your clients and the AI hub or AI project, you must use an Azure Virtual Network that you create and manage. For example, an Azure Virtual Network that uses a VPN or ExpressRoute connection to your on-premises network.
 
 For more information on how to configure a managed virtual network, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
+
+## Azure Monitor
+
+Azure monitor and Azure Log Analytics provides monitoring and logging for the underlying resources used by Azure AI Studio. Since Azure AI Studio is built on Azure Machine Learning, Azure OpenAI, Azure AI Services, and Azure AI Search, use the following articles for to learn how to monitor the services:
+
+| Resource | Monitoring and logging |
+| --- | --- |
+| Azure AI hub and AI project | [Monitor Azure Machine Learning](/azure/machine-learning/monitor-azure-machine-learning) |
+| Azure OpenAI | [Monitor Azure OpenAI](/azure/ai-services/openai/how-to-monitoring) |
+| Azure AI Services | [Monitor Azure AI (training)](/training/modules/monitor-ai-services/) |
+| Azure AI Search | [Monitor Azure AI Search](/azure/search/monitor-azure-cognitive-search) |
+
+## Price and quota
+
+For more information on price and quota, see the following articles:
+
+- [Plan and manage costs](../how-to/costs-plan-manage.md)
+- [Commitment tier pricing](../how-to/commitment-tier.md)
+- [Manage quotas](../how-to/quota.md)
 
 ## Next steps
 
@@ -71,3 +96,4 @@ Create an AI hub using one of the following methods:
 
 - [Azure AI Studio](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-ai-studio): Create an AI hub for getting started.
 - [Azure portal](../how-to/create-azure-ai-resource.md#create-a-secure-azure-ai-hub-resource-in-the-azure-portal): Create an AI hub with your own networking, encryption, identity and access management, dependent resources, and resource tag settings.
+- [Bicep template](../how-to/create-azure-ai-hub-template.md)
