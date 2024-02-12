@@ -168,6 +168,9 @@ New-AzSnapshot -ResourceGroupName $rgName -SnapshotName $newSnapName -Snapshot $
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+
+snapID=$(az elastic-san volume snapshot show -g "rg" -e "san_name" -v "vg_name" -n "snapshot_name")
+
 az snapshot create -g "resourceGroupName" -n "snapshotName" --elastic-san-id <yourElasticSANSnapshotURI>
 ```
 
