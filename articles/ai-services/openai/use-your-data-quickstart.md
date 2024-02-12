@@ -53,8 +53,6 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 - An Azure OpenAI resource deployed in a [supported region](./concepts/use-your-data.md#azure-openai-on-your-data-regional-availability) with a [supported model](./concepts/use-your-data.md#supported-models).
 
-  - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./how-to/working-with-models.md#model-updates).
-
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource.
 
 ::: zone pivot="programming-language-javascript"
