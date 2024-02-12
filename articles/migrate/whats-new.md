@@ -6,13 +6,17 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 01/24/2024
+ms.date: 02/12/2024
 ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (February 2024)
+
+- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions to Azure using Azure VM assessments and business case.
 
 ## Update (January 2024)
 
