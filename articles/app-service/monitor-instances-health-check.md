@@ -7,7 +7,6 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 08/26/2022
 ms.author: msangapu
-ms.custom: contperf-fy22q1
 ---
 
 # Monitor App Service instances using Health check

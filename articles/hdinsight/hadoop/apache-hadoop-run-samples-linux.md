@@ -1,9 +1,9 @@
 ---
-title: Run Apache Hadoop MapReduce examples on HDInsight - Azure 
+title: Run Apache Hadoop MapReduce examples on HDInsight - Azure
 description: Get started using MapReduce samples in jar files included in HDInsight. Use SSH to connect to the cluster, and then use the Hadoop command to run sample jobs.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive
 ms.date: 09/14/2023
 ---
 

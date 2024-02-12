@@ -7,7 +7,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 01/19/2024
 ---
 
 # Extract data from utterance text with intents and entities

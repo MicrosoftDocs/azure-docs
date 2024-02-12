@@ -8,7 +8,6 @@ ms.service: azure-ai-openai
 ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 08/28/2023
-keywords:
 ---
 
 ## Prerequisites

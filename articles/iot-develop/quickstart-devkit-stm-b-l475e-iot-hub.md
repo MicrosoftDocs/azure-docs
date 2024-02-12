@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/27/2023
+ms.date: 1/23/2024
 # CustomerIntent: As an embedded device developer, I want to use Azure RTOS to connect my device to Azure IoT Hub, so that I can learn about device connectivity and development. 
 ---
 

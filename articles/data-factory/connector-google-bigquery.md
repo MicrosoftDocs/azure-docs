@@ -82,9 +82,9 @@ Set "authenticationType" property to **UserAuthentication**, and specify the fol
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| clientId | ID of the application used to generate the refresh token. | No |
-| clientSecret | Secret of the application used to generate the refresh token. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| refreshToken | The refresh token obtained from Google used to authorize access to BigQuery. Learn how to get one from [Obtaining OAuth 2.0 access tokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) and [this community blog](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| clientId | ID of the application used to generate the refresh token. | Yes |
+| clientSecret | Secret of the application used to generate the refresh token. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | The refresh token obtained from Google used to authorize access to BigQuery. Learn how to get one from [Obtaining OAuth 2.0 access tokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) and [this community blog](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 The minimum scope required to obtain an OAuth 2.0 refresh token is `https://www.googleapis.com/auth/bigquery.readonly`. If you plan to run a query that might return large results, other scope might be required. For more information, refer to this [article](https://cloud.google.com/bigquery/docs/writing-results#large-results). 
 
@@ -121,7 +121,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | Yes |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
 

@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -27,11 +27,12 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 Follow these steps to create a console application and install the Speech SDK.
 
 1. Create a new C++ console project in [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) named `SpeechRecognition`.
-1. Install the Speech SDK in your new project with the NuGet package manager.
 
-   ```powershell
-   Install-Package Microsoft.CognitiveServices.Speech
-   ```
+1. Select **Tools** > **Nuget Package Manager** > **Package Manager Console**. In the **Package Manager Console**, run this command:
+
+    ```console
+    Install-Package Microsoft.CognitiveServices.Speech
+    ```
 
 1. Replace the contents of `SpeechRecognition.cpp` with the following code:
 
@@ -112,7 +113,7 @@ Follow these steps to create a console application and install the Speech SDK.
 1. [Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech recognition from a microphone.
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 1. Speak into your microphone when prompted. What you speak should appear as text:
 
@@ -129,7 +130,7 @@ Here are some other considerations:
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
 
   ```cpp
-  auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
+  auto audioConfig = AudioConfig::FromWavFileInput("YourAudioFile.wav");
   ```
 
 - For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/ai-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).

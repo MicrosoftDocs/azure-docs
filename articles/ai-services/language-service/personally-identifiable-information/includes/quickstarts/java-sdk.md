@@ -5,7 +5,7 @@ ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-pii, ignite-fall-2021
+ms.custom: language-service-pii
 ---
 
 [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics)

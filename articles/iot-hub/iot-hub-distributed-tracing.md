@@ -136,7 +136,7 @@ These instructions are for building the sample on Windows. For other environment
 
    :::code language="c" source="~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" range="56-60" highlight="2":::
 
-   Replace the value of the `connectionString` constant with the device connection string that you saved in the [Register a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#register-a-device) section of the quickstart for sending telemetry.
+   Replace the value of the `connectionString` constant with the device connection string that you saved in the [Register a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json#register-a-device) section of the quickstart for sending telemetry.
 
 1. Find the line of code that calls `IoTHubDeviceClient_LL_SetConnectionStatusCallback` to register a connection status callback function before the send message loop. Add code under that line to call `IoTHubDeviceClient_LL_EnablePolicyConfiguration` and enable distributed tracing for the device:
 

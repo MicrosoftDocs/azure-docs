@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: reference
 ms.date: 11/15/2023
 ms.author: pafarley
-ms.custom: 
 ---
 
 

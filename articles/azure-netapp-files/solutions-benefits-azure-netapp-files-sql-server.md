@@ -1,16 +1,9 @@
 ---
 title:  Benefits of using Azure NetApp Files for SQL Server deployment | Microsoft Docs
-description: Shows a detailed cost analysis performance benefits about using Azure NetApp Files for SQL Server deployment.   
+description: Shows a detailed cost analysis performance benefits about using Azure NetApp Files for SQL Server deployment.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/19/2021
 ms.author: anfdocs
@@ -29,12 +22,12 @@ The two sets of graphics in this section show the TCO example.  The number and t
 
 The first set of graphic shows the overall cost of the solution using a 1-TiB database size, comparing the D16s_v4 to the D64, the D8 to the D32, and the D4 to the D16. The projected IOPs for each configuration are indicated by a green or yellow line and corresponds to the right-hand side Y axis.
 
-[ ![Graphic that shows overall cost of the solution using a 1-TiB database size.](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png) ](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png#lightbox)
+[ ![Graphic that shows overall cost of the solution using a 1-TiB database size.](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-cost-1-tib.png) ](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-cost-1-tib.png#lightbox)
 
 
 The second set of graphic shows the overall cost using a 50-TiB database. The comparisons are otherwise the same – D16 compared with Azure NetApp Files versus D64 with block by example. 
 
-[ ![Graphic that shows overall cost using a 50-TiB database size.](../media/azure-netapp-files/solution-sql-server-cost-50-tib.png) ](../media/azure-netapp-files/solution-sql-server-cost-50-tib.png#lightbox)
+[ ![Graphic that shows overall cost using a 50-TiB database size.](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-cost-50-tib.png) ](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-cost-50-tib.png#lightbox)
  
 ## Performance, and lots of it  
 
@@ -59,7 +52,7 @@ With Azure NetApp Files, each of the instances in the D class can meet or exceed
 
 The following diagram summarizes the S3B CPU limits test:
 
-![Diagram that shows average CPU percentage for single-instance SQL Server over Azure NetApp Files.](../media/azure-netapp-files/solution-sql-server-single-instance-average-cpu.png)
+![Diagram that shows average CPU percentage for single-instance SQL Server over Azure NetApp Files.](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-single-instance-average-cpu.png)
 
 Scalability is only part of the story. The other part is latency.  It’s one thing for smaller virtual machines to have the ability to drive much higher I/O rates, it’s another thing to do so with low single-digit latencies as shown below.  
 
@@ -72,7 +65,7 @@ Scalability is only part of the story. The other part is latency.  It’s one th
 
 The following diagram shows the latency for single-instance SQL Server over Azure NetApp Files:
 
-![Diagram that shows latency for single-instance SQL Server over Azure NetApp Files.](../media/azure-netapp-files/solution-sql-server-single-instance-latency.png)
+![Diagram that shows latency for single-instance SQL Server over Azure NetApp Files.](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-single-instance-latency.png)
 
 ## SSB testing tool 
  
@@ -93,4 +86,3 @@ With Azure NetApp Files, you can increase SQL server performance while reducing 
 
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Solution architectures using Azure NetApp Files – SQL Server](azure-netapp-files-solution-architectures.md#sql-server) 
-

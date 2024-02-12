@@ -33,11 +33,11 @@ After building a container image in an Azure DevOps CI/CD pipeline and pushing i
 
 1. (Optional) Select + by **Container Images** to add other filters to your query, such as **Has vulnerabilities** to filter only container images with CVEs.
 
-1. After running your query, you will see the mapping between container registry and Azure DevOps pipeline. Click **...** next to the edge to see additional details on where the Azure DevOps pipeline was run.
+1. After running your query, you will see the mapping between container registry and Azure DevOps pipeline. Select **...** next to the edge to see additional details on where the Azure DevOps pipeline was run.
 
     :::image type="content" source="media/container-image-mapping/mapping-results.png" alt-text="Screenshot that shows an advanced query for container mapping results." lightbox="media/container-image-mapping/mapping-results.png":::
 
-Below is an example of an advanced query that utilizes container image mapping. Starting with a Kubernetes workload that is exposed to the internet, you can trace all container images with high severity CVEs back to the Azure DevOps pipeline where the container image was built, empowering a security practitioner to kick off a developer remediation workflow.
+The following is an example of an advanced query that utilizes container image mapping. Starting with a Kubernetes workload that is exposed to the internet, you can trace all container images with high severity CVEs back to the Azure DevOps pipeline where the container image was built, empowering a security practitioner to kick off a developer remediation workflow.
 
   :::image type="content" source="media/container-image-mapping/advanced-mapping-query.png" alt-text="Screenshot that shows basic container mapping results." lightbox="media/container-image-mapping/advanced-mapping-query.png":::
 
@@ -69,9 +69,9 @@ After building a container image in a GitHub workflow and pushing it to a regist
 
 1. (Optional) Select + by **Container Images** to add other filters to your query, such as **Has vulnerabilities** to filter only container images with CVEs.
 
-1. After running your query, you will see the mapping between container registry and GitHub workflow. Click **...** next to the edge to see additional details on where the GitHub workflow was run.
+1. After running your query, you will see the mapping between container registry and GitHub workflow. Select **...** next to the edge to see additional details on where the GitHub workflow was run.
 
-Below is an example of an advanced query that utilizes container image mapping. Starting with a Kubernetes workload that is exposed to the internet, you can trace all container images with high severity CVEs back to the GitHub repository where the container image was built, empowering a security practitioner to kick off a developer remediation workflow.
+The following is an example of an advanced query that utilizes container image mapping. Starting with a Kubernetes workload that is exposed to the internet, you can trace all container images with high severity CVEs back to the GitHub repository where the container image was built, empowering a security practitioner to kick off a developer remediation workflow.
 
   :::image type="content" source="media/container-image-mapping/advanced-mapping-query.png" alt-text="Screenshot that shows basic container mapping results." lightbox="media/container-image-mapping/advanced-mapping-query.png":::
 

@@ -6,7 +6,7 @@ author: erindormier
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 01/18/2024
 ms.author: egeaney
 #Customer intent: As a user of the Content Moderator service, I want to learn how encryption at rest works.
 ---

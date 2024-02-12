@@ -312,7 +312,9 @@ All prices shown below are in USD.
 ### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|--------------|
+|Geographic    |USD 3.00/mo   |
 |Toll-Free     |USD 16.00/mo  |
+
 
 ### Usage charges
 |Number type  |To make calls*             |To receive calls|

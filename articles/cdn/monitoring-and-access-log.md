@@ -5,7 +5,6 @@ services: cdn
 author: duongau
 manager: KumudD
 ms.service: azure-cdn
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: yuajia 

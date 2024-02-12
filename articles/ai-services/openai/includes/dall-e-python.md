@@ -9,12 +9,11 @@ ms.custom:
   - ignite-2023
 ms.topic: include
 ms.date: 11/06/2023
-keywords:
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Python.
 
-[Library source code](https://github.com/openai/openai-python/tree/main/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
+[Library source code](https://github.com/openai/openai-python/tree/main/src/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
 
 ## Prerequisites
 

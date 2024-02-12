@@ -2,7 +2,7 @@
 title: Upgrade Azure Kubernetes Service (AKS) workloads from Windows Server 2019 to 2022
 description: Learn how to upgrade the OS version for Windows workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 09/12/2023
 ---
 

@@ -65,7 +65,7 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | [Count of routes advertised to peer](#advertisedroutes) | Availability | Count | Maximum | Count Of Routes Advertised To Peer by ExpressRouteGateway | roleInstance | Yes | 
 | [Count of routes learned from peer](#learnedroutes)| Availability | Count | Maximum | Count Of Routes Learned From Peer by ExpressRouteGateway | roleInstance | Yes | 
 | [Frequency of routes changed](#frequency) | Availability | Count | Total | Frequency of Routes change in ExpressRoute Gateway | roleInstance | Yes | 
-| [Number of VMs in virtual network](#vm) | Availability | Count | Maximum | Number of VMs in the Virtual Network | No Dimensions | Yes |
+| [Number of VMs in virtual network](#vm) | Availability | Count | Maximum | Estimated number of VMs in the virtual network | No Dimensions | Yes |
 | [Active flows](#activeflows) | Scalability | Count | Average | Number of active flows on ExpressRoute Gateway | roleInstance | Yes |
 | [Max flows created per second](#maxflows) | Scalability | FlowsPerSecond | Maximum | Maximum number of flows created per second on ExpressRoute Gateway | roleInstance, direction | Yes |
 

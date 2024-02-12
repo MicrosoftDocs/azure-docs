@@ -6,7 +6,6 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.date: 11/17/2023
 ms.subservice: change-analysis
-ms.custom: ignite-2022
 ---
 
 # View and use Change Analysis in Azure Monitor

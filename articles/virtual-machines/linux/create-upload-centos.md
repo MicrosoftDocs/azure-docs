@@ -3,7 +3,7 @@ title: Create and upload a CentOS-based Linux VHD
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
 author: srijang
 ms.service: virtual-machines
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/14/2022
@@ -12,7 +12,7 @@ ms.reviewer: mattmcinnes
 ---
 # Prepare a CentOS-based virtual machine for Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
 
@@ -285,14 +285,14 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
    baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
    enabled=1
    gpgcheck=0
-    
+
    [base]
    name=CentOS-$releasever - Base
    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
    gpgcheck=1
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-    
+
    #released updates
    [updates]
    name=CentOS-$releasever - Updates
@@ -300,7 +300,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
    gpgcheck=1
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-    
+
    #additional packages that may be useful
    [extras]
    name=CentOS-$releasever - Extras
@@ -308,7 +308,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
    gpgcheck=1
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-    
+
    #additional packages that extend functionality of existing packages
    [centosplus]
    name=CentOS-$releasever - Plus
@@ -318,7 +318,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
    enabled=0
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
    ```
-    
+
    > [!Note]
    > The rest of this guide will assume you're using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
 
@@ -395,7 +395,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
     sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
-    ```bash    
+    ```bash
     sudo echo "Adding mounts and disk_setup to init stage"
     sudo sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
     sudo sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
@@ -429,7 +429,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 
 
 13. Swap configuration
-    
+
     Don't create swap space on the operating system disk.
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
@@ -467,7 +467,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     > [!NOTE]
-    > If you are migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.    
+    > If you are migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
 
     ```bash
     sudo rm -f /var/log/waagent.log

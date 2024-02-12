@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/29/2022
+ms.date: 01/17/2024
 ms.custom:
   - devx-track-csharp
   - devx-track-dotnet
@@ -19,7 +19,7 @@ ms.custom:
 
 Azure AI Search can import, analyze, and index data from multiple data sources into a single consolidated search index. 
 
-This tutorial uses C# and the [Azure.Search.Documents](/dotnet/api/overview/azure/search) client library in the Azure SDK for .NET to index sample hotel data from an Azure Cosmos DB instance, and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing hotel documents, with rooms as a complex data types.
+This C# tutorial uses the [Azure.Search.Documents](/dotnet/api/overview/azure/search) client library in the Azure SDK for .NET to index sample hotel data from an Azure Cosmos DB instance, and merges that with hotel room details drawn from Azure Blob Storage documents. The result is a combined hotel search index containing hotel documents, with rooms as a complex data types.
 
 In this tutorial, you'll perform the following tasks:
 
@@ -40,18 +40,16 @@ A finished version of the code in this tutorial can be found in the following pr
 
 * [multiple-data-sources/v11 (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-data-sources/v11)
 
-For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-data-sources/v10) on GitHub.
-
 ## Prerequisites
 
-+ [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
++ [Azure Cosmos DB for NoSQL](../cosmos-db/create-cosmosdb-resources-portal.md)
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio](https://visualstudio.microsoft.com/)
 + [Azure AI Search (version 11.x) NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Azure AI Search](search-create-service-portal.md)
 
 > [!NOTE]
-> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one index, two indexers, and two data sources. Before starting, make sure you have room on your service to accept the new resources.
 
 ## 1 - Create services
 
