@@ -27,7 +27,7 @@ In an Azure NetApp Files file sharing environment, file and folder names are rep
 For instance, the Japanese character for data is 資. Since this character can't be represented in ASCII, a client using ASCII encoding show a “?” instead of 資.
 
 <!-- needs link to new page-->
-[ASCII supports only 95 printable characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters), principally those found in the English language. Each of those characters uses 1 byte, which is factored into the [total file path length]() on an Azure NetApp Files volume. This limits the internationalization of datasets, since file names may have a variety of characters not recognized by ASCII, from Japanese to Cyrillic to emoji. An international standard ([ISO/IEC 8859](https://en.wikipedia.org/wiki/ISO/IEC_8859)) further attempted to support more international characters, but also had its [limitations](). Most modern clients send and receive characters using some form of Unicode.   
+[ASCII supports only 95 printable characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters), principally those found in the English language. Each of those characters uses 1 byte, which is factored into the [total file path length](understand-path-lengths.md) on an Azure NetApp Files volume. This limits the internationalization of datasets, since file names may have a variety of characters not recognized by ASCII, from Japanese to Cyrillic to emoji. An international standard ([ISO/IEC 8859](https://en.wikipedia.org/wiki/ISO/IEC_8859)) further attempted to support more international characters, but also had its [limitations](). Most modern clients send and receive characters using some form of Unicode.   
 
 ### Unicode
 
@@ -605,3 +605,7 @@ When using special characters or characters outside of the standard [Basic Multi
 - For character sets not in the BMP, UTF-8 encoding should allow display of the characters in Azure NetApp Files when using a single file protocol (SMB only or NFS only). However, dual-protocol volumes aren't able to accommodate these character sets in most cases.
 - Nonstandard encoding (such as Shift-JIS) isn't supported on Azure NetApp Files volumes.
 - Surrogate pair characters (such as emoji) are supported on Azure NetApp Files volumes.
+
+## Next steps 
+
+* [Understand path lengths in Azure NetApp Files](understand-path-lengths.md)
