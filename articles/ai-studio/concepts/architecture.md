@@ -84,11 +84,11 @@ Azure monitor and Azure Log Analytics provides monitoring and logging for the un
 
 ## Price and quota
 
-For more information on price and quota, see the following articles:
+For more information on price and quota, use the following articles:
 
 - [Plan and manage costs](../how-to/costs-plan-manage.md)
 - [Commitment tier pricing](../how-to/commitment-tier.md)
-- [Manage quotas](../how-to/quota.md)
+- [Quota management](../how-to/quota.md)
 
 ## Next steps
 
@@ -96,4 +96,4 @@ Create an AI hub using one of the following methods:
 
 - [Azure AI Studio](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-ai-studio): Create an AI hub for getting started.
 - [Azure portal](../how-to/create-azure-ai-resource.md#create-a-secure-azure-ai-hub-resource-in-the-azure-portal): Create an AI hub with your own networking, encryption, identity and access management, dependent resources, and resource tag settings.
-- [Bicep template](../how-to/create-azure-ai-hub-template.md)
+- [Bicep template](../how-to/create-azure-ai-hub-template.md).
