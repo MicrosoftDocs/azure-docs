@@ -16,6 +16,9 @@ Install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 
 
 # [Linux](#tab/linux)
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 The Speech SDK for C++ only supports the following distributions on the x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) architectures:
 
 - Ubuntu 18.04/20.04/22.04
