@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-metrics-advisor
 ms.custom: applied-ai-non-critical-metrics-advisor, ignite-2022
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 01/19/2024
 ms.author: mbullwin
 ---
 

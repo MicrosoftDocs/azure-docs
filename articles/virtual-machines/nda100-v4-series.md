@@ -23,8 +23,9 @@ These instances provide excellent performance for many AI, ML, and analytics too
 
 > [!IMPORTANT]
 > To get started with ND A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](configure.md) for steps including driver and network configuration.
-> Due to increased GPU memory I/O footprint, the ND A100 v4 requires the use of [Generation 2 VMs](generation-2.md) and marketplace images. The [Azure HPC images](configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9 images are supported.
+> Due to increased GPU memory I/O footprint, the ND A100 v4 requires the use of [Generation 2 VMs](generation-2.md) and marketplace images.
 > 
+> Azure supports Ubuntu 20.04/22.04, RHEL 7.9/8.7/9.3, AlmaLinux 8.8/9.2, and SLES 15 for ND A100 v4 VMs. On Azure marketplace, there are offerings of optimized and pre-configured [Linux VM images](configure.md#vm-images) for HPC/AI workloads with a variety of HPC tools and libraries installed, and thus they are strongly recommended. Currently, Ubuntu-HPC 20.04/22.04 and AlmaLinux-HPC 8.6/8.7 VM images are supported.
 
 <br>
 

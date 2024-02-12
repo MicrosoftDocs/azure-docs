@@ -34,6 +34,7 @@ The speech to text and text to speech features can be used together or separatel
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
 - An [Azure AI resource](../how-to/create-azure-ai-resource.md) with a chat model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
+- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio. 
 
 
 ## Configure the playground
@@ -41,6 +42,7 @@ The speech to text and text to speech features can be used together or separatel
 Before you can start a chat session, you need to configure the playground to use the speech to text and text to speech features.
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio. 
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed chat model from the **Deployment** dropdown. 
 

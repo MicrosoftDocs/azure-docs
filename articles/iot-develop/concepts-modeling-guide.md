@@ -3,10 +3,9 @@ title: Understand IoT Plug and Play device models | Microsoft Docs
 description: Understand the Digital Twins Definition Language (DTDL) modeling language for IoT Plug and Play devices. The article describes primitive and complex datatypes, reuse patterns that use components and inheritance, and semantic types. The article provides guidance on the choice of device twin model identifier and tooling support for model authoring.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.service: iot-develop
-services: iot-develop
 
 #Customer intent: As a device builder, I want to understand how to design and author a DTDL model for an IoT Plug and Play device.
 

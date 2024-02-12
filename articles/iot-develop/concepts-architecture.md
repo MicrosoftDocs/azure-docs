@@ -3,12 +3,10 @@ title: IoT Plug and Play architecture | Microsoft Docs
 description: Understand the key architectural elements of an IoT Plug and Play solution.
 author: ridomin
 ms.author: rmpablos
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
-services: iot-develop
-
 ---
 
 # IoT Plug and Play architecture

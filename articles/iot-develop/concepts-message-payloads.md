@@ -3,10 +3,9 @@ title: Plug and Play device message payloads
 description: Understand the format of the telemetry, property, and command messages that a Plug and Play device can exchange with a service.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/05/2023
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.service: iot
-services: iot
 ms.custom: device-developer
 
 # This article applies to device developers.

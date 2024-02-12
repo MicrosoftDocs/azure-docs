@@ -1578,7 +1578,7 @@ az ml job create --file automl-hts-forecasting-pipeline.yml -w <Workspace> -g <R
 
 After the job finishes, the evaluation metrics can be downloaded locally using the same procedure as in the [single training run pipeline](#orchestrating-training-inference-and-evaluation-with-components-and-pipelines). 
 
-Also see the [demand forecasting with hierarchical time series notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecasting_with_pipeline_components/automl-forecasting-demand-hierarchical-timeseries-in-pipeline/automl-forecasting-demand-hierarchical-timeseries-in-pipeline.ipynb) for a more detailed example.
+Also see the [demand forecasting with hierarchical time series notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecasting_with_pipeline_components/automl-forecasting-demand-hierarchical-timeseries-in-pipeline/automl-forecasting-demand-hts.ipynb) for a more detailed example.
 
 > [!NOTE]
 > The HTS training and inference components conditionally partition your data according to the `hierarchy_column_names` setting so that each partition is in its own file. This process can be very slow or fail when data is very large. In this case, we recommend partitioning your data manually before running HTS training or inference. 

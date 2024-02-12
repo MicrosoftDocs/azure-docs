@@ -2,15 +2,9 @@
 title: Create cross-zone replication relationships for Azure NetApp Files | Microsoft Docs
 description: This article shows you how to create and manage cross-zone replication relationships for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.author: anfdocs

@@ -4,7 +4,7 @@ description: Learn how to integrate a VNET with an external Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ms.topic:  how-to
 ms.date: 08/31/2022
 ms.author: cshoe
@@ -130,7 +130,7 @@ $VnetArgs = @{
     Location = $Location
     ResourceGroupName = $ResourceGroupName
     AddressPrefix = '10.0.0.0/16'
-    Subnet = $subnet 
+    Subnet = $subnet
 }
 $vnet = New-AzVirtualNetwork @VnetArgs
 ```
@@ -306,7 +306,7 @@ $DnsRecordArgs = @{
     ZoneName = $EnvironmentDefaultDomain
     Name = '*'
     RecordType = 'A'
-    Ttl = 3600 
+    Ttl = 3600
     PrivateDnsRecords = $DnsRecords
 }
 New-AzPrivateDnsRecordSet @DnsRecordArgs

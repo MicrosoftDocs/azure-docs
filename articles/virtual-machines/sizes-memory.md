@@ -2,12 +2,10 @@
 title: Azure VM sizes - Memory | Microsoft Docs
 description: Lists the different memory optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines
-documentationcenter: ''
 author: priyashan-19
 ms.author: priyashan
 tags: azure-resource-manager,azure-service-management
 keywords: VM isolation,isolated VM,isolation,isolated
-ms.assetid: 
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual

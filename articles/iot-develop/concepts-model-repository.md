@@ -1,12 +1,11 @@
 ---
 title: Understand the IoT Plug and Play device models repository | Microsoft Docs
 description: As a solution developer or an IT professional, learn about the basic concepts of the device models repository for IoT Plug and Play devices.
-author: rido-min
-ms.author: rmpablos
-ms.date: 11/17/2022
+author: timlt
+ms.author: timlt
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.service: iot-develop
-services: iot-develop
 ---
 
 # Device models repository

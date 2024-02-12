@@ -9,7 +9,8 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom: event-tier1-build-2022
-ms.devlang: csharp, golang, java, javascript, php, python, ruby
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ---
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections

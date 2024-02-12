@@ -83,7 +83,7 @@ Optional Arguments:
 + `-Confirm [<SwitchParameter>]` Confirm each action in the script. 
 + `-Approve [<SwitchParameter>]` Provide the approval for the installation to start with no confirmation prompt for the listed VM's/Virtual Machine Scale Sets. 
  
-The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_wildcards). 
+The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](/powershell/module/microsoft.powershell.core/about/about_wildcards). 
 
 Example:
 ```azurepowershell
@@ -152,7 +152,7 @@ Optional Arguments:
 + `-Confirm [<SwitchParameter>]` Confirm each action in the script. 
 + `-Approve [<SwitchParameter>]` Provide the approval for the installation to start with no confirmation prompt for the listed VM's/Virtual Machine Scale Sets. 
  
-The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_wildcards). 
+The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](/powershell/module/microsoft.powershell.core/about/about_wildcards). 
 
 
 Example:

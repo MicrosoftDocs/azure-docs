@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 1/18/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
@@ -35,7 +35,7 @@ The following are aspects to consider when using captioning:
 > 
 > Try the [Azure AI Video Indexer](/azure/azure-video-indexer/video-indexer-overview) as a demonstration of how you can get captions for videos that you upload. 
 
-Captioning can accompany real-time or pre-recorded speech. Whether you're showing captions in real-time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
+Captioning can accompany real-time or prerecorded speech. Whether you're showing captions in real-time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 
 ## Caption output format
 
@@ -73,7 +73,7 @@ For captioning of a prerecording, send file input to the Speech service. For mor
 
 ## Caption and speech synchronization 
 
-You'll want to synchronize captions with the audio track, whether it's done in real-time or with a prerecording. 
+You want to synchronize captions with the audio track, whether it's in real-time or with a prerecording. 
 
 The Speech service returns the offset and duration of the recognized speech. 
 
@@ -92,7 +92,7 @@ For captioning of prerecorded speech or wherever latency isn't a concern, you co
 
 Real-time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There's also some middle ground, which is referred to as "stable partial results". 
 
-You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` property value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
+You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` property value to `5`, the Speech service affirms recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -140,7 +140,7 @@ spx recognize --file caption.this.mp4 --format any --property SpeechServiceRespo
 ```
 ::: zone-end
 
-Requesting more stable partial results will reduce the "flickering" or changing text, but it can increase latency as you wait for higher confidence results. 
+Requesting more stable partial results reduce the "flickering" or changing text, but it can increase latency as you wait for higher confidence results. 
 
 ### Stable partial threshold example
 In the following recognition sequence without setting a stable partial threshold, "math" is recognized as a word, but the final text is "mathematics". At another point, "course 2" is recognized, but the final text is "course 201". 
@@ -167,7 +167,7 @@ RECOGNIZED: Text=Welcome to applied Mathematics course 201.
 
 ## Language identification
 
-If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification). You provide up to 10 candidate languages, at least one of which is expected be in the audio. The Speech service returns the most likely language in the audio. 
+If the language in the audio could change, use continuous [language identification](language-identification.md). Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification). You provide up to 10 candidate languages, at least one of which is expected in the audio. The Speech service returns the most likely language in the audio. 
 
 ## Customizations to improve accuracy
 
@@ -179,7 +179,7 @@ Examples of phrases include:
 * Homonyms
 * Words or acronyms unique to your industry or organization
 
-There are some situations where [training a custom model](custom-speech-overview.md) is likely the best option to improve accuracy. For example, if you're captioning orthodontics lectures, you might want to train a custom model with the corresponding domain data.
+There are some situations where [training a custom model](custom-speech-overview.md) is likely the best option to improve accuracy. For example, if you're captioning orthodontic lectures, you might want to train a custom model with the corresponding domain data.
 
 ## Next steps
 

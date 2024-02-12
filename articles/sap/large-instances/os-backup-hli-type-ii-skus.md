@@ -2,10 +2,8 @@
 title: Operating system backup and restore of SAP HANA on Azure (Large Instances) type II SKUs| Microsoft Docs
 description: Perform Operating system backup and restore for SAP HANA on Azure (Large Instances) Type II SKUs
 services: virtual-machines-linux
-documentationcenter:
 author: jaawasth
 manager: hrushib
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

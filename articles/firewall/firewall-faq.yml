@@ -47,6 +47,10 @@ sections:
       - question: Does Azure Firewall support inbound traffic filtering?
         answer: |
           Azure Firewall supports inbound and outbound filtering. Inbound protection is typically used for non-HTTP protocols like RDP, SSH, and FTP protocols. For inbound HTTP and HTTPS protection, use a web application firewall such as [Azure Web Application Firewall (WAF)](../web-application-firewall/overview.md) or the TLS offload and deep packet inspection capabilities of [Azure Firewall Premium](./premium-features.md).
+      
+      - question: Does Azure Firewall Basic support forced tunneling?
+        answer: |
+         Yes,  Azure Firewall Basic supports forced tunneling.
 
       - question: Which logging and analytics services are supported by the Azure Firewall?
         answer: |

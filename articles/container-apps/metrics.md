@@ -32,6 +32,9 @@ Container Apps provides these metrics.
 
 The metrics namespace is `microsoft.app/containerapps`.
 
+> [!NOTE]
+> Replica Restart Count is the aggregate restart count over the specified time range, not the number of restarts that occurred at a point in time.
+
 ## Metrics snapshots
 
 Select the **Monitoring** tab on your app's **Overview** page to display charts showing your container app's current CPU, memory, and network utilization.

@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 08/01/2023
@@ -13,7 +13,7 @@ ms.date: 08/01/2023
 
 
 # Install a Linux master target server for failback
-After you fail over your virtual machines to Azure, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic. 
+After you fail over your virtual machines to Azure, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic.
 
 If your protected virtual machine is a Windows virtual machine, then you need a Windows master target. For a Linux virtual machine, you need a Linux master target. Read the following steps to learn how to create and install a Linux master target.
 
@@ -27,7 +27,7 @@ Post comments or questions at the end of this article or on the [Microsoft Q&A q
 
 ## Prerequisites
 
-* To choose the host on which to deploy the master target, determine if the failback is going to be to an existing on-premises virtual machine or to a new virtual machine. 
+* To choose the host on which to deploy the master target, determine if the failback is going to be to an existing on-premises virtual machine or to a new virtual machine.
   * For an existing virtual machine, the host of the master target should have access to the data stores of the virtual machine.
   * If the on-premises virtual machine does not exist (in case of Alternate Location Recovery), the failback virtual machine is created on the same host as the master target. You can choose any ESXi host to install the master target.
 * The master target should be on a network that can communicate with the process server and the configuration server.
@@ -63,7 +63,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 > From, version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), Ubuntu 20.04 operating system is supported for Linux master target server.If you wish to use the latest OS, proceed setting up the machine with Ubuntu 20.04 iso image.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
-    
+
     ![Select a language](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Select **Install Ubuntu Server**, and then select **Enter**.
 
@@ -113,7 +113,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
     ![Select the default option](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
 1.  In the configure proxy selection, select the default option, select **Continue**, and then select **Enter**.
-     
+
      ![Screenshot that shows where to select Continue and then select Enter.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Select **No automatic updates** option in the selection for managing upgrades on your system, and then select **Enter**.
@@ -128,12 +128,12 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
     ![Select software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. In the selection for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
-     
+
     ![GRUB boot installer](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
 1. Select the appropriate device for the boot loader installation (preferably **/dev/sda**), and then select **Enter**.
-     
+
     ![Select appropriate device](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Select **Continue**, and then select **Enter** to finish the installation.
@@ -159,7 +159,7 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 4. In the left pane, select **Advanced** > **General**, and then select the **Configuration Parameters** button on the lower-right part of the screen.
 
-    ![Open configuration parameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
+    ![Open configuration parameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png)
 
     The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
 
@@ -187,7 +187,7 @@ Azure Site Recovery master target server requires a specific version of the Ubun
  ```bash
     sudo apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx
  ```
- 
+
 >[!NOTE]
 > From, version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), Ubuntu 20.04 operating system is supported for Linux master target server.
 > If you wish to use the latest OS, upgrade the operating system to Ubuntu 20.04 before proceeding. To upgrade the operating system later, you can follow the instructions listed [here](#upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004).
@@ -270,7 +270,7 @@ Use the following steps to create a retention disk:
     ```
 
 5. Create the **fstab** entry to mount the retention drive every time the system starts.
-    
+
     ```bash
        sudo vi /etc/fstab
     ```
@@ -302,7 +302,7 @@ Use the following steps to create a retention disk:
        sudo echo <passphrase> >passphrase.txt
     ```
 
-    Example: 
+    Example:
 
     ```bash
        sudo echo itUx70I47uxDuUVY >passphrase.txt`
@@ -314,8 +314,8 @@ Use the following steps to create a retention disk:
     sudo /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    Example: 
-    
+    Example:
+
     ```bash
     sudo /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```

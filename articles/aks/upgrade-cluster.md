@@ -3,7 +3,7 @@ title: Upgrade options for Azure Kubernetes Service (AKS) clusters
 description: Learn the different ways to upgrade an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: event-tier1-build-2022
-ms.date: 10/19/2023
+ms.date: 01/26/2024
 ---
 
 # Upgrade options for Azure Kubernetes Service (AKS) clusters
@@ -45,7 +45,7 @@ Persistent volume claims (PVCs) backed by Azure locally redundant storage (LRS) 
 
 The combination of [Planned Maintenance Window][planned-maintenance], [Max Surge](./upgrade-aks-cluster.md#customize-node-surge-upgrade), [Pod Disruption Budget][pdb-spec], [node drain timeout][drain-timeout], and [node soak time][soak-time] (preview) can significantly increase the likelihood of node upgrades completing successfully by the end of the maintenance window while also minimizing disruptions.
 
-* [Planned Maintenance Window][planned-maintenance] enables service teams to schedule auto-upgrade during a pre-defined window, typically a low-traffic period, to minimize workload impact. We recommend a window duration of at least *four hours*.
+* [Planned Maintenance Window][planned-maintenance] enables service teams to schedule auto-upgrade during a predefined window, typically a low-traffic period, to minimize workload impact. We recommend a window duration of at least *four hours*.
 * [Max Surge](./upgrade-aks-cluster.md#customize-node-surge-upgrade) on the node pool allows requesting extra quota during the upgrade process and limits the number of nodes selected for upgrade simultaneously. A higher max surge results in a faster upgrade process. We don't recommend setting it at 100%, as it upgrades all nodes simultaneously, which can cause disruptions to running applications. We recommend a max surge quota of *33%* for production node pools.
 * [Pod Disruption Budget][pdb-spec] is set for service applications and limits the number of pods that can be down during voluntary disruptions, such as AKS-controlled node upgrades. It can be configured as `minAvailable` replicas, indicating the minimum number of application pods that need to be active, or `maxUnavailable` replicas, indicating the maximum number of application pods that can be terminated, ensuring high availability for the application. Refer to the guidance provided for configuring [Pod Disruption Budgets (PDBs)][pdb-concepts]. PDB values should be validated to determine the settings that work best for your specific service.
 * [Node drain timeout][drain-timeout] on the node pool allows you to configure the wait duration for eviction of pods and graceful termination per node during an upgrade. This option is useful when dealing with long running workloads. When the node drain timeout is specified (in minutes), AKS respects waiting on pod disruption budgets. If not specified, the default timeout is 30 minutes.
@@ -54,13 +54,9 @@ The combination of [Planned Maintenance Window][planned-maintenance], [Max Surge
     > [!NOTE] 
     > To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.173 or later installed.
 
-
 ## Next steps
 
-This article listed different upgrade options for AKS clusters. To learn more about deploying and managing AKS clusters, see the following tutorial:
-
-> [!div class="nextstepaction"]
-> [AKS tutorials][aks-tutorial-prepare-app]
+This article listed different upgrade options for AKS clusters. For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 <!-- LINKS - external -->
 [pdb-spec]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
@@ -73,3 +69,4 @@ This article listed different upgrade options for AKS clusters. To learn more ab
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [planned-maintenance]: planned-maintenance.md
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices

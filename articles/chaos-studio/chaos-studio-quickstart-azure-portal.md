@@ -92,6 +92,9 @@ Create an Azure resource and ensure that it's one of the supported [fault provid
 1. Search for **Virtual Machine Contributor** and select the role. Select **Next**.
 
    ![Screenshot that shows choosing the role for the VM.](images/quickstart-virtual-machine-contributor.png)
+
+1. Select **Managed identity** option
+    
 1. Choose **Select members** and search for your experiment name. Select your experiment and choose **Select**.
 
    ![Screenshot that shows selecting the experiment.](images/quickstart-select-experiment-role-assignment.png)

@@ -8,7 +8,6 @@ manager: kumudd
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: azure-cdn
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/27/2023
 ms.author: duau

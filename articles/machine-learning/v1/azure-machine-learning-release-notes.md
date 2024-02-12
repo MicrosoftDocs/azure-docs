@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022, devx-track-python
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/13/2023
+ms.date: 01/29/2024
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,18 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2024-01-29
+### Azure Machine Learning SDK for Python v1.55.0
+  + **azureml-core**
+    + Enable Application Insights re-mapping for new region China East 3, since it doesn't support classic resource mode. Also fixed the missing update for China North 3.
+  + **azureml-defaults**
+    + Bumped azureml-inference-server-http pin to 1.0.0 in azureml-defaults.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.31.*
+  + **azureml-responsibleai**
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.33.0
+    + Increase responsibleai and fairlearn dependency versions
 
 ## 2023-11-13
   + **azureml-automl-core, azureml-automl-runtime, azureml-contrib-automl-dnn-forecasting, azureml-train-automl-client, azureml-train-automl-runtime, azureml-training-tabular**

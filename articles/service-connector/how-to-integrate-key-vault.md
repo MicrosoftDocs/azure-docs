@@ -26,14 +26,14 @@ This page shows supported authentication methods and clients, and shows sample c
 
 Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|----------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
-| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |                            | ![yes icon](./media/green-check.png) |
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET               | Yes                              | Yes                            | No                         | Yes               |
+| Java               | Yes                              | Yes                            | No                         | Yes               |
+| Java - Spring Boot | Yes                              | Yes                            | No                         | Yes               |
+| Node.js            | Yes                              | Yes                            | No                         | Yes               |
+| Python             | Yes                              | Yes                            | No                         | Yes               |
+| None               | Yes                              | Yes                            | No                         | Yes               |
 
 ---
 

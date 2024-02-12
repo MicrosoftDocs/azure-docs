@@ -52,10 +52,10 @@ Using the .NET CLI:
 
 ```dotnetcli
 # Install the Azure Tables extension
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables --version 1.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables
 
 # Update the combined Azure Storage extension (to a version which no longer includes Azure Tables)
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]

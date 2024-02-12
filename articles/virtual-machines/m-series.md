@@ -4,7 +4,7 @@ description: Specifications for the M-series VMs.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: ayshak
@@ -53,7 +53,7 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 
 <sup>3</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
-<sup>4</sup> M-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
+<sup>4</sup> M-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

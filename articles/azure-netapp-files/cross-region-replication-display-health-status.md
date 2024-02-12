@@ -2,15 +2,9 @@
 title: Display health status of Azure NetApp Files replication relationship | Microsoft Docs
 description: Describes how to view replication status on the source volume or the destination volume of Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.author: anfdocs

@@ -51,7 +51,7 @@ Our team enables the Launch Window Scheduling feature manually on a per-spacecra
 
 The following outlines a typical contact scheduling flow when using Launch Window Scheduling:
 1. You don't need an accurate TLE to schedule a contact. [Update the spacecraft resource](update-tle.md) with the best estimate TLE.
-1. Specify the time window of interest for your contact by adjusting the **Start Time** and **End Time** fields in the [List Available Contacts API](https://learn.microsoft.com/rest/api/orbital/azureorbitalgroundstation/spacecrafts/list-available-contacts?view=rest-orbital-azureorbitalgroundstation-2022-11-01&tabs=HTTP) or [Portal contact scheduling flow](schedule-contact.md). To account for the unpredictability of launch and vehicle separation, we recommend your window include additional time before and after the anticipated satellite pass.
+1. Specify the time window of interest for your contact by adjusting the **Start Time** and **End Time** fields in the [List Available Contacts API](/rest/api/orbital/azureorbitalgroundstation/spacecrafts/list-available-contacts?tabs=HTTP) or [Portal contact scheduling flow](schedule-contact.md). To account for the unpredictability of launch and vehicle separation, we recommend your window include additional time before and after the anticipated satellite pass.
 1. The service returns contact options if a whole window or partial window is available in your specified block.
 1. [Schedule the contact](schedule-contact.md) as normal.
 

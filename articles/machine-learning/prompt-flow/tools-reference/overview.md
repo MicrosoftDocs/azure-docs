@@ -15,8 +15,11 @@ ms.date: 10/24/2023
 ---
 
 # Overview of tools in prompt flow
+This page provides an overview of the tools that are available in prompt flow. It also offers instructions on how to create your own custom tool and how to install custom tools.
 
-The following table provides an index of tools in prompt flow. If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html).
+
+## An index of tools
+The following table shows an index of tools in prompt flow.
 
 | Tool name | Description | Environment | Package name |
 |------|-----------|-------------|--------------|
@@ -32,6 +35,9 @@ The following table provides an index of tools in prompt flow. If existing tools
 | [Vector DB Lookup](./vector-db-lookup-tool.md) | Searches a vector-based query from existing vector database. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Vector Index Lookup](./vector-index-lookup-tool.md) | Searches text or a vector-based query from Azure Machine Learning vector index. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 
-To discover more custom tools developed by the open-source community, see [More custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html).
-
-For the tools to use in the custom environment, see [Custom tool package creation and usage](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime) to prepare the runtime. Then the tools can be displayed in the tool list.
+To discover more custom tools developed by the open-source community, see [More custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html). 
+  
+  
+## Remarks
+- If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). 
+- To install custom tools or add more tools to the custom environment, see [Custom tool package creation and usage](../how-to-custom-tool-package-creation-and-usage.md#prepare-runtime) to prepare the runtime. Then the tools can be displayed in the tool list.

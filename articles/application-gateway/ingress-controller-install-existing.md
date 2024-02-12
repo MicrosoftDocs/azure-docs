@@ -1,10 +1,10 @@
 ---
-title: Create an ingress controller with an existing Application Gateway 
-description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway. 
+title: Create an ingress controller with an existing Application Gateway
+description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-arm-template, devx-track-linux, devx-track-azurecli
+ms.custom: devx-track-arm-template, linux-related-content, devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: greglin
@@ -176,7 +176,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
 
     # Verbosity level of the App Gateway Ingress Controller
     verbosityLevel: 3
-    
+
     ################################################################################
     # Specify which application gateway the ingress controller must manage
     #
@@ -184,12 +184,12 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
         subscriptionId: <subscriptionId>
         resourceGroup: <resourceGroupName>
         name: <applicationGatewayName>
-    
+
         # Setting appgw.shared to "true" creates an AzureIngressProhibitedTarget CRD.
         # This prohibits AGIC from applying config for any host/path.
         # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.
         shared: false
-    
+
     ################################################################################
     # Specify which kubernetes namespace the ingress controller must watch
     # Default value is "default"
@@ -198,33 +198,33 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     #
     # kubernetes:
     #   watchNamespace: <namespace>
-    
+
     ################################################################################
     # Specify the authentication with Azure Resource Manager
     #
     # Two authentication methods are available:
-    # - Option 1: Azure-AD-workload-identity 
+    # - Option 1: Azure-AD-workload-identity
     armAuth:
         type: workloadIdentity
         identityClientID:  <identityClientId>
-    
+
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0" >>
-    
+
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
-    
+
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
     ```
 
 1. Edit helm-config.yaml and fill in the values for `appgw` and `armAuth`.
-  
+
     > [!NOTE]
     > The `<identity-client-id>` is a property of the Microsoft Entra Workload ID you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group hosting the infrastructure resources related to the AKS cluster, Application Gateway and managed identity.
 

@@ -63,7 +63,7 @@ The resource providers for compute services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
@@ -73,7 +73,7 @@ The resource providers for compute services are:
 | Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Maintenance | [Azure Maintenance](../../virtual-machines/maintenance-configurations.md) |
-| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
 | Microsoft.Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.SerialConsole - [registered by default](#registration) | [Azure Serial Console for Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |

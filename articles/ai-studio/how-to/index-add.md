@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 01/15/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -27,7 +27,8 @@ You must have:
 
 ## Create an index
 
-1. Sign in to Azure AI Studio and open the Azure AI project in which you want to create the index.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
 1. From the collapsible menu on the left, select **Indexes** under **Components**.
 
     :::image type="content" source="../media/index-retrieve/project-left-menu.png" alt-text="Screenshot of Project Left Menu." lightbox="../media/index-retrieve/project-left-menu.png":::
@@ -117,15 +118,14 @@ If the Azure AI resource the project uses was created through Azure portal:
 
 1. Open your AI Studio project
 1. In Flows, create a new Flow or open an existing flow 
-1. On the top menu of the flow designer, select More tools, and then select Vector Index Lookup
+1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***
 
-    :::image type="content" source="../media/index-retrieve/vector-index-lookup.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/vector-index-lookup.png":::
+    :::image type="content" source="../media/index-retrieve/index-lookup-tool.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/index-lookup-tool.png":::
 
-1. Provide a name for your step and select **Add**.
-1. The Vector Index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas
-1. Enter the path to your vector index, along with the query that you want to perform against the index.
+1. Provide a name for your Index Lookup Tool and select **Add**.
+1. Select the **mlindex_content** value box, and select your index. After completing this step, enter the queries and **query_types** to be performed against the index.
 
-    :::image type="content" source="../media/index-retrieve/configure-index-lookup.png" alt-text="Screenshot of Configure Vector index Lookup." lightbox="../media/index-retrieve/configure-index-lookup.png":::
+    :::image type="content" source="../media/index-retrieve/configure-index-lookup-tool.png" alt-text="Screenshot of Configure Index Lookup." lightbox="../media/index-retrieve/configure-index-lookup-tool.png":::
 
 ## Next steps
 

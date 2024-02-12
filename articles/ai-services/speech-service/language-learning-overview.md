@@ -6,7 +6,7 @@ author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
@@ -14,9 +14,9 @@ ms.author: eur
 
 One of the most important aspects of learning a new language is speaking and listening. Azure AI Speech provides features that can be used to help language learners.
 
-## Pronunciation Assessment
+## Pronunciation assessment
 
-The [Pronunciation Assessment](pronunciation-assessment-tool.md) feature is designed to provide instant and comprehensive feedback to users on the accuracy, fluency, prosody, vocabulary usage, grammar correctness, and topic understanding of their speech when learning a new language, so that they can speak and present in a new language with confidence. For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
+The [pronunciation assessment](pronunciation-assessment-tool.md) feature provides comprehensive feedback to users on the accuracy, fluency, prosody, vocabulary usage, grammar correctness, and topic understanding of their speech. Language learners can apply the assessment results to speak and present in a new language with confidence. For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
 The Pronunciation Assessment feature offers several benefits for educators, service providers, and students. 
 - For educators, it provides instant feedback, eliminates the need for time-consuming oral language assessments, and offers consistent and comprehensive assessments. 

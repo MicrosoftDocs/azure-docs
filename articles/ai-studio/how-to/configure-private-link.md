@@ -277,3 +277,4 @@ See [this documentation](../../machine-learning/how-to-custom-dns.md#find-the-ip
 - [Create a project](create-projects.md)
 - [Learn more about Azure AI Studio](../what-is-ai-studio.md)
 - [Learn more about Azure AI resources](../concepts/ai-resources.md)
+- [Troubleshoot secure connectivity to a project](troubleshoot-secure-connection-project.md)

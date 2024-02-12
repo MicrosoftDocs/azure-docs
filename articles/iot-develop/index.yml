@@ -6,13 +6,11 @@ summary: Explore the Azure IoT documentation for developing cloud-connected embe
 metadata:
   title: IoT device development
   description: Learn how to use Azure IoT for developing cloud-connected embedded devices and device applications. 
-  services: iot-develop
   ms.service: iot-develop
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 03/28/2023
-  ms.custom: engagement-fy23
+  ms.date: 1/23/2024
 
 landingContent:
   - title: About IoT device development

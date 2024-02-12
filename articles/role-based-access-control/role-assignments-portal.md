@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/01/2023
+ms.date: 01/30/2024
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
@@ -132,13 +132,13 @@ If you selected one of the following privileged roles, follow the steps in this 
 - [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)
 - [User Access Administrator](built-in-roles.md#user-access-administrator)
 
-1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
+1. On the **Conditions** tab under **What user can do**, select the **Allow user to only assign selected roles to selected principals (fewer privileges)** option.
 
     :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
 
-1. Click **Add condition** to add a condition that constrains the roles and principals this user can assign roles to.
+1. Click **Select roles and principals** to add a condition that constrains the roles and principals this user can assign roles to.
 
-1. Follow the steps in [Delegate Azure role assignment management to others with conditions (preview)](delegate-role-assignments-portal.md#step-3-add-a-condition).
+1. Follow the steps in [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md#step-3-add-a-condition).
 
 # [Storage condition](#tab/storage-condition)
 

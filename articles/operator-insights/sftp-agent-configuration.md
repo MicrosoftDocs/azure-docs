@@ -87,9 +87,9 @@ file_sources:
       # This is created by the Data Product and should not be changed. 
       secret_name: adls-sas-token
     # The container within the ingestion account. This *must* be exactly the name of the container that Azure Operator Insights expects.
-    # Valid values:
-    # - pmstats
     container_name: example-container
+    # Optional. A string giving an optional base path to use in Azure Blob Storage. Reserved URL characters must be percent-encoded. It may be required depending on the Data Product.
+    base_path: pmstats
     # Optional. How often, in hours, the sink should refresh its ADLS token. Defaults to 1.
     adls_token_cache_period_hours: 1
     # Optional. The maximum number of blobs that can be uploaded to ADLS in parallel. Further blobs will be queued in memory until an upload completes. Defaults to 10.

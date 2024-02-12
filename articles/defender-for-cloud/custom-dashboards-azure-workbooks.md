@@ -256,8 +256,8 @@ To move workbooks that you've built in other Azure services into your Microsoft 
 
 1. Enter the required details for saving the workbook:
    1. A name for the workbook
-   2. The desired region
-   3. Subscription, resource group, and sharing as appropriate.
+   1. The desired region
+   1. Subscription, resource group, and sharing as appropriate.
 
 You'll find your saved workbook in the **Recently modified workbooks** category.
 
@@ -268,5 +268,3 @@ This article described Defender for Cloud's integrated Azure Workbooks page with
 - Learn more about [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md)
 
 - The built-in workbooks pull their data from Defender for Cloud's recommendations. Learn about the many security recommendations in [Security recommendations - a reference guide](recommendations-reference.md)
-
-

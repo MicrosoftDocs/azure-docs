@@ -2,15 +2,9 @@
 title: Troubleshoot Azure Application Consistent Snapshot tool - Azure NetApp Files
 description: Troubleshoot communication issues, test failures, and other SAP HANA issues when using the Azure Application Consistent Snapshot (AzAcSnap) tool.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 01/16/2023
 ms.author: phjensen
@@ -121,7 +115,7 @@ For the `-c backup` command, AzAcSnap writes to a *\*.result* file.  The purpose
       Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
       ```
 
-1. Example output where a failure has occured and AzAcSnap captured the failure:
+1. Example output where a failure has occurred and AzAcSnap captured the failure:
 
    1. Output to *\*.result* file:
    

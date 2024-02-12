@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 05/06/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech, ignite-fall-2021, references_regions
 ---

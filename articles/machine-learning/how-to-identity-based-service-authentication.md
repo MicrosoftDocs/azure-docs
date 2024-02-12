@@ -42,7 +42,7 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 You can add a user-assigned managed identity when creating an Azure Machine Learning workspace from the [Azure portal](https://portal.azure.com). Use the following steps while creating the workspace:
 
 1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
-1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
+1. From the __Identity__ page, select __User-assigned identity__ and then select the managed identity to use.
 
 The following [Azure RBAC role assignments](../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
 

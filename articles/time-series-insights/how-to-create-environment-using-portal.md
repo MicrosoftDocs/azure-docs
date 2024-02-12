@@ -4,9 +4,7 @@ description: 'Learn how to set up an environment in Azure Time Series Insights G
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18

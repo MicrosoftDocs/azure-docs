@@ -23,15 +23,15 @@ This page shows supported authentication methods and clients, and shows sample c
 
 Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)                 |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET               | Yes                              | Yes                            | Yes                        | Yes               |
+| Java               | Yes                              | Yes                            | Yes                        | Yes               |
+| Java - Spring Boot | Yes                              | Yes                            | Yes                        | Yes               |
+| Node.js            | Yes                              | Yes                            | Yes                        | Yes               |
+| Python             | Yes                              | Yes                            | Yes                        | Yes               |
+| Go                 | Yes                              | Yes                            | Yes                        | Yes               |
+| None               | Yes                              | Yes                            | Yes                        | Yes               |
 
 
 ## Default environment variable names or application properties and Sample code

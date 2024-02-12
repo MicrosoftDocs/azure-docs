@@ -22,7 +22,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - JMS is currently not supported on partitioned namespaces.
 > - The feature is currently available in the regions noted below. New regions will be added regularly, we will keep this article updated with the latest regions as they become available.
 > 
-> |  |  |  |  |  |
+> | Regions  | Regions  | Regions | Regions |Regions  |
 > |-----------------------|----------------------|------------------|-------------------|-----------------|
 > | Australia Central     | Central US           | Italy North      | Poland Central    | UK South        |
 > | Australia East        | East Asia            | Japan West       | South Central US  | UK West         |

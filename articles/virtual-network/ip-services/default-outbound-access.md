@@ -2,7 +2,6 @@
 title: Default outbound access in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about default outbound access in Azure.
-services: virtual-network
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network
@@ -86,7 +85,9 @@ There are multiple ways to turn off default outbound access. The following secti
  
 :::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
  
-* Using CLI, when creating a subnet with [az network vnet subnet create](https://learn.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create), use the `--default-outbound` option and choose "false"
+* Using PowerShell, when creating a subnet with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), use the `DefaultOutboundAccess` option and choose "$false"
+
+* Using CLI, when creating a subnet with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create), use the `--default-outbound` option and choose "false"
  
 * Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false"
  

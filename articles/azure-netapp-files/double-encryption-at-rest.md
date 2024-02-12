@@ -2,15 +2,9 @@
 title: Azure NetApp Files double encryption at rest | Microsoft Docs
 description: Explains Azure NetApp Files double encryption at rest to help you use this feature.  
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/28/2023
 ms.author: anfdocs
@@ -42,7 +36,6 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * Australia Southeast 
 * Brazil South  
 * Canada Central  
-* Canada East
 * Central US  
 * East Asia
 * East US

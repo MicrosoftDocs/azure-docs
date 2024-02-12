@@ -261,8 +261,8 @@ Search jobs are intended to scan large volumes of data in a specific table. Ther
 - [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
 - [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
-- [parse](/azure/data-explorer/kusto/query/whereoperator)
-- [parse-where](/azure/data-explorer/kusto/query/whereoperator)
+- [parse](/azure/data-explorer/kusto/query/parse-operator)
+- [parse-where](/azure/data-explorer/kusto/query/parse-where-operator)
 
 You can use all functions and binary operators within these operators.
 

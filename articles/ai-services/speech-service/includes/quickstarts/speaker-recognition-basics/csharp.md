@@ -3,7 +3,7 @@ author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 01/08/2022
-author: eur
+ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
 

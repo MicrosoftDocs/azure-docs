@@ -118,7 +118,7 @@ Azure CLI is used here to deploy the template. You can also use the Azure portal
 The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
-Run the code below to deploy a [.NET app](https://mcr.microsoft.com/product/dotnet/samples/tags) on Windows.
+Run the code below to deploy a .NET framework app on Windows.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -131,7 +131,7 @@ Run the code below to create a Python app on Linux.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
-az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.7" \
+az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.9" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
 
@@ -148,7 +148,7 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 ---
 ::: zone-end
 ::: zone pivot="platform-windows-container"
-Run the code below to deploy a .NET framework app on a Windows container.
+Run the code below to deploy a [.NET app](https://mcr.microsoft.com/product/dotnet/samples/tags) on a Windows container.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&

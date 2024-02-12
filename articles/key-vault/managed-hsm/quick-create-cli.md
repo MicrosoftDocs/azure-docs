@@ -99,6 +99,9 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert
 openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
 ```
 
+> [!NOTE]
+> Even if the certificate has "expired," it can still be used to restore the security domain.
+
 > [!IMPORTANT]
 > Create and store the RSA key pairs and security domain file generated in this step securely.
 

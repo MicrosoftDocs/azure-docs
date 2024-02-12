@@ -8,7 +8,7 @@ ms.subservice: hpc
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.workload: infrastructure-services
 ms.date: 07/28/2023
 ms.author: jushiman
@@ -42,8 +42,8 @@ This extension supports the following OS distros, depending on driver support fo
 > [!NOTE]
 > The latest supported CUDA drivers for NC-series VMs are currently 470.82.01. Later driver versions aren't supported on the K80 cards in NC. While the extension is being updated with this end of support for NC, install CUDA drivers manually for K80 cards on the NC-series.
 
-> [!IMPORTANT] 
-> This document references a release version of Linux that is nearing or at, End of Life (EOL). Please consider updating to a more current version. 
+> [!IMPORTANT]
+> This document references a release version of Linux that is nearing or at, End of Life (EOL). Please consider updating to a more current version.
 
 ### Internet connectivity
 
@@ -117,7 +117,7 @@ You can deploy Azure NVIDIA VM extensions in the Azure portal.
 1. Select **Review + create**, and select **Create**. Wait a few minutes for the driver to deploy.
 
     :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension-linux.png" alt-text="Screenshot that shows selecting the Review + create button.":::
-  
+
 1. Verify that the extension was added to the list of installed extensions.
 
     :::image type="content" source="./media/nvidia-ext-portal/verify-extension-linux.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
@@ -175,7 +175,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.6 
+  --version 1.6
 ```
 
 The following example also adds two optional custom settings as an example for nondefault driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the `--settings` are optional and default. Updating the kernel might increase the extension installation times. Also, choosing a specific (older) CUDA toolkit version might not always be compatible with newer kernels.

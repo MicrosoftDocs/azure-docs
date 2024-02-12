@@ -2,15 +2,9 @@
 title: Troubleshoot user access on LDAP volumes | Microsoft Docs
 description: Describes the steps for troubleshooting user access on LDAP-enabled volumes.  
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 09/06/2023
 ms.author: anfdocs

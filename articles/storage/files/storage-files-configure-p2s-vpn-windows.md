@@ -4,7 +4,7 @@ description: How to configure a point-to-site (P2S) VPN on Windows for use with 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/01/2023
+ms.date: 01/30/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -43,41 +43,45 @@ Before setting up the point-to-site VPN, you need to collect some information ab
 
 In order to set up a point-to-site VPN using the Azure portal, you'll need to know your resource group name, virtual network name, gateway subnet name, and storage account name.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Run this script to collect the necessary information. Replace `<resource-group>`, `<vnet-name>`, `<subnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
 
-```PowerShell
-$resourceGroupName = "<resource-group-name>" 
-$virtualNetworkName = "<vnet-name>"
-$subnetName = "<subnet-name>"
-$storageAccountName = "<storage-account-name>"
+```azurepowershell
+$resourceGroupName  = '<resource-group-name>'
+$virtualNetworkName = '<vnet-name>'
+$subnetName         = '<subnet-name>'
+$storageAccountName = '<storage-account-name>'
 
-$virtualNetwork = Get-AzVirtualNetwork `
-    -ResourceGroupName $resourceGroupName `
-    -Name $virtualNetworkName
+$virtualNetworkParams = @{
+    ResourceGroupName = $resourceGroupName
+    Name              = $virtualNetworkName
+}
+$virtualNetwork = Get-AzVirtualNetwork @virtualNetworkParams
 
-$subnetId = $virtualNetwork | `
-    Select-Object -ExpandProperty Subnets | `
-    Where-Object { $_.Name -eq "StorageAccountSubnet" } | `
+$subnetId = $virtualNetwork |
+    Select-Object -ExpandProperty Subnets |
+    Where-Object {$_.Name -eq 'StorageAccountSubnet'} |
     Select-Object -ExpandProperty Id
 
-$storageAccount = Get-AzStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName
+$storageAccountParams = @{
+    ResourceGroupName = $resourceGroupName
+    Name              = $storageAccountName
+}
+$storageAccount = Get-AzStorageAccount @storageAccountParams
 
-$privateEndpoint = Get-AzPrivateEndpoint | `
+$privateEndpoint = Get-AzPrivateEndpoint |
     Where-Object {
-        $subnets = $_ | `
-            Select-Object -ExpandProperty Subnet | `
-            Where-Object { $_.Id -eq $subnetId }
+        $subnets = $_ |
+            Select-Object -ExpandProperty Subnet |
+            Where-Object {$_.Id -eq $subnetId}
 
-        $connections = $_ | `
-            Select-Object -ExpandProperty PrivateLinkServiceConnections | `
-            Where-Object { $_.PrivateLinkServiceId -eq $storageAccount.Id }
+        $connections = $_ |
+            Select-Object -ExpandProperty PrivateLinkServiceConnections |
+            Where-Object {$_.PrivateLinkServiceId -eq $storageAccount.Id}
         
         $null -ne $subnets -and $null -ne $connections
-    } | `
+    } |
     Select-Object -First 1
 ```
 ---
@@ -87,7 +91,7 @@ $privateEndpoint = Get-AzPrivateEndpoint | `
 In order for VPN connections from your on-premises Windows machines to be authenticated to access your virtual network, you must create two certificates:
 
 1. A root certificate, which will be provided to the virtual machine gateway
-2. A client certificate, which will be signed with the root certificate
+1. A client certificate, which will be signed with the root certificate
 
 You can either use a root certificate that was generated with an enterprise solution, or you can generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate from your IT organization.
 
@@ -96,45 +100,44 @@ If you aren't using an enterprise certificate solution, create a self-signed roo
 > [!IMPORTANT]
 > Run this PowerShell script as administrator from an on-premises machine running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell or VM in Azure.
 
-```PowerShell
-$rootcertname = "CN=P2SRootCert"
-$certLocation = "Cert:\CurrentUser\My"
-$vpnTemp = "C:\vpn-temp\"
-$exportedencodedrootcertpath = $vpnTemp + "P2SRootCertencoded.cer"
-$exportedrootcertpath = $vpnTemp + "P2SRootCert.cer"
+```powershell
+$rootcertname                = 'CN=P2SRootCert'
+$certLocation                = 'Cert:\CurrentUser\My'
+$vpnTemp                     = 'C:\vpn-temp'
+$exportedencodedrootcertpath = "$vpnTemp\P2SRootCertencoded.cer"
+$exportedrootcertpath        = "$vpnTemp\P2SRootCert.cer"
 
-if (-Not (Test-Path $vpnTemp)) {
+if (-Not (Test-Path -Path $vpnTemp -PathType Container)) {
     New-Item -ItemType Directory -Force -Path $vpnTemp | Out-Null
 }
 
-if ($PSVersionTable.PSVersion -ge [System.Version]::new(6, 0)) {
-    Install-Module WindowsCompatibility
-    Import-WinModule PKI
+if ($PSVersionTable.PSVersion.Major -ge 6) {
+    Import-Module -Name PKI -UseWindowsPowerShell
 }
 
-$rootcert = New-SelfSignedCertificate `
-    -Type Custom `
-    -KeySpec Signature `
-    -Subject $rootcertname `
-    -KeyExportPolicy Exportable `
-    -HashAlgorithm sha256 `
-    -KeyLength 2048 `
-    -CertStoreLocation $certLocation `
-    -KeyUsageProperty Sign `
-    -KeyUsage CertSign
+$selfSignedCertParams = @{
+    Type              = 'Custom'
+    KeySpec           = 'Signature'
+    Subject           = $rootcertname
+    KeyExportPolicy   = 'Exportable'
+    HashAlgorithm     = 'sha256'
+    KeyLength         = '2048'
+    CertStoreLocation = $certLocation
+    KeyUsageProperty  = 'Sign'
+    KeyUsage          = 'CertSign'
+}
+$rootcert = New-SelfSignedCertificate @selfSignedCertParams
 
-Export-Certificate `
-    -Cert $rootcert `
-    -FilePath $exportedencodedrootcertpath `
-    -NoClobber | Out-Null
+Export-Certificate -Cert $rootcert -FilePath $exportedencodedrootcertpath -NoClobber | Out-Null
 
 certutil -encode $exportedencodedrootcertpath $exportedrootcertpath | Out-Null
 
 $rawRootCertificate = Get-Content -Path $exportedrootcertpath
 
-[System.String]$rootCertificate = ""
-foreach($line in $rawRootCertificate) { 
-    if ($line -notlike "*Certificate*") { 
+$rootCertificate = ''
+
+foreach ($line in $rawRootCertificate) { 
+    if ($line -notlike '*Certificate*') { 
         $rootCertificate += $line 
     } 
 }
@@ -147,7 +150,7 @@ The Azure virtual network gateway is the service that your on-premises Windows m
 Deploying a virtual network gateway requires two basic components:
 
 1. A public IP address that will identify the gateway to your clients wherever they are in the world
-2. The root certificate you created in the previous step, which will be used to authenticate your clients
+1. The root certificate you created in the previous step, which will be used to authenticate your clients
 
 You can use the Azure portal or Azure PowerShell to deploy the virtual network gateway. Deployment can take up to 45 minutes to complete.
 
@@ -205,45 +208,54 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
 
 1. Select **Save** at the top of the page to save all of the configuration settings and upload the root certificate public key information to Azure.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Replace `<desired-vpn-name>`, `<desired-region>`, and `<gateway-subnet-name>` in the following script with the proper values for these variables.
 
 While this resource is being deployed, this PowerShell script will block the deployment from being completed. This is expected.
 
-```PowerShell
-$vpnName = "<desired-vpn-name>" 
+```azurepowershell
+$vpnName             = '<desired-vpn-name>' 
 $publicIpAddressName = "$vpnName-PublicIP"
-$region = "<desired-region>"
-$gatewaySubnet = "<gateway-subnet-name>"
+$region              = '<desired-region>'
+$gatewaySubnet       = '<gateway-subnet-name>'
 
-$publicIPAddress = New-AzPublicIpAddress `
-    -ResourceGroupName $resourceGroupName `
-    -Name $publicIpAddressName `
-    -Location $region `
-    -Sku Basic `
-    -AllocationMethod Dynamic
+$publicIpParams = @{
+    ResourceGroupName = $resourceGroupName
+    Name              = $publicIpAddressName
+    Location          = $region
+    Sku               = 'Basic'
+    AllocationMethod  = 'Dynamic'
+}
+$publicIpAddress = New-AzPublicIpAddress @publicIPParams
 
-$gatewayIpConfig = New-AzVirtualNetworkGatewayIpConfig `
-    -Name "vnetGatewayConfig" `
-    -SubnetId $gatewaySubnet.Id `
-    -PublicIpAddressId $publicIPAddress.Id
+$gatewayIpParams = @{
+    Name = 'vnetGatewayConfig'
+    SubnetId = $subnetId
+    PublicIpAddressId = $publicIPAddress.Id
+}
+$gatewayIpConfig = New-AzVirtualNetworkGatewayIpConfig @gatewayIpParams
 
-$azRootCertificate = New-AzVpnClientRootCertificate `
-    -Name "P2SRootCert" `
-    -PublicCertData $rootCertificate
+$vpnClientRootCertParams = @{
+    Name           = 'P2SRootCert'
+    PublicCertData = $rootCertificate
+}
+$azRootCertificate = New-AzVpnClientRootCertificate @vpnClientRootCertParams
 
-$vpn = New-AzVirtualNetworkGateway `
-    -ResourceGroupName $resourceGroupName `
-    -Name $vpnName `
-    -Location $region `
-    -GatewaySku VpnGw2 `
-    -GatewayType Vpn `
-    -VpnType RouteBased `
-    -IpConfigurations $gatewayIpConfig `
-    -VpnClientAddressPool "172.16.201.0/24" `
-    -VpnClientProtocol IkeV2 `
-    -VpnClientRootCertificates $azRootCertificate
+$virtualNetGatewayParams = @{
+    ResourceGroupName         = $resourceGroupName
+    Name                      = $vpnName
+    Location                  = $region
+    GatewaySku                = 'VpnGw2'
+    IpConfigurations          = $gatewayIpConfig
+    GatewayType               = 'Vpn'
+    VpnType                   = 'RouteBased'
+    IpConfigurations          = $gatewayIpConfig
+    VpnClientAddressPool      = '172.16.201.0/24'
+    VpnClientProtocol         = 'IkeV2'
+    VpnClientRootCertificates = $azRootCertificate
+}
+$vpn = New-AzVirtualNetworkGateway @virtualNetGatewayParams
 ```
 ---
 
@@ -270,12 +282,12 @@ If not, use the following steps to identify the self-signed root certificate tha
 1. Get a list of the certificates that are installed on your computer.
 
    ```powershell
-   Get-ChildItem -Path "Cert:\CurrentUser\My"
+   Get-ChildItem -Path 'Cert:\CurrentUser\My'
    ```
 
 1. Locate the subject name from the returned list, then copy the thumbprint that's located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, it's called *P2SRootCert*.
 
-   ```
+   ```Output
    Thumbprint                                Subject
    ----------                                -------
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
@@ -285,13 +297,13 @@ If not, use the following steps to identify the self-signed root certificate tha
 1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a client certificate.
 
    ```powershell
-   $rootcert = Get-ChildItem -Path "Cert:\CurrentUser\My\<THUMBPRINT>"
+   $rootcert = Get-ChildItem -Path 'Cert:\CurrentUser\My\<THUMBPRINT>'
    ```
 
    For example, using the thumbprint for *P2SRootCert* in the previous step, the command looks like this:
 
    ```powershell
-   $rootcert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+   $rootcert = Get-ChildItem -Path 'Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655'
    ```
 
 #### Generate a client certificate
@@ -301,50 +313,56 @@ Use the `New-AzVpnClientConfiguration` PowerShell cmdlet to generate a client ce
 > [!IMPORTANT]
 > Run this PowerShell script as administrator from the on-premises Windows machine that you want to connect to the Azure file share. The computer must be running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell in Azure. Make sure you sign in to your Azure account before running the script (`Connect-AzAccount`).
 
-```PowerShell
-$clientcertpassword = "1234"
-$resourceGroupName = "<resource-group-name>"
-$vpnName = "<vpn-gateway-name>"
-$vpnTemp = "C:\vpn-temp\"
-$certLocation = "Cert:\CurrentUser\My"
+```azurepowershell
+$clientcertpassword = '<enter-your-password>'
+$resourceGroupName  = '<resource-group-name>'
+$vpnName            = '<vpn-gateway-name>'
+$vpnTemp            = 'C:\vpn-temp'
+$certLocation       = 'Cert:\CurrentUser\My'
 
-$vpnClientConfiguration = New-AzVpnClientConfiguration `
-    -ResourceGroupName $resourceGroupName `
-    -Name $vpnName `
-    -AuthenticationMethod EAPTLS
+$vpnClientConfigParams = @{
+    ResourceGroupName    = $resourceGroupName
+    Name                 = $vpnName
+    AuthenticationMethod = 'EAPTLS'
+}
+$vpnClientConfiguration = New-AzVpnClientConfiguration @vpnClientConfigParams
 
-Invoke-WebRequest `
-    -Uri $vpnClientConfiguration.VpnProfileSASUrl `
-    -OutFile "$vpnTemp\vpnclientconfiguration.zip"
+$webRequestParams = @{
+    Uri = $vpnClientConfiguration.VpnProfileSASUrl
+    OutFile = "$vpnTemp\vpnclientconfiguration.zip"
+}
+Invoke-WebRequest @webRequestParams
 
-Expand-Archive `
-    -Path "$vpnTemp\vpnclientconfiguration.zip" `
-    -DestinationPath "$vpnTemp\vpnclientconfiguration"
+$expandArchiveParams = @{
+    Path            = "$vpnTemp\vpnclientconfiguration.zip"
+    DestinationPath = "$vpnTemp\vpnclientconfiguration"
+}
+Expand-Archive @expandArchiveParams
 
 $vpnGeneric = "$vpnTemp\vpnclientconfiguration\Generic"
 $vpnProfile = ([xml](Get-Content -Path "$vpnGeneric\VpnSettings.xml")).VpnProfile
 
-$exportedclientcertpath = $vpnTemp + "P2SClientCert.pfx"
-$clientcertname = "CN=" + $vpnProfile.VpnServer
+$exportedclientcertpath = "$vpnTemp\P2SClientCert.pfx"
+$clientcertname         = "CN=$($vpnProfile.VpnServer)"
 
-$clientcert = New-SelfSignedCertificate `
-    -Type Custom `
-    -DnsName $vpnProfile.VpnServer `
-    -KeySpec Signature `
-    -Subject $clientcertname `
-    -KeyExportPolicy Exportable `
-    -HashAlgorithm sha256 `
-    -KeyLength 2048 `
-    -CertStoreLocation $certLocation `
-    -Signer $rootcert `
-    -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+$selfSignedCertParams = @{
+    Type              = 'Custom'
+    DnsName           = $vpnProfile.VpnServer
+    KeySpec           = 'Signature'
+    Subject           = $clientcertname
+    KeyExportPolicy   = 'Exportable'
+    HashAlgorithm     = 'sha256'
+    KeyLength         = 2048
+    CertStoreLocation = $certLocation
+    Signer            = $rootcert
+    TextExtension     = @('2.5.29.37={text}1.3.6.1.5.5.7.3.2')
+}
+$clientcert = New-SelfSignedCertificate @selfSignedCertParams
 
 $mypwd = ConvertTo-SecureString -String $clientcertpassword -Force -AsPlainText
 
-Export-PfxCertificate `
-    -FilePath $exportedclientcertpath `
-    -Password $mypwd `
-    -Cert $clientcert | Out-Null
+Export-PfxCertificate -FilePath $exportedclientcertpath -Password $mypwd -Cert $clientcert |
+    Out-Null
 ```
 
 ## Configure the VPN client
@@ -387,80 +405,94 @@ You can use the same VPN client configuration package on each Windows client com
 
 1. On the **Connection status** page, select **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it isn't, use the drop-down arrow to select the correct certificate, and then select **OK**.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 The following PowerShell script will install the client certificate required for authentication against the virtual network gateway, and then download and install the VPN package. Remember to replace `<computer1>` and `<computer2>` with the desired computers. You can run this script on as many machines as you desire by adding more PowerShell sessions to the `$sessions` array. Your user account must be an administrator on each of these machines. If one of these machines is the local machine you're running the script from, you must run the script from an elevated PowerShell session.
 
-```PowerShell
+```powershell
 $sessions = [System.Management.Automation.Runspaces.PSSession[]]@()
-$sessions += New-PSSession -ComputerName "<computer1>"
-$sessions += New-PSSession -ComputerName "<computer2>"
+$sessions += New-PSSession -ComputerName '<computer1>'
+$sessions += New-PSSession -ComputerName '<computer2>'
 
 foreach ($session in $sessions) {
     Invoke-Command -Session $session -ArgumentList $vpnTemp -ScriptBlock { 
         $vpnTemp = $args[0]
-        if (-Not (Test-Path $vpnTemp)) {
-            New-Item `
-                -ItemType Directory `
-                -Force `
-                -Path "C:\vpn-temp" | Out-Null
+        if (-Not (Test-Path -Path $vpnTemp -PathType Container)) {
+            New-Item -ItemType Directory -Force -Path 'C:\vpn-temp' | Out-Null
         }
     }
 
-    Copy-Item `
-        -Path $exportedclientcertpath, $exportedrootcertpath, "$vpnTemp\vpnclientconfiguration.zip" `
-        -Destination $vpnTemp `
-        -ToSession $session
+    $copyItemParams = @{
+        Path        = @(
+            $exportedclientcertpath,
+            $exportedrootcertpath,
+            "$vpnTemp\vpnclientconfiguration.zip"
+        )
+        Destination = $vpnTemp
+        ToSession   = $session
+    }
+    Copy-Item @copyItemParams
 
-    Invoke-Command `
-        -Session $session `
-        -ArgumentList `
-            $mypwd, `
-            $vpnTemp, `
-            $virtualNetworkName `
-        -ScriptBlock { 
-            $mypwd = $args[0] 
-            $vpnTemp = $args[1]
-            $virtualNetworkName = $args[2]
-
-            Import-PfxCertificate `
-                -Exportable `
-                -Password $mypwd `
-                -CertStoreLocation "Cert:\LocalMachine\My" `
-                -FilePath "$vpnTemp\P2SClientCert.pfx" | Out-Null
-
-            Import-Certificate `
-                -FilePath "$vpnTemp\P2SRootCert.cer" `
-                -CertStoreLocation "Cert:\LocalMachine\Root" | Out-Null
-
-            Expand-Archive `
-                -Path "$vpnTemp\vpnclientconfiguration.zip" `
-                -DestinationPath "$vpnTemp\vpnclientconfiguration"
-            $vpnGeneric = "$vpnTemp\vpnclientconfiguration\Generic"
-
-            $vpnProfile = ([xml](Get-Content -Path "$vpnGeneric\VpnSettings.xml")).VpnProfile
-
-            Add-VpnConnection `
-                -Name $virtualNetworkName `
-                -ServerAddress $vpnProfile.VpnServer `
-                -TunnelType Ikev2 `
-                -EncryptionLevel Required `
-                -AuthenticationMethod MachineCertificate `
-                -SplitTunneling `
-                -AllUserConnection
-
-            Add-VpnConnectionRoute `
-                -Name $virtualNetworkName `
-                -DestinationPrefix $vpnProfile.Routes `
-                -AllUserConnection
-
-            Add-VpnConnectionRoute `
-                -Name $virtualNetworkName `
-                -DestinationPrefix $vpnProfile.VpnClientAddressPool `
-                -AllUserConnection
-
-            rasdial $virtualNetworkName
+    $invokeCmdParams = @{
+        Session = $session
+        ArgumentList = @($mypwd, $vpnTemp, $virtualNetworkName)
+    }
+    Invoke-Command @invokeCmdParams -ScriptBlock { 
+        $mypwd              = $args[0] 
+        $vpnTemp            = $args[1]
+        $virtualNetworkName = $args[2]
+        
+        $pfxCertParams = @{
+            Exportable        = $true
+            Password          = $mypwd
+            CertStoreLocation = 'Cert:\LocalMachine\My'
+            FilePath          = "$vpnTemp\P2SClientCert.pfx" 
         }
+        Import-PfxCertificate @pfxCertParams | Out-Null
+        
+        $importCertParams = @{
+            FilePath          = "$vpnTemp\P2SRootCert.cer"
+            CertStoreLocation = "Cert:\LocalMachine\Root"
+        }
+        Import-Certificate @importCertParams | Out-Null
+
+        $vpnGenericParams = @{
+            Path            = "$vpnTemp\vpnclientconfiguration.zip"
+            DestinationPath = "$vpnTemp\vpnclientconfiguration"
+        }
+        Expand-Archive @vpnGenericParams
+
+        $vpnGeneric = "$vpnTemp\vpnclientconfiguration\Generic"
+
+        $vpnProfile = ([xml](Get-Content -Path "$vpnGeneric\VpnSettings.xml")).VpnProfile
+
+        $vpnConnectionParams = @{
+            Name                 = $virtualNetworkName
+            ServerAddress        = $vpnProfile.VpnServer
+            TunnelType           = 'Ikev2'
+            EncryptionLevel      = 'Required'
+            AuthenticationMethod = 'MachineCertificate'
+            SplitTunneling       = $true
+            AllUserConnection    = $true
+        }
+        Add-VpnConnection @vpnConnectionParams
+
+        $vpnConnRoute1Params = @{
+            Name              = $virtualNetworkName
+            DestinationPrefix = $vpnProfile.Routes
+            AllUserConnection = $true
+        }
+        Add-VpnConnectionRoute @vpnConnRoute1Params
+
+        $vpnConnRoute2Params = @{
+            Name              = $virtualNetworkName
+            DestinationPrefix = $vpnProfile.VpnClientAddressPool
+            AllUserConnection = $true
+        }
+        Add-VpnConnectionRoute @vpnConnRoute2Params
+
+        rasdial $virtualNetworkName
+    }
 }
 
 Remove-Item -Path $vpnTemp -Recurse
@@ -479,53 +511,68 @@ To mount the file share using your storage account key, open a Windows command p
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName> <YourStorageAccountKey>
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 The following PowerShell script will mount the share, list the root directory of the share to prove the share is actually mounted, and then unmount the share.
 
 > [!NOTE]
 > It isn't possible to mount the share persistently over PowerShell remoting. To mount persistently, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
-```PowerShell
-$myShareToMount = "<file-share>"
+```azurepowershell
+$myShareToMount = '<file-share>'
 
-$storageAccountKeys = Get-AzStorageAccountKey `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName
-$storageAccountKey = ConvertTo-SecureString `
-    -String $storageAccountKeys[0].Value `
-    -AsPlainText `
-    -Force
+$storageAccountKeyParams = @{
+    ResourceGroupName = $resourceGroupName
+    Name              = $storageAccountName
+}
+$storageAccountKeys = Get-AzStorageAccountKey @storageAccountKeyParams
 
-$nic = Get-AzNetworkInterface -ResourceId $privateEndpoint.NetworkInterfaces[0].Id
+$convertToSecureStringParams = @{
+    String = $storageAccountKeys[0].Value
+    AsPlainText = $true
+    Force = $true
+}
+$storageAccountKey = ConvertTo-SecureString @convertToSecureStringParams
+
+$getAzNetworkInterfaceParams = @{
+    ResourceId = $privateEndpoint.NetworkInterfaces[0].Id
+}
+$nic = Get-AzNetworkInterface @getAzNetworkInterfaceParams
+
 $storageAccountPrivateIP = $nic.IpConfigurations[0].PrivateIpAddress
 
-Invoke-Command `
-    -Session $sessions `
-    -ArgumentList  `
-        $storageAccountName, `
-        $storageAccountKey, `
-        $storageAccountPrivateIP, `
-        $myShareToMount `
-    -ScriptBlock {
-        $storageAccountName = $args[0]
-        $storageAccountKey = $args[1]
-        $storageAccountPrivateIP = $args[2]
-        $myShareToMount = $args[3]
+$invokeCmdParams = @{
+    Session = $sessions
+    ArgumentList = @(
+        $storageAccountName,
+        $storageAccountKey,
+        $storageAccountPrivateIP,
+        $myShareToMount
+    )
+}
+Invoke-Command @invokeCmdParams -ScriptBlock {
+    $storageAccountName      = $args[0]
+    $storageAccountKey       = $args[1]
+    $storageAccountPrivateIP = $args[2]
+    $myShareToMount          = $args[3]
 
-        $credential = [System.Management.Automation.PSCredential]::new(
-            "AZURE\$storageAccountName", 
-            $storageAccountKey)
+    $credential = [System.Management.Automation.PSCredential]::new(
+        "AZURE\$storageAccountName", 
+        $storageAccountKey
+    )
 
-        New-PSDrive `
-            -Name Z `
-            -PSProvider FileSystem `
-            -Root "\\$storageAccountPrivateIP\$myShareToMount" `
-            -Credential $credential `
-            -Persist | Out-Null
-        Get-ChildItem -Path Z:\
-        Remove-PSDrive -Name Z
+    $psDriveParams = @{
+        Name       = 'Z'
+        PSProvider = 'FileSystem'
+        Root       = "\\$storageAccountPrivateIP\$myShareToMount"
+        Credential = $credential
+        Persist    = $true
     }
+    New-PSDrive @psDriveParams | Out-Null
+
+    Get-ChildItem -Path Z:\
+    Remove-PSDrive -Name Z
+}
 ```
 ---
 
@@ -535,46 +582,50 @@ If a root certificate needs to be rotated due to expiration or new requirements,
 
 Replace `<resource-group-name>`, `<desired-vpn-name-here>`, and `<new-root-cert-name>` with your own values, then run the script.
 
-```PowerShell
+```azurepowershell
 #Creating the new Root Certificate
-$ResourceGroupName = "<resource-group-name>"
-$vpnName = "<desired-vpn-name-here>"
-$NewRootCertName = "<new-root-cert-name>"
+$ResourceGroupName           = '<resource-group-name>'
+$vpnName                     = '<desired-vpn-name-here>'
+$NewRootCertName             = '<new-root-cert-name>'
+$rootcertname                = "CN=$NewRootCertName"
+$certLocation                = 'Cert:\CurrentUser\My'
+$date                        = Get-Date -Format 'MM_yyyy'
+$vpnTemp                     = "C:\vpn-temp_$date"
+$exportedencodedrootcertpath = "$vpnTemp\P2SRootCertencoded.cer"
+$exportedrootcertpath        = "$vpnTemp\P2SRootCert.cer"
 
-$rootcertname = "CN=$NewRootCertName"
-$certLocation = "Cert:\CurrentUser\My"
-$date = get-date -Format "MM_yyyy"
-$vpnTemp = "C:\vpn-temp_$date\"
-$exportedencodedrootcertpath = $vpnTemp + "P2SRootCertencoded.cer"
-$exportedrootcertpath = $vpnTemp + "P2SRootCert.cer"
-
-if (-Not (Test-Path $vpnTemp)) {
+if (-Not (Test-Path -Path $vpnTemp -PathType Container)) {
     New-Item -ItemType Directory -Force -Path $vpnTemp | Out-Null
 }
 
-$rootcert = New-SelfSignedCertificate `
-    -Type Custom `
-    -KeySpec Signature `
-    -Subject $rootcertname `
-    -KeyExportPolicy Exportable `
-    -HashAlgorithm sha256 `
-    -KeyLength 2048 `
-    -CertStoreLocation $certLocation `
-    -KeyUsageProperty Sign `
-    -KeyUsage CertSign
+$selfSignedCertParams = @{
+    Type              = 'Custom'
+    KeySpec           = 'Signature'
+    Subject           = $rootcertname
+    KeyExportPolicy   = 'Exportable'
+    HashAlgorithm     = 'sha256'
+    KeyLength         = 2048
+    CertStoreLocation = $certLocation
+    KeyUsageProperty  = 'Sign'
+    KeyUsage          = 'CertSign'
+}
+$rootcert = New-SelfSignedCertificate @selfSignedCertParams
 
-Export-Certificate `
-    -Cert $rootcert `
-    -FilePath $exportedencodedrootcertpath `
-    -NoClobber | Out-Null
+$exportCertParams = @{
+    Cert      = $rootcert
+    FilePath  = $exportedencodedrootcertpath
+    NoClobber = $true
+}
+Export-Certificate @exportCertParams | Out-Null
 
 certutil -encode $exportedencodedrootcertpath $exportedrootcertpath | Out-Null
 
 $rawRootCertificate = Get-Content -Path $exportedrootcertpath
 
-[System.String]$rootCertificate = ""
+$rootCertificate = ''
+
 foreach($line in $rawRootCertificate) { 
-    if ($line -notlike "*Certificate*") { 
+    if ($line -notlike '*Certificate*') { 
         $rootCertificate += $line 
     } 
 }
@@ -582,12 +633,13 @@ foreach($line in $rawRootCertificate) {
 #Fetching gateway details and adding the newly created Root Certificate.
 $gateway = Get-AzVirtualNetworkGateway -Name $vpnName -ResourceGroupName $ResourceGroupName
 
-Add-AzVpnClientRootCertificate `
-    -PublicCertData $rootCertificate `
-    -ResourceGroupName $ResourceGroupName `
-    -VirtualNetworkGatewayName $gateway `
-    -VpnClientRootCertificateName $NewRootCertName
-
+$vpnClientRootCertParams = @{
+    PublicCertData               = $rootCertificate
+    ResourceGroupName            = $ResourceGroupName
+    VirtualNetworkGatewayName    = $gateway
+    VpnClientRootCertificateName = $NewRootCertName
+}
+Add-AzVpnClientRootCertificate @vpnClientRootCertParams
 ```
 
 ## See also

@@ -38,7 +38,7 @@ The various load balancer configurations provide the following metrics:
 | Packet count |  Public and internal load balancer | A standard load balancer reports the packets processed per front end.| Sum |
 
   >[!NOTE]
-  >When using distributing traffic from an internal load balancer through an NVA or firewall syn packet, byte count, and packet count metrics are not be available and will show as zero. 
+  >Bandwidth-related metrics such as SYN packet, byte count, and packet count will not capture any traffic to an internal load balancer via a UDR (eg. from an NVA or firewall). 
   >
   >Max and min aggregations are not available for the SYN count, packet count, SNAT connection count, and byte count metrics.
   >Count aggregation is not recommended for Data path availability and health probe status. Use average instead for best represented health data.

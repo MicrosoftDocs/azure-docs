@@ -24,7 +24,7 @@ This section lists the platform metrics collected for Azure AI Search ([Microsof
 
 | Metric ID | Unit | Description |
 |:-------|:-----|:------------|
-| DocumentsProcessedCount | Count | Total of the number of documents successfully processed in an indexing operation (either by an indexer or by pushing documents directly). |
+| DocumentsProcessedCount | Count | Total of the number of documents successfully processed in an indexing operation by an indexer. |
 | SearchLatency | Seconds | Average search latency for queries that execute on the search service. |
 | SearchQueriesPerSecond | CountPerSecond | Average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in a metric like QPS. </br>The minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average is the aggregate across the entire minute. For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.|
 | SkillExecutionCount | Count | Total number of skill executions processed during an indexer operation. |

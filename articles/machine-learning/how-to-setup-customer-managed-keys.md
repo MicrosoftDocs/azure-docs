@@ -47,7 +47,6 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 * The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace.
 * OS disk of machine learning compute can't be encrypted with customer-managed key, but can be encrypted with Microsoft-managed key if the workspace is created with `hbi_workspace` parameter set to `TRUE`. For more details, see [Data encryption](concept-data-encryption.md#machine-learning-compute).
-* Workspace with customer-managed key doesn't currently support v2 batch endpoint.
 
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because of the additional resources in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
@@ -169,7 +168,7 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 ## Next steps
 
 * [Customer-managed keys with Azure Machine Learning](concept-customer-managed-keys.md)
-* [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
-* [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
-* [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
+* [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace)
+* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key)
+* [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace)
+* [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys)

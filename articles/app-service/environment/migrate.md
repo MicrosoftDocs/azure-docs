@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 12/14/2023
+ms.date: 01/30/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -18,10 +18,6 @@ App Service can now automate migration of your App Service Environment v1 and v2
 ## Supported scenarios
 
 At this time, the migration feature doesn't support migrations to App Service Environment v3 in the following regions:
-
-### Azure Public
-
-- Jio India West
 
 ### Microsoft Azure operated by 21Vianet
 
@@ -38,6 +34,7 @@ The following App Service Environment configurations can be migrated using the m
 |ILB App Service Environment v1                                                                     |ILB App Service Environment v3                             |
 |ELB App Service Environment v1                                                                     |ELB App Service Environment v3                             |
 |ILB App Service Environment v1 with a custom domain suffix                                         |ILB App Service Environment v3 with a custom domain suffix |
+|[Zone pinned](zone-redundancy.md) App Service Environment v2                                       |App Service Environment v3 with optional zone redundancy configuration |
 
 If you want your new App Service Environment v3 to use a custom domain suffix and you aren't using one currently, custom domain suffix can be configured at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md).
 
@@ -63,7 +60,6 @@ The migration feature doesn't support the following scenarios. See the [manual m
 - App Service Environment v1 in a [Classic VNet](/previous-versions/azure/virtual-network/create-virtual-network-classic)
 - ELB App Service Environment v2 with IP SSL addresses
 - ELB App Service Environment v1 with IP SSL addresses
-- [Zone pinned](zone-redundancy.md) App Service Environment v2
 - App Service Environment in a region not listed in the supported regions
 
 The App Service platform reviews your App Service Environment to confirm migration support. If your scenario doesn't pass all validation checks, you can't migrate at this time using the migration feature. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates.
@@ -81,7 +77,6 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Migrate can only be called on an ASE in ARM VNET and this ASE is in Classic VNET.     |App Service Environments in Classic VNets can't migrate using the migration feature.       |Migrate using one of the [manual migration options](migration-alternatives.md).  |
 |ASEv3 Migration is not yet ready.     |The underlying infrastructure isn't ready to support App Service Environment v3.         |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately. Otherwise, wait for the migration feature to be available in your region.  |
 |Migration cannot be called on this ASE, please contact support for help migrating.     |Support needs to be engaged for migrating this App Service Environment. This issue is potentially due to custom settings used by this environment.         |Engage support to resolve your issue.  |
-|Migrate cannot be called on Zone Pinned ASEs.     |App Service Environment v2 that is zone pinned can't be migrated using the migration feature at this time.         |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately.  |
 |Migrate cannot be called if IP SSL is enabled on any of the sites.|App Service Environments that have sites with IP SSL enabled can't be migrated using the migration feature at this time. |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately.  |
 |Full migration cannot be called before IP addresses are generated. |This error appears if you attempt to migrate before finishing the premigration steps. |Ensure you complete all premigration steps before you attempt to migrate. See the [step-by-step guide for migrating](how-to-migrate.md).  |
 |Migration to ASEv3 is not allowed for this ASE. |You can't migrate using the migration feature. |Migrate using one of the [manual migration options](migration-alternatives.md).  |
@@ -233,7 +228,7 @@ For more scenarios on cost changes and savings opportunities with App Service En
 - **What if my App Service Environment has a custom domain suffix?**  
   The migration feature supports this [migration scenario](#supported-scenarios). You can migrate using a manual method if you don't want to use the migration feature. You can configure your [custom domain suffix](./how-to-custom-domain-suffix.md) when creating your App Service Environment v3 or any time after.
 - **What if my App Service Environment is zone pinned?**  
-  Zone pinned App Service Environment is currently not a supported scenario for migration using the migration feature. App Service Environment v3 doesn't support zone pinning. To migrate to App Service Environment v3, see the [manual migration options](migration-alternatives.md).
+  Zone pinned App Service Environment v2 is now a supported scenario for migration using the migration feature. App Service Environment v3 doesn't support zone pinning. When migrating to App Service Environment v3, you can choose to configure zone redundancy or not.
 - **What if my App Service Environment has IP SSL addresses?**
   IP SSL isn't supported on App Service Environment v3. You must remove all IP SSL bindings before migrating using the migration feature or one of the manual options. If you intend to use the migration feature, once you remove all IP SSL bindings, you pass that validation check and can proceed with the automated migration.  
 - **What properties of my App Service Environment will change?**  

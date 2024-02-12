@@ -6,7 +6,7 @@ description: include file
 manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
-ms.date: 03/07/2022
+ms.date: 01/19/2024
 ms.topic: include
 ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020
 

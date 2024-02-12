@@ -55,7 +55,7 @@ Organized by subject area.
 | ***Manage Log Analytics workspaces and related resources*** |  |
 | [Available service tiers](/rest/api/loganalytics/available-service-tiers) | Retrieve the available service tiers for a Log Analytics workspace. |
 | [Clusters](/rest/api/loganalytics/clusters) | Manage Log Analytics clusters. |
-| [Data Collector Logs (Preview)](/rest/api/loganalytics/data%20collector%20logs%20%28preview%29) | Delete or retrieve a data collector log tables for a Log Analytics workspace and retrieve all data collector log tables for a Log Analytics workspace. |
+| Data Collector Logs (Preview) | Delete or retrieve a data collector log tables for a Log Analytics workspace and retrieve all data collector log tables for a Log Analytics workspace. |
 | [Data exports](/rest/api/loganalytics/data-exports) | Manage a data export for a Log Analytics workspace or retrieve the data export instances within a Log Analytics workspace. |
 | [Data Sources](/rest/api/loganalytics/data-sources) | Create or update data sources. |
 | [Deleted workspaces](/rest/api/loganalytics/deleted-workspaces) | Retrieve the recently deleted workspaces within a subscription or resource group. |
@@ -74,9 +74,9 @@ Organized by subject area.
 | [Storage Insights](/rest/api/loganalytics/storage-insights) | Create or update storage insights. |
 | [Tables](/rest/api/loganalytics/tables) | Manage Log Analytics workspace tables. |
 | [Workspace purge](/rest/api/loganalytics/workspace-purge) | Retrieve the status of an ongoing purge operation or purge the data in a Log Analytics workspace. |
-| [Workspace schema](/rest/api/loganalytics/workspace-schema) | Retrieves the schema for a Log Analytics workspace. |
-| [Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) | Retrieve or regenerate the shared keys for a Log Analytics workspace. |
-| [Workspace usages](/rest/api/loganalytics/workspace-usages) | Retrieve the usage metrics for a Log Analytics workspace. |
+| Workspace schema | Retrieves the schema for a Log Analytics workspace. |
+| Workspace shared keys | Retrieve or regenerate the shared keys for a Log Analytics workspace. |
+| Workspace usages | Retrieve the usage metrics for a Log Analytics workspace. |
 | [Workspaces](/rest/api/loganalytics/workspaces) | Manage Log Analytics workspaces. |
 | ***Metrics*** |  |
 | [Azure Monitor Workspaces](/rest/api/monitor/azure-monitor-workspaces) | Manage an Azure Monitor workspace and retrieve the Azure Monitor workspaces within a resource group or subscription. |

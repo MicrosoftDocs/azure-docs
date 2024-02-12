@@ -7,7 +7,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 01/19/2024
 ---
 
 # Migrate to V3 Authoring entity

@@ -6,7 +6,7 @@ ms.author: dacurwin
 ms.topic: how-to
 ms.date: 06/19/2023
 ---
-# Continuously export Microsoft Defender for Cloud data 
+# Continuously export Microsoft Defender for Cloud data
 
 Microsoft Defender for Cloud generates detailed security alerts and recommendations. To analyze the information in these alerts and recommendations, you can export them to Azure Log Analytics, Event Hubs, or to another [SIEM, SOAR, or IT classic deployment model solution](export-to-siem.md). You can stream the alerts and recommendations as they're generated or define a schedule to send periodic snapshots of all of the new data.
 
@@ -122,7 +122,7 @@ Automating your organization's monitoring and incident response processes can gr
 
 To deploy your continuous export configurations across your organization, use the supplied Azure Policy 'DeployIfNotExist' policies to create and configure continuous export procedures.
 
-**To implement these policies**
+**To implement these policies**:
 
 1. Select the policy you want to apply from this table:
 
@@ -136,7 +136,7 @@ To deploy your continuous export configurations across your organization, use th
     >
     > 1. Open Azure Policy.
     > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy.":::
-    > 2. From the Azure Policy menu, select **Definitions** and search for them by name.
+    > 1. From the Azure Policy menu, select **Definitions** and search for them by name.
 
 1. From the relevant Azure Policy page, select **Assign**.
     :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Assigning the Azure Policy.":::
@@ -182,7 +182,7 @@ To export data to an Azure Event Hubs or Log Analytics workspace in a different 
 1. In the tenant that has the Azure Event Hubs or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-portal) from the tenant that hosts the continuous export configuration, or alternatively configure Azure Lighthouse for the source and destination tenant.
 1. If using Microsoft Entra B2B Guest access, ensure that the user accepts the invitation to access the tenant as a guest.
 1. If you're using a Log Analytics Workspace, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, or Monitoring Contributor.
-1. Create and submit the request to the Azure REST API to configure the required resources. You'll need to manage the bearer tokens in both the context of the local (workspace) and the remote (continuous export) tenant. 
+1. Create and submit the request to the Azure REST API to configure the required resources. You'll need to manage the bearer tokens in both the context of the local (workspace) and the remote (continuous export) tenant.
 
 ## Continuously export to an event hub behind a firewall
 

@@ -39,7 +39,7 @@ When you author an alert rule, Log Analytics creates a permission snapshot for y
 
 ### The alert rule uses a system-assigned managed identity
 
-When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](alerts-create-new-alert-rule.md#managed-id) for more information about using managed identities in log alerts.
+When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information about using managed identities in log alerts.
 
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
@@ -204,7 +204,7 @@ Try the following steps to resolve the problem:
 1. Try running the query in Azure Monitor Logs, and fix any syntax issues.
 2. If your query syntax is valid, check the connection to the service.
   - Flush the DNS cache on your local machine, by opening a command prompt and running the following command: `ipconfig /flushdns`, and then check again. If you still get the same error message, try the next step.
-  - Copy and paste this URL into the browser: [https://api.loganalytics.io/v1/version](https://api.loganalytics.io/v1/version). If you get an error, contact your IT administrator to allow  the IP addresses associated with **api.loganalytics.io** listed [here](../app/ip-addresses.md#application-insights-and-log-analytics-apis).
+  - Copy and paste this URL into the browser: [https://api.loganalytics.io/v1/version](https://api.loganalytics.io/v1/version). If you get an error, contact your IT administrator to allow  the IP addresses associated with **api.loganalytics.io** listed [here](../ip-addresses.md#application-insights-and-log-analytics-apis).
 
 
 ## Next steps

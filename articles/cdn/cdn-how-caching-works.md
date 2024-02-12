@@ -5,8 +5,6 @@ services: cdn
 author: duongau
 manager: kumud
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/23/2023
 ms.author: duau
@@ -82,7 +80,7 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 
 ## Validators
 
-When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN Standard/Premium from Edgio** supports both `ETag` and `Last-Modified` validators by default, while **Azure CDN Standard from Microsoft** supports only `Last-Modified` by default.
+When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN Standard/Premium from Edgio** supports both `ETag` and `Last-Modified` validators by default, while **Azure CDN Standard from Microsoft** supports only `Last-Modified`.
 
 **ETag:**
 - **Azure CDN Standard/Premium from Edgio** supports `ETag` by default, while **Azure CDN Standard from Microsoft** doesn't.

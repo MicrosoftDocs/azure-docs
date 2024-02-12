@@ -4,7 +4,7 @@ description: This article describes the Change Tracking and Inventory feature, w
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/13/2023
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: conceptual
 ---
 
@@ -51,7 +51,7 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 - Different installation methods
 - ***.exe** files stored on Windows
 - The **Max File Size** column and values are unused in the current implementation.
-- If you are tracking file changes, it is limited to a file size of 5 MB or less. 
+- If you are tracking file changes, it is limited to a file size of 5 MB or less.
 - If the file size appears >1.25MB, then FileContentChecksum is incorrect due to memory constraints in the checksum calculation.
 - If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
 - If network traffic is high, change records can take up to six hours to display.
@@ -76,20 +76,20 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 > [!NOTE]
 > To use the OMS agent compatible with Python 3, ensure that you first uninstall Python 2; otherwise, the OMS agent will continue to run with python 2 by default.
 
-#### [Python 2](#tab/python-2)                                                                                                                                                      
-- Red Hat, CentOS, Oracle: 
+#### [Python 2](#tab/python-2)
+- Red Hat, CentOS, Oracle:
 
 ```bash
    sudo yum install -y python2
 ```
 - Ubuntu, Debian:
- 
+
 ```bash
    sudo apt-get update
    sudo apt-get install -y python2
 ```
 - SUSE:
- 
+
 ```bash
    sudo zypper install -y python2
 ```
@@ -104,18 +104,18 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 ```bash
    sudo yum install -y python3
 ```
-- Ubuntu, Debian: 
+- Ubuntu, Debian:
 
 ```bash
    sudo apt-get update
    sudo apt-get install -y python3
 ```
-- SUSE: 
- 
+- SUSE:
+
 ```bash
    sudo zypper install -y python3
 ```
---- 
+---
 
 ## Network requirements
 
@@ -235,13 +235,13 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 |ConfigurationChange <br>&#124; where RegistryKey contains @"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Useful for tracking changes to firewall settings.|
 
 
-## Update Log Analytics agent to latest version 
+## Update Log Analytics agent to latest version
 
-For Change Tracking & Inventory, machines use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers. Soon, Azure will no longer accept connections from older versions of the Windows Log Analytics (LA) agent, also known as the Windows Microsoft Monitoring Agent (MMA), that uses an older method for certificate handling. We recommend to upgrade your agent to the latest version as soon as possible. 
+For Change Tracking & Inventory, machines use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers. Soon, Azure will no longer accept connections from older versions of the Windows Log Analytics (LA) agent, also known as the Windows Microsoft Monitoring Agent (MMA), that uses an older method for certificate handling. We recommend to upgrade your agent to the latest version as soon as possible.
 
-[Agents that are on version - 10.20.18053 (bundle) and 1.0.18053.0 (extension)](../../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version) or newer aren't affected in response to this change. If you’re on an agent prior to that, your agent will be unable to connect, and the Change Tracking & Inventory pipeline & downstream activities can stop. You can check the current LA agent version in HeartBeat table within your LA Workspace. 
+[Agents that are on version - 10.20.18053 (bundle) and 1.0.18053.0 (extension)](../../virtual-machines/extensions/oms-windows.md#agent-and-vm-extension-version) or newer aren't affected in response to this change. If you’re on an agent prior to that, your agent will be unable to connect, and the Change Tracking & Inventory pipeline & downstream activities can stop. You can check the current LA agent version in HeartBeat table within your LA Workspace.
 
-Ensure to upgrade to the latest version of the Windows Log Analytics agent (MMA) following these [guidelines](../../azure-monitor/agents/agent-manage.md). 
+Ensure to upgrade to the latest version of the Windows Log Analytics agent (MMA) following these [guidelines](../../azure-monitor/agents/agent-manage.md).
 
 ## Next steps
 

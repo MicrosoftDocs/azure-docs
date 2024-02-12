@@ -1,7 +1,6 @@
 ---
 title: What is Azure Synapse Link for SQL?
 description: Learn about Azure Synapse Link for SQL, the benefits it offers, and price.
-services: synapse-analytics 
 author: SnehaGunda
 ms.service: synapse-analytics 
 ms.topic: conceptual

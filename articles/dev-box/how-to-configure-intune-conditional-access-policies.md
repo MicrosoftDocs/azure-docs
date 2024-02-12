@@ -27,7 +27,8 @@ Conditional access is the protection of regulated content in a system by requiri
 
 ## Prerequisites
 
-None
+- Microsoft Intune subscription.
+- Permission to add and manage groups in Microsoft Intune.
 
 ## Create a dynamic device group 
 

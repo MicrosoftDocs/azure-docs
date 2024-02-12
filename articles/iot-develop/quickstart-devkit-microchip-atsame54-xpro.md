@@ -6,8 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 10/21/2022
-ms.custom: engagement-fy23
+ms.date: 1/23/2024
 zone_pivot_groups: iot-develop-toolset
 #- id: iot-develop-toolset
 ## Owner: timlt

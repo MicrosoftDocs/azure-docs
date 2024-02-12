@@ -2,15 +2,9 @@
 title: Restore individual files in Azure NetApp Files using single-file snapshot restore | Microsoft Docs
 description: Describes how to recover individual files directly within a volume from a snapshot. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: anfdocs

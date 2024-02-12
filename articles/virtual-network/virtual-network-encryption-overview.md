@@ -1,16 +1,18 @@
 ---
-title: What is Azure Virtual Network encryption? (Preview)
-description: Overview of Azure Virtual Network encryption
+title: What is Azure Virtual Network encryption?
+titleSuffix: Azure Virtual Network
+description: Learn about Azure Virtual network encryption. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines.
 ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 07/07/2023
+ms.date: 01/17/2024
 ms.custom: template-overview, references_regions
+# customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
 ---
 
-#  What is Azure Virtual Network encryption? (Preview)
+#  What is Azure Virtual Network encryption?
 
 Azure Virtual Network encryption is a feature of Azure Virtual Networks. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines. 
 
@@ -19,7 +21,7 @@ Whenever Azure customer traffic moves between datacenters, Microsoft applies a d
 For more information about encryption in Azure, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
 
 > [!IMPORTANT]
-> Azure Virtual Network encryption is currently in preview.
+> Azure Virtual Network encryption is currently GA in the following regions: **UK South**, **Swiss North**, and **West Central US**. Azure Virtual Network encryption is in public preview in the remaining regions listed later in the article.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -32,8 +34,12 @@ Virtual network encryption has the following requirements:
     | VM Series | VM SKU |
     | --- | --- |
     | D-series | **[Dv4 and Dsv4-series](/azure/virtual-machines/dv4-dsv4-series)**, **[Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)**, **[Dav4 and Dasv4-series](/azure/virtual-machines/dav4-dasv4-series)** |
+    | D-series V5 | **[Dv5 and Dsv5-series](/azure/virtual-machines/dv5-dsv5-series)**, **[Ddv5 and Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series)** |
     | E-series | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)**, **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** |
-    | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)** |
+    | E-series V5 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev5-esv5-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv5-edsv5-series)** |
+    | LSv3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
+    | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)**, **[Msv3 and Mdsv3 Medium Memory Series](/azure/virtual-machines/msv3-mdsv3-medium-series)** |
+    
 
 - Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see  [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
 
@@ -41,18 +47,25 @@ Virtual network encryption has the following requirements:
 
 - Global Peering is supported in regions where virtual network encryption is supported.
 
-- Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information, see [VNet flow logs](../network-watcher/vnet-flow-logs-overview.md).
+- Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information, see [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md).
 
-- The start/stop of existing virtual machines may be required after enabling encryption in a virtual network.
+- The start/stop of existing virtual machines is required after enabling encryption in a virtual network.
+
 ## Availability
 
-Azure Virtual Network encryption is available in the following regions during the preview:
+General Availability (GA) of Azure Virtual Network encryption is available in the following regions:
+
+- UK South
+
+- Swiss North
+
+- West Central US
+
+Azure Virtual Network encryption is available in the following regions during the public preview:
 
 - East US 2 EUAP
 
 - Central US EUAP
-
-- West Central US
 
 - East US
 
@@ -62,7 +75,7 @@ Azure Virtual Network encryption is available in the following regions during th
 
 - West US 2
 
-To sign up to obtain access to the public preview, see [Virtual Network Encryption - Public Preview Sign Up](https://aka.ms/vnet-encryption-sign-up).
+To sign up to obtain, access to the public preview, see [Virtual Network Encryption - Public Preview Sign Up](https://aka.ms/vnet-encryption-sign-up).
 
 ## Limitations
 

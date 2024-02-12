@@ -2,15 +2,9 @@
 title: Register for NetApp Resource Provider to use with Azure NetApp Files | Microsoft Docs
 description: Learn how to register the NetApp Resource Provider for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 01/21/2022
 ms.author: anfdocs

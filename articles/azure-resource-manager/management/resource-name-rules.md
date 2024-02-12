@@ -4,8 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.reviewer: franksolomon
-ms.date: 01/04/2024
+ms.date: 01/19/2024
 ---
 
 # Naming rules and restrictions for Azure resources

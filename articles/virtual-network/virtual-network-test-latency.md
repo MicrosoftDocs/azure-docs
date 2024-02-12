@@ -7,7 +7,7 @@ manager: Marina Lipshteyn
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 03/23/2023
 ms.author: allensu
 ---
@@ -86,7 +86,7 @@ Run *latte.exe* from the Windows command line, not from PowerShell.
    ```
 
    For example:
-   
+
    `latte -c -a 10.0.0.4:5005 -i 65100`
 
 1. Wait for the results. Depending on how far apart the VMs are, the test could take a few minutes to finish. Consider starting with fewer iterations to test for success before running longer tests.

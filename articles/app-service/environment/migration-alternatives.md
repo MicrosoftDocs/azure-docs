@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3
 description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 07/24/2023
+ms.date: 01/30/2024
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3
@@ -157,8 +157,8 @@ Once your migration and any testing with your new environment is complete, delet
   No, apps that run on App Service Environment v1 and v2 shouldn't need any modifications to run on App Service Environment v3. If you're using IP SSL, you must remove the IP SSL bindings before migrating.
 - **What if my App Service Environment has a custom domain suffix?**  
   The migration feature supports this [migration scenario](./migrate.md#supported-scenarios). You can migrate using a manual method if you don't want to use the migration feature. You can configure your [custom domain suffix](./how-to-custom-domain-suffix.md) when creating your App Service Environment v3 or any time after. 
-- **What if my App Service Environment is zone pinned?**  
-  Zone pinning isn't a supported feature on App Service Environment v3.
+- **What if my App Service Environment v2 is zone pinned?**  
+  Zone pinning isn't a supported feature on App Service Environment v3. You can choose to enable zone redundancy when creating your App Service Environment v3.
 - **What properties of my App Service Environment will change?**  
   You'll now be on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB App Service Environment, you keep the same ILB IP address. For internet facing App Service Environment, the public IP address and the outbound IP address change. Note for internet facing App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses).
 - **Is backup and restore supported for moving apps from App Service Environment v2 to v3?**

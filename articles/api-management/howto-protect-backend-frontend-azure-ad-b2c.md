@@ -3,14 +3,10 @@ title: Protect APIs in Azure API Management with Active Directory B2C
 description: Protect a serverless API with OAuth 2.0 by using Azure Active Directory B2C, Azure API Management, and Easy Auth to be called from a JavaScript SPA using the PKCE enabled SPA Auth Flow.
 
 services: api-management, azure-ad-b2c, app-service
-documentationcenter: ''
 author: WillEastbury
 manager: alberts
-editor: ''
-
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/18/2021
 ms.author: wieastbu

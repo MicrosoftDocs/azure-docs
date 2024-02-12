@@ -5,6 +5,8 @@
   items:
   - name: Payment HSM overview
     href: overview.md
+  - name: Getting started with Azure Payment HSM
+    href: getting-started.md
   - name: What's new
     href: whats-new.md
 
@@ -36,12 +38,6 @@
     href: quickstart-powershell.md
   - name: ARM template
     href: quickstart-template.md
-
-- name: Get started
-  items:
-  - name: Getting started with Azure Payment HSM
-    href: getting-started.md
-
 - name: Compliance
   items:
   - name: Certification and compliance

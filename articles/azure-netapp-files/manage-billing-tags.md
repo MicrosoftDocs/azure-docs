@@ -2,15 +2,9 @@
 title: Manage Azure NetApp Files billing by using tags | Microsoft Docs
 description: Describes how to manage Azure NetApp Files billing by using tags.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: anfdocs

@@ -9,7 +9,6 @@ ms.custom:
   - ignite-2023
 ms.topic: include
 ms.date: 11/06/2023
-keywords:
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Python.

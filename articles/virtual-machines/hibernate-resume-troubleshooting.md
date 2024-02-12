@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 10/31/2023
 ms.author: jainan
 ms.reviewer: mattmcinnes
-ms.custom: 
 ---
 
 # Troubleshooting VM hibernation

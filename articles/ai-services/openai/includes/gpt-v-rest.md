@@ -19,7 +19,7 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
 - The following Python libraries: `requests`, `json`.
 - An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
-- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource.
+- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource, in the paid (S0) tier.
 
 ## Retrieve key and endpoint
 
@@ -70,7 +70,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
                 { 
                     "type": "image_url",
                     "image_url": {
-                        "url": "<URL or base 64 encoded image>"
+                        "url": "<image URL>"
                     }
                 }
             ] } 
@@ -88,7 +88,9 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 1. Make the following changes:
     1. Enter your endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
-    1. Change the value of the `"image"` field to the base 64 byte data of your image.
+    1. Change the value of the `"image"` field to the URL of your image.
+        > [!TIP]
+        > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
 1. Run the application with the `python` command:
 
     ```console
@@ -154,7 +156,7 @@ The **object grounding** integration brings a new layer to data analysis and use
                 { 
                     "type": "image_url", 
                     "image_url": {
-                        "url" : "<URL or base 64 encoded image>"
+                        "url" : "<image URL>"
                     }
                 }
             ]} 
@@ -170,10 +172,11 @@ The **object grounding** integration brings a new layer to data analysis and use
     ```
 
 1. Make the following changes:
-    1. Enter your Azure OpenAI endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
     1. Enter your Computer Vision endpoint URL and key in the appropriate fields.
-    1. Change the value of the `"image"` field to the base 64 byte data of your image.
+    1. Change the value of the `"image"` field to the URL of your image.
+        > [!TIP]
+        > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
 1. Run the application with the `python` command:
 
     ```console

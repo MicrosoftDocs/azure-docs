@@ -262,6 +262,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `int unsigned` |`Int64`|
 | `integer` |`Int32` |
 | `integer unsigned` |`Int64` |
+| `json` |`String` |
 | `long varbinary` |`Byte[]` |
 | `long varchar` |`String` |
 | `longblob` |`Byte[]` |

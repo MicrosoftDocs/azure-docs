@@ -11,12 +11,12 @@ ms.date: 10/31/2023
 
 # Create and configure MCC EDR Ingestion Agents for Azure Operator Insights
 
-The MCC EDR agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent receives EDRs from an Affirmed MCC, and forwards them to Azure Operator Insights.  
+The MCC EDR agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent receives EDRs from an Affirmed MCC, and forwards them to Azure Operator Insights Data Products.
 
 ## Prerequisites
 
 - You must have an Affirmed Networks MCC deployment that generates EDRs.
-- You must have an Azure Operator Insights MCC Data product deployment.
+- You must deploy an Azure Operator Insights MCC Data Product.
 - You must provide VMs with the following specifications to run the agent:
 
 | Resource | Requirements                                                        |

@@ -8,7 +8,7 @@ ms.topic: overview
 author: frogglew
 ms.author: saoh
 ms.reviewer: sgilley
-ms.date: 09/22/2022
+ms.date: 01/29/2024
 ms.custom:
   - event-tier1-build-2022
   - ignite-2022
@@ -53,7 +53,7 @@ Anyone on an ML team can use their preferred tools to get the job done. Whether 
 
 * [Azure Machine Learning studio](https://ml.azure.com)
 * [Python SDK (v2)](https://aka.ms/sdk-v2-install)
-* [Azure CLI (v2)](how-to-configure-cli.md))
+* [Azure CLI (v2)](how-to-configure-cli.md)
 * [Azure Resource Manager REST APIs](/rest/api/azureml/)
 
 As you're refining the model and collaborating with others throughout the rest of the Machine Learning development cycle, you can share and find assets, resources, and metrics for your projects on the Machine Learning studio UI.
@@ -94,7 +94,7 @@ Other integrations with Azure services support an ML project from end to end. Th
 * [Microsoft Purview, which allows you to discover and catalog data assets across your organization](../purview/register-scan-azure-machine-learning.md).
 
 > [!Important]
-> Machine Learning doesn't store or process your data outside of the region where you deploy.
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
 
 ## Machine learning project workflow
 
@@ -116,11 +116,11 @@ You can deploy models to the managed inferencing solution, for both real-time an
 
 ## Train models
 
-In Machine Learning, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks so that they can operationalize them in the cloud.
+In Azure Machine Learning, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks so that they can operationalize them in the cloud.
 
 ### Open and interoperable
 
-Data scientists can use models in Machine Learning that they've created in common Python frameworks, such as:
+Data scientists can use models in Azure Machine Learning that they've created in common Python frameworks, such as:
 
 * PyTorch
 * TensorFlow
@@ -167,7 +167,7 @@ Scaling an ML project might require scaling embarrassingly parallel model traini
 
 ## Deploy models
 
-To bring a model into production, it's deployed. The Machine Learning managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
+To bring a model into production, you deploy the model. The Azure Machine Learning managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
 
 ### Real-time and batch scoring (inferencing)
 
@@ -213,6 +213,6 @@ If you use Apache Airflow, the [airflow-provider-azure-machinelearning](https://
 
 Start using Azure Machine Learning:
 
-- [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
-- [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
-- [Run training jobs](how-to-train-model.md)
+* [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
+* [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
+* [Run training jobs](how-to-train-model.md)

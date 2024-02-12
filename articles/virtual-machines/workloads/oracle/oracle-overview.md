@@ -1,10 +1,8 @@
 ---
 title: Overview of Oracle Applications and solutions on Azure | Microsoft Docs
 description: Learn about deploying Oracle Applications and solutions on Azure. Run entirely on Azure infrastructure or use cross-cloud connectivity with OCI.
-documentationcenter: ''
 author: jjaygbay1
 tags: azure-resource-management
-ms.assetid: 
 ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux

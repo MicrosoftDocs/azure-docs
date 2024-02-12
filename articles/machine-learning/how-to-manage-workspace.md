@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: deeikele
 author: deeikele
 ms.reviewer: sgilley
-ms.date: 09/21/2022
+ms.date: 01/19/2024
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 ---
@@ -16,7 +16,6 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-ti
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)
 
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](https://aka.ms/sdk-v2-install).  
 
@@ -29,6 +28,8 @@ As your needs change or requirements for automation increase you can also manage
    1. [Install the SDK v2](https://aka.ms/sdk-v2-install).
    1. Install azure-identity: `pip install azure-identity`.  If in a notebook cell, use `%pip install azure-identity`.
    1. Provide your subscription details
+
+      [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]
 
@@ -53,7 +54,7 @@ As your needs change or requirements for automation increase you can also manage
 
 [!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-* When you use network isolation that is based on a workspace's managed virtual network with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace. For limitations that apply to securing managed online endpoints using a workspace's managed virtual network, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#limitations).
+* When you use network isolation with online endpoints, you can use workspace-associated resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group than that of your workspace. However, these resources must belong to the same subscription and tenant as your workspace. For limitations that apply to securing managed online endpoints using a workspace's managed virtual network, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#limitations).
 
 * By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR doesn't currently support unicode characters in resource group names, use a resource group that doesn't contain these characters.
 
@@ -70,7 +71,7 @@ You can create a workspace [directly in Azure Machine Learning studio](./quickst
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 * **Default specification.** By default, dependent resources and the resource group are created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
-    
+
    [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
 
 * **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
@@ -101,7 +102,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others. The workspace name is case-insensitive.
    Subscription |Select the Azure subscription that you want to use.
-   Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. You need *contributor* or *owner* role to use an existing resource group.  For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+   Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. You need *contributor* or *owner* role to use an existing resource group.  For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
    | Storage account | The default storage account for the workspace. By default, a new one is created. |
    | Key Vault | The Azure Key Vault used by the workspace. By default, a new one is created. |
@@ -110,22 +111,24 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
    :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
 
-1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking), [Advanced](#advanced), and  [Tags](#tags) sections to configure more settings for the workspace.
+1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking), [Encryption](#encryption), [Identity](#identity), and  [Tags](#tags) sections to configure more settings for the workspace.
 
 1. Review the settings and make any other changes or corrections. When you're satisfied with the settings, select **Create**.
 
-   > [!Warning] 
+   > [!Warning]
    > It can take several minutes to create your workspace in the cloud.
 
-   When the process is finished, a deployment success message appears. 
- 
- 1. To view the new workspace, select **Go to resource**.
- 
+   When the process is finished, a deployment success message appears.
+
+1. To view the new workspace, select **Go to resource**.
+
+1. To start using the workspace, select the **Studio web URL** link on the top right. You can also select the workspace from the [Azure Machine Learning studio](https://ml.azure.com) home page.
+
 ---
 
-### Networking    
+### Networking
 
-> [!IMPORTANT]    
+> [!IMPORTANT]
 > For more information on using a private endpoint and virtual network with your workspace, see [Network isolation and privacy](how-to-network-security-overview.md).
 
 
@@ -139,26 +142,28 @@ This class requires an existing virtual network.
 
 # [Portal](#tab/azure-portal)
 
-1. The default network configuration is to use a __Public endpoint__, which is accessible on the public internet. To limit access to your workspace to an Azure Virtual Network you've created, you can instead select __Private endpoint__ as the __Connectivity method__, and then use __+ Add__ to configure the endpoint.    
+1. The default network configuration is to use a **Public endpoint**, which is accessible on the public internet. To limit access to your workspace to an Azure Virtual Network you've created, under **Networking** you can instead select **Private with Internet Outbound** or **Private with Approved Outbound**.  Then scroll down to configure the settings.
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Private endpoint selection":::    
 
-1. On the __Create private endpoint__ form, set the location, name, and virtual network to use. If you'd like to use the endpoint with a Private DNS Zone, select __Integrate with private DNS zone__ and select the zone using the __Private DNS Zone__ field. Select __OK__ to create the endpoint.     
+1. Under **Workspace Inbound access** select **Add** to open the **Create private endpoint** form.
+1. On the **Create private endpoint** form, set the location, name, and virtual network to use. If you'd like to use the endpoint with a Private DNS Zone, select **Integrate with private DNS zone** and select the zone using the **Private DNS Zone** field. Select **OK** to create the endpoint.
 
    :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Private endpoint creation":::    
 
-1. When you're finished configuring networking, you can select __Review + Create__, or advance to the optional __Advanced__ configuration.
+1. If you selected **Private with Internet Outbound**, use the **Workspace Outbound access** section to configure the network and outbound rules.
+
+1. If you selected **Private with Approved Outbound**, use the **Workspace Outbound access** section to add additional rules to the required set.
+
+1. When you're finished configuring networking, you can select **Review + Create**, or advance to the optional **Encryption** configuration.
 
 ---
 
-### Advanced
+### Encryption
 
 By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
 
-To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
-> [!IMPORTANT]    
-> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
 
 #### Use your own data encryption key
 
@@ -166,7 +171,7 @@ You can provide your own key for data encryption. Doing so creates the Azure Cos
 
 Use the following steps to provide your own key:
 
-> [!IMPORTANT]    
+> [!IMPORTANT]
 > Before following these steps, you must first perform the following actions:
 >
 > Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
@@ -201,15 +206,34 @@ ml_client.workspaces.begin_create(ws)
 
 # [Portal](#tab/azure-portal)
 
-1. Select __Customer-managed keys__, and then select __Click to select key__.
+1. Select **Customer-managed keys**, and then select **Click to select key**.
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Customer-managed keys":::
 
-1. On the __Select key from Azure Key Vault__ form, select an existing Azure Key Vault, a key that it contains, and the version of the key. This key is used to encrypt the data stored in Azure Cosmos DB. Finally, use the __Select__ button to use this key.
+1. On the **Select key from Azure Key Vault** form, select an existing Azure Key Vault, a key that it contains, and the version of the key. This key is used to encrypt the data stored in Azure Cosmos DB. Finally, use the **Select** button to use this key.
 
    :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Select the key":::
 
 ---
+
+### Identity
+
+In the portal, use the **Identity** page to configure managed identity, storage account access, and data impact.  For the Python SDK, see the links in the following sections.
+
+#### Managed identity
+
+A workspace can be given either a system assigned identity or a user assigned identity. This identity is used to access resources in your subscription.  For more information, see [Set up authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
+
+#### Storage account access
+
+Choose between **Credential-based access** or **Identity-based access** when connecting to the default storage account. When using identity-based authentication, the Storage Blob Data Contributor role must be granted to the workspace managed identity on the storage account.
+
+#### Data impact
+
+To limit the data that Microsoft collects on your workspace, select **High business impact workspace** in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
+
+> [!IMPORTANT]
+> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
 
 ### Tags
 
@@ -239,6 +263,7 @@ You can turn off all feedback opportunities for a workspace.  When off, users of
 If you'll be running your code on a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance creates and stores copy of this file for you.
 
 If you plan to use code on your local environment that references this workspace, download the file:
+
 1. Select your workspace in [Azure studio](https://ml.azure.com)
 1. At the top right, select the workspace name, then select  **Download config.json**
 

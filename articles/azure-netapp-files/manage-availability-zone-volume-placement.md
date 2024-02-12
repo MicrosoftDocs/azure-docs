@@ -2,15 +2,9 @@
 title: Manage availability zone volume placement for Azure NetApp Files  | Microsoft Docs
 description: Describes how to create a volume with an availability zone by using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 01/13/2023

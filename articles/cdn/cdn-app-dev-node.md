@@ -5,12 +5,8 @@ services: cdn
 documentationcenter: nodejs
 author: zhangmanling
 manager: erikre
-editor: ''
-
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: mazha

@@ -29,7 +29,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
         remaining-calls-header-name="header name"  
         remaining-calls-variable-name="policy expression variable name"
         total-calls-header-name="header name">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" >
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
     </api>
 </rate-limit>
