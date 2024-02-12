@@ -4,7 +4,6 @@ description: This article shows you how to create and manage cross-zone replicat
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.author: anfdocs

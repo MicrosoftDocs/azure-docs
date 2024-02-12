@@ -8,7 +8,7 @@ metadata:
   description: The Enterprise plan provides commercially supported Tanzu components, unlocking Spring's full potential while including feature parity with the Standard plan.
   services: spring-cloud
   ms.service: spring-apps
-  ms.custom: event-tier1-build-2022, devx-track-java
+  ms.custom: devx-track-java
   ms.topic: landing-page
   ms.collection: collection
   author: KarlErickson

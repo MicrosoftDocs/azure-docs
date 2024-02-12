@@ -205,6 +205,52 @@ Azure service: [App Service Certificates](../../../app-service/configure-ssl-app
 > | Microsoft.CertificateRegistration/certificateOrders/certificates/Read | Get the list of certificates |
 > | Microsoft.CertificateRegistration/operations/Read | List all operations from app service certificate registration |
 
+### Microsoft.Communication
+
+Azure service: [Azure Communication Services](/azure/communication-services/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Communication/Register/Action | Registers Microsoft.Communication resource provider |
+> | Microsoft.Communication/Unregister/Action | Unregisters Microsoft.Communication resource provider |
+> | Microsoft.Communication/CheckNameAvailability/action | Checks if a name is available |
+> | Microsoft.Communication/CommunicationServices/Read | Reads communication services |
+> | Microsoft.Communication/CommunicationServices/Write | Writes communication services |
+> | Microsoft.Communication/CommunicationServices/Delete | Deletes communication services |
+> | Microsoft.Communication/CommunicationServices/ListKeys/action | Reads the keys for a communication service |
+> | Microsoft.Communication/CommunicationServices/RegenerateKey/action | Regenerates the primary or secondary key for a communication service |
+> | Microsoft.Communication/CommunicationServices/LinkNotificationHub/action | Links an Azure Notification Hub to the communication service |
+> | Microsoft.Communication/CommunicationServices/EventGridFilters/Read | Reads EventGrid filters on communication services |
+> | Microsoft.Communication/CommunicationServices/EventGridFilters/Write | Writes EventGrid filters on communication services |
+> | Microsoft.Communication/CommunicationServices/EventGridFilters/Delete | Removes an EventGrid filter on communication services |
+> | Microsoft.Communication/EmailServices/read | Get the EmailService and its properties. |
+> | Microsoft.Communication/EmailServices/write | Get the EmailService and its properties. |
+> | Microsoft.Communication/EmailServices/delete | Operation to delete a EmailService. |
+> | Microsoft.Communication/EmailServices/verifiedExchangeOnlineDomains/action | List Verified Domains from the exchange online tenant. |
+> | Microsoft.Communication/EmailServices/Domains/read | Get the email Domain and its properties. |
+> | Microsoft.Communication/EmailServices/Domains/write | Add a new Domain under the parent EmailService resource or update an existing Domain resource. |
+> | Microsoft.Communication/EmailServices/Domains/delete | Operation to delete a Domain resource. |
+> | Microsoft.Communication/EmailServices/Domains/InitiateVerification/action | Initiate verification of Dns record. |
+> | Microsoft.Communication/EmailServices/Domains/CancelVerification/action | Cancel verification of Dns record. |
+> | Microsoft.Communication/EmailServices/Domains/RevokeVerification/action | Revoke existing verified status of a Dns record. |
+> | Microsoft.Communication/EmailServices/Domains/SenderUsernames/read | List all valid sender usernames for a domains resource. |
+> | Microsoft.Communication/EmailServices/Domains/SenderUsernames/read | Get the email SenderUsername and its properties. |
+> | Microsoft.Communication/EmailServices/Domains/SenderUsernames/write | Add a new SenderUsername under the parent Domain resource or update an existing SenderUsername resource. |
+> | Microsoft.Communication/EmailServices/Domains/SenderUsernames/delete | Operation to delete a SenderUsername resource. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/read | List all suppression lists for a domains resource. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/read | Get the suppression list and its properties. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/write | Add a new suppression list under the parent Domain resource or update an existing suppression list. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/delete | Operation to delete a suppressio lists. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/read | Get all the addresses in a suppression list. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/read | Get all the addresses in a suppression list. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/write | Add a new suppression list under the parent Domain resource or update an existing suppression list. |
+> | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/delete | Operation to delete an address from a suppression list. |
+> | Microsoft.Communication/Locations/OperationStatuses/read | Reads the status of an async operation |
+> | Microsoft.Communication/Locations/OperationStatuses/write | Writes the status of an async operation |
+> | Microsoft.Communication/Operations/read | Reads operations |
+> | Microsoft.Communication/RegisteredSubscriptions/read | Reads registered subscriptions |
+
 ### Microsoft.DomainRegistration
 
 Azure service: [App Service](../../../app-service/index.yml)

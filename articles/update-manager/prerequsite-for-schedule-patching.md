@@ -3,7 +3,7 @@ title: Configure schedule patching on Azure VMs for business continuity
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Azure Update Manager.
 ms.service: azure-update-manager
 ms.custom: devx-track-azurepowershell
-ms.date: 01/17/2024
+ms.date: 02/03/2024
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -298,4 +298,8 @@ Scenario 8 | No | False | No | Autopatch and schedule patch don't run.|
 
 ## Next steps
 
-To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).
+- Learn more about [Dynamic scope](dynamic-scope-overview.md), an advanced capability of schedule patching.
+- Follow the instructions on how to [manage various operations of Dynamic scope](manage-dynamic-scoping.md)
+- Learn on how to [automatically installs the updates according to the created schedule both for a single VM and at scale](scheduled-patching.md).
+- Learn about [pre and post events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.
+

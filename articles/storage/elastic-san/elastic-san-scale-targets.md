@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: conceptual
 ms.date: 10/19/2023
 ms.author: rogarana
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ---
 
 # Scale targets for Elastic SAN Preview

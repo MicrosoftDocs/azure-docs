@@ -10,7 +10,7 @@ metadata:
   ms.reviewer: eur
   ms.author: eur
   author: eric-urban
-  ms.date: 11/15/2023
+  ms.date: 2/6/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -43,10 +43,10 @@ landingContent:
         links:
           - text: Hear and speak with chat in the playground
             url: quickstarts/hear-speak-playground.md
-          - text: Generate product name ideas
-            url: quickstarts/playground-completions.md
           - text: Moderate text and images
             url: quickstarts/content-safety.md
+          - text: Get started using GPT-4 Turbo with Vision
+            url: quickstarts/multimodal-vision.md
       - linkListType: tutorial
         links:
           - text: Deploy a web app for chat on your data

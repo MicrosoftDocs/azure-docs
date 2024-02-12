@@ -8,9 +8,8 @@ ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
 ms.date: 10/13/2023
 ms.author: msangapu
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-
 ---
 # Open an SSH session to a container in Azure App Service
 

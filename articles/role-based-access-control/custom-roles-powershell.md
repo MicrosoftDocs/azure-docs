@@ -8,10 +8,9 @@ manager: amycolannino
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 12/01/2023
 ms.author: rolyon
-ms.reviewer: bagovind 
+ms.reviewer: bagovind
 ms.custom: devx-track-azurepowershell
 ---
 # Create or update Azure custom roles using Azure PowerShell

@@ -84,7 +84,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-    The `detectedLanguage` property is only present in the result object when language autodetection is requested.
+  The `detectedLanguage` property is only present in the result object when language autodetection is requested.
 
 * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
@@ -92,25 +92,25 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `text`: A string giving the translated text.
 
-* `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
+  * `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
 
-  * `script`: A string specifying the target script.
+    * `script`: A string specifying the target script.
 
-  * `text`: A string giving the translated text in the target script.
+    * `text`: A string giving the translated text in the target script.
 
     The `transliteration` object isn't included if transliteration doesn't take place.
 
     * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`. The colon separates start and end index, the dash separates the languages, and space separates the words. One word can align with zero, one, or multiple words in the other language, and the aligned words can be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
 
-* `sentLen`: An object returning sentence boundaries in the input and output texts.
+  * `sentLen`: An object returning sentence boundaries in the input and output texts.
 
-  * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
+    * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
-  * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
+    * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
     Sentence boundaries are only included when the request parameter `includeSentenceLength` is `true`.
 
-* `sourceText`: An object with a single string property named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script.
+* `sourceText`: An object with a single string property named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script`.`
 
 Examples of JSON responses are provided in the [examples](#examples) section.
 
@@ -343,7 +343,7 @@ Alignment is returned as a string value of the following format for every word o
 
 Example alignment string: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
-In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the Alignment element is empty. The method returns no error in that case.
+In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word can align with zero, one, or multiple words in the other language, and the aligned words can be noncontiguous. When no alignment information is available, the Alignment element is empty. The method returns no error in that case.
 
 To receive alignment information, specify `includeAlignment=true` on the query string.
 
@@ -371,16 +371,16 @@ The alignment information starts with `0:2-0:1`, which means that the first thre
 
 #### Limitations
 
-Obtaining alignment information is an experimental feature that we enabled for prototyping research and experiences with potential phrase mappings. We may choose to stop supporting this feature in the future. Here are some of the notable restrictions where alignments aren't supported:
+Obtaining alignment information is an experimental feature that we enabled for prototyping research and experiences with potential phrase mappings. Here are some of the notable restrictions where alignments aren't supported:
 
-* Alignment isn't available for text in HTML format that is, textType=html.
+* Alignment isn't available for text in HTML format that is, textType=html
 * Alignment is only returned for a subset of the language pairs:
-  * English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
-  * from Japanese to Korean or from Korean to Japanese.
-  * from Japanese to Chinese Simplified and Chinese Simplified to Japanese.
-  * from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified.
-* You don't alignment if the sentence is a canned translation. Example of a canned translation is `This is a test`, `I love you`, and other high frequency sentences.
-* Alignment isn't available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md).
+  * English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic)
+  * from Japanese to Korean or from Korean to Japanese
+  * from Japanese to Chinese Simplified and Chinese Simplified to Japanese
+  * from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified
+* You don't alignment if the sentence is a canned translation. Example of a canned translation is `This is a test`, `I love you`, and other high frequency sentences
+* Alignment isn't available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
 
 ### Obtain sentence boundaries
 
