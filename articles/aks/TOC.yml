@@ -316,13 +316,14 @@
               href: custom-node-configuration.md
             - name: Abort long running operations
               href: manage-abort-operations.md
-            
             - name: Stop/deallocate nodes with Scale-down Mode
               href: scale-down-mode.md
             - name: Connect securely to cluster nodes
               href: node-access.md
             - name: Manage SSH key 
               href: manage-ssh-node-access.md
+            - name: Deploy trusted launch on AKS
+              href: use-trusted-launch.md
         - name: Node pools
           items:
             - name: Create node pools
