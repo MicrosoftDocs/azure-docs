@@ -39,8 +39,7 @@ To complete this tutorial, you need to:
 * Ensure that the user has **"REPLICATION SLAVE"** permission on the target server.
 * Ensure that the user has **"REPLICATION CLIENT"** and **"REPLICATION SLAVE"** permission on the source server for reading and applying the bin log.
 * Run an offline migration scenario with "**Enable Transactional Consistency"** to get the bin log file and position.
-    :::image type="content" source="media/tutorial-mysql-to-azure-single-replicate-changes/01-offline-migration-binlog-pos.png" alt-text="Screenshot of binlog position of an Azure Database Migration Service offline migration.":::
-
+    :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/01-offline-migration-binlog-pos.png" alt-text="Screenshot of binlog position of an Azure Database Migration Service offline migration.":::
 * If you're targeting a replicate changes migration, configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlog files aren't purged before the replica commits the changes. We recommend at least two days, to begin with. After a successful cutover, the value can be reset.
 
 ## Limitations
@@ -70,65 +69,42 @@ To create a Replicate Changes migration project, perform the following steps.
 
 To configure your DMS migration project, perform the following steps.
 
-1. On the **Select source** screen, we have to ensure that DMS is in the VNet which has connectivity to the source server. Here you will input source server name, server port, username, and password to your source server.
-       :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/select-source-server.png" alt-text="Screenshot of an Add source details screen.":::
+1. On the **Select source** screen, input the source server name, server port, username, and password to your source server.
+       :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/02-replicate-changes-select-source.png" alt-text="Screenshot of an Add source details screen.":::
 
-2. Select **Next : Select target>>**, and then, on the **Select target** screen, locate the server based on the subscription, location, and resource group. The user name is auto populated, then provide the password for the target flexible server.
-       
-    :::image type="content" source="media/tutorial-mysql-to-azure-mysql-online/select-target-online.png" alt-text="Screenshot of a Select target.":::
+2. Select **Next : Select target>>**, and then, on the **Select target** screen, locate the target server based on the subscription, location, and resource group. The user name is auto populated, then provide the password for the target flexible server.
+    :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/03-replicate-changes-select-target.png" alt-text="Screenshot of a Select target.":::
 
-3. Select **Next : Select databases>>**, and then, on the **Select databases** tab, under **Server migration options**, select **Migrate all applicable databases** or under **Select databases** select the server objects that you want to migrate.
+3. Select **Next : Select binlog>>**, and then, on the **Select binlog** screen, input the binlog file name and binlog position as captured in the earlier run of offline migration scenario.
+    :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/04-replicate-changes-select-binlog.png" alt-text="Screenshot of a Select binlog.":::
+ 
+4. Select **Next : Select databases>>**, and then, on the **Select databases** tab, select the server database objects that you want to migrate.
+    :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/05-replicate-changes-select-db.png" alt-text="Screenshot of a Select database.":::
 
-    > [!NOTE]
-    > There is now a **Migrate all applicable databases** option. When selected, this option will migrate all user created databases and tables. Note that because Azure Database for MySQL - Flexible Server does not support mixed case databases, mixed case databases on the source will not be included for an online migration.
+5. Select **Next : Select tables>>** to navigate to the **Select tables** tab. Select all tables to be migrated.
+    :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/06-replicate-changes-select-table.png" alt-text="Screenshot of a Select table.":::
 
-    :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/select-databases.png" alt-text="Screenshot of a Select database.":::
-
-4. In the **Select databases** section, under **Source Database**, select the database(s) to migrate.
-
-    The non-table objects in the database(s) you specified will be migrated, while the items you didn’t select will be skipped. You can only select the source and target databases whose names match that on the source and target server.
-    If you select a database on the source server that doesn’t exist on the target server, it will be created on the target server.
-
-5. Select **Next : Select tables>>** to navigate to the **Select tables** tab.
-
-    Before the tab populates, DMS fetches the tables from the selected database(s) on the source and target and then determines whether the table exists and contains data.
-
-6. Select the tables that you want to migrate.
-
-    If the selected source table doesn't exist on the target server, the online migration process will ensure that the table schema and data is migrated to the target server.
-   :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/select-tables.png" alt-text="Screenshot of a Select Tables.":::
-
-    DMS validates your inputs, and if the validation passes, you'll be able to start the migration.
-
-7. After configuring for schema migration, select **Review and start migration**.
+6. After configuring for schema migration, select **Review and start migration**.
     > [!NOTE]
     > You only need to navigate to the **Configure migration settings** tab if you are trying to troubleshoot failing migrations.
 
-8. On the **Summary** tab, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
-   :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/summary-page.png" alt-text="Screenshot of a Select Summary.":::
+7. On the **Summary** tab, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
+     :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/07-replicate-changes-summary.png" alt-text="Screenshot of a Summary.":::
 
-9. Select **Start migration**.
+8. Select **Start migration**.
 
     The migration activity window appears, and the Status of the activity is Initializing. The Status changes to Running when the table migrations start.
-   :::image type="content" source="media/tutorial-mysql-to-azure-mysql-online/running-online-migration.png" alt-text="Screenshot of a Running status.":::
+   :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/08-replicate-changes-start.png" alt-text="Screenshot of a Running status.":::
 
 ### Monitor the migration
 
-1. After the **Initial Load** activity is completed, navigate to the **Initial Load** tab to view the completion status and the number of tables completed.
-       :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/initial-load.png" alt-text="Screenshot of a completed initial load migration.":::
+1. Monitor the **Seconds behind source** and as soon as it nears 0, proceed to start cutover by navigating to the **Start Cutover** menu tab at the top of the migration activity screen.
+ :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/09-replicate-changes-cutover-open.png" alt-text="Screenshot of a Perform cutover.":::
 
-   After  the **Initial Load** activity is completed, you're navigated to the **Replicate Data Changes** tab automatically. You can monitor the migration progress as the screen is auto-refreshed every 30  seconds.
-
-2. Select **Refresh** to update the display and view the seconds behind source when needed.
-
-     :::image type="content" source="media/tutorial-azure-mysql-external-to-flex-online/replicate-changes.png" alt-text="Screenshot of a Monitoring migration.":::
-
-3. Monitor the **Seconds behind source** and as soon as it nears 0, proceed to start cutover by navigating to the **Start Cutover** menu tab at the top of the migration activity screen.
-
-4. Follow the steps in the cutover window before you're ready to perform a cutover.
-
-5. After completing all steps, select **Confirm**, and then select **Apply**.
-     :::image type="content" source="media/tutorial-mysql-to-azure-mysql-online/21-complete-cutover-online.png" alt-text="Screenshot of a Perform cutover.":::
+2. Follow the steps in the cutover window before you're ready to perform a cutover. After completing all steps, select **Confirm**, and then select **Apply**.
+ :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/10-replicate-changes-cutover-confirm.png" alt-text="Screenshot of a Perform cutover confirmation.":::
+Once the cutover is completed, you are all set to perform post migration validations and steps.
+     :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/11-replicate-changes-cutover-complete.png" alt-text="Screenshot of a Perform cutover completed.":::
 
 ## Perform post-migration activities
 
