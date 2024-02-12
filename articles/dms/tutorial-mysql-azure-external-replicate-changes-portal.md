@@ -39,7 +39,7 @@ To complete this tutorial, you need to:
 * Ensure that the user has **"REPLICATION SLAVE"** permission on the target server.
 * Ensure that the user has **"REPLICATION CLIENT"** and **"REPLICATION SLAVE"** permission on the source server for reading and applying the bin log.
 * Run an offline migration scenario with "**Enable Transactional Consistency"** to get the bin log file and position.
-    :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/01-offline-migration-binlog-pos.png" alt-text="Screenshot of binlog position of an Azure Database Migration Service offline migration.":::
+    :::image type="content" source="media/tutorial-mysql-to-azure-replicate-changes/01-offline-migration-bin-log-pos.png" alt-text="Screenshot of binlog position of an Azure Database Migration Service offline migration.":::
 * If you're targeting a replicate changes migration, configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlog files aren't purged before the replica commits the changes. We recommend at least two days, to begin with. After a successful cutover, the value can be reset.
 
 ## Limitations
