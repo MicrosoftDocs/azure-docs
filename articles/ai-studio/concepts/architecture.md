@@ -73,7 +73,7 @@ For more information on how to configure a managed virtual network, see [Configu
 
 ## Azure Monitor
 
-Azure monitor and Azure Log Analytics provides monitoring and logging for the underlying resources used by Azure AI Studio. Since Azure AI Studio is built on Azure Machine Learning, Azure OpenAI, Azure AI Services, and Azure AI Search, use the following articles for to learn how to monitor the services:
+Azure monitor and Azure Log Analytics provide monitoring and logging for the underlying resources used by Azure AI Studio. Since Azure AI Studio is built on Azure Machine Learning, Azure OpenAI, Azure AI Services, and Azure AI Search, use the following articles to learn how to monitor the services:
 
 | Resource | Monitoring and logging |
 | --- | --- |
