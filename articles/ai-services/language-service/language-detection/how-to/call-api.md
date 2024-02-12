@@ -203,24 +203,24 @@ Consequently, language detection's expanded support for script detection behaves
 **Input**
 
 ```json
-{
-    "kind": "LanguageDetection",
-    "parameters": {
-        "modelVersion": "latest"
-    },
-    "analysisInput": {
-        "documents": [
-            {
-                "id": "1",
-                "text": "आप कहाँ जा रहे हैं?"
-            },
-            {
-                "id": "2",
-                "text": "Aap kahan ja rahe hain?"
-            }
-        ]
-    }
-}
+{ 
+    "kind": "LanguageDetection", 
+    "parameters": { 
+        "modelVersion": "latest" 
+    }, 
+    "analysisInput": { 
+        "documents": [ 
+            { 
+                "id": "1", 
+                "text": "आप कहाँ जा रहे हैं?" 
+            }, 
+            { 
+                "id": "2", 
+                "text": "Туған жерім менің - Қазақстаным" 
+            } 
+        ] 
+    } 
+} 
 ```
 
 **Output**
@@ -228,38 +228,37 @@ Consequently, language detection's expanded support for script detection behaves
 The resulting output consists of the predominant language, along with a script name, script code, and confidence score.
 
 ```json
-{
-    "kind": "LanguageDetectionResults",
-    "results": {
-        "documents": [
-            {
-                "id": "1",
-                "detectedLanguage": {
-                    "name": "Hindi",
-                    "iso6391Name": "hi",
-                    "confidenceScore": 1.0,
-                    "script": "Devanagari",
-                    "scriptCode": "Deva"
-                },
-                "warnings": []
-            },
-            {
-                "id": "2",
-                "detectedLanguage": {
-                    "name": "Hindi",
-                    "iso6391Name": "hi",
-                    "confidenceScore": 0.52,
-                    "script": "Devanagari",
-                    "scriptCode": "Deva"
-                },
-                "warnings": []
-            }
-        ],
-        "errors": [],
-        "modelVersion": "2023-12-01"
-    }
+{ 
+    "kind": "LanguageDetectionResults", 
+    "results": { 
+        "documents": [ 
+            { 
+                "id": "1", 
+                "detectedLanguage": { 
+                    "name": "Hindi", 
+                    "iso6391Name": "hi", 
+                    "confidenceScore": 1.0, 
+                    "script": "Devanagari", 
+                    "scriptCode": "Deva" 
+                }, 
+                "warnings": [] 
+            }, 
+            { 
+                "id": "2", 
+                "detectedLanguage": { 
+                    "name": "Kazakh", 
+                    "iso6391Name": "kk", 
+                    "confidenceScore": 1.0, 
+                    "script": "Cyrillic",  
+                    "scriptCode": "Cyrl" 
+                }, 
+                "warnings": [] 
+            } 
+        ], 
+        "errors": [], 
+        "modelVersion": "2023-12-01" 
+    } 
 }
-
 ```
 
 
