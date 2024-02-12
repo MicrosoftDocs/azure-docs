@@ -92,7 +92,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 ## Populate availability zone for Terraform-managed volumes
 
-The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you cannot modify it once the volume has been created. Adding the `zone` property after the volume has been created can cause data loss or loss of the volume if the specified zone value does not match the availability zone. 
+The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you can't modify it after the volume has been created. Adding the `zone` property after the volume has been created can cause data loss or loss of the volume if the specified zone value does not match the availability zone. 
 
 >[!IMPORTANT]
 >To prevent data loss on any Azure resource that includes volatile resources, you should use the [`prevent_destroy` lifecycle argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#prevent_destroy).
