@@ -14,7 +14,7 @@ ms.author: adishachar
 
 # Reliability in Azure AI Health Insights
 
-This article describes reliability support in Azure AI Health Insights, and covers both regional reliability with availability zones and cross-region resiliency with disaster recovery . For a more detailed overview of reliability in Azure, see [Azure reliability](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure AI Health Insights, and covers both regional reliability with availability zones and cross-region resiliency with disaster recovery . For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 When you create a Health Insights resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure region. It's rare, but not impossible, to encounter a network issue that hits an entire region. 
 If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. 
@@ -37,10 +37,10 @@ During a zone-wide outage, the customer should expect a brief degradation of per
 ## Cross-region disaster recovery in multi-region geography
 Disaster recovery (DR) is about recovering from high-impact events, such as natural disasters or failed deployments that result in downtime. Regardless of the cause, the best remedy for a disaster is a well-defined and tested DR plan and an application design that actively supports DR.
 
-When it comes to DR, Microsoft uses the [shared responsibility model](https://learn.microsoft.com/en-us/azure/reliability/business-continuity-management-program#shared-responsibility-model). In a shared responsibility model, Microsoft ensures that the baseline infrastructure and platform services are available. For those services, you are responsible for setting up a disaster recovery plan that works for your workload. 
+When it comes to DR, Microsoft uses the [shared responsibility model](/azure/reliability/business-continuity-management-program#shared-responsibility-model). In a shared responsibility model, Microsoft ensures that the baseline infrastructure and platform services are available. For those services, you are responsible for setting up a disaster recovery plan that works for your workload. 
 
 For Azure AI Health Insights, the service does not store data for a long period, rather only when processing of the data. If a region failure occurs, all data associated to the requests that are in progress will be lost. 
-If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. When you plan to deploy your application for DR, it's helpful to understand Azure regions and geographies. For more information, see [Azure cross-region replication](https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure).
+If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. When you plan to deploy your application for DR, it's helpful to understand Azure regions and geographies. For more information, see [Azure cross-region replication](/azure/reliability/cross-region-replication-azure).
 
 
 
