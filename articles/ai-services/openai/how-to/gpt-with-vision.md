@@ -456,7 +456,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
 ### Create a video retrieval index
 
 1. Get an Azure AI Vision resource in the same region as the Azure OpenAI resource you're using.
-1. To begin, you need to create an index to store and organize the video files and their metadata. The example below demonstrates how to create an index named "my-video-index" using the **[Create Index](../reference-video-search.md)** API. For more detailed instructions, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
+1. To begin, you need to create an index to store and organize the video files and their metadata. The example below demonstrates how to create an index named "my-video-index" using the **[Create Index](/azure/ai-services/computer-vision/reference-video-search)** API. For more detailed instructions, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
         
     ```bash
     curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
@@ -491,7 +491,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
 
 1. Add video files to the index.
     
-    You can add video files to the index with their associated metadata. The example below demonstrates how to add two video files to the index using SAS URLs with the **[Create Ingestion](../reference-video-search.md)** API.
+    You can add video files to the index with their associated metadata. The example below demonstrates how to add two video files to the index using SAS URLs with the **[Create Ingestion](/azure/ai-services/computer-vision/reference-video-search)** API.
     
     ```bash
     curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions/my-ingestion?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
@@ -520,7 +520,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
 
 1. Wait for ingestion to complete.
     
-    After you add video files to the index, the ingestion process starts. It might take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **[Get Ingestion](../reference-video-search.md)** API to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
+    After you add video files to the index, the ingestion process starts. It might take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **[Get Ingestion](/en-us/azure/ai-services/computer-vision/reference-video-search)** API to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
     
     ```bash
     curl.exe -v -X GET "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: <YOUR_SUBSCRIPTION_KEY>"
