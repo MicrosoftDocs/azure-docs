@@ -156,7 +156,7 @@ The steps are the same as in the previous example, but you'll select **edit comm
 The manage commitments pane provides a subscription wide overview of all resources with commitments and PTU usage within a given Azure Subscription. Of particular importance are:
 
 * Expiration policy - The current renewal settings for a commitment.
-* Notifications - Alerts regarding important conditions such as unused commitments, or situations when a commitment has expired and deployments are still present but have shifted to hourly billing. 
+* Notifications - Alerts regarding important conditions like unused commitments, and situations that might result in billing overages. Billing overages can be caused by situations such as when a commitment has expired and deployments are still present, but have shifted to hourly billing.
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/notifications.png" alt-text="Screenshot of commitment purchase UI with notifications." lightbox="../media/how-to/provisioned-onboarding/notifications.png":::
 
