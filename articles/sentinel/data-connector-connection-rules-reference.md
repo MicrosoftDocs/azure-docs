@@ -30,7 +30,7 @@ Reference the [Create or Update](/rest/api/securityinsights/data-connectors/crea
 
 **PUT** method
 ```http
-https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataConnectorId}}?api-version=
+https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectors/{{dataConnectorId}}?api-version={{apiVersion}}
 ```
 
 ## URI parameters
@@ -54,7 +54,6 @@ The request body for the CCP data connector has the following structure:
    "name": "{{dataConnectorId}}",
    "kind": "RestApiPoller",
    "etag": "",
-   "DataType": ""
    "properties": {
         "connectorDefinitionName": "",
         "auth": {},
@@ -162,9 +161,9 @@ After the user returns to the client via the redirect URL, the application will 
 | ---- | ---- | ---- | ---- | 
 | **ClientId** | True	| String | The client id |
 | **ClientSecret**	| True | String | The client secret |
-| **AuthorizationCode** | Mandatory when grantType = `authorization_code` |	String | If grant type is `authorization_code` this field value will be the authorization code returned from the auth serve. |
+| **AuthorizationCode** | True when grantType = `authorization_code` |	String | If grant type is `authorization_code` this field value will be the authorization code returned from the auth serve. |
 | **Scope** | True for `authorization_code` grant type<br> optional for `client_credentials` grant type| String | A space-separated list of scopes for user consent. For more information, see [OAuth2 scopes and permissions](/entra/identity-platform/scopes-oidc). |
-| **RedirectUri** | Mandatory when grantType = `authorization_code` | String | URL for redirect, must be `https://portal.azure.com/TokenAuthorize` |
+| **RedirectUri** | True when grantType = `authorization_code` | String | URL for redirect, must be `https://portal.azure.com/TokenAuthorize` |
 | **GrantType** | True | String | `authorization_code` or `client_credentials` |
 | **TokenEndpoint** | True | String | URL to exchange code with valid token in `authorization_code` grant or client id and secret with valid token in `client_credentials` grant. |
 | **TokenEndpointHeaders** |  | Object | An optional key value object to send custom headers to token server |
@@ -436,7 +435,7 @@ Paging: {
 
 ```json
 Paging: {
- "pagingType" = "PersistentLinkHeader", 
+ "pagingType" : "PersistentLinkHeader", 
  "pageSizeParameterName" : "limit", 
  "pageSize" : 500 
 }

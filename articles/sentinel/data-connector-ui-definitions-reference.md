@@ -24,16 +24,16 @@ Reference the Create Or Update operation in the REST API docs to find the latest
 
 **PUT** method
 ```http
-https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{{dataConnectorDefinitionName}}?api-version=
+https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.OperationalInsights/workspaces/{{workspaceName}}/providers/Microsoft.SecurityInsights/dataConnectorDefinitions/{{dataConnectorDefinitionName}}?api-version={{apiVersion}}
 ```
 
 ## URI parameters
 
-For more information, see [Data Connector Definitions - Create or Update URI Parameters](/rest/api/securityinsights/data-connectors/create-or-update#uri-parameters)
+For more information, see [Data Connector Definitions - Create or Update URI Parameters](/rest/api/securityinsights/data-connector-definitions/create-or-update#uri-parameters)
 
 |Name  | Description  |
 |---------|---------|
-| **dataConnectorDefinition** | The data connector definition must be a unique name and is the same as the `name` parameter in the [request body](#request-body).|
+| **dataConnectorDefinitionName** | The data connector definition must be a unique name and is the same as the `name` parameter in the [request body](#request-body).|
 | **resourceGroupName** | The name of the resource group, not case sensitive.  |
 | **subscriptionId** | The ID of the target subscription. |
 | **workspaceName** | The *name* of the workspace, not the ID.<br>Regex pattern: `^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$` |
