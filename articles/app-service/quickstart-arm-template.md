@@ -184,13 +184,13 @@ az deployment group create --resource-group myResourceGroup \
 
 Browse to `http://<app_name>.azurewebsites.net/` and verify it's been created.
 ::: zone pivot="platform-windows"
-![Screenshot of the Windows code experience.](media/quickstart-arm/validate-windows-code)
+![Screenshot of the Windows code experience.](media/quickstart-arm/validate-windows-code.png)
 ::: zone-end
 ::: zone pivot="platform-linux"
-![Screenshot of the Linux experience.](media/quickstart-arm/validate-linux)
+![Screenshot of the Linux experience.](media/quickstart-arm/validate-linux.png)
 ::: zone-end
 ::: zone pivot="platform-windows-container"
-![Screenshot of the Windows container experience.](media/quickstart-arm/validate-windows-container)
+![Screenshot of the Windows container experience.](media/quickstart-arm/validate-windows-container.png)
 ::: zone-end
 
 ## Clean up resources
