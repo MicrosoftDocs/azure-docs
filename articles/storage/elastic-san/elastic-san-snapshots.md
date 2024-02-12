@@ -15,6 +15,11 @@ Azure Elastic SAN volume snapshots (preview) are incremental point-in-time backu
 
 You can take as many snapshots of your volumes as you like, as long as there's available capacity in your elastic SAN. Snapshots persist until either the volume itself is deleted or the snapshots are deleted. Snapshots don't persist after the volume is deleted. If you need your data to persist after deleting a volume, [export your volume's snapshot to a managed disk snapshot](#export-volume-snapshot).
 
+
+## Limitations
+
+- If a volume is larger than 4 TiB, export of a volume snapshot to a disk snapshot is not supported.
+
 ## General guidance
 
 You can take a snapshot anytime, but if you’re taking snapshots while the VM is running, keep these things in mind:
@@ -159,7 +164,3 @@ Currently, you can only use the Azure portal to create Elastic SAN volumes from 
 1. Select **Create volume**.
 1. For **Source type** select **Disk snapshot** and fill out the rest of the values.
 1. Select **Create**.
-
-## Limitations
-
-- If a volume is larger than 4 TiB, export of a volume snapshot to a disk snapshot is not supported.

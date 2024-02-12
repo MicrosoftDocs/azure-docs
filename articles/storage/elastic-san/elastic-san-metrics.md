@@ -26,23 +26,6 @@ The following metrics are currently available for your Elastic SAN resource. You
 
 By default, all metrics are shown at the SAN level. To view these metrics at either the volume group or volume level, select a filter on your selected metric to view your data on a specific volume group or volume.
 
-## Diagnostic Logging 
-You can configure the diagnostic settings of your elastic SAN to send Azure platform metrics and logs to different destinations.
-
-Currently, there are two log configurations:
-
-All: Every resource log offered by the resource.
-
-Audit: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
-
-Log categories available:  
-- **Write Success Requests** 
-- **Write Failed Requests** 
-- **Read Success Requests** 
-- **Read Failed Requests** 
-- **Persistent Reservation Requests** 
-- **SendTargets Requests** 
-
 ## Next steps
 
 - [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md)
