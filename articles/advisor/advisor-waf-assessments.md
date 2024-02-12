@@ -140,13 +140,13 @@ When ready, select **Next**.
 
 **Key Points**:
 
-* The assessments are tailored to your selected workload type, such as IoT, SAP, data services, machine learning, etc., which you choose during the assessment. The Azure Well-Architected Framework provides a suite of actionable guidance that you can use to improve your workloads in the areas that matter most to your business. The framework is designed to help you evaluate your workloads against the latest set of Azure best practices.	
+* Assessments are tailored to your selected workload type, such as IoT, SAP, data services, machine learning, etc., which you choose during the assessment. The Azure Well-Architected Framework provides a suite of actionable guidance that you can use to improve your workloads in the areas that matter most to your business. The framework is designed to help you evaluate your workloads against the latest set of Azure best practices.	
 
-* There's no limit on the number of assessments that can be taken for a subscription. However, while creating a new assessment, you're notified if there's an existing assessment already created for the same subscription and workload. 
+* Assessments for a subscription and workload can be taken repeatedly; however, while creating a new assessment, you're notified if there's an existing assessment already created for the same subscription and workload. 
 
-* Currently, we don't allow you to edit completed assessments in Advisor.
+* Assessments that have been marked as *Completed* cannot be edited.
 
-## View and manage Azure Advisor WAF assessment recommendations
+## View Azure Advisor WAF assessment recommendations
 
 There are multiple avenues to access the recommendations. But you must have the correct permissions.
 
@@ -169,11 +169,40 @@ From the recommendations list page, you can:
 
   * *Postpone* or *Dismiss* a recommendation, or mark as *In progress*. If you mark a recommendation as *In progress* and finish with it (take the recommended actions), it's important to then mark it as *Completed*. You mark the recommendation as *Completed* through the recommendation list in the **In progress** view, or through the detail pane of a recommendation that is in progress. 
 
-For full details on managing recommendations, see [Get recommendation details and solution options](/azure/advisor/advisor-get-started#get-recommendation-details-and-solution-options).
-
 > [!NOTE]
 > Assessment recommendations have no immediate impact on your existing Advisor score.
 
+## Manage Azure Advisor WAF assessment recommendations
+
+You can manage recommendations, setting recommendation status for what needs action and what can be postponed or dismissed. You can also track recommendations via the different recommendation statuses. 
+
+* On the **Not started** tab, with new recommendations, you can set initial status changes. For example, mark a recommendation as *In progress*:  If you accept a recommendation and start working on it, select **Mark as in progress**, which moves it to the **In progress** tab. 
+
+:::image type="content" source="./media/advisor-waf-assessments/mark-in-progress-m.png" alt-text="Sreenshot of Azure Advisor **Marked recommendations list**." lightbox="./media/advisor-waf-assessments/mark-in-progress-m.png":::  
+
+* On the **In progress** tab, you can take action on a recommendation by selecting **Mark as completed** or **Dismiss**. If you select **Dismiss**, you must provide a reason as shown in the following screenshot.
+
+:::image type="content" source="./media/advisor-waf-assessments/mark-dismiss-recommendation-options-small.png" alt-text="Sreenshot of Azure Advisor **Recommendations dismiss options**." lightbox="./media/advisor-waf-assessments/mark-dismiss-recommendation-options-small.png":::
+
+* You can accept or dismiss or set status on multiple recommendations at a time using the checkbox control. The action you take moves the selected recommendations to the tab for that action. For example, if you mark recommendations as *In progress*, they're moved to the **In progress** tab.
+
+:::image type="content" source="./media/advisor-waf-assessments/mark-multiple-m.png" alt-text="Sreenshot of Azure Advisor **Multiple marked recommendations list**." lightbox="./media/advisor-waf-assessments/mark-multiple-m.png"::: 
+
+* You can reset a recommendations status. If you reset the status, it returns to the previous status that was set for it.
+
+:::image type="content" source="./media/advisor-waf-assessments/mark-reset-m.png" alt-text="Sreenshot of Azure Advisor **Recommendations reset**." lightbox="./media/advisor-waf-assessments/mark-reset-m.png"::: 
+
+* You can postpone a recommendation. If you do so, pick a time length for the postponement. Postponed recommendations move to the **Postponed or dismissed** tab.
+
+:::image type="content" source="./media/advisor-waf-assessments/mark-postpone-recommendation-options-small.png" alt-text="Sreenshot of Azure Advisor **Recommendations postpone options**." lightbox="./media/advisor-waf-assessments/mark-postpone-recommendation-options-small.png"::: 
+
+## Act on and complete Azure Advisor WAF assessments
+
+Recommendations marked as *In progress* are reviewed and acted on by operations experts. 
+
+Once the recommendation is, or multiple recommendations are, selected with **Mark as completed** selected, in the **In progress** tab, those recommendations are moved to the **Completed** tab.
+
+:::image type="content" source="./media/advisor-waf-assessments/mark-completed-m.png" alt-text="Sreenshot of Azure Advisor **Completed recommendations**." lightbox="./media/advisor-waf-assessments/mark-completed-m.png"::: 
 ## Azure Advisor WAF assessments FAQs
 
 Some common questions and answers.
