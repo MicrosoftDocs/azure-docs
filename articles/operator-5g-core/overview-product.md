@@ -29,11 +29,11 @@ Azure Operator 5G Core includes the following benefits for operating secure, car
 
 ### Any-G 
 
-Azure Operator 5G Core is a unified, ‘Any-G’ packet core network solution that uses cloud native capabilities to address 5G and 2G/3G/4G Evolved Packet Core (EPC) functionality. It allows operators to deploy network functions compatible with 5G networks, modernizing operator networks while operating on a single, consistent platform to minimize costs. ‘Any-G’ offers the following features:  
+Azure Operator 5G Core is a unified, ‘Any-G’ packet core network solution that uses cloud native capabilities to address 2G/3G/4G and 5G functionalities. It allows operators to deploy network functions compatible with not only legacy technologies but also with the latest 5G networks, modernizing operator networks while operating on a single, consistent platform to minimize costs. ‘Any-G’ offers the following features: 
 
 - Common anchor points (combination nodes) that allow seamless mobility across Radio Access Technologies (RAT).  
 - Common UPF instances that support all RAT types for mobility and footprint reduction.  
-- Control Plane / User Plane Separation-based EPC deployments.  
+- Control Plane and User Plane separation providing 5G and 4G CUPS standards.  
 - Consistent application of Value-added Services (VAS) regardless of the Radio Access Type.  
 - Integrated probing enabling an always-on capture of User Equipment/Session activities.  
 - Deployment options to use Diameter or Service-Based Interfaces (SBI), allowing operators to choose when to upgrade peer network functions.  
@@ -61,7 +61,7 @@ Azure Operator 5G Core offers the following network functions: 
  
  :::image type="content" source="media/overview-product/all-g-network.png" alt-text="Diagram of text boxes showing the network functions supported by the all-g network offering of Azure Operator 5G Core.":::
 
-Any-G is built on top of Azure Operator Nexus and Azure – with flexible Network Function (NF) placement based on the operator use case. Different use cases drive different NF deployment topologies. NF resources can be placed closer to the User Equipment (UE) point of attachment – eMBB, URLLC, MEC (on-premises) – or centralized IOT/Enterprise (cloud). A consistent operator interface from the NFV-I to the application is provided regardless of the placement of the NFs, allowing the operator to focus on their wireless business instead of the network.  
+Any-G is built on top of Azure Operator Nexus and Azure – with flexible Network Function (NF) placement based on the operator use case. Different use cases drive  NF deployment topologies. Network Functions can be placed geographically closer to the users for scenarios such as consumer, low latency and MEC or centralized for machine to machine (Internet of Things) and enterprise scenarios. Deployment is API driven regardless of the placement of the network functions.  
   
 
 ### Resiliency  
