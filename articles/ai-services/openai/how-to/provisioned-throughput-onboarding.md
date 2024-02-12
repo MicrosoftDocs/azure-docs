@@ -205,7 +205,7 @@ The same approaches apply in moving the commitment and deployment within the reg
 
 ### View and edit an existing resource
 
-In Azure OpenAI Studio, select **Quota** > **Provisioned** > **Manage Commitment Tiers** and select a resource with an existing commitment to view/change it.
+In Azure OpenAI Studio, select **Quota** > **Provisioned** > **Edit commitment** and select a resource with an existing commitment to view/change it.
 
 ## Next steps
 
