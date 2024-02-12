@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Access Control Lists Overview
 
-An Access Control List (ACL) is a list of rules that control the inbound and outbound flow of packets into an interface. The interface can be an Ethernet interface, a sub interface, a port channel interface, or the switch control plane itself.
+An Access Control List (ACL) is a list of rules that control the inbound and outbound flow of packets through an interface. The interface can be an Ethernet interface, a sub interface, a port channel interface, or the switch control plane itself.
 
 An ACL that is applied to incoming packets is called an **Ingress ACL**. An ACL that is applied to outgoing packets is called an **Egress ACL**.
 

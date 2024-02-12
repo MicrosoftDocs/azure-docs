@@ -20,9 +20,9 @@ A traffic policy MATCHING CONFIGURATION defines the conditions and parameters fo
 
 -   **protocol**: the transport protocol type, such as TCP, UDP, ICMP, or IGMP.
 
--   **source**: the source port number or port range.
+-   **source**: the source IP address, port number or port range.
 
--   **destination**: the destination port number or port range.
+-   **destination**: the destination IP address, port number or port range.
 
 -   **ttl**: the time-to-live (TTL) value in the IP header.
 
@@ -58,7 +58,7 @@ You can store the field-set definition in a file in your own Azure storage accou
 | **resource-name** | The name of the ACL. | `example-Ipv4ingressACL` |
 | **configuration-type** | The type of configuration for the ACL. It can be either `Inline` or `File`. | `Inline` |
 | **default-action** | The default action to be taken for the ACL. It can be either `Permit` or `Deny`. | `Permit` |
-| **match-configurations** | The list of match configurations for the ACL. Each match configuration has a name, a sequence number, an IP address type, a list of match conditions, and a list of actions. | `\[{matchConfigurationName:'example-match',sequenceNumber:123,ipAddressType:IPv4,matchConditions:\[...\],actions:\[...\]}\]` |
-| **dynamic-match-configurations** | The list of dynamic match configurations for the ACL. Each dynamic match configuration has a list of IP groups, VLAN groups, and port groups. | `\[{ipGroups:\[...\],vlanGroups:\[...\],portGroups:\[...\]}\]` |
+| **match-configurations** | The list of match configurations for the ACL. Each match configuration has a name, a sequence number, an IP address type, a list of match conditions, and a list of actions. | `[{matchConfigurationName:'example-match',sequenceNumber:123,ipAddressType:IPv4,matchConditions:[...],actions:[...]}]` |
+| **dynamic-match-configurations** | The list of dynamic match configurations for the ACL. Each dynamic match configuration has a list of IP groups, VLAN groups, and port groups. | `[{ipGroups:[...],vlanGroups:[...],portGroups:[...]}]` |
 | **acls-url** | The URL of the ACLs file. This parameter is required only if the configuration-type is `File`. | `https://ACL-Storage-URL` |
-| **annotation**: An optional annotation for the ACL. | `annotation` |
+| **annotation** | An optional annotation for the ACL. | `annotation` |
