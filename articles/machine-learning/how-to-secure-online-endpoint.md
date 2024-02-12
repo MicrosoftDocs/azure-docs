@@ -41,6 +41,15 @@ To begin, you need an Azure subscription, CLI or SDK to interact with Azure Mach
 
 * If you want to use a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) to create and manage online endpoints and online deployments, the identity should have the proper permissions. For details about the required permissions, see [Set up service authentication](./how-to-identity-based-service-authentication.md#workspace). For example, you need to assign the proper RBAC permission for Azure Key Vault on the identity.
 
+### Migration from legacy method to managed virtual network ###
+
+For successful migration from legacy method for network isolation to managed virtual networks in AzureML, ensure you have completed the following steps: 
+
+1. Delete all computes in your workspace.
+2. Enable Managed Virtual Network for your workspace. See [Use managed virtual network](/articles/machine-learning/how-to-managed-network.md).
+3. Configure outbound private endpoints to private resources that need to be acessed by managed online endpoints. (ex. Storage Account, Key Vault (KV), Azure Container Registry (ACR), etc.)
+4. Optional: If you are integrating with user registry, configure outbound private endpoints to your registry, your registry's Storage Account, and your registry's ACR. 
+
 ## Limitations
 
 [!INCLUDE [machine-learning-managed-vnet-online-endpoint-limitations](includes/machine-learning-managed-vnet-online-endpoint-limitations.md)]
