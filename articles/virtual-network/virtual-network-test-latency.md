@@ -13,6 +13,9 @@ ms.author: allensu
 
 # Test network latency between Azure VMs
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article describes how to test network latency between Azure virtual machines (VMs) by using the publicly available tools [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
 
 For the most accurate results, you should measure VM network latency with a tool that's designed for the task and excludes other types of latency, such as application latency. Latte and SockPerf provide the most relevant network latency results by focusing on Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic. Most applications use these protocols, and this traffic has the largest effect on application performance.
