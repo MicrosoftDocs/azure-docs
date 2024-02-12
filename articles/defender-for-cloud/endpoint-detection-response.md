@@ -148,7 +148,10 @@ After the process is completed, it can take up to 24 hours until your machine ap
 
 ## Detect misconfigurations in endpoint detection and response solution
 
-When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page that correct misconfigurations on your Azure VM, AWS EC2 instances, and GCP VM instances. These recommendations are only available if you have the Defender for Endpoint enabled on the VM. These recommendations check for the following security checks:
+When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page that correct misconfigurations on your Azure VM, AWS EC2 instances, and GCP VM instances. These recommendations check for the following security checks:
+
+> [!NOTE]
+> This recommendation is only applicable to virtual machines that have Defender for Endpoint enabled on them.
 
 - `Scan are out of 7 days`
 - `Signature out of date`
