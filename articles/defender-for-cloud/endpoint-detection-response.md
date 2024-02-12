@@ -26,7 +26,7 @@ The recommendations allow you to:
 - You must have either of the following plans enabled on Defender for Cloud: 
     - [Defender for Servers plan 2](tutorial-enable-servers-plan.md)
     - [Defender CSPM](tutorial-enable-cspm-plan.md) 
-    - 
+
 - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
     
 ## Detect endpoint detection and response solution on your virtual machine
@@ -88,7 +88,7 @@ This recommended action is available when:
 
     :::image type="content" source="media/endpoint-detection-response/enable-fix.png" alt-text="Screenshot that shows where the fix button is located." lightbox="media/endpoint-detection-response/enable-fix.png":::
 
-1. In the dropdown menu, select **Plan 2** 
+1. Select **Plan 2** in the dropdown menu
 
     > [!NOTE]
     > Defender for Servers plan 2 comes with its own cost, learn more about the cost on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
@@ -117,7 +117,7 @@ This recommended action is available when:
 
     :::image type="content" source="media/endpoint-detection-response/upgrade-fix.png" alt-text="Screenshot that shows where the fix button is located on the screen." lightbox="media/endpoint-detection-response/upgrade-fix.png":::
 
-1. In the dropdown menu, select **Plan 2**  
+1. Select **Plan 2** in the dropdown menu.
 
     > [!NOTE]
     > Defender for Servers plan 2 comes with its own cost, learn more about the cost on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
