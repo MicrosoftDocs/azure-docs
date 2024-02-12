@@ -124,6 +124,17 @@ However, if you want your deployment to access the internet, you can use the wor
 
 Finally, if your deployment doesn't need to access private Azure resources and you don't need to control access to the internet, then you don't need to use a workspace managed virtual network.
 
+**For inbound communication of AzureML workspace**:
+
+Similar to managed online endpoints, your AzureML workspace has a `public_network_access` flag to enable or disable inbound workspace access. Depending on both inbound `public_network_access` flags, managed online endpoints can be accessed or not. The below table explains the relation between both flags:
+
+| Workspace Inbound | Managed Online Endpoint Inbound | Result |
+| -------- | -------------------------------- | --------- |
+| `public_network_access` is enabled | `public_network_access` is enabled | All public, no private endpoint needed |
+| `public_network_access` is enabled | `public_network_access` is disabled | Managed online endpoint cannot be accessed since workspace has no private endpoint connection |
+| `public_network_access` is disabled | `public_network_access` is enabled | Private workspace, can access managed online endpoint |
+| `public_network_access` is disabled | `public_network_access` is disabled | All private, requires private endpoint |
+
 ## Appendix
 
 ### Secure outbound access with legacy network isolation method
