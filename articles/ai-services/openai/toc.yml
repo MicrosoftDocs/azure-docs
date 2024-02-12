@@ -193,6 +193,16 @@ items:
       href: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
 - name: Reference
   items:
+    - name: Assistants API Reference
+      items:
+       - name: Assistants
+         href: ./assistants-reference.md
+       - name: Threads
+         href: ./assistants-reference-threads.md
+       - name: Messages
+         href: ./assistants-reference-messages.md
+       - name: Runs
+         href: ./assistants-reference-runs.md     
     - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 

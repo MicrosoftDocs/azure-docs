@@ -1,9 +1,8 @@
 ---
 title: Azure billing and cost management budget scenario
-description: Learn how to use Azure automation to shut down VMs based on specific budget thresholds.
+description: Learn how to use Azure Automation to shut down VMs based on specific budget thresholds.
 author: bandersmsft
 ms.reviewer: adwise
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
@@ -17,7 +16,7 @@ Cost control is a critical component to maximizing the value of your investment 
 
 Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition to using the budgets API to notify you via email when a budget threshold is reached, you can use [Azure Monitor action groups](../../azure-monitor/alerts/action-groups.md) to trigger an orchestrated set of actions resulting from a budget event.
 
-A common budgets scenario for a customer running a non-critical workload could occur when they want to manage against a budget and also get to a predictable cost when looking at the monthly invoice. This scenario requires some cost-based orchestration of resources that are part of the Azure environment. In this scenario, a monthly budget of $1000 for the subscription is set. Also, notification thresholds are set to trigger a few orchestrations. This scenario starts with an 80% cost threshold, which will stop all VMs in the resource group **Optional**. Then, at the 100% cost threshold, all VM instances will be stopped.
+A common budgets scenario for a customer running a noncritical workload could occur when they want to manage against a budget and also get to a predictable cost when looking at the monthly invoice. This scenario requires some cost-based orchestration of resources that are part of the Azure environment. In this scenario, a monthly budget of $1,000 for the subscription is set. Also, notification thresholds are set to trigger a few orchestrations. This scenario starts with an 80% cost threshold, which will stop all virtual machines (VM) in the resource group **Optional**. Then, at the 100% cost threshold, all VM instances are stopped.
 
 To configure this scenario, you'll complete the following actions by using the steps provided in each section of this tutorial.
 
@@ -25,12 +24,12 @@ These actions included in this tutorial allow you to:
 
 - Create an Azure Automation Runbook to stop VMs by using webhooks.
 - Create an Azure Logic App to be triggered based on the budget threshold value and call the runbook with the right parameters.
-- Create an Azure Monitor Action Group that will be configured to trigger the Azure Logic App when the budget threshold is met.
+- Create an Azure Monitor Action Group that is configured to trigger the Azure Logic App when the budget threshold is met.
 - Create the budget with the wanted thresholds and wire it to the action group.
 
 ## Create an Azure Automation Runbook
 
-[Azure Automation](../../automation/automation-intro.md) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you'll create an [Azure Automation runbook](../../automation/automation-runbook-types.md) that will be used to stop VMs. You'll use the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook from the [gallery](../../automation/automation-runbook-gallery.md) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
+[Azure Automation](../../automation/automation-intro.md) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you'll create an [Azure Automation runbook](../../automation/automation-runbook-types.md) that will be used to stop VMs. You'll use the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) graphical runbook from the [Azure Automation gallery](https://github.com/azureautomation) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
 
 ### Create an Azure Automation account
 
@@ -44,13 +43,13 @@ These actions included in this tutorial allow you to:
 
 ### Import the Stop Azure V2 VMs runbook
 
-Using an [Azure Automation runbook](../../automation/automation-runbook-types.md), import the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook from the gallery.
+Using an [Azure Automation runbook](../../automation/automation-runbook-types.md), import the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) graphical runbook from the gallery.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account credentials.
 1. Open your Automation account by selecting **All services** > **Automation Accounts**. Then, select your Automation Account.
 1. Select **Runbooks gallery** from the **Process Automation** section.
 1. Set the **Gallery Source** to **Script Center** and select **OK**.
-1. Locate and select the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) gallery item within the Azure portal.
+1. Locate and select the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) gallery item within the Azure portal.
 1. Select **Import** to display the **Import** area and select **OK**. The runbook overview area will be displayed.
 1. Once the runbook has completed the import process, select **Edit** to display the graphical runbook editor and publishing option.  
     ![Azure - Edit graphical runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
@@ -59,7 +58,7 @@ Using an [Azure Automation runbook](../../automation/automation-runbook-types.md
 
 ## Create webhooks for the runbook
 
-Using the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook, you create two Webhooks to start the runbook in Azure Automation through a single HTTP request. The first webhook invokes the runbook at an 80% budget threshold with the resource group name as a parameter, allowing the optional VMs to be stopped. Then, the second webhook invokes the runbook with no parameters (at 100%), which stops all remaining VM instances.
+Using the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) graphical runbook, you create two Webhooks to start the runbook in Azure Automation through a single HTTP request. The first webhook invokes the runbook at an 80% budget threshold with the resource group name as a parameter, allowing the optional VMs to be stopped. Then, the second webhook invokes the runbook with no parameters (at 100%), which stops all remaining VM instances.
 
 1. From the **Runbooks** page in the [Azure portal](https://portal.azure.com/), select the **StopAzureV2Vm** runbook that displays the runbook's overview area.
 1. Select **Webhook** at the top of the page to open the **Add Webhook** area.
@@ -150,7 +149,7 @@ Use a conditional statement to check whether the threshold amount has reached 80
 1. Select **is greater than or equal to** in the dropdown box of the **Condition**.
 1. In the **Choose a value** box of the condition, enter `.8`.  
     ![Screenshot shows the Condition dialog box with values selected.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
-1. Select **Add** > **Add row** within the Condition box to add an additional part of the condition.
+1. Select **Add** > **Add row** within the Condition box to add another part of the condition.
 1. In the **Condition** box, select the textbox containing `Choose a value`.
 1. Select **Expression** at the top of the list and enter the following expression in the expression editor:
     `float()`
@@ -311,9 +310,9 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
     ```
 1. Press **Send** to send the request.
 
-You now have all the pieces you need to call the [budgets API](/rest/api/consumption/budgets). The budgets API reference has additional details on the specific requests, including:
+You now have all the pieces you need to call the [budgets API](/rest/api/consumption/budgets). The budgets API reference has more details on the specific requests, including:
 
-- **budgetName** - Multiple budgets are supported.  Budget names must be unique.
+- **budgetName** - Multiple budgets are supported. Budget names must be unique.
 - **category** - Must be either **Cost** or **Usage**. The API supports both cost and usage budgets.
 - **timeGrain** - A monthly, quarterly, or yearly budget. The amount resets at the end of the period.
 - **filters** - Filters allow you to narrow the budget to a specific set of resources within the selected scope. For example, a filter could be a collection of resource groups for a subscription level budget.
