@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: aravindang
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/09/2023
+ms.date: 02/12/2024
 ms.author: ankitadutta
 ms.custom: references_regions
 ---
@@ -24,20 +24,22 @@ If you want to move VMs to an availability zone in a different region, review [t
 
 Support for zone-to-zone disaster recovery is currently limited to the following regions:
 
-| Americas | Europe | Middle East | Africa | APAC |
-|--------|--------------|-------------|--------|--------------|
-| Canada Central | UK South | Qatar Central | South Africa North | Southeast Asia |
-| US Gov Virginia | West Europe | | | East Asia |
-| Central US | North Europe | UAE North | | Japan East |
-| South Central US | Germany West Central | | | Korea Central |
-| East US | Norway East | | | Australia East |
-| East US 2 | France Central | | | Central India |
-| West US 2 | Switzerland North | | | China North 3 |
-| West US 3 | Sweden Central (managed access) | | |  |
-| Brazil South | Poland Central | | | |
-| | Italy North | | | |
+| Americas | Europe | Middle East | Africa | Asia Pacific |
+|---|---|---|---|---|
+| Brazil South | France Central | Qatar Central | South Africa North | Australia East |
+| Canada Central | Italy North | UAE North | | Central India |
+| Central US |  Germany West Central | Israel Central | | Japan East |
+| East US | Norway East | | | Korea Central |
+| East US 2 | North Europe  | | | Southeast Asia |
+| South Central US | UK South | | | East Asia |
+| US Gov Virginia | West Europe  | | | China North 3 |
+| West US 2 | Sweden Central | | | |
+| West US 3 | Switzerland North | | | |
+||Poland Central ||||
 
 When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store data out of the region in which it's deployed. You can select a Recovery Services vault from a different region if you want one. The Recovery Services vault contains metadata but no actual customer data.
+
+Learn more about [currently supported availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 > [!Note]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
