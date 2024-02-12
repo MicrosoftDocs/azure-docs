@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: yelevin
   ms.author: yelevin
-  ms.date: 02/08/2024
+  ms.date: 02/12/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -44,32 +44,41 @@ landingContent:
             url: deploy-overview.md
           - text: Prerequisites
             url: prerequisites.md
+          - text: Plan costs
+            url: billing.md
+          - text: Find solutions
+            url: sentinel-solutions-catalog.md
       - linkListType: how-to-guide
         links:
           - text: Install solutions and content
-            url: sentinel-solutions-deploy.md
-          - text: Find solutions
-            url: sentinel-solutions-catalog.md
+            url: sentinel-solutions-deploy.md          
 
   # Card
   - title: Collect data
     linkLists:
       - linkListType: concept
         links:
+          - text: Microsoft Sentinel data connectors
+            url: connect-data-sources.md
           - text: Data collection best practices
             url: best-practices-data.md
           - text: Normalizing and parsing data
             url: normalization.md
+      - linkListType: tutorial
+        links:
+          - text: Forward Syslog data to Log Analytics workspace 
+            url: forward-syslog-monitor-agent.md
       - linkListType: how-to-guide
         links:
-          - text: Connect data to Microsoft Sentinel
-            url: connect-data-sources.md
-          - text: Find data connectors
-            url: data-connectors-reference.md
           - text: Create a custom connector
             url: create-custom-connector.md
           - text: Monitor connector health
             url: monitor-data-connector-health.md
+      - linkListType: reference
+        links:                   
+          - text: Find data connectors
+            url: data-connectors-reference.md
+               
 
  # Card (optional)
   - title: Detect threats
@@ -84,6 +93,10 @@ landingContent:
             url: identify-threats-with-entity-behavior-analytics.md
           - text: Customizable anomalies
             url: soc-ml-anomalies.md
+      - linkListType: tutorial
+        links:
+          - text: Detect threats by using analytics rules
+            url: tutorial-log4j-detection.md
       - linkListType: how-to-guide
         links:
           - text: Detect threats by using built-in analytics
@@ -94,14 +107,18 @@ landingContent:
  # Card (optional)
   - title: Investigate
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Incident investigation and case management
+            url: incident-investigation.md
+          - text: Threat hunting
+            url: hunting.md
+          - text: Kusto Query Language in Microsoft Sentinel
+            url: kusto-overview.md
       - linkListType: tutorial
         links:
         - text: Investigate with UEBA
           url: investigate-with-ueba.md
-        - text: Threat hunting
-          url: hunting.md
-        - text: Kusto Query Language in Microsoft Sentinel
-          url: kusto-overview.md
       - linkListType: how-to-guide
         links:
           - text: Investigate incidents
@@ -116,14 +133,14 @@ landingContent:
 # Card (optional)
   - title: Respond
     linkLists:
-      - linkListType: tutorial
-        links:
-        - text: Respond automatically to threats
-          url: tutorial-respond-threats-playbook.md
       - linkListType: concept
         links:
           - text: Automation rules
             url: automate-incident-handling-with-automation-rules.md
           - text: Playbooks
             url: automate-responses-with-playbooks.md
+      - linkListType: tutorial
+        links:
+        - text: Respond automatically to threats
+          url: tutorial-respond-threats-playbook.md
 
