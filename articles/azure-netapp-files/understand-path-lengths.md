@@ -15,7 +15,7 @@ File and path length refers to the number of Unicode characters in a file path, 
 
 The following table shows the supported component and path lengths in Azure NetApp Files volumes:
 
-| | NFS | SMB |
+| Component | NFS | SMB |
 | - | - | - | 
 | Path component size | 255 bytes | 255 bytes | 
 | Path length size | Unlimited | Default: 255 bytes <br /> Maximum in later Windows versions: 32,767 bytes |
@@ -142,7 +142,7 @@ Characters designated for the flag emojis translate to flag images in supported 
 
 ## SMB path limits 
 
-By default, Windows servers and clients support path lengths up to 260 bytes, but the actual file path lengths are shorter due to extra metadata added to Windows paths, such as [the <NUL> value](/windows/win32/fileio/maximum-file-path-limitation?tabs=registry), domain information, etc.
+By default, Windows servers and clients support path lengths up to 260 bytes, but the actual file path lengths are shorter due to extra metadata added to Windows paths, such as [the `<NUL>` value](/windows/win32/fileio/maximum-file-path-limitation?tabs=registry), domain information, etc.
 
 When a path limit is exceeded in Windows, a dialog box appears:
 
@@ -191,7 +191,7 @@ Instead of mapping the SMB share to the top level of the volume to navigate down
 
 ### Special character considerations
 
-Azure NetApp Files volumes use a volume language type of [C.UTF-8](/cpp/build/reference/utf-8-set-source-and-executable-character-sets-to-utf-8?view=msvc-170), which covers many countries and languages including German, Cyrillic, Hebrew, most Chinese/Japanese/Korean (CJK), and others. Most common text characters in Unicode are 3 bytes or less. Special characters, such as emojis, musical symbols, and mathematical symbols are often larger than 3 bytes in size. Some may use [UTF-16 surrogate pair logic](/windows/win32/intl/surrogates-and-supplementary-characters). 
+Azure NetApp Files volumes use a volume language type of [C.UTF-8](/cpp/build/reference/utf-8-set-source-and-executable-character-sets-to-utf-8), which covers many countries and languages including German, Cyrillic, Hebrew, most Chinese/Japanese/Korean (CJK), and others. Most common text characters in Unicode are 3 bytes or less. Special characters, such as emojis, musical symbols, and mathematical symbols are often larger than 3 bytes in size. Some use [UTF-16 surrogate pair logic](/windows/win32/intl/surrogates-and-supplementary-characters). 
 
 If you use a character that Azure NetApp Files doesn't support, you might see a warning requesting a different file name. 
 
