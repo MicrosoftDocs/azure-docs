@@ -66,14 +66,16 @@ Additionally, this feature is in preview so you must have feature flag (*feature
   * **Workload** (optional): If you have workloads configured for that subscription, you can view them in the list and select one
 
   * **Assessment type**: In the preview launch, we enabled two types of assessments:
-    * [Mission Critical | Well-Architected Review](/assessments/23513bdb-e8a2-4f0b-8b6b-191ee1f52d34/)
+    
     * [Azure Well-Architected Review](/assessments/azure-architecture-review/)
+    
+    * [Mission Critical | Well-Architected Review](/assessments/23513bdb-e8a2-4f0b-8b6b-191ee1f52d34/)
 
   * **Assessment name**: A unique name for the assessment. Typing in the name activates the **Review and Create** option at the top of the page and the **Next** button at the bottom of the page. To find an existing assessment, go to the main **Assessments** page
   
 3. Select **Next**. A page opens that shows all of the existing assessments with the same subscription and workload (if any), and status of each similar assessment, both *Completed* and *In progress*. You can see the results of that assessment before deciding to start a new one. 
 
-If you arrow back a page, or use the **Review and create** tab, the new assessment options form is reset.
+If you arrow back a page, or use the **Review and create** tab, the new assessment options form is reset to a page with tiles showing similar, existing, assessments. From there, you can proceed by selecting **Create**, or select **Previous** to return to the **Start new assessment** (you lose your workload type and assessment name choices). 
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-start-new-tiles.png" alt-text="Sreenshot of Azure Advisor **Start new assessment** assessments tile page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-start-new-tiles.png":::
 
@@ -81,14 +83,11 @@ You can choose to:
 
   a. View the recommendations generated for a completed recommendation.
 
-  b. Resume an assessment you initiated earlier. If you do so, you're redirected to **Learn** platform, select **Continue** to resume creating the assessment.
-  
+  b. Resume an assessment you initiated earlier by selecting **Create**. If you do so, you're redirected to **Learn** platform, select **Continue** to resume creating the assessment. You cannot resume an *In-progress* assessment created by someone else.
+
   c. Review the recommendations of a completed assessment created by someone from your organization.
 
-  d. Create a new assessment.
-
-> [!NOTE]
-> You cannot resume an in-progress assessment created by someone else. 
+  d. Create the new assessment: 
 
 4. Select **Create** or **Click here to start a new assessment** at the top of the page. The **Learn > Assessments** question pages open to the **Assessment overview** page. The **Progress** bar shows how many questions are part of this assessment. The **Milestones** table includes the assessment by default, as the initial milestone. Adding milestones can help you keep track of progress as you implement the assessment recommendations. To learn more about milestones, see [Microsoft Assessments - Milestones](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/microsoft-assessments-milestones/ba-p/3975841).
 
@@ -96,9 +95,9 @@ You can choose to:
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn-m.png" alt-text="Sreenshot of Azure Advisor **Resume assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn-m.png":::
 
-6. If you chose **Azure Well-Architected Review**: The page shown in the following image opens. On that page, select a workload type. Each workload type results in a list of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
+6. If you chose **Azure Well-Architected Review** as the assessment type: The page shown in the following image opens. On that page, select a workload type. Each workload type results in a list of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
 
-If you chose **Mission Critical**, skip to step 8.
+If you chose **Mission Critical** when creating the assessment, skip to step 8.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-workload.png" alt-text="Sreenshot of Azure Advisor **Choose assessment workload** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-workload.png":::
 
@@ -130,7 +129,7 @@ If you chose **Mission Critical**, skip to step 8.
 
 When ready, select **Next**. 
 
-7. For **Azure Well-Architected** reviews only. Select a Core Pillar of WAF to be used in the assessment. To learn more about well architected pillars, see [Introducing the Microsoft Azure Well-Architected Framework](https://azure.microsoft.com/blog/introducing-the-microsoft-azure-wellarchitected-framework/). When ready, select **Next**.
+7. For **Azure Well-Architected** assessment types only. Select a Core Pillar of WAF to be used in the assessment. To learn more about well architected pillars, see [Introducing the Microsoft Azure Well-Architected Framework](https://azure.microsoft.com/blog/introducing-the-microsoft-azure-wellarchitected-framework/). When ready, select **Next**.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-m.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-m.png":::
 
@@ -178,7 +177,7 @@ From the recommendations list page, you can:
 
 ## Manage Azure Advisor WAF assessment recommendations
 
-You can manage recommendations, setting recommendation status for what needs action and what can be postponed or dismissed. You can also track recommendations via the different recommendation statuses. 
+You can manage WAF assessment recommendations, setting recommendation status for what needs action and what can be postponed or dismissed. You can also track recommendations via the different recommendation statuses. 
 
 * On the **Not started** tab, with new recommendations, you can set initial status changes. For example, mark a recommendation as *In progress*:  If you accept a recommendation and start working on it, select **Mark as in progress**, which moves it to the **In progress** tab. 
 
