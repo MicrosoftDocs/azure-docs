@@ -11,7 +11,7 @@ ms.date: 10/10/2023
 ms.author: pafarley
 ---
 
-[Reference documentation](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-content-safety) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest/samples) |
+[Reference documentation](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/contentsafety/ai-content-safety-rest) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-content-safety) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/js/1.0.0) |
 
 
 ## Prerequisites
@@ -89,10 +89,14 @@ async function main() {
         throw result;
     }
     
-    console.log("Hate severity: ", result.body.hateResult?.severity);
-    console.log("SelfHarm severity: ", result.body.selfHarmResult?.severity);
-    console.log("Sexual severity: ", result.body.sexualResult?.severity);
-    console.log("Violence severity: ", result.body.violenceResult?.severity);
+    for (let i = 0; i < result.body.categoriesAnalysis.length; i++) {
+    const textCategoriesAnalysisOutput = result.body.categoriesAnalysis[i];
+    console.log(
+      textCategoriesAnalysisOutput.category,
+      " severity: ",
+      textCategoriesAnalysisOutput.severity
+    );
+  }
 }
 
 main().catch((err) => {

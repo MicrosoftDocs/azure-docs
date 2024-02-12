@@ -10641,6 +10641,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/load-balancer/cross-region-overview.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
             "redirect_document_id": false
