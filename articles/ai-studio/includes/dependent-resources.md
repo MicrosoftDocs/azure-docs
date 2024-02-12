@@ -12,7 +12,7 @@ ms.author: larryfr
 
 |Dependent Azure resource|Resource provider|Optional|Note|
 |---|---|:---:|---|
-|Azure AI services|`Microsoft.CognitiveServices/accounts`||Either Azure AI services multi-service provider, or Azure OpenAI service. Provides API endpoints and keys for prebuilt AI services.|
+|Azure AI services|`Microsoft.CognitiveServices/accounts`||Either Azure AI services multi-service provider (kind=`AIServices`), or Azure OpenAI service. Provides API endpoints and keys for prebuilt AI services.|
 | Azure AI Search|`Microsoft.Search/searchServices`|✔|Provides search capabilities for your projects.|
 |Azure Storage account|`Microsoft.Storage/storageAccounts`||Stores artifacts for your projects like flows and evaluations. For data isolation, storage containers are prefixed using the project GUID, and conditionally secured using Azure ABAC for the project identity.|
 |Azure Key Vault|`Microsoft.KeyVault/vaults`||Stores secrets like connection strings for your resource connections. For data isolation, secrets can't be retrieved across projects via APIs.|
