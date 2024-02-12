@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 02/12/2024
 ms.author: mbender
 ms.custom: template-how-to
 ---
@@ -32,7 +32,7 @@ To set the idle timeout and tcp reset for a load balancer, edit the load-balance
     :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edit load balancer rules." border="true" lightbox="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png":::
 
 1. Select your load-balancing rule. In this example, the load-balancing rule is named **myLBrule**.
-1. In the load-balancing rule, move the slider in **Idle timeout (minutes)** to your timeout value.  
+1. In the load-balancing rule, input your timeout value into **Idle timeout (minutes)**.  
 1. Under **TCP reset**, select **Enabled**.
    
     :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Set idle timeout and tcp reset." border="true" lightbox="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png":::
