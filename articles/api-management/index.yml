@@ -24,8 +24,6 @@ landingContent:
             url: api-management-key-concepts.md
           - text: Service tiers and features
             url: api-management-features.md
-          - text: What's new?
-            url: https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
       - linkListType: concept
         links:
           - text: Gateway capabilities
