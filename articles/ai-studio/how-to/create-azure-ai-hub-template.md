@@ -5,7 +5,7 @@ description: Use a Microsoft Bicep template to create a new Azure AI hub.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 02/09/2024
+ms.date: 02/12/2024
 ms.reviewer: deeikele
 ms.author: larryfr
 author: Blackmist
@@ -103,7 +103,7 @@ To run the Bicep template, use the following commands from the `aistudio-basics`
 
     ---
 
-1. To run the template, use the following command. Replace `myhub` with the name to use for your resources. This value is used along with generated prefixes and suffixes to create a unique name for each resource.
+1. To run the template, use the following command. Replace `myai` with the name to use for your resources. This value is used, along with generated prefixes and suffixes, to create a unique name for the resources created by the template.
 
     > [!TIP]
     > The `aiResourceName` must be 5 or less characters. It can't be entirely numeric or contain the following characters: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
@@ -111,13 +111,13 @@ To run the Bicep template, use the following commands from the `aistudio-basics`
     # [Azure CLI](#tab/cli)
 
     ```azurecli
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters aiResourceName=myhub 
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters aiResourceName=myai 
     ```
 
     # [Azure PowerShell](#tab/powershell)
 
     ```azurepowershell
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile main.bicep -aiResourceName myhub
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile main.bicep -aiResourceName myai
     ```
 
     ---
