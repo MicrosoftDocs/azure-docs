@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 03/04/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -17,6 +17,9 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+
+- March 2024
+  - [Azure Files vaulted backup (preview).](#azure-files-vaulted-backup-preview)
 
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
@@ -81,6 +84,20 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## Azure Files vaulted backup (preview).
+
+Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy.
+
+By using the vaulted backups, Azure Backup copies and stores data in the Recovery Services vault. This creates an offsite copy of data that you can retain for *99 years*. If any data loss happens on the source account, you can trigger a restore to an alternate account and access your data. Additionally, you can use the Backup center to manage the vaulted backups at scale and monitor the backup operations by using the rich alerting and reporting capabilities of Azure Backup.
+
+If you're currently using snapshot-based backups, we recommend that you switch to vaulted backups for complete protection from different data loss scenarios. 
+
+>[!Note]
+>Switching to vaulted backups doesn't lead to loss of the existing snapshots, and they're retained as per the expiry date set in the current backup policy. All future backups will be transferred to the vault as per the schedule and retention set in the modified policy.
+
+For more information, see [Azure Files backup overview](azure-file-share-backup-overview.md).
 
 
 ## Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available
