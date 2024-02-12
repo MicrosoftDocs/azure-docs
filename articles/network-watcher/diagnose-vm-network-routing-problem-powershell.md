@@ -8,7 +8,6 @@ tags: azure-resource-manager
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
-ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: halkazwini
 ms.custom: devx-track-azurepowershell

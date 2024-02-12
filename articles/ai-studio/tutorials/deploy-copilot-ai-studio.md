@@ -5,7 +5,7 @@ description: Use this article to build and deploy a question and answer copilot 
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 2/8/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -84,7 +84,7 @@ Once a project is created, you can access the **Tools**, **Components**, and **S
 Follow these steps to deploy an Azure OpenAI chat model for your copilot. 
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
-1. Select **Build** from the top menu and then select **Deployments** > **Create**.
+1. Select **Build** from the top menu and then select **Deployments** > **Create** > **Real-time endpoint**.
     
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-create.png" alt-text="Screenshot of the deployments page with a button to create a new project." lightbox="../media/tutorials/copilot-deploy-flow/deploy-create.png":::
 

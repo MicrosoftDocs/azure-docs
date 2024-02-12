@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/05/2024
 ---
 
 # Data storage and removal in Language Understanding (LUIS) Azure AI services
@@ -19,9 +19,9 @@ ms.date: 01/19/2024
 
 LUIS stores data encrypted in an Azure data store corresponding to [the region](luis-reference-regions.md) specified by the key. 
 
-* Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted. 
+* Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data is deleted with it. If an application hasn't been used in 90 days, it will be deleted. 
 
-* Application authors can choose to [enable logging](how-to/improve-application.md#log-user-queries-to-enable-active-learning) on the utterances that are sent to a published application. If enabled, utterances will be saved for 30 days, and can be viewed by the application author. If logging isn't enabled when the application is published, this data is not stored.
+* Application authors can choose to [enable logging](how-to/improve-application.md#log-user-queries-to-enable-active-learning) on the utterances that are sent to a published application. If enabled, utterances are saved for 30 days, and can be viewed by the application author. If logging isn't enabled when the application is published, this data isn't stored.
 
 ## Export and delete app
 Users have full control over [exporting](how-to/sign-in.md) and [deleting](how-to/sign-in.md) the app. 
@@ -48,7 +48,7 @@ You can delete utterances from the list of user utterances that LUIS suggests in
 If you don't want active learning utterances, you can [disable active learning](how-to/improve-application.md). Disabling active learning also disables logging.
 
 ### Disable logging utterances
-[Disabling active learning](how-to/improve-application.md) is disables logging.
+[Disabling active learning](how-to/improve-application.md) disables logging.
 
 
 <a name="accounts"></a>
@@ -59,12 +59,12 @@ If you are not migrated, you can delete your account and all your apps will be d
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
 
 ## Delete an authoring resource
-If you have [migrated to an authoring resource](./luis-migration-authoring.md), deleting the resource itself from the Azure portal will delete all your applications associated with that resource, along with their example utterances and logs. The data is retained for 90 days before it is deleted permanently.    
+If you have migrated to an authoring resource, deleting the resource itself from the Azure portal deletes all your applications associated with that resource, along with their example utterances and logs. The data is retained for 90 days before it is deleted permanently.    
 
 To delete your resource, go to the [Azure portal](https://portal.azure.com/#home) and select your LUIS authoring resource. Go to the **Overview** tab and select the **Delete** button on the top of the page. Then confirm your resource was deleted. 
 
 ## Data inactivity as an expired subscription
-For the purposes of data retention and deletion, an inactive LUIS app may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
+For the purposes of data retention and deletion, an inactive LUIS app might at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
 
 * Has had **no** calls made to it.
 * Has not been modified.
@@ -73,4 +73,4 @@ For the purposes of data retention and deletion, an inactive LUIS app may at _Mi
 
 ## Next steps
 
-[Learn about exporting and deleting an app](how-to/sign-in.md)
+[Learn about exporting and deleting an app.](how-to/sign-in.md)

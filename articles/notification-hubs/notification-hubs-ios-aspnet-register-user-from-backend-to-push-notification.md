@@ -6,7 +6,6 @@ author: sethmanheim
 manager: femila
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
