@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH and manage SSH keys on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/25/2024
+ms.date: 02/12/2024
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -22,7 +22,7 @@ AKS supports the following configuration options to manage SSH keys on cluster n
 ## Before you begin
 
 * You need `aks-preview` version 0.5.116 or later to use **Update**.
-* You need `aks-preview` version 0.5.123 or later to use **Disable**.
+* You need `aks-preview` version 1.0.0b6 or later to use **Disable**.
 * The **Create** and **Update** SSH feature supports Linux, Windows, and Azure Linux node pools on existing clusters.
 * The **Disable** SSH feature isn't supported in this preview release on node pools running the Windows Server operating system.
 
