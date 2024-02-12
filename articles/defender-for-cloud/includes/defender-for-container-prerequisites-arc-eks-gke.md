@@ -8,6 +8,9 @@ author: dcurwin
 
 ## Network requirements
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 Validate the following endpoints are configured for outbound access so that the Defender agent can connect to Microsoft Defender for Cloud to send security data and events:
 
 For public cloud deployments:
