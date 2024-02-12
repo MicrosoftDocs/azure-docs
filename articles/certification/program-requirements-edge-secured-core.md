@@ -102,7 +102,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Description|The OS must support a minimum TLS version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
 |Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses.|
 |Dependencies|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements might require greater versions for other services.|
-|Resources| [TLS Cipher suites in Windows 10](/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903)|
+|Resources| [TLS Cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
 
 ---
 </br>
@@ -135,7 +135,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Status|Required|
 |Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
-|Resources|[Defender for Endpoint]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
+|Resources| [Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
 </br>
@@ -315,7 +315,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |Status|Required|
 |Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
-|Resources|[Defender for Endpoint]( https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
+|Resources| [Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
 </br>
@@ -495,7 +495,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Status|Required|
 |Description|The OS must support a minimum TLS version of 1.2 and have secure TLS cipher suites available.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed wolfSSL library using only secure TLS cipher suites, backed by Device Authentication and Attestation (DAA) certificates.</li></ul>|
-|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
+|Resources| [TLS Cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
 
 ---
 </br>
@@ -532,7 +532,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
+|Description|Devices must be able to report security information and events by sending security logs and alerts to a cloud-native security monitoring solution.|
 |Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Integration of Azure Sphere Security Service (AS3) telemetry with Azure Monitor, remote crash-dump support via Azure Watson, and customer-samples for in-appplication logging via Azure services.</li></ul>|
 |Resources|[Collect and interpret error data - Azure Sphere](/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](/azure-sphere/deployment/configure-crash-dumps)|
