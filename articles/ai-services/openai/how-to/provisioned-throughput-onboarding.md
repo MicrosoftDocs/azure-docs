@@ -91,7 +91,6 @@ The hourly rate is higher than the monthly commitment rate and the charges excee
 - Delete or scale-down deployments so that they don’t use more PTUs than are committed.
 - Create a new commitment on the resource to cover the deployed PTUs.
 
-
 ## Purchasing and managing commitments
 
 ### Planning your commitments
