@@ -10883,6 +10883,11 @@
             "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
             "redirect_url": "/azure/reliability/reliability-traffic-manager",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
+            "redirect_document_id": false
         }
         
     ]
