@@ -7,13 +7,11 @@ manager: camilo.ramirez
 ms.author: shamkh
 ms.service: azure-communication-services
 ms.topic: quickstart 
-ms.date: 07/03/2023
+ms.date: 02/12/2024
 ms.custom: template-quickstart
 ---
 
 # Quickstart: Handle Advanced Messaging events
-
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
 Azure Communication Services now enables you to send and receive WhatsApp messages using the Advanced Messaging SDK. Get started with setting up Event Grid events for receiving WhatsApp messages send/receive status reports. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

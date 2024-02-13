@@ -6,14 +6,12 @@ author: shamkh
 manager: camilo.ramirez
 services: azure-communication-services
 ms.author: shamkh
-ms.date: 06/26/2023
+ms.date: 02/12/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 # Quickstart: Try Advanced Messaging for WhatsApp sandbox
-
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
 Getting started to enable Contoso developers to try out the Advanced Messaging for WhatsApp quickly, Advanced Messaging is providing WhatsApp Business Account enabled sandbox. This WhatsApp Sandbox is available on the Azure portal and Contoso developers can play around the Advanced Messaging functionalities including sending template messages and text messages.  
 

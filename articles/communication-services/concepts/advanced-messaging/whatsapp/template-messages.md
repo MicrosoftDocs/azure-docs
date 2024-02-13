@@ -5,16 +5,13 @@ description: In this concept, you learn the various ways to send WhatsApp templa
 author: memontic-ms
 manager: camilo.ramirez
 services: azure-communication-services
-
 ms.author: memontic
-ms.date: 07/12/2023
+ms.date: 02/12/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Send WhatsApp template messages
-
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
 
 This document provides guidance to send WhatsApp Template messages using Advanced Communication Messages SDK.   
 
