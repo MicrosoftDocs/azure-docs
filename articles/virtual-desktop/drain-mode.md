@@ -14,6 +14,16 @@ ms.author: helohr
 
 Drain mode isolates a session host when you want to apply patches and do maintenance without disrupting user sessions. When isolated, the session host won't accept new user sessions. Any new connections will be redirected to the next available session host. Existing connections in the session host will keep working until the user signs out or the administrator ends the session. When the session host is in drain mode, admins can also remotely connect to the server without going through the Azure Virtual Desktop service. You can apply this setting to both pooled and personal desktops.
 
+## Prerequisites
+
+If you're using either the Azure portal or PowerShell method, you'll need the following things:
+
+- A host pool with at least one session host.
+- An Azure account assigned the [Desktop Virtualization Session Host Operator](rbac.md#desktop-virtualization-session-host-operator) role.
+- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+If you're enabling drain mode with PowerShell, you'll need to [download and install the Azure Virtual Desktop PowerShell module](powershell-module.md) if you haven't already.
+
 ## Enable drain mode
 
 Here's how to enable drain mode using the Azure portal and PowerShell.
@@ -34,7 +44,9 @@ To turn on drain mode in the Azure portal:
 
 You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost) command.
 
-Run this cmdlet to enable drain mode:
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Run this cmdlet to enable drain mode:
 
 ```powershell
 $params = @{
@@ -47,7 +59,7 @@ $params = @{
 Update-AzWvdSessionHost @params
 ```
 
-Run this cmdlet to disable drain mode:
+3. Run this cmdlet to disable drain mode:
 
 ```powershell
 $params = @{
