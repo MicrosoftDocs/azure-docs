@@ -2,7 +2,7 @@
 title: About failover and failback in Azure Site Recovery - Modernized
 description: Learn about failover and failback in Azure Site Recovery - Modernized
 ms.topic: conceptual
-ms.date: 12/04/2023
+ms.date: 02/13/2024
 ms.author: ankitadutta
 ms.service: site-recovery
 author: ankitaduttaMSFT
@@ -102,6 +102,8 @@ After failover to Azure, the replicated Azure VMs are in an unprotected state.
 	- App-consistent recovery points can be behind in time, and there might be loss in data.
 - During failover from Azure to the on-premises site, Site Recovery shuts down the Azure VMs. When you commit the failover, Site Recovery removes the failed back Azure VMs in Azure.
 
+> [!NOTE]
+> The failover VM boot may take longer on windows 2012 server or older versions when using crash consistent recovery points.
 
 ## VMware/physical reprotection/failback
 
