@@ -349,7 +349,7 @@ mountOptions:
 Create a file named `nfs-sc.yaml` and copy the manifest below. For a list of supported `mountOptions`, see [NFS mount options][nfs-file-share-mount-options].
 
 > [!NOTE]
-> `vers`, `minorversion`, `sec` has been preset since [AKS v20240123](https://github.com/Azure/AKS/releases/tag/2024-01-23) and no longer can be configured. See [discussion](https://github.com/kubernetes-sigs/azurefile-csi-driver/issues/1692). 
+> `vers`, `minorversion`, `sec` have been preset by the Azure File CSI driver, and hence setting values for these options is not supported. See [discussion](https://github.com/kubernetes-sigs/azurefile-csi-driver/issues/1692). 
 
 ```yml
 apiVersion: storage.k8s.io/v1
