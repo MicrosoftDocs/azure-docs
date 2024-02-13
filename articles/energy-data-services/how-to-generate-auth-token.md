@@ -103,13 +103,13 @@ Run the following curl command in [Azure Cloud Bash](https://learn.microsoft.com
 **Request format**
 
 ```bash
-curl --location --request POST 'https://login.microsoftonline.com/<**tenant-id**>/oauth2/token' \
+curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'scope=<**client-id**>.default' \
---data-urlencode 'client_id=<**client-id**>' \
---data-urlencode 'client_secret=<**client-secret**>' \
---data-urlencode 'resource=<**client-id**>'
+--data-urlencode 'scope=<client-id>.default' \
+--data-urlencode 'client_id=<client-id>' \
+--data-urlencode 'client_secret=<client-secret>' \
+--data-urlencode 'resource=<client-id>'
 ```
 
 **Sample response**
@@ -131,6 +131,16 @@ Generating a user's auth token is a two-step process.
 
 The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID signs the user in and requests their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID returns an authorization code to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
+1. Prepare the request format using the parameters.
+#### Request format
+
+ ```bash
+  https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize?client_id=<client-id>
+  &response_type=code
+  &redirect_uri=<redirect-uri>
+  &response_mode=query
+  &scope=<client-id>%2f.default&state=12345&sso_reload=true
+```
 1. After you replace the parameters, you can paste the request in the URL of any browser and select Enter.
 1. Sign in to your Azure portal if you aren't signed in already.
 1. You might see the "Hmmm...can't reach this page" error message in the browser. You can ignore it.
@@ -140,26 +150,6 @@ The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2
 1. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
 1. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`.
 1. Keep this `authorization-code` handy for future use.
-
-#### Request format
-
- ```bash
-  https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize?client_id={client-id}
-  &response_type=code
-  &redirect_uri={redirect-uri}
-  &response_mode=query
-  &scope={client-id}%2f.default&state=12345&sso_reload=true
-```
-  
-| Parameter | Required? | Description |
-| --- | --- | --- |
-|tenant-id|Required|Name of your Microsoft Entra tenant.|
-| client-id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
-| response_type |Required |The response type, which must include `code` for the authorization code flow. You can receive an ID token if you include it in the response type, such as `code+id_token`, and in this case, the scope needs to include `openid`.|
-| redirect_uri |Required |The redirect URI of your app, where your app sends and receives the authentication responses. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded. |
-| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application needs a *refresh token* for extended access to resources. The client ID indicates the token issued is intended for use by an Azure Active Directory B2C registered client. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. |
-| response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
-| state |Recommended |A value included in the request that can be a string of any content that you want to use. Usually, a randomly generated unique value is used to prevent cross-site request forgery (CSRF) attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the user flow that was being executed. |
 
 #### Sample response
 
