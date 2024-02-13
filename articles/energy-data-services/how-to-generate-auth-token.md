@@ -174,23 +174,13 @@ The second step is to get the auth token and the refresh token. Your app uses th
 #### Request format
 
 ```bash
-  curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id={client-id}
-  &scope={client-id}%2f.default openid profile offline_access
-  &code={authorization-code}
-  &redirect_uri={redirect-uri}
+  curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<client-id>
+  &scope=<client-id>%2f.default openid profile offline_access
+  &code=<authorization-code>
+  &redirect_uri=<redirect-uri>
   &grant_type=authorization_code
-  &client_secret={client-secret}' 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token'
+  &client_secret=<client-secret>' 'https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token'
 ```
-
-|Parameter  |Required  |Description  |
-|---------|---------|---------|
-|tenant     | Required        | The `{tenant-id}` value in the path of the request can be used to control who can sign in to the application.|
-|client_id     | Required         | The application ID assigned to your app upon registration.        |
-|scope     | Required        | A space-separated list of scopes. The scopes that your app requests in this leg must be equivalent to or a subset of the scopes that it requested in the first (authorization) leg. If the scopes specified in this request span multiple resource servers, the v2.0 endpoint returns a token for the resource specified in the first scope.        |
-|code    |Required         |The authorization code that you acquired in the first step of the flow.         |
-|redirect_uri     | Required        |The same redirect URI value that was used to acquire the authorization code.         |
-|grant_type     | Required        | Must be `authorization_code` for the authorization code flow.        |
-|client_secret | Required | The client secret that you created in the app registration portal for your app. It shouldn't be used in a native app because client secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client secret securely on the server side.|
 
 #### Sample response
 
