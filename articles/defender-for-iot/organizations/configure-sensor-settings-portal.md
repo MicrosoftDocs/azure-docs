@@ -153,7 +153,7 @@ Subnets in the subnet list are automatically configured as ICS subnets, which me
 
 Once the subnets are configured, the network location of the devices is shown in the *Network location* (Public preview) column in the Azure device inventory. All of the devices associated with the listed subnets are displayed as *local*, while devices associated with detected subnets not included in the list are displayed as *routed*.
 
-**To configure your subnets in the Azure portal**:
+#### Configure subnets in the Azure portal
 
 1. In the Azure portal, go to **Sites and sensors** > **Sensor settings**.
 
