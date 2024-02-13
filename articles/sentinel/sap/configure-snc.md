@@ -16,7 +16,7 @@ This article shows you how to deploy the Microsoft Sentinel for SAP data connect
 
 The SAP data connector agent typically connects to an SAP ABAP server by using a remote function call (RFC) connection and a username and password for authentication.
 
-However, some environments might require the connection to be made on an encrypted channel, and some environments might require client certificates be used for authentication. In these cases, you can use SNC from SAP for your data connector. Complete the steps as they're outlined in this article.
+However, some environments might require the connection to be made on an encrypted channel, and some environments might require client certificates to be used for authentication. In these cases, you can use SNC from SAP to securely connect your data connector. Complete the steps as they're outlined in this article.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To begin, export the server certificate:
 
 1. Sign in to your SAP client and run the **STRUST** transaction.
 
-1. In the left pane, go to **SNC SAPCryptolib** and expand the section.
+1. On the left pane, go to **SNC SAPCryptolib** and expand the section.
 
 1. Select the system, and then select a value for **Subject**.
 
@@ -49,8 +49,11 @@ To begin, export the server certificate:
 1. In the **Export Certificate** dialog:
 
    1. For file format, select **Base64**.
+
    1. Next to **File Path**, select the double boxes icon.
+
    1. Select a filename to export the certificate to.
+
    1. Select the green checkmark to export the certificate.
 
 ## Import your certificate
@@ -216,7 +219,7 @@ To set up the container:
 
 For more information about options that are available in the kickstart script, see [Reference: Kickstart script](reference-kickstart.md).
 
-## Troubleshoot and reference
+## Troubleshoot
 
 For troubleshooting information, see these articles:
 
@@ -226,7 +229,7 @@ For troubleshooting information, see these articles:
 For reference, see these articles:
 
 - [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP applications: Security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

@@ -1,6 +1,6 @@
 ---
-title: Deploy Microsoft Sentinel Solution for SAP® BTP
-description: Learn how to deploy the Microsoft Sentinel solution for SAP® Business Technology Platform (BTP) system.
+title: Deploy Microsoft Sentinel Solution for SAP BTP
+description: Learn how to deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) system.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
@@ -9,12 +9,12 @@ ms.date: 03/30/2023
 # customer intent: As an SAP admin, I want to know how to deploy the Microsoft Sentinel solution for SAP BTP so that I can plan a deployment.
 ---
 
-# Deploy the Microsoft Sentinel solution for SAP® BTP
+# Deploy the Microsoft Sentinel solution forSAP BTP
 
-This article describes how to deploy the Microsoft Sentinel solution for SAP® Business Technology Platform (BTP) system. The Microsoft Sentinel solution for SAP® BTP monitors and protects your SAP BTP system. It collects audit logs and activity logs from the BTP infrastructure and BTP-based apps, and then detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](sap-btp-solution-overview.md).
+This article describes how to deploy the Microsoft Sentinel solution forSAP Business Technology Platform (BTP) system. The Microsoft Sentinel solution forSAP BTP monitors and protects your SAP BTP system. It collects audit logs and activity logs from the BTP infrastructure and BTP-based apps, and then detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](sap-btp-solution-overview.md).
 
 > [!IMPORTANT]
-> The Microsoft Sentinel solution for SAP® BTP solution is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel solution forSAP BTP solution is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Before you begin, verify that:
 - You have the SAP BTP auditlog-management service and service key (see [Set up the BTP account and solution](#set-up-the-btp-account-and-solution)).
 - You can create an [Azure Functions app](../../azure-functions/functions-overview.md) by using the Microsoft.Web/Sites, Microsoft.Web/ServerFarms, Microsoft.Insights/Components, and Microsoft.Storage/StorageAccounts permissions.
 - You can create [data collection rules and endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) by using these permissions:
-  - Microsoft.Insights/DataCollectionEndpoints and Microsoft.Insights/DataCollectionRules
+  - Microsoft.Insights/DataCollectionEndpoints and Microsoft.Insights/DataCollectionRules.
   - Assign the Monitoring Metrics Publisher role to the function app.
 - You have an [Azure Key Vault](../../key-vault/general/overview.md) to hold the SAP BTP client secret.
 
@@ -64,7 +64,7 @@ To set up the BTP account and the solution:
 
 1. Select **Create**.
 
-    :::image type="content" source="./media/deploy-sap-btp-solution/sap-btp-create-solution.png" alt-text="Screenshot that shows how to create the Microsoft Sentinel Solution® for SAP BTP." lightbox="./media/deploy-sap-btp-solution/sap-btp-create-solution.png":::
+    :::image type="content" source="./media/deploy-sap-btp-solution/sap-btp-create-solution.png" alt-text="Screenshot that shows how to create the Microsoft Sentinel Solution  for SAP BTP." lightbox="./media/deploy-sap-btp-solution/sap-btp-create-solution.png":::
 
 1. Select the resource group and the Microsoft Sentinel workspace in which to deploy the solution.
 1. Select **Next** until you pass validation, and then select **Create**.
