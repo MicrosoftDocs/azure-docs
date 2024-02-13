@@ -4,7 +4,7 @@ description: Learn how to use Defender for Cloud recommendations to identify if 
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 02/13/2024
 ---
 
 # Detect and configure endpoint detection and response solutions
@@ -13,7 +13,7 @@ Microsoft Defender for Cloud provides recommendations to secure and configure yo
 
 The recommendations allow you to: 
 
-- Identify if endpoint detection and response solution are installed on your multicloud machines.  
+- Identify if an endpoint detection and response solution is installed on your multi-cloud machines.  
 
 - Identify gaps in the security configurations on any of the discovered endpoint detection and response solutions.
 
@@ -142,16 +142,16 @@ This recommended action is available when:
 
     :::image type="content" source="media/endpoint-detection-response/remediation-steps.png" alt-text="Screenshot that shows where the remediation steps are located in the recommendation." lightbox="media/endpoint-detection-response/remediation-steps.png":::
 
-1. Follow the instructions to [troubleshoot Microsoft Defender for Endpoint onboarding issues](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide).
+1. Follow the instructions to troubleshoot Microsoft Defender for Endpoint onboarding issues for [Windows]() or [Linux]().
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
 ## Detect misconfigurations in endpoint detection and response solution
 
-When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page that correct misconfigurations on your Azure VM, AWS EC2 instances, and GCP VM instances. These recommendations check for the following security checks:
+When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page. These recommendations check for the following security checks:
 
 > [!NOTE]
-> This recommendation is only applicable to virtual machines that have Defender for Endpoint enabled on them.
+> This recommendation is only applicable to VMs that have Defender for Endpoint enabled on them.
 
 - `Scan are out of 7 days`
 - `Signature out of date`
@@ -179,7 +179,19 @@ When Defender for Cloud detects misconfigurations in your endpoint detection and
 
 1. Select each security check to review all affected resources.
 
-1. Expand the remediation steps and follow the instructions given.
+1. Expand the affected resources section.
+
+    :::image type="content" source="media/endpoint-detection-response/affected-resources-section.png" alt-text="Screenshot that shows you where you need to select on screen to expand the affected resources section.":::
+
+1. Select an unhealthy resource to review it's findings.
+
+    :::image type="content" source="media/endpoint-detection-response/resources-findings.png" alt-text="Screenshot that shows the findings of an affected unhealthy resource." lightbox="media/endpoint-detection-response/resources-findings.png":::
+
+1. Select the security see additional information and remediation steps.
+
+    :::image type="content" source="media/endpoint-detection-response/security-check-remediation.png" alt-text="Screenshot that shows the additional details section.":::
+
+1. Follow the remediation steps.
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab. 
 
