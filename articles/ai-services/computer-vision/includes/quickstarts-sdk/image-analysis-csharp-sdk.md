@@ -5,7 +5,6 @@ description: In this quickstart, get started with the Image Analysis client libr
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley

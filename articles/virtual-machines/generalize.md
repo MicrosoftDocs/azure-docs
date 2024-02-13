@@ -4,7 +4,6 @@ description: Generalized or deprovision VM to remove machine specific informatio
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/15/2023
 ms.author: jushiman

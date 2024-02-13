@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: how-to
 ms.date: 03/30/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Collaborate in Microsoft Teams (Public preview)

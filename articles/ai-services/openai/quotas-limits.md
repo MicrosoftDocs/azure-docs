@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 01/16/2024
+ms.date: 02/06/2024
 ms.author: mbullwin
 ---
 
@@ -31,9 +31,9 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max fine-tuned model deployments | 5 |
 | Total number of training jobs per resource | 100 |
 | Max simultaneous running training jobs per resource | 1 |
-| Max training jobs queued | 20 | 
-| Max Files per resource | 30 |
-| Total size of all files per resource | 1 GB | 
+| Max training jobs queued | 20 |
+| Max Files per resource (fine-tuning) | 30 |
+| Total size of all files per resource (fine-tuning) | 1 GB |
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
 | Max size of all files per upload (Azure OpenAI on your data) | 16 MB |
@@ -42,8 +42,9 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max number of `/chat/completions` functions | 128 |
 | Max number of `/chat completions` tools | 128 |
 | Maximum number of Provisioned throughput units per deployment | 100,000 |
-
-
+| Max files per Assistant/thread | 20 |
+| Max file size for Assistants | 512 MB |
+| Assistants token limit | 2,000,000 token limit |
 
 ## Regional quota limits
 

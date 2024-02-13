@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021
+ms.custom: language-service-custom-classification
 ---
 
 # How to prepare data and define a text classification schema

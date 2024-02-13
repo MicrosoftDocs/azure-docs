@@ -110,7 +110,7 @@ To download the certificate, select **Download in CER format** or **Download in 
 
 Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. After you import them, the App Service certificates are located under **secrets**.
 
-For more information, see the steps to [export Azure App Service certificates](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
+For more information, see the steps to [export Azure App Service certificates](/azure/app-service/configure-ssl-app-service-certificate?tabs=portal#export-an-app-service-certificate).
 
 ---
 

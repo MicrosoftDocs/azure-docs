@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 06/27/2023
 ms.author: mbender
-ms.custom: template-concept, seodec18, engagement-fy23
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Standard load balancer diagnostics with metrics, alerts, and resource health
@@ -372,4 +372,3 @@ For more information on how to set up these resource health alerts, see:
 - Learn about [Network Analytics](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 - Learn about using [Insights](./load-balancer-insights.md) to view these metrics preconfigured for your load balancer.
 - Learn more about [Standard load balancer](./load-balancer-overview.md).
-

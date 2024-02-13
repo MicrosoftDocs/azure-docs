@@ -11,7 +11,7 @@ ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
 
-#customer intent: I'm a developer integrating WhoIAM Rampart with Azure AD B2C. I need to configure and integrate Rampart with Azure AD B2C using custom policies. My goal is to enable an integrated helpdesk and invitation-gated user registration experience for my application.
+# Customer intent: I'm a developer integrating WhoIAM Rampart with Azure AD B2C. I need to configure and integrate Rampart with Azure AD B2C using custom policies. My goal is to enable an integrated helpdesk and invitation-gated user registration experience for my application.
 
 ---
 

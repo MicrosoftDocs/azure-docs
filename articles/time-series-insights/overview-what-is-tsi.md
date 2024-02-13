@@ -7,7 +7,6 @@ ms.author: shresha
 manager: dpalled
 ms.topic: overview
 ms.date: 12/16/2020
-ms.custom: seodec18
 ---
 
 # What is Azure Time Series Insights Gen2

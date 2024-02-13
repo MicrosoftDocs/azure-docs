@@ -50,7 +50,7 @@ If an embedding deployment is provided in the inference request, the rewritten q
 
 ## Resources configuration
 
-Use the following sections to configure your resources for optimal secure usage. If you plan to only secure part of your resources, you can skip the sections unrelated to your use case.
+Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below.
 
 ## Create resource group
 
@@ -200,6 +200,7 @@ To enable the developers to use these resources to build applications, the admin
 |Role| Resource | Description |
 |--|--|--|
 | `Cognitive Services OpenAI Contributor` | Azure OpenAI | Call public ingestion API from Azure OpenAI Studio. The `Contributor` role is not enough, because if you only have `Contributor` role, you cannot call data plane API via Microsoft Entra ID authentication, and Microsoft Entra ID authentication is required in the secure setup described in this article. |
+| `Cognitive Services User` | Azure OpenAI | List API-Keys from Azure OpenAI Studio.|
 | `Contributor` | Azure AI Search | List API-Keys to list indexes from Azure OpenAI Studio.|
 | `Contributor` | Storage Account | List Account SAS to upload files from Azure OpenAI Studio.|
 | `Contributor` | The resource group or Azure subscription where the developer need to deploy the web app to | Deploy web app to the developer's Azure subscription.|

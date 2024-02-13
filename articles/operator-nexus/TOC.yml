@@ -88,6 +88,8 @@
                   href: howto-cluster-runtime-upgrade.md
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
+                - name: Service Principal Rotation
+                  href: howto-service-principal-rotation.md
         - name: Network Fabric
           expanded: false
           items:
@@ -118,6 +120,8 @@
           href: howto-kubernetes-cluster-action-restart.md
         - name: Customize cluster DNS
           href: how-to-customize-kubernetes-cluster-dns.md
+        - name: Customize Worker Nodes
+          href: howto-kubernetes-cluster-customize-workers.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -193,6 +197,8 @@
           href: reference-nexus-kubernetes-cluster-sku.md
         - name: Supported Kubernetes versions
           href: reference-nexus-kubernetes-cluster-supported-versions.md
+    - name: Platform Cluster runtime versioning
+      href: reference-nexus-platform-runtime-upgrades.md
     - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected

@@ -65,7 +65,7 @@ Prompt flow relies on a file share storage to store a snapshot of the flow. If t
 :::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot that shows a flow missing an authoring page." lightbox = "../media/faq/flow-missing.png":::
 
 There are possible reasons for this issue:
-- If you disabled public access to storage account, then you need have access to storage account either add you IP to the storage Firewall or add access studio through the virtual network which have private endpoint to the storage account.
+- If public access to your storage account is disabled, you must ensure access by either adding your IP to the storage firewall or enabling access through a virtual network that has a private endpoint connected to the storage account.
 
     :::image type="content" source="../media/faq/storage-account-networking-firewall.png" alt-text="Screenshot that shows firewall setting on storage account." lightbox = "../media/faq/storage-account-networking-firewall.png":::
 
@@ -73,7 +73,7 @@ There are possible reasons for this issue:
 
     :::image type="content" source="../media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "../media/faq/datastore-with-wrong-account-key.png":::
  
-- If you are using AI studio, the storage account need set CORS to allow AI studio access the storage account, otherwise, you will see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
+- If you're using AI studio, the storage account needs to set CORS to allow AI studio access the storage account, otherwise, you'll see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
     - Go to storage account page, select `Resource sharing (CORS)` under `settings`, and select to `File service` tab.
     - Allowed origins: `https://mlworkspace.azure.ai,https://ml.azure.com,https://*.ml.azure.com,https://ai.azure.com,https://*.ai.azure.com,https://mlworkspacecanary.azure.ai,https://mlworkspace.azureml-test.net`
     - Allowed methods: `DELETE, GET, HEAD, POST, OPTIONS, PUT`
@@ -92,7 +92,7 @@ First, go to the compute instance terminal and run `docker ps` to find the root 
 
 Use `docker images` to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime. It attempts to restart the runtime and compute instance.
 
-If you are using compute instance runtime AI studio, this is not scenario currently supported, please try use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime-preview).
+If you're using compute instance runtime AI studio, this scenario isn't currently supported, so use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime-preview).
 
 ### Run failed because of "No module named XXX"
 
@@ -113,7 +113,7 @@ You might experience timeout issues.
 
 :::image type="content" source="../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot that shows a compute instance runtime timeout error in the studio UI." lightbox = "../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
 
-The error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing."
+The error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient. Timeout of 100 seconds elapsing."
 
 ### Identify which node consumes the most time
 
@@ -127,7 +127,7 @@ The error in the example says "UserError: Invoking runtime gega-ci timeout, erro
 
    - **Case 1:** Python script node runs for a long time.
 
-        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run log in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run sign in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
 
         In this case, you can find that `PythonScriptNode` was running for a long time (almost 300 seconds). Then you can check the node details to see what's the problem.
 
@@ -145,7 +145,7 @@ The error in the example says "UserError: Invoking runtime gega-ci timeout, erro
 
 1. If you can't find anything in runtime logs to indicate it's a specific node issue:
 
-    - Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
+    - Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
 
 ### Find the compute instance runtime log for further investigation
 
@@ -159,9 +159,9 @@ Check if this compute instance is assigned to you and you have access to the wor
 
 This error occurs because you're cloning a flow from others that's using a compute instance as the runtime. Because the compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
 
-### Find Python packages installed in runtime
+### Find Python packages installed in compute instance runtime
 
-Follow these steps to find Python packages installed in runtime:
+Follow these steps to find Python packages installed in compute instance runtime:
 
 - Add a Python node in your flow.
 - Put the following code in the code section:
@@ -185,7 +185,7 @@ Follow these steps to find Python packages installed in runtime:
 
 ### How to find the raw inputs and outputs of in LLM tool for further investigation?
 
-In prompt flow, on flow page with successful run and run detail page, you can find the raw inputs and outputs of LLM tool in the output section. Click the `view full output` button to view full output. 
+In prompt flow, on flow page with successful run and run detail page, you can find the raw inputs and outputs of LLM tool in the output section. Select the `view full output` button to view full output. 
 
 :::image type="content" source="../media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/faq/view-full-output.png":::
 

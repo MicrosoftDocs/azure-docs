@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the in-place migration fea
 description: Overview of the in-place migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 01/30/2024
+ms.date: 02/12/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -52,7 +52,7 @@ The following are limitations when using the in-place migration feature:
 
 - Your new App Service Environment v3 is in the existing subnet that was used for your old environment.
 - You can't change the region your App Service Environment is located in.
-- ELB App Service Environment can’t be migrated to ILB App Service Environment v3 and vice versa.
+- ELB App Service Environment can't be migrated to ILB App Service Environment v3 and vice versa.
 - If your existing App Service Environment uses a custom domain suffix, you have to configure custom domain suffix for your App Service Environment v3 during the migration process.
   - If you no longer want to use a custom domain suffix, you can remove it once the migration is complete.
 
@@ -145,7 +145,7 @@ Migration requires a three to six hour service window for App Service Environmen
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
 - All App Service plans in the App Service Environment are converted from the Isolated to Isolated v2 SKU.
 - All of the apps that are on your App Service Environment are temporarily down. **You should expect about one hour of downtime during this period**.
-  - If you can't support downtime, see the [side by side migration feature](side-by-side-migrate.md) or the [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration).
+  - If you can't support downtime, see the [side by side migration feature](side-by-side-migrate.md) or the[migration-alternatives](migration-alternatives.md#migrate-manually).
 - The public addresses that are used by the App Service Environment change to the IPs generated during the IP generation step.
 
 As in the IP generation step, you can't scale, modify your App Service Environment, or deploy apps to it during this process. When migration is complete, the apps that were on the old App Service Environment are running on the new App Service Environment v3.
