@@ -37,8 +37,8 @@ See [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined
 
 In this section, you create two Ranger policies  
 
-- [Access policy for accessing “hivesampletable” from spark-sql](/azure/hdinsight/spark/ranger-policies-for-spark#to-create-ranger-policies)
-- [Masking policy for obfuscating the columns in hivesampletable](/azure/hdinsight/spark/ranger-policies-for-spark#create-ranger-masking-policy)
+- [Access policy for accessing “hivesampletable” from spark-sql](./ranger-policies-for-spark#to-create-ranger-policies)
+- [Masking policy for obfuscating the columns in hivesampletable](./ranger-policies-for-spark#create-ranger-masking-policy)
 
 ### To create Ranger policies
 
@@ -76,7 +76,7 @@ In this section, you create two Ranger policies
 
      Result before policy was saved
    
-        :::image type="content" source="./media/ranger-policies-for-spark/result-before-access-policy.png" alt-text="Screenshot shows result before access policy." lightbox="./media/ranger-policies-for-spark/result-before-access-policy.png":::
+    :::image type="content" source="./media/ranger-policies-for-spark/result-before-access-policy.png" alt-text="Screenshot shows result before access policy." lightbox="./media/ranger-policies-for-spark/result-before-access-policy.png":::
 
      Result after policy is applied
 
@@ -89,25 +89,17 @@ The following example explains how to create a policy to mask a column
 
 1. Create another policy under **Masking** tab with the following properties using Ranger Admin UI 
 
-       :::image type="content" source="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png" alt-text="Screenshot shows add new masking policy screenshot." lightbox="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png":::
+   :::image type="content" source="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png" alt-text="Screenshot shows add new masking policy screenshot." lightbox="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png":::
  
 
     |Property |Value | 
-
     |---|---| 
-
     |Policy Name| mask-hivesampletable | 
-
     |Hive Database|default| 
-
     |Hive table| hivesampletable| 
-
     |Hive column|devicemake| 
-
     |Select User|sparkuser2| 
-
     |Permissions|select| 
-
    |Masking options|hash| 
 
  
@@ -157,7 +149,7 @@ You can edit the policies and these policies gets applied to both Hive and Spark
  
 Points to consider: 
 
-1.In case you have two metastore databases with the same name used for both hive (for example, DB1) and spark (for example, DB1) catalogs.  
+1. In case you have two metastore databases with the same name used for both hive (for example, DB1) and spark (for example, DB1) catalogs.  
    If spark uses spark catalog (metastore.catalog.default=spark), the policy applies to the DB1 of the spark catalog.  
    If spark uses hive catalog (metastore.catalog.default=hive), the policies get applied to the DB1 of the hive catalog. 
     
@@ -190,7 +182,7 @@ Points to consider:
      Let’s say you have the policies defined in the Ranger repo already under the name <oldclustername_hive> on the existing Ranger database inside Hadoop SQL service and you want to share the same policies in the new HDInsight 5.1 Spark cluster. To achieve this, follow the steps given below: 
  
 > [!NOTE]   
->Config updates can be performed by the user with Ambari admin privileges. 
+> Config updates can be performed by the user with Ambari admin privileges. 
 
 1. Open Ambari UI from your new HDInsight 5.1 cluster 
 
