@@ -342,12 +342,12 @@ Avoid anti-patterns when using geomatch custom rules, such as setting the custom
 
 Instead of using an `allow` action, use a `block` action with a negate condition, as shown in previous patterns. This ensures only traffic from desired countries is allowed and the WAF blocks all other traffic.
 
-## Scenario 4 - allow traffic from country "x"
+### Scenario 4 - allow traffic from country "x"
 
 Avoid setting the geomatch custom rule to allow traffic from a specific country. For example, if you want to allow traffic from the United States because of a large customer base, creating a custom rule with the action `allow` and the value `United States` might seem like the solution. However, this rule allows all traffic from the United States, regardless of whether it has a malicious payload or not, as the `allow` action bypasses further rule processing of managed rulesets. Additionally, the WAF still processes traffic from all other countries, consuming resources. This exposes your web application to malicious requests from the United States that the WAF would otherwise block.
 
 
-## Scenario 5 - Allow traffic from all counties except "x"
+### Scenario 5 - Allow traffic from all counties except "x"
 
 Avoid setting the rule action to `allow` and specifying a list of countries to exclude when using geomatch custom rules. For example, if you want to allow traffic from all countries except the United States, where you suspect malicious activity, this approach can have unintended consequences. It might allow traffic from unverified or unsafe countries or countries with low or no security standards, exposing your web application to potential vulnerabilities or attacks. Using the `allow` action for all countries except the US indicates to the WAF to stop processing request payloads against managed rulesets. All rule evaluation ceases once the custom rule with `allow` is processed, exposing the application to unwanted malicious attacks.
 
@@ -356,5 +356,5 @@ Instead, use a more restrictive and specific rule action, such as block, and spe
 
 ## Next steps
 
-- [Learn more about Microsoft Sentinel](../sentinel/overview.md)
-- [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
+- [Geomatch custom rules](ag/geomatch-custom-rules.md)
+- [Create and use Web Application Firewall v2 custom rules on Application Gateway](ag/create-custom-waf-rules.md)

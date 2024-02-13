@@ -173,7 +173,7 @@
   - name: Automated detection and response
     href: ./afds/automated-detection-response-with-sentinel.md
   - name: Use geomatch custom rules to enhance network security
-    href: geomatch-custom-rules.md
+    href: geomatch-custom-rules-examples.md
   - name: Troubleshoot
     items:
      - name: Application Gateway
