@@ -15,15 +15,15 @@ content_well_notification:
 
 # Quickstart: Create an Azure Virtual Network and subnets using Terraform
 
-In this quickstart, you learn about a Terraform script that creates an Azure resource group and a virtual network with two subnets. The names of the resource group and the virtual network are generated using a random pet name with a prefix. The script also outputs the names of the created resources. 
+In this quickstart, you learn about a Terraform script that creates an Azure resource group and a virtual network with two subnets. The names of the resource group and the virtual network are generated using a random pet name with a prefix. The script also outputs the names of the created resources.
 
-The script uses the Azure Resource Manager (azurerm) and Random (random) providers. The azurerm provider is used to interact with Azure resources, while the random provider is used to generate random pet names for the resources. 
+The script uses the Azure Resource Manager (azurerm) and Random (random) providers. The azurerm provider is used to interact with Azure resources, while the random provider is used to generate random pet names for the resources.
 
 The script creates the following resources:
 
-- A resource group: A container that holds related resources for an Azure solution. 
+- A resource group: A container that holds related resources for an Azure solution.
 
-- A virtual network: A fundamental building block for your private network in Azure. 
+- A virtual network: A fundamental building block for your private network in Azure.
 
 - Two subnets: Segments of a virtual network's IP address range where you can place groups of isolated resources.
 
@@ -39,7 +39,7 @@ The script creates the following resources:
 
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-create-two-subnets). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-create-two-subnets/TestRecord.md).
-> 
+>
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
@@ -59,7 +59,6 @@ The script creates the following resources:
 1. Create a file named `variables.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-virtual-network-create-two-subnets/variables.tf":::
-
 
 ## Initialize Terraform
 
@@ -105,9 +104,9 @@ The script creates the following resources:
 
 ## Troubleshoot Terraform on Azure
 
- For more information about troubleshooting Terraform, see [Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
+For more information about troubleshooting Terraform, see [Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Learn more about using Terraform in Azure](/azure/terraform)
