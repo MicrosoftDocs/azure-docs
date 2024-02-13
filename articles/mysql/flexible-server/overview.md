@@ -10,18 +10,6 @@ ms.custom: mvc, references_regions
 ms.date: 02/12/2024
 ---
 
----
-title: Flexible server deployment model overview
-description: Learn about the flexible server deployment model for Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: overview
-author: SudheeshGH
-ms.author: sunaray
-ms.custom: mvc, references_regions
-ms.date: 02/12/2024
----
-
 # Azure Database for MySQL - Flexible Server deployment model
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
@@ -176,7 +164,7 @@ To migrate from Azure Database for MySQL single server to Azure Database for MyS
 
 For more information, see [Select the right tools for migration to Azure Database for MySQL flexible server](../../mysql/how-to-decide-on-right-migration-tools.md).
 
-## Azure regions
+### Azure regions
 
 One advantage of running your workload in Azure is its global reach. Azure Database for MySQL flexible server is available today in the following Azure regions:
 
