@@ -23,8 +23,6 @@ This article shows you how to use Azure Event Grid to send events from MQTT clie
 2. Event subscription to the custom topic forwards those events to your event hub. 
 3. Fabric event stream receives events from the event hub and stores them in a Fabric destination such as a KQL database. 
 
-    Then, you can build a Power BI report or dashboards based on the data in the Fabric data stores. 
-
 ## Detailed steps
 
 1. In the Azure portal, do these steps:
