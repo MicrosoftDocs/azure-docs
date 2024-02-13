@@ -16,6 +16,6 @@ Network Application Programming Interfaces (APIs) can be utilized by software de
 
 Azure Programmable Connectivity (APC) leverages these network APIs to provide a unified standard interface across multiple operator networks globally while abstracting the complexities inherent to network APIs.  
 
-APC is now available in public preview with several API’s, including number verification, SIM swap and other capabilities.  
+APC is now available in public preview with several APIs, including number verification, SIM swap and other capabilities.  
   
    :::image type="content" source="media/key-apis.jpg" alt-text="Diagram showing key network APIs.":::  
