@@ -50,7 +50,7 @@ In this section, you create two Ranger policies
 
 1. Select **Add New Policy** under **Access** tab, and then enter the following values:
 
-   :::image type="content" source="./media/ranger-policies-for-spark/add-new-policy-screenshot.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/add-new-policy-screenshot.png":::
+   :::image type="content" source="./media/ranger-policies-for-spark/add-new-policy-screenshot.png" alt-text="Screenshot shows select  hive." lightbox="./media/ranger-policies-for-spark/add-new-policy-screenshot.png":::
 
      |Property |Value | 
     |---|---| 
@@ -61,7 +61,7 @@ In this section, you create two Ranger policies
     |Select User|sparkuser1| 
     |Permissions|select| 
 
-     :::image type="content" source="./media/ranger-policies-for-spark/sample-policy-details.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/sample-policy-details.png":::
+     :::image type="content" source="./media/ranger-policies-for-spark/sample-policy-details.png" alt-text="Screenshot shows sample policy details." lightbox="./media/ranger-policies-for-spark/sample-policy-details.png":::
 
    Wait a few moments for Ranger to sync with Microsoft Entra ID if a domain user is not automatically populated for Select User. 
 
@@ -76,11 +76,11 @@ In this section, you create two Ranger policies
 
      Result before policy was saved
    
-        :::image type="content" source="./media/ranger-policies-for-spark/result-before-access-policy.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/result-before-access-policy.png":::
+        :::image type="content" source="./media/ranger-policies-for-spark/result-before-access-policy.png" alt-text="Screenshot shows result before access policy." lightbox="./media/ranger-policies-for-spark/result-before-access-policy.png":::
 
      Result after policy is applied
 
-        :::image type="content" source="./media/ranger-policies-for-spark/result-after-access-policy.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/result-after-access-policy.png":::
+        :::image type="content" source="./media/ranger-policies-for-spark/result-after-access-policy.png" alt-text="Screenshot shows result after access policy." lightbox="./media/ranger-policies-for-spark/result-after-access-policy.png":::
 
 #### Create Ranger masking policy 
  
@@ -89,7 +89,7 @@ The following example will explain how to create a policy to mask a column
 
 1. Create another policy under **Masking** tab with the following properties using Ranger Admin UI 
 
-       :::image type="content" source="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png":::
+       :::image type="content" source="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png" alt-text="Screenshot shows add new masking policy screenshot." lightbox="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png":::
  
 
     |Property |Value | 
@@ -112,7 +112,7 @@ The following example will explain how to create a policy to mask a column
 
  
 
-     :::image type="content" source="./media/ranger-policies-for-spark/masking-policy-details.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/masking-policy-details.png":::
+     :::image type="content" source="./media/ranger-policies-for-spark/masking-policy-details.png" alt-text="Screenshot shows masking policy details." lightbox="./media/ranger-policies-for-spark/masking-policy-details.png":::
  
 
 1. Select **Save** to save the policy. 
@@ -123,7 +123,7 @@ The following example will explain how to create a policy to mask a column
      
           select clientId, deviceMake from hivesampletable; 
      ```
-     :::image type="content" source="./media/ranger-policies-for-spark/open-zipline-notebook.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/open-zipline-notebook.png":::
+     :::image type="content" source="./media/ranger-policies-for-spark/open-zipline-notebook.png" alt-text="Screenshot shows open zipline notebook." lightbox="./media/ranger-policies-for-spark/open-zipline-notebook.png":::
 
  
 
@@ -183,7 +183,7 @@ Points to consider:
      In this case when the HDI 5.1 cluster is created using existing Ranger database then, new Ranger repo gets created again on this database with the name of the new cluster in this format - <hive_and_spark>. 
 
  
-     :::image type="content" source="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png":::
+     :::image type="content" source="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png" alt-text="Screenshot shows new repo old ranger database." lightbox="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png":::
 
  
 
@@ -202,7 +202,7 @@ Points to consider:
 
      Or Open “ranger-spark-security” security config in /etc/spark3/conf using SSH 
       
-      :::image type="content" source="./media/ranger-policies-for-spark/ambari-config-ranger-security.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/ambari-config-ranger-security.png":::
+      :::image type="content" source="./media/ranger-policies-for-spark/ambari-config-ranger-security.png" alt-text="Screenshot shows ambari config ranger security." lightbox="./media/ranger-policies-for-spark/ambari-config-ranger-security.png":::
 
  
 
@@ -210,11 +210,11 @@ Points to consider:
 
      Ambari 
      
-     :::image type="content" source="./media/ranger-policies-for-spark/config-update-service-name-ambari.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/config-update-service-name-ambari.png":::
+     :::image type="content" source="./media/ranger-policies-for-spark/config-update-service-name-ambari.png" alt-text="Screenshot shows config update service name ambari." lightbox="./media/ranger-policies-for-spark/config-update-service-name-ambari.png":::
       
      XML file 
 
-      :::image type="content" source="./media/ranger-policies-for-spark/config-update-xml.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/config-update-xml.png":::
+      :::image type="content" source="./media/ranger-policies-for-spark/config-update-xml.png" alt-text="Screenshot shows config update xml." lightbox="./media/ranger-policies-for-spark/config-update-xml.png":::
     
  
 
@@ -222,7 +222,7 @@ Points to consider:
 
      The policies get applied on databases in the spark catalog. If you want to access the databases under hive catalog, please go to Ambari -> SPARK3 -> Configs -> Change “metastore.catalog.default” from spark to hive. 
  
-      :::image type="content" source="./media/ranger-policies-for-spark/change-metastore-config.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/change-metastore-config.png":::
+      :::image type="content" source="./media/ranger-policies-for-spark/change-metastore-config.png" alt-text="Screenshot shows change metastore config." lightbox="./media/ranger-policies-for-spark/change-metastore-config.png":::
 
 
  
