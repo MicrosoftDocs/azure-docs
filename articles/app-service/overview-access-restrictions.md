@@ -24,7 +24,9 @@ You have the option of configuring a set of access restriction rules for each si
 
 ## App access
 
-App access allows you to configure if access is available through the default (public) endpoint. You configure this behavior to either be `Disabled` or `Enabled`. When access is enabled, you can add [Site access](#site-access) restriction rules to control access from select virtual networks and IP addresses. If the setting isn't set (the property is `null`), the default behavior is to enable access unless a private endpoint exists which changes the behavior to disable access. In Azure portal, when the property isn't set, the radio button is also not set and you're then using default behavior.
+App access allows you to configure if access is available through the default (public) endpoint. You configure this behavior to either be `Disabled` or `Enabled`. When access is enabled, you can add [Site access](#site-access) restriction rules to control access from select virtual networks and IP addresses.
+
+If the setting isn't set (the property is `null`), the default behavior is to enable access unless a private endpoint exists which changes the behavior to disable access. In Azure portal, when the property isn't set, the radio button is also not set and you're then using default behavior.
 
 :::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal.":::
 
