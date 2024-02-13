@@ -5,7 +5,7 @@ author: petrsvihlik
 manager: soricos
 services: azure-communication-services
 
-ms.author: petrsvihlik
+ms.author: soricos
 ms.date: 01/30/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
