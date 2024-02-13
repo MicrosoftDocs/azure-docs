@@ -8,7 +8,9 @@ ms.custom: devx-track-arm-template
 ms.date: 01/03/2024
 ms.reviewer: harelbr
 ---
+
 # Create a new alert rule using the CLI, PowerShell, or an ARM template
+
 You can create a new alert rule using the [the CLI](#create-a-new-alert-rule-using-the-cli), [PowerShell](#create-a-new-alert-rule-using-powershell), or an [Azure Resource Manager template](#create-a-new-alert-rule-using-an-arm-template).
 
 ## Create a new alert rule using the CLI

@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 1/25/2024
+ms.date: 2/8/2024
 ---
 
 # PgBouncer in Azure Database for PostgreSQL - Flexible Server
@@ -15,9 +15,9 @@ ms.date: 1/25/2024
 
 Azure Database for PostgreSQL flexible server offers [PgBouncer](https://github.com/pgbouncer/pgbouncer) as a built-in connection pooling solution. This is an optional service that can be enabled on a per-database server basis and is supported with both public and private access. PgBouncer runs in the same virtual machine as the Azure Database for PostgreSQL flexible server database server. Postgres uses a process-based model for connections, which makes it expensive to maintain many idle connections. So, Postgres itself runs into resource constraints once the server runs more than a few thousand connections. The primary benefit of PgBouncer is to improve idle connections and short-lived connections at the database server.
 
-PgBouncer uses a more lightweight model that utilizes asynchronous I/O, and only uses actual Postgres connections when needed, that is, when inside an open transaction, or when a query is active. This model can support thousands of connections more easily with low overhead and allows scaling to up to 10,000 connections with low overhead.
+PgBouncer uses a more lightweight model that utilizes asynchronous I/O, and only uses actual Postgres connections when needed, that is, when inside an open transaction, or when a query is active. This model can support thousands of connections more easily with low overhead and allows scaling to up to 10,000 connections with low overhead. When enabled, PgBouncer runs on port 6432 on your database server. You can change your application’s database connection configuration to use the same host name, but change the port to 6432 to start using PgBouncer and benefit from improved idle connection scaling. 
 
-When enabled, PgBouncer runs on port 6432 on your database server. You can change your application’s database connection configuration to use the same host name, but change the port to 6432 to start using PgBouncer and benefit from improved idle connection scaling.
+PgBouncer in Azure database for PostgreSQL flexible server supports [Microsoft Entra authentication (AAD)](./concepts-azure-ad-authentication.md) authentication.
 
 > [!NOTE]
 > PgBouncer is supported on General Purpose and Memory Optimized compute tiers in both public access and private access networking. 
@@ -119,12 +119,14 @@ Utilizing an application side pool together with PgBouncer on the database serve
 * Whenever the server is restarted during scale operations, HA failover, or a restart, the PgBouncer is also restarted along with the server virtual machine. Hence the existing connections have to be re-established.
 * Due to a known issue, the portal doesn't show all PgBouncer parameters. Once you enable PgBouncer and save the parameter, you have to exit Parameter screen (for example, click Overview) and then get back to Parameters page. 
 * Transaction and statement pool modes can't be used along with prepared statements. Refer to the [PgBouncer documentation](https://www.pgbouncer.org/features.html) to check other limitations of chosen pool mode.
+* If PgBouncer is deployed as a feature, it becomes a potential single point of failure. If the PgBouncer feature is down, it can disrupt the entire database connection pool, causing downtime for the application. To mitigate Single point of failure, you can set up multiple PgBouncer instances behind a load balancer for high availability on Azure VM.
+* PgBouncer is a very lightweight application, which utilizes single-threaded architecture. While this is great for majority of application workloads, in  applications that create very large number of short lived connections this aspect may affect pgBouncer performance, limiting the ability to scale your application. You may need to distribute the connection load across multiple PgBouncer instances on Azure VM or consider alternative solutions like multithreaded solutions, such as [PgCat](https://github.com/postgresml/pgcat) on Azure VM.
 
 > [!IMPORTANT]
 > Parameter pgbouncer.client_tls_sslmode for built-in PgBouncer feature has been deprecated in Azure Database for PostgreSQL flexible server with built-in PgBouncer feature enabled. When TLS/SSL for connections to Azure Database for PostgreSQL flexible server is enforced via setting the **require_secure_transport** server parameter to ON, TLS/SSL is automatically enforced for connections to built-in PgBouncer. This setting to enforce SSL/TLS is on by default on creation of a new Azure Database for PostgreSQL flexible server instance and enabling the built-in PgBouncer feature.  For more on SSL/TLS in Azure Database for PostgreSQL flexible server see this [doc.](./concepts-networking.md#tls-and-ssl)
 
   
-For those customers that are looking for simplified management, built-in high availability, easy connectivity with containerized applications and are interested in utilizing most popular configuration parameters with PGBouncer built-in PGBouncer feature is good choice. For customers looking for full control of all parameters and debugging experience another choice could be setting up PGBouncer on Azure VM as an alternative. 
+For those customers that are looking for  simplified management, built-in high availability , easy connectivity with containerized applications and are interested in utilizing most popular configuration parameters with PGBouncer built-in PGBouncer feature is good choice. For customers looking for multithreaded scalability,full control of all parameters and debugging experience another choice could be setting up PGBouncer on Azure VM as an alternative.
 
 ## Next steps
 

@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 12/07/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: ignite-2022
 ---
 
 # Introduction to Azure Storage

@@ -2,7 +2,6 @@
 title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 ms.topic: article
-ms.custom: ignite-2022
 ms.date: 08/17/2023
 ---
 

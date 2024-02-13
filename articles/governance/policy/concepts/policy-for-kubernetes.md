@@ -681,6 +681,7 @@ aligns with how the add-on was installed:
   - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
   - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
  - Component-level [exemptions](./exemption-structure.md) aren't supported for [Resource Provider modes](./definition-structure.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
+ - Using the `metadata.gatekeeper.sh/requires-sync-data` annotation in a constraint template to configure the [replication of data](https://open-policy-agent.github.io/gatekeeper/website/docs/sync) from your cluster into the OPA cache is currently only allowed for built-in policies. This is because it can dramatically increase the Gatekeeper pods' resource usage if not used carefully.
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 -  [AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](../../../aks/use-azure-policy.md).

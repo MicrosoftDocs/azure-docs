@@ -9,7 +9,6 @@ ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 08/07/2023
 ms.author: pafarley
-ms.custom: seodec18
 ---
 
 Use the optical character recognition (OCR) REST API to read printed and handwritten text.

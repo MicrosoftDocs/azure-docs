@@ -7,8 +7,7 @@ ms.date: 10/28/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: [mode-other, iot-central-frontdoor, contperf-fy22q4]
-
+ms.custom: mode-other, iot-central-frontdoor
 # Customer intent: As a new user of IoT Central, I want to learn how to get started with an IoT Central application and an IoT device.
 ---
 

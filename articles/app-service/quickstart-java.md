@@ -5,8 +5,8 @@ keywords: azure, app service, web app, windows, linux, java, maven, quickstart
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 08/31/2023
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other, devdivchpfy22, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee, devx-track-extended-java
+ms.date: 02/10/2024
+ms.custom: mvc, mode-other, devdivchpfy22, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee, devx-track-extended-java
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -25,9 +25,9 @@ ms.author: cephalin
 
 ::: zone-end
 
-::: zone pivot="java-maven-quarkus"
+::: zone pivot="java-maven-javase"
 
-[!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-quarkus.md)]
+[!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-javase.md)]
 
 ::: zone-end
 

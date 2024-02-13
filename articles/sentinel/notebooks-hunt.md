@@ -4,7 +4,7 @@ description: Launch and run notebooks with the Microsoft Sentinel hunting capabi
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021, event-tier1-build-2022
+ms.custom: mvc
 ms.date: 01/05/2023
 #Customer intent: As a security analyst, I want to deploy and launch a Jupyter notebook to hunt for security threats.
 ---

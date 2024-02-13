@@ -9,9 +9,7 @@ keywords: VM isolation,isolated VM,isolation,isolated
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 08/26/2022
-
 ---
 
 # Memory optimized virtual machine sizes
