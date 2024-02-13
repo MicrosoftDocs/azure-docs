@@ -50,4 +50,4 @@ For all other cultures, the response is:
 
 ## Next steps
 
-.
+

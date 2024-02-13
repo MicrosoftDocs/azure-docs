@@ -85,6 +85,6 @@ The following example shows the resolution of the **builtin.age** entity.
 
 ## Next steps
 
-.
+
 
 Learn about the [currency](luis-reference-prebuilt-currency.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), and [dimension](luis-reference-prebuilt-dimension.md) entities.

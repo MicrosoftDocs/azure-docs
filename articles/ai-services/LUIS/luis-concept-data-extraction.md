@@ -67,7 +67,7 @@ The primary data is the top scoring **intent name**. The endpoint response is:
 }
 ```
 
-.
+
 
 * * *
 
@@ -127,7 +127,7 @@ Set the querystring parameter, `show-all-intents=true`. The endpoint response is
 }
 ```
 
-.
+
 
 * * *
 
@@ -190,7 +190,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 }
 ```
 
-.
+
 
 * * *
 

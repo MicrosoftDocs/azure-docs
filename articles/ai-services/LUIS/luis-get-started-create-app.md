@@ -252,7 +252,7 @@ To create a Prediction resource from the LUIS portal
     }
     ```
 
-.
+
 
 
 ## Clean up resources

@@ -679,6 +679,6 @@ To replace `datetime` with `datetimeV2` in your LUIS app, complete the following
 
 ## Next steps
 
-.
+
 
 Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md).

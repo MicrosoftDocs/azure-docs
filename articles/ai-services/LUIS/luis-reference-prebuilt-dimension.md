@@ -91,6 +91,6 @@ The following example shows the resolution of the **builtin.dimension** entity.
 
 ## Next steps
 
-.
+
 
 Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities.

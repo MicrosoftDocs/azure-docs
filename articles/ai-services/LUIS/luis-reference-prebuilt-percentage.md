@@ -84,6 +84,6 @@ The following example shows the resolution of the **builtin.percentage** entity.
 
 ## Next steps
 
-.
+
 
 Learn about the [ordinal](luis-reference-prebuilt-ordinal.md), [number](luis-reference-prebuilt-number.md), and [temperature](luis-reference-prebuilt-temperature.md) entities.

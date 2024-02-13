@@ -85,6 +85,6 @@ The following example shows the resolution of the **builtin.ordinal** entity.
 
 ## Next steps
 
-.
+
 
 Learn about the [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [phone number](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities.

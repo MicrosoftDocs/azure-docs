@@ -90,6 +90,6 @@ The following example shows the resolution of the **builtin.ordinalV2** entity.
 
 ## Next steps
 
-.
+
 
 Learn about the [percentage](luis-reference-prebuilt-percentage.md), [phone number](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities.

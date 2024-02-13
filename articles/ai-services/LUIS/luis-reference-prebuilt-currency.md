@@ -85,6 +85,6 @@ The following example shows the resolution of the **builtin.currency** entity.
 
 ## Next steps
 
-.
+
 
 Learn about the [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md), and [email](luis-reference-prebuilt-email.md) entities.
