@@ -50,7 +50,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. Select **public-ip-nat**.
 
-1. Make note of the public IP address:
+1. Make note of the public IP address.
 
     :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Screenshot of public IP address of NAT gateway." border="true":::
 
@@ -64,7 +64,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. Enter the username and password entered during virtual machine creation. Select **Connect**.
 
-1. In the bash prompt, enter the following command:
+1. In the bash prompt, enter the following command.
 
     ```bash
     curl ifconfig.me
