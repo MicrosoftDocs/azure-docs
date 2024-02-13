@@ -50,7 +50,7 @@ Deploy the Resource Manager template to Azure:
 
 ## Review deployed resources
 
-Explore the resources that you created with the virtual network by browsing the settings blades for **VNet1**:
+Explore the resources that you created with the virtual network by browsing through the settings panes for **VNet1**:
 
 - The **Overview** tab shows the defined address space of **10.0.0.0/16**.
 

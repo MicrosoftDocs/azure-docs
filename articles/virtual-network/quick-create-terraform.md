@@ -109,4 +109,4 @@ For information about troubleshooting Terraform, see [Troubleshoot common proble
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [Learn more about using Terraform on Azure](/azure/terraform)

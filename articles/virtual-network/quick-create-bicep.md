@@ -23,11 +23,11 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- To deploy the Bicep files, either Azure CLI or PowerShell installed.
+- To deploy the Bicep files, either Azure CLI or PowerShell installed:
 
   # [CLI](#tab/azure-cli)
 
-  1. [Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
+  1. [Install the Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. You need Azure CLI version 2.0.28 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
 
   1. Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -62,7 +62,7 @@ Review the Bicep file:
 ### Deploy the Bicep template
 
 1. Save the Bicep file to your local computer as *main.bicep*.
-1. Deploy the Bicep file by using either the Azure CLI or Azure PowerShell.
+1. Deploy the Bicep file by using either the Azure CLI or Azure PowerShell:
 
    # [CLI](#tab/azure-cli)
 
@@ -88,7 +88,7 @@ When the deployment finishes, a message indicates that the deployment succeeded.
 
 ## Deploy Azure Bastion
 
-Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
+Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
 
 > [!NOTE]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
@@ -98,7 +98,7 @@ Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-t
 - [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an **AzureBastionSubnet** subnet.
 - [Microsoft.Network bastionHosts](/azure/templates/microsoft.network/bastionhosts): Creates the Bastion host.
 - [Microsoft.Network publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses): Creates a public IP address for the Bastion host.
-- [Microsoft Network networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Controls the network security group (NSG) settings.
+- [Microsoft Network networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Controls the settings for network security groups.
 
 Review the Bicep file:
 
@@ -115,7 +115,7 @@ Review the Bicep file:
    - Line 15: Change `param bastionSubnetIpPrefix string` from `'10.1.1.0/26'` to `'10.0.1.0/26'`.
    - Line 18: Change `param bastionHostName string` to `param bastionHostName = 'VNet-bastion'`.
 
-   The first 18 lines of your Bicep file should now look like this:
+   The first 18 lines of your Bicep file should now look like this example:
 
    ```bicep
    @description('Name of new or existing vnet to which Azure Bastion should be deployed')
@@ -141,7 +141,7 @@ Review the Bicep file:
 
 1. Save the *bastion.bicep* file.
 
-1. Deploy the Bicep file by using either the Azure CLI or Azure PowerShell.
+1. Deploy the Bicep file by using either the Azure CLI or Azure PowerShell:
 
    # [CLI](#tab/azure-cli)
 
@@ -168,7 +168,7 @@ When the deployment finishes, a message indicates that the deployment succeeded.
 
 ## Review deployed resources
 
-Use the Azure CLI, Azure PowerShell, or the Azure portal to review the deployed resources.
+Use the Azure CLI, Azure PowerShell, or the Azure portal to review the deployed resources:
 
 # [CLI](#tab/azure-cli)
 
@@ -187,7 +187,7 @@ Get-AzResource -ResourceGroupName TestRG
 1. In the [Azure portal](https://portal.azure.com), search for and select **resource groups**. On the **Resource groups** page, select **TestRG** from the list of resource groups.
 1. On the **Overview** page for **TestRG**, review all the resources that you created, including the virtual network, the two VMs, and the Bastion host.
 1. Select the **VNet** virtual network. On the **Overview** page for **VNet**, note the defined address space of **10.0.0.0/16**.
-1. Select **Subnets** from the left menu. On the **Subnets** page, note the deployed subnets of **backendSubnet** and **AzureBastionSubnet** with the assigned values from the Bicep files.
+1. On the left menu, select **Subnets**. On the **Subnets** page, note the deployed subnets of **backendSubnet** and **AzureBastionSubnet** with the assigned values from the Bicep files.
 
 ---
 
@@ -224,7 +224,7 @@ Get-AzResource -ResourceGroupName TestRG
 
    The ping fails because it uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through Windows Firewall.
 
-1. To allow ICMP to inbound through Windows Firewall on this VM, enter the following command:
+1. To allow ICMP inbound through Windows Firewall on this VM, enter the following command:
 
    ```powershell
    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -257,7 +257,7 @@ Get-AzResource -ResourceGroupName TestRG
 
 ## Clean up resources
 
-When you finish with the virtual network, use the Azure CLI, Azure PowerShell, or the Azure portal to delete the resource group and all its resources.
+When you finish with the virtual network, use the Azure CLI, Azure PowerShell, or the Azure portal to delete the resource group and all its resources:
 
 # [CLI](#tab/azure-cli)
 
@@ -284,7 +284,7 @@ Remove-AzResourceGroup -Name TestRG
 
 In this quickstart, you created a virtual network with two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and start communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Private communication between VMs is unrestricted in a virtual network. To learn more about configuring different types of VM network communications, continue to the next article:
+Private communication between VMs is unrestricted in a virtual network. To learn more about configuring various types of VM network communications, continue to the next article:
 
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)

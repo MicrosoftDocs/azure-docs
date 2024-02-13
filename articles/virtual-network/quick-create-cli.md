@@ -50,7 +50,7 @@ az network vnet create \
 
 Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration.
 
-[!INCLUDE [Pricing](../../includes/bastion-pricing.md)] For more information, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
+[!INCLUDE [Pricing](../../includes/bastion-pricing.md)] For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
 
 1. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a Bastion subnet for your virtual network. This subnet is reserved exclusively for Bastion resources and must be named **AzureBastionSubnet**.
 
@@ -200,7 +200,7 @@ az group delete \
 
 In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Private communication between VMs in a virtual network is unrestricted by default. To learn more about configuring different types of VM network communications, continue to the next article:
+Private communication between VMs in a virtual network is unrestricted by default. To learn more about configuring various types of VM network communications, continue to the next article:
 
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)

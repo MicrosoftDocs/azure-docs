@@ -25,7 +25,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 - Azure Cloud Shell or Azure PowerShell.
 
-  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run Cloud Shell from within the Azure portal.
+  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and then paste it into Cloud Shell to run it. You can also run Cloud Shell from within the Azure portal.
 
   You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
@@ -76,7 +76,7 @@ New-AzResourceGroup @rg
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
+Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
 
  [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
@@ -130,7 +130,7 @@ It takes about 10 minutes to deploy the Bastion resources. You can create VMs in
 
 ## Create virtual machines
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named **vm-1** and **vm-2** in the **subnet-1** subnet of the virtual network. When you're prompted for credentials, enter user names and passwords for the VMs.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named **vm-1** and **vm-2** in the **subnet-1** subnet of the virtual network. When you're prompted for credentials, enter usernames and passwords for the VMs.
 
 1. To create the first VM, use the following code:
 
@@ -141,7 +141,7 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named *
     ## Place the virtual network into a variable. ##
     $vnet = Get-AzVirtualNetwork -Name 'vnet-1' -ResourceGroupName 'test-rg'
 
-    ## Create network interface for the VM. ##
+    ## Create a network interface for the VM. ##
     $nic = @{
         Name = "nic-1"
         ResourceGroupName = 'test-rg'
@@ -302,7 +302,7 @@ Remove-AzResourceGroup -Name 'test-rg' -Force
 
 In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-Private communication between VMs in a virtual network is unrestricted. To learn more about configuring different types of VM network communications, continue to the next article:
+Private communication between VMs in a virtual network is unrestricted. To learn more about configuring various types of VM network communications, continue to the next article:
 
 > [!div class="nextstepaction"]
 > [Filter network traffic](tutorial-filter-network-traffic.md)
