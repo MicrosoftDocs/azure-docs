@@ -32,7 +32,7 @@ A work account is created the same way for all tenants based on Microsoft Entra 
 
 When you add a new work account, you need to consider the following configuration settings:
 
-- **Name** and **User name** - The **Name** property contains the given and surname of the user. The **User name** is the identifier that the user enters to sign in. The user name includes the full domain. The domain name portion of the user name must either be the initial default domain name *your-domain.onmicrosoft.com*, or a verified, non-federated [custom domain](entra/fundamentals/add-custom-domain) name such as *contoso.com*. 
+- **Name** and **User name** - The **Name** property contains the given and surname of the user. The **User name** is the identifier that the user enters to sign in. The user name includes the full domain. The domain name portion of the user name must either be the initial default domain name *your-domain.onmicrosoft.com*, or a verified, non-federated [custom domain](/entra/fundamentals/add-custom-domain) name such as *contoso.com*. 
 - **Email** - The new user can also sign in using an email address. We do not support special characters or multibyte characters in email, for example Japanese characters.
 - **Profile** - The account is set up with a profile of user data. You have the opportunity to enter a first name, last name, job title, and department name. You can edit the profile after the account is created.
 - **Groups** - Use groups to perform management tasks such as assigning licenses or permissions to many users, or devices at once. You can put the new account into an existing [group](../active-directory/fundamentals/how-to-manage-groups.md) in your tenant.
