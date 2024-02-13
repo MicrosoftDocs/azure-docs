@@ -56,5 +56,5 @@ By checking the Azure Hybrid Benefit checkbox in the configuration setting, you 
 
 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
-[az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host?view=azure-cli-latest)
+[az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host)
 
