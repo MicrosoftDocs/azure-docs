@@ -485,8 +485,7 @@ Follow these steps to set up a video retrieval system to integrate with your AI 
 
 #### [REST](#tab/rest)
 
-1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
-
+1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where:
     - RESOURCE_NAME is the name of your Azure OpenAI resource 
     - DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
         
@@ -543,30 +542,37 @@ Follow these steps to set up a video retrieval system to integrate with your AI 
 
 > #### Azure OpenAI resource
 #### [REST](#tab/rest)
-         "dataSources": [
-        {
-            "type": "AzureComputerVisionVideoIndex",
-            "parameters": {
-                "endpoint": "<your_computer_vision_endpoint>",
-                "computerVisionApiKey": "<your_computer_vision_key>",
-                "indexName": "<name_of_your_index>",
-                "videoUrls": ["<your_video_SAS_URL>"]
-            }
-        }],
-	
+```json
+{
+	 "dataSources": [
+	{
+	    "type": "AzureComputerVisionVideoIndex",
+	    "parameters": {
+		"endpoint": "<your_computer_vision_endpoint>",
+		"computerVisionApiKey": "<your_computer_vision_key>",
+		"indexName": "<name_of_your_index>",
+		"videoUrls": ["<your_video_SAS_URL>"]
+	    }
+	}]
+}
+```	
 > #### Azure AIServices + SAS authentication
 #### [REST](#tab/rest)
-         "dataSources": [
-        {
-            "type": "AzureComputerVisionVideoIndex",
-            "parameters": {
-                "indexName": "<name_of_your_index>",
-                "videoUrls": ["<your_video_SAS_URL>"]
-            }
-        }],
-
+```json
+{
+	 "dataSources": [
+	{
+	    "type": "AzureComputerVisionVideoIndex",
+	    "parameters": {
+		"indexName": "<name_of_your_index>",
+		"videoUrls": ["<your_video_SAS_URL>"]
+	    }
+	}],
+}
+```	
 > #### Azure AIServices + Managed Identities
 #### [REST](#tab/rest)
+```json
          "dataSources": [
         {
             "type": "AzureComputerVisionVideoIndex",
@@ -575,7 +581,8 @@ Follow these steps to set up a video retrieval system to integrate with your AI 
                 "documentAuthenticationKind": "managedidentity",
             }
         }],
-
+}
+```	
 
 #### [Python](#tab/python)
 
@@ -633,6 +640,7 @@ print(response)
 
 > #### Azure OpenAI resource
 #### [Python](#tab/python)
+```python
          "dataSources": [
         {
             "type": "AzureComputerVisionVideoIndex",
@@ -643,9 +651,10 @@ print(response)
                 "videoUrls": ["<your_video_SAS_URL>"]
             }
         }],
-	
+```
 > #### Azure AIServices + SAS authentication
 #### [Python](#tab/python)
+```python
          "dataSources": [
         {
             "type": "AzureComputerVisionVideoIndex",
@@ -654,9 +663,10 @@ print(response)
                 "videoUrls": ["<your_video_SAS_URL>"]
             }
         }],
-
+```
 > #### Azure AIServices + Managed Identities
 #### [Python](#tab/python)
+```python
          "dataSources": [
         {
             "type": "AzureComputerVisionVideoIndex",
@@ -665,7 +675,7 @@ print(response)
                 "documentAuthenticationKind": "managedidentity",
             }
         }],
-
+```
 ### Output
 
 The chat responses you receive from the model should include information about the video. The API response should look like the following.
