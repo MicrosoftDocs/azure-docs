@@ -62,34 +62,35 @@ To configure backup for multiple file shares from the Backup center, follow thes
 
 1. From the **Select File Shares** list, select one or more of the file shares you want to back up. Select **OK**.
 
-1. To choose a backup policy for your file share, you have three options:
+1. Under **Policy Details**, choose an existing *backup policy* from the list for your file share protection or [create a new policy.
 
-   * Choose the default policy.<br>
-   This option allows you to enable daily backup that will be retained for 30 days. If you don’t have an existing backup policy in the vault, the backup pane opens with the default policy settings. If you want to choose the default settings, you can directly select **Enable backup**.
+   To create a new backup policy, You can configure the following attributes in the backup policy:
 
-   * Create a new policy <br>
+   1. On the **Configure Backup** page, select **Create** under **Policy Details**.
 
-      1. To create a new backup policy for your file share, select the link text below the drop-down list in the **Backup Policy** section.<br>
+      :::image type="content" source="./media/backup-afs/azure-file-share-edit-policy-inline.png" alt-text="Screenshot showing to create new policy." lightbox="./media/backup-afs/azure-file-share-edit-policy-expanded.png":::
 
-         :::image type="content" source="./media/backup-afs/azure-file-share-edit-policy-inline.png" alt-text="Screenshot showing to create new policy." lightbox="./media/backup-afs/azure-file-share-edit-policy-expanded.png":::
+   1. On the **Create policy** pane, provide the *policy name*.
 
-      1. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
+   1. On **Backup tier**, select one of the following tiers:
 
-      1. After defining all attributes of the policy, select **OK**.
+      - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
+      - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
-         :::image type="content" source="./media/backup-afs/azure-file-share-policy-parameters-inline.png" alt-text="Screenshot showing to provide policy name and retention values." lightbox="./media/backup-afs/azure-file-share-policy-parameters-expanded.png":::
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *6 backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day are transferred to the vault.
 
-   * Choose one of the existing backup policies <br>
+   1. Configure the *retention* duration that determines the expiry date of the recovery points.
 
-      To choose one of the existing backup policies for configuring protection, select the desired policy from the **Backup policy** drop-down list.<br>
+      >[!Note]
+      >The *vault tier* provides longer retention than the *snapshot tier*. 
+   1. Select **OK** to create the backup policy.
 
-      ![Screenshot shows how to choose an existing policy.](./media/backup-afs/choose-existing-policy.png)
+      :::image type="content" source="./media/backup-afs/create-backup-policy-for-azure-file-share.png" alt-text="Screenshot shows how to create a new backup policy for Azure file share." lightbox="./media/backup-afs/create-backup-policy-for-azure-file-share.png":::
 
-1. Select **Enable Backup** to start protecting the file share.
+1. On the **Configure Backup** page, select **Enable Backup** to start protecting the file share.
 
    ![Screenshot shows how to enable backup.](./media/backup-afs/enable-backup.png)
 
-After you set a backup policy, a snapshot of the file shares is taken at the scheduled time. The recovery point is also retained for the chosen period.
 
 
 # [File share pane](#tab/file-share-pane)
@@ -123,25 +124,30 @@ The following steps explain how you can configure backup for individual file sha
       >[!IMPORTANT]
       >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-).
 
-1. For the **Backup Policy** selection, do one of the following:
+1. On **Choose backup policy**, select an existing policy or create a new *backup policy* for Azure file share.
 
-    * Leave the default policy. It will schedule daily backups with a retention of 30 days.
+   ![Screenshot shows how to choose a backup policy.](./media/backup-afs/choose-backup-policy.png)
 
-    * Select an existing backup policy, if you have one, from the **Backup Policy** drop-down menu.
+   To create a new backup policy, follow these steps:
 
-       ![Screenshow shows how to choose a backup policy.](./media/backup-afs/choose-backup-policy.png)
+   1. Select **Create a new policy**.
 
-    * Create a new policy with daily/weekly/monthly/yearly retention according to your requirement.  
+   1. On the **Create policy** pane, provide the *policy name*.
+   1. On **Backup tier**, select one of the following tiers:
+      - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
+      - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
-         1. Select the **Create a new policy** link text.
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *6 backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day are transferred to the vault.
 
-         2. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
+   1. Configure the *retention* duration that determines the expiry date of the recovery points.
 
-         3. After defining all attributes of the policy, select **OK**.
+      >[!Note]
+      >The *vault tier* provides longer retention than the *snapshot tier*. 
+   1. Select **OK** to create the backup policy.
 
-            ![Screenshot shows how to create a new backup policy.](./media/backup-afs/create-new-backup-policy.png)
+      :::image type="content" source="./media/backup-afs/create-backup-policy-for-azure-file-share.png" alt-text="Screenshot shows the creation of a new backup policy for Azure file share." lightbox="./media/backup-afs/create-backup-policy-for-azure-file-share.png":::
 
-1. Select **Enable backup** to start protecting the file share.
+1. On the *Azure Files* datasource page,select **Enable Backup** to start protecting the file share.
 
    ![Select Enable backup](./media/backup-afs/select-enable-backup.png)
 
@@ -212,7 +218,7 @@ To run an on-demamd backup, follow these steps:
 
 * Don't delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
 
-* Don't remove the lock taken on the storage account by Azure Backup. If you delete the lock, your storage account will be prone to accidental deletion and if it's deleted, you'll lose your snapshots or backups.
+* Don't remove the lock taken on the storage account by Azure Backup. Deletion of the lock can make your storage account prone to accidental deletion.
 
 ## Next steps
 

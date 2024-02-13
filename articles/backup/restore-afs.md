@@ -32,8 +32,11 @@ This section describes how to restore:
 - A full Azure file share
 - Individual files or folders
 
+>[!Note]
+>Vaulted backup currently supports only full share recovery to an alternate location. The target file share selected for restore needs to be empty.
 
-**Choose a restore option**
+
+**Choose a restore option**:
 
 # [Full share recovery](#tab/full-share-recovery)
 
@@ -55,13 +58,17 @@ You can use this restore option to restore the complete file share in the origin
     * **Original Location**: Restore the complete file share to the same location as the original source.
     * **Alternate Location**: Restore the complete file share to an alternate location and keep the original file share as is.
 
-### Restore to the original location (full share recovery)
+### Restore Azure file share to the original location (full share recovery)
+
+To restore Azure file share in the original location, follow these steps:
 
 1. Select **Original Location** as the **Recovery Destination**, and select whether to skip or overwrite if there are conflicts, by choosing the appropriate option from the **In case of Conflicts** drop-down list.
 
 1. Select **Restore** to start the restore operation.
 
    :::image type="content" source="./media/restore-afs/azure-file-share-original-location-recovery.png" alt-text="Screenshot shows how to select Restore to start.":::
+>[!Note]
+>To restore data to the original location, choose a recovery point with the recovery tier **Snapshot** or **Snapshot and Vault-tier**. If the snapshot corresponding to the selected recovery point is not found, the restore fails. 
 
 ### Restore to an alternate location (full share recovery)
 
