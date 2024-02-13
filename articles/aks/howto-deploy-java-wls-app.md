@@ -687,7 +687,7 @@ Use the following steps to verify the functionality of the deployment by viewing
 
 1. In the **Settings for weblogic-cafe** panel, select the **Testing** tab.
 
-1. Expand the **+** icon next to **weblogic-cafe**. You should see values similar to the ones in the following screenshot. In particular, look for *index.xhtml* in the **Test Point** column.
+1. Expand the **+** icon next to **weblogic-cafe**. Your screen should look similar to the following example. In particular, you should see values similar to `http://sample-domain1-managed-server1:8001/weblogic-cafe/index.xhtml` in the **Test Point** column.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-deployment.png" alt-text="Screenshot of weblogic-cafe test points." border="false":::
 
