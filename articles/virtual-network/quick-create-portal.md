@@ -59,7 +59,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     64 bytes from vm-2.internal.cloudapp.net (10.0.0.5): icmp_seq=4 ttl=64 time=0.890 ms
     ```
 
-1. Close the Azure Bastion connection to **vm-1**.
+1. Close the Bastion connection to **vm-1**.
 
 1. Repeat the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine) to connect to **vm-2**.
 
@@ -76,13 +76,13 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     64 bytes from vm-1.internal.cloudapp.net (10.0.0.4): icmp_seq=4 ttl=64 time=0.780 ms
     ```
 
-1. Close the Azure Bastion connection to **vm-2**.
+1. Close the Bastion connection to **vm-2**.
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
 ## Next steps
 
-In this quickstart, you created a virtual network with two subnets: one that contains two VMs and the other for Azure Bastion. You deployed Azure Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network with two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
 Private communication between VMs is unrestricted in a virtual network. To learn more about configuring different types of VM network communications, continue to the next article:
 

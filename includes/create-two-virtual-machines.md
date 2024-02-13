@@ -68,6 +68,6 @@ The following procedure creates two VMs named **vm-1** and **vm-2** in the virtu
     | Configure network security group | Select **nsg-1**. |
 
 > [!NOTE]
-> Virtual machines in a virtual network with an Azure Bastion host don't need public IP addresses. Azure Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Azure Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../articles/virtual-network/ip-services/remove-public-ip-address-vm.md).
+> Virtual machines in a virtual network with an Azure Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../articles/virtual-network/ip-services/remove-public-ip-address-vm.md).
 
 [!INCLUDE [ephemeral-ip-note.md](./ephemeral-ip-note.md)]

@@ -12,7 +12,7 @@
 
 ## Create a virtual network and an Azure Bastion host
 
-The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host:
+The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and a Bastion host:
 
 1. In the portal, search for and select **Virtual networks**.
 
@@ -35,7 +35,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
 1. In the **Azure Bastion** section, select **Enable Bastion**.
 
-    Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [Azure Bastion](../articles/bastion/bastion-overview.md).
+    Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [What is Azure Bastion?](../articles/bastion/bastion-overview.md).
 
     > [!NOTE]
     > [!INCLUDE [Pricing](bastion-pricing.md)]
@@ -44,8 +44,8 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
     | Setting | Value |
     |---|---|
-    | Azure Bastion host name | Enter **bastion**. |
-    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** in **Name**. </br> Select **OK**. |
+    | Bastion host name | Enter **bastion**. |
+    | Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** in **Name**. </br> Select **OK**. |
 
     :::image type="content" source="./media/virtual-network-create-with-bastion/enable-bastion.png" alt-text="Screenshot of options for enabling an Azure Bastion host as part of creating a virtual network in the Azure portal.":::
 

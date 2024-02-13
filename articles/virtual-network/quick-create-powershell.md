@@ -76,11 +76,11 @@ New-AzResourceGroup @rg
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [Azure Bastion](/azure/bastion/bastion-overview).
+Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
 
  [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
-1. Configure an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must be named **AzureBastionSubnet**.
+1. Configure a Bastion subnet for your virtual network. This subnet is reserved exclusively for Bastion resources and must be named **AzureBastionSubnet**.
 
     ```azurepowershell-interactive
     $subnet = @{
@@ -97,7 +97,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Create a public IP address for Azure Bastion. The bastion host uses the public IP to access SSH and RDP over port 443.
+1. Create a public IP address for Bastion. The Bastion host uses the public IP to access SSH and RDP over port 443.
 
     ```azurepowershell-interactive
     $ip = @{
@@ -111,7 +111,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
     New-AzPublicIpAddress @ip
     ```
 
-1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Standard SKU Azure Bastion host in **AzureBastionSubnet**:
+1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Standard SKU Bastion host in **AzureBastionSubnet**:
 
     ```azurepowershell-interactive
     $bastion = @{
@@ -126,7 +126,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
     New-AzBastion @bastion
     ```
 
-It takes about 10 minutes to deploy the Azure Bastion resources. You can create VMs in the next section while Azure Bastion deploys to your virtual network.
+It takes about 10 minutes to deploy the Bastion resources. You can create VMs in the next section while Bastion deploys to your virtual network.
 
 ## Create virtual machines
 
@@ -238,7 +238,7 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named *
 Azure takes a few minutes to create the VMs. When Azure finishes creating the VMs, it returns output to PowerShell.
 
 > [!NOTE]
-> VMs in a virtual network with an Azure Bastion host don't need public IP addresses. Azure Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Azure Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+> VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
@@ -271,7 +271,7 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
     64 bytes from vm-2.internal.cloudapp.net (10.0.0.5): icmp_seq=4 ttl=64 time=0.890 ms
     ```
 
-1. Close the Azure Bastion connection to **vm-1**.
+1. Close the Bastion connection to **vm-1**.
 
 1. Repeat the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine) to connect to **vm-2**.
 
@@ -288,7 +288,7 @@ Azure takes a few minutes to create the VMs. When Azure finishes creating the VM
     64 bytes from vm-1.internal.cloudapp.net (10.0.0.4): icmp_seq=4 ttl=64 time=0.780 ms
     ```
 
-1. Close the Azure Bastion connection to **vm-2**.
+1. Close the Bastion connection to **vm-2**.
 
 ## Clean up resources
 
@@ -300,7 +300,7 @@ Remove-AzResourceGroup -Name 'test-rg' -Force
 
 ## Next steps
 
-In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Azure Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
 Private communication between VMs in a virtual network is unrestricted. To learn more about configuring different types of VM network communications, continue to the next article:
 

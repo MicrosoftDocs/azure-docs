@@ -13,7 +13,7 @@ ms.custom: mode-arm, devx-track-bicep
 
 # Quickstart: Use Bicep templates to create a virtual network
 
-This quickstart shows you how to create a virtual network with two virtual machines (VMs), and then deploy Azure Bastion on the virtual network, by using Bicep templates. You then securely connect to the VMs from the internet by using Azure Bastion and start private communication between the VMs.
+This quickstart shows you how to create a virtual network with two virtual machines (VMs), and then deploy Azure Bastion on the virtual network, by using Bicep templates. You then securely connect to the VMs from the internet by using Bastion and start private communication between the VMs.
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
@@ -88,16 +88,16 @@ When the deployment finishes, a message indicates that the deployment succeeded.
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
+Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
 
 > [!NOTE]
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
-Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Azure Bastion in your virtual network. This Bicep template defines the following Azure resources:
+Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Bastion in your virtual network. This Bicep template defines the following Azure resources:
 
 - [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an **AzureBastionSubnet** subnet.
-- [Microsoft.Network bastionHosts](/azure/templates/microsoft.network/bastionhosts): Creates the Azure Bastion host.
-- [Microsoft.Network publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses): Creates a public IP address for the Azure Bastion host.
+- [Microsoft.Network bastionHosts](/azure/templates/microsoft.network/bastionhosts): Creates the Bastion host.
+- [Microsoft.Network publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses): Creates a public IP address for the Bastion host.
 - [Microsoft Network networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Controls the network security group (NSG) settings.
 
 Review the Bicep file:
@@ -164,7 +164,7 @@ Review the Bicep file:
 When the deployment finishes, a message indicates that the deployment succeeded.
 
 > [!NOTE]
-> VMs in a virtual network with an Azure Bastion host don't need public IP addresses. Azure Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Azure Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+> VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 ## Review deployed resources
 
@@ -185,7 +185,7 @@ Get-AzResource -ResourceGroupName TestRG
 # [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **resource groups**. On the **Resource groups** page, select **TestRG** from the list of resource groups.
-1. On the **Overview** page for **TestRG**, review all the resources that you created, including the virtual network, the two VMs, and the Azure Bastion host.
+1. On the **Overview** page for **TestRG**, review all the resources that you created, including the virtual network, the two VMs, and the Bastion host.
 1. Select the **VNet** virtual network. On the **Overview** page for **VNet**, note the defined address space of **10.0.0.0/16**.
 1. Select **Subnets** from the left menu. On the **Subnets** page, note the deployed subnets of **backendSubnet** and **AzureBastionSubnet** with the assigned values from the Bicep files.
 
@@ -230,7 +230,7 @@ Get-AzResource -ResourceGroupName TestRG
    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
-1. Close the Azure Bastion connection to **BackendVM1**.
+1. Close the Bastion connection to **BackendVM1**.
 
 1. Repeat the steps in [Connect to a VM](#connect-to-a-vm) to connect to **BackendVM0**.
 
@@ -253,7 +253,7 @@ Get-AzResource -ResourceGroupName TestRG
        Minimum = 0ms, Maximum = 2ms, Average = 0ms
    ```
 
-1. Close the Azure Bastion connection to **BackendVM0**.
+1. Close the Bastion connection to **BackendVM0**.
 
 ## Clean up resources
 
@@ -282,7 +282,7 @@ Remove-AzResourceGroup -Name TestRG
 
 ## Next steps
 
-In this quickstart, you created a virtual network with two subnets: one that contains two VMs and the other for Azure Bastion. You deployed Azure Bastion, and you used it to connect to the VMs and start communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network with two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and start communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
 Private communication between VMs is unrestricted in a virtual network. To learn more about configuring different types of VM network communications, continue to the next article:
 
