@@ -571,21 +571,21 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
 1. Use the following commands to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). This article uses the secret name `sqlserver-secret` for the secret of the datasource connection. If you use a different name, make sure the value is the same as the one in *dbmodel.yaml*.
 
-   In the following commands, be sure to set the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` correctly by replacing the placeholder examples with the values described in the previous steps. Be sure to enclose the value of the `DB_` variables in double quotes to prevent the shell from interfering with the values.
+   In the following commands, be sure to set the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` correctly by replacing the placeholder examples with the values described in the previous steps. Be sure to enclose the value of the `DB_` variables in single quotes to prevent the shell from interfering with the values.
 
    ```bash
-   export DB_CONNECTION_STRING="<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>"
-   export DB_USER="<example-welogic@sqlserverforwlsaks>"
-   export DB_PASSWORD="<example-Secret123456>"
+   export DB_CONNECTION_STRING='<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>'
+   export DB_USER='<example-welogic@sqlserverforwlsaks>'
+   export DB_PASSWORD='<example-Secret123456>'
    export WLS_DOMAIN_NS=sample-domain1-ns
    export WLS_DOMAIN_UID=sample-domain1
    export SECRET_NAME=sqlserver-secret
 
    kubectl -n ${WLS_DOMAIN_NS} create secret generic \
        ${SECRET_NAME} \
-       --from-literal=password="${DB_PASSWORD}" \
-       --from-literal=url="${DB_CONNECTION_STRING}" \
-       --from-literal=user="${DB_USER}"
+       --from-literal=password='${DB_PASSWORD}' \
+       --from-literal=url='${DB_CONNECTION_STRING}' \
+       --from-literal=user='${DB_USER}'
 
    kubectl -n ${WLS_DOMAIN_NS} label secret \
        ${SECRET_NAME} \
@@ -616,7 +616,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
            sourceWDTInstallHome: /auxiliary/weblogic-deploy
    ```
 
-   Run the `kubectl patch` command increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
+   Increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
 
    ```bash
    export VERSION=$(kubectl -n ${WLS_DOMAIN_NS} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
@@ -644,7 +644,11 @@ In the previous steps, you created the auxiliary image including models and WDT.
      }
    ]
    EOF
+   ```
 
+   Run the `kubectl patch` command.
+   
+   ```bash
    kubectl -n ${WLS_DOMAIN_NS} patch domain ${WLS_DOMAIN_UID} \
      --type=json \
      --patch-file patch-file.json
@@ -663,7 +667,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    It might take 5-10 minutes for the system to reach this state. The following list provides an overview of what's happening while you wait:
 
-   - You should see the `sample-domain1-introspector-zbtbz` running first. This software looks for changes to the domain custom resource so it can take the necessary actions on the Kubernetes cluster.
+   - You should see the `sample-domain1-introspector` running first. This software looks for changes to the domain custom resource so it can take the necessary actions on the Kubernetes cluster.
    - When changes are detected, the domain introspector kills and starts new pods to roll out the changes.
    - Next, you should see the `sample-domain1-admin-server` pod terminate and restart.
    - Then, you should see the two managed servers terminate and restart.
