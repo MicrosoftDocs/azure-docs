@@ -2,7 +2,8 @@
 title: Create a chaos experiment that uses dynamic targeting to select hosts
 description: Create an experiment that uses dynamic targeting with the Azure CLI.
 author: prasha-microsoft
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 12/12/2022

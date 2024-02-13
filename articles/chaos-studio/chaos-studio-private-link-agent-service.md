@@ -5,11 +5,14 @@ services: chaos-studio
 author: nikhilkaul-msft
 ms.topic: how-to
 ms.date: 12/04/2023
-ms.author: nikhilkaul
+ms.author: abbyweisberg
+ms.reviewer: nikhilkaul
 ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
+
 # How-to: Configure Private Link for Agent-Based experiments [Preview]
+
 This guide explains the steps needed to configure Private Link for a Chaos Studio **Agent-based** Experiment [Preview]. The current user experience is based on the private endpoints support enabled as part of public preview of the private endpoints feature. Expect this experience to evolve with time as the feature is enhanced to GA quality, as it is currently in **preview**. 
 
 ---

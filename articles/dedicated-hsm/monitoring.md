@@ -6,7 +6,6 @@ author: msmbaldwin
 manager: rkarlin
 ms.custom: mvc
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/14/2022
 ms.author: mbaldwin

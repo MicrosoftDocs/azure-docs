@@ -2,7 +2,6 @@
 title: Terms in your Microsoft Customer Agreement price sheet - Azure
 description: Learn how to read and understand your usage and bill for a Microsoft Customer Agreement.
 author: bandersmsft
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual

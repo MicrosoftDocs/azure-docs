@@ -5,10 +5,13 @@ services: chaos-studio
 author: prasha-microsoft
 ms.topic: quickstart
 ms.date: 11/10/2021
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ---
+
 # Quickstart: Create and run a chaos experiment by using Azure Chaos Studio
+
 Get started with Azure Chaos Studio by using a virtual machine (VM) shutdown service-direct experiment to make your service more resilient to that failure in real-world scenarios.
 
 ## Prerequisites

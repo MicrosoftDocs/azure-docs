@@ -6,7 +6,6 @@ author: greg-lindsay
 ms.service: traffic-manager
 manager: kumud
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 08/14/2023
 ms.author: greglin
 ms.custom: template-how-to

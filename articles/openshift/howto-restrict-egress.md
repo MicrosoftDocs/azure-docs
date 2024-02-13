@@ -10,6 +10,9 @@ ms.date: 10/10/2023
 ---
 # Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). With the release of the [Egress Lockdown Feature](./concepts-egress-lockdown.md), all of the required connections for an ARO cluster are proxied through the service. There are additional destinations that you may want to allow to use features such as Operator Hub or Red Hat telemetry. 
 
 > [!IMPORTANT]

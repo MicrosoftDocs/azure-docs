@@ -19,13 +19,13 @@ The `import` operation supports two modes: initial mode and incremental mode. Ea
 
 #### Initial mode
 
-- Is intended for loading FHIR resources into an empty FHIR server.
+- Intended for loading FHIR resources into an empty FHIR server.
 
 - Only supports `create` operations and when enabled, blocks API writes to the FHIR server.
 
 #### Incremental mode
 
-- Is optimized for loading data into the FHIR server periodically and doesn't block writes through the API.
+- Optimized for loading data into the FHIR server periodically and doesn't block writes through the API.
 
 - Allows you to load `lastUpdated` and `versionId` from resource metadata if present in the resource JSON.
    
