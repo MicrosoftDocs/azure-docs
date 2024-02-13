@@ -31,8 +31,8 @@ The Dapr application performs the following steps:
 ## Prerequisites
 
 * Azure IoT Operations installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
-* Dapr runtime and MQ's pluggable components installed - [Use Dapr to develop distributed application workloads](../develop/howto-develop-dapr-apps.md)
-
+* IoT MQ Dapr Components installed - [Install IoT MQ Dapr Components](./howto-develop-setup-dapr.md)
+ 
 ## Deploy the Dapr application
 
 At this point, you can deploy the Dapr application. When you register the components, that doesn't deploy the associated binary that is packaged in a container. To deploy the binary along with your application, you can use a Deployment to group the containerized Dapr application and the two components together.
@@ -44,11 +44,19 @@ To start, create a yaml file that uses the following definitions:
 | `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
 | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
 | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
-| `containers.mq-event-driven` | The prebuilt dapr application container. | 
+| `containers.mq-event-driven` | The prebuilt Dapr application container. | 
 
 1. Save the following deployment yaml to a file named `app.yaml`:
 
     ```yml
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: dapr-client
+      namespace: azure-iot-operations
+      annotations:
+        aio-mq-broker-auth/group: dapr-workload
+    ---    
     apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -70,7 +78,7 @@ To start, create a yaml file that uses the following definitions:
             dapr.io/app-port: "6001"
             dapr.io/app-protocol: "grpc"
         spec:
-          serviceAccountName: mqtt-client
+          serviceAccountName: dapr-client
 
           volumes:
           - name: dapr-unix-domain-socket
@@ -127,16 +135,15 @@ To start, create a yaml file that uses the following definitions:
 1. Confirm that the application deployed successfully. The pod should report all containers are ready after a short interval, as shown with the following command:
 
     ```bash
-    kubectl get pods -w
+    kubectl get pods -n azure-iot-operations
     ```
 
     With the following output:
 
     ```output
-    pod/dapr-workload created
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
-    dapr-workload                 4/4     Running             0          30s
+    mq-event-driven-dapr          4/4     Running             0          30s
     ```
 
 
@@ -225,19 +232,19 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 
 ## Verify the Dapr application output
 
-1. Start a shell in the mosquitto client pod:
+1. Open a shell to the mosquitto client pod:
 
     ```bash
     kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
     ```
 
-1. Subscribe to the `sensor/window_data` topic to see the publish output from the Dapr application:
+1. Subscribe to the `sensor/window_data` topic to observe the publish output from the Dapr application:
 
     ```bash
     mosquitto_sub -L mqtts://aio-mq-dmqtt-frontend/sensor/window_data -u '$sat' -P $(cat /var/run/secrets/tokens/mqtt-client-token) --cafile /var/run/certs/aio-mq-ca-cert/ca.crt 
     ```
 
-1. Verify the application is outputting a sliding windows calculation for the various sensors:
+1. Verify the application is outputting a sliding windows calculation for the various sensors every 10 seconds:
 
     ```json
     {
