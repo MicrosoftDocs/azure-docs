@@ -3,7 +3,7 @@ title: Get access to Azure Operator 5G Core
 description: See the criteria to gain access to Azure Operator 5G Core subscription, and apply for access.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: azure
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 02/13/2024
 

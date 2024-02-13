@@ -3,7 +3,7 @@ title: What is Azure Operator 5G Core?
 description: Azure Operator 5G Core is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: azure
 ms.custom: references_regions 
 ms.topic: overview 
 ms.date: 02/13/2024

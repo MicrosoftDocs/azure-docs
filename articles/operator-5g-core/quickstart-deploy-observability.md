@@ -3,7 +3,7 @@ title: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services
 description: Learn the high-level process to deploy Azure Operator 5G Core observability on Azure Kubernetes Services.
 author: HollyCl
 ms.author: HollyCl
-ms.service: operator-5g-core
+ms.service: azure
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 02/13/2024
 
