@@ -114,7 +114,7 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
    This example uses the `POST` method:
 
-   `POST https://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/{trigger-name}/invoke?api-version=2022-05-01&sp=%2Ftriggers%2F<trigger-name>%2Frun&sv=1.0&sig=<shared-access-signature>`
+   `POST https://{logic-app-name}.azurewebsites.net:443/api/{workflow-name}/triggers/{trigger-name}/invoke?api-version=2022-05-01&sp=%2Ftriggers%2F{trigger-name}%2Frun&sv=1.0&sig={shared-access-signature}`
 
 ### [Consumption](#tab/consumption)
 
@@ -198,7 +198,7 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
    This example uses the `POST` method:
 
-   `POST https://<server-name>.<region>.logic.azure.com/workflows/<workflow-ID>/triggers/manual/paths/invoke/?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+   `POST https://{server-name}.{region}.logic.azure.com/workflows/{workflow-ID}/triggers/{trigger-name}/paths/invoke/?api-version=2016-10-01&sp=%2Ftriggers%2F{trigger-name}%2Frun&sv=1.0&sig={shared-access-signature}`
 
 ---
 
