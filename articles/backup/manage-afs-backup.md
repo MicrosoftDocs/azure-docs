@@ -30,7 +30,7 @@ To open the **Backup Jobs** page:
    :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="Screenshow showing the list of jobs." lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
    
     >[!NOTE]
-    >Since there is no data transferred to the vault, the data transferred in MB is 0 for backup jobs corresponding to Azure Files.
+    >In case of *snapshot tier*, the data transferred to the vault is reported as *0*.
 
 ## Monitor using Azure Backup reports
 
@@ -50,7 +50,12 @@ To create a new backup policy, follow these steps:
 
    :::image type="content" source="./media/manage-afs-backup/azure-file-share-select-vault-for-policy.png" alt-text="Screenshot showing to select Azure File share as the policy type.":::
 
-1. As the **Backup policy** pane for **Azure File Share** opens, specify the policy name.
+1. Once the **Backup policy** pane for **Azure File Share** opens, specify the policy name.
+
+1. Select the appropriate backup tier based on your data protection requirements.
+
+   - 1.**Snapshot**:  Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletion.
+   - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
 1. In **Backup schedule**,  select an appropriate frequency for the backups - **Daily** or **Hourly**.
 
@@ -78,6 +83,9 @@ To create a new backup policy, follow these steps:
 
      Based on your selection, the backup job details (the time stamps when backup job would be triggered) display on the backup policy blade.
 
+   >[!Note]
+   >If you select the **Vault-Standard (Preview)** as the backup tier, snapshots are taken as per the configured backup schedule. However, the data is transferred to the vault from the last snapshot of the day.
+
 1. In **Retention range**, specify appropriate retention values for backups - tagged as daily, weekly, monthly, or yearly.
 
 1. After defining all attributes of the policy, click **Create**.
@@ -96,7 +104,7 @@ To view the existing backup policies:
 
 ## Modify policy
 
-You can modify a backup policy to change the backup frequency or retention range.
+You can modify a backup policy to change the backup frequency or retention range. Also, you can switch *backup tier* from *Snapshot* to *Vault-Standard (Preview)*.
 
 To modify a policy:
 
@@ -108,14 +116,16 @@ To modify a policy:
 
 1. To view policies specific to an Azure file share, select **Azure Files (Azure Storage)** as the datasource type.
 
-   Click the policy you want to update.
+   Select the policy you want to update.
 
-1. The **Schedule** pane opens. Edit the **Backup schedule** and **Retention range** as required, and select **Save**.
+1. On the **Modify policy** pane, edit the *backup schedule*, *retention*, or *backup tier* as required, and then select **Update**.
 
-   You'll see an _Update in Progress_ message in the pane. After the policy changes update successfully, you'll see the message _Successfully updated the backup policy._
+   >[!Note]
+   >The change of *backup tier* will retain the existing snapshots *AS-IS* as per the configured retention in the current policy. The future backups will be moved to the vault and retained as per the vault retention you configure. The change of *backup tier* is an irreversible operation and switching from vault to snapshot tier requires reconfiguration of the backup. 
+   
+   ::::::image type="content" source="./media/manage-afs-backup/save-policy.png" alt-text="Screenshot shows how to modify a backup policy for Azure file share." lightbox="./media/manage-afs-backup/save-policy.png":::
 
-   ![Save the modified policy](./media/manage-afs-backup/save-policy.png)
-
+   An *Update in Progress* message appears in the **Modify policy** pane. Once the policy changes successfully, the *Successfully updated the backup policy* message appears.
 ## Stop protection on a file share
 
 There are two ways to stop protecting Azure file shares:
@@ -167,7 +177,7 @@ To resume protection for the Azure file share:
 
 ## Delete backup data
 
-You can delete the backup of a file share during the **Stop backup** job, or anytime after you stop protection. It might be beneficial to wait days or even weeks before you delete the recovery points. When you delete backup data, you can't choose specific recovery points to delete. If you decide to delete your backup data, you delete all recovery points associated with the file share.
+You can delete the backup of a file share during the **Stop backup** job, or anytime after you stop the protection. It might be beneficial to wait days or even weeks before you delete the recovery points. When you delete backup data, you can't choose specific recovery points to delete. If you decide to delete your backup data, you delete all recovery points associated with the file share.
 
 The following procedure assumes that the protection was stopped for the file share.
 
