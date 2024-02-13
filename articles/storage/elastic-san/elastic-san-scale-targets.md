@@ -47,7 +47,7 @@ The following regions are regions with higher base storage capacity available, a
 |Resource  |Values  |
 |---------|---------|
 |Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
-|Maximum total capacity units (TiB)     | 600         |
+|Maximum capacity-only units (TiB)     | 600         |
 |Maximum base capacity units (TiB)     | 400         |
 |Minimum total SAN capacity (TiB)     | 1         |
 |Maximum total IOPS     |2,000,000         |
@@ -63,7 +63,7 @@ The following regions are regions with higher base storage capacity available, a
 |Resource  |Values  |
 |---------|---------|
 |Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
-|Maximum total capacity units (TiB)     | 100         |
+|Maximum capacity-only units (TiB)     | 100         |
 |Maximum base capacity units (TiB)     | 100         |
 |Minimum total SAN capacity (TiB)     | 1         |
 |Maximum total IOPS     |500,000         |
@@ -76,7 +76,7 @@ ZRS is only available in France Central, North Europe, West Europe and West US 2
 |Resource  |France Central  |North Europe | West Europe |West US 2    |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5        |5        |5        |
-|Maximum capacity units (TiB)     |200         |200        |200        |200        |
+|Maximum capacity-only units (TiB)     |200         |200        |200        |200        |
 |Maximum base capacity units (TiB)    |100         |100        |100        |100        |
 |Minimum total SAN capacity (TiB)    |1         |1        |1        |1        |
 |Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |

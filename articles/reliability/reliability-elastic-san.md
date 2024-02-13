@@ -61,5 +61,5 @@ Microsoft and its customers operate under the [Shared Responsibility Model](./av
 
 ## Next steps
 
-- [Plan for deploying an Elastic SAN Preview](../storage/elastic-san/elastic-san-planning.md)
-- [Snapshot Azure Elastic SAN Preview volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md)
+- [Plan for deploying an Elastic SAN](../storage/elastic-san/elastic-san-planning.md)
+- [Snapshot Azure Elastic SAN volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md)
