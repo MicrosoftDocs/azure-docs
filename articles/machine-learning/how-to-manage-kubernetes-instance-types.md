@@ -14,7 +14,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2
 
 # Create and manage instance types for efficient utilization of compute resources
 
-Instance types are an Azure Machine Learning concept that allows targeting certain types of compute nodes for training and inference workloads. For an Azure virtual machine, an example of an instance type is `STANDARD_D2_V3`.
+Instance types are an Azure Machine Learning concept that allows targeting certain types of compute nodes for training and inference workloads. For example, in an Azure virtual machine, an instance type is `STANDARD_D2_V3`. This article teaches you how to create and manage instance types for your computation requirements. 
 
 In Kubernetes clusters, instance types are represented in a custom resource definition (CRD) that's installed with the Azure Machine Learning extension. Two elements in the Azure Machine Learning extension represent the instance types:
 
