@@ -15,15 +15,11 @@ ms.custom: references_regions
 
 # Azure OpenAI on your data 
 
-Azure OpenAI on your data enables you to run advanced AI models such as GPT-35-Turbo and GPT-4 on your own enterprise data without needing to train or fine-tune models. Running models on your data enables you to chat on top of, and analyze your data with greater accuracy. You can create personalized copilots with your data to enhance user comprehension, expedite task completion, and aid decision making.
-
-Because the model has access to, and can reference specific sources to support its responses, answers aren't only based on its pretrained knowledge but also on the latest information available in the designated data source. This grounding data also helps the model avoid generating responses based on outdated or incorrect information.
+Use this article to learn about Azure OpenAI on your data, which makes it easier for developers to connect, ingest and ground their enterprise data to create personalized copilots easily and rapidly. It enhances user comprehension, expedites task completion, improves operational efficiency, and aids decision-making.
 
 ## What is Azure OpenAI on your data
 
-One of the key features of Azure OpenAI on your data is its ability to retrieve and utilize data in a way that enhances the model's output. This data is then augmented and resubmitted as a prompt to the OpenAI model, with retrieved  information being appended to the original prompt. The model uses this information to provide a completion. See the [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) article for more information. 
-
-You can access Azure OpenAI on your data using a REST API or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/) and [Azure AI Studio](https://ai.azure.com/) to create a copilot that connects to your data to enable an enhanced chat solution.
+Azure OpenAI on your data enables you to run advanced AI models such as GPT-35-Turbo and GPT-4 on your own enterprise data without needing to train or fine-tune models. You can chat on top of and analyze your data with greater accuracy. You can reference specific sources to support the responses based on the latest information available in your designated data sources. You can access Azure OpenAI on your data using a REST API, via the SDK or the web-based interface in the [Azure OpenAI Studio](https://oai.azure.com/). You can also create a web app that connects to your data to enable an enhanced chat solution or deploy it directly as a copilot in the Microsoft Copilot Studio.
 
 ## Get started
 
@@ -34,7 +30,7 @@ To get started, [connect your data source](../use-your-data-quickstart.md) using
 
 ## Azure Role-based access controls (Azure RBAC) for adding data sources
 
-To use Azure OpenAI on your data fully, you might need to set one or more Azure RBAC roles. See [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md#role-assignments) for more information.
+To use Azure OpenAI on your data fully, you need to set one or more Azure RBAC roles. See [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md#role-assignments) for more information.
 
 ### Data formats and file types
 
@@ -60,7 +56,7 @@ There's an [upload limit](../quotas-limits.md), and there are some caveats about
 
     This affects the quality of the model response. 
 
-* If your files have special formatting, such as tables and columns, or bullet points, prepare your data with the data preparation script [available on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#optional-crack-pdfs-to-text).
+* If your files have special formatting, such as tables and columns, or bullet points, prepare your data with the data preparation script available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#optional-crack-pdfs-to-text).
 
 * For documents and datasets with long text, you should use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#data-preparation). The script chunks data so that the model's responses are more accurate. This script also supports scanned PDF files and images.
 
@@ -87,6 +83,8 @@ You might want to consider using an Azure AI Search index when you either want t
 > [!NOTE]
 > To use an existing index, it must have at least one searchable field.
 
+## Search types
+
 Azure OpenAI on your data provides several search options you can use when you add your data source, using the following types of search.
 
 * [Keyword search](/azure/search/search-lucene-query-architecture)
@@ -98,7 +96,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 
 > [!IMPORTANT]
 > * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
-> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, and Arabic.
+> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following data source languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, and Arabic.
 
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
@@ -108,6 +106,10 @@ Azure OpenAI on your data provides several search options you can use when you a
 | *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
 | *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic, and keyword search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Uses vector embeddings, language understanding, and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
+## Intelligent search
+
+Azure OpenAI on your data has intelligent search enabled for your data. Semantic search is enabled by default if you have both semantic search and keyword search. If you have embedding models, intelligent search will default to hybrid + semantic search.
+
 ## Document-level access control
 
 > [!NOTE] 
@@ -116,7 +118,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 Azure OpenAI on your data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, the search results returned from Azure AI Search and used to generate a response are trimmed based on user Microsoft Entra group membership. You can only enable document-level access on existing Azure AI Search indexes See [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md) for more information.
 
 
-### Index field mapping 
+## Index field mapping 
 
 If you're using your own index, you will be prompted in the Azure OpenAI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
 
@@ -126,16 +128,16 @@ In this example, the fields mapped to **Content data** and **Title** provide inf
 
 Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../reference.md#completions-extensions) using the `fieldsMapping` parameter.   
 
-# [Azure blob storage (preview)](#tab/blob-storage)
+# [Azure Blob Storage (preview)](#tab/blob-storage)
 
-You might want to use Azure Blob Storage as a data source if you want to connect to existing Azure blob storage and use files stored in your containers.
+You might want to use Azure Blob Storage as a data source if you want to connect to existing Azure Blob Storage and use files stored in your containers.
 
-### Schedule automatic index refreshes
+## Schedule automatic index refreshes
 
 > [!NOTE] 
-> Automatic index refreshing is supported when you select an existing Azure Blob storage account.
+> Automatic index refreshing is supported when you select an existing Azure Blob Storage account.
 
-To keep your Azure AI Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
+To keep your Azure AI Search index up-to-date with your latest data, you can schedule an automatic index refresh rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **Azure Blob Storage** as the data source. To enable an automatic index refresh:
 
 1. [Add a data source](../quickstart.md) using Azure OpenAI studio.
 1. Under **Select or add data source** select **Indexer schedule** and choose the refresh cadence you would like to apply.
@@ -170,15 +172,13 @@ Using Azure OpenAI Studio, you can upload files from your machine. The service t
 
 # [Web pages (preview)](#tab/web-pages)
 
-Using Azure OpenAI Studio, you can paste URLs and the service will store the webpage content, using it when generating responses from the model. The content in URLs/web addresses that you use need to have the following characteristics to be properly ingested:
+You can paste URLs and the service will store the webpage content, using it when generating responses from the model. The content in URLs/web addresses that you use need to have the following characteristics to be properly ingested:
 
 * A public website, such as [Using your data with Azure OpenAI Service - Azure OpenAI | Microsoft Learn](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search). You can't add a URL/Web address with access control, such as ones with a password.
 * An HTTPS website.
 * The size of content in each URL is smaller than 5 MB.  
 * The website can be downloaded as one of the [supported file types](#data-formats-and-file-types).
-
-> [!TIP]
-> Only one layer of nested links is supported. Only up to 20 links, on the web page will be fetched.
+* Only one layer of nested links is supported. Only up to 20 links, on the web page will be fetched.
 
 <!--:::image type="content" source="../media/use-your-data/url.png" alt-text="A screenshot of the Azure OpenAI use your data url/webpage studio configuration page." lightbox="../media/use-your-data/url.png":::-->
 
@@ -186,7 +186,7 @@ Once you have added the URL/web address for data ingestion, the web pages from y
 
 ### Search options
 
-Azure OpenAI on your data provides several search options you can use when you add your data source, using the following types of search.
+Azure OpenAI on your data provides keyword search if you add URL as a data source.
 
 * [Keyword search](/azure/search/search-lucene-query-architecture)
 
@@ -207,7 +207,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 
 ### Data preparation
 
-Use the script [provided on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/feature/2023-9/scripts/cosmos_mongo_vcore_data_preparation.py) to prepare your data.
+Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/feature/2023-9/scripts/cosmos_mongo_vcore_data_preparation.py) to prepare your data.
 
 <!--### Add your data source in Azure OpenAI Studio
 
