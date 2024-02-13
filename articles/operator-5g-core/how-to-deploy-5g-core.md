@@ -3,7 +3,7 @@ title: How to Deploy Azure Operator 5G Core
 description: Learn how to deploy Azure Operator 5G core using Bicep Scripts, PowerShell, and Azure CLI.
 author: HollyCl
 ms.author: HollyCl
-ms.service: azure
+ms.service: operator-5g-core
 ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 02/09/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.

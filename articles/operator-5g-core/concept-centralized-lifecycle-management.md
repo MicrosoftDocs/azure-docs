@@ -3,9 +3,9 @@ title: Centralized lifecycle management in Azure Operator 5G Core
 description: Outlines the benefit of Azure Operator 5G Core's centralized lifecycle management feature.
 author: HollyCl
 ms.author: HollyCl
-ms.service: azure
+ms.service: operator-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 02/09/2024
+ms.date: 02/13/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---

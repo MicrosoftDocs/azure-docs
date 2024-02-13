@@ -3,9 +3,9 @@ title: Deploy Azure Operator 5G Core on Azure Kubernetes Service
 description: Learn how to deploy Azure Operator 5G Core on the Azure Kubernetes Service
 author: HollyCl
 ms.author: HollyCl
-ms.service: azure
+ms.service: operator-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 02/09/2024
+ms.date: 02/13/2024
 
 ---
 

@@ -3,9 +3,9 @@ title: Azure Operator 5G Core Deployment ordering for clusters, network function
 description: Outlines the deployment order for components on Azure Kubernetes Services or Nexus Azure Kubernetes Services
 author: HollyCl
 ms.author: HollyCl
-ms.service: azure
+ms.service: operator-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 02/09/2024
+ms.date: 02/13/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---

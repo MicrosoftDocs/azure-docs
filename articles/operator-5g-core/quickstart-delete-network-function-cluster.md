@@ -3,9 +3,9 @@ title: Delete a network function deployment and/or ClusterServices in Azure Oper
 description: Learn the high-level process to delete a network function deployment and/or ClusterServices.
 author: HollyCl
 ms.author: HollyCl
-ms.service: azure
+ms.service: operator-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 02/09/2024
+ms.date: 02/13/2024
 
 ---
 # Quickstart: Delete a network function deployment or ClusterServices in Azure Operator 5G Core
