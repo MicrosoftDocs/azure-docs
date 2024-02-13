@@ -19,7 +19,7 @@ Use the priority parameter wisely when using geomatch custom rules to avoid unne
 
 To make the paragraph easier to understand for a technical audience using present tense and active voice, you can rewrite it as follows:
 
-Always test your rules before applying them to production and regularly monitor their performance and impact. By following these best practices, you can enhance your web application security by leveraging the power of geomatch custom rules.
+Always test your rules before applying them to production and regularly monitor their performance and impact. By following these best practices, you can enhance your web application security by using the power of geomatch custom rules.
 
 This article introduces Azure WAF geomatch custom rules and shows you how to create and manage them using the Azure portal, Bicep and Azure PowerShell.
 
