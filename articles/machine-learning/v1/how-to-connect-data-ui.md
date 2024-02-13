@@ -62,7 +62,7 @@ Create a new datastore with the Azure Machine Learning studio.
 
 This screenshot shows the **Azure blob datastore** creation panel:
 
-    :::image type="content" source="media/how-to-connect-data-ui/new-datastore-form.png" lightbox="media/how-to-connect-data-ui/new-datastore-form.png" alt-text="Screenshot showing the Azure blob datastore creation panel.":::
+:::image type="content" source="media/how-to-connect-data-ui/new-datastore-form.png" lightbox="media/how-to-connect-data-ui/new-datastore-form.png" alt-text="Screenshot showing the Azure blob datastore creation panel.":::
 
 # [Identity-based](#tab/identity)
 
@@ -84,7 +84,7 @@ Reader role of the subscription and resource group
 
 This screenshot shows the **Azure blob datastore** creation panel:
 
-    :::image type="content" source="media/how-to-connect-data-ui/new-id-based-datastore-form.png" lightbox="media/how-to-connect-data-ui/new-id-based-datastore-form.png" alt-text="Screenshot showing the Azure blob datastore creation panel.":::
+:::image type="content" source="media/how-to-connect-data-ui/new-id-based-datastore-form.png" lightbox="media/how-to-connect-data-ui/new-id-based-datastore-form.png" alt-text="Screenshot showing the Azure blob datastore creation panel.":::
 
 ![Form for a new datastore](media/how-to-connect-data-ui/new-id-based-datastore-form.png)
 
