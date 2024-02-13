@@ -6,7 +6,7 @@ ms.reviewer: echung
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 02/08/2024
+ms.date: 02/13/2024
 ms.author: banders
 ---
 
