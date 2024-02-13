@@ -17,8 +17,10 @@ sections:
   - name: General
     questions:
       - question: |
-          What are the key differences between the Azure Cosmos DB for Cassandra and Apache Cassandra?
+          What are the key differences between Azure Cosmos DB for Cassandra and Apache Cassandra?
         answer: |
+          Here are some key differences between the API for Cassandra service and Apache Cassandra:
+
           - Apache Cassandra recommends a 100-MB limit on the size of a partition key. The API for Cassandra for Azure Cosmos DB allows up to 20 GB per partition.
           - Apache Cassandra allows you to disable durable commits. You can skip writing to the commit log and go directly to the in-memory data structure. This can lead to data loss if the node goes down before the in-memory data structures are flushed to SSTables on disk. Azure Cosmos DB always does durable commits to help prevent data loss.
           - Apache Cassandra can see diminished performance if the workload involves many replacements or deletions. The reason is tombstones that the read workload needs to skip over to fetch the latest data. The API for Cassandra won't see diminished read performance when the workload has many replacements or deletions.
@@ -26,11 +28,11 @@ sections:
           - Setting a replication factor of 1 is possible with Apache Cassandra. However, it leads to low availability if the only node with the data goes down. This isn't an issue with the API for Cassandra for Azure Cosmos DB because there's always a replication factor of 4 (quorum of 3).
           - Adding or removing nodes in Apache Cassandra requires manual intervention, along with high CPU usage on the new node while existing nodes move some of their token ranges to the new node. This situation is the same when you're decommissioning an existing node. However, the API for Cassandra scales out without any issues observed in the service or application.
           - There's no need to set **num_tokens** on each node in the cluster as in Apache Cassandra. Azure Cosmos DB fully manages nodes and token ranges.
-          - The API for Cassandra is fully managed. You don't need commands, such as repair and decommission, that are used in Apache Cassandra.
+          - The API for Cassandra is fully managed. You don't need commands, such as repair and decommission that are used in Apache Cassandra.
       - question: |
           What protocol version does the API for Cassandra support?
         answer: |
-          The API for Cassandra for Azure Cosmos DB supports CQL version 3.x. Its CQL compatibility is based on the public [Apache Cassandra GitHub repository](https://github.com/apache/cassandra/blob/trunk/doc/cql3/CQL.textile). If you have feedback about supporting other protocols, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+          The API for Cassandra for Azure Cosmos DB supports Cassandra Query Language (CQL) m version 3.x. Its CQL compatibility is based on the public [Apache Cassandra GitHub repository](https://github.com/apache/cassandra/blob/trunk/doc/cql3/CQL.textile). If you have feedback about supporting other protocols, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
       - question: |
           Why is choosing throughput for a table a requirement?

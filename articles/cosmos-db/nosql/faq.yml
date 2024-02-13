@@ -79,7 +79,7 @@ sections:
           - Reading or replacing database throughput
           - Reading or replacing container throughput
 
-          For more information, see [Azure Cosmos DB control-plane role-based access control](../role-based-access-control).
+          For more information, see [Azure Cosmos DB control-plane role-based access control](../role-based-access-control.md).
 
           Data-plane authentication uses a custom API for NoSQL-native role-based access control implementation. With this native implementation, you can also use preconfigured or custom roles. With native role-based access control, you can execute queries, manage items, or perform other common operations. The data-plane includes operations including, but not limited to these examples.
 
@@ -87,7 +87,7 @@ sections:
           - Patching items
           - Executing queries
 
-          For more information, see [Azure Cosmos DB data-plane role-based access control](../how-to-setup-role-based access control.md).
+          For more information, see [Azure Cosmos DB data-plane role-based access control](../how-to-setup-rbac.md).
       - question: |
           Does Azure Cosmos DB for NoSQL support the SQL query language?
         answer: |
@@ -106,6 +106,7 @@ sections:
           How can I bulk-insert documents into Azure Cosmos DB for NoSQL?
         answer: |
           Use the bulk import feature in the [.NET SDK](tutorial-dotnet-bulk-import.md) or the [Java SDK](bulk-executor-java.md) for the API for NoSQL to import large sets of data. This feature optimizes provisioned throughput to import large sets of data.
+
           Alternatively, use [Apache Spark](tutorial-spark-connector.md) to import data at scale using Python or Scala.
       - question: |
           Does Azure Cosmos DB for NoSQL support resource link caching?

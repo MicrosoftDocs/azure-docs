@@ -43,7 +43,7 @@ sections:
         answer: |
           The RU and vCore services have different architectures with important billing differences.
 
-          The RU service variant is a multitenant service that instantly allocates resources to your workload, aligning with storage and throughput requirements. Throughput for this service is based on [request units](../request-units.md). This service is optimized for users who prefer to pay fixed (standard provisioned throughput) or variable (autoscale) fees corresponding to Request Units (RUs) and consumed storage. Actual RU charges depend on the selected model: provisioned throughput (standard or autoscale) or serverless.
+          The RU service variant is a multitenant service that instantly allocates resources to your workload, aligning with storage and throughput requirements. Throughput for this service is based on [request units](../../request-units.md). This service is optimized for users who prefer to pay fixed (standard provisioned throughput) or variable (autoscale) fees corresponding to Request Units (RUs) and consumed storage. Actual RU charges depend on the selected model: provisioned throughput (standard or autoscale) or serverless.
 
           The vCore service variant creates dedicated instances that utilize preset CPU, memory, and storage resources, which can dynamically scale to suit your needs. This service is optimized for users who prefer to pay a consistent flat fee based on compute (CPU, memory, and the number of nodes) and storage.         
 additionalContent: |
