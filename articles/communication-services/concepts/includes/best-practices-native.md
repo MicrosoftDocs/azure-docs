@@ -79,7 +79,7 @@ Implementing **logging** as per the [logs file retrieval tutorial](../../tutoria
 
 ## Track Call ID
 
-When troubleshooting happens for voice or video calls, you're asked to provide a **`CallID`**; this ID is used to identify Communication Services calls. You **should** track the `CallID` in the telemetry that you configure in your app, you can follow the guidelines in the [troubleshooting guide](../troubleshooting-info.md).
+**`CallID`** is the unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, in Most cases you use it to review the logs and  Microsoft Support team ask for it to help troubleshoot the calls. You **should** track the `CallID` in your telemetry that you configure in your app, you can follow the guidelines in the [troubleshooting guide](../troubleshooting-info.md) to understand how to retrieve it for each platform.
 
 ## Subscribe to UFD (User Facing Diagnostics) and media quality statistics
 
