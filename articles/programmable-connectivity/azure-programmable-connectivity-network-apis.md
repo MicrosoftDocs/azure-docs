@@ -18,4 +18,4 @@ Azure Programmable Connectivity (APC) uses these network APIs to provide a unifi
 
 APC is now available in public preview with several APIs, including number verification, SIM swap and other capabilities.  
   
-   :::image type="content" source="media/key-apis.jpg" alt-text="Diagram showing key network APIs.":::  
+   :::image type="content" source="media/key-apis.jpg" alt-text="Diagram showing key network APIs." lightbox="media/key-apis.jpg":::  
