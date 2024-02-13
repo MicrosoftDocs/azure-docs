@@ -7,7 +7,6 @@ ms.subservice: hpc
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 04/21/2023
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.author: jushiman

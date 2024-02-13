@@ -8,7 +8,6 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 05/09/2023
 adobe-target: true
-ms.custom: contperf-fy22q4
 ---
 
 # What is Azure Load Testing?

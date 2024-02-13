@@ -5,7 +5,6 @@ ms.date: 12/19/2023
 ms.topic: include
 author: jboback
 ms.author: jboback
-ms.custom: ignite-fall-2021
 ---
 
 ## Prerequisites
@@ -162,4 +161,3 @@ This example will return a result of:
   ]
 }
 ```
-

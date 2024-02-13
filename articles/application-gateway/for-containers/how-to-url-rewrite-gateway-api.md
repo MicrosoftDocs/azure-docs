@@ -84,7 +84,7 @@ RESOURCE_GROUP='<resource group name of the Application Gateway For Containers r
 RESOURCE_NAME='alb-test'
 
 RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='frontend'
+FRONTEND_NAME='test-frontend'
 ```
 
 2. Create a Gateway

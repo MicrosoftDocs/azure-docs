@@ -2,7 +2,6 @@
 title: Create callable or nestable workflows
 description: Create workflows that receive inbound requests over HTTPS in Azure Logic Apps.
 services: logic-apps
-ms.workload: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23

@@ -8,7 +8,6 @@ ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
   - mode-ui
 ---

@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 7/27/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -15,23 +15,27 @@ ms.author: eur
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ## Set up the environment
+
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
 
 ### Set environment variables
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Diarization from file with conversation transcription
+## Implement diarization from file with conversation transcription
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio Community 2022 named `ConversationTranscription`.
-1. Install the Speech SDK in your new project with the NuGet package manager.
-    ```powershell
+1. Create a new C++ console project in [Visual Studio Community 2022](https://visualstudio.microsoft.com/downloads/) named `ConversationTranscription`.
+
+1. Select **Tools** > **Nuget Package Manager** > **Package Manager Console**. In the **Package Manager Console**, run this command:
+
+    ```console
     Install-Package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of `ConversationTranscription.cpp` with the following code:
-    
+
+1. Replace the contents of `ConversationTranscription.cpp` with the following code.
+
     ```cpp
     #include <iostream> 
     #include <stdlib.h>
@@ -134,20 +138,23 @@ Follow these steps to create a new console application and install the Speech SD
     }
     ```
 
-1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/sampledata/audiofiles/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
-    > [!NOTE]
-    > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
-1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
+1. Get the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/sampledata/audiofiles/katiesteve.wav) or use your own `.wav` file. Replace `katiesteve.wav` with the path and name of your `.wav` file.
 
+   The application recognizes speech from multiple participants in the conversation. Your audio file should contain multiple speakers.
 
-[Build and run](/cpp/build/vscpp-step-2-build) your application to start conversation transcription:
+   > [!NOTE]
+   > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 
-> [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md).
 
-The transcribed conversation should be output as text: 
+1. [Build and run](/cpp/build/vscpp-step-2-build) your application to start conversation transcription:
 
-```console
+   > [!IMPORTANT]
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+
+The transcribed conversation should be output as text:
+
+```output
 TRANSCRIBED: Text=Good morning, Steve. Speaker ID=Unknown
 TRANSCRIBED: Text=Good morning. Katie. Speaker ID=Unknown
 TRANSCRIBED: Text=Have you tried the latest real time diarization in Microsoft Speech Service which can tell you who said what in real time? Speaker ID=Guest-1
