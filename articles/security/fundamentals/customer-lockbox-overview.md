@@ -76,6 +76,9 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 1. Someone at an organization has an issue with their Azure workload.
 1. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
+> [!NOTE]
+> Please make sure the support ticket was created from Azure Portal. Otherwise the Lockbox flow will not work.
+
 1. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 1. If the support engineer can't troubleshoot the issue by using standard tools and service generated data, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
 1. After the access request is submitted by the Azure Engineer, Just-In-Time service evaluates the request taking into account factors such as:
