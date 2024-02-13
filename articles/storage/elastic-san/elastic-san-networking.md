@@ -1,17 +1,17 @@
 ---
-title: Configure networking for Azure Elastic SAN Preview
-description: Learn how to configure access to an Azure Elastic SAN Preview.
+title: Configure networking for Azure Elastic SAN
+description: Learn how to configure access to an Azure Elastic SAN.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 11/29/2023
+ms.date: 02/13/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Configure network access for Azure Elastic SAN Preview
+# Configure network access for Azure Elastic SAN
 
-You can control access to your Azure Elastic storage area network (SAN) Preview volumes. Controlling access allows you to secure your data and meet the needs of your applications and enterprise environments.
+You can control access to your Azure Elastic storage area network (SAN) volumes. Controlling access allows you to secure your data and meet the needs of your applications and enterprise environments.
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 
@@ -489,6 +489,6 @@ After you have enabled the desired endpoints and granted access in your network 
 
 ## Next steps
 
-- [Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
-- [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
-- [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
+- [Connect Azure Elastic SAN volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
+- [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md)
+- [Connect to Elastic SAN volumes - Windows](elastic-san-connect-windows.md)
