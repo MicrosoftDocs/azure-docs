@@ -57,7 +57,7 @@ The previous embeddings models have been consolidated into the following new rep
 
 ## DALL-E
 
-The DALL-E models generate images from text prompts that the user provides.
+The DALL-E models generate images from text prompts that the user provides. DALL-E 3 is generally available for use with the REST APIs. DALL-E 2 and DALL-E 3 with client SDKs are in private preview.
 
 ## Whisper (Preview)
 
@@ -185,8 +185,8 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 |  Model ID  | Feature Availability | Max Request (characters) |
 |  --- |  --- | :---: |
-| dalle2 | East US | 1,000 |
-| dalle3 | Sweden Central | 4,000 |
+| dalle2 (preview) | East US | 1,000 |
+| dalle3 | East US, Australia East, Sweden Central | 4,000 |
 
 ### Fine-tuning models
 
