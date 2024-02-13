@@ -19,7 +19,10 @@ The Azure Operator 5G Core Resource Provider (RP) is responsible for the lifecyc
 - User Plane Function (UPF)
 - Network Repository Function (NRF)
 - Network Slice Selection Function (NSSF)
-- Containerized Mobility Management Entity (cMME)
+- Mobility Management Entity (MME)
+
+ > [!NOTE]
+>  AMF and MME can be deployed as combined network functions by adjusting the helm manifests. 
 
 Lifecycle Management consists of the following operations:
 - Instantiation
@@ -33,7 +36,7 @@ The Azure Resource Manager (ARM) model that is used for lifecycle management is 
 
 :::image type="content" source="media/concept-centralized-lifecycle-management/lifecycle-management-model.png" alt-text="Diagram showing the containerized network functions and virtualized network functions responsible for lifecycle management in Azure Operator 5G Core.":::
 
-Network function deployments require fully deployed local Platform as a Service (PaaS) components (ClusterServices resource). Any attempt to deploy a network function resource before the ClusterServices deployment fails. ARM templates are serial in nature and don't proceed until dependent templates are complete. This process prevents network function templates from being deployed before the ClusterServices template is complete. Observability deployments also fail if local PaaS deployment is incomplete.
+Network function deployments require fully deployed local Platform as a Service (PaaS) components (provided by the ClusterServices resource). Any attempt to deploy a network function resource before the ClusterServices deployment fails. ARM templates are serial in nature and don't proceed until dependent templates are complete. This process prevents network function templates from being deployed before the ClusterServices template is complete. Observability deployments also fail if local PaaS deployment is incomplete.
 
 The deployments for cMME and AnyG are variations on the existing helm charts. Creation of these functions is a matter of specifying different input Helm values. The Azure Operator 5G Core RP uses the Network Function Manager (NFM) Resource Provider to perform this activity. 
 
