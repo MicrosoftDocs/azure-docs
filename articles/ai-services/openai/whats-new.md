@@ -16,6 +16,16 @@ recommendations: false
 
 # What's new in Azure OpenAI Service
 
+## February 2024
+
+### DALL-E 3 general availability
+
+The REST API for the DALL-E 3 image generation model is now in GA. The client library SDKs are in private preview.
+
+Also, you can now access DALL-E 3 with an Azure OpenAI resource in the `East US` or `AustraliaEast` Azure region, in addition to `SwedenCentral`.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
 ## December 2023
 
 ### Azure OpenAI on your data
