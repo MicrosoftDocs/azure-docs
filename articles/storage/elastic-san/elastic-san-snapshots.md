@@ -159,3 +159,7 @@ Currently, you can only use the Azure portal to create Elastic SAN volumes from 
 1. Select **Create volume**.
 1. For **Source type** select **Disk snapshot** and fill out the rest of the values.
 1. Select **Create**.
+
+## Limitations
+
+- If a volume is larger than 4 TiB, export of a volume snapshot to a disk snapshot is not supported.
