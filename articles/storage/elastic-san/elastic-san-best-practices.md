@@ -45,7 +45,7 @@ mpclaim -L -M 2
 Set-MPIOSetting -NewDiskTimeout 30
 ```
 
-For more information regarding MPIO cmdlets, see [https://learn.microsoft.com/en-us/powershell/module/mpio/?view=windowsserver2022-ps](/powershell/module/mpio/?view=windowsserver2022-ps)
+For more information regarding MPIO cmdlets, see [MPIO reference](/powershell/module/mpio/).
 
 #### Linux
 
