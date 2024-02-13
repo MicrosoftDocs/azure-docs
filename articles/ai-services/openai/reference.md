@@ -2,7 +2,6 @@
 title: Azure OpenAI Service REST API reference
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's REST API. In this article, you learn about authorization options,  how to structure a request and receive a response.
-#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
@@ -1362,5 +1361,5 @@ Azure OpenAI is deployed as a part of the Azure AI services. All Azure AI servic
 
 ## Next steps
 
-Learn about [Models, and fine-tuning with the REST API](/rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview).
+Learn about [Models, and fine-tuning with the REST API](/rest/api/azureopenai/fine-tuning).
 Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).
