@@ -237,6 +237,9 @@ Template definition:
 
 #### Send Text Message
 
+> [!NOTE]
+> Business can't start a conversation with a text message. It needs to be user initiated.
+
 ```java
         SendMessageResult result = notificationClient.send(
             new TextNotificationContent("<CHANNEL_ID>", recipients, "Hello from ACS messaging"));
@@ -246,6 +249,10 @@ Template definition:
 ```
 
 #### Send Media Message
+
+> [!NOTE]
+> Business can't start a conversation with a media message. It needs to be user initiated.
+
 ```java
         String mediaUrl = "https://wallpapercave.com/wp/wp2163723.jpg";
         SendMessageResult result = notificationClient.send(

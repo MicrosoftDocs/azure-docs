@@ -69,13 +69,6 @@ npm install @azure-rest/communication-messages --save
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for JavaScript.
-
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-
 ## Authenticate the client
 
 #### [Connection String](#tab/connection-string)
