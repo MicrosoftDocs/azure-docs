@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 ms.custom: mktng-kw-nov2021
-ms.date: 02/12/2024
+ms.date: 02/13/2024
 ---
 
 # MLOps: Model management, deployment, and monitoring with Azure Machine Learning
@@ -52,7 +52,7 @@ For more information on Azure Machine Learning pipelines, see [Machine learning 
 
 ## Create reusable software environments
 
-By using Azure Machine Learning environments, you can track and reproduce yor projects' software dependencies as they evolve. You can use environments to ensure that builds are reproducible without manual software configurations.
+By using Azure Machine Learning environments, you can track and reproduce your projects' software dependencies as they evolve. You can use environments to ensure that builds are reproducible without manual software configurations.
 
 Environments describe the pip and conda dependencies for your projects. You can use environments for model training and deployment. For more information on environments, see [What are Azure Machine Learning environments?](concept-environments.md).
 
@@ -64,7 +64,7 @@ The following sections discuss how to register, package, and deploy models.
 
 With model registration, you can store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
 
-A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register the files as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the component files.
+A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register the files as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the component files.
 
 You can identify registered models by name and version. Whenever you register a model with the same name as an existing model, the registry increments the version number. You can provide metadata tags during registration and use these tags when you search for a model. Azure Machine Learning supports any model that can be loaded by using Python 3.5.2 or higher.
 
@@ -81,7 +81,7 @@ For more information on how to use models in Azure Machine Learning, see [Work w
 
 Before you deploy a model into production, it needs to be packaged into a Docker image. In most cases, image creation automatically happens in the background during deployment; however, you can manually specify the image.
 
-It's useful to first deploy to your local development environment so that you can troubleshoot and debug before deploying to the cloud. This practice an help you avoid having problems with your deployment to Azure Machine Learning. For more information on how to resolve common deployment issues, see [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
+It's useful to first deploy to your local development environment so that you can troubleshoot and debug before deploying to the cloud. This practice can help you avoid having problems with your deployment to Azure Machine Learning. For more information on how to resolve common deployment issues, see [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
 ### Convert and optimize models
 
@@ -98,9 +98,9 @@ When deploying a model as an endpoint, you need to provide the following items:
 * The __model__ that is used to score data submitted to the service or device.
 * An __entry script__<sup>1</sup>. This script accepts requests, uses the models to score the data, and returns a response.
 * An __environment__<sup>2</sup> that describes the pip and conda dependencies required by the models and entry script.
-* Any __other assets__, such as text and data, that are required by the models and entry script.
+* Any __other assets__, such as text and data that are required by the models and entry script.
 
-You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores. When the image is created, components required by Azure Machine Learning, such as assets needed to run the web service, are also added.
+You also provide the configuration of the target deployment platform. For example, the virtual machine (VM) family type, available memory, and number of cores. When the image is created, components required by Azure Machine Learning, such as assets needed to run the web service, are also added.
 
 <sup>1,2</sup> When you deploy an MLflow model, you don't need to provide an entry script, also known as a scoring script. You also don't need to provide an environment for the deployment. For more information on deploying MLflow models, see [Guidelines for deploying MLflow models](how-to-deploy-mlflow-models.md).
 
@@ -136,7 +136,7 @@ For more information on deployment using a controlled rollout, see [Perform safe
 
 ### Analytics
 
-Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI)](/power-bi/service-machine-learning-integration.md#azure-machine-learning-integration-in-power-bi).
+Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI](/power-bi/transform-model/dataflows/dataflows-machine-learning-integration.md#azure-machine-learning-integration-in-power-bi). 
 
 ## Capture the governance data required for MLOps
 
@@ -157,9 +157,9 @@ Azure Machine Learning publishes key events to Azure Event Grid, which can be us
 
 ## Automate the machine learning lifecycle
 
-You can use GitHub and [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to create a continuous integration process that trains a model. In a typical scenario, when a data scientist checks a change into a project's Git repo, Azure Pipelines starts a training job. The results of the job can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
+You can use GitHub and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to create a continuous integration process that trains a model. In a typical scenario, when a data scientist checks a change into a project's Git repo, Azure Pipelines starts a training job. The results of the job can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
-The [Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) makes it easier to work with Azure Pipelines. It provides the following enhancements to Azure Pipelines:
+The [Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) makes it easier to work with Azure Pipelines. The extension provides the following enhancements to Azure Pipelines:
 
 * Enables workspace selection when you define a service connection.
 * Enables release pipelines to be triggered by trained models created in a training pipeline.
