@@ -78,12 +78,13 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 | Table | String |  The name of the table to write to.  | Yes | - |  |
 | File path<sup>1</sup> | [Template](../process-data/concept-configuration-patterns.md#templates) |  The file path for where to write the parquet file to.  | No | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}` |  |
 | Batch<sup>2</sup> | [Batch](../process-data/concept-configuration-patterns.md#batch) |  How to [batch](../process-data/concept-configuration-patterns.md#batch) data. | No | `60s` | `10s`  |
-| Authentication<sup>3</sup> | The authentication details to connect to Microsoft Fabric.  | Service principal | Yes | - |
+| Authentication<sup>3</sup> | The authentication details to connect to Microsoft Fabric.  | Service principal | Yes | - | |
+| Retry | [Retry](../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |
 | Columns&nbsp;>&nbsp;Type<sup>4</sup> | string enum | The type of data held in the column, using one of the [Delta primitive types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types). | Yes | | `integer` |
 | Columns&nbsp;>&nbsp;Path | [Path](../process-data/concept-configuration-patterns.md#path) | The location within each record of the data from where to read the value of the column. | No | `.{{name}}` | `.temperature` |
 
-File path<sup>1</sup>: To write files to Microsoft Fabric, you need a file path. You can use [templates](../process-data/concept-configuration-patterns.md#templates) to configure file paths. File paths must contain the following components in any order:
+<sup>1</sup>File path: To write files to Microsoft Fabric, you need a file path. You can use [templates](../process-data/concept-configuration-patterns.md#templates) to configure file paths. File paths must contain the following components in any order:
 
 - `instanceId`
 - `pipelineId`
@@ -97,11 +98,11 @@ File path<sup>1</sup>: To write files to Microsoft Fabric, you need a file path.
 
 The files names are incremental integer values as indicated by `fileNumber`. Be sure to include a file extension if you want your system to recognize the file type.
 
-Batching<sup>2</sup>: Batching is mandatory when you write data to Microsoft Fabric. The destination stage [batches](../process-data/concept-configuration-patterns.md#batch) messages over a configurable time interval.
+<sup>2</sup>Batching: Batching is mandatory when you write data to Microsoft Fabric. The destination stage [batches](../process-data/concept-configuration-patterns.md#batch) messages over a configurable time interval.
 
 If you don't configure a batching interval, the stage uses 60 seconds as the default.
 
-Authentication<sup>3</sup>: Currently, the destination stage supports service principal based authentication when it connects to Microsoft Fabric. In your Microsoft Fabric destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
+<sup>3</sup>Authentication: Currently, the destination stage supports service principal based authentication when it connects to Microsoft Fabric. In your Microsoft Fabric destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
 
 | Field | Description | Required |
 | --- | --- | --- |
@@ -109,7 +110,7 @@ Authentication<sup>3</sup>: Currently, the destination stage supports service pr
 | ClientId | The app ID you made a note of when you created the service principal that has access to the database.  | Yes |
 | Secret | The secret reference you created in your cluster.   | Yes |
 
-Type<sup>4</sup>: The data processor writes to Microsoft Fabric by using the delta format. The data processor supports all [delta primitive data types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types) except for `decimal` and `timestamp without time zone`.
+<sup>4</sup>Type: The data processor writes to Microsoft Fabric by using the delta format. The data processor supports all [delta primitive data types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types) except for `decimal` and `timestamp without time zone`.
 
 To ensure all dates and times are represented correctly in Microsoft Fabric, make sure the value of the property is a valid RFC 3339 string and that the data type is either `date` or `timestamp`.
 
@@ -182,6 +183,11 @@ The following JSON example shows a complete Microsoft Fabric lakehouse destinati
     "batch": {
         "time": "5s",
         "path": ".payload"
+    },
+    "retry": {
+        "type": "fixed",
+        "interval": "20s",
+        "maxRetries": 4
     }
 }
 ```

@@ -42,6 +42,8 @@ Key Data Processor features include:
 
 - As a data agnostic data processing platform, Data Processor can ingest data in any format, process the data, and then write it out to a destination. To support these capabilities, Data Processor can deserialize and serialize various formats. For example, it can serialize to parquet in order to write files to Microsoft Fabric.
 
+- Automatic and configurable retry policies to handle transient errors when sending data to cloud destinations.
+
 ## What is a pipeline?
 
 A Data Processor pipeline has an input source where it reads data from, a destination where it writes processed data to, and a variable number of intermediate stages to process the data.
@@ -75,7 +77,6 @@ Data Processor pipelines can use the following stages:
 | [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean and contextualized data to a gRPC endpoint. |
 | [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
 | [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean and contextualized data to an Azure Data Explorer endpoint in the cloud. |
-
 
 ## Next step
 

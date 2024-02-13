@@ -52,7 +52,7 @@ The HTTP call out stage JSON configuration defines the details of the stage. To 
 | API Response&nbsp;>&nbsp;Header | Path | The [Path](concept-configuration-patterns.md#path) to the property in the outgoing message to store the response header in. Leave empty if you don't need the response metadata. | No | - | `.payload.httpResponseHeader` |
 | API Response&nbsp;>&nbsp;Status | Path | The [Path](concept-configuration-patterns.md#path) to the property in the outgoing message to store the response status in. Leave empty if you don't need the response status. | No | - | `.payload.httpResponseStatus` |
 
-**API request&nbsp;>&nbsp;Header<sup>1</sup>**: Each element in the header array is a key value pair. You can set the key or value dynamically based on the content of the incoming message or as a static string.
+**<sup>1</sup>API request&nbsp;>&nbsp;Header**: Each element in the header array is a key value pair. You can set the key or value dynamically based on the content of the incoming message or as a static string.
 
 ### Message formats
 

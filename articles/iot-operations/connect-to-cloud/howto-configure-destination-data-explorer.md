@@ -77,11 +77,12 @@ The Azure Data Explorer destination stage JSON configuration defines the details
 | Database | String | The database name.  | Yes | - | |
 | Table | String |  The name of the table to write to.  | Yes | - |  |
 | Batch | [Batch](../process-data/concept-configuration-patterns.md#batch) | How to [batch](../process-data/concept-configuration-patterns.md#batch) data.  | No | `60s` | `10s`  |
-| Authentication<sup>1</sup> | The authentication details to connect to Azure Data Explorer.  | Service principal | Yes | - |
+| Retry | [Retry](../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
+| Authentication<sup>1</sup> | The authentication details to connect to Azure Data Explorer.  | Service principal | Yes | - | |
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |
 | Columns&nbsp;>&nbsp;Path | [Path](../process-data/concept-configuration-patterns.md#path) | The location within each record of the data where the value of the column should be read from. | No | `.{{name}}` | `.temperature` |
 
-Authentication<sup>1</sup>: Currently, the destination stage supports service principal based authentication when it connects to Azure Data Explorer. In your Azure Data Explorer destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
+<sup>1</sup>Authentication: Currently, the destination stage supports service principal based authentication when it connects to Azure Data Explorer. In your Azure Data Explorer destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
 
 | Field | Description | Required |
 | --- | --- | --- |
@@ -149,7 +150,12 @@ The following JSON example shows a complete Azure Data Explorer destination stag
             "name": "IsSpare",
             "path": ".IsSpare"
         }
-    ]
+    ],
+    "retry": {
+        "type": "fixed",
+        "interval": "20s",
+        "maxRetries": 4
+    }
 }
 ```
 
