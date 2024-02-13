@@ -60,7 +60,7 @@ The following tables list the properties for Azure Storage resource logs when th
 ### Fields that describe the service
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
-#
+
 <!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.Storage resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftstorage)
