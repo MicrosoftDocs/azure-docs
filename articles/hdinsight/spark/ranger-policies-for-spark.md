@@ -1,46 +1,56 @@
 ---
-title: Configure Apache Spark policies in HDInsight with ESP 
+title: Configure Apache Ranger policies for Spark SQL in HDInsight with ESP 
 description: This article describes how to configure Ranger policies for Spark SQL with Enterprise security package.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 12/21/2023
+ms.date: 02/12/2024
 ---
 
-# Configure Apache Spark policies in HDInsight with ESP 
+# Configure Apache Ranger policies for Spark SQL in HDInsight with ESP
 
-This article describes how to configure Ranger policies for Spark SQL with Enterprise security package.
+This article describes how to configure Ranger policies for Spark SQL with Enterprise security package in HDInsight.
 
 In this tutorial, you'll learn,
-- To create a Ranger policy 
-- Create table using Spark SQL 
+- Create Apache Ranger policies 
 - Verify the applied Ranger policies 
+- Guideline for setting Apache Ranger for Spark SQL 
 
 ## Prerequisites 
 
-An Apache Spark cluster in HDInsight with [Enterprise Security Package](../domain-joined/apache-domain-joined-configure-using-azure-adds.md).
+An Apache Spark cluster in HDInsight version 5.1 with [Enterprise Security Package](../domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## Connect to Apache Ranger Admin UI 
 
-1. From a browser, connect to the Ranger Admin user interface using the URL `https://ClusterName.azurehdinsight.net/Ranger/`. Remember to change `ClusterName` to the name of your Spark cluster. Ranger credentials are not the same as Hadoop cluster credentials. To prevent browsers from using cached Hadoop credentials, use a new InPrivate browser window to connect to the Ranger Admin UI. 
+1. From a browser, connect to the Ranger Admin user interface using the URL `https://ClusterName.azurehdinsight.net/Ranger/`.
+  
+   Remember to change `ClusterName` to the name of your Spark cluster. 
+   
 1. Sign in using your Microsoft Entra admin credentials. The Microsoft Entra admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials. 
 
-:::image type="content" source="./media/ranger-policies-for-spark/microsoft-admin.png" alt-text="Screenshot shows the Create Alert Notification dialog box." lightbox="./media/ranger-policies-for-spark/microsoft-admin.png":::
+:::image type="content" source="./media/ranger-policies-for-spark/ranger-spark.png" alt-text="Screenshot shows the create alert notification dialog box." lightbox="./media/ranger-policies-for-spark/ranger-spark.png":::
 
 ## Create Domain users 
 
-See [Create a HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), for information on how to create sparkuser1 and sparkuser2. You can use the two user accounts. 
+See [Create a HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), for information on how to create **sparkuser1**  domain users. In a production scenario, domain users come from your Active Directory tenant.
 
 ## Create Ranger policy 
 
-This section guides you through the process of creating two Ranger policies to access hivesampletable from spark-sql. It involves granting select permissions on different sets of columns, allowing for customized control over data access.  
+In this section, you create two Ranger policies  
 
-**To create Ranger policies** 
+- [Access policy for accessing “hivesampletable” from spark-sql](#create-ranger-access-policies] 
+- [Masking policy for obfuscating the columns in hivesampletable](#create-ranger-masking-policies] 
 
-1. Open Ranger Admin UI. See Connect to Apache Ranger Admin UI. 
+### To create Ranger policies
 
-1. Select **CLUSTERNAME_Hive_and_Spark** or **hive_and_spark**, under **Hadoop SQL**.  
+1. Open Ranger Admin UI. 
 
-1. Select **Add New Policy**, and then enter the following values: 
+1. Select  **hive_and_spark**, under **Hadoop SQL**.
+
+   :::image type="content" source="./media/ranger-policies-for-spark/ranger-spark.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/ranger-spark.png":::
+
+1. Select **Add New Policy** under **Access** tab, and then enter the following values:
+
+   :::image type="content" source="./media/ranger-policies-for-spark/add-new-policy-screenshot.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/add-new-policy-screenshot.png":::
 
      |Property |Value | 
     |---|---| 
@@ -51,62 +61,169 @@ This section guides you through the process of creating two Ranger policies to a
     |Select User|sparkuser1| 
     |Permissions|select| 
 
+     :::image type="content" source="./media/ranger-policies-for-spark/sample-policy-details.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/sample-policy-details.png":::
 
-    > [!NOTE]   
-    > If a domain user is not populated in Select User, wait a few moments for Ranger to sync with AAD. 
-
+   Wait a few moments for Ranger to sync with Microsoft Entra ID if a domain user is not automatically populated for Select User. 
 
 1. Select **Add** to save the policy. 
 
-1. Create a table sparksampletable using Jupyter/Zepplin notebook in your cluster 
+1. Open Zepplin notebook and run the following command to verify the policy. 
+ 
+     ```%sql 
 
-    - Create table sparksampletable as  `
-      `Select clientid, devicemake, country from hivesampletable `
+          select * from hivesampletable limit 10;
+     ```
 
-1. Now, Create another policy with the following properties using Ranger Admin UI 
+     Result before policy was saved
+   
+        :::image type="content" source="./media/ranger-policies-for-spark/result-before-access-policy.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/result-before-access-policy.png":::
+
+     Result after policy is applied
+
+        :::image type="content" source="./media/ranger-policies-for-spark/result-after-access-policy.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/result-after-access-policy.png":::
+
+#### Create Ranger masking policy 
+ 
+
+The following example will explain how to create a policy to mask a column 
+
+1. Create another policy under **Masking** tab with the following properties using Ranger Admin UI 
+
+       :::image type="content" source="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/add-new-masking-policy-screenshot.png":::
+ 
 
     |Property |Value | 
+
     |---|---| 
-    |Policy Name|read-sparksampletable-devicemake| 
+
+    |Policy Name| mask-hivesampletable | 
+
     |Hive Database|default| 
-    |Hive table|sparksampletable| 
-    |Hive column|querytime| 
+
+    |Hive table| hivesampletable| 
+
+    |Hive column|devicemake| 
+
     |Select User|sparkuser2| 
+
     |Permissions|select| 
-    |Masking options|Nullify| 
+
+   |Masking options|hash| 
+
+ 
+
+     :::image type="content" source="./media/ranger-policies-for-spark/masking-policy-details.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/masking-policy-details.png":::
+ 
+
+1. Select **Save** to save the policy. 
+
+1. Open Zeppelin notebook and run the following command to verify the policy. 
+
+      ```%sql 
+     
+          select clientId, deviceMake from hivesampletable; 
+     ```
+     :::image type="content" source="./media/ranger-policies-for-spark/open-zipline-notebook.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/open-zipline-notebook.png":::
+
+ 
+
+> [!NOTE]   
+>By default, the policies for hive and spark-sql will be common in Ranger. To have the separate policies for hive 
+
+ 
+ 
+### Known issues 
+ 
+1. Apache Ranger Spark-sql integration will not work if Ranger admin is down. 
+
+1. Ranger DB could be overloaded if >20 spark sessions are launched concurrently because of continuous policy pulls. 
+ 
+1. In Ranger Audit logs, “Resource” column, on hover, doesn’t show the entire query which got executed. 
+ 
+ 
+ 
+  
+## Guideline for setting up Apache Ranger for Spark-sql 
+ 
+**Scenario 1**: Using new Ranger database while creating HDInsight 5.1 Spark cluster 
+ 
+When the cluster is created, the relevant Ranger repo containing the Hive and Spark Ranger policies will be created under the name <hive_and_spark> in the Hadoop SQL service on the Ranger DB. 
+ 
+:::image type="content" source="./media/ranger-policies-for-spark/ranger-spark.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/ranger-spark.png":::
+
+ 
+
+You can edit the policies and these policies gets applied to both Hive and Spark. 
+ 
+Points to consider: 
+
+1.In case you have two metastore databases with the same name used for both hive (e.g. DB1) and spark (e.g. DB1) catalogs.  
+     If spark uses spark catalog (metastore.catalog.default=spark), the policy will apply to the DB1 of the spark catalog.  
+     If spark uses hive catalog (metastore.catalog.default=hive), the policies get applied to the DB1 of the hive catalog. 
+      
+     
+     There is no way of differentiating between DB1 of hive and spark catalog from the perspective of Ranger. 
+     
+      
+     In such cases, it is recommended to either use ‘hive’ catalog for both Hive and Spark or maintain different database, table and column names for both Hive and Spark catalogs so that the policies are not applied to databases across catalogs. 
+      
+
+1. In case you use ‘hive’ catalog for both Hive and Spark.  
+
+    Let’s say you create a table **table1**  through Hive with current ‘xyz’ user. It creates a HDFS file called **table1.db** whose owner will be ‘xyz’ user.  
+     
+     Now consider, the user ‘abc’ is used while launching the Spark Sql session. In this session of user ‘abc’, if you try to write anything to **table1**, it is bound to fail since the table owner is ‘xyz’.  
+     In such case, it is recommended to use the same user in Hive and Spark SQL for updating the table and that user should have sufficient privileges to perform update operations. 
+
+ 
+ 
+
+**Scenario 2**: Using existing Ranger database (with existing policies) while creating HDInsight 5.1 Spark cluster 
+
+     In this case when the HDI 5.1 cluster is created using existing Ranger database then, new Ranger repo gets created again on this database with the name of the new cluster in this format - <hive_and_spark>. 
+
+ 
+     :::image type="content" source="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png":::
+
+ 
+
+     Let’s say you have the policies defined in the Ranger repo already under the name <oldclustername_hive> on the existing Ranger database inside Hadoop SQL service and you want to share the same policies in the new HDInsight 5.1 Spark cluster. To achieve this, follow the steps given below: 
+ 
+> [!NOTE]   
+>Config updates can be performed by the user with Ambari admin privileges. 
+
+1. Open Ambari UI from your new HDInsight 5.1 cluster 
+
+1. Go to Spark3 service -> Configs 
+
+1. Open “ranger-spark-security” security config. 
+
+ 
+
+     Or Open “ranger-spark-security” security config in /etc/spark3/conf using SSH 
+      
+      :::image type="content" source="./media/ranger-policies-for-spark/ambari-config-ranger-security.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/ambari-config-ranger-security.png":::
+
+ 
+
+1. Edit two configurations “ranger.plugin.spark.service.name“ and “ranger.plugin.spark.policy.cache.dir “ to point to old policy repo “oldclustername_hive” and “Save” the configurations. 
+
+     Ambari 
+     
+     :::image type="content" source="./media/ranger-policies-for-spark/config-update-service-name-ambari.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/config-update-service-name-ambari.png":::
+      
+     XML file 
+
+      :::image type="content" source="./media/ranger-policies-for-spark/config-update-xml.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/config-update-xml.png":::
+    
+ 
+
+1. Restart Ranger and Spark services from Ambari. 
+
+     The policies get applied on databases in the spark catalog. If you want to access the databases under hive catalog, please go to Ambari -> SPARK3 -> Configs -> Change “metastore.catalog.default” from spark to hive. 
+ 
+      :::image type="content" source="./media/ranger-policies-for-spark/change-metastore-config.png" alt-text="Screenshot shows select  hive and spark." lightbox="./media/ranger-policies-for-spark/change-metastore-config.png":::
 
 
-
-## Verify the applied Ranger policies 
-
-1. Open Jupyter/Zepplin notebook 
-
-1. Run the following command
-```sql
-    Select * from sparksampletable;
-```
+ 
    
-
-### Limitation 
-
-1. Spark-sql ranger integration not works if Ranger admin is down. 
-
-1. Ranger DB might be overloaded if >20 spark sessions are launched at a time because of continuous policy pulls. 
-
-1. In Ranger Audit logs, “Resource” column on hover doesn’t show the entire query, which got executed 
-
-### Appendix: 
-
-How user sync works for large data in AD like we faced in centrica – Sairam 
-
-Ranger DB can be shared with multiple cluster pools 
-
-SSH Pod 
-
-CLI 
-
-Portal 
-
-SDK 
-
-https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-spark.html#emr-ranger-spark-redeploy-service-definition 
