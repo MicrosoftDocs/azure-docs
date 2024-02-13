@@ -83,7 +83,7 @@ For each OSDU group, you can add a user as either an OWNER or a MEMBER:
 
 ## Entitlement APIs
 
-For a full list of Entitlement API endpoints, see [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api). A few illustrations of how to use Entitlement APIs are available in [Manage users](how-to-manage-users.md).
+For a full list of Entitlement API endpoints, see [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/release/0.15/docs)). A few illustrations of how to use Entitlement APIs are available in [Manage users](how-to-manage-users.md).
 
 > [!NOTE]
 > The OSDU documentation refers to v1 endpoints, but the scripts noted in this documentation refer to v2 endpoints, which work and have been successfully validated.
