@@ -137,8 +137,6 @@ For each new commitment you need to create, follow these steps:
 
 1. Launch the Provisioned Throughput purchase dialog by selecting  **Quotas** > **Provisioned** > **Manage Commitments**.
 
-:::image type="content" source="../media/how-to/provisioned-onboarding/quota.png" alt-text="Screenshot of the purchase dialog." lightbox="../media/how-to/provisioned-onboarding/quota.png":::
-
 2. Select **Purchase commitment**.
 
 3. Select the Azure OpenAI resource and purchase the commitment. You will see your resources divided into resources with existing commitments, which you can edit and resources that don't currently have a commitment.
@@ -156,7 +154,7 @@ For each new commitment you need to create, follow these steps:
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/commitment-tier.png" alt-text="Screenshot of commitment purchase UI." lightbox="../media/how-to/provisioned-onboarding/commitment-tier.png":::
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > A new commitment is billed up-front for the entire term.  If the renewal settings are set to auto-renew, then you will be billed again on each renewal date based on the renewal settings.
 
 ## Editing an existing Provisioned Throughput commitment
@@ -174,14 +172,14 @@ Adding PTUs to an existing commitment will allow you to create larger or more nu
 
 :::image type="content" source="../media/how-to/provisioned-onboarding/increase-commitment.png" alt-text="Screenshot of commitment purchase UI with an increase in the amount to commit value." lightbox="../media/how-to/provisioned-onboarding/increase-commitment.png":::
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > When you add PTUs to a commitment, they will be billed immediately, at a pro-rated amount from the current date to the end of the existing commitment term.  Adding PTUs does not reset the commitment term.
 
 ### Changing renewal settings
 
 Commitment renewal settings can be changed at any time before the expiration date of your commitment.  Reasons you might want to change the renewal settings include ending your use of provisioned throughput by setting the commitment to not auto-renew, or to decrease usage of provisioned throughput by lowering the number of PTUs that will be committed in the next period.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > If you allow a commitment to expire or decrease in size such that the deployments under the resource require more PTUs than you have in your resource commitment, you will receive hourly overage charges for any excess PTUs.  For example, a resource that has deployments that total 500 PTUs and a commitment for 300 PTUs will generate hourly overage charges for 200 PTUs.
 
 ## Monitor commitments and prevent unexpected billings
