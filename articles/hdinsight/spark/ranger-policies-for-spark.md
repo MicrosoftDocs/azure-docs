@@ -31,7 +31,7 @@ An Apache Spark cluster in HDInsight version 5.1 with [Enterprise Security Packa
 
 ## Create Domain users 
 
-See [Create a HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), for information on how to create **sparkuser1**  domain users. In a production scenario, domain users come from your Active Directory tenant.
+See [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), for information on how to create **sparkuser1**  domain users. In a production scenario, domain users come from your Active Directory tenant.
 
 ## Create Ranger policy 
 
