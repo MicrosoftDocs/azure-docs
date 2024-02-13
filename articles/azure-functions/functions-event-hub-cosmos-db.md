@@ -3,7 +3,7 @@ title: 'Tutorial: Use Java functions with Azure Cosmos DB and Event Hubs'
 description: This tutorial shows you how to consume events from Event Hubs to make updates in Azure Cosmos DB using a function written in Java.
 author: KarlErickson
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/13/2024
 ms.author: karler
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
@@ -480,8 +480,8 @@ public class Function {
         @CosmosDBOutput(
             name = "databaseOutput",
             databaseName = "TelemetryDb",
-            collectionName = "TelemetryInfo",
-            connectionStringSetting = "CosmosDBConnectionString")
+            containerName = "TelemetryInfo",
+            connection = "CosmosDBConnectionString")
             OutputBinding<TelemetryItem> document,
         final ExecutionContext context) {
 
