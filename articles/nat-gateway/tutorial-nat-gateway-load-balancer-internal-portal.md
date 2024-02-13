@@ -62,7 +62,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. Select **Use Bastion**.
 
-1. Enter the username and password entered during VM creation. Select **Connect**.
+1. Enter the username and password entered during virtual machine creation. Select **Connect**.
 
 1. In the bash prompt, enter the following command:
 
