@@ -25,7 +25,7 @@ To complete this quickstart, you'll need an Azure account with an active subscri
 
 If you're familiar with using ARM templates, you can skip to the end by selecting this [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json) button. This button opens the ARM template in the Azure portal. 
 
-:::image type="content" source="media/quickstart-arm/create-windows-code.png" alt-text="Screenshot of the ARM Template in the Azure Portal.":::
+:::image type="content" source="media/quickstart-arm/create-windows-code.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
 
 In the Azure portal, select **Create new** to create a new Resource Group and then select the **Review + create** button to deploy the app.
 
@@ -39,7 +39,7 @@ To complete this quickstart, you'll need an Azure account with an active subscri
 
 If you're familiar with using ARM templates, you can skip to the end by selecting this [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json) button. This button opens the ARM template in the Azure portal. 
 
-:::image type="content" source="media/quickstart-arm/create-linux.png" alt-text="Screenshot of the ARM Template in the Azure Portal.":::
+:::image type="content" source="media/quickstart-arm/create-linux.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
 
 In the Azure portal, select **Create new** to create a new Resource Group and then select the **Review + create** button to deploy the app.
 ::: zone-end
@@ -50,7 +50,7 @@ Get started with [Azure App Service](overview.md) by deploying an app to the clo
 
 If you're familiar with using ARM templates, you can skip to the end by selecting this [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows-container%2Fazuredeploy.json) button. This button opens the ARM template in the Azure portal. 
 
-:::image type="content" source="media/quickstart-arm/create-windows-container.png" alt-text="Screenshot of the ARM Template in the Azure Portal.":::
+:::image type="content" source="media/quickstart-arm/create-windows-container.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
 
 In the Azure portal, select **Create new** to create a new Resource Group and then select the **Review + create** button to deploy the app.
 ::: zone-end
