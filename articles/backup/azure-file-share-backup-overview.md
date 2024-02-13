@@ -74,13 +74,16 @@ This section shows the backup flow for Azure file share.
 
 ## Backup costs
 
-There are two costs associated with Azure file share backup solution:
+For snapshot tier, you'll incur the following costs:
 
 1. **Snapshot storage cost**: Storage charges incurred for snapshots are billed along with Azure Files usage according to the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/)
 
 2. **Protected Instance fee**: Starting from September 1, 2020, you're charged a protected instance fee as per the [pricing details](https://azure.microsoft.com/pricing/details/backup/). The protected instance fee depends on the total size of protected file shares in a storage account.
 
 To get detailed estimates for backing up Azure file shares, you can download the detailed [Azure Backup pricing estimator](https://aka.ms/AzureBackupCostEstimates).  
+
+>[!Note]
+>There are no additional charges for vaulted backups during preview. However, you will incur the cost for the snapshots taken as part of the backup process.
 
 ## How lease snapshot works?
 
