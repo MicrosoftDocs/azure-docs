@@ -2,7 +2,7 @@
 title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)
 description: Learn how to use Windows GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 02/05/2024
+ms.date: 02/13/2024
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads using a Windows os.
 ---
 
@@ -10,7 +10,7 @@ ms.date: 02/05/2024
 
 Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Windows and [Linux](https://learn.microsoft.com/azure/aks/gpu-cluster?tabs=add-ubuntu-gpu-node-pool) node pools to run compute-intensive Kubernetes workloads.
 
-This article helps you provision nodes with schedulable GPUs on new and existing AKS clusters.
+This article helps you provision Windows nodes with schedulable GPUs on new and existing AKS clusters.
 
 ## Supported GPU-enabled VMs
 
@@ -27,7 +27,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 ## Before you begin
 
 * This article assumes you have an existing AKS cluster. If you don't have a cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
-* You need the Azure CLI version 1.0.0b2 or later installed and configured to use the `--skip-gpu-driver-install` field. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need the Azure CLI version 1.0.0b2 or later installed and configured to use the `--skip-gpu-driver-install` field with the `az aks nodepool add` command. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Get the credentials for your cluster
 
@@ -92,33 +92,18 @@ To create a Windows GPU-enabled node pool, you need to use a supported GPU VM SK
         --name gpunp \
         --node-count 1 \
         --os-type Windows \
-        --node-vm-size Standard_NC6s_v3 \
-        --node-taints sku=gpu:NoSchedule \
-        --enable-cluster-autoscaler \
-        --min-count 1 \
-        --max-count 3
+        --node-vm-size Standard_NC6s_v3
     ```
-
-      This command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
-
-     * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
-     * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
-     * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
-     * `--min-count`: Configures the cluster autoscaler to maintain a minimum of one node in the node pool.
-     * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
-
-      > [!NOTE]
-      > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
 
 2. Check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable).
 3. [Run a GPU workload](#run-a-gpu-enabled-workload).
 
 ## Using Windows GPU with manual driver installation
 
-AKS uses automatic GPU driver and NVIDIA device plugin installation when using GPUs with Windows node pools. Installing your own drivers requires two main steps:
+When creating a Windows node pool with N-series (NVIDIA GPU) VM sizes in AKS, the GPU driver and Kubernetes DirectX device plugin are installed automatically. To bypass this automatic installation, use the following steps:
 
 1) [Skip GPU driver installation (preview)](#skip-gpu-driver-installation-preview) using `--skip-gpu-driver-install`, and
-2) [Manual installation of the NVIDIA device plugin](#manually-install-the-nvidia-device-plugin).
+2) [Manual installation of the Kubernetes DirectX device plugin](#manually-install-the-kubernetes-directx-device-plugin).
 
 ### Skip GPU driver installation (preview)
 
@@ -146,24 +131,17 @@ AKS has automatic GPU driver installation enabled by default. In some cases, suc
         --node-count 1 \
         --os-type windows \
         --os sku windows2022 \
-        --skip-gpu-driver-install \
-        --node-vm-size Standard_NC6s_v3 \
-        --node-taints sku=gpu:NoSchedule \
-        --enable-cluster-autoscaler \
-        --min-count 1 \
-        --max-count 3
+        --skip-gpu-driver-install
     ```
-
-    Adding the `--skip-gpu-driver-install` flag during node pool creation skips the automatic GPU driver installation. Any existing nodes aren't changed. You can scale the node pool to zero and then back up to make the change take effect.
 
  > [!NOTE]
  > If the `--node-vm-size` that you're using isn't yet onboarded on AKS, you can't use GPUs and `--skip-gpu-driver-install` doesn't work.
 
-### Manually install the NVIDIA device plugin
+### Manually install the Kubernetes DirectX device plugin
 
-You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on each node to provide the required drivers for the GPUs.
+You can deploy a DaemonSet for the Kubernetes DirectX device plugin, which runs a pod on each node to provide the required drivers for the GPUs.
 
-1. Add a node pool to your cluster using the [`az aks nodepool add`][az-aks-nodepool-add] command.
+* Add a node pool to your cluster using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
     az aks nodepool add \
@@ -172,26 +150,10 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
         --name gpunp \
         --node-count 1 \
         --os-type windows \
-        --os sku windows2022 \
-        --node-vm-size Standard_NC6s_v3 \
-        --node-taints sku=gpu:NoSchedule \
-        --enable-cluster-autoscaler \
-        --min-count 1 \
-        --max-count 3
+        --os sku windows2022
     ```
 
-    This command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
-
-    * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
-    * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
-    * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
-    * `--min-count`: Configures the cluster autoscaler to maintain a minimum of one node in the node pool.
-    * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
-
-    > [!NOTE]
-    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
-
-## Create a namespace and deploy the NVIDIA device plugin
+## Create a namespace and deploy the Kubernetes DirectX device plugin
 
 1. Create a namespace using the [`kubectl create namespace`][kubectl-create] command.
 
@@ -199,7 +161,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
     kubectl create namespace gpu-resources
     ```
 
-2. Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest provided as part of the [NVIDIA device plugin for Kubernetes project][nvidia-github]:
+2. Create a file named *k8s-directx-device-plugin.yaml* and paste the following YAML manifest provided as part of the [NVIDIA device plugin for Kubernetes project][nvidia-github]:
 
     ```yaml
     apiVersion: apps/v1
@@ -301,7 +263,7 @@ After creating your cluster, confirm that GPUs are schedulable in Kubernetes.
 
 To see the GPU in action, you can schedule a GPU-enabled workload with the appropriate resource request. In this example, you run a [Tensorflow](https://www.tensorflow.org/) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
-1. Create a file named *samples-tf-mnist-demo.yaml* and paste the following YAML manifest, which includes a resource limit of `nvidia.com/gpu: 1`:
+1. Create a file named *samples-tf-mnist-demo.yaml* and paste the following YAML manifest, which includes a resource limit of `microsoft.com/directx: 1`:
 
     > [!NOTE]
     > If you receive a version mismatch error when calling into drivers, such as "CUDA driver version is insufficient for CUDA runtime version", review the [NVIDIA driver matrix compatibility chart](https://docs.nvidia.com/deploy/cuda-compatibility/index.html).
@@ -326,7 +288,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
             imagePullPolicy: IfNotPresent
             resources:
               limits:
-               nvidia.com/gpu: 1
+               microsoft.com/directx: 1
           restartPolicy: OnFailure
           tolerations:
           - key: "sku"
