@@ -77,7 +77,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
     |Prompt| Selection|
     |--|--|
     |**Enter new app setting name**| Type `CosmosDbConnectionSetting`.|
-    |**Enter value for "CosmosDbConnectionSetting"**| Paste the connection string of your Azure Cosmos DB account you copied.|
+    |**Enter value for "CosmosDbConnectionSetting"**| Paste the connection string of your Azure Cosmos DB account you copied. You can also configure [Microsoft Entra identity](./functions-bindings-cosmosdb-v2-trigger.md#connections) as an alternative.|
 
     This creates an application setting named connection `CosmosDbConnectionSetting` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
 
@@ -141,7 +141,7 @@ The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a
 
 ---
 
-Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionString`.
+Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionSetting`.
 
 ::: zone-end
 
