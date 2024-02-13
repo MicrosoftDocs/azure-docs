@@ -76,7 +76,7 @@ The `redirect-uri` of your app, where your app sends and receives the authentica
 
 ### Find the adme-url for your Azure Data Manager for Energy instance
 
-1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) using the `client-id` generated above.
 1. Go to your Azure Data Manager for Energy **Overview** page on the Azure portal.
 1. On the **Essentials** pane, copy the URI.
 
@@ -98,18 +98,18 @@ You have two ways to get the list of data partitions in your Azure Data Manager 
 
 ## Generate the client-id auth token
 
-Run the following curl command in Azure Cloud Bash after you replace the placeholder values with the corresponding values found earlier in the previous steps. The access token in the response is the `client-id` auth token.
+Run the following curl command in [Azure Cloud Bash](https://learn.microsoft.com/en-us/azure/cloud-shell/overview) after you replace the placeholder values with the corresponding values found earlier in the previous steps. The access token in the response is the `client-id` auth token.
 
 **Request format**
 
 ```bash
-curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oauth2/token' \
+curl --location --request POST 'https://login.microsoftonline.com/<**tenant-id**>/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'scope=<client-id>.default' \
---data-urlencode 'client_id=<client-id>' \
---data-urlencode 'client_secret=<client-secret>' \
---data-urlencode 'resource=<client-id>'
+--data-urlencode 'scope=<**client-id**>.default' \
+--data-urlencode 'client_id=<**client-id**>' \
+--data-urlencode 'client_secret=<**client-secret**>' \
+--data-urlencode 'resource=<**client-id**>'
 ```
 
 **Sample response**
