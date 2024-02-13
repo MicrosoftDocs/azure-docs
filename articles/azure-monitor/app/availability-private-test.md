@@ -20,7 +20,7 @@ To use this method, your test server must have outgoing access to the Applicatio
 ## Public availability test enablement
 
 > [!WARNING]
-> Use availability tests for the public endpoints only. Testing private endpoints with service tags can make service accessible from other Azure Monitor Availability Tests.
+> Only use service tags for public endpoints.  IP addresses used for service tags are shared across all Availability Tests and may unintentionally make your private endpoints accessible to other Availability Tests.
 
 > [!NOTE]
 > If you don't want to allow any ingress to your environment, use the method in the [Disconnected or no ingress scenarios](#disconnected-or-no-ingress-scenarios) section.
