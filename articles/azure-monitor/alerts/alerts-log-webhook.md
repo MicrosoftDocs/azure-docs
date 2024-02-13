@@ -244,7 +244,7 @@ The following table lists default webhook action properties and their custom JSO
 | `ResultCount` |#searchresultcount |Number of records in the search results. |
 | `Search Interval End time` |#searchintervalendtimeutc |End time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. |
 | `Search Interval` |#searchinterval |Time window for the alert rule, with the format HH:mm:ss. |
-| `Search Interval StartTime` |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. 
+| `Search Interval StartTime` |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. |
 | `SearchQuery` |#searchquery |Log search query used by the alert rule. |
 | `SearchResults` |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
 | `Dimensions` |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
