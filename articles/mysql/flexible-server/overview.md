@@ -10,6 +10,18 @@ ms.custom: mvc, references_regions
 ms.date: 02/12/2024
 ---
 
+---
+title: Flexible server deployment model overview
+description: Learn about the flexible server deployment model for Azure Database for MySQL - Flexible Server.
+ms.service: mysql
+ms.subservice: flexible-server
+ms.topic: overview
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: mvc, references_regions
+ms.date: 02/12/2024
+---
+
 # Azure Database for MySQL - Flexible Server deployment model
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
@@ -176,7 +188,7 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada East | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | China East 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | China East 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
