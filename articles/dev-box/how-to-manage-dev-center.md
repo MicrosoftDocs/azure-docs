@@ -59,7 +59,7 @@ To create a dev center in the Azure portal:
 
    For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
 
-   The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. You can attach a quick start catalog to a dev center later. For more information, see [Create reusable customization scripts](./how-to-attach-quick-start-catalog.md).
+   The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. You can attach a quick start catalog to a dev center later. For more information, see [Create reusable dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
 
 1. (Optional) On the **Tags** tab, enter a name/value pair that you want to assign.
 
