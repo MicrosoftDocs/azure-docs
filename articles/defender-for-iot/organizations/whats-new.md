@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Alert ID now aligned on the Azure portal and sensor console
 
-The alert ID displayed in the **Id** column on the Azure portal **Alerts** page now displays the same alert ID as the sensor console. [Learn more about alerts on the Azure portal](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal).
+The alert ID in the **Id** column on the Azure portal **Alerts** page now displays the same alert ID as the sensor console. [Learn more about alerts on the Azure portal](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal).
 
 > [!NOTE]
 > If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts.
