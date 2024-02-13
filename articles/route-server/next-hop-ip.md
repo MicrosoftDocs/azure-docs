@@ -24,8 +24,9 @@ You can deploy a set of active-passive NVAs behind an internal load balancer to 
 ## Active-active NVA connectivity
 
 You can deploy a set of active-active NVAs behind an internal load balancer to optimize connectivity performance. With the support for Next hop IP, you can define the next hop for both NVA instances as the IP address of the internal load balancer. Traffic that reaches the load balancer is sent to both NVA instances.
+
 > [!NOTE]
-> * Active-active NVA connectivity may result in asymmetric routing.
+> Active-active NVA connectivity may result in asymmetric routing.
 
 ## Next hop IP configuration
 
