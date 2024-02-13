@@ -36,7 +36,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
-|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust by providing an attestable, immutable and cryptographically secure identity.|
 |Dependencies|TPM v2.0 device|
 
 ---
@@ -67,7 +67,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|UEFI Secure Boot must be enabled.|
-|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority.|
+|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority and retains integrity.|
 |Dependencies|UEFI|
 
 ---
@@ -100,7 +100,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The OS must support a minimum TLS version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses.|
+|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses and are supported by Azure Services.|
 |Dependencies|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements might require greater versions for other services.|
 |Resources| [TLS Cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
 
@@ -111,7 +111,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The OS must have virtualization-based code integrity features enabled (VBS + HVCI).|
-|Purpose|Protects against modified/malicious code from within the kernel by ensuring that only signed and immutable code is able to run.|
+|Purpose|Protects against modified/malicious code from within the kernel by ensuring that only code with verifiable integrity is able to run.|
 |Dependencies|VBS + HVCI is enabled on the device.|
 |Resources| [Hypervisor-protected Code Integrity enablement](/windows-hardware/design/device-experiences/oem-hvci-enablement)|
 
@@ -161,7 +161,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|Debug functionality on the device must be disabled or require authorization to enable.|
-|Purpose|Ensures that software protections can not be bypassed through debugger intervention and back-channels.|
+|Purpose|Ensures that software and hardware protections can not be bypassed through debugger intervention and back-channels.|
 
 ---
 </br>
@@ -217,7 +217,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
-|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust by providing an attestable, immutable and cryptographically secure identity.|
 |Dependencies|TPM v2.0 </br><sup>or *other supported method</sup>|
 
 ---
@@ -249,7 +249,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|Either:<ul><li>UEFI: Secure boot must be enabled</li><li>Uboot: Verified boot must be enabled</li></ul>|
-|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority.|
+|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority  and retains integrity.|
 
 ---
 </br>
@@ -288,7 +288,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The OS must support a minimum TLS version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses.|
+|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses and are supported by Azure Services.|
 
 ---
 </br>
@@ -297,7 +297,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|The OS must have dm-verity and IMA code integrity features enabled, with code operating under least privilege.|
-|Purpose|Protects against modified/malicious code, ensuring that only signed/hashed code is able to run.|
+|Purpose|Protects against modified/malicious code, ensuring that only code with verifiable integrity is able to run.|
 
 ---
 </br>
@@ -334,7 +334,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Audit|
 |Description|The device must be able to receive and update its firmware and software through Azure Device Update or other approved services.|
-|Purpose|Enables continuous security.|
+|Purpose|Enables continuous security and renewable trust.|
 
 ---
 </br>
@@ -371,7 +371,7 @@ Edge Secured-core requires a version of Windows IoT that has at least 5 years of
 |:---|:---|
 |Status|Required|
 |Description|Debug functionality on the device must be disabled or require authorization to enable.|
-|Purpose|Ensures that software protections can not be bypassed through debugger intervention and back-channels.|
+|Purpose|Ensures that softwareand hardware protections can not be bypassed through debugger intervention and back-channels.|
 
 ---
 </br>
@@ -427,7 +427,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The device identity must be rooted in hardware.|
-|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust by providing an attestable, immutable and cryptographically secure identity.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: The Pluton Security Processor.</li></ul>|
 
 ---
@@ -457,7 +457,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The device boot sequence must be authenticated.|
-|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority and retain integrity.|
+|Purpose|Ensures that the firmware and OS kernel executed as part of the boot sequence have first been signed by a trusted authority and retains integrity.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: A Microsoft-managed authenticated boot chain.</li></ul>|
 
 ---
@@ -497,7 +497,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|The OS must support a minimum TLS version of 1.2 and have secure TLS cipher suites available.|
-|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses.|
+|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers that have no known weaknesses and are supported by Azure Services.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Microsoft-managed wolfSSL library using only secure TLS cipher suites, backed by Device Authentication and Attestation (DAA) certificates.</li></ul>|
 |Resources| [TLS Cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
 
@@ -597,7 +597,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |:---|:---|
 |Status|Required|
 |Description|Debug functionality on the device must be disabled or require authorization to enable.|
-|Purpose|Ensures that the security model cannot be bypassed through debugger intervention and back-channels.|
+|Purpose|Ensures that the software and hardware protections cannot be bypassed through debugger intervention and back-channels.|
 |Dependencies|This requirement is met by Microsoft for Azure Sphere based products through:<ul><li>MT3620: Debug locked-down for production state devices and further restricted through the authenticated 'capabilities' mechanism.</li></ul>|
 
 ---
