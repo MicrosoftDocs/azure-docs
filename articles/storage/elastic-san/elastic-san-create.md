@@ -53,9 +53,9 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where the new resources will be created. |
-| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
-The following command creates an Elastic SAN that uses **locally-redundant** storage.
+The following command creates an Elastic SAN that uses **locally redundant** storage.
 
 ```azurepowershell
 # Define some variables.
@@ -98,9 +98,9 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where the new resources will be created. |
-| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN uses locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN uses locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
-The following command creates an Elastic SAN that uses **locally-redundant** storage.
+The following command creates an Elastic SAN that uses **locally redundant** storage.
 
 ```azurecli
 # Define some variables.
