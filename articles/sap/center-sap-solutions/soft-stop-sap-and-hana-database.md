@@ -67,7 +67,7 @@ Use the [Stop-AzWorkloadsSapApplicationInstance](/powershell/module/az.workloads
 ```
 
 ### Using CLI
-Use the [az workloads sap-application-server-instance stop](/cli/azure/workloads/sap-application-server-instance?view=azure-cli-latest#az-workloads-sap-application-server-instance-stop) command:
+Use the [az workloads sap-application-server-instance stop](/cli/azure/workloads/sap-application-server-instance#az-workloads-sap-application-server-instance-stop) command:
 
 ```azurecli-interactive
      az workloads sap-application-server-instance stop --id /subscriptions/Sub1/resourceGroups/RG1/providers/Microsoft.Workloads/sapVirtualInstances/DB0/applicationInstances/app0 --soft-stop-timeout-seconds 300
