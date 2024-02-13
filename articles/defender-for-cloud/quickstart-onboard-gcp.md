@@ -207,9 +207,6 @@ Enable these other extensions on the Azure Arc-connected machines:
   
 - Microsoft Defender for Endpoint
 - A vulnerability assessment solution (Microsoft Defender Vulnerability Management or Qualys)
-- The Log Analytics agent on Azure Arc-connected machines or the Azure Monitor agent
-
-Make sure the selected Log Analytics workspace has a security solution installed. The Log Analytics agent and the Azure Monitor agent are currently configured at the *subscription* level. All the multicloud accounts and projects (from both AWS and GCP) under the same subscription inherit the subscription settings for the Log Analytics agent and the Azure Monitor agent. [Learn more about monitoring components for Defender for Servers](monitoring-components.md).
 
 Defender for Servers assigns tags to your Azure Arc GCP resources to manage the autoprovisioning process. You must have these tags properly assigned to your resources so that Defender for Servers can manage your resources: `Cloud`, `InstanceName`, `MDFCSecurityConnector`, `MachineId`, `ProjectId`, and `ProjectNumber`.
 
