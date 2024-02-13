@@ -81,17 +81,13 @@ const transferState = transfer.state; // None | Transferring | Transferred | Fai
 const transferError = transfer.error; // transfer error code that describes the failure if a transfer request failed
 ```
 
-The *transferee* can accept or reject the transfer request initiated by the *transferor* in the `transferRequested` event by using `accept()` or `reject()` in `transferRequestedEventArgs`. You can access `targetParticipant` information and `accept` or `reject` methods in `transferRequestedEventArgs`.
+The *transferee* can listen to a `transferAccepted` event. The listener for this event has a `TransferEventArgs` which contains the call object of the new transfer call
+between the  *transferee* and the *transfer target*
 
 ```js
 // Transferee to accept the transfer request
-callTransferApi.on('transferRequested', args => {
-    args.accept();
-});
-
-// Transferee to reject the transfer request
-callTransferApi.on('transferRequested', args => {
-    args.reject();
+callTransferApi.on('transferAccepted', args => {
+    const newTransferCall =  args.targetCall;
 });
 ```
 
