@@ -1,5 +1,5 @@
 ---
-title: What are network APIs?
+title: Using network APIs with Azure Programmable Connectivity
 titleSuffix: Azure Programmable Connectivity
 description: Azure Programmable Connectivity is a cloud service that provides a simple and uniform way for developers to access programmable networks, regardless of substrate or location.
 author: anzaman
