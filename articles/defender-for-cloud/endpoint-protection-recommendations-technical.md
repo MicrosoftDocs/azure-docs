@@ -1,13 +1,13 @@
 ---
-title: Assessment checks for endpoint detection and response solutions
+title: Assessment checks for endpoint detection and response solutions (MMA)
 description: How the endpoint protection solutions are discovered and identified as healthy.
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
-ms.date: 02/06/2024
+ms.date: 02/13/2024
 ---
 
-# Assessment checks for endpoint detection and response solutions
+# Assessment checks for endpoint detection and response solutions (MMA)
 
 Microsoft Defender for Cloud provides health assessments of [supported](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Defender for Cloud to generate the following two recommendations:
 

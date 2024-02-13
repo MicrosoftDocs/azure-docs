@@ -557,10 +557,10 @@
       - name: Understand endpoint detection and response
         displayName: mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr
         href: integration-defender-for-endpoint.md
-      - name: Integrate Defender for Endpoint (AMA)
+      - name: Enable the Defender for Endpoint integration
         displayName: ATP, mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr
         href: enable-defender-for-endpoint.md
-      - name: Endpoint protection assessment rules
+      - name: Assessment checks for endpoint detection and response solutions (MMA)
         href: endpoint-protection-recommendations-technical.md
       - name: Detect and configure endpoint detection and response solutions
         displayName: defender for endpoint, endpoint, edr

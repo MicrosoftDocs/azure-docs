@@ -1,5 +1,5 @@
 ---
-title: Detect and configure endpoint detection and response solutions
+title: Endpoint detection and response recommendations (agentless)
 description: Learn how to use Defender for Cloud recommendations to identify if an endpoint detection and response solution are installed on your virtual machine. You can also identify if there are any gaps in your security configuration and remediate the gaps if they exist.
 author: dcurwin
 ms.author: dacurwin
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/13/2024
 ---
 
-# Detect and configure endpoint detection and response solutions
+# Endpoint detection and response recommendations (agentless)
 
 Microsoft Defender for Cloud provides recommendations to secure and configure your endpoint detection and response solutions. By remediating these recommendations, you can ensure that your endpoint detection and response solution are compliant and secure across all environments.
 
@@ -29,9 +29,9 @@ The recommendations allow you to:
 
 - You must enable [agentless scanning for virtual machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
     
-## Detect endpoint detection and response solution on your virtual machine
+## Review endpoint detection and response detection recommendations 
 
-Defender for Cloud has the ability to detect several endpoint detection and response solutions on various supported platforms. The following table contains the supported solutions and platforms: 
+Defender for Cloud has the ability to detect supported endpoint detection and response solutions on various supported platforms. The following table contains the supported solutions and platforms: 
 
 | Endpoint detection and response solution | Supported platforms |
 |--|--|
@@ -142,18 +142,18 @@ This recommended action is available when:
 
     :::image type="content" source="media/endpoint-detection-response/remediation-steps.png" alt-text="Screenshot that shows where the remediation steps are located in the recommendation." lightbox="media/endpoint-detection-response/remediation-steps.png":::
 
-1. Follow the instructions to troubleshoot Microsoft Defender for Endpoint onboarding issues for [Windows]() or [Linux]().
+1. Follow the instructions to troubleshoot Microsoft Defender for Endpoint onboarding issues for [Windows](/microsoft-365/security/defender-endpoint/troubleshoot-onboarding?view=o365-worldwide&WT.mc_id=Portal-Microsoft_Azure_Security) or [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide&WT.mc_id=Portal-Microsoft_Azure_Security).
 
 After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
-## Detect misconfigurations in endpoint detection and response solution
+## Review endpoint detection and response misconfiguration recommendations
 
-When Defender for Cloud detects misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page. These recommendations check for the following security checks:
+When Defender for Cloud finds misconfigurations in your endpoint detection and response solution, recommendations appear on the recommendations page. These recommendations check for the following security checks:
 
 > [!NOTE]
 > This recommendation is only applicable to VMs that have Defender for Endpoint enabled on them.
 
-- `Scan are out of 7 days`
+- `Both full and quick scans are out of 7 days`
 - `Signature out of date`
 - `Anti-virus is off or partially configured`
 
@@ -187,7 +187,7 @@ When Defender for Cloud detects misconfigurations in your endpoint detection and
 
     :::image type="content" source="media/endpoint-detection-response/resources-findings.png" alt-text="Screenshot that shows the findings of an affected unhealthy resource." lightbox="media/endpoint-detection-response/resources-findings.png":::
 
-1. Select the security see additional information and remediation steps.
+1. Select the security check to see additional information and the remediation steps.
 
     :::image type="content" source="media/endpoint-detection-response/security-check-remediation.png" alt-text="Screenshot that shows the additional details section.":::
 
@@ -219,4 +219,4 @@ To determine the enabled endpoint detection and response solution on your machin
 
 ## Next steps
 
-[Prepare for the retirement of the Log Analytics agent](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience)
+[Learn about the differences between the MMA experience and the agentless experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
