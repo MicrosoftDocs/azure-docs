@@ -5,8 +5,8 @@ ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 02/13/2024
 manager: nitinme
-author: mrbullwinkle #ChrisHMSFT
-ms.author: mbullwin #chrhoder
+author: mrbullwinkle 
+ms.author: mbullwin 
 recommendations: false
 ---
 
