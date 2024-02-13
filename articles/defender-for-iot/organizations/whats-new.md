@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console) |
+| **OT networks** | - [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [New setting to focus local networks in the device inventory](#new-setting-to-focus-local-networks-in-the-device-inventory) |
 
 ### Focused alerts in OT/IT environments
 
@@ -36,6 +36,12 @@ The alert ID in the **Id** column on the Azure portal **Alerts** page now displa
 
 > [!NOTE]
 > If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts.
+
+### New setting to focus local networks in the device inventory 
+
+To better focus the Azure device inventory on devices that are in your OT scope, we've added the **ICS** toggle in the **Subnets** sensor setting. This toggle marks the subnet as a subnet with OT networks. [Learn more](configure-sensor-settings-portal.md#configure-subnets-in-the-azure-portal).
+
+:::image type="content" source="media/whats-new/ics-toggle.png" alt-text="Screenshot of the ICS Subnet toggle in the Azure portal Sensor settings." border="true":::
 
 ## January 2024
 
@@ -560,7 +566,7 @@ See and filter which devices are defined as *local* or *routed*, according to yo
 Configure your subnets either on the Azure portal or on your OT sensor. For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
+- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#local-subnets)
 - [Fine tune your subnet list](how-to-control-what-traffic-is-monitored.md#fine-tune-your-subnet-list)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
