@@ -68,13 +68,13 @@ Defender for Cloud has the ability to detect supported endpoint detection and re
     - [Troubleshoot issues](#troubleshoot-issues).
 
 > [!NOTE]
-> This recommendation can also be remediated by installing any of the [supported endpoint detection and response solutions](#detect-endpoint-detection-and-response-solution-on-your-virtual-machine) on your virtual machine.
+> This recommendation can also be remediated by installing any of the [supported endpoint detection and response solutions](#review-endpoint-detection-and-response-detection-recommendations) on your virtual machine.
 
 ### Enable MDE integration
 
 This recommended action is available when:
 
-- One of the [supported endpoint detection and response solutions](#detect-endpoint-detection-and-response-solution-on-your-virtual-machine) wasn't detected on the VM.
+- One of the [supported endpoint detection and response solutions](#review-endpoint-detection-and-response-detection-recommendations) wasn't detected on the VM.
 
 - The VM can have Microsoft Defender for Endpoint installed on it as part of the offerings included with Defender for Servers.
 
@@ -103,7 +103,7 @@ Defender for endpoint is applied to all Windows and Linux servers within your su
 
 This recommended action is available when:
 
-- One of the [supported endpoint detection and response solutions](#detect-endpoint-detection-and-response-solution-on-your-virtual-machine) wasn't detected on the VM.
+- One of the [supported endpoint detection and response solutions](#review-endpoint-detection-and-response-detection-recommendations) wasn't detected on the VM.
 
 - Defender for Servers plan 2 isn't enabled on the VM.
 
