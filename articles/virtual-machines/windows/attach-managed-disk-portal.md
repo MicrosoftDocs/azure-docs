@@ -35,7 +35,7 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 1. Verify the new disk is selected and then select **OK** to initialize it.
 
     > [!NOTE]
-    > The example script uses MBR partition style. If your disk is two tebibytes (TiB) or larger, you must use GPT partitioning. If it's under two TiB, you can use either MBR or GPT.
+    > If your disk is two tebibytes (TiB) or larger, you must use GPT partitioning. If it's under two TiB, you can use either MBR or GPT.
 
 1. The new disk appears as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** window opens.
 1. Proceed through the wizard, keeping all of the defaults, and when you're done select **Finish**.
