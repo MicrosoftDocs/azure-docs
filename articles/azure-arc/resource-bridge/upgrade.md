@@ -5,13 +5,6 @@ ms.date: 12/07/2023
 ms.topic: how-to
 ---
 
----
-title: Upgrade Arc resource bridge
-description: Learn how to upgrade Arc resource bridge using either cloud-managed upgrade or manual upgrade.  
-ms.date: 12/07/2023
-ms.topic: how-to
----
-
 # Upgrade Arc resource bridge
 
 This article describes how Arc resource bridge is upgraded, and the two ways upgrade can be performed: cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. 
