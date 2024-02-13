@@ -69,7 +69,7 @@ import (
 )
 
 func main() {
-	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
+	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
 
 	// Ex: "https://<your-azure-openai-host>.openai.azure.com"
 	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")

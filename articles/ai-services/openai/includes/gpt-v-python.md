@@ -54,7 +54,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     from openai import AzureOpenAI
     
     api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
-    api_key= os.getenv("AZURE_OPENAI_KEY")
+    api_key= os.getenv("AZURE_OPENAI_API_KEY")
     deployment_name = '<your_deployment_name>'
     api_version = '2023-12-01-preview' # this might change in the future
     
@@ -117,7 +117,7 @@ The **object grounding** integration brings a new layer to data analysis and use
     from openai import AzureOpenAI
     
     api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
-    api_key= os.getenv("AZURE_OPENAI_KEY")
+    api_key= os.getenv("AZURE_OPENAI_API_KEY")
     deployment_name = '<your_deployment_name>'
     api_version = '2023-12-01-preview' # this might change in the future
     

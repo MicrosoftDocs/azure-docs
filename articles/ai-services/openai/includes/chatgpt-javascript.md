@@ -58,7 +58,7 @@ Open a command prompt where you want the new project, and create a new file name
 ```javascript
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_KEY"] ;
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
 const messages = [
   { role: "system", content: "You are a helpful assistant." },
