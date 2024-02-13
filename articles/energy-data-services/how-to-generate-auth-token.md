@@ -149,7 +149,6 @@ The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2
 
 5. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
 6. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`.
-7. Keep this `authorization-code` handy for future use.
 
 #### Sample response
 
@@ -157,8 +156,7 @@ The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2
 http://localhost:8080/?code=0.BRoAv4j5cvGGr0...au78f&state=12345&session....
 ```
 
-> [!NOTE]
-> The browser might say that the site can't be reached, but it should still have the authorization code in the URL bar.
+7. Keep this `authorization-code` handy for future use.
 
 |Parameter| Description|
 | --- | --- |
