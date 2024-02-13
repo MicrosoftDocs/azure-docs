@@ -37,8 +37,8 @@ See [Create an HDInsight cluster with ESP](../domain-joined/apache-domain-joined
 
 In this section, you create two Ranger policies  
 
-- [Access policy for accessing “hivesampletable” from spark-sql](./ranger-policies-for-spark#to-create-ranger-policies)
-- [Masking policy for obfuscating the columns in hivesampletable](./ranger-policies-for-spark#create-ranger-masking-policy)
+- [Access policy for accessing “hivesampletable” from spark-sql](./ranger-policies-for-spark.md#to-create-ranger-policies)
+- [Masking policy for obfuscating the columns in hivesampletable](./ranger-policies-for-spark.md#create-ranger-masking-policy)
 
 ### To create Ranger policies
 
@@ -177,9 +177,7 @@ Points to consider:
 
    :::image type="content" source="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png" alt-text="Screenshot shows new repo old ranger database." lightbox="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png":::
 
- 
-
-     Let’s say you have the policies defined in the Ranger repo already under the name <oldclustername_hive> on the existing Ranger database inside Hadoop SQL service and you want to share the same policies in the new HDInsight 5.1 Spark cluster. To achieve this, follow the steps given below: 
+  Let’s say you have the policies defined in the Ranger repo already under the name <oldclustername_hive> on the existing Ranger database inside Hadoop SQL service and you want to share the same policies in the new HDInsight 5.1 Spark cluster. To achieve this, follow the steps given below: 
  
 > [!NOTE]   
 > Config updates can be performed by the user with Ambari admin privileges. 
