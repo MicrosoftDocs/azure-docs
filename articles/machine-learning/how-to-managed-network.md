@@ -1042,7 +1042,7 @@ If you want to enable access from specific IP addresses, use the following actio
     > [!TIP]
     > You can't add this rule during workspace creation, as the workspace doesn't exist yet.
 
-1. Enable public network access to the workspace. For more information, see [public network access enabled](how-to-configure-private-link.md#enable-public-access).
+1. Enable public network access to the workspace. For more information, see [public network access enabled](how-to-configure-private-link#enable-public-access).
 1. Add your IP addresses to the firewall for Azure Machine Learning. For more information, see [enable access only from IP ranges](how-to-configure-private-link#enable-public-access-only-from-internet-ip-ranges-preview).
 
 ## Private endpoints
