@@ -69,10 +69,10 @@ In this section, you create two Ranger policies
 
 1. Open Zeppelin notebook and run the following command to verify the policy. 
  
-     ```%sql 
+   ```%sql 
 
-          select * from hivesampletable limit 10;
-     ```
+        select * from hivesampletable limit 10;
+   ```
 
      Result before policy was saved
    
@@ -80,7 +80,7 @@ In this section, you create two Ranger policies
 
      Result after policy is applied
 
-        :::image type="content" source="./media/ranger-policies-for-spark/result-after-access-policy.png" alt-text="Screenshot shows result after access policy." lightbox="./media/ranger-policies-for-spark/result-after-access-policy.png":::
+   :::image type="content" source="./media/ranger-policies-for-spark/result-after-access-policy.png" alt-text="Screenshot shows result after access policy." lightbox="./media/ranger-policies-for-spark/result-after-access-policy.png":::
 
 #### Create Ranger masking policy 
  
@@ -119,10 +119,10 @@ The following example explains how to create a policy to mask a column
 
 1. Open Zeppelin notebook and run the following command to verify the policy. 
 
-      ```%sql 
-     
-          select clientId, deviceMake from hivesampletable; 
-     ```
+    ```%sql 
+   
+        select clientId, deviceMake from hivesampletable; 
+   ```
      :::image type="content" source="./media/ranger-policies-for-spark/open-zipline-notebook.png" alt-text="Screenshot shows open zeppelin notebook." lightbox="./media/ranger-policies-for-spark/open-zipline-notebook.png":::
 
  
@@ -158,14 +158,14 @@ You can edit the policies and these policies gets applied to both Hive and Spark
 Points to consider: 
 
 1.In case you have two metastore databases with the same name used for both hive (for example, DB1) and spark (for example, DB1) catalogs.  
-     If spark uses spark catalog (metastore.catalog.default=spark), the policy applies to the DB1 of the spark catalog.  
-     If spark uses hive catalog (metastore.catalog.default=hive), the policies get applied to the DB1 of the hive catalog. 
-      
-     
-     There is no way of differentiating between DB1 of hive and spark catalog from the perspective of Ranger. 
-     
-      
-     In such cases, it is recommended to either use ‘hive’ catalog for both Hive and Spark or maintain different database, table and column names for both Hive and Spark catalogs so that the policies are not applied to databases across catalogs. 
+   If spark uses spark catalog (metastore.catalog.default=spark), the policy applies to the DB1 of the spark catalog.  
+   If spark uses hive catalog (metastore.catalog.default=hive), the policies get applied to the DB1 of the hive catalog. 
+    
+   
+   There is no way of differentiating between DB1 of hive and spark catalog from the perspective of Ranger. 
+   
+    
+   In such cases, it is recommended to either use ‘hive’ catalog for both Hive and Spark or maintain different database, table and column names for both Hive and Spark catalogs so that the policies are not applied to databases across catalogs. 
       
 
 1. In case you use ‘hive’ catalog for both Hive and Spark.  
@@ -180,10 +180,10 @@ Points to consider:
 
 **Scenario 2**: Using existing Ranger database (with existing policies) while creating HDInsight 5.1 Spark cluster 
 
-     In this case when the HDI 5.1 cluster is created using existing Ranger database then, new Ranger repo gets created again on this database with the name of the new cluster in this format - <hive_and_spark>. 
+   In this case when the HDI 5.1 cluster is created using existing Ranger database then, new Ranger repo gets created again on this database with the name of the new cluster in this format - <hive_and_spark>. 
 
- 
-     :::image type="content" source="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png" alt-text="Screenshot shows new repo old ranger database." lightbox="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png":::
+
+   :::image type="content" source="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png" alt-text="Screenshot shows new repo old ranger database." lightbox="./media/ranger-policies-for-spark/new-repo-old-ranger-database.png":::
 
  
 
