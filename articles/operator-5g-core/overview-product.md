@@ -6,7 +6,7 @@ ms.author: HollyCl
 ms.service: azure
 ms.custom: references_regions 
 ms.topic: overview 
-ms.date: 02/09/2024
+ms.date: 02/13/2024
 
 ---
 
