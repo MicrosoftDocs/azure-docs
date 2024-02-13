@@ -9,7 +9,7 @@ metadata:
   ms.service: cosmos-db
   ms.subservice: nosql
   ms.topic: faq
-  ms.date: 02/08/2024
+  ms.date: 02/13/2024
 title: Frequently asked questions about Azure Cosmos DB for NoSQL
 summary: |
   [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
@@ -17,89 +17,89 @@ sections:
   - name: General
     questions:
       - question: |
-          How do I start developing against the API for NoSQL?
+          How do I start developing against Azure Cosmos DB for NoSQL?
         answer: |
           First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add an API for NoSQL container to your Azure subscription.
           
-          [Software development kits (SDKs)](sdk-dotnet-v2.md) are available for .NET, Python, Node.js, JavaScript, and Java. Developers can also use the [RESTful HTTP APIs](/rest/api/cosmos-db/) to interact with Azure Cosmos DB resources from various platforms and languages.
+          [Software development kits (SDKs)](sdk-dotnet-v2.md) are available for .NET, Python, Node.js, JavaScript, Go, and Java. Developers can also use the [REST API](/rest/api/cosmos-db/) to interact with Azure Cosmos DB resources from more platforms and languages.
       - question: |
-          Can I access some ready-made samples to get a head start?
+          Is there Azure Cosmos DB for NoSQL samples to get started?
         answer: |
-          Samples for the API for NoSQL [.NET](samples-dotnet.md), [Java](samples-java.md), [Node.js](samples-nodejs.md), and [Python](samples-python.md) SDKs are available on GitHub.
+          Check out these QuickStart code samples and templates for the API for NoSQL:
+
+          - [.NET](quickstart-dotnet.md)
+          - [Python](quickstart-python.md)
+          - [Node.js/JavaScript](quickstart-nodejs.md)
+          - [Java/Spring](quickstart-java.md)
+          - [Go](quickstart-go.md)
       - question: |
-          Does the API for NoSQL database support schema-free data?
+          Does Azure Cosmos DB for NoSQL support schema-free data?
         answer: |
-          Yes, the API for NoSQL allows applications to store arbitrary JSON documents without schema definitions or hints. Data is immediately available for query through the Azure Cosmos DB SQL query interface.
+          Yes, the API for NoSQL allows applications to store arbitrary JSON documents as items without schema definitions or hints. The data is immediately available for query with the Azure Cosmos DB for NoSQL query language.
       - question: |
-          Does the API for NoSQL support ACID transactions?
+          Does Azure Cosmos DB for NoSQL support ACID (atomicity, consistency, isolation, durability) transactions?
         answer: |
-          Yes, the API for NoSQL supports cross-document transactions expressed as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each container and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. 
+          Yes, the API for NoSQL supports cross-document transactions expressed using either batches in the SDKs or as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each container and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions occur, the entire transaction is rolled back.
       - question: |
-          What is a container?
+          How do I create an Azure Cosmos DB for NoSQL database?
         answer: |
-          A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the throughput and used storage determines the cost. Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
+          You can create databases by using one of these tools:
           
-          - For API for NoSQL, the resource is called a container.
-          - For API for MongoD, a container maps to a Collection.
-          - For API for Cassandra and Table, a container maps to a Table.
-          - For API for Gremlin, a container maps to a Graph.
+          - [Azure portal](quickstart-portal.md#)
+          - API for NoSQL SDKs
+            - [.NET](quickstart-dotnet.md)
+            - [Python](quickstart-python.md)
+            - [JavaScript](quickstart-nodejs.md)
+            - [Java](quickstart-java.md)
+            - [Go](quickstart-go.md)
+          - [REST API](/rest/api/cosmos-db/)
+      - question: |
+          How do I configure Azure Cosmos DB for NoSQL users and permissions?
+        answer: |
+          You can create users and permissions by using one of the Azure Cosmos DB for NoSQL SDKs or the [REST API](/rest/api/cosmos-db/). For more information, see [configure users and resource tokens](../secure-access-to-data.md#resource-tokens). Creating permissions by using resource tokens is allowed at the container level and its descendants (such as documents, attachments). Creating a permission at the database or an account level isn't currently allowed.
+      - question: |
+          Does Azure Cosmos DB for NoSQL support the SQL query language?
+        answer: |
+          Structured Query Language (SQL) is a language typically used to query relational data. The API for NoSQL has a custom **NoSQL** query language derived from SQL. The NoSQL query language includes a subset of the SQL query language typically associated with SQL Server along with various NoSQL-specific enhancements. The NoSQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using this query language, see [NoSQL Query](query/index.yml).
+      - question: |
+          Does Azure Cosmos DB for NoSQL support SQL aggregation functions?
+        answer: |
+          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions such as: `COUNT`, `MAX`, `AVG`, and `SUM` via the NoSQL query language.
+      - question: |
+          How does Azure Cosmos DB for NoSQL provide concurrency?
+        answer: |
+          The API for NoSQL supports optimistic concurrency control (OCC) through HTTP entity tags, or **ETags**. Every API for NoSQL resource has an ETag, and the ETag is set on the server every time a document is updated. The ETag header and the current value are included in all response messages. ETags can be used with the `If-Match` header to allow the server to decide whether a resource should be updated. The If-Match value is the ETag value to be checked against. If the ETag value matches the server ETag value, the resource is updated. If the ETag is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response code. The client then refetches the resource to acquire the current ETag value for the resource. In addition, ETags can be used with the `If-None-Match` header to determine whether its needed to refetch a resource.
           
-          Containers are also the billing entities for Azure Cosmos DB. Each container is billed hourly, based on the provisioned throughput and used storage space. For more information, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
+          Most of the API for NoSQL SDKs includes classes to manage optimistic concurrency control.
       - question: |
-          How do I create a database?
+          How can I bulk-insert documents into Azure Cosmos DB for NoSQL?
         answer: |
-          You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a container](quickstart-portal.md#create-container-database), one of the [Azure Cosmos DB SDKs](sdk-dotnet-v3.md), or the [REST APIs](/rest/api/cosmos-db/).
+          Use the [bulk import feature](tutorial-dotnet-bulk-import.md) in the .NET SDK for the API for NoSQL. This feature optimizes provisioned throughput to import large sets of data.
       - question: |
-          How do I set up users and permissions?
+          Does Azure Cosmos DB for NoSQL support resource link caching?
         answer: |
-          You can create users and permissions by using one of the [Azure Cosmos DB API SDKs](sdk-dotnet-v3.md) or the [REST APIs](/rest/api/cosmos-db/).
+          Yes, because Azure Cosmos DB for NoSQL is a RESTful service, resource links are immutable and can be cached. API for NoSQL clients can specify an "If-None-Match" header for reads against any resource-like document or container and then update their local copies after the server version changes.
       - question: |
-          Does the API for NoSQL support SQL?
+          Is a local instance of Azure Cosmos DB for NoSQL available?
         answer: |
-          The SQL query language supported by API for NoSQL accounts is an enhanced subset of the query functionality that SQL Server supports. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see [NoSQL Query](query/index.yml).
+          Yes. The [Azure Cosmos DB emulator](../emulator.md) provides a high-fidelity emulation of the Azure Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB across various APIs. This functionality includes support for creating items, querying items, provisioning containers, and scaling containers. You can develop and test applications by using the emulator's endpoints. You can then deploy the applications to Azure at a global scale by changing the connection string from the emulator to the live service.
       - question: |
-          Does the API for NoSQL support SQL aggregation functions?
+          Why are long floating-point values in an Azure Cosmos DB for NoSQL item rounded when using the Data Explorer in the portal?
         answer: |
-          The API for NoSQL supports low-latency aggregation at any scale via aggregate functions such as: `COUNT`, `MAX`, `AVG`, and `SUM` via the SQL grammar.
-      - question: |
-          How does the API for NoSQL provide concurrency?
-        answer: |
-          The API for NoSQL supports optimistic concurrency control (OCC) through HTTP entity tags, or ETags. Every API for NoSQL resource has an ETag, and the ETag is set on the server every time a document is updated. The ETag header and the current value are included in all response messages. ETags can be used with the If-Match header to allow the server to decide whether a resource should be updated. The If-Match value is the ETag value to be checked against. If the ETag value matches the server ETag value, the resource is updated. If the ETag is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response code. The client then refetches the resource to acquire the current ETag value for the resource. In addition, ETags can be used with the If-None-Match header to determine whether its needed to refetch a resource.
-          
-          To use optimistic concurrency in .NET, use the [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition) class. For a .NET sample, see [Program.cs](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement sample on GitHub.
-      - question: |
-          How do I perform transactions in the API for NoSQL?
-        answer: |
-          The API for NoSQL supports language-integrated transactions via JavaScript-stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation. If it's a single-partition container, the execution is scoped to the container. If the container is partitioned, the execution is scoped to documents with the same partition-key value within the container. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. For more information, see [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
-      - question: |
-          How can I bulk-insert documents into Azure Cosmos DB?
-        answer: |
-          You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
-          
-          - The bulk executor tool, as described in [Using bulk executor .NET library](bulk-executor-dotnet.md) and [Using bulk executor Java library](bulk-executor-java.md)
-          - Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
-      - question: |
-          Does the API for NoSQL support resource link caching?
-        answer: |
-          Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable and can be cached. API for NoSQL clients can specify an "If-None-Match" header for reads against any resource-like document or container and then update their local copies after the server version changes.
-      - question: |
-          Is a local instance of API for NoSQL available?
-        answer: |
-          Yes. The [Azure Cosmos DB Emulator](../emulator.md) provides a high-fidelity emulation of the Azure Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB. This functionality includes support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator. You can then deploy the applications to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
-      - question: |
-          Why are long floating-point values in a document rounded when viewed from data explorer in the portal.
-        answer: |
-          This limitation is an overall limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in Institute of Electrical and Electronics Engineers (IEEE) 754. This data type can safely hold numbers between -(2<sup>53</sup> - 1) and 2<sup>53</sup>-1 (that is, 9007199254740991) only.
-      - question: |
-          Where are permissions allowed in the object hierarchy?
-        answer: |
-          Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). Creating a permission at the database or an account level isn't currently allowed.
+          This Data Explorer limitation is a limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in Institute of Electrical and Electronics Engineers (IEEE) 754. This data type can safely hold numbers between -(2<sup>53</sup> - 1) and 2<sup>53</sup>-1 (that is, 9007199254740991) only.
 additionalContent: |
   ## Related content
 
   - [Get started with Azure Cosmos DB for NoSQL and .NET](quickstart-dotnet.md)
   - [Get started with Azure Cosmos DB for NoSQL and Python](quickstart-python.md)
   - [Get started with Azure Cosmos DB for NoSQL and Node.js](quickstart-nodejs.md)
+  - [Get started with Azure Cosmos DB for NoSQL and Java](quickstart-java.md)
+  - [Get started with Azure Cosmos DB for NoSQL and Go](quickstart-go.md)
+
+  - [Get started with Azure Cosmos DB for NoSQL using the Azure portal](quickstart-portal.md)
+  - [Get started with Azure Cosmos DB for NoSQL using Bicep](quickstart-template-bicep.md)
+  - [Get started with Azure Cosmos DB for NoSQL using Azure Resource Manager (ARM) templates](quickstart-template-json.md)
+  - [Get started with Azure Cosmos DB for NoSQL using Terraform](quickstart-terraform.md)
 
   ## Next step
 

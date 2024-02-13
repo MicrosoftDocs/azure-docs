@@ -8,7 +8,7 @@ metadata:
   ms.reviewer: mjbrown
   ms.service: cosmos-db
   ms.topic: faq
-  ms.date: 02/08/2024
+  ms.date: 02/13/2024
 title: Frequently asked questions about Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
@@ -28,7 +28,22 @@ sections:
       - question: |
           How does Azure Cosmos DB support various data models such as key/value, columnar, document, and graph?
         answer: |
-          Key/value (table), columnar, document, and graph data models are all natively supported because of the ARS (atoms, records, and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available using the ARS design (MongoDB RU, NoSQL, Table, Apache Cassandra, and Apache Gremlin). Azure Cosmos DB also supports other APIs such as MongoDB vCore, Cassandra MI, or PostgreSQL.
+          Key/value (table), columnar, document, and graph data models are all natively supported because of the ARS (atoms, records, and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available using the ARS design (MongoDB RU, NoSQL, Table, Apache Cassandra, and Apache Gremlin). Azure Cosmos DB also supports other APIs such as MongoDB vCore, Cassandra MI, or PostgreSQL. 
+      - question: |
+          What is an Azure Cosmos DB container?
+        answer: |
+          A container is a group of items. Containers can span one or more partitions and can scale to handle practically unlimited volumes of storage or throughput.
+
+          | | Containers known as |
+          | --- | --- |
+          | **Azure Cosmos DB for NoSQL** | Container |
+          | **Azure Cosmos DB for MongoDB RU** | Collection |
+          | **Azure Cosmos DB for MongoDB vCore** | Collection |
+          | **Azure Cosmos DB for Apache Cassandra** | Table |
+          | **Azure Cosmos DB for Apache Gremlin** | Graph |
+          | **Azure Cosmos DB for Table** | Table |
+          
+          A container is a billable entity, where the throughput and used storage determines the cost. Each container is billed hourly, based on the provisioned throughput and used storage space. For more information, see [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
       - question: |
           Can I use multiple APIs to access my data?
         answer: |
