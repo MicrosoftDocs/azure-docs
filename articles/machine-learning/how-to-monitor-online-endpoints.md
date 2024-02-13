@@ -137,7 +137,7 @@ For more information, see [Create Azure Monitor alert rules](../azure-monitor/al
 
 There are three logs that can be enabled for online endpoints:
 
-* **AMLOnlineEndpointTrafficLog**: You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
+* **AmlOnlineEndpointTrafficLog**: You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
 
     * If the response isn't 200, check the value of the column "ResponseCodeReason" to see what happened. Also check the reason in the "HTTPS status codes" section of the [Troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md#http-status-codes) article.
 
@@ -147,7 +147,7 @@ There are three logs that can be enabled for online endpoints:
 
     * If you want to check how many requests or failed requests recently. You could also enable the logs. 
 
-* **AMLOnlineEndpointConsoleLog**: Contains logs that the containers output to the console. Below are some cases: 
+* **AmlOnlineEndpointConsoleLog**: Contains logs that the containers output to the console. Below are some cases: 
 
     * If the container fails to start, the console log can be useful for debugging. 
 
@@ -157,7 +157,7 @@ There are three logs that can be enabled for online endpoints:
 
     * You can also use this log for performance analysis in determining the time required by the model to process each request. 
 
-* **AMLOnlineEndpointEventLog**: Contains event information regarding the container's life cycle. Currently, we provide information on the following types of events: 
+* **AmlOnlineEndpointEventLog**: Contains event information regarding the container's life cycle. Currently, we provide information on the following types of events: 
 
     | Name | Message |
     | ----- | ----- | 
