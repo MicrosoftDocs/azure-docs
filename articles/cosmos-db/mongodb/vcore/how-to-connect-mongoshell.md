@@ -26,9 +26,9 @@ MongoDB Shell mongosh, is a JavaScript and Node.js REPL environment for interact
 - Install the [MongoShell](https://www.mongodb.com/docs/mongodb-shell/install/) from the community site.
 - Ensure you are setting up the necessary environment variables post installation for your operating system
     - For [Windows](https://www.mongodb.com/docs/mongodb-shell/install/#add-the-mongosh-binary-to-your-path-environment-variable).
-    - For [MacOS](hhttps://www.mongodb.com/docs/mongodb-shell/install/#add-the-downloaded-binaries-to-your-path-environment-variable).
+    - For [MacOS](https://www.mongodb.com/docs/mongodb-shell/install/#add-the-downloaded-binaries-to-your-path-environment-variable).
     - For [Linux](https://www.mongodb.com/docs/mongodb-shell/install/#confirm-that-mongosh-installed-successfully).
-- Ensure you have set the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure CosmosDB](../../../cosmos-db/how-to-configure-firewall#ip-access-control-overview.md)
+- Ensure you have set the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure CosmosDB](../../../cosmos-db/how-to-configure-firewall.md)
     - You can choose to allow requests from your current IP, requests from cloud services or requests from virtual machines - specific IP Ranges
     
 ![GIF of Firewall Settings update for MongoDB Vcore](media/connect-using-mongoshell/FirewallSettings.gif)
