@@ -23,7 +23,7 @@ MediaStatisticsCallFeature mediaStatisticsCallFeature = call.feature(Features.ME
 The `MediaStatisticsCallFeature` object has the following API structure:
 
 - The `OnReportReceivedListener` event listens for periodic reports of the media statistics.
-- `updateReportIntervalInSeconds(int value)` sets the interval, in seconds, of the media statistics report generation. If it's not specified, the SDK uses `10` seconds as default.
+- `updateReportIntervalInSeconds(int value)` sets the interval, in seconds, of the media statistics report generation. The SDK uses `10` seconds as default.
 - A `MediaStatisticssReport` contains the definition of the outgoing and incoming media statistics, categorized by audio, video, and screen share.
   - `getOutgoingMediaStatistics()`: The list of media statistics for outgoing media.
     - `getAudioStatistics()`: The list of media statistics for outgoing audio.
