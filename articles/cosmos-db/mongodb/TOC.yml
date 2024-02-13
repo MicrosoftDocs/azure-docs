@@ -4,8 +4,6 @@
   href: choose-model.md
 - name: Comparing MongoDB Atlas
   href: cosmos-db-vs-mongodb-atlas.md
-- name: FAQ
-  href: faq.yml
 - name: RU
   items:
     - name: MongoDB RU documentation
