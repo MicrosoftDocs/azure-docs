@@ -116,7 +116,7 @@ You can verify that the role was added by checking the identity from the **Ident
 1. Select **Azure role assignments** from the menu on the managed identity resource page.
 1. Verify that the `acrpull` role is assigned to the user-assigned managed identity.
 
-#### Create a container app with a private image
+### Create a container app with a private image
 
 If you don't want to start by creating a container app with a public image, you can also do the following.
 
