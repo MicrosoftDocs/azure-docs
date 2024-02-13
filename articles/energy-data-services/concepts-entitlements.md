@@ -36,13 +36,17 @@ The entitlement service enables three use cases for authorization:
 ### User groups
 - User groups are used for hierarchical grouping of user and service groups.
 - The service groups start with the word "users," such as `users.datalake.viewers` and `users.datalake.editors`.
-- Some user groups are created by default when a data partition is provisioned. For information on these groups and their hierarchy scope, see [Bootstrapped OSDU entitlement groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+
 
 **Nested hierarchy** 
 - If user_1 is part of a data_group_1 and data_group_1 is added as a member to the user_group_1, OSDU code checks for the nested membership and authorize user_1 to access the entitlements for user_group_1. This is explained in [OSDU Entitlement Check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java?ref_type=heads#L105) and [OSDU Retrieve Group API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/master/provider/entitlements-v2-azure/src/main/java/org/opengroup/osdu/entitlements/v2/azure/spi/gremlin/retrievegroup/RetrieveGroupRepoGremlin.java#:~:text=public%20ParentTreeDto%20loadAllParents(EntityNode%20memberNode)%20%7B).
 
 - You can add individual users to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups because individual users don't need to be added one by one to the data group. Instead, you can add users to the `user group`. Then you can use the `user group` repeatedly for multiple `data groups`. The nested structure helps provide scalability to manage memberships in OSDU.
 
+#### Default groups
+- Some OSDU groups are created by default when a data partition is provisioned. For information on these groups and their hierarchy scope, see [Bootstrapped OSDU entitlement groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+- `data.default.viewers` and `data.default.owners` groups have `users` group as its member by default.
+  
 #### Peculiarity of `users@` group
 - There's one exception of this group naming rule for the "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`.
 - It has the list of all the users with any type of access in a specific data partition. Before you add a new user to any entitlement groups, you also need to add the new user to the `users@{partition}.{domain}` group.
