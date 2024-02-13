@@ -43,24 +43,24 @@ Deploy the Resource Manager template to Azure:
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fvnet-two-subnets%2Fazuredeploy.json)
 
 1. In the portal, on the **Create a Virtual Network with two Subnets** page, enter or select the following values:
-   - **Resource group**: Select **Create new**, enter **CreateVNetQS-rg** for the resource group name, and select **OK**.
+   - **Resource group**: Select **Create new**, enter **CreateVNetQS-rg** for the resource group name, and then select **OK**.
    - **Virtual Network Name**: Enter a name for the new virtual network.
 1. Select **Review + create**, and then select **Create**.
 1. When deployment finishes, select the **Go to resource** button to review the resources that you deployed.
 
 ## Review deployed resources
 
-Explore the resources that were created with the virtual network by browsing the settings blades for **VNet1**.
+Explore the resources that you created with the virtual network by browsing the settings blades for **VNet1**:
 
-- On the **Overview** tab, you see the defined address space of **10.0.0.0/16**.
+- The **Overview** tab shows the defined address space of **10.0.0.0/16**.
 
-- On the **Subnets** tab, you see the deployed subnets of **Subnet1** and **Subnet2** with the appropriate values from the template.
+- The **Subnets** tab shows the deployed subnets of **Subnet1** and **Subnet2** with the appropriate values from the template.
 
 To learn about the JSON syntax and properties for a virtual network in a template, see [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the virtual network, delete the resource group. This removes the virtual network and all the related resources.
+When you no longer need the resources that you created with the virtual network, delete the resource group. This action removes the virtual network and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 

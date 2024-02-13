@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 06/09/2023
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-api
-#Customer intent: I want to use PowerShell to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
+#Customer intent: As a network administrator, I want to use PowerShell to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
 
 # Quickstart: Use Azure PowerShell to create a virtual network
