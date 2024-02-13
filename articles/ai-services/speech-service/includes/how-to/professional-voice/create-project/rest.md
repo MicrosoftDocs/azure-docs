@@ -15,12 +15,12 @@ Each project is specific to a country/region and language, and the gender of the
 
 ## Create a project
 
-To create a professional voice project, use the `Projects_Create` operation of the custom voice API. Construct the request body according to the following instructions:
+To create a professional voice project, use the [Projects_Create](/rest/api/speechapi/projects/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `kind` property to `ProfessionalVoice`. The kind can't be changed later.
 - Optionally, set the `description` property for the project description. The project description can be changed later.
 
-Make an HTTP PUT request using the URI as shown in the following `Projects_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following [Projects_Create](/rest/api/speechapi/projects/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `ProjectId` with a project ID of your choice. The case sensitive ID must be unique within your Speech resource. The ID will be used in the project's URI and can't be changed later. 

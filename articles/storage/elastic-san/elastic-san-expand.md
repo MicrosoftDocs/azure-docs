@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 01/05/2024
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Increase the size of an Elastic SAN Preview

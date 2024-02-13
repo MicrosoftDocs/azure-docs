@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: template-tutorial, ignite-2022
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Connect to a storage account using an Azure Private Endpoint

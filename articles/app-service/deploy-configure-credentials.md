@@ -5,7 +5,6 @@ description: Learn what types of deployment credentials are in Azure App Service
 ms.topic: article
 ms.date: 01/26/2024
 ms.reviewer: byvinyal
-ms.custom: seodec18
 author: cephalin
 ms.author: cephalin
 ---

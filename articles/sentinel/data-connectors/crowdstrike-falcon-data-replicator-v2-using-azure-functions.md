@@ -1,6 +1,6 @@
 ---
-title: "Crowdstrike Falcon Data Replicator V2 (using Azure Functions) (Preview) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Crowdstrike Falcon Data Replicator V2 (using Azure Functions) (Preview) to connect your data source to Microsoft Sentinel."
+title: "Crowdstrike Falcon Data Replicator V2 (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Crowdstrike Falcon Data Replicator V2 (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 01/06/2024
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Crowdstrike Falcon Data Replicator V2 (using Azure Functions) (Preview) connector for Microsoft Sentinel
+# Crowdstrike Falcon Data Replicator V2 (using Azure Functions) connector for Microsoft Sentinel
 
 The [Crowdstrike](https://www.crowdstrike.com/) Falcon Data Replicator connector provides the capability to ingest raw event data from the [Falcon Platform](https://www.crowdstrike.com/blog/tech-center/intro-to-falcon-data-replicator/) events into Microsoft Sentinel. The connector provides ability to get events from Falcon Agents which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -18,7 +18,6 @@ The [Crowdstrike](https://www.crowdstrike.com/) Falcon Data Replicator connector
 | --- | --- |
 | **Azure function app code** | https://aka.ms/sentinel-CrowdstrikeReplicatorV2-functionapp |
 | **Kusto function alias** | CrowdstrikeReplicator |
-| **Kusto function url** | https://aka.ms/sentinel-crowdstrikereplicator-parser |
 | **Log Analytics table(s)** | CrowdStrike_Additional_Events_CL<br/> ASimNetworkSessionLogs<br/> ASimDnsActivityLogs<br/> ASimAuditEventLogs<br/> ASimFileEventLogs<br/> ASimAuthenticationEventLogs<br/> ASimProcessEventLogs<br/> ASimRegistryEventLogs<br/> ASimUserManagementActivityLogs<br/> CrowdStrike_Secondary_Data_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -36,7 +35,7 @@ CrowdStrikeReplicatorV2
 
 ## Prerequisites
 
-To integrate with Crowdstrike Falcon Data Replicator V2 (using Azure Functions) (Preview) make sure you have: 
+To integrate with Crowdstrike Falcon Data Replicator V2 (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **SQS and AWS S3 account credentials/permissions**: **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL** is required.  [See the documentation to learn more about data pulling](https://www.crowdstrike.com/blog/tech-center/intro-to-falcon-data-replicator/). To start, contact CrowdStrike support. At your request they will create a CrowdStrike managed Amazon Web Services (AWS) S3 bucket for short term storage purposes as well as a SQS (simple queue service) account for monitoring changes to the S3 bucket.

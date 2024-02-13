@@ -1,11 +1,10 @@
 ---
-title: Manage default and individual user and group quotas for Azure NetApp Files volumes  | Microsoft Docs 
+title: Manage default and individual user and group quotas for Azure NetApp Files volumes  | Microsoft Docs
 description: Describes the considerations and steps for managing user and group quotas for Azure NetApp Files volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 06/14/2023
 ---
