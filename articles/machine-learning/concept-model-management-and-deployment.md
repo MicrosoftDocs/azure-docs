@@ -136,7 +136,7 @@ For more information on deployment using a controlled rollout, see [Perform safe
 
 ### Analytics
 
-Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI](/power-bi/transform-model/dataflows/dataflows-machine-learning-integration.md#azure-machine-learning-integration-in-power-bi). 
+Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI](/power-bi/transform-model/dataflows/dataflows-machine-learning-integration).
 
 ## Capture the governance data required for MLOps
 
