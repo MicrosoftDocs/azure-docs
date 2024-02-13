@@ -165,7 +165,7 @@ Once the subnets are configured, the network location of the devices is shown in
 
     - Enter values in the **IP Address**, **Mask**, and **Name** fields to add subnet details manually. Select **Add subnet** to add additional subnets as needed.
     
-    - **ICS Subnet** is on by default, which means that Defender for IoT recognizes the subnet as OT activity or protocols. To mark a subnet as non-ICS, toggle off **ICS Subnet**.
+    - **ICS Subnet** is on by default, which means that Defender for IoT recognizes the subnet as OT networks. To mark a subnet as non-ICS, toggle off **ICS Subnet**.
 
 ### VLAN naming
 
