@@ -46,7 +46,7 @@ The entitlement service enables three use cases for authorization:
 
 ## Default groups
 - Some OSDU groups are created by default when a data partition is provisioned. For information on these groups and their hierarchy scope, see [Bootstrapped OSDU entitlement groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
-- `data.default.viewers` and `data.default.owners` groups have `users` group as its member by default.
+- The chart of default members and groups shows the column header groups as the member of row headers. For example, `users` group is member of `data.default.viewers` and `data.default.owners` by default. `users.datalake.admins` and `users.datalake.ops` are member of `service.entitlement.admin` group.
   
 ### Peculiarity of `users@` group
 - There's one exception of this group naming rule for the "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`.
