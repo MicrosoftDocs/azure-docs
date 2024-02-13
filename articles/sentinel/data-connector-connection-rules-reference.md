@@ -90,14 +90,11 @@ The CCP supports the following authentication types:
 > [!NOTE]
 > CCP OAuth2 implementation does not support certificate credentials.
 
-As a best practice, use parameters in the auth section instead of hard-coding credentials.
-- For more information, see [Best practice recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
+As a best practice, use parameters in the auth section instead of hard-coding credentials. For more information, see [Secure confidential input](create-codeless-connector.md#secure-confidential-input).
 
-In order to create the deployment template which also uses parameters, you need to escape the parameters in this section with an extra starting `[`. This allows the parameters to assign a value based on the user interaction with the connector. 
-- For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
+In order to create the deployment template which also uses parameters, you need to escape the parameters in this section with an extra starting `[`. This allows the parameters to assign a value based on the user interaction with the connector. For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
 
-To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters.
-- For more information, see [Data connector definitions reference for the Codeless Connector Platform](data-connector-ui-definitions-reference.md#instructions).
+To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Platform](data-connector-ui-definitions-reference.md#instructions).
 
 #### Basic auth
 
