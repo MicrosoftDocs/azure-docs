@@ -40,7 +40,7 @@ Region availability also varies between Azure Arc services, so you may need to u
 
 ## Azure Arc-enabled servers
 
-Azure Arc-enabled servers lets you manage Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. When connecting your machine to Azure Arc-enabled servers, you can perform various operational functions similar to native Azure virtual machines. Here are some key actions:
+[Azure Arc-enabled servers](servers/overview.md) lets you manage Windows and Linux physical servers and virtual machines hosted outside of Azure, on your corporate network, or other cloud provider. When connecting your machine to Azure Arc-enabled servers, you can perform various operational functions similar to native Azure virtual machines. Here are some key actions:
 
 - Govern: Assign Azure Automanage machine configurations to audit settings within the machine. Utilize Azure Policy pricing guide for cost understanding.
 
@@ -57,13 +57,13 @@ Note that all of the other Azure Arc services described below have all the capab
 
 ## Azure Arc-enabled VMware vSphere
 
-Azure Arc-enabled VMware vSphere simplifies the management of hybrid IT resources distributed across VMware vSphere and Azure.
+[Azure Arc-enabled VMware vSphere](vmware-vsphere/overview.md) simplifies the management of hybrid IT resources distributed across VMware vSphere and Azure.
 
 Running software in Azure VMware Solution, as a private cloud in Azure, offers some benefits not realized by operating your environment outside of Azure. For software running in a VM, such as SQL Server and Windows Server, running in Azure VMware Solution provides additional value such as free Extended Security Updates (ESUs). 
 
-To take advantage of these benefits if you are running in an Azure VMware Solution it is important to follow respective onboarding process to fully integrate the experience with the AVS private cloud. 
+To take advantage of these benefits if you're running in an Azure VMware Solution, it's important to follow respective onboarding processes to fully integrate the experience with the AVS private cloud. 
 
-Additionally, when a VM in Azure VMware Solution private cloud is Arc-enabled using a method distinct from the one outlined in the AVS public document, the steps are provided in the document to refresh the integration between the Arc-enabled VMs and Azure VMware Solution  
+Additionally, when a VM in Azure VMware Solution private cloud is Arc-enabled using a method distinct from the one outlined in the AVS public document, the steps are provided in the document to refresh the integration between the Arc-enabled VMs and Azure VMware Solution.
 
 ### Capabilities
 
@@ -79,7 +79,7 @@ Additionally, when a VM in Azure VMware Solution private cloud is Arc-enabled us
 
 ## Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
 
-Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) empowers System Center customers to connect their VMM environment to Azure and perform VM self-service operations from Azure portal. 
+[Azure Arc-enabled System Center Virtual Machine Manager](system-center-virtual-machine-manager/overview.md) (SCVMM) empowers System Center customers to connect their VMM environment to Azure and perform VM self-service operations from Azure portal. 
 
 Azure Arc-enabled System Center Virtual Machine Manager also allows you to manage your hybrid environment consistently and perform self-service VM operations through Azure portal. For Microsoft Azure Pack customers, this solution is intended as an alternative to perform VM self-service operations. 
 
@@ -95,9 +95,9 @@ Azure Arc-enabled System Center Virtual Machine Manager also allows you to manag
 
 - Install the Arc-connected machine agents at scale on SCVMM VMs to govern, protect, configure, and monitor them.
 
-## Azure Arc-enabled Stack HCI
+## Azure Arc-enabled Azure Stack HCI
 
-Azure Stack HCI is a hybrid cloud solution that merges the power of the Azure control plane with hyperconverged infrastructure (HCI) and enables organizations to modernize with cost-effective technology. 
+Azure Arc-enabled Azure Stack HCI is a hybrid cloud solution that merges the power of the Azure control plane with hyperconverged infrastructure (HCI) and enables organizations to modernize with cost-effective technology. 
 
 Azure Arc-enabled Stack HCI consolidates containers and virtualized workloads when data needs to remain on premises. 
 
