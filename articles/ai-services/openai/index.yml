@@ -42,7 +42,7 @@ landingContent:
              url: chatgpt-quickstart.md
            - text: GPT-4 Turbo with Vision
              url: gpt-v-quickstart.md  
-           - text: DALL-E
+           - text: DALL-E (preview)
              url: dall-e-quickstart.md
            - text: Use your data (preview)
              url: use-your-data-quickstart.md

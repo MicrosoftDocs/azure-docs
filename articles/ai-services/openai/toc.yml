@@ -29,7 +29,7 @@ items:
       displayName: ChatGPT, chatgpt
     - name: GPT-4 Turbo with Vision
       href: gpt-v-quickstart.md
-    - name: DALL-E
+    - name: DALL-E (preview)
       href: dall-e-quickstart.md
     - name: Use your data (preview)
       href: use-your-data-quickstart.md
