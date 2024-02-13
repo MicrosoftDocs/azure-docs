@@ -46,7 +46,7 @@ Analytics rules search for specific events or sets of events across your environ
     - **Medium**. The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity.
     - **High**. The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment.
 
-    Severity level defaults are not a guarantee of current or environmental impact level. [Customize alert details ](https://learn.microsoft.com/en-us/azure/sentinel/customize-alert-details) to customize the severity, tactics, and other properties of a given instance of an alert with the values of any relevant fields from a query output.
+    Severity level defaults are not a guarantee of current or environmental impact level. [Customize alert details](customize-alert-details.md) to customize the severity, tactics, and other properties of a given instance of an alert with the values of any relevant fields from a query output.
   
     Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for alerts created by analytics rules. For alerts ingested from from other services, the severity is defined by the source security service.
   
