@@ -1,7 +1,7 @@
 ---
 title: What are network APIs?
 titleSuffix: Azure Programmable Connectivity
-description: Azure Programmable Connectivity is a cloud service that provides a simple and uniform way for developers to access programmable networks, regardless of substrate or location.
+description: Network Application Programming Interfaces (APIs) can be utilized by software developers to build applications that can communicate with the underlying network.
 author: anzaman
 ms.author: alzam
 ms.service: azure-operator-nexus
@@ -12,4 +12,10 @@ ms.custom: template-overview
 
 # What are network APIs?
  
-Body goes here.
+Network Application Programming Interfaces (APIs) can be utilized by software developers to build applications that can communicate with the underlying network. These APIs offer a uniform way for applications to access analytical and statistical data from networks, facilitating the implementation of customer experience based use cases. Network APIs can acquire network information as well as request configuration changes.  
+
+Azure Programmable Connectivity (APC) leverages these network APIs to provide a unified standard interface across multiple operator networks globally while abstracting the complexities inherent to network APIs.  
+
+APC is now available in public preview with several API’s, including number verification, SIM swap and other capabilities.  
+  
+   :::image type="content" source="media/key-apis.jpg" alt-text="Diagram showing key network APIs.":::  
