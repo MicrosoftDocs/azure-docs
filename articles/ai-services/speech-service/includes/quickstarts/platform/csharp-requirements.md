@@ -8,6 +8,9 @@ ms.author: eur
 
 The Speech SDK for C# is compatible with Windows, Linux, and macOS.
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+
 # [Windows](#tab/windows)
 
 On Windows, you must use the 64-bit target architecture. Windows 10 or later is required.
