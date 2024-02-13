@@ -211,7 +211,7 @@ items:
           href: develop/howto-develop-deploy-dapr.md
         - name: Develop Dapr apps
           href: develop/howto-develop-dapr-apps.md
-        - name: Build event-driven apps with Dapr
+        - name: Build an event-driven app with Dapr
           href: develop/tutorial-event-driven-with-dapr.md
       - name: About the MQ state store protocol 
         href: develop/concept-about-state-store-protocol.md
