@@ -21,7 +21,11 @@ Azure Virtual Desktop has three workflows with three corresponding resource type
 
 3. **Connections to host pools**: every connection to a host pool has two sides - clients and session host virtual machines (VMs). To enable connections, you need to create a private endpoint for the *connection* sub-resource for each host pool you want to use with Private Link.
 
-The following table summarizes the private endpoints you need to create:
+The following high-level diagram shows how Private Link securely connects a local client to the Azure Virtual Desktop service. For more detailed information about client connections, see [Client connection sequence](#client-connection-sequence).
+
+:::image type="content" source="media/private-link-diagram.png" alt-text="A high-level diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
+
+The following table summarizes the private endpoints required:
 
 | Purpose | Resource type | Target sub-resource | Quantity |
 |--|--|--|--|
@@ -30,10 +34,6 @@ The following table summarizes the private endpoints you need to create:
 | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
 
 You can either share these private endpoints across your network topology or you can isolate your virtual networks so that each has their own private endpoint to the host pool or workspace.
-
-The following high-level diagram shows how Private Link securely connects a local client to the Azure Virtual Desktop service. For more detailed information about client connections, see [Client connection sequence](#client-connection-sequence).
-
-:::image type="content" source="media/private-link-diagram.png" alt-text="A high-level diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
 
 ## Supported scenarios
 
