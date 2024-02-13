@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 07/12/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: ignite-2022
 ---
 
 # Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account

@@ -5,7 +5,6 @@ description: Use the LUIS container to load your trained or published app, and g
 #services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to

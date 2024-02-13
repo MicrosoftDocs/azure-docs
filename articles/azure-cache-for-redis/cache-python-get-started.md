@@ -9,8 +9,7 @@ ms.date: 02/15/2023
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
-ms.custom: mvc, seo-python-october2019, devx-track-python, mode-api, py-fresh-zinc
-
+ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc
 ---
 # Quickstart: Use Azure Cache for Redis in Python
 

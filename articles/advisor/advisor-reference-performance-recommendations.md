@@ -2,7 +2,6 @@
 title: Performance recommendations
 description: Full list of available performance recommendations in Advisor.
 ms.topic: article
-ms.custom: ignite-2022
 author: mabrahms
 ms.author: v-mabrahms
 ms.date: 10/15/2023

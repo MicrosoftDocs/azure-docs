@@ -8,10 +8,9 @@ manager: amycolannino
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
-ms.reviewer: bagovind 
+ms.reviewer: bagovind
 ms.custom: devx-track-azurepowershell
 ---
 # List Azure role assignments using Azure PowerShell

@@ -6,8 +6,8 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/21/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell
 ---
 
 # Update consistency level for an Azure Cosmos DB account with PowerShell

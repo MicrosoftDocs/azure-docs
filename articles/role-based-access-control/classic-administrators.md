@@ -7,7 +7,6 @@ manager: amycolannino
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
 ms.date: 02/13/2024
 ms.author: rolyon
 ms.reviewer: bagovind
