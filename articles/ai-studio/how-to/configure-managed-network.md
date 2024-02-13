@@ -19,7 +19,7 @@ author: Blackmist
 
 We have two network isolation aspects. One is the network isolation to access an Azure AI. Another is the network isolation of computing resources in your Azure AI and Azure AI projects such as Compute Instance, Serverless and Managed Online Endpoint. This document explains the latter highlighted in the diagram. You can use Azure AI built-in network isolation to protect your computing resources.
 
-:::image type="content" source="../media/how-to/network/azure-ai-network-outbound.svg" alt-text="Diagram of Azure AI network isolation." lightbox="../media/how-to/network/azure-ai-network-outbound.svg":::
+:::image type="content" source="../media/how-to/network/azure-ai-network-outbound.svg" alt-text="Diagram of Azure AI network isolation." lightbox="../media/how-to/network/azure-ai-network-outbound.png":::
 
 You need to configure following network isolation configurations.
 
@@ -51,14 +51,14 @@ The managed VNet is preconfigured with [required default rules](#list-of-require
 
 The following diagram shows a managed VNet configured to __allow internet outbound__:
 
-:::image type="content" source="../media/how-to/network/internet-outbound.svg" alt-text="Diagram of managed VNet isolation configured for internet outbound." lightbox="../media/how-to/network/internet-outbound.svg":::
+:::image type="content" source="../media/how-to/network/internet-outbound.svg" alt-text="Diagram of managed VNet isolation configured for internet outbound." lightbox="../media/how-to/network/internet-outbound.png":::
 
 The following diagram shows a managed VNet configured to __allow only approved outbound__:
 
 > [!NOTE]
 > In this configuration, the storage, key vault, and container registry used by the Azure AI are flagged as private. Since they are flagged as private, a private endpoint is used to communicate with them.
 
-:::image type="content" source="../media/how-to/network/only-approved-outbound.svg" alt-text="Diagram of managed VNet isolation configured for allow only approved outbound." lightbox="../media/how-to/network/only-approved-outbound.svg":::
+:::image type="content" source="../media/how-to/network/only-approved-outbound.svg" alt-text="Diagram of managed VNet isolation configured for allow only approved outbound." lightbox="../media/how-to/network/only-approved-outbound.png":::
 
 ## Configure a managed virtual network to allow internet outbound
 
