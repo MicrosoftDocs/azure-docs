@@ -1,6 +1,6 @@
 ---
 title: Migrate to App Service Environment v3 by using the in-place migration feature
-description: Overview of the in-place migration feature for migration to App Service Environment v3
+description: Overview of the in-place migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
 ms.date: 02/12/2024
@@ -66,7 +66,6 @@ The in-place migration feature doesn't support the following scenarios. See the 
 - App Service Environment v1 in a [Classic virtual network](/previous-versions/azure/virtual-network/create-virtual-network-classic)
 - ELB App Service Environment v2 with IP SSL addresses
 - ELB App Service Environment v1 with IP SSL addresses
-- App Service Environment in a region not listed in the supported regions
 
 The App Service platform reviews your App Service Environment to confirm in-place migration support. If your scenario doesn't pass all validation checks, you can't migrate at this time using the in-place migration feature. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates.
 
@@ -139,6 +138,10 @@ If your migration includes a custom domain suffix, for App Service Environment v
 ### Migrate to App Service Environment v3
 
 After completing the previous steps, you should continue with migration as soon as possible.
+
+> [!IMPORTANT]
+> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration.
+>
 
 Migration requires a three to six hour service window for App Service Environment v2 to v3 migrations. Up to a six hour service window is required depending on environment size for v1 to v3 migrations. Note that the service window may be extended in rare cases where manual intervention by the service team is required. During migration, scaling and environment configurations are blocked and the following events occur:
 

@@ -1,6 +1,6 @@
 ---
 title: Use the in-place migration feature to migrate your App Service Environment to App Service Environment v3
-description: Learn how to migrate your App Service Environment to App Service Environment v3 by using the migration feature.
+description: Learn how to migrate your App Service Environment to App Service Environment v3 by using the in-place migration feature.
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
@@ -15,10 +15,11 @@ zone_pivot_groups: app-service-cli-portal
 > The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you're looking for information on the side by side migration feature, see [Migrate to App Service Environment v3 by using the side by side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
 
-You can automatically migrate App Service Environment v1 and v2 to [App Service Environment v3](overview.md) by using the in-place migration feature. To learn more about the migration process and to see if your App Service Environment supports migration at this time, see the [overview of the migration feature](migrate.md).
+You can automatically migrate App Service Environment v1 and v2 to [App Service Environment v3](overview.md) by using the in-place migration feature. To learn more about the migration process and to see if your App Service Environment supports migration at this time, see the [overview of the in-place migration feature](migrate.md).
 
 > [!IMPORTANT]
 > We recommend that you use this feature for development environments before migrating any production environments, to avoid unexpected problems. Please provide any feedback related to this article or the feature by using the buttons at the bottom of the page.
+>
 
 ## Prerequisites
 
@@ -121,6 +122,7 @@ If your existing App Service Environment uses a custom domain suffix, you need t
 
 > [!NOTE]
 > If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated in step 3.
+>
 
 If your migration doesn't include a custom domain suffix and you aren't enabling zone redundancy, you can move on to migration.
 
