@@ -21,7 +21,7 @@ This article shows you how to use Azure Event Grid to send events from MQTT clie
 
 1. MQTT client sends events to your Event Grid namespace topic.
 2. Event subscription to the namespace topic forwards those events to your event hub. 
-3. Fabric event stream receives events from the event hub and stores them in a Fabric destination such as a KQL database. 
+3. Fabric event stream receives events from the event hub and stores them in a Fabric destination such as a KQL database or a lakehouse. 
 
 ## Detailed steps
 
@@ -34,14 +34,14 @@ This article shows you how to use Azure Event Grid to send events from MQTT clie
     1. [Create an Event Grid namespace and enable MQTT broker](mqtt-publish-and-subscribe-portal.md#create-a-namespace). 
     1. [Enable routing to a namespace topic](mqtt-routing-to-event-hubs-portal.md#configure-routing-in-the-event-grid-namespace).     
 1. In Microsoft Fabric, do these steps:
-    1. [Create a KQL database](/fabric/real-time-analytics/create-database). 
+    1. [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake#create-a-lakehouse). 
     2. [Create an event stream](/fabric/real-time-analytics/event-streams/create-manage-an-eventstream#create-an-eventstream).
     3. [Add your event hub as an input source](/fabric/real-time-analytics/event-streams/add-manage-eventstream-sources#add-an-azure-event-hub-as-a-source).
-    4. [Add your KQL Database as a destination](/fabric/real-time-analytics/event-streams/add-manage-eventstream-destinations#add-a-kql-database-as-a-destination). 
+    4. [Add your lakehouse as a destination](/fabric/real-time-analytics/event-streams/add-manage-eventstream-destinations#add-a-lakehouse-as-a-destination). 
 1. [Publish events to the namespace topic](publish-deliver-events-with-namespace-topics.md#send-events-to-your-topic). 
 
 ## Next steps
-Build a Power BI report as shown in the sample: [Build a near-real-time Power BI report with the event data ingested in the KQL database](/fabric/real-time-analytics/event-streams/stream-real-time-events-from-custom-app-to-kusto#build-a-near-real-time-power-bi-report-with-the-event-data-ingested-in-the-kql-database).
+Build a Power BI report as shown in the sample: [Build a near-real-time Power BI report with the event data ingested in a lakehouse](/fabric/real-time-analytics/event-streams/transform-and-stream-real-time-events-to-lakehouse).
 
 
     
