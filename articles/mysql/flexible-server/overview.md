@@ -164,7 +164,7 @@ To migrate from Azure Database for MySQL single server to Azure Database for MyS
 
 For more information, see [Select the right tools for migration to Azure Database for MySQL flexible server](../../mysql/how-to-decide-on-right-migration-tools.md).
 
-## Azure regions
+### Azure regions
 
 One advantage of running your workload in Azure is its global reach. Azure Database for MySQL flexible server is available today in the following Azure regions:
 
@@ -176,7 +176,7 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada East | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | China East 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | China East 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
