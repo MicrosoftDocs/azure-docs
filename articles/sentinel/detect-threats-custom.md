@@ -41,13 +41,14 @@ Analytics rules search for specific events or sets of events across your environ
 
 - Set the alert **Severity** as appropriate, matching the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.
 
+    - **Informational**. No impact on your system, but the information might be indicative of future steps planned by a threat actor.
     - **Low**. The immediate impact would be minimal. A threat actor would likely need to conduct multiple steps before achieving an impact on an environment.
     - **Medium**: The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity.
     - **High**: The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment.
 
-    Severity level defaults are not a guarantee of current or environmental impact level. In an API, use the [alertDetailsOverride](/rest/api/securityinsights/alert-rules/create-or-update?view=rest-securityinsights-2023-11-01&tabs=HTTP#alertdetailsoverride) property to provide a dynamic severity that defines a value based on a query outcome.
-
-    Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for Microsoft Sentinel alerts. For alerts coming from other services, the severity is defined by the source security service.
+    Severity level defaults are not a guarantee of current or environmental impact level. [Customize alert details ](https://learn.microsoft.com/en-us/azure/sentinel/customize-alert-details) to customize the severity, tactics, and other properties of a given instance of an alert with the values of any relevant fields from a query output.
+  
+    Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for alerts created by analytics rules. For alerts ingested from from other services, the severity is defined by the source security service.
   
 - When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
