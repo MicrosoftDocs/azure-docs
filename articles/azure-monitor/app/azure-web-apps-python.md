@@ -84,6 +84,10 @@ You can configure with [OpenTelemetry environment variables][ot_env_vars] such a
 | `OTEL_TRACES_SAMPLER_ARG` | Specifies the ratio of distributed tracing telemetry to be [sampled][application_insights_sampling]. Accepted values range from 0 to 1. The default is 1.0, meaning no telemetry is sampled out. |
 | `OTEL_PYTHON_DISABLED_INSTRUMENTATIONS` | Specifies which supported instrumentations to disable. When disabled, they aren't instrumented as part of `configure_azure_monitor`. However, you can still manually instrument them with `instrument()`. Accepts a comma-separated list of lowercase [library names](#application-monitoring-for-azure-app-service-and-python). For example, set it to `"psycopg2,fastapi"` to disable the Psycopg2 and FastAPI instrumentations. It defaults to an empty list, enabling all supported instrumentations. |
 
+### Add a community instrumentation library
+
+#### TODO
+
 ## Automate monitoring
 
 In order to enable telemetry collection with Application Insights, only the following Application settings need to be set:
@@ -121,7 +125,7 @@ Here's our step-by-step troubleshooting guide for monitoring Python applications
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of `~3`.
 2. Navigate to */var/log/applicationinsights/* and open *status.json*.
 
-    Confirm that `SDKPresent` is set to false, `AgentInitializedSuccessfully` to true and `IKey` to have a valid iKey.
+    Confirm that `AgentInitializedSuccessfully` is set to true and `IKey` to have a valid iKey.
 
     Here's an example JSON file:
 
