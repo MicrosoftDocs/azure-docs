@@ -111,7 +111,6 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Security posture management | Docker CIS | EC2 | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Security posture management | Control plane hardening | - | - | - | - | - |
 | Security posture management | Kubernetes data plane hardening | EKS | GA| - | Azure Policy for Kubernetes | Defender for Containers |
-| Vulnerability Assessment | [Deprecated] Registry scan (powered by Trivy)| ECR | Preview | - | Agentless | Defender for Containers |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| ECR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
 | [Vulnerability assessment](agentless-vulnerability-assessment-aws.md) | Agentless/agent-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-aws---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| EKS | Preview | Preview | Agentless **OR/AND** Defender agent | Defender for Containers or Defender CSPM |
 | Runtime protection| Control plane | EKS | Preview | Preview | Agentless | Defender for Containers |

@@ -24,10 +24,13 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
-| February 28th | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
+| February 28 | [New endpoint detection and response recommendations](#new-endpoint-detection-and-response-recommendations) |
+| February 13 | [AWS container vulnerability assessment powered by Trivy retired](#aws-container-vulnerability-assessment-powered-by-trivy-retired) |
 | February 8 | [Recommendations released for preview: four recommendations for Azure Stack HCI resource type](#recommendations-released-for-preview-four-recommendations-for-azure-stack-hci-resource-type) |
 
 ## New endpoint detection and response recommendations
+
+February 28 2024
 
 The following new agentless endpoint protection recommendations are now available if you have Defender for Servers Plan 2 or the Defender CSPM plan enabled on your subscription with the agentless machine scanning feature enabled. The recommendations support Azure and multicloud machines. On-premises machines are not supported. These new recommendations discover and assesses the configuration of supported endpoint detection and response solutions and offers remediation steps, if issues are found.
 
@@ -50,6 +53,12 @@ These public preview recommendations are now deprecated.
 | [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA |
 
 The current generally available recommendations are still supported and will be until August 2024.
+
+### AWS container vulnerability assessment powered by Trivy retired
+
+February 13, 2024
+
+The container vulnerability assessment powered by Trivy has been retired. Any customers who were previously using this assessment should upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md). For instructions on how to upgrade, see [How do I upgrade from the retired Trivy vulnerability assessment to the AWS vulnerability assessment powered by Microsoft Defender Vulnerability Management?](/azure/defender-for-cloud/faq-defender-for-containers#how-do-i-upgrade-from-the-retired-trivy-vulnerability-assessment-to-the-aws-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-)
 
 ### Recommendations released for preview: four recommendations for Azure Stack HCI resource type
 
@@ -281,7 +290,7 @@ Support for Windows images was released in public preview as part of Vulnerabili
 
 December 13, 2023
 
-The [container vulnerability assessment powered by Trivy](defender-for-containers-vulnerability-assessment-elastic.md) is now on a retirement path to be completed by February 13. This capability is now deprecated and will continue to be available to existing customers using this capability until February 13. We encourage customers using this capability to upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md) by February 13.
+The container vulnerability assessment powered by Trivy is now on a retirement path to be completed by February 13. This capability is now deprecated and will continue to be available to existing customers using this capability until February 13. We encourage customers using this capability to upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md) by February 13.
 
 ### Agentless container posture for AWS in Defender for Containers and Defender CSPM (Preview)
 
