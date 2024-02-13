@@ -1,6 +1,6 @@
 ---
 title: Azure OpenAI Service API version retirement
-description: Learn more about API version retirement in Azure OpenAI Services
+description: Learn more about API version retirement in Azure OpenAI Services.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -41,15 +41,15 @@ On April 2, 2024 the following API preview releases will be retired and will sto
 - 2023-07-01-preview
 - 2023-08-01-preview
 
-To avoid service disruptions, you must update to use the latest preview version prior to the retirement date.
+To avoid service disruptions, you must update to use the latest preview version before the retirement date.
 
 ## Updating API versions
 
-We recommend first testing the upgrade to new API versions to confirm there is no impact to your application from the API update prior to making the change globally across your environment.
+We recommend first testing the upgrade to new API versions to confirm there's no impact to your application from the API update before making the change globally across your environment.
 
-If you are using the OpenAI Python client library or the REST API, you will need to update your code directly to the latest preview API version.
+If you're using the OpenAI Python client library or the REST API, you'll need to update your code directly to the latest preview API version.
 
-If you are using one of the Azure OpenAI SDKs for C#, Go, Java, or JavaScript you will instead need to update to the latest version of the SDK. Each SDK release is hardcoded to work with specific versions of the Azure OpenAI API.
+If you're using one of the Azure OpenAI SDKs for C#, Go, Java, or JavaScript you'll instead need to update to the latest version of the SDK. Each SDK release is hardcoded to work with specific versions of the Azure OpenAI API.
 
 ## Next steps
 
