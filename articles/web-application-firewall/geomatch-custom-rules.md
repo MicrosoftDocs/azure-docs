@@ -4,7 +4,7 @@ description: This article shows you how to use Microsoft Azure Web Application F
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/08/2024
+ms.date: 02/13/2024
 ms.author: victorh
 ms.topic: how-to
 ---
