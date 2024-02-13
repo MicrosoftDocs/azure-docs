@@ -201,6 +201,7 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
 
     > [!NOTE]
     > Your annotations must have **Category** set to **Deployment** to appear in the Azure portal.
+    > If you've customized this script and receive the error, "The request contains an entity body but no Content-Type header", you can try removing the replace parameters. `$body = (ConvertTo-Json $annotation -Compress)`
 
 1. Call the PowerShell script with the following code. Replace the angle-bracketed placeholders with your values. The `-releaseProperties` are optional.
 
